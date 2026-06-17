@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gender",
         "tr": "Cinsiyet",
-        "de": "Gender",
+        "de": "Geschlecht",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for Male, 1 for Female",
-        "tr": "0 Erkek, 1 Kadın"
+        "tr": "0 Erkek, 1 Kadın",
+        "de": "0 für männlich, 1 für weiblich"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
-        "de": "Height",
+        "de": "Größe",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Body height in centimeters",
-        "tr": "Santimetre cinsinden vücut boyu"
+        "tr": "Santimetre cinsinden vücut boyu",
+        "de": "Körpergröße in Zentimetern"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
-        "de": "Weight",
+        "de": "Gewicht",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms",
-        "tr": "Vücut ağırlığı (kilogram cinsinden)."
+        "tr": "Vücut ağırlığı (kilogram cinsinden).",
+        "de": "Körpergewicht in Kilogramm"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Neck Circumference",
         "tr": "Boyun Çevresi",
-        "de": "Neck Circumference",
+        "de": "Halsumfang",
         "fr": "Neck Circumference",
         "es": "Neck Circumference",
         "ar": "Neck Circumference"
       },
       "businessContext_i18n": {
         "en": "Neck circumference measured just below the larynx",
-        "tr": "Gırtlağın hemen altında boyun çevresi"
+        "tr": "Gırtlağın hemen altında boyun çevresi",
+        "de": "Halsumfang gemessen direkt unterhalb des Kehlkopfes"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Waist Circumference",
         "tr": "Bel Çevresi",
-        "de": "Waist Circumference",
+        "de": "Taillenumfang",
         "fr": "Waist Circumference",
         "es": "Waist Circumference",
         "ar": "Waist Circumference"
       },
       "businessContext_i18n": {
         "en": "Waist circumference measured at the level of the navel",
-        "tr": "Göbek hizasında bel çevresi"
+        "tr": "Göbek hizasında bel çevresi",
+        "de": "Taillenumfang gemessen auf Nabelhöhe"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Hip Circumference",
         "tr": "Kalça Çevresi",
-        "de": "Hip Circumference",
+        "de": "Hüftumfang",
         "fr": "Hip Circumference",
         "es": "Hip Circumference",
         "ar": "Hip Circumference"
       },
       "businessContext_i18n": {
         "en": "Hip circumference at the widest point (only for females, set 0 for males)",
-        "tr": "En geniş noktada kalça çevresi (sadece kadınlar için, erkekler için 0 girin)"
+        "tr": "En geniş noktada kalça çevresi (sadece kadınlar için, erkekler için 0 girin)",
+        "de": "Hüftumfang an der breitesten Stelle (nur für Frauen, bei Männern 0 setzen)"
       }
     }
   ],

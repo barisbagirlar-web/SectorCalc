@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "DC Gain",
         "tr": "DC Kazanç",
-        "de": "DC Gain",
+        "de": "DC-Verstärkung",
         "fr": "DC Gain",
         "es": "DC Gain",
         "ar": "DC Gain"
       },
       "businessContext_i18n": {
         "en": "System static gain (K)",
-        "tr": "Sistem statik kazancı (K)"
+        "tr": "Sistem statik kazancı (K)",
+        "de": "Statische Verstärkung des Systems (K)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Pole Frequency",
         "tr": "Kutup Frekansı",
-        "de": "Pole Frequency",
+        "de": "Polfrequenz",
         "fr": "Pole Frequency",
         "es": "Pole Frequency",
         "ar": "Pole Frequency"
       },
       "businessContext_i18n": {
         "en": "Cut-off frequency of dominant pole (>0 Hz)",
-        "tr": "Baskın kutbun kesme frekansı (>0 Hz)"
+        "tr": "Baskın kutbun kesme frekansı (>0 Hz)",
+        "de": "Grenzfrequenz des dominanten Pols (>0 Hz)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Zero Frequency",
         "tr": "Sıfır Frekans",
-        "de": "Zero Frequency",
+        "de": "Nullfrequenz",
         "fr": "Zero Frequency",
         "es": "Zero Frequency",
         "ar": "Zero Frequency"
       },
       "businessContext_i18n": {
         "en": "Frequency of zero (>0 Hz)",
-        "tr": "Sıfır frekansı (>0 Hz)"
+        "tr": "Sıfır frekansı (>0 Hz)",
+        "de": "Frequenz von Null (>0 Hz)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Test Frequency",
         "tr": "Test Frekansı",
-        "de": "Test Frequency",
+        "de": "Testfrequenz",
         "fr": "Test Frequency",
         "es": "Test Frequency",
         "ar": "Test Frequency"
       },
       "businessContext_i18n": {
         "en": "Frequency at which to evaluate magnitude",
-        "tr": "Genliğin değerlendirileceği frekans"
+        "tr": "Genliğin değerlendirileceği frekans",
+        "de": "Frequenz, bei der die Amplitude bewertet wird"
       }
     }
   ],

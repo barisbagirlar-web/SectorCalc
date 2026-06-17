@@ -16,7 +16,7 @@ describe("ascvd-risk-calculator", () => {
     "diabetes": 0,
     "smoker": 0,
     "male": 0
-  } as Ascvd_risk_calculatorInput;
+  } as unknown as Ascvd_risk_calculatorInput;
     const result = calculateAscvd_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

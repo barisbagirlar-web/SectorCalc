@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Roof Length",
         "tr": "Çatı Uzunluğu",
-        "de": "Roof Length",
+        "de": "Dachlänge",
         "fr": "Roof Length",
         "es": "Roof Length",
         "ar": "Roof Length"
       },
       "businessContext_i18n": {
         "en": "Length of the roof area draining to the downspout.",
-        "tr": "Yağmur oluğuna akan çatı alanının uzunluğu."
+        "tr": "Yağmur oluğuna akan çatı alanının uzunluğu.",
+        "de": "Anzahl der gleichzeitigen Download-Verbindungen (geht von linearer Geschwindigkeitsskalierung aus)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Roof Width",
         "tr": "Çatı Genişliği",
-        "de": "Roof Width",
+        "de": "Dachbreite",
         "fr": "Roof Width",
         "es": "Roof Width",
         "ar": "Roof Width"
       },
       "businessContext_i18n": {
         "en": "Width of the roof area draining to the downspout.",
-        "tr": "Yağmur oluğuna akan çatı alanının genişliği."
+        "tr": "Yağmur oluğuna akan çatı alanının genişliği.",
+        "de": "Länge der Dachfläche, die zum Fallrohr entwässert."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Rainfall Intensity",
         "tr": "Yağış Yoğunluğu",
-        "de": "Rainfall Intensity",
+        "de": "Breite der Dachfläche, die zum Fallrohr entwässert.",
         "fr": "Rainfall Intensity",
         "es": "Rainfall Intensity",
         "ar": "Rainfall Intensity"
       },
       "businessContext_i18n": {
         "en": "Design rainfall intensity for the geographical location.",
-        "tr": "Coğrafi konum için tasarım yağış yoğunluğu."
+        "tr": "Coğrafi konum için tasarım yağış yoğunluğu.",
+        "de": "Regenintensität"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Downspout Diameter",
         "tr": "Yağmur Borusu Çapı",
-        "de": "Downspout Diameter",
+        "de": "Bemessungs-Regenintensität für den geografischen Standort.",
         "fr": "Downspout Diameter",
         "es": "Downspout Diameter",
         "ar": "Downspout Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the downspout pipe.",
-        "tr": "Yağmur borusunun iç çapı."
+        "tr": "Yağmur borusunun iç çapı.",
+        "de": "Fallrohrdurchmesser"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",
-        "de": "Efficiency Factor",
+        "de": "Effizienzfaktor",
         "fr": "Efficiency Factor",
         "es": "Efficiency Factor",
         "ar": "Efficiency Factor"
       },
       "businessContext_i18n": {
         "en": "Reduction factor accounting for bends, obstructions, and installation imperfections.",
-        "tr": "Dirsekler, tıkanıklıklar ve montaj kusurlarını hesaba katan azaltma faktörü."
+        "tr": "Dirsekler, tıkanıklıklar ve montaj kusurlarını hesaba katan azaltma faktörü.",
+        "de": "Innendurchmesser des Fallrohrs."
       }
     }
   ],

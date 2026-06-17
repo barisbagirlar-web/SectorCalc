@@ -12,7 +12,7 @@ describe("bending-moment-diagram-calculator", () => {
     "loadMagnitude": 10,
     "loadPosition": 2.5,
     "distanceX": 2.5
-  } as Bending_moment_diagram_calculatorInput;
+  } as unknown as Bending_moment_diagram_calculatorInput;
     const result = calculateBending_moment_diagram_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

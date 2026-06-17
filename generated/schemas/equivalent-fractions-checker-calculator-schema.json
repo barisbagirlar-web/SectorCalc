@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fraction 1 Numerator",
         "tr": "Kesir 1 Pay",
-        "de": "Fraction 1 Numerator",
+        "de": "Zähler von Bruch 1",
         "fr": "Fraction 1 Numerator",
         "es": "Fraction 1 Numerator",
         "ar": "Fraction 1 Numerator"
       },
       "businessContext_i18n": {
         "en": "Actual numerator (e.g., parts of component A in a batch).",
-        "tr": "Gerçek pay (örneğin, bir partideki A bileşeninin parçaları)."
+        "tr": "Gerçek pay (örneğin, bir partideki A bileşeninin parçaları).",
+        "de": "Tatsächlicher Zähler (z. B. Teile von Komponente A in einer Charge)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Fraction 1 Denominator",
         "tr": "Kesir 1 Payda",
-        "de": "Fraction 1 Denominator",
+        "de": "Nenner von Bruch 1",
         "fr": "Fraction 1 Denominator",
         "es": "Fraction 1 Denominator",
         "ar": "Fraction 1 Denominator"
       },
       "businessContext_i18n": {
         "en": "Actual denominator (e.g., total parts in the batch).",
-        "tr": "Gerçek payda (örneğin, partideki toplam parça sayısı)."
+        "tr": "Gerçek payda (örneğin, partideki toplam parça sayısı).",
+        "de": "Tatsächlicher Nenner (z. B. Gesamtteile in der Charge)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fraction 2 Numerator",
         "tr": "Kesir 2 Pay",
-        "de": "Fraction 2 Numerator",
+        "de": "Zähler von Bruch 2",
         "fr": "Fraction 2 Numerator",
         "es": "Fraction 2 Numerator",
         "ar": "Fraction 2 Numerator"
       },
       "businessContext_i18n": {
         "en": "Specified numerator (e.g., target parts of component A).",
-        "tr": "Belirtilen pay (örneğin, A bileşeninin hedef parçaları)."
+        "tr": "Belirtilen pay (örneğin, A bileşeninin hedef parçaları).",
+        "de": "Vorgegebener Zähler (z. B. Zielteile von Komponente A)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Fraction 2 Denominator",
         "tr": "Kesir 2 Payda",
-        "de": "Fraction 2 Denominator",
+        "de": "Nenner von Bruch 2",
         "fr": "Fraction 2 Denominator",
         "es": "Fraction 2 Denominator",
         "ar": "Fraction 2 Denominator"
       },
       "businessContext_i18n": {
         "en": "Specified denominator (e.g., target total parts).",
-        "tr": "Belirtilen payda (örneğin, hedef toplam parça sayısı)."
+        "tr": "Belirtilen payda (örneğin, hedef toplam parça sayısı).",
+        "de": "Vorgegebener Nenner (z. B. Ziel-Gesamtteile)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Tolerance",
         "tr": "Tolerans",
-        "de": "Tolerance",
+        "de": "Toleranz",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Acceptable floating point deviation for equivalence check.",
-        "tr": "Eşitlik kontrolü için kabul edilebilir kayan nokta sapması."
+        "tr": "Eşitlik kontrolü için kabul edilebilir kayan nokta sapması.",
+        "de": "Akzeptable Gleitkommaabweichung für Äquivalenzprüfung."
       }
     }
   ],

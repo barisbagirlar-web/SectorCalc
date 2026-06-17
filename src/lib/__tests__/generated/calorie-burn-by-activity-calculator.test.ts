@@ -12,7 +12,7 @@ describe("calorie-burn-by-activity-calculator", () => {
     "duration_min": 30,
     "met_value": 5,
     "efficiency_factor": 1
-  } as Calorie_burn_by_activity_calculatorInput;
+  } as unknown as Calorie_burn_by_activity_calculatorInput;
     const result = calculateCalorie_burn_by_activity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

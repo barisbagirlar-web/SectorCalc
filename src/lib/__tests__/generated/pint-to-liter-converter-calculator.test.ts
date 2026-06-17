@@ -12,7 +12,7 @@ describe("pint-to-liter-converter-calculator", () => {
     "conversionType": 1,
     "batchId": 0,
     "temperature": 20
-  } as Pint_to_liter_converter_calculatorInput;
+  } as unknown as Pint_to_liter_converter_calculatorInput;
     const result = calculatePint_to_liter_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

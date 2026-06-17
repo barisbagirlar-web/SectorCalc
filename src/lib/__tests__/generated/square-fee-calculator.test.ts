@@ -13,7 +13,7 @@ describe("square-fee-calculator", () => {
     "pricePerSquareMeter": 100,
     "taxRate": 0,
     "serviceFee": 0
-  } as Square_fee_calculatorInput;
+  } as unknown as Square_fee_calculatorInput;
     const result = calculateSquare_fee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

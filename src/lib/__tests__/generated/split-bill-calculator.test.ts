@@ -12,7 +12,7 @@ describe("split-bill-calculator", () => {
     "numberOfPeople": 2,
     "taxPercent": 10,
     "tipPercent": 15
-  } as Split_bill_calculatorInput;
+  } as unknown as Split_bill_calculatorInput;
     const result = calculateSplit_bill_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

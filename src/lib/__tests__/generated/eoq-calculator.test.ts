@@ -14,7 +14,7 @@ describe("eoq-calculator", () => {
     "unitCost": 0,
     "leadTimeDays": 5,
     "workingDaysPerYear": 250
-  } as Eoq_calculatorInput;
+  } as unknown as Eoq_calculatorInput;
     const result = calculateEoq_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

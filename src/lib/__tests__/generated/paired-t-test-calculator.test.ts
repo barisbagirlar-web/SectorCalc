@@ -12,7 +12,7 @@ describe("paired-t-test-calculator", () => {
     "standardDeviationDifference": 1,
     "sampleSize": 10,
     "hypothesizedDifference": 0
-  } as Paired_t_test_calculatorInput;
+  } as unknown as Paired_t_test_calculatorInput;
     const result = calculatePaired_t_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

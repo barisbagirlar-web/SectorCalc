@@ -16,7 +16,7 @@ describe("gestational-diabetes-calculator", () => {
     "ogtt1h": 140,
     "ogtt2h": 120,
     "gestationalWeek": 24
-  } as Gestational_diabetes_calculatorInput;
+  } as unknown as Gestational_diabetes_calculatorInput;
     const result = calculateGestational_diabetes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

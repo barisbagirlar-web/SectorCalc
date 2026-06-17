@@ -13,7 +13,7 @@ describe("true-cost-calculator", () => {
     "energyCost": 20,
     "overheadRate": 25,
     "wasteRate": 10
-  } as True_cost_calculatorInput;
+  } as unknown as True_cost_calculatorInput;
     const result = calculateTrue_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

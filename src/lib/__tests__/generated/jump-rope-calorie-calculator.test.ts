@@ -12,7 +12,7 @@ describe("jump-rope-calorie-calculator", () => {
     "duration": 30,
     "jumpsPerMinute": 120,
     "efficiencyFactor": 1
-  } as Jump_rope_calorie_calculatorInput;
+  } as unknown as Jump_rope_calorie_calculatorInput;
     const result = calculateJump_rope_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

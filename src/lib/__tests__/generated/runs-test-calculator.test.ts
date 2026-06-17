@@ -9,7 +9,7 @@ describe("runs-test-calculator", () => {
   it("calculates with schema default inputs", () => {
     const input = {
     "alpha": 0.05
-  } as Runs_test_calculatorInput;
+  } as unknown as Runs_test_calculatorInput;
     const result = calculateRuns_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

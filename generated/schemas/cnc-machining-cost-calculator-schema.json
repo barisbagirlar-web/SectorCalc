@@ -30,11 +30,13 @@
       "businessContext": "Material selection directly impacts tool wear, cutting speed, and cost per part.",
       "label_i18n": {
         "en": "Material Type",
-        "tr": "Malzeme Türü"
+        "tr": "Malzeme Türü",
+        "de": "Materialtyp"
       },
       "businessContext_i18n": {
         "en": "Material selection directly impacts tool wear, cutting speed, and cost per part.",
-        "tr": "Malzeme seçimi takım aşınmasını, kesme hızını ve parça başına maliyeti doğrudan etkiler."
+        "tr": "Malzeme seçimi takım aşınmasını, kesme hızını ve parça başına maliyeti doğrudan etkiler.",
+        "de": "Die Materialauswahl beeinflusst direkt Werkzeugverschleiß, Schnittgeschwindigkeit und Kosten pro Teil."
       }
     },
     {
@@ -48,11 +50,13 @@
       "businessContext": "Weight of the finished part, used to calculate raw material cost and scrap.",
       "label_i18n": {
         "en": "Part Weight (kg)",
-        "tr": "Parça Ağırlığı (kg)"
+        "tr": "Parça Ağırlığı (kg)",
+        "de": "Teilegewicht (kg)"
       },
       "businessContext_i18n": {
         "en": "Weight of the finished part, used to calculate raw material cost and scrap.",
-        "tr": "Bitmiş parçanın ağırlığı, hammadde maliyeti ve fire hesaplamasında kullanılır."
+        "tr": "Bitmiş parçanın ağırlığı, hammadde maliyeti ve fire hesaplamasında kullanılır.",
+        "de": "Gewicht des fertigen Teils, zur Berechnung von Rohmaterialkosten und Ausschuss."
       }
     },
     {
@@ -66,11 +70,13 @@
       "businessContext": "Volume of raw material block before machining, determines material usage.",
       "label_i18n": {
         "en": "Stock Volume (cm³)",
-        "tr": "Stok Hacmi (cm³)"
+        "tr": "Stok Hacmi (cm³)",
+        "de": "Rohmaterialvolumen (cm³)"
       },
       "businessContext_i18n": {
         "en": "Volume of raw material block before machining, determines material usage.",
-        "tr": "Talaşlı imalat öncesi hammadde bloğunun hacmi, malzeme kullanımını belirler."
+        "tr": "Talaşlı imalat öncesi hammadde bloğunun hacmi, malzeme kullanımını belirler.",
+        "de": "Volumen des Rohmaterialblocks vor der Bearbeitung, bestimmt den Materialverbrauch."
       }
     },
     {
@@ -84,11 +90,13 @@
       "businessContext": "Total cycle time per part including cutting, tool changes, and rapid moves.",
       "label_i18n": {
         "en": "Machining Time (minutes)",
-        "tr": "İşleme Süresi (dakika)"
+        "tr": "İşleme Süresi (dakika)",
+        "de": "Bearbeitungszeit (Minuten)"
       },
       "businessContext_i18n": {
         "en": "Total cycle time per part including cutting, tool changes, and rapid moves.",
-        "tr": "Kesme, takım değişimi ve hızlı hareketler dahil parça başına toplam çevrim süresi."
+        "tr": "Kesme, takım değişimi ve hızlı hareketler dahil parça başına toplam çevrim süresi.",
+        "de": "Gesamtzykluszeit pro Teil einschließlich Schneiden, Werkzeugwechsel und Eilgängen."
       }
     },
     {
@@ -102,11 +110,13 @@
       "businessContext": "Time to fixture, align, and program the machine for the batch.",
       "label_i18n": {
         "en": "Setup Time (minutes)",
-        "tr": "Kurulum Süresi (dakika)"
+        "tr": "Kurulum Süresi (dakika)",
+        "de": "Rüstzeit (Minuten)"
       },
       "businessContext_i18n": {
         "en": "Time to fixture, align, and program the machine for the batch.",
-        "tr": "Parti için makinenin fikstürlenmesi, hizalanması ve programlanması süresi."
+        "tr": "Parti için makinenin fikstürlenmesi, hizalanması ve programlanması süresi.",
+        "de": "Zeit zum Spannen, Ausrichten und Programmieren der Maschine für die Charge."
       }
     },
     {
@@ -120,11 +130,13 @@
       "businessContext": "Number of identical parts produced in one production run.",
       "label_i18n": {
         "en": "Batch Size (parts)",
-        "tr": "Parti Büyüklüğü (parça)"
+        "tr": "Parti Büyüklüğü (parça)",
+        "de": "Chargengröße (Teile)"
       },
       "businessContext_i18n": {
         "en": "Number of identical parts produced in one production run.",
-        "tr": "Bir üretim partisinde üretilen aynı parça sayısı."
+        "tr": "Bir üretim partisinde üretilen aynı parça sayısı.",
+        "de": "Anzahl identischer Teile, die in einem Produktionslauf gefertigt werden."
       }
     },
     {
@@ -138,11 +150,13 @@
       "businessContext": "Fully burdened machine cost including depreciation, maintenance, and energy.",
       "label_i18n": {
         "en": "Machine Hourly Rate ($/hr)",
-        "tr": "Makine Saatlik Ücreti ($/saat)"
+        "tr": "Makine Saatlik Ücreti ($/saat)",
+        "de": "Maschinenstundensatz ($/h)"
       },
       "businessContext_i18n": {
         "en": "Fully burdened machine cost including depreciation, maintenance, and energy.",
-        "tr": "Amortisman, bakım ve enerji dahil tam yüklü makine maliyeti."
+        "tr": "Amortisman, bakım ve enerji dahil tam yüklü makine maliyeti.",
+        "de": "Voll belastete Maschinenkosten einschließlich Abschreibung, Wartung und Energie."
       }
     },
     {
@@ -156,11 +170,13 @@
       "businessContext": "Operator wage including overhead and benefits.",
       "label_i18n": {
         "en": "Labor Hourly Rate ($/hr)",
-        "tr": "İşçilik Saatlik Ücreti ($/saat)"
+        "tr": "İşçilik Saatlik Ücreti ($/saat)",
+        "de": "Arbeitsstundensatz ($/h)"
       },
       "businessContext_i18n": {
         "en": "Operator wage including overhead and benefits.",
-        "tr": "Genel giderler ve yan haklar dahil operatör ücreti."
+        "tr": "Genel giderler ve yan haklar dahil operatör ücreti.",
+        "de": "Bedienungslohn einschließlich Gemeinkosten und Sozialleistungen."
       }
     }
   ],

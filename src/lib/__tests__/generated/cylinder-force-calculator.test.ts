@@ -12,7 +12,7 @@ describe("cylinder-force-calculator", () => {
     "rodDiameter": 20,
     "pressure": 100,
     "efficiency": 95
-  } as Cylinder_force_calculatorInput;
+  } as unknown as Cylinder_force_calculatorInput;
     const result = calculateCylinder_force_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

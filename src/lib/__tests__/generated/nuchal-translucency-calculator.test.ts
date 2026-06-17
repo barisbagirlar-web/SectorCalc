@@ -12,7 +12,7 @@ describe("nuchal-translucency-calculator", () => {
     "ntMeasurement": 1.5,
     "crl": 45,
     "priorRisk": 0.004
-  } as Nuchal_translucency_calculatorInput;
+  } as unknown as Nuchal_translucency_calculatorInput;
     const result = calculateNuchal_translucency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

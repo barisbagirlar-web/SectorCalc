@@ -12,7 +12,7 @@ describe("cigarette-calculator", () => {
     "cigarettesPerPack": 20,
     "cigarettesPerDay": 20,
     "periodDays": 365
-  } as Cigarette_calculatorInput;
+  } as unknown as Cigarette_calculatorInput;
     const result = calculateCigarette_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

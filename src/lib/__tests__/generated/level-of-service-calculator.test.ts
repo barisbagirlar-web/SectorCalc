@@ -12,7 +12,7 @@ describe("level-of-service-calculator", () => {
     "stdDevDemandDdlt": 200,
     "reorderPoint": 1200,
     "orderQuantity": 500
-  } as Level_of_service_calculatorInput;
+  } as unknown as Level_of_service_calculatorInput;
     const result = calculateLevel_of_service_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

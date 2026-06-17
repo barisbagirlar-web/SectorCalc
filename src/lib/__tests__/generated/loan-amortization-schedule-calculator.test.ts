@@ -12,7 +12,7 @@ describe("loan-amortization-schedule-calculator", () => {
     "annualInterestRate": 5,
     "loanTermYears": 30,
     "paymentsPerYear": 12
-  } as Loan_amortization_schedule_calculatorInput;
+  } as unknown as Loan_amortization_schedule_calculatorInput;
     const result = calculateLoan_amortization_schedule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

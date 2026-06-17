@@ -14,7 +14,7 @@ describe("beehive-calculator", () => {
     "extractionLoss": 5,
     "pricePerKg": 150,
     "costPerHive": 500
-  } as Beehive_calculatorInput;
+  } as unknown as Beehive_calculatorInput;
     const result = calculateBeehive_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

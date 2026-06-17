@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Column Length",
         "tr": "Kolon Uzunluğu",
-        "de": "Column Length",
+        "de": "Stützenlänge",
         "fr": "Column Length",
         "es": "Column Length",
         "ar": "Column Length"
       },
       "businessContext_i18n": {
         "en": "Unbraced length of the column",
-        "tr": "Kolonun desteklenmeyen uzunluğu"
+        "tr": "Kolonun desteklenmeyen uzunluğu",
+        "de": "Knicklänge der Stütze"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cross-sectional Area",
         "tr": "Kesit Alanı",
-        "de": "Cross-sectional Area",
+        "de": "Querschnittsfläche",
         "fr": "Cross-sectional Area",
         "es": "Cross-sectional Area",
         "ar": "Cross-sectional Area"
       },
       "businessContext_i18n": {
         "en": "Area of the column cross-section",
-        "tr": "Kolon kesit alanı"
+        "tr": "Kolon kesit alanı",
+        "de": "Fläche des Stützenquerschnitts"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Moment of Inertia",
         "tr": "Eylemsizlik Momenti",
-        "de": "Moment of Inertia",
+        "de": "Trägheitsmoment",
         "fr": "Moment of Inertia",
         "es": "Moment of Inertia",
         "ar": "Moment of Inertia"
       },
       "businessContext_i18n": {
         "en": "Minimum moment of inertia about buckling axis",
-        "tr": "Burkulma ekseni etrafındaki minimum atalet momenti"
+        "tr": "Burkulma ekseni etrafındaki minimum atalet momenti",
+        "de": "Minimales Flächenträgheitsmoment um die Knickachse"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Modulus of Elasticity",
         "tr": "Elastisite Modülü",
-        "de": "Modulus of Elasticity",
+        "de": "Elastizitätsmodul",
         "fr": "Modulus of Elasticity",
         "es": "Modulus of Elasticity",
         "ar": "Modulus of Elasticity"
       },
       "businessContext_i18n": {
         "en": "Young's modulus of the material",
-        "tr": "Malzemenin Young modülü"
+        "tr": "Malzemenin Young modülü",
+        "de": "Elastizitätsmodul des Materials"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Yield Strength",
         "tr": "Akma Dayanımı",
-        "de": "Yield Strength",
+        "de": "Streckgrenze",
         "fr": "Yield Strength",
         "es": "Yield Strength",
         "ar": "Yield Strength"
       },
       "businessContext_i18n": {
         "en": "Yield stress of the material",
-        "tr": "Malzemenin akma gerilmesi"
+        "tr": "Malzemenin akma gerilmesi",
+        "de": "Streckgrenze des Materials"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Effective Length Factor K",
         "tr": "Etkin Uzunluk Faktörü K",
-        "de": "Effective Length Factor K",
+        "de": "Knicklängenbeiwert K",
         "fr": "Effective Length Factor K",
         "es": "Effective Length Factor K",
         "ar": "Effective Length Factor K"
       },
       "businessContext_i18n": {
         "en": "Effective length factor (e.g., 1.0 for pinned-pinned, 2.0 for fixed-free)",
-        "tr": "Etkin uzunluk faktörü (ör. 1.0 mafsallı-mafsallı, 2.0 ankastre-serbest)"
+        "tr": "Etkin uzunluk faktörü (ör. 1.0 mafsallı-mafsallı, 2.0 ankastre-serbest)",
+        "de": "Knicklängenbeiwert (z.B. 1,0 für gelenkig-gelenkig, 2,0 für eingespannt-frei)"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
-        "de": "Safety Factor",
+        "de": "Sicherheitsfaktor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Factor of safety for design load",
-        "tr": "Tasarım yükü için güvenlik faktörü"
+        "tr": "Tasarım yükü için güvenlik faktörü",
+        "de": "Sicherheitsfaktor für die Bemessungslast"
       }
     }
   ],

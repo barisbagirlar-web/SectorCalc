@@ -12,7 +12,7 @@ describe("take-home-pay-calculator", () => {
     "incomeTaxRate": 20,
     "socialSecurityRate": 15,
     "otherDeductions": 200
-  } as Take_home_pay_calculatorInput;
+  } as unknown as Take_home_pay_calculatorInput;
     const result = calculateTake_home_pay_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

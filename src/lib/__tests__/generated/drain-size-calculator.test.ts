@@ -12,7 +12,7 @@ describe("drain-size-calculator", () => {
     "slope": 0.01,
     "manningN": 0.013,
     "safetyFactor": 1.2
-  } as Drain_size_calculatorInput;
+  } as unknown as Drain_size_calculatorInput;
     const result = calculateDrain_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

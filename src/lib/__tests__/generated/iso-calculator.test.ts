@@ -11,7 +11,7 @@ describe("iso-calculator", () => {
     "availability": 90,
     "performance": 95,
     "quality": 98
-  } as Iso_calculatorInput;
+  } as unknown as Iso_calculatorInput;
     const result = calculateIso_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

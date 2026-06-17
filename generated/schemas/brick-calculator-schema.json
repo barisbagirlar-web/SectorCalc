@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Wall Length",
         "tr": "Duvar Uzunluğu (m)",
-        "de": "Wall Length",
+        "de": "Duvar Uzunluğu",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
       },
       "businessContext_i18n": {
         "en": "Total length of the wall in meters",
-        "tr": "Duvarın toplam uzunluğu (metre)"
+        "tr": "Duvarın toplam uzunluğu (metre)",
+        "de": "Gesamtlänge der Wand in Metern"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
-        "de": "Wall Height",
+        "de": "Wandhöhe",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "Total height of the wall in meters",
-        "tr": "Duvarın toplam yüksekliği (metre)"
+        "tr": "Duvarın toplam yüksekliği (metre)",
+        "de": "Gesamthöhe der Wand in Metern"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Brick Length",
         "tr": "Tuğla uzunluğu",
-        "de": "Brick Length",
+        "de": "Ziegellänge",
         "fr": "Brick Length",
         "es": "Brick Length",
         "ar": "Brick Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single brick (excluding mortar)",
-        "tr": "Tek bir tuğlanın uzunluğu (harç hariç)"
+        "tr": "Tek bir tuğlanın uzunluğu (harç hariç)",
+        "de": "Länge eines einzelnen Ziegels (ohne Mörtel)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Brick Height",
         "tr": "Tuğla yüksekliği",
-        "de": "Brick Height",
+        "de": "Ziegelhöhe",
         "fr": "Brick Height",
         "es": "Brick Height",
         "ar": "Brick Height"
       },
       "businessContext_i18n": {
         "en": "Height of a single brick (excluding mortar)",
-        "tr": "Tek bir tuğlanın yüksekliği (harç hariç)"
+        "tr": "Tek bir tuğlanın yüksekliği (harç hariç)",
+        "de": "Höhe eines einzelnen Ziegels (ohne Mörtel)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Mortar Joint Thickness",
         "tr": "Harç Derz Kalınlığı",
-        "de": "Mortar Joint Thickness",
+        "de": "Mörtelfugendicke",
         "fr": "Mortar Joint Thickness",
         "es": "Mortar Joint Thickness",
         "ar": "Mortar Joint Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of mortar between bricks",
-        "tr": "Tuğlalar arasındaki harç kalınlığı"
+        "tr": "Tuğlalar arasındaki harç kalınlığı",
+        "de": "Mörteldicke zwischen den Ziegeln"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Total Openings Area",
         "tr": "Toplam açıklık alanı",
-        "de": "Total Openings Area",
+        "de": "Gesamtfläche der Öffnungen",
         "fr": "Total Openings Area",
         "es": "Total Openings Area",
         "ar": "Total Openings Area"
       },
       "businessContext_i18n": {
         "en": "Total area of doors, windows, etc. to subtract",
-        "tr": "Çıkarılacak kapı, pencere vb. toplam alanı"
+        "tr": "Çıkarılacak kapı, pencere vb. toplam alanı",
+        "de": "Gesamtfläche von Türen, Fenstern usw. zum Abziehen"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Wastage Percentage",
         "tr": "Fire yüzdesi",
-        "de": "Wastage Percentage",
+        "de": "Verschnittprozentsatz",
         "fr": "Wastage Percentage",
         "es": "Wastage Percentage",
         "ar": "Wastage Percentage"
       },
       "businessContext_i18n": {
         "en": "Extra bricks for breakage and cuts",
-        "tr": "Kırık ve kesimler için ek tuğlalar"
+        "tr": "Kırık ve kesimler için ek tuğlalar",
+        "de": "Zusätzliche Ziegel für Bruch und Schnitte"
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("walking-pace-calculator", () => {
     "timeSeconds": 0,
     "strideLengthCm": 0,
     "steps": 0
-  } as Walking_pace_calculatorInput;
+  } as unknown as Walking_pace_calculatorInput;
     const result = calculateWalking_pace_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

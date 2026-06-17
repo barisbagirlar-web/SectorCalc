@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Ortam Sıcaklığı",
         "tr": "Ortam Sıcaklığı",
-        "de": "Ortam Sıcaklığı",
+        "de": "Umgebungstemperatur",
         "fr": "Ortam Sıcaklığı",
         "es": "Ortam Sıcaklığı",
         "ar": "Ortam Sıcaklığı"
       },
       "businessContext_i18n": {
         "en": "Beton kürleme ortamının ortalama sıcaklığı",
-        "tr": "Beton kürleme ortamının ortalama sıcaklığı"
+        "tr": "Beton kürleme ortamının ortalama sıcaklığı",
+        "de": "Durchschnittstemperatur der Betonnachbehandlungsumgebung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Bağıl Nem",
         "tr": "Bağıl Nem",
-        "de": "Bağıl Nem",
+        "de": "Relative Luftfeuchtigkeit",
         "fr": "Bağıl Nem",
         "es": "Bağıl Nem",
         "ar": "Bağıl Nem"
       },
       "businessContext_i18n": {
         "en": "Ortam bağıl nemi",
-        "tr": "Ortam bağıl nemi"
+        "tr": "Ortam bağıl nemi",
+        "de": "Relative Luftfeuchtigkeit der Umgebung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Çimento Tipi Faktörü",
         "tr": "Çimento Tipi Faktörü",
-        "de": "Çimento Tipi Faktörü",
+        "de": "Zementtypfaktor",
         "fr": "Çimento Tipi Faktörü",
         "es": "Çimento Tipi Faktörü",
         "ar": "Çimento Tipi Faktörü"
       },
       "businessContext_i18n": {
         "en": "Çimento tipine bağlı kür süresi faktörü (Örn: Tip I: 1.0, Tip II: 1.1, Tip III: 0.8)",
-        "tr": "Çimento tipine bağlı kür süresi faktörü (Örn: Tip I: 1.0, Tip II: 1.1, Tip III: 0.8)"
+        "tr": "Çimento tipine bağlı kür süresi faktörü (Örn: Tip I: 1.0, Tip II: 1.1, Tip III: 0.8)",
+        "de": "Nachbehandlungszeitfaktor abhängig vom Zementtyp (z. B. Typ I: 1,0, Typ II: 1,1, Typ III: 0,8)"
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi",
-        "tr": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi"
+        "tr": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi",
+        "de": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi"
       }
     }
   ],

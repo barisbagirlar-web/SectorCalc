@@ -13,7 +13,7 @@ describe("savings-goal-calculator", () => {
     "annualInterestRate": 5,
     "numberOfYears": 10,
     "goalAmount": 10000
-  } as Savings_goal_calculatorInput;
+  } as unknown as Savings_goal_calculatorInput;
     const result = calculateSavings_goal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

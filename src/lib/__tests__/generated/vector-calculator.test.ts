@@ -14,7 +14,7 @@ describe("vector-calculator", () => {
     "v2x": 0,
     "v2y": 0,
     "v2z": 0
-  } as Vector_calculatorInput;
+  } as unknown as Vector_calculatorInput;
     const result = calculateVector_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

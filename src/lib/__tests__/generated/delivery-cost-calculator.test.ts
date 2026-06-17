@@ -16,7 +16,7 @@ describe("delivery-cost-calculator", () => {
     "load_weight_kg": 1000,
     "handling_cost_per_kg": 0.1,
     "vehicle_maintenance_per_km": 0.05
-  } as Delivery_cost_calculatorInput;
+  } as unknown as Delivery_cost_calculatorInput;
     const result = calculateDelivery_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

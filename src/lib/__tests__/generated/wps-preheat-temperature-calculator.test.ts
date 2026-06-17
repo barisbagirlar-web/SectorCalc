@@ -14,7 +14,7 @@ describe("wps-preheat-temperature-calculator", () => {
     "heat_input": 1.5,
     "joint_restraint": "moderate",
     "preheat_method": "electric"
-  } as Wps_preheat_temperature_calculatorInput;
+  } as unknown as Wps_preheat_temperature_calculatorInput;
     const result = calculateWps_preheat_temperature_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

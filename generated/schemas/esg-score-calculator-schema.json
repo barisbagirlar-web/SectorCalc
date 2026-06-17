@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Environmental Score",
         "tr": "Çevresel Puan",
-        "de": "Environmental Score",
+        "de": "Umwelt-Score",
         "fr": "Environmental Score",
         "es": "Environmental Score",
         "ar": "Environmental Score"
       },
       "businessContext_i18n": {
         "en": "Aggregated environmental performance score. Higher is better.",
-        "tr": "Toplanmış çevresel performans puanı. Yüksek olan daha iyidir."
+        "tr": "Toplanmış çevresel performans puanı. Yüksek olan daha iyidir.",
+        "de": "Aggregierte Umweltleistungsbewertung. Höher ist besser."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Social Score",
         "tr": "Sosyal Puan",
-        "de": "Social Score",
+        "de": "Sozial-Score",
         "fr": "Social Score",
         "es": "Social Score",
         "ar": "Social Score"
       },
       "businessContext_i18n": {
         "en": "Aggregated social performance score. Higher is better.",
-        "tr": "Toplanmış sosyal performans puanı. Yüksek olan daha iyidir."
+        "tr": "Toplanmış sosyal performans puanı. Yüksek olan daha iyidir.",
+        "de": "Aggregierte Sozialleistungsbewertung. Höher ist besser."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Governance Score",
         "tr": "Yönetişim Puanı",
-        "de": "Governance Score",
+        "de": "Governance-Score",
         "fr": "Governance Score",
         "es": "Governance Score",
         "ar": "Governance Score"
       },
       "businessContext_i18n": {
         "en": "Aggregated governance performance score. Higher is better.",
-        "tr": "Toplam yönetişim performans puanı. Yüksek olması daha iyidir."
+        "tr": "Toplam yönetişim performans puanı. Yüksek olması daha iyidir.",
+        "de": "Aggregierte Governance-Leistungsbewertung. Höher ist besser."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Weight Environment",
         "tr": "Çevre Ağırlığı",
-        "de": "Weight Environment",
+        "de": "Gewicht Umwelt",
         "fr": "Weight Environment",
         "es": "Weight Environment",
         "ar": "Weight Environment"
       },
       "businessContext_i18n": {
         "en": "Weight for environmental score. Must be >0. Sum of all weights should be positive.",
-        "tr": "Çevre puanı için ağırlık. >0 olmalıdır. Tüm ağırlıkların toplamı pozitif olmalıdır."
+        "tr": "Çevre puanı için ağırlık. >0 olmalıdır. Tüm ağırlıkların toplamı pozitif olmalıdır.",
+        "de": "Gewicht für den Umwelt-Score. Muss >0 sein. Summe aller Gewichte sollte positiv sein."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Weight Social",
         "tr": "Sosyal Ağırlık",
-        "de": "Weight Social",
+        "de": "Gewicht Sozial",
         "fr": "Weight Social",
         "es": "Weight Social",
         "ar": "Weight Social"
       },
       "businessContext_i18n": {
         "en": "Weight for social score.",
-        "tr": "Sosyal puan için ağırlık."
+        "tr": "Sosyal puan için ağırlık.",
+        "de": "Gewicht für den Sozial-Score."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Weight Governance",
         "tr": "Yönetişim Ağırlığı",
-        "de": "Weight Governance",
+        "de": "Gewicht Governance",
         "fr": "Weight Governance",
         "es": "Weight Governance",
         "ar": "Weight Governance"
       },
       "businessContext_i18n": {
         "en": "Weight for governance score.",
-        "tr": "Yönetişim puanı için ağırlık."
+        "tr": "Yönetişim puanı için ağırlık.",
+        "de": "Gewicht für den Governance-Score."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("grams-to-moles-calculator", () => {
     "molecular_weight": 18.015,
     "purity_percent": 100,
     "yield_percent": 100
-  } as Grams_to_moles_calculatorInput;
+  } as unknown as Grams_to_moles_calculatorInput;
     const result = calculateGrams_to_moles_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("boundary-layer-calculator", () => {
     "kinematicViscosity": 0.000015,
     "distance": 1,
     "flowRegime": 0
-  } as Boundary_layer_calculatorInput;
+  } as unknown as Boundary_layer_calculatorInput;
     const result = calculateBoundary_layer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

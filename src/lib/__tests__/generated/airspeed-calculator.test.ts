@@ -12,7 +12,7 @@ describe("airspeed-calculator", () => {
     "indicatedAltitude": 5000,
     "altimeterSetting": 29.92,
     "oat": 15
-  } as Airspeed_calculatorInput;
+  } as unknown as Airspeed_calculatorInput;
     const result = calculateAirspeed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

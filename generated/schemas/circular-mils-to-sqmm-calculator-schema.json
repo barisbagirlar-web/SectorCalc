@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Value",
         "tr": "Değer",
-        "de": "Value",
+        "de": "Wert",
         "fr": "Value",
         "es": "Value",
         "ar": "Value"
       },
       "businessContext_i18n": {
         "en": "The numerical value in circular mils (or kcmil if scale factor is 1000).",
-        "tr": "Dairesel mil (veya ölçek faktörü 1000 ise kcmil) cinsinden sayısal değer."
+        "tr": "Dairesel mil (veya ölçek faktörü 1000 ise kcmil) cinsinden sayısal değer.",
+        "de": "Der numerische Wert in circular mils (oder kcmil, wenn Skalierungsfaktor 1000)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Unit Scale",
         "tr": "Birim Ölçeği",
-        "de": "Unit Scale",
+        "de": "Einheitsskalierung",
         "fr": "Unit Scale",
         "es": "Unit Scale",
         "ar": "Unit Scale"
       },
       "businessContext_i18n": {
         "en": "Set to 1 for cmil, 1000 for kcmil.",
-        "tr": "cmil için 1, kcmil için 1000 olarak ayarlayın."
+        "tr": "cmil için 1, kcmil için 1000 olarak ayarlayın.",
+        "de": "Auf 1 für cmil, 1000 für kcmil setzen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
-        "de": "Conversion Factor",
+        "de": "Umrechnungsfaktor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Physical constant: 1 cmil = 0.000506707479 sqmm. Do not change unless for verification.",
-        "tr": "Fiziksel sabit: 1 cmil = 0.000506707479 mm². Doğrulama dışında değiştirmeyin."
+        "tr": "Fiziksel sabit: 1 cmil = 0.000506707479 mm². Doğrulama dışında değiştirmeyin.",
+        "de": "Physikalische Konstante: 1 cmil = 0,000506707479 mm². Nur zur Überprüfung ändern."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Precision (Decimals)",
         "tr": "Hassasiyet (Ondalık)",
-        "de": "Precision (Decimals)",
+        "de": "Genauigkeit (Dezimalstellen)",
         "fr": "Precision (Decimals)",
         "es": "Precision (Decimals)",
         "ar": "Precision (Decimals)"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output.",
-        "tr": "Çıktı için ondalık basamak sayısı."
+        "tr": "Çıktı için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Ausgabe."
       }
     }
   ],

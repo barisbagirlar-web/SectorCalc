@@ -14,7 +14,7 @@ describe("clustering-calculator", () => {
     "maxIterations": 100,
     "tolerance": 0.0001,
     "seed": 42
-  } as Clustering_calculatorInput;
+  } as unknown as Clustering_calculatorInput;
     const result = calculateClustering_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

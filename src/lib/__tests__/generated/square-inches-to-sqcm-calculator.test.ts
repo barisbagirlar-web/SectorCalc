@@ -12,7 +12,7 @@ describe("square-inches-to-sqcm-calculator", () => {
     "conversionFactor": 6.4516,
     "decimalPlaces": 4,
     "applyRounding": 1
-  } as Square_inches_to_sqcm_calculatorInput;
+  } as unknown as Square_inches_to_sqcm_calculatorInput;
     const result = calculateSquare_inches_to_sqcm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

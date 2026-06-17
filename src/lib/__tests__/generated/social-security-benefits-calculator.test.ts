@@ -12,7 +12,7 @@ describe("social-security-benefits-calculator", () => {
     "employeeRate": 14,
     "employerRate": 20.5,
     "ceiling": 20000
-  } as Social_security_benefits_calculatorInput;
+  } as unknown as Social_security_benefits_calculatorInput;
     const result = calculateSocial_security_benefits_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

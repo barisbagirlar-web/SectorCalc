@@ -12,7 +12,7 @@ describe("f1-score-calculator", () => {
     "falsePositives": 10,
     "falseNegatives": 5,
     "trueNegatives": 100
-  } as F1_score_calculatorInput;
+  } as unknown as F1_score_calculatorInput;
     const result = calculateF1_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

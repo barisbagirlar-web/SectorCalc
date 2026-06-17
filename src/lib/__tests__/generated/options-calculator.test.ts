@@ -14,7 +14,7 @@ describe("options-calculator", () => {
     "T": 1,
     "r": 5,
     "sigma": 20
-  } as Options_calculatorInput;
+  } as unknown as Options_calculatorInput;
     const result = calculateOptions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

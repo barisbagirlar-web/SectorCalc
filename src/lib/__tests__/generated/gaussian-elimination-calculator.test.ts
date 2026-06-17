@@ -14,7 +14,7 @@ describe("gaussian-elimination-calculator", () => {
     "a21": 0,
     "a22": 1,
     "b2": 0
-  } as Gaussian_elimination_calculatorInput;
+  } as unknown as Gaussian_elimination_calculatorInput;
     const result = calculateGaussian_elimination_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

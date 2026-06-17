@@ -14,7 +14,7 @@ describe("points-calculator", () => {
     "bonusPoints": 0,
     "capPoints": 1000,
     "pointsConversionRate": 0.01
-  } as Points_calculatorInput;
+  } as unknown as Points_calculatorInput;
     const result = calculatePoints_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

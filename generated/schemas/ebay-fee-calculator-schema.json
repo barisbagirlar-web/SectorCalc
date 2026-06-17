@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Sale Price",
         "tr": "Satış Fiyatı",
-        "de": "Sale Price",
+        "de": "Verkaufspreis",
         "fr": "Sale Price",
         "es": "Sale Price",
         "ar": "Sale Price"
       },
       "businessContext_i18n": {
         "en": "The final price at which the item was sold, excluding shipping.",
-        "tr": "Nihai Fiyat"
+        "tr": "Nihai Fiyat",
+        "de": "Der endgültige Verkaufspreis des Artikels ohne Versand."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Shipping Cost",
         "tr": "Kargo Ücreti",
-        "de": "Shipping Cost",
+        "de": "Versandkosten",
         "fr": "Shipping Cost",
         "es": "Shipping Cost",
         "ar": "Shipping Cost"
       },
       "businessContext_i18n": {
         "en": "The shipping cost charged to the buyer.",
-        "tr": "Alıcıya yansıtılan kargo ücreti."
+        "tr": "Alıcıya yansıtılan kargo ücreti.",
+        "de": "Die dem Käufer berechneten Versandkosten."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Final Value Fee Rate",
         "tr": "Nihai Değer Ücreti Oranı",
-        "de": "Final Value Fee Rate",
+        "de": "Endwertgebühren-Satz",
         "fr": "Final Value Fee Rate",
         "es": "Final Value Fee Rate",
         "ar": "Final Value Fee Rate"
       },
       "businessContext_i18n": {
         "en": "The percentage of the total sale amount (item price + shipping) charged as final value fee.",
-        "tr": "Toplam satış tutarının (ürün fiyatı + kargo) nihai değer ücreti olarak alınan yüzdesi."
+        "tr": "Toplam satış tutarının (ürün fiyatı + kargo) nihai değer ücreti olarak alınan yüzdesi.",
+        "de": "Der Prozentsatz des Gesamtverkaufsbetrags (Artikelpreis + Versand), der als Endwertgebühr berechnet wird."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Fixed Final Value Fee",
         "tr": "Sabit Nihai Değer Ücreti",
-        "de": "Fixed Final Value Fee",
+        "de": "Feste Endwertgebühr",
         "fr": "Fixed Final Value Fee",
         "es": "Fixed Final Value Fee",
         "ar": "Fixed Final Value Fee"
       },
       "businessContext_i18n": {
         "en": "A fixed fee per order charged on top of the percentage-based final value fee.",
-        "tr": "Yüzde bazlı nihai değer ücretine ek olarak sipariş başına alınan sabit ücret."
+        "tr": "Yüzde bazlı nihai değer ücretine ek olarak sipariş başına alınan sabit ücret.",
+        "de": "Eine feste Gebühr pro Bestellung zusätzlich zur prozentualen Endwertgebühr."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Insertion Fee",
         "tr": "Listeleme Ücreti",
-        "de": "Insertion Fee",
+        "de": "Einstellgebühr",
         "fr": "Insertion Fee",
         "es": "Insertion Fee",
         "ar": "Insertion Fee"
       },
       "businessContext_i18n": {
         "en": "The fee charged for listing the item. First few listings may be free.",
-        "tr": "Ürünü listelemek için alınan ücret. İlk birkaç listelem ücretsiz olabilir."
+        "tr": "Ürünü listelemek için alınan ücret. İlk birkaç listelem ücretsiz olabilir.",
+        "de": "Die Gebühr für die Listung des Artikels. Die ersten Listungen können kostenlos sein."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Listing Upgrade Fee",
         "tr": "Listeleme Yükseltme Ücreti",
-        "de": "Listing Upgrade Fee",
+        "de": "Gebühr für Listungs-Upgrades",
         "fr": "Listing Upgrade Fee",
         "es": "Listing Upgrade Fee",
         "ar": "Listing Upgrade Fee"
       },
       "businessContext_i18n": {
         "en": "Any additional fees for listing upgrades (e.g., bold title, subtitle, gallery plus).",
-        "tr": "Listeleme yükseltmeleri (ör. kalın başlık, alt başlık, galeri plus) için ek ücretler."
+        "tr": "Listeleme yükseltmeleri (ör. kalın başlık, alt başlık, galeri plus) için ek ücretler.",
+        "de": "Zusätzliche Gebühren für Listungs-Upgrades (z. B. fette Überschrift, Untertitel, Galerie Plus)."
       }
     }
   ],

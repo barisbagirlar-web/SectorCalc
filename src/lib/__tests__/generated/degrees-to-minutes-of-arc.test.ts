@@ -12,7 +12,7 @@ describe("degrees-to-minutes-of-arc", () => {
     "minutes": 0,
     "seconds": 0,
     "decimalDegrees": 0
-  } as Degrees_to_minutes_of_arcInput;
+  } as unknown as Degrees_to_minutes_of_arcInput;
     const result = calculateDegrees_to_minutes_of_arc(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

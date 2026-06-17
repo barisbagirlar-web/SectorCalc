@@ -13,7 +13,7 @@ describe("load-calculator", () => {
     "powerFactor": 0.9,
     "phaseCount": 3,
     "efficiency": 95
-  } as Load_calculatorInput;
+  } as unknown as Load_calculatorInput;
     const result = calculateLoad_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

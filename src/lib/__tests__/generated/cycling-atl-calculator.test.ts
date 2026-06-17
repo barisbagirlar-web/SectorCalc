@@ -12,7 +12,7 @@ describe("cycling-atl-calculator", () => {
     "tssToday": 0,
     "timeConstant": 7,
     "precision": 1
-  } as Cycling_atl_calculatorInput;
+  } as unknown as Cycling_atl_calculatorInput;
     const result = calculateCycling_atl_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

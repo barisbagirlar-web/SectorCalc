@@ -15,7 +15,7 @@ describe("miller-carbon-equivalent", () => {
     "vanadium": 0,
     "nickel": 0,
     "copper": 0
-  } as Miller_carbon_equivalentInput;
+  } as unknown as Miller_carbon_equivalentInput;
     const result = calculateMiller_carbon_equivalent(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("plant-spacing-calculator", () => {
     "plantSpacing": 0.5,
     "rowSpacing": 0.5,
     "edgeSpacing": 0.25
-  } as Plant_spacing_calculatorInput;
+  } as unknown as Plant_spacing_calculatorInput;
     const result = calculatePlant_spacing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

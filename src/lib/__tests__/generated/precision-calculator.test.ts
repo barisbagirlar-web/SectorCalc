@@ -13,7 +13,7 @@ describe("precision-calculator", () => {
     "target": 5,
     "mean": 5,
     "stddev": 1
-  } as Precision_calculatorInput;
+  } as unknown as Precision_calculatorInput;
     const result = calculatePrecision_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

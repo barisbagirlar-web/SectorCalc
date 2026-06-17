@@ -14,7 +14,7 @@ describe("ergs-to-joules-calculator", () => {
     "uncertaintyPercent": 0,
     "batchNumber": 0,
     "operatorID": 0
-  } as Ergs_to_joules_calculatorInput;
+  } as unknown as Ergs_to_joules_calculatorInput;
     const result = calculateErgs_to_joules_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

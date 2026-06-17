@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Measurement System",
         "tr": "Ölçüm Sistemi",
-        "de": "Measurement System",
+        "de": "Maßsystem",
         "fr": "Measurement System",
         "es": "Measurement System",
         "ar": "Measurement System"
       },
       "businessContext_i18n": {
         "en": "0 = Metric (kg, cm), 1 = Imperial (stones, pounds, feet, inches)",
-        "tr": "0 = Metrik (kg, cm), 1 = İmparatorluk (stone, pound, fit, inç)"
+        "tr": "0 = Metrik (kg, cm), 1 = İmparatorluk (stone, pound, fit, inç)",
+        "de": "0 = Metrisch (kg, cm), 1 = Imperial (Steine, Pfund, Fuß, Zoll)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Weight (kg)",
         "tr": "Ağırlık (kg)",
-        "de": "Weight (kg)",
+        "de": "Gewicht (kg)",
         "fr": "Weight (kg)",
         "es": "Weight (kg)",
         "ar": "Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms, used when Metric system selected",
-        "tr": "Vücut ağırlığı (kg), Metrik sistem seçildiğinde kullanılır"
+        "tr": "Vücut ağırlığı (kg), Metrik sistem seçildiğinde kullanılır",
+        "de": "Körpergewicht in Kilogramm, verwendet bei metrischem System"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Height (cm)",
         "tr": "Boy (cm)",
-        "de": "Height (cm)",
+        "de": "Größe (cm)",
         "fr": "Height (cm)",
         "es": "Height (cm)",
         "ar": "Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Body height in centimeters, used when Metric system selected",
-        "tr": "Vücut boyu (cm), Metrik sistem seçildiğinde kullanılır"
+        "tr": "Vücut boyu (cm), Metrik sistem seçildiğinde kullanılır",
+        "de": "Körpergröße in Zentimetern, verwendet bei metrischem System"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Weight - Stones",
         "tr": "Ağırlık - Stone",
-        "de": "Weight - Stones",
+        "de": "Gewicht – Steine",
         "fr": "Weight - Stones",
         "es": "Weight - Stones",
         "ar": "Weight - Stones"
       },
       "businessContext_i18n": {
         "en": "Whole number of stones, used when Imperial system selected",
-        "tr": "Tam stone sayısı, İmparatorluk sistemi seçildiğinde kullanılır"
+        "tr": "Tam stone sayısı, İmparatorluk sistemi seçildiğinde kullanılır",
+        "de": "Ganze Anzahl Steine, verwendet bei imperialem System"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Weight - Pounds",
         "tr": "Ağırlık - Pound",
-        "de": "Weight - Pounds",
+        "de": "Gewicht – Pfund",
         "fr": "Weight - Pounds",
         "es": "Weight - Pounds",
         "ar": "Weight - Pounds"
       },
       "businessContext_i18n": {
         "en": "Additional pounds beyond stones, used when Imperial system selected",
-        "tr": "Stone'ların ötesindeki ek pound, İmparatorluk sistemi seçildiğinde kullanılır"
+        "tr": "Stone'ların ötesindeki ek pound, İmparatorluk sistemi seçildiğinde kullanılır",
+        "de": "Zusätzliche Pfunde über Stein, verwendet wenn das imperiale System ausgewählt ist"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Height - Feet",
         "tr": "Boy - Fit",
-        "de": "Height - Feet",
+        "de": "Größe - Fuß",
         "fr": "Height - Feet",
         "es": "Height - Feet",
         "ar": "Height - Feet"
       },
       "businessContext_i18n": {
         "en": "Whole number of feet, used when Imperial system selected",
-        "tr": "Tam fit sayısı, İmparatorluk sistemi seçildiğinde kullanılır"
+        "tr": "Tam fit sayısı, İmparatorluk sistemi seçildiğinde kullanılır",
+        "de": "Ganze Fußzahl, verwendet wenn das imperiale System ausgewählt ist"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Height - Inches",
         "tr": "Boy - İnç",
-        "de": "Height - Inches",
+        "de": "Größe - Zoll",
         "fr": "Height - Inches",
         "es": "Height - Inches",
         "ar": "Height - Inches"
       },
       "businessContext_i18n": {
         "en": "Additional inches beyond feet, used when Imperial system selected",
-        "tr": "Fit'in ötesindeki ek inç, İmparatorluk sistemi seçildiğinde kullanılır"
+        "tr": "Fit'in ötesindeki ek inç, İmparatorluk sistemi seçildiğinde kullanılır",
+        "de": "Zusätzliche Zoll über Fuß, verwendet wenn das imperiale System ausgewählt ist"
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("short-term-rental-calculator", () => {
     "serviceFeePercent": 0,
     "occupancyTaxPercent": 0,
     "discountPercent": 0
-  } as Short_term_rental_calculatorInput;
+  } as unknown as Short_term_rental_calculatorInput;
     const result = calculateShort_term_rental_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

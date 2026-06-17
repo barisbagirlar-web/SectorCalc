@@ -16,7 +16,7 @@ describe("overtime-vs-hiring-breakeven-calculator", () => {
     "annual_benefits_cost_per_fte": 12000,
     "productivity_factor_overtime": 85,
     "productivity_factor_new_hire": 70
-  } as Overtime_vs_hiring_breakeven_calculatorInput;
+  } as unknown as Overtime_vs_hiring_breakeven_calculatorInput;
     const result = calculateOvertime_vs_hiring_breakeven_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Object Flux",
         "tr": "Nesne Akısı",
-        "de": "Object Flux",
+        "de": "Objektfluss",
         "fr": "Object Flux",
         "es": "Object Flux",
         "ar": "Object Flux"
       },
       "businessContext_i18n": {
         "en": "Measured radiative flux of the celestial object",
-        "tr": "Gök cisminin ölçülen ışınım akısı"
+        "tr": "Gök cisminin ölçülen ışınım akısı",
+        "de": "Gemessener Strahlungsfluss des Himmelsobjekts"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Reference Flux",
         "tr": "Referans Akısı",
-        "de": "Reference Flux",
+        "de": "Referenzfluss",
         "fr": "Reference Flux",
         "es": "Reference Flux",
         "ar": "Reference Flux"
       },
       "businessContext_i18n": {
         "en": "Flux corresponding to magnitude zero point",
-        "tr": "Sıfır noktası büyüklüğüne karşılık gelen akı"
+        "tr": "Sıfır noktası büyüklüğüne karşılık gelen akı",
+        "de": "Fluss entsprechend dem Nullpunkt der Magnitude"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Zero Point Correction",
         "tr": "Sıfır Noktası Düzeltmesi",
-        "de": "Zero Point Correction",
+        "de": "Nullpunktkorrektur",
         "fr": "Zero Point Correction",
         "es": "Zero Point Correction",
         "ar": "Zero Point Correction"
       },
       "businessContext_i18n": {
         "en": "Offset to align with a specific magnitude system",
-        "tr": "Belirli bir büyüklük sistemiyle uyum sağlamak için ofset"
+        "tr": "Belirli bir büyüklük sistemiyle uyum sağlamak için ofset",
+        "de": "Offset zur Angleichung an ein bestimmtes Magnitudensystem"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Extinction",
         "tr": "Sönümleme",
-        "de": "Extinction",
+        "de": "Extinktion",
         "fr": "Extinction",
         "es": "Extinction",
         "ar": "Extinction"
       },
       "businessContext_i18n": {
         "en": "Dimming due to interstellar dust (positive value reduces brightness)",
-        "tr": "Yıldızlararası toz nedeniyle kararma (pozitif değer parlaklığı azaltır)"
+        "tr": "Yıldızlararası toz nedeniyle kararma (pozitif değer parlaklığı azaltır)",
+        "de": "Abschwächung durch interstellaren Staub (positiver Wert verringert Helligkeit)"
       }
     }
   ],

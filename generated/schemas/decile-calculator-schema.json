@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Minimum Value",
         "tr": "Minimum Değer",
-        "de": "Minimum Value",
+        "de": "Mindestwert",
         "fr": "Minimum Value",
         "es": "Minimum Value",
         "ar": "Minimum Value"
       },
       "businessContext_i18n": {
         "en": "The minimum value of the range to partition into deciles.",
-        "tr": "Ondalık dilimlere ayrılacak aralığın minimum değeri."
+        "tr": "Ondalık dilimlere ayrılacak aralığın minimum değeri.",
+        "de": "Der Mindestwert des Bereichs, der in Dezile unterteilt werden soll."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Maximum Value",
         "tr": "Maksimum Değer",
-        "de": "Maximum Value",
+        "de": "Höchstwert",
         "fr": "Maximum Value",
         "es": "Maximum Value",
         "ar": "Maximum Value"
       },
       "businessContext_i18n": {
         "en": "The maximum value of the range to partition into deciles.",
-        "tr": "Ondalık dilimlere ayrılacak aralığın maksimum değeri."
+        "tr": "Ondalık dilimlere ayrılacak aralığın maksimum değeri.",
+        "de": "Der Höchstwert des Bereichs, der in Dezile unterteilt werden soll."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Input Value",
         "tr": "Giriş Değeri",
-        "de": "Input Value",
+        "de": "Eingabewert",
         "fr": "Input Value",
         "es": "Input Value",
         "ar": "Input Value"
       },
       "businessContext_i18n": {
         "en": "The value for which to determine the decile.",
-        "tr": "Ondalık diliminin belirleneceği değer."
+        "tr": "Ondalık diliminin belirleneceği değer.",
+        "de": "Der Wert, für den das Dezil bestimmt werden soll."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Deciles",
         "tr": "Ondalık Dilim Sayısı",
-        "de": "Number of Deciles",
+        "de": "Anzahl der Dezile",
         "fr": "Number of Deciles",
         "es": "Number of Deciles",
         "ar": "Number of Deciles"
       },
       "businessContext_i18n": {
         "en": "Total number of decile groups (standard is 10).",
-        "tr": "Toplam ondalık dilim grubu sayısı (standart 10)."
+        "tr": "Toplam ondalık dilim grubu sayısı (standart 10).",
+        "de": "Gesamtzahl der Dezilgruppen (Standard ist 10)."
       }
     }
   ],

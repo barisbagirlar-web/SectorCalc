@@ -14,7 +14,7 @@ describe("cost-of-living-comparison-calculator", () => {
     "baseTransport": 150,
     "baseMisc": 250,
     "targetIndex": 120
-  } as Cost_of_living_comparison_calculatorInput;
+  } as unknown as Cost_of_living_comparison_calculatorInput;
     const result = calculateCost_of_living_comparison_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("volume-of-revolution-calculator", () => {
     "upperBound": 1,
     "slope": 1,
     "intercept": 0
-  } as Volume_of_revolution_calculatorInput;
+  } as unknown as Volume_of_revolution_calculatorInput;
     const result = calculateVolume_of_revolution_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

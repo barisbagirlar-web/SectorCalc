@@ -12,7 +12,7 @@ describe("combination-generator-calculator", () => {
     "k": 3,
     "decimalPlaces": 0,
     "outputStyle": 0
-  } as Combination_generator_calculatorInput;
+  } as unknown as Combination_generator_calculatorInput;
     const result = calculateCombination_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

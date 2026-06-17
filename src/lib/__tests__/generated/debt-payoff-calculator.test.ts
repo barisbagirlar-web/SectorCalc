@@ -13,7 +13,7 @@ describe("debt-payoff-calculator", () => {
     "monthlyPayment": 500,
     "extraPayment": 0,
     "numDebts": 1
-  } as Debt_payoff_calculatorInput;
+  } as unknown as Debt_payoff_calculatorInput;
     const result = calculateDebt_payoff_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

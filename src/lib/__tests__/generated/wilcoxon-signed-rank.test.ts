@@ -12,7 +12,7 @@ describe("wilcoxon-signed-rank", () => {
     "after": 0,
     "alpha": 0.05,
     "hypothesis": 0
-  } as Wilcoxon_signed_rankInput;
+  } as unknown as Wilcoxon_signed_rankInput;
     const result = calculateWilcoxon_signed_rank(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

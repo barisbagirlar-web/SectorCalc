@@ -13,7 +13,7 @@ describe("ph-calculator", () => {
     "volBase": 0.05,
     "concBase": 0.1,
     "Kw": 1e-14
-  } as Ph_calculatorInput;
+  } as unknown as Ph_calculatorInput;
     const result = calculatePh_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

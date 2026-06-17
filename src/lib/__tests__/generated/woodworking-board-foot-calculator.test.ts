@@ -14,7 +14,7 @@ describe("woodworking-board-foot-calculator", () => {
     "quantity": 1,
     "waste": 10,
     "price": 0
-  } as Woodworking_board_foot_calculatorInput;
+  } as unknown as Woodworking_board_foot_calculatorInput;
     const result = calculateWoodworking_board_foot_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

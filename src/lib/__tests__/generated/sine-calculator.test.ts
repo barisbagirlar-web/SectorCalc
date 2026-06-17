@@ -12,7 +12,7 @@ describe("sine-calculator", () => {
     "angleUnit": 0,
     "precision": 4,
     "amplitude": 1
-  } as Sine_calculatorInput;
+  } as unknown as Sine_calculatorInput;
     const result = calculateSine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

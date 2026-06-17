@@ -12,7 +12,7 @@ describe("rationalize-denominator-calculator", () => {
     "a": 1,
     "b": 1,
     "c": 2
-  } as Rationalize_denominator_calculatorInput;
+  } as unknown as Rationalize_denominator_calculatorInput;
     const result = calculateRationalize_denominator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

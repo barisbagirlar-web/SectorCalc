@@ -12,7 +12,7 @@ describe("lsat-score-calculator", () => {
     "lr2": 16,
     "ar": 14,
     "rc": 15
-  } as Lsat_score_calculatorInput;
+  } as unknown as Lsat_score_calculatorInput;
     const result = calculateLsat_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

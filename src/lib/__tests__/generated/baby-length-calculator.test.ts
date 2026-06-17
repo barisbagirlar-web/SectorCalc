@@ -12,7 +12,7 @@ describe("baby-length-calculator", () => {
     "weightKg": 7.5,
     "genderCode": 0,
     "prematureWeeks": 0
-  } as Baby_length_calculatorInput;
+  } as unknown as Baby_length_calculatorInput;
     const result = calculateBaby_length_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

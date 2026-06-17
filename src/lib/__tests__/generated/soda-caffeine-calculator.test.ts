@@ -14,7 +14,7 @@ describe("soda-caffeine-calculator", () => {
     "bodyWeight": 70,
     "safeLimitPerKg": 2.5,
     "coffeeCaffeinePerCup": 95
-  } as Soda_caffeine_calculatorInput;
+  } as unknown as Soda_caffeine_calculatorInput;
     const result = calculateSoda_caffeine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

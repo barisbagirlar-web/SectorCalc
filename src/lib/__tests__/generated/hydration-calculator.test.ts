@@ -12,7 +12,7 @@ describe("hydration-calculator", () => {
     "moderate_activity_hours": 0,
     "heavy_activity_hours": 0,
     "average_temperature": 25
-  } as Hydration_calculatorInput;
+  } as unknown as Hydration_calculatorInput;
     const result = calculateHydration_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("concrete-cost-calculator", () => {
     "costPerCubicMeter": 120,
     "wastePercentage": 5,
     "deliveryCost": 200
-  } as Concrete_cost_calculatorInput;
+  } as unknown as Concrete_cost_calculatorInput;
     const result = calculateConcrete_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

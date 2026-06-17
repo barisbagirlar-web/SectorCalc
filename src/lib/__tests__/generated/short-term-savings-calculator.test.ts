@@ -12,7 +12,7 @@ describe("short-term-savings-calculator", () => {
     "monthlyContribution": 0,
     "annualRate": 5,
     "years": 1
-  } as Short_term_savings_calculatorInput;
+  } as unknown as Short_term_savings_calculatorInput;
     const result = calculateShort_term_savings_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

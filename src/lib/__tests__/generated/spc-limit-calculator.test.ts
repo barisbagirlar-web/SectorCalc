@@ -16,7 +16,7 @@ describe("spc-limit-calculator", () => {
     "lsl": 40,
     "chart_type": "Xbar-R",
     "use_estimated_sigma": true
-  } as Spc_limit_calculatorInput;
+  } as unknown as Spc_limit_calculatorInput;
     const result = calculateSpc_limit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

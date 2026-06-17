@@ -16,7 +16,7 @@ describe("ham-calculator", () => {
     "yield_percentage": 85,
     "packaging_cost_per_kg": 0.5,
     "overhead_percentage": 10
-  } as Ham_calculatorInput;
+  } as unknown as Ham_calculatorInput;
     const result = calculateHam_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

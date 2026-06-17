@@ -12,7 +12,7 @@ describe("percentage-of-1rm-calculator", () => {
     "targetPercentage": 90,
     "roundingIncrement": 2.5,
     "bodyWeight": 80
-  } as Percentage_of_1rm_calculatorInput;
+  } as unknown as Percentage_of_1rm_calculatorInput;
     const result = calculatePercentage_of_1rm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

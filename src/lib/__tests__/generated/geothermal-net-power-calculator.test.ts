@@ -14,7 +14,7 @@ describe("geothermal-net-power-calculator", () => {
     "outletTemp": 80,
     "conversionEfficiency": 12,
     "parasiticLoad": 100
-  } as Geothermal_net_power_calculatorInput;
+  } as unknown as Geothermal_net_power_calculatorInput;
     const result = calculateGeothermal_net_power_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

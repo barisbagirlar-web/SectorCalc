@@ -12,7 +12,7 @@ describe("rgb-to-hex-calculator", () => {
     "green": 0,
     "blue": 0,
     "alpha": 255
-  } as Rgb_to_hex_calculatorInput;
+  } as unknown as Rgb_to_hex_calculatorInput;
     const result = calculateRgb_to_hex_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("qr-code-generator-calculator", () => {
     "moduleSize": 0.5,
     "quietZoneModules": 4,
     "dpi": 300
-  } as Qr_code_generator_calculatorInput;
+  } as unknown as Qr_code_generator_calculatorInput;
     const result = calculateQr_code_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

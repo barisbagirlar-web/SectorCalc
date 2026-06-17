@@ -12,7 +12,7 @@ describe("mils-to-inches-calculator", () => {
     "precision": 4,
     "scaleFactor": 1,
     "baseInches": 0
-  } as Mils_to_inches_calculatorInput;
+  } as unknown as Mils_to_inches_calculatorInput;
     const result = calculateMils_to_inches_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("alvarado-score-calculator", () => {
     "tempElevated": 0,
     "leukocytosis": 0,
     "leftShift": 0
-  } as Alvarado_score_calculatorInput;
+  } as unknown as Alvarado_score_calculatorInput;
     const result = calculateAlvarado_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("interference-fit-calculator", () => {
     "poisson_shaft": 0.3,
     "poisson_hub": 0.3,
     "friction_coefficient": 0.15
-  } as Interference_fit_calculatorInput;
+  } as unknown as Interference_fit_calculatorInput;
     const result = calculateInterference_fit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("kolmogorov-smirnov-calculator", () => {
     "n1": 30,
     "n2": 30,
     "alpha": 0.05
-  } as Kolmogorov_smirnov_calculatorInput;
+  } as unknown as Kolmogorov_smirnov_calculatorInput;
     const result = calculateKolmogorov_smirnov_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("spf-calculator", () => {
     "powerOutput": 1000,
     "carbonContent": 0.86,
     "oxidationFactor": 0.99
-  } as Spf_calculatorInput;
+  } as unknown as Spf_calculatorInput;
     const result = calculateSpf_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

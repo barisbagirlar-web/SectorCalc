@@ -12,7 +12,7 @@ describe("polyphasic-sleep-calculator", () => {
     "numberOfNaps": 4,
     "napDuration": 20,
     "sleepGoal": 8
-  } as Polyphasic_sleep_calculatorInput;
+  } as unknown as Polyphasic_sleep_calculatorInput;
     const result = calculatePolyphasic_sleep_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

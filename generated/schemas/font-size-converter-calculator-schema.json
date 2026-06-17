@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Font Size (Points)",
         "tr": "Yazı Boyutu (Nokta)",
-        "de": "Font Size (Points)",
+        "de": "Schriftgröße (Punkte)",
         "fr": "Font Size (Points)",
         "es": "Font Size (Points)",
         "ar": "Font Size (Points)"
       },
       "businessContext_i18n": {
         "en": "The font size in points (1 pt = 1/72 inch). Standard sizes: 10, 11, 12, 14.",
-        "tr": "Nokta cinsinden yazı boyutu (1 pt = 1/72 inç). Standart boyutlar: 10, 11, 12, 14"
+        "tr": "Nokta cinsinden yazı boyutu (1 pt = 1/72 inç). Standart boyutlar: 10, 11, 12, 14",
+        "de": "Die Schriftgröße in Punkten (1 pt = 1/72 Zoll). Standardgrößen: 10, 11, 12, 14."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Screen PPI",
         "tr": "Ekran PPI",
-        "de": "Screen PPI",
+        "de": "Bildschirm PPI",
         "fr": "Screen PPI",
         "es": "Screen PPI",
         "ar": "Screen PPI"
       },
       "businessContext_i18n": {
         "en": "Pixel density (pixels per inch) of the target display. Common: 96 (Windows), 72 (Mac).",
-        "tr": "Hedef ekranın piksel yoğunluğu (inç başına piksel). Yaygın: 96 (Windows), 72 (Mac)"
+        "tr": "Hedef ekranın piksel yoğunluğu (inç başına piksel). Yaygın: 96 (Windows), 72 (Mac)",
+        "de": "Pixeldichte (Pixel pro Zoll) des Zielbildschirms. Üblich: 96 (Windows), 72 (Mac)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Base Font Size (Pixels)",
         "tr": "Temel Yazı Boyutu (Piksel)",
-        "de": "Base Font Size (Pixels)",
+        "de": "Basis-Schriftgröße (Pixel)",
         "fr": "Base Font Size (Pixels)",
         "es": "Base Font Size (Pixels)",
         "ar": "Base Font Size (Pixels)"
       },
       "businessContext_i18n": {
         "en": "Browser default root font size in pixels, used for em/percentage calculation. Typically 16px.",
-        "tr": "Tarayıcı varsayılan kök yazı boyutu piksel cinsinden, em/yüzde hesaplaması için kullanılır. Genellikle 16 piksel."
+        "tr": "Tarayıcı varsayılan kök yazı boyutu piksel cinsinden, em/yüzde hesaplaması için kullanılır. Genellikle 16 piksel.",
+        "de": "Browser-Standard-Root-Schriftgröße in Pixeln, verwendet für em/Prozent-Berechnung. Typischerweise 16px."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Root Font Size (Pixels)",
         "tr": "Kök Yazı Boyutu (Piksel)",
-        "de": "Root Font Size (Pixels)",
+        "de": "Root-Schriftgröße (Pixel)",
         "fr": "Root Font Size (Pixels)",
         "es": "Root Font Size (Pixels)",
         "ar": "Root Font Size (Pixels)"
       },
       "businessContext_i18n": {
         "en": "Explicit root element font size for rem calculation. Default equals base font size.",
-        "tr": "Rem hesaplaması için açık kök eleman yazı boyutu. Varsayılan temel yazı boyutuna eşittir."
+        "tr": "Rem hesaplaması için açık kök eleman yazı boyutu. Varsayılan temel yazı boyutuna eşittir.",
+        "de": "Explizite Root-Element-Schriftgröße für rem-Berechnung. Standard entspricht Basis-Schriftgröße."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Custom Scaling Ratio",
         "tr": "Özel Ölçekleme Oranı",
-        "de": "Custom Scaling Ratio",
+        "de": "Benutzerdefinierter Skalierungsfaktor",
         "fr": "Custom Scaling Ratio",
         "es": "Custom Scaling Ratio",
         "ar": "Custom Scaling Ratio"
       },
       "businessContext_i18n": {
         "en": "Additional multiplicative factor for custom-converted size (e.g., 1.2 for 120%).",
-        "tr": "Özel dönüştürülmüş boyut için ek çarpan faktörü (ör. %120 için 1.2)."
+        "tr": "Özel dönüştürülmüş boyut için ek çarpan faktörü (ör. %120 için 1.2).",
+        "de": "Zusätzlicher Multiplikationsfaktor für benutzerdefinierte konvertierte Größe (z. B. 1,2 für 120%)."
       }
     }
   ],

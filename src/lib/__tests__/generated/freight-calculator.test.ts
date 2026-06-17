@@ -14,7 +14,7 @@ describe("freight-calculator", () => {
     "fuelEfficiency": 5,
     "ratePerKg": 0.1,
     "otherCharges": 0
-  } as Freight_calculatorInput;
+  } as unknown as Freight_calculatorInput;
     const result = calculateFreight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

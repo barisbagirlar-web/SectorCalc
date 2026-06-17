@@ -11,7 +11,7 @@ describe("cross-section-calculator", () => {
     "width": 100,
     "height": 200,
     "auto_input_3": 1
-  } as Cross_section_calculatorInput;
+  } as unknown as Cross_section_calculatorInput;
     const result = calculateCross_section_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

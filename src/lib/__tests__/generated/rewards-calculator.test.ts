@@ -14,7 +14,7 @@ describe("rewards-calculator", () => {
     "teamMultiplier": 1,
     "tenureYears": 2,
     "safetyRating": 95
-  } as Rewards_calculatorInput;
+  } as unknown as Rewards_calculatorInput;
     const result = calculateRewards_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("tile-layout-calculator", () => {
     "tileWidth": 20,
     "groutWidth": 3,
     "wastePercent": 10
-  } as Tile_layout_calculatorInput;
+  } as unknown as Tile_layout_calculatorInput;
     const result = calculateTile_layout_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("vegan-savings-calculator", () => {
     "costMeatPerMeal": 8,
     "costVeganPerMeal": 5.5,
     "weeks": 52
-  } as Vegan_savings_calculatorInput;
+  } as unknown as Vegan_savings_calculatorInput;
     const result = calculateVegan_savings_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

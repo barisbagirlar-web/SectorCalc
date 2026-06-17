@@ -12,7 +12,7 @@ describe("matrix-inverse-calculator", () => {
     "a12": 0,
     "a21": 0,
     "a22": 1
-  } as Matrix_inverse_calculatorInput;
+  } as unknown as Matrix_inverse_calculatorInput;
     const result = calculateMatrix_inverse_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

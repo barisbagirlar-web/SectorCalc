@@ -13,7 +13,7 @@ describe("spray-paint-calculator", () => {
     "coats": 1,
     "wasteFactor": 10,
     "canVolume": 0.4
-  } as Spray_paint_calculatorInput;
+  } as unknown as Spray_paint_calculatorInput;
     const result = calculateSpray_paint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

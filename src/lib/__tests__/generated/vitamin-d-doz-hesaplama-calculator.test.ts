@@ -12,7 +12,7 @@ describe("vitamin-d-doz-hesaplama-calculator", () => {
     "targetD": 50,
     "weight": 70,
     "age": 30
-  } as Vitamin_d_doz_hesaplama_calculatorInput;
+  } as unknown as Vitamin_d_doz_hesaplama_calculatorInput;
     const result = calculateVitamin_d_doz_hesaplama_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

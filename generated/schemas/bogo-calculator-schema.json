@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Original Price per Item",
         "tr": "Birim Fiyat",
-        "de": "Original Price per Item",
+        "de": "Originalpreis pro Artikel",
         "fr": "Original Price per Item",
         "es": "Original Price per Item",
         "ar": "Original Price per Item"
       },
       "businessContext_i18n": {
         "en": "The regular unit selling price of the item before any promotion.",
-        "tr": "Herhangi bir promosyon öncesi ürünün normal birim satış fiyatı."
+        "tr": "Herhangi bir promosyon öncesi ürünün normal birim satış fiyatı.",
+        "de": "Der reguläre Verkaufspreis pro Einheit vor jeglicher Aktion."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Buy Quantity",
         "tr": "Satın Alma Adedi",
-        "de": "Buy Quantity",
+        "de": "Kaufmenge",
         "fr": "Buy Quantity",
         "es": "Buy Quantity",
         "ar": "Buy Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of items the customer must purchase to qualify for the free items (the 'Buy' part).",
-        "tr": "Müşterinin ücretsiz ürünleri almaya hak kazanması için satın alması gereken ürün sayısı ('Al' kısmı)."
+        "tr": "Müşterinin ücretsiz ürünleri almaya hak kazanması için satın alması gereken ürün sayısı ('Al' kısmı).",
+        "de": "Anzahl der Artikel, die der Kunde kaufen muss, um die kostenlosen Artikel zu erhalten (der 'Kauf'-Teil)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Get Quantity (Free)",
         "tr": "Ücretsiz Adet",
-        "de": "Get Quantity (Free)",
+        "de": "Erhaltene Menge (kostenlos)",
         "fr": "Get Quantity (Free)",
         "es": "Get Quantity (Free)",
         "ar": "Get Quantity (Free)"
       },
       "businessContext_i18n": {
         "en": "Number of items the customer receives for free (the 'Get' part).",
-        "tr": "Müşterinin ücretsiz aldığı ürün sayısı ('Ver' kısmı)."
+        "tr": "Müşterinin ücretsiz aldığı ürün sayısı ('Ver' kısmı).",
+        "de": "Anzahl der Artikel, die der Kunde kostenlos erhält (der 'Erhalten'-Teil)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Sets",
         "tr": "Set Sayısı",
-        "de": "Number of Sets",
+        "de": "Anzahl der Sets",
         "fr": "Number of Sets",
         "es": "Number of Sets",
         "ar": "Number of Sets"
       },
       "businessContext_i18n": {
         "en": "How many times the BOGO deal is applied (e.g., buy 2 get 1 free repeated twice).",
-        "tr": "BOGO anlaşmasının kaç kez uygulandığı (örneğin, 2 al 1 bedava iki kez tekrarlanırsa)."
+        "tr": "BOGO anlaşmasının kaç kez uygulandığı (örneğin, 2 al 1 bedava iki kez tekrarlanırsa).",
+        "de": "Wie oft das BOGO-Angebot angewendet wird (z. B. 'Kaufe 2, erhalte 1 gratis' zweimal wiederholt)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
-        "de": "Tax Rate",
+        "de": "Steuersatz",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable tax percentage on the purchase. Set to 0 if tax is not considered.",
-        "tr": "Alışverişe uygulanan vergi yüzdesi. Vergi dikkate alınmıyorsa 0 olarak ayarlayın."
+        "tr": "Alışverişe uygulanan vergi yüzdesi. Vergi dikkate alınmıyorsa 0 olarak ayarlayın.",
+        "de": "Anwendbarer Steuerprozentsatz auf den Kauf. Auf 0 setzen, wenn Steuer nicht berücksichtigt wird."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Additional Discount",
         "tr": "Ek İndirim",
-        "de": "Additional Discount",
+        "de": "Zusätzlicher Rabatt",
         "fr": "Additional Discount",
         "es": "Additional Discount",
         "ar": "Additional Discount"
       },
       "businessContext_i18n": {
         "en": "Any extra percentage discount applied to the total (e.g., store-wide sale).",
-        "tr": "Toplam tutara uygulanan herhangi bir ek yüzde indirim (örneğin, mağaza genelinde indirim)."
+        "tr": "Toplam tutara uygulanan herhangi bir ek yüzde indirim (örneğin, mağaza genelinde indirim).",
+        "de": "Zusätzlicher prozentualer Rabatt auf die Gesamtsumme (z. B. Filialverkauf)."
       }
     }
   ],

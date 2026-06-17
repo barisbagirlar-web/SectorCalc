@@ -13,7 +13,7 @@ describe("gcs-calculator", () => {
     "overheadRate": 20,
     "marginRate": 15,
     "quantity": 100
-  } as Gcs_calculatorInput;
+  } as unknown as Gcs_calculatorInput;
     const result = calculateGcs_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

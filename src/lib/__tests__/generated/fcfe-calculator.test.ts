@@ -14,7 +14,7 @@ describe("fcfe-calculator", () => {
     "changeWC": 100000,
     "newDebt": 300000,
     "repayments": 200000
-  } as Fcfe_calculatorInput;
+  } as unknown as Fcfe_calculatorInput;
     const result = calculateFcfe_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

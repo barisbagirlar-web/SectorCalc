@@ -14,7 +14,7 @@ describe("529-plan-calculator", () => {
     "yearsUntilCollege": 13,
     "annualReturn": 6,
     "inflationRate": 2
-  } as _529_plan_calculatorInput;
+  } as unknown as _529_plan_calculatorInput;
     const result = calculate_529_plan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

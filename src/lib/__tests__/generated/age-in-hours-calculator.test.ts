@@ -12,7 +12,7 @@ describe("age-in-hours-calculator", () => {
     "ageMonths": 0,
     "ageDays": 0,
     "ageHours": 0
-  } as Age_in_hours_calculatorInput;
+  } as unknown as Age_in_hours_calculatorInput;
     const result = calculateAge_in_hours_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

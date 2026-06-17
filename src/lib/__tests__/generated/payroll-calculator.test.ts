@@ -15,7 +15,7 @@ describe("payroll-calculator", () => {
     "taxRate": 20,
     "insuranceRate": 15,
     "otherDeductions": 0
-  } as Payroll_calculatorInput;
+  } as unknown as Payroll_calculatorInput;
     const result = calculatePayroll_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

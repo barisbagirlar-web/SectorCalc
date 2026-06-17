@@ -16,7 +16,7 @@ describe("cat-percentile-calculator", () => {
     "varc_total": 200000,
     "lrdi_rank": 1,
     "lrdi_total": 200000
-  } as Cat_percentile_calculatorInput;
+  } as unknown as Cat_percentile_calculatorInput;
     const result = calculateCat_percentile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

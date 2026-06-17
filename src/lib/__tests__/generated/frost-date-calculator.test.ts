@@ -13,7 +13,7 @@ describe("frost-date-calculator", () => {
     "avgMarchTemp": 5,
     "proximityToWater": 0.5,
     "yearOffset": 25
-  } as Frost_date_calculatorInput;
+  } as unknown as Frost_date_calculatorInput;
     const result = calculateFrost_date_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

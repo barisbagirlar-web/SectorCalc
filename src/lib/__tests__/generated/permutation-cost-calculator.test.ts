@@ -13,7 +13,7 @@ describe("permutation-cost-calculator", () => {
     "costPerPermutation": 0.5,
     "setupCost": 100,
     "discountPercent": 0
-  } as Permutation_cost_calculatorInput;
+  } as unknown as Permutation_cost_calculatorInput;
     const result = calculatePermutation_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

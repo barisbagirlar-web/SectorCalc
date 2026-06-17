@@ -14,7 +14,7 @@ describe("power-calculator-electrical-calculator", () => {
     "phaseCount": 1,
     "efficiency": 1,
     "isAC": 1
-  } as Power_calculator_electrical_calculatorInput;
+  } as unknown as Power_calculator_electrical_calculatorInput;
     const result = calculatePower_calculator_electrical_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

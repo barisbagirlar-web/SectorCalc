@@ -13,7 +13,7 @@ describe("freelance-rate-calculator", () => {
     "billableHoursPerYear": 1500,
     "profitMarginPercent": 20,
     "taxRatePercent": 30
-  } as Freelance_rate_calculatorInput;
+  } as unknown as Freelance_rate_calculatorInput;
     const result = calculateFreelance_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("protein-powder-calculator", () => {
     "scoopsUsed": 1,
     "containerSize": 1000,
     "containerPrice": 29.99
-  } as Protein_powder_calculatorInput;
+  } as unknown as Protein_powder_calculatorInput;
     const result = calculateProtein_powder_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

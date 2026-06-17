@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Aylık İşlem Sayısı",
         "tr": "Aylık İşlem Sayısı",
-        "de": "Aylık İşlem Sayısı",
+        "de": "Monatliche Transaktionsanzahl",
         "fr": "Aylık İşlem Sayısı",
         "es": "Aylık İşlem Sayısı",
         "ar": "Aylık İşlem Sayısı"
       },
       "businessContext_i18n": {
         "en": "Bir ay içindeki toplam ACH işlem sayısı.",
-        "tr": "Bir ay içindeki toplam ACH işlem sayısı."
+        "tr": "Bir ay içindeki toplam ACH işlem sayısı.",
+        "de": "Gesamtzahl der ACH-Transaktionen in einem Monat."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "İşlem Başı Sabit Ücret",
         "tr": "İşlem Başı Sabit Ücret",
-        "de": "İşlem Başı Sabit Ücret",
+        "de": "Feste Gebühr pro Transaktion",
         "fr": "İşlem Başı Sabit Ücret",
         "es": "İşlem Başı Sabit Ücret",
         "ar": "İşlem Başı Sabit Ücret"
       },
       "businessContext_i18n": {
         "en": "Her işlem için ödenen sabit ücret.",
-        "tr": "Her işlem için ödenen sabit ücret."
+        "tr": "Her işlem için ödenen sabit ücret.",
+        "de": "Feste Gebühr, die für jede Transaktion gezahlt wird."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "İşlem Hacmi Yüzdelik Ücreti",
         "tr": "İşlem Hacmi Yüzdelik Ücreti",
-        "de": "İşlem Hacmi Yüzdelik Ücreti",
+        "de": "Prozentuale Gebühr des Transaktionsvolumens",
         "fr": "İşlem Hacmi Yüzdelik Ücreti",
         "es": "İşlem Hacmi Yüzdelik Ücreti",
         "ar": "İşlem Hacmi Yüzdelik Ücreti"
       },
       "businessContext_i18n": {
         "en": "Toplam işlem hacmi üzerinden alınan yüzdelik oran.",
-        "tr": "Toplam işlem hacmi üzerinden alınan yüzdelik oran."
+        "tr": "Toplam işlem hacmi üzerinden alınan yüzdelik oran.",
+        "de": "Prozentsatz, der auf das gesamte Transaktionsvolumen erhoben wird."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Aylık Toplam İşlem Hacmi",
         "tr": "Aylık Toplam İşlem Hacmi",
-        "de": "Aylık Toplam İşlem Hacmi",
+        "de": "Monatliches Gesamttransaktionsvolumen",
         "fr": "Aylık Toplam İşlem Hacmi",
         "es": "Aylık Toplam İşlem Hacmi",
         "ar": "Aylık Toplam İşlem Hacmi"
       },
       "businessContext_i18n": {
         "en": "Bir ay içindeki tüm ACH işlemlerinin toplam parasal hacmi.",
-        "tr": "Bir ay içindeki tüm ACH işlemlerinin toplam parasal hacmi."
+        "tr": "Bir ay içindeki tüm ACH işlemlerinin toplam parasal hacmi.",
+        "de": "Gesamter Geldbetrag aller ACH-Transaktionen in einem Monat."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Aylık Sabit Ücret",
         "tr": "Aylık Sabit Ücret",
-        "de": "Aylık Sabit Ücret",
+        "de": "Monatliche feste Gebühr",
         "fr": "Aylık Sabit Ücret",
         "es": "Aylık Sabit Ücret",
         "ar": "Aylık Sabit Ücret"
       },
       "businessContext_i18n": {
         "en": "ACH hizmeti için aylık ödenen sabit ücret.",
-        "tr": "ACH hizmeti için aylık ödenen sabit ücret."
+        "tr": "ACH hizmeti için aylık ödenen sabit ücret.",
+        "de": "Monatliche feste Gebühr für den ACH-Dienst."
       }
     }
   ],

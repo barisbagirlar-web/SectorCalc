@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Mevcut Saat (0-23)",
         "tr": "Mevcut Saat (0-23)",
-        "de": "Mevcut Saat (0-23)",
+        "de": "Aktuelle Stunde (0-23)",
         "fr": "Mevcut Saat (0-23)",
         "es": "Mevcut Saat (0-23)",
         "ar": "Mevcut Saat (0-23)"
       },
       "businessContext_i18n": {
         "en": "Şu anki saat dilimi.",
-        "tr": "Şu anki saat dilimi."
+        "tr": "Şu anki saat dilimi.",
+        "de": "Aktuelle Zeitzone."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Oruç Başlangıç Saati",
         "tr": "Oruç Başlangıç Saati",
-        "de": "Oruç Başlangıç Saati",
+        "de": "Fastenbeginn",
         "fr": "Oruç Başlangıç Saati",
         "es": "Oruç Başlangıç Saati",
         "ar": "Oruç Başlangıç Saati"
       },
       "businessContext_i18n": {
         "en": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00).",
-        "tr": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00)."
+        "tr": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00).",
+        "de": "Startzeit des 16-stündigen Fastenfensters (z.B. 20:00)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Oruç Süresi",
         "tr": "Oruç Süresi",
-        "de": "Oruç Süresi",
+        "de": "Fastendauer",
         "fr": "Oruç Süresi",
         "es": "Oruç Süresi",
         "ar": "Oruç Süresi"
       },
       "businessContext_i18n": {
         "en": "Oruç penceresinin toplam süresi (standart 16 saat).",
-        "tr": "Oruç penceresinin toplam süresi (standart 16 saat)."
+        "tr": "Oruç penceresinin toplam süresi (standart 16 saat).",
+        "de": "Gesamtdauer des Fastenfensters (Standard 16 Stunden)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Yeme Penceresi Süresi",
         "tr": "Yeme Penceresi Süresi",
-        "de": "Yeme Penceresi Süresi",
+        "de": "Essensfensterdauer",
         "fr": "Yeme Penceresi Süresi",
         "es": "Yeme Penceresi Süresi",
         "ar": "Yeme Penceresi Süresi"
       },
       "businessContext_i18n": {
         "en": "Yeme penceresi süresi (genelde 8 saat).",
-        "tr": "Yeme penceresi süresi (genelde 8 saat)."
+        "tr": "Yeme penceresi süresi (genelde 8 saat).",
+        "de": "Dauer des Essensfensters (normalerweise 8 Stunden)."
       }
     }
   ],

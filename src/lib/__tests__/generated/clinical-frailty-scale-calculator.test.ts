@@ -11,7 +11,7 @@ describe("clinical-frailty-scale-calculator", () => {
     "age": 75,
     "comorbidities": 2,
     "adl": 5
-  } as Clinical_frailty_scale_calculatorInput;
+  } as unknown as Clinical_frailty_scale_calculatorInput;
     const result = calculateClinical_frailty_scale_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

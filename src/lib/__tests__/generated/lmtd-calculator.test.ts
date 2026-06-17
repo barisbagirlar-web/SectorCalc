@@ -13,7 +13,7 @@ describe("lmtd-calculator", () => {
     "tcIn": 30,
     "tcOut": 50,
     "flowType": 1
-  } as Lmtd_calculatorInput;
+  } as unknown as Lmtd_calculatorInput;
     const result = calculateLmtd_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

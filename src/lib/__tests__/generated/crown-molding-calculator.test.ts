@@ -12,7 +12,7 @@ describe("crown-molding-calculator", () => {
     "cornerAngle": 90,
     "wallLength": 10,
     "wasteFactor": 10
-  } as Crown_molding_calculatorInput;
+  } as unknown as Crown_molding_calculatorInput;
     const result = calculateCrown_molding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("ramp-test-calculator", () => {
     "endValue": 10,
     "rampTime": 1,
     "numSteps": 100
-  } as Ramp_test_calculatorInput;
+  } as unknown as Ramp_test_calculatorInput;
     const result = calculateRamp_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

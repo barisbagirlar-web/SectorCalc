@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Direct College Cost",
         "tr": "Toplam Doğrudan Üniversite Maliyeti",
-        "de": "Total Direct College Cost",
+        "de": "Gesamte direkte Studienkosten",
         "fr": "Total Direct College Cost",
         "es": "Total Direct College Cost",
         "ar": "Total Direct College Cost"
       },
       "businessContext_i18n": {
         "en": "Total direct costs of college: tuition, fees, books, and living expenses (not including foregone earnings).",
-        "tr": "Üniversitenin toplam doğrudan maliyetleri: harç, ücretler, kitaplar ve yaşam giderleri (vazgeçilen kazançlar hariç)."
+        "tr": "Üniversitenin toplam doğrudan maliyetleri: harç, ücretler, kitaplar ve yaşam giderleri (vazgeçilen kazançlar hariç).",
+        "de": "Gesamte direkte Studienkosten: Studiengebühren, Bücher und Lebenshaltungskosten (ohne entgangene Einkünfte)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Years in College",
         "tr": "Üniversite Yılı Sayısı",
-        "de": "Years in College",
+        "de": "Jahre im College",
         "fr": "Years in College",
         "es": "Years in College",
         "ar": "Years in College"
       },
       "businessContext_i18n": {
         "en": "Duration of the college program.",
-        "tr": "Üniversite programının süresi."
+        "tr": "Üniversite programının süresi.",
+        "de": "Dauer des Studiengangs."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Expected Annual Salary After College",
         "tr": "Üniversite Sonrası Beklenen Yıllık Maaş",
-        "de": "Expected Annual Salary After College",
+        "de": "Erwartetes Jahresgehalt nach dem Studium",
         "fr": "Expected Annual Salary After College",
         "es": "Expected Annual Salary After College",
         "ar": "Expected Annual Salary After College"
       },
       "businessContext_i18n": {
         "en": "Annual salary you expect to earn after graduation, in today's dollars.",
-        "tr": "Mezuniyetten sonra kazanmayı beklediğiniz yıllık maaş, bugünün doları cinsinden."
+        "tr": "Mezuniyetten sonra kazanmayı beklediğiniz yıllık maaş, bugünün doları cinsinden.",
+        "de": "Jahresgehalt, das Sie nach dem Abschluss voraussichtlich verdienen werden, in heutigen Dollar."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Annual Salary Without College",
         "tr": "Üniversitesiz Yıllık Maaş",
-        "de": "Annual Salary Without College",
+        "de": "Jahresgehalt ohne Studium",
         "fr": "Annual Salary Without College",
         "es": "Annual Salary Without College",
         "ar": "Annual Salary Without College"
       },
       "businessContext_i18n": {
         "en": "Annual salary you would earn if you didn't attend college.",
-        "tr": "Üniversiteye gitmeseydiniz kazanacağınız yıllık maaş."
+        "tr": "Üniversiteye gitmeseydiniz kazanacağınız yıllık maaş.",
+        "de": "Jahresgehalt, das Sie ohne Studium verdienen würden."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Working Years",
         "tr": "Çalışma Yılı",
-        "de": "Working Years",
+        "de": "Berufsjahre",
         "fr": "Working Years",
         "es": "Working Years",
         "ar": "Working Years"
       },
       "businessContext_i18n": {
         "en": "Number of years you expect to work after graduation (or from now).",
-        "tr": "Mezuniyetten sonra (veya şu andan itibaren) çalışmayı beklediğiniz yıl sayısı."
+        "tr": "Mezuniyetten sonra (veya şu andan itibaren) çalışmayı beklediğiniz yıl sayısı.",
+        "de": "Anzahl der Jahre, die Sie nach dem Abschluss (oder ab jetzt) voraussichtlich arbeiten werden."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Annual Discount Rate",
         "tr": "Yıllık İskonto Oranı",
-        "de": "Annual Discount Rate",
+        "de": "Jährlicher Diskontsatz",
         "fr": "Annual Discount Rate",
         "es": "Annual Discount Rate",
         "ar": "Annual Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Rate used to discount future cash flows to present value (e.g., inflation, required return). Must be greater than zero.",
-        "tr": "Gelecekteki nakit akışlarını bugünkü değere indirgemek için kullanılan oran (örneğin, enflasyon, gerekli getiri). Sıfırdan büyük olmalıdır."
+        "tr": "Gelecekteki nakit akışlarını bugünkü değere indirgemek için kullanılan oran (örneğin, enflasyon, gerekli getiri). Sıfırdan büyük olmalıdır.",
+        "de": "Abzinsungssatz für die Diskontierung zukünftiger Zahlungsströme auf den Barwert (z. B. Inflation, erforderliche Rendite). Muss größer als Null sein."
       }
     }
   ],

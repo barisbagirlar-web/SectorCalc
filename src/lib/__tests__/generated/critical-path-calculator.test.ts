@@ -13,7 +13,7 @@ describe("critical-path-calculator", () => {
     "durationC": 1,
     "durationD": 1,
     "durationE": 1
-  } as Critical_path_calculatorInput;
+  } as unknown as Critical_path_calculatorInput;
     const result = calculateCritical_path_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

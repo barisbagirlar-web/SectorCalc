@@ -12,7 +12,7 @@ describe("operating-leverage-calculator", () => {
     "pricePerUnit": 50,
     "variableCostPerUnit": 30,
     "fixedCosts": 10000
-  } as Operating_leverage_calculatorInput;
+  } as unknown as Operating_leverage_calculatorInput;
     const result = calculateOperating_leverage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

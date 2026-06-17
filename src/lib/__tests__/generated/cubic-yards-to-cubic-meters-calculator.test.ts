@@ -14,7 +14,7 @@ describe("cubic-yards-to-cubic-meters-calculator", () => {
     "cubicYards": 0,
     "decimalPlaces": 2,
     "conversionConstant": 0.764554857992
-  } as Cubic_yards_to_cubic_meters_calculatorInput;
+  } as unknown as Cubic_yards_to_cubic_meters_calculatorInput;
     const result = calculateCubic_yards_to_cubic_meters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("property-tax-calculator", () => {
     "millRate": 20,
     "exemptionAmount": 0,
     "additionalFees": 0
-  } as Property_tax_calculatorInput;
+  } as unknown as Property_tax_calculatorInput;
     const result = calculateProperty_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

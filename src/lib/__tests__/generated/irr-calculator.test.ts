@@ -15,7 +15,7 @@ describe("irr-calculator", () => {
     "year4": 500,
     "year5": 400,
     "guess": 10
-  } as Irr_calculatorInput;
+  } as unknown as Irr_calculatorInput;
     const result = calculateIrr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

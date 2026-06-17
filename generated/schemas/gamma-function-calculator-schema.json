@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "x (real number)",
         "tr": "x (gerçel sayı)",
-        "de": "x (real number)",
+        "de": "x (reelle Zahl)",
         "fr": "x (real number)",
         "es": "x (real number)",
         "ar": "x (real number)"
       },
       "businessContext_i18n": {
         "en": "Input value for which the Gamma function is evaluated. For positive integers, Gamma(n) = (n-1)!.",
-        "tr": "Gama fonksiyonunun değerlendirileceği girdi değeri. Pozitif tam sayılar için Gamma(n) = (n-1)!."
+        "tr": "Gama fonksiyonunun değerlendirileceği girdi değeri. Pozitif tam sayılar için Gamma(n) = (n-1)!.",
+        "de": "Eingabewert, für den die Gammafunktion ausgewertet wird. Für positive ganze Zahlen gilt Gamma(n) = (n-1)!."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Tolerance",
         "tr": "Tolerans",
-        "de": "Tolerance",
+        "de": "Toleranz",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Convergence tolerance for the Lanczos approximation series.",
-        "tr": "Lanczos yaklaşım serisi için yakınsama toleransı."
+        "tr": "Lanczos yaklaşım serisi için yakınsama toleransı.",
+        "de": "Konvergenztoleranz für die Lanczos-Näherungsreihe."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Max Iterations",
         "tr": "Maksimum İterasyon",
-        "de": "Max Iterations",
+        "de": "Maximale Iterationen",
         "fr": "Max Iterations",
         "es": "Max Iterations",
         "ar": "Max Iterations"
       },
       "businessContext_i18n": {
         "en": "Maximum number of iterations for the series summation.",
-        "tr": "Seri toplamı için maksimum iterasyon sayısı."
+        "tr": "Seri toplamı için maksimum iterasyon sayısı.",
+        "de": "Maximale Anzahl von Iterationen für die Reihensummation."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Use Stirling Approximation (0/1)",
         "tr": "Stirling Yaklaşımını Kullan (0/1)",
-        "de": "Use Stirling Approximation (0/1)",
+        "de": "Stirling-Näherung verwenden (0/1)",
         "fr": "Use Stirling Approximation (0/1)",
         "es": "Use Stirling Approximation (0/1)",
         "ar": "Use Stirling Approximation (0/1)"
       },
       "businessContext_i18n": {
         "en": "If set to 1, use Stirling's approximation for large x (x > 10) for faster computation.",
-        "tr": "1 olarak ayarlanırsa, büyük x (x > 10) için daha hızlı hesaplama amacıyla Stirling yaklaşımı kullanılır."
+        "tr": "1 olarak ayarlanırsa, büyük x (x > 10) için daha hızlı hesaplama amacıyla Stirling yaklaşımı kullanılır.",
+        "de": "Wenn auf 1 gesetzt, wird für große x (x > 10) die Stirling-Näherung für schnellere Berechnung verwendet."
       }
     }
   ],

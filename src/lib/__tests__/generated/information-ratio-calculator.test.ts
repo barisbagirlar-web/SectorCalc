@@ -12,7 +12,7 @@ describe("information-ratio-calculator", () => {
     "benchmarkReturn": 8,
     "trackingError": 5,
     "periodsPerYear": 12
-  } as Information_ratio_calculatorInput;
+  } as unknown as Information_ratio_calculatorInput;
     const result = calculateInformation_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

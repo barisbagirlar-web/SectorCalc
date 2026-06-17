@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Applied Stress",
         "tr": "Uygulanan Gerilme",
-        "de": "Applied Stress",
+        "de": "Angewandte Spannung",
         "fr": "Applied Stress",
         "es": "Applied Stress",
         "ar": "Applied Stress"
       },
       "businessContext_i18n": {
         "en": "The sustained mechanical stress acting on the material, in megapascals.",
-        "tr": "Malzemeye etki eden sürekli mekanik gerilme, megapaskal cinsinden."
+        "tr": "Malzemeye etki eden sürekli mekanik gerilme, megapaskal cinsinden.",
+        "de": "Die anhaltende mechanische Spannung, die auf das Material wirkt, in Megapascal."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
-        "de": "Temperature",
+        "de": "Temperatur",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Absolute operating temperature of the component in Kelvin.",
-        "tr": "Bileşenin mutlak çalışma sıcaklığı, Kelvin cinsinden."
+        "tr": "Bileşenin mutlak çalışma sıcaklığı, Kelvin cinsinden.",
+        "de": "Absolute Betriebstemperatur des Bauteils in Kelvin."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Material Constant A",
         "tr": "Malzeme Sabiti A",
-        "de": "Material Constant A",
+        "de": "Materialkonstante A",
         "fr": "Material Constant A",
         "es": "Material Constant A",
         "ar": "Material Constant A"
       },
       "businessContext_i18n": {
         "en": "Pre‑exponential factor, a material‑dependent strength parameter (units: MPa⁻ⁿ s⁻¹).",
-        "tr": "Üstel öncesi faktör, malzemeye bağlı bir dayanım parametresi (birim: MPa⁻ⁿ s⁻¹)."
+        "tr": "Üstel öncesi faktör, malzemeye bağlı bir dayanım parametresi (birim: MPa⁻ⁿ s⁻¹).",
+        "de": "Präexponentialfaktor, ein materialabhängiger Festigkeitsparameter (Einheiten: MPa⁻ⁿ s⁻¹)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Stress Exponent",
         "tr": "Gerilme Üssü",
-        "de": "Stress Exponent",
+        "de": "Spannungsexponent",
         "fr": "Stress Exponent",
         "es": "Stress Exponent",
         "ar": "Stress Exponent"
       },
       "businessContext_i18n": {
         "en": "Dimensionless exponent describing the stress sensitivity of the creep rate (typically 3–8 for metals).",
-        "tr": "Sürünme hızının gerilme duyarlılığını tanımlayan boyutsuz üs (metaller için tipik olarak 3–8)."
+        "tr": "Sürünme hızının gerilme duyarlılığını tanımlayan boyutsuz üs (metaller için tipik olarak 3–8).",
+        "de": "Dimensionsloser Exponent, der die Spannungsempfindlichkeit der Kriechrate beschreibt (typischerweise 3–8 für Metalle)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Activation Energy",
         "tr": "Aktivasyon Enerjisi",
-        "de": "Activation Energy",
+        "de": "Aktivierungsenergie",
         "fr": "Activation Energy",
         "es": "Activation Energy",
         "ar": "Activation Energy"
       },
       "businessContext_i18n": {
         "en": "Activation energy for creep deformation, material property in joules per mole.",
-        "tr": "Sürünme deformasyonu için aktivasyon enerjisi, malzeme özelliği, joule/mol cinsinden."
+        "tr": "Sürünme deformasyonu için aktivasyon enerjisi, malzeme özelliği, joule/mol cinsinden.",
+        "de": "Aktivierungsenergie für Kriechverformung, Materialeigenschaft in Joule pro Mol."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Gas Constant",
         "tr": "Gaz Sabiti",
-        "de": "Gas Constant",
+        "de": "Gaskonstante",
         "fr": "Gas Constant",
         "es": "Gas Constant",
         "ar": "Gas Constant"
       },
       "businessContext_i18n": {
         "en": "Universal gas constant; may be adjusted for different unit systems.",
-        "tr": "Evrensel gaz sabiti; farklı birim sistemleri için ayarlanabilir."
+        "tr": "Evrensel gaz sabiti; farklı birim sistemleri için ayarlanabilir.",
+        "de": "Universelle Gaskonstante; kann für verschiedene Einheitensysteme angepasst werden."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("ihd-calculator", () => {
     "actualProduction": 0,
     "goodParts": 0,
     "totalParts": 0
-  } as Ihd_calculatorInput;
+  } as unknown as Ihd_calculatorInput;
     const result = calculateIhd_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

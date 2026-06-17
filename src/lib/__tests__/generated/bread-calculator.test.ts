@@ -14,7 +14,7 @@ describe("bread-calculator", () => {
     "salt": 2,
     "sugar": 5,
     "fat": 2
-  } as Bread_calculatorInput;
+  } as unknown as Bread_calculatorInput;
     const result = calculateBread_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

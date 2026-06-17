@@ -14,7 +14,7 @@ describe("brewsters-angle-calculator", () => {
     "temp_coefficient": 0.0001,
     "reference_temp": 20,
     "angle_unit": 0
-  } as Brewsters_angle_calculatorInput;
+  } as unknown as Brewsters_angle_calculatorInput;
     const result = calculateBrewsters_angle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

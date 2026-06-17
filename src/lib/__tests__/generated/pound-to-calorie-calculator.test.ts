@@ -12,7 +12,7 @@ describe("pound-to-calorie-calculator", () => {
     "caloriesPerPound": 3500,
     "includeKilojoules": 0,
     "roundingPrecision": 0
-  } as Pound_to_calorie_calculatorInput;
+  } as unknown as Pound_to_calorie_calculatorInput;
     const result = calculatePound_to_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

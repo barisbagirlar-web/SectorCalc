@@ -12,7 +12,7 @@ describe("three-phase-calculator", () => {
     "current": 10,
     "powerFactor": 0.85,
     "voltageType": 1
-  } as Three_phase_calculatorInput;
+  } as unknown as Three_phase_calculatorInput;
     const result = calculateThree_phase_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

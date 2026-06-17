@@ -14,7 +14,7 @@ describe("rv-loan-calculator", () => {
     "annualInterestRate": 5.5,
     "loanTerm": 60,
     "salesTaxRate": 8
-  } as Rv_loan_calculatorInput;
+  } as unknown as Rv_loan_calculatorInput;
     const result = calculateRv_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

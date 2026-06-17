@@ -12,7 +12,7 @@ describe("lift-force-calculator", () => {
     "velocity": 100,
     "area": 20,
     "liftCoefficient": 1
-  } as Lift_force_calculatorInput;
+  } as unknown as Lift_force_calculatorInput;
     const result = calculateLift_force_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

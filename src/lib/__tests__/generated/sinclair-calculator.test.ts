@@ -12,7 +12,7 @@ describe("sinclair-calculator", () => {
     "totalLifted": 200,
     "coefficientA": 0.722762521,
     "coefficientB": 193.609
-  } as Sinclair_calculatorInput;
+  } as unknown as Sinclair_calculatorInput;
     const result = calculateSinclair_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("holiday-budget-calculator", () => {
     "hotelCostPerNight": 150,
     "dailyFoodBudgetPerPerson": 50,
     "dailyActivityBudgetPerPerson": 30
-  } as Holiday_budget_calculatorInput;
+  } as unknown as Holiday_budget_calculatorInput;
     const result = calculateHoliday_budget_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

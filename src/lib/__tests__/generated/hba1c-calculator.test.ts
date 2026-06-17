@@ -12,7 +12,7 @@ describe("hba1c-calculator", () => {
     "unit": 0,
     "confidence": 95,
     "measurementUncertainty": 5
-  } as Hba1c_calculatorInput;
+  } as unknown as Hba1c_calculatorInput;
     const result = calculateHba1c_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

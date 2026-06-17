@@ -16,7 +16,7 @@ describe("tankless-water-heater-calculator", () => {
     "usageTime": 2,
     "daysPerMonth": 30,
     "specificHeat": 4.186
-  } as Tankless_water_heater_calculatorInput;
+  } as unknown as Tankless_water_heater_calculatorInput;
     const result = calculateTankless_water_heater_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

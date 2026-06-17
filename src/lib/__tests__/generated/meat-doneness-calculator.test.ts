@@ -14,7 +14,7 @@ describe("meat-doneness-calculator", () => {
     "starting-temp": 20,
     "thickness": 5,
     "shape-factor": 1
-  } as Meat_doneness_calculatorInput;
+  } as unknown as Meat_doneness_calculatorInput;
     const result = calculateMeat_doneness_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

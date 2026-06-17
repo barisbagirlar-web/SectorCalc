@@ -14,7 +14,7 @@ describe("joist-span-calculator", () => {
     "live_load": 40,
     "dead_load": 10,
     "fb": 1000
-  } as Joist_span_calculatorInput;
+  } as unknown as Joist_span_calculatorInput;
     const result = calculateJoist_span_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

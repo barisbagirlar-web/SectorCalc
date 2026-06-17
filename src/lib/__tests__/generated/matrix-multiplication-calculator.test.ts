@@ -16,7 +16,7 @@ describe("matrix-multiplication-calculator", () => {
     "b12": 0,
     "b21": 0,
     "b22": 0
-  } as Matrix_multiplication_calculatorInput;
+  } as unknown as Matrix_multiplication_calculatorInput;
     const result = calculateMatrix_multiplication_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("fitness-age-calculator", () => {
     "restingHeartRate": 70,
     "gender": 0,
     "maxHeartRate": 0
-  } as Fitness_age_calculatorInput;
+  } as unknown as Fitness_age_calculatorInput;
     const result = calculateFitness_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

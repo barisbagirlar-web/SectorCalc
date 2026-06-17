@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Current age of the dog in complete months.",
-        "tr": "Köpeğin tam ay cinsinden mevcut yaşı."
+        "tr": "Köpeğin tam ay cinsinden mevcut yaşı.",
+        "de": "Aktuelles Alter des Hundes in vollendeten Monaten."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
-        "de": "Current Weight",
+        "de": "Aktuelles Gewicht",
         "fr": "Current Weight",
         "es": "Current Weight",
         "ar": "Current Weight"
       },
       "businessContext_i18n": {
         "en": "Current body weight of the dog in kilograms.",
-        "tr": "Köpeğin kilogram cinsinden mevcut vücut ağırlığı."
+        "tr": "Köpeğin kilogram cinsinden mevcut vücut ağırlığı.",
+        "de": "Aktuelles Körpergewicht des Hundes in Kilogramm."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Growth Rate Factor",
         "tr": "Büyüme Hızı Faktörü",
-        "de": "Growth Rate Factor",
+        "de": "Wachstumsratenfaktor",
         "fr": "Growth Rate Factor",
         "es": "Growth Rate Factor",
         "ar": "Growth Rate Factor"
       },
       "businessContext_i18n": {
         "en": "Breed-specific exponential growth rate (k). Small breeds ≈ 0.3, Medium ≈ 0.2, Large ≈ 0.15, Giant ≈ 0.1.",
-        "tr": "Irka özgü üstel büyüme hızı (k). Küçük ırklar ≈ 0.3, Orta ≈ 0.2, Büyük ≈ 0.15, Dev ≈ 0.1."
+        "tr": "Irka özgü üstel büyüme hızı (k). Küçük ırklar ≈ 0.3, Orta ≈ 0.2, Büyük ≈ 0.15, Dev ≈ 0.1.",
+        "de": "Rassenspezifische exponentielle Wachstumsrate (k). Kleine Rassen ≈ 0,3, Mittel ≈ 0,2, Groß ≈ 0,15, Riesen ≈ 0,1."
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Veterinary body condition score on a 9-point scale (1 = emaciated, 5 = ideal, 9 = obese).",
-        "tr": "Veteriner vücut kondisyon skoru 9 puanlık ölçekte (1 = zayıf, 5 = ideal, 9 = obez)."
+        "tr": "Veteriner vücut kondisyon skoru 9 puanlık ölçekte (1 = zayıf, 5 = ideal, 9 = obez).",
+        "de": "Veterinärmedizinischer Body Condition Score auf einer 9-Punkte-Skala (1 = abgemagert, 5 = ideal, 9 = fettleibig)."
       }
     }
   ],

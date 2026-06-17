@@ -12,7 +12,7 @@ describe("npr-calculator", () => {
     "r": 3,
     "decimalPlaces": 0,
     "maxResultCap": 1000000000000000
-  } as Npr_calculatorInput;
+  } as unknown as Npr_calculatorInput;
     const result = calculateNpr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

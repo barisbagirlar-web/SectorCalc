@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Wire Diameter",
         "tr": "Tel Çapı",
-        "de": "Wire Diameter",
+        "de": "Drahtdurchmesser",
         "fr": "Wire Diameter",
         "es": "Wire Diameter",
         "ar": "Wire Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the spring wire",
-        "tr": "Yay telinin çapı"
+        "tr": "Yay telinin çapı",
+        "de": "Durchmesser des Federdrahts"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Mean Coil Diameter",
         "tr": "Ortalama bobin çapı",
-        "de": "Mean Coil Diameter",
+        "de": "Mittlerer Windungsdurchmesser",
         "fr": "Mean Coil Diameter",
         "es": "Mean Coil Diameter",
         "ar": "Mean Coil Diameter"
       },
       "businessContext_i18n": {
         "en": "Average diameter of the coil",
-        "tr": "Bobinin ortalama çapı"
+        "tr": "Bobinin ortalama çapı",
+        "de": "Mittlerer Durchmesser der Windung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Active Coils",
         "tr": "Aktif bobin sayısı",
-        "de": "Number of Active Coils",
+        "de": "Anzahl der aktiven Windungen",
         "fr": "Number of Active Coils",
         "es": "Number of Active Coils",
         "ar": "Number of Active Coils"
       },
       "businessContext_i18n": {
         "en": "Number of coils contributing to spring deflection",
-        "tr": "Yay deformasyonuna katkıda bulunan bobin sayısı"
+        "tr": "Yay deformasyonuna katkıda bulunan bobin sayısı",
+        "de": "Anzahl der Windungen, die zur Federdurchbiegung beitragen"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Shear Modulus",
         "tr": "Kayma modülü",
-        "de": "Shear Modulus",
+        "de": "Schubmodul",
         "fr": "Shear Modulus",
         "es": "Shear Modulus",
         "ar": "Shear Modulus"
       },
       "businessContext_i18n": {
         "en": "Material shear modulus (e.g., steel ~80000 N/mm²)",
-        "tr": "Malzeme kayma modülü (örneğin çelik ~80000 N/mm²)"
+        "tr": "Malzeme kayma modülü (örneğin çelik ~80000 N/mm²)",
+        "de": "Schubmodul des Materials (z. B. Stahl ~80000 N/mm²)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Applied Load",
         "tr": "Uygulanan Yük",
-        "de": "Applied Load",
+        "de": "Aufgebrachte Last",
         "fr": "Applied Load",
         "es": "Applied Load",
         "ar": "Applied Load"
       },
       "businessContext_i18n": {
         "en": "Maximum working force applied to the spring",
-        "tr": "Yaya uygulanan maksimum çalışma kuvveti"
+        "tr": "Yaya uygulanan maksimum çalışma kuvveti",
+        "de": "Maximale Betriebskraft auf die Feder"
       }
     }
   ],

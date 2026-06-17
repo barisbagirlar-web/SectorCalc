@@ -12,7 +12,7 @@ describe("yagi-calculator", () => {
     "numElements": 3,
     "velocityFactor": 0.95,
     "spacingFactor": 0.2
-  } as Yagi_calculatorInput;
+  } as unknown as Yagi_calculatorInput;
     const result = calculateYagi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("smoking-calculator", () => {
     "costPerPack": 30,
     "yearsSmoking": 10,
     "packSize": 20
-  } as Smoking_calculatorInput;
+  } as unknown as Smoking_calculatorInput;
     const result = calculateSmoking_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

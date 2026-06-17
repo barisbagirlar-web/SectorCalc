@@ -12,7 +12,7 @@ describe("ftp-calculator", () => {
     "averagePower": 200,
     "weight": 70,
     "ambientTemperature": 20
-  } as Ftp_calculatorInput;
+  } as unknown as Ftp_calculatorInput;
     const result = calculateFtp_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

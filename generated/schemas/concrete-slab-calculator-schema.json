@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Length (m)",
         "tr": "Uzunluk (m)",
-        "de": "Length (m)",
+        "de": "Länge (m)",
         "fr": "Length (m)",
         "es": "Length (m)",
         "ar": "Length (m)"
       },
       "businessContext_i18n": {
         "en": "Slab length in meters",
-        "tr": "Döşeme uzunluğu (metre)"
+        "tr": "Döşeme uzunluğu (metre)",
+        "de": "Plattenlänge in Metern"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Width (m)",
         "tr": "Genişlik (m)",
-        "de": "Width (m)",
+        "de": "Breite (m)",
         "fr": "Width (m)",
         "es": "Width (m)",
         "ar": "Width (m)"
       },
       "businessContext_i18n": {
         "en": "Slab width in meters",
-        "tr": "Döşeme genişliği (metre)"
+        "tr": "Döşeme genişliği (metre)",
+        "de": "Plattenbreite in Metern"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Thickness (m)",
         "tr": "Kalınlık (m)",
-        "de": "Thickness (m)",
+        "de": "Dicke (m)",
         "fr": "Thickness (m)",
         "es": "Thickness (m)",
         "ar": "Thickness (m)"
       },
       "businessContext_i18n": {
         "en": "Slab thickness in meters (e.g., 0.2 for 20 cm)",
-        "tr": "Döşeme kalınlığı metre cinsinden (ör. 20 cm için 0.2)"
+        "tr": "Döşeme kalınlığı metre cinsinden (ör. 20 cm için 0.2)",
+        "de": "Plattendicke in Metern (z. B. 0,2 für 20 cm)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Concrete Density",
         "tr": "Beton Yoğunluğu",
-        "de": "Concrete Density",
+        "de": "Betondichte",
         "fr": "Concrete Density",
         "es": "Concrete Density",
         "ar": "Concrete Density"
       },
       "businessContext_i18n": {
         "en": "Density of concrete (kg/m³). Standard reinforced concrete: 2400",
-        "tr": "Beton yoğunluğu (kg/m³). Standart betonarme: 2400"
+        "tr": "Beton yoğunluğu (kg/m³). Standart betonarme: 2400",
+        "de": "Dichte des Betons (kg/m³). Standard-Stahlbeton: 2400"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
-        "de": "Waste Factor",
+        "de": "Abfallfaktor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage waste factor (typically 5-10%)",
-        "tr": "Yüzde fire faktörü (tipik olarak %5-10)"
+        "tr": "Yüzde fire faktörü (tipik olarak %5-10)",
+        "de": "Prozentsatz Abfallfaktor (typischerweise 5-10%)"
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("lose-it-app-calculator", () => {
     "gender": 0,
     "activityLevel": 1.2,
     "weightGoal": -0.5
-  } as Lose_it_app_calculatorInput;
+  } as unknown as Lose_it_app_calculatorInput;
     const result = calculateLose_it_app_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

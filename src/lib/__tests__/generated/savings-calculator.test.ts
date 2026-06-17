@@ -12,7 +12,7 @@ describe("savings-calculator", () => {
     "monthlyContribution": 100,
     "annualInterestRate": 5,
     "years": 10
-  } as Savings_calculatorInput;
+  } as unknown as Savings_calculatorInput;
     const result = calculateSavings_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

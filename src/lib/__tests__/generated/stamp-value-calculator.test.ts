@@ -13,7 +13,7 @@ describe("stamp-value-calculator", () => {
     "fixedFee": 0,
     "exemptionThreshold": 0,
     "quantity": 1
-  } as Stamp_value_calculatorInput;
+  } as unknown as Stamp_value_calculatorInput;
     const result = calculateStamp_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

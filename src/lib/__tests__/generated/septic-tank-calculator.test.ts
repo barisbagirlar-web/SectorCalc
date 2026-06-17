@@ -13,7 +13,7 @@ describe("septic-tank-calculator", () => {
     "retentionTimeDays": 2,
     "sludgeAccumulationRate": 70,
     "desludgingIntervalYears": 3
-  } as Septic_tank_calculatorInput;
+  } as unknown as Septic_tank_calculatorInput;
     const result = calculateSeptic_tank_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

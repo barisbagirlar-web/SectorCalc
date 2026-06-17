@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Nominal Annual Rate",
         "tr": "Nominal Yıllık Faiz Oranı",
-        "de": "Nominal Annual Rate",
+        "de": "Nominaler Jahreszins",
         "fr": "Nominal Annual Rate",
         "es": "Nominal Annual Rate",
         "ar": "Nominal Annual Rate"
       },
       "businessContext_i18n": {
         "en": "The stated annual interest rate before compounding.",
-        "tr": "Bileşik faiz öncesi belirtilen yıllık faiz oranı."
+        "tr": "Bileşik faiz öncesi belirtilen yıllık faiz oranı.",
+        "de": "Der angegebene jährliche Zinssatz vor Zinseszins."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Compounding Periods per Year",
         "tr": "Yıllık Bileşik Dönem Sayısı",
-        "de": "Compounding Periods per Year",
+        "de": "Zinsperioden pro Jahr",
         "fr": "Compounding Periods per Year",
         "es": "Compounding Periods per Year",
         "ar": "Compounding Periods per Year"
       },
       "businessContext_i18n": {
         "en": "Number of times interest is compounded annually.",
-        "tr": "Yıllık bileşik faiz dönemi sayısı."
+        "tr": "Yıllık bileşik faiz dönemi sayısı.",
+        "de": "Anzahl der Zinseszinsperioden pro Jahr."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Time Period",
         "tr": "Zaman Periyodu",
-        "de": "Time Period",
+        "de": "Zeitraum",
         "fr": "Time Period",
         "es": "Time Period",
         "ar": "Time Period"
       },
       "businessContext_i18n": {
         "en": "Investment duration in years for growth factor computation.",
-        "tr": "Büyüme faktörü hesaplaması için yatırım süresi (yıl)."
+        "tr": "Büyüme faktörü hesaplaması için yatırım süresi (yıl).",
+        "de": "Anlagedauer in Jahren für die Berechnung des Wachstumsfaktors."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Principal Amount",
         "tr": "Anapara Tutarı",
-        "de": "Principal Amount",
+        "de": "Kapitalbetrag",
         "fr": "Principal Amount",
         "es": "Principal Amount",
         "ar": "Principal Amount"
       },
       "businessContext_i18n": {
         "en": "Initial investment amount (use 1 for factor-only calculations).",
-        "tr": "Başlangıç yatırım tutarı (sadece faktör hesaplamaları için 1 kullanın)."
+        "tr": "Başlangıç yatırım tutarı (sadece faktör hesaplamaları için 1 kullanın).",
+        "de": "Anfänglicher Anlagebetrag (für reine Faktorberechnungen 1 verwenden)."
       }
     }
   ],

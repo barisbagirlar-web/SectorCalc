@@ -16,7 +16,7 @@ describe("limiting-reagent-calculator", () => {
     "reactant2Coefficient": 1,
     "productCoefficient": 1,
     "productMolarMass": 0
-  } as Limiting_reagent_calculatorInput;
+  } as unknown as Limiting_reagent_calculatorInput;
     const result = calculateLimiting_reagent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

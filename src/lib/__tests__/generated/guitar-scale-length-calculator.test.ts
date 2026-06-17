@@ -13,7 +13,7 @@ describe("guitar-scale-length-calculator", () => {
     "fretNumber": 12,
     "stringGauge": 0.01,
     "tuningFrequency": 329.63
-  } as Guitar_scale_length_calculatorInput;
+  } as unknown as Guitar_scale_length_calculatorInput;
     const result = calculateGuitar_scale_length_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

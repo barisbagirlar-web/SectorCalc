@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Consultant Daily Rate",
         "tr": "Danışman Günlük Ücreti",
-        "de": "Consultant Daily Rate",
+        "de": "Tageshonorar des Beraters",
         "fr": "Consultant Daily Rate",
         "es": "Consultant Daily Rate",
         "ar": "Consultant Daily Rate"
       },
       "businessContext_i18n": {
         "en": "The base daily rate charged by the consultant.",
-        "tr": "Danışman tarafından talep edilen temel günlük ücret."
+        "tr": "Danışman tarafından talep edilen temel günlük ücret.",
+        "de": "Der vom Berater berechnete tägliche Basissatz."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Overhead Percentage",
         "tr": "Genel Gider Yüzdesi",
-        "de": "Overhead Percentage",
+        "de": "Gemeinkostenprozentsatz",
         "fr": "Overhead Percentage",
         "es": "Overhead Percentage",
         "ar": "Overhead Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage added to cover administrative and operational overhead costs.",
-        "tr": "İdari ve operasyonel genel gider maliyetlerini karşılamak için eklenen yüzde."
+        "tr": "İdari ve operasyonel genel gider maliyetlerini karşılamak için eklenen yüzde.",
+        "de": "Prozentsatz zur Deckung der administrativen und betrieblichen Gemeinkosten."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Profit Margin Percentage",
         "tr": "Kâr Marjı Yüzdesi",
-        "de": "Profit Margin Percentage",
+        "de": "Gewinnmargenprozentsatz",
         "fr": "Profit Margin Percentage",
         "es": "Profit Margin Percentage",
         "ar": "Profit Margin Percentage"
       },
       "businessContext_i18n": {
         "en": "Target net profit margin desired on top of all costs.",
-        "tr": "Tüm maliyetlerin üzerinde hedeflenen net kâr marjı."
+        "tr": "Tüm maliyetlerin üzerinde hedeflenen net kâr marjı.",
+        "de": "Angestrebte Nettogewinnmarge auf alle Kosten."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Days Worked",
         "tr": "Çalışılan Gün Sayısı",
-        "de": "Days Worked",
+        "de": "Arbeitstage",
         "fr": "Days Worked",
         "es": "Days Worked",
         "ar": "Days Worked"
       },
       "businessContext_i18n": {
         "en": "Total number of working days for the consulting engagement.",
-        "tr": "Danışmanlık sözleşmesi için toplam çalışma günü sayısı."
+        "tr": "Danışmanlık sözleşmesi için toplam çalışma günü sayısı.",
+        "de": "Gesamtzahl der Arbeitstage für das Beratungsprojekt."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Additional Expenses",
         "tr": "Ek Giderler",
-        "de": "Additional Expenses",
+        "de": "Zusätzliche Ausgaben",
         "fr": "Additional Expenses",
         "es": "Additional Expenses",
         "ar": "Additional Expenses"
       },
       "businessContext_i18n": {
         "en": "Any extra reimbursable expenses such as travel, accommodation, or materials.",
-        "tr": "Seyahat, konaklama veya malzeme gibi geri ödenebilir ekstra masraflar."
+        "tr": "Seyahat, konaklama veya malzeme gibi geri ödenebilir ekstra masraflar.",
+        "de": "Zusätzliche erstattungsfähige Ausgaben wie Reise, Unterkunft oder Material."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
-        "de": "Tax Rate",
+        "de": "Steuersatz",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "VAT or other applicable consumption tax rate on the final invoice amount.",
-        "tr": "Nihai fatura tutarı üzerinden KDV veya uygulanabilir diğer tüketim vergisi oranı."
+        "tr": "Nihai fatura tutarı üzerinden KDV veya uygulanabilir diğer tüketim vergisi oranı.",
+        "de": "Mehrwertsteuer oder andere anwendbare Verbrauchssteuer auf den Rechnungsendbetrag."
       }
     }
   ],

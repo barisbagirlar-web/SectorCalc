@@ -13,7 +13,7 @@ describe("fahrenheit-to-kelvin-calculator", () => {
     "multiplyFactor": 0.5555555555555556,
     "addOffset": 273.15,
     "precision": 2
-  } as Fahrenheit_to_kelvin_calculatorInput;
+  } as unknown as Fahrenheit_to_kelvin_calculatorInput;
     const result = calculateFahrenheit_to_kelvin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("soil-volume-calculator", () => {
     "depth": 0.5,
     "density": 1.6,
     "compactionFactor": 1.2
-  } as Soil_volume_calculatorInput;
+  } as unknown as Soil_volume_calculatorInput;
     const result = calculateSoil_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

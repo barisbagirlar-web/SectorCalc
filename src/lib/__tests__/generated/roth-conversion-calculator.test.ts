@@ -14,7 +14,7 @@ describe("roth-conversion-calculator", () => {
     "expectedRetirementTaxRate": 24,
     "yearsToRetirement": 20,
     "annualReturnRate": 7
-  } as Roth_conversion_calculatorInput;
+  } as unknown as Roth_conversion_calculatorInput;
     const result = calculateRoth_conversion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("mini-mental-state-exam-calculator", () => {
     "attention": 0,
     "recall": 0,
     "language": 0
-  } as Mini_mental_state_exam_calculatorInput;
+  } as unknown as Mini_mental_state_exam_calculatorInput;
     const result = calculateMini_mental_state_exam_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

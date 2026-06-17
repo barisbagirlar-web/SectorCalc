@@ -45,12 +45,12 @@
     "inputPlaceholder": "What do you need to calculate?",
     "freeTagline": "Trace is free.",
     "freeTaglineLink": "Sign in for Pro insights.",
-    "welcome": "I am the engineering-quality synthesis of Anthropic's most advanced models — the Claude Fable and Mythos architectures. I examine the mathematical models behind your decisions with TÜV-standard rigor. Which scenario would you like me to analyze?",
-    "welcomePro": "I am the engineering-quality synthesis of Anthropic's most advanced models — the Claude Fable and Mythos architectures. I examine the mathematical models behind your decisions with TÜV-standard rigor. Which scenario would you like me to analyze?",
+    "welcome": "I'm Trace — SectorCalc's sector calculation assistant. I help you find the right calculator, explain inputs, and route you to verified tools. What do you need to calculate?",
+    "welcomePro": "I'm Trace Pro — SectorCalc's premium decision advisor. I interpret results, compare scenarios, and guide you across premium analyzers. What decision are you working on?",
     "intro": {
       "badge": "Trace AI",
       "title": "I am Trace.",
-      "description": "Far beyond a simple chat, I calculate the exact industry-specific losses. Powered by Anthropic's Fable and Mythos architectures, I operate with TÜV-level precision.\n\nWhich scenario shall we analyze?",
+      "description": "I route you to the right calculator from thousands of sector tools, explain inputs in plain language, and keep guidance traceable.\n\nWhat should we calculate today?",
       "feature1": "{count} free calculators — always free",
       "feature2": "{count} premium calculators — smart recommendations",
       "cta": "Start a conversation"
@@ -369,6 +369,7 @@
         "homepage": "Search sector, cost or technical calculations..."
       },
       "noResults": "No matching tools found.",
+      "showingLimited": "Showing {shown} of {total} calculators. Use sector filters or search to narrow the list.",
       "moreResults": "+ {count} more results",
       "badgeFree": "Free",
       "badgePremium": "Premium",

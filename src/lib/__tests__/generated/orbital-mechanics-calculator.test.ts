@@ -12,7 +12,7 @@ describe("orbital-mechanics-calculator", () => {
     "planetRadius": 6371,
     "eccentricity": 0,
     "mu": 398600
-  } as Orbital_mechanics_calculatorInput;
+  } as unknown as Orbital_mechanics_calculatorInput;
     const result = calculateOrbital_mechanics_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

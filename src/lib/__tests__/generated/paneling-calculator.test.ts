@@ -13,7 +13,7 @@ describe("paneling-calculator", () => {
     "panelWidth": 60,
     "panelHeight": 240,
     "wasteFactor": 10
-  } as Paneling_calculatorInput;
+  } as unknown as Paneling_calculatorInput;
     const result = calculatePaneling_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

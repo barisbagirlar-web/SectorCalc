@@ -11,7 +11,7 @@ describe("cone-surface-area-calculator", () => {
     "radius": 5,
     "height": 10,
     "auto_input_3": 1
-  } as Cone_surface_area_calculatorInput;
+  } as unknown as Cone_surface_area_calculatorInput;
     const result = calculateCone_surface_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

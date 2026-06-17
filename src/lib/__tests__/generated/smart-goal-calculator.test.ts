@@ -15,7 +15,7 @@ describe("smart-goal-calculator", () => {
     "costPerHour": 50,
     "initialInvestment": 1000,
     "expectedImprovementRate": 5
-  } as Smart_goal_calculatorInput;
+  } as unknown as Smart_goal_calculatorInput;
     const result = calculateSmart_goal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

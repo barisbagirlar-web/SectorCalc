@@ -13,7 +13,7 @@ describe("funnel-analysis-calculator", () => {
     "qualifiedLeads": 200,
     "opportunities": 100,
     "customers": 30
-  } as Funnel_analysis_calculatorInput;
+  } as unknown as Funnel_analysis_calculatorInput;
     const result = calculateFunnel_analysis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

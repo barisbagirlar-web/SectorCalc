@@ -13,7 +13,7 @@ describe("opportunity-zone-calculator", () => {
     "stateTaxRate": 5,
     "holdingYears": 10,
     "annualAppreciation": 7
-  } as Opportunity_zone_calculatorInput;
+  } as unknown as Opportunity_zone_calculatorInput;
     const result = calculateOpportunity_zone_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

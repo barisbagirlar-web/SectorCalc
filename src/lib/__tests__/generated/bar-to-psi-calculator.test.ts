@@ -14,7 +14,7 @@ describe("bar-to-psi-calculator", () => {
     "precision": 2,
     "conversionFactor": 14.503773773,
     "tempC": 20
-  } as Bar_to_psi_calculatorInput;
+  } as unknown as Bar_to_psi_calculatorInput;
     const result = calculateBar_to_psi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

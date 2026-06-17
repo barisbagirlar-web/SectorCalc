@@ -13,7 +13,7 @@ describe("battery-capacity-calculator", () => {
     "voltage": 12,
     "efficiency": 0.9,
     "depthOfDischarge": 0.8
-  } as Battery_capacity_calculatorInput;
+  } as unknown as Battery_capacity_calculatorInput;
     const result = calculateBattery_capacity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("stone-veneer-calculator", () => {
     "jointGap": 0.5,
     "wasteFactor": 10,
     "costPerSqFt": 10
-  } as Stone_veneer_calculatorInput;
+  } as unknown as Stone_veneer_calculatorInput;
     const result = calculateStone_veneer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

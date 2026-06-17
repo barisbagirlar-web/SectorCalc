@@ -11,7 +11,7 @@ describe("mohrs-circle-calculator", () => {
     "sigma_x": 0,
     "sigma_y": 0,
     "tau_xy": 0
-  } as Mohrs_circle_calculatorInput;
+  } as unknown as Mohrs_circle_calculatorInput;
     const result = calculateMohrs_circle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

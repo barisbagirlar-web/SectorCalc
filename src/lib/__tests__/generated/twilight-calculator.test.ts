@@ -13,7 +13,7 @@ describe("twilight-calculator", () => {
     "exponent": 2.2,
     "operating_hours": 12,
     "cost_per_kwh": 0.15
-  } as Twilight_calculatorInput;
+  } as unknown as Twilight_calculatorInput;
     const result = calculateTwilight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

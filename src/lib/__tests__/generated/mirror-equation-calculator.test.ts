@@ -12,7 +12,7 @@ describe("mirror-equation-calculator", () => {
     "radiusOfCurvature": 30,
     "mirrorTypeSign": 1,
     "objectHeight": 2
-  } as Mirror_equation_calculatorInput;
+  } as unknown as Mirror_equation_calculatorInput;
     const result = calculateMirror_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

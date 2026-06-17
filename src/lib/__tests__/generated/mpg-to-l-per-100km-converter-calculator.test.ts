@@ -14,7 +14,7 @@ describe("mpg-to-l-per-100km-converter-calculator", () => {
     "annual_mileage": 12000,
     "fuel_price_per_gallon": 3.5,
     "co2_per_gallon": 8.887
-  } as Mpg_to_l_per_100km_converter_calculatorInput;
+  } as unknown as Mpg_to_l_per_100km_converter_calculatorInput;
     const result = calculateMpg_to_l_per_100km_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

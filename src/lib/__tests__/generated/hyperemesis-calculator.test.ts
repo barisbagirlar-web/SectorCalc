@@ -15,7 +15,7 @@ describe("hyperemesis-calculator", () => {
     "gasoline": 0,
     "diesel": 0,
     "waste": 0
-  } as Hyperemesis_calculatorInput;
+  } as unknown as Hyperemesis_calculatorInput;
     const result = calculateHyperemesis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

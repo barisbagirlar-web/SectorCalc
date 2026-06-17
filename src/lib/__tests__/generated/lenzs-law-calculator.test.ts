@@ -13,7 +13,7 @@ describe("lenzs-law-calculator", () => {
     "A": 0.01,
     "dt": 0.1,
     "theta": 0
-  } as Lenzs_law_calculatorInput;
+  } as unknown as Lenzs_law_calculatorInput;
     const result = calculateLenzs_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("mineral-calculator", () => {
     "recovery_rate": 90,
     "metal_price": 2000,
     "processing_cost": 10
-  } as Mineral_calculatorInput;
+  } as unknown as Mineral_calculatorInput;
     const result = calculateMineral_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

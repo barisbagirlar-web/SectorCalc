@@ -15,7 +15,7 @@ describe("frequency-calculator", () => {
     "wavelength": 0,
     "angularFrequency": 0,
     "rpm": 0
-  } as Frequency_calculatorInput;
+  } as unknown as Frequency_calculatorInput;
     const result = calculateFrequency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

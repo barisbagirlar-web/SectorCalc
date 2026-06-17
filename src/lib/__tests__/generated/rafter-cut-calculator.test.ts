@@ -12,7 +12,7 @@ describe("rafter-cut-calculator", () => {
     "buildingWidth": 6000,
     "overhang": 500,
     "rafterDepth": 150
-  } as Rafter_cut_calculatorInput;
+  } as unknown as Rafter_cut_calculatorInput;
     const result = calculateRafter_cut_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

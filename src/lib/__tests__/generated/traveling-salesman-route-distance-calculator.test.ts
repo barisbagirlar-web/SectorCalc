@@ -16,7 +16,7 @@ describe("traveling-salesman-route-distance-calculator", () => {
     "cy": 0,
     "dx": 0,
     "dy": 0
-  } as Traveling_salesman_route_distance_calculatorInput;
+  } as unknown as Traveling_salesman_route_distance_calculatorInput;
     const result = calculateTraveling_salesman_route_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

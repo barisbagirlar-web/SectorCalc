@@ -22,11 +22,13 @@
       "businessContext": "The stated annual interest rate before compounding, as per ISO 8000-1 financial data standards.",
       "label_i18n": {
         "en": "Nominal Annual Interest Rate",
-        "tr": "Nominal Yıllık Faiz Oranı"
+        "tr": "Nominal Yıllık Faiz Oranı",
+        "de": "Jährlicher Nominalzinssatz"
       },
       "businessContext_i18n": {
         "en": "The stated annual interest rate before compounding, as per ISO 8000-1 financial data standards.",
-        "tr": "Bileşik öncesi belirtilen yıllık faiz oranı, ISO 8000-1 finansal veri standartlarına uygun."
+        "tr": "Bileşik öncesi belirtilen yıllık faiz oranı, ISO 8000-1 finansal veri standartlarına uygun.",
+        "de": "Der angegebene jährliche Zinssatz vor Zinseszins, gemäß ISO 8000-1 Finanzdatenstandards."
       }
     },
     {
@@ -48,11 +50,13 @@
       "businessContext": "Number of compounding periods per year, aligned with WERC financial metrics for logistics and supply chain.",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Bileşik Sıklığı"
+        "tr": "Bileşik Sıklığı",
+        "de": "Zinseszinshäufigkeit"
       },
       "businessContext_i18n": {
         "en": "Number of compounding periods per year, aligned with WERC financial metrics for logistics and supply chain.",
-        "tr": "Yıllık bileşik dönem sayısı, lojistik ve tedarik zinciri için WERC finansal metrikleriyle uyumlu."
+        "tr": "Yıllık bileşik dönem sayısı, lojistik ve tedarik zinciri için WERC finansal metrikleriyle uyumlu.",
+        "de": "Anzahl der Zinsperioden pro Jahr, abgestimmt auf WERC-Finanzkennzahlen für Logistik und Lieferkette."
       }
     },
     {
@@ -66,11 +70,13 @@
       "businessContext": "Duration of investment in years, used for multi-period APY calculation per Lean Six Sigma project timelines.",
       "label_i18n": {
         "en": "Investment Period",
-        "tr": "Yatırım Süresi"
+        "tr": "Yatırım Süresi",
+        "de": "Anlagedauer"
       },
       "businessContext_i18n": {
         "en": "Duration of investment in years, used for multi-period APY calculation per Lean Six Sigma project timelines.",
-        "tr": "Yatırım süresi yıl olarak, Yalın Altı Sigma proje zaman çizelgelerine göre çok dönemli APY hesaplaması için kullanılır."
+        "tr": "Yatırım süresi yıl olarak, Yalın Altı Sigma proje zaman çizelgelerine göre çok dönemli APY hesaplaması için kullanılır.",
+        "de": "Anlagedauer in Jahren, verwendet für die mehrperiodige APY-Berechnung gemäß Lean Six Sigma Projektzeitplänen."
       }
     },
     {
@@ -84,11 +90,13 @@
       "businessContext": "Starting capital amount, critical for ROI analysis in industrial engineering projects.",
       "label_i18n": {
         "en": "Initial Principal",
-        "tr": "Başlangıç Anaparası"
+        "tr": "Başlangıç Anaparası",
+        "de": "Anfangskapital"
       },
       "businessContext_i18n": {
         "en": "Starting capital amount, critical for ROI analysis in industrial engineering projects.",
-        "tr": "Başlangıç sermaye tutarı, endüstri mühendisliği projelerinde ROI analizi için kritiktir."
+        "tr": "Başlangıç sermaye tutarı, endüstri mühendisliği projelerinde ROI analizi için kritiktir.",
+        "de": "Startkapitalbetrag, entscheidend für die ROI-Analyse in industriellen Ingenieurprojekten."
       }
     },
     {
@@ -102,11 +110,13 @@
       "businessContext": "Annual fee deducted from returns, typical in investment funds, referenced in ISO 31000 risk management.",
       "label_i18n": {
         "en": "Management Fee",
-        "tr": "Yönetim Ücreti"
+        "tr": "Yönetim Ücreti",
+        "de": "Verwaltungsgebühr"
       },
       "businessContext_i18n": {
         "en": "Annual fee deducted from returns, typical in investment funds, referenced in ISO 31000 risk management.",
-        "tr": "Getirilerden kesilen yıllık ücret, yatırım fonlarında tipiktir, ISO 31000 risk yönetiminde referans alınır."
+        "tr": "Getirilerden kesilen yıllık ücret, yatırım fonlarında tipiktir, ISO 31000 risk yönetiminde referans alınır.",
+        "de": "Jährliche Gebühr, die von den Erträgen abgezogen wird, typisch für Investmentfonds, referenziert in ISO 31000 Risikomanagement."
       }
     },
     {
@@ -120,11 +130,13 @@
       "businessContext": "Annual inflation rate to compute real APY, per Six Sigma DMAIC control phase.",
       "label_i18n": {
         "en": "Expected Inflation Rate",
-        "tr": "Beklenen Enflasyon Oranı"
+        "tr": "Beklenen Enflasyon Oranı",
+        "de": "Erwartete Inflationsrate"
       },
       "businessContext_i18n": {
         "en": "Annual inflation rate to compute real APY, per Six Sigma DMAIC control phase.",
-        "tr": "Gerçek APY hesaplamak için yıllık enflasyon oranı, Altı Sigma DMAIC kontrol aşamasına göre."
+        "tr": "Gerçek APY hesaplamak için yıllık enflasyon oranı, Altı Sigma DMAIC kontrol aşamasına göre.",
+        "de": "Jährliche Inflationsrate zur Berechnung der realen APY, gemäß Six Sigma DMAIC-Kontrollphase."
       }
     },
     {
@@ -138,11 +150,13 @@
       "businessContext": "Capital gains tax rate applied to nominal returns, aligned with ISO 14000 environmental cost accounting.",
       "label_i18n": {
         "en": "Tax Rate on Gains",
-        "tr": "Kazançlar Üzerindeki Vergi Oranı"
+        "tr": "Kazançlar Üzerindeki Vergi Oranı",
+        "de": "Steuersatz auf Gewinne"
       },
       "businessContext_i18n": {
         "en": "Capital gains tax rate applied to nominal returns, aligned with ISO 14000 environmental cost accounting.",
-        "tr": "Nominal getirilere uygulanan sermaye kazancı vergisi oranı, ISO 14000 çevresel maliyet muhasebesi ile uyumludur."
+        "tr": "Nominal getirilere uygulanan sermaye kazancı vergisi oranı, ISO 14000 çevresel maliyet muhasebesi ile uyumludur.",
+        "de": "Kapitalertragsteuersatz auf nominale Renditen, in Übereinstimmung mit der Umweltkostenrechnung nach ISO 14000."
       }
     },
     {
@@ -154,11 +168,13 @@
       "businessContext": "If true, uses e^rt formula for maximum compounding frequency, per Lean continuous improvement philosophy.",
       "label_i18n": {
         "en": "Continuous Compounding",
-        "tr": "Sürekli Bileşik Faiz"
+        "tr": "Sürekli Bileşik Faiz",
+        "de": "Kontinuierliche Verzinsung"
       },
       "businessContext_i18n": {
         "en": "If true, uses e^rt formula for maximum compounding frequency, per Lean continuous improvement philosophy.",
-        "tr": "Doğruysa, Yalın sürekli iyileştirme felsefesine göre maksimum bileşik faiz sıklığı için e^rt formülünü kullanır."
+        "tr": "Doğruysa, Yalın sürekli iyileştirme felsefesine göre maksimum bileşik faiz sıklığı için e^rt formülünü kullanır.",
+        "de": "Wenn wahr, verwendet e^rt-Formel für maximale Aufzinsungshäufigkeit, gemäß der Lean-Philosophie der kontinuierlichen Verbesserung."
       }
     }
   ],

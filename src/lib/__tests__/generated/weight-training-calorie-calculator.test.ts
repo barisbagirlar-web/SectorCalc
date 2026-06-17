@@ -12,7 +12,7 @@ describe("weight-training-calorie-calculator", () => {
     "durationHours": 0,
     "durationMinutes": 45,
     "metValue": 4
-  } as Weight_training_calorie_calculatorInput;
+  } as unknown as Weight_training_calorie_calculatorInput;
     const result = calculateWeight_training_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

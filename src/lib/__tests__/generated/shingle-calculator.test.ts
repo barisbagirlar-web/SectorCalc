@@ -14,7 +14,7 @@ describe("shingle-calculator", () => {
     "shingleCoveragePerBundle": 3.1,
     "ridgeLength": 15,
     "capCoveragePerBundle": 10
-  } as Shingle_calculatorInput;
+  } as unknown as Shingle_calculatorInput;
     const result = calculateShingle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

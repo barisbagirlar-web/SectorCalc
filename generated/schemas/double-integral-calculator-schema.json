@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "x Lower Bound",
         "tr": "x Alt Sınır",
-        "de": "x Lower Bound",
+        "de": "x Untere Grenze",
         "fr": "x Lower Bound",
         "es": "x Lower Bound",
         "ar": "x Lower Bound"
       },
       "businessContext_i18n": {
         "en": "Lower limit of outer integration variable x",
-        "tr": "Dış integrasyon değişkeni x'in alt sınırı"
+        "tr": "Dış integrasyon değişkeni x'in alt sınırı",
+        "de": "Untere Grenze der äußeren Integrationsvariablen x"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "x Upper Bound",
         "tr": "x Üst Sınır",
-        "de": "x Upper Bound",
+        "de": "x Obere Grenze",
         "fr": "x Upper Bound",
         "es": "x Upper Bound",
         "ar": "x Upper Bound"
       },
       "businessContext_i18n": {
         "en": "Upper limit of outer integration variable x",
-        "tr": "Dış integrasyon değişkeni x'in üst sınırı"
+        "tr": "Dış integrasyon değişkeni x'in üst sınırı",
+        "de": "Obere Grenze der äußeren Integrationsvariablen x"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "y Lower Bound",
         "tr": "y Alt Sınır",
-        "de": "y Lower Bound",
+        "de": "y Untere Grenze",
         "fr": "y Lower Bound",
         "es": "y Lower Bound",
         "ar": "y Lower Bound"
       },
       "businessContext_i18n": {
         "en": "Lower limit of inner integration variable y",
-        "tr": "İç integrasyon değişkeni y'nin alt sınırı"
+        "tr": "İç integrasyon değişkeni y'nin alt sınırı",
+        "de": "Untere Grenze der inneren Integrationsvariablen y"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "y Upper Bound",
         "tr": "y Üst Sınır",
-        "de": "y Upper Bound",
+        "de": "y Obere Grenze",
         "fr": "y Upper Bound",
         "es": "y Upper Bound",
         "ar": "y Upper Bound"
       },
       "businessContext_i18n": {
         "en": "Upper limit of inner integration variable y",
-        "tr": "İç integrasyon değişkeni y'nin üst sınırı"
+        "tr": "İç integrasyon değişkeni y'nin üst sınırı",
+        "de": "Obere Grenze der inneren Integrationsvariablen y"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Coefficient A (x²)",
         "tr": "Katsayı A (x²)",
-        "de": "Coefficient A (x²)",
+        "de": "Koeffizient A (x²)",
         "fr": "Coefficient A (x²)",
         "es": "Coefficient A (x²)",
         "ar": "Coefficient A (x²)"
       },
       "businessContext_i18n": {
         "en": "Coefficient for x² term in f(x,y) = Ax² + By² + C",
-        "tr": "f(x,y) = Ax² + By² + C'deki x² teriminin katsayısı"
+        "tr": "f(x,y) = Ax² + By² + C'deki x² teriminin katsayısı",
+        "de": "Koeffizient für x²-Term in f(x,y) = Ax² + By² + C"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Coefficient B (y²)",
         "tr": "Katsayı B (y²)",
-        "de": "Coefficient B (y²)",
+        "de": "Koeffizient B (y²)",
         "fr": "Coefficient B (y²)",
         "es": "Coefficient B (y²)",
         "ar": "Coefficient B (y²)"
       },
       "businessContext_i18n": {
         "en": "Coefficient for y² term",
-        "tr": "y² teriminin katsayısı"
+        "tr": "y² teriminin katsayısı",
+        "de": "Koeffizient für y²-Term"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Constant C",
         "tr": "Sabit C",
-        "de": "Constant C",
+        "de": "Konstante C",
         "fr": "Constant C",
         "es": "Constant C",
         "ar": "Constant C"
       },
       "businessContext_i18n": {
         "en": "Constant term",
-        "tr": "Sabit terim"
+        "tr": "Sabit terim",
+        "de": "Konstanter Term"
       }
     }
   ],

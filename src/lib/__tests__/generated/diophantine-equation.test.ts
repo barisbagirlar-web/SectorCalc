@@ -14,7 +14,7 @@ describe("diophantine-equation", () => {
     "x0": 0,
     "y0": 0,
     "k": 0
-  } as Diophantine_equationInput;
+  } as unknown as Diophantine_equationInput;
     const result = calculateDiophantine_equation(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

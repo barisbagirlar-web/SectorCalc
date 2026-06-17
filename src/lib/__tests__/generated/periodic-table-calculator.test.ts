@@ -12,7 +12,7 @@ describe("periodic-table-calculator", () => {
     "isotope2_mass": 13.003354835,
     "abundance1": 98.93,
     "abundance2": 1.07
-  } as Periodic_table_calculatorInput;
+  } as unknown as Periodic_table_calculatorInput;
     const result = calculatePeriodic_table_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

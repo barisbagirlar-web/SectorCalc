@@ -12,7 +12,7 @@ describe("running-distance-calculator", () => {
     "hours": 0,
     "minutes": 30,
     "seconds": 0
-  } as Running_distance_calculatorInput;
+  } as unknown as Running_distance_calculatorInput;
     const result = calculateRunning_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

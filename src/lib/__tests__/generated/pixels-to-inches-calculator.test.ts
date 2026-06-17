@@ -12,7 +12,7 @@ describe("pixels-to-inches-calculator", () => {
     "heightPixels": 1080,
     "ppi": 96,
     "decimals": 2
-  } as Pixels_to_inches_calculatorInput;
+  } as unknown as Pixels_to_inches_calculatorInput;
     const result = calculatePixels_to_inches_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

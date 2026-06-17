@@ -12,7 +12,7 @@ describe("decibel-calculator", () => {
     "powerMeas": 2,
     "ampRef": 1,
     "ampMeas": 2
-  } as Decibel_calculatorInput;
+  } as unknown as Decibel_calculatorInput;
     const result = calculateDecibel_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

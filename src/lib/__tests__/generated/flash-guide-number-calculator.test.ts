@@ -12,7 +12,7 @@ describe("flash-guide-number-calculator", () => {
     "aperture": 8,
     "iso": 100,
     "flashPower": 1
-  } as Flash_guide_number_calculatorInput;
+  } as unknown as Flash_guide_number_calculatorInput;
     const result = calculateFlash_guide_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

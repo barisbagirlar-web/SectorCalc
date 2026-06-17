@@ -12,7 +12,7 @@ describe("dymaxion-sleep-calculator", () => {
     "intervalHours": 6,
     "totalDays": 7,
     "baseSleepHours": 8
-  } as Dymaxion_sleep_calculatorInput;
+  } as unknown as Dymaxion_sleep_calculatorInput;
     const result = calculateDymaxion_sleep_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

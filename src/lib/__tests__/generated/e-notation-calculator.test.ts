@@ -12,7 +12,7 @@ describe("e-notation-calculator", () => {
     "exp1": 0,
     "coeff2": 1,
     "exp2": 0
-  } as E_notation_calculatorInput;
+  } as unknown as E_notation_calculatorInput;
     const result = calculateE_notation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

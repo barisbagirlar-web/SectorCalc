@@ -13,7 +13,7 @@ describe("reading-time-calculator", () => {
     "complexityFactor": 1,
     "pageCount": 10,
     "pauseTimePerPage": 15
-  } as Reading_time_calculatorInput;
+  } as unknown as Reading_time_calculatorInput;
     const result = calculateReading_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

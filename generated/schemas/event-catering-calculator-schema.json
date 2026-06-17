@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Guests",
         "tr": "Misafir Sayısı",
-        "de": "Number of Guests",
+        "de": "Anzahl der Gäste",
         "fr": "Number of Guests",
         "es": "Number of Guests",
         "ar": "Number of Guests"
       },
       "businessContext_i18n": {
         "en": "Expected total number of attendees for the event.",
-        "tr": "Etkinlik için beklenen toplam katılımcı sayısı."
+        "tr": "Etkinlik için beklenen toplam katılımcı sayısı.",
+        "de": "Erwartete Gesamtzahl der Teilnehmer der Veranstaltung."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cost per Plate",
         "tr": "Tabak Başına Maliyet",
-        "de": "Cost per Plate",
+        "de": "Kosten pro Teller",
         "fr": "Cost per Plate",
         "es": "Cost per Plate",
         "ar": "Cost per Plate"
       },
       "businessContext_i18n": {
         "en": "Direct food and beverage cost per guest, including ingredients and preparation.",
-        "tr": "Misafir başına malzemeler ve hazırlık dahil doğrudan yiyecek ve içecek maliyeti."
+        "tr": "Misafir başına malzemeler ve hazırlık dahil doğrudan yiyecek ve içecek maliyeti.",
+        "de": "Direkte Lebensmittel- und Getränkekosten pro Gast, einschließlich Zutaten und Zubereitung."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Service Staff",
         "tr": "Servis Personeli",
-        "de": "Service Staff",
+        "de": "Servicepersonal",
         "fr": "Service Staff",
         "es": "Service Staff",
         "ar": "Service Staff"
       },
       "businessContext_i18n": {
         "en": "Number of waitstaff and service personnel required.",
-        "tr": "Gerekli garson ve servis personeli sayısı."
+        "tr": "Gerekli garson ve servis personeli sayısı.",
+        "de": "Anzahl der benötigten Kellner und Servicekräfte."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Staff Hourly Rate",
         "tr": "Personel Saatlik Ücreti",
-        "de": "Staff Hourly Rate",
+        "de": "Stundensatz des Personals",
         "fr": "Staff Hourly Rate",
         "es": "Staff Hourly Rate",
         "ar": "Staff Hourly Rate"
       },
       "businessContext_i18n": {
         "en": "Hourly wage per service staff, including benefits and taxes.",
-        "tr": "Yan haklar ve vergiler dahil servis personeli başına saatlik ücret."
+        "tr": "Yan haklar ve vergiler dahil servis personeli başına saatlik ücret.",
+        "de": "Stundenlohn pro Servicekraft, inklusive Sozialleistungen und Steuern."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Event Duration",
         "tr": "Etkinlik Süresi",
-        "de": "Event Duration",
+        "de": "Veranstaltungsdauer",
         "fr": "Event Duration",
         "es": "Event Duration",
         "ar": "Event Duration"
       },
       "businessContext_i18n": {
         "en": "Total duration of the event from setup to teardown.",
-        "tr": "Kurulumdan söküme kadar etkinliğin toplam süresi."
+        "tr": "Kurulumdan söküme kadar etkinliğin toplam süresi.",
+        "de": "Gesamtdauer der Veranstaltung von Aufbau bis Abbau."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Fixed Overhead",
         "tr": "Sabit Genel Gider",
-        "de": "Fixed Overhead",
+        "de": "Fixe Gemeinkosten",
         "fr": "Fixed Overhead",
         "es": "Fixed Overhead",
         "ar": "Fixed Overhead"
       },
       "businessContext_i18n": {
         "en": "Fixed costs such as equipment rental, insurance, permits, and transportation.",
-        "tr": "Ekipman kiralama, sigorta, izinler ve nakliye gibi sabit maliyetler."
+        "tr": "Ekipman kiralama, sigorta, izinler ve nakliye gibi sabit maliyetler.",
+        "de": "Fixe Kosten wie Gerätemiete, Versicherung, Genehmigungen und Transport."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Profit Margin",
         "tr": "Kâr Marjı",
-        "de": "Profit Margin",
+        "de": "Gewinnmarge",
         "fr": "Profit Margin",
         "es": "Profit Margin",
         "ar": "Profit Margin"
       },
       "businessContext_i18n": {
         "en": "Desired markup percentage on total cost to ensure profitability.",
-        "tr": "Kârlılığı sağlamak için toplam maliyet üzerinde istenen kar marjı yüzdesi."
+        "tr": "Kârlılığı sağlamak için toplam maliyet üzerinde istenen kar marjı yüzdesi.",
+        "de": "Gewünschter Aufschlagsprozentsatz auf die Gesamtkosten zur Sicherstellung der Rentabilität."
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
-        "de": "Tax Rate",
+        "de": "Steuersatz",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable sales tax or VAT percentage on the subtotal.",
-        "tr": "Ara toplam üzerinde geçerli satış vergisi veya KDV yüzdesi."
+        "tr": "Ara toplam üzerinde geçerli satış vergisi veya KDV yüzdesi.",
+        "de": "Anwendbarer Umsatzsteuer- oder Mehrwertsteuersatz auf den Zwischensumme."
       }
     }
   ],

@@ -13,7 +13,7 @@ describe("day-of-year-calculator", () => {
     "year": 2023,
     "fiscalStartMonth": 1,
     "fiscalStartDay": 1
-  } as Day_of_year_calculatorInput;
+  } as unknown as Day_of_year_calculatorInput;
     const result = calculateDay_of_year_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

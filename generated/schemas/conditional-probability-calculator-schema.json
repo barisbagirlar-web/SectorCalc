@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Input Mode",
         "tr": "Giriş Modu",
-        "de": "Input Mode",
+        "de": "Eingabemodus",
         "fr": "Input Mode",
         "es": "Input Mode",
         "ar": "Input Mode"
       },
       "businessContext_i18n": {
         "en": "0: Direct probability inputs (P(A∩B), P(B)). 1: Frequency/count inputs (e.g., from quality control samples).",
-        "tr": "0: Doğrudan olasılık girdileri (P(A∩B), P(B)). 1: Frekans/sayım girdileri (ör. kalite kontrol örneklerinden)."
+        "tr": "0: Doğrudan olasılık girdileri (P(A∩B), P(B)). 1: Frekans/sayım girdileri (ör. kalite kontrol örneklerinden).",
+        "de": "0: Direkte Wahrscheinlichkeitseingaben (P(A∩B), P(B)). 1: Häufigkeits-/Anzahl-Eingaben (z. B. aus Qualitätskontrollproben)."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Probability of both events A and B occurring.",
-        "tr": "Hem A hem de B olayının gerçekleşme olasılığı."
+        "tr": "Hem A hem de B olayının gerçekleşme olasılığı.",
+        "de": "Wahrscheinlichkeit, dass beide Ereignisse A und B eintreten."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Probability of event B.",
-        "tr": "B olayının gerçekleşme olasılığı."
+        "tr": "B olayının gerçekleşme olasılığı.",
+        "de": "Wahrscheinlichkeit von Ereignis B."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Count of A ∩ B",
         "tr": "A ∩ B Sayısı",
-        "de": "Count of A ∩ B",
+        "de": "Anzahl A ∩ B",
         "fr": "Count of A ∩ B",
         "es": "Count of A ∩ B",
         "ar": "Count of A ∩ B"
       },
       "businessContext_i18n": {
         "en": "Number of occurrences where both A and B occur.",
-        "tr": "Hem A hem de B'nin meydana geldiği durum sayısı."
+        "tr": "Hem A hem de B'nin meydana geldiği durum sayısı.",
+        "de": "Anzahl der Ereignisse, bei denen sowohl A als auch B eintreten."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Count of B",
         "tr": "B Sayısı",
-        "de": "Count of B",
+        "de": "Anzahl B",
         "fr": "Count of B",
         "es": "Count of B",
         "ar": "Count of B"
       },
       "businessContext_i18n": {
         "en": "Total number of occurrences of event B.",
-        "tr": "B olayının toplam meydana gelme sayısı."
+        "tr": "B olayının toplam meydana gelme sayısı.",
+        "de": "Gesamtzahl der Ereignisse von B."
       }
     }
   ],

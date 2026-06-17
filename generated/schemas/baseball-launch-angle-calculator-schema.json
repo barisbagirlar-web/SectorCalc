@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Velocity",
         "tr": "Başlangıç Hızı",
-        "de": "Initial Velocity",
+        "de": "Anfangsgeschwindigkeit",
         "fr": "Initial Velocity",
         "es": "Initial Velocity",
         "ar": "Initial Velocity"
       },
       "businessContext_i18n": {
         "en": "Speed of the ball as it leaves the bat.",
-        "tr": "Topun sopadan çıkış hızı."
+        "tr": "Topun sopadan çıkış hızı.",
+        "de": "Geschwindigkeit des Balls beim Verlassen des Schlägers"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Launch Angle",
         "tr": "Çıkış Açısı",
-        "de": "Launch Angle",
+        "de": "Abflugwinkel",
         "fr": "Launch Angle",
         "es": "Launch Angle",
         "ar": "Launch Angle"
       },
       "businessContext_i18n": {
         "en": "Angle between the initial trajectory and the horizontal field.",
-        "tr": "İlk yörünge ile yatay alan arasındaki açı."
+        "tr": "İlk yörünge ile yatay alan arasındaki açı.",
+        "de": "Winkel zwischen der Anfangsflugbahn und der horizontalen Spielfläche."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Initial Height",
         "tr": "Başlangıç Yüksekliği",
-        "de": "Initial Height",
+        "de": "Anfangshöhe",
         "fr": "Initial Height",
         "es": "Initial Height",
         "ar": "Initial Height"
       },
       "businessContext_i18n": {
         "en": "Height above ground at which the ball is hit.",
-        "tr": "Topa vurulduğu anda yerden yükseklik."
+        "tr": "Topa vurulduğu anda yerden yükseklik.",
+        "de": "Höhe über dem Boden, in der der Ball getroffen wird."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Gravity",
         "tr": "Yerçekimi",
-        "de": "Gravity",
+        "de": "Schwerkraft",
         "fr": "Gravity",
         "es": "Gravity",
         "ar": "Gravity"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity (9.81 m/s² on Earth).",
-        "tr": "Yerçekimi ivmesi (Dünya'da 9.81 m/s²)."
+        "tr": "Yerçekimi ivmesi (Dünya'da 9.81 m/s²).",
+        "de": "Erdbeschleunigung (9,81 m/s² auf der Erde)."
       }
     }
   ],

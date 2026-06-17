@@ -12,7 +12,7 @@ describe("breastfeeding-calculator", () => {
     "dailyFeeds": 8,
     "milkDensity": 1.03,
     "wastageFactor": 5
-  } as Breastfeeding_calculatorInput;
+  } as unknown as Breastfeeding_calculatorInput;
     const result = calculateBreastfeeding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

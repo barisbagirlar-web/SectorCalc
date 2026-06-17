@@ -16,7 +16,7 @@ describe("welding-calculator", () => {
     "laborCostPerHour": 45,
     "electrodeCostPerKg": 3.5,
     "weldingSpeed": 300
-  } as Welding_calculatorInput;
+  } as unknown as Welding_calculatorInput;
     const result = calculateWelding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

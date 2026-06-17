@@ -12,7 +12,7 @@ describe("axle-weight-distribution-calculator", () => {
     "wheelbase": 4.5,
     "cgDistance": 2,
     "dynamicFactor": 1.2
-  } as Axle_weight_distribution_calculatorInput;
+  } as unknown as Axle_weight_distribution_calculatorInput;
     const result = calculateAxle_weight_distribution_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

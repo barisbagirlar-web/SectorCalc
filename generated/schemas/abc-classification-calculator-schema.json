@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Annual Demand",
         "tr": "Yıllık Talep",
-        "de": "Annual Demand",
+        "de": "Jahresbedarf",
         "fr": "Annual Demand",
         "es": "Annual Demand",
         "ar": "Annual Demand"
       },
       "businessContext_i18n": {
         "en": "The number of units consumed annually for this item.",
-        "tr": "Bu kalem için yıllık tüketilen birim sayısı."
+        "tr": "Bu kalem için yıllık tüketilen birim sayısı.",
+        "de": "Die Anzahl der jährlich verbrauchten Einheiten dieses Artikels."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Unit Cost",
         "tr": "Birim Maliyet",
-        "de": "Unit Cost",
+        "de": "Stückkosten",
         "fr": "Unit Cost",
         "es": "Unit Cost",
         "ar": "Unit Cost"
       },
       "businessContext_i18n": {
         "en": "The cost per unit of the item.",
-        "tr": "Kalemin birim başına maliyeti."
+        "tr": "Kalemin birim başına maliyeti.",
+        "de": "Die Kosten pro Einheit des Artikels."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Total Annual Usage Value of All Items",
         "tr": "Tüm Kalemlerin Toplam Yıllık Kullanım Değeri",
-        "de": "Total Annual Usage Value of All Items",
+        "de": "Gesamter jährlicher Nutzungswert aller Artikel",
         "fr": "Total Annual Usage Value of All Items",
         "es": "Total Annual Usage Value of All Items",
         "ar": "Total Annual Usage Value of All Items"
       },
       "businessContext_i18n": {
         "en": "Sum of annual usage values of all items in inventory.",
-        "tr": "Envanterdeki tüm kalemlerin yıllık kullanım değerlerinin toplamı."
+        "tr": "Envanterdeki tüm kalemlerin yıllık kullanım değerlerinin toplamı.",
+        "de": "Summe der jährlichen Nutzungswerte aller Artikel im Lager."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Cumulative Percentage Before This Item",
         "tr": "Bu Kalemden Önceki Kümülatif Yüzde",
-        "de": "Cumulative Percentage Before This Item",
+        "de": "Kumulativer Prozentsatz vor diesem Artikel",
         "fr": "Cumulative Percentage Before This Item",
         "es": "Cumulative Percentage Before This Item",
         "ar": "Cumulative Percentage Before This Item"
       },
       "businessContext_i18n": {
         "en": "The cumulative percentage of total annual usage value accounted for by items ranked before this one (should be 0 for first item).",
-        "tr": "Bu kalemden önce sıralanan kalemlerin toplam yıllık kullanım değerinin yüzdesi (ilk kalem için 0 olmalıdır)."
+        "tr": "Bu kalemden önce sıralanan kalemlerin toplam yıllık kullanım değerinin yüzdesi (ilk kalem için 0 olmalıdır).",
+        "de": "Der kumulative Prozentsatz des gesamten jährlichen Nutzungswerts, der auf die vor diesem Artikel eingestuften Artikel entfällt (sollte für den ersten Artikel 0 sein)."
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Chronological Age",
         "tr": "Kronolojik Yaş",
-        "de": "Chronological Age",
+        "de": "Chronologisches Alter",
         "fr": "Chronological Age",
         "es": "Chronological Age",
         "ar": "Chronological Age"
       },
       "businessContext_i18n": {
         "en": "Current age in years",
-        "tr": "Yıl cinsinden mevcut yaş"
+        "tr": "Yıl cinsinden mevcut yaş",
+        "de": "Aktuelles Alter in Jahren"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
-        "de": "Systolic Blood Pressure",
+        "de": "Systolischer Blutdruck",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Top number of blood pressure reading",
-        "tr": "Kan basıncı ölçümünün üst değeri"
+        "tr": "Kan basıncı ölçümünün üst değeri",
+        "de": "Oberer Wert des Blutdrucks (mmHg)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Body Mass Index (BMI)",
         "tr": "Vücut Kitle İndeksi (BMI)",
-        "de": "Body Mass Index (BMI)",
+        "de": "Body-Mass-Index (BMI)",
         "fr": "Body Mass Index (BMI)",
         "es": "Body Mass Index (BMI)",
         "ar": "Body Mass Index (BMI)"
       },
       "businessContext_i18n": {
         "en": "Weight in kg divided by height in meters squared",
-        "tr": "Kg cinsinden ağırlık, metre cinsinden boyun karesine bölünür"
+        "tr": "Kg cinsinden ağırlık, metre cinsinden boyun karesine bölünür",
+        "de": "Gewicht in kg geteilt durch Körpergröße in Metern zum Quadrat"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Fasting Glucose",
         "tr": "Açlık Glukozu",
-        "de": "Fasting Glucose",
+        "de": "Nüchternblutzucker",
         "fr": "Fasting Glucose",
         "es": "Fasting Glucose",
         "ar": "Fasting Glucose"
       },
       "businessContext_i18n": {
         "en": "Blood sugar level after fasting",
-        "tr": "Açlık sonrası kan şekeri seviyesi"
+        "tr": "Açlık sonrası kan şekeri seviyesi",
+        "de": "Blutzuckerspiegel nach dem Fasten"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Total Cholesterol",
         "tr": "Toplam Kolesterol",
-        "de": "Total Cholesterol",
+        "de": "Gesamtcholesterin",
         "fr": "Total Cholesterol",
         "es": "Total Cholesterol",
         "ar": "Total Cholesterol"
       },
       "businessContext_i18n": {
         "en": "Total cholesterol level in blood",
-        "tr": "Kandaki toplam kolesterol seviyesi"
+        "tr": "Kandaki toplam kolesterol seviyesi",
+        "de": "Gesamtcholesterinspiegel im Blut"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Weekly Exercise",
         "tr": "Haftalık Egzersiz",
-        "de": "Weekly Exercise",
+        "de": "Wöchentliche Bewegung",
         "fr": "Weekly Exercise",
         "es": "Weekly Exercise",
         "ar": "Weekly Exercise"
       },
       "businessContext_i18n": {
         "en": "Average hours of exercise per week",
-        "tr": "Haftada ortalama egzersiz saati"
+        "tr": "Haftada ortalama egzersiz saati",
+        "de": "Durchschnittliche Trainingsstunden pro Woche"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Smoking (pack-years)",
         "tr": "Sigara (paket-yıl)",
-        "de": "Smoking (pack-years)",
+        "de": "Rauchen (Packungsjahre)",
         "fr": "Smoking (pack-years)",
         "es": "Smoking (pack-years)",
         "ar": "Smoking (pack-years)"
       },
       "businessContext_i18n": {
         "en": "Number of packs per day times years smoked",
-        "tr": "Günde içilen paket sayısı ile yıl sayısının çarpımı"
+        "tr": "Günde içilen paket sayısı ile yıl sayısının çarpımı",
+        "de": "Anzahl der Packungen pro Tag multipliziert mit den Raucherjahren"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Resting Heart Rate",
         "tr": "Dinlenme Kalp Atış Hızı",
-        "de": "Resting Heart Rate",
+        "de": "Ruhepuls",
         "fr": "Resting Heart Rate",
         "es": "Resting Heart Rate",
         "ar": "Resting Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Heart beats per minute at rest",
-        "tr": "Dinlenme halinde dakikadaki kalp atışı"
+        "tr": "Dinlenme halinde dakikadaki kalp atışı",
+        "de": "Ruhepuls (Schläge pro Minute)"
       }
     }
   ],

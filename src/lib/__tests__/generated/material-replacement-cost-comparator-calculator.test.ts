@@ -16,7 +16,7 @@ describe("material-replacement-cost-comparator-calculator", () => {
     "logistics_cost_current": 10,
     "logistics_cost_alternative": 12,
     "changeover_cost": 5000
-  } as Material_replacement_cost_comparator_calculatorInput;
+  } as unknown as Material_replacement_cost_comparator_calculatorInput;
     const result = calculateMaterial_replacement_cost_comparator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

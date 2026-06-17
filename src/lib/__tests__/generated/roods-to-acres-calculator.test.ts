@@ -12,7 +12,7 @@ describe("roods-to-acres-calculator", () => {
     "perches": 0,
     "decimalPlaces": 4,
     "roundingMode": 0
-  } as Roods_to_acres_calculatorInput;
+  } as unknown as Roods_to_acres_calculatorInput;
     const result = calculateRoods_to_acres_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

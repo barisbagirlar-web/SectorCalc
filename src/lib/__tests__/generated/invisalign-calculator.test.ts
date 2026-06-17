@@ -13,7 +13,7 @@ describe("invisalign-calculator", () => {
     "laborCostPerAligner": 30,
     "overheadRate": 15,
     "sellingPricePerAligner": 150
-  } as Invisalign_calculatorInput;
+  } as unknown as Invisalign_calculatorInput;
     const result = calculateInvisalign_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

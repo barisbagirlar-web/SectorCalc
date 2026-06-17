@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Annual Salary",
         "tr": "Yıllık Maaş",
-        "de": "Annual Salary",
+        "de": "Jahresgehalt",
         "fr": "Annual Salary",
         "es": "Annual Salary",
         "ar": "Annual Salary"
       },
       "businessContext_i18n": {
         "en": "Desired take-home annual salary",
-        "tr": "Hedef net yıllık maaş"
+        "tr": "Hedef net yıllık maaş",
+        "de": "Gewünschtes Netto-Jahresgehalt"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Working Days per Year",
         "tr": "Yıllık Çalışma Günü",
-        "de": "Working Days per Year",
+        "de": "Arbeitstage pro Jahr",
         "fr": "Working Days per Year",
         "es": "Working Days per Year",
         "ar": "Working Days per Year"
       },
       "businessContext_i18n": {
         "en": "Number of billable/working days in a year",
-        "tr": "Bir yıldaki faturalanabilir/çalışma günü sayısı"
+        "tr": "Bir yıldaki faturalanabilir/çalışma günü sayısı",
+        "de": "Anzahl der abrechenbaren/Arbeitstage im Jahr"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Overhead Percentage",
         "tr": "Genel Gider Yüzdesi",
-        "de": "Overhead Percentage",
+        "de": "Gemeinkostenprozentsatz",
         "fr": "Overhead Percentage",
         "es": "Overhead Percentage",
         "ar": "Overhead Percentage"
       },
       "businessContext_i18n": {
         "en": "Overhead costs as percentage of salary (e.g., rent, utilities)",
-        "tr": "Maaşın yüzdesi olarak genel gider maliyetleri (ör. kira, elektrik)"
+        "tr": "Maaşın yüzdesi olarak genel gider maliyetleri (ör. kira, elektrik)",
+        "de": "Gemeinkosten als Prozentsatz des Gehalts (z. B. Miete, Nebenkosten)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Profit Margin",
         "tr": "Kâr Marjı",
-        "de": "Profit Margin",
+        "de": "Gewinnmarge",
         "fr": "Profit Margin",
         "es": "Profit Margin",
         "ar": "Profit Margin"
       },
       "businessContext_i18n": {
         "en": "Target profit margin on top of costs",
-        "tr": "Maliyetler üzerine hedef kâr marjı"
+        "tr": "Maliyetler üzerine hedef kâr marjı",
+        "de": "Zielgewinnmarge auf Kosten"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Billable Hours per Day",
         "tr": "Günlük Faturalanabilir Saat",
-        "de": "Billable Hours per Day",
+        "de": "Abrechenbare Stunden pro Tag",
         "fr": "Billable Hours per Day",
         "es": "Billable Hours per Day",
         "ar": "Billable Hours per Day"
       },
       "businessContext_i18n": {
         "en": "Average billable hours per working day",
-        "tr": "Çalışma günü başına ortalama faturalanabilir saat"
+        "tr": "Çalışma günü başına ortalama faturalanabilir saat",
+        "de": "Durchschnittliche abrechenbare Stunden pro Arbeitstag"
       }
     }
   ],

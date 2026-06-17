@@ -13,7 +13,7 @@ describe("suds-calculator", () => {
     "runoffCoefficient": 0.9,
     "stormDuration": 60,
     "safetyFactor": 1.2
-  } as Suds_calculatorInput;
+  } as unknown as Suds_calculatorInput;
     const result = calculateSuds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

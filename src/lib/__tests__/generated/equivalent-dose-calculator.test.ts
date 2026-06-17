@@ -14,7 +14,7 @@ describe("equivalent-dose-calculator", () => {
     "wR_betaGamma": 1,
     "wR_alpha": 20,
     "wR_neutron": 10
-  } as Equivalent_dose_calculatorInput;
+  } as unknown as Equivalent_dose_calculatorInput;
     const result = calculateEquivalent_dose_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

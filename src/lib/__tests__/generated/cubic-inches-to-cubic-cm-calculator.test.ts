@@ -12,7 +12,7 @@ describe("cubic-inches-to-cubic-cm-calculator", () => {
     "conversionFactor": 16.387064,
     "decimalPlaces": 2,
     "roundingMode": 0
-  } as Cubic_inches_to_cubic_cm_calculatorInput;
+  } as unknown as Cubic_inches_to_cubic_cm_calculatorInput;
     const result = calculateCubic_inches_to_cubic_cm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

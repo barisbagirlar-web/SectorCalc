@@ -12,7 +12,7 @@ describe("mach-to-kmh-calculator", () => {
     "temperature": 15,
     "gamma": 1.4,
     "gasConstant": 287.058
-  } as Mach_to_kmh_calculatorInput;
+  } as unknown as Mach_to_kmh_calculatorInput;
     const result = calculateMach_to_kmh_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

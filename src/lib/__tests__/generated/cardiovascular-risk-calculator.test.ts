@@ -15,7 +15,7 @@ describe("cardiovascular-risk-calculator", () => {
     "systolicBP": 120,
     "smoking": 0,
     "diabetes": 0
-  } as Cardiovascular_risk_calculatorInput;
+  } as unknown as Cardiovascular_risk_calculatorInput;
     const result = calculateCardiovascular_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

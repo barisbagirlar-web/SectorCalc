@@ -12,7 +12,7 @@ describe("eat-stop-eat-calculator", () => {
     "goalWeight": 65,
     "dailyCaloriesNonFasting": 2000,
     "fastingDaysPerWeek": 2
-  } as Eat_stop_eat_calculatorInput;
+  } as unknown as Eat_stop_eat_calculatorInput;
     const result = calculateEat_stop_eat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Temperature in Celsius",
         "tr": "Santigrat cinsinden sıcaklık",
-        "de": "Temperature in Celsius",
+        "de": "Temperatur in Celsius",
         "fr": "Temperature in Celsius",
         "es": "Temperature in Celsius",
         "ar": "Temperature in Celsius"
       },
       "businessContext_i18n": {
         "en": "Measured temperature value from sensor or process",
-        "tr": "Sensörden veya prosesten ölçülen sıcaklık değeri"
+        "tr": "Sensörden veya prosesten ölçülen sıcaklık değeri",
+        "de": "Gemessener Temperaturwert vom Sensor oder Prozess"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
-        "de": "Calibration Offset",
+        "de": "Kalibrierungsversatz",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
       },
       "businessContext_i18n": {
         "en": "Instrument calibration offset to be added before conversion",
-        "tr": "Dönüştürmeden önce eklenecek enstrüman kalibrasyon ofseti"
+        "tr": "Dönüştürmeden önce eklenecek enstrüman kalibrasyon ofseti",
+        "de": "Instrumentenkalibrierungs-Offset, der vor der Umrechnung hinzugefügt wird"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output precision",
-        "tr": "Çıktı hassasiyeti için ondalık basamak sayısı"
+        "tr": "Çıktı hassasiyeti için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für Ausgabepräzision"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Measurement Uncertainty",
         "tr": "Ölçüm Belirsizliği",
-        "de": "Measurement Uncertainty",
+        "de": "Messunsicherheit",
         "fr": "Measurement Uncertainty",
         "es": "Measurement Uncertainty",
         "ar": "Measurement Uncertainty"
       },
       "businessContext_i18n": {
         "en": "Uncertainty of the temperature measurement",
-        "tr": "Sıcaklık ölçümünün belirsizliği"
+        "tr": "Sıcaklık ölçümünün belirsizliği",
+        "de": "Unsicherheit der Temperaturmessung"
       }
     }
   ],

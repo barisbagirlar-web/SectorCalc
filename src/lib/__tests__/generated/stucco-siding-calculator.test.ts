@@ -16,7 +16,7 @@ describe("stucco-siding-calculator", () => {
     "productivity": 25,
     "cementCostPerBag": 15,
     "sandCostPerTon": 30
-  } as Stucco_siding_calculatorInput;
+  } as unknown as Stucco_siding_calculatorInput;
     const result = calculateStucco_siding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

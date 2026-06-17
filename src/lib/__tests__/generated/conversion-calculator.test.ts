@@ -12,7 +12,7 @@ describe("conversion-calculator", () => {
     "fromUnit": 0,
     "toUnit": 1,
     "precision": 2
-  } as Conversion_calculatorInput;
+  } as unknown as Conversion_calculatorInput;
     const result = calculateConversion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

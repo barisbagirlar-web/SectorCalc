@@ -14,7 +14,7 @@ describe("dnd-stat-calculator", () => {
     "intelligence": 10,
     "wisdom": 10,
     "charisma": 10
-  } as Dnd_stat_calculatorInput;
+  } as unknown as Dnd_stat_calculatorInput;
     const result = calculateDnd_stat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

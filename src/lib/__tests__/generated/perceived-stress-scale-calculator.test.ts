@@ -12,7 +12,7 @@ describe("perceived-stress-scale-calculator", () => {
     "item2": 0,
     "item3": 0,
     "item4": 0
-  } as Perceived_stress_scale_calculatorInput;
+  } as unknown as Perceived_stress_scale_calculatorInput;
     const result = calculatePerceived_stress_scale_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

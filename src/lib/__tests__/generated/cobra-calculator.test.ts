@@ -13,7 +13,7 @@ describe("cobra-calculator", () => {
     "adminFeeRate": 2,
     "coverageMonths": 18,
     "employerContributionRate": 0
-  } as Cobra_calculatorInput;
+  } as unknown as Cobra_calculatorInput;
     const result = calculateCobra_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

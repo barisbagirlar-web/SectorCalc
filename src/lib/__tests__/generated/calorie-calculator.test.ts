@@ -13,7 +13,7 @@ describe("calorie-calculator", () => {
     "age": 30,
     "gender": 1,
     "activityFactor": 1.2
-  } as Calorie_calculatorInput;
+  } as unknown as Calorie_calculatorInput;
     const result = calculateCalorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

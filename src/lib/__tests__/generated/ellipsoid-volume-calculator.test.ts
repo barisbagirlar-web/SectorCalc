@@ -12,7 +12,7 @@ describe("ellipsoid-volume-calculator", () => {
     "semiAxisB": 1,
     "semiAxisC": 1,
     "density": 0
-  } as Ellipsoid_volume_calculatorInput;
+  } as unknown as Ellipsoid_volume_calculatorInput;
     const result = calculateEllipsoid_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

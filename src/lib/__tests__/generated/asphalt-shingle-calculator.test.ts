@@ -14,7 +14,7 @@ describe("asphalt-shingle-calculator", () => {
     "numberOfPlanes": 2,
     "wasteFactor": 10,
     "bundleCoverage": 33.33
-  } as Asphalt_shingle_calculatorInput;
+  } as unknown as Asphalt_shingle_calculatorInput;
     const result = calculateAsphalt_shingle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

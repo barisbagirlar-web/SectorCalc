@@ -12,7 +12,7 @@ describe("tablespoon-to-teaspoon-calculator", () => {
     "conversionRate": 3,
     "precision": 2,
     "batchMultiplier": 1
-  } as Tablespoon_to_teaspoon_calculatorInput;
+  } as unknown as Tablespoon_to_teaspoon_calculatorInput;
     const result = calculateTablespoon_to_teaspoon_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

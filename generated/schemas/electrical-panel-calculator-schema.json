@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "System Voltage",
         "tr": "Sistem Gerilimi",
-        "de": "System Voltage",
+        "de": "Systemspannung",
         "fr": "System Voltage",
         "es": "System Voltage",
         "ar": "System Voltage"
       },
       "businessContext_i18n": {
         "en": "Nominal system voltage (e.g., 230V single-phase, 400V three-phase).",
-        "tr": "Nominal sistem gerilimi (ör. 230V tek faz, 400V üç faz)."
+        "tr": "Nominal sistem gerilimi (ör. 230V tek faz, 400V üç faz).",
+        "de": "Nennspannung des Systems (z. B. 230V einphasig, 400V dreiphasig)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Phases",
         "tr": "Faz Sayısı",
-        "de": "Number of Phases",
+        "de": "Anzahl der Phasen",
         "fr": "Number of Phases",
         "es": "Number of Phases",
         "ar": "Number of Phases"
       },
       "businessContext_i18n": {
         "en": "1 for single-phase, 3 for three-phase.",
-        "tr": "Tek faz için 1, üç faz için 3."
+        "tr": "Tek faz için 1, üç faz için 3.",
+        "de": "1 für einphasig, 3 für dreiphasig"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Branch Circuits",
         "tr": "Devre Sayısı",
-        "de": "Number of Branch Circuits",
+        "de": "Anzahl der Abzweigstromkreise",
         "fr": "Number of Branch Circuits",
         "es": "Number of Branch Circuits",
         "ar": "Number of Branch Circuits"
       },
       "businessContext_i18n": {
         "en": "Total number of branch circuits to be supplied.",
-        "tr": "Beslenecek toplam branş devre sayısı."
+        "tr": "Beslenecek toplam branş devre sayısı.",
+        "de": "Gesamtzahl der zu versorgenden Abzweigstromkreise."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Load per Circuit",
         "tr": "Devre Başına Yük",
-        "de": "Load per Circuit",
+        "de": "Last pro Stromkreis",
         "fr": "Load per Circuit",
         "es": "Load per Circuit",
         "ar": "Load per Circuit"
       },
       "businessContext_i18n": {
         "en": "Rated current per branch circuit.",
-        "tr": "Branş devre başına anma akımı."
+        "tr": "Branş devre başına anma akımı.",
+        "de": "Nennstrom pro Abzweigstromkreis."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Diversity Factor",
         "tr": "Çeşitlilik Faktörü",
-        "de": "Diversity Factor",
+        "de": "Gleichzeitigkeitsfaktor",
         "fr": "Diversity Factor",
         "es": "Diversity Factor",
         "ar": "Diversity Factor"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for non-simultaneous loads (0-1).",
-        "tr": "Eş zamanlı olmayan yükleri hesaba katan faktör (0-1)."
+        "tr": "Eş zamanlı olmayan yükleri hesaba katan faktör (0-1).",
+        "de": "Faktor für nicht gleichzeitige Lasten (0-1)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Power Factor",
         "tr": "Güç Faktörü",
-        "de": "Power Factor",
+        "de": "Leistungsfaktor",
         "fr": "Power Factor",
         "es": "Power Factor",
         "ar": "Power Factor"
       },
       "businessContext_i18n": {
         "en": "Power factor of the load (0-1).",
-        "tr": "Yükün güç faktörü (0-1)."
+        "tr": "Yükün güç faktörü (0-1).",
+        "de": "Leistungsfaktor der Last (0-1)."
       }
     }
   ],

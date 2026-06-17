@@ -15,7 +15,7 @@ describe("burnout-calculator", () => {
     "ratedAmbient": 40,
     "thermalTimeConstant": 30,
     "dutyCycle": 1
-  } as Burnout_calculatorInput;
+  } as unknown as Burnout_calculatorInput;
     const result = calculateBurnout_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

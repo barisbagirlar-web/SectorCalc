@@ -12,7 +12,7 @@ describe("blood-sugar-calculator", () => {
     "postprandial_bs": 0,
     "random_bs": 0,
     "a1c": 0
-  } as Blood_sugar_calculatorInput;
+  } as unknown as Blood_sugar_calculatorInput;
     const result = calculateBlood_sugar_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

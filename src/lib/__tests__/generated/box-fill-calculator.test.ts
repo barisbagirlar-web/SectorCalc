@@ -14,7 +14,7 @@ describe("box-fill-calculator", () => {
     "numberOfDevices": 0,
     "numberOfClamps": 0,
     "equipmentGroundPresent": 1
-  } as Box_fill_calculatorInput;
+  } as unknown as Box_fill_calculatorInput;
     const result = calculateBox_fill_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

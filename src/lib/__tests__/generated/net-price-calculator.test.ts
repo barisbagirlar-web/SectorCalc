@@ -12,7 +12,7 @@ describe("net-price-calculator", () => {
     "discountPercent": 10,
     "vatPercent": 20,
     "extraCharge": 0
-  } as Net_price_calculatorInput;
+  } as unknown as Net_price_calculatorInput;
     const result = calculateNet_price_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

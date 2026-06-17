@@ -13,7 +13,7 @@ describe("activation-energy-calculator", () => {
     "k2": 0.01,
     "T2": 350,
     "R": 8.314
-  } as Activation_energy_calculatorInput;
+  } as unknown as Activation_energy_calculatorInput;
     const result = calculateActivation_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("divide-fractions-calculator", () => {
     "denominator1": 1,
     "numerator2": 1,
     "denominator2": 1
-  } as Divide_fractions_calculatorInput;
+  } as unknown as Divide_fractions_calculatorInput;
     const result = calculateDivide_fractions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

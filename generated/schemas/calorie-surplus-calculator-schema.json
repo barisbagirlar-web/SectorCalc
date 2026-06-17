@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Energy Generated",
         "tr": "Üretilen Toplam Enerji",
-        "de": "Total Energy Generated",
+        "de": "Gesamte erzeugte Energie",
         "fr": "Total Energy Generated",
         "es": "Total Energy Generated",
         "ar": "Total Energy Generated"
       },
       "businessContext_i18n": {
         "en": "Total energy produced by the system over the measurement period.",
-        "tr": "Sistem tarafından ölçüm periyodu boyunca üretilen toplam enerji."
+        "tr": "Sistem tarafından ölçüm periyodu boyunca üretilen toplam enerji.",
+        "de": "Gesamte vom System über den Messzeitraum erzeugte Energie."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Total Energy Consumed",
         "tr": "Tüketilen Toplam Enerji",
-        "de": "Total Energy Consumed",
+        "de": "Gesamte verbrauchte Energie",
         "fr": "Total Energy Consumed",
         "es": "Total Energy Consumed",
         "ar": "Total Energy Consumed"
       },
       "businessContext_i18n": {
         "en": "Total energy utilized by core processes, excluding auxiliary systems.",
-        "tr": "Yardımcı sistemler hariç, temel prosesler tarafından kullanılan toplam enerji."
+        "tr": "Yardımcı sistemler hariç, temel prosesler tarafından kullanılan toplam enerji.",
+        "de": "Gesamte von Kernprozessen verbrauchte Energie, ohne Hilfssysteme."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Transmission Loss",
         "tr": "İletim Kaybı",
-        "de": "Transmission Loss",
+        "de": "Übertragungsverlust",
         "fr": "Transmission Loss",
         "es": "Transmission Loss",
         "ar": "Transmission Loss"
       },
       "businessContext_i18n": {
         "en": "Percentage of surplus energy lost during transmission and conversion.",
-        "tr": "İletim ve dönüşüm sırasında kaybedilen fazla enerjinin yüzdesi."
+        "tr": "İletim ve dönüşüm sırasında kaybedilen fazla enerjinin yüzdesi.",
+        "de": "Prozentsatz der Überschussenergie, der bei Übertragung und Umwandlung verloren geht."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Storage Efficiency",
         "tr": "Depolama Verimliliği",
-        "de": "Storage Efficiency",
+        "de": "Speichereffizienz",
         "fr": "Storage Efficiency",
         "es": "Storage Efficiency",
         "ar": "Storage Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of energy storage systems in recovering surplus energy.",
-        "tr": "Enerji depolama sistemlerinin fazla enerjiyi geri kazanma verimliliği."
+        "tr": "Enerji depolama sistemlerinin fazla enerjiyi geri kazanma verimliliği.",
+        "de": "Effizienz von Energiespeichersystemen bei der Rückgewinnung von Überschussenergie."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Auxiliary Consumption",
         "tr": "Yardımcı Tüketim",
-        "de": "Auxiliary Consumption",
+        "de": "Hilfsverbrauch",
         "fr": "Auxiliary Consumption",
         "es": "Auxiliary Consumption",
         "ar": "Auxiliary Consumption"
       },
       "businessContext_i18n": {
         "en": "Energy consumed by auxiliary systems (e.g., cooling, controls).",
-        "tr": "Yardımcı sistemler (ör. soğutma, kontroller) tarafından tüketilen enerji."
+        "tr": "Yardımcı sistemler (ör. soğutma, kontroller) tarafından tüketilen enerji.",
+        "de": "Energieverbrauch von Hilfssystemen (z. B. Kühlung, Steuerung)."
       }
     }
   ],

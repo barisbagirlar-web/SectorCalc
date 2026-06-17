@@ -12,7 +12,7 @@ describe("world-clock-calculator", () => {
     "localMinute": 0,
     "sourceUTCOffset": 0,
     "targetUTCOffset": 1
-  } as World_clock_calculatorInput;
+  } as unknown as World_clock_calculatorInput;
     const result = calculateWorld_clock_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

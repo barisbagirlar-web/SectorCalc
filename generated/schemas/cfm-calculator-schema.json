@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Air Velocity (FPM)",
         "tr": "Hava Hızı (FPM)",
-        "de": "Air Velocity (FPM)",
+        "de": "Luftgeschwindigkeit (FPM)",
         "fr": "Air Velocity (FPM)",
         "es": "Air Velocity (FPM)",
         "ar": "Air Velocity (FPM)"
       },
       "businessContext_i18n": {
         "en": "The speed of air moving through the duct, typically measured in feet per minute.",
-        "tr": "Havanın kanal içindeki hızı, tipik olarak dakikadaki fit cinsinden ölçülür."
+        "tr": "Havanın kanal içindeki hızı, tipik olarak dakikadaki fit cinsinden ölçülür.",
+        "de": "Die Geschwindigkeit der Luft, die sich durch den Kanal bewegt, typischerweise gemessen in Fuß pro Minute."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Duct Width (inches)",
         "tr": "Kanal Genişliği (inç)",
-        "de": "Duct Width (inches)",
+        "de": "Kanalbreite (Zoll)",
         "fr": "Duct Width (inches)",
         "es": "Duct Width (inches)",
         "ar": "Duct Width (inches)"
       },
       "businessContext_i18n": {
         "en": "Width of the rectangular duct.",
-        "tr": "Dikdörtgen kanalın genişliği."
+        "tr": "Dikdörtgen kanalın genişliği.",
+        "de": "Breite des rechteckigen Kanals."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Duct Height (inches)",
         "tr": "Kanal Yüksekliği (inç)",
-        "de": "Duct Height (inches)",
+        "de": "Kanalhöhe (Zoll)",
         "fr": "Duct Height (inches)",
         "es": "Duct Height (inches)",
         "ar": "Duct Height (inches)"
       },
       "businessContext_i18n": {
         "en": "Height of the rectangular duct.",
-        "tr": "Dikdörtgen kanalın yüksekliği."
+        "tr": "Dikdörtgen kanalın yüksekliği.",
+        "de": "Höhe des rechteckigen Kanals."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
-        "de": "Safety Factor",
+        "de": "Sicherheitsfaktor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for duct leakage and system inefficiencies, typically 1.1 to 1.2.",
-        "tr": "Kanal kaçağı ve sistem verimsizliklerini hesaba katan çarpan, tipik olarak 1.1 ila 1.2."
+        "tr": "Kanal kaçağı ve sistem verimsizliklerini hesaba katan çarpan, tipik olarak 1.1 ila 1.2.",
+        "de": "Multiplikator zur Berücksichtigung von Kanalverlusten und Systemineffizienzen, typischerweise 1,1 bis 1,2."
       }
     }
   ],

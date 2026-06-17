@@ -12,7 +12,7 @@ describe("cycling-ctl-calculator", () => {
     "dailyTSS": 70,
     "timeConstant": 42,
     "numDays": 30
-  } as Cycling_ctl_calculatorInput;
+  } as unknown as Cycling_ctl_calculatorInput;
     const result = calculateCycling_ctl_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

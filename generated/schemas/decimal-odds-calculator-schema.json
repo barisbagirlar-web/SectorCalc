@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Decimal Odds",
         "tr": "Ondalık Oranlar",
-        "de": "Decimal Odds",
+        "de": "Dezimalquote",
         "fr": "Decimal Odds",
         "es": "Decimal Odds",
         "ar": "Decimal Odds"
       },
       "businessContext_i18n": {
         "en": "Decimal odds represent the total payout per unit stake, including original stake. E.g., 2.0 means double your money.",
-        "tr": "Ondalık oranlar, birim bahis başına toplam ödemeyi (orijinal bahis dahil) temsil eder. Örn: 2.0 paranızı ikiye katlar."
+        "tr": "Ondalık oranlar, birim bahis başına toplam ödemeyi (orijinal bahis dahil) temsil eder. Örn: 2.0 paranızı ikiye katlar.",
+        "de": "Dezimalquoten geben die Gesamtauszahlung pro Einsatz an, inklusive des ursprünglichen Einsatzes. Z.B. 2,0 bedeutet Verdopplung."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Stake Amount",
         "tr": "Bahis Miktarı",
-        "de": "Stake Amount",
+        "de": "Einsatzbetrag",
         "fr": "Stake Amount",
         "es": "Stake Amount",
         "ar": "Stake Amount"
       },
       "businessContext_i18n": {
         "en": "The amount of money placed as a bet.",
-        "tr": "Bahis olarak yatırılan para miktarı."
+        "tr": "Bahis olarak yatırılan para miktarı.",
+        "de": "Der als Wette eingesetzte Geldbetrag."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Bookmaker Margin",
         "tr": "Bahisçi Marjı",
-        "de": "Bookmaker Margin",
+        "de": "Buchmachermarge",
         "fr": "Bookmaker Margin",
         "es": "Bookmaker Margin",
         "ar": "Bookmaker Margin"
       },
       "businessContext_i18n": {
         "en": "Bookmaker's profit margin applied to odds, expressed as a percentage. E.g., 5% margin reduces true probability.",
-        "tr": "Bahisçinin oranlara uyguladığı kar marjı, yüzde olarak ifade edilir. Örn: %5 marj gerçek olasılığı düşürür."
+        "tr": "Bahisçinin oranlara uyguladığı kar marjı, yüzde olarak ifade edilir. Örn: %5 marj gerçek olasılığı düşürür.",
+        "de": "Gewinnmarge des Buchmachers, angewendet auf die Quoten, ausgedrückt als Prozentsatz. Z.B. 5% Marge reduziert die wahre Wahrscheinlichkeit."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Tax Rate on Winnings",
         "tr": "Kazançlarda Vergi Oranı",
-        "de": "Tax Rate on Winnings",
+        "de": "Steuersatz auf Gewinne",
         "fr": "Tax Rate on Winnings",
         "es": "Tax Rate on Winnings",
         "ar": "Tax Rate on Winnings"
       },
       "businessContext_i18n": {
         "en": "Applicable tax rate on net winnings (profit), if any. E.g., 10% for 10% tax.",
-        "tr": "Net kazanç (kar) üzerinden uygulanan vergi oranı, varsa. Örn: %10 vergi için 10."
+        "tr": "Net kazanç (kar) üzerinden uygulanan vergi oranı, varsa. Örn: %10 vergi için 10.",
+        "de": "Anwendbarer Steuersatz auf Nettogewinne (Gewinn), falls vorhanden. Z.B. 10% für 10% Steuer."
       }
     }
   ],

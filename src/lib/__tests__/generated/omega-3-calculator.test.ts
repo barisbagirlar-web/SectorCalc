@@ -13,7 +13,7 @@ describe("omega-3-calculator", () => {
     "epa_percent": 18,
     "dha_percent": 12,
     "body_weight_kg": 70
-  } as Omega_3_calculatorInput;
+  } as unknown as Omega_3_calculatorInput;
     const result = calculateOmega_3_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

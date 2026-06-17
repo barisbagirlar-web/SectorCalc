@@ -13,7 +13,7 @@ describe("schrodinger-equation", () => {
     "energy": 1.602176634e-19,
     "hbar": 1.054571817e-34,
     "position": 1e-10
-  } as Schrodinger_equationInput;
+  } as unknown as Schrodinger_equationInput;
     const result = calculateSchrodinger_equation(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

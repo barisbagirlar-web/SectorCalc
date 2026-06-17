@@ -15,7 +15,7 @@ describe("horizontal-center-of-gravity-calculator", () => {
     "weight3": 600,
     "distance3": 2,
     "referencePoint": 0
-  } as Horizontal_center_of_gravity_calculatorInput;
+  } as unknown as Horizontal_center_of_gravity_calculatorInput;
     const result = calculateHorizontal_center_of_gravity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

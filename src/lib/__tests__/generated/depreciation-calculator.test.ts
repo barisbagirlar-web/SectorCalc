@@ -12,7 +12,7 @@ describe("depreciation-calculator", () => {
     "salvageValue": 1000,
     "usefulLifeYears": 5,
     "yearsElapsed": 0
-  } as Depreciation_calculatorInput;
+  } as unknown as Depreciation_calculatorInput;
     const result = calculateDepreciation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

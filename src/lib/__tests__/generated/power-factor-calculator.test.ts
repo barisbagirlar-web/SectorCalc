@@ -12,7 +12,7 @@ describe("power-factor-calculator", () => {
     "apparentPower": 125,
     "voltage": 400,
     "current": 0
-  } as Power_factor_calculatorInput;
+  } as unknown as Power_factor_calculatorInput;
     const result = calculatePower_factor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

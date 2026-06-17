@@ -12,7 +12,7 @@ describe("bounce-rate-calculator", () => {
     "singlePageVisitors": 400,
     "targetBounceRate": 50,
     "days": 30
-  } as Bounce_rate_calculatorInput;
+  } as unknown as Bounce_rate_calculatorInput;
     const result = calculateBounce_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

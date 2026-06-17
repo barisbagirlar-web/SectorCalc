@@ -13,7 +13,7 @@ describe("nozzle-calculator", () => {
     "dischargeCoefficient": 0.98,
     "density": 1000,
     "viscosity": 0.000001
-  } as Nozzle_calculatorInput;
+  } as unknown as Nozzle_calculatorInput;
     const result = calculateNozzle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

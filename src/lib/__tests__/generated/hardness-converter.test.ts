@@ -11,7 +11,7 @@ describe("hardness-converter", () => {
     "hardnessValue": 0,
     "scaleFrom": 1,
     "auto_input_3": 1
-  } as Hardness_converterInput;
+  } as unknown as Hardness_converterInput;
     const result = calculateHardness_converter(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("ukulele-tuning-calculator", () => {
     "stringDiameter": 0.5,
     "density": 1150,
     "frequency": 440
-  } as Ukulele_tuning_calculatorInput;
+  } as unknown as Ukulele_tuning_calculatorInput;
     const result = calculateUkulele_tuning_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

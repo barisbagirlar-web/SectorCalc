@@ -11,7 +11,7 @@ describe("pythagorean-triple-generator-calculator", () => {
     "m": 2,
     "n": 1,
     "auto_input_3": 1
-  } as Pythagorean_triple_generator_calculatorInput;
+  } as unknown as Pythagorean_triple_generator_calculatorInput;
     const result = calculatePythagorean_triple_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

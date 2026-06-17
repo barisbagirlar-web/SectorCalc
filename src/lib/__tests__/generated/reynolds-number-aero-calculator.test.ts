@@ -11,7 +11,7 @@ describe("reynolds-number-aero-calculator", () => {
     "velocity": 10,
     "length": 1,
     "kinematicViscosity": 0.000015
-  } as Reynolds_number_aero_calculatorInput;
+  } as unknown as Reynolds_number_aero_calculatorInput;
     const result = calculateReynolds_number_aero_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

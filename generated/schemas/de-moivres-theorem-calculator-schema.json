@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Magnitude (r)",
         "tr": "Büyüklük (r)",
-        "de": "Magnitude (r)",
+        "de": "Betrag (r)",
         "fr": "Magnitude (r)",
         "es": "Magnitude (r)",
         "ar": "Magnitude (r)"
       },
       "businessContext_i18n": {
         "en": "Polar form magnitude of complex number",
-        "tr": "Karmaşık sayının kutupsal form büyüklüğü"
+        "tr": "Karmaşık sayının kutupsal form büyüklüğü",
+        "de": "Betrag der komplexen Zahl in Polarform"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Angle (θ)",
         "tr": "Açı (θ)",
-        "de": "Angle (θ)",
+        "de": "Winkel (θ)",
         "fr": "Angle (θ)",
         "es": "Angle (θ)",
         "ar": "Angle (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle from positive real axis",
-        "tr": "Pozitif reel eksenden açı"
+        "tr": "Pozitif reel eksenden açı",
+        "de": "Winkel von der positiven reellen Achse"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Angle unit (0=rad, 1=deg)",
         "tr": "Açı birimi (0=radyan, 1=derece)",
-        "de": "Angle unit (0=rad, 1=deg)",
+        "de": "Winkeleinheit (0=rad, 1=deg)",
         "fr": "Angle unit (0=rad, 1=deg)",
         "es": "Angle unit (0=rad, 1=deg)",
         "ar": "Angle unit (0=rad, 1=deg)"
       },
       "businessContext_i18n": {
         "en": "Select 0 for radians or 1 for degrees",
-        "tr": "Radyan için 0, derece için 1 seçin"
+        "tr": "Radyan için 0, derece için 1 seçin",
+        "de": "Wählen Sie 0 für Bogenmaß oder 1 für Grad"
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Power to which the complex number is raised",
-        "tr": "Karmaşık sayının yükseltildiği kuvvet"
+        "tr": "Karmaşık sayının yükseltildiği kuvvet",
+        "de": "Potenz, mit der die komplexe Zahl potenziert wird"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Decimal places",
         "tr": "Ondalık basamaklar",
-        "de": "Decimal places",
+        "de": "Dezimalstellen",
         "fr": "Decimal places",
         "es": "Decimal places",
         "ar": "Decimal places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output",
-        "tr": "Çıktı için ondalık basamak sayısı"
+        "tr": "Çıktı için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die Ausgabe"
       }
     }
   ],

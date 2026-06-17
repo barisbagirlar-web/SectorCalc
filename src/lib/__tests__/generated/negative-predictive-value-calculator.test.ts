@@ -12,7 +12,7 @@ describe("negative-predictive-value-calculator", () => {
     "fn": 0,
     "tp": 0,
     "fp": 0
-  } as Negative_predictive_value_calculatorInput;
+  } as unknown as Negative_predictive_value_calculatorInput;
     const result = calculateNegative_predictive_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

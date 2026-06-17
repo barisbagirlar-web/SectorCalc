@@ -14,7 +14,7 @@ describe("happiness-calculator", () => {
     "career": 50,
     "leisure": 50,
     "environment": 50
-  } as Happiness_calculatorInput;
+  } as unknown as Happiness_calculatorInput;
     const result = calculateHappiness_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

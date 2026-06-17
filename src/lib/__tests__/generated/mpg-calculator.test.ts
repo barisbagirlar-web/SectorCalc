@@ -12,7 +12,7 @@ describe("mpg-calculator", () => {
     "fuelUsed": 5,
     "fuelCostPerGallon": 3.5,
     "numberOfTrips": 1
-  } as Mpg_calculatorInput;
+  } as unknown as Mpg_calculatorInput;
     const result = calculateMpg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

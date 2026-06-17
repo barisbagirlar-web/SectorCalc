@@ -13,7 +13,7 @@ describe("vitamin-d-calculator", () => {
     "currentVitaminD": 20,
     "targetVitaminD": 50,
     "treatmentDuration": 12
-  } as Vitamin_d_calculatorInput;
+  } as unknown as Vitamin_d_calculatorInput;
     const result = calculateVitamin_d_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

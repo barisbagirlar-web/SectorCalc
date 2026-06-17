@@ -16,7 +16,7 @@ describe("pooled-cohort-equations", () => {
     "treatedHypertension": 0,
     "diabetes": 0,
     "smoker": 0
-  } as Pooled_cohort_equationsInput;
+  } as unknown as Pooled_cohort_equationsInput;
     const result = calculatePooled_cohort_equations(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

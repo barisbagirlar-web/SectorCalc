@@ -14,7 +14,7 @@ describe("r-squared-calculator", () => {
     "sumXSq": 0,
     "sumYSq": 0,
     "sumXY": 0
-  } as R_squared_calculatorInput;
+  } as unknown as R_squared_calculatorInput;
     const result = calculateR_squared_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

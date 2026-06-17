@@ -13,7 +13,7 @@ describe("vdot-calculator", () => {
     "sonumleme": 0.05,
     "malzemeFaktoru": 210,
     "guvenlikFaktoru": 1.5
-  } as Vdot_calculatorInput;
+  } as unknown as Vdot_calculatorInput;
     const result = calculateVdot_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

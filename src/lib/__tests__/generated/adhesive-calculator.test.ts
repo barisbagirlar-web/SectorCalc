@@ -13,7 +13,7 @@ describe("adhesive-calculator", () => {
     "coverageRate": 1.5,
     "wasteFactor": 5,
     "layers": 1
-  } as Adhesive_calculatorInput;
+  } as unknown as Adhesive_calculatorInput;
     const result = calculateAdhesive_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

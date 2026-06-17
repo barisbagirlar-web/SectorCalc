@@ -13,7 +13,7 @@ describe("bishop-score-calculator", () => {
     "station": -3,
     "consistency": 0,
     "position": 0
-  } as Bishop_score_calculatorInput;
+  } as unknown as Bishop_score_calculatorInput;
     const result = calculateBishop_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

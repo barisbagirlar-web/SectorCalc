@@ -16,7 +16,7 @@ describe("carbon-footprint-check-calculator", () => {
     "production_volume": 50000,
     "transport_distance": 500,
     "has_carbon_offset_program": false
-  } as Carbon_footprint_check_calculatorInput;
+  } as unknown as Carbon_footprint_check_calculatorInput;
     const result = calculateCarbon_footprint_check_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("series-i-savings-bond-calculator", () => {
     "fixedRate": 0,
     "inflationRate": 1.5,
     "years": 5
-  } as Series_i_savings_bond_calculatorInput;
+  } as unknown as Series_i_savings_bond_calculatorInput;
     const result = calculateSeries_i_savings_bond_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

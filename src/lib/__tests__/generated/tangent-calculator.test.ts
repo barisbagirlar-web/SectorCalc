@@ -12,7 +12,7 @@ describe("tangent-calculator", () => {
     "unitRadians": 0,
     "precision": 4,
     "computeDouble": 0
-  } as Tangent_calculatorInput;
+  } as unknown as Tangent_calculatorInput;
     const result = calculateTangent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

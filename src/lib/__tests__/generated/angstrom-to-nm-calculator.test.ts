@@ -11,7 +11,7 @@ describe("angstrom-to-nm-calculator", () => {
     "angstromValue": 1,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Angstrom_to_nm_calculatorInput;
+  } as unknown as Angstrom_to_nm_calculatorInput;
     const result = calculateAngstrom_to_nm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

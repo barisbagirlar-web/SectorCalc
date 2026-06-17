@@ -12,7 +12,7 @@ describe("prism-volume-calculator", () => {
     "sides": 3,
     "sideLength": 1,
     "height": 1
-  } as Prism_volume_calculatorInput;
+  } as unknown as Prism_volume_calculatorInput;
     const result = calculatePrism_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

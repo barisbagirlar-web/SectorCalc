@@ -12,7 +12,7 @@ describe("traffic-flow-calculator", () => {
     "speed": 60,
     "vehicleLength": 5,
     "headway": 2
-  } as Traffic_flow_calculatorInput;
+  } as unknown as Traffic_flow_calculatorInput;
     const result = calculateTraffic_flow_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

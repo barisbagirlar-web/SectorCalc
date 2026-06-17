@@ -12,7 +12,7 @@ describe("c1v1-c2v2-calculator", () => {
     "v1": 1,
     "c2": 0.5,
     "v2": 2
-  } as C1v1_c2v2_calculatorInput;
+  } as unknown as C1v1_c2v2_calculatorInput;
     const result = calculateC1v1_c2v2_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

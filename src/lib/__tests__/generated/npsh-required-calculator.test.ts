@@ -11,7 +11,7 @@ describe("npsh-required-calculator", () => {
     "speed": 1750,
     "flowRate": 500,
     "suctionSpecificSpeed": 10000
-  } as Npsh_required_calculatorInput;
+  } as unknown as Npsh_required_calculatorInput;
     const result = calculateNpsh_required_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

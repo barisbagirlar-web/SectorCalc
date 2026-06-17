@@ -12,7 +12,7 @@ describe("argand-diagram-calculator", () => {
     "im1": 0,
     "re2": 0,
     "im2": 0
-  } as Argand_diagram_calculatorInput;
+  } as unknown as Argand_diagram_calculatorInput;
     const result = calculateArgand_diagram_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Start Date (serial number)",
         "tr": "Başlangıç Tarihi (seri numarası)",
-        "de": "Start Date (serial number)",
+        "de": "Startdatum (Seriennummer)",
         "fr": "Start Date (serial number)",
         "es": "Start Date (serial number)",
         "ar": "Start Date (serial number)"
       },
       "businessContext_i18n": {
         "en": "Date represented as a serial number, e.g., days since 1900-01-01 (Excel epoch). For example, 45000 corresponds to 2023-03-17.",
-        "tr": "Seri numarası olarak temsil edilen tarih, örn. 1900-01-01'den (Excel dönemi) itibaren gün sayısı. Örneğin, 45000 2023-03-17'ye karşılık gelir."
+        "tr": "Seri numarası olarak temsil edilen tarih, örn. 1900-01-01'den (Excel dönemi) itibaren gün sayısı. Örneğin, 45000 2023-03-17'ye karşılık gelir.",
+        "de": "Datum als Seriennummer, z. B. Tage seit 1900-01-01 (Excel-Epoche). Beispiel: 45000 entspricht 2023-03-17."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Days to Add",
         "tr": "Eklenecek Günler",
-        "de": "Days to Add",
+        "de": "Hinzuzufügende Tage",
         "fr": "Days to Add",
         "es": "Days to Add",
         "ar": "Days to Add"
       },
       "businessContext_i18n": {
         "en": "Number of calendar days to add.",
-        "tr": "Eklenecek takvim günü sayısı."
+        "tr": "Eklenecek takvim günü sayısı.",
+        "de": "Anzahl der hinzuzufügenden Kalendertage."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Months to Add",
         "tr": "Eklenecek Aylar",
-        "de": "Months to Add",
+        "de": "Hinzuzufügende Monate",
         "fr": "Months to Add",
         "es": "Months to Add",
         "ar": "Months to Add"
       },
       "businessContext_i18n": {
         "en": "Number of months to add (average 30.4375 days per month).",
-        "tr": "Eklenecek ay sayısı (ayda ortalama 30,4375 gün)."
+        "tr": "Eklenecek ay sayısı (ayda ortalama 30,4375 gün).",
+        "de": "Anzahl der hinzuzufügenden Monate (durchschnittlich 30,4375 Tage pro Monat)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Years to Add",
         "tr": "Eklenecek Yıllar",
-        "de": "Years to Add",
+        "de": "Hinzuzufügende Jahre",
         "fr": "Years to Add",
         "es": "Years to Add",
         "ar": "Years to Add"
       },
       "businessContext_i18n": {
         "en": "Number of years to add (average 365.25 days per year).",
-        "tr": "Eklenecek yıl sayısı (ortalama 365.25 gün/yıl)."
+        "tr": "Eklenecek yıl sayısı (ortalama 365.25 gün/yıl).",
+        "de": "Anzahl der hinzuzufügenden Jahre (durchschnittlich 365,25 Tage pro Jahr)."
       }
     }
   ],

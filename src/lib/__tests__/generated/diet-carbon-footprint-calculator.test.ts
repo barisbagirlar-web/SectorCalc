@@ -14,7 +14,7 @@ describe("diet-carbon-footprint-calculator", () => {
     "plant": 5,
     "grains": 3,
     "foodWaste": 1
-  } as Diet_carbon_footprint_calculatorInput;
+  } as unknown as Diet_carbon_footprint_calculatorInput;
     const result = calculateDiet_carbon_footprint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

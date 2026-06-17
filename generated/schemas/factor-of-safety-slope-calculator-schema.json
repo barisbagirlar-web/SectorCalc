@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Şev Açısı",
         "tr": "Şev Açısı",
-        "de": "Şev Açısı",
+        "de": "Böschungswinkel",
         "fr": "Şev Açısı",
         "es": "Şev Açısı",
         "ar": "Şev Açısı"
       },
       "businessContext_i18n": {
         "en": "Eğimin yatay ile yaptığı açı",
-        "tr": "Eğimin yatay ile yaptığı açı"
+        "tr": "Eğimin yatay ile yaptığı açı",
+        "de": "Winkel der Böschung zur Horizontalen"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Kohezyon",
         "tr": "Kohezyon",
-        "de": "Kohezyon",
+        "de": "Kohäsion",
         "fr": "Kohezyon",
         "es": "Kohezyon",
         "ar": "Kohezyon"
       },
       "businessContext_i18n": {
         "en": "Zemin kohezyon değeri",
-        "tr": "Zemin kohezyon değeri"
+        "tr": "Zemin kohezyon değeri",
+        "de": "Kohäsionswert des Bodens"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "İçsel Sürtünme Açısı",
         "tr": "İçsel Sürtünme Açısı",
-        "de": "İçsel Sürtünme Açısı",
+        "de": "Innerer Reibungswinkel",
         "fr": "İçsel Sürtünme Açısı",
         "es": "İçsel Sürtünme Açısı",
         "ar": "İçsel Sürtünme Açısı"
       },
       "businessContext_i18n": {
         "en": "Zemin için efektif kayma direnci açısı",
-        "tr": "Zemin için efektif kayma direnci açısı"
+        "tr": "Zemin için efektif kayma direnci açısı",
+        "de": "Effektiver Scherwiderstandswinkel des Bodens"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Zemin Birim Hacim Ağırlığı",
         "tr": "Zemin Birim Hacim Ağırlığı",
-        "de": "Zemin Birim Hacim Ağırlığı",
+        "de": "Raumgewicht des Bodens",
         "fr": "Zemin Birim Hacim Ağırlığı",
         "es": "Zemin Birim Hacim Ağırlığı",
         "ar": "Zemin Birim Hacim Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Doğal birim ağırlık",
-        "tr": "Doğal birim ağırlık"
+        "tr": "Doğal birim ağırlık",
+        "de": "Natürliches Raumgewicht"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Kayma Derinliği",
         "tr": "Kayma Derinliği",
-        "de": "Kayma Derinliği",
+        "de": "Gleitflächentiefe",
         "fr": "Kayma Derinliği",
         "es": "Kayma Derinliği",
         "ar": "Kayma Derinliği"
       },
       "businessContext_i18n": {
         "en": "Yüzeyden kayma düzlemine dik derinlik",
-        "tr": "Yüzeyden kayma düzlemine dik derinlik"
+        "tr": "Yüzeyden kayma düzlemine dik derinlik",
+        "de": "Senkrechte Tiefe von der Oberfläche zur Gleitebene"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
         "tr": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
-        "de": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
+        "de": "Wasserhöhe über der Gleitebene",
         "fr": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
         "es": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
         "ar": "Kayma Düzlemi Üzerindeki Su Yüksekliği"
       },
       "businessContext_i18n": {
         "en": "Doygun zemin hesabı için su derinliği",
-        "tr": "Doygun zemin hesabı için su derinliği"
+        "tr": "Doygun zemin hesabı için su derinliği",
+        "de": "Wassertiefe für die Berechnung des gesättigten Bodens"
       }
     }
   ],

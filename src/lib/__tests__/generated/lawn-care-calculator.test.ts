@@ -15,7 +15,7 @@ describe("lawn-care-calculator", () => {
     "laborRate": 25,
     "laborHours": 4,
     "profitMargin": 20
-  } as Lawn_care_calculatorInput;
+  } as unknown as Lawn_care_calculatorInput;
     const result = calculateLawn_care_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

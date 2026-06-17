@@ -14,7 +14,7 @@ describe("small-business-grants-calculator", () => {
     "matchingFunds": 10000,
     "isMinorityOwned": 0,
     "isWomanOwned": 0
-  } as Small_business_grants_calculatorInput;
+  } as unknown as Small_business_grants_calculatorInput;
     const result = calculateSmall_business_grants_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

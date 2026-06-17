@@ -12,7 +12,7 @@ describe("fahrenheit-to-celsius-calculator", () => {
     "decimalPlaces": 2,
     "atmosphericPressure": 1013.25,
     "relativeHumidity": 50
-  } as Fahrenheit_to_celsius_calculatorInput;
+  } as unknown as Fahrenheit_to_celsius_calculatorInput;
     const result = calculateFahrenheit_to_celsius_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

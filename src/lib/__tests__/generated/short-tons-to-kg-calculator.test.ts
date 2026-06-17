@@ -13,7 +13,7 @@ describe("short-tons-to-kg-calculator", () => {
     "item3_tons": 0,
     "item4_tons": 0,
     "precision": 2
-  } as Short_tons_to_kg_calculatorInput;
+  } as unknown as Short_tons_to_kg_calculatorInput;
     const result = calculateShort_tons_to_kg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

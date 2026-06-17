@@ -12,7 +12,7 @@ describe("invoice-calculator", () => {
     "discountPercent": 0,
     "taxRate": 0,
     "shippingCost": 0
-  } as Invoice_calculatorInput;
+  } as unknown as Invoice_calculatorInput;
     const result = calculateInvoice_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("differential-amplifier-calculator", () => {
     "R2": 10000,
     "R3": 10000,
     "R4": 10000
-  } as Differential_amplifier_calculatorInput;
+  } as unknown as Differential_amplifier_calculatorInput;
     const result = calculateDifferential_amplifier_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

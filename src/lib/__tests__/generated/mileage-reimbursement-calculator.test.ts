@@ -13,7 +13,7 @@ describe("mileage-reimbursement-calculator", () => {
     "tolls": 0,
     "parking": 0,
     "flatAllowance": 0
-  } as Mileage_reimbursement_calculatorInput;
+  } as unknown as Mileage_reimbursement_calculatorInput;
     const result = calculateMileage_reimbursement_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

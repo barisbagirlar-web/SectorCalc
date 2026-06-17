@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Item Price (USD)",
         "tr": "Ürün Fiyatı (USD)",
-        "de": "Item Price (USD)",
+        "de": "Artikelpreis (USD)",
         "fr": "Item Price (USD)",
         "es": "Item Price (USD)",
         "ar": "Item Price (USD)"
       },
       "businessContext_i18n": {
         "en": "Selling price per item",
-        "tr": "Ürün başına satış fiyatı"
+        "tr": "Ürün başına satış fiyatı",
+        "de": "Verkaufspreis pro Artikel"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Shipping Price (USD)",
         "tr": "Nakliye Fiyatı (USD)",
-        "de": "Shipping Price (USD)",
+        "de": "Versandkosten (USD)",
         "fr": "Shipping Price (USD)",
         "es": "Shipping Price (USD)",
         "ar": "Shipping Price (USD)"
       },
       "businessContext_i18n": {
         "en": "Shipping cost charged to buyer per item",
-        "tr": "Alıcıdan talep edilen ürün başına nakliye ücreti"
+        "tr": "Alıcıdan talep edilen ürün başına nakliye ücreti",
+        "de": "Versandkosten, die dem Käufer pro Artikel berechnet werden"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Quantity",
         "tr": "Miktar",
-        "de": "Quantity",
+        "de": "Menge",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of items sold",
-        "tr": "Satılan ürün sayısı"
+        "tr": "Satılan ürün sayısı",
+        "de": "Anzahl verkaufter Artikel"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Item Cost (USD)",
         "tr": "Ürün Maliyeti (USD)",
-        "de": "Item Cost (USD)",
+        "de": "Artikelkosten (USD)",
         "fr": "Item Cost (USD)",
         "es": "Item Cost (USD)",
         "ar": "Item Cost (USD)"
       },
       "businessContext_i18n": {
         "en": "Cost of goods sold per item",
-        "tr": "Satılan malın birim maliyeti"
+        "tr": "Satılan malın birim maliyeti",
+        "de": "Kosten der verkauften Waren pro Artikel"
       }
     }
   ],

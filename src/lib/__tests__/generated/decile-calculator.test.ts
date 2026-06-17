@@ -12,7 +12,7 @@ describe("decile-calculator", () => {
     "maxValue": 100,
     "inputValue": 50,
     "totalDeciles": 10
-  } as Decile_calculatorInput;
+  } as unknown as Decile_calculatorInput;
     const result = calculateDecile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

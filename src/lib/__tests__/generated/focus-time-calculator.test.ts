@@ -13,7 +13,7 @@ describe("focus-time-calculator", () => {
     "meetingHours": 1.5,
     "interruptionCount": 10,
     "avgInterruptionDuration": 5
-  } as Focus_time_calculatorInput;
+  } as unknown as Focus_time_calculatorInput;
     const result = calculateFocus_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("primer-calculator", () => {
     "wasteFactor": 5,
     "containerSize": 20,
     "pricePerContainer": 100
-  } as Primer_calculatorInput;
+  } as unknown as Primer_calculatorInput;
     const result = calculatePrimer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("mccabe-thiele-method", () => {
     "r": 1.5,
     "alpha": 2.5,
     "q": 1
-  } as Mccabe_thiele_methodInput;
+  } as unknown as Mccabe_thiele_methodInput;
     const result = calculateMccabe_thiele_method(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

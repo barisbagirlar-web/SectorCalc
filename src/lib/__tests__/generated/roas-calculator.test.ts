@@ -12,7 +12,7 @@ describe("roas-calculator", () => {
     "spendB": 0,
     "revenueA": 0,
     "revenueB": 0
-  } as Roas_calculatorInput;
+  } as unknown as Roas_calculatorInput;
     const result = calculateRoas_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("rankine-cycle-calculator", () => {
     "pumpExitIsentropicEnthalpy": 210,
     "turbineEfficiency": 0.9,
     "pumpEfficiency": 0.85
-  } as Rankine_cycle_calculatorInput;
+  } as unknown as Rankine_cycle_calculatorInput;
     const result = calculateRankine_cycle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

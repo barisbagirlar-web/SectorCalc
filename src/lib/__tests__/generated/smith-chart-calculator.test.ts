@@ -12,7 +12,7 @@ describe("smith-chart-calculator", () => {
     "loadReactance": 0,
     "characteristicImpedance": 50,
     "distanceWavelengths": 0
-  } as Smith_chart_calculatorInput;
+  } as unknown as Smith_chart_calculatorInput;
     const result = calculateSmith_chart_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

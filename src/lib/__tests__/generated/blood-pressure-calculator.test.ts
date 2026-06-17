@@ -12,7 +12,7 @@ describe("blood-pressure-calculator", () => {
     "diastolic": 80,
     "heartRate": 72,
     "age": 30
-  } as Blood_pressure_calculatorInput;
+  } as unknown as Blood_pressure_calculatorInput;
     const result = calculateBlood_pressure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

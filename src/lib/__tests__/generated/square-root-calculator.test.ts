@@ -13,7 +13,7 @@ describe("square-root-calculator", () => {
     "initialGuess": 1,
     "tolerance": 0.000001,
     "maxIterations": 100
-  } as Square_root_calculatorInput;
+  } as unknown as Square_root_calculatorInput;
     const result = calculateSquare_root_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

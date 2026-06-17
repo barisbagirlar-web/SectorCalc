@@ -14,7 +14,7 @@ describe("tuition-calculator", () => {
     "discountPercent": 0,
     "taxRate": 0,
     "scholarship": 0
-  } as Tuition_calculatorInput;
+  } as unknown as Tuition_calculatorInput;
     const result = calculateTuition_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

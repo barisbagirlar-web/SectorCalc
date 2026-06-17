@@ -13,7 +13,7 @@ describe("baldness-calculator", () => {
     "stress_level": 5,
     "dht_level": 50,
     "hair_density": 200
-  } as Baldness_calculatorInput;
+  } as unknown as Baldness_calculatorInput;
     const result = calculateBaldness_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

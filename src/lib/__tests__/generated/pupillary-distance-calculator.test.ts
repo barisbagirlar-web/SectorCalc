@@ -13,7 +13,7 @@ describe("pupillary-distance-calculator", () => {
     "workingDistance": 40,
     "vertexDistance": 12,
     "centerRotationDistance": 15
-  } as Pupillary_distance_calculatorInput;
+  } as unknown as Pupillary_distance_calculatorInput;
     const result = calculatePupillary_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

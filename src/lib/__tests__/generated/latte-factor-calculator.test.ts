@@ -12,7 +12,7 @@ describe("latte-factor-calculator", () => {
     "daysPerWeek": 5,
     "years": 10,
     "annualReturnRate": 7
-  } as Latte_factor_calculatorInput;
+  } as unknown as Latte_factor_calculatorInput;
     const result = calculateLatte_factor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

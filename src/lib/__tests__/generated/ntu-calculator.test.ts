@@ -12,7 +12,7 @@ describe("ntu-calculator", () => {
     "slope_a": 2.1,
     "intercept_b": 3.2,
     "dilution_factor": 1
-  } as Ntu_calculatorInput;
+  } as unknown as Ntu_calculatorInput;
     const result = calculateNtu_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

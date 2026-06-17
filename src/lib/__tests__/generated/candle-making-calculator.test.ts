@@ -13,7 +13,7 @@ describe("candle-making-calculator", () => {
     "waxDensity": 0.9,
     "fragranceLoad": 8,
     "wasteFactor": 5
-  } as Candle_making_calculatorInput;
+  } as unknown as Candle_making_calculatorInput;
     const result = calculateCandle_making_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

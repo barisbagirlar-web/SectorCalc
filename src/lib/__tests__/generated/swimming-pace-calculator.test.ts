@@ -12,7 +12,7 @@ describe("swimming-pace-calculator", () => {
     "timeMinutes": 2,
     "timeSeconds": 0,
     "poolLength": 25
-  } as Swimming_pace_calculatorInput;
+  } as unknown as Swimming_pace_calculatorInput;
     const result = calculateSwimming_pace_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

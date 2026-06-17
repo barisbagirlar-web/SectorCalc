@@ -11,7 +11,7 @@ describe("catalan-number-calculator", () => {
     "n": 5,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Catalan_number_calculatorInput;
+  } as unknown as Catalan_number_calculatorInput;
     const result = calculateCatalan_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

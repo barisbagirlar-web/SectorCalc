@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Actual Output",
         "tr": "Gerçek Çıktı",
-        "de": "Actual Output",
+        "de": "Tatsächlicher Output",
         "fr": "Actual Output",
         "es": "Actual Output",
         "ar": "Actual Output"
       },
       "businessContext_i18n": {
         "en": "The actual number of units produced.",
-        "tr": "Üretilen gerçek birim sayısı."
+        "tr": "Üretilen gerçek birim sayısı.",
+        "de": "Die tatsächliche Anzahl produzierter Einheiten."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Planned Output",
         "tr": "Planlanan Çıktı",
-        "de": "Planned Output",
+        "de": "Geplanter Output",
         "fr": "Planned Output",
         "es": "Planned Output",
         "ar": "Planned Output"
       },
       "businessContext_i18n": {
         "en": "The target number of units to be produced.",
-        "tr": "Üretilmesi hedeflenen birim sayısı."
+        "tr": "Üretilmesi hedeflenen birim sayısı.",
+        "de": "Die Zielanzahl der zu produzierenden Einheiten."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Available Time",
         "tr": "Kullanılabilir Süre",
-        "de": "Available Time",
+        "de": "Verfügbare Zeit",
         "fr": "Available Time",
         "es": "Available Time",
         "ar": "Available Time"
       },
       "businessContext_i18n": {
         "en": "Total time available for production.",
-        "tr": "Üretim için toplam kullanılabilir süre."
+        "tr": "Üretim için toplam kullanılabilir süre.",
+        "de": "Gesamte für die Produktion verfügbare Zeit."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Downtime",
         "tr": "Durma Süresi",
-        "de": "Downtime",
+        "de": "Stillstandszeit",
         "fr": "Downtime",
         "es": "Downtime",
         "ar": "Downtime"
       },
       "businessContext_i18n": {
         "en": "Unplanned stoppages or idle time.",
-        "tr": "Plansız duruşlar veya boşta geçen süre."
+        "tr": "Plansız duruşlar veya boşta geçen süre.",
+        "de": "Ungeplante Unterbrechungen oder Leerlaufzeit."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Cycle Time per Unit",
         "tr": "Birim Başına Çevrim Süresi",
-        "de": "Cycle Time per Unit",
+        "de": "Zykluszeit pro Einheit",
         "fr": "Cycle Time per Unit",
         "es": "Cycle Time per Unit",
         "ar": "Cycle Time per Unit"
       },
       "businessContext_i18n": {
         "en": "Time required to produce one unit.",
-        "tr": "Bir birimi üretmek için gereken süre."
+        "tr": "Bir birimi üretmek için gereken süre.",
+        "de": "Zeit zur Herstellung einer Einheit."
       }
     }
   ],

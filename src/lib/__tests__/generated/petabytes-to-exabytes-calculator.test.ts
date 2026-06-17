@@ -14,7 +14,7 @@ describe("petabytes-to-exabytes-calculator", () => {
     "provisioningBuffer": 20,
     "compressionRatio": 2,
     "decimalPrecision": 3
-  } as Petabytes_to_exabytes_calculatorInput;
+  } as unknown as Petabytes_to_exabytes_calculatorInput;
     const result = calculatePetabytes_to_exabytes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

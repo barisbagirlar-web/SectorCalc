@@ -12,7 +12,7 @@ describe("sampling-rate-calculator", () => {
     "samplingFactor": 2,
     "bitDepth": 16,
     "channels": 1
-  } as Sampling_rate_calculatorInput;
+  } as unknown as Sampling_rate_calculatorInput;
     const result = calculateSampling_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

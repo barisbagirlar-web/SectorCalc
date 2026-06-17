@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Annual Property Tax",
         "tr": "Yıllık Emlak Vergisi",
-        "de": "Annual Property Tax",
+        "de": "Jährliche Grundsteuer",
         "fr": "Annual Property Tax",
         "es": "Annual Property Tax",
         "ar": "Annual Property Tax"
       },
       "businessContext_i18n": {
         "en": "Yearly property tax amount as declared by local tax authority",
-        "tr": "Yerel vergi dairesi tarafından beyan edilen yıllık emlak vergisi tutarı"
+        "tr": "Yerel vergi dairesi tarafından beyan edilen yıllık emlak vergisi tutarı",
+        "de": "Jährlicher Grundsteuerbetrag gemäß lokaler Steuerbehörde"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Homeowner's Insurance Premium",
         "tr": "Yıllık Ev Sahibi Sigorta Primi",
-        "de": "Annual Homeowner's Insurance Premium",
+        "de": "Jährliche Hausratversicherungsprämie",
         "fr": "Annual Homeowner's Insurance Premium",
         "es": "Annual Homeowner's Insurance Premium",
         "ar": "Annual Homeowner's Insurance Premium"
       },
       "businessContext_i18n": {
         "en": "Total yearly insurance premium for the property",
-        "tr": "Mülk için toplam yıllık sigorta primi"
+        "tr": "Mülk için toplam yıllık sigorta primi",
+        "de": "Gesamte jährliche Versicherungsprämie für die Immobilie"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Cushion Months",
         "tr": "Yedek Ay Sayısı",
-        "de": "Cushion Months",
+        "de": "Puffermonate",
         "fr": "Cushion Months",
         "es": "Cushion Months",
         "ar": "Cushion Months"
       },
       "businessContext_i18n": {
         "en": "Number of extra months’ payment held as reserve, typically 2 months",
-        "tr": "Genellikle 2 ay olmak üzere yedek olarak tutulan ekstra ödeme ayı sayısı"
+        "tr": "Genellikle 2 ay olmak üzere yedek olarak tutulan ekstra ödeme ayı sayısı",
+        "de": "Anzahl der zusätzlichen Monatszahlungen als Reserve, typischerweise 2 Monate"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Months Per Year",
         "tr": "Yıllık Ay Sayısı",
-        "de": "Months Per Year",
+        "de": "Monate pro Jahr",
         "fr": "Months Per Year",
         "es": "Months Per Year",
         "ar": "Months Per Year"
       },
       "businessContext_i18n": {
         "en": "Number of payment months in a year, normally 12",
-        "tr": "Bir yıldaki ödeme ayı sayısı, normalde 12"
+        "tr": "Bir yıldaki ödeme ayı sayısı, normalde 12",
+        "de": "Anzahl der Zahlungsmonate in einem Jahr, normalerweise 12"
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Load Power",
         "tr": "Yük Gücü",
-        "de": "Load Power",
+        "de": "Lastleistung",
         "fr": "Load Power",
         "es": "Load Power",
         "ar": "Load Power"
       },
       "businessContext_i18n": {
         "en": "Total power consumption of the load",
-        "tr": "Yükün toplam güç tüketimi"
+        "tr": "Yükün toplam güç tüketimi",
+        "de": "Gesamtstromverbrauch der Last"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Backup Time",
         "tr": "Yedekleme Süresi",
-        "de": "Backup Time",
+        "de": "Überbrückungszeit",
         "fr": "Backup Time",
         "es": "Backup Time",
         "ar": "Backup Time"
       },
       "businessContext_i18n": {
         "en": "Desired backup time",
-        "tr": "İstenen yedekleme süresi"
+        "tr": "İstenen yedekleme süresi",
+        "de": "Gewünschte Überbrückungszeit"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "System Voltage",
         "tr": "Sistem Gerilimi",
-        "de": "System Voltage",
+        "de": "Systemspannung",
         "fr": "System Voltage",
         "es": "System Voltage",
         "ar": "System Voltage"
       },
       "businessContext_i18n": {
         "en": "Nominal voltage of battery bank",
-        "tr": "Akü bankasının nominal gerilimi"
+        "tr": "Akü bankasının nominal gerilimi",
+        "de": "Nennspannung des Batteriepuffers"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "System Efficiency",
         "tr": "Sistem Verimliliği",
-        "de": "System Efficiency",
+        "de": "Systemeffizienz",
         "fr": "System Efficiency",
         "es": "System Efficiency",
         "ar": "System Efficiency"
       },
       "businessContext_i18n": {
         "en": "Combined efficiency of inverter and cabling (0-1)",
-        "tr": "İnvertör ve kablo kombinasyon verimliliği (0-1)"
+        "tr": "İnvertör ve kablo kombinasyon verimliliği (0-1)",
+        "de": "Kombinierter Wirkungsgrad von Wechselrichter und Verkabelung (0-1)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Depth of Discharge (DoD)",
         "tr": "Deşarj Derinliği (DoD)",
-        "de": "Depth of Discharge (DoD)",
+        "de": "Entladetiefe (DoD)",
         "fr": "Depth of Discharge (DoD)",
         "es": "Depth of Discharge (DoD)",
         "ar": "Depth of Discharge (DoD)"
       },
       "businessContext_i18n": {
         "en": "Maximum discharge depth (e.g., 0.8 means 80% usable)",
-        "tr": "Maksimum deşarj derinliği (örn. 0,8 %80 kullanılabilir anlamına gelir)"
+        "tr": "Maksimum deşarj derinliği (örn. 0,8 %80 kullanılabilir anlamına gelir)",
+        "de": "Maximale Entladetiefe (z. B. 0,8 bedeutet 80 % nutzbar)"
       }
     }
   ],

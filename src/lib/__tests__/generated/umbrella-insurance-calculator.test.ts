@@ -12,7 +12,7 @@ describe("umbrella-insurance-calculator", () => {
     "totalLiabilities": 200000,
     "underlyingCoverage": 300000,
     "riskFactor": 100
-  } as Umbrella_insurance_calculatorInput;
+  } as unknown as Umbrella_insurance_calculatorInput;
     const result = calculateUmbrella_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

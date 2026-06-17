@@ -12,7 +12,7 @@ describe("keplers-third-law-calculator", () => {
     "primaryMass": 1.989e+30,
     "secondaryMass": 5.972e+24,
     "gravitationalConstant": 6.6743e-11
-  } as Keplers_third_law_calculatorInput;
+  } as unknown as Keplers_third_law_calculatorInput;
     const result = calculateKeplers_third_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("reaction-enthalpy-calculator", () => {
     "cpProducts": 0,
     "cpReactants": 0,
     "moles": 1
-  } as Reaction_enthalpy_calculatorInput;
+  } as unknown as Reaction_enthalpy_calculatorInput;
     const result = calculateReaction_enthalpy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

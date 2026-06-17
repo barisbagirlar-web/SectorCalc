@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Kesilen Ceza Sayısı",
         "tr": "Kesilen Ceza Sayısı",
-        "de": "Kesilen Ceza Sayısı",
+        "de": "Anzahl verhängter Strafen",
         "fr": "Kesilen Ceza Sayısı",
         "es": "Kesilen Ceza Sayısı",
         "ar": "Kesilen Ceza Sayısı"
       },
       "businessContext_i18n": {
         "en": "Toplam kesilen trafik veya lojistik ceza sayısı",
-        "tr": "Toplam kesilen trafik veya lojistik ceza sayısı"
+        "tr": "Toplam kesilen trafik veya lojistik ceza sayısı",
+        "de": "Gesamtzahl der verhängten Verkehrs- oder Logistikstrafen"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Ceza Başına Para Cezası",
         "tr": "Ceza Başına Para Cezası",
-        "de": "Ceza Başına Para Cezası",
+        "de": "Geldstrafe pro Verstoß",
         "fr": "Ceza Başına Para Cezası",
         "es": "Ceza Başına Para Cezası",
         "ar": "Ceza Başına Para Cezası"
       },
       "businessContext_i18n": {
         "en": "Her bir ceza için ödenmesi gereken temel para cezası tutarı",
-        "tr": "Her bir ceza için ödenmesi gereken temel para cezası tutarı"
+        "tr": "Her bir ceza için ödenmesi gereken temel para cezası tutarı",
+        "de": "Grundbetrag der Geldstrafe, der pro Verstoß zu zahlen ist"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Ağırlaştırıcı Çarpan",
         "tr": "Ağırlaştırıcı Çarpan",
-        "de": "Ağırlaştırıcı Çarpan",
+        "de": "Erschwerungsfaktor",
         "fr": "Ağırlaştırıcı Çarpan",
         "es": "Ağırlaştırıcı Çarpan",
         "ar": "Ağırlaştırıcı Çarpan"
       },
       "businessContext_i18n": {
         "en": "Ceza ciddiyetine göre çarpan (örn. tekerrür, yük hasarı vb.)",
-        "tr": "Ceza ciddiyetine göre çarpan (örn. tekerrür, yük hasarı vb.)"
+        "tr": "Ceza ciddiyetine göre çarpan (örn. tekerrür, yük hasarı vb.)",
+        "de": "Multiplikator je nach Schwere des Verstoßes (z.B. Wiederholung, Ladungsschaden usw.)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "İşlem Ücreti (Ceza Başına)",
         "tr": "İşlem Ücreti (Ceza Başına)",
-        "de": "İşlem Ücreti (Ceza Başına)",
+        "de": "Bearbeitungsgebühr (pro Verstoß)",
         "fr": "İşlem Ücreti (Ceza Başına)",
         "es": "İşlem Ücreti (Ceza Başına)",
         "ar": "İşlem Ücreti (Ceza Başına)"
       },
       "businessContext_i18n": {
         "en": "Her ceza için tahsil edilen idari işlem ücreti",
-        "tr": "Her ceza için tahsil edilen idari işlem ücreti"
+        "tr": "Her ceza için tahsil edilen idari işlem ücreti",
+        "de": "Verwaltungsgebühr, die pro Verstoß erhoben wird"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Erken Ödeme İndirimi (%)",
         "tr": "Erken Ödeme İndirimi (%)",
-        "de": "Erken Ödeme İndirimi (%)",
+        "de": "Rabatt bei vorzeitiger Zahlung (%)",
         "fr": "Erken Ödeme İndirimi (%)",
         "es": "Erken Ödeme İndirimi (%)",
         "ar": "Erken Ödeme İndirimi (%)"
       },
       "businessContext_i18n": {
         "en": "Erken ödeme durumunda uygulanacak yüzde indirim (0 ise indirim yok)",
-        "tr": "Erken ödeme durumunda uygulanacak yüzde indirim (0 ise indirim yok)"
+        "tr": "Erken ödeme durumunda uygulanacak yüzde indirim (0 ise indirim yok)",
+        "de": "Prozentsatz des Rabatts bei Vorauszahlung (0 = kein Rabatt)"
       }
     }
   ],

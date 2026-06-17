@@ -12,7 +12,7 @@ describe("craps-probability", () => {
     "rolls": 1,
     "betAmount": 10,
     "payoutOdds": 1
-  } as Craps_probabilityInput;
+  } as unknown as Craps_probabilityInput;
     const result = calculateCraps_probability(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

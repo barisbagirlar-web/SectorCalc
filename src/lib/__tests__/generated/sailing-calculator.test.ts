@@ -13,7 +13,7 @@ describe("sailing-calculator", () => {
     "leverArm": 5,
     "airDensity": 1.225,
     "safetyFactor": 1
-  } as Sailing_calculatorInput;
+  } as unknown as Sailing_calculatorInput;
     const result = calculateSailing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

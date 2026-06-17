@@ -14,7 +14,7 @@ describe("rockwood-frailty-scale-calculator", () => {
     "comorbidities": 2,
     "exhaustion": 0,
     "weight_loss": 2
-  } as Rockwood_frailty_scale_calculatorInput;
+  } as unknown as Rockwood_frailty_scale_calculatorInput;
     const result = calculateRockwood_frailty_scale_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

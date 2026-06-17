@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fathoms",
         "tr": "Kulaç",
-        "de": "Fathoms",
+        "de": "Faden",
         "fr": "Fathoms",
         "es": "Fathoms",
         "ar": "Fathoms"
       },
       "businessContext_i18n": {
         "en": "The length value in fathoms to convert.",
-        "tr": "Dönüştürülecek kulaç cinsinden uzunluk değeri."
+        "tr": "Dönüştürülecek kulaç cinsinden uzunluk değeri.",
+        "de": "Der Längenwert in Faden, der umgerechnet werden soll."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
-        "de": "Conversion Factor",
+        "de": "Umrechnungsfaktor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "The exact conversion factor from fathoms to meters, as defined by international standards.",
-        "tr": "Uluslararası standartlara göre tanımlanan kulaçtan metreye tam dönüşüm faktörü."
+        "tr": "Uluslararası standartlara göre tanımlanan kulaçtan metreye tam dönüşüm faktörü.",
+        "de": "Der genaue Umrechnungsfaktor von Faden in Meter, gemäß internationalen Standards."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output, based on precision requirements.",
-        "tr": "Hassasiyet gereksinimlerine bağlı olarak çıktıdaki ondalık basamak sayısı."
+        "tr": "Hassasiyet gereksinimlerine bağlı olarak çıktıdaki ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Ausgabe, basierend auf den Genauigkeitsanforderungen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Tolerance",
         "tr": "Tolerans",
-        "de": "Tolerance",
+        "de": "Toleranz",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Acceptable measurement tolerance for quality assurance.",
-        "tr": "Kalite güvencesi için kabul edilebilir ölçüm toleransı."
+        "tr": "Kalite güvencesi için kabul edilebilir ölçüm toleransı.",
+        "de": "Akzeptable Messtoleranz für die Qualitätssicherung."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Measurement Uncertainty",
         "tr": "Ölçüm Belirsizliği",
-        "de": "Measurement Uncertainty",
+        "de": "Messunsicherheit",
         "fr": "Measurement Uncertainty",
         "es": "Measurement Uncertainty",
         "ar": "Measurement Uncertainty"
       },
       "businessContext_i18n": {
         "en": "Relative measurement uncertainty in the input fathom value (percentage).",
-        "tr": "Giriş kulaç değerindeki bağıl ölçüm belirsizliği (yüzde)."
+        "tr": "Giriş kulaç değerindeki bağıl ölçüm belirsizliği (yüzde).",
+        "de": "Relative Messunsicherheit des eingegebenen Fadenwerts (Prozent)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
-        "de": "Safety Factor",
+        "de": "Sicherheitsfaktor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Safety factor applied to the converted value for engineering design, if applicable.",
-        "tr": "Mühendislik tasarımı için dönüştürülen değere uygulanan güvenlik faktörü (varsa)."
+        "tr": "Mühendislik tasarımı için dönüştürülen değere uygulanan güvenlik faktörü (varsa).",
+        "de": "Sicherheitsfaktor, der auf den umgerechneten Wert für die technische Auslegung angewendet wird, falls zutreffend."
       }
     }
   ],

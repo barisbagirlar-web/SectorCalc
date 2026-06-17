@@ -12,7 +12,7 @@ describe("pet-weight-calculator", () => {
     "chest_girth": 40,
     "age_months": 12,
     "condition_factor": 3
-  } as Pet_weight_calculatorInput;
+  } as unknown as Pet_weight_calculatorInput;
     const result = calculatePet_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

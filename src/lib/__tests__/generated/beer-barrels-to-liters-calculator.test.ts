@@ -14,7 +14,7 @@ describe("beer-barrels-to-liters-calculator", () => {
     "referenceTemperatureC": 20,
     "thermalExpansionCoefficient": 0.0003,
     "correctionFactor": 1
-  } as Beer_barrels_to_liters_calculatorInput;
+  } as unknown as Beer_barrels_to_liters_calculatorInput;
     const result = calculateBeer_barrels_to_liters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

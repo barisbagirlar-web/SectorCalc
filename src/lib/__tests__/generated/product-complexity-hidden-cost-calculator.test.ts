@@ -16,7 +16,7 @@ describe("product-complexity-hidden-cost-calculator", () => {
     "labor_rate": 25,
     "overhead_rate": 150,
     "complexity_type": "mixed"
-  } as Product_complexity_hidden_cost_calculatorInput;
+  } as unknown as Product_complexity_hidden_cost_calculatorInput;
     const result = calculateProduct_complexity_hidden_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

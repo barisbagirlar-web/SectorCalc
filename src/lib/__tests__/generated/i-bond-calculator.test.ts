@@ -12,7 +12,7 @@ describe("i-bond-calculator", () => {
     "fixedRate": 0.4,
     "inflationRate": 3.24,
     "years": 5
-  } as I_bond_calculatorInput;
+  } as unknown as I_bond_calculatorInput;
     const result = calculateI_bond_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("normality-calculator", () => {
     "molecularWeight": 40,
     "valency": 1,
     "volume": 0.5
-  } as Normality_calculatorInput;
+  } as unknown as Normality_calculatorInput;
     const result = calculateNormality_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

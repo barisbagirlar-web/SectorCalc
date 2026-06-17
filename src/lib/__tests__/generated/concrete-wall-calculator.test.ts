@@ -14,7 +14,7 @@ describe("concrete-wall-calculator", () => {
     "quantity": 1,
     "wasteFactor": 5,
     "costPerCubicMeter": 100
-  } as Concrete_wall_calculatorInput;
+  } as unknown as Concrete_wall_calculatorInput;
     const result = calculateConcrete_wall_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("semester-gpa-calculator", () => {
     "course3Grade": 0,
     "course4Credit": 0,
     "course4Grade": 0
-  } as Semester_gpa_calculatorInput;
+  } as unknown as Semester_gpa_calculatorInput;
     const result = calculateSemester_gpa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

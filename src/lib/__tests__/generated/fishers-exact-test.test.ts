@@ -12,7 +12,7 @@ describe("fishers-exact-test", () => {
     "b": 1,
     "c": 2,
     "d": 6
-  } as Fishers_exact_testInput;
+  } as unknown as Fishers_exact_testInput;
     const result = calculateFishers_exact_test(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

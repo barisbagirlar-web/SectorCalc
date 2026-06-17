@@ -13,7 +13,7 @@ describe("anti-aging-calculator", () => {
     "activationEnergy": 0.7,
     "referenceTime": 1,
     "treatmentEffectiveness": 0.5
-  } as Anti_aging_calculatorInput;
+  } as unknown as Anti_aging_calculatorInput;
     const result = calculateAnti_aging_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

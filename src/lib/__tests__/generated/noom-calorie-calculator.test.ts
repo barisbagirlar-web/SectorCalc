@@ -14,7 +14,7 @@ describe("noom-calorie-calculator", () => {
     "sex": 1,
     "activityFactor": 1.55,
     "deficitPercent": 15
-  } as Noom_calorie_calculatorInput;
+  } as unknown as Noom_calorie_calculatorInput;
     const result = calculateNoom_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

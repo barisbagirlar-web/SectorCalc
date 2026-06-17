@@ -12,7 +12,7 @@ describe("km-l-to-mpg-calculator", () => {
     "sourceUnit": 0,
     "decimalPlaces": 2,
     "gallonType": 0
-  } as Km_l_to_mpg_calculatorInput;
+  } as unknown as Km_l_to_mpg_calculatorInput;
     const result = calculateKm_l_to_mpg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

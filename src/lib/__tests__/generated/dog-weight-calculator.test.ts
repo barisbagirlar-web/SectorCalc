@@ -12,7 +12,7 @@ describe("dog-weight-calculator", () => {
     "currentWeight": 10,
     "growthRate": 0.2,
     "bcs": 5
-  } as Dog_weight_calculatorInput;
+  } as unknown as Dog_weight_calculatorInput;
     const result = calculateDog_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("heat-loss-calculator", () => {
     "uRoof": 0.2,
     "indoorTemp": 20,
     "outdoorTemp": -5
-  } as Heat_loss_calculatorInput;
+  } as unknown as Heat_loss_calculatorInput;
     const result = calculateHeat_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

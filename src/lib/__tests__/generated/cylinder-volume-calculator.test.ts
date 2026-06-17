@@ -12,7 +12,7 @@ describe("cylinder-volume-calculator", () => {
     "innerRadius": 0.5,
     "height": 2,
     "quantity": 1
-  } as Cylinder_volume_calculatorInput;
+  } as unknown as Cylinder_volume_calculatorInput;
     const result = calculateCylinder_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

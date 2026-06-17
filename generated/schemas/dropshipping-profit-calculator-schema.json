@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Selling Price per Unit",
         "tr": "Birim Satış Fiyatı",
-        "de": "Selling Price per Unit",
+        "de": "Verkaufspreis pro Einheit",
         "fr": "Selling Price per Unit",
         "es": "Selling Price per Unit",
         "ar": "Selling Price per Unit"
       },
       "businessContext_i18n": {
         "en": "The price at which the product is sold to customers",
-        "tr": "Ürünün müşterilere satıldığı fiyat"
+        "tr": "Ürünün müşterilere satıldığı fiyat",
+        "de": "The price at which the product is sold to customers"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "The price paid to the supplier per unit",
-        "tr": "Tedarikçiye birim başına ödenen fiyat"
+        "tr": "Tedarikçiye birim başına ödenen fiyat",
+        "de": "The price paid to the supplier per unit"
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "The shipping cost incurred per unit delivered",
-        "tr": "Teslim edilen birim başına oluşan nakliye maliyeti"
+        "tr": "Teslim edilen birim başına oluşan nakliye maliyeti",
+        "de": "Die pro gelieferter Einheit anfallenden Versandkosten"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Monthly Order Volume",
         "tr": "Aylık Sipariş Hacmi",
-        "de": "Monthly Order Volume",
+        "de": "Monatliches Bestellvolumen",
         "fr": "Monthly Order Volume",
         "es": "Monthly Order Volume",
         "ar": "Monthly Order Volume"
       },
       "businessContext_i18n": {
         "en": "Number of orders processed per month",
-        "tr": "Ayda işlenen sipariş sayısı"
+        "tr": "Ayda işlenen sipariş sayısı",
+        "de": "Anzahl der pro Monat bearbeiteten Bestellungen"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Monthly Fixed Costs",
         "tr": "Aylık Sabit Maliyetler",
-        "de": "Monthly Fixed Costs",
+        "de": "Monatliche Fixkosten",
         "fr": "Monthly Fixed Costs",
         "es": "Monthly Fixed Costs",
         "ar": "Monthly Fixed Costs"
       },
       "businessContext_i18n": {
         "en": "Fixed operational costs per month (e.g., store subscriptions, marketing)",
-        "tr": "Aylık sabit operasyonel maliyetler (ör. mağaza abonelikleri, pazarlama)"
+        "tr": "Aylık sabit operasyonel maliyetler (ör. mağaza abonelikleri, pazarlama)",
+        "de": "Fixe Betriebskosten pro Monat (z. B. Shop-Abonnements, Marketing)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Payment Gateway Fee",
         "tr": "Ödeme Ağ Geçidi Ücreti",
-        "de": "Payment Gateway Fee",
+        "de": "Zahlungsabwicklungsgebühr",
         "fr": "Payment Gateway Fee",
         "es": "Payment Gateway Fee",
         "ar": "Payment Gateway Fee"
       },
       "businessContext_i18n": {
         "en": "Transaction fee as a percentage of the selling price",
-        "tr": "Satış fiyatının yüzdesi olarak işlem ücreti"
+        "tr": "Satış fiyatının yüzdesi olarak işlem ücreti",
+        "de": "Transaktionsgebühr als Prozentsatz des Verkaufspreises"
       }
     }
   ],

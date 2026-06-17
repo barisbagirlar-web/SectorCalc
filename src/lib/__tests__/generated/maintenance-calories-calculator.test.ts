@@ -13,7 +13,7 @@ describe("maintenance-calories-calculator", () => {
     "weight": 70,
     "height": 170,
     "activityLevel": 1.55
-  } as Maintenance_calories_calculatorInput;
+  } as unknown as Maintenance_calories_calculatorInput;
     const result = calculateMaintenance_calories_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

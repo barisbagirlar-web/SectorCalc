@@ -70,6 +70,16 @@ export type GeneratedToolSchema = {
   readonly sectorSlug?: string;
   /** Premium 152 global category slug (e.g. lean-production). */
   readonly categorySlug?: string;
+  /** Taxonomy sector id from assign-sector-profession-category (e.g. makine). */
+  readonly sectorId?: string;
+  /** Taxonomy calculation-type category id (e.g. efficiency). */
+  readonly categoryId?: string;
+  /** Turkish sector label snapshot on schema. */
+  readonly sector?: string;
+  /** Turkish category label snapshot on schema. */
+  readonly category?: string;
+  /** Assigned profession label (Turkish source). */
+  readonly profession?: string;
   /** Optional ISO date (YYYY-MM-DD) when formulas/inputs were last reviewed. */
   readonly lastUpdated?: string;
   readonly standardOptions?: readonly GeneratedToolStandardOption[];
@@ -92,6 +102,10 @@ export type GeneratedToolSchema = {
   };
   readonly premiumFeatures: readonly string[];
   readonly premiumRequired: boolean;
+  readonly cbam?: {
+    readonly enabled: boolean;
+    readonly description?: string;
+  };
   readonly about?: GeneratedToolAboutContent;
 };
 

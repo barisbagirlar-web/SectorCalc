@@ -12,7 +12,7 @@ describe("days-payable-outstanding-calculator", () => {
     "apEnd": 100000,
     "cogs": 500000,
     "days": 365
-  } as Days_payable_outstanding_calculatorInput;
+  } as unknown as Days_payable_outstanding_calculatorInput;
     const result = calculateDays_payable_outstanding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

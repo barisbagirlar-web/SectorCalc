@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Flow Rate",
         "tr": "Debi",
-        "de": "Flow Rate",
+        "de": "Durchflussrate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Target volumetric flow rate of the fluid to be filtered.",
-        "tr": "Filtrelenecek akışkanın hedef hacimsel debisi."
+        "tr": "Filtrelenecek akışkanın hedef hacimsel debisi.",
+        "de": "Zielvolumenstrom des zu filternden Fluids"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Dynamic Viscosity",
         "tr": "Dinamik viskozite",
-        "de": "Dynamic Viscosity",
+        "de": "Dynamische Viskosität",
         "fr": "Dynamic Viscosity",
         "es": "Dynamic Viscosity",
         "ar": "Dynamic Viscosity"
       },
       "businessContext_i18n": {
         "en": "Dynamic viscosity of the fluid.",
-        "tr": "Akışkanın dinamik viskozitesi."
+        "tr": "Akışkanın dinamik viskozitesi.",
+        "de": "Dynamische Viskosität des Fluids"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Pressure Drop",
         "tr": "Basınç düşüşü",
-        "de": "Pressure Drop",
+        "de": "Druckverlust",
         "fr": "Pressure Drop",
         "es": "Pressure Drop",
         "ar": "Pressure Drop"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable pressure drop across the filter.",
-        "tr": "Filtre boyunca izin verilen maksimum basınç düşüşü."
+        "tr": "Filtre boyunca izin verilen maksimum basınç düşüşü.",
+        "de": "Maximal zulässiger Druckverlust über dem Filter"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Membrane Resistance",
         "tr": "Membran direnci",
-        "de": "Membrane Resistance",
+        "de": "Membranwiderstand",
         "fr": "Membrane Resistance",
         "es": "Membrane Resistance",
         "ar": "Membrane Resistance"
       },
       "businessContext_i18n": {
         "en": "Resistance of the clean filter medium.",
-        "tr": "Temiz filtre ortamının direnci."
+        "tr": "Temiz filtre ortamının direnci.",
+        "de": "Widerstand des sauberen Filtermediums"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Cake Resistance",
         "tr": "Kek direnci",
-        "de": "Cake Resistance",
+        "de": "Kuchenwiderstand",
         "fr": "Cake Resistance",
         "es": "Cake Resistance",
         "ar": "Cake Resistance"
       },
       "businessContext_i18n": {
         "en": "Additional resistance from the filter cake (0 for clean filter).",
-        "tr": "Filtre kekinden kaynaklanan ek direnç (temiz filtre için 0)."
+        "tr": "Filtre kekinden kaynaklanan ek direnç (temiz filtre için 0).",
+        "de": "Zusätzlicher Widerstand durch den Filterkuchen (0 für sauberen Filter)."
       }
     }
   ],

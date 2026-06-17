@@ -16,7 +16,7 @@ describe("crochet-calculator", () => {
     "skeinWeight": 50,
     "skeinLength": 100,
     "yarnCostPerSkein": 5
-  } as Crochet_calculatorInput;
+  } as unknown as Crochet_calculatorInput;
     const result = calculateCrochet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("delta-v-calculator", () => {
     "finalMass": 500,
     "specificImpulse": 300,
     "gravity": 9.81
-  } as Delta_v_calculatorInput;
+  } as unknown as Delta_v_calculatorInput;
     const result = calculateDelta_v_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

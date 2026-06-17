@@ -11,7 +11,7 @@ describe("emc2-calculator", () => {
     "mass": 1,
     "speedOfLight": 299792458,
     "auto_input_3": 1
-  } as Emc2_calculatorInput;
+  } as unknown as Emc2_calculatorInput;
     const result = calculateEmc2_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

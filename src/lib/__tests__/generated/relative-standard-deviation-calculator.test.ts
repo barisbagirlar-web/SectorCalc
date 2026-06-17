@@ -13,7 +13,7 @@ describe("relative-standard-deviation-calculator", () => {
     "value3": 0,
     "value4": 0,
     "value5": 0
-  } as Relative_standard_deviation_calculatorInput;
+  } as unknown as Relative_standard_deviation_calculatorInput;
     const result = calculateRelative_standard_deviation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

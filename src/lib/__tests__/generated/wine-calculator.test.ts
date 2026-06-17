@@ -14,7 +14,7 @@ describe("wine-calculator", () => {
     "alcoholConversion": 0.55,
     "fermentationLoss": 5,
     "bottleVolume": 0.75
-  } as Wine_calculatorInput;
+  } as unknown as Wine_calculatorInput;
     const result = calculateWine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

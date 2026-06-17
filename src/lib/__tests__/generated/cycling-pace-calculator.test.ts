@@ -12,7 +12,7 @@ describe("cycling-pace-calculator", () => {
     "hours": 0,
     "minutes": 30,
     "seconds": 0
-  } as Cycling_pace_calculatorInput;
+  } as unknown as Cycling_pace_calculatorInput;
     const result = calculateCycling_pace_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

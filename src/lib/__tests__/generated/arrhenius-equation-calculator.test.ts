@@ -12,7 +12,7 @@ describe("arrhenius-equation-calculator", () => {
     "activationEnergy": 50000,
     "preExpFactor": 10000000000,
     "gasConstant": 8.314
-  } as Arrhenius_equation_calculatorInput;
+  } as unknown as Arrhenius_equation_calculatorInput;
     const result = calculateArrhenius_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("age-in-days-calculator", () => {
     "refYear": 2025,
     "refMonth": 1,
     "refDay": 1
-  } as Age_in_days_calculatorInput;
+  } as unknown as Age_in_days_calculatorInput;
     const result = calculateAge_in_days_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

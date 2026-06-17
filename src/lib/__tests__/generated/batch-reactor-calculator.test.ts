@@ -12,7 +12,7 @@ describe("batch-reactor-calculator", () => {
     "initial_concentration": 1,
     "rate_constant": 0.1,
     "conversion": 0.9
-  } as Batch_reactor_calculatorInput;
+  } as unknown as Batch_reactor_calculatorInput;
     const result = calculateBatch_reactor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

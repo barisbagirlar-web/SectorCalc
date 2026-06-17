@@ -14,7 +14,7 @@ describe("keto-macro-calculator", () => {
     "gender": 1,
     "activityFactor": 1.55,
     "calorieAdjustment": 0
-  } as Keto_macro_calculatorInput;
+  } as unknown as Keto_macro_calculatorInput;
     const result = calculateKeto_macro_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

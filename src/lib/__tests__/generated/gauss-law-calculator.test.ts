@@ -12,7 +12,7 @@ describe("gauss-law-calculator", () => {
     "permittivity": 8.854187817e-12,
     "radius": 0.1,
     "angle": 0
-  } as Gauss_law_calculatorInput;
+  } as unknown as Gauss_law_calculatorInput;
     const result = calculateGauss_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

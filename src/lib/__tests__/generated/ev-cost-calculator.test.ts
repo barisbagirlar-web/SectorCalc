@@ -13,7 +13,7 @@ describe("ev-cost-calculator", () => {
     "vehicle_efficiency": 18,
     "daily_distance": 50,
     "maintenance_cost_per_km": 0.05
-  } as Ev_cost_calculatorInput;
+  } as unknown as Ev_cost_calculatorInput;
     const result = calculateEv_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("week-number-calculator", () => {
     "month": 1,
     "day": 1,
     "weekStartDay": 1
-  } as Week_number_calculatorInput;
+  } as unknown as Week_number_calculatorInput;
     const result = calculateWeek_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

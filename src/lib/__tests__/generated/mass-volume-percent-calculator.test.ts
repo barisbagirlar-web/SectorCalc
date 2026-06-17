@@ -12,7 +12,7 @@ describe("mass-volume-percent-calculator", () => {
     "massSolute_kg": 0,
     "volumeSolution_mL": 0,
     "volumeSolution_L": 0
-  } as Mass_volume_percent_calculatorInput;
+  } as unknown as Mass_volume_percent_calculatorInput;
     const result = calculateMass_volume_percent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

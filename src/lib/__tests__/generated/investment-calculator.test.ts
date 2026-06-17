@@ -13,7 +13,7 @@ describe("investment-calculator", () => {
     "years": 10,
     "annualRate": 7,
     "compoundingFrequency": 12
-  } as Investment_calculatorInput;
+  } as unknown as Investment_calculatorInput;
     const result = calculateInvestment_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

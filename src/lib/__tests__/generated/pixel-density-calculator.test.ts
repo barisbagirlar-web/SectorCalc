@@ -11,7 +11,7 @@ describe("pixel-density-calculator", () => {
     "widthPx": 1920,
     "heightPx": 1080,
     "diagonalInch": 24
-  } as Pixel_density_calculatorInput;
+  } as unknown as Pixel_density_calculatorInput;
     const result = calculatePixel_density_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

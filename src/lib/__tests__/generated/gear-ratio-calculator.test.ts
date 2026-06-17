@@ -13,7 +13,7 @@ describe("gear-ratio-calculator", () => {
     "inputSpeed": 1000,
     "inputTorque": 50,
     "efficiency": 100
-  } as Gear_ratio_calculatorInput;
+  } as unknown as Gear_ratio_calculatorInput;
     const result = calculateGear_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

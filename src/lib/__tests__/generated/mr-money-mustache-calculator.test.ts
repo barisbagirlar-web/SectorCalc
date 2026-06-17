@@ -13,7 +13,7 @@ describe("mr-money-mustache-calculator", () => {
     "currentPortfolio": 0,
     "expectedReturn": 7,
     "safeWithdrawalRate": 4
-  } as Mr_money_mustache_calculatorInput;
+  } as unknown as Mr_money_mustache_calculatorInput;
     const result = calculateMr_money_mustache_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

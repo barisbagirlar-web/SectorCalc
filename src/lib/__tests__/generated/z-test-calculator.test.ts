@@ -14,7 +14,7 @@ describe("z-test-calculator", () => {
     "sample_size": 30,
     "alpha": 0.05,
     "tails": 2
-  } as Z_test_calculatorInput;
+  } as unknown as Z_test_calculatorInput;
     const result = calculateZ_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

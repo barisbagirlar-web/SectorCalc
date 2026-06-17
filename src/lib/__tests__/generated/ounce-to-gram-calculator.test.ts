@@ -12,7 +12,7 @@ describe("ounce-to-gram-calculator", () => {
     "conversionFactor": 28.349523125,
     "itemCount": 1,
     "decimalPlaces": 2
-  } as Ounce_to_gram_calculatorInput;
+  } as unknown as Ounce_to_gram_calculatorInput;
     const result = calculateOunce_to_gram_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

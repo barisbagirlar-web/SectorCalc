@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Current Age",
         "tr": "Mevcut Yaş",
-        "de": "Current Age",
+        "de": "Aktuelles Alter",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
       },
       "businessContext_i18n": {
         "en": "Your current age in years.",
-        "tr": "Yıl cinsinden mevcut yaşınız."
+        "tr": "Yıl cinsinden mevcut yaşınız.",
+        "de": "Ihr aktuelles Alter in Jahren."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Retirement Age",
         "tr": "Emeklilik Yaşı",
-        "de": "Retirement Age",
+        "de": "Rentenalter",
         "fr": "Retirement Age",
         "es": "Retirement Age",
         "ar": "Retirement Age"
       },
       "businessContext_i18n": {
         "en": "Target age to retire.",
-        "tr": "Emekli olmayı hedeflediğiniz yaş."
+        "tr": "Emekli olmayı hedeflediğiniz yaş.",
+        "de": "Zielalter für den Ruhestand."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Annual Retirement Expenses (Today's Dollars)",
         "tr": "Yıllık Emeklilik Giderleri (Bugünün Parasıyla)",
-        "de": "Annual Retirement Expenses (Today's Dollars)",
+        "de": "Jährliche Ruhestandsausgaben (heutige Dollar)",
         "fr": "Annual Retirement Expenses (Today's Dollars)",
         "es": "Annual Retirement Expenses (Today's Dollars)",
         "ar": "Annual Retirement Expenses (Today's Dollars)"
       },
       "businessContext_i18n": {
         "en": "Expected annual expenses during retirement, in today's dollars (fat FIRE typically high spending).",
-        "tr": "Emeklilik sırasında beklenen yıllık giderler, bugünün parasıyla (Fat FIRE genellikle yüksek harcama anlamına gelir)."
+        "tr": "Emeklilik sırasında beklenen yıllık giderler, bugünün parasıyla (Fat FIRE genellikle yüksek harcama anlamına gelir).",
+        "de": "Erwartete jährliche Ausgaben im Ruhestand in heutigen Dollar (Fat FIRE typischerweise hohe Ausgaben)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Current Savings",
         "tr": "Mevcut Birikimler",
-        "de": "Current Savings",
+        "de": "Aktuelle Ersparnisse",
         "fr": "Current Savings",
         "es": "Current Savings",
         "ar": "Current Savings"
       },
       "businessContext_i18n": {
         "en": "Current amount already saved for retirement.",
-        "tr": "Emeklilik için halihazırda biriktirilmiş miktar."
+        "tr": "Emeklilik için halihazırda biriktirilmiş miktar.",
+        "de": "Bereits für den Ruhestand gesparter Betrag."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Monthly Contribution",
         "tr": "Aylık Katkı",
-        "de": "Monthly Contribution",
+        "de": "Monatlicher Beitrag",
         "fr": "Monthly Contribution",
         "es": "Monthly Contribution",
         "ar": "Monthly Contribution"
       },
       "businessContext_i18n": {
         "en": "Amount you plan to save each month until retirement.",
-        "tr": "Emekliliğe kadar her ay biriktirmeyi planladığınız miktar."
+        "tr": "Emekliliğe kadar her ay biriktirmeyi planladığınız miktar.",
+        "de": "Betrag, den Sie monatlich bis zum Ruhestand sparen möchten."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Expected Annual Real Return",
         "tr": "Beklenen Yıllık Reel Getiri",
-        "de": "Expected Annual Real Return",
+        "de": "Erwartete jährliche Realrendite",
         "fr": "Expected Annual Real Return",
         "es": "Expected Annual Real Return",
         "ar": "Expected Annual Real Return"
       },
       "businessContext_i18n": {
         "en": "Expected annual real return on investments (e.g., 0.07 for 7%).",
-        "tr": "Yatırımlardan beklenen yıllık reel getiri (örneğin, %7 için 0.07)."
+        "tr": "Yatırımlardan beklenen yıllık reel getiri (örneğin, %7 için 0.07).",
+        "de": "Erwartete jährliche Realrendite der Anlagen (z. B. 0,07 für 7 %)."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Expected Annual Inflation Rate",
         "tr": "Beklenen Yıllık Enflasyon Oranı",
-        "de": "Expected Annual Inflation Rate",
+        "de": "Erwartete jährliche Inflationsrate",
         "fr": "Expected Annual Inflation Rate",
         "es": "Expected Annual Inflation Rate",
         "ar": "Expected Annual Inflation Rate"
       },
       "businessContext_i18n": {
         "en": "Expected annual inflation rate (e.g., 0.03 for 3%).",
-        "tr": "Beklenen yıllık enflasyon oranı (örneğin, %3 için 0.03)."
+        "tr": "Beklenen yıllık enflasyon oranı (örneğin, %3 için 0.03).",
+        "de": "Erwartete jährliche Inflationsrate (z. B. 0,03 für 3 %)."
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Safe Withdrawal Rate",
         "tr": "Güvenli Çekme Oranı",
-        "de": "Safe Withdrawal Rate",
+        "de": "Sichere Entnahmerate",
         "fr": "Safe Withdrawal Rate",
         "es": "Safe Withdrawal Rate",
         "ar": "Safe Withdrawal Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of portfolio you can safely withdraw annually (e.g., 0.04 for 4% rule).",
-        "tr": "Portföyden yıllık olarak güvenle çekilebilecek yüzde (örneğin, %4 kuralı için 0.04)."
+        "tr": "Portföyden yıllık olarak güvenle çekilebilecek yüzde (örneğin, %4 kuralı için 0.04).",
+        "de": "Prozentsatz des Portfolios, der jährlich sicher entnommen werden kann (z. B. 0,04 für 4 %-Regel)."
       }
     }
   ],

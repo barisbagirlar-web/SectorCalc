@@ -15,7 +15,7 @@ describe("pet-life-expectancy-calculator", () => {
     "dietQuality": 7,
     "vetVisits": 2,
     "sterilized": 1
-  } as Pet_life_expectancy_calculatorInput;
+  } as unknown as Pet_life_expectancy_calculatorInput;
     const result = calculatePet_life_expectancy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

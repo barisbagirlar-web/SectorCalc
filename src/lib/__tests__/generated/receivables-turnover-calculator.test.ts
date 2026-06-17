@@ -12,7 +12,7 @@ describe("receivables-turnover-calculator", () => {
     "beginningAR": 20000,
     "endingAR": 25000,
     "daysInPeriod": 365
-  } as Receivables_turnover_calculatorInput;
+  } as unknown as Receivables_turnover_calculatorInput;
     const result = calculateReceivables_turnover_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

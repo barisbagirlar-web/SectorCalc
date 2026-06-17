@@ -14,7 +14,7 @@ describe("uv-index-calculator", () => {
     "albedo": 0.05,
     "aod": 0.1,
     "cloudCover": 0
-  } as Uv_index_calculatorInput;
+  } as unknown as Uv_index_calculatorInput;
     const result = calculateUv_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

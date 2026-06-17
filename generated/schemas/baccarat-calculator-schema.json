@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Hammadde Maliyeti",
         "tr": "Hammadde Maliyeti",
-        "de": "Hammadde Maliyeti",
+        "de": "Rohstoffkosten",
         "fr": "Hammadde Maliyeti",
         "es": "Hammadde Maliyeti",
         "ar": "Hammadde Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Birim ürün başına düşen hammadde maliyeti.",
-        "tr": "Birim ürün başına düşen hammadde maliyeti."
+        "tr": "Birim ürün başına düşen hammadde maliyeti.",
+        "de": "Rohstoffkosten pro Einheit."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Saatlik İşçilik Maliyeti",
         "tr": "Saatlik İşçilik Maliyeti",
-        "de": "Saatlik İşçilik Maliyeti",
+        "de": "Stündliche Arbeitskosten",
         "fr": "Saatlik İşçilik Maliyeti",
         "es": "Saatlik İşçilik Maliyeti",
         "ar": "Saatlik İşçilik Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Bir işçinin saatlik maliyeti.",
-        "tr": "Bir işçinin saatlik maliyeti."
+        "tr": "Bir işçinin saatlik maliyeti.",
+        "de": "Kosten pro Arbeiter pro Stunde."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Birim Başına İşçilik Süresi",
         "tr": "Birim Başına İşçilik Süresi",
-        "de": "Birim Başına İşçilik Süresi",
+        "de": "Arbeitszeit pro Einheit",
         "fr": "Birim Başına İşçilik Süresi",
         "es": "Birim Başına İşçilik Süresi",
         "ar": "Birim Başına İşçilik Süresi"
       },
       "businessContext_i18n": {
         "en": "Bir birim ürün için harcanan işçilik süresi.",
-        "tr": "Bir birim ürün için harcanan işçilik süresi."
+        "tr": "Bir birim ürün için harcanan işçilik süresi.",
+        "de": "Arbeitszeit, die für eine Einheit aufgewendet wird."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Enerji Gideri (birim başına)",
         "tr": "Enerji Gideri (birim başına)",
-        "de": "Enerji Gideri (birim başına)",
+        "de": "Energiekosten (pro Einheit)",
         "fr": "Enerji Gideri (birim başına)",
         "es": "Enerji Gideri (birim başına)",
         "ar": "Enerji Gideri (birim başına)"
       },
       "businessContext_i18n": {
         "en": "Birim ürün başına enerji maliyeti.",
-        "tr": "Birim ürün başına enerji maliyeti."
+        "tr": "Birim ürün başına enerji maliyeti.",
+        "de": "Energiekosten pro Einheit."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Ek Maliyetler",
         "tr": "Ek Maliyetler",
-        "de": "Ek Maliyetler",
+        "de": "Zusätzliche Kosten",
         "fr": "Ek Maliyetler",
         "es": "Ek Maliyetler",
         "ar": "Ek Maliyetler"
       },
       "businessContext_i18n": {
         "en": "Ambalaj, nakliye gibi birim başı ek giderler.",
-        "tr": "Ambalaj, nakliye gibi birim başı ek giderler."
+        "tr": "Ambalaj, nakliye gibi birim başı ek giderler.",
+        "de": "Zusätzliche Kosten pro Einheit wie Verpackung, Transport."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Genel Gider Oranı",
         "tr": "Genel Gider Oranı",
-        "de": "Genel Gider Oranı",
+        "de": "Gemeinkostensatz",
         "fr": "Genel Gider Oranı",
         "es": "Genel Gider Oranı",
         "ar": "Genel Gider Oranı"
       },
       "businessContext_i18n": {
         "en": "Direkt maliyetler üzerine eklenen genel gider yüzdesi.",
-        "tr": "Direkt maliyetler üzerine eklenen genel gider yüzdesi."
+        "tr": "Direkt maliyetler üzerine eklenen genel gider yüzdesi.",
+        "de": "Prozentsatz der Gemeinkosten, der auf die direkten Kosten aufgeschlagen wird."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Kâr Marjı",
         "tr": "Kâr Marjı",
-        "de": "Kâr Marjı",
+        "de": "Gewinnmarge",
         "fr": "Kâr Marjı",
         "es": "Kâr Marjı",
         "ar": "Kâr Marjı"
       },
       "businessContext_i18n": {
         "en": "Toplam maliyet üzerine uygulanan kâr yüzdesi.",
-        "tr": "Toplam maliyet üzerine uygulanan kâr yüzdesi."
+        "tr": "Toplam maliyet üzerine uygulanan kâr yüzdesi.",
+        "de": "Prozentsatz des Gewinns, der auf die Gesamtkosten aufgeschlagen wird."
       }
     }
   ],

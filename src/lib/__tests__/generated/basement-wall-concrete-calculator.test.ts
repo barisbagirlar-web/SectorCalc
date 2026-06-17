@@ -14,7 +14,7 @@ describe("basement-wall-concrete-calculator", () => {
     "concreteDensity": 2400,
     "wasteFactor": 5,
     "numWalls": 1
-  } as Basement_wall_concrete_calculatorInput;
+  } as unknown as Basement_wall_concrete_calculatorInput;
     const result = calculateBasement_wall_concrete_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

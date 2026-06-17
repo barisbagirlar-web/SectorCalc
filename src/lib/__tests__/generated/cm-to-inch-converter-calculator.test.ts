@@ -14,7 +14,7 @@ describe("cm-to-inch-converter-calculator", () => {
     "tolerance_class": "general",
     "unit_cost_per_inch": 0.5,
     "batch_quantity": 1
-  } as Cm_to_inch_converter_calculatorInput;
+  } as unknown as Cm_to_inch_converter_calculatorInput;
     const result = calculateCm_to_inch_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

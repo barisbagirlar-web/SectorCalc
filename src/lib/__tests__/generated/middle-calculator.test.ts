@@ -13,7 +13,7 @@ describe("middle-calculator", () => {
     "input3": 0,
     "input4": 0,
     "input5": 0
-  } as Middle_calculatorInput;
+  } as unknown as Middle_calculatorInput;
     const result = calculateMiddle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("incidence-matrix-calculator", () => {
     "nodeCount": 5,
     "edgeCount": 4,
     "auto_input_3": 1
-  } as Incidence_matrix_calculatorInput;
+  } as unknown as Incidence_matrix_calculatorInput;
     const result = calculateIncidence_matrix_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

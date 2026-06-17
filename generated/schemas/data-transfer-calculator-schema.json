@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Data Size",
         "tr": "Veri Boyutu",
-        "de": "Data Size",
+        "de": "Datenmenge",
         "fr": "Data Size",
         "es": "Data Size",
         "ar": "Data Size"
       },
       "businessContext_i18n": {
         "en": "Total data volume to be transferred",
-        "tr": "Aktarılacak Toplam Veri Hacmi"
+        "tr": "Aktarılacak Toplam Veri Hacmi",
+        "de": "Zu übertragendes Gesamtdatenvolumen"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Transfer Speed",
         "tr": "Aktarım Hızı",
-        "de": "Transfer Speed",
+        "de": "Übertragungsgeschwindigkeit",
         "fr": "Transfer Speed",
         "es": "Transfer Speed",
         "ar": "Transfer Speed"
       },
       "businessContext_i18n": {
         "en": "Available network bandwidth",
-        "tr": "Mevcut ağ bant genişliği"
+        "tr": "Mevcut ağ bant genişliği",
+        "de": "Verfügbare Netzwerkbandbreite"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Protocol Overhead",
         "tr": "Protokol Ek Yükü",
-        "de": "Protocol Overhead",
+        "de": "Protokoll-Overhead",
         "fr": "Protocol Overhead",
         "es": "Protocol Overhead",
         "ar": "Protocol Overhead"
       },
       "businessContext_i18n": {
         "en": "Percentage of bandwidth lost due to protocol overhead",
-        "tr": "Protokol yükü nedeniyle kaybedilen bant genişliği yüzdesi"
+        "tr": "Protokol yükü nedeniyle kaybedilen bant genişliği yüzdesi",
+        "de": "Prozentsatz der durch Protokoll-Overhead verlorenen Bandbreite"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Files",
         "tr": "Dosya Sayısı",
-        "de": "Number of Files",
+        "de": "Anzahl der Dateien",
         "fr": "Number of Files",
         "es": "Number of Files",
         "ar": "Number of Files"
       },
       "businessContext_i18n": {
         "en": "Number of separate files, each incurring transfer latency",
-        "tr": "Her biri aktarım gecikmesine neden olan ayrı dosya sayısı"
+        "tr": "Her biri aktarım gecikmesine neden olan ayrı dosya sayısı",
+        "de": "Anzahl der einzelnen Dateien, die jeweils eine Übertragungslatenz verursachen"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Latency per File",
         "tr": "Dosya Başına Gecikme",
-        "de": "Latency per File",
+        "de": "Latenz pro Datei",
         "fr": "Latency per File",
         "es": "Latency per File",
         "ar": "Latency per File"
       },
       "businessContext_i18n": {
         "en": "Handshake latency incurred per file (e.g., RTT for request/response)",
-        "tr": "Dosya başına oluşan el sıkışma gecikmesi (ör. istek/yanıt için RTT)"
+        "tr": "Dosya başına oluşan el sıkışma gecikmesi (ör. istek/yanıt için RTT)",
+        "de": "Handshake-Latenz pro Datei (z. B. RTT für Anfrage/Antwort)"
       }
     }
   ],

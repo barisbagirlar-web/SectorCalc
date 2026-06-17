@@ -12,7 +12,7 @@ describe("radian-calculator", () => {
     "finalAngleDeg": 0,
     "time": 1,
     "radius": 1
-  } as Radian_calculatorInput;
+  } as unknown as Radian_calculatorInput;
     const result = calculateRadian_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

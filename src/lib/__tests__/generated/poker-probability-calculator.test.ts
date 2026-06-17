@@ -12,7 +12,7 @@ describe("poker-probability-calculator", () => {
     "deckSize": 52,
     "outs": 4,
     "draws": 1
-  } as Poker_probability_calculatorInput;
+  } as unknown as Poker_probability_calculatorInput;
     const result = calculatePoker_probability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

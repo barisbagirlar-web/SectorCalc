@@ -13,7 +13,7 @@ describe("bridge-load-calculator", () => {
     "beamHeight": 0.5,
     "materialStrength": 400,
     "safetyFactor": 1.5
-  } as Bridge_load_calculatorInput;
+  } as unknown as Bridge_load_calculatorInput;
     const result = calculateBridge_load_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

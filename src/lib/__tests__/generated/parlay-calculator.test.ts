@@ -14,7 +14,7 @@ describe("parlay-calculator", () => {
     "odds3": 1,
     "odds4": 1,
     "odds5": 1
-  } as Parlay_calculatorInput;
+  } as unknown as Parlay_calculatorInput;
     const result = calculateParlay_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

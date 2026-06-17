@@ -12,7 +12,7 @@ describe("sample-rate-calculator", () => {
     "zScore": 1.96,
     "marginOfError": 5,
     "estimatedProportion": 0.5
-  } as Sample_rate_calculatorInput;
+  } as unknown as Sample_rate_calculatorInput;
     const result = calculateSample_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

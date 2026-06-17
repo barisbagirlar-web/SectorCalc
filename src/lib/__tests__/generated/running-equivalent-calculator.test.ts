@@ -13,7 +13,7 @@ describe("running-equivalent-calculator", () => {
     "knownTimeSeconds": 0,
     "targetDistance": 10,
     "exponent": 1.06
-  } as Running_equivalent_calculatorInput;
+  } as unknown as Running_equivalent_calculatorInput;
     const result = calculateRunning_equivalent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

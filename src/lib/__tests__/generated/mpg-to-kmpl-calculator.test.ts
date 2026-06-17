@@ -12,7 +12,7 @@ describe("mpg-to-kmpl-calculator", () => {
     "gallonType": 0,
     "decimalPlaces": 2,
     "customLitersPerGallon": 0
-  } as Mpg_to_kmpl_calculatorInput;
+  } as unknown as Mpg_to_kmpl_calculatorInput;
     const result = calculateMpg_to_kmpl_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("apache-ii-calculator", () => {
     "ambientTemp": 25,
     "vibrationLevel": 2,
     "energyConsumption": 50
-  } as Apache_ii_calculatorInput;
+  } as unknown as Apache_ii_calculatorInput;
     const result = calculateApache_ii_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

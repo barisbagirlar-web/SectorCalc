@@ -12,7 +12,7 @@ describe("juice-calculator", () => {
     "extractionRate": 70,
     "waterAdded": 0,
     "otherAdditives": 0
-  } as Juice_calculatorInput;
+  } as unknown as Juice_calculatorInput;
     const result = calculateJuice_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

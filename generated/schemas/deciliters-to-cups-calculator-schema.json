@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Deciliters",
         "tr": "Desilitre",
-        "de": "Deciliters",
+        "de": "Deziliter",
         "fr": "Deciliters",
         "es": "Deciliters",
         "ar": "Deciliters"
       },
       "businessContext_i18n": {
         "en": "Volume in deciliters to convert.",
-        "tr": "Dönüştürülecek desilitre cinsinden hacim."
+        "tr": "Dönüştürülecek desilitre cinsinden hacim.",
+        "de": "Volumen in Dezilitern zur Umrechnung."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Conversion Factor (cups/dL)",
         "tr": "Dönüşüm Faktörü (bardak/dL)",
-        "de": "Conversion Factor (cups/dL)",
+        "de": "Umrechnungsfaktor (Tassen/dL)",
         "fr": "Conversion Factor (cups/dL)",
         "es": "Conversion Factor (cups/dL)",
         "ar": "Conversion Factor (cups/dL)"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from deciliters to cups. Default is US customary cups.",
-        "tr": "Desilitreden bardağa dönüşüm faktörü. Varsayılan ABD geleneksel bardağıdır."
+        "tr": "Desilitreden bardağa dönüşüm faktörü. Varsayılan ABD geleneksel bardağıdır.",
+        "de": "Umrechnungsfaktor von Dezilitern in Tassen. Standard sind US-übliche Tassen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
-        "de": "Decimal Precision",
+        "de": "Dezimalgenauigkeit",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the result.",
-        "tr": "Sonuç için ondalık basamak sayısı."
+        "tr": "Sonuç için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für das Ergebnis."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
-        "de": "Batch Size",
+        "de": "Losgröße",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
       },
       "businessContext_i18n": {
         "en": "Number of batches or multiplier for total cups needed.",
-        "tr": "Toplam ihtiyaç duyulan bardak sayısı için parti veya çarpan sayısı."
+        "tr": "Toplam ihtiyaç duyulan bardak sayısı için parti veya çarpan sayısı.",
+        "de": "Anzahl der Chargen oder Multiplikator für die benötigten Tassen insgesamt."
       }
     }
   ],

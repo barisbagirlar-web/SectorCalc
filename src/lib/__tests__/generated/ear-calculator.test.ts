@@ -12,7 +12,7 @@ describe("ear-calculator", () => {
     "compoundingPeriods": 12,
     "years": 1,
     "principal": 1
-  } as Ear_calculatorInput;
+  } as unknown as Ear_calculatorInput;
     const result = calculateEar_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

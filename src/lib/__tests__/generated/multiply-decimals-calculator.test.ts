@@ -12,7 +12,7 @@ describe("multiply-decimals-calculator", () => {
     "inputB": 0,
     "multiplierAdjustment": 1,
     "roundingPrecision": 2
-  } as Multiply_decimals_calculatorInput;
+  } as unknown as Multiply_decimals_calculatorInput;
     const result = calculateMultiply_decimals_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("kw-to-hp-calculator", () => {
     "efficiency": 90,
     "loadFactor": 100,
     "customFactor": 1.34102
-  } as Kw_to_hp_calculatorInput;
+  } as unknown as Kw_to_hp_calculatorInput;
     const result = calculateKw_to_hp_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

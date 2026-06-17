@@ -14,7 +14,7 @@ describe("damage-calculator", () => {
     "N2": 500000,
     "n3": 10000,
     "N3": 200000
-  } as Damage_calculatorInput;
+  } as unknown as Damage_calculatorInput;
     const result = calculateDamage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

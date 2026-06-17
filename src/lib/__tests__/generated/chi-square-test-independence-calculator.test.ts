@@ -12,7 +12,7 @@ describe("chi-square-test-independence-calculator", () => {
     "b": 10,
     "c": 10,
     "d": 10
-  } as Chi_square_test_independence_calculatorInput;
+  } as unknown as Chi_square_test_independence_calculatorInput;
     const result = calculateChi_square_test_independence_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("plancks-law-calculator", () => {
     "wavelengthMin": 1e-7,
     "wavelengthMax": 0.000003,
     "numSteps": 1000
-  } as Plancks_law_calculatorInput;
+  } as unknown as Plancks_law_calculatorInput;
     const result = calculatePlancks_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

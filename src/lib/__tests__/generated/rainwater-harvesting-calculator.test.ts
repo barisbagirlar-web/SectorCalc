@@ -12,7 +12,7 @@ describe("rainwater-harvesting-calculator", () => {
     "runoffCoeff": 0.85,
     "annualRainfall": 800,
     "filterEfficiency": 90
-  } as Rainwater_harvesting_calculatorInput;
+  } as unknown as Rainwater_harvesting_calculatorInput;
     const result = calculateRainwater_harvesting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

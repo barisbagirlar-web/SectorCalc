@@ -12,7 +12,7 @@ describe("productivity-calculator", () => {
     "total_labor_hours": 100,
     "defect_rate": 5,
     "standard_productivity": 10
-  } as Productivity_calculatorInput;
+  } as unknown as Productivity_calculatorInput;
     const result = calculateProductivity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

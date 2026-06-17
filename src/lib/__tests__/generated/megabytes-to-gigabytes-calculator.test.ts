@@ -12,7 +12,7 @@ describe("megabytes-to-gigabytes-calculator", () => {
     "conversionFactor": 1024,
     "decimalPlaces": 2,
     "batchSize": 1
-  } as Megabytes_to_gigabytes_calculatorInput;
+  } as unknown as Megabytes_to_gigabytes_calculatorInput;
     const result = calculateMegabytes_to_gigabytes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

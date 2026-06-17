@@ -12,7 +12,7 @@ describe("mass-flow-rate-orifice-calculator", () => {
     "orificeArea": 0.01,
     "fluidDensity": 1000,
     "pressureDifference": 10000
-  } as Mass_flow_rate_orifice_calculatorInput;
+  } as unknown as Mass_flow_rate_orifice_calculatorInput;
     const result = calculateMass_flow_rate_orifice_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

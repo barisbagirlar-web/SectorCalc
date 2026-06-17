@@ -14,7 +14,7 @@ describe("scatter-plot-calculator", () => {
     "sumXY": 0,
     "sumX2": 0,
     "sumY2": 0
-  } as Scatter_plot_calculatorInput;
+  } as unknown as Scatter_plot_calculatorInput;
     const result = calculateScatter_plot_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

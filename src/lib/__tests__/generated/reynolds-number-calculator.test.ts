@@ -16,7 +16,7 @@ describe("reynolds-number-calculator", () => {
     "pipe_roughness": 0.000045,
     "temperature": 20,
     "flow_regime_threshold": "standard"
-  } as Reynolds_number_calculatorInput;
+  } as unknown as Reynolds_number_calculatorInput;
     const result = calculateReynolds_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

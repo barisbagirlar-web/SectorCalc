@@ -12,7 +12,7 @@ describe("magnetic-field-calculator", () => {
     "turns": 100,
     "length": 0.1,
     "permeability": 1
-  } as Magnetic_field_calculatorInput;
+  } as unknown as Magnetic_field_calculatorInput;
     const result = calculateMagnetic_field_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

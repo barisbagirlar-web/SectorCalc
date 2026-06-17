@@ -11,7 +11,7 @@ describe("cm-to-inch", () => {
     "cm": 1,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Cm_to_inchInput;
+  } as unknown as Cm_to_inchInput;
     const result = calculateCm_to_inch(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

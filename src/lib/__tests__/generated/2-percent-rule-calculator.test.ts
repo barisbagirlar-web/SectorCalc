@@ -12,7 +12,7 @@ describe("2-percent-rule-calculator", () => {
     "closingCosts": 5000,
     "monthlyRent": 2000,
     "targetPercent": 2
-  } as _2_percent_rule_calculatorInput;
+  } as unknown as _2_percent_rule_calculatorInput;
     const result = calculate_2_percent_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

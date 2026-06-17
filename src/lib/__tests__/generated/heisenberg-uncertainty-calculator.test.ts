@@ -14,7 +14,7 @@ describe("heisenberg-uncertainty-calculator", () => {
     "tolerance": 1,
     "mass": 9.10938356e-31,
     "deltaV": 0
-  } as Heisenberg_uncertainty_calculatorInput;
+  } as unknown as Heisenberg_uncertainty_calculatorInput;
     const result = calculateHeisenberg_uncertainty_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

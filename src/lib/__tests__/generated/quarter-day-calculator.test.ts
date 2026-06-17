@@ -12,7 +12,7 @@ describe("quarter-day-calculator", () => {
     "hours": 0,
     "minutes": 0,
     "seconds": 0
-  } as Quarter_day_calculatorInput;
+  } as unknown as Quarter_day_calculatorInput;
     const result = calculateQuarter_day_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

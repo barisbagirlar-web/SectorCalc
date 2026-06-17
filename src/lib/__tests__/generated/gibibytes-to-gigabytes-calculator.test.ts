@@ -12,7 +12,7 @@ describe("gibibytes-to-gigabytes-calculator", () => {
     "conversionFactor": 1.073741824,
     "decimalPlaces": 2,
     "safetyFactorPercent": 0
-  } as Gibibytes_to_gigabytes_calculatorInput;
+  } as unknown as Gibibytes_to_gigabytes_calculatorInput;
     const result = calculateGibibytes_to_gigabytes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

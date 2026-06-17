@@ -14,7 +14,7 @@ describe("bbt-calculator", () => {
     "boreDiameter": 50,
     "ambientTemp": 20,
     "coolingCoeff": 5
-  } as Bbt_calculatorInput;
+  } as unknown as Bbt_calculatorInput;
     const result = calculateBbt_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

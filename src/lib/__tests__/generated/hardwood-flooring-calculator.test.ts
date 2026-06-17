@@ -14,7 +14,7 @@ describe("hardwood-flooring-calculator", () => {
     "plankWidth": 6,
     "pricePerSqFt": 5,
     "wasteFactor": 10
-  } as Hardwood_flooring_calculatorInput;
+  } as unknown as Hardwood_flooring_calculatorInput;
     const result = calculateHardwood_flooring_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

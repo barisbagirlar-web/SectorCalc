@@ -12,7 +12,7 @@ describe("cycling-gear-ratio-calculator", () => {
     "cassetteTeeth": 12,
     "wheelDiameter": 700,
     "cadence": 90
-  } as Cycling_gear_ratio_calculatorInput;
+  } as unknown as Cycling_gear_ratio_calculatorInput;
     const result = calculateCycling_gear_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

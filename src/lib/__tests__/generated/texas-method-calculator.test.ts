@@ -13,7 +13,7 @@ describe("texas-method-calculator", () => {
     "volumeDayPercentage": 90,
     "lightDayPercentage": 80,
     "intensityDayIncrement": 2.5
-  } as Texas_method_calculatorInput;
+  } as unknown as Texas_method_calculatorInput;
     const result = calculateTexas_method_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

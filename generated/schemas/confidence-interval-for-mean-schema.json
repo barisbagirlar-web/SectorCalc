@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Sample Mean",
         "tr": "Örneklem ortalaması",
-        "de": "Sample Mean",
+        "de": "Stichprobenmittelwert",
         "fr": "Sample Mean",
         "es": "Sample Mean",
         "ar": "Sample Mean"
       },
       "businessContext_i18n": {
         "en": "The average value from the sample data.",
-        "tr": "Örneklem verilerinden elde edilen ortalama değer."
+        "tr": "Örneklem verilerinden elde edilen ortalama değer.",
+        "de": "Der Durchschnittswert aus den Stichprobendaten."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sample Standard Deviation",
         "tr": "Örneklem standart sapması",
-        "de": "Sample Standard Deviation",
+        "de": "Stichprobenstandardabweichung",
         "fr": "Sample Standard Deviation",
         "es": "Sample Standard Deviation",
         "ar": "Sample Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "The standard deviation of the sample.",
-        "tr": "Örneklemin standart sapması."
+        "tr": "Örneklemin standart sapması.",
+        "de": "Die Standardabweichung der Stichprobe."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Sample Size",
         "tr": "Örneklem büyüklüğü",
-        "de": "Sample Size",
+        "de": "Stichprobengröße",
         "fr": "Sample Size",
         "es": "Sample Size",
         "ar": "Sample Size"
       },
       "businessContext_i18n": {
         "en": "Number of observations in the sample.",
-        "tr": "Örneklemdeki gözlem sayısı."
+        "tr": "Örneklemdeki gözlem sayısı.",
+        "de": "Anzahl der Beobachtungen in der Stichprobe."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Confidence Level",
         "tr": "Güven Düzeyi",
-        "de": "Confidence Level",
+        "de": "Konfidenzniveau",
         "fr": "Confidence Level",
         "es": "Confidence Level",
         "ar": "Confidence Level"
       },
       "businessContext_i18n": {
         "en": "Desired confidence level (e.g., 0.95 for 95%).",
-        "tr": "İstenen güven düzeyi (ör. %95 için 0,95)."
+        "tr": "İstenen güven düzeyi (ör. %95 için 0,95).",
+        "de": "Gewünschtes Konfidenzniveau (z. B. 0,95 für 95 %)."
       }
     }
   ],

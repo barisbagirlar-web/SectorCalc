@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fixed Costs (TL)",
         "tr": "Sabit Maliyetler (TL)",
-        "de": "Fixed Costs (TL)",
+        "de": "Fixkosten (TL)",
         "fr": "Fixed Costs (TL)",
         "es": "Fixed Costs (TL)",
         "ar": "Fixed Costs (TL)"
       },
       "businessContext_i18n": {
         "en": "Total fixed costs (rent, salaries, insurance, etc.)",
-        "tr": "Toplam sabit maliyetler (kira, maaşlar, sigorta vb.)"
+        "tr": "Toplam sabit maliyetler (kira, maaşlar, sigorta vb.)",
+        "de": "Gesamte Fixkosten (Miete, Gehälter, Versicherung usw.)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Variable Cost per Unit (TL)",
         "tr": "Birim Başına Değişken Maliyet (TL)",
-        "de": "Variable Cost per Unit (TL)",
+        "de": "Variable Kosten pro Einheit (TL)",
         "fr": "Variable Cost per Unit (TL)",
         "es": "Variable Cost per Unit (TL)",
         "ar": "Variable Cost per Unit (TL)"
       },
       "businessContext_i18n": {
         "en": "Cost per unit that varies with production volume",
-        "tr": "Üretim hacmine göre değişen birim maliyet"
+        "tr": "Üretim hacmine göre değişen birim maliyet",
+        "de": "Kosten pro Einheit, die mit der Produktionsmenge variieren"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Selling Price per Unit (TL)",
         "tr": "Birim Satış Fiyatı (TL)",
-        "de": "Selling Price per Unit (TL)",
+        "de": "Verkaufspreis pro Einheit (TL)",
         "fr": "Selling Price per Unit (TL)",
         "es": "Selling Price per Unit (TL)",
         "ar": "Selling Price per Unit (TL)"
       },
       "businessContext_i18n": {
         "en": "Price at which each unit is sold",
-        "tr": "Her birimin satıldığı fiyat"
+        "tr": "Her birimin satıldığı fiyat",
+        "de": "Preis, zu dem jede Einheit verkauft wird"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Expected Sales Volume (units)",
         "tr": "Beklenen Satış Hacmi (adet)",
-        "de": "Expected Sales Volume (units)",
+        "de": "Erwartetes Verkaufsvolumen (Einheiten)",
         "fr": "Expected Sales Volume (units)",
         "es": "Expected Sales Volume (units)",
         "ar": "Expected Sales Volume (units)"
       },
       "businessContext_i18n": {
         "en": "Projected number of units to be sold",
-        "tr": "Satılması öngörülen birim sayısı"
+        "tr": "Satılması öngörülen birim sayısı",
+        "de": "Prognostizierte Anzahl der zu verkaufenden Einheiten"
       }
     }
   ],

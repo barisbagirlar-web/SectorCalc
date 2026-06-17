@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gas Consumption",
         "tr": "Gaz Tüketimi",
-        "de": "Gas Consumption",
+        "de": "Gasverbrauch",
         "fr": "Gas Consumption",
         "es": "Gas Consumption",
         "ar": "Gas Consumption"
       },
       "businessContext_i18n": {
         "en": "Actual meter reading difference or estimated monthly consumption",
-        "tr": "Gerçek sayaç okuma farkı veya tahmini aylık tüketim"
+        "tr": "Gerçek sayaç okuma farkı veya tahmini aylık tüketim",
+        "de": "Tatsächliche Zählerstandsdifferenz oder geschätzter monatlicher Verbrauch"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Calorific Value",
         "tr": "Kalorifik Değer",
-        "de": "Calorific Value",
+        "de": "Brennwert",
         "fr": "Calorific Value",
         "es": "Calorific Value",
         "ar": "Calorific Value"
       },
       "businessContext_i18n": {
         "en": "Average calorific value of gas supply as per gas network operator",
-        "tr": "Gaz şebekesi operatörüne göre gaz beslemesinin ortalama kalorifik değeri"
+        "tr": "Gaz şebekesi operatörüne göre gaz beslemesinin ortalama kalorifik değeri",
+        "de": "Durchschnittlicher Brennwert der Gasversorgung gemäß Gasnetzbetreiber"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Unit Rate",
         "tr": "Birim Fiyat",
-        "de": "Unit Rate",
+        "de": "Einheitssatz",
         "fr": "Unit Rate",
         "es": "Unit Rate",
         "ar": "Unit Rate"
       },
       "businessContext_i18n": {
         "en": "Unit price of gas per kWh from tariff",
-        "tr": "Tarifeden kWh başına gaz birim fiyatı"
+        "tr": "Tarifeden kWh başına gaz birim fiyatı",
+        "de": "Einheitspreis für Gas pro kWh aus dem Tarif"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Standing Charge",
         "tr": "Sabit Ücret",
-        "de": "Standing Charge",
+        "de": "Grundgebühr",
         "fr": "Standing Charge",
         "es": "Standing Charge",
         "ar": "Standing Charge"
       },
       "businessContext_i18n": {
         "en": "Fixed monthly charge by supplier",
-        "tr": "Tedarikçi tarafından belirlenen sabit aylık ücret"
+        "tr": "Tedarikçi tarafından belirlenen sabit aylık ücret",
+        "de": "Feste monatliche Gebühr des Versorgers"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "VAT Rate",
         "tr": "KDV Oranı",
-        "de": "VAT Rate",
+        "de": "Mehrwertsteuersatz",
         "fr": "VAT Rate",
         "es": "VAT Rate",
         "ar": "VAT Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable VAT rate, e.g., 20%",
-        "tr": "Geçerli KDV oranı, örn. %20"
+        "tr": "Geçerli KDV oranı, örn. %20",
+        "de": "Anwendbarer Mehrwertsteuersatz, z.B. 20%"
       }
     }
   ],

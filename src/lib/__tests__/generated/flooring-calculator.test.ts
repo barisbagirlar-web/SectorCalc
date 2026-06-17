@@ -14,7 +14,7 @@ describe("flooring-calculator", () => {
     "tileWidth": 0.3,
     "pricePerTile": 15,
     "wasteFactor": 10
-  } as Flooring_calculatorInput;
+  } as unknown as Flooring_calculatorInput;
     const result = calculateFlooring_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

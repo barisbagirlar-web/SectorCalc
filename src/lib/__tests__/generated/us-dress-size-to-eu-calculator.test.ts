@@ -12,7 +12,7 @@ describe("us-dress-size-to-eu-calculator", () => {
     "ageGroup": 0,
     "brandAdjustment": 0,
     "precision": 0
-  } as Us_dress_size_to_eu_calculatorInput;
+  } as unknown as Us_dress_size_to_eu_calculatorInput;
     const result = calculateUs_dress_size_to_eu_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

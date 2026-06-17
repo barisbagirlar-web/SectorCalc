@@ -13,7 +13,7 @@ describe("utf-8-bayt-hesaplayici-calculator", () => {
     "threeByteChars": 0,
     "fourByteChars": 0,
     "bomIncluded": 0
-  } as Utf_8_bayt_hesaplayici_calculatorInput;
+  } as unknown as Utf_8_bayt_hesaplayici_calculatorInput;
     const result = calculateUtf_8_bayt_hesaplayici_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

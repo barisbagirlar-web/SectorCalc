@@ -13,7 +13,7 @@ describe("carats-to-grams-calculator", () => {
     "batchSize": 1,
     "precision": 2,
     "pricePerGram": 0
-  } as Carats_to_grams_calculatorInput;
+  } as unknown as Carats_to_grams_calculatorInput;
     const result = calculateCarats_to_grams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

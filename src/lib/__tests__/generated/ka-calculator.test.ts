@@ -12,7 +12,7 @@ describe("ka-calculator", () => {
     "concentrationA": 0.1,
     "ph": 5,
     "temperature": 25
-  } as Ka_calculatorInput;
+  } as unknown as Ka_calculatorInput;
     const result = calculateKa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

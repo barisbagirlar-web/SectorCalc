@@ -13,7 +13,7 @@ describe("nail-growth-calculator", () => {
     "growthRatePerMonth": 3.5,
     "breakagePerMonth": 0.5,
     "protectionFactor": 0.8
-  } as Nail_growth_calculatorInput;
+  } as unknown as Nail_growth_calculatorInput;
     const result = calculateNail_growth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

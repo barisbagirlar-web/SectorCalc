@@ -13,7 +13,7 @@ describe("theoretical-yield-calculator", () => {
     "stoichReactant": 1,
     "stoichProduct": 1,
     "molarMassProduct": 100
-  } as Theoretical_yield_calculatorInput;
+  } as unknown as Theoretical_yield_calculatorInput;
     const result = calculateTheoretical_yield_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Points",
         "tr": "Nokta Sayısı",
-        "de": "Number of Points",
+        "de": "Anzahl der Punkte",
         "fr": "Number of Points",
         "es": "Number of Points",
         "ar": "Number of Points"
       },
       "businessContext_i18n": {
         "en": "Total data points to be clustered",
-        "tr": "Kümelenecek toplam veri noktası"
+        "tr": "Kümelenecek toplam veri noktası",
+        "de": "Gesamtzahl der zu clusternden Datenpunkte"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Clusters",
         "tr": "Küme Sayısı",
-        "de": "Number of Clusters",
+        "de": "Anzahl der Cluster",
         "fr": "Number of Clusters",
         "es": "Number of Clusters",
         "ar": "Number of Clusters"
       },
       "businessContext_i18n": {
         "en": "Desired number of clusters (k)",
-        "tr": "İstenen küme sayısı (k)"
+        "tr": "İstenen küme sayısı (k)",
+        "de": "Gewünschte Anzahl von Clustern (k)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Dimensions",
         "tr": "Boyutlar",
-        "de": "Dimensions",
+        "de": "Dimensionen",
         "fr": "Dimensions",
         "es": "Dimensions",
         "ar": "Dimensions"
       },
       "businessContext_i18n": {
         "en": "Number of features per point",
-        "tr": "Nokta başına özellik sayısı"
+        "tr": "Nokta başına özellik sayısı",
+        "de": "Anzahl der Merkmale pro Punkt"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Max Iterations",
         "tr": "Maksimum İterasyon",
-        "de": "Max Iterations",
+        "de": "Maximale Iterationen",
         "fr": "Max Iterations",
         "es": "Max Iterations",
         "ar": "Max Iterations"
       },
       "businessContext_i18n": {
         "en": "Maximum iterations for k-means",
-        "tr": "k-ortalamalar için maksimum iterasyon sayısı"
+        "tr": "k-ortalamalar için maksimum iterasyon sayısı",
+        "de": "Maximale Iterationen für k-Means"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Tolerance",
         "tr": "Tolerans",
-        "de": "Tolerance",
+        "de": "Toleranz",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Convergence threshold for centroid movement",
-        "tr": "Merkez hareketi için yakınsama eşiği"
+        "tr": "Merkez hareketi için yakınsama eşiği",
+        "de": "Konvergenzschwellenwert für Zentroidbewegung"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Random Seed",
         "tr": "Rastgele Tohum",
-        "de": "Random Seed",
+        "de": "Zufallssaat",
         "fr": "Random Seed",
         "es": "Random Seed",
         "ar": "Random Seed"
       },
       "businessContext_i18n": {
         "en": "Seed for reproducible initialization",
-        "tr": "Tekrarlanabilir başlatma için tohum"
+        "tr": "Tekrarlanabilir başlatma için tohum",
+        "de": "Saat für reproduzierbare Initialisierung"
       }
     }
   ],

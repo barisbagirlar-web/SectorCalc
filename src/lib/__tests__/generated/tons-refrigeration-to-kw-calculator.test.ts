@@ -12,7 +12,7 @@ describe("tons-refrigeration-to-kw-calculator", () => {
     "conversionFactor": 3.51685,
     "safetyFactor": 1,
     "decimals": 2
-  } as Tons_refrigeration_to_kw_calculatorInput;
+  } as unknown as Tons_refrigeration_to_kw_calculatorInput;
     const result = calculateTons_refrigeration_to_kw_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

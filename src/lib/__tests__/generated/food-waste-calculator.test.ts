@@ -12,7 +12,7 @@ describe("food-waste-calculator", () => {
     "totalFoodWasted": 0,
     "costPerKg": 0,
     "mealsServed": 0
-  } as Food_waste_calculatorInput;
+  } as unknown as Food_waste_calculatorInput;
     const result = calculateFood_waste_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

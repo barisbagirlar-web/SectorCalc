@@ -14,7 +14,7 @@ describe("bridge-calculator", () => {
     "steel_yield_strength": 250,
     "safety_factor": 1.5,
     "beam_depth": 1
-  } as Bridge_calculatorInput;
+  } as unknown as Bridge_calculatorInput;
     const result = calculateBridge_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

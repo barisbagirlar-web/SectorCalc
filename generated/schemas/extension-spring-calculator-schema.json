@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Wire Diameter (d)",
         "tr": "Tel Çapı (d)",
-        "de": "Wire Diameter (d)",
+        "de": "Drahtdurchmesser (d)",
         "fr": "Wire Diameter (d)",
         "es": "Wire Diameter (d)",
         "ar": "Wire Diameter (d)"
       },
       "businessContext_i18n": {
         "en": "Spring wire diameter",
-        "tr": "Yay teli çapı"
+        "tr": "Yay teli çapı",
+        "de": "Drahtdurchmesser der Feder"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Outer Diameter (OD)",
         "tr": "Dış Çap (OD)",
-        "de": "Outer Diameter (OD)",
+        "de": "Außendurchmesser (AD)",
         "fr": "Outer Diameter (OD)",
         "es": "Outer Diameter (OD)",
         "ar": "Outer Diameter (OD)"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of coil",
-        "tr": "Bobin dış çapı"
+        "tr": "Bobin dış çapı",
+        "de": "Außendurchmesser der Spule"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Total Coils (Nt)",
         "tr": "Toplam Sarım Sayısı (Nt)",
-        "de": "Total Coils (Nt)",
+        "de": "Gesamtwindungen (Nt)",
         "fr": "Total Coils (Nt)",
         "es": "Total Coils (Nt)",
         "ar": "Total Coils (Nt)"
       },
       "businessContext_i18n": {
         "en": "Total number of coils including end hooks",
-        "tr": "Uç kancalar dahil toplam sarım sayısı"
+        "tr": "Uç kancalar dahil toplam sarım sayısı",
+        "de": "Gesamtzahl der Windungen einschließlich Endhaken"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Shear Modulus (G)",
         "tr": "Kayma Modülü (G)",
-        "de": "Shear Modulus (G)",
+        "de": "Schubmodul (G)",
         "fr": "Shear Modulus (G)",
         "es": "Shear Modulus (G)",
         "ar": "Shear Modulus (G)"
       },
       "businessContext_i18n": {
         "en": "Material shear modulus (steel ≈ 79000 MPa)",
-        "tr": "Malzeme kayma modülü (çelik ≈ 79000 MPa)"
+        "tr": "Malzeme kayma modülü (çelik ≈ 79000 MPa)",
+        "de": "Schubmodul des Materials (Stahl ≈ 79000 MPa)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Allowable Shear Stress",
         "tr": "İzin Verilen Kayma Gerilmesi",
-        "de": "Allowable Shear Stress",
+        "de": "Zulässige Schubspannung",
         "fr": "Allowable Shear Stress",
         "es": "Allowable Shear Stress",
         "ar": "Allowable Shear Stress"
       },
       "businessContext_i18n": {
         "en": "Maximum permissible torsional shear stress",
-        "tr": "Maksimum izin verilen burulma kayma gerilmesi"
+        "tr": "Maksimum izin verilen burulma kayma gerilmesi",
+        "de": "Maximal zulässige Torsionsschubspannung"
       }
     }
   ],

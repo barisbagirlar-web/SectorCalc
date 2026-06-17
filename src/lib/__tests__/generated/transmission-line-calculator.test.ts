@@ -14,7 +14,7 @@ describe("transmission-line-calculator", () => {
     "resistance": 0.00005,
     "conductance": 1e-10,
     "length": 100000
-  } as Transmission_line_calculatorInput;
+  } as unknown as Transmission_line_calculatorInput;
     const result = calculateTransmission_line_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

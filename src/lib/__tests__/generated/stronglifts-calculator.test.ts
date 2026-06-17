@@ -12,7 +12,7 @@ describe("stronglifts-calculator", () => {
     "incrementPerSession": 2.5,
     "sessionsPerWeek": 3,
     "weeks": 4
-  } as Stronglifts_calculatorInput;
+  } as unknown as Stronglifts_calculatorInput;
     const result = calculateStronglifts_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

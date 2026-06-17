@@ -12,7 +12,7 @@ describe("mid-parental-height-calculator", () => {
     "motherHeight": 165,
     "childSex": 1,
     "resultUnit": 0
-  } as Mid_parental_height_calculatorInput;
+  } as unknown as Mid_parental_height_calculatorInput;
     const result = calculateMid_parental_height_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

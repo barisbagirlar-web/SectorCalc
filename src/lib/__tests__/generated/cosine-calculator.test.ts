@@ -14,7 +14,7 @@ describe("cosine-calculator", () => {
     "frequency": 1,
     "phaseShift": 0,
     "roundTo": 4
-  } as Cosine_calculatorInput;
+  } as unknown as Cosine_calculatorInput;
     const result = calculateCosine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

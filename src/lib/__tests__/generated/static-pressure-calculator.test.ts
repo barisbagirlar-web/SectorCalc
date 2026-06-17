@@ -12,7 +12,7 @@ describe("static-pressure-calculator", () => {
     "gravity": 9.81,
     "height": 0,
     "atmPressure": 101325
-  } as Static_pressure_calculatorInput;
+  } as unknown as Static_pressure_calculatorInput;
     const result = calculateStatic_pressure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

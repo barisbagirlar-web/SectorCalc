@@ -15,7 +15,7 @@ describe("two-sample-t-test-calculator", () => {
     "sample2StdDev": 1,
     "sample2Size": 30,
     "alpha": 0.05
-  } as Two_sample_t_test_calculatorInput;
+  } as unknown as Two_sample_t_test_calculatorInput;
     const result = calculateTwo_sample_t_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

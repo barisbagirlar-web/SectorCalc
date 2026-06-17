@@ -15,7 +15,7 @@ describe("selectivity-calculator", () => {
     "molarMassDesired": 80,
     "massUndesired": 20,
     "molarMassUndesired": 60
-  } as Selectivity_calculatorInput;
+  } as unknown as Selectivity_calculatorInput;
     const result = calculateSelectivity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

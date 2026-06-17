@@ -13,7 +13,7 @@ describe("grill-temperature-calculator", () => {
     "heatInput": 2000,
     "efficiency": 80,
     "heatTransferCoeff": 10
-  } as Grill_temperature_calculatorInput;
+  } as unknown as Grill_temperature_calculatorInput;
     const result = calculateGrill_temperature_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

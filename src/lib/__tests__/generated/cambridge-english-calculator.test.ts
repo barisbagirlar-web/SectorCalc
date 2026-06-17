@@ -13,7 +13,7 @@ describe("cambridge-english-calculator", () => {
     "listeningScore": 0,
     "speakingScore": 0,
     "useOfEnglishScore": 0
-  } as Cambridge_english_calculatorInput;
+  } as unknown as Cambridge_english_calculatorInput;
     const result = calculateCambridge_english_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

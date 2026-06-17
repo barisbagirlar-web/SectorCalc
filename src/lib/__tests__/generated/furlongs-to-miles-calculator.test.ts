@@ -14,7 +14,7 @@ describe("furlongs-to-miles-calculator", () => {
     "multiplier": 1,
     "additionalMiles": 0,
     "costPerMile": 0
-  } as Furlongs_to_miles_calculatorInput;
+  } as unknown as Furlongs_to_miles_calculatorInput;
     const result = calculateFurlongs_to_miles_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

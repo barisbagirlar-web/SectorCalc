@@ -13,7 +13,7 @@ describe("pps-calculator", () => {
     "numLanes": 1,
     "efficiency": 100,
     "shiftDuration": 8
-  } as Pps_calculatorInput;
+  } as unknown as Pps_calculatorInput;
     const result = calculatePps_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

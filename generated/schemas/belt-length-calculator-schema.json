@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Large Pulley Diameter",
         "tr": "Büyük Kasnak Çapı",
-        "de": "Large Pulley Diameter",
+        "de": "Großer Riemenscheibendurchmesser",
         "fr": "Large Pulley Diameter",
         "es": "Large Pulley Diameter",
         "ar": "Large Pulley Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the larger pulley. Use pitch diameter if available.",
-        "tr": "Büyük kasnağın çapı. Mümkünse adım çapını kullanın."
+        "tr": "Büyük kasnağın çapı. Mümkünse adım çapını kullanın.",
+        "de": "Durchmesser der größeren Riemenscheibe. Wenn verfügbar, Teilkreisdurchmesser verwenden."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Small Pulley Diameter",
         "tr": "Küçük Kasnak Çapı",
-        "de": "Small Pulley Diameter",
+        "de": "Kleiner Riemenscheibendurchmesser",
         "fr": "Small Pulley Diameter",
         "es": "Small Pulley Diameter",
         "ar": "Small Pulley Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the smaller pulley.",
-        "tr": "Küçük kasnağın çapı."
+        "tr": "Küçük kasnağın çapı.",
+        "de": "Durchmesser der kleineren Riemenscheibe."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Center Distance",
         "tr": "Merkez Mesafesi",
-        "de": "Center Distance",
+        "de": "Achsabstand",
         "fr": "Center Distance",
         "es": "Center Distance",
         "ar": "Center Distance"
       },
       "businessContext_i18n": {
         "en": "Distance between the centers of the two pulleys.",
-        "tr": "İki kasnağın merkezleri arasındaki mesafe."
+        "tr": "İki kasnağın merkezleri arasındaki mesafe.",
+        "de": "Abstand zwischen den Mittelpunkten der beiden Riemenscheiben."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Belt Configuration",
         "tr": "Kayış Konfigürasyonu",
-        "de": "Belt Configuration",
+        "de": "Riemenkonfiguration",
         "fr": "Belt Configuration",
         "es": "Belt Configuration",
         "ar": "Belt Configuration"
       },
       "businessContext_i18n": {
         "en": "0 for open belt drive (pulleys rotate same direction), 1 for crossed belt drive (pulleys rotate opposite directions).",
-        "tr": "0 açık kayış tahriki (kasnaklar aynı yönde döner), 1 çapraz kayış tahriki (kasnaklar zıt yönde döner)."
+        "tr": "0 açık kayış tahriki (kasnaklar aynı yönde döner), 1 çapraz kayış tahriki (kasnaklar zıt yönde döner).",
+        "de": "0 für offenen Riemenantrieb (Riemenscheiben drehen in gleiche Richtung), 1 für gekreuzten Riemenantrieb (Riemenscheiben drehen in entgegengesetzte Richtungen)."
       }
     }
   ],

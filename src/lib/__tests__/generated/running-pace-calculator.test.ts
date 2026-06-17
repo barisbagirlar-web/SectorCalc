@@ -12,7 +12,7 @@ describe("running-pace-calculator", () => {
     "hours": 0,
     "minutes": 50,
     "seconds": 0
-  } as Running_pace_calculatorInput;
+  } as unknown as Running_pace_calculatorInput;
     const result = calculateRunning_pace_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Sex",
         "tr": "Cinsiyet",
-        "de": "Sex",
+        "de": "Geschlecht",
         "fr": "Sex",
         "es": "Sex",
         "ar": "Sex"
       },
       "businessContext_i18n": {
         "en": "0 for female, 1 for male",
-        "tr": "0 kadın, 1 erkek"
+        "tr": "0 kadın, 1 erkek",
+        "de": "0 für weiblich, 1 für männlich"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age in years (typically 20–65)",
-        "tr": "Yaş (yıl olarak, tipik olarak 20–65)"
+        "tr": "Yaş (yıl olarak, tipik olarak 20–65)",
+        "de": "Alter in Jahren (typischerweise 20–65)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
-        "de": "Body Weight",
+        "de": "Körpergewicht",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms",
-        "tr": "Vücut ağırlığı (kilogram cinsinden)."
+        "tr": "Vücut ağırlığı (kilogram cinsinden).",
+        "de": "Körpergewicht in Kilogramm"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Work Rate",
         "tr": "Çalışma Hızı",
-        "de": "Work Rate",
+        "de": "Arbeitsrate",
         "fr": "Work Rate",
         "es": "Work Rate",
         "ar": "Work Rate"
       },
       "businessContext_i18n": {
         "en": "Work rate in watts during steady-state cycling at 50 rpm",
-        "tr": "50 rpm'de sabit bisiklet sürüşü sırasında watt cinsinden çalışma hızı"
+        "tr": "50 rpm'de sabit bisiklet sürüşü sırasında watt cinsinden çalışma hızı",
+        "de": "Arbeitsrate in Watt während konstantem Radfahren bei 50 U/min"
       }
     },
     {
@@ -98,7 +102,8 @@
       },
       "businessContext_i18n": {
         "en": "Average heart rate during the last minute of the 6-minute test (range 125–170 bpm)",
-        "tr": "6 dakikalık testin son dakikasındaki ortalama kalp atış hızı (aralık 125–170 bpm)"
+        "tr": "6 dakikalık testin son dakikasındaki ortalama kalp atış hızı (aralık 125–170 bpm)",
+        "de": "Durchschnittliche Herzfrequenz während der letzten Minute des 6-Minuten-Tests (Bereich 125–170 bpm)"
       }
     }
   ],

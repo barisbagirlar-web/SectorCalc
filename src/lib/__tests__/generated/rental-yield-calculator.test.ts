@@ -12,7 +12,7 @@ describe("rental-yield-calculator", () => {
     "monthlyRent": 1500,
     "annualExpenses": 3000,
     "vacancyRate": 5
-  } as Rental_yield_calculatorInput;
+  } as unknown as Rental_yield_calculatorInput;
     const result = calculateRental_yield_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

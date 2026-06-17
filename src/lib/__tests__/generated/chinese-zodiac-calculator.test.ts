@@ -12,7 +12,7 @@ describe("chinese-zodiac-calculator", () => {
     "birthMonth": 1,
     "birthDay": 1,
     "birthHour": 0
-  } as Chinese_zodiac_calculatorInput;
+  } as unknown as Chinese_zodiac_calculatorInput;
     const result = calculateChinese_zodiac_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

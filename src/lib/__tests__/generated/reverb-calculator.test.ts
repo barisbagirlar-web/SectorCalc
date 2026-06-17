@@ -12,7 +12,7 @@ describe("reverb-calculator", () => {
     "width": 8,
     "height": 3,
     "alpha": 0.3
-  } as Reverb_calculatorInput;
+  } as unknown as Reverb_calculatorInput;
     const result = calculateReverb_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

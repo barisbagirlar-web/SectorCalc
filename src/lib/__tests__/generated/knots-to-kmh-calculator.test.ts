@@ -12,7 +12,7 @@ describe("knots-to-kmh-calculator", () => {
     "conversionFactor": 1.852,
     "decimalPlaces": 2,
     "roundingMode": 1
-  } as Knots_to_kmh_calculatorInput;
+  } as unknown as Knots_to_kmh_calculatorInput;
     const result = calculateKnots_to_kmh_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

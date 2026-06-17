@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Angle",
         "tr": "Açı",
-        "de": "Angle",
+        "de": "Winkel",
         "fr": "Angle",
         "es": "Angle",
         "ar": "Angle"
       },
       "businessContext_i18n": {
         "en": "Enter the angle value. Base unit is degrees unless unit selector is set to 1 (radians).",
-        "tr": "Açı değerini girin. Birim seçici 1 (radyan) olarak ayarlanmadıkça temel birim derecedir."
+        "tr": "Açı değerini girin. Birim seçici 1 (radyan) olarak ayarlanmadıkça temel birim derecedir.",
+        "de": "Geben Sie den Winkelwert ein. Basiseinheit ist Grad, es sei denn, der Einheitenwähler ist auf 1 (Bogenmaß) gesetzt."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Unit (0=deg,1=rad)",
         "tr": "Birim (0=derece,1=radyan)",
-        "de": "Unit (0=deg,1=rad)",
+        "de": "Einheit (0=Grad, 1=Bogenmaß)",
         "fr": "Unit (0=deg,1=rad)",
         "es": "Unit (0=deg,1=rad)",
         "ar": "Unit (0=deg,1=rad)"
       },
       "businessContext_i18n": {
         "en": "Select unit: 0 for degrees, 1 for radians. The angle will be interpreted accordingly.",
-        "tr": "Birim seçin: 0 derece, 1 radyan. Açı buna göre yorumlanacaktır."
+        "tr": "Birim seçin: 0 derece, 1 radyan. Açı buna göre yorumlanacaktır.",
+        "de": "Wählen Sie die Einheit: 0 für Grad, 1 für Bogenmaß. Der Winkel wird entsprechend interpretiert."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Amplitude scaling factor for the cosine function. Default 1 gives standard cosine.",
-        "tr": "Kosinüs fonksiyonu için genlik ölçekleme faktörü. Varsayılan 1 standart kosinüs verir."
+        "tr": "Kosinüs fonksiyonu için genlik ölçekleme faktörü. Varsayılan 1 standart kosinüs verir.",
+        "de": "Amplitudenskalierungsfaktor für die Kosinusfunktion. Standard 1 ergibt den normalen Kosinus."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Frequency Multiplier (b)",
         "tr": "Frekans Çarpanı (b)",
-        "de": "Frequency Multiplier (b)",
+        "de": "Frequenzmultiplikator (b)",
         "fr": "Frequency Multiplier (b)",
         "es": "Frequency Multiplier (b)",
         "ar": "Frequency Multiplier (b)"
       },
       "businessContext_i18n": {
         "en": "Frequency multiplier for cosine argument: cos(b*x + phase).",
-        "tr": "Kosinüs argümanı için frekans çarpanı: cos(b*x + faz)."
+        "tr": "Kosinüs argümanı için frekans çarpanı: cos(b*x + faz).",
+        "de": "Frequenzmultiplikator für das Kosinusargument: cos(b*x + Phase)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Phase Shift (c)",
         "tr": "Faz Kayması (c)",
-        "de": "Phase Shift (c)",
+        "de": "Phasenverschiebung (c)",
         "fr": "Phase Shift (c)",
         "es": "Phase Shift (c)",
         "ar": "Phase Shift (c)"
       },
       "businessContext_i18n": {
         "en": "Phase shift added to argument. Input in radians regardless of unit selector, since phase shift is typically in radians.",
-        "tr": "Argümana eklenen faz kayması. Faz kayması tipik olarak radyan cinsinden olduğu için birim seçiciden bağımsız olarak radyan cinsinden girin."
+        "tr": "Argümana eklenen faz kayması. Faz kayması tipik olarak radyan cinsinden olduğu için birim seçiciden bağımsız olarak radyan cinsinden girin.",
+        "de": "Phasenverschiebung, die zum Argument addiert wird. Eingabe in Bogenmaß unabhängig vom Einheitenwähler, da die Phasenverschiebung typischerweise in Bogenmaß angegeben wird."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the output.",
-        "tr": "Çıktının yuvarlanması için ondalık basamak sayısı."
+        "tr": "Çıktının yuvarlanması için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("training-stress-score-calculator", () => {
     "minutes": 0,
     "ftp": 250,
     "normalizedPower": 200
-  } as Training_stress_score_calculatorInput;
+  } as unknown as Training_stress_score_calculatorInput;
     const result = calculateTraining_stress_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

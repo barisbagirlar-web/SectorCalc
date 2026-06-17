@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "EBIT (Faiz ve Vergi Öncesi Kâr)",
         "tr": "EBIT (Faiz ve Vergi Öncesi Kâr)",
-        "de": "EBIT (Faiz ve Vergi Öncesi Kâr)",
+        "de": "EBIT (Ergebnis vor Zinsen und Steuern)",
         "fr": "EBIT (Faiz ve Vergi Öncesi Kâr)",
         "es": "EBIT (Faiz ve Vergi Öncesi Kâr)",
         "ar": "EBIT (Faiz ve Vergi Öncesi Kâr)"
       },
       "businessContext_i18n": {
         "en": "Faiz ve vergi öncesi net faaliyet kârı (Earnings Before Interest and Taxes).",
-        "tr": "Faiz ve vergi öncesi net faaliyet kârı (Earnings Before Interest and Taxes)."
+        "tr": "Faiz ve vergi öncesi net faaliyet kârı (Earnings Before Interest and Taxes).",
+        "de": "Nettoergebnis aus der Betriebstätigkeit vor Zinsen und Steuern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Faiz Gideri",
         "tr": "Faiz Gideri",
-        "de": "Faiz Gideri",
+        "de": "Zinsaufwand",
         "fr": "Faiz Gideri",
         "es": "Faiz Gideri",
         "ar": "Faiz Gideri"
       },
       "businessContext_i18n": {
         "en": "Toplam borç faiz ödemeleri.",
-        "tr": "Toplam borç faiz ödemeleri."
+        "tr": "Toplam borç faiz ödemeleri.",
+        "de": "Gesamte Zinszahlungen auf Schulden."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Vergi Oranı",
         "tr": "Vergi Oranı",
-        "de": "Vergi Oranı",
+        "de": "Steuersatz",
         "fr": "Vergi Oranı",
         "es": "Vergi Oranı",
         "ar": "Vergi Oranı"
       },
       "businessContext_i18n": {
         "en": "Kurumlar vergisi oranı (ondalık, örn. 0.25).",
-        "tr": "Kurumlar vergisi oranı (ondalık, örn. 0.25)."
+        "tr": "Kurumlar vergisi oranı (ondalık, örn. 0.25).",
+        "de": "Körperschaftsteuersatz (Dezimal, z. B. 0,25)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "İmtiyazlı Hisse Temettüsü",
         "tr": "İmtiyazlı Hisse Temettüsü",
-        "de": "İmtiyazlı Hisse Temettüsü",
+        "de": "Vorzugsdividende",
         "fr": "İmtiyazlı Hisse Temettüsü",
         "es": "İmtiyazlı Hisse Temettüsü",
         "ar": "İmtiyazlı Hisse Temettüsü"
       },
       "businessContext_i18n": {
         "en": "İmtiyazlı hisse senetlerine ödenen toplam temettü.",
-        "tr": "İmtiyazlı hisse senetlerine ödenen toplam temettü."
+        "tr": "İmtiyazlı hisse senetlerine ödenen toplam temettü.",
+        "de": "Gesamte Dividende auf Vorzugsaktien."
       }
     }
   ],

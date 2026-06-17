@@ -15,7 +15,7 @@ describe("banjo-calculator", () => {
     "fluidViscosity": 0.028,
     "pressureDifference": 100000,
     "dischargeCoefficient": 0.62
-  } as Banjo_calculatorInput;
+  } as unknown as Banjo_calculatorInput;
     const result = calculateBanjo_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

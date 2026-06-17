@@ -16,7 +16,7 @@ describe("expected-value-calculator", () => {
     "outcome3_value": 300,
     "outcome4_probability": 0.25,
     "outcome4_value": 400
-  } as Expected_value_calculatorInput;
+  } as unknown as Expected_value_calculatorInput;
     const result = calculateExpected_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

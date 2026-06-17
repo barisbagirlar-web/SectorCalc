@@ -15,7 +15,7 @@ describe("lally-column-calculator", () => {
     "effective_length_factor": 1,
     "safety_factor": 1.5,
     "youngs_modulus": 200000
-  } as Lally_column_calculatorInput;
+  } as unknown as Lally_column_calculatorInput;
     const result = calculateLally_column_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

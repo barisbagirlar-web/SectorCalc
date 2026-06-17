@@ -13,7 +13,7 @@ describe("clv-calculator", () => {
     "customerLifespan": 3,
     "profitMargin": 25,
     "discountRate": 10
-  } as Clv_calculatorInput;
+  } as unknown as Clv_calculatorInput;
     const result = calculateClv_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

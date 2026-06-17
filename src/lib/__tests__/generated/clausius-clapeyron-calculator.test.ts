@@ -14,7 +14,7 @@ describe("clausius-clapeyron-calculator", () => {
     "P2_kPa": 198.5,
     "R_JmolK": 8.314,
     "M_gmol": 18.015
-  } as Clausius_clapeyron_calculatorInput;
+  } as unknown as Clausius_clapeyron_calculatorInput;
     const result = calculateClausius_clapeyron_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

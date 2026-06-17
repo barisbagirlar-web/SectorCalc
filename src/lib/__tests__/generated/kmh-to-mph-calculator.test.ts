@@ -12,7 +12,7 @@ describe("kmh-to-mph-calculator", () => {
     "conversion_factor": 1.609344,
     "decimal_places": 2,
     "known_mph": 0
-  } as Kmh_to_mph_calculatorInput;
+  } as unknown as Kmh_to_mph_calculatorInput;
     const result = calculateKmh_to_mph_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

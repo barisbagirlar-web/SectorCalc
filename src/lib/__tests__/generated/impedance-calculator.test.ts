@@ -12,7 +12,7 @@ describe("impedance-calculator", () => {
     "L": 0.1,
     "C": 0.000001,
     "f": 50
-  } as Impedance_calculatorInput;
+  } as unknown as Impedance_calculatorInput;
     const result = calculateImpedance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

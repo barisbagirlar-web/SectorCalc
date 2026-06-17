@@ -12,7 +12,7 @@ describe("non-hdl-cholesterol-calculator", () => {
     "hdlCholesterol": 50,
     "triglycerides": 150,
     "calculateLdl": 0
-  } as Non_hdl_cholesterol_calculatorInput;
+  } as unknown as Non_hdl_cholesterol_calculatorInput;
     const result = calculateNon_hdl_cholesterol_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

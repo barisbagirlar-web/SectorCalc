@@ -12,7 +12,7 @@ describe("daily-compound-interest-calculator", () => {
     "annualRate": 5,
     "timeInDays": 365,
     "daysInYear": 365
-  } as Daily_compound_interest_calculatorInput;
+  } as unknown as Daily_compound_interest_calculatorInput;
     const result = calculateDaily_compound_interest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

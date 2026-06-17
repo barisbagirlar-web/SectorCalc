@@ -13,7 +13,7 @@ describe("tabata-calculator", () => {
     "rounds": 8,
     "preparationTime": 0,
     "coolDownTime": 0
-  } as Tabata_calculatorInput;
+  } as unknown as Tabata_calculatorInput;
     const result = calculateTabata_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

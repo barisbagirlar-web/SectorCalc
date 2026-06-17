@@ -12,7 +12,7 @@ describe("coefficient-of-variation-calculator", () => {
     "measurement2": 12,
     "measurement3": 9,
     "measurement4": 11
-  } as Coefficient_of_variation_calculatorInput;
+  } as unknown as Coefficient_of_variation_calculatorInput;
     const result = calculateCoefficient_of_variation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

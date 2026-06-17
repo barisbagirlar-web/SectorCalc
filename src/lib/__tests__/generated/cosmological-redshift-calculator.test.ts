@@ -12,7 +12,7 @@ describe("cosmological-redshift-calculator", () => {
     "emittedWavelength": 656.3,
     "speedOfLight": 299792,
     "hubbleConstant": 70
-  } as Cosmological_redshift_calculatorInput;
+  } as unknown as Cosmological_redshift_calculatorInput;
     const result = calculateCosmological_redshift_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

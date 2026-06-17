@@ -16,7 +16,7 @@ describe("l-100km-to-mpg-calculator", () => {
     "fuel_type": 1,
     "vehicle_class": 1,
     "route_type": 3
-  } as L_100km_to_mpg_calculatorInput;
+  } as unknown as L_100km_to_mpg_calculatorInput;
     const result = calculateL_100km_to_mpg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

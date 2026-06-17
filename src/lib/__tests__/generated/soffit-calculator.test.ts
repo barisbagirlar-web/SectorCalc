@@ -13,7 +13,7 @@ describe("soffit-calculator", () => {
     "panelLength": 2.44,
     "panelWidth": 0.3,
     "wasteFactor": 5
-  } as Soffit_calculatorInput;
+  } as unknown as Soffit_calculatorInput;
     const result = calculateSoffit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

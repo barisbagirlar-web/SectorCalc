@@ -12,7 +12,7 @@ describe("fret-calculator", () => {
     "fretNumber": 1,
     "totalFrets": 24,
     "compensation": 0
-  } as Fret_calculatorInput;
+  } as unknown as Fret_calculatorInput;
     const result = calculateFret_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

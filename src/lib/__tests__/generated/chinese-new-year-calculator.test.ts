@@ -14,7 +14,7 @@ describe("chinese-new-year-calculator", () => {
     "dependents": 0,
     "overtimeHours": 0,
     "taxRate": 0.2
-  } as Chinese_new_year_calculatorInput;
+  } as unknown as Chinese_new_year_calculatorInput;
     const result = calculateChinese_new_year_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

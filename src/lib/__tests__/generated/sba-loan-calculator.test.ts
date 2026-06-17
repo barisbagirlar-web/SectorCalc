@@ -12,7 +12,7 @@ describe("sba-loan-calculator", () => {
     "interestRate": 6,
     "loanTerm": 10,
     "sbaGuaranteeFee": 3.5
-  } as Sba_loan_calculatorInput;
+  } as unknown as Sba_loan_calculatorInput;
     const result = calculateSba_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

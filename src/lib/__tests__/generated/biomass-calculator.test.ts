@@ -13,7 +13,7 @@ describe("biomass-calculator", () => {
     "wood_density": 0.6,
     "tree_count": 100,
     "carbon_fraction": 0.47
-  } as Biomass_calculatorInput;
+  } as unknown as Biomass_calculatorInput;
     const result = calculateBiomass_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("recast-mortgage-calculator", () => {
     "remainingTerm": 180,
     "lumpSumPayment": 50000,
     "recastFee": 250
-  } as Recast_mortgage_calculatorInput;
+  } as unknown as Recast_mortgage_calculatorInput;
     const result = calculateRecast_mortgage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

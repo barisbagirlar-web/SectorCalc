@@ -13,7 +13,7 @@ describe("attribution-calculator", () => {
     "factor2": 30,
     "factor3": 10,
     "factor4": 10
-  } as Attribution_calculatorInput;
+  } as unknown as Attribution_calculatorInput;
     const result = calculateAttribution_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

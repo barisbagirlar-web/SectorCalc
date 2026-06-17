@@ -14,7 +14,7 @@ describe("days-between-dates-calculator", () => {
     "endYear": 2024,
     "endMonth": 12,
     "endDay": 31
-  } as Days_between_dates_calculatorInput;
+  } as unknown as Days_between_dates_calculatorInput;
     const result = calculateDays_between_dates_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

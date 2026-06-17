@@ -12,7 +12,7 @@ describe("marketing-roi-calculator", () => {
     "numberOfLeads": 500,
     "conversionRate": 5,
     "averageSaleRevenue": 200
-  } as Marketing_roi_calculatorInput;
+  } as unknown as Marketing_roi_calculatorInput;
     const result = calculateMarketing_roi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

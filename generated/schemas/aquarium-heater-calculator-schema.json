@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Tank Volume",
         "tr": "Tank Hacmi",
-        "de": "Tank Volume",
+        "de": "Tankvolumen",
         "fr": "Tank Volume",
         "es": "Tank Volume",
         "ar": "Tank Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of water in the aquarium, determining thermal mass",
-        "tr": "Akvaryumdaki su hacmi, termal kütleyi belirler"
+        "tr": "Akvaryumdaki su hacmi, termal kütleyi belirler",
+        "de": "Wasservolumen im Aquarium, bestimmt die thermische Masse"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Target Temperature",
         "tr": "Hedef Sıcaklık",
-        "de": "Target Temperature",
+        "de": "Zieltemperatur",
         "fr": "Target Temperature",
         "es": "Target Temperature",
         "ar": "Target Temperature"
       },
       "businessContext_i18n": {
         "en": "Desired water temperature for aquatic species",
-        "tr": "Su canlıları için istenen su sıcaklığı"
+        "tr": "Su canlıları için istenen su sıcaklığı",
+        "de": "Gewünschte Wassertemperatur für die Wasserorganismen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Room Temperature",
         "tr": "Oda Sıcaklığı",
-        "de": "Room Temperature",
+        "de": "Raumtemperatur",
         "fr": "Room Temperature",
         "es": "Room Temperature",
         "ar": "Room Temperature"
       },
       "businessContext_i18n": {
         "en": "Surrounding ambient temperature affecting heat loss",
-        "tr": "Isı kaybını etkileyen ortam sıcaklığı"
+        "tr": "Isı kaybını etkileyen ortam sıcaklığı",
+        "de": "Umgebungstemperatur, die den Wärmeverlust beeinflusst"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Heating Time",
         "tr": "Isıtma Süresi",
-        "de": "Heating Time",
+        "de": "Aufheizzeit",
         "fr": "Heating Time",
         "es": "Heating Time",
         "ar": "Heating Time"
       },
       "businessContext_i18n": {
         "en": "Time allowed for initial heating or temperature recovery",
-        "tr": "İlk ısıtma veya sıcaklık geri kazanımı için izin verilen süre"
+        "tr": "İlk ısıtma veya sıcaklık geri kazanımı için izin verilen süre",
+        "de": "Zeit für das anfängliche Aufheizen oder die Temperaturrückgewinnung"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "System Efficiency",
         "tr": "Sistem Verimliliği",
-        "de": "System Efficiency",
+        "de": "Systemeffizienz",
         "fr": "System Efficiency",
         "es": "System Efficiency",
         "ar": "System Efficiency"
       },
       "businessContext_i18n": {
         "en": "Overall efficiency accounting for heat loss through glass and evaporation",
-        "tr": "Cam ve buharlaşma yoluyla ısı kaybını hesaba katan genel verimlilik"
+        "tr": "Cam ve buharlaşma yoluyla ısı kaybını hesaba katan genel verimlilik",
+        "de": "Gesamteffizienz unter Berücksichtigung von Wärmeverlust durch Glas und Verdunstung"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Safety Margin",
         "tr": "Güvenlik Marjı",
-        "de": "Safety Margin",
+        "de": "Sicherheitsmarge",
         "fr": "Safety Margin",
         "es": "Safety Margin",
         "ar": "Safety Margin"
       },
       "businessContext_i18n": {
         "en": "Additional capacity to ensure stable temperature under varying conditions",
-        "tr": "Değişen koşullar altında sabit sıcaklığı sağlamak için ek kapasite"
+        "tr": "Değişen koşullar altında sabit sıcaklığı sağlamak için ek kapasite",
+        "de": "Zusätzliche Kapazität zur Gewährleistung stabiler Temperaturen unter wechselnden Bedingungen"
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("prorated-property-tax-calculator", () => {
     "daysInTaxYear": 365,
     "daysOwned": 0,
     "otherFees": 0
-  } as Prorated_property_tax_calculatorInput;
+  } as unknown as Prorated_property_tax_calculatorInput;
     const result = calculateProrated_property_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

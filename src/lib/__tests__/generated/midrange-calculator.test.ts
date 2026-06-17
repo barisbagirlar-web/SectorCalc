@@ -13,7 +13,7 @@ describe("midrange-calculator", () => {
     "value3": 0,
     "value4": 0,
     "value5": 0
-  } as Midrange_calculatorInput;
+  } as unknown as Midrange_calculatorInput;
     const result = calculateMidrange_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

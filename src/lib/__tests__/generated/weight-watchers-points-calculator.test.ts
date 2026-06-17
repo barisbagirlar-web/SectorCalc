@@ -12,7 +12,7 @@ describe("weight-watchers-points-calculator", () => {
     "saturatedFat": 0,
     "sugar": 0,
     "protein": 0
-  } as Weight_watchers_points_calculatorInput;
+  } as unknown as Weight_watchers_points_calculatorInput;
     const result = calculateWeight_watchers_points_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

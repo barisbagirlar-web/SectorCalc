@@ -16,7 +16,7 @@ describe("vacuum-leak-energy-loss-calculator", () => {
     "ambient_temperature_c": 25,
     "leak_type": "round",
     "include_carbon_cost": true
-  } as Vacuum_leak_energy_loss_calculatorInput;
+  } as unknown as Vacuum_leak_energy_loss_calculatorInput;
     const result = calculateVacuum_leak_energy_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

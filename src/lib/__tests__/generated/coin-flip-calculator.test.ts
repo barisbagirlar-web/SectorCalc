@@ -12,7 +12,7 @@ describe("coin-flip-calculator", () => {
     "numberOfHeads": 5,
     "probabilityOfHead": 0.5,
     "decimalPlaces": 4
-  } as Coin_flip_calculatorInput;
+  } as unknown as Coin_flip_calculatorInput;
     const result = calculateCoin_flip_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

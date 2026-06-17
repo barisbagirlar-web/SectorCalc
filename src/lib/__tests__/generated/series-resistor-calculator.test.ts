@@ -12,7 +12,7 @@ describe("series-resistor-calculator", () => {
     "R2": 0,
     "R3": 0,
     "R4": 0
-  } as Series_resistor_calculatorInput;
+  } as unknown as Series_resistor_calculatorInput;
     const result = calculateSeries_resistor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Planned Available Time",
         "tr": "Planlanan Kullanılabilir Süre",
-        "de": "Planned Available Time",
+        "de": "Geplante verfügbare Zeit",
         "fr": "Planned Available Time",
         "es": "Planned Available Time",
         "ar": "Planned Available Time"
       },
       "businessContext_i18n": {
         "en": "Total planned production time for the period",
-        "tr": "Dönem için toplam planlanan üretim süresi"
+        "tr": "Dönem için toplam planlanan üretim süresi",
+        "de": "Gesamte geplante Produktionszeit für den Zeitraum"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Unplanned Downtime",
         "tr": "Plansız Duruş",
-        "de": "Unplanned Downtime",
+        "de": "Ungeplante Stillstandszeit",
         "fr": "Unplanned Downtime",
         "es": "Unplanned Downtime",
         "ar": "Unplanned Downtime"
       },
       "businessContext_i18n": {
         "en": "Downtime due to unplanned failures",
-        "tr": "Plansız arızalardan kaynaklanan duruş"
+        "tr": "Plansız arızalardan kaynaklanan duruş",
+        "de": "Stillstandszeit aufgrund ungeplanter Ausfälle"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Planned Downtime",
         "tr": "Planlı Duruş",
-        "de": "Planned Downtime",
+        "de": "Geplante Stillstandszeit",
         "fr": "Planned Downtime",
         "es": "Planned Downtime",
         "ar": "Planned Downtime"
       },
       "businessContext_i18n": {
         "en": "Downtime for planned maintenance or setups",
-        "tr": "Planlı bakım veya kurulumlar için duruş"
+        "tr": "Planlı bakım veya kurulumlar için duruş",
+        "de": "Stillstandszeit für geplante Wartung oder Rüstvorgänge"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Failures",
         "tr": "Arıza Sayısı",
-        "de": "Number of Failures",
+        "de": "Anzahl der Ausfälle",
         "fr": "Number of Failures",
         "es": "Number of Failures",
         "ar": "Number of Failures"
       },
       "businessContext_i18n": {
         "en": "Number of failure events during the period",
-        "tr": "Dönem içindeki arıza olaylarının sayısı"
+        "tr": "Dönem içindeki arıza olaylarının sayısı",
+        "de": "Anzahl der Ausfallereignisse im Zeitraum"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Mean Time To Repair (MTTR)",
         "tr": "Ortalama onarım süresi (MTTR)",
-        "de": "Mean Time To Repair (MTTR)",
+        "de": "Mittlere Reparaturdauer (MTTR)",
         "fr": "Mean Time To Repair (MTTR)",
         "es": "Mean Time To Repair (MTTR)",
         "ar": "Mean Time To Repair (MTTR)"
       },
       "businessContext_i18n": {
         "en": "Average repair time per failure",
-        "tr": "Arıza başına ortalama onarım süresi"
+        "tr": "Arıza başına ortalama onarım süresi",
+        "de": "Durchschnittliche Reparaturzeit pro Ausfall"
       }
     }
   ],

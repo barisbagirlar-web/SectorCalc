@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Body Mass",
         "tr": "Vücut Kütlesi",
-        "de": "Body Mass",
+        "de": "Körpermasse",
         "fr": "Body Mass",
         "es": "Body Mass",
         "ar": "Body Mass"
       },
       "businessContext_i18n": {
         "en": "Total mass of the climber including gear",
-        "tr": "Tırmanıcının ekipman dahil toplam kütlesi"
+        "tr": "Tırmanıcının ekipman dahil toplam kütlesi",
+        "de": "Gesamtmasse des Kletterers inklusive Ausrüstung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Fall Height",
         "tr": "Düşüş Yüksekliği",
-        "de": "Fall Height",
+        "de": "Fallhöhe",
         "fr": "Fall Height",
         "es": "Fall Height",
         "ar": "Fall Height"
       },
       "businessContext_i18n": {
         "en": "Vertical drop from climber's feet to pad surface",
-        "tr": "Tırmanıcının ayaklarından minder yüzeyine dikey mesafe"
+        "tr": "Tırmanıcının ayaklarından minder yüzeyine dikey mesafe",
+        "de": "Vertikaler Fall von den Füßen des Kletterers zur Mattenoberfläche"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Mat Thickness",
         "tr": "Minder Kalınlığı",
-        "de": "Mat Thickness",
+        "de": "Mattenstärke",
         "fr": "Mat Thickness",
         "es": "Mat Thickness",
         "ar": "Mat Thickness"
       },
       "businessContext_i18n": {
         "en": "Crash pad thickness",
-        "tr": "Çarpma minderinin kalınlığı"
+        "tr": "Çarpma minderinin kalınlığı",
+        "de": "Sturzmattenstärke"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Mat Stiffness",
         "tr": "Minder Sertliği",
-        "de": "Mat Stiffness",
+        "de": "Mattensteifigkeit",
         "fr": "Mat Stiffness",
         "es": "Mat Stiffness",
         "ar": "Mat Stiffness"
       },
       "businessContext_i18n": {
         "en": "Overall pad stiffness (typical 20-100 kN/m)",
-        "tr": "Genel minder sertliği (tipik 20-100 kN/m)"
+        "tr": "Genel minder sertliği (tipik 20-100 kN/m)",
+        "de": "Gesamtsteifigkeit der Matte (typisch 20–100 kN/m)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Gravity",
         "tr": "Yerçekimi",
-        "de": "Gravity",
+        "de": "Schwerkraft",
         "fr": "Gravity",
         "es": "Gravity",
         "ar": "Gravity"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity",
-        "tr": "Yerçekimi ivmesi"
+        "tr": "Yerçekimi ivmesi",
+        "de": "Erdbeschleunigung"
       }
     }
   ],

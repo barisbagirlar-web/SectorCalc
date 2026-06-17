@@ -16,7 +16,7 @@ describe("cloud-waste-elimination-calculator", () => {
     "reserved_instance_coverage": 30,
     "rightsizing_opportunity_score": 60,
     "cloud_provider": "AWS"
-  } as Cloud_waste_elimination_calculatorInput;
+  } as unknown as Cloud_waste_elimination_calculatorInput;
     const result = calculateCloud_waste_elimination_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

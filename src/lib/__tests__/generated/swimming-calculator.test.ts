@@ -13,7 +13,7 @@ describe("swimming-calculator", () => {
     "restTime": 30,
     "laps": 1,
     "poolLength": 25
-  } as Swimming_calculatorInput;
+  } as unknown as Swimming_calculatorInput;
     const result = calculateSwimming_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

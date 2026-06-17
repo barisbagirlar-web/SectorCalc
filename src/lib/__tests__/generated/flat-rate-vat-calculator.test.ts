@@ -11,7 +11,7 @@ describe("flat-rate-vat-calculator", () => {
     "grossTurnover": 1000,
     "flatRatePercentage": 13,
     "standardVatRate": 20
-  } as Flat_rate_vat_calculatorInput;
+  } as unknown as Flat_rate_vat_calculatorInput;
     const result = calculateFlat_rate_vat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

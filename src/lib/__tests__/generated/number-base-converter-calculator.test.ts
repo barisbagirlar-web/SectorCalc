@@ -13,7 +13,7 @@ describe("number-base-converter-calculator", () => {
     "targetBase2": 8,
     "targetBase3": 10,
     "targetBase4": 16
-  } as Number_base_converter_calculatorInput;
+  } as unknown as Number_base_converter_calculatorInput;
     const result = calculateNumber_base_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

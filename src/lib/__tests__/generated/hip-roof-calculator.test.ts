@@ -13,7 +13,7 @@ describe("hip-roof-calculator", () => {
     "roof_pitch": 30,
     "overhang": 0.5,
     "ridge_beam_width": 0.15
-  } as Hip_roof_calculatorInput;
+  } as unknown as Hip_roof_calculatorInput;
     const result = calculateHip_roof_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

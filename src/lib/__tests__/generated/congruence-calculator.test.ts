@@ -12,7 +12,7 @@ describe("congruence-calculator", () => {
     "b": 0,
     "modulus": 2,
     "shift": 0
-  } as Congruence_calculatorInput;
+  } as unknown as Congruence_calculatorInput;
     const result = calculateCongruence_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

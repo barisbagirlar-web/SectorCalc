@@ -15,7 +15,7 @@ describe("sheetrock-calculator", () => {
     "sheetWidth": 4,
     "wasteFactor": 10,
     "deductionArea": 0
-  } as Sheetrock_calculatorInput;
+  } as unknown as Sheetrock_calculatorInput;
     const result = calculateSheetrock_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

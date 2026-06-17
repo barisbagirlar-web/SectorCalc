@@ -12,7 +12,7 @@ describe("sidereal-day-to-hours-calculator", () => {
     "hours": 23,
     "minutes": 56,
     "seconds": 4.0916
-  } as Sidereal_day_to_hours_calculatorInput;
+  } as unknown as Sidereal_day_to_hours_calculatorInput;
     const result = calculateSidereal_day_to_hours_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

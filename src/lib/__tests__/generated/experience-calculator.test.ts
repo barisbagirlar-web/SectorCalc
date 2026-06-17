@@ -11,7 +11,7 @@ describe("experience-calculator", () => {
     "firstUnitTime": 10,
     "learningRate": 80,
     "cumulativeUnits": 100
-  } as Experience_calculatorInput;
+  } as unknown as Experience_calculatorInput;
     const result = calculateExperience_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

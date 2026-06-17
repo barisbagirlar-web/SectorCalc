@@ -15,7 +15,7 @@ describe("sustainable-development-calculator", () => {
     "recycled_waste": 50,
     "co2_emissions": 3000,
     "production_units": 100
-  } as Sustainable_development_calculatorInput;
+  } as unknown as Sustainable_development_calculatorInput;
     const result = calculateSustainable_development_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

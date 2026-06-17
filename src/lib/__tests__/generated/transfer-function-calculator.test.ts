@@ -13,7 +13,7 @@ describe("transfer-function-calculator", () => {
     "omega_n": 1,
     "step_amplitude": 1,
     "tau": 0
-  } as Transfer_function_calculatorInput;
+  } as unknown as Transfer_function_calculatorInput;
     const result = calculateTransfer_function_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

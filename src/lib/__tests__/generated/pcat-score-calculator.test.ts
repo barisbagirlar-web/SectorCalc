@@ -12,7 +12,7 @@ describe("pcat-score-calculator", () => {
     "lsl": 5,
     "mean": 7.5,
     "stddev": 0.5
-  } as Pcat_score_calculatorInput;
+  } as unknown as Pcat_score_calculatorInput;
     const result = calculatePcat_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

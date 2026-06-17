@@ -13,7 +13,7 @@ describe("blood-glucose-calculator", () => {
     "unitFrom": 1,
     "unitTo": 2,
     "fasting": 1
-  } as Blood_glucose_calculatorInput;
+  } as unknown as Blood_glucose_calculatorInput;
     const result = calculateBlood_glucose_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

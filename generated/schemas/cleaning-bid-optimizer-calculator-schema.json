@@ -22,11 +22,13 @@
       "businessContext": "Total cleanable floor area in square feet. Basis for all labor and material calculations.",
       "label_i18n": {
         "en": "Total Area (sq ft)",
-        "tr": "Toplam Alan (ft²)"
+        "tr": "Toplam Alan (ft²)",
+        "de": "Gesamtfläche (Quadratfuß)"
       },
       "businessContext_i18n": {
         "en": "Total cleanable floor area in square feet. Basis for all labor and material calculations.",
-        "tr": "Temizlenebilir toplam taban alanı fit kare cinsinden. Tüm işçilik ve malzeme hesaplamalarının temeli."
+        "tr": "Temizlenebilir toplam taban alanı fit kare cinsinden. Tüm işçilik ve malzeme hesaplamalarının temeli.",
+        "de": "Gesamte reinigbare Bodenfläche in Quadratfuß. Grundlage für alle Arbeits- und Materialberechnungen."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Number of times the facility is cleaned per week. Affects labor and consumable usage.",
       "label_i18n": {
         "en": "Cleaning Frequency per Week",
-        "tr": "Haftalık Temizlik Sıklığı"
+        "tr": "Haftalık Temizlik Sıklığı",
+        "de": "Reinigungshäufigkeit pro Woche"
       },
       "businessContext_i18n": {
         "en": "Number of times the facility is cleaned per week. Affects labor and consumable usage.",
-        "tr": "Tesisin haftada kaç kez temizlendiği. İşçilik ve sarf malzemesi kullanımını etkiler."
+        "tr": "Tesisin haftada kaç kez temizlendiği. İşçilik ve sarf malzemesi kullanımını etkiler.",
+        "de": "Anzahl der Reinigungen pro Woche. Beeinflusst Arbeitsaufwand und Verbrauchsmaterialien."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Hourly wage for cleaning staff. Includes base pay, not burden.",
       "label_i18n": {
         "en": "Labor Rate ($/hour)",
-        "tr": "İşçilik Ücreti ($/saat)"
+        "tr": "İşçilik Ücreti ($/saat)",
+        "de": "Arbeitskosten (€/Stunde)"
       },
       "businessContext_i18n": {
         "en": "Hourly wage for cleaning staff. Includes base pay, not burden.",
-        "tr": "Temizlik personelinin saatlik ücreti. Temel maaşı içerir, yan yükler hariç."
+        "tr": "Temizlik personelinin saatlik ücreti. Temel maaşı içerir, yan yükler hariç.",
+        "de": "Stundenlohn für Reinigungspersonal. Inklusive Grundgehalt, ohne Nebenkosten."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Percentage added to labor rate for taxes, insurance, benefits. Typical range 15-35%.",
       "label_i18n": {
         "en": "Labor Burden (%)",
-        "tr": "İşçilik Yan Yükü (%)"
+        "tr": "İşçilik Yan Yükü (%)",
+        "de": "Lohnnebenkosten (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage added to labor rate for taxes, insurance, benefits. Typical range 15-35%.",
-        "tr": "Vergi, sigorta, yan haklar için işçilik ücretine eklenen yüzde. Tipik aralık %15-35."
+        "tr": "Vergi, sigorta, yan haklar için işçilik ücretine eklenen yüzde. Tipik aralık %15-35.",
+        "de": "Prozentsatz, der zu den Arbeitskosten für Steuern, Versicherungen, Sozialleistungen hinzugerechnet wird. Typischer Bereich 15-35%."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Average area cleaned per person per hour. Based on industry benchmarks (ISSA, BSCAI).",
       "label_i18n": {
         "en": "Productivity Rate (sq ft/hour)",
-        "tr": "Verimlilik Oranı (ft²/saat)"
+        "tr": "Verimlilik Oranı (ft²/saat)",
+        "de": "Produktivitätsrate (m²/Stunde)"
       },
       "businessContext_i18n": {
         "en": "Average area cleaned per person per hour. Based on industry benchmarks (ISSA, BSCAI).",
-        "tr": "Kişi başı saatte temizlenen ortalama alan. Sektör kıyaslamalarına (ISSA, BSCAI) dayanır."
+        "tr": "Kişi başı saatte temizlenen ortalama alan. Sektör kıyaslamalarına (ISSA, BSCAI) dayanır.",
+        "de": "Durchschnittliche Fläche, die pro Person und Stunde gereinigt wird. Basierend auf Branchenbenchmarks (ISSA, BSCAI)."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "Cost of cleaning chemicals, paper, and consumables per square foot per cleaning.",
       "label_i18n": {
         "en": "Material Cost ($/sq ft)",
-        "tr": "Malzeme Maliyeti ($/ft²)"
+        "tr": "Malzeme Maliyeti ($/ft²)",
+        "de": "Materialkosten (€/m²)"
       },
       "businessContext_i18n": {
         "en": "Cost of cleaning chemicals, paper, and consumables per square foot per cleaning.",
-        "tr": "Temizlik kimyasalları, kağıt ve sarf malzemelerinin metrekare başına temizlik başına maliyeti."
+        "tr": "Temizlik kimyasalları, kağıt ve sarf malzemelerinin metrekare başına temizlik başına maliyeti.",
+        "de": "Kosten für Reinigungschemikalien, Papier und Verbrauchsmaterialien pro Quadratmeter pro Reinigung."
       }
     },
     {
@@ -130,11 +142,13 @@
       "businessContext": "Amortized equipment cost (mops, vacuums, buffers) per square foot per cleaning.",
       "label_i18n": {
         "en": "Equipment Cost ($/sq ft)",
-        "tr": "Ekipman Maliyeti ($/sq ft)"
+        "tr": "Ekipman Maliyeti ($/sq ft)",
+        "de": "Gerätekosten (€/m²)"
       },
       "businessContext_i18n": {
         "en": "Amortized equipment cost (mops, vacuums, buffers) per square foot per cleaning.",
-        "tr": "Amorti edilmiş ekipman maliyeti (paspaslar, elektrikli süpürgeler, cilalama makineleri) metrekare başına temizlik başına."
+        "tr": "Amorti edilmiş ekipman maliyeti (paspaslar, elektrikli süpürgeler, cilalama makineleri) metrekare başına temizlik başına.",
+        "de": "Amortisierte Gerätekosten (Mopps, Staubsauger, Bürsten) pro Quadratmeter pro Reinigung."
       }
     },
     {
@@ -148,11 +162,13 @@
       "businessContext": "Indirect costs (management, office, insurance) as percentage of direct costs.",
       "label_i18n": {
         "en": "Overhead (%)",
-        "tr": "Genel Giderler (%)"
+        "tr": "Genel Giderler (%)",
+        "de": "Gemeinkosten (%)"
       },
       "businessContext_i18n": {
         "en": "Indirect costs (management, office, insurance) as percentage of direct costs.",
-        "tr": "Dolaylı maliyetler (yönetim, ofis, sigorta) doğrudan maliyetlerin yüzdesi olarak."
+        "tr": "Dolaylı maliyetler (yönetim, ofis, sigorta) doğrudan maliyetlerin yüzdesi olarak.",
+        "de": "Indirekte Kosten (Verwaltung, Büro, Versicherung) als Prozentsatz der direkten Kosten."
       }
     }
   ],

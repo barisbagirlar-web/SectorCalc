@@ -13,7 +13,7 @@ describe("inverting-amplifier-calculator", () => {
     "rf": 10000,
     "vcc_plus": 15,
     "vcc_minus": -15
-  } as Inverting_amplifier_calculatorInput;
+  } as unknown as Inverting_amplifier_calculatorInput;
     const result = calculateInverting_amplifier_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("commission-calculator", () => {
     "baseCommissionRate": 5,
     "highTierThreshold": 10000,
     "highTierRate": 10
-  } as Commission_calculatorInput;
+  } as unknown as Commission_calculatorInput;
     const result = calculateCommission_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

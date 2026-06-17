@@ -14,7 +14,7 @@ describe("alcohol-calorie-calculator", () => {
     "protein": 0,
     "fat": 0,
     "quantity": 1
-  } as Alcohol_calorie_calculatorInput;
+  } as unknown as Alcohol_calorie_calculatorInput;
     const result = calculateAlcohol_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

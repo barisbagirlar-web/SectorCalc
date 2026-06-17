@@ -11,7 +11,7 @@ describe("peg-ratio-calculator", () => {
     "stockPrice": 0,
     "earningsPerShare": 0,
     "growthRate": 0
-  } as Peg_ratio_calculatorInput;
+  } as unknown as Peg_ratio_calculatorInput;
     const result = calculatePeg_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

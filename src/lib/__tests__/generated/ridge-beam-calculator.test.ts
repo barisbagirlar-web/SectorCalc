@@ -14,7 +14,7 @@ describe("ridge-beam-calculator", () => {
     "beam_width": 100,
     "beam_depth": 200,
     "safety_factor": 1
-  } as Ridge_beam_calculatorInput;
+  } as unknown as Ridge_beam_calculatorInput;
     const result = calculateRidge_beam_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

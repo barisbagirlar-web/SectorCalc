@@ -14,7 +14,7 @@ describe("car-payment-calculator", () => {
     "loanTermMonths": 60,
     "salesTaxRate": 6,
     "additionalFees": 500
-  } as Car_payment_calculatorInput;
+  } as unknown as Car_payment_calculatorInput;
     const result = calculateCar_payment_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

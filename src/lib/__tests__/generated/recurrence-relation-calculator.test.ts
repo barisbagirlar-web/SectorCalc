@@ -13,7 +13,7 @@ describe("recurrence-relation-calculator", () => {
     "a1": 1,
     "c1": 1,
     "c2": 1
-  } as Recurrence_relation_calculatorInput;
+  } as unknown as Recurrence_relation_calculatorInput;
     const result = calculateRecurrence_relation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

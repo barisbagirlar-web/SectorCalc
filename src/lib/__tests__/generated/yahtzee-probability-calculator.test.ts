@@ -11,7 +11,7 @@ describe("yahtzee-probability-calculator", () => {
     "diceCount": 5,
     "targetMatches": 5,
     "currentMatches": 0
-  } as Yahtzee_probability_calculatorInput;
+  } as unknown as Yahtzee_probability_calculatorInput;
     const result = calculateYahtzee_probability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

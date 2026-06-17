@@ -14,7 +14,7 @@ describe("molecular-weight-calculator", () => {
     "n": 0,
     "s": 0,
     "p": 0
-  } as Molecular_weight_calculatorInput;
+  } as unknown as Molecular_weight_calculatorInput;
     const result = calculateMolecular_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

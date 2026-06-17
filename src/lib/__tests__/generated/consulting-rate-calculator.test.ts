@@ -14,7 +14,7 @@ describe("consulting-rate-calculator", () => {
     "daysWorked": 5,
     "additionalExpenses": 0,
     "taxRate": 19
-  } as Consulting_rate_calculatorInput;
+  } as unknown as Consulting_rate_calculatorInput;
     const result = calculateConsulting_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

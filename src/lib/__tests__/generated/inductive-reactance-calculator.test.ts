@@ -12,7 +12,7 @@ describe("inductive-reactance-calculator", () => {
     "inductance": 0.01,
     "measuredVoltage": 0,
     "measuredCurrent": 0
-  } as Inductive_reactance_calculatorInput;
+  } as unknown as Inductive_reactance_calculatorInput;
     const result = calculateInductive_reactance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

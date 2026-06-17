@@ -12,7 +12,7 @@ describe("triangular-prism-volume-calculator", () => {
     "sideB": 4,
     "sideC": 5,
     "prismHeight": 10
-  } as Triangular_prism_volume_calculatorInput;
+  } as unknown as Triangular_prism_volume_calculatorInput;
     const result = calculateTriangular_prism_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

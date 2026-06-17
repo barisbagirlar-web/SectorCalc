@@ -14,7 +14,7 @@ describe("total-lift-calculator", () => {
     "additionalLoad": 100,
     "liftAcceleration": 0.5,
     "frictionCoefficient": 0.05
-  } as Total_lift_calculatorInput;
+  } as unknown as Total_lift_calculatorInput;
     const result = calculateTotal_lift_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

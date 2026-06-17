@@ -12,7 +12,7 @@ describe("t-test-statistic-calculator", () => {
     "populationMean": 0,
     "standardDeviation": 1,
     "sampleSize": 30
-  } as T_test_statistic_calculatorInput;
+  } as unknown as T_test_statistic_calculatorInput;
     const result = calculateT_test_statistic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

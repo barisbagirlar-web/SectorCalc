@@ -13,7 +13,7 @@ describe("social-security-survivor-benefits-calculator", () => {
     "survivorAge": 0,
     "numberOfChildren": 0,
     "isSpouse": 0
-  } as Social_security_survivor_benefits_calculatorInput;
+  } as unknown as Social_security_survivor_benefits_calculatorInput;
     const result = calculateSocial_security_survivor_benefits_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

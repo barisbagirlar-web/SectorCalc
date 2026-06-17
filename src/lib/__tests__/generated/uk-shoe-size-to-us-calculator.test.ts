@@ -12,7 +12,7 @@ describe("uk-shoe-size-to-us-calculator", () => {
     "gender": 0,
     "adjustment": 0,
     "rounding": 1
-  } as Uk_shoe_size_to_us_calculatorInput;
+  } as unknown as Uk_shoe_size_to_us_calculatorInput;
     const result = calculateUk_shoe_size_to_us_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

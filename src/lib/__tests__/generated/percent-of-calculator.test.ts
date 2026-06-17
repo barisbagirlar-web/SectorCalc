@@ -12,7 +12,7 @@ describe("percent-of-calculator", () => {
     "percent": 20,
     "additionalFixed": 0,
     "decimalPlaces": 2
-  } as Percent_of_calculatorInput;
+  } as unknown as Percent_of_calculatorInput;
     const result = calculatePercent_of_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

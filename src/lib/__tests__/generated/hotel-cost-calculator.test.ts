@@ -15,7 +15,7 @@ describe("hotel-cost-calculator", () => {
     "mealCost": 15,
     "transportCost": 50,
     "otherCost": 0
-  } as Hotel_cost_calculatorInput;
+  } as unknown as Hotel_cost_calculatorInput;
     const result = calculateHotel_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

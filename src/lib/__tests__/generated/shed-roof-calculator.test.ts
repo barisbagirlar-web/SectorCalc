@@ -12,7 +12,7 @@ describe("shed-roof-calculator", () => {
     "roofWidth": 6,
     "slopeAngle": 15,
     "overhang": 0.5
-  } as Shed_roof_calculatorInput;
+  } as unknown as Shed_roof_calculatorInput;
     const result = calculateShed_roof_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

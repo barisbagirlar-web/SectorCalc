@@ -13,7 +13,7 @@ describe("fraction-to-percent-calculator", () => {
     "wholeNumber": 0,
     "decimalPlaces": 2,
     "roundingMode": 0
-  } as Fraction_to_percent_calculatorInput;
+  } as unknown as Fraction_to_percent_calculatorInput;
     const result = calculateFraction_to_percent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

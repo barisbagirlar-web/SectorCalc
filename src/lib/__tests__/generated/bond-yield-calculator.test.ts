@@ -13,7 +13,7 @@ describe("bond-yield-calculator", () => {
     "currentPrice": 950,
     "yearsToMaturity": 10,
     "frequency": 1
-  } as Bond_yield_calculatorInput;
+  } as unknown as Bond_yield_calculatorInput;
     const result = calculateBond_yield_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

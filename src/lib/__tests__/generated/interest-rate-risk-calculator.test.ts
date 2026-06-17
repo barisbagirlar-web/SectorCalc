@@ -16,7 +16,7 @@ describe("interest-rate-risk-calculator", () => {
     "hedge_ratio": 60,
     "confidence_level": "95%",
     "volatility_regime": "normal"
-  } as Interest_rate_risk_calculatorInput;
+  } as unknown as Interest_rate_risk_calculatorInput;
     const result = calculateInterest_rate_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

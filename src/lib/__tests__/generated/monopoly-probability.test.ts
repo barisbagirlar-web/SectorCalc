@@ -14,7 +14,7 @@ describe("monopoly-probability", () => {
     "boardSpaces": 40,
     "targetSpace": 10,
     "turns": 10
-  } as Monopoly_probabilityInput;
+  } as unknown as Monopoly_probabilityInput;
     const result = calculateMonopoly_probability(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

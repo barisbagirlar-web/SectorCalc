@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Absorbed Dose (Gy)",
         "tr": "Soğrulan Doz (Gy)",
-        "de": "Absorbed Dose (Gy)",
+        "de": "Absorbierte Dosis (Gy)",
         "fr": "Absorbed Dose (Gy)",
         "es": "Absorbed Dose (Gy)",
         "ar": "Absorbed Dose (Gy)"
       },
       "businessContext_i18n": {
         "en": "Measured or calculated absorbed dose in Gray",
-        "tr": "Gray cinsinden ölçülen veya hesaplanan soğrulan doz"
+        "tr": "Gray cinsinden ölçülen veya hesaplanan soğrulan doz",
+        "de": "Gemessene oder berechnete absorbierte Dosis in Gray"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Calibration Factor",
         "tr": "Kalibrasyon Faktörü",
-        "de": "Calibration Factor",
+        "de": "Kalibrierfaktor",
         "fr": "Calibration Factor",
         "es": "Calibration Factor",
         "ar": "Calibration Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for instrument calibration",
-        "tr": "Cihaz kalibrasyonu için çarpan"
+        "tr": "Cihaz kalibrasyonu için çarpan",
+        "de": "Multiplikator für die Instrumentenkalibrierung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Safety Margin",
         "tr": "Güvenlik Marjı",
-        "de": "Safety Margin",
+        "de": "Sicherheitsmarge",
         "fr": "Safety Margin",
         "es": "Safety Margin",
         "ar": "Safety Margin"
       },
       "businessContext_i18n": {
         "en": "Safety factor to apply for regulatory limits",
-        "tr": "Düzenleyici limitler için uygulanacak güvenlik faktörü"
+        "tr": "Düzenleyici limitler için uygulanacak güvenlik faktörü",
+        "de": "Sicherheitsfaktor zur Anwendung auf gesetzliche Grenzwerte"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Minimal Detection Limit",
         "tr": "Minimum Tespit Limiti",
-        "de": "Minimal Detection Limit",
+        "de": "Minimale Nachweisgrenze",
         "fr": "Minimal Detection Limit",
         "es": "Minimal Detection Limit",
         "ar": "Minimal Detection Limit"
       },
       "businessContext_i18n": {
         "en": "Smallest dose reliably measurable",
-        "tr": "Güvenilir şekilde ölçülebilen en küçük doz"
+        "tr": "Güvenilir şekilde ölçülebilen en küçük doz",
+        "de": "Kleinste zuverlässig messbare Dosis"
       }
     }
   ],

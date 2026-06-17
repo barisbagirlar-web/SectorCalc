@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gender (0: Female, 1: Male)",
         "tr": "Cinsiyet (0: Kadın, 1: Erkek)",
-        "de": "Gender (0: Female, 1: Male)",
+        "de": "Geschlecht (0: Weiblich, 1: Männlich)",
         "fr": "Gender (0: Female, 1: Male)",
         "es": "Gender (0: Female, 1: Male)",
         "ar": "Gender (0: Female, 1: Male)"
       },
       "businessContext_i18n": {
         "en": "Biological gender as numeric code: 0 for female, 1 for male.",
-        "tr": "Biyolojik cinsiyet sayısal kod: 0 kadın, 1 erkek."
+        "tr": "Biyolojik cinsiyet sayısal kod: 0 kadın, 1 erkek.",
+        "de": "Biologisches Geschlecht als numerischer Code: 0 für weiblich, 1 für männlich."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Age (years)",
         "tr": "Yaş (yıl)",
-        "de": "Age (years)",
+        "de": "Alter (Jahre)",
         "fr": "Age (years)",
         "es": "Age (years)",
         "ar": "Age (years)"
       },
       "businessContext_i18n": {
         "en": "Age of the individual in years.",
-        "tr": "Bireyin yıl cinsinden yaşı."
+        "tr": "Bireyin yıl cinsinden yaşı.",
+        "de": "Alter der Person in Jahren."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Weight (kg)",
         "tr": "Ağırlık (kg)",
-        "de": "Weight (kg)",
+        "de": "Gewicht (kg)",
         "fr": "Weight (kg)",
         "es": "Weight (kg)",
         "ar": "Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms.",
-        "tr": "Vücut ağırlığı (kg)."
+        "tr": "Vücut ağırlığı (kg).",
+        "de": "Körpergewicht in Kilogramm."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Height (cm)",
         "tr": "Boy (cm)",
-        "de": "Height (cm)",
+        "de": "Größe (cm)",
         "fr": "Height (cm)",
         "es": "Height (cm)",
         "ar": "Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Height in centimeters.",
-        "tr": "Boy (cm)."
+        "tr": "Boy (cm).",
+        "de": "Körpergröße in Zentimetern."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
-        "de": "Activity Level",
+        "de": "Aktivitätsniveau",
         "fr": "Activity Level",
         "es": "Activity Level",
         "ar": "Activity Level"
       },
       "businessContext_i18n": {
         "en": "Physical activity multiplier: 1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 active, 1.9 very active.",
-        "tr": "Fiziksel aktivite çarpanı: 1.2 hareketsiz, 1.375 hafif, 1.55 orta, 1.725 aktif, 1.9 çok aktif."
+        "tr": "Fiziksel aktivite çarpanı: 1.2 hareketsiz, 1.375 hafif, 1.55 orta, 1.725 aktif, 1.9 çok aktif.",
+        "de": "Multiplikator für körperliche Aktivität: 1,2 sitzend, 1,375 leicht, 1,55 moderat, 1,725 aktiv, 1,9 sehr aktiv."
       }
     }
   ],

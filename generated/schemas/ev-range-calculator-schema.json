@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Battery Capacity",
         "tr": "Pil Kapasitesi",
-        "de": "Battery Capacity",
+        "de": "Batteriekapazität",
         "fr": "Battery Capacity",
         "es": "Battery Capacity",
         "ar": "Battery Capacity"
       },
       "businessContext_i18n": {
         "en": "Usable battery capacity of the electric vehicle",
-        "tr": "Elektrikli aracın kullanılabilir batarya kapasitesi"
+        "tr": "Elektrikli aracın kullanılabilir batarya kapasitesi",
+        "de": "Nutzbare Batteriekapazität des Elektrofahrzeugs"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Base Energy Consumption",
         "tr": "Temel Enerji Tüketimi",
-        "de": "Base Energy Consumption",
+        "de": "Basisenergieverbrauch",
         "fr": "Base Energy Consumption",
         "es": "Base Energy Consumption",
         "ar": "Base Energy Consumption"
       },
       "businessContext_i18n": {
         "en": "Energy consumption per kilometer under standard conditions",
-        "tr": "Standart koşullarda kilometre başına enerji tüketimi"
+        "tr": "Standart koşullarda kilometre başına enerji tüketimi",
+        "de": "Energieverbrauch pro Kilometer unter Standardbedingungen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Temperature Factor",
         "tr": "Sıcaklık Faktörü",
-        "de": "Temperature Factor",
+        "de": "Temperaturfaktor",
         "fr": "Temperature Factor",
         "es": "Temperature Factor",
         "ar": "Temperature Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for consumption due to ambient temperature",
-        "tr": "Ortam sıcaklığına bağlı tüketim çarpanı"
+        "tr": "Ortam sıcaklığına bağlı tüketim çarpanı",
+        "de": "Multiplikator für Verbrauch aufgrund der Umgebungstemperatur"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Driving Style Factor",
         "tr": "Sürüş Tarzı Faktörü",
-        "de": "Driving Style Factor",
+        "de": "Fahrstilfaktor",
         "fr": "Driving Style Factor",
         "es": "Driving Style Factor",
         "ar": "Driving Style Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for consumption due to driving behavior",
-        "tr": "Sürüş davranışına bağlı tüketim çarpanı"
+        "tr": "Sürüş davranışına bağlı tüketim çarpanı",
+        "de": "Multiplikator für Verbrauch aufgrund des Fahrverhaltens"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Auxiliary Power",
         "tr": "Yardımcı Güç",
-        "de": "Auxiliary Power",
+        "de": "Hilfsstrom",
         "fr": "Auxiliary Power",
         "es": "Auxiliary Power",
         "ar": "Auxiliary Power"
       },
       "businessContext_i18n": {
         "en": "Continuous power draw from accessories like climate control",
-        "tr": "İklimlendirme gibi aksesuarlardan sürekli güç çekişi"
+        "tr": "İklimlendirme gibi aksesuarlardan sürekli güç çekişi",
+        "de": "Dauerhafter Stromverbrauch durch Zubehör wie Klimaanlage"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Average Speed",
         "tr": "Ortalama Hız",
-        "de": "Average Speed",
+        "de": "Durchschnittsgeschwindigkeit",
         "fr": "Average Speed",
         "es": "Average Speed",
         "ar": "Average Speed"
       },
       "businessContext_i18n": {
         "en": "Estimated average speed during the trip",
-        "tr": "Yolculuk sırasında tahmini ortalama hız"
+        "tr": "Yolculuk sırasında tahmini ortalama hız",
+        "de": "Geschätzte Durchschnittsgeschwindigkeit während der Fahrt"
       }
     }
   ],

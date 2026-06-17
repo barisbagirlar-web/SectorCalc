@@ -14,7 +14,7 @@ describe("canoeing-calculator", () => {
     "frontalArea": 0.5,
     "canoeWeight": 20,
     "paddlerWeight": 75
-  } as Canoeing_calculatorInput;
+  } as unknown as Canoeing_calculatorInput;
     const result = calculateCanoeing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

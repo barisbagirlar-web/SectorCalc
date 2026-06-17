@@ -14,7 +14,7 @@ describe("anxiety-calculator", () => {
     "defect_rate": 1.5,
     "process_temperature_variance": 2.1,
     "noise_level": 75
-  } as Anxiety_calculatorInput;
+  } as unknown as Anxiety_calculatorInput;
     const result = calculateAnxiety_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

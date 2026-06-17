@@ -13,7 +13,7 @@ describe("superelevation-calculator", () => {
     "frictionCoeff": 0.15,
     "maxSuperelevation": 8,
     "gravity": 9.81
-  } as Superelevation_calculatorInput;
+  } as unknown as Superelevation_calculatorInput;
     const result = calculateSuperelevation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

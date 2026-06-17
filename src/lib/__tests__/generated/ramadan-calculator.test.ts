@@ -14,7 +14,7 @@ describe("ramadan-calculator", () => {
     "energyConsumptionRate": 500,
     "energyCostPerKwh": 2.5,
     "co2EmissionFactor": 0.5
-  } as Ramadan_calculatorInput;
+  } as unknown as Ramadan_calculatorInput;
     const result = calculateRamadan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

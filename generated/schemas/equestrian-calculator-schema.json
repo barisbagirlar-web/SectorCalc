@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Yük Kütlesi",
         "tr": "Yük Kütlesi",
-        "de": "Yük Kütlesi",
+        "de": "Lastmasse",
         "fr": "Yük Kütlesi",
         "es": "Yük Kütlesi",
         "ar": "Yük Kütlesi"
       },
       "businessContext_i18n": {
         "en": "Taşınacak yükün kütlesi (kg)",
-        "tr": "Taşınacak yükün kütlesi (kg)"
+        "tr": "Taşınacak yükün kütlesi (kg)",
+        "de": "Masse der zu transportierenden Last (kg)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Eğim (%)",
         "tr": "Eğim (%)",
-        "de": "Eğim (%)",
+        "de": "Steigung (%)",
         "fr": "Eğim (%)",
         "es": "Eğim (%)",
         "ar": "Eğim (%)"
       },
       "businessContext_i18n": {
         "en": "Yolun eğim yüzdesi",
-        "tr": "Yolun eğim yüzdesi"
+        "tr": "Yolun eğim yüzdesi",
+        "de": "Steigungsprozentsatz der Straße"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Yuvarlanma Direnci Katsayısı",
         "tr": "Yuvarlanma Direnci Katsayısı",
-        "de": "Yuvarlanma Direnci Katsayısı",
+        "de": "Rollwiderstandskoeffizient",
         "fr": "Yuvarlanma Direnci Katsayısı",
         "es": "Yuvarlanma Direnci Katsayısı",
         "ar": "Yuvarlanma Direnci Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Yol yüzeyi yuvarlanma direnci katsayısı (ör: 0.01-0.05)",
-        "tr": "Yol yüzeyi yuvarlanma direnci katsayısı (ör: 0.01-0.05)"
+        "tr": "Yol yüzeyi yuvarlanma direnci katsayısı (ör: 0.01-0.05)",
+        "de": "Rollwiderstandskoeffizient der Straßenoberfläche (z. B. 0,01-0,05)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "İstenen Hız",
         "tr": "İstenen Hız",
-        "de": "İstenen Hız",
+        "de": "Gewünschte Geschwindigkeit",
         "fr": "İstenen Hız",
         "es": "İstenen Hız",
         "ar": "İstenen Hız"
       },
       "businessContext_i18n": {
         "en": "Hedef hareket hızı (m/s)",
-        "tr": "Hedef hareket hızı (m/s)"
+        "tr": "Hedef hareket hızı (m/s)",
+        "de": "Zielbewegungsgeschwindigkeit (m/s)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "At Başına Çekme Kuvveti",
         "tr": "At Başına Çekme Kuvveti",
-        "de": "At Başına Çekme Kuvveti",
+        "de": "Zugkraft pro Pferd",
         "fr": "At Başına Çekme Kuvveti",
         "es": "At Başına Çekme Kuvveti",
         "ar": "At Başına Çekme Kuvveti"
       },
       "businessContext_i18n": {
         "en": "Bir atın sürekli çekebileceği ortalama kuvvet (N)",
-        "tr": "Bir atın sürekli çekebileceği ortalama kuvvet (N)"
+        "tr": "Bir atın sürekli çekebileceği ortalama kuvvet (N)",
+        "de": "Durchschnittliche Kraft, die ein Pferd kontinuierlich ziehen kann (N)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Verimlilik",
         "tr": "Verimlilik",
-        "de": "Verimlilik",
+        "de": "Wirkungsgrad",
         "fr": "Verimlilik",
         "es": "Verimlilik",
         "ar": "Verimlilik"
       },
       "businessContext_i18n": {
         "en": "Koşum ve aktarma sistemi verimliliği (%)",
-        "tr": "Koşum ve aktarma sistemi verimliliği (%)"
+        "tr": "Koşum ve aktarma sistemi verimliliği (%)",
+        "de": "Effizienz von Geschirr und Antriebssystem (%)"
       }
     }
   ],

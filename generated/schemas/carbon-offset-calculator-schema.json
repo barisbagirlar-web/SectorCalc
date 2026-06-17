@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Annual Electricity Usage",
         "tr": "Yıllık Elektrik Kullanımı",
-        "de": "Annual Electricity Usage",
+        "de": "Jährlicher Stromverbrauch",
         "fr": "Annual Electricity Usage",
         "es": "Annual Electricity Usage",
         "ar": "Annual Electricity Usage"
       },
       "businessContext_i18n": {
         "en": "Total electricity consumption in kilowatt-hours per year (indirect emissions from grid).",
-        "tr": "Yıllık toplam elektrik tüketimi (kilowatt-saat cinsinden, dolaylı emisyonlar)."
+        "tr": "Yıllık toplam elektrik tüketimi (kilowatt-saat cinsinden, dolaylı emisyonlar).",
+        "de": "Gesamter Stromverbrauch in Kilowattstunden pro Jahr (indirekte Emissionen aus dem Netz)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Natural Gas Usage",
         "tr": "Yıllık Doğal Gaz Kullanımı",
-        "de": "Annual Natural Gas Usage",
+        "de": "Jährlicher Erdgasverbrauch",
         "fr": "Annual Natural Gas Usage",
         "es": "Annual Natural Gas Usage",
         "ar": "Annual Natural Gas Usage"
       },
       "businessContext_i18n": {
         "en": "Total natural gas usage in therms per year (direct emissions from combustion).",
-        "tr": "Yıllık toplam doğal gaz tüketimi (term cinsinden, doğrudan yanma emisyonları)."
+        "tr": "Yıllık toplam doğal gaz tüketimi (term cinsinden, doğrudan yanma emisyonları).",
+        "de": "Gesamter Erdgasverbrauch in Thermen pro Jahr (direkte Emissionen aus Verbrennung)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Annual Vehicle Miles",
         "tr": "Yıllık Araç Kilometresi",
-        "de": "Annual Vehicle Miles",
+        "de": "Jährliche Fahrzeugkilometer",
         "fr": "Annual Vehicle Miles",
         "es": "Annual Vehicle Miles",
         "ar": "Annual Vehicle Miles"
       },
       "businessContext_i18n": {
         "en": "Total miles driven per year in gasoline-powered vehicles (scope 1 mobile combustion).",
-        "tr": "Benzinli araçlarla yılda kat edilen toplam mil (kapsam 1 mobil yanma)."
+        "tr": "Benzinli araçlarla yılda kat edilen toplam mil (kapsam 1 mobil yanma).",
+        "de": "Gesamte Kilometer pro Jahr mit benzinbetriebenen Fahrzeugen (Scope-1-Mobile-Verbrennung)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Annual Flight Miles",
         "tr": "Yıllık Uçuş Mesafesi",
-        "de": "Annual Flight Miles",
+        "de": "Jährliche Flugkilometer",
         "fr": "Annual Flight Miles",
         "es": "Annual Flight Miles",
         "ar": "Annual Flight Miles"
       },
       "businessContext_i18n": {
         "en": "Total miles flown per year (average short/medium-haul flights, scope 3 upstream).",
-        "tr": "Yılda uçulan toplam mil (ortalama kısa/orta mesafeli uçuşlar, kapsam 3 yukarı akış)."
+        "tr": "Yılda uçulan toplam mil (ortalama kısa/orta mesafeli uçuşlar, kapsam 3 yukarı akış).",
+        "de": "Gesamte Flugkilometer pro Jahr (durchschnittliche Kurz-/Mittelstreckenflüge, Scope-3-Upstream)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Annual Waste Generation",
         "tr": "Yıllık Atık Üretimi",
-        "de": "Annual Waste Generation",
+        "de": "Jährliches Abfallaufkommen",
         "fr": "Annual Waste Generation",
         "es": "Annual Waste Generation",
         "ar": "Annual Waste Generation"
       },
       "businessContext_i18n": {
         "en": "Total waste sent to landfill per year in pounds (methane emissions from decomposition).",
-        "tr": "Yılda depolama sahasına gönderilen toplam atık miktarı pound cinsinden (çürümeden kaynaklanan metan emisyonları)."
+        "tr": "Yılda depolama sahasına gönderilen toplam atık miktarı pound cinsinden (çürümeden kaynaklanan metan emisyonları).",
+        "de": "Gesamter Abfall, der pro Jahr auf Deponien entsorgt wird, in Pfund (Methanemissionen aus Zersetzung)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Annual Water Usage",
         "tr": "Yıllık Su Kullanımı",
-        "de": "Annual Water Usage",
+        "de": "Jährlicher Wasserverbrauch",
         "fr": "Annual Water Usage",
         "es": "Annual Water Usage",
         "ar": "Annual Water Usage"
       },
       "businessContext_i18n": {
         "en": "Total water consumption in gallons per year (energy for treatment and pumping).",
-        "tr": "Yıllık toplam su tüketimi galon cinsinden (arıtma ve pompalama için enerji)."
+        "tr": "Yıllık toplam su tüketimi galon cinsinden (arıtma ve pompalama için enerji).",
+        "de": "Gesamter Wasserverbrauch in Gallonen pro Jahr (Energie für Aufbereitung und Pumpen)."
       }
     }
   ],

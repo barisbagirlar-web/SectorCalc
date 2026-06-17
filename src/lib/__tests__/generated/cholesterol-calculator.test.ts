@@ -11,7 +11,7 @@ describe("cholesterol-calculator", () => {
     "totalCholesterol": 200,
     "hdlCholesterol": 50,
     "triglycerides": 150
-  } as Cholesterol_calculatorInput;
+  } as unknown as Cholesterol_calculatorInput;
     const result = calculateCholesterol_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

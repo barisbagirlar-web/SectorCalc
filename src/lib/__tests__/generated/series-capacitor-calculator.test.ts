@@ -12,7 +12,7 @@ describe("series-capacitor-calculator", () => {
     "C2": 0,
     "C3": 0,
     "C4": 0
-  } as Series_capacitor_calculatorInput;
+  } as unknown as Series_capacitor_calculatorInput;
     const result = calculateSeries_capacitor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

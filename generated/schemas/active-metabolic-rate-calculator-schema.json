@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
-        "de": "Weight",
+        "de": "Gewicht",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight of the person in kilograms.",
-        "tr": "Kişinin kilogram cinsinden vücut ağırlığı."
+        "tr": "Kişinin kilogram cinsinden vücut ağırlığı.",
+        "de": "Körpergewicht der Person in Kilogramm."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
-        "de": "Height",
+        "de": "Größe",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Height of the person in centimeters.",
-        "tr": "Kişinin santimetre cinsinden boyu."
+        "tr": "Kişinin santimetre cinsinden boyu.",
+        "de": "Körpergröße der Person in Zentimetern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age of the person in years.",
-        "tr": "Kişinin yıl cinsinden yaşı."
+        "tr": "Kişinin yıl cinsinden yaşı.",
+        "de": "Alter der Person in Jahren."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Sex",
         "tr": "Cinsiyet",
-        "de": "Sex",
+        "de": "Geschlecht",
         "fr": "Sex",
         "es": "Sex",
         "ar": "Sex"
       },
       "businessContext_i18n": {
         "en": "Biological sex: 0 for female, 1 for male.",
-        "tr": "Biyolojik cinsiyet: 0 kadın, 1 erkek."
+        "tr": "Biyolojik cinsiyet: 0 kadın, 1 erkek.",
+        "de": "Biologisches Geschlecht: 0 für weiblich, 1 für männlich."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Activity Factor",
         "tr": "Aktivite Faktörü",
-        "de": "Activity Factor",
+        "de": "Aktivitätsfaktor",
         "fr": "Activity Factor",
         "es": "Activity Factor",
         "ar": "Activity Factor"
       },
       "businessContext_i18n": {
         "en": "Physical activity level multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 active, 1.9 very active).",
-        "tr": "Fiziksel aktivite seviyesi çarpanı (1.2 hareketsiz, 1.375 hafif, 1.55 orta, 1.725 aktif, 1.9 çok aktif)."
+        "tr": "Fiziksel aktivite seviyesi çarpanı (1.2 hareketsiz, 1.375 hafif, 1.55 orta, 1.725 aktif, 1.9 çok aktif).",
+        "de": "Multiplikator für körperliche Aktivität (1,2 sitzend, 1,375 leicht, 1,55 moderat, 1,725 aktiv, 1,9 sehr aktiv)."
       }
     }
   ],

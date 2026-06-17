@@ -11,7 +11,7 @@ describe("day-of-week-calculator", () => {
     "year": 2024,
     "month": 1,
     "day": 1
-  } as Day_of_week_calculatorInput;
+  } as unknown as Day_of_week_calculatorInput;
     const result = calculateDay_of_week_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

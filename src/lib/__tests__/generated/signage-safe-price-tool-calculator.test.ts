@@ -16,7 +16,7 @@ describe("signage-safe-price-tool-calculator", () => {
     "quality_level": "standard",
     "quantity": 100,
     "waste_factor": 5
-  } as Signage_safe_price_tool_calculatorInput;
+  } as unknown as Signage_safe_price_tool_calculatorInput;
     const result = calculateSignage_safe_price_tool_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

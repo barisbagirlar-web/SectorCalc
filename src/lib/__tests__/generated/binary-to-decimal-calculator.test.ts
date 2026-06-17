@@ -16,7 +16,7 @@ describe("binary-to-decimal-calculator", () => {
     "bit2": 0,
     "bit1": 0,
     "bit0": 0
-  } as Binary_to_decimal_calculatorInput;
+  } as unknown as Binary_to_decimal_calculatorInput;
     const result = calculateBinary_to_decimal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

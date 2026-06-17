@@ -13,7 +13,7 @@ describe("dental-age-calculator", () => {
     "crownLength": 7,
     "rootLength": 12,
     "eruptedTeeth": 12
-  } as Dental_age_calculatorInput;
+  } as unknown as Dental_age_calculatorInput;
     const result = calculateDental_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

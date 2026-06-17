@@ -15,7 +15,7 @@ describe("slab-design-calculator", () => {
     "concrete_strength": 25,
     "steel_yield": 500,
     "cover": 25
-  } as Slab_design_calculatorInput;
+  } as unknown as Slab_design_calculatorInput;
     const result = calculateSlab_design_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

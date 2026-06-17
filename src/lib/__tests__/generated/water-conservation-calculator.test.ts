@@ -13,7 +13,7 @@ describe("water-conservation-calculator", () => {
     "waterCostPerCubicMeter": 2.5,
     "leakagePercentage": 5,
     "efficiencyImprovementPercentage": 10
-  } as Water_conservation_calculatorInput;
+  } as unknown as Water_conservation_calculatorInput;
     const result = calculateWater_conservation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("slump-test-calculator", () => {
     "measuredHeight": 150,
     "specMin": 50,
     "specMax": 100
-  } as Slump_test_calculatorInput;
+  } as unknown as Slump_test_calculatorInput;
     const result = calculateSlump_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

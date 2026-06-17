@@ -12,7 +12,7 @@ describe("kmh-to-ms-calculator", () => {
     "decimal_places": 2,
     "conversion_factor": 3.6,
     "measurement_uncertainty_percent": 0.1
-  } as Kmh_to_ms_calculatorInput;
+  } as unknown as Kmh_to_ms_calculatorInput;
     const result = calculateKmh_to_ms_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

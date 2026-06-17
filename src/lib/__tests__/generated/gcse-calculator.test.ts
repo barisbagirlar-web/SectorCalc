@@ -15,7 +15,7 @@ describe("gcse-calculator", () => {
     "brickHeight": 65,
     "mortarThickness": 10,
     "wastagePercent": 5
-  } as Gcse_calculatorInput;
+  } as unknown as Gcse_calculatorInput;
     const result = calculateGcse_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

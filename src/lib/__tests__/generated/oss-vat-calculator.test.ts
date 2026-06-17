@@ -13,7 +13,7 @@ describe("oss-vat-calculator", () => {
     "quantity": 1,
     "discount": 0,
     "additionalCost": 0
-  } as Oss_vat_calculatorInput;
+  } as unknown as Oss_vat_calculatorInput;
     const result = calculateOss_vat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

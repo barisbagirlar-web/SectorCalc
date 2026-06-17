@@ -13,7 +13,7 @@ describe("data-cap-calculator", () => {
     "billingCycleDays": 30,
     "daysElapsed": 10,
     "overageFeePerGB": 10
-  } as Data_cap_calculatorInput;
+  } as unknown as Data_cap_calculatorInput;
     const result = calculateData_cap_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("kitten-weight-predictor-calculator", () => {
     "breedSizeFactor": 1,
     "sexFactor": 1,
     "dailyCalories": 250
-  } as Kitten_weight_predictor_calculatorInput;
+  } as unknown as Kitten_weight_predictor_calculatorInput;
     const result = calculateKitten_weight_predictor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

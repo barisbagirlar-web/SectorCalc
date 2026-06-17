@@ -14,7 +14,7 @@ describe("aquarium-heater-calculator", () => {
     "heatingTime": 24,
     "efficiency": 85,
     "safetyMargin": 20
-  } as Aquarium_heater_calculatorInput;
+  } as unknown as Aquarium_heater_calculatorInput;
     const result = calculateAquarium_heater_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

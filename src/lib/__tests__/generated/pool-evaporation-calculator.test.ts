@@ -13,7 +13,7 @@ describe("pool-evaporation-calculator", () => {
     "airTemp": 25,
     "relativeHumidity": 60,
     "windSpeed": 2
-  } as Pool_evaporation_calculatorInput;
+  } as unknown as Pool_evaporation_calculatorInput;
     const result = calculatePool_evaporation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

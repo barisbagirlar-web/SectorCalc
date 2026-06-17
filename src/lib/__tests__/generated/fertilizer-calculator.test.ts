@@ -15,7 +15,7 @@ describe("fertilizer-calculator", () => {
     "fertilizerN": 10,
     "fertilizerP": 5,
     "fertilizerK": 5
-  } as Fertilizer_calculatorInput;
+  } as unknown as Fertilizer_calculatorInput;
     const result = calculateFertilizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

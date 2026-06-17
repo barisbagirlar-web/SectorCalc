@@ -13,7 +13,7 @@ describe("wrestling-weight-class-calculator", () => {
     "height": 170,
     "age": 25,
     "bodyFat": 15
-  } as Wrestling_weight_class_calculatorInput;
+  } as unknown as Wrestling_weight_class_calculatorInput;
     const result = calculateWrestling_weight_class_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

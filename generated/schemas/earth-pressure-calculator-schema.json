@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
-        "de": "Wall Height",
+        "de": "Wandhöhe",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "Vertical height of the retaining wall from base to top.",
-        "tr": "İstinat duvarının tabandan tepeye dikey yüksekliği."
+        "tr": "İstinat duvarının tabandan tepeye dikey yüksekliği.",
+        "de": "Vertikale Höhe der Stützmauer von der Basis bis zur Krone."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Soil Unit Weight",
         "tr": "Zemin Birim Hacim Ağırlığı",
-        "de": "Soil Unit Weight",
+        "de": "Bodenwichte",
         "fr": "Soil Unit Weight",
         "es": "Soil Unit Weight",
         "ar": "Soil Unit Weight"
       },
       "businessContext_i18n": {
         "en": "Unit weight of the backfill soil.",
-        "tr": "Dolgu zeminin birim hacim ağırlığı."
+        "tr": "Dolgu zeminin birim hacim ağırlığı.",
+        "de": "Wichte des Hinterfüllbodens."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Friction Angle",
         "tr": "Sürtünme Açısı",
-        "de": "Friction Angle",
+        "de": "Reibungswinkel",
         "fr": "Friction Angle",
         "es": "Friction Angle",
         "ar": "Friction Angle"
       },
       "businessContext_i18n": {
         "en": "Internal friction angle of the soil.",
-        "tr": "Zeminin içsel sürtünme açısı."
+        "tr": "Zeminin içsel sürtünme açısı.",
+        "de": "Innerer Reibungswinkel des Bodens."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Cohesion",
         "tr": "Kohezyon",
-        "de": "Cohesion",
+        "de": "Kohäsion",
         "fr": "Cohesion",
         "es": "Cohesion",
         "ar": "Cohesion"
       },
       "businessContext_i18n": {
         "en": "Cohesion of the soil. Enter 0 for granular soils.",
-        "tr": "Zeminin kohezyonu. Granüler zeminler için 0 girin."
+        "tr": "Zeminin kohezyonu. Granüler zeminler için 0 girin.",
+        "de": "Kohäsion des Bodens. Bei rolligen Böden 0 eingeben."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Surcharge Load",
         "tr": "Sürşarj Yükü",
-        "de": "Surcharge Load",
+        "de": "Auflast",
         "fr": "Surcharge Load",
         "es": "Surcharge Load",
         "ar": "Surcharge Load"
       },
       "businessContext_i18n": {
         "en": "Uniform surcharge load applied on the backfill surface.",
-        "tr": "Dolgu yüzeyine uygulanan düzgün yayılı sürşarj yükü."
+        "tr": "Dolgu yüzeyine uygulanan düzgün yayılı sürşarj yükü.",
+        "de": "Gleichmäßige Auflast auf der Hinterfülloberfläche."
       }
     }
   ],

@@ -15,7 +15,7 @@ describe("carbon-intensity-calculator", () => {
     "electricityEmissionFactor": 0.5,
     "naturalGasEmissionFactor": 2,
     "dieselEmissionFactor": 2.7
-  } as Carbon_intensity_calculatorInput;
+  } as unknown as Carbon_intensity_calculatorInput;
     const result = calculateCarbon_intensity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

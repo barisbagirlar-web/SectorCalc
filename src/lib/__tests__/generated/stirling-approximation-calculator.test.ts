@@ -12,7 +12,7 @@ describe("stirling-approximation-calculator", () => {
     "a": 0,
     "b": 0,
     "c": 0
-  } as Stirling_approximation_calculatorInput;
+  } as unknown as Stirling_approximation_calculatorInput;
     const result = calculateStirling_approximation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("microseconds-to-nanoseconds-calculator", () => {
     "batchSize": 1,
     "tolerance": 0,
     "calibrationOffset": 0
-  } as Microseconds_to_nanoseconds_calculatorInput;
+  } as unknown as Microseconds_to_nanoseconds_calculatorInput;
     const result = calculateMicroseconds_to_nanoseconds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

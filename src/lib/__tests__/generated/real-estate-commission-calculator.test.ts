@@ -14,7 +14,7 @@ describe("real-estate-commission-calculator", () => {
     "additionalFlatFee": 0,
     "vatRate": 20,
     "isVatApplicable": 1
-  } as Real_estate_commission_calculatorInput;
+  } as unknown as Real_estate_commission_calculatorInput;
     const result = calculateReal_estate_commission_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

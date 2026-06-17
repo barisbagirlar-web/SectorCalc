@@ -14,7 +14,7 @@ describe("binding-energy-calculator", () => {
     "neutronMass": 1.00866491588,
     "nucleusMass": 2.01410177811,
     "conversionFactor": 931.49410242
-  } as Binding_energy_calculatorInput;
+  } as unknown as Binding_energy_calculatorInput;
     const result = calculateBinding_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

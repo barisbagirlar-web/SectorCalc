@@ -12,7 +12,7 @@ describe("meditation-timer-calculator", () => {
     "preparationTime": 2,
     "coolDownTime": 2,
     "bellInterval": 5
-  } as Meditation_timer_calculatorInput;
+  } as unknown as Meditation_timer_calculatorInput;
     const result = calculateMeditation_timer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

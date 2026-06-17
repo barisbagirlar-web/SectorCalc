@@ -12,7 +12,7 @@ describe("hohmann-transfer-calculator", () => {
     "alt1": 300,
     "alt2": 35786,
     "mu": 398600.44
-  } as Hohmann_transfer_calculatorInput;
+  } as unknown as Hohmann_transfer_calculatorInput;
     const result = calculateHohmann_transfer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

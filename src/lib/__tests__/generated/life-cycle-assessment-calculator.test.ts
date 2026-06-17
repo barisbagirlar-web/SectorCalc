@@ -13,7 +13,7 @@ describe("life-cycle-assessment-calculator", () => {
     "transportEmissions": 0,
     "usePhaseEmissions": 0,
     "endOfLifeEmissions": 0
-  } as Life_cycle_assessment_calculatorInput;
+  } as unknown as Life_cycle_assessment_calculatorInput;
     const result = calculateLife_cycle_assessment_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

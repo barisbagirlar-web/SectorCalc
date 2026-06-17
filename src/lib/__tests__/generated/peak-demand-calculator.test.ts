@@ -12,7 +12,7 @@ describe("peak-demand-calculator", () => {
     "demandFactor": 0.8,
     "powerFactor": 0.9,
     "reserveMargin": 10
-  } as Peak_demand_calculatorInput;
+  } as unknown as Peak_demand_calculatorInput;
     const result = calculatePeak_demand_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

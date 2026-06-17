@@ -12,7 +12,7 @@ describe("drywall-mud-calculator", () => {
     "coats": 2,
     "coverage": 150,
     "wasteFactor": 10
-  } as Drywall_mud_calculatorInput;
+  } as unknown as Drywall_mud_calculatorInput;
     const result = calculateDrywall_mud_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

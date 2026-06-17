@@ -13,7 +13,7 @@ describe("ludwig-scale-calculator", () => {
     "cuttingSpeed": 100,
     "feedRate": 0.1,
     "depthOfCut": 1
-  } as Ludwig_scale_calculatorInput;
+  } as unknown as Ludwig_scale_calculatorInput;
     const result = calculateLudwig_scale_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

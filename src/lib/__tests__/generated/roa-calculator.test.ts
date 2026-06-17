@@ -12,7 +12,7 @@ describe("roa-calculator", () => {
     "beginningAssets": 0,
     "endingAssets": 0,
     "averageAssetsOverride": 0
-  } as Roa_calculatorInput;
+  } as unknown as Roa_calculatorInput;
     const result = calculateRoa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

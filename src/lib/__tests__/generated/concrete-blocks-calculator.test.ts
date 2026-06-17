@@ -14,7 +14,7 @@ describe("concrete-blocks-calculator", () => {
     "blockHeight": 20,
     "mortarThickness": 1,
     "wastage": 5
-  } as Concrete_blocks_calculatorInput;
+  } as unknown as Concrete_blocks_calculatorInput;
     const result = calculateConcrete_blocks_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

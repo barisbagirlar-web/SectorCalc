@@ -16,7 +16,7 @@ describe("pressure-vessel-thickness-calculator", () => {
     "material_utilization": 85,
     "safety_factor_override": false,
     "custom_safety_factor": 3.5
-  } as Pressure_vessel_thickness_calculatorInput;
+  } as unknown as Pressure_vessel_thickness_calculatorInput;
     const result = calculatePressure_vessel_thickness_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

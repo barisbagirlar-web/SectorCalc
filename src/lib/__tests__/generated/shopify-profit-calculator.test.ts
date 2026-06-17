@@ -15,7 +15,7 @@ describe("shopify-profit-calculator", () => {
     "transactionFeeRate": 2.9,
     "monthlyMarketing": 500,
     "monthlyFixedCosts": 300
-  } as Shopify_profit_calculatorInput;
+  } as unknown as Shopify_profit_calculatorInput;
     const result = calculateShopify_profit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

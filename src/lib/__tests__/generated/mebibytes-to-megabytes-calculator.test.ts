@@ -12,7 +12,7 @@ describe("mebibytes-to-megabytes-calculator", () => {
     "binaryBase": 20,
     "metricBase": 6,
     "precision": 2
-  } as Mebibytes_to_megabytes_calculatorInput;
+  } as unknown as Mebibytes_to_megabytes_calculatorInput;
     const result = calculateMebibytes_to_megabytes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

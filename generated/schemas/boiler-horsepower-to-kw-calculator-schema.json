@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Boiler Horsepower (per unit)",
         "tr": "Kazan Beygir Gücü (birim başına)",
-        "de": "Boiler Horsepower (per unit)",
+        "de": "Kesselleistung (pro Einheit)",
         "fr": "Boiler Horsepower (per unit)",
         "es": "Boiler Horsepower (per unit)",
         "ar": "Boiler Horsepower (per unit)"
       },
       "businessContext_i18n": {
         "en": "Rated boiler horsepower of a single boiler unit, as per manufacturer specifications.",
-        "tr": "Tek bir kazan ünitesinin üretici spesifikasyonlarına göre anma beygir gücü."
+        "tr": "Tek bir kazan ünitesinin üretici spesifikasyonlarına göre anma beygir gücü.",
+        "de": "Nenn-Kesselleistung einer einzelnen Kesseleinheit gemäß Herstellerangaben."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Boilers",
         "tr": "Kazan Sayısı",
-        "de": "Number of Boilers",
+        "de": "Anzahl der Kessel",
         "fr": "Number of Boilers",
         "es": "Number of Boilers",
         "ar": "Number of Boilers"
       },
       "businessContext_i18n": {
         "en": "Total number of identical boiler units operating in parallel.",
-        "tr": "Paralel çalışan özdeş kazan ünitelerinin toplam sayısı."
+        "tr": "Paralel çalışan özdeş kazan ünitelerinin toplam sayısı.",
+        "de": "Gesamtzahl identischer Kesseleinheiten, die parallel betrieben werden."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Load Factor",
         "tr": "Yük Faktörü",
-        "de": "Load Factor",
+        "de": "Lastfaktor",
         "fr": "Load Factor",
         "es": "Load Factor",
         "ar": "Load Factor"
       },
       "businessContext_i18n": {
         "en": "Average operating load as a percentage of full rated capacity.",
-        "tr": "Tam anma kapasitesinin yüzdesi olarak ortalama işletme yükü."
+        "tr": "Tam anma kapasitesinin yüzdesi olarak ortalama işletme yükü.",
+        "de": "Durchschnittliche Betriebslast als Prozentsatz der vollen Nennleistung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Boiler Efficiency",
         "tr": "Kazan Verimliliği",
-        "de": "Boiler Efficiency",
+        "de": "Kesselwirkungsgrad",
         "fr": "Boiler Efficiency",
         "es": "Boiler Efficiency",
         "ar": "Boiler Efficiency"
       },
       "businessContext_i18n": {
         "en": "Overall thermal efficiency of the boiler system, based on fuel input to steam output.",
-        "tr": "Yakıt girişinden buhar çıkışına kadar kazan sisteminin genel termal verimliliği."
+        "tr": "Yakıt girişinden buhar çıkışına kadar kazan sisteminin genel termal verimliliği.",
+        "de": "Gesamtwirkungsgrad des Kesselsystems, basierend auf Brennstoffeinsatz zu Dampfausstoß."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Annual Operating Hours",
         "tr": "Yıllık Çalışma Saati",
-        "de": "Annual Operating Hours",
+        "de": "Jährliche Betriebsstunden",
         "fr": "Annual Operating Hours",
         "es": "Annual Operating Hours",
         "ar": "Annual Operating Hours"
       },
       "businessContext_i18n": {
         "en": "Total number of hours per year the boilers are in operation.",
-        "tr": "Kazanların yılda toplam çalışma saati sayısı."
+        "tr": "Kazanların yılda toplam çalışma saati sayısı.",
+        "de": "Gesamtzahl der Stunden pro Jahr, in denen die Kessel in Betrieb sind."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Conversion Factor (kW per BHP)",
         "tr": "Dönüşüm Faktörü (kW/BHP)",
-        "de": "Conversion Factor (kW per BHP)",
+        "de": "Umrechnungsfaktor (kW pro BHP)",
         "fr": "Conversion Factor (kW per BHP)",
         "es": "Conversion Factor (kW per BHP)",
         "ar": "Conversion Factor (kW per BHP)"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor: 1 boiler horsepower = 9.8095 kilowatts (thermal output).",
-        "tr": "Standart dönüşüm faktörü: 1 kazan beygir gücü = 9,8095 kilovat (termal çıkış)."
+        "tr": "Standart dönüşüm faktörü: 1 kazan beygir gücü = 9,8095 kilovat (termal çıkış).",
+        "de": "Standard-Umrechnungsfaktor: 1 Kessel-PS = 9,8095 Kilowatt (thermische Leistung)."
       }
     }
   ],

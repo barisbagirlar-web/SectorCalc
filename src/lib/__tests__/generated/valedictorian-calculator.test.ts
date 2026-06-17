@@ -14,7 +14,7 @@ describe("valedictorian-calculator", () => {
     "costIndex": 100,
     "safetyScore": 80,
     "energyEfficiency": 75
-  } as Valedictorian_calculatorInput;
+  } as unknown as Valedictorian_calculatorInput;
     const result = calculateValedictorian_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

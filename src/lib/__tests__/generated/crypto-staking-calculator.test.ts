@@ -12,7 +12,7 @@ describe("crypto-staking-calculator", () => {
     "apy": 10,
     "duration": 365,
     "compoundFrequency": 365
-  } as Crypto_staking_calculatorInput;
+  } as unknown as Crypto_staking_calculatorInput;
     const result = calculateCrypto_staking_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

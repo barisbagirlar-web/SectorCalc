@@ -12,7 +12,7 @@ describe("rocket-equation-calculator", () => {
     "finalMass": 100,
     "specificImpulse": 300,
     "gravity": 9.81
-  } as Rocket_equation_calculatorInput;
+  } as unknown as Rocket_equation_calculatorInput;
     const result = calculateRocket_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

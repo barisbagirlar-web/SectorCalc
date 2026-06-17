@@ -12,7 +12,7 @@ describe("time-unit-converter-calculator", () => {
     "hours": 0,
     "minutes": 0,
     "seconds": 0
-  } as Time_unit_converter_calculatorInput;
+  } as unknown as Time_unit_converter_calculatorInput;
     const result = calculateTime_unit_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

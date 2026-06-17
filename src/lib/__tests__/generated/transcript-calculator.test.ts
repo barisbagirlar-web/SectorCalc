@@ -16,7 +16,7 @@ describe("transcript-calculator", () => {
     "credit3": 3,
     "grade4": 0,
     "credit4": 3
-  } as Transcript_calculatorInput;
+  } as unknown as Transcript_calculatorInput;
     const result = calculateTranscript_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("lbs-to-kg-converter-calculator", () => {
     "include_loss_analysis": false,
     "measurement_uncertainty_pct": 0.5,
     "material_type": "general"
-  } as Lbs_to_kg_converter_calculatorInput;
+  } as unknown as Lbs_to_kg_converter_calculatorInput;
     const result = calculateLbs_to_kg_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

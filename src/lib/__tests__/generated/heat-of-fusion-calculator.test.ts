@@ -13,7 +13,7 @@ describe("heat-of-fusion-calculator", () => {
     "initialTemperature": 20,
     "meltingTemperature": 0,
     "latentHeatOfFusion": 334000
-  } as Heat_of_fusion_calculatorInput;
+  } as unknown as Heat_of_fusion_calculatorInput;
     const result = calculateHeat_of_fusion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

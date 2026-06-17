@@ -14,7 +14,7 @@ describe("hrv-recovery-calculator", () => {
     "airflow": 300,
     "airDensity": 1.2,
     "specificHeat": 1.005
-  } as Hrv_recovery_calculatorInput;
+  } as unknown as Hrv_recovery_calculatorInput;
     const result = calculateHrv_recovery_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

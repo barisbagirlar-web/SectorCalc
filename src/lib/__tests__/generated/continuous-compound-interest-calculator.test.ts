@@ -12,7 +12,7 @@ describe("continuous-compound-interest-calculator", () => {
     "annualRate": 5,
     "time": 1,
     "decimalPlaces": 2
-  } as Continuous_compound_interest_calculatorInput;
+  } as unknown as Continuous_compound_interest_calculatorInput;
     const result = calculateContinuous_compound_interest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

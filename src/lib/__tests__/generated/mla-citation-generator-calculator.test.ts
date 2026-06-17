@@ -14,7 +14,7 @@ describe("mla-citation-generator-calculator", () => {
     "sourcesPerPage": 3,
     "inTextFrequency": 2,
     "bibliographyEntries": 10
-  } as Mla_citation_generator_calculatorInput;
+  } as unknown as Mla_citation_generator_calculatorInput;
     const result = calculateMla_citation_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

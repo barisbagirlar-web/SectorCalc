@@ -13,7 +13,7 @@ describe("beer-pairing-calculator", () => {
     "foodRichness": 5,
     "foodSpiciness": 3,
     "foodAcidity": 3
-  } as Beer_pairing_calculatorInput;
+  } as unknown as Beer_pairing_calculatorInput;
     const result = calculateBeer_pairing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

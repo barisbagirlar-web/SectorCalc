@@ -13,7 +13,7 @@ describe("recomp-calculator", () => {
     "time": 12,
     "expenses": 0,
     "adjustmentFactor": 1
-  } as Recomp_calculatorInput;
+  } as unknown as Recomp_calculatorInput;
     const result = calculateRecomp_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

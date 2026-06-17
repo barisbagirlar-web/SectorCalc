@@ -12,7 +12,7 @@ describe("linear-equation-solver-calculator", () => {
     "b": 0,
     "c": 0,
     "d": 0
-  } as Linear_equation_solver_calculatorInput;
+  } as unknown as Linear_equation_solver_calculatorInput;
     const result = calculateLinear_equation_solver_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

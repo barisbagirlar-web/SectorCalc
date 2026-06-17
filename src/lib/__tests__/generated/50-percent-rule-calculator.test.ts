@@ -12,7 +12,7 @@ describe("50-percent-rule-calculator", () => {
     "otherMonthlyIncome": 0,
     "expensePercentage": 50,
     "vacancyRate": 5
-  } as _50_percent_rule_calculatorInput;
+  } as unknown as _50_percent_rule_calculatorInput;
     const result = calculate_50_percent_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

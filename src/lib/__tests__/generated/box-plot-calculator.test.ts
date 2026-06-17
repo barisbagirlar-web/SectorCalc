@@ -13,7 +13,7 @@ describe("box-plot-calculator", () => {
     "median": 50,
     "q3": 75,
     "max": 100
-  } as Box_plot_calculatorInput;
+  } as unknown as Box_plot_calculatorInput;
     const result = calculateBox_plot_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("lu-decomposition-calculator", () => {
     "a12": 1,
     "a21": 4,
     "a22": 3
-  } as Lu_decomposition_calculatorInput;
+  } as unknown as Lu_decomposition_calculatorInput;
     const result = calculateLu_decomposition_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

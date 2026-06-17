@@ -12,7 +12,7 @@ describe("debt-to-equity-ratio-calculator", () => {
     "longTermDebt": 40000,
     "currentLiabilities": 60000,
     "otherLiabilities": 10000
-  } as Debt_to_equity_ratio_calculatorInput;
+  } as unknown as Debt_to_equity_ratio_calculatorInput;
     const result = calculateDebt_to_equity_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

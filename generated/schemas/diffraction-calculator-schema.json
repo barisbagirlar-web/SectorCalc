@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Wavelength",
         "tr": "Dalgaboyu",
-        "de": "Wavelength",
+        "de": "Wellenlänge",
         "fr": "Wavelength",
         "es": "Wavelength",
         "ar": "Wavelength"
       },
       "businessContext_i18n": {
         "en": "Wavelength of the light used, in nanometers.",
-        "tr": "Kullanılan ışığın dalga boyu, nanometre cinsinden."
+        "tr": "Kullanılan ışığın dalga boyu, nanometre cinsinden.",
+        "de": "Wellenlänge des verwendeten Lichts in Nanometern"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Slit Width",
         "tr": "Yarık Genişliği",
-        "de": "Slit Width",
+        "de": "Spaltbreite",
         "fr": "Slit Width",
         "es": "Slit Width",
         "ar": "Slit Width"
       },
       "businessContext_i18n": {
         "en": "Width of the single slit, in millimeters.",
-        "tr": "Tek yarığın genişliği, milimetre cinsinden."
+        "tr": "Tek yarığın genişliği, milimetre cinsinden.",
+        "de": "Breite des Einzelspalts in Millimetern"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Order (m)",
         "tr": "Sıra (m)",
-        "de": "Order (m)",
+        "de": "Ordnung (m)",
         "fr": "Order (m)",
         "es": "Order (m)",
         "ar": "Order (m)"
       },
       "businessContext_i18n": {
         "en": "Order of the minimum (positive integer).",
-        "tr": "Minimumun sırası (pozitif tam sayı)."
+        "tr": "Minimumun sırası (pozitif tam sayı).",
+        "de": "Ordnung des Minimums (positive ganze Zahl)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Screen Distance",
         "tr": "Ekran Mesafesi",
-        "de": "Screen Distance",
+        "de": "Schirmabstand",
         "fr": "Screen Distance",
         "es": "Screen Distance",
         "ar": "Screen Distance"
       },
       "businessContext_i18n": {
         "en": "Distance from the slit to the screen, in meters.",
-        "tr": "Yarıktan ekrana olan mesafe, metre cinsinden."
+        "tr": "Yarıktan ekrana olan mesafe, metre cinsinden.",
+        "de": "Abstand vom Spalt zum Schirm, in Metern."
       }
     }
   ],

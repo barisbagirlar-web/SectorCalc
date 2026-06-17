@@ -12,7 +12,7 @@ describe("volume-calculator", () => {
     "width": 1,
     "height": 1,
     "shape": 1
-  } as Volume_calculatorInput;
+  } as unknown as Volume_calculatorInput;
     const result = calculateVolume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

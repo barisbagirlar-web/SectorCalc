@@ -14,7 +14,7 @@ describe("password-generator", () => {
     "digits": 2,
     "special": 2,
     "excludeSimilar": 1
-  } as Password_generatorInput;
+  } as unknown as Password_generatorInput;
     const result = calculatePassword_generator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

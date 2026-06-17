@@ -13,7 +13,7 @@ describe("atl-ctl-tsb-calculator", () => {
     "t3": 0.1,
     "t4": 0.1,
     "nominal": 100
-  } as Atl_ctl_tsb_calculatorInput;
+  } as unknown as Atl_ctl_tsb_calculatorInput;
     const result = calculateAtl_ctl_tsb_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

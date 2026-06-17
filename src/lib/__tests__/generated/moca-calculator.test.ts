@@ -12,7 +12,7 @@ describe("moca-calculator", () => {
     "stddev": 1,
     "usl": 3,
     "lsl": -3
-  } as Moca_calculatorInput;
+  } as unknown as Moca_calculatorInput;
     const result = calculateMoca_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("characteristic-impedance-calculator", () => {
     "mu_r": 1,
     "D": 10,
     "d": 2.8
-  } as Characteristic_impedance_calculatorInput;
+  } as unknown as Characteristic_impedance_calculatorInput;
     const result = calculateCharacteristic_impedance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("muscle-up-calculator", () => {
     "mechanicalAdvantage": 2,
     "frictionCoeff": 0.05,
     "pullAngle": 10
-  } as Muscle_up_calculatorInput;
+  } as unknown as Muscle_up_calculatorInput;
     const result = calculateMuscle_up_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("us-shoe-size-to-eu-calculator", () => {
     "footLengthCm": 0,
     "gender": 0,
     "userAdjustment": 0
-  } as Us_shoe_size_to_eu_calculatorInput;
+  } as unknown as Us_shoe_size_to_eu_calculatorInput;
     const result = calculateUs_shoe_size_to_eu_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

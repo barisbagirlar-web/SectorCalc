@@ -13,7 +13,7 @@ describe("term-life-insurance-calculator", () => {
     "coverageAmount": 100000,
     "termYears": 20,
     "interestRate": 5
-  } as Term_life_insurance_calculatorInput;
+  } as unknown as Term_life_insurance_calculatorInput;
     const result = calculateTerm_life_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

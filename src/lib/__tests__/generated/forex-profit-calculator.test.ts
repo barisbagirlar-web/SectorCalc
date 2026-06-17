@@ -14,7 +14,7 @@ describe("forex-profit-calculator", () => {
     "lotSize": 1,
     "pipValue": 10,
     "pipSize": 0.0001
-  } as Forex_profit_calculatorInput;
+  } as unknown as Forex_profit_calculatorInput;
     const result = calculateForex_profit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

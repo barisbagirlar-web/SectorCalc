@@ -14,7 +14,7 @@ describe("waste-reduction-calculator", () => {
     "wasteMaterial": 30,
     "materialCostPerKg": 2.5,
     "defectReductionTarget": 20
-  } as Waste_reduction_calculatorInput;
+  } as unknown as Waste_reduction_calculatorInput;
     const result = calculateWaste_reduction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Input Voltage V1",
         "tr": "Giriş Voltajı V1",
-        "de": "Input Voltage V1",
+        "de": "Eingangsspannung V1",
         "fr": "Input Voltage V1",
         "es": "Input Voltage V1",
         "ar": "Input Voltage V1"
       },
       "businessContext_i18n": {
         "en": "Voltage applied to inverting input through resistor R1",
-        "tr": "R1 direnci üzerinden evirici girişe uygulanan voltaj"
+        "tr": "R1 direnci üzerinden evirici girişe uygulanan voltaj",
+        "de": "Spannung, die über den Widerstand R1 an den invertierenden Eingang angelegt wird"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Input Voltage V2",
         "tr": "Giriş Voltajı V2",
-        "de": "Input Voltage V2",
+        "de": "Eingangsspannung V2",
         "fr": "Input Voltage V2",
         "es": "Input Voltage V2",
         "ar": "Input Voltage V2"
       },
       "businessContext_i18n": {
         "en": "Voltage applied to non-inverting input through resistor R3",
-        "tr": "R3 direnci üzerinden evirmeyen girişe uygulanan voltaj"
+        "tr": "R3 direnci üzerinden evirmeyen girişe uygulanan voltaj",
+        "de": "Spannung, die über den Widerstand R3 an den nichtinvertierenden Eingang angelegt wird"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Resistor R1",
         "tr": "Direnç R1",
-        "de": "Resistor R1",
+        "de": "Widerstand R1",
         "fr": "Resistor R1",
         "es": "Resistor R1",
         "ar": "Resistor R1"
       },
       "businessContext_i18n": {
         "en": "Resistor connected between V1 and inverting input",
-        "tr": "V1 ile evirici giriş arasına bağlı direnç"
+        "tr": "V1 ile evirici giriş arasına bağlı direnç",
+        "de": "Widerstand zwischen V1 und invertierendem Eingang"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Resistor R2",
         "tr": "Direnç R2",
-        "de": "Resistor R2",
+        "de": "Widerstand R2",
         "fr": "Resistor R2",
         "es": "Resistor R2",
         "ar": "Resistor R2"
       },
       "businessContext_i18n": {
         "en": "Feedback resistor connected between output and inverting input",
-        "tr": "Çıkış ile evirici giriş arasına bağlı geri besleme direnci"
+        "tr": "Çıkış ile evirici giriş arasına bağlı geri besleme direnci",
+        "de": "Rückkopplungswiderstand zwischen Ausgang und invertierendem Eingang"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Resistor R3",
         "tr": "Direnç R3",
-        "de": "Resistor R3",
+        "de": "Widerstand R3",
         "fr": "Resistor R3",
         "es": "Resistor R3",
         "ar": "Resistor R3"
       },
       "businessContext_i18n": {
         "en": "Resistor connected between V2 and non-inverting input",
-        "tr": "V2 ile evirmeyen giriş arasına bağlı direnç"
+        "tr": "V2 ile evirmeyen giriş arasına bağlı direnç",
+        "de": "Widerstand zwischen V2 und nichtinvertierendem Eingang"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Resistor R4",
         "tr": "Direnç R4",
-        "de": "Resistor R4",
+        "de": "Widerstand R4",
         "fr": "Resistor R4",
         "es": "Resistor R4",
         "ar": "Resistor R4"
       },
       "businessContext_i18n": {
         "en": "Resistor connected between non-inverting input and ground",
-        "tr": "Evirmeyen giriş ile toprak arasına bağlı direnç"
+        "tr": "Evirmeyen giriş ile toprak arasına bağlı direnç",
+        "de": "Widerstand zwischen nichtinvertierendem Eingang und Masse"
       }
     }
   ],

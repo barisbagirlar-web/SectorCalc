@@ -12,7 +12,7 @@ describe("header-size-calculator", () => {
     "load": 500,
     "fb": 1000,
     "plies": 2
-  } as Header_size_calculatorInput;
+  } as unknown as Header_size_calculatorInput;
     const result = calculateHeader_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

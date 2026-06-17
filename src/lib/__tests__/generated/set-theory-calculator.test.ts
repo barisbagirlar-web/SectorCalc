@@ -15,7 +15,7 @@ describe("set-theory-calculator", () => {
     "intersectAC": 0,
     "intersectBC": 0,
     "intersectABC": 0
-  } as Set_theory_calculatorInput;
+  } as unknown as Set_theory_calculatorInput;
     const result = calculateSet_theory_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

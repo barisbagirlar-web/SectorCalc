@@ -12,7 +12,7 @@ describe("critical-point-calculator", () => {
     "b": -2,
     "c": -3,
     "d": 0
-  } as Critical_point_calculatorInput;
+  } as unknown as Critical_point_calculatorInput;
     const result = calculateCritical_point_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

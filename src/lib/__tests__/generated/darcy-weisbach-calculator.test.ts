@@ -13,7 +13,7 @@ describe("darcy-weisbach-calculator", () => {
     "frictionFactor": 0.02,
     "fluidDensity": 1000,
     "flowRate": 0.01
-  } as Darcy_weisbach_calculatorInput;
+  } as unknown as Darcy_weisbach_calculatorInput;
     const result = calculateDarcy_weisbach_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

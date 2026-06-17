@@ -14,7 +14,7 @@ describe("caulk-calculator", () => {
     "wasteFactor": 10,
     "tubeVolume": 310,
     "numberOfJoints": 1
-  } as Caulk_calculatorInput;
+  } as unknown as Caulk_calculatorInput;
     const result = calculateCaulk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

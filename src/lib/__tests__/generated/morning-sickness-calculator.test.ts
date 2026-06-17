@@ -13,7 +13,7 @@ describe("morning-sickness-calculator", () => {
     "ambient_temperature_celsius": 20,
     "cold_starts_per_day": 1,
     "severity_factor": 1
-  } as Morning_sickness_calculatorInput;
+  } as unknown as Morning_sickness_calculatorInput;
     const result = calculateMorning_sickness_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

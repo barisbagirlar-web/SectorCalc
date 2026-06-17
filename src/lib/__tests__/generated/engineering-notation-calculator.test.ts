@@ -13,7 +13,7 @@ describe("engineering-notation-calculator", () => {
     "precision": 3,
     "minExponent": -12,
     "maxExponent": 12
-  } as Engineering_notation_calculatorInput;
+  } as unknown as Engineering_notation_calculatorInput;
     const result = calculateEngineering_notation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

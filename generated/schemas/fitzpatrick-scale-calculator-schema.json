@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Base Surface Color",
         "tr": "Temel Yüzey Rengi",
-        "de": "Base Surface Color",
+        "de": "Grundflächenfarbe",
         "fr": "Base Surface Color",
         "es": "Base Surface Color",
         "ar": "Base Surface Color"
       },
       "businessContext_i18n": {
         "en": "Natural color of the material surface (1: very light, 4: very dark)",
-        "tr": "Malzeme yüzeyinin doğal rengi (1: çok açık, 4: çok koyu)"
+        "tr": "Malzeme yüzeyinin doğal rengi (1: çok açık, 4: çok koyu)",
+        "de": "Natürliche Farbe der Materialoberfläche (1: sehr hell, 4: sehr dunkel)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Tan Response",
         "tr": "Bronzlaşma Tepkisi",
-        "de": "Tan Response",
+        "de": "Bräunungsreaktion",
         "fr": "Tan Response",
         "es": "Tan Response",
         "ar": "Tan Response"
       },
       "businessContext_i18n": {
         "en": "Ability to develop a tan or color change under UV exposure (0: no change, 10: maximum darkening)",
-        "tr": "UV maruziyeti altında bronzlaşma veya renk değiştirme yeteneği (0: değişim yok, 10: maksimum kararma)"
+        "tr": "UV maruziyeti altında bronzlaşma veya renk değiştirme yeteneği (0: değişim yok, 10: maksimum kararma)",
+        "de": "Fähigkeit, unter UV-Exposition eine Bräune oder Farbveränderung zu entwickeln (0: keine Veränderung, 10: maximale Verdunkelung)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Burn Tendency",
         "tr": "Yanma Eğilimi",
-        "de": "Burn Tendency",
+        "de": "Verbrennungstendenz",
         "fr": "Burn Tendency",
         "es": "Burn Tendency",
         "ar": "Burn Tendency"
       },
       "businessContext_i18n": {
         "en": "Tendency to burn or degrade under UV exposure (0: no burn, 10: severe burn)",
-        "tr": "UV maruziyeti altında yanma veya bozulma eğilimi (0: yanma yok, 10: şiddetli yanma)"
+        "tr": "UV maruziyeti altında yanma veya bozulma eğilimi (0: yanma yok, 10: şiddetli yanma)",
+        "de": "Tendenz, unter UV-Exposition zu verbrennen oder sich zu zersetzen (0: keine Verbrennung, 10: starke Verbrennung)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "UV Resistance Factor",
         "tr": "UV Direnç Faktörü",
-        "de": "UV Resistance Factor",
+        "de": "UV-Beständigkeitsfaktor",
         "fr": "UV Resistance Factor",
         "es": "UV Resistance Factor",
         "ar": "UV Resistance Factor"
       },
       "businessContext_i18n": {
         "en": "Inherent UV resistance factor based on material composition (0: least resistant, 1: most resistant)",
-        "tr": "Malzeme bileşimine bağlı doğal UV direnç faktörü (0: en az dirençli, 1: en çok dirençli)"
+        "tr": "Malzeme bileşimine bağlı doğal UV direnç faktörü (0: en az dirençli, 1: en çok dirençli)",
+        "de": "Inhärenter UV-Beständigkeitsfaktor basierend auf der Materialzusammensetzung (0: am wenigsten beständig, 1: am beständigsten)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Surface Texture Color",
         "tr": "Yüzey Dokusu Rengi",
-        "de": "Surface Texture Color",
+        "de": "Oberflächentexturfarbe",
         "fr": "Surface Texture Color",
         "es": "Surface Texture Color",
         "ar": "Surface Texture Color"
       },
       "businessContext_i18n": {
         "en": "Color of surface texture (1: very light, 5: very dark)",
-        "tr": "Yüzey dokusunun rengi (1: çok açık, 5: çok koyu)"
+        "tr": "Yüzey dokusunun rengi (1: çok açık, 5: çok koyu)",
+        "de": "Farbe der Oberflächentextur (1: sehr hell, 5: sehr dunkel)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Microstructure Color",
         "tr": "Mikroyapı Rengi",
-        "de": "Microstructure Color",
+        "de": "Mikrostrukturfarbe",
         "fr": "Microstructure Color",
         "es": "Microstructure Color",
         "ar": "Microstructure Color"
       },
       "businessContext_i18n": {
         "en": "Color of microstructural features (1: very light, 5: very dark)",
-        "tr": "Mikroyapısal özelliklerin rengi (1: çok açık, 5: çok koyu)"
+        "tr": "Mikroyapısal özelliklerin rengi (1: çok açık, 5: çok koyu)",
+        "de": "Farbe der mikrostrukturellen Merkmale (1: sehr hell, 5: sehr dunkel)"
       }
     }
   ],

@@ -16,7 +16,7 @@ describe("hvac-capacity-optimizer-calculator", () => {
     "efficiency_ratio": 3.5,
     "airflow_rate": 2.5,
     "duct_leakage_factor": 10
-  } as Hvac_capacity_optimizer_calculatorInput;
+  } as unknown as Hvac_capacity_optimizer_calculatorInput;
     const result = calculateHvac_capacity_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

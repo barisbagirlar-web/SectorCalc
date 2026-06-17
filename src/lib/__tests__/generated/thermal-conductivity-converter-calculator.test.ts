@@ -12,7 +12,7 @@ describe("thermal-conductivity-converter-calculator", () => {
     "fromUnit": 0,
     "toUnit": 1,
     "precision": 2
-  } as Thermal_conductivity_converter_calculatorInput;
+  } as unknown as Thermal_conductivity_converter_calculatorInput;
     const result = calculateThermal_conductivity_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

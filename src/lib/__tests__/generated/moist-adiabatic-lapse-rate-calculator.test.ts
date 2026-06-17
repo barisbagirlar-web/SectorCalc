@@ -15,7 +15,7 @@ describe("moist-adiabatic-lapse-rate-calculator", () => {
     "Rd": 287.058,
     "cpd": 1003.5,
     "epsilon": 0.622
-  } as Moist_adiabatic_lapse_rate_calculatorInput;
+  } as unknown as Moist_adiabatic_lapse_rate_calculatorInput;
     const result = calculateMoist_adiabatic_lapse_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

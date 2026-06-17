@@ -12,7 +12,7 @@ describe("dividend-growth-calculator", () => {
     "growthRate": 5,
     "requiredRate": 10,
     "years": 5
-  } as Dividend_growth_calculatorInput;
+  } as unknown as Dividend_growth_calculatorInput;
     const result = calculateDividend_growth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

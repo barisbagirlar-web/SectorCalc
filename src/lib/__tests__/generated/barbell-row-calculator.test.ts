@@ -13,7 +13,7 @@ describe("barbell-row-calculator", () => {
     "loadWeight": 100,
     "yieldStrength": 250,
     "safetyFactor": 3
-  } as Barbell_row_calculatorInput;
+  } as unknown as Barbell_row_calculatorInput;
     const result = calculateBarbell_row_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

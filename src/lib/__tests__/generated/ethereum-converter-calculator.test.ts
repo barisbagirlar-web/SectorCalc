@@ -14,7 +14,7 @@ describe("ethereum-converter-calculator", () => {
     "maxFeePerGas": 50,
     "networkMultiplier": 1,
     "conversionFeePercent": 0.5
-  } as Ethereum_converter_calculatorInput;
+  } as unknown as Ethereum_converter_calculatorInput;
     const result = calculateEthereum_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

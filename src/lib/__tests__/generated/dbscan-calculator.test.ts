@@ -11,7 +11,7 @@ describe("dbscan-calculator", () => {
     "epsilon": 0.5,
     "minPoints": 5,
     "neighborCount": 4
-  } as Dbscan_calculatorInput;
+  } as unknown as Dbscan_calculatorInput;
     const result = calculateDbscan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("braces-calculator", () => {
     "bays": 4,
     "crossSectionArea": 0.001,
     "materialDensity": 7850
-  } as Braces_calculatorInput;
+  } as unknown as Braces_calculatorInput;
     const result = calculateBraces_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

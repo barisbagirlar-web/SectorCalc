@@ -15,7 +15,7 @@ describe("simpson-rule-calculator", () => {
     "y2": 0,
     "y3": 0,
     "y4": 0
-  } as Simpson_rule_calculatorInput;
+  } as unknown as Simpson_rule_calculatorInput;
     const result = calculateSimpson_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

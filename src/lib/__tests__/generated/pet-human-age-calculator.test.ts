@@ -12,7 +12,7 @@ describe("pet-human-age-calculator", () => {
     "petAgeMonths": 0,
     "petType": 1,
     "size": 1
-  } as Pet_human_age_calculatorInput;
+  } as unknown as Pet_human_age_calculatorInput;
     const result = calculatePet_human_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

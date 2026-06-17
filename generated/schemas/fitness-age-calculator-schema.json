@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Your chronological age in years.",
-        "tr": "Kronolojik yaşınız (yıl cinsinden)."
+        "tr": "Kronolojik yaşınız (yıl cinsinden).",
+        "de": "Ihr chronologisches Alter in Jahren."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Resting Heart Rate",
         "tr": "Dinlenme Kalp Atış Hızı",
-        "de": "Resting Heart Rate",
+        "de": "Ruhepuls",
         "fr": "Resting Heart Rate",
         "es": "Resting Heart Rate",
         "ar": "Resting Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Your resting heart rate in beats per minute. Measure after waking up, before getting out of bed.",
-        "tr": "Dinlenme kalp atış hızınız (dakikadaki atım sayısı). Uyandıktan sonra, yataktan kalkmadan önce ölçün."
+        "tr": "Dinlenme kalp atış hızınız (dakikadaki atım sayısı). Uyandıktan sonra, yataktan kalkmadan önce ölçün.",
+        "de": "Ihr Ruhepuls in Schlägen pro Minute. Messen Sie nach dem Aufwachen, bevor Sie aufstehen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Gender",
         "tr": "Cinsiyet",
-        "de": "Gender",
+        "de": "Geschlecht",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for male, 1 for female.",
-        "tr": "0 erkek, 1 kadın."
+        "tr": "0 erkek, 1 kadın.",
+        "de": "0 für männlich, 1 für weiblich."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Maximum Heart Rate (optional)",
         "tr": "Maksimum Kalp Atış Hızı (isteğe bağlı)",
-        "de": "Maximum Heart Rate (optional)",
+        "de": "Maximale Herzfrequenz (optional)",
         "fr": "Maximum Heart Rate (optional)",
         "es": "Maximum Heart Rate (optional)",
         "ar": "Maximum Heart Rate (optional)"
       },
       "businessContext_i18n": {
         "en": "Maximum heart rate in bpm. Enter 0 to estimate using formula (208 - 0.7 * age).",
-        "tr": "Maksimum kalp atış hızı (bpm). Tahmin için 0 girin (formül: 208 - 0.7 * yaş)."
+        "tr": "Maksimum kalp atış hızı (bpm). Tahmin için 0 girin (formül: 208 - 0.7 * yaş).",
+        "de": "Maximale Herzfrequenz in bpm. Geben Sie 0 ein, um mit der Formel (208 - 0,7 * Alter) zu schätzen."
       }
     }
   ],

@@ -13,7 +13,7 @@ describe("wells-dvt-calculator", () => {
     "casingDiameter": 177.8,
     "openHoleDiameter": 215.9,
     "fluidDensity": 1200
-  } as Wells_dvt_calculatorInput;
+  } as unknown as Wells_dvt_calculatorInput;
     const result = calculateWells_dvt_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

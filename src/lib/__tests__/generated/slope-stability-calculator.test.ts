@@ -14,7 +14,7 @@ describe("slope-stability-calculator", () => {
     "unitWeight": 18,
     "depth": 5,
     "porePressureRatio": 0
-  } as Slope_stability_calculatorInput;
+  } as unknown as Slope_stability_calculatorInput;
     const result = calculateSlope_stability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

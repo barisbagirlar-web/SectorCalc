@@ -12,7 +12,7 @@ describe("band-stop-filter-calculator", () => {
     "lowerCutoffFrequency": 900,
     "upperCutoffFrequency": 1100,
     "evaluationFrequency": 800
-  } as Band_stop_filter_calculatorInput;
+  } as unknown as Band_stop_filter_calculatorInput;
     const result = calculateBand_stop_filter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

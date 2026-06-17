@@ -16,7 +16,7 @@ describe("control-system-calculator", () => {
     "sampleTime": 0.1,
     "previousError": 0,
     "integralSum": 0
-  } as Control_system_calculatorInput;
+  } as unknown as Control_system_calculatorInput;
     const result = calculateControl_system_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

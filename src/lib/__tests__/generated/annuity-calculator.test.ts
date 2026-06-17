@@ -12,7 +12,7 @@ describe("annuity-calculator", () => {
     "annualRate": 5,
     "years": 10,
     "compounding": 12
-  } as Annuity_calculatorInput;
+  } as unknown as Annuity_calculatorInput;
     const result = calculateAnnuity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("antenna-calculator", () => {
     "frequency": 2400,
     "diameter": 0.3,
     "efficiency": 0.6
-  } as Antenna_calculatorInput;
+  } as unknown as Antenna_calculatorInput;
     const result = calculateAntenna_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

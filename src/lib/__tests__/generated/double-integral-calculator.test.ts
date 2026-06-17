@@ -15,7 +15,7 @@ describe("double-integral-calculator", () => {
     "coefA": 0,
     "coefB": 0,
     "constantC": 0
-  } as Double_integral_calculatorInput;
+  } as unknown as Double_integral_calculatorInput;
     const result = calculateDouble_integral_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

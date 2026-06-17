@@ -12,7 +12,7 @@ describe("gmat-score-calculator", () => {
     "verbalScaled": 40,
     "integratedReasoning": 5,
     "analyticalWriting": 4.5
-  } as Gmat_score_calculatorInput;
+  } as unknown as Gmat_score_calculatorInput;
     const result = calculateGmat_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

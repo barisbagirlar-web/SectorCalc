@@ -12,7 +12,7 @@ describe("sharpe-orani-hesaplayici-calculator", () => {
     "riskFreeRate": 1,
     "standardDeviation": 3,
     "periodsPerYear": 12
-  } as Sharpe_orani_hesaplayici_calculatorInput;
+  } as unknown as Sharpe_orani_hesaplayici_calculatorInput;
     const result = calculateSharpe_orani_hesaplayici_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

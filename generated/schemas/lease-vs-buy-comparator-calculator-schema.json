@@ -49,7 +49,8 @@
       "businessContext": "Duration of the lease agreement in months.",
       "label_i18n": {
         "en": "Lease Term",
-        "tr": "Kira Süresi"
+        "tr": "Kira Süresi",
+        "de": "Leasinglaufzeit"
       },
       "businessContext_i18n": {
         "en": "Duration of the lease agreement in months.",
@@ -67,7 +68,8 @@
       "businessContext": "Fixed monthly payment under the lease contract.",
       "label_i18n": {
         "en": "Monthly Lease Payment",
-        "tr": "Aylık Kira Ödemesi"
+        "tr": "Aylık Kira Ödemesi",
+        "de": "Monatliche Leasingrate"
       },
       "businessContext_i18n": {
         "en": "Fixed monthly payment under the lease contract.",
@@ -137,11 +139,13 @@
       "businessContext": "Weighted average cost of capital used to discount future cash flows.",
       "label_i18n": {
         "en": "Discount Rate (WACC)",
-        "tr": "İskonto Oranı (AOSM)"
+        "tr": "İskonto Oranı (AOSM)",
+        "de": "Diskontierungssatz (WACC)"
       },
       "businessContext_i18n": {
         "en": "Weighted average cost of capital used to discount future cash flows.",
-        "tr": "Gelecekteki nakit akışlarını iskonto etmek için kullanılan ağırlıklı ortalama sermaye maliyeti."
+        "tr": "Gelecekteki nakit akışlarını iskonto etmek için kullanılan ağırlıklı ortalama sermaye maliyeti.",
+        "de": "Gewichteter durchschnittlicher Kapitalkostensatz zur Diskontierung zukünftiger Cashflows."
       }
     },
     {

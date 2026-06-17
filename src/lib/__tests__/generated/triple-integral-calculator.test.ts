@@ -15,7 +15,7 @@ describe("triple-integral-calculator", () => {
     "zLower": 0,
     "zUpper": 1,
     "density": 1000
-  } as Triple_integral_calculatorInput;
+  } as unknown as Triple_integral_calculatorInput;
     const result = calculateTriple_integral_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

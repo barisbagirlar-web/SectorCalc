@@ -14,7 +14,7 @@ describe("hypothesis-testing-calculator", () => {
     "sampleSize": 30,
     "alpha": 0.05,
     "tails": 2
-  } as Hypothesis_testing_calculatorInput;
+  } as unknown as Hypothesis_testing_calculatorInput;
     const result = calculateHypothesis_testing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

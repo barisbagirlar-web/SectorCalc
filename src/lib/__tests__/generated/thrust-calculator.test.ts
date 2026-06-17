@@ -13,7 +13,7 @@ describe("thrust-calculator", () => {
     "exitPressure": 101325,
     "ambientPressure": 101325,
     "exitArea": 0.01
-  } as Thrust_calculatorInput;
+  } as unknown as Thrust_calculatorInput;
     const result = calculateThrust_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

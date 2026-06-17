@@ -12,7 +12,7 @@ describe("height-predictor-calculator", () => {
     "fatherHeight": 175,
     "gender": 0,
     "currentHeight": 100
-  } as Height_predictor_calculatorInput;
+  } as unknown as Height_predictor_calculatorInput;
     const result = calculateHeight_predictor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

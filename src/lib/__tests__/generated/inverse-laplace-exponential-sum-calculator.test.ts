@@ -15,7 +15,7 @@ describe("inverse-laplace-exponential-sum-calculator", () => {
     "A3": 0,
     "p3": 0,
     "t": 1
-  } as Inverse_laplace_exponential_sum_calculatorInput;
+  } as unknown as Inverse_laplace_exponential_sum_calculatorInput;
     const result = calculateInverse_laplace_exponential_sum_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

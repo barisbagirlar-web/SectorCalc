@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Failures",
         "tr": "Arıza Sayısı",
-        "de": "Number of Failures",
+        "de": "Anzahl der Ausfälle",
         "fr": "Number of Failures",
         "es": "Number of Failures",
         "ar": "Number of Failures"
       },
       "businessContext_i18n": {
         "en": "Total observed failures during monitoring period",
-        "tr": "İzleme periyodu boyunca toplam gözlemlenen arıza sayısı"
+        "tr": "İzleme periyodu boyunca toplam gözlemlenen arıza sayısı",
+        "de": "Gesamtzahl der beobachteten Ausfälle während des Überwachungszeitraums"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Total Calendar Time",
         "tr": "Toplam Takvim Süresi",
-        "de": "Total Calendar Time",
+        "de": "Gesamtkalenderzeit",
         "fr": "Total Calendar Time",
         "es": "Total Calendar Time",
         "ar": "Total Calendar Time"
       },
       "businessContext_i18n": {
         "en": "Total elapsed time in hours (e.g., 8760 h/year)",
-        "tr": "Saat cinsinden toplam geçen süre (ör. yılda 8760 saat)"
+        "tr": "Saat cinsinden toplam geçen süre (ör. yılda 8760 saat)",
+        "de": "Gesamtverstrichene Zeit in Stunden (z. B. 8760 h/Jahr)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Units",
         "tr": "Birim Sayısı",
-        "de": "Number of Units",
+        "de": "Anzahl der Einheiten",
         "fr": "Number of Units",
         "es": "Number of Units",
         "ar": "Number of Units"
       },
       "businessContext_i18n": {
         "en": "Number of units under test or in operation",
-        "tr": "Test veya çalışma altındaki birim sayısı"
+        "tr": "Test veya çalışma altındaki birim sayısı",
+        "de": "Anzahl der getesteten oder in Betrieb befindlichen Einheiten"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Duty Cycle",
         "tr": "Görev Çevrimi",
-        "de": "Duty Cycle",
+        "de": "Einschaltdauer",
         "fr": "Duty Cycle",
         "es": "Duty Cycle",
         "ar": "Duty Cycle"
       },
       "businessContext_i18n": {
         "en": "Percentage of time units are actually operating",
-        "tr": "Birimlerin fiilen çalıştığı zaman yüzdesi"
+        "tr": "Birimlerin fiilen çalıştığı zaman yüzdesi",
+        "de": "Prozentsatz der Zeit, in der die Einheiten tatsächlich in Betrieb sind"
       }
     }
   ],

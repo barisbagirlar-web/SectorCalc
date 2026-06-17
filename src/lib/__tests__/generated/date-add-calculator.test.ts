@@ -12,7 +12,7 @@ describe("date-add-calculator", () => {
     "addDays": 0,
     "addMonths": 0,
     "addYears": 0
-  } as Date_add_calculatorInput;
+  } as unknown as Date_add_calculatorInput;
     const result = calculateDate_add_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

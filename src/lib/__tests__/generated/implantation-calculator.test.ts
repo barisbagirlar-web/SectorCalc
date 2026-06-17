@@ -12,7 +12,7 @@ describe("implantation-calculator", () => {
     "refY": 0,
     "distance": 10,
     "azimuth": 45
-  } as Implantation_calculatorInput;
+  } as unknown as Implantation_calculatorInput;
     const result = calculateImplantation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("gradient-calculator", () => {
     "endEasting": 1,
     "endNorthing": 0,
     "endElevation": 1
-  } as Gradient_calculatorInput;
+  } as unknown as Gradient_calculatorInput;
     const result = calculateGradient_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("mm-to-micrometers-calculator", () => {
     "scaleFactor": 1,
     "uncertaintyMm": 0.001,
     "coverageFactor": 2
-  } as Mm_to_micrometers_calculatorInput;
+  } as unknown as Mm_to_micrometers_calculatorInput;
     const result = calculateMm_to_micrometers_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

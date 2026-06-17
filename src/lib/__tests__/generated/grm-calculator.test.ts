@@ -11,7 +11,7 @@ describe("grm-calculator", () => {
     "propertyPrice": 500000,
     "annualRentalIncome": 60000,
     "auto_input_3": 1
-  } as Grm_calculatorInput;
+  } as unknown as Grm_calculatorInput;
     const result = calculateGrm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

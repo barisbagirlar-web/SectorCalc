@@ -15,7 +15,7 @@ describe("how-long-to-lose-weight-calculator", () => {
     "gender": 1,
     "activityLevel": 1.2,
     "dailyCalorieIntake": 2000
-  } as How_long_to_lose_weight_calculatorInput;
+  } as unknown as How_long_to_lose_weight_calculatorInput;
     const result = calculateHow_long_to_lose_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

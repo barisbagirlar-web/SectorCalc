@@ -12,7 +12,7 @@ describe("factorial-calculator", () => {
     "reserved1": 0,
     "reserved2": 0,
     "reserved3": 0
-  } as Factorial_calculatorInput;
+  } as unknown as Factorial_calculatorInput;
     const result = calculateFactorial_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

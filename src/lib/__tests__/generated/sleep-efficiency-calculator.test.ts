@@ -12,7 +12,7 @@ describe("sleep-efficiency-calculator", () => {
     "sleepLatency": 30,
     "waso": 30,
     "awakenings": 0
-  } as Sleep_efficiency_calculatorInput;
+  } as unknown as Sleep_efficiency_calculatorInput;
     const result = calculateSleep_efficiency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

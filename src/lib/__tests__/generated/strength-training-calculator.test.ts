@@ -14,7 +14,7 @@ describe("strength-training-calculator", () => {
     "sets": 3,
     "restPeriod": 60,
     "fatigueFactor": 5
-  } as Strength_training_calculatorInput;
+  } as unknown as Strength_training_calculatorInput;
     const result = calculateStrength_training_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

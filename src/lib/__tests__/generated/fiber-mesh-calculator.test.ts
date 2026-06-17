@@ -13,7 +13,7 @@ describe("fiber-mesh-calculator", () => {
     "rollLength": 50,
     "overlapDistance": 0.1,
     "wasteFactor": 5
-  } as Fiber_mesh_calculatorInput;
+  } as unknown as Fiber_mesh_calculatorInput;
     const result = calculateFiber_mesh_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

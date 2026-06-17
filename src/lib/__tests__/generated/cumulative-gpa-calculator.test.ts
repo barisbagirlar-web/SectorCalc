@@ -12,7 +12,7 @@ describe("cumulative-gpa-calculator", () => {
     "previousCredits": 0,
     "newGPA": 0,
     "newCredits": 0
-  } as Cumulative_gpa_calculatorInput;
+  } as unknown as Cumulative_gpa_calculatorInput;
     const result = calculateCumulative_gpa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

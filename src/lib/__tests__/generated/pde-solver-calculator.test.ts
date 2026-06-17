@@ -15,7 +15,7 @@ describe("pde-solver-calculator", () => {
     "A1": 100,
     "A2": 0,
     "A3": 0
-  } as Pde_solver_calculatorInput;
+  } as unknown as Pde_solver_calculatorInput;
     const result = calculatePde_solver_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

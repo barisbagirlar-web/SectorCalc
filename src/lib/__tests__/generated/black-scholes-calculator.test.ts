@@ -13,7 +13,7 @@ describe("black-scholes-calculator", () => {
     "r": 5,
     "sigma": 20,
     "T": 1
-  } as Black_scholes_calculatorInput;
+  } as unknown as Black_scholes_calculatorInput;
     const result = calculateBlack_scholes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

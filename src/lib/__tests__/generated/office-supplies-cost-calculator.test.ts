@@ -15,7 +15,7 @@ describe("office-supplies-cost-calculator", () => {
     "waste_percentage": 5,
     "order_frequency": "monthly",
     "use_lean_inventory": false
-  } as Office_supplies_cost_calculatorInput;
+  } as unknown as Office_supplies_cost_calculatorInput;
     const result = calculateOffice_supplies_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

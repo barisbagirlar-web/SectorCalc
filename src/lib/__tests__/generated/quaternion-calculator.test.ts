@@ -16,7 +16,7 @@ describe("quaternion-calculator", () => {
     "p1": 0,
     "p2": 0,
     "p3": 0
-  } as Quaternion_calculatorInput;
+  } as unknown as Quaternion_calculatorInput;
     const result = calculateQuaternion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

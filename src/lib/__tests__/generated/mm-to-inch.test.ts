@@ -11,7 +11,7 @@ describe("mm-to-inch", () => {
     "mm": 25.4,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Mm_to_inchInput;
+  } as unknown as Mm_to_inchInput;
     const result = calculateMm_to_inch(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

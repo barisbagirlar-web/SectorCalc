@@ -13,7 +13,7 @@ describe("golf-club-distance-calculator", () => {
     "elevation": 0,
     "wind": 0,
     "temperature": 70
-  } as Golf_club_distance_calculatorInput;
+  } as unknown as Golf_club_distance_calculatorInput;
     const result = calculateGolf_club_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

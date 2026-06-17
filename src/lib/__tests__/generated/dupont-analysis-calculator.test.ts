@@ -12,7 +12,7 @@ describe("dupont-analysis-calculator", () => {
     "revenue": 500000,
     "totalAssets": 400000,
     "equity": 200000
-  } as Dupont_analysis_calculatorInput;
+  } as unknown as Dupont_analysis_calculatorInput;
     const result = calculateDupont_analysis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

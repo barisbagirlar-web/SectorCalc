@@ -16,7 +16,7 @@ describe("prime-factorization-builder-calculator", () => {
     "exponent3": 0,
     "prime4": 7,
     "exponent4": 0
-  } as Prime_factorization_builder_calculatorInput;
+  } as unknown as Prime_factorization_builder_calculatorInput;
     const result = calculatePrime_factorization_builder_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

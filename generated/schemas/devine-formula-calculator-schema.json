@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Boy (cm)",
         "tr": "Boy (cm)",
-        "de": "Boy (cm)",
+        "de": "Körpergröße (cm)",
         "fr": "Boy (cm)",
         "es": "Boy (cm)",
         "ar": "Boy (cm)"
       },
       "businessContext_i18n": {
         "en": "Kişinin santimetre cinsinden boy uzunluğu",
-        "tr": "Kişinin santimetre cinsinden boy uzunluğu"
+        "tr": "Kişinin santimetre cinsinden boy uzunluğu",
+        "de": "Körpergröße in Zentimetern"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cinsiyet (0:Kadın, 1:Erkek)",
         "tr": "Cinsiyet (0:Kadın, 1:Erkek)",
-        "de": "Cinsiyet (0:Kadın, 1:Erkek)",
+        "de": "Geschlecht (0:Weiblich, 1:Männlich)",
         "fr": "Cinsiyet (0:Kadın, 1:Erkek)",
         "es": "Cinsiyet (0:Kadın, 1:Erkek)",
         "ar": "Cinsiyet (0:Kadın, 1:Erkek)"
       },
       "businessContext_i18n": {
         "en": "0 kadın, 1 erkek olarak cinsiyet seçimi",
-        "tr": "0 kadın, 1 erkek olarak cinsiyet seçimi"
+        "tr": "0 kadın, 1 erkek olarak cinsiyet seçimi",
+        "de": "Geschlechtsauswahl: 0 weiblich, 1 männlich"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Yaş",
         "tr": "Yaş",
-        "de": "Yaş",
+        "de": "Alter",
         "fr": "Yaş",
         "es": "Yaş",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Kişinin yaşı (referans amaçlı)",
-        "tr": "Kişinin yaşı (referans amaçlı)"
+        "tr": "Kişinin yaşı (referans amaçlı)",
+        "de": "Alter der Person (Referenzzweck)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Mevcut Ağırlık",
         "tr": "Mevcut Ağırlık",
-        "de": "Mevcut Ağırlık",
+        "de": "Aktuelles Gewicht",
         "fr": "Mevcut Ağırlık",
         "es": "Mevcut Ağırlık",
         "ar": "Mevcut Ağırlık"
       },
       "businessContext_i18n": {
         "en": "Kişinin mevcut ağırlığı (karşılaştırma için)",
-        "tr": "Kişinin mevcut ağırlığı (karşılaştırma için)"
+        "tr": "Kişinin mevcut ağırlığı (karşılaştırma için)",
+        "de": "Aktuelles Gewicht der Person (zum Vergleich)"
       }
     }
   ],

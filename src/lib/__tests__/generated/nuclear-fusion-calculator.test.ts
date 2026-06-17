@@ -12,7 +12,7 @@ describe("nuclear-fusion-calculator", () => {
     "n_T": 0.5,
     "T": 10,
     "tau": 5
-  } as Nuclear_fusion_calculatorInput;
+  } as unknown as Nuclear_fusion_calculatorInput;
     const result = calculateNuclear_fusion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

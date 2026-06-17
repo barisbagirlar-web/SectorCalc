@@ -13,7 +13,7 @@ describe("horizontal-curve-calculator", () => {
     "frictionFactor": 0.15,
     "centralAngle": 90,
     "stationPI": 1000
-  } as Horizontal_curve_calculatorInput;
+  } as unknown as Horizontal_curve_calculatorInput;
     const result = calculateHorizontal_curve_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

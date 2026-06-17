@@ -12,7 +12,7 @@ describe("sortino-ratio-calculator", () => {
     "riskFreeRate": 0.03,
     "targetReturn": 0.03,
     "downsideDeviation": 0.05
-  } as Sortino_ratio_calculatorInput;
+  } as unknown as Sortino_ratio_calculatorInput;
     const result = calculateSortino_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

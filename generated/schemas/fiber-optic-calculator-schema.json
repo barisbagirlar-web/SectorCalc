@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fiber Length",
         "tr": "Fiber Uzunluğu",
-        "de": "Fiber Length",
+        "de": "Faserlänge",
         "fr": "Fiber Length",
         "es": "Fiber Length",
         "ar": "Fiber Length"
       },
       "businessContext_i18n": {
         "en": "Total cable length of the fiber optic link.",
-        "tr": "Fiber optik bağlantının toplam kablo uzunluğu."
+        "tr": "Fiber optik bağlantının toplam kablo uzunluğu.",
+        "de": "Gesamtkabellänge der Glasfaserverbindung."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Attenuation Coefficient",
         "tr": "Zayıflama Katsayısı",
-        "de": "Attenuation Coefficient",
+        "de": "Dämpfungskoeffizient",
         "fr": "Attenuation Coefficient",
         "es": "Attenuation Coefficient",
         "ar": "Attenuation Coefficient"
       },
       "businessContext_i18n": {
         "en": "Attenuation per kilometer at the operating wavelength (e.g., 1550 nm for single-mode).",
-        "tr": "Çalışma dalga boyunda kilometre başına zayıflama (örneğin tek mod için 1550 nm)."
+        "tr": "Çalışma dalga boyunda kilometre başına zayıflama (örneğin tek mod için 1550 nm).",
+        "de": "Dämpfung pro Kilometer bei der Betriebswellenlänge (z. B. 1550 nm für Singlemode)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Input Power",
         "tr": "Giriş gücü",
-        "de": "Input Power",
+        "de": "Eingangsleistung",
         "fr": "Input Power",
         "es": "Input Power",
         "ar": "Input Power"
       },
       "businessContext_i18n": {
         "en": "Transmitter output power in dBm.",
-        "tr": "Verici çıkış gücü dBm cinsinden."
+        "tr": "Verici çıkış gücü dBm cinsinden.",
+        "de": "Sendeausgangsleistung in dBm."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Splices",
         "tr": "Ek Sayısı",
-        "de": "Number of Splices",
+        "de": "Anzahl der Spleiße",
         "fr": "Number of Splices",
         "es": "Number of Splices",
         "ar": "Number of Splices"
       },
       "businessContext_i18n": {
         "en": "Count of fusion splices along the fiber path.",
-        "tr": "Fiber yolu boyunca füzyon ek sayısı."
+        "tr": "Fiber yolu boyunca füzyon ek sayısı.",
+        "de": "Anzahl der Fusionsspleiße entlang des Glasfaserpfads."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Splice Loss",
         "tr": "Eklem kaybı",
-        "de": "Splice Loss",
+        "de": "Spleißdämpfung",
         "fr": "Splice Loss",
         "es": "Splice Loss",
         "ar": "Splice Loss"
       },
       "businessContext_i18n": {
         "en": "Average loss per fusion splice.",
-        "tr": "Füzyon ek başına ortalama kayıp."
+        "tr": "Füzyon ek başına ortalama kayıp.",
+        "de": "Durchschnittlicher Verlust pro Fusionsspleiß."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Number of Connectors",
         "tr": "Konnektör Sayısı",
-        "de": "Number of Connectors",
+        "de": "Anzahl der Steckverbinder",
         "fr": "Number of Connectors",
         "es": "Number of Connectors",
         "ar": "Number of Connectors"
       },
       "businessContext_i18n": {
         "en": "Number of connector pairs (e.g., at patch panels, equipment interfaces).",
-        "tr": "Konnektör çifti sayısı (örneğin patch panellerde, ekipman arayüzlerinde)."
+        "tr": "Konnektör çifti sayısı (örneğin patch panellerde, ekipman arayüzlerinde).",
+        "de": "Anzahl der Steckverbinderpaare (z. B. an Patchfeldern, Geräteschnittstellen)."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Connector Loss",
         "tr": "Konnektör Kaybı",
-        "de": "Connector Loss",
+        "de": "Steckverbinderdämpfung",
         "fr": "Connector Loss",
         "es": "Connector Loss",
         "ar": "Connector Loss"
       },
       "businessContext_i18n": {
         "en": "Loss per connector pair.",
-        "tr": "Konnektör çifti başına kayıp."
+        "tr": "Konnektör çifti başına kayıp.",
+        "de": "Verlust pro Steckverbinderpaar."
       }
     }
   ],

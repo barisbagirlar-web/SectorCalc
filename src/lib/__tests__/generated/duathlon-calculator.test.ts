@@ -16,7 +16,7 @@ describe("duathlon-calculator", () => {
     "transition2": 1,
     "run2Distance": 2.5,
     "run2Time": 12
-  } as Duathlon_calculatorInput;
+  } as unknown as Duathlon_calculatorInput;
     const result = calculateDuathlon_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

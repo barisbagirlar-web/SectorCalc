@@ -14,7 +14,7 @@ describe("watt-hours-to-btu-calculator", () => {
     "btuType": 1,
     "electricityCost": 0.152,
     "decimalPlaces": 2
-  } as Watt_hours_to_btu_calculatorInput;
+  } as unknown as Watt_hours_to_btu_calculatorInput;
     const result = calculateWatt_hours_to_btu_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

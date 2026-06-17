@@ -12,7 +12,7 @@ describe("rowing-split-calculator", () => {
     "hours": 0,
     "minutes": 7,
     "seconds": 0
-  } as Rowing_split_calculatorInput;
+  } as unknown as Rowing_split_calculatorInput;
     const result = calculateRowing_split_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

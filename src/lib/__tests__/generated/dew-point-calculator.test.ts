@@ -12,7 +12,7 @@ describe("dew-point-calculator", () => {
     "humidity": 50,
     "a": 17.27,
     "b": 237.7
-  } as Dew_point_calculatorInput;
+  } as unknown as Dew_point_calculatorInput;
     const result = calculateDew_point_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

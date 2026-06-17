@@ -12,7 +12,7 @@ describe("absolute-value-calculator", () => {
     "value2": 0,
     "value3": 0,
     "value4": 0
-  } as Absolute_value_calculatorInput;
+  } as unknown as Absolute_value_calculatorInput;
     const result = calculateAbsolute_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

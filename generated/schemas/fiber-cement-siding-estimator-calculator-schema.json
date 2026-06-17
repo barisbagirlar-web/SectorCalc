@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Wall Area",
         "tr": "Duvar alanı",
-        "de": "Wall Area",
+        "de": "Wandfläche",
         "fr": "Wall Area",
         "es": "Wall Area",
         "ar": "Wall Area"
       },
       "businessContext_i18n": {
         "en": "Total surface area to cover with siding",
-        "tr": "Kaplanacak toplam yüzey alanı"
+        "tr": "Kaplanacak toplam yüzey alanı",
+        "de": "Gesamte zu bedeckende Oberfläche"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Panel Length",
         "tr": "Panel uzunluğu",
-        "de": "Panel Length",
+        "de": "Plattenlänge",
         "fr": "Panel Length",
         "es": "Panel Length",
         "ar": "Panel Length"
       },
       "businessContext_i18n": {
         "en": "Length of one siding panel",
-        "tr": "Bir kaplama panelinin uzunluğu"
+        "tr": "Bir kaplama panelinin uzunluğu",
+        "de": "Länge einer Platte"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Coverage Width",
         "tr": "Kaplama genişliği",
-        "de": "Coverage Width",
+        "de": "Abdeckungsbreite",
         "fr": "Coverage Width",
         "es": "Coverage Width",
         "ar": "Coverage Width"
       },
       "businessContext_i18n": {
         "en": "Effective coverage width per panel (exposure)",
-        "tr": "Panel başına etkili kaplama genişliği (maruziyet)"
+        "tr": "Panel başına etkili kaplama genişliği (maruziyet)",
+        "de": "Effektive Abdeckungsbreite pro Platte (Exposition)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
-        "de": "Waste Factor",
+        "de": "Abfallfaktor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra material for waste (cuts, overlaps)",
-        "tr": "Atık için ek malzeme yüzdesi (kesikler, bindirmeler)"
+        "tr": "Atık için ek malzeme yüzdesi (kesikler, bindirmeler)",
+        "de": "Prozentsatz des zusätzlichen Materials für Abfall (Schnitte, Überlappungen)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Material Cost per Panel",
         "tr": "Panel başına malzeme maliyeti",
-        "de": "Material Cost per Panel",
+        "de": "Materialkosten pro Platte",
         "fr": "Material Cost per Panel",
         "es": "Material Cost per Panel",
         "ar": "Material Cost per Panel"
       },
       "businessContext_i18n": {
         "en": "Purchase cost of one panel",
-        "tr": "Bir panelin satın alma maliyeti"
+        "tr": "Bir panelin satın alma maliyeti",
+        "de": "Anschaffungskosten einer Platte"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Installation Time per Panel",
         "tr": "Panel başına kurulum süresi",
-        "de": "Installation Time per Panel",
+        "de": "Installationszeit pro Platte",
         "fr": "Installation Time per Panel",
         "es": "Installation Time per Panel",
         "ar": "Installation Time per Panel"
       },
       "businessContext_i18n": {
         "en": "Labor time required to install one panel",
-        "tr": "Bir paneli kurmak için gereken işçilik süresi"
+        "tr": "Bir paneli kurmak için gereken işçilik süresi",
+        "de": "Arbeitszeit für die Installation einer Platte"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Labor Cost per Hour",
         "tr": "Saatlik işçilik maliyeti",
-        "de": "Labor Cost per Hour",
+        "de": "Arbeitskosten pro Stunde",
         "fr": "Labor Cost per Hour",
         "es": "Labor Cost per Hour",
         "ar": "Labor Cost per Hour"
       },
       "businessContext_i18n": {
         "en": "Hourly rate for labor",
-        "tr": "Saatlik işçilik ücreti"
+        "tr": "Saatlik işçilik ücreti",
+        "de": "Stundensatz für Arbeitskräfte"
       }
     }
   ],

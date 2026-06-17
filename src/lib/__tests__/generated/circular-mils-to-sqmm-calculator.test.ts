@@ -12,7 +12,7 @@ describe("circular-mils-to-sqmm-calculator", () => {
     "scale": 1,
     "conversionFactor": 0.000506707479,
     "decimals": 6
-  } as Circular_mils_to_sqmm_calculatorInput;
+  } as unknown as Circular_mils_to_sqmm_calculatorInput;
     const result = calculateCircular_mils_to_sqmm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

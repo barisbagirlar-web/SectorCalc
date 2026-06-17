@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Stock Concentration",
         "tr": "Stok Yoğunluğu",
-        "de": "Stock Concentration",
+        "de": "Konzentration der Stammlösung",
         "fr": "Stock Concentration",
         "es": "Stock Concentration",
         "ar": "Stock Concentration"
       },
       "businessContext_i18n": {
         "en": "Concentration of the stock solution",
-        "tr": "Stok çözeltinin konsantrasyonu"
+        "tr": "Stok çözeltinin konsantrasyonu",
+        "de": "Konzentration der Stammlösung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Desired Concentration",
         "tr": "İstenen konsantrasyon",
-        "de": "Desired Concentration",
+        "de": "Gewünschte Konzentration",
         "fr": "Desired Concentration",
         "es": "Desired Concentration",
         "ar": "Desired Concentration"
       },
       "businessContext_i18n": {
         "en": "Target concentration after dilution",
-        "tr": "Seyreltme sonrası hedef konsantrasyon"
+        "tr": "Seyreltme sonrası hedef konsantrasyon",
+        "de": "Zielkonzentration nach Verdünnung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Final Volume",
         "tr": "Son Hacim",
-        "de": "Final Volume",
+        "de": "Endvolumen",
         "fr": "Final Volume",
         "es": "Final Volume",
         "ar": "Final Volume"
       },
       "businessContext_i18n": {
         "en": "Required total volume of the diluted solution",
-        "tr": "Seyreltilmiş çözeltinin gerekli toplam hacmi"
+        "tr": "Seyreltilmiş çözeltinin gerekli toplam hacmi",
+        "de": "Benötigtes Gesamtvolumen der verdünnten Lösung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Overage Percentage",
         "tr": "Fazlalık yüzdesi",
-        "de": "Overage Percentage",
+        "de": "Überlaufprozentsatz",
         "fr": "Overage Percentage",
         "es": "Overage Percentage",
         "ar": "Overage Percentage"
       },
       "businessContext_i18n": {
         "en": "Extra volume percentage to account for handling losses (0-100)",
-        "tr": "Taşıma kayıplarını karşılamak için ekstra hacim yüzdesi (0-100)"
+        "tr": "Taşıma kayıplarını karşılamak için ekstra hacim yüzdesi (0-100)",
+        "de": "Zusätzlicher Volumenprozentsatz zur Berücksichtigung von Handhabungsverlusten (0-100)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Unit Conversion Factor",
         "tr": "Birim Dönüşüm Faktörü",
-        "de": "Unit Conversion Factor",
+        "de": "Einheitenumrechnungsfaktor",
         "fr": "Unit Conversion Factor",
         "es": "Unit Conversion Factor",
         "ar": "Unit Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Factor to convert stock concentration units to desired concentration units (e.g., if stock is in g/L and desired in mg/mL, use 1)",
-        "tr": "Stok konsantrasyon birimlerini istenen konsantrasyon birimlerine dönüştürmek için faktör (örneğin, stok g/L ve istenen mg/mL ise 1 kullanın)"
+        "tr": "Stok konsantrasyon birimlerini istenen konsantrasyon birimlerine dönüştürmek için faktör (örneğin, stok g/L ve istenen mg/mL ise 1 kullanın)",
+        "de": "Faktor zur Umrechnung der Einheiten der Stammlösungskonzentration in die gewünschte Konzentration (z.B. wenn Stammlösung in g/L und gewünscht in mg/mL, verwenden Sie 1)"
       }
     }
   ],

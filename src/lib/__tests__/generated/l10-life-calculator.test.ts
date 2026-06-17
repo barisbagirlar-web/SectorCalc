@@ -13,7 +13,7 @@ describe("l10-life-calculator", () => {
     "exponent": 3,
     "reliabilityFactor": 1,
     "speed": 1500
-  } as L10_life_calculatorInput;
+  } as unknown as L10_life_calculatorInput;
     const result = calculateL10_life_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

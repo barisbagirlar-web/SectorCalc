@@ -16,7 +16,7 @@ describe("angle-between-lines-calculator", () => {
     "y3": 0,
     "x4": 100,
     "y4": 100
-  } as Angle_between_lines_calculatorInput;
+  } as unknown as Angle_between_lines_calculatorInput;
     const result = calculateAngle_between_lines_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

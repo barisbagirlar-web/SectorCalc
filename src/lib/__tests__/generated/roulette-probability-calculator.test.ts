@@ -13,7 +13,7 @@ describe("roulette-probability-calculator", () => {
     "payoutMultiplier": 35,
     "betAmount": 1,
     "totalNumbers": 37
-  } as Roulette_probability_calculatorInput;
+  } as unknown as Roulette_probability_calculatorInput;
     const result = calculateRoulette_probability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

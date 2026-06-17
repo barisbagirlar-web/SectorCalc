@@ -15,7 +15,7 @@ describe("passing-sight-distance-calculator", () => {
     "perceptionReactionTime": 1.5,
     "clearanceDistance": 30,
     "opposingSpeed": 80
-  } as Passing_sight_distance_calculatorInput;
+  } as unknown as Passing_sight_distance_calculatorInput;
     const result = calculatePassing_sight_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

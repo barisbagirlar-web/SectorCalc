@@ -13,7 +13,7 @@ describe("fitbit-calorie-calculator", () => {
     "weight": 70,
     "height": 170,
     "activityFactor": 1.2
-  } as Fitbit_calorie_calculatorInput;
+  } as unknown as Fitbit_calorie_calculatorInput;
     const result = calculateFitbit_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

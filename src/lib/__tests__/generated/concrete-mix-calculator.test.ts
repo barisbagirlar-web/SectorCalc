@@ -15,7 +15,7 @@ describe("concrete-mix-calculator", () => {
     "waterCementRatio": 0.5,
     "dryFactor": 1.54,
     "wastagePercent": 5
-  } as Concrete_mix_calculatorInput;
+  } as unknown as Concrete_mix_calculatorInput;
     const result = calculateConcrete_mix_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

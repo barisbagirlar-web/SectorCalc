@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Weapon Damage Dice Average",
         "tr": "Silah Hasar Zarı Ortalaması",
-        "de": "Weapon Damage Dice Average",
+        "de": "Durchschnittlicher Waffenschadenswürfel",
         "fr": "Weapon Damage Dice Average",
         "es": "Weapon Damage Dice Average",
         "ar": "Weapon Damage Dice Average"
       },
       "businessContext_i18n": {
         "en": "Average damage from weapon dice (e.g., d8=4.5)",
-        "tr": "Silah zarlarından ortalama hasar (ör. d8=4.5)"
+        "tr": "Silah zarlarından ortalama hasar (ör. d8=4.5)",
+        "de": "Durchschnittlicher Schaden durch Waffenwürfel (z. B. W8=4,5)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Ability Modifier",
         "tr": "Yetenek Değiştiricisi",
-        "de": "Ability Modifier",
+        "de": "Attributsmodifikator",
         "fr": "Ability Modifier",
         "es": "Ability Modifier",
         "ar": "Ability Modifier"
       },
       "businessContext_i18n": {
         "en": "Strength or Dexterity modifier applied to damage",
-        "tr": "Hasara uygulanan Güç veya Çeviklik değiştiricisi"
+        "tr": "Hasara uygulanan Güç veya Çeviklik değiştiricisi",
+        "de": "Stärke- oder Geschicklichkeitsmodifikator, der auf Schaden angewendet wird"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Proficiency Bonus",
         "tr": "Yetenek Bonusu",
-        "de": "Proficiency Bonus",
+        "de": "Übungsbonus",
         "fr": "Proficiency Bonus",
         "es": "Proficiency Bonus",
         "ar": "Proficiency Bonus"
       },
       "businessContext_i18n": {
         "en": "Bonus added to attack rolls, not damage, but used for certain features",
-        "tr": "Saldırı zarlarına eklenen bonus, hasara değil, ancak bazı özellikler için kullanılır"
+        "tr": "Saldırı zarlarına eklenen bonus, hasara değil, ancak bazı özellikler için kullanılır",
+        "de": "Bonus auf Angriffswürfe, nicht auf Schaden, aber für bestimmte Merkmale verwendet"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Magic Weapon Bonus",
         "tr": "Sihirli Silah Bonusu",
-        "de": "Magic Weapon Bonus",
+        "de": "Magischer Waffenbonus",
         "fr": "Magic Weapon Bonus",
         "es": "Magic Weapon Bonus",
         "ar": "Magic Weapon Bonus"
       },
       "businessContext_i18n": {
         "en": "Additional damage from magical enhancement",
-        "tr": "Büyülü güçlendirmeden gelen ek hasar"
+        "tr": "Büyülü güçlendirmeden gelen ek hasar",
+        "de": "Zusätzlicher Schaden durch magische Verbesserung"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Critical Hit Chance (%)",
         "tr": "Kritik Vuruş Şansı (%)",
-        "de": "Critical Hit Chance (%)",
+        "de": "Kritische Trefferchance (%)",
         "fr": "Critical Hit Chance (%)",
         "es": "Critical Hit Chance (%)",
         "ar": "Critical Hit Chance (%)"
       },
       "businessContext_i18n": {
         "en": "Probability of scoring a critical hit (normally 5%)",
-        "tr": "Kritik vuruş yapma olasılığı (normalde %5)"
+        "tr": "Kritik vuruş yapma olasılığı (normalde %5)",
+        "de": "Wahrscheinlichkeit eines kritischen Treffers (normalerweise 5%)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Extra Damage Dice Average",
         "tr": "Ek Hasar Zarı Ortalaması",
-        "de": "Extra Damage Dice Average",
+        "de": "Durchschnittlicher Extra-Schadenswürfel",
         "fr": "Extra Damage Dice Average",
         "es": "Extra Damage Dice Average",
         "ar": "Extra Damage Dice Average"
       },
       "businessContext_i18n": {
         "en": "Average damage from extra dice (e.g., sneak attack, smite)",
-        "tr": "Ek zarlardan gelen ortalama hasar (ör. gizli saldırı, smite)"
+        "tr": "Ek zarlardan gelen ortalama hasar (ör. gizli saldırı, smite)",
+        "de": "Durchschnittlicher Schaden durch zusätzliche Würfel (z. B. Hinterhältiger Angriff, Smite)"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Damage Multiplier",
         "tr": "Hasar Çarpanı",
-        "de": "Damage Multiplier",
+        "de": "Schadensmultiplikator",
         "fr": "Damage Multiplier",
         "es": "Damage Multiplier",
         "ar": "Damage Multiplier"
       },
       "businessContext_i18n": {
         "en": "Multiplier for vulnerabilities or resistances (e.g., 0.5 for resistance)",
-        "tr": "Zayıflık veya dirençler için çarpan (ör. direnç için 0.5)"
+        "tr": "Zayıflık veya dirençler için çarpan (ör. direnç için 0.5)",
+        "de": "Multiplikator für Verwundbarkeiten oder Resistenzen (z. B. 0,5 für Resistenz)"
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("confidence-interval-calculator", () => {
     "standard_deviation": 1,
     "sample_size": 30,
     "critical_value": 1.96
-  } as Confidence_interval_calculatorInput;
+  } as unknown as Confidence_interval_calculatorInput;
     const result = calculateConfidence_interval_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

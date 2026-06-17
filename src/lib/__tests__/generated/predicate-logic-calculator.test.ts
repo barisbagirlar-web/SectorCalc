@@ -14,7 +14,7 @@ describe("predicate-logic-calculator", () => {
     "threshold2": 15,
     "value3": 30,
     "threshold3": 25
-  } as Predicate_logic_calculatorInput;
+  } as unknown as Predicate_logic_calculatorInput;
     const result = calculatePredicate_logic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

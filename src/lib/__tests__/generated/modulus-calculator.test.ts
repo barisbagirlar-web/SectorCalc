@@ -12,7 +12,7 @@ describe("modulus-calculator", () => {
     "batchSize": 10,
     "targetRemainder": 0,
     "offset": 0
-  } as Modulus_calculatorInput;
+  } as unknown as Modulus_calculatorInput;
     const result = calculateModulus_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

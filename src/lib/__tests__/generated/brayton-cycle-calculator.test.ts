@@ -15,7 +15,7 @@ describe("brayton-cycle-calculator", () => {
     "eta_t": 0.9,
     "gamma": 1.4,
     "cp": 1.005
-  } as Brayton_cycle_calculatorInput;
+  } as unknown as Brayton_cycle_calculatorInput;
     const result = calculateBrayton_cycle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

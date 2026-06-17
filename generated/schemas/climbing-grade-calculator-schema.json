@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Horizontal Distance",
         "tr": "Yatay Mesafe",
-        "de": "Horizontal Distance",
+        "de": "Horizontale Entfernung",
         "fr": "Horizontal Distance",
         "es": "Horizontal Distance",
         "ar": "Horizontal Distance"
       },
       "businessContext_i18n": {
         "en": "The horizontal run of the slope.",
-        "tr": "Eğimin yatay uzunluğu."
+        "tr": "Eğimin yatay uzunluğu.",
+        "de": "Die horizontale Länge des Hangs."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Vertical Rise",
         "tr": "Dikey Yükselme",
-        "de": "Vertical Rise",
+        "de": "Vertikaler Anstieg",
         "fr": "Vertical Rise",
         "es": "Vertical Rise",
         "ar": "Vertical Rise"
       },
       "businessContext_i18n": {
         "en": "The vertical height gained along the slope.",
-        "tr": "Eğim boyunca kazanılan dikey yükseklik."
+        "tr": "Eğim boyunca kazanılan dikey yükseklik.",
+        "de": "Die vertikale Höhe entlang des Hangs."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Angle (optional)",
         "tr": "Açı (isteğe bağlı)",
-        "de": "Angle (optional)",
+        "de": "Winkel (optional)",
         "fr": "Angle (optional)",
         "es": "Angle (optional)",
         "ar": "Angle (optional)"
       },
       "businessContext_i18n": {
         "en": "Known angle of the slope; set to 0 to compute from rise/run.",
-        "tr": "Eğimin bilinen açısı; yükselme/mesafeden hesaplamak için 0 olarak ayarlayın."
+        "tr": "Eğimin bilinen açısı; yükselme/mesafeden hesaplamak için 0 olarak ayarlayın.",
+        "de": "Bekannter Neigungswinkel der Rampe; auf 0 setzen, um aus Höhe/Länge zu berechnen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Slope Length (optional)",
         "tr": "Eğim Uzunluğu (isteğe bağlı)",
-        "de": "Slope Length (optional)",
+        "de": "Rampenlänge (optional)",
         "fr": "Slope Length (optional)",
         "es": "Slope Length (optional)",
         "ar": "Slope Length (optional)"
       },
       "businessContext_i18n": {
         "en": "Known length of the slope (hypotenuse); set to 0 to compute from rise/run.",
-        "tr": "Eğimin bilinen uzunluğu (hipotenüs); yükselme/mesafeden hesaplamak için 0 olarak ayarlayın."
+        "tr": "Eğimin bilinen uzunluğu (hipotenüs); yükselme/mesafeden hesaplamak için 0 olarak ayarlayın.",
+        "de": "Bekannte Länge der Rampe (Hypotenuse); auf 0 setzen, um aus Höhe/Länge zu berechnen."
       }
     }
   ],

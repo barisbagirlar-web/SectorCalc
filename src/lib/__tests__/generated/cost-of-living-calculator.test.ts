@@ -14,7 +14,7 @@ describe("cost-of-living-calculator", () => {
     "utilities": 0,
     "healthcare": 0,
     "entertainment": 0
-  } as Cost_of_living_calculatorInput;
+  } as unknown as Cost_of_living_calculatorInput;
     const result = calculateCost_of_living_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

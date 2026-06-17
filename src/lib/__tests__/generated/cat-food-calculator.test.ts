@@ -13,7 +13,7 @@ describe("cat-food-calculator", () => {
     "foodPackageWeight": 2,
     "foodPackagePrice": 150,
     "numCats": 1
-  } as Cat_food_calculatorInput;
+  } as unknown as Cat_food_calculatorInput;
     const result = calculateCat_food_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

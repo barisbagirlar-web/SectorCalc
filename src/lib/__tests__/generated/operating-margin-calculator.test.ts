@@ -12,7 +12,7 @@ describe("operating-margin-calculator", () => {
     "cogs": 300000,
     "opex": 100000,
     "otherIncome": 0
-  } as Operating_margin_calculatorInput;
+  } as unknown as Operating_margin_calculatorInput;
     const result = calculateOperating_margin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

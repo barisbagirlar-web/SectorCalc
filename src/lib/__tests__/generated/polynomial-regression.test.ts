@@ -13,7 +13,7 @@ describe("polynomial-regression", () => {
     "sumY": 100,
     "sumXY": 600,
     "sumX2": 385
-  } as Polynomial_regressionInput;
+  } as unknown as Polynomial_regressionInput;
     const result = calculatePolynomial_regression(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

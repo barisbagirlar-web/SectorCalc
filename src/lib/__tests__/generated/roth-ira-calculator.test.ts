@@ -14,7 +14,7 @@ describe("roth-ira-calculator", () => {
     "currentBalance": 10000,
     "expectedReturn": 7,
     "inflationRate": 2.5
-  } as Roth_ira_calculatorInput;
+  } as unknown as Roth_ira_calculatorInput;
     const result = calculateRoth_ira_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

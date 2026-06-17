@@ -12,7 +12,7 @@ describe("hcg-calculator", () => {
     "doubling_time_hours": 48,
     "time_elapsed_hours": 24,
     "initial_hcg": 50
-  } as Hcg_calculatorInput;
+  } as unknown as Hcg_calculatorInput;
     const result = calculateHcg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

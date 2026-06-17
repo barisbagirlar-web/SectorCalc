@@ -14,7 +14,7 @@ describe("minimum-spanning-tree-calculator", () => {
     "edgeCA": 20,
     "unitCost": 5,
     "safetyFactor": 1.1
-  } as Minimum_spanning_tree_calculatorInput;
+  } as unknown as Minimum_spanning_tree_calculatorInput;
     const result = calculateMinimum_spanning_tree_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

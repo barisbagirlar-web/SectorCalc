@@ -16,7 +16,7 @@ describe("gestational-diabetes-risk-calculator", () => {
     "fastingGlucose": 90,
     "hba1c": 5.2,
     "triglycerides": 130
-  } as Gestational_diabetes_risk_calculatorInput;
+  } as unknown as Gestational_diabetes_risk_calculatorInput;
     const result = calculateGestational_diabetes_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

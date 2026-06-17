@@ -14,7 +14,7 @@ describe("protein-calculator", () => {
     "gender": 1,
     "proteinFactor": 1.2,
     "useLeanMass": 0
-  } as Protein_calculatorInput;
+  } as unknown as Protein_calculatorInput;
     const result = calculateProtein_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

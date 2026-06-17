@@ -13,7 +13,7 @@ describe("sourdough-calculator", () => {
     "starterPercent": 20,
     "saltPercent": 2,
     "loafCount": 1
-  } as Sourdough_calculatorInput;
+  } as unknown as Sourdough_calculatorInput;
     const result = calculateSourdough_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

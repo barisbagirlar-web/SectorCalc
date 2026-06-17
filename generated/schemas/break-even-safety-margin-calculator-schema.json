@@ -20,11 +20,13 @@
       "businessContext": "Sum of all fixed expenses (rent, salaries, insurance) per period.",
       "label_i18n": {
         "en": "Total Fixed Costs",
-        "tr": "Toplam Sabit Maliyetler"
+        "tr": "Toplam Sabit Maliyetler",
+        "de": "Gesamte Fixkosten"
       },
       "businessContext_i18n": {
         "en": "Sum of all fixed expenses (rent, salaries, insurance) per period.",
-        "tr": "Dönem başına tüm sabit giderlerin (kira, maaşlar, sigorta) toplamı."
+        "tr": "Dönem başına tüm sabit giderlerin (kira, maaşlar, sigorta) toplamı.",
+        "de": "Summe aller Fixkosten (Miete, Gehälter, Versicherungen) pro Zeitraum."
       }
     },
     {
@@ -38,11 +40,13 @@
       "businessContext": "Direct material, labor, and overhead per unit.",
       "label_i18n": {
         "en": "Variable Cost per Unit",
-        "tr": "Birim Başına Değişken Maliyet"
+        "tr": "Birim Başına Değişken Maliyet",
+        "de": "Variable Kosten pro Einheit"
       },
       "businessContext_i18n": {
         "en": "Direct material, labor, and overhead per unit.",
-        "tr": "Birim başına direkt malzeme, işçilik ve genel gider."
+        "tr": "Birim başına direkt malzeme, işçilik ve genel gider.",
+        "de": "Direktmaterial, Arbeit und Gemeinkosten pro Einheit."
       }
     },
     {
@@ -56,11 +60,13 @@
       "businessContext": "Revenue per unit sold.",
       "label_i18n": {
         "en": "Selling Price per Unit",
-        "tr": "Birim Satış Fiyatı"
+        "tr": "Birim Satış Fiyatı",
+        "de": "Verkaufspreis pro Einheit"
       },
       "businessContext_i18n": {
         "en": "Revenue per unit sold.",
-        "tr": "Satılan birim başına gelir."
+        "tr": "Satılan birim başına gelir.",
+        "de": "Umsatz pro verkaufter Einheit."
       }
     },
     {
@@ -74,11 +80,13 @@
       "businessContext": "Number of units actually sold in the period.",
       "label_i18n": {
         "en": "Actual Sales Volume",
-        "tr": "Gerçek Satış Hacmi"
+        "tr": "Gerçek Satış Hacmi",
+        "de": "Tatsächliches Verkaufsvolumen"
       },
       "businessContext_i18n": {
         "en": "Number of units actually sold in the period.",
-        "tr": "Dönemde fiilen satılan birim sayısı."
+        "tr": "Dönemde fiilen satılan birim sayısı.",
+        "de": "Anzahl der im Zeitraum tatsächlich verkauften Einheiten."
       }
     },
     {
@@ -92,11 +100,13 @@
       "businessContext": "Theoretical maximum output under normal operating conditions.",
       "label_i18n": {
         "en": "Maximum Capacity Volume",
-        "tr": "Maksimum Kapasite Hacmi"
+        "tr": "Maksimum Kapasite Hacmi",
+        "de": "Maximale Kapazität (Einheiten)"
       },
       "businessContext_i18n": {
         "en": "Theoretical maximum output under normal operating conditions.",
-        "tr": "Normal çalışma koşullarında teorik maksimum çıktı."
+        "tr": "Normal çalışma koşullarında teorik maksimum çıktı.",
+        "de": "Theoretische maximale Ausbringung unter normalen Betriebsbedingungen."
       }
     },
     {
@@ -110,11 +120,13 @@
       "businessContext": "Expected percentage variation in demand (coefficient of variation).",
       "label_i18n": {
         "en": "Demand Uncertainty Factor",
-        "tr": "Talep Belirsizlik Faktörü"
+        "tr": "Talep Belirsizlik Faktörü",
+        "de": "Nachfrageunsicherheitsfaktor"
       },
       "businessContext_i18n": {
         "en": "Expected percentage variation in demand (coefficient of variation).",
-        "tr": "Talepte beklenen yüzde değişim (varyasyon katsayısı)."
+        "tr": "Talepte beklenen yüzde değişim (varyasyon katsayısı).",
+        "de": "Erwartete prozentuale Schwankung der Nachfrage (Variationskoeffizient)."
       }
     },
     {
@@ -128,11 +140,13 @@
       "businessContext": "Annual expected increase in variable costs (inflation, supplier pricing).",
       "label_i18n": {
         "en": "Cost Escalation Rate",
-        "tr": "Maliyet Artış Oranı"
+        "tr": "Maliyet Artış Oranı",
+        "de": "Kostensteigerungsrate"
       },
       "businessContext_i18n": {
         "en": "Annual expected increase in variable costs (inflation, supplier pricing).",
-        "tr": "Değişken maliyetlerde beklenen yıllık artış (enflasyon, tedarikçi fiyatlandırması)."
+        "tr": "Değişken maliyetlerde beklenen yıllık artış (enflasyon, tedarikçi fiyatlandırması).",
+        "de": "Jährlicher erwarteter Anstieg der variablen Kosten (Inflation, Lieferantenpreise)."
       }
     },
     {
@@ -146,11 +160,13 @@
       "businessContext": "If true, tax rate input is required and after-tax break-even is calculated.",
       "label_i18n": {
         "en": "Include Tax Effect",
-        "tr": "Vergi Etkisini Dahil Et"
+        "tr": "Vergi Etkisini Dahil Et",
+        "de": "Steuereffekt einbeziehen"
       },
       "businessContext_i18n": {
         "en": "If true, tax rate input is required and after-tax break-even is calculated.",
-        "tr": "Doğruysa, vergi oranı girişi gereklidir ve vergi sonrası başabaş hesaplanır."
+        "tr": "Doğruysa, vergi oranı girişi gereklidir ve vergi sonrası başabaş hesaplanır.",
+        "de": "Wenn aktiviert, ist der Steuersatz erforderlich und der Break-Even nach Steuern wird berechnet."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("sum-of-years-digits-calculator", () => {
     "salvage": 1000,
     "life": 5,
     "year": 1
-  } as Sum_of_years_digits_calculatorInput;
+  } as unknown as Sum_of_years_digits_calculatorInput;
     const result = calculateSum_of_years_digits_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("head-loss-calculator", () => {
     "roughness": 0.00015,
     "kinematicViscosity": 0.000001,
     "gravity": 9.81
-  } as Head_loss_calculatorInput;
+  } as unknown as Head_loss_calculatorInput;
     const result = calculateHead_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

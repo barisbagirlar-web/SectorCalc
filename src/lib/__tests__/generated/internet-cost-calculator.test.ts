@@ -14,7 +14,7 @@ describe("internet-cost-calculator", () => {
     "usage": 120,
     "discountPercent": 10,
     "taxRate": 18
-  } as Internet_cost_calculatorInput;
+  } as unknown as Internet_cost_calculatorInput;
     const result = calculateInternet_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

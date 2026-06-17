@@ -12,7 +12,7 @@ describe("pediatric-bmi-calculator", () => {
     "sex": 0,
     "weight": 15,
     "height": 100
-  } as Pediatric_bmi_calculatorInput;
+  } as unknown as Pediatric_bmi_calculatorInput;
     const result = calculatePediatric_bmi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

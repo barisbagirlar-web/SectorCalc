@@ -15,7 +15,7 @@ describe("dental-implant-calculator", () => {
     "overheadPercent": 25,
     "batchSize": 10,
     "setupTime": 1
-  } as Dental_implant_calculatorInput;
+  } as unknown as Dental_implant_calculatorInput;
     const result = calculateDental_implant_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

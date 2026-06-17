@@ -12,7 +12,7 @@ describe("stopping-sight-distance-calculator", () => {
     "reactionTime": 2.5,
     "frictionCoeff": 0.35,
     "grade": 0
-  } as Stopping_sight_distance_calculatorInput;
+  } as unknown as Stopping_sight_distance_calculatorInput;
     const result = calculateStopping_sight_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

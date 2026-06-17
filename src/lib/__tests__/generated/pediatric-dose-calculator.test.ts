@@ -13,7 +13,7 @@ describe("pediatric-dose-calculator", () => {
     "childAge": 5,
     "maxDosePerKg": 80,
     "concentration": 100
-  } as Pediatric_dose_calculatorInput;
+  } as unknown as Pediatric_dose_calculatorInput;
     const result = calculatePediatric_dose_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

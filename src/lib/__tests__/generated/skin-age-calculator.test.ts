@@ -14,7 +14,7 @@ describe("skin-age-calculator", () => {
     "skincareScore": 5,
     "sleepHours": 7,
     "stressLevel": 3
-  } as Skin_age_calculatorInput;
+  } as unknown as Skin_age_calculatorInput;
     const result = calculateSkin_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

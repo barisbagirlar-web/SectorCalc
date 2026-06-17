@@ -13,7 +13,7 @@ describe("dividend-calculator", () => {
     "annualDividendPerShare": 5,
     "numberOfShares": 100,
     "dividendGrowthRate": 3
-  } as Dividend_calculatorInput;
+  } as unknown as Dividend_calculatorInput;
     const result = calculateDividend_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("graph-coloring-calculator", () => {
     "lowerSpec": 8,
     "upperSpec": 12,
     "warningFraction": 0.5
-  } as Graph_coloring_calculatorInput;
+  } as unknown as Graph_coloring_calculatorInput;
     const result = calculateGraph_coloring_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

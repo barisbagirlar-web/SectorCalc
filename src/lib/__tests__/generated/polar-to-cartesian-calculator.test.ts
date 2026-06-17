@@ -12,7 +12,7 @@ describe("polar-to-cartesian-calculator", () => {
     "theta": 0,
     "cx": 0,
     "cy": 0
-  } as Polar_to_cartesian_calculatorInput;
+  } as unknown as Polar_to_cartesian_calculatorInput;
     const result = calculatePolar_to_cartesian_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

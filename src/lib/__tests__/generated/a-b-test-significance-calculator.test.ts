@@ -13,7 +13,7 @@ describe("a-b-test-significance-calculator", () => {
     "variantVisitors": 1000,
     "variantConversions": 120,
     "confidenceLevel": 95
-  } as A_b_test_significance_calculatorInput;
+  } as unknown as A_b_test_significance_calculatorInput;
     const result = calculateA_b_test_significance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

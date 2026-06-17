@@ -16,7 +16,7 @@ describe("molar-mass-calculator", () => {
     "element3Mass": 0,
     "element4Count": 0,
     "element4Mass": 0
-  } as Molar_mass_calculatorInput;
+  } as unknown as Molar_mass_calculatorInput;
     const result = calculateMolar_mass_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

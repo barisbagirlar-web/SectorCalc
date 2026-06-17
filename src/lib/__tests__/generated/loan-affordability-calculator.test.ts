@@ -13,7 +13,7 @@ describe("loan-affordability-calculator", () => {
     "annualInterestRate": 5,
     "loanTermYears": 20,
     "loanAmount": 200000
-  } as Loan_affordability_calculatorInput;
+  } as unknown as Loan_affordability_calculatorInput;
     const result = calculateLoan_affordability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

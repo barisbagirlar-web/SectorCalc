@@ -13,7 +13,7 @@ describe("shooting-calculator", () => {
     "mass": 0.01,
     "gravity": 9.81,
     "launchHeight": 0
-  } as Shooting_calculatorInput;
+  } as unknown as Shooting_calculatorInput;
     const result = calculateShooting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("planting-calendar-calculator", () => {
     "soilTemp": 14,
     "minSoilTemp": 10,
     "safetyMargin": 10
-  } as Planting_calendar_calculatorInput;
+  } as unknown as Planting_calendar_calculatorInput;
     const result = calculatePlanting_calendar_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

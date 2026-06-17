@@ -12,7 +12,7 @@ describe("pyramid-surface-area-calculator", () => {
     "height": 4,
     "slantHeight": 0,
     "wasteFactor": 5
-  } as Pyramid_surface_area_calculatorInput;
+  } as unknown as Pyramid_surface_area_calculatorInput;
     const result = calculatePyramid_surface_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Operatör Yetkinlik Seviyesi",
         "tr": "Operatör Yetkinlik Seviyesi",
-        "de": "Operatör Yetkinlik Seviyesi",
+        "de": "Operator-Kompetenzniveau",
         "fr": "Operatör Yetkinlik Seviyesi",
         "es": "Operatör Yetkinlik Seviyesi",
         "ar": "Operatör Yetkinlik Seviyesi"
       },
       "businessContext_i18n": {
         "en": "Operatörün 1 ile 10 arasında puanlanan yetkinlik derecesi. Yüksek puan daha iyi performansı gösterir.",
-        "tr": "Operatörün 1 ile 10 arasında puanlanan yetkinlik derecesi. Yüksek puan daha iyi performansı gösterir."
+        "tr": "Operatörün 1 ile 10 arasında puanlanan yetkinlik derecesi. Yüksek puan daha iyi performansı gösterir.",
+        "de": "Kompetenzgrad des Operators auf einer Skala von 1 bis 10. Höhere Punktzahl zeigt bessere Leistung an."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Makine Yaşı",
         "tr": "Makine Yaşı",
-        "de": "Makine Yaşı",
+        "de": "Maschinenalter",
         "fr": "Makine Yaşı",
         "es": "Makine Yaşı",
         "ar": "Makine Yaşı"
       },
       "businessContext_i18n": {
         "en": "Makinenin yıl cinsinden yaşı. Daha eski makineler düşük verimlilik gösterir.",
-        "tr": "Makinenin yıl cinsinden yaşı. Daha eski makineler düşük verimlilik gösterir."
+        "tr": "Makinenin yıl cinsinden yaşı. Daha eski makineler düşük verimlilik gösterir.",
+        "de": "Alter der Maschine in Jahren. Ältere Maschinen zeigen geringere Effizienz."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Bakım Sıklığı",
         "tr": "Bakım Sıklığı",
-        "de": "Bakım Sıklığı",
+        "de": "Wartungshäufigkeit",
         "fr": "Bakım Sıklığı",
         "es": "Bakım Sıklığı",
         "ar": "Bakım Sıklığı"
       },
       "businessContext_i18n": {
         "en": "Aylık ortalama bakım sayısı. Daha sık bakım daha yüksek güvenilirlik sağlar.",
-        "tr": "Aylık ortalama bakım sayısı. Daha sık bakım daha yüksek güvenilirlik sağlar."
+        "tr": "Aylık ortalama bakım sayısı. Daha sık bakım daha yüksek güvenilirlik sağlar.",
+        "de": "Durchschnittliche Anzahl monatlicher Wartungen. Häufigere Wartung sorgt für höhere Zuverlässigkeit."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Ortam Sıcaklığı",
         "tr": "Ortam Sıcaklığı",
-        "de": "Ortam Sıcaklığı",
+        "de": "Umgebungstemperatur",
         "fr": "Ortam Sıcaklığı",
         "es": "Ortam Sıcaklığı",
         "ar": "Ortam Sıcaklığı"
       },
       "businessContext_i18n": {
         "en": "Çalışma ortamının sıcaklığı. 25°C ideal kabul edilir, sapmalar verimliliği düşürür.",
-        "tr": "Çalışma ortamının sıcaklığı. 25°C ideal kabul edilir, sapmalar verimliliği düşürür."
+        "tr": "Çalışma ortamının sıcaklığı. 25°C ideal kabul edilir, sapmalar verimliliği düşürür.",
+        "de": "Temperatur der Arbeitsumgebung. 25°C gelten als ideal, Abweichungen verringern die Effizienz."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Titreşim Seviyesi",
         "tr": "Titreşim Seviyesi",
-        "de": "Titreşim Seviyesi",
+        "de": "Vibrationsniveau",
         "fr": "Titreşim Seviyesi",
         "es": "Titreşim Seviyesi",
         "ar": "Titreşim Seviyesi"
       },
       "businessContext_i18n": {
         "en": "Makine titreşim seviyesi. Daha yüksek titreşim arıza riskini artırır ve verimi düşürür.",
-        "tr": "Makine titreşim seviyesi. Daha yüksek titreşim arıza riskini artırır ve verimi düşürür."
+        "tr": "Makine titreşim seviyesi. Daha yüksek titreşim arıza riskini artırır ve verimi düşürür.",
+        "de": "Vibrationsniveau der Maschine. Höhere Vibration erhöht das Ausfallrisiko und verringert den Wirkungsgrad."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Enerji Tüketimi",
         "tr": "Enerji Tüketimi",
-        "de": "Enerji Tüketimi",
+        "de": "Energieverbrauch",
         "fr": "Enerji Tüketimi",
         "es": "Enerji Tüketimi",
         "ar": "Enerji Tüketimi"
       },
       "businessContext_i18n": {
         "en": "Saatlik enerji tüketimi. Yüksek tüketim maliyetleri artırır ve verimlilik puanını düşürür.",
-        "tr": "Saatlik enerji tüketimi. Yüksek tüketim maliyetleri artırır ve verimlilik puanını düşürür."
+        "tr": "Saatlik enerji tüketimi. Yüksek tüketim maliyetleri artırır ve verimlilik puanını düşürür.",
+        "de": "Stündlicher Energieverbrauch. Hoher Verbrauch erhöht die Kosten und senkt die Effizienzbewertung."
       }
     }
   ],

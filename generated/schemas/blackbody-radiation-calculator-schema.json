@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
-        "de": "Temperature",
+        "de": "Temperatur",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the blackbody radiator in Kelvin",
-        "tr": "Kara cisim ışıyıcısının Kelvin cinsinden sıcaklığı"
+        "tr": "Kara cisim ışıyıcısının Kelvin cinsinden sıcaklığı",
+        "de": "Temperatur des Schwarzkörperstrahlers in Kelvin"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Wavelength",
         "tr": "Dalgaboyu",
-        "de": "Wavelength",
+        "de": "Wellenlänge",
         "fr": "Wavelength",
         "es": "Wavelength",
         "ar": "Wavelength"
       },
       "businessContext_i18n": {
         "en": "Wavelength for spectral radiance calculation in nanometers",
-        "tr": "Spektral ışıma hesaplaması için nanometre cinsinden dalgaboyu"
+        "tr": "Spektral ışıma hesaplaması için nanometre cinsinden dalgaboyu",
+        "de": "Wellenlänge für die spektrale Strahldichteberechnung in Nanometern"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Emissivity",
         "tr": "Yayma Katsayısı",
-        "de": "Emissivity",
+        "de": "Emissionsgrad",
         "fr": "Emissivity",
         "es": "Emissivity",
         "ar": "Emissivity"
       },
       "businessContext_i18n": {
         "en": "Surface emissivity (1 for perfect blackbody, 0-1 for graybody)",
-        "tr": "Yüzey yayma katsayısı (mükemmel kara cisim için 1, gri cisim için 0-1)"
+        "tr": "Yüzey yayma katsayısı (mükemmel kara cisim için 1, gri cisim için 0-1)",
+        "de": "Oberflächenemissionsgrad (1 für perfekten Schwarzkörper, 0-1 für Graukörper)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
-        "de": "Surface Area",
+        "de": "Oberfläche",
         "fr": "Surface Area",
         "es": "Surface Area",
         "ar": "Surface Area"
       },
       "businessContext_i18n": {
         "en": "Emitting surface area",
-        "tr": "Işıma yapan yüzey alanı"
+        "tr": "Işıma yapan yüzey alanı",
+        "de": "Emittierende Oberfläche"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Distance",
         "tr": "Mesafe",
-        "de": "Distance",
+        "de": "Entfernung",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Distance from the radiator for irradiance calculation",
-        "tr": "Işınım hesaplaması için ışıyıcıya olan mesafe"
+        "tr": "Işınım hesaplaması için ışıyıcıya olan mesafe",
+        "de": "Abstand vom Strahler für die Bestrahlungsstärkeberechnung"
       }
     }
   ],

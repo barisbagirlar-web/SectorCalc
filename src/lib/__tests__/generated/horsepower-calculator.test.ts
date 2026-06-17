@@ -13,7 +13,7 @@ describe("horsepower-calculator", () => {
     "efficiency": 0.9,
     "powerFactor": 0.85,
     "phaseFactor": 1.732
-  } as Horsepower_calculatorInput;
+  } as unknown as Horsepower_calculatorInput;
     const result = calculateHorsepower_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

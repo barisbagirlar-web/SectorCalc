@@ -14,7 +14,7 @@ describe("aquarium-volume-calculator", () => {
     "waterFillDepth": 30,
     "substrateDepth": 5,
     "glassThickness": 5
-  } as Aquarium_volume_calculatorInput;
+  } as unknown as Aquarium_volume_calculatorInput;
     const result = calculateAquarium_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

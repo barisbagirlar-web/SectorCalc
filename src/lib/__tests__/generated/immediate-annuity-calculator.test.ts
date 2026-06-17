@@ -12,7 +12,7 @@ describe("immediate-annuity-calculator", () => {
     "annualInterestRate": 5,
     "paymentPeriodsPerYear": 12,
     "years": 20
-  } as Immediate_annuity_calculatorInput;
+  } as unknown as Immediate_annuity_calculatorInput;
     const result = calculateImmediate_annuity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

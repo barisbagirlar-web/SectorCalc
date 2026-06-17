@@ -22,11 +22,13 @@
       "businessContext": "Total volume of material to be excavated from cut areas, measured in bank cubic meters (BCM).",
       "label_i18n": {
         "en": "Cut Volume",
-        "tr": "Kesme Hacmi"
+        "tr": "Kesme Hacmi",
+        "de": "Abtragsvolumen"
       },
       "businessContext_i18n": {
         "en": "Total volume of material to be excavated from cut areas, measured in bank cubic meters (BCM).",
-        "tr": "Kesme alanlarından kazılacak toplam malzeme hacmi, bank metreküp (BCM) cinsinden ölçülür."
+        "tr": "Kesme alanlarından kazılacak toplam malzeme hacmi, bank metreküp (BCM) cinsinden ölçülür.",
+        "de": "Gesamtvolumen des aus Abtragsbereichen auszuhebenden Materials, gemessen in Bank Cubic Metern (BCM)."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Total volume of material required for fill/embankment areas, measured in compacted cubic meters (CCM).",
       "label_i18n": {
         "en": "Fill Volume",
-        "tr": "Dolgu Hacmi"
+        "tr": "Dolgu Hacmi",
+        "de": "Füllvolumen"
       },
       "businessContext_i18n": {
         "en": "Total volume of material required for fill/embankment areas, measured in compacted cubic meters (CCM).",
-        "tr": "Dolgu/set alanları için gereken toplam malzeme hacmi, sıkıştırılmış metreküp (CCM) cinsinden ölçülür."
+        "tr": "Dolgu/set alanları için gereken toplam malzeme hacmi, sıkıştırılmış metreküp (CCM) cinsinden ölçülür.",
+        "de": "Gesamtvolumen des Materials, das für Damm-/Verfüllbereiche benötigt wird, gemessen in verdichteten Kubikmetern (CCM)."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Factor accounting for volume increase when material is excavated (loose state vs. bank state). Typical range 1.1–1.4.",
       "label_i18n": {
         "en": "Swell Factor",
-        "tr": "Kabarma Faktörü"
+        "tr": "Kabarma Faktörü",
+        "de": "Auflockerungsfaktor"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for volume increase when material is excavated (loose state vs. bank state). Typical range 1.1–1.4.",
-        "tr": "Malzemenin kazıldığında hacim artışını hesaba katan faktör (gevşek durum vs. bank durumu). Tipik aralık 1.1–1.4."
+        "tr": "Malzemenin kazıldığında hacim artışını hesaba katan faktör (gevşek durum vs. bank durumu). Tipik aralık 1.1–1.4.",
+        "de": "Faktor, der die Volumenzunahme beim Ausheben berücksichtigt (lose vs. gewachsener Zustand). Typischer Bereich 1,1–1,4."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Factor accounting for volume decrease when material is compacted (compacted state vs. bank state). Typical range 0.75–0.95.",
       "label_i18n": {
         "en": "Shrinkage Factor",
-        "tr": "Büzülme Faktörü"
+        "tr": "Büzülme Faktörü",
+        "de": "Schwindfaktor"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for volume decrease when material is compacted (compacted state vs. bank state). Typical range 0.75–0.95.",
-        "tr": "Malzemenin sıkıştırıldığında hacim azalmasını hesaba katan faktör (sıkıştırılmış durum vs. bank durumu). Tipik aralık 0.75–0.95."
+        "tr": "Malzemenin sıkıştırıldığında hacim azalmasını hesaba katan faktör (sıkıştırılmış durum vs. bank durumu). Tipik aralık 0.75–0.95.",
+        "de": "Verdichtungsfaktor"
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Average one-way distance from cut to fill areas, used for cost and fuel calculations.",
       "label_i18n": {
         "en": "Average Haul Distance",
-        "tr": "Ortalama Taşıma Mesafesi"
+        "tr": "Ortalama Taşıma Mesafesi",
+        "de": "Mittlere Transportentfernung"
       },
       "businessContext_i18n": {
         "en": "Average one-way distance from cut to fill areas, used for cost and fuel calculations.",
-        "tr": "Kesme alanlarından dolgu alanlarına tek yönlü ortalama mesafe, maliyet ve yakıt hesaplamalarında kullanılır."
+        "tr": "Kesme alanlarından dolgu alanlarına tek yönlü ortalama mesafe, maliyet ve yakıt hesaplamalarında kullanılır.",
+        "de": "Mittlere einfache Entfernung vom Einschnitt zur Verfüllung, verwendet für Kosten- und Kraftstoffberechnungen."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "Cost per cubic meter per kilometer of hauling material, including fuel, labor, and equipment depreciation.",
       "label_i18n": {
         "en": "Unit Haul Cost",
-        "tr": "Birim Taşıma Maliyeti"
+        "tr": "Birim Taşıma Maliyeti",
+        "de": "Stücktransportkosten"
       },
       "businessContext_i18n": {
         "en": "Cost per cubic meter per kilometer of hauling material, including fuel, labor, and equipment depreciation.",
-        "tr": "Malzeme taşımanın metreküp başına kilometre başına maliyeti; yakıt, işçilik ve ekipman amortismanını içerir."
+        "tr": "Malzeme taşımanın metreküp başına kilometre başına maliyeti; yakıt, işçilik ve ekipman amortismanını içerir.",
+        "de": "Kosten pro Kubikmeter pro Kilometer für den Materialtransport, einschließlich Kraftstoff, Arbeit und Geräteabschreibung."
       }
     },
     {
@@ -130,11 +142,13 @@
       "businessContext": "Cost per cubic meter for disposing excess material at a designated waste site.",
       "label_i18n": {
         "en": "Waste Disposal Cost",
-        "tr": "Atık Bertaraf Maliyeti"
+        "tr": "Atık Bertaraf Maliyeti",
+        "de": "Entsorgungskosten"
       },
       "businessContext_i18n": {
         "en": "Cost per cubic meter for disposing excess material at a designated waste site.",
-        "tr": "Fazla malzemenin belirlenmiş bir atık sahasında bertaraf edilmesinin metreküp başına maliyeti."
+        "tr": "Fazla malzemenin belirlenmiş bir atık sahasında bertaraf edilmesinin metreküp başına maliyeti.",
+        "de": "Kosten pro Kubikmeter für die Entsorgung von Überschussmaterial auf einer dafür vorgesehenen Deponie."
       }
     },
     {
@@ -148,11 +162,13 @@
       "businessContext": "Cost per cubic meter to import material from a borrow pit to meet fill deficit.",
       "label_i18n": {
         "en": "Borrow Material Cost",
-        "tr": "Ödünç Malzeme Maliyeti"
+        "tr": "Ödünç Malzeme Maliyeti",
+        "de": "Materialkosten aus Entnahmegrube"
       },
       "businessContext_i18n": {
         "en": "Cost per cubic meter to import material from a borrow pit to meet fill deficit.",
-        "tr": "Dolgu açığını karşılamak için bir ödünç ocaktan malzeme ithal etmenin metreküp başına maliyeti."
+        "tr": "Dolgu açığını karşılamak için bir ödünç ocaktan malzeme ithal etmenin metreküp başına maliyeti.",
+        "de": "Kosten pro Kubikmeter für den Import von Material aus einer Entnahmegrube zur Deckung des Verfüllungsdefizits."
       }
     }
   ],

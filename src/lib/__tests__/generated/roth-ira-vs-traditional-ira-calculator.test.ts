@@ -14,7 +14,7 @@ describe("roth-ira-vs-traditional-ira-calculator", () => {
     "currentTaxRate": 22,
     "retirementTaxRate": 22,
     "annualReturnRate": 7
-  } as Roth_ira_vs_traditional_ira_calculatorInput;
+  } as unknown as Roth_ira_vs_traditional_ira_calculatorInput;
     const result = calculateRoth_ira_vs_traditional_ira_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

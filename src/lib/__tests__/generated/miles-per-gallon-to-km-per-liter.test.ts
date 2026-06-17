@@ -12,7 +12,7 @@ describe("miles-per-gallon-to-km-per-liter", () => {
     "fuelType": 1,
     "temperatureCorrection": 1,
     "altitudeCorrection": 1
-  } as Miles_per_gallon_to_km_per_literInput;
+  } as unknown as Miles_per_gallon_to_km_per_literInput;
     const result = calculateMiles_per_gallon_to_km_per_liter(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

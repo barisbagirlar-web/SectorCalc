@@ -13,7 +13,7 @@ describe("storage-calculator-video-calculator", () => {
     "recordingHours": 24,
     "retentionDays": 30,
     "overheadPercent": 10
-  } as Storage_calculator_video_calculatorInput;
+  } as unknown as Storage_calculator_video_calculatorInput;
     const result = calculateStorage_calculator_video_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("ketogenic-diet-calculator", () => {
     "fatPercentage": 70,
     "proteinPercentage": 20,
     "carbPercentage": 10
-  } as Ketogenic_diet_calculatorInput;
+  } as unknown as Ketogenic_diet_calculatorInput;
     const result = calculateKetogenic_diet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

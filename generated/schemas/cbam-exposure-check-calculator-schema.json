@@ -22,11 +22,13 @@
       "businessContext": "Total output of the primary product (e.g., steel, cement, aluminum) in metric tons per year.",
       "label_i18n": {
         "en": "Annual Production Volume",
-        "tr": "Yıllık Üretim Hacmi"
+        "tr": "Yıllık Üretim Hacmi",
+        "de": "Jährliches Produktionsvolumen"
       },
       "businessContext_i18n": {
         "en": "Total output of the primary product (e.g., steel, cement, aluminum) in metric tons per year.",
-        "tr": "Birincil ürünün (ör. çelik, çimento, alüminyum) yıllık toplam üretimi (metrik ton)."
+        "tr": "Birincil ürünün (ör. çelik, çimento, alüminyum) yıllık toplam üretimi (metrik ton).",
+        "de": "Gesamtproduktion des Primärprodukts (z. B. Stahl, Zement, Aluminium) in metrischen Tonnen pro Jahr."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Direct and indirect greenhouse gas emissions per ton of product, based on ISO 14064 or GHG Protocol.",
       "label_i18n": {
         "en": "Carbon Intensity",
-        "tr": "Karbon Yoğunluğu"
+        "tr": "Karbon Yoğunluğu",
+        "de": "Kohlenstoffintensität"
       },
       "businessContext_i18n": {
         "en": "Direct and indirect greenhouse gas emissions per ton of product, based on ISO 14064 or GHG Protocol.",
-        "tr": "ISO 14064 veya GHG Protokolü'ne göre ton ürün başına doğrudan ve dolaylı sera gazı emisyonları."
+        "tr": "ISO 14064 veya GHG Protokolü'ne göre ton ürün başına doğrudan ve dolaylı sera gazı emisyonları.",
+        "de": "Direkte und indirekte Treibhausgasemissionen pro Tonne Produkt, basierend auf ISO 14064 oder GHG Protocol."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Expected or current EU ETS allowance price used for CBAM certificate calculation.",
       "label_i18n": {
         "en": "CBAM Carbon Price",
-        "tr": "CBAM Karbon Fiyatı"
+        "tr": "CBAM Karbon Fiyatı",
+        "de": "CBAM-Kohlenstoffpreis"
       },
       "businessContext_i18n": {
         "en": "Expected or current EU ETS allowance price used for CBAM certificate calculation.",
-        "tr": "CBAM sertifika hesaplaması için beklenen veya mevcut AB ETS emisyon izni fiyatı."
+        "tr": "CBAM sertifika hesaplaması için beklenen veya mevcut AB ETS emisyon izni fiyatı.",
+        "de": "Erwarteter oder aktueller EU-ETS-Allowance-Preis für die CBAM-Zertifikatsberechnung."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Percentage of emissions covered by free allowances under CBAM transitional rules.",
       "label_i18n": {
         "en": "Free Allocation Percentage",
-        "tr": "Ücretsiz Tahsisat Yüzdesi"
+        "tr": "Ücretsiz Tahsisat Yüzdesi",
+        "de": "Prozentsatz der kostenlosen Zuteilung"
       },
       "businessContext_i18n": {
         "en": "Percentage of emissions covered by free allowances under CBAM transitional rules.",
-        "tr": "CBAM geçiş kuralları kapsamında ücretsiz tahsisatlarla karşılanan emisyonların yüzdesi."
+        "tr": "CBAM geçiş kuralları kapsamında ücretsiz tahsisatlarla karşılanan emisyonların yüzdesi.",
+        "de": "Prozentsatz der Emissionen, die unter den CBAM-Übergangsregeln durch kostenlose Zertifikate abgedeckt sind."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Overall equipment effectiveness (OEE) or similar lean metric; higher values reduce waste and emissions.",
       "label_i18n": {
         "en": "Production Efficiency Index",
-        "tr": "Üretim Verimlilik Endeksi"
+        "tr": "Üretim Verimlilik Endeksi",
+        "de": "Produktionseffizienzindex"
       },
       "businessContext_i18n": {
         "en": "Overall equipment effectiveness (OEE) or similar lean metric; higher values reduce waste and emissions.",
-        "tr": "Genel ekipman etkinliği (OEE) veya benzer yalın metrik; yüksek değerler atık ve emisyonları azaltır."
+        "tr": "Genel ekipman etkinliği (OEE) veya benzer yalın metrik; yüksek değerler atık ve emisyonları azaltır.",
+        "de": "Gesamtanlageneffektivität (OEE) oder ähnliche Lean-Kennzahl; höhere Werte reduzieren Abfall und Emissionen."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "Assessment of data collection, reporting systems, and verification readiness per CBAM requirements.",
       "label_i18n": {
         "en": "Compliance Readiness Score",
-        "tr": "Uyum Hazırlık Puanı"
+        "tr": "Uyum Hazırlık Puanı",
+        "de": "Compliance-Bereitschaftswert"
       },
       "businessContext_i18n": {
         "en": "Assessment of data collection, reporting systems, and verification readiness per CBAM requirements.",
-        "tr": "CBAM gerekliliklerine göre veri toplama, raporlama sistemleri ve doğrulama hazırlığının değerlendirmesi."
+        "tr": "CBAM gerekliliklerine göre veri toplama, raporlama sistemleri ve doğrulama hazırlığının değerlendirmesi.",
+        "de": "Bewertung der Datenerfassung, Berichtssysteme und Verifizierungsbereitschaft gemäß CBAM-Anforderungen."
       }
     },
     {
@@ -130,11 +142,13 @@
       "businessContext": "Best available technology (BAT) or sector average carbon intensity for benchmarking (ISO 50001).",
       "label_i18n": {
         "en": "Industry Benchmark Intensity",
-        "tr": "Sektör Kıyaslama Yoğunluğu"
+        "tr": "Sektör Kıyaslama Yoğunluğu",
+        "de": "Branchen-Benchmark-Intensität"
       },
       "businessContext_i18n": {
         "en": "Best available technology (BAT) or sector average carbon intensity for benchmarking (ISO 50001).",
-        "tr": "Kıyaslama için mevcut en iyi teknoloji (BAT) veya sektör ortalama karbon yoğunluğu (ISO 50001)."
+        "tr": "Kıyaslama için mevcut en iyi teknoloji (BAT) veya sektör ortalama karbon yoğunluğu (ISO 50001).",
+        "de": "Beste verfügbare Technologie (BAT) oder sektoraler Durchschnitt der Kohlenstoffintensität für Benchmarking (ISO 50001)."
       }
     },
     {
@@ -150,11 +164,13 @@
       "businessContext": "Defines which emission scopes are included in the carbon intensity calculation.",
       "label_i18n": {
         "en": "Emission Scope",
-        "tr": "Emisyon Kapsamı"
+        "tr": "Emisyon Kapsamı",
+        "de": "Emissionsumfang"
       },
       "businessContext_i18n": {
         "en": "Defines which emission scopes are included in the carbon intensity calculation.",
-        "tr": "Karbon yoğunluğu hesaplamasına hangi emisyon kapsamlarının dahil edildiğini tanımlar."
+        "tr": "Karbon yoğunluğu hesaplamasına hangi emisyon kapsamlarının dahil edildiğini tanımlar.",
+        "de": "Definiert, welche Emissionsbereiche in die Berechnung der Kohlenstoffintensität einbezogen werden."
       },
       "unit": "unit"
     }

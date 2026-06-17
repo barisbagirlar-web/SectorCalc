@@ -12,7 +12,7 @@ describe("mandolin-string-tension-calculator", () => {
     "stringDiameter": 0.25,
     "materialDensity": 7800,
     "noteFrequency": 196
-  } as Mandolin_string_tension_calculatorInput;
+  } as unknown as Mandolin_string_tension_calculatorInput;
     const result = calculateMandolin_string_tension_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

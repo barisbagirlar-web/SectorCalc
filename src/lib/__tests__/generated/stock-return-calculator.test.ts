@@ -13,7 +13,7 @@ describe("stock-return-calculator", () => {
     "sellingPrice": 60,
     "dividends": 0,
     "holdingPeriodYears": 1
-  } as Stock_return_calculatorInput;
+  } as unknown as Stock_return_calculatorInput;
     const result = calculateStock_return_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

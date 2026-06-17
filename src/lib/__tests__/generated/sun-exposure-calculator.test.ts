@@ -13,7 +13,7 @@ describe("sun-exposure-calculator", () => {
     "spf": 15,
     "cloudCover": 0,
     "altitude": 0
-  } as Sun_exposure_calculatorInput;
+  } as unknown as Sun_exposure_calculatorInput;
     const result = calculateSun_exposure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("helical-gear-calculator", () => {
     "alpha": 20,
     "ha": 1,
     "c": 0.25
-  } as Helical_gear_calculatorInput;
+  } as unknown as Helical_gear_calculatorInput;
     const result = calculateHelical_gear_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

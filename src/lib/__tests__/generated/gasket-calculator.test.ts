@@ -14,7 +14,7 @@ describe("gasket-calculator", () => {
     "gasketFactor": 2.5,
     "seatingStress": 20,
     "boltCount": 4
-  } as Gasket_calculatorInput;
+  } as unknown as Gasket_calculatorInput;
     const result = calculateGasket_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

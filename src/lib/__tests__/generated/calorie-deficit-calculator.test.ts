@@ -16,7 +16,7 @@ describe("calorie-deficit-calculator", () => {
     "goalRate": "moderate",
     "bodyFatPercent": 20,
     "isPregnant": false
-  } as Calorie_deficit_calculatorInput;
+  } as unknown as Calorie_deficit_calculatorInput;
     const result = calculateCalorie_deficit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

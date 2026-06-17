@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Campers",
         "tr": "Kampçı Sayısı",
-        "de": "Number of Campers",
+        "de": "Anzahl der Camper",
         "fr": "Number of Campers",
         "es": "Number of Campers",
         "ar": "Number of Campers"
       },
       "businessContext_i18n": {
         "en": "Total number of people on the camping trip",
-        "tr": "Kamp gezisindeki toplam kişi sayısı"
+        "tr": "Kamp gezisindeki toplam kişi sayısı",
+        "de": "Gesamtzahl der Personen auf dem Campingausflug"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Nights",
         "tr": "Gece Sayısı",
-        "de": "Number of Nights",
+        "de": "Anzahl der Nächte",
         "fr": "Number of Nights",
         "es": "Number of Nights",
         "ar": "Number of Nights"
       },
       "businessContext_i18n": {
         "en": "Duration of the camping trip in nights",
-        "tr": "Kamp gezisinin gece olarak süresi"
+        "tr": "Kamp gezisinin gece olarak süresi",
+        "de": "Dauer des Campingausflugs in Nächten"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Daily Water per Person",
         "tr": "Kişi Başı Günlük Su",
-        "de": "Daily Water per Person",
+        "de": "Täglicher Wasserbedarf pro Person",
         "fr": "Daily Water per Person",
         "es": "Daily Water per Person",
         "ar": "Daily Water per Person"
       },
       "businessContext_i18n": {
         "en": "Recommended water per person per day for drinking, cooking, and hygiene",
-        "tr": "İçme, yemek pişirme ve hijyen için kişi başı günlük önerilen su"
+        "tr": "İçme, yemek pişirme ve hijyen için kişi başı günlük önerilen su",
+        "de": "Empfohlener Wasserbedarf pro Person und Tag für Trinken, Kochen und Hygiene"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Daily Food Energy per Person",
         "tr": "Kişi Başı Günlük Gıda Enerjisi",
-        "de": "Daily Food Energy per Person",
+        "de": "Täglicher Nahrungsenergiebedarf pro Person",
         "fr": "Daily Food Energy per Person",
         "es": "Daily Food Energy per Person",
         "ar": "Daily Food Energy per Person"
       },
       "businessContext_i18n": {
         "en": "Average daily calorie intake per person",
-        "tr": "Kişi başı ortalama günlük kalori alımı"
+        "tr": "Kişi başı ortalama günlük kalori alımı",
+        "de": "Durchschnittliche tägliche Kalorienaufnahme pro Person"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Firewood per Night",
         "tr": "Gece Başına Odun",
-        "de": "Firewood per Night",
+        "de": "Brennholz pro Nacht",
         "fr": "Firewood per Night",
         "es": "Firewood per Night",
         "ar": "Firewood per Night"
       },
       "businessContext_i18n": {
         "en": "Estimated firewood needed per evening campfire",
-        "tr": "Akşam kamp ateşi için tahmini odun ihtiyacı"
+        "tr": "Akşam kamp ateşi için tahmini odun ihtiyacı",
+        "de": "Geschätzter Brennholzbedarf pro abendlichem Lagerfeuer"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Temperature Adjustment Factor",
         "tr": "Sıcaklık Ayarlama Faktörü",
-        "de": "Temperature Adjustment Factor",
+        "de": "Temperaturanpassungsfaktor",
         "fr": "Temperature Adjustment Factor",
         "es": "Temperature Adjustment Factor",
         "ar": "Temperature Adjustment Factor"
       },
       "businessContext_i18n": {
         "en": "Adjust water needs: 0 for normal, positive for hot (e.g., 0.2 for >30°C), negative for cold",
-        "tr": "Su ihtiyacını ayarlayın: normal için 0, sıcak için pozitif (örn. >30°C için 0.2), soğuk için negatif"
+        "tr": "Su ihtiyacını ayarlayın: normal için 0, sıcak için pozitif (örn. >30°C için 0.2), soğuk için negatif",
+        "de": "Wasserbedarf anpassen: 0 für normal, positiv für heiß (z.B. 0,2 bei >30°C), negativ für kalt"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Safety Margin",
         "tr": "Güvenlik Marjı",
-        "de": "Safety Margin",
+        "de": "Sicherheitsmarge",
         "fr": "Safety Margin",
         "es": "Safety Margin",
         "ar": "Safety Margin"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra supplies for unforeseen circumstances",
-        "tr": "Öngörülemeyen durumlar için ekstra malzeme yüzdesi"
+        "tr": "Öngörülemeyen durumlar için ekstra malzeme yüzdesi",
+        "de": "Prozentsatz zusätzlicher Vorräte für unvorhergesehene Umstände"
       }
     }
   ],

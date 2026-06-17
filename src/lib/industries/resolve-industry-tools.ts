@@ -9,6 +9,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-catalog";
 import type { FormulaFamilyId } from "@/lib/premium-schema/formula-families";
 import { getPremiumCalculatorSchema } from "@/lib/premium-schema/schema-registry";
+import { PREMIUM_MIGRATION_MAP } from "@/lib/premium-schema/premium-migration-map";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
 import { getIndustryRegistryEntry } from "@/lib/tools/industry-registry";
 import {
@@ -17,7 +18,7 @@ import {
   type FreeTrafficTool,
 } from "@/lib/tools/free-traffic-catalog";
 import { getAllRevenueToolSpecs } from "@/lib/tools/revenue-tools";
-import { getFreeToolHref, resolvePremiumToolHref } from "@/lib/tools/tool-links";
+import { getFreeToolHref, getPremiumSchemaToolHref, resolvePremiumToolHref } from "@/lib/tools/tool-links";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import enMessages from "../../../messages/en.json";
 import trMessages from "../../../messages/tr.json";
@@ -106,6 +107,18 @@ function scoreKeywordHits(text: string, keywords: readonly string[]): number {
     }
   }
   return score;
+}
+
+function resolveFreeToolCardDescription(tool: FreeTrafficTool, locale: string): string {
+  const localized = resolveFreeToolLocalizedCopy(tool.slug, locale);
+  return (
+    localized.description?.trim() ||
+    localized.seoDescription?.trim() ||
+    tool.description?.trim() ||
+    tool.seoDescription?.trim() ||
+    localized.title?.trim() ||
+    tool.title.trim()
+  );
 }
 
 function readFreeCategoryLabel(category: FreeTrafficCategory, locale: string): string {
@@ -209,7 +222,7 @@ export function resolveIndustryTools({
       freeBucket,
       {
         title: localized.title ?? tool.title,
-        description: localized.description ?? tool.description,
+        description: resolveFreeToolCardDescription(tool, locale),
         href: `/tools/free/${tool.slug}`,
         categoryLabel: readFreeCategoryLabel(tool.category, locale),
         tier: "free",
@@ -282,6 +295,37 @@ export function resolveIndustryTools({
         accent: resolveCalculatorCardAccent(item.category, "premium"),
       },
       500,
+    );
+  }
+
+  for (const migration of PREMIUM_MIGRATION_MAP) {
+    if (migration.sectorSlug !== industrySlug) {
+      continue;
+    }
+
+    const schema = migration.schemaSlug
+      ? getPremiumCalculatorSchema(migration.schemaSlug)
+      : undefined;
+    const href = schema
+      ? getPremiumSchemaToolHref(schema.id)
+      : resolvePremiumToolHref(migration.legacySlug);
+
+    pushScored(
+      premiumBucket,
+      {
+        title: getLocalizedRevenueToolTitle(
+          migration.legacySlug,
+          "paid",
+          locale,
+          migration.title,
+        ),
+        description: migration.migrationNote,
+        href,
+        categoryLabel: registryEntry?.name ?? industrySlug,
+        tier: "premium",
+        accent: resolveCalculatorCardAccent(migration.family, "premium"),
+      },
+      450,
     );
   }
 

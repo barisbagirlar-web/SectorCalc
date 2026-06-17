@@ -14,7 +14,7 @@ describe("sausage-calculator", () => {
     "fatCost": 2,
     "casingDiameter": 30,
     "casingCost": 0.5
-  } as Sausage_calculatorInput;
+  } as unknown as Sausage_calculatorInput;
     const result = calculateSausage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

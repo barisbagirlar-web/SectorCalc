@@ -14,7 +14,7 @@ describe("npsh-calculator", () => {
     "staticSuctionHead": 0,
     "frictionHeadLoss": 0.5,
     "velocityHead": 0.2
-  } as Npsh_calculatorInput;
+  } as unknown as Npsh_calculatorInput;
     const result = calculateNpsh_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

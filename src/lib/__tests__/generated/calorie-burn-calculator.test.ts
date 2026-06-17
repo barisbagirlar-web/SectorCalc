@@ -11,7 +11,7 @@ describe("calorie-burn-calculator", () => {
     "weight": 70,
     "duration": 30,
     "met": 8
-  } as Calorie_burn_calculatorInput;
+  } as unknown as Calorie_burn_calculatorInput;
     const result = calculateCalorie_burn_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

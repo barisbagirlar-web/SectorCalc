@@ -13,7 +13,7 @@ describe("fermentation-calculator", () => {
     "temperature": 20,
     "yeastPitchRate": 1000000,
     "batchVolume": 1000
-  } as Fermentation_calculatorInput;
+  } as unknown as Fermentation_calculatorInput;
     const result = calculateFermentation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("college-savings-calculator", () => {
     "inflationRate": 2,
     "annualCollegeCost": 20000,
     "collegeYears": 4
-  } as College_savings_calculatorInput;
+  } as unknown as College_savings_calculatorInput;
     const result = calculateCollege_savings_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

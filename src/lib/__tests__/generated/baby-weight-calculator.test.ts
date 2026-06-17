@@ -12,7 +12,7 @@ describe("baby-weight-calculator", () => {
     "hc": 27,
     "ac": 25.5,
     "fl": 5.6
-  } as Baby_weight_calculatorInput;
+  } as unknown as Baby_weight_calculatorInput;
     const result = calculateBaby_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

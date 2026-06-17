@@ -13,7 +13,7 @@ describe("greywater-calculator", () => {
     "greywaterFraction": 0.65,
     "systemEfficiency": 0.8,
     "waterCostPerCubicMeter": 3.5
-  } as Greywater_calculatorInput;
+  } as unknown as Greywater_calculatorInput;
     const result = calculateGreywater_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

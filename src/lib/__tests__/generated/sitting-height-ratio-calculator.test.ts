@@ -12,7 +12,7 @@ describe("sitting-height-ratio-calculator", () => {
     "sittingHeightMm": 0,
     "standingHeightCm": 170,
     "standingHeightMm": 0
-  } as Sitting_height_ratio_calculatorInput;
+  } as unknown as Sitting_height_ratio_calculatorInput;
     const result = calculateSitting_height_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

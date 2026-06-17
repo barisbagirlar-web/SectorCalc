@@ -12,7 +12,7 @@ describe("single-phase-calculator", () => {
     "current": 10,
     "powerFactor": 0.9,
     "time": 1
-  } as Single_phase_calculatorInput;
+  } as unknown as Single_phase_calculatorInput;
     const result = calculateSingle_phase_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

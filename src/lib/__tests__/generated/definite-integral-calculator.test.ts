@@ -14,7 +14,7 @@ describe("definite-integral-calculator", () => {
     "coeffD": 0,
     "lowerLimit": 0,
     "upperLimit": 1
-  } as Definite_integral_calculatorInput;
+  } as unknown as Definite_integral_calculatorInput;
     const result = calculateDefinite_integral_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

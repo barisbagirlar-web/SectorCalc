@@ -13,7 +13,7 @@ describe("vinyl-siding-calculator", () => {
     "panelCoverage": 8,
     "pricePerPanel": 10,
     "wastePercentage": 10
-  } as Vinyl_siding_calculatorInput;
+  } as unknown as Vinyl_siding_calculatorInput;
     const result = calculateVinyl_siding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

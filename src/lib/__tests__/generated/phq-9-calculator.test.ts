@@ -13,7 +13,7 @@ describe("phq-9-calculator", () => {
     "flow_rate": 0.01,
     "pipe_diameter": 0.1,
     "efficiency_factor": 1
-  } as Phq_9_calculatorInput;
+  } as unknown as Phq_9_calculatorInput;
     const result = calculatePhq_9_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

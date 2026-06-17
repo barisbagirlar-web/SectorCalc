@@ -12,7 +12,7 @@ describe("delta-star-calculator", () => {
     "R1": 10,
     "R2": 20,
     "R3": 30
-  } as Delta_star_calculatorInput;
+  } as unknown as Delta_star_calculatorInput;
     const result = calculateDelta_star_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

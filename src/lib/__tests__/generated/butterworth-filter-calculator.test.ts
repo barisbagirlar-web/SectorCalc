@@ -12,7 +12,7 @@ describe("butterworth-filter-calculator", () => {
     "cutoffHz": 1000,
     "frequencyHz": 2000,
     "gain": 1
-  } as Butterworth_filter_calculatorInput;
+  } as unknown as Butterworth_filter_calculatorInput;
     const result = calculateButterworth_filter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

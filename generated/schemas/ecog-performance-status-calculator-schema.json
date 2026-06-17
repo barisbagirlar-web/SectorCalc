@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Titreşim Seviyesi",
         "tr": "Titreşim Seviyesi",
-        "de": "Titreşim Seviyesi",
+        "de": "Vibrationsniveau",
         "fr": "Titreşim Seviyesi",
         "es": "Titreşim Seviyesi",
         "ar": "Titreşim Seviyesi"
       },
       "businessContext_i18n": {
         "en": "Ekipman titreşim RMS değeri",
-        "tr": "Ekipman titreşim RMS değeri"
+        "tr": "Ekipman titreşim RMS değeri",
+        "de": "Effektivwert der Gerätevibration (RMS)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sıcaklık",
         "tr": "Sıcaklık",
-        "de": "Sıcaklık",
+        "de": "Temperatur",
         "fr": "Sıcaklık",
         "es": "Sıcaklık",
         "ar": "Sıcaklık"
       },
       "businessContext_i18n": {
         "en": "Ekipman çalışma sıcaklığı",
-        "tr": "Ekipman çalışma sıcaklığı"
+        "tr": "Ekipman çalışma sıcaklığı",
+        "de": "Betriebstemperatur der Anlage"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Çalışma Süresi",
         "tr": "Çalışma Süresi",
-        "de": "Çalışma Süresi",
+        "de": "Betriebszeit",
         "fr": "Çalışma Süresi",
         "es": "Çalışma Süresi",
         "ar": "Çalışma Süresi"
       },
       "businessContext_i18n": {
         "en": "Son bakımdan sonra çalışma saati",
-        "tr": "Son bakımdan sonra çalışma saati"
+        "tr": "Son bakımdan sonra çalışma saati",
+        "de": "Betriebsstunden seit letzter Wartung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Yağ Kalitesi",
         "tr": "Yağ Kalitesi",
-        "de": "Yağ Kalitesi",
+        "de": "Ölqualität",
         "fr": "Yağ Kalitesi",
         "es": "Yağ Kalitesi",
         "ar": "Yağ Kalitesi"
       },
       "businessContext_i18n": {
         "en": "Yağ kalite endeksi (0-100)",
-        "tr": "Yağ kalite endeksi (0-100)"
+        "tr": "Yağ kalite endeksi (0-100)",
+        "de": "Ölqualitätsindex (0-100)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Gürültü Seviyesi",
         "tr": "Gürültü Seviyesi",
-        "de": "Gürültü Seviyesi",
+        "de": "Lärmpegel",
         "fr": "Gürültü Seviyesi",
         "es": "Gürültü Seviyesi",
         "ar": "Gürültü Seviyesi"
       },
       "businessContext_i18n": {
         "en": "Ortalama gürültü seviyesi",
-        "tr": "Ortalama gürültü seviyesi"
+        "tr": "Ortalama gürültü seviyesi",
+        "de": "Durchschnittlicher Lärmpegel"
       }
     }
   ],

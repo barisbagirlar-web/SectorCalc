@@ -16,7 +16,7 @@ describe("energy-consumption-cost-report-calculator", () => {
     "facility_type": "manufacturing",
     "include_renewable_offset": false,
     "renewable_kwh": 0
-  } as Energy_consumption_cost_report_calculatorInput;
+  } as unknown as Energy_consumption_cost_report_calculatorInput;
     const result = calculateEnergy_consumption_cost_report_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

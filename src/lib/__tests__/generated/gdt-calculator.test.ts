@@ -14,7 +14,7 @@ describe("gdt-calculator", () => {
     "datum_shift": 0,
     "bonus_tolerance": 0,
     "angle": 90
-  } as Gdt_calculatorInput;
+  } as unknown as Gdt_calculatorInput;
     const result = calculateGdt_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

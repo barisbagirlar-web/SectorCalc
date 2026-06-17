@@ -16,7 +16,7 @@ describe("deep-fry-calculator", () => {
     "electricityCost": 0.15,
     "oilCostPerLiter": 1.5,
     "oilLifeBatches": 40
-  } as Deep_fry_calculatorInput;
+  } as unknown as Deep_fry_calculatorInput;
     const result = calculateDeep_fry_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

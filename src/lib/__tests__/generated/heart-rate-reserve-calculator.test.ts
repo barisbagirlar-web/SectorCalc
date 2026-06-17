@@ -12,7 +12,7 @@ describe("heart-rate-reserve-calculator", () => {
     "restingHeartRate": 70,
     "maximumHeartRate": 0,
     "intensity": 60
-  } as Heart_rate_reserve_calculatorInput;
+  } as unknown as Heart_rate_reserve_calculatorInput;
     const result = calculateHeart_rate_reserve_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

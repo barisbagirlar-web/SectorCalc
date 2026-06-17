@@ -14,7 +14,7 @@ describe("mountaineering-calculator", () => {
     "ascentPace": 600,
     "difficultyMultiplier": 1,
     "safetyMarginPercent": 10
-  } as Mountaineering_calculatorInput;
+  } as unknown as Mountaineering_calculatorInput;
     const result = calculateMountaineering_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

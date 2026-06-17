@@ -11,7 +11,7 @@ describe("one-rep-max-calculator", () => {
     "weight": 100,
     "reps": 10,
     "auto_input_3": 1
-  } as One_rep_max_calculatorInput;
+  } as unknown as One_rep_max_calculatorInput;
     const result = calculateOne_rep_max_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

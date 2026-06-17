@@ -16,7 +16,7 @@ describe("transport-mode-cost-risk-calculator", () => {
     "labor_rate_per_hour": 25,
     "transit_time_days": 3,
     "damage_rate_percent": 1.5
-  } as Transport_mode_cost_risk_calculatorInput;
+  } as unknown as Transport_mode_cost_risk_calculatorInput;
     const result = calculateTransport_mode_cost_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

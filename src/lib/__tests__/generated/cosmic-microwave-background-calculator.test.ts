@@ -11,7 +11,7 @@ describe("cosmic-microwave-background-calculator", () => {
     "temperature": 2.725,
     "frequency": 160200000000,
     "auto_input_3": 1
-  } as Cosmic_microwave_background_calculatorInput;
+  } as unknown as Cosmic_microwave_background_calculatorInput;
     const result = calculateCosmic_microwave_background_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

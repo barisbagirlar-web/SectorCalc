@@ -12,7 +12,7 @@ describe("cat-years-calculator", () => {
     "catAgeMonths": 0,
     "catWeightKg": 4.5,
     "indoor": 1
-  } as Cat_years_calculatorInput;
+  } as unknown as Cat_years_calculatorInput;
     const result = calculateCat_years_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

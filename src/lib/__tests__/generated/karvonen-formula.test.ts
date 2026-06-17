@@ -13,7 +13,7 @@ describe("karvonen-formula", () => {
     "max_hr": 190,
     "intensity_min": 60,
     "intensity_max": 80
-  } as Karvonen_formulaInput;
+  } as unknown as Karvonen_formulaInput;
     const result = calculateKarvonen_formula(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

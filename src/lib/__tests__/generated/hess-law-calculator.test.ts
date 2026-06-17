@@ -14,7 +14,7 @@ describe("hess-law-calculator", () => {
     "deltaH4": 0,
     "deltaH5": 0,
     "deltaH6": 0
-  } as Hess_law_calculatorInput;
+  } as unknown as Hess_law_calculatorInput;
     const result = calculateHess_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

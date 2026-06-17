@@ -16,7 +16,7 @@ describe("cox-proportional-hazards-calculator", () => {
     "beta_temp": 0.03,
     "beta_vibration": 0.1,
     "beta_maintenance": -0.5
-  } as Cox_proportional_hazards_calculatorInput;
+  } as unknown as Cox_proportional_hazards_calculatorInput;
     const result = calculateCox_proportional_hazards_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

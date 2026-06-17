@@ -13,7 +13,7 @@ describe("delayed-onset-muscle-soreness-calculator", () => {
     "exerciseIntensity": 5,
     "exerciseDuration": 60,
     "recoveryHours": 24
-  } as Delayed_onset_muscle_soreness_calculatorInput;
+  } as unknown as Delayed_onset_muscle_soreness_calculatorInput;
     const result = calculateDelayed_onset_muscle_soreness_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

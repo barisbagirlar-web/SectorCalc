@@ -13,7 +13,7 @@ describe("rectangle-area-calculator", () => {
     "conversionFactor": 0.000001,
     "tolerancePercent": 0,
     "safetyFactor": 1
-  } as Rectangle_area_calculatorInput;
+  } as unknown as Rectangle_area_calculatorInput;
     const result = calculateRectangle_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

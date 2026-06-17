@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Bushels",
         "tr": "Toplam Kile",
-        "de": "Total Bushels",
+        "de": "Gesamte Scheffel",
         "fr": "Total Bushels",
         "es": "Total Bushels",
         "ar": "Total Bushels"
       },
       "businessContext_i18n": {
         "en": "Quantity of grain or dry volume in bushels",
-        "tr": "Kile cinsinden tahıl veya kuru hacim miktarı"
+        "tr": "Kile cinsinden tahıl veya kuru hacim miktarı",
+        "de": "Menge Getreide oder Trockenvolumen in Scheffel"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Liters per Bushel",
         "tr": "Kile Başına Litre",
-        "de": "Liters per Bushel",
+        "de": "Liter pro Scheffel",
         "fr": "Liters per Bushel",
         "es": "Liters per Bushel",
         "ar": "Liters per Bushel"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from bushels to liters (US dry standard: 35.2391 L/bu)",
-        "tr": "Kileden litreye dönüşüm faktörü (ABD kuru standardı: 35,2391 L/bu)"
+        "tr": "Kileden litreye dönüşüm faktörü (ABD kuru standardı: 35,2391 L/bu)",
+        "de": "Umrechnungsfaktor von Scheffel in Liter (US-Trockenstandard: 35,2391 L/bu)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Batches",
         "tr": "Parti Sayısı",
-        "de": "Number of Batches",
+        "de": "Anzahl der Chargen",
         "fr": "Number of Batches",
         "es": "Number of Batches",
         "ar": "Number of Batches"
       },
       "businessContext_i18n": {
         "en": "Number of batches or lots (multiplies total volume)",
-        "tr": "Parti veya lot sayısı (toplam hacmi çarpar)"
+        "tr": "Parti veya lot sayısı (toplam hacmi çarpar)",
+        "de": "Anzahl der Chargen oder Lose (multipliziert das Gesamtvolumen)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Container Capacity",
         "tr": "Konteyner Kapasitesi",
-        "de": "Container Capacity",
+        "de": "Behälterkapazität",
         "fr": "Container Capacity",
         "es": "Container Capacity",
         "ar": "Container Capacity"
       },
       "businessContext_i18n": {
         "en": "Volume of each container for logistical planning",
-        "tr": "Lojistik planlama için her bir konteynerin hacmi"
+        "tr": "Lojistik planlama için her bir konteynerin hacmi",
+        "de": "Volumen jedes Behälters für die Logistikplanung"
       }
     }
   ],

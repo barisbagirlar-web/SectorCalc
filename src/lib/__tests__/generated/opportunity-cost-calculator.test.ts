@@ -12,7 +12,7 @@ describe("opportunity-cost-calculator", () => {
     "currentReturnRate": 5,
     "alternativeReturnRate": 8,
     "timePeriod": 1
-  } as Opportunity_cost_calculatorInput;
+  } as unknown as Opportunity_cost_calculatorInput;
     const result = calculateOpportunity_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

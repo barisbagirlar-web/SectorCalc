@@ -11,7 +11,7 @@ describe("dive-table-calculator", () => {
     "diveDepth": 30,
     "targetPPO2": 1.4,
     "o2Fraction": 32
-  } as Dive_table_calculatorInput;
+  } as unknown as Dive_table_calculatorInput;
     const result = calculateDive_table_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

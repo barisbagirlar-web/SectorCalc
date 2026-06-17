@@ -12,7 +12,7 @@ describe("brine-calculator", () => {
     "waterMass": 100,
     "saltPurity": 100,
     "temp": 20
-  } as Brine_calculatorInput;
+  } as unknown as Brine_calculatorInput;
     const result = calculateBrine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

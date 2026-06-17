@@ -13,7 +13,7 @@ describe("k-fold-calculator", () => {
     "meanAccuracy": 85,
     "stdDevAccuracy": 5,
     "zScore": 1.96
-  } as K_fold_calculatorInput;
+  } as unknown as K_fold_calculatorInput;
     const result = calculateK_fold_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

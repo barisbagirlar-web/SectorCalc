@@ -14,7 +14,7 @@ describe("conic-section-calculator", () => {
     "D": 0,
     "E": 0,
     "F": 0
-  } as Conic_section_calculatorInput;
+  } as unknown as Conic_section_calculatorInput;
     const result = calculateConic_section_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("volumetric-weight-calculator", () => {
     "package_type": "box",
     "is_stackable": true,
     "hazardous_material": false
-  } as Volumetric_weight_calculatorInput;
+  } as unknown as Volumetric_weight_calculatorInput;
     const result = calculateVolumetric_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("van-der-waals-calculator", () => {
     "a": 1.355,
     "b": 0.032,
     "R": 0.082057
-  } as Van_der_waals_calculatorInput;
+  } as unknown as Van_der_waals_calculatorInput;
     const result = calculateVan_der_waals_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("astrand-rhyming-test-calculator", () => {
     "weight": 70,
     "workRate": 100,
     "heartRate": 140
-  } as Astrand_rhyming_test_calculatorInput;
+  } as unknown as Astrand_rhyming_test_calculatorInput;
     const result = calculateAstrand_rhyming_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

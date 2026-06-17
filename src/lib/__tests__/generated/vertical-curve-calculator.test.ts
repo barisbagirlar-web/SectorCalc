@@ -14,7 +14,7 @@ describe("vertical-curve-calculator", () => {
     "station_PVC": 0,
     "elevation_PVC": 100,
     "target_station": 100
-  } as Vertical_curve_calculatorInput;
+  } as unknown as Vertical_curve_calculatorInput;
     const result = calculateVertical_curve_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("t-score-calculator", () => {
     "populationMean": 0,
     "sampleStdDev": 1,
     "sampleSize": 30
-  } as T_score_calculatorInput;
+  } as unknown as T_score_calculatorInput;
     const result = calculateT_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

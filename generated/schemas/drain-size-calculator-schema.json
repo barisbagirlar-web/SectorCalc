@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Flow Rate",
         "tr": "Debi",
-        "de": "Flow Rate",
+        "de": "Durchflussrate",
         "fr": "Flow Rate",
         "es": "Flow Rate",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Design flow rate for the drain",
-        "tr": "Drenaj için tasarım debisi"
+        "tr": "Drenaj için tasarım debisi",
+        "de": "Auslegungsdurchfluss für den Abfluss"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Pipe Slope",
         "tr": "Boru Eğimi",
-        "de": "Pipe Slope",
+        "de": "Rohrgefälle",
         "fr": "Pipe Slope",
         "es": "Pipe Slope",
         "ar": "Pipe Slope"
       },
       "businessContext_i18n": {
         "en": "Slope of the drainage pipe",
-        "tr": "Drenaj borusunun eğimi"
+        "tr": "Drenaj borusunun eğimi",
+        "de": "Gefälle des Abflussrohrs"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Manning's Roughness (n)",
         "tr": "Manning Pürüzlülüğü (n)",
-        "de": "Manning's Roughness (n)",
+        "de": "Manning-Rauheit (n)",
         "fr": "Manning's Roughness (n)",
         "es": "Manning's Roughness (n)",
         "ar": "Manning's Roughness (n)"
       },
       "businessContext_i18n": {
         "en": "Manning's roughness coefficient for pipe material",
-        "tr": "Boru malzemesi için Manning pürüzlülük katsayısı"
+        "tr": "Boru malzemesi için Manning pürüzlülük katsayısı",
+        "de": "Manning-Rauheitsbeiwert für Rohrmaterial"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
-        "de": "Safety Factor",
+        "de": "Sicherheitsfaktor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Factor applied to flow rate for safety",
-        "tr": "Güvenlik için debiye uygulanan faktör"
+        "tr": "Güvenlik için debiye uygulanan faktör",
+        "de": "Sicherheitsfaktor für die Durchflussrate"
       }
     }
   ],

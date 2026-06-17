@@ -12,7 +12,7 @@ describe("degree-of-combined-leverage-calculator", () => {
     "variableCosts": 40000,
     "fixedCosts": 30000,
     "interestExpense": 10000
-  } as Degree_of_combined_leverage_calculatorInput;
+  } as unknown as Degree_of_combined_leverage_calculatorInput;
     const result = calculateDegree_of_combined_leverage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

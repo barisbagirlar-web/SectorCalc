@@ -16,7 +16,7 @@ describe("quote-risk-analyzer-calculator", () => {
     "quality_defect_rate": 2,
     "logistics_complexity": 5,
     "customer_credit_rating": "BBB"
-  } as Quote_risk_analyzer_calculatorInput;
+  } as unknown as Quote_risk_analyzer_calculatorInput;
     const result = calculateQuote_risk_analyzer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

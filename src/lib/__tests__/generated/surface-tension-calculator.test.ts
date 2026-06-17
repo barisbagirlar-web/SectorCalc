@@ -13,7 +13,7 @@ describe("surface-tension-calculator", () => {
     "height": 0.01,
     "radius": 0.001,
     "contactAngle": 0
-  } as Surface_tension_calculatorInput;
+  } as unknown as Surface_tension_calculatorInput;
     const result = calculateSurface_tension_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("cricket-net-run-rate-calculator", () => {
     "oversFaced": 0,
     "runsConceded": 0,
     "oversBowled": 0
-  } as Cricket_net_run_rate_calculatorInput;
+  } as unknown as Cricket_net_run_rate_calculatorInput;
     const result = calculateCricket_net_run_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

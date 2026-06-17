@@ -13,7 +13,7 @@ describe("torsion-spring-calculator", () => {
     "activeCoils": 5,
     "deflectionAngle": 30,
     "shearModulus": 79300
-  } as Torsion_spring_calculatorInput;
+  } as unknown as Torsion_spring_calculatorInput;
     const result = calculateTorsion_spring_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

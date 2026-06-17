@@ -14,7 +14,7 @@ describe("gallon-to-liter-converter-calculator", () => {
     "customFactor": 0,
     "wastePercentage": 0,
     "outputDecimals": 2
-  } as Gallon_to_liter_converter_calculatorInput;
+  } as unknown as Gallon_to_liter_converter_calculatorInput;
     const result = calculateGallon_to_liter_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

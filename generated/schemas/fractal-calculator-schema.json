@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Copies (N)",
         "tr": "Kopya Sayısı (N)",
-        "de": "Number of Copies (N)",
+        "de": "Anzahl der Kopien (N)",
         "fr": "Number of Copies (N)",
         "es": "Number of Copies (N)",
         "ar": "Number of Copies (N)"
       },
       "businessContext_i18n": {
         "en": "In fractal generation, the number of smaller self-similar pieces.",
-        "tr": "Fraktal oluşturmada, daha küçük kendine benzer parçaların sayısı."
+        "tr": "Fraktal oluşturmada, daha küçük kendine benzer parçaların sayısı.",
+        "de": "Bei der Fraktalerzeugung die Anzahl der kleineren selbstähnlichen Teile."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Scaling Factor (r)",
         "tr": "Ölçekleme Faktörü (r)",
-        "de": "Scaling Factor (r)",
+        "de": "Skalierungsfaktor (r)",
         "fr": "Scaling Factor (r)",
         "es": "Scaling Factor (r)",
         "ar": "Scaling Factor (r)"
       },
       "businessContext_i18n": {
         "en": "The linear scaling factor applied to get each smaller copy.",
-        "tr": "Her küçük kopyayı elde etmek için uygulanan doğrusal ölçekleme faktörü."
+        "tr": "Her küçük kopyayı elde etmek için uygulanan doğrusal ölçekleme faktörü.",
+        "de": "Der lineare Skalierungsfaktor, der auf jede kleinere Kopie angewendet wird."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Iteration Count (n)",
         "tr": "Yineleme Sayısı (n)",
-        "de": "Iteration Count (n)",
+        "de": "Iterationsanzahl (n)",
         "fr": "Iteration Count (n)",
         "es": "Iteration Count (n)",
         "ar": "Iteration Count (n)"
       },
       "businessContext_i18n": {
         "en": "Number of iterations for computing total length or number of pieces.",
-        "tr": "Toplam uzunluk veya parça sayısını hesaplamak için yineleme sayısı."
+        "tr": "Toplam uzunluk veya parça sayısını hesaplamak için yineleme sayısı.",
+        "de": "Anzahl der Iterationen zur Berechnung der Gesamtlänge oder Anzahl der Teile."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Initial Length (L0)",
         "tr": "Başlangıç Uzunluğu (L0)",
-        "de": "Initial Length (L0)",
+        "de": "Anfangslänge (L0)",
         "fr": "Initial Length (L0)",
         "es": "Initial Length (L0)",
         "ar": "Initial Length (L0)"
       },
       "businessContext_i18n": {
         "en": "Initial length of the curve segment or initiator.",
-        "tr": "Eğri parçasının veya başlatıcının başlangıç uzunluğu."
+        "tr": "Eğri parçasının veya başlatıcının başlangıç uzunluğu.",
+        "de": "Anfangslänge des Kurvensegments oder Initiators."
       }
     }
   ],

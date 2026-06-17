@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Vehicle Mass",
         "tr": "Araç Kütlesi",
-        "de": "Vehicle Mass",
+        "de": "Fahrzeugmasse",
         "fr": "Vehicle Mass",
         "es": "Vehicle Mass",
         "ar": "Vehicle Mass"
       },
       "businessContext_i18n": {
         "en": "Weight of the vehicle including driver and fuel.",
-        "tr": "Sürücü ve yakıt dahil aracın ağırlığı."
+        "tr": "Sürücü ve yakıt dahil aracın ağırlığı.",
+        "de": "Gewicht des Fahrzeugs inklusive Fahrer und Kraftstoff."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Engine Power",
         "tr": "Motor Gücü",
-        "de": "Engine Power",
+        "de": "Motorleistung",
         "fr": "Engine Power",
         "es": "Engine Power",
         "ar": "Engine Power"
       },
       "businessContext_i18n": {
         "en": "Maximum engine power output at the crankshaft.",
-        "tr": "Krank milinde maksimum motor gücü çıkışı."
+        "tr": "Krank milinde maksimum motor gücü çıkışı.",
+        "de": "Maximale Motorleistung an der Kurbelwelle."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Drivetrain Efficiency",
         "tr": "Aktarma Organı Verimliliği",
-        "de": "Drivetrain Efficiency",
+        "de": "Antriebsstrang-Effizienz",
         "fr": "Drivetrain Efficiency",
         "es": "Drivetrain Efficiency",
         "ar": "Drivetrain Efficiency"
       },
       "businessContext_i18n": {
         "en": "Combined efficiency of transmission and drivetrain (0-1). Typical values: 0.8-0.9.",
-        "tr": "Şanzıman ve aktarma organlarının birleşik verimliliği (0-1). Tipik değerler: 0,8-0,9."
+        "tr": "Şanzıman ve aktarma organlarının birleşik verimliliği (0-1). Tipik değerler: 0,8-0,9.",
+        "de": "Kombinierte Effizienz von Getriebe und Antriebsstrang (0-1). Typische Werte: 0,8-0,9."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Target Speed",
         "tr": "Hedef Hız",
-        "de": "Target Speed",
+        "de": "Zielgeschwindigkeit",
         "fr": "Target Speed",
         "es": "Target Speed",
         "ar": "Target Speed"
       },
       "businessContext_i18n": {
         "en": "Final speed to achieve from standstill. Default is 60 mph.",
-        "tr": "Durağan halden ulaşılacak son hız. Varsayılan 60 mph."
+        "tr": "Durağan halden ulaşılacak son hız. Varsayılan 60 mph.",
+        "de": "Endgeschwindigkeit, die aus dem Stand erreicht werden soll. Standard ist 60 mph."
       }
     }
   ],

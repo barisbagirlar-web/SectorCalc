@@ -14,7 +14,7 @@ describe("concrete-stairs-calculator", () => {
     "stepWidth": 1000,
     "waistThickness": 150,
     "landingLength": 0
-  } as Concrete_stairs_calculatorInput;
+  } as unknown as Concrete_stairs_calculatorInput;
     const result = calculateConcrete_stairs_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

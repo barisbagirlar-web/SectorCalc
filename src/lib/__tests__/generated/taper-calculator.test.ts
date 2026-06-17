@@ -12,7 +12,7 @@ describe("taper-calculator", () => {
     "smallDiameter": 50,
     "length": 200,
     "referenceLength": 100
-  } as Taper_calculatorInput;
+  } as unknown as Taper_calculatorInput;
     const result = calculateTaper_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

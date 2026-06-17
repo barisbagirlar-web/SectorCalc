@@ -12,7 +12,7 @@ describe("hijri-to-julian-day-calculator", () => {
     "hijri_month": 1,
     "hijri_day": 1,
     "jd_epoch": 1948439.5
-  } as Hijri_to_julian_day_calculatorInput;
+  } as unknown as Hijri_to_julian_day_calculatorInput;
     const result = calculateHijri_to_julian_day_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

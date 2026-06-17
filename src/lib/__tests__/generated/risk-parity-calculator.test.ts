@@ -12,7 +12,7 @@ describe("risk-parity-calculator", () => {
     "vol2": 15,
     "vol3": 10,
     "vol4": 5
-  } as Risk_parity_calculatorInput;
+  } as unknown as Risk_parity_calculatorInput;
     const result = calculateRisk_parity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

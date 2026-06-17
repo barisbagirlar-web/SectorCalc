@@ -14,7 +14,7 @@ describe("mass-flow-rate", () => {
     "temperature": 20,
     "pressure": 1,
     "compressibility": 1
-  } as Mass_flow_rateInput;
+  } as unknown as Mass_flow_rateInput;
     const result = calculateMass_flow_rate(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

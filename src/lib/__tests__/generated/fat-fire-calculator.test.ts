@@ -16,7 +16,7 @@ describe("fat-fire-calculator", () => {
     "annualReturnRate": 0.07,
     "inflationRate": 0.03,
     "safeWithdrawalRate": 0.04
-  } as Fat_fire_calculatorInput;
+  } as unknown as Fat_fire_calculatorInput;
     const result = calculateFat_fire_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

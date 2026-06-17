@@ -12,7 +12,7 @@ describe("biphasic-sleep-calculator", () => {
     "coreDuration": 5,
     "napDuration": 1.5,
     "napTime": 14
-  } as Biphasic_sleep_calculatorInput;
+  } as unknown as Biphasic_sleep_calculatorInput;
     const result = calculateBiphasic_sleep_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

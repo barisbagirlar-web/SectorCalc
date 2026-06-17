@@ -16,7 +16,7 @@ describe("contract-incentive-calculator", () => {
     "target_cost_per_unit": 45,
     "incentive_base_rate": 2.5,
     "quality_threshold_ppm": 10000
-  } as Contract_incentive_calculatorInput;
+  } as unknown as Contract_incentive_calculatorInput;
     const result = calculateContract_incentive_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

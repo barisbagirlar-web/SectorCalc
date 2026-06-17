@@ -13,7 +13,7 @@ describe("ari-calculator", () => {
     "currentValue": 90,
     "yearsElapsed": 1,
     "confidenceFactor": 1
-  } as Ari_calculatorInput;
+  } as unknown as Ari_calculatorInput;
     const result = calculateAri_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

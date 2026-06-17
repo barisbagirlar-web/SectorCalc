@@ -12,7 +12,7 @@ describe("nyquist-calculator", () => {
     "samplingFrequency": 2000,
     "safetyFactor": 1.2,
     "desiredUtilization": 80
-  } as Nyquist_calculatorInput;
+  } as unknown as Nyquist_calculatorInput;
     const result = calculateNyquist_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

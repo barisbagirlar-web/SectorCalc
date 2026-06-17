@@ -12,7 +12,7 @@ describe("fat-intake-calculator", () => {
     "fatPercentage": 30,
     "mealsPerDay": 3,
     "bodyWeight": 70
-  } as Fat_intake_calculatorInput;
+  } as unknown as Fat_intake_calculatorInput;
     const result = calculateFat_intake_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("treadmill-incline-calculator", () => {
     "weight": 150,
     "speed": 3,
     "time": 30
-  } as Treadmill_incline_calculatorInput;
+  } as unknown as Treadmill_incline_calculatorInput;
     const result = calculateTreadmill_incline_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

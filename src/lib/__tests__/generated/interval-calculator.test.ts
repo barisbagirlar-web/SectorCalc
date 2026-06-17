@@ -12,7 +12,7 @@ describe("interval-calculator", () => {
     "plusTol": 0.1,
     "minusTol": 0.05,
     "scaleFactor": 1
-  } as Interval_calculatorInput;
+  } as unknown as Interval_calculatorInput;
     const result = calculateInterval_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Student Score",
         "tr": "Öğrenci Puanı",
-        "de": "Student Score",
+        "de": "Schülerpunktzahl",
         "fr": "Student Score",
         "es": "Student Score",
         "ar": "Student Score"
       },
       "businessContext_i18n": {
         "en": "The raw score of the student (e.g., GPA, exam mark).",
-        "tr": "Öğrencinin ham puanı (ör. GPA, sınav notu)."
+        "tr": "Öğrencinin ham puanı (ör. GPA, sınav notu).",
+        "de": "Rohpunktzahl des Schülers (z. B. GPA, Prüfungsnote)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Total Students",
         "tr": "Toplam Öğrenci Sayısı",
-        "de": "Total Students",
+        "de": "Gesamtschülerzahl",
         "fr": "Total Students",
         "es": "Total Students",
         "ar": "Total Students"
       },
       "businessContext_i18n": {
         "en": "Total number of students in the comparison group.",
-        "tr": "Karşılaştırma grubundaki toplam öğrenci sayısı."
+        "tr": "Karşılaştırma grubundaki toplam öğrenci sayısı.",
+        "de": "Gesamtzahl der Schüler in der Vergleichsgruppe."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Students with Lower Scores",
         "tr": "Daha Düşük Puanlı Öğrenci Sayısı",
-        "de": "Number of Students with Lower Scores",
+        "de": "Anzahl der Schüler mit niedrigeren Punktzahlen",
         "fr": "Number of Students with Lower Scores",
         "es": "Number of Students with Lower Scores",
         "ar": "Number of Students with Lower Scores"
       },
       "businessContext_i18n": {
         "en": "Count of students who scored below the student.",
-        "tr": "Öğrenciden daha düşük puan alan öğrenci sayısı."
+        "tr": "Öğrenciden daha düşük puan alan öğrenci sayısı.",
+        "de": "Anzahl der Schüler, die unter dem Schüler lagen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Students with Same Score",
         "tr": "Aynı Puana Sahip Öğrenci Sayısı",
-        "de": "Number of Students with Same Score",
+        "de": "Anzahl der Schüler mit gleicher Punktzahl",
         "fr": "Number of Students with Same Score",
         "es": "Number of Students with Same Score",
         "ar": "Number of Students with Same Score"
       },
       "businessContext_i18n": {
         "en": "Count of students who scored exactly the same as the student.",
-        "tr": "Öğrenciyle tam olarak aynı puanı alan öğrenci sayısı."
+        "tr": "Öğrenciyle tam olarak aynı puanı alan öğrenci sayısı.",
+        "de": "Anzahl der Schüler, die genau die gleiche Punktzahl wie der Schüler erreicht haben."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Minimum Possible Score",
         "tr": "Minimum Olası Puan",
-        "de": "Minimum Possible Score",
+        "de": "Minimal mögliche Punktzahl",
         "fr": "Minimum Possible Score",
         "es": "Minimum Possible Score",
         "ar": "Minimum Possible Score"
       },
       "businessContext_i18n": {
         "en": "The lowest possible score in the scale (e.g., 0).",
-        "tr": "Ölçekteki en düşük olası puan (ör. 0)."
+        "tr": "Ölçekteki en düşük olası puan (ör. 0).",
+        "de": "Die niedrigste mögliche Punktzahl auf der Skala (z. B. 0)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Maximum Possible Score",
         "tr": "Maksimum Olası Puan",
-        "de": "Maximum Possible Score",
+        "de": "Maximal mögliche Punktzahl",
         "fr": "Maximum Possible Score",
         "es": "Maximum Possible Score",
         "ar": "Maximum Possible Score"
       },
       "businessContext_i18n": {
         "en": "The highest possible score in the scale (e.g., 100).",
-        "tr": "Ölçekteki en yüksek olası puan (ör. 100)."
+        "tr": "Ölçekteki en yüksek olası puan (ör. 100).",
+        "de": "Die höchste mögliche Punktzahl auf der Skala (z. B. 100)."
       }
     }
   ],

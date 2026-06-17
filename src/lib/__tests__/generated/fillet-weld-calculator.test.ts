@@ -13,7 +13,7 @@ describe("fillet-weld-calculator", () => {
     "yieldStrength": 235,
     "safetyFactor": 1.5,
     "designLoad": 50
-  } as Fillet_weld_calculatorInput;
+  } as unknown as Fillet_weld_calculatorInput;
     const result = calculateFillet_weld_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

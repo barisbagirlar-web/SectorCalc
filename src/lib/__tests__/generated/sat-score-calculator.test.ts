@@ -12,7 +12,7 @@ describe("sat-score-calculator", () => {
     "writingRaw": 0,
     "mathNoCalcRaw": 0,
     "mathCalcRaw": 0
-  } as Sat_score_calculatorInput;
+  } as unknown as Sat_score_calculatorInput;
     const result = calculateSat_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

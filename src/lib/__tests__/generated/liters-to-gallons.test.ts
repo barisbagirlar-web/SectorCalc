@@ -11,7 +11,7 @@ describe("liters-to-gallons", () => {
     "volume_liters": 1,
     "conversion_type": 1,
     "auto_input_3": 1
-  } as Liters_to_gallonsInput;
+  } as unknown as Liters_to_gallonsInput;
     const result = calculateLiters_to_gallons(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

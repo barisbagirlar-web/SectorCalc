@@ -14,7 +14,7 @@ describe("franchise-calculator", () => {
     "marketingFeeRate": 2,
     "operationalCosts": 20000,
     "otherFeesMonthly": 0
-  } as Franchise_calculatorInput;
+  } as unknown as Franchise_calculatorInput;
     const result = calculateFranchise_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

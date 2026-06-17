@@ -12,7 +12,7 @@ describe("kinematic-viscosity-calculator", () => {
     "density": 1000,
     "velocity": 1,
     "characteristicLength": 0.1
-  } as Kinematic_viscosity_calculatorInput;
+  } as unknown as Kinematic_viscosity_calculatorInput;
     const result = calculateKinematic_viscosity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

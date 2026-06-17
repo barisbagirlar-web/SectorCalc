@@ -12,7 +12,7 @@ describe("ielts-score-calculator", () => {
     "reading": 0,
     "writing": 0,
     "speaking": 0
-  } as Ielts_score_calculatorInput;
+  } as unknown as Ielts_score_calculatorInput;
     const result = calculateIelts_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("regression-calculator", () => {
     "sumY": 0,
     "sumXY": 0,
     "sumX2": 0
-  } as Regression_calculatorInput;
+  } as unknown as Regression_calculatorInput;
     const result = calculateRegression_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

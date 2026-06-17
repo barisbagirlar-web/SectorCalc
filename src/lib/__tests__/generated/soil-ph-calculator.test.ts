@@ -13,7 +13,7 @@ describe("soil-ph-calculator", () => {
     "buffer_ph": 7,
     "temperature": 25,
     "slope_percent": 100
-  } as Soil_ph_calculatorInput;
+  } as unknown as Soil_ph_calculatorInput;
     const result = calculateSoil_ph_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

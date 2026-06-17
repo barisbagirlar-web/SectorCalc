@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Weight (kg)",
         "tr": "Ağırlık (kg)",
-        "de": "Weight (kg)",
+        "de": "Gewicht (kg)",
         "fr": "Weight (kg)",
         "es": "Weight (kg)",
         "ar": "Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "Enter body weight in kilograms. If not available, use weight in pounds instead.",
-        "tr": "Vücut ağırlığını kilogram cinsinden girin. Mevcut değilse, pound cinsinden ağırlık kullanın."
+        "tr": "Vücut ağırlığını kilogram cinsinden girin. Mevcut değilse, pound cinsinden ağırlık kullanın.",
+        "de": "Vücut ağırlığını kilogram cinsinden girin. Mevcut değilse, pound cinsinden ağırlık kullanın."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Height (cm)",
         "tr": "Boy (cm)",
-        "de": "Height (cm)",
+        "de": "Größe (cm)",
         "fr": "Height (cm)",
         "es": "Height (cm)",
         "ar": "Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Enter body height in centimeters. If not available, use height in inches instead.",
-        "tr": "Vücut boyunu santimetre cinsinden girin. Mevcut değilse, inç cinsinden boy kullanın."
+        "tr": "Vücut boyunu santimetre cinsinden girin. Mevcut değilse, inç cinsinden boy kullanın.",
+        "de": "Vücut boyunu santimetre cinsinden girin. Mevcut değilse, inç cinsinden boy kullanın."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Weight (lb)",
         "tr": "Ağırlık (lb)",
-        "de": "Weight (lb)",
+        "de": "Gewicht (lb)",
         "fr": "Weight (lb)",
         "es": "Weight (lb)",
         "ar": "Weight (lb)"
       },
       "businessContext_i18n": {
         "en": "Alternative: enter body weight in pounds. Ignored if weight in kg is provided.",
-        "tr": "Alternatif: vücut ağırlığını pound cinsinden girin. Kg cinsinden ağırlık sağlanırsa yok sayılır."
+        "tr": "Alternatif: vücut ağırlığını pound cinsinden girin. Kg cinsinden ağırlık sağlanırsa yok sayılır.",
+        "de": "Alternatif: vücut ağırlığını pound cinsinden girin. kg cinsinden ağırlık sağlanırsa dikkate alınmaz."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Height (in)",
         "tr": "Boy (inç)",
-        "de": "Height (in)",
+        "de": "Boy (inç)",
         "fr": "Height (in)",
         "es": "Height (in)",
         "ar": "Height (in)"
       },
       "businessContext_i18n": {
         "en": "Alternative: enter body height in inches. Ignored if height in cm is provided.",
-        "tr": "Alternatif: vücut boyunu inç cinsinden girin. Cm cinsinden boy sağlanırsa yok sayılır."
+        "tr": "Alternatif: vücut boyunu inç cinsinden girin. Cm cinsinden boy sağlanırsa yok sayılır.",
+        "de": "Alternatif: vücut boyunu inç cinsinden girin. cm cinsinden boy sağlanırsa dikkate alınmaz."
       }
     }
   ],

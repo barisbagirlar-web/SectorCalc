@@ -13,7 +13,7 @@ describe("therms-to-btu-calculator", () => {
     "energyContentAdjustment": 0,
     "precision": 0,
     "outputUnitFactor": 1
-  } as Therms_to_btu_calculatorInput;
+  } as unknown as Therms_to_btu_calculatorInput;
     const result = calculateTherms_to_btu_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

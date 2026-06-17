@@ -23,11 +23,13 @@
       "businessContext": "Total cost of replacement parts from supplier invoice.",
       "label_i18n": {
         "en": "Parts Cost (USD)",
-        "tr": "Parça Maliyeti (USD)"
+        "tr": "Parça Maliyeti (USD)",
+        "de": "Teilekosten (USD)"
       },
       "businessContext_i18n": {
         "en": "Total cost of replacement parts from supplier invoice.",
-        "tr": "Tedarikçi faturasından alınan yedek parçaların toplam maliyeti."
+        "tr": "Tedarikçi faturasından alınan yedek parçaların toplam maliyeti.",
+        "de": "Gesamtkosten der Ersatzteile laut Lieferantenrechnung."
       }
     },
     {
@@ -41,11 +43,13 @@
       "businessContext": "Estimated technician hours based on standard repair times (e.g., Mitchell, ALLDATA).",
       "label_i18n": {
         "en": "Labor Hours",
-        "tr": "İşçilik Saati"
+        "tr": "İşçilik Saati",
+        "de": "Arbeitsstunden"
       },
       "businessContext_i18n": {
         "en": "Estimated technician hours based on standard repair times (e.g., Mitchell, ALLDATA).",
-        "tr": "Standart onarım sürelerine (ör. Mitchell, ALLDATA) dayalı tahmini teknisyen saati."
+        "tr": "Standart onarım sürelerine (ör. Mitchell, ALLDATA) dayalı tahmini teknisyen saati.",
+        "de": "Geschätzte Technikerstunden basierend auf Standardreparaturzeiten (z. B. Mitchell, ALLDATA)."
       }
     },
     {
@@ -59,11 +63,13 @@
       "businessContext": "Shop's hourly labor charge, typically includes overhead and profit.",
       "label_i18n": {
         "en": "Labor Rate (USD/hour)",
-        "tr": "İşçilik Ücreti (USD/saat)"
+        "tr": "İşçilik Ücreti (USD/saat)",
+        "de": "Stundensatz (USD/Stunde)"
       },
       "businessContext_i18n": {
         "en": "Shop's hourly labor charge, typically includes overhead and profit.",
-        "tr": "Atölyenin saatlik işçilik ücreti, genellikle genel gider ve karı içerir."
+        "tr": "Atölyenin saatlik işçilik ücreti, genellikle genel gider ve karı içerir.",
+        "de": "Stündlicher Arbeitslohn der Werkstatt, beinhaltet in der Regel Gemeinkosten und Gewinn."
       }
     },
     {
@@ -77,11 +83,13 @@
       "businessContext": "Percentage of direct costs allocated to shop overhead (rent, utilities, admin).",
       "label_i18n": {
         "en": "Overhead Percentage (%)",
-        "tr": "Genel Gider Yüzdesi (%)"
+        "tr": "Genel Gider Yüzdesi (%)",
+        "de": "Gemeinkostenanteil (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of direct costs allocated to shop overhead (rent, utilities, admin).",
-        "tr": "Doğrudan maliyetlere tahsis edilen genel gider yüzdesi (kira, elektrik, idari)."
+        "tr": "Doğrudan maliyetlere tahsis edilen genel gider yüzdesi (kira, elektrik, idari).",
+        "de": "Prozentsatz der direkten Kosten, der auf Werkstattgemeinkosten entfällt (Miete, Nebenkosten, Verwaltung)."
       }
     },
     {
@@ -95,11 +103,13 @@
       "businessContext": "Desired profit margin on total job cost.",
       "label_i18n": {
         "en": "Target Profit Margin (%)",
-        "tr": "Hedef Kar Marjı (%)"
+        "tr": "Hedef Kar Marjı (%)",
+        "de": "Zielgewinnmarge (%)"
       },
       "businessContext_i18n": {
         "en": "Desired profit margin on total job cost.",
-        "tr": "Toplam iş maliyeti üzerinde istenen kar marjı."
+        "tr": "Toplam iş maliyeti üzerinde istenen kar marjı.",
+        "de": "Gewünschte Gewinnmarge auf die gesamten Auftragskosten."
       }
     },
     {
@@ -113,11 +123,13 @@
       "businessContext": "Applicable sales tax percentage for the region.",
       "label_i18n": {
         "en": "Sales Tax Rate (%)",
-        "tr": "Satış Vergisi Oranı (%)"
+        "tr": "Satış Vergisi Oranı (%)",
+        "de": "Umsatzsteuersatz (%)"
       },
       "businessContext_i18n": {
         "en": "Applicable sales tax percentage for the region.",
-        "tr": "Bölge için geçerli satış vergisi yüzdesi."
+        "tr": "Bölge için geçerli satış vergisi yüzdesi.",
+        "de": "Anwendbarer Umsatzsteuerprozentsatz für die Region."
       }
     },
     {
@@ -131,11 +143,13 @@
       "businessContext": "Optional discount offered to customer (e.g., loyalty, promotion).",
       "label_i18n": {
         "en": "Customer Discount (%)",
-        "tr": "Müşteri İndirimi (%)"
+        "tr": "Müşteri İndirimi (%)",
+        "de": "Kundenrabatt (%)"
       },
       "businessContext_i18n": {
         "en": "Optional discount offered to customer (e.g., loyalty, promotion).",
-        "tr": "Müşteriye sunulan isteğe bağlı indirim (ör. sadakat, promosyon)."
+        "tr": "Müşteriye sunulan isteğe bağlı indirim (ör. sadakat, promosyon).",
+        "de": "Optionaler Rabatt für den Kunden (z. B. Treue, Aktion)."
       }
     },
     {
@@ -149,11 +163,13 @@
       "businessContext": "Markup applied to parts cost to cover handling and profit.",
       "label_i18n": {
         "en": "Parts Markup (%)",
-        "tr": "Parça Kâr Marjı (%)"
+        "tr": "Parça Kâr Marjı (%)",
+        "de": "Teileaufschlag (%)"
       },
       "businessContext_i18n": {
         "en": "Markup applied to parts cost to cover handling and profit.",
-        "tr": "Parça maliyetine, taşıma ve karı karşılamak için uygulanan kâr marjı."
+        "tr": "Parça maliyetine, taşıma ve karı karşılamak için uygulanan kâr marjı.",
+        "de": "Aufschlag auf die Teilekosten zur Deckung von Handhabung und Gewinn."
       }
     }
   ],

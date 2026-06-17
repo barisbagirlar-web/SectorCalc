@@ -14,7 +14,7 @@ describe("paleo-calculator", () => {
     "nutCost": 5,
     "numberOfPeople": 1,
     "numberOfDays": 30
-  } as Paleo_calculatorInput;
+  } as unknown as Paleo_calculatorInput;
     const result = calculatePaleo_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

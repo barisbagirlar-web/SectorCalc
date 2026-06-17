@@ -11,7 +11,7 @@ describe("kgf-per-cm2-to-psi", () => {
     "pressure_kgfcm2": 1,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Kgf_per_cm2_to_psiInput;
+  } as unknown as Kgf_per_cm2_to_psiInput;
     const result = calculateKgf_per_cm2_to_psi(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

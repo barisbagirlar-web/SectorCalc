@@ -16,7 +16,7 @@ describe("has-bled-calculator", () => {
     "labileINR": 0,
     "elderly": 0,
     "drugsAlcohol": 0
-  } as Has_bled_calculatorInput;
+  } as unknown as Has_bled_calculatorInput;
     const result = calculateHas_bled_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

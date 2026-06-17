@@ -12,7 +12,7 @@ describe("barrel-to-liter-calculator", () => {
     "conversionRate": 158.9873,
     "temperature": 15,
     "correctionFactor": 1
-  } as Barrel_to_liter_calculatorInput;
+  } as unknown as Barrel_to_liter_calculatorInput;
     const result = calculateBarrel_to_liter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

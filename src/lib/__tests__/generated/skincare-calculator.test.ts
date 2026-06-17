@@ -15,7 +15,7 @@ describe("skincare-calculator", () => {
     "laborCostPerBatch": 500,
     "overheadCostPerBatch": 300,
     "profitMarginPercent": 30
-  } as Skincare_calculatorInput;
+  } as unknown as Skincare_calculatorInput;
     const result = calculateSkincare_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

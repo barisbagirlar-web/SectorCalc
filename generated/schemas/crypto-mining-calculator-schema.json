@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Hash Rate",
         "tr": "Hash Oranı",
-        "de": "Hash Rate",
+        "de": "Hashrate",
         "fr": "Hash Rate",
         "es": "Hash Rate",
         "ar": "Hash Rate"
       },
       "businessContext_i18n": {
         "en": "The total hash rate of the mining hardware.",
-        "tr": "Madencilik donanımının toplam hash oranı."
+        "tr": "Madencilik donanımının toplam hash oranı.",
+        "de": "Die gesamte Hashrate der Mining-Hardware."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Power Consumption",
         "tr": "Güç Tüketimi",
-        "de": "Power Consumption",
+        "de": "Stromverbrauch",
         "fr": "Power Consumption",
         "es": "Power Consumption",
         "ar": "Power Consumption"
       },
       "businessContext_i18n": {
         "en": "Total power consumption of the mining rig.",
-        "tr": "Madencilik teçhizatının toplam güç tüketimi."
+        "tr": "Madencilik teçhizatının toplam güç tüketimi.",
+        "de": "Gesamter Stromverbrauch der Mining-Anlage."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",
-        "de": "Electricity Cost",
+        "de": "Stromkosten",
         "fr": "Electricity Cost",
         "es": "Electricity Cost",
         "ar": "Electricity Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kilowatt-hour.",
-        "tr": "Kilovatsaat başına elektrik maliyeti."
+        "tr": "Kilovatsaat başına elektrik maliyeti.",
+        "de": "Stromkosten pro Kilowattstunde."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Pool Fee",
         "tr": "Havuz Ücreti",
-        "de": "Pool Fee",
+        "de": "Pool-Gebühr",
         "fr": "Pool Fee",
         "es": "Pool Fee",
         "ar": "Pool Fee"
       },
       "businessContext_i18n": {
         "en": "Fee percentage charged by the mining pool.",
-        "tr": "Madencilik havuzu tarafından alınan ücret yüzdesi."
+        "tr": "Madencilik havuzu tarafından alınan ücret yüzdesi.",
+        "de": "Prozentsatz der vom Mining-Pool erhobenen Gebühr."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Daily Revenue per TH/s",
         "tr": "TH/s başına günlük gelir",
-        "de": "Daily Revenue per TH/s",
+        "de": "Täglicher Umsatz pro TH/s",
         "fr": "Daily Revenue per TH/s",
         "es": "Daily Revenue per TH/s",
         "ar": "Daily Revenue per TH/s"
       },
       "businessContext_i18n": {
         "en": "Estimated daily revenue in USD per TH/s of hash rate, based on current network conditions.",
-        "tr": "Mevcut ağ koşullarına göre TH/s hash oranı başına USD cinsinden tahmini günlük gelir."
+        "tr": "Mevcut ağ koşullarına göre TH/s hash oranı başına USD cinsinden tahmini günlük gelir.",
+        "de": "Geschätzter täglicher Umsatz in USD pro TH/s Hashrate, basierend auf aktuellen Netzwerkbedingungen."
       }
     }
   ],

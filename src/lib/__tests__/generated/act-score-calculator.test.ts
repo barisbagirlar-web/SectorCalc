@@ -12,7 +12,7 @@ describe("act-score-calculator", () => {
     "mathScore": 20,
     "readingScore": 20,
     "scienceScore": 20
-  } as Act_score_calculatorInput;
+  } as unknown as Act_score_calculatorInput;
     const result = calculateAct_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

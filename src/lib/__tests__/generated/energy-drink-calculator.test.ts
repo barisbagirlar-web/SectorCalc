@@ -14,7 +14,7 @@ describe("energy-drink-calculator", () => {
     "caloriesPer100ml": 45,
     "cansPerPack": 4,
     "pricePerPack": 5.99
-  } as Energy_drink_calculatorInput;
+  } as unknown as Energy_drink_calculatorInput;
     const result = calculateEnergy_drink_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

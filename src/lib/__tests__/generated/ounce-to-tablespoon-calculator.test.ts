@@ -12,7 +12,7 @@ describe("ounce-to-tablespoon-calculator", () => {
     "conversionFactor": 2,
     "decimalPlaces": 2,
     "safetyFactor": 0
-  } as Ounce_to_tablespoon_calculatorInput;
+  } as unknown as Ounce_to_tablespoon_calculatorInput;
     const result = calculateOunce_to_tablespoon_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("btu-calculator-for-hvac", () => {
     "sun_exposure": 0,
     "num_occupants": 2,
     "num_windows": 1
-  } as Btu_calculator_for_hvacInput;
+  } as unknown as Btu_calculator_for_hvacInput;
     const result = calculateBtu_calculator_for_hvac(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

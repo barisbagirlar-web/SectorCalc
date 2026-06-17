@@ -13,7 +13,7 @@ describe("calorie-surplus-calculator", () => {
     "lossPercent": 5,
     "storageEfficiency": 90,
     "auxConsumption": 200
-  } as Calorie_surplus_calculatorInput;
+  } as unknown as Calorie_surplus_calculatorInput;
     const result = calculateCalorie_surplus_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

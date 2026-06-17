@@ -12,7 +12,7 @@ describe("geometric-mean-calculator", () => {
     "num2": 1,
     "num3": 1,
     "num4": 1
-  } as Geometric_mean_calculatorInput;
+  } as unknown as Geometric_mean_calculatorInput;
     const result = calculateGeometric_mean_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

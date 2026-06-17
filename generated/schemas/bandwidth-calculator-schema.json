@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Data Size",
         "tr": "Veri Boyutu",
-        "de": "Data Size",
+        "de": "Datenmenge",
         "fr": "Data Size",
         "es": "Data Size",
         "ar": "Data Size"
       },
       "businessContext_i18n": {
         "en": "Total amount of data to transfer",
-        "tr": "Aktarılacak toplam veri miktarı"
+        "tr": "Aktarılacak toplam veri miktarı",
+        "de": "Gesamtmenge der zu übertragenden Daten"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Transfer Time",
         "tr": "Aktarım Süresi",
-        "de": "Transfer Time",
+        "de": "Transferzeit",
         "fr": "Transfer Time",
         "es": "Transfer Time",
         "ar": "Transfer Time"
       },
       "businessContext_i18n": {
         "en": "Time available for transfer",
-        "tr": "Aktarım için mevcut süre"
+        "tr": "Aktarım için mevcut süre",
+        "de": "Verfügbare Zeit für den Transfer"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Protocol Overhead",
         "tr": "Protokol Ek Yükü",
-        "de": "Protocol Overhead",
+        "de": "Protokoll-Overhead",
         "fr": "Protocol Overhead",
         "es": "Protocol Overhead",
         "ar": "Protocol Overhead"
       },
       "businessContext_i18n": {
         "en": "Percentage overhead added by protocol headers",
-        "tr": "Protokol başlıkları tarafından eklenen yüzde ek yük"
+        "tr": "Protokol başlıkları tarafından eklenen yüzde ek yük",
+        "de": "Prozentualer Overhead durch Protokollheader"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Channels",
         "tr": "Kanal Sayısı",
-        "de": "Number of Channels",
+        "de": "Anzahl der Kanäle",
         "fr": "Number of Channels",
         "es": "Number of Channels",
         "ar": "Number of Channels"
       },
       "businessContext_i18n": {
         "en": "Number of parallel communication channels",
-        "tr": "Paralel iletişim kanalı sayısı"
+        "tr": "Paralel iletişim kanalı sayısı",
+        "de": "Anzahl paralleler Kommunikationskanäle"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Encoding Efficiency",
         "tr": "Kodlama Verimliliği",
-        "de": "Encoding Efficiency",
+        "de": "Codierungseffizienz",
         "fr": "Encoding Efficiency",
         "es": "Encoding Efficiency",
         "ar": "Encoding Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of encoding scheme (e.g., 8b/10b is 80%)",
-        "tr": "Kodlama şemasının verimliliği (ör. 8b/10b için %80)"
+        "tr": "Kodlama şemasının verimliliği (ör. 8b/10b için %80)",
+        "de": "Effizienz des Codierungsschemas (z.B. 8b/10b ist 80%)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Redundancy Factor",
         "tr": "Yedeklilik Faktörü",
-        "de": "Redundancy Factor",
+        "de": "Redundanzfaktor",
         "fr": "Redundancy Factor",
         "es": "Redundancy Factor",
         "ar": "Redundancy Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplicative redundancy for error correction (e.g., FEC code rate inverse)",
-        "tr": "Hata düzeltme için çarpımsal yedeklilik (ör. FEC kod oranı tersi)"
+        "tr": "Hata düzeltme için çarpımsal yedeklilik (ör. FEC kod oranı tersi)",
+        "de": "Multiplikative Redundanz für Fehlerkorrektur (z.B. Kehrwert der FEC-Coderate)"
       }
     }
   ],

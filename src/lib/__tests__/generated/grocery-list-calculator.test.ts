@@ -14,7 +14,7 @@ describe("grocery-list-calculator", () => {
     "taxPercent": 0,
     "shippingFee": 0,
     "couponValue": 0
-  } as Grocery_list_calculatorInput;
+  } as unknown as Grocery_list_calculatorInput;
     const result = calculateGrocery_list_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

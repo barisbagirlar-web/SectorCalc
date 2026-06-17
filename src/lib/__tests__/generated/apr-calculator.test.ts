@@ -13,7 +13,7 @@ describe("apr-calculator", () => {
     "loanTermYears": 5,
     "compoundingFrequency": 12,
     "fees": 0
-  } as Apr_calculatorInput;
+  } as unknown as Apr_calculatorInput;
     const result = calculateApr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

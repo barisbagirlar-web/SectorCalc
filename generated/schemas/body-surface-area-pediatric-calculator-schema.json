@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
-        "de": "Weight",
+        "de": "Gewicht",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Patient weight in kilograms",
-        "tr": "Hasta ağırlığı (kg)"
+        "tr": "Hasta ağırlığı (kg)",
+        "de": "Hasta ağırlığı (kg)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
-        "de": "Height",
+        "de": "Größe",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Patient height in centimeters",
-        "tr": "Hasta boyu (cm)"
+        "tr": "Hasta boyu (cm)",
+        "de": "Hasta boyu (cm)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Formula Selection",
         "tr": "Formül Seçimi",
-        "de": "Formula Selection",
+        "de": "Formül Seçimi",
         "fr": "Formula Selection",
         "es": "Formula Selection",
         "ar": "Formula Selection"
       },
       "businessContext_i18n": {
         "en": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George",
-        "tr": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George"
+        "tr": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George",
+        "de": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Adjustment Factor",
         "tr": "Düzeltme Faktörü",
-        "de": "Adjustment Factor",
+        "de": "Düzeltme Faktörü",
         "fr": "Adjustment Factor",
         "es": "Adjustment Factor",
         "ar": "Adjustment Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplicative clinical adjustment (e.g., 1 for standard, 0.85 for reduced dose)",
-        "tr": "Çarpımsal klinik düzeltme (örn. standart için 1, azaltılmış doz için 0.85)"
+        "tr": "Çarpımsal klinik düzeltme (örn. standart için 1, azaltılmış doz için 0.85)",
+        "de": "Çarpımsal klinik düzeltme (örn. standart için 1, azaltılmış doz için 0,85)"
       }
     }
   ],

@@ -13,7 +13,7 @@ describe("inelastic-collision-calculator", () => {
     "mass2": 2,
     "velocity2Initial": -5,
     "restitutionCoefficient": 0.5
-  } as Inelastic_collision_calculatorInput;
+  } as unknown as Inelastic_collision_calculatorInput;
     const result = calculateInelastic_collision_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

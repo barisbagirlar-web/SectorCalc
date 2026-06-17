@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Angle",
         "tr": "Açı",
-        "de": "Angle",
+        "de": "Winkel",
         "fr": "Angle",
         "es": "Angle",
         "ar": "Angle"
       },
       "businessContext_i18n": {
         "en": "Angle value for trigonometric function",
-        "tr": "Trigonometrik fonksiyon için açı değeri"
+        "tr": "Trigonometrik fonksiyon için açı değeri",
+        "de": "Winkelwert für trigonometrische Funktion"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Angle Mode",
         "tr": "Açı Modu",
-        "de": "Angle Mode",
+        "de": "Winkelmodus",
         "fr": "Angle Mode",
         "es": "Angle Mode",
         "ar": "Angle Mode"
       },
       "businessContext_i18n": {
         "en": "0: Degrees, 1: Radians",
-        "tr": "0: Derece, 1: Radyan"
+        "tr": "0: Derece, 1: Radyan",
+        "de": "0: Grad, 1: Bogenmaß"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Function",
         "tr": "Fonksiyon",
-        "de": "Function",
+        "de": "Funktion",
         "fr": "Function",
         "es": "Function",
         "ar": "Function"
       },
       "businessContext_i18n": {
         "en": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan",
-        "tr": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan"
+        "tr": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan",
+        "de": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Precision",
         "tr": "Hassasiyet",
-        "de": "Precision",
+        "de": "Genauigkeit",
         "fr": "Precision",
         "es": "Precision",
         "ar": "Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding (0 or positive integer)",
-        "tr": "Yuvarlama için ondalık basamak sayısı (0 veya pozitif tam sayı)"
+        "tr": "Yuvarlama için ondalık basamak sayısı (0 veya pozitif tam sayı)",
+        "de": "Anzahl der Dezimalstellen für Rundung (0 oder positive ganze Zahl)"
       }
     }
   ],

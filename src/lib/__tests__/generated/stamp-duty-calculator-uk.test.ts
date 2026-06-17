@@ -12,7 +12,7 @@ describe("stamp-duty-calculator-uk", () => {
     "isFirstTimeBuyer": 0,
     "isAdditionalProperty": 0,
     "isNonUKResident": 0
-  } as Stamp_duty_calculator_ukInput;
+  } as unknown as Stamp_duty_calculator_ukInput;
     const result = calculateStamp_duty_calculator_uk(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

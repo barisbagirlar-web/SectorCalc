@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { calculateCBAM, resolveCarbonEmissionsKg } from "@/lib/cbam/compliance";
 import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
 import { resolveGeneratedBreakdownLabel } from "@/lib/generated-tools/resolve-generated-display-text";
 import {
@@ -142,6 +143,50 @@ export function ResultPanel({
     );
   }
 
+  const carbonEmissions = resolveCarbonEmissionsKg(result as Record<string, unknown>);
+  const cbamReport =
+    carbonEmissions !== null ||
+    schema.toolName.toLowerCase().includes("carbon") ||
+    (schema.cbam?.enabled ?? false)
+      ? calculateCBAM(carbonEmissions ?? primaryValue ?? 0, "DE")
+      : null;
+
+  let cbamSection: ReactNode = null;
+  if (cbamReport && (carbonEmissions !== null || schema.cbam?.enabled)) {
+    cbamSection = (
+      <div className="mt-4 rounded-lg border border-emerald-200 bg-emerald-50/60 p-3 text-left text-sm">
+        <p className="font-semibold text-emerald-900">CBAM Uyum Raporu</p>
+        <p className="mt-1 text-body-charcoal">
+          Karbon ayak izi:{" "}
+          {formatGeneratedNumericValue(
+            cbamReport.productCarbonFootprint,
+            "productCarbonFootprint",
+            locale,
+            "kg CO2e",
+          )}
+        </p>
+        <p className="text-body-charcoal">
+          CBAM düzeltmesi:{" "}
+          {new Intl.NumberFormat(locale, {
+            style: "currency",
+            currency: "EUR",
+            maximumFractionDigits: 0,
+          }).format(cbamReport.cbamAdjustment)}
+        </p>
+        <p className="mt-1 text-xs uppercase tracking-wide text-emerald-800">
+          Durum: {cbamReport.complianceStatus}
+        </p>
+        {cbamReport.recommendations.length > 0 ? (
+          <ul className="mt-2 list-disc pl-4 text-xs text-body-charcoal">
+            {cbamReport.recommendations.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    );
+  }
+
   return (
     <div className="sc-premium-dtf-result-panel sc-premium-dtf-feedback-area">
       <div className="sc-premium-dtf-result sc-premium-dtf-result--pass">
@@ -154,6 +199,7 @@ export function ResultPanel({
           <div className="sc-premium-dtf-result__status">{statusLabel}</div>
         ) : null}
         {breakdownSection}
+        {cbamSection}
       </div>
     </div>
   );

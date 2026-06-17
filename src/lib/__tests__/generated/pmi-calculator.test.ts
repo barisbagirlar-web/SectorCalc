@@ -12,7 +12,7 @@ describe("pmi-calculator", () => {
     "costOfGoodsSold": 60000,
     "operatingExpenses": 20000,
     "taxRate": 20
-  } as Pmi_calculatorInput;
+  } as unknown as Pmi_calculatorInput;
     const result = calculatePmi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

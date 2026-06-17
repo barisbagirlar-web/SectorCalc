@@ -12,7 +12,7 @@ describe("tebibytes-to-terabytes-calculator", () => {
     "conversionFactor": 1.099511627776,
     "precision": 2,
     "outputMultiplier": 1
-  } as Tebibytes_to_terabytes_calculatorInput;
+  } as unknown as Tebibytes_to_terabytes_calculatorInput;
     const result = calculateTebibytes_to_terabytes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

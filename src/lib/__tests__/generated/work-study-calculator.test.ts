@@ -15,7 +15,7 @@ describe("work-study-calculator", () => {
     "standardDeviation": 0.1,
     "precision": 5,
     "zScore": 1.96
-  } as Work_study_calculatorInput;
+  } as unknown as Work_study_calculatorInput;
     const result = calculateWork_study_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("deck-railing-calculator", () => {
     "numberOfPosts": 2,
     "balusterWidth": 0.02,
     "maxGap": 0.1
-  } as Deck_railing_calculatorInput;
+  } as unknown as Deck_railing_calculatorInput;
     const result = calculateDeck_railing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

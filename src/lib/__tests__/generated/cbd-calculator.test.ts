@@ -13,7 +13,7 @@ describe("cbd-calculator", () => {
     "overheadUnitCost": 3,
     "quantity": 1000,
     "profitMarginPercent": 20
-  } as Cbd_calculatorInput;
+  } as unknown as Cbd_calculatorInput;
     const result = calculateCbd_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

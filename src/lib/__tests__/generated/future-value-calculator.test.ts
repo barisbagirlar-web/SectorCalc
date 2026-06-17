@@ -13,7 +13,7 @@ describe("future-value-calculator", () => {
     "periods": 10,
     "compoundingFrequency": 12,
     "periodicPayment": 0
-  } as Future_value_calculatorInput;
+  } as unknown as Future_value_calculatorInput;
     const result = calculateFuture_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

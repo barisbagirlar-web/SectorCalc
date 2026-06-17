@@ -14,7 +14,7 @@ describe("wedding-budget-calculator", () => {
     "decorationCost": 1000,
     "photographyCost": 1500,
     "miscellaneousCost": 500
-  } as Wedding_budget_calculatorInput;
+  } as unknown as Wedding_budget_calculatorInput;
     const result = calculateWedding_budget_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("z-transform-calculator", () => {
     "a2": 0,
     "a3": 0,
     "z": 1
-  } as Z_transform_calculatorInput;
+  } as unknown as Z_transform_calculatorInput;
     const result = calculateZ_transform_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

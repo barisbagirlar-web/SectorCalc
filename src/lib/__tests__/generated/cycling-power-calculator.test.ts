@@ -16,7 +16,7 @@ describe("cycling-power-calculator", () => {
     "air_density": 1.225,
     "CdA": 0.3,
     "drivetrain_efficiency": 0.95
-  } as Cycling_power_calculatorInput;
+  } as unknown as Cycling_power_calculatorInput;
     const result = calculateCycling_power_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

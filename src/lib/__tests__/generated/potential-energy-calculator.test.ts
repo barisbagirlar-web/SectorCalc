@@ -12,7 +12,7 @@ describe("potential-energy-calculator", () => {
     "gravity": 9.81,
     "initialHeight": 0,
     "finalHeight": 0
-  } as Potential_energy_calculatorInput;
+  } as unknown as Potential_energy_calculatorInput;
     const result = calculatePotential_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

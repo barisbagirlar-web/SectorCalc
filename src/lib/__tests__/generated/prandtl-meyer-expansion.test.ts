@@ -11,7 +11,7 @@ describe("prandtl-meyer-expansion", () => {
     "mach1": 2,
     "gamma": 1.4,
     "deflectionAngle": 10
-  } as Prandtl_meyer_expansionInput;
+  } as unknown as Prandtl_meyer_expansionInput;
     const result = calculatePrandtl_meyer_expansion(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

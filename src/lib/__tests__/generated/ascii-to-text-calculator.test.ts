@@ -16,7 +16,7 @@ describe("ascii-to-text-calculator", () => {
     "ascii6": 32,
     "ascii7": 32,
     "ascii8": 32
-  } as Ascii_to_text_calculatorInput;
+  } as unknown as Ascii_to_text_calculatorInput;
     const result = calculateAscii_to_text_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

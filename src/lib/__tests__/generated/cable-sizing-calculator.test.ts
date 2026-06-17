@@ -15,7 +15,7 @@ describe("cable-sizing-calculator", () => {
     "resistivity": 0.0172,
     "safetyFactor": 1.25,
     "ambientTempFactor": 1
-  } as Cable_sizing_calculatorInput;
+  } as unknown as Cable_sizing_calculatorInput;
     const result = calculateCable_sizing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("excavation-calculator", () => {
     "depth": 2,
     "swellFactor": 25,
     "wasteFactor": 5
-  } as Excavation_calculatorInput;
+  } as unknown as Excavation_calculatorInput;
     const result = calculateExcavation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

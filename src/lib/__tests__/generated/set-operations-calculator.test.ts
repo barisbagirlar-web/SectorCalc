@@ -15,7 +15,7 @@ describe("set-operations-calculator", () => {
     "ac": 0,
     "bc": 0,
     "abc": 0
-  } as Set_operations_calculatorInput;
+  } as unknown as Set_operations_calculatorInput;
     const result = calculateSet_operations_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

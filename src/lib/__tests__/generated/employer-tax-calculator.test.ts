@@ -13,7 +13,7 @@ describe("employer-tax-calculator", () => {
     "employerHealthInsuranceRate": 12,
     "employerUnemploymentRate": 2,
     "additionalCostRate": 1
-  } as Employer_tax_calculatorInput;
+  } as unknown as Employer_tax_calculatorInput;
     const result = calculateEmployer_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

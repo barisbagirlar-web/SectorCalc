@@ -14,7 +14,7 @@ describe("lean-bulk-calculator", () => {
     "safetyStockDays": 2,
     "leadTimeDays": 5,
     "reorderPointMultiplier": 1.2
-  } as Lean_bulk_calculatorInput;
+  } as unknown as Lean_bulk_calculatorInput;
     const result = calculateLean_bulk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

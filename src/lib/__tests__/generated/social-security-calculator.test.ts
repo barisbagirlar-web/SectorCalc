@@ -12,7 +12,7 @@ describe("social-security-calculator", () => {
     "employeeRate": 14,
     "employerRate": 20.5,
     "capAmount": 25000
-  } as Social_security_calculatorInput;
+  } as unknown as Social_security_calculatorInput;
     const result = calculateSocial_security_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

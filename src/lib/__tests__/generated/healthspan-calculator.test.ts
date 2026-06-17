@@ -14,7 +14,7 @@ describe("healthspan-calculator", () => {
     "exerciseHoursPerWeek": 3,
     "dietQualityScore": 70,
     "alcoholUnitsPerWeek": 2
-  } as Healthspan_calculatorInput;
+  } as unknown as Healthspan_calculatorInput;
     const result = calculateHealthspan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

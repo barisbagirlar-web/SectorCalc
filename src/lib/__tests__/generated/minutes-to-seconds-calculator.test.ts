@@ -13,7 +13,7 @@ describe("minutes-to-seconds-calculator", () => {
     "minutes": 0,
     "seconds": 0,
     "decimalPlaces": 0
-  } as Minutes_to_seconds_calculatorInput;
+  } as unknown as Minutes_to_seconds_calculatorInput;
     const result = calculateMinutes_to_seconds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

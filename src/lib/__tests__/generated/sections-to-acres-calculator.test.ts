@@ -12,7 +12,7 @@ describe("sections-to-acres-calculator", () => {
     "halfSections": 0,
     "quarterSections": 0,
     "quarterQuarterSections": 0
-  } as Sections_to_acres_calculatorInput;
+  } as unknown as Sections_to_acres_calculatorInput;
     const result = calculateSections_to_acres_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

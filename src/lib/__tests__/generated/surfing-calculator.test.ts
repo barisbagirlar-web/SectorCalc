@@ -12,7 +12,7 @@ describe("surfing-calculator", () => {
     "wavePeriod": 8,
     "waterDensity": 1025,
     "gravity": 9.81
-  } as Surfing_calculatorInput;
+  } as unknown as Surfing_calculatorInput;
     const result = calculateSurfing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

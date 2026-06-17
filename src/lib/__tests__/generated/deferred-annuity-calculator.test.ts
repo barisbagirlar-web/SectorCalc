@@ -12,7 +12,7 @@ describe("deferred-annuity-calculator", () => {
     "annualInterestRate": 5,
     "deferralYears": 10,
     "payoutYears": 20
-  } as Deferred_annuity_calculatorInput;
+  } as unknown as Deferred_annuity_calculatorInput;
     const result = calculateDeferred_annuity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

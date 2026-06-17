@@ -13,7 +13,7 @@ describe("turkey-calculator", () => {
     "stuffing": 0.5,
     "thawed": 1,
     "altitude": 0
-  } as Turkey_calculatorInput;
+  } as unknown as Turkey_calculatorInput;
     const result = calculateTurkey_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

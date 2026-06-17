@@ -12,7 +12,7 @@ describe("hat-size-calculator", () => {
     "unitSystem": 0,
     "hairThickness": 0.5,
     "fitPreference": 1
-  } as Hat_size_calculatorInput;
+  } as unknown as Hat_size_calculatorInput;
     const result = calculateHat_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

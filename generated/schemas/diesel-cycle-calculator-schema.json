@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Compression Ratio (r)",
         "tr": "Sıkıştırma Oranı (r)",
-        "de": "Compression Ratio (r)",
+        "de": "Verdichtungsverhältnis (r)",
         "fr": "Compression Ratio (r)",
         "es": "Compression Ratio (r)",
         "ar": "Compression Ratio (r)"
       },
       "businessContext_i18n": {
         "en": "Ratio of cylinder volume at BDC to TDC. Typical diesel: 12-24.",
-        "tr": "Silindir hacminin ÜÖN'deki hacme oranı. Tipik dizel: 12-24."
+        "tr": "Silindir hacminin ÜÖN'deki hacme oranı. Tipik dizel: 12-24.",
+        "de": "Verhältnis des Zylindervolumens bei UT zu OT. Typischer Diesel: 12-24."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cutoff Ratio (rc)",
         "tr": "Kesme Oranı (rc)",
-        "de": "Cutoff Ratio (rc)",
+        "de": "Cutoff-Verhältnis (rc)",
         "fr": "Cutoff Ratio (rc)",
         "es": "Cutoff Ratio (rc)",
         "ar": "Cutoff Ratio (rc)"
       },
       "businessContext_i18n": {
         "en": "Ratio of volume after combustion to clearance volume. Typical: 1.5-3.",
-        "tr": "Yanma sonrası hacmin boşluk hacmine oranı. Tipik: 1.5-3."
+        "tr": "Yanma sonrası hacmin boşluk hacmine oranı. Tipik: 1.5-3.",
+        "de": "Verhältnis des Volumens nach der Verbrennung zum Totraumvolumen. Typisch: 1,5-3."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Initial Temperature (T1)",
         "tr": "Başlangıç Sıcaklığı (T1)",
-        "de": "Initial Temperature (T1)",
+        "de": "Anfangstemperatur (T1)",
         "fr": "Initial Temperature (T1)",
         "es": "Initial Temperature (T1)",
         "ar": "Initial Temperature (T1)"
       },
       "businessContext_i18n": {
         "en": "Temperature at start of compression (state 1). Standard ambient: 300 K.",
-        "tr": "Sıkıştırma başlangıcındaki sıcaklık (durum 1). Standart ortam: 300 K."
+        "tr": "Sıkıştırma başlangıcındaki sıcaklık (durum 1). Standart ortam: 300 K.",
+        "de": "Temperatur zu Beginn der Verdichtung (Zustand 1). Standard-Umgebung: 300 K."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Initial Pressure (p1)",
         "tr": "Başlangıç Basıncı (p1)",
-        "de": "Initial Pressure (p1)",
+        "de": "Anfangsdruck (p1)",
         "fr": "Initial Pressure (p1)",
         "es": "Initial Pressure (p1)",
         "ar": "Initial Pressure (p1)"
       },
       "businessContext_i18n": {
         "en": "Pressure at start of compression (state 1). Atmospheric: 101325 Pa.",
-        "tr": "Sıkıştırma başlangıcındaki basınç (durum 1). Atmosferik: 101325 Pa."
+        "tr": "Sıkıştırma başlangıcındaki basınç (durum 1). Atmosferik: 101325 Pa.",
+        "de": "Druck zu Beginn der Verdichtung (Zustand 1). Atmosphärisch: 101325 Pa."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Specific Heat Ratio (k)",
         "tr": "Özgül Isı Oranı (k)",
-        "de": "Specific Heat Ratio (k)",
+        "de": "Isentropenexponent (k)",
         "fr": "Specific Heat Ratio (k)",
         "es": "Specific Heat Ratio (k)",
         "ar": "Specific Heat Ratio (k)"
       },
       "businessContext_i18n": {
         "en": "Ratio cp/cv for air. Typically 1.4 for diatomic gases.",
-        "tr": "Hava için cp/cv oranı. Tipik olarak 1.4 (diatomik gazlar)."
+        "tr": "Hava için cp/cv oranı. Tipik olarak 1.4 (diatomik gazlar).",
+        "de": "Verhältnis cp/cv für Luft. Typischerweise 1,4 für zweiatomige Gase."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Specific Heat (cv)",
         "tr": "Özgül Isı (cv)",
-        "de": "Specific Heat (cv)",
+        "de": "Spezifische Wärme (cv)",
         "fr": "Specific Heat (cv)",
         "es": "Specific Heat (cv)",
         "ar": "Specific Heat (cv)"
       },
       "businessContext_i18n": {
         "en": "Specific heat at constant volume for air. Standard: 718 J/(kg·K).",
-        "tr": "Hava için sabit hacimde özgül ısı. Standart: 718 J/(kg·K)."
+        "tr": "Hava için sabit hacimde özgül ısı. Standart: 718 J/(kg·K).",
+        "de": "Spezifische Wärme bei konstantem Volumen für Luft. Standard: 718 J/(kg·K)."
       }
     }
   ],

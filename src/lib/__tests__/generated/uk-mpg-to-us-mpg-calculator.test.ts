@@ -12,7 +12,7 @@ describe("uk-mpg-to-us-mpg-calculator", () => {
     "imp_gal_l": 4.54609,
     "us_gal_l": 3.785411784,
     "uk_mpg_adjustment": 0
-  } as Uk_mpg_to_us_mpg_calculatorInput;
+  } as unknown as Uk_mpg_to_us_mpg_calculatorInput;
     const result = calculateUk_mpg_to_us_mpg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

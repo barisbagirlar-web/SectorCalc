@@ -14,7 +14,7 @@ describe("cage-calculator", () => {
     "sellingPricePerUnit": 0,
     "unitsProduced": 1000,
     "taxRate": 25
-  } as Cage_calculatorInput;
+  } as unknown as Cage_calculatorInput;
     const result = calculateCage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

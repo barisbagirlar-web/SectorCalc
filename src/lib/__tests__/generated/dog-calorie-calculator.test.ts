@@ -12,7 +12,7 @@ describe("dog-calorie-calculator", () => {
     "activityFactor": 1.6,
     "bodyConditionScore": 5,
     "desiredWeightChange": 0
-  } as Dog_calorie_calculatorInput;
+  } as unknown as Dog_calorie_calculatorInput;
     const result = calculateDog_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

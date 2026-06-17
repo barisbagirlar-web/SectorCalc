@@ -13,7 +13,7 @@ describe("square-miles-to-square-kilometers-calculator", () => {
     "dp": 4,
     "sf": 1,
     "cc": 0
-  } as Square_miles_to_square_kilometers_calculatorInput;
+  } as unknown as Square_miles_to_square_kilometers_calculatorInput;
     const result = calculateSquare_miles_to_square_kilometers_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

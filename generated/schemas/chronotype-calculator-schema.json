@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Workday Bedtime",
         "tr": "İş Günü Yatma Saati",
-        "de": "Workday Bedtime",
+        "de": "Schlafenszeit an Arbeitstagen",
         "fr": "Workday Bedtime",
         "es": "Workday Bedtime",
         "ar": "Workday Bedtime"
       },
       "businessContext_i18n": {
         "en": "Typical bedtime on workdays, in decimal hours (e.g., 23.5 = 11:30 PM)",
-        "tr": "İş günlerinde tipik yatma saati, ondalık saat cinsinden (ör. 23,5 = 23:30)"
+        "tr": "İş günlerinde tipik yatma saati, ondalık saat cinsinden (ör. 23,5 = 23:30)",
+        "de": "Typische Schlafenszeit an Arbeitstagen, in Dezimalstunden (z.B. 23,5 = 23:30 Uhr)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Workday Wake Time",
         "tr": "İş Günü Uyanma Saati",
-        "de": "Workday Wake Time",
+        "de": "Aufwachzeit an Arbeitstagen",
         "fr": "Workday Wake Time",
         "es": "Workday Wake Time",
         "ar": "Workday Wake Time"
       },
       "businessContext_i18n": {
         "en": "Typical wake time on workdays, in decimal hours (e.g., 7.0 = 7:00 AM)",
-        "tr": "İş günlerinde tipik uyanma saati, ondalık saat cinsinden (ör. 7,0 = 07:00)"
+        "tr": "İş günlerinde tipik uyanma saati, ondalık saat cinsinden (ör. 7,0 = 07:00)",
+        "de": "Typische Aufwachzeit an Arbeitstagen, in Dezimalstunden (z.B. 7,0 = 7:00 Uhr)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Free Day Bedtime",
         "tr": "Tatil Günü Yatma Saati",
-        "de": "Free Day Bedtime",
+        "de": "Schlafenszeit an freien Tagen",
         "fr": "Free Day Bedtime",
         "es": "Free Day Bedtime",
         "ar": "Free Day Bedtime"
       },
       "businessContext_i18n": {
         "en": "Typical bedtime on free days, in decimal hours (e.g., 0 = midnight, 1.5 = 1:30 AM)",
-        "tr": "Tatil günlerinde tipik yatma saati, ondalık saat cinsinden (ör. 0 = gece yarısı, 1,5 = 01:30)"
+        "tr": "Tatil günlerinde tipik yatma saati, ondalık saat cinsinden (ör. 0 = gece yarısı, 1,5 = 01:30)",
+        "de": "Typische Schlafenszeit an freien Tagen, in Dezimalstunden (z.B. 0 = Mitternacht, 1,5 = 1:30 Uhr)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Free Day Wake Time",
         "tr": "Tatil Günü Uyanma Saati",
-        "de": "Free Day Wake Time",
+        "de": "Aufwachzeit an freien Tagen",
         "fr": "Free Day Wake Time",
         "es": "Free Day Wake Time",
         "ar": "Free Day Wake Time"
       },
       "businessContext_i18n": {
         "en": "Typical wake time on free days, in decimal hours (e.g., 8 = 8:00 AM)",
-        "tr": "Tatil günlerinde tipik uyanma saati, ondalık saat cinsinden (ör. 8 = 08:00)"
+        "tr": "Tatil günlerinde tipik uyanma saati, ondalık saat cinsinden (ör. 8 = 08:00)",
+        "de": "Typische Aufwachzeit an freien Tagen, in Dezimalstunden (z.B. 8 = 8:00 Uhr)"
       }
     }
   ],

@@ -13,7 +13,7 @@ describe("extension-spring-calculator", () => {
     "totalCoils": 15,
     "shearModulus": 79000,
     "allowableStress": 600
-  } as Extension_spring_calculatorInput;
+  } as unknown as Extension_spring_calculatorInput;
     const result = calculateExtension_spring_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

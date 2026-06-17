@@ -13,7 +13,7 @@ describe("chord-calculator", () => {
     "arcLength": 0,
     "chordOffset": 0,
     "precision": 2
-  } as Chord_calculatorInput;
+  } as unknown as Chord_calculatorInput;
     const result = calculateChord_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

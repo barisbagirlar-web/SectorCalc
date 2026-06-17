@@ -12,7 +12,7 @@ describe("sin-tax-calculator", () => {
     "sinTaxRate": 25,
     "vatRate": 18,
     "quantity": 1
-  } as Sin_tax_calculatorInput;
+  } as unknown as Sin_tax_calculatorInput;
     const result = calculateSin_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

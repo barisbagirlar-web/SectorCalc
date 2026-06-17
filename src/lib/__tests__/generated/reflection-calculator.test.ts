@@ -12,7 +12,7 @@ describe("reflection-calculator", () => {
     "n1": 1,
     "n2": 1.5,
     "wavelength": 550
-  } as Reflection_calculatorInput;
+  } as unknown as Reflection_calculatorInput;
     const result = calculateReflection_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

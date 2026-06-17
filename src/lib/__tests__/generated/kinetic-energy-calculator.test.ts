@@ -13,7 +13,7 @@ describe("kinetic-energy-calculator", () => {
     "velocity": 1,
     "velocityUnit": 1,
     "quantity": 1
-  } as Kinetic_energy_calculatorInput;
+  } as unknown as Kinetic_energy_calculatorInput;
     const result = calculateKinetic_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

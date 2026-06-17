@@ -12,7 +12,7 @@ describe("degrees-to-radians-calculator", () => {
     "minutes": 0,
     "seconds": 0,
     "decimalPlaces": 6
-  } as Degrees_to_radians_calculatorInput;
+  } as unknown as Degrees_to_radians_calculatorInput;
     const result = calculateDegrees_to_radians_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

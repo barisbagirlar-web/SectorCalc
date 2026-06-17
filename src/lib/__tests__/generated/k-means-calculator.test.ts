@@ -12,7 +12,7 @@ describe("k-means-calculator", () => {
     "value2": 0,
     "value3": 0,
     "value4": 0
-  } as K_means_calculatorInput;
+  } as unknown as K_means_calculatorInput;
     const result = calculateK_means_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

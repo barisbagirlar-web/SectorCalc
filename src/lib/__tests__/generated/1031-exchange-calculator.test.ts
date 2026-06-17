@@ -14,7 +14,7 @@ describe("1031-exchange-calculator", () => {
     "purchasePrice": 600000,
     "newMortgage": 350000,
     "buyingCosts": 15000
-  } as _1031_exchange_calculatorInput;
+  } as unknown as _1031_exchange_calculatorInput;
     const result = calculate_1031_exchange_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

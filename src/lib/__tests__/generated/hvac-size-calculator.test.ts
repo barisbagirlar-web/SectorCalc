@@ -15,7 +15,7 @@ describe("hvac-size-calculator", () => {
     "insulation_factor": 2,
     "outdoor_temperature": 35,
     "indoor_temperature": 24
-  } as Hvac_size_calculatorInput;
+  } as unknown as Hvac_size_calculatorInput;
     const result = calculateHvac_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

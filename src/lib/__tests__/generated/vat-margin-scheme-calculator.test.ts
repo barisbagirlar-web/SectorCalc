@@ -12,7 +12,7 @@ describe("vat-margin-scheme-calculator", () => {
     "sellingPrice": 0,
     "vatRate": 20,
     "allowableCosts": 0
-  } as Vat_margin_scheme_calculatorInput;
+  } as unknown as Vat_margin_scheme_calculatorInput;
     const result = calculateVat_margin_scheme_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

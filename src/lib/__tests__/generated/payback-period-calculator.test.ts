@@ -12,7 +12,7 @@ describe("payback-period-calculator", () => {
     "annualNetCashFlow": 20000,
     "annualGrowthRate": 0,
     "salvageValue": 0
-  } as Payback_period_calculatorInput;
+  } as unknown as Payback_period_calculatorInput;
     const result = calculatePayback_period_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

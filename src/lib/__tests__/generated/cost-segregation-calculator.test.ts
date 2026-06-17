@@ -16,7 +16,7 @@ describe("cost-segregation-calculator", () => {
     "buildingLife": 39,
     "personalPropertyLife": 7,
     "landImprovementsLife": 15
-  } as Cost_segregation_calculatorInput;
+  } as unknown as Cost_segregation_calculatorInput;
     const result = calculateCost_segregation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

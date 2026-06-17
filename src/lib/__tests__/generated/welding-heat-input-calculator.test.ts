@@ -12,7 +12,7 @@ describe("welding-heat-input-calculator", () => {
     "current": 200,
     "travelSpeed": 300,
     "efficiency": 0.8
-  } as Welding_heat_input_calculatorInput;
+  } as unknown as Welding_heat_input_calculatorInput;
     const result = calculateWelding_heat_input_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

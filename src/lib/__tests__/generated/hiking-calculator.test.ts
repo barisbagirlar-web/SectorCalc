@@ -12,7 +12,7 @@ describe("hiking-calculator", () => {
     "elevationGain": 500,
     "averageSpeed": 5,
     "backpackWeight": 0
-  } as Hiking_calculatorInput;
+  } as unknown as Hiking_calculatorInput;
     const result = calculateHiking_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("student-loan-refinance-calculator", () => {
     "newRate": 4.5,
     "newTerm": 120,
     "originationFee": 1
-  } as Student_loan_refinance_calculatorInput;
+  } as unknown as Student_loan_refinance_calculatorInput;
     const result = calculateStudent_loan_refinance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

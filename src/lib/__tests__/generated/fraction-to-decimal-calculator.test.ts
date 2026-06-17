@@ -14,7 +14,7 @@ describe("fraction-to-decimal-calculator", () => {
     "decimalPlaces": 6,
     "roundingMethod": "half_up",
     "uncertaintyInput": 0
-  } as Fraction_to_decimal_calculatorInput;
+  } as unknown as Fraction_to_decimal_calculatorInput;
     const result = calculateFraction_to_decimal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

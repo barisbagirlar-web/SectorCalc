@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Car Value",
         "tr": "Araba Değeri",
-        "de": "Car Value",
+        "de": "Fahrzeugwert",
         "fr": "Car Value",
         "es": "Car Value",
         "ar": "Car Value"
       },
       "businessContext_i18n": {
         "en": "The current market value of the insured vehicle.",
-        "tr": "Sigortalı aracın güncel piyasa değeri."
+        "tr": "Sigortalı aracın güncel piyasa değeri.",
+        "de": "Der aktuelle Marktwert des versicherten Fahrzeugs."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Driver Age",
         "tr": "Sürücü Yaşı",
-        "de": "Driver Age",
+        "de": "Fahreralter",
         "fr": "Driver Age",
         "es": "Driver Age",
         "ar": "Driver Age"
       },
       "businessContext_i18n": {
         "en": "Age of the primary driver; younger drivers often have higher risk.",
-        "tr": "Ana sürücünün yaşı; genç sürücüler genellikle daha yüksek riske sahiptir."
+        "tr": "Ana sürücünün yaşı; genç sürücüler genellikle daha yüksek riske sahiptir.",
+        "de": "Alter des Hauptfahrers; jüngere Fahrer haben oft ein höheres Risiko."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Driving Experience",
         "tr": "Sürüş Deneyimi",
-        "de": "Driving Experience",
+        "de": "Fahrerfahrung",
         "fr": "Driving Experience",
         "es": "Driving Experience",
         "ar": "Driving Experience"
       },
       "businessContext_i18n": {
         "en": "Number of years the driver has held a valid driving license.",
-        "tr": "Sürücünün geçerli bir sürücü belgesine sahip olduğu yıl sayısı."
+        "tr": "Sürücünün geçerli bir sürücü belgesine sahip olduğu yıl sayısı.",
+        "de": "Anzahl der Jahre, die der Fahrer einen gültigen Führerschein besitzt."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "No-Claims Years",
         "tr": "Hasar Görmemiş Yıllar",
-        "de": "No-Claims Years",
+        "de": "Schadenfreie Jahre",
         "fr": "No-Claims Years",
         "es": "No-Claims Years",
         "ar": "No-Claims Years"
       },
       "businessContext_i18n": {
         "en": "Consecutive claim-free years; affects no-claims discount.",
-        "tr": "Ardışık hasarsız yıllar; hasarsızlık indirimini etkiler."
+        "tr": "Ardışık hasarsız yıllar; hasarsızlık indirimini etkiler.",
+        "de": "Aufeinanderfolgende schadenfreie Jahre; beeinflusst den Schadenfreiheitsrabatt."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Annual Mileage",
         "tr": "Yıllık Kilometre",
-        "de": "Annual Mileage",
+        "de": "Jährliche Fahrleistung",
         "fr": "Annual Mileage",
         "es": "Annual Mileage",
         "ar": "Annual Mileage"
       },
       "businessContext_i18n": {
         "en": "Estimated annual distance driven; higher mileage increases risk.",
-        "tr": "Tahmini yıllık sürüş mesafesi; yüksek kilometre riski artırır."
+        "tr": "Tahmini yıllık sürüş mesafesi; yüksek kilometre riski artırır.",
+        "de": "Geschätzte jährliche Fahrleistung; höhere Kilometerzahl erhöht das Risiko."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Coverage Level",
         "tr": "Teminat Seviyesi",
-        "de": "Coverage Level",
+        "de": "Deckungsstufe",
         "fr": "Coverage Level",
         "es": "Coverage Level",
         "ar": "Coverage Level"
       },
       "businessContext_i18n": {
         "en": "Coverage type: 1=Third party, 2=Third party fire & theft, 3=Comprehensive.",
-        "tr": "Teminat türü: 1=Üçüncü şahıs, 2=Üçüncü şahıs yangın ve hırsızlık, 3=Kapsamlı."
+        "tr": "Teminat türü: 1=Üçüncü şahıs, 2=Üçüncü şahıs yangın ve hırsızlık, 3=Kapsamlı.",
+        "de": "Deckungsart: 1=Haftpflicht, 2=Teilkasko, 3=Vollkasko."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Region Risk Factor",
         "tr": "Bölge Risk Faktörü",
-        "de": "Region Risk Factor",
+        "de": "Regionaler Risikofaktor",
         "fr": "Region Risk Factor",
         "es": "Region Risk Factor",
         "ar": "Region Risk Factor"
       },
       "businessContext_i18n": {
         "en": "Regional risk factor based on crime and accident statistics (1=lowest, 10=highest).",
-        "tr": "Suç ve kaza istatistiklerine dayalı bölgesel risk faktörü (1=en düşük, 10=en yüksek)."
+        "tr": "Suç ve kaza istatistiklerine dayalı bölgesel risk faktörü (1=en düşük, 10=en yüksek).",
+        "de": "Regionaler Risikofaktor basierend auf Kriminalitäts- und Unfallstatistiken (1=niedrigste, 10=höchste)."
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Vehicle Age",
         "tr": "Araç Yaşı",
-        "de": "Vehicle Age",
+        "de": "Fahrzeugalter",
         "fr": "Vehicle Age",
         "es": "Vehicle Age",
         "ar": "Vehicle Age"
       },
       "businessContext_i18n": {
         "en": "Age of the vehicle; older cars may have different risk profiles.",
-        "tr": "Aracın yaşı; eski arabalar farklı risk profillerine sahip olabilir."
+        "tr": "Aracın yaşı; eski arabalar farklı risk profillerine sahip olabilir.",
+        "de": "Alter des Fahrzeugs; ältere Autos können unterschiedliche Risikoprofile aufweisen."
       }
     }
   ],

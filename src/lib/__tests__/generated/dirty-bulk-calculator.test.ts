@@ -14,7 +14,7 @@ describe("dirty-bulk-calculator", () => {
     "cleaningSurchargePercent": 15,
     "demurrageRiskFactor": 2,
     "demurrageRate": 5000
-  } as Dirty_bulk_calculatorInput;
+  } as unknown as Dirty_bulk_calculatorInput;
     const result = calculateDirty_bulk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

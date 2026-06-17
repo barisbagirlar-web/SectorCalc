@@ -12,7 +12,7 @@ describe("fertility-calculator", () => {
     "cycleLength": 28,
     "lutealPhase": 14,
     "monthsTrying": 12
-  } as Fertility_calculatorInput;
+  } as unknown as Fertility_calculatorInput;
     const result = calculateFertility_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

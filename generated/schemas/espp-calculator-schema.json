@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fair Market Value per Share",
         "tr": "Adil Piyasa Değeri (Hisse Başına)",
-        "de": "Fair Market Value per Share",
+        "de": "Marktwert pro Aktie",
         "fr": "Fair Market Value per Share",
         "es": "Fair Market Value per Share",
         "ar": "Fair Market Value per Share"
       },
       "businessContext_i18n": {
         "en": "Current market price per share at purchase date",
-        "tr": "Satın alma tarihindeki güncel piyasa fiyatı (hisse başına)"
+        "tr": "Satın alma tarihindeki güncel piyasa fiyatı (hisse başına)",
+        "de": "Aktueller Marktpreis pro Aktie zum Kaufdatum"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "ESPP Discount",
         "tr": "ESPP İndirimi",
-        "de": "ESPP Discount",
+        "de": "ESPP-Rabatt",
         "fr": "ESPP Discount",
         "es": "ESPP Discount",
         "ar": "ESPP Discount"
       },
       "businessContext_i18n": {
         "en": "Discount percentage offered by the plan (e.g., 15 means 15% off FMV)",
-        "tr": "Plan tarafından sunulan indirim yüzdesi (örneğin, 15, FMV'nin %15'i anlamına gelir)"
+        "tr": "Plan tarafından sunulan indirim yüzdesi (örneğin, 15, FMV'nin %15'i anlamına gelir)",
+        "de": "Rabattprozentsatz des Plans (z.B. 15 bedeutet 15% Rabatt auf den Marktwert)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Shares Purchased",
         "tr": "Satın Alınan Hisse Sayısı",
-        "de": "Number of Shares Purchased",
+        "de": "Anzahl gekaufter Aktien",
         "fr": "Number of Shares Purchased",
         "es": "Number of Shares Purchased",
         "ar": "Number of Shares Purchased"
       },
       "businessContext_i18n": {
         "en": "Total number of shares bought through the ESPP",
-        "tr": "ESPP aracılığıyla satın alınan toplam hisse sayısı"
+        "tr": "ESPP aracılığıyla satın alınan toplam hisse sayısı",
+        "de": "Gesamtzahl der über das ESPP gekauften Aktien"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Holding Period in Months",
         "tr": "Tutma Süresi (Ay)",
-        "de": "Holding Period in Months",
+        "de": "Haltedauer in Monaten",
         "fr": "Holding Period in Months",
         "es": "Holding Period in Months",
         "ar": "Holding Period in Months"
       },
       "businessContext_i18n": {
         "en": "Number of months held before selling; 0 for immediate sale",
-        "tr": "Satmadan önce elde tutulan ay sayısı; anında satış için 0"
+        "tr": "Satmadan önce elde tutulan ay sayısı; anında satış için 0",
+        "de": "Anzahl der Monate vor Verkauf; 0 für sofortigen Verkauf"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Ordinary Income Tax Rate",
         "tr": "Olağan Gelir Vergisi Oranı",
-        "de": "Ordinary Income Tax Rate",
+        "de": "Steuersatz für ordentliches Einkommen",
         "fr": "Ordinary Income Tax Rate",
         "es": "Ordinary Income Tax Rate",
         "ar": "Ordinary Income Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable marginal tax rate for ordinary income",
-        "tr": "Olağan gelir için geçerli marjinal vergi oranı"
+        "tr": "Olağan gelir için geçerli marjinal vergi oranı",
+        "de": "Anwendbarer Grenzsteuersatz für ordentliches Einkommen"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Long-Term Capital Gains Tax Rate",
         "tr": "Uzun Vadeli Sermaye Kazançları Vergi Oranı",
-        "de": "Long-Term Capital Gains Tax Rate",
+        "de": "Steuersatz für langfristige Kapitalgewinne",
         "fr": "Long-Term Capital Gains Tax Rate",
         "es": "Long-Term Capital Gains Tax Rate",
         "ar": "Long-Term Capital Gains Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Tax rate for long-term capital gains (if holding period > 12 months)",
-        "tr": "Uzun vadeli sermaye kazançları için vergi oranı (tutma süresi > 12 ay ise)"
+        "tr": "Uzun vadeli sermaye kazançları için vergi oranı (tutma süresi > 12 ay ise)",
+        "de": "Steuersatz für langfristige Kapitalgewinne (bei Haltedauer > 12 Monate)"
       }
     }
   ],

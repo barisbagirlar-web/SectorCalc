@@ -16,7 +16,7 @@ describe("polygon-area-calculator", () => {
     "y3": 0,
     "x4": 0,
     "y4": 0
-  } as Polygon_area_calculatorInput;
+  } as unknown as Polygon_area_calculatorInput;
     const result = calculatePolygon_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

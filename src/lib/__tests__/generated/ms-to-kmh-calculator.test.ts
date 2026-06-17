@@ -13,7 +13,7 @@ describe("ms-to-kmh-calculator", () => {
     "decimalPlaces": 2,
     "roundingMethod": 0,
     "expectedOutput": 0
-  } as Ms_to_kmh_calculatorInput;
+  } as unknown as Ms_to_kmh_calculatorInput;
     const result = calculateMs_to_kmh_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

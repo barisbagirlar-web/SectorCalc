@@ -12,7 +12,7 @@ describe("humidity-calculator", () => {
     "relativeHumidity": 60,
     "pressure": 1013.25,
     "altitude": 0
-  } as Humidity_calculatorInput;
+  } as unknown as Humidity_calculatorInput;
     const result = calculateHumidity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

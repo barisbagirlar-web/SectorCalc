@@ -14,7 +14,7 @@ describe("fha-loan-calculator", () => {
     "propertyTaxAnnual": 2400,
     "hazardInsuranceAnnual": 1000,
     "mipAnnualRate": 0.85
-  } as Fha_loan_calculatorInput;
+  } as unknown as Fha_loan_calculatorInput;
     const result = calculateFha_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("surface-area-plane-rectangle-calculator", () => {
     "xMax": 1,
     "yMin": 0,
     "yMax": 1
-  } as Surface_area_plane_rectangle_calculatorInput;
+  } as unknown as Surface_area_plane_rectangle_calculatorInput;
     const result = calculateSurface_area_plane_rectangle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

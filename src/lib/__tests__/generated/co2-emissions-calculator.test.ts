@@ -13,7 +13,7 @@ describe("co2-emissions-calculator", () => {
     "diesel": 0,
     "gasoline": 0,
     "lpg": 0
-  } as Co2_emissions_calculatorInput;
+  } as unknown as Co2_emissions_calculatorInput;
     const result = calculateCo2_emissions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("divisor-calculator", () => {
     "gear4Teeth": 60,
     "gear5Teeth": 20,
     "gear6Teeth": 80
-  } as Divisor_calculatorInput;
+  } as unknown as Divisor_calculatorInput;
     const result = calculateDivisor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("card-probability-calculator", () => {
     "successesInDeck": 4,
     "draws": 5,
     "successesWanted": 1
-  } as Card_probability_calculatorInput;
+  } as unknown as Card_probability_calculatorInput;
     const result = calculateCard_probability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("harmonic-series-calculator", () => {
     "increment": 1,
     "shift": 0,
     "multiplier": 1
-  } as Harmonic_series_calculatorInput;
+  } as unknown as Harmonic_series_calculatorInput;
     const result = calculateHarmonic_series_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

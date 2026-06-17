@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Day 1 Temperature",
         "tr": "1. Gün Sıcaklığı",
-        "de": "Day 1 Temperature",
+        "de": "Tag-1-Temperatur",
         "fr": "Day 1 Temperature",
         "es": "Day 1 Temperature",
         "ar": "Day 1 Temperature"
       },
       "businessContext_i18n": {
         "en": "Basal body temperature reading for day 1",
-        "tr": "1. gün için bazal vücut sıcaklığı okuması"
+        "tr": "1. gün için bazal vücut sıcaklığı okuması",
+        "de": "Basaltemperaturmessung für Tag 1"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Day 2 Temperature",
         "tr": "2. Gün Sıcaklığı",
-        "de": "Day 2 Temperature",
+        "de": "Tag-2-Temperatur",
         "fr": "Day 2 Temperature",
         "es": "Day 2 Temperature",
         "ar": "Day 2 Temperature"
       },
       "businessContext_i18n": {
         "en": "Basal body temperature reading for day 2",
-        "tr": "2. gün için bazal vücut sıcaklığı okuması"
+        "tr": "2. gün için bazal vücut sıcaklığı okuması",
+        "de": "Basaltemperaturmessung für Tag 2"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Day 3 Temperature",
         "tr": "3. Gün Sıcaklığı",
-        "de": "Day 3 Temperature",
+        "de": "Tag-3-Temperatur",
         "fr": "Day 3 Temperature",
         "es": "Day 3 Temperature",
         "ar": "Day 3 Temperature"
       },
       "businessContext_i18n": {
         "en": "Basal body temperature reading for day 3",
-        "tr": "3. gün için bazal vücut sıcaklığı okuması"
+        "tr": "3. gün için bazal vücut sıcaklığı okuması",
+        "de": "Basaltemperaturmessung für Tag 3"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Baseline Temperature",
         "tr": "Bazal Sıcaklık",
-        "de": "Baseline Temperature",
+        "de": "Basaltemperatur",
         "fr": "Baseline Temperature",
         "es": "Baseline Temperature",
         "ar": "Baseline Temperature"
       },
       "businessContext_i18n": {
         "en": "Average temperature from previous cycle or reference",
-        "tr": "Önceki döngüden veya referanstan ortalama sıcaklık"
+        "tr": "Önceki döngüden veya referanstan ortalama sıcaklık",
+        "de": "Durchschnittstemperatur aus vorherigem Zyklus oder Referenz"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Threshold Rise",
         "tr": "Eşik Yükselişi",
-        "de": "Threshold Rise",
+        "de": "Schwellenanstieg",
         "fr": "Threshold Rise",
         "es": "Threshold Rise",
         "ar": "Threshold Rise"
       },
       "businessContext_i18n": {
         "en": "Temperature increase threshold to indicate shift",
-        "tr": "Değişimi belirtmek için sıcaklık artış eşiği"
+        "tr": "Değişimi belirtmek için sıcaklık artış eşiği",
+        "de": "Temperaturanstiegsschwelle zur Anzeige einer Verschiebung"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Days to Confirm",
         "tr": "Onay Gün Sayısı",
-        "de": "Days to Confirm",
+        "de": "Tage zur Bestätigung",
         "fr": "Days to Confirm",
         "es": "Days to Confirm",
         "ar": "Days to Confirm"
       },
       "businessContext_i18n": {
         "en": "Number of consecutive days above threshold to confirm shift",
-        "tr": "Değişimi onaylamak için eşiğin üzerinde ardışık gün sayısı"
+        "tr": "Değişimi onaylamak için eşiğin üzerinde ardışık gün sayısı",
+        "de": "Anzahl aufeinanderfolgender Tage über der Schwelle zur Bestätigung der Verschiebung"
       }
     }
   ],

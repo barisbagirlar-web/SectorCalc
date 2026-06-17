@@ -12,7 +12,7 @@ describe("ideal-weight-calculator", () => {
     "height_in": 0,
     "gender": 1,
     "body_frame": 2
-  } as Ideal_weight_calculatorInput;
+  } as unknown as Ideal_weight_calculatorInput;
     const result = calculateIdeal_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

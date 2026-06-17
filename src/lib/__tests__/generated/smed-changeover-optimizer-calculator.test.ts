@@ -14,7 +14,7 @@ describe("smed-changeover-optimizer-calculator", () => {
     "parallel_work_possible": true,
     "standardization_level": "medium",
     "waste_motion_score": 6
-  } as Smed_changeover_optimizer_calculatorInput;
+  } as unknown as Smed_changeover_optimizer_calculatorInput;
     const result = calculateSmed_changeover_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

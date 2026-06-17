@@ -12,7 +12,7 @@ describe("le-chatelier-denge-kaymasi-calculator", () => {
     "initB": 0,
     "Kc": 1,
     "deltaA": 0.5
-  } as Le_chatelier_denge_kaymasi_calculatorInput;
+  } as unknown as Le_chatelier_denge_kaymasi_calculatorInput;
     const result = calculateLe_chatelier_denge_kaymasi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

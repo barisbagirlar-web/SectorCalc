@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Object Mass",
         "tr": "Cisim Kütlesi",
-        "de": "Object Mass",
+        "de": "Objektmasse",
         "fr": "Object Mass",
         "es": "Object Mass",
         "ar": "Object Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the object to be submerged",
-        "tr": "Batırılacak nesnenin kütlesi"
+        "tr": "Batırılacak nesnenin kütlesi",
+        "de": "Masse des unterzutauchenen Objekts"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Object Volume",
         "tr": "Cisim Hacmi",
-        "de": "Object Volume",
+        "de": "Objektvolumen",
         "fr": "Object Volume",
         "es": "Object Volume",
         "ar": "Object Volume"
       },
       "businessContext_i18n": {
         "en": "Total volume of the object",
-        "tr": "Nesnenin toplam hacmi"
+        "tr": "Nesnenin toplam hacmi",
+        "de": "Gesamtvolumen des Objekts"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
-        "de": "Fluid Density",
+        "de": "Flüssigkeitsdichte",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid in which the object is submerged",
-        "tr": "Nesnenin batırıldığı akışkanın yoğunluğu"
+        "tr": "Nesnenin batırıldığı akışkanın yoğunluğu",
+        "de": "Dichte der Flüssigkeit, in die das Objekt eingetaucht wird"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Gravitational Acceleration",
         "tr": "Yerçekimi İvmesi",
-        "de": "Gravitational Acceleration",
+        "de": "Erdbeschleunigung",
         "fr": "Gravitational Acceleration",
         "es": "Gravitational Acceleration",
         "ar": "Gravitational Acceleration"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity, typically 9.81 m/s² on Earth",
-        "tr": "Yerçekimi ivmesi, Dünya'da tipik olarak 9,81 m/s²"
+        "tr": "Yerçekimi ivmesi, Dünya'da tipik olarak 9,81 m/s²",
+        "de": "Erdbeschleunigung, typischerweise 9,81 m/s² auf der Erde"
       }
     }
   ],

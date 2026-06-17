@@ -14,7 +14,7 @@ describe("air-consumption-calculator", () => {
     "cyclesPerMinute": 10,
     "atmospheric": 1.013,
     "actingFactor": 2
-  } as Air_consumption_calculatorInput;
+  } as unknown as Air_consumption_calculatorInput;
     const result = calculateAir_consumption_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

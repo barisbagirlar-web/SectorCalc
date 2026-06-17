@@ -13,7 +13,7 @@ describe("parts-per-billion-calculator", () => {
     "solution_density_kg_per_L": 1,
     "gas_solute_volume_mL": 0,
     "total_gas_volume_L": 0
-  } as Parts_per_billion_calculatorInput;
+  } as unknown as Parts_per_billion_calculatorInput;
     const result = calculateParts_per_billion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

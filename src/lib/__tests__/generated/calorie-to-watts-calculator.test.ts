@@ -13,7 +13,7 @@ describe("calorie-to-watts-calculator", () => {
     "time_minutes": 0,
     "time_seconds": 1,
     "joules_per_cal": 4.184
-  } as Calorie_to_watts_calculatorInput;
+  } as unknown as Calorie_to_watts_calculatorInput;
     const result = calculateCalorie_to_watts_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

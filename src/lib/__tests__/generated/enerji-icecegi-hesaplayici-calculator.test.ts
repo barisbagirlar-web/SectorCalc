@@ -13,7 +13,7 @@ describe("enerji-icecegi-hesaplayici-calculator", () => {
     "sugarPerServing": 27,
     "costPerCan": 2.5,
     "servingsPerCan": 1
-  } as Enerji_icecegi_hesaplayici_calculatorInput;
+  } as unknown as Enerji_icecegi_hesaplayici_calculatorInput;
     const result = calculateEnerji_icecegi_hesaplayici_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

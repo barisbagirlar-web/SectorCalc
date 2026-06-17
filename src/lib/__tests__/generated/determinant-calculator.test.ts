@@ -12,7 +12,7 @@ describe("determinant-calculator", () => {
     "b": 0,
     "c": 0,
     "d": 0
-  } as Determinant_calculatorInput;
+  } as unknown as Determinant_calculatorInput;
     const result = calculateDeterminant_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

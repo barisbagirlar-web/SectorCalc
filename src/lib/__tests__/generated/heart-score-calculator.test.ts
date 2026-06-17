@@ -13,7 +13,7 @@ describe("heart-score-calculator", () => {
     "age": 0,
     "riskFactors": 0,
     "troponin": 0
-  } as Heart_score_calculatorInput;
+  } as unknown as Heart_score_calculatorInput;
     const result = calculateHeart_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

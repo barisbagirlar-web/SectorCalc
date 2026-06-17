@@ -12,7 +12,7 @@ describe("simple-interest-calculator", () => {
     "rate": 5,
     "startYear": 2025,
     "endYear": 2030
-  } as Simple_interest_calculatorInput;
+  } as unknown as Simple_interest_calculatorInput;
     const result = calculateSimple_interest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

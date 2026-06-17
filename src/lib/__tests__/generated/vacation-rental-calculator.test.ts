@@ -14,7 +14,7 @@ describe("vacation-rental-calculator", () => {
     "serviceFeePercent": 10,
     "taxRate": 8,
     "discountPercent": 0
-  } as Vacation_rental_calculatorInput;
+  } as unknown as Vacation_rental_calculatorInput;
     const result = calculateVacation_rental_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

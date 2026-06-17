@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age in years for BMR calculation",
-        "tr": "BMR hesaplaması için yaş (yıl)"
+        "tr": "BMR hesaplaması için yaş (yıl)",
+        "de": "Alter in Jahren für die BMR-Berechnung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Gender",
         "tr": "Cinsiyet",
-        "de": "Gender",
+        "de": "Geschlecht",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for female, 1 for male",
-        "tr": "0 kadın, 1 erkek"
+        "tr": "0 kadın, 1 erkek",
+        "de": "0 für weiblich, 1 für männlich"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
-        "de": "Height",
+        "de": "Größe",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Height in centimeters",
-        "tr": "Santimetre cinsinden boy"
+        "tr": "Santimetre cinsinden boy",
+        "de": "Größe in Zentimetern"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
-        "de": "Weight",
+        "de": "Gewicht",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Weight in kilograms",
-        "tr": "Ağırlık (kg)"
+        "tr": "Ağırlık (kg)",
+        "de": "Gewicht in Kilogramm"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
-        "de": "Activity Level",
+        "de": "Aktivitätsniveau",
         "fr": "Activity Level",
         "es": "Activity Level",
         "ar": "Activity Level"
       },
       "businessContext_i18n": {
         "en": "1=Sedentary,2=Light,3=Moderate,4=Active,5=Very Active",
-        "tr": "1=Hareketsiz, 2=Hafif, 3=Orta, 4=Aktif, 5=Çok Aktif"
+        "tr": "1=Hareketsiz, 2=Hafif, 3=Orta, 4=Aktif, 5=Çok Aktif",
+        "de": "1=Sitzend, 2=Leicht, 3=Mäßig, 4=Aktiv, 5=Sehr aktiv"
       }
     }
   ],

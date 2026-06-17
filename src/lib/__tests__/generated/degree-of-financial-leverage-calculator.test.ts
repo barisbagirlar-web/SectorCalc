@@ -12,7 +12,7 @@ describe("degree-of-financial-leverage-calculator", () => {
     "interest": 20000,
     "taxRate": 0.25,
     "preferredDividends": 0
-  } as Degree_of_financial_leverage_calculatorInput;
+  } as unknown as Degree_of_financial_leverage_calculatorInput;
     const result = calculateDegree_of_financial_leverage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

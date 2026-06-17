@@ -13,7 +13,7 @@ describe("reduced-pressure-calculator", () => {
     "specificGravity": 1,
     "kvCoefficient": 10,
     "safetyFactor": 1.2
-  } as Reduced_pressure_calculatorInput;
+  } as unknown as Reduced_pressure_calculatorInput;
     const result = calculateReduced_pressure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

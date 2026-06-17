@@ -16,7 +16,7 @@ describe("reaction-quotient-calculator", () => {
     "coeffC": 1,
     "concD": 1,
     "coeffD": 1
-  } as Reaction_quotient_calculatorInput;
+  } as unknown as Reaction_quotient_calculatorInput;
     const result = calculateReaction_quotient_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

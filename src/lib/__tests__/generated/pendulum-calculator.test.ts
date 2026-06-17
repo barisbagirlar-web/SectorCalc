@@ -12,7 +12,7 @@ describe("pendulum-calculator", () => {
     "gravity": 9.81,
     "initialAngle": 5,
     "numberOfOscillations": 1
-  } as Pendulum_calculatorInput;
+  } as unknown as Pendulum_calculatorInput;
     const result = calculatePendulum_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

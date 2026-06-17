@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Applied Load",
         "tr": "Uygulanan Yük",
-        "de": "Applied Load",
+        "de": "Aufgebrachte Last",
         "fr": "Applied Load",
         "es": "Applied Load",
         "ar": "Applied Load"
       },
       "businessContext_i18n": {
         "en": "Central point load applied at midspan",
-        "tr": "Açıklık ortasına uygulanan noktasal yük"
+        "tr": "Açıklık ortasına uygulanan noktasal yük",
+        "de": "Einzellast in Feldmitte"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Beam Span",
         "tr": "Kiriş Açıklığı",
-        "de": "Beam Span",
+        "de": "Balkenstützweite",
         "fr": "Beam Span",
         "es": "Beam Span",
         "ar": "Beam Span"
       },
       "businessContext_i18n": {
         "en": "Length of the simply supported beam",
-        "tr": "Basit mesnetli kirişin uzunluğu"
+        "tr": "Basit mesnetli kirişin uzunluğu",
+        "de": "Länge des einfach gelagerten Balkens"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Elastic Modulus",
         "tr": "Elastisite Modülü",
-        "de": "Elastic Modulus",
+        "de": "Elastizitätsmodul",
         "fr": "Elastic Modulus",
         "es": "Elastic Modulus",
         "ar": "Elastic Modulus"
       },
       "businessContext_i18n": {
         "en": "Young's modulus of the beam material",
-        "tr": "Kiriş malzemesinin Young modülü"
+        "tr": "Kiriş malzemesinin Young modülü",
+        "de": "E-Modul des Balkenmaterials"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Moment of Inertia",
         "tr": "Eylemsizlik Momenti",
-        "de": "Moment of Inertia",
+        "de": "Trägheitsmoment",
         "fr": "Moment of Inertia",
         "es": "Moment of Inertia",
         "ar": "Moment of Inertia"
       },
       "businessContext_i18n": {
         "en": "Second moment of area of the beam cross-section",
-        "tr": "Kiriş kesitinin atalet momenti"
+        "tr": "Kiriş kesitinin atalet momenti",
+        "de": "Flächenträgheitsmoment des Balkenquerschnitts"
       }
     }
   ],

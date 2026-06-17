@@ -15,7 +15,7 @@ describe("plaster-calculator", () => {
     "mixRatioSand": 4,
     "cementBagWeight": 50,
     "wastageFactor": 10
-  } as Plaster_calculatorInput;
+  } as unknown as Plaster_calculatorInput;
     const result = calculatePlaster_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

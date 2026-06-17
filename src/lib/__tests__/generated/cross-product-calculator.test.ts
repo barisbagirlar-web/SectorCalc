@@ -14,7 +14,7 @@ describe("cross-product-calculator", () => {
     "Bx": 0,
     "By": 0,
     "Bz": 0
-  } as Cross_product_calculatorInput;
+  } as unknown as Cross_product_calculatorInput;
     const result = calculateCross_product_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

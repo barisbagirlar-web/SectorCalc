@@ -14,7 +14,7 @@ describe("christmas-budget-calculator", () => {
     "decorationBudget": 100,
     "travelBudget": 150,
     "miscBudget": 100
-  } as Christmas_budget_calculatorInput;
+  } as unknown as Christmas_budget_calculatorInput;
     const result = calculateChristmas_budget_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

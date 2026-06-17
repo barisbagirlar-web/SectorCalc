@@ -13,7 +13,7 @@ describe("one-way-anova-calculator", () => {
     "dfb": 1,
     "dfw": 10,
     "alpha": 0.05
-  } as One_way_anova_calculatorInput;
+  } as unknown as One_way_anova_calculatorInput;
     const result = calculateOne_way_anova_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

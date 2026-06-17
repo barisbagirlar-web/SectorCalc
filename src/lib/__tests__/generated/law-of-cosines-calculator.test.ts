@@ -12,7 +12,7 @@ describe("law-of-cosines-calculator", () => {
     "sideB": 0,
     "angleC": 0,
     "decimalPlaces": 2
-  } as Law_of_cosines_calculatorInput;
+  } as unknown as Law_of_cosines_calculatorInput;
     const result = calculateLaw_of_cosines_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

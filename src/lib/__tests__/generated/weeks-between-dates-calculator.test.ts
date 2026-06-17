@@ -14,7 +14,7 @@ describe("weeks-between-dates-calculator", () => {
     "endDay": 15,
     "endMonth": 1,
     "endYear": 2025
-  } as Weeks_between_dates_calculatorInput;
+  } as unknown as Weeks_between_dates_calculatorInput;
     const result = calculateWeeks_between_dates_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

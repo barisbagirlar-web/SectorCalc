@@ -14,7 +14,7 @@ describe("vector-multiplication-calculator", () => {
     "bx": 0,
     "by": 0,
     "bz": 0
-  } as Vector_multiplication_calculatorInput;
+  } as unknown as Vector_multiplication_calculatorInput;
     const result = calculateVector_multiplication_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("vitamin-d-from-sun-calculator", () => {
     "body_area_percent": 10,
     "skin_type": 3,
     "cloud_cover_percent": 0
-  } as Vitamin_d_from_sun_calculatorInput;
+  } as unknown as Vitamin_d_from_sun_calculatorInput;
     const result = calculateVitamin_d_from_sun_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

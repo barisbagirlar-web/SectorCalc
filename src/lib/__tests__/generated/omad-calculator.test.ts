@@ -13,7 +13,7 @@ describe("omad-calculator", () => {
     "idealCycleTime": 0.5,
     "totalUnits": 800,
     "defectiveUnits": 40
-  } as Omad_calculatorInput;
+  } as unknown as Omad_calculatorInput;
     const result = calculateOmad_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

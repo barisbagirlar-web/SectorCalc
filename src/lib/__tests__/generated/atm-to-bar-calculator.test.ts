@@ -14,7 +14,7 @@ describe("atm-to-bar-calculator", () => {
     "temperature_celsius": 20,
     "altitude_meters": 0,
     "measurement_uncertainty": 0.5
-  } as Atm_to_bar_calculatorInput;
+  } as unknown as Atm_to_bar_calculatorInput;
     const result = calculateAtm_to_bar_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

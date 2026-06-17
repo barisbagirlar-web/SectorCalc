@@ -12,7 +12,7 @@ describe("merchant-fee-calculator", () => {
     "feePercentage": 2.9,
     "fixedFee": 0.3,
     "taxRate": 20
-  } as Merchant_fee_calculatorInput;
+  } as unknown as Merchant_fee_calculatorInput;
     const result = calculateMerchant_fee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

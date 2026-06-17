@@ -13,7 +13,7 @@ describe("rlc-circuit-calculator", () => {
     "capacitance": 0.000001,
     "frequency": 1000,
     "voltage": 10
-  } as Rlc_circuit_calculatorInput;
+  } as unknown as Rlc_circuit_calculatorInput;
     const result = calculateRlc_circuit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

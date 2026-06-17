@@ -12,7 +12,7 @@ describe("customer-lifetime-value-calculator", () => {
     "purchaseFrequency": 12,
     "lifespanYears": 5,
     "grossMarginPercent": 100
-  } as Customer_lifetime_value_calculatorInput;
+  } as unknown as Customer_lifetime_value_calculatorInput;
     const result = calculateCustomer_lifetime_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

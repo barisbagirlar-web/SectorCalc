@@ -12,7 +12,7 @@ describe("rate-law-calculator", () => {
     "finalConcentration": 0.5,
     "time": 10,
     "reactionOrder": 1
-  } as Rate_law_calculatorInput;
+  } as unknown as Rate_law_calculatorInput;
     const result = calculateRate_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

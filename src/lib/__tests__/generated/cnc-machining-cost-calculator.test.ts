@@ -16,7 +16,7 @@ describe("cnc-machining-cost-calculator", () => {
     "batch_size": 100,
     "machine_hourly_rate_usd": 85,
     "labor_hourly_rate_usd": 35
-  } as Cnc_machining_cost_calculatorInput;
+  } as unknown as Cnc_machining_cost_calculatorInput;
     const result = calculateCnc_machining_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

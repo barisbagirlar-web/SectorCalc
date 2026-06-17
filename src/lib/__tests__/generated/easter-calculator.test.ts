@@ -12,7 +12,7 @@ describe("easter-calculator", () => {
     "daysToAdd": 0,
     "algorithmVersion": 1,
     "moonPhaseOffset": 0
-  } as Easter_calculatorInput;
+  } as unknown as Easter_calculatorInput;
     const result = calculateEaster_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

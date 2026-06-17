@@ -13,7 +13,7 @@ describe("titration-calculator", () => {
     "analyteVol": 25,
     "stoichCoeffTitrant": 1,
     "stoichCoeffAnalyte": 1
-  } as Titration_calculatorInput;
+  } as unknown as Titration_calculatorInput;
     const result = calculateTitration_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

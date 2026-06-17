@@ -13,7 +13,7 @@ describe("tension-calculator", () => {
     "angle": 45,
     "numberOfRopes": 2,
     "safetyFactor": 1.5
-  } as Tension_calculatorInput;
+  } as unknown as Tension_calculatorInput;
     const result = calculateTension_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

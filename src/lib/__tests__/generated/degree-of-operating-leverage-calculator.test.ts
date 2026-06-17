@@ -12,7 +12,7 @@ describe("degree-of-operating-leverage-calculator", () => {
     "pricePerUnit": 50,
     "variableCostPerUnit": 30,
     "fixedCosts": 10000
-  } as Degree_of_operating_leverage_calculatorInput;
+  } as unknown as Degree_of_operating_leverage_calculatorInput;
     const result = calculateDegree_of_operating_leverage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

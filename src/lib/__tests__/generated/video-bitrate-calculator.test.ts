@@ -14,7 +14,7 @@ describe("video-bitrate-calculator", () => {
     "colorDepth": 24,
     "compressionRatio": 0.1,
     "duration": 60
-  } as Video_bitrate_calculatorInput;
+  } as unknown as Video_bitrate_calculatorInput;
     const result = calculateVideo_bitrate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

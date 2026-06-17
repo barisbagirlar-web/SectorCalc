@@ -12,7 +12,7 @@ describe("hamilton-norwood-calculator", () => {
     "vertexDiameter": 0,
     "frontalThinningArea": 0,
     "crownThinningArea": 0
-  } as Hamilton_norwood_calculatorInput;
+  } as unknown as Hamilton_norwood_calculatorInput;
     const result = calculateHamilton_norwood_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

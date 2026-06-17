@@ -14,7 +14,7 @@ describe("dividend-reinvestment-calculator", () => {
     "stockPriceGrowthRate": 7,
     "years": 10,
     "taxRate": 15
-  } as Dividend_reinvestment_calculatorInput;
+  } as unknown as Dividend_reinvestment_calculatorInput;
     const result = calculateDividend_reinvestment_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

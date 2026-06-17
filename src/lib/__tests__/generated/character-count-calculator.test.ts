@@ -13,7 +13,7 @@ describe("character-count-calculator", () => {
     "punctuationCount": 0,
     "spaceCount": 0,
     "extraChars": 0
-  } as Character_count_calculatorInput;
+  } as unknown as Character_count_calculatorInput;
     const result = calculateCharacter_count_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

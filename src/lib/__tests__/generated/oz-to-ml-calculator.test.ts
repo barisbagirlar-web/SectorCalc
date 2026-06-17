@@ -12,7 +12,7 @@ describe("oz-to-ml-calculator", () => {
     "ounceType": 0,
     "decimalPlaces": 2,
     "batchSize": 1
-  } as Oz_to_ml_calculatorInput;
+  } as unknown as Oz_to_ml_calculatorInput;
     const result = calculateOz_to_ml_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

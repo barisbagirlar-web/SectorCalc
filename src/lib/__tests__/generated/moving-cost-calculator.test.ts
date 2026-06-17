@@ -16,7 +16,7 @@ describe("moving-cost-calculator", () => {
     "ratePerKg": 0.2,
     "hourlyRate": 25,
     "packingCostPerItem": 10
-  } as Moving_cost_calculatorInput;
+  } as unknown as Moving_cost_calculatorInput;
     const result = calculateMoving_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("drop-rate-calculator", () => {
     "totalItems": 1000,
     "timePeriod": 8,
     "costPerDrop": 0.5
-  } as Drop_rate_calculatorInput;
+  } as unknown as Drop_rate_calculatorInput;
     const result = calculateDrop_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

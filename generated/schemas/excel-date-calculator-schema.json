@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Başlangıç Tarihi Seri Numarası",
         "tr": "Başlangıç Tarihi Seri Numarası",
-        "de": "Başlangıç Tarihi Seri Numarası",
+        "de": "Startdatum Seriennummer",
         "fr": "Başlangıç Tarihi Seri Numarası",
         "es": "Başlangıç Tarihi Seri Numarası",
         "ar": "Başlangıç Tarihi Seri Numarası"
       },
       "businessContext_i18n": {
         "en": "Başlangıç tarihinin Excel seri numarası (örn. 44927 = 2023-01-01)",
-        "tr": "Başlangıç tarihinin Excel seri numarası (örn. 44927 = 2023-01-01)"
+        "tr": "Başlangıç tarihinin Excel seri numarası (örn. 44927 = 2023-01-01)",
+        "de": "Excel-Seriennummer des Startdatums (z.B. 44927 = 2023-01-01)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Bitiş Tarihi Seri Numarası",
         "tr": "Bitiş Tarihi Seri Numarası",
-        "de": "Bitiş Tarihi Seri Numarası",
+        "de": "Enddatum Seriennummer",
         "fr": "Bitiş Tarihi Seri Numarası",
         "es": "Bitiş Tarihi Seri Numarası",
         "ar": "Bitiş Tarihi Seri Numarası"
       },
       "businessContext_i18n": {
         "en": "Bitiş tarihinin Excel seri numarası",
-        "tr": "Bitiş tarihinin Excel seri numarası"
+        "tr": "Bitiş tarihinin Excel seri numarası",
+        "de": "Excel-Seriennummer des Enddatums"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Gün Kaydırma",
         "tr": "Gün Kaydırma",
-        "de": "Gün Kaydırma",
+        "de": "Tage verschieben",
         "fr": "Gün Kaydırma",
         "es": "Gün Kaydırma",
         "ar": "Gün Kaydırma"
       },
       "businessContext_i18n": {
         "en": "Başlangıç tarihine eklenecek (pozitif) veya çıkarılacak (negatif) gün sayısı",
-        "tr": "Başlangıç tarihine eklenecek (pozitif) veya çıkarılacak (negatif) gün sayısı"
+        "tr": "Başlangıç tarihine eklenecek (pozitif) veya çıkarılacak (negatif) gün sayısı",
+        "de": "Anzahl der Tage, die zum Startdatum hinzugefügt (positiv) oder abgezogen (negativ) werden sollen"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Başlangıcı Dahil Et",
         "tr": "Başlangıcı Dahil Et",
-        "de": "Başlangıcı Dahil Et",
+        "de": "Starttag einschließen",
         "fr": "Başlangıcı Dahil Et",
         "es": "Başlangıcı Dahil Et",
         "ar": "Başlangıcı Dahil Et"
       },
       "businessContext_i18n": {
         "en": "Gün farkı hesaplamasında başlangıç gününü dahil et: 0 = Hayır, 1 = Evet",
-        "tr": "Gün farkı hesaplamasında başlangıç gününü dahil et: 0 = Hayır, 1 = Evet"
+        "tr": "Gün farkı hesaplamasında başlangıç gününü dahil et: 0 = Hayır, 1 = Evet",
+        "de": "Starttag in die Tagesdifferenzberechnung einschließen: 0 = Nein, 1 = Ja"
       }
     }
   ],

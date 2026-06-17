@@ -11,7 +11,7 @@ describe("meters-per-second-to-mph", () => {
     "speed_mps": 10,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Meters_per_second_to_mphInput;
+  } as unknown as Meters_per_second_to_mphInput;
     const result = calculateMeters_per_second_to_mph(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("dog-food-calculator", () => {
     "activityFactor": 1.6,
     "ageMultiplier": 1,
     "foodEnergyDensity": 350
-  } as Dog_food_calculatorInput;
+  } as unknown as Dog_food_calculatorInput;
     const result = calculateDog_food_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

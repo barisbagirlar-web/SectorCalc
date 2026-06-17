@@ -13,7 +13,7 @@ describe("fraction-calculator", () => {
     "numerator2": 1,
     "denominator2": 3,
     "operation": 0
-  } as Fraction_calculatorInput;
+  } as unknown as Fraction_calculatorInput;
     const result = calculateFraction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

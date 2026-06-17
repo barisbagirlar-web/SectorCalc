@@ -14,7 +14,7 @@ describe("process-economics-calculator", () => {
     "selling_price": 25,
     "production_volume": 1000,
     "defect_rate": 2
-  } as Process_economics_calculatorInput;
+  } as unknown as Process_economics_calculatorInput;
     const result = calculateProcess_economics_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

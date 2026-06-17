@@ -14,7 +14,7 @@ describe("401k-retirement-calculator", () => {
     "annualContribution": 10000,
     "employerMatchRate": 5,
     "annualReturnRate": 7
-  } as _401k_retirement_calculatorInput;
+  } as unknown as _401k_retirement_calculatorInput;
     const result = calculate_401k_retirement_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

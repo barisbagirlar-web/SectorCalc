@@ -12,7 +12,7 @@ describe("likelihood-ratio-calculator", () => {
     "falsePositives": 0,
     "falseNegatives": 0,
     "trueNegatives": 0
-  } as Likelihood_ratio_calculatorInput;
+  } as unknown as Likelihood_ratio_calculatorInput;
     const result = calculateLikelihood_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

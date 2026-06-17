@@ -13,7 +13,7 @@ describe("safety-stock-calculator", () => {
     "demandStdDev": 20,
     "leadTime": 5,
     "leadTimeStdDev": 1
-  } as Safety_stock_calculatorInput;
+  } as unknown as Safety_stock_calculatorInput;
     const result = calculateSafety_stock_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

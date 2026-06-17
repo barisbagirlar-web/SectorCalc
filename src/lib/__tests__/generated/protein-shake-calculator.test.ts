@@ -13,7 +13,7 @@ describe("protein-shake-calculator", () => {
     "proteinPer100g": 80,
     "caloriesPer100g": 400,
     "liquidVolume": 300
-  } as Protein_shake_calculatorInput;
+  } as unknown as Protein_shake_calculatorInput;
     const result = calculateProtein_shake_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

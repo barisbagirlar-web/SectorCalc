@@ -11,7 +11,7 @@ describe("mph-to-kmh", () => {
     "speed_mph": 60,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Mph_to_kmhInput;
+  } as unknown as Mph_to_kmhInput;
     const result = calculateMph_to_kmh(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("acid-base-titration-calculator", () => {
     "titrantProticity": 1,
     "analyteVolume": 50,
     "analyteProticity": 1
-  } as Acid_base_titration_calculatorInput;
+  } as unknown as Acid_base_titration_calculatorInput;
     const result = calculateAcid_base_titration_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

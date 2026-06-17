@@ -13,7 +13,7 @@ describe("sound-level-calculator", () => {
     "spl3": 0,
     "spl4": 0,
     "spl5": 0
-  } as Sound_level_calculatorInput;
+  } as unknown as Sound_level_calculatorInput;
     const result = calculateSound_level_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("milliradians-to-degrees-calculator", () => {
     "decimalPlaces": 4,
     "conversionFactor": 0.05729577951308232,
     "angleOffset": 0
-  } as Milliradians_to_degrees_calculatorInput;
+  } as unknown as Milliradians_to_degrees_calculatorInput;
     const result = calculateMilliradians_to_degrees_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

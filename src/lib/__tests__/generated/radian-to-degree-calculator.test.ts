@@ -12,7 +12,7 @@ describe("radian-to-degree-calculator", () => {
     "conversionFactor": 57.29577951308232,
     "degreeOffset": 0,
     "decimalPlaces": 2
-  } as Radian_to_degree_calculatorInput;
+  } as unknown as Radian_to_degree_calculatorInput;
     const result = calculateRadian_to_degree_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("rent-vs-buy-calculator", () => {
     "loanTermYears": 20,
     "monthlyRent": 1000,
     "annualRentIncrease": 3
-  } as Rent_vs_buy_calculatorInput;
+  } as unknown as Rent_vs_buy_calculatorInput;
     const result = calculateRent_vs_buy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

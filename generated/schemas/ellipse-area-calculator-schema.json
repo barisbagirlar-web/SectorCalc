@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Semi-Major Axis (a)",
         "tr": "Yarı-Büyük Eksen (a)",
-        "de": "Semi-Major Axis (a)",
+        "de": "Große Halbachse (a)",
         "fr": "Semi-Major Axis (a)",
         "es": "Semi-Major Axis (a)",
         "ar": "Semi-Major Axis (a)"
       },
       "businessContext_i18n": {
         "en": "Length of the longest radius of the ellipse",
-        "tr": "Eliptik en uzun yarıçapın uzunluğu"
+        "tr": "Eliptik en uzun yarıçapın uzunluğu",
+        "de": "Länge des längsten Radius der Ellipse"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Semi-Minor Axis (b)",
         "tr": "Yarı-Küçük Eksen (b)",
-        "de": "Semi-Minor Axis (b)",
+        "de": "Kleine Halbachse (b)",
         "fr": "Semi-Minor Axis (b)",
         "es": "Semi-Minor Axis (b)",
         "ar": "Semi-Minor Axis (b)"
       },
       "businessContext_i18n": {
         "en": "Length of the shortest radius of the ellipse",
-        "tr": "Eliptik en kısa yarıçapın uzunluğu"
+        "tr": "Eliptik en kısa yarıçapın uzunluğu",
+        "de": "Länge des kürzesten Radius der Ellipse"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding",
-        "tr": "Çıktı yuvarlama için ondalık basamak sayısı"
+        "tr": "Çıktı yuvarlama için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die Ausgaberundung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Unit Conversion Factor",
         "tr": "Birim Dönüşüm Faktörü",
-        "de": "Unit Conversion Factor",
+        "de": "Einheitenumrechnungsfaktor",
         "fr": "Unit Conversion Factor",
         "es": "Unit Conversion Factor",
         "ar": "Unit Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Multiply the area by this factor to convert to desired area units (e.g., 10000 to convert m² to cm²)",
-        "tr": "Alanı istenen alan birimine dönüştürmek için bu faktörle çarpın (örneğin, m²'den cm²'ye dönüştürmek için 10000)"
+        "tr": "Alanı istenen alan birimine dönüştürmek için bu faktörle çarpın (örneğin, m²'den cm²'ye dönüştürmek için 10000)",
+        "de": "Multiplizieren Sie die Fläche mit diesem Faktor, um in die gewünschten Flächeneinheiten umzurechnen (z. B. 10000 für m² in cm²)"
       }
     }
   ],

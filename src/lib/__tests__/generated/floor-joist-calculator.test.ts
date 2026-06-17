@@ -15,7 +15,7 @@ describe("floor-joist-calculator", () => {
     "E_psi": 1600000,
     "I_in4": 98,
     "defl_limit_denom": 360
-  } as Floor_joist_calculatorInput;
+  } as unknown as Floor_joist_calculatorInput;
     const result = calculateFloor_joist_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

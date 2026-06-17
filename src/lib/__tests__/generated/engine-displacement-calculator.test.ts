@@ -12,7 +12,7 @@ describe("engine-displacement-calculator", () => {
     "stroke": 90,
     "cylinders": 4,
     "outputUnit": 1
-  } as Engine_displacement_calculatorInput;
+  } as unknown as Engine_displacement_calculatorInput;
     const result = calculateEngine_displacement_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

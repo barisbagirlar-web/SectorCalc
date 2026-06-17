@@ -16,7 +16,7 @@ describe("apy-calculator", () => {
     "inflation_rate": 2,
     "tax_rate": 15,
     "is_continuous_compounding": false
-  } as Apy_calculatorInput;
+  } as unknown as Apy_calculatorInput;
     const result = calculateApy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

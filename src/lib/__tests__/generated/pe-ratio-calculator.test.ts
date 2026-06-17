@@ -12,7 +12,7 @@ describe("pe-ratio-calculator", () => {
     "earningsPerShare": 5,
     "growthRate": 10,
     "dividendPerShare": 2
-  } as Pe_ratio_calculatorInput;
+  } as unknown as Pe_ratio_calculatorInput;
     const result = calculatePe_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

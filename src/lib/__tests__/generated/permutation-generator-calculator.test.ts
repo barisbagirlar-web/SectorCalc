@@ -12,7 +12,7 @@ describe("permutation-generator-calculator", () => {
     "r": 3,
     "orderMatters": 1,
     "repetitionAllowed": 0
-  } as Permutation_generator_calculatorInput;
+  } as unknown as Permutation_generator_calculatorInput;
     const result = calculatePermutation_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

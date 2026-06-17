@@ -15,7 +15,7 @@ describe("tdee-calculator", () => {
     "activityLevel": "moderate",
     "bodyFatPercent": 20,
     "isAthlete": false
-  } as Tdee_calculatorInput;
+  } as unknown as Tdee_calculatorInput;
     const result = calculateTdee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

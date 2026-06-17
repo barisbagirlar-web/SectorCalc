@@ -14,7 +14,7 @@ describe("gratitude-index-calculator", () => {
     "recognition_impact": 15,
     "gratitude_decay": 0.1,
     "baseline_productivity": 100
-  } as Gratitude_index_calculatorInput;
+  } as unknown as Gratitude_index_calculatorInput;
     const result = calculateGratitude_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

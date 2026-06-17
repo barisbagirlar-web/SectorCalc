@@ -12,7 +12,7 @@ describe("random-number-generator-calculator", () => {
     "max": 100,
     "seed": 12345,
     "count": 1
-  } as Random_number_generator_calculatorInput;
+  } as unknown as Random_number_generator_calculatorInput;
     const result = calculateRandom_number_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

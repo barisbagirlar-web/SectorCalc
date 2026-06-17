@@ -12,7 +12,7 @@ describe("pregnancy-test-calculator", () => {
     "currentDayOfYear": 1,
     "cycleLength": 28,
     "gestationOverride": 280
-  } as Pregnancy_test_calculatorInput;
+  } as unknown as Pregnancy_test_calculatorInput;
     const result = calculatePregnancy_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

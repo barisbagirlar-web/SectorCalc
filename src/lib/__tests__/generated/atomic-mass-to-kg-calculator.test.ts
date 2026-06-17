@@ -13,7 +13,7 @@ describe("atomic-mass-to-kg-calculator", () => {
     "conversionFactor": 1.6605390666e-27,
     "batchSize": 1,
     "outputUnitMultiplier": 1
-  } as Atomic_mass_to_kg_calculatorInput;
+  } as unknown as Atomic_mass_to_kg_calculatorInput;
     const result = calculateAtomic_mass_to_kg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

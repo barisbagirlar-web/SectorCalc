@@ -14,7 +14,7 @@ describe("cholesky-decomposition-calculator", () => {
     "a22": 4,
     "a23": 2,
     "a33": 4
-  } as Cholesky_decomposition_calculatorInput;
+  } as unknown as Cholesky_decomposition_calculatorInput;
     const result = calculateCholesky_decomposition_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("medicare-part-b-calculator", () => {
     "filingStatus": 0,
     "standardPremium": 174.7,
     "lateEnrollmentMonths": 0
-  } as Medicare_part_b_calculatorInput;
+  } as unknown as Medicare_part_b_calculatorInput;
     const result = calculateMedicare_part_b_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

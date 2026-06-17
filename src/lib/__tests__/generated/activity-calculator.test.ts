@@ -13,7 +13,7 @@ describe("activity-calculator", () => {
     "availableTime": 0,
     "downtime": 0,
     "cycleTime": 0
-  } as Activity_calculatorInput;
+  } as unknown as Activity_calculatorInput;
     const result = calculateActivity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

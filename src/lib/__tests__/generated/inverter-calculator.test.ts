@@ -13,7 +13,7 @@ describe("inverter-calculator", () => {
     "outputAcVoltage": 230,
     "efficiency": 90,
     "powerFactor": 0.8
-  } as Inverter_calculatorInput;
+  } as unknown as Inverter_calculatorInput;
     const result = calculateInverter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

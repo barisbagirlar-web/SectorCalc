@@ -14,7 +14,7 @@ describe("gym-calorie-calculator", () => {
     "gender": 1,
     "duration": 30,
     "met": 8
-  } as Gym_calorie_calculatorInput;
+  } as unknown as Gym_calorie_calculatorInput;
     const result = calculateGym_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

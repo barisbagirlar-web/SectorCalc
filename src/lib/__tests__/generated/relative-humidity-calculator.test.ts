@@ -12,7 +12,7 @@ describe("relative-humidity-calculator", () => {
     "wetBulbTemp": 20,
     "atmosphericPressure": 1013.25,
     "psychrometricConstant": 0.00066
-  } as Relative_humidity_calculatorInput;
+  } as unknown as Relative_humidity_calculatorInput;
     const result = calculateRelative_humidity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

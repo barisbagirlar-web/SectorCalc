@@ -13,7 +13,7 @@ describe("sign-test-calculator", () => {
     "p0": 0.5,
     "alpha": 0.05,
     "testType": 1
-  } as Sign_test_calculatorInput;
+  } as unknown as Sign_test_calculatorInput;
     const result = calculateSign_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

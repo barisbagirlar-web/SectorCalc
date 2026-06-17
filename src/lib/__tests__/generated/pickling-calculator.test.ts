@@ -16,7 +16,7 @@ describe("pickling-calculator", () => {
     "stoichiometricRatio": 1.5,
     "dragOutRate": 1.5,
     "rinseWaterRatio": 10
-  } as Pickling_calculatorInput;
+  } as unknown as Pickling_calculatorInput;
     const result = calculatePickling_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

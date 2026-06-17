@@ -22,11 +22,13 @@
       "businessContext": "Process temperature reading from sensor or manual measurement. Must be above absolute zero.",
       "label_i18n": {
         "en": "Temperature in Celsius",
-        "tr": "Santigrat cinsinden sıcaklık"
+        "tr": "Santigrat cinsinden sıcaklık",
+        "de": "Temperatur in Celsius"
       },
       "businessContext_i18n": {
         "en": "Process temperature reading from sensor or manual measurement. Must be above absolute zero.",
-        "tr": "Sensörden veya manuel ölçümden alınan proses sıcaklığı okuması. Mutlak sıfırın üzerinde olmalıdır."
+        "tr": "Sensörden veya manuel ölçümden alınan proses sıcaklığı okuması. Mutlak sıfırın üzerinde olmalıdır.",
+        "de": "Prozesstemperaturmessung vom Sensor oder manuell. Muss über dem absoluten Nullpunkt liegen."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Manufacturer-specified accuracy of the temperature sensor (ISO 17025 calibration standard).",
       "label_i18n": {
         "en": "Sensor Accuracy (±°C)",
-        "tr": "Sensör Doğruluğu (±°C)"
+        "tr": "Sensör Doğruluğu (±°C)",
+        "de": "Sensorgenauigkeit (±°C)"
       },
       "businessContext_i18n": {
         "en": "Manufacturer-specified accuracy of the temperature sensor (ISO 17025 calibration standard).",
-        "tr": "Sıcaklık sensörünün üretici tarafından belirtilen doğruluğu (ISO 17025 kalibrasyon standardı)."
+        "tr": "Sıcaklık sensörünün üretici tarafından belirtilen doğruluğu (ISO 17025 kalibrasyon standardı).",
+        "de": "Vom Hersteller angegebene Genauigkeit des Temperatursensors (ISO 17025 Kalibrierstandard)."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Field calibration adjustment to align sensor with reference standard (NIST traceable).",
       "label_i18n": {
         "en": "Calibration Offset",
-        "tr": "Kalibrasyon Ofseti"
+        "tr": "Kalibrasyon Ofseti",
+        "de": "Kalibrierungsversatz"
       },
       "businessContext_i18n": {
         "en": "Field calibration adjustment to align sensor with reference standard (NIST traceable).",
-        "tr": "Sensörü referans standarda (NIST izlenebilir) hizalamak için saha kalibrasyon ayarı."
+        "tr": "Sensörü referans standarda (NIST izlenebilir) hizalamak için saha kalibrasyon ayarı.",
+        "de": "Feldkalibrierungsanpassung zur Angleichung des Sensors an den Referenzstandard (NIST-rückführbar)."
       }
     },
     {
@@ -79,11 +85,13 @@
       "businessContext": "Select output temperature scale for downstream process or reporting (ISO 80000-5).",
       "label_i18n": {
         "en": "Target Unit System",
-        "tr": "Hedef Birim Sistemi"
+        "tr": "Hedef Birim Sistemi",
+        "de": "Ziel-Einheitensystem"
       },
       "businessContext_i18n": {
         "en": "Select output temperature scale for downstream process or reporting (ISO 80000-5).",
-        "tr": "Alt süreç veya raporlama için çıktı sıcaklık ölçeğini seçin (ISO 80000-5)."
+        "tr": "Alt süreç veya raporlama için çıktı sıcaklık ölçeğini seçin (ISO 80000-5).",
+        "de": "Ausgabe-Temperaturskala für nachgelagerte Prozesse oder Berichterstattung (ISO 80000-5)."
       }
     },
     {
@@ -95,11 +103,13 @@
       "businessContext": "Toggle threshold-based alerts for out-of-spec temperature conditions (Six Sigma control limits).",
       "label_i18n": {
         "en": "Enable Process Alerts",
-        "tr": "Proses Uyarılarını Etkinleştir"
+        "tr": "Proses Uyarılarını Etkinleştir",
+        "de": "Prozessalarme aktivieren"
       },
       "businessContext_i18n": {
         "en": "Toggle threshold-based alerts for out-of-spec temperature conditions (Six Sigma control limits).",
-        "tr": "Spesifikasyon dışı sıcaklık koşulları için eşik tabanlı uyarıları aç/kapat (Altı Sigma kontrol limitleri)."
+        "tr": "Spesifikasyon dışı sıcaklık koşulları için eşik tabanlı uyarıları aç/kapat (Altı Sigma kontrol limitleri).",
+        "de": "Schwellenwertbasierte Alarme für außerspezifikationstemperaturbedingungen umschalten (Six Sigma-Regelgrenzen)."
       }
     }
   ],

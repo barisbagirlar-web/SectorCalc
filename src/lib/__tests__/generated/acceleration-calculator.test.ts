@@ -13,7 +13,7 @@ describe("acceleration-calculator", () => {
     "time": 5,
     "force": 100,
     "mass": 20
-  } as Acceleration_calculatorInput;
+  } as unknown as Acceleration_calculatorInput;
     const result = calculateAcceleration_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

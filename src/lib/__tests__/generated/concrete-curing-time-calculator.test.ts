@@ -12,7 +12,7 @@ describe("concrete-curing-time-calculator", () => {
     "humidity": 60,
     "cementType": 1,
     "baseDays": 7
-  } as Concrete_curing_time_calculatorInput;
+  } as unknown as Concrete_curing_time_calculatorInput;
     const result = calculateConcrete_curing_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

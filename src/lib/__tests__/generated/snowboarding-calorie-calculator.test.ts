@@ -13,7 +13,7 @@ describe("snowboarding-calorie-calculator", () => {
     "intensity": 5,
     "altitude": 0,
     "correctionFactor": 1
-  } as Snowboarding_calorie_calculatorInput;
+  } as unknown as Snowboarding_calorie_calculatorInput;
     const result = calculateSnowboarding_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

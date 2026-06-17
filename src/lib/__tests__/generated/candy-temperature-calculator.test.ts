@@ -12,7 +12,7 @@ describe("candy-temperature-calculator", () => {
     "altitudeFt": 0,
     "customTempF": 300,
     "thermometerOffsetF": 0
-  } as Candy_temperature_calculatorInput;
+  } as unknown as Candy_temperature_calculatorInput;
     const result = calculateCandy_temperature_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fence Length",
         "tr": "Çit Uzunluğu",
-        "de": "Fence Length",
+        "de": "Zaunlänge",
         "fr": "Fence Length",
         "es": "Fence Length",
         "ar": "Fence Length"
       },
       "businessContext_i18n": {
         "en": "Total linear distance of the fence to be constructed",
-        "tr": "İnşa edilecek çitin toplam doğrusal mesafesi"
+        "tr": "İnşa edilecek çitin toplam doğrusal mesafesi",
+        "de": "Gesamte lineare Entfernung des zu errichtenden Zauns"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Post Spacing",
         "tr": "Direk Aralığı",
-        "de": "Post Spacing",
+        "de": "Pfostenabstand",
         "fr": "Post Spacing",
         "es": "Post Spacing",
         "ar": "Post Spacing"
       },
       "businessContext_i18n": {
         "en": "Maximum distance between fence posts as per design specifications",
-        "tr": "Tasarım şartnamesine göre çit direkleri arasındaki maksimum mesafe"
+        "tr": "Tasarım şartnamesine göre çit direkleri arasındaki maksimum mesafe",
+        "de": "Maximaler Abstand zwischen Zaunpfosten gemäß Konstruktionsspezifikationen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Corners",
         "tr": "Köşe Sayısı",
-        "de": "Number of Corners",
+        "de": "Anzahl der Ecken",
         "fr": "Number of Corners",
         "es": "Number of Corners",
         "ar": "Number of Corners"
       },
       "businessContext_i18n": {
         "en": "Number of directional changes in the fence line requiring additional corner posts",
-        "tr": "Ek köşe direkleri gerektiren çit hattındaki yön değişikliği sayısı"
+        "tr": "Ek köşe direkleri gerektiren çit hattındaki yön değişikliği sayısı",
+        "de": "Anzahl der Richtungswechsel in der Zaunlinie, die zusätzliche Eckpfosten erfordern"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Gate Openings",
         "tr": "Kapı Açıklığı Sayısı",
-        "de": "Number of Gate Openings",
+        "de": "Anzahl der Toröffnungen",
         "fr": "Number of Gate Openings",
         "es": "Number of Gate Openings",
         "ar": "Number of Gate Openings"
       },
       "businessContext_i18n": {
         "en": "Number of gates planned in the fence line; each gate adds posts",
-        "tr": "Çit hattında planlanan kapı sayısı; her kapı direk ekler"
+        "tr": "Çit hattında planlanan kapı sayısı; her kapı direk ekler",
+        "de": "Anzahl der in der Zaunlinie geplanten Tore; jedes Tor fügt Pfosten hinzu"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Post Diameter",
         "tr": "Direk Çapı",
-        "de": "Post Diameter",
+        "de": "Pfostendurchmesser",
         "fr": "Post Diameter",
         "es": "Post Diameter",
         "ar": "Post Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the fence post for concrete volume calculation",
-        "tr": "Beton hacmi hesaplaması için çit direğinin çapı"
+        "tr": "Beton hacmi hesaplaması için çit direğinin çapı",
+        "de": "Durchmesser des Zaunpfostens für die Betonvolumenberechnung"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Post Depth",
         "tr": "Direk Derinliği",
-        "de": "Post Depth",
+        "de": "Pfostentiefe",
         "fr": "Post Depth",
         "es": "Post Depth",
         "ar": "Post Depth"
       },
       "businessContext_i18n": {
         "en": "Depth of the post hole for concrete volume calculation",
-        "tr": "Beton hacmi hesaplaması için direk deliğinin derinliği"
+        "tr": "Beton hacmi hesaplaması için direk deliğinin derinliği",
+        "de": "Tiefe des Pfostenlochs für die Betonvolumenberechnung"
       }
     }
   ],

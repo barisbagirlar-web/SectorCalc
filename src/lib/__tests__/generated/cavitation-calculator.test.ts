@@ -12,7 +12,7 @@ describe("cavitation-calculator", () => {
     "vaporPressure": 2338,
     "density": 998,
     "velocity": 5
-  } as Cavitation_calculatorInput;
+  } as unknown as Cavitation_calculatorInput;
     const result = calculateCavitation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

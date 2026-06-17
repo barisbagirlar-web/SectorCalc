@@ -14,7 +14,7 @@ describe("lifting-calculator", () => {
     "safetyFactor": 5,
     "dynamicFactor": 1.1,
     "loadDistributionFactor": 1
-  } as Lifting_calculatorInput;
+  } as unknown as Lifting_calculatorInput;
     const result = calculateLifting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("flood-routing-calculator", () => {
     "dt": 1,
     "K": 2,
     "x": 0.2
-  } as Flood_routing_calculatorInput;
+  } as unknown as Flood_routing_calculatorInput;
     const result = calculateFlood_routing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

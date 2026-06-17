@@ -12,7 +12,7 @@ describe("atomic-radius-calculator", () => {
     "molarMass": 55.845,
     "structureType": 2,
     "manualPackingFactor": 0.74
-  } as Atomic_radius_calculatorInput;
+  } as unknown as Atomic_radius_calculatorInput;
     const result = calculateAtomic_radius_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("eigenvalue-calculator", () => {
     "b": 0,
     "c": 0,
     "d": 1
-  } as Eigenvalue_calculatorInput;
+  } as unknown as Eigenvalue_calculatorInput;
     const result = calculateEigenvalue_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

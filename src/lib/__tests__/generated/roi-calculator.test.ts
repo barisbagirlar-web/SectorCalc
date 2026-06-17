@@ -16,7 +16,7 @@ describe("roi-calculator", () => {
     "defect_rate_percent": 5,
     "cost_per_defect": 500,
     "annual_energy_cost": 500000
-  } as Roi_calculatorInput;
+  } as unknown as Roi_calculatorInput;
     const result = calculateRoi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

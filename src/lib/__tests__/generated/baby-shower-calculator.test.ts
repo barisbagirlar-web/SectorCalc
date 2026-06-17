@@ -13,7 +13,7 @@ describe("baby-shower-calculator", () => {
     "cycleTime": 5,
     "chemicalCostPerLiter": 0.5,
     "waterCostPerLiter": 0.002
-  } as Baby_shower_calculatorInput;
+  } as unknown as Baby_shower_calculatorInput;
     const result = calculateBaby_shower_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

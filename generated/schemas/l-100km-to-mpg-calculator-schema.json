@@ -11,7 +11,7 @@
       "label_i18n": {
         "en": "Fuel Consumption (L/100km)",
         "tr": "Yakıt Tüketimi (L/100km)",
-        "de": "Fuel Consumption (L/100km)",
+        "de": "Kraftstoffverbrauch (L/100km)",
         "fr": "Fuel Consumption (L/100km)",
         "es": "Fuel Consumption (L/100km)",
         "ar": "Fuel Consumption (L/100km)"
@@ -51,7 +51,7 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
@@ -71,14 +71,15 @@
       "label_i18n": {
         "en": "Rounding Method",
         "tr": "Yuvarlama yöntemi",
-        "de": "Rounding Method",
+        "de": "Rundungsmethode",
         "fr": "Rounding Method",
         "es": "Rounding Method",
         "ar": "Rounding Method"
       },
       "businessContext_i18n": {
         "en": "0 = round, 1 = floor, 2 = ceil.",
-        "tr": "0 = yuvarla, 1 = taban, 2 = tavan."
+        "tr": "0 = yuvarla, 1 = taban, 2 = tavan.",
+        "de": "0 = runden, 1 = abrunden, 2 = aufrunden."
       }
     },
     {

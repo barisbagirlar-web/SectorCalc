@@ -12,7 +12,7 @@ describe("polynomial-solver-calculator", () => {
     "b": 0,
     "c": 0,
     "x": 0
-  } as Polynomial_solver_calculatorInput;
+  } as unknown as Polynomial_solver_calculatorInput;
     const result = calculatePolynomial_solver_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

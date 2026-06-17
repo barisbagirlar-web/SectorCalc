@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Pressure (atm)",
         "tr": "Basınç (atm)",
-        "de": "Pressure (atm)",
+        "de": "Druck (atm)",
         "fr": "Pressure (atm)",
         "es": "Pressure (atm)",
         "ar": "Pressure (atm)"
       },
       "businessContext_i18n": {
         "en": "The pressure value in standard atmospheres to be converted.",
-        "tr": "Dönüştürülecek standart atmosfer cinsinden basınç değeri."
+        "tr": "Dönüştürülecek standart atmosfer cinsinden basınç değeri.",
+        "de": "Der Druckwert in Standardatmosphären, der umgerechnet werden soll."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
-        "de": "Conversion Factor",
+        "de": "Umrechnungsfaktor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from atm to bar. Adjustable for calibration or traceability.",
-        "tr": "Atm'den bar'a standart dönüşüm faktörü. Kalibrasyon veya izlenebilirlik için ayarlanabilir."
+        "tr": "Atm'den bar'a standart dönüşüm faktörü. Kalibrasyon veya izlenebilirlik için ayarlanabilir.",
+        "de": "Standard-Umrechnungsfaktor von atm in bar. Anpassbar für Kalibrierung oder Rückverfolgbarkeit."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
-        "de": "Decimal Precision",
+        "de": "Dezimalgenauigkeit",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the primary output.",
-        "tr": "Birincil çıktının yuvarlanması için ondalık basamak sayısı."
+        "tr": "Birincil çıktının yuvarlanması için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Rundung des primären Ergebnisses."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
-        "de": "Ambient Temperature",
+        "de": "Umgebungstemperatur",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
       },
       "businessContext_i18n": {
         "en": "Reference temperature for potential gas law corrections (informational; not used in standard conversion).",
-        "tr": "Potansiyel gaz yasası düzeltmeleri için referans sıcaklık (bilgilendirme amaçlı; standart dönüşümde kullanılmaz)."
+        "tr": "Potansiyel gaz yasası düzeltmeleri için referans sıcaklık (bilgilendirme amaçlı; standart dönüşümde kullanılmaz).",
+        "de": "Referenztemperatur für mögliche Gasgesetz-Korrekturen (informativ; nicht in der Standardumrechnung verwendet)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Altitude",
         "tr": "Rakım",
-        "de": "Altitude",
+        "de": "Höhe",
         "fr": "Altitude",
         "es": "Altitude",
         "ar": "Altitude"
       },
       "businessContext_i18n": {
         "en": "Altitude above sea level for atmospheric pressure estimation (informational; not directly used in atm to bar conversion).",
-        "tr": "Atmosfer basıncı tahmini için deniz seviyesinden yükseklik (bilgilendirme amaçlı; atm'den bar'a dönüşümde doğrudan kullanılmaz)."
+        "tr": "Atmosfer basıncı tahmini için deniz seviyesinden yükseklik (bilgilendirme amaçlı; atm'den bar'a dönüşümde doğrudan kullanılmaz).",
+        "de": "Höhe über dem Meeresspiegel zur Schätzung des atmosphärischen Drucks (informativ; nicht direkt in der Umrechnung von atm in bar verwendet)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Measurement Uncertainty",
         "tr": "Ölçüm Belirsizliği",
-        "de": "Measurement Uncertainty",
+        "de": "Messunsicherheit",
         "fr": "Measurement Uncertainty",
         "es": "Measurement Uncertainty",
         "ar": "Measurement Uncertainty"
       },
       "businessContext_i18n": {
         "en": "Relative uncertainty percentage for TÜV-compliant documentation and error bounds.",
-        "tr": "TÜV uyumlu dokümantasyon ve hata sınırları için bağıl belirsizlik yüzdesi."
+        "tr": "TÜV uyumlu dokümantasyon ve hata sınırları için bağıl belirsizlik yüzdesi.",
+        "de": "Relative Unsicherheit in Prozent für TÜV-konforme Dokumentation und Fehlergrenzen."
       }
     }
   ],

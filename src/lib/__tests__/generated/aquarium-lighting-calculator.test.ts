@@ -15,7 +15,7 @@ describe("aquarium-lighting-calculator", () => {
     "lightEfficiency": 100,
     "photoperiod": 8,
     "electricityCost": 0.15
-  } as Aquarium_lighting_calculatorInput;
+  } as unknown as Aquarium_lighting_calculatorInput;
     const result = calculateAquarium_lighting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

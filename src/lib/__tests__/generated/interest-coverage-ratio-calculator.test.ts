@@ -12,7 +12,7 @@ describe("interest-coverage-ratio-calculator", () => {
     "interestExpense": 20000,
     "ebitda": 120000,
     "depreciation": 20000
-  } as Interest_coverage_ratio_calculatorInput;
+  } as unknown as Interest_coverage_ratio_calculatorInput;
     const result = calculateInterest_coverage_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

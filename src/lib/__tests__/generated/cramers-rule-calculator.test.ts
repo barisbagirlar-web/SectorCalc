@@ -16,7 +16,7 @@ describe("cramers-rule-calculator", () => {
     "a22": 1,
     "a23": 1,
     "b2": 1
-  } as Cramers_rule_calculatorInput;
+  } as unknown as Cramers_rule_calculatorInput;
     const result = calculateCramers_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

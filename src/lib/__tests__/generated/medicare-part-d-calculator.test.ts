@@ -13,7 +13,7 @@ describe("medicare-part-d-calculator", () => {
     "initialCoinsurance": 25,
     "catastrophicThreshold": 2000,
     "catastrophicCoinsurance": 5
-  } as Medicare_part_d_calculatorInput;
+  } as unknown as Medicare_part_d_calculatorInput;
     const result = calculateMedicare_part_d_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

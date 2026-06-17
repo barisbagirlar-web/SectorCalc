@@ -16,7 +16,7 @@ describe("restaurant-menu-margin-leak-calculator", () => {
     "theft_shrinkage_percentage": 1.5,
     "discount_comp_percentage": 3,
     "covers_per_period": 3000
-  } as Restaurant_menu_margin_leak_calculatorInput;
+  } as unknown as Restaurant_menu_margin_leak_calculatorInput;
     const result = calculateRestaurant_menu_margin_leak_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

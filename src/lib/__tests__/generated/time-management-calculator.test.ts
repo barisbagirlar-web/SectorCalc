@@ -14,7 +14,7 @@ describe("time-management-calculator", () => {
     "efficiency": 100,
     "breakTimePerDay": 60,
     "workingHoursPerDay": 8
-  } as Time_management_calculatorInput;
+  } as unknown as Time_management_calculatorInput;
     const result = calculateTime_management_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

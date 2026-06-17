@@ -11,7 +11,7 @@ describe("lbtt-calculator-scotland", () => {
     "purchasePrice": 0,
     "isFirstTimeBuyer": 0,
     "isAdditionalDwelling": 0
-  } as Lbtt_calculator_scotlandInput;
+  } as unknown as Lbtt_calculator_scotlandInput;
     const result = calculateLbtt_calculator_scotland(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

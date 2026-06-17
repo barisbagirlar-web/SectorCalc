@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Pre-Training Assessment Score",
         "tr": "Eğitim Öncesi Değerlendirme Puanı",
-        "de": "Pre-Training Assessment Score",
+        "de": "Bewertung vor Training",
         "fr": "Pre-Training Assessment Score",
         "es": "Pre-Training Assessment Score",
         "ar": "Pre-Training Assessment Score"
       },
       "businessContext_i18n": {
         "en": "Average score of trainees before training, as percentage of maximum.",
-        "tr": "Eğitim öncesi kursiyerlerin ortalama puanı, maksimumun yüzdesi olarak."
+        "tr": "Eğitim öncesi kursiyerlerin ortalama puanı, maksimumun yüzdesi olarak.",
+        "de": "Durchschnittliche Punktzahl der Auszubildenden vor dem Training, als Prozentsatz des Maximums."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Post-Training Assessment Score",
         "tr": "Eğitim Sonrası Değerlendirme Puanı",
-        "de": "Post-Training Assessment Score",
+        "de": "Bewertung nach Training",
         "fr": "Post-Training Assessment Score",
         "es": "Post-Training Assessment Score",
         "ar": "Post-Training Assessment Score"
       },
       "businessContext_i18n": {
         "en": "Average score of trainees after training, as percentage of maximum.",
-        "tr": "Eğitim sonrası kursiyerlerin ortalama puanı, maksimumun yüzdesi olarak."
+        "tr": "Eğitim sonrası kursiyerlerin ortalama puanı, maksimumun yüzdesi olarak.",
+        "de": "Durchschnittliche Punktzahl der Auszubildenden nach dem Training, als Prozentsatz des Maximums."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Training Duration",
         "tr": "Eğitim Süresi",
-        "de": "Training Duration",
+        "de": "Trainingsdauer",
         "fr": "Training Duration",
         "es": "Training Duration",
         "ar": "Training Duration"
       },
       "businessContext_i18n": {
         "en": "Total hours of training delivered.",
-        "tr": "Verilen toplam eğitim saati."
+        "tr": "Verilen toplam eğitim saati.",
+        "de": "Gesamte Trainingsstunden."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Training Cost per Hour",
         "tr": "Saatlik Eğitim Maliyeti",
-        "de": "Training Cost per Hour",
+        "de": "Trainingskosten pro Stunde",
         "fr": "Training Cost per Hour",
         "es": "Training Cost per Hour",
         "ar": "Training Cost per Hour"
       },
       "businessContext_i18n": {
         "en": "Cost per hour including instructor, materials, overhead.",
-        "tr": "Eğitmen, malzeme ve genel giderler dahil saatlik maliyet."
+        "tr": "Eğitmen, malzeme ve genel giderler dahil saatlik maliyet.",
+        "de": "Kosten pro Stunde inklusive Ausbilder, Materialien, Gemeinkosten."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Scrap Rate Before Training",
         "tr": "Eğitim Öncesi Fire Oranı",
-        "de": "Scrap Rate Before Training",
+        "de": "Ausschussrate vor Training",
         "fr": "Scrap Rate Before Training",
         "es": "Scrap Rate Before Training",
         "ar": "Scrap Rate Before Training"
       },
       "businessContext_i18n": {
         "en": "Percentage of defective output before training.",
-        "tr": "Eğitim öncesi hatalı çıktı yüzdesi."
+        "tr": "Eğitim öncesi hatalı çıktı yüzdesi.",
+        "de": "Prozentsatz fehlerhafter Ausgabe vor dem Training."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Scrap Rate After Training",
         "tr": "Eğitim Sonrası Fire Oranı",
-        "de": "Scrap Rate After Training",
+        "de": "Ausschussrate nach dem Training",
         "fr": "Scrap Rate After Training",
         "es": "Scrap Rate After Training",
         "ar": "Scrap Rate After Training"
       },
       "businessContext_i18n": {
         "en": "Percentage of defective output after training.",
-        "tr": "Eğitim sonrası hatalı çıktı yüzdesi."
+        "tr": "Eğitim sonrası hatalı çıktı yüzdesi.",
+        "de": "Prozentsatz fehlerhafter Ausgabe nach dem Training."
       }
     }
   ],

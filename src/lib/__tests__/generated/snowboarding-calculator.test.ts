@@ -12,7 +12,7 @@ describe("snowboarding-calculator", () => {
     "slopeLength": "100",
     "frictionCoeff": "0.1",
     "mass": "75"
-  } as Snowboarding_calculatorInput;
+  } as unknown as Snowboarding_calculatorInput;
     const result = calculateSnowboarding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

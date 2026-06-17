@@ -14,7 +14,7 @@ describe("korean-calendar-calculator", () => {
     "currentYear": 2025,
     "currentMonth": 6,
     "currentDay": 10
-  } as Korean_calendar_calculatorInput;
+  } as unknown as Korean_calendar_calculatorInput;
     const result = calculateKorean_calendar_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("hamiltonian-path-calculator", () => {
     "y3": 0,
     "x4": 0,
     "y4": 0
-  } as Hamiltonian_path_calculatorInput;
+  } as unknown as Hamiltonian_path_calculatorInput;
     const result = calculateHamiltonian_path_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

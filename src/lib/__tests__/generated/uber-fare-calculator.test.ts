@@ -15,7 +15,7 @@ describe("uber-fare-calculator", () => {
     "durationMinutes": 5,
     "surgeMultiplier": 1,
     "bookingFee": 1.5
-  } as Uber_fare_calculatorInput;
+  } as unknown as Uber_fare_calculatorInput;
     const result = calculateUber_fare_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

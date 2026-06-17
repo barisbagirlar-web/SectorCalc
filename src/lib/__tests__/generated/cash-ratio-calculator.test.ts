@@ -12,7 +12,7 @@ describe("cash-ratio-calculator", () => {
     "bankDeposits": 0,
     "shortTermInvestments": 0,
     "currentLiabilities": 0
-  } as Cash_ratio_calculatorInput;
+  } as unknown as Cash_ratio_calculatorInput;
     const result = calculateCash_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

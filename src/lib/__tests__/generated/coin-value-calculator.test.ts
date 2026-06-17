@@ -14,7 +14,7 @@ describe("coin-value-calculator", () => {
     "quarterCount": 0,
     "halfDollarCount": 0,
     "dollarCoinCount": 0
-  } as Coin_value_calculatorInput;
+  } as unknown as Coin_value_calculatorInput;
     const result = calculateCoin_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

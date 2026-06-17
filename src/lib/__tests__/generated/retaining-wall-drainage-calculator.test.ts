@@ -14,7 +14,7 @@ describe("retaining-wall-drainage-calculator", () => {
     "pipeDiameter": 100,
     "pipeSlope": 1,
     "manningN": 0.013
-  } as Retaining_wall_drainage_calculatorInput;
+  } as unknown as Retaining_wall_drainage_calculatorInput;
     const result = calculateRetaining_wall_drainage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

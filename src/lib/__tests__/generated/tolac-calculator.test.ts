@@ -14,7 +14,7 @@ describe("tolac-calculator", () => {
     "batchSize": 100,
     "materialCostPerUnit": 10,
     "overheadPercentage": 20
-  } as Tolac_calculatorInput;
+  } as unknown as Tolac_calculatorInput;
     const result = calculateTolac_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

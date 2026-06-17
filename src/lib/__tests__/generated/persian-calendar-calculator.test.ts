@@ -12,7 +12,7 @@ describe("persian-calendar-calculator", () => {
     "persianMonth": 1,
     "persianDay": 1,
     "dayFraction": 0
-  } as Persian_calendar_calculatorInput;
+  } as unknown as Persian_calendar_calculatorInput;
     const result = calculatePersian_calendar_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

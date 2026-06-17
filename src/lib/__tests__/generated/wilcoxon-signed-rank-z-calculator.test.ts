@@ -12,7 +12,7 @@ describe("wilcoxon-signed-rank-z-calculator", () => {
     "T": 25,
     "continuity": 0,
     "decimalPlaces": 4
-  } as Wilcoxon_signed_rank_z_calculatorInput;
+  } as unknown as Wilcoxon_signed_rank_z_calculatorInput;
     const result = calculateWilcoxon_signed_rank_z_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

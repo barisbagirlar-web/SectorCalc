@@ -16,7 +16,7 @@ describe("education-savings-calculator", () => {
     "currentSavings": 5000,
     "monthlyContribution": 200,
     "durationOfStudy": 4
-  } as Education_savings_calculatorInput;
+  } as unknown as Education_savings_calculatorInput;
     const result = calculateEducation_savings_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

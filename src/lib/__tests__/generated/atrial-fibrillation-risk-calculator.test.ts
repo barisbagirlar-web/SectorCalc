@@ -15,7 +15,7 @@ describe("atrial-fibrillation-risk-calculator", () => {
     "priorStrokeOrTIA": 0,
     "vascularDisease": 0,
     "sex": 0
-  } as Atrial_fibrillation_risk_calculatorInput;
+  } as unknown as Atrial_fibrillation_risk_calculatorInput;
     const result = calculateAtrial_fibrillation_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

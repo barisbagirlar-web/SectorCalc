@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Antrenman Süresi (dakika)",
         "tr": "Antrenman Süresi (dakika)",
-        "de": "Antrenman Süresi (dakika)",
+        "de": "Trainingszeit (Minuten)",
         "fr": "Antrenman Süresi (dakika)",
         "es": "Antrenman Süresi (dakika)",
         "ar": "Antrenman Süresi (dakika)"
       },
       "businessContext_i18n": {
         "en": "Toplam sürüş süresi dakika cinsinden.",
-        "tr": "Toplam sürüş süresi dakika cinsinden."
+        "tr": "Toplam sürüş süresi dakika cinsinden.",
+        "de": "Gesamte Fahrzeit in Minuten."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Normalize Güç (NP)",
         "tr": "Normalize Güç (NP)",
-        "de": "Normalize Güç (NP)",
+        "de": "Normalisierte Leistung (NP)",
         "fr": "Normalize Güç (NP)",
         "es": "Normalize Güç (NP)",
         "ar": "Normalize Güç (NP)"
       },
       "businessContext_i18n": {
         "en": "Sürüşün normalize gücü, watt cinsinden. Değişken çabaların fizyolojik maliyetini yansıtır.",
-        "tr": "Sürüşün normalize gücü, watt cinsinden. Değişken çabaların fizyolojik maliyetini yansıtır."
+        "tr": "Sürüşün normalize gücü, watt cinsinden. Değişken çabaların fizyolojik maliyetini yansıtır.",
+        "de": "Normalisierte Leistung der Fahrt in Watt. Spiegelt die physiologischen Kosten wechselnder Anstrengungen wider."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fonksiyonel Eşik Gücü (FTP)",
         "tr": "Fonksiyonel Eşik Gücü (FTP)",
-        "de": "Fonksiyonel Eşik Gücü (FTP)",
+        "de": "Funktionelle Leistungsschwelle (FTP)",
         "fr": "Fonksiyonel Eşik Gücü (FTP)",
         "es": "Fonksiyonel Eşik Gücü (FTP)",
         "ar": "Fonksiyonel Eşik Gücü (FTP)"
       },
       "businessContext_i18n": {
         "en": "Bir saat boyunca sürdürülebilen maksimum ortalama güç watt cinsinden.",
-        "tr": "Bir saat boyunca sürdürülebilen maksimum ortalama güç watt cinsinden."
+        "tr": "Bir saat boyunca sürdürülebilen maksimum ortalama güç watt cinsinden.",
+        "de": "Maximale durchschnittliche Leistung, die eine Stunde lang aufrechterhalten werden kann, in Watt."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Ortalama Güç",
         "tr": "Ortalama Güç",
-        "de": "Ortalama Güç",
+        "de": "Durchschnittsleistung",
         "fr": "Ortalama Güç",
         "es": "Ortalama Güç",
         "ar": "Ortalama Güç"
       },
       "businessContext_i18n": {
         "en": "Sürüşün aritmetik ortalama gücü. Değişkenlik Endeksi (VI) hesaplamak için isteğe bağlı.",
-        "tr": "Sürüşün aritmetik ortalama gücü. Değişkenlik Endeksi (VI) hesaplamak için isteğe bağlı."
+        "tr": "Sürüşün aritmetik ortalama gücü. Değişkenlik Endeksi (VI) hesaplamak için isteğe bağlı.",
+        "de": "Arithmetische Durchschnittsleistung der Fahrt. Optional zur Berechnung des Variabilitätsindex (VI)."
       }
     }
   ],

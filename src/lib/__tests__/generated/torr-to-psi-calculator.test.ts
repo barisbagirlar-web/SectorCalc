@@ -12,7 +12,7 @@ describe("torr-to-psi-calculator", () => {
     "conversionFactor": 0.01933677,
     "decimalPlaces": 4,
     "offset": 0
-  } as Torr_to_psi_calculatorInput;
+  } as unknown as Torr_to_psi_calculatorInput;
     const result = calculateTorr_to_psi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

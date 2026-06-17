@@ -13,7 +13,7 @@ describe("stairmaster-calorie-calculator", () => {
     "met": 5.5,
     "stepHeight": 0.17,
     "stepsPerMinute": 60
-  } as Stairmaster_calorie_calculatorInput;
+  } as unknown as Stairmaster_calorie_calculatorInput;
     const result = calculateStairmaster_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

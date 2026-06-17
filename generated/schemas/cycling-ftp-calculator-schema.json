@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Ortalama Güç",
         "tr": "Ortalama Güç",
-        "de": "Ortalama Güç",
+        "de": "Durchschnittsleistung",
         "fr": "Ortalama Güç",
         "es": "Ortalama Güç",
         "ar": "Ortalama Güç"
       },
       "businessContext_i18n": {
         "en": "The average power output measured during the cycling test.",
-        "tr": "Bisiklet testi sırasında ölçülen ortalama güç çıkışı."
+        "tr": "Bisiklet testi sırasında ölçülen ortalama güç çıkışı.",
+        "de": "Die durchschnittliche Leistungsabgabe, gemessen während des Radfahrtests."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Faktör",
         "tr": "Faktör",
-        "de": "Faktör",
+        "de": "Faktor",
         "fr": "Faktör",
         "es": "Faktör",
         "ar": "Faktör"
       },
       "businessContext_i18n": {
         "en": "FTP dönüşüm faktörü (20 dk test için 0.95).",
-        "tr": "FTP dönüşüm faktörü (20 dk test için 0.95)."
+        "tr": "FTP dönüşüm faktörü (20 dk test için 0.95).",
+        "de": "FTP-Umrechnungsfaktor (0,95 für 20-Minuten-Test)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Vücut Ağırlığı",
         "tr": "Vücut Ağırlığı",
-        "de": "Vücut Ağırlığı",
+        "de": "Körpergewicht",
         "fr": "Vücut Ağırlığı",
         "es": "Vücut Ağırlığı",
         "ar": "Vücut Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Power-to-weight ratio calculation.",
-        "tr": "Güç-ağırlık oranı hesaplaması."
+        "tr": "Güç-ağırlık oranı hesaplaması.",
+        "de": "Berechnung des Leistungs-Gewichts-Verhältnisses."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Test Süresi",
         "tr": "Test Süresi",
-        "de": "Test Süresi",
+        "de": "Testdauer",
         "fr": "Test Süresi",
         "es": "Test Süresi",
         "ar": "Test Süresi"
       },
       "businessContext_i18n": {
         "en": "Duration of the test effort (for record).",
-        "tr": "Test eforunun süresi (kayıt için)."
+        "tr": "Test eforunun süresi (kayıt için).",
+        "de": "Dauer der Testanstrengung (zur Aufzeichnung)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Yaş",
         "tr": "Yaş",
-        "de": "Yaş",
+        "de": "Alter",
         "fr": "Yaş",
         "es": "Yaş",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Rider age for reference.",
-        "tr": "Referans için sürücü yaşı."
+        "tr": "Referans için sürücü yaşı.",
+        "de": "Alter des Fahrers (als Referenz)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Sıcaklık",
         "tr": "Sıcaklık",
-        "de": "Sıcaklık",
+        "de": "Temperatur",
         "fr": "Sıcaklık",
         "es": "Sıcaklık",
         "ar": "Sıcaklık"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature (for record).",
-        "tr": "Ortam sıcaklığı (kayıt için)."
+        "tr": "Ortam sıcaklığı (kayıt için).",
+        "de": "Umgebungstemperatur (zur Aufzeichnung)."
       }
     }
   ],

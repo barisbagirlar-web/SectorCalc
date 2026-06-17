@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Astronomik Birim (AU)",
         "tr": "Astronomik Birim (AU)",
-        "de": "Astronomik Birim (AU)",
+        "de": "Astronomische Einheit (AE)",
         "fr": "Astronomik Birim (AU)",
         "es": "Astronomik Birim (AU)",
         "ar": "Astronomik Birim (AU)"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek mesafe değeri, astronomik birim cinsinden.",
-        "tr": "Dönüştürülecek mesafe değeri, astronomik birim cinsinden."
+        "tr": "Dönüştürülecek mesafe değeri, astronomik birim cinsinden.",
+        "de": "Umzurechnender Entfernungswert in astronomischen Einheiten."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Dönüşüm Oranı",
         "tr": "Dönüşüm Oranı",
-        "de": "Dönüşüm Oranı",
+        "de": "Umrechnungsfaktor",
         "fr": "Dönüşüm Oranı",
         "es": "Dönüşüm Oranı",
         "ar": "Dönüşüm Oranı"
       },
       "businessContext_i18n": {
         "en": "1 AU'nun kilometre karşılığı. IAU 2012 tanımına göre sabittir.",
-        "tr": "1 AU'nun kilometre karşılığı. IAU 2012 tanımına göre sabittir."
+        "tr": "1 AU'nun kilometre karşılığı. IAU 2012 tanımına göre sabittir.",
+        "de": "Entsprechung von 1 AE in Kilometern. Fest definiert nach IAU 2012."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Gösterim Hassasiyeti",
         "tr": "Gösterim Hassasiyeti",
-        "de": "Gösterim Hassasiyeti",
+        "de": "Anzeigegenauigkeit",
         "fr": "Gösterim Hassasiyeti",
         "es": "Gösterim Hassasiyeti",
         "ar": "Gösterim Hassasiyeti"
       },
       "businessContext_i18n": {
         "en": "Sonuç gösteriminde kullanılacak ondalık basamak sayısı. Hesaplamada etkisizdir.",
-        "tr": "Sonuç gösteriminde kullanılacak ondalık basamak sayısı. Hesaplamada etkisizdir."
+        "tr": "Sonuç gösteriminde kullanılacak ondalık basamak sayısı. Hesaplamada etkisizdir.",
+        "de": "Anzahl der Dezimalstellen für die Ergebnisanzeige. Ohne Einfluss auf die Berechnung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Çıktı Çarpanı",
         "tr": "Çıktı Çarpanı",
-        "de": "Çıktı Çarpanı",
+        "de": "Ausgabemultiplikator",
         "fr": "Çıktı Çarpanı",
         "es": "Çıktı Çarpanı",
         "ar": "Çıktı Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Çıktı birimini ölçeklendirmek için katsayı. 1: km, 1e-6: milyon km.",
-        "tr": "Çıktı birimini ölçeklendirmek için katsayı. 1: km, 1e-6: milyon km."
+        "tr": "Çıktı birimini ölçeklendirmek için katsayı. 1: km, 1e-6: milyon km.",
+        "de": "Koeffizient zur Skalierung der Ausgabeeinheit. 1: km, 1e-6: Millionen km."
       }
     }
   ],

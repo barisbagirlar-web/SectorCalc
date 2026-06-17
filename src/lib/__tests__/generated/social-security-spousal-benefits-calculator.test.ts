@@ -12,7 +12,7 @@ describe("social-security-spousal-benefits-calculator", () => {
     "spousePIA": 0,
     "spouseFilingAge": 62,
     "spouseFRA": 67
-  } as Social_security_spousal_benefits_calculatorInput;
+  } as unknown as Social_security_spousal_benefits_calculatorInput;
     const result = calculateSocial_security_spousal_benefits_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

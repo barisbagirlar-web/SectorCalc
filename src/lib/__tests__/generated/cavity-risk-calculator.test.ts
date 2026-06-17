@@ -14,7 +14,7 @@ describe("cavity-risk-calculator", () => {
     "coolingRate": 50,
     "alloyPurity": 99.5,
     "ventingEfficiency": 90
-  } as Cavity_risk_calculatorInput;
+  } as unknown as Cavity_risk_calculatorInput;
     const result = calculateCavity_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

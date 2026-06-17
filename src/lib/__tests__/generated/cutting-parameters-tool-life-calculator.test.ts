@@ -15,7 +15,7 @@ describe("cutting-parameters-tool-life-calculator", () => {
     "workpiece_material": "steel",
     "coolant_used": true,
     "machine_stability_factor": 1
-  } as Cutting_parameters_tool_life_calculatorInput;
+  } as unknown as Cutting_parameters_tool_life_calculatorInput;
     const result = calculateCutting_parameters_tool_life_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

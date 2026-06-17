@@ -13,7 +13,7 @@ describe("sodium-calculator", () => {
     "sodiumAtomsPerMolecule": 1,
     "molarMassCompound": 58.44,
     "sodiumMolarMass": 22.99
-  } as Sodium_calculatorInput;
+  } as unknown as Sodium_calculatorInput;
     const result = calculateSodium_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

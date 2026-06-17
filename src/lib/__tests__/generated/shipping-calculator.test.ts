@@ -12,7 +12,7 @@ describe("shipping-calculator", () => {
     "weight": 10,
     "volume": 1,
     "fuelPrice": 1.5
-  } as Shipping_calculatorInput;
+  } as unknown as Shipping_calculatorInput;
     const result = calculateShipping_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

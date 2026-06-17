@@ -16,7 +16,7 @@ describe("dairy-profit-detector-calculator", () => {
     "waste_percentage": 2,
     "labor_hours_per_day": 40,
     "labor_rate_per_hour": 15
-  } as Dairy_profit_detector_calculatorInput;
+  } as unknown as Dairy_profit_detector_calculatorInput;
     const result = calculateDairy_profit_detector_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

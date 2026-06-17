@@ -13,7 +13,7 @@ describe("ebitda-calculator", () => {
     "opex": 0,
     "depreciation": 0,
     "amortization": 0
-  } as Ebitda_calculatorInput;
+  } as unknown as Ebitda_calculatorInput;
     const result = calculateEbitda_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

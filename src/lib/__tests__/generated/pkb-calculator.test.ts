@@ -12,7 +12,7 @@ describe("pkb-calculator", () => {
     "ka": 1e-9,
     "pka": 9,
     "kw": 1e-14
-  } as Pkb_calculatorInput;
+  } as unknown as Pkb_calculatorInput;
     const result = calculatePkb_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

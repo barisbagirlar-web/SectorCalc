@@ -18,11 +18,13 @@
       "businessContext": "Age affects basal metabolic rate (BMR) due to changes in lean body mass and hormonal factors.",
       "label_i18n": {
         "en": "Age",
-        "tr": "Yaş"
+        "tr": "Yaş",
+        "de": "Alter"
       },
       "businessContext_i18n": {
         "en": "Age affects basal metabolic rate (BMR) due to changes in lean body mass and hormonal factors.",
-        "tr": "Yaş, yağsız vücut kütlesi ve hormonal faktörlerdeki değişiklikler nedeniyle bazal metabolizma hızını (BMR) etkiler."
+        "tr": "Yaş, yağsız vücut kütlesi ve hormonal faktörlerdeki değişiklikler nedeniyle bazal metabolizma hızını (BMR) etkiler.",
+        "de": "Alter beeinflusst den Grundumsatz (BMR) aufgrund von Veränderungen der fettfreien Körpermasse und hormonellen Faktoren."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Gender influences BMR through differences in body composition and hormonal profiles.",
       "label_i18n": {
         "en": "Gender",
-        "tr": "Cinsiyet"
+        "tr": "Cinsiyet",
+        "de": "Geschlecht"
       },
       "businessContext_i18n": {
         "en": "Gender influences BMR through differences in body composition and hormonal profiles.",
-        "tr": "Cinsiyet, vücut kompozisyonu ve hormonal profillerdeki farklılıklar yoluyla BMR'yi etkiler."
+        "tr": "Cinsiyet, vücut kompozisyonu ve hormonal profillerdeki farklılıklar yoluyla BMR'yi etkiler.",
+        "de": "Geschlecht beeinflusst den Grundumsatz durch Unterschiede in der Körperzusammensetzung und den Hormonprofilen."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Body weight is a primary driver of energy expenditure and calorie needs.",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Ağırlık"
+        "tr": "Ağırlık",
+        "de": "Gewicht"
       },
       "businessContext_i18n": {
         "en": "Body weight is a primary driver of energy expenditure and calorie needs.",
-        "tr": "Vücut ağırlığı, enerji harcaması ve kalori ihtiyacının birincil itici gücüdür."
+        "tr": "Vücut ağırlığı, enerji harcaması ve kalori ihtiyacının birincil itici gücüdür.",
+        "de": "Körpergewicht ist ein Haupttreiber des Energieverbrauchs und des Kalorienbedarfs."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Height is used in BMR equations to estimate lean body mass and metabolic rate.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Boy"
+        "tr": "Boy",
+        "de": "Größe"
       },
       "businessContext_i18n": {
         "en": "Height is used in BMR equations to estimate lean body mass and metabolic rate.",
-        "tr": "Boy, BMR denklemlerinde yağsız vücut kütlesini ve metabolizma hızını tahmin etmek için kullanılır."
+        "tr": "Boy, BMR denklemlerinde yağsız vücut kütlesini ve metabolizma hızını tahmin etmek için kullanılır.",
+        "de": "Körpergröße wird in BMR-Gleichungen verwendet, um die fettfreie Körpermasse und den Stoffwechsel zu schätzen."
       }
     },
     {
@@ -101,11 +109,13 @@
       "businessContext": "Physical activity multiplier adjusts TDEE based on occupational and exercise habits.",
       "label_i18n": {
         "en": "Activity Level",
-        "tr": "Aktivite Seviyesi"
+        "tr": "Aktivite Seviyesi",
+        "de": "Aktivitätsniveau"
       },
       "businessContext_i18n": {
         "en": "Physical activity multiplier adjusts TDEE based on occupational and exercise habits.",
-        "tr": "Fiziksel aktivite çarpanı, mesleki ve egzersiz alışkanlıklarına göre toplam günlük enerji harcamasını ayarlar."
+        "tr": "Fiziksel aktivite çarpanı, mesleki ve egzersiz alışkanlıklarına göre toplam günlük enerji harcamasını ayarlar.",
+        "de": "Der Multiplikator für körperliche Aktivität passt den Gesamtenergieumsatz basierend auf beruflichen und sportlichen Gewohnheiten an."
       }
     },
     {
@@ -124,11 +134,13 @@
       "businessContext": "Desired weekly weight loss rate determines the daily calorie deficit target.",
       "label_i18n": {
         "en": "Weight Loss Rate",
-        "tr": "Kilo Verme Hızı"
+        "tr": "Kilo Verme Hızı",
+        "de": "Gewichtsverlustrate"
       },
       "businessContext_i18n": {
         "en": "Desired weekly weight loss rate determines the daily calorie deficit target.",
-        "tr": "İstenen haftalık kilo verme hızı, günlük kalori açığı hedefini belirler."
+        "tr": "İstenen haftalık kilo verme hızı, günlük kalori açığı hedefini belirler.",
+        "de": "Die gewünschte wöchentliche Gewichtsverlustrate bestimmt das tägliche Kaloriendefizitziel."
       }
     },
     {
@@ -142,11 +154,13 @@
       "businessContext": "Optional input for more accurate BMR estimation using the Katch-McArdle formula.",
       "label_i18n": {
         "en": "Body Fat Percentage",
-        "tr": "Vücut yağ yüzdesi"
+        "tr": "Vücut yağ yüzdesi",
+        "de": "Körperfettanteil"
       },
       "businessContext_i18n": {
         "en": "Optional input for more accurate BMR estimation using the Katch-McArdle formula.",
-        "tr": "Katch-McArdle formülü kullanılarak daha doğru BMR tahmini için isteğe bağlı girdi."
+        "tr": "Katch-McArdle formülü kullanılarak daha doğru BMR tahmini için isteğe bağlı girdi.",
+        "de": "Optionale Eingabe für eine genauere BMR-Schätzung mit der Katch-McArdle-Formel."
       }
     },
     {
@@ -160,11 +174,13 @@
       "businessContext": "Pregnancy increases energy requirements; deficit is not recommended during pregnancy.",
       "label_i18n": {
         "en": "Pregnant",
-        "tr": "Hamile"
+        "tr": "Hamile",
+        "de": "Schwanger"
       },
       "businessContext_i18n": {
         "en": "Pregnancy increases energy requirements; deficit is not recommended during pregnancy.",
-        "tr": "Hamilelik enerji gereksinimlerini artırır; hamilelik sırasında kalori açığı önerilmez."
+        "tr": "Hamilelik enerji gereksinimlerini artırır; hamilelik sırasında kalori açığı önerilmez.",
+        "de": "Schwangerschaft erhöht den Energiebedarf; ein Kaloriendefizit wird während der Schwangerschaft nicht empfohlen."
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
-        "de": "Surface Area",
+        "de": "Oberfläche",
         "fr": "Surface Area",
         "es": "Surface Area",
         "ar": "Surface Area"
       },
       "businessContext_i18n": {
         "en": "Total surface area to cover with fiber mesh (in square meters)",
-        "tr": "Fiber mesh ile kaplanacak toplam yüzey alanı (metrekare cinsinden)"
+        "tr": "Fiber mesh ile kaplanacak toplam yüzey alanı (metrekare cinsinden)",
+        "de": "Gesamtfläche, die mit Fasergewebe abgedeckt werden soll (in Quadratmetern)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Roll Width",
         "tr": "Rulo genişliği",
-        "de": "Roll Width",
+        "de": "Rollenbreite",
         "fr": "Roll Width",
         "es": "Roll Width",
         "ar": "Roll Width"
       },
       "businessContext_i18n": {
         "en": "Width of a single roll of fiber mesh (in meters)",
-        "tr": "Tek bir fiber mesh rulosunun genişliği (metre cinsinden)"
+        "tr": "Tek bir fiber mesh rulosunun genişliği (metre cinsinden)",
+        "de": "Breite einer einzelnen Rolle Fasergewebe (in Metern)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Roll Length",
         "tr": "Rulo uzunluğu",
-        "de": "Roll Length",
+        "de": "Rollenlänge",
         "fr": "Roll Length",
         "es": "Roll Length",
         "ar": "Roll Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single roll of fiber mesh (in meters)",
-        "tr": "Tek bir fiber mesh rulosunun uzunluğu (metre cinsinden)"
+        "tr": "Tek bir fiber mesh rulosunun uzunluğu (metre cinsinden)",
+        "de": "Länge einer einzelnen Rolle Fasergewebe (in Metern)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Overlap Distance",
         "tr": "Bindirme mesafesi",
-        "de": "Overlap Distance",
+        "de": "Überlappungsabstand",
         "fr": "Overlap Distance",
         "es": "Overlap Distance",
         "ar": "Overlap Distance"
       },
       "businessContext_i18n": {
         "en": "Overlap between adjacent sheets (in meters), typically 0.1 m",
-        "tr": "Bitişik tabakalar arasındaki bindirme (metre cinsinden, genellikle 0,1 m)"
+        "tr": "Bitişik tabakalar arasındaki bindirme (metre cinsinden, genellikle 0,1 m)",
+        "de": "Überlappung zwischen benachbarten Bahnen (in Metern), typischerweise 0,1 m"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
-        "de": "Waste Factor",
+        "de": "Abfallfaktor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage extra material for cutting waste and errors (e.g., 5)",
-        "tr": "Kesim atığı ve hatalar için yüzde ekstra malzeme (örneğin 5)"
+        "tr": "Kesim atığı ve hatalar için yüzde ekstra malzeme (örneğin 5)",
+        "de": "Prozentsatz des zusätzlichen Materials für Schnittabfall und Fehler (z. B. 5)"
       }
     }
   ],

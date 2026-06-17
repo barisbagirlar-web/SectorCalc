@@ -12,7 +12,7 @@ describe("cholesterol-ratio-calculator", () => {
     "hdlCholesterol": 50,
     "ldlCholesterol": 130,
     "triglycerides": 150
-  } as Cholesterol_ratio_calculatorInput;
+  } as unknown as Cholesterol_ratio_calculatorInput;
     const result = calculateCholesterol_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

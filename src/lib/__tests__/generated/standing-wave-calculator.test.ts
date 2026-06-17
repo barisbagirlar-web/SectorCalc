@@ -12,7 +12,7 @@ describe("standing-wave-calculator", () => {
     "tension": 100,
     "linearDensity": 0.01,
     "harmonic": 1
-  } as Standing_wave_calculatorInput;
+  } as unknown as Standing_wave_calculatorInput;
     const result = calculateStanding_wave_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

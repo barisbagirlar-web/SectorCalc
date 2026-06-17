@@ -12,7 +12,7 @@ describe("currency-converter-calculator", () => {
     "exchangeRate": 1.1,
     "fixedFee": 0,
     "percentageFee": 0
-  } as Currency_converter_calculatorInput;
+  } as unknown as Currency_converter_calculatorInput;
     const result = calculateCurrency_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

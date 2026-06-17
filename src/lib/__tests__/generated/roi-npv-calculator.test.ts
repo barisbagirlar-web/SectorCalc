@@ -16,7 +16,7 @@ describe("roi-npv-calculator", () => {
     "salvage_value": 10000,
     "inflation_rate": 2,
     "tax_rate": 25
-  } as Roi_npv_calculatorInput;
+  } as unknown as Roi_npv_calculatorInput;
     const result = calculateRoi_npv_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

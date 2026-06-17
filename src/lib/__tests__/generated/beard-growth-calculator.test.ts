@@ -13,7 +13,7 @@ describe("beard-growth-calculator", () => {
     "growth_rate": 0.4,
     "resting_days": 2,
     "genetic_factor": 1
-  } as Beard_growth_calculatorInput;
+  } as unknown as Beard_growth_calculatorInput;
     const result = calculateBeard_growth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

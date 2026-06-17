@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Current (I)",
         "tr": "Akım (I)",
-        "de": "Current (I)",
+        "de": "Strom (I)",
         "fr": "Current (I)",
         "es": "Current (I)",
         "ar": "Current (I)"
       },
       "businessContext_i18n": {
         "en": "Elektrik akımı (amper)",
-        "tr": "Elektrik akımı (amper)"
+        "tr": "Elektrik akımı (amper)",
+        "de": "Elektrischer Strom (Ampere)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Time (t)",
         "tr": "Zaman (t)",
-        "de": "Time (t)",
+        "de": "Zeit (t)",
         "fr": "Time (t)",
         "es": "Time (t)",
         "ar": "Time (t)"
       },
       "businessContext_i18n": {
         "en": "Elektroliz süresi (saniye)",
-        "tr": "Elektroliz süresi (saniye)"
+        "tr": "Elektroliz süresi (saniye)",
+        "de": "Elektrolysedauer (Sekunden)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Molar Mass (M)",
         "tr": "Molar Kütle (M)",
-        "de": "Molar Mass (M)",
+        "de": "Molmasse (M)",
         "fr": "Molar Mass (M)",
         "es": "Molar Mass (M)",
         "ar": "Molar Mass (M)"
       },
       "businessContext_i18n": {
         "en": "Maddenin molar kütlesi (ör: Cu: 63.5 g/mol)",
-        "tr": "Maddenin molar kütlesi (ör: Cu: 63,5 g/mol)"
+        "tr": "Maddenin molar kütlesi (ör: Cu: 63,5 g/mol)",
+        "de": "Molmasse der Substanz (z.B. Cu: 63,5 g/mol)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Electrons Transferred (z)",
         "tr": "Aktarılan Elektron Sayısı (z)",
-        "de": "Electrons Transferred (z)",
+        "de": "Übertragene Elektronen (z)",
         "fr": "Electrons Transferred (z)",
         "es": "Electrons Transferred (z)",
         "ar": "Electrons Transferred (z)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyonda aktarılan elektron sayısı",
-        "tr": "Reaksiyonda aktarılan elektron sayısı"
+        "tr": "Reaksiyonda aktarılan elektron sayısı",
+        "de": "Anzahl der in der Reaktion übertragenen Elektronen"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Current Efficiency",
         "tr": "Akım Verimi",
-        "de": "Current Efficiency",
+        "de": "Stromausbeute",
         "fr": "Current Efficiency",
         "es": "Current Efficiency",
         "ar": "Current Efficiency"
       },
       "businessContext_i18n": {
         "en": "Akım verimi (Faradayik verim, % olarak)",
-        "tr": "Akım verimi (Faradayik verim, % olarak)"
+        "tr": "Akım verimi (Faradayik verim, % olarak)",
+        "de": "Akım verimi (Faradayik verim, % olarak)"
       }
     }
   ],

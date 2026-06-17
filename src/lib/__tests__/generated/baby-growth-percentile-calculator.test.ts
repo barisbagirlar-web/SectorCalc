@@ -13,7 +13,7 @@ describe("baby-growth-percentile-calculator", () => {
     "M": 7,
     "S": 0.1,
     "measurementType": 1
-  } as Baby_growth_percentile_calculatorInput;
+  } as unknown as Baby_growth_percentile_calculatorInput;
     const result = calculateBaby_growth_percentile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

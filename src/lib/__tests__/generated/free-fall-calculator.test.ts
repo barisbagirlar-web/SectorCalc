@@ -12,7 +12,7 @@ describe("free-fall-calculator", () => {
     "initialVelocity": 0,
     "accelerationDueToGravity": 9.80665,
     "mass": 1
-  } as Free_fall_calculatorInput;
+  } as unknown as Free_fall_calculatorInput;
     const result = calculateFree_fall_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

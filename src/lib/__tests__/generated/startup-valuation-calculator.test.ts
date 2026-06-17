@@ -13,7 +13,7 @@ describe("startup-valuation-calculator", () => {
     "peRatio": 20,
     "requiredROI": 3,
     "investmentAmount": 1000000
-  } as Startup_valuation_calculatorInput;
+  } as unknown as Startup_valuation_calculatorInput;
     const result = calculateStartup_valuation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

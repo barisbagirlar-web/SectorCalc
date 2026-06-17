@@ -12,7 +12,7 @@ describe("ponderal-index-calculator", () => {
     "height_cm": 170,
     "mass_lb": 154.32,
     "height_in": 66.93
-  } as Ponderal_index_calculatorInput;
+  } as unknown as Ponderal_index_calculatorInput;
     const result = calculatePonderal_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

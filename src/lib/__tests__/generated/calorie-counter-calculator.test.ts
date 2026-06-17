@@ -13,7 +13,7 @@ describe("calorie-counter-calculator", () => {
     "weight_kg": 70,
     "height_cm": 170,
     "activity_level": 1.2
-  } as Calorie_counter_calculatorInput;
+  } as unknown as Calorie_counter_calculatorInput;
     const result = calculateCalorie_counter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

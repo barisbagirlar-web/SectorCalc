@@ -13,7 +13,7 @@ describe("nernst-equation-calculator", () => {
     "n": 1,
     "C_ox": 1,
     "C_red": 1
-  } as Nernst_equation_calculatorInput;
+  } as unknown as Nernst_equation_calculatorInput;
     const result = calculateNernst_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

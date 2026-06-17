@@ -12,7 +12,7 @@ describe("pounds-to-stones-calculator", () => {
     "ounces": 0,
     "precision": 2,
     "stoneWeight": 14
-  } as Pounds_to_stones_calculatorInput;
+  } as unknown as Pounds_to_stones_calculatorInput;
     const result = calculatePounds_to_stones_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("standby-power-calculator", () => {
     "daysPerMonth": 30,
     "electricityCost": 0.15,
     "co2Factor": 0.5
-  } as Standby_power_calculatorInput;
+  } as unknown as Standby_power_calculatorInput;
     const result = calculateStandby_power_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

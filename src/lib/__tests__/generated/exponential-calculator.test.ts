@@ -12,7 +12,7 @@ describe("exponential-calculator", () => {
     "rateConstant": 0.1,
     "time": 1,
     "decimalPlaces": 4
-  } as Exponential_calculatorInput;
+  } as unknown as Exponential_calculatorInput;
     const result = calculateExponential_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

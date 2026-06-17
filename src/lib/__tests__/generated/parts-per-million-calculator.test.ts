@@ -12,7 +12,7 @@ describe("parts-per-million-calculator", () => {
     "solutionMass": 1,
     "soluteVolume": 0,
     "solutionVolume": 1
-  } as Parts_per_million_calculatorInput;
+  } as unknown as Parts_per_million_calculatorInput;
     const result = calculateParts_per_million_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

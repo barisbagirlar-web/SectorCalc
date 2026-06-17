@@ -12,7 +12,7 @@ describe("centripetal-force-calculator", () => {
     "velocity": 10,
     "radius": 1,
     "gravitationalAcceleration": 9.81
-  } as Centripetal_force_calculatorInput;
+  } as unknown as Centripetal_force_calculatorInput;
     const result = calculateCentripetal_force_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

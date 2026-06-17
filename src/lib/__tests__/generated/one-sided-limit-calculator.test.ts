@@ -14,7 +14,7 @@ describe("one-sided-limit-calculator", () => {
     "zp": 2.326,
     "zgamma": 1.645,
     "direction": 1
-  } as One_sided_limit_calculatorInput;
+  } as unknown as One_sided_limit_calculatorInput;
     const result = calculateOne_sided_limit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("rir-calculator", () => {
     "employeeCount": 100,
     "hoursPerWeek": 40,
     "weeksPerYear": 50
-  } as Rir_calculatorInput;
+  } as unknown as Rir_calculatorInput;
     const result = calculateRir_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

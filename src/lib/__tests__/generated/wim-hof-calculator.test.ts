@@ -14,7 +14,7 @@ describe("wim-hof-calculator", () => {
     "coreTemp": 37,
     "ambientTemp": 10,
     "exposureTime": 10
-  } as Wim_hof_calculatorInput;
+  } as unknown as Wim_hof_calculatorInput;
     const result = calculateWim_hof_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("short-circuit-calculator", () => {
     "cableLength": 50,
     "cableCrossSection": 25,
     "resistivity": 0.0175
-  } as Short_circuit_calculatorInput;
+  } as unknown as Short_circuit_calculatorInput;
     const result = calculateShort_circuit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

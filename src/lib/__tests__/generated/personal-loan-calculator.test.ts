@@ -12,7 +12,7 @@ describe("personal-loan-calculator", () => {
     "annualRate": 5,
     "termMonths": 60,
     "originationFee": 0
-  } as Personal_loan_calculatorInput;
+  } as unknown as Personal_loan_calculatorInput;
     const result = calculatePersonal_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

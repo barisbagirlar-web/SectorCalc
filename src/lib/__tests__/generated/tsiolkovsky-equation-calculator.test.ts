@@ -12,7 +12,7 @@ describe("tsiolkovsky-equation-calculator", () => {
     "initialMass": 50000,
     "finalMass": 10000,
     "safetyFactor": 1
-  } as Tsiolkovsky_equation_calculatorInput;
+  } as unknown as Tsiolkovsky_equation_calculatorInput;
     const result = calculateTsiolkovsky_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

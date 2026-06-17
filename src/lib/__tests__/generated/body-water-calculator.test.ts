@@ -12,7 +12,7 @@ describe("body-water-calculator", () => {
     "age": 30,
     "weight": 70,
     "height": 170
-  } as Body_water_calculatorInput;
+  } as unknown as Body_water_calculatorInput;
     const result = calculateBody_water_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

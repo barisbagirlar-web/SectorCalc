@@ -12,7 +12,7 @@ describe("asset-turnover-ratio-calculator", () => {
     "totalAssetsBeginning": 500000,
     "totalAssetsEnding": 600000,
     "industryAverage": 1.5
-  } as Asset_turnover_ratio_calculatorInput;
+  } as unknown as Asset_turnover_ratio_calculatorInput;
     const result = calculateAsset_turnover_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

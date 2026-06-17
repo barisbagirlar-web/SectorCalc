@@ -16,7 +16,7 @@ describe("weld-volume-cost-calculator", () => {
     "weld_length": 1000,
     "leg_length": 6,
     "weld_process": "SMAW"
-  } as Weld_volume_cost_calculatorInput;
+  } as unknown as Weld_volume_cost_calculatorInput;
     const result = calculateWeld_volume_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("radiation-calculator", () => {
     "halfValueLayer": 0.5,
     "exposureTime": 1,
     "gammaConstant": 1.32
-  } as Radiation_calculatorInput;
+  } as unknown as Radiation_calculatorInput;
     const result = calculateRadiation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

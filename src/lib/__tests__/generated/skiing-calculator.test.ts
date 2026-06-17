@@ -12,7 +12,7 @@ describe("skiing-calculator", () => {
     "horizontalDistance": 1000,
     "frictionCoeff": 0.05,
     "initialSpeed": 0
-  } as Skiing_calculatorInput;
+  } as unknown as Skiing_calculatorInput;
     const result = calculateSkiing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("timi-score-calculator", () => {
     "defectRate": 2,
     "maintenanceCompliance": 90,
     "safetyScore": 95
-  } as Timi_score_calculatorInput;
+  } as unknown as Timi_score_calculatorInput;
     const result = calculateTimi_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

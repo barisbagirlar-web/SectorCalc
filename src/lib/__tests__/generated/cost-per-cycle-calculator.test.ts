@@ -14,7 +14,7 @@ describe("cost-per-cycle-calculator", () => {
     "laborCostPerHour": 0,
     "cycleTime": 0.01,
     "overheadRate": 0
-  } as Cost_per_cycle_calculatorInput;
+  } as unknown as Cost_per_cycle_calculatorInput;
     const result = calculateCost_per_cycle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

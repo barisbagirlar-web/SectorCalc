@@ -16,7 +16,7 @@ describe("final-grade-calculator", () => {
     "finalExamWeight": 35,
     "projectScore": 0,
     "projectWeight": 10
-  } as Final_grade_calculatorInput;
+  } as unknown as Final_grade_calculatorInput;
     const result = calculateFinal_grade_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

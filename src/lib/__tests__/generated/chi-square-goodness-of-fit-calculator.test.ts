@@ -16,7 +16,7 @@ describe("chi-square-goodness-of-fit-calculator", () => {
     "e3": 0,
     "o4": 0,
     "e4": 0
-  } as Chi_square_goodness_of_fit_calculatorInput;
+  } as unknown as Chi_square_goodness_of_fit_calculatorInput;
     const result = calculateChi_square_goodness_of_fit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

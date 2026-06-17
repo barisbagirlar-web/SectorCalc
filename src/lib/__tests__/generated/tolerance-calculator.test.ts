@@ -13,7 +13,7 @@ describe("tolerance-calculator", () => {
     "holeLowerDev": 0,
     "shaftUpperDev": -0.009,
     "shaftLowerDev": -0.025
-  } as Tolerance_calculatorInput;
+  } as unknown as Tolerance_calculatorInput;
     const result = calculateTolerance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

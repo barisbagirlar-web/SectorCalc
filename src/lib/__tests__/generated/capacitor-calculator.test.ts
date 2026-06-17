@@ -13,7 +13,7 @@ describe("capacitor-calculator", () => {
     "resistance": 1000,
     "frequency": 50,
     "time": 0.001
-  } as Capacitor_calculatorInput;
+  } as unknown as Capacitor_calculatorInput;
     const result = calculateCapacitor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

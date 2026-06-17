@@ -15,7 +15,7 @@ describe("surface-integral", () => {
     "yMax": 1,
     "dx": 0.1,
     "dy": 0.1
-  } as Surface_integralInput;
+  } as unknown as Surface_integralInput;
     const result = calculateSurface_integral(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

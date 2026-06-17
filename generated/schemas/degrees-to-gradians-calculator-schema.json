@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Decimal Degrees",
         "tr": "Ondalık Derece",
-        "de": "Decimal Degrees",
+        "de": "Dezimalgrad",
         "fr": "Decimal Degrees",
         "es": "Decimal Degrees",
         "ar": "Decimal Degrees"
       },
       "businessContext_i18n": {
         "en": "Angle in decimal degrees if not using DMS",
-        "tr": "DMS kullanılmıyorsa ondalık derece cinsinden açı"
+        "tr": "DMS kullanılmıyorsa ondalık derece cinsinden açı",
+        "de": "Winkel in Dezimalgrad, falls nicht DMS verwendet wird"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Use DMS Input",
         "tr": "DMS Girişi Kullan",
-        "de": "Use DMS Input",
+        "de": "DMS-Eingabe verwenden",
         "fr": "Use DMS Input",
         "es": "Use DMS Input",
         "ar": "Use DMS Input"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to input angle as degrees, minutes, seconds",
-        "tr": "Açıyı derece, dakika, saniye olarak girmek için 1 olarak ayarlayın"
+        "tr": "Açıyı derece, dakika, saniye olarak girmek için 1 olarak ayarlayın",
+        "de": "Auf 1 setzen, um den Winkel als Grad, Minuten, Sekunden einzugeben"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Degrees",
         "tr": "Derece",
-        "de": "Degrees",
+        "de": "Grad",
         "fr": "Degrees",
         "es": "Degrees",
         "ar": "Degrees"
       },
       "businessContext_i18n": {
         "en": "Whole degrees part (DMS)",
-        "tr": "Tam derece kısmı (DMS)"
+        "tr": "Tam derece kısmı (DMS)",
+        "de": "Ganze Gradzahl (DMS)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Minutes",
         "tr": "Dakika",
-        "de": "Minutes",
+        "de": "Minuten",
         "fr": "Minutes",
         "es": "Minutes",
         "ar": "Minutes"
       },
       "businessContext_i18n": {
         "en": "Minutes part (DMS)",
-        "tr": "Dakika kısmı (DMS)"
+        "tr": "Dakika kısmı (DMS)",
+        "de": "Minutenanteil (DMS)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Seconds",
         "tr": "Saniye",
-        "de": "Seconds",
+        "de": "Sekunden",
         "fr": "Seconds",
         "es": "Seconds",
         "ar": "Seconds"
       },
       "businessContext_i18n": {
         "en": "Seconds part (DMS)",
-        "tr": "Saniye kısmı (DMS)"
+        "tr": "Saniye kısmı (DMS)",
+        "de": "Sekundenanteil (DMS)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
-        "de": "Decimal Precision",
+        "de": "Dezimalgenauigkeit",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding",
-        "tr": "Çıktı yuvarlama için ondalık basamak sayısı"
+        "tr": "Çıktı yuvarlama için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die Ausgaberundung"
       }
     }
   ],

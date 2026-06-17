@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Enter the number of cubits to convert.",
-        "tr": "Dönüştürülecek kübit sayısını girin."
+        "tr": "Dönüştürülecek kübit sayısını girin.",
+        "de": "Geben Sie die Anzahl der Cubits zur Umrechnung ein."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Conversion Factor (m per cubit)",
         "tr": "Dönüşüm Faktörü (kübit başına m)",
-        "de": "Conversion Factor (m per cubit)",
+        "de": "Umrechnungsfaktor (m pro Cubit)",
         "fr": "Conversion Factor (m per cubit)",
         "es": "Conversion Factor (m per cubit)",
         "ar": "Conversion Factor (m per cubit)"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor: 1 cubit = 0.4572 m. Adjust if using a different definition.",
-        "tr": "Standart dönüşüm faktörü: 1 kübit = 0,4572 m. Farklı bir tanım kullanıyorsanız ayarlayın."
+        "tr": "Standart dönüşüm faktörü: 1 kübit = 0,4572 m. Farklı bir tanım kullanıyorsanız ayarlayın.",
+        "de": "Standard-Umrechnungsfaktor: 1 Cubit = 0,4572 m. Bei abweichender Definition anpassen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for display (affects breakdown rounding).",
-        "tr": "Görüntüleme için ondalık basamak sayısı (ara yuvarlamaları etkiler)."
+        "tr": "Görüntüleme için ondalık basamak sayısı (ara yuvarlamaları etkiler).",
+        "de": "Anzahl der Dezimalstellen für die Anzeige (beeinflusst die Rundung der Aufschlüsselung)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Rounding Method",
         "tr": "Yuvarlama yöntemi",
-        "de": "Rounding Method",
+        "de": "Rundungsmethode",
         "fr": "Rounding Method",
         "es": "Rounding Method",
         "ar": "Rounding Method"
       },
       "businessContext_i18n": {
         "en": "0: standard (not implemented in formula; for future use), 1: floor, 2: ceil. Currently only raw value computed.",
-        "tr": "0: standart (formülde uygulanmaz; gelecekte kullanım için), 1: taban, 2: tavan. Şu anda yalnızca ham değer hesaplanır."
+        "tr": "0: standart (formülde uygulanmaz; gelecekte kullanım için), 1: taban, 2: tavan. Şu anda yalnızca ham değer hesaplanır.",
+        "de": "0: Standard (nicht in Formel implementiert; für zukünftige Verwendung), 1: Abrunden, 2: Aufrunden. Derzeit wird nur der Rohwert berechnet."
       }
     }
   ],

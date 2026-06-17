@@ -14,7 +14,7 @@ describe("swim-bike-run-calculator", () => {
     "swimPace": 120,
     "bikeSpeed": 30,
     "runPace": 300
-  } as Swim_bike_run_calculatorInput;
+  } as unknown as Swim_bike_run_calculatorInput;
     const result = calculateSwim_bike_run_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

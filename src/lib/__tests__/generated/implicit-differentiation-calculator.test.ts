@@ -16,7 +16,7 @@ describe("implicit-differentiation-calculator", () => {
     "const": -1,
     "x": 0.5,
     "y": 0.8660254037844386
-  } as Implicit_differentiation_calculatorInput;
+  } as unknown as Implicit_differentiation_calculatorInput;
     const result = calculateImplicit_differentiation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

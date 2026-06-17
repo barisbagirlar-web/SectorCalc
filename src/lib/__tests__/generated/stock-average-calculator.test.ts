@@ -12,7 +12,7 @@ describe("stock-average-calculator", () => {
     "currentAvgPrice": 0,
     "purchaseQuantity": 0,
     "purchasePrice": 0
-  } as Stock_average_calculatorInput;
+  } as unknown as Stock_average_calculatorInput;
     const result = calculateStock_average_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

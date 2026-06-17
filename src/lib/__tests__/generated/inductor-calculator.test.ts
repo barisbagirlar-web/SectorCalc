@@ -14,7 +14,7 @@ describe("inductor-calculator", () => {
     "relativePermeability": 2000,
     "wireDiameter": 0.5,
     "resistivity": 0.0172
-  } as Inductor_calculatorInput;
+  } as unknown as Inductor_calculatorInput;
     const result = calculateInductor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

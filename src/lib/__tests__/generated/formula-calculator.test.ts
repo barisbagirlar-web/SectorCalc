@@ -12,7 +12,7 @@ describe("formula-calculator", () => {
     "b": 0,
     "c": 0,
     "d": 0
-  } as Formula_calculatorInput;
+  } as unknown as Formula_calculatorInput;
     const result = calculateFormula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("depth-of-field-calculator", () => {
     "aperture": 8,
     "subjectDistance": 10,
     "circleOfConfusion": 0.03
-  } as Depth_of_field_calculatorInput;
+  } as unknown as Depth_of_field_calculatorInput;
     const result = calculateDepth_of_field_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

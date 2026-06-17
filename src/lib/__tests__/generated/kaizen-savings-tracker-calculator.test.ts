@@ -16,7 +16,7 @@ describe("kaizen-savings-tracker-calculator", () => {
     "defect_rate_before": 5,
     "defect_rate_after": 2,
     "annual_production_volume": 100000
-  } as Kaizen_savings_tracker_calculatorInput;
+  } as unknown as Kaizen_savings_tracker_calculatorInput;
     const result = calculateKaizen_savings_tracker_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

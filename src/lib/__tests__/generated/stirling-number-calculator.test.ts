@@ -11,7 +11,7 @@ describe("stirling-number-calculator", () => {
     "n": 5,
     "k": 2,
     "type": 2
-  } as Stirling_number_calculatorInput;
+  } as unknown as Stirling_number_calculatorInput;
     const result = calculateStirling_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

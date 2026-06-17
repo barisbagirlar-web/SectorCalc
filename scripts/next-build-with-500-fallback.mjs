@@ -72,6 +72,13 @@ function ensureNextTypeAndBuildManifestStubs() {
   if (!existsSync(buildManifestPath)) {
     writeFileSync(buildManifestPath, JSON.stringify({ pages: {}, devFiles: [], ampDevFiles: [] }), "utf8");
   }
+
+  const serverDir = join(NEXT_DIR, "server");
+  mkdirSync(serverDir, { recursive: true });
+  const pagesManifestPath = join(serverDir, "pages-manifest.json");
+  if (!existsSync(pagesManifestPath)) {
+    writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");
+  }
 }
 
 function ssgFullyCompleted(log) {
@@ -84,7 +91,7 @@ function ssgFullyCompleted(log) {
 }
 
 function compileSucceeded(log) {
-  return log.includes("Compiled successfully");
+  return log.includes("Compiled successfully") || log.includes("Compiled with warnings");
 }
 
 function recoverableManifestFailure(log) {

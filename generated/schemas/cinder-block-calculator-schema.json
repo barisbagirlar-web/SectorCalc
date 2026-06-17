@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Wall Length",
         "tr": "Duvar Uzunluğu (m)",
-        "de": "Wall Length",
+        "de": "Duvar Uzunluğu",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
       },
       "businessContext_i18n": {
         "en": "Total horizontal length of the wall in meters.",
-        "tr": "Duvarın metre cinsinden toplam yatay uzunluğu."
+        "tr": "Duvarın metre cinsinden toplam yatay uzunluğu.",
+        "de": "Gesamte horizontale Länge der Wand in Metern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
-        "de": "Wall Height",
+        "de": "Wandhöhe",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "Vertical height of the wall in meters.",
-        "tr": "Duvarın metre cinsinden dikey yüksekliği."
+        "tr": "Duvarın metre cinsinden dikey yüksekliği.",
+        "de": "Vertikale Höhe der Wand in Metern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Block Length",
         "tr": "Blok Uzunluğu",
-        "de": "Block Length",
+        "de": "Blocklänge",
         "fr": "Block Length",
         "es": "Block Length",
         "ar": "Block Length"
       },
       "businessContext_i18n": {
         "en": "Length of one cinder block in meters (typically 0.4 m).",
-        "tr": "Bir briketin metre cinsinden uzunluğu (genellikle 0,4 m)."
+        "tr": "Bir briketin metre cinsinden uzunluğu (genellikle 0,4 m).",
+        "de": "Länge eines Betonsteins in Metern (normalerweise 0,4 m)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Block Height",
         "tr": "Blok Yüksekliği",
-        "de": "Block Height",
+        "de": "Blockhöhe",
         "fr": "Block Height",
         "es": "Block Height",
         "ar": "Block Height"
       },
       "businessContext_i18n": {
         "en": "Height of one cinder block in meters (typically 0.2 m).",
-        "tr": "Bir briketin metre cinsinden yüksekliği (genellikle 0,2 m)."
+        "tr": "Bir briketin metre cinsinden yüksekliği (genellikle 0,2 m).",
+        "de": "Höhe eines Betonsteins in Metern (normalerweise 0,2 m)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Mortar Joint Thickness",
         "tr": "Harç Derz Kalınlığı",
-        "de": "Mortar Joint Thickness",
+        "de": "Mörtelfugendicke",
         "fr": "Mortar Joint Thickness",
         "es": "Mortar Joint Thickness",
         "ar": "Mortar Joint Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of mortar joint between blocks in millimeters.",
-        "tr": "Bloklar arasındaki harç derzinin milimetre cinsinden kalınlığı."
+        "tr": "Bloklar arasındaki harç derzinin milimetre cinsinden kalınlığı.",
+        "de": "Dicke der Mörtelfuge zwischen den Steinen in Millimetern."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
-        "de": "Waste Factor",
+        "de": "Abfallfaktor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra blocks to account for cutting and breakage.",
-        "tr": "Kesim ve kırılma için ek blok yüzdesi."
+        "tr": "Kesim ve kırılma için ek blok yüzdesi.",
+        "de": "Prozentsatz zusätzlicher Steine für Verschnitt und Bruch."
       }
     }
   ],

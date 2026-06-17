@@ -13,7 +13,7 @@ describe("jam-calculator", () => {
     "targetBrix": 65,
     "pectinWeight": 0,
     "pectinSugarContent": 100
-  } as Jam_calculatorInput;
+  } as unknown as Jam_calculatorInput;
     const result = calculateJam_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

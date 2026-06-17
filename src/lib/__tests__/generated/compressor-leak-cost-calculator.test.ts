@@ -16,7 +16,7 @@ describe("compressor-leak-cost-calculator", () => {
     "compressor_efficiency": 75,
     "leak_type": "Round orifice",
     "include_maintenance_cost": true
-  } as Compressor_leak_cost_calculatorInput;
+  } as unknown as Compressor_leak_cost_calculatorInput;
     const result = calculateCompressor_leak_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

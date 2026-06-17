@@ -13,7 +13,7 @@ describe("lean-fire-calculator", () => {
     "monthlyContribution": 1000,
     "annualReturnRate": 7,
     "safeWithdrawalRate": 4
-  } as Lean_fire_calculatorInput;
+  } as unknown as Lean_fire_calculatorInput;
     const result = calculateLean_fire_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

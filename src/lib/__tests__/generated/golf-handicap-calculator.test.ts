@@ -13,7 +13,7 @@ describe("golf-handicap-calculator", () => {
     "slopeRating": 113,
     "par": 72,
     "handicapIndex": 0
-  } as Golf_handicap_calculatorInput;
+  } as unknown as Golf_handicap_calculatorInput;
     const result = calculateGolf_handicap_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

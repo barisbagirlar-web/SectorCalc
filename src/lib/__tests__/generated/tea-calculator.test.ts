@@ -13,7 +13,7 @@ describe("tea-calculator", () => {
     "teaLeavesPerCup": 2.5,
     "strengthFactor": 1,
     "absorptionRate": 1.5
-  } as Tea_calculatorInput;
+  } as unknown as Tea_calculatorInput;
     const result = calculateTea_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

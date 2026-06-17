@@ -13,7 +13,7 @@ describe("moment-of-inertia-calculator", () => {
     "dim2": 200,
     "dim3": 10,
     "dim4": 5
-  } as Moment_of_inertia_calculatorInput;
+  } as unknown as Moment_of_inertia_calculatorInput;
     const result = calculateMoment_of_inertia_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

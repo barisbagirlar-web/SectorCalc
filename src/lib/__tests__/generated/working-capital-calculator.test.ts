@@ -13,7 +13,7 @@ describe("working-capital-calculator", () => {
     "inventory": 0,
     "payables": 0,
     "shortTermDebt": 0
-  } as Working_capital_calculatorInput;
+  } as unknown as Working_capital_calculatorInput;
     const result = calculateWorking_capital_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

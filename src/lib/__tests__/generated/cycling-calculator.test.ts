@@ -13,7 +13,7 @@ describe("cycling-calculator", () => {
     "chainringTeeth": 50,
     "cogTeeth": 17,
     "timeMinutes": 60
-  } as Cycling_calculatorInput;
+  } as unknown as Cycling_calculatorInput;
     const result = calculateCycling_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

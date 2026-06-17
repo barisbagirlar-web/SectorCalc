@@ -12,7 +12,7 @@ describe("bending-stress-calculator", () => {
     "sectionModulus": 100000,
     "distanceFromNeutralAxis": 50,
     "momentOfInertia": 5000000
-  } as Bending_stress_calculatorInput;
+  } as unknown as Bending_stress_calculatorInput;
     const result = calculateBending_stress_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

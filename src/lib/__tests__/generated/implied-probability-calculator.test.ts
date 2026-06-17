@@ -13,7 +13,7 @@ describe("implied-probability-calculator", () => {
     "fractionalNumerator": 1,
     "fractionalDenominator": 2,
     "americanOdds": -110
-  } as Implied_probability_calculatorInput;
+  } as unknown as Implied_probability_calculatorInput;
     const result = calculateImplied_probability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

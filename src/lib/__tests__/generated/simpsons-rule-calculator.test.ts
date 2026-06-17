@@ -12,7 +12,7 @@ describe("simpsons-rule-calculator", () => {
     "b": 1,
     "n": 10,
     "functionType": 1
-  } as Simpsons_rule_calculatorInput;
+  } as unknown as Simpsons_rule_calculatorInput;
     const result = calculateSimpsons_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

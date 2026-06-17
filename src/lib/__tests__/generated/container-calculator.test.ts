@@ -12,7 +12,7 @@ describe("container-calculator", () => {
     "itemsPerPallet": 50,
     "palletsPerContainer": 20,
     "reservePercent": 5
-  } as Container_calculatorInput;
+  } as unknown as Container_calculatorInput;
     const result = calculateContainer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

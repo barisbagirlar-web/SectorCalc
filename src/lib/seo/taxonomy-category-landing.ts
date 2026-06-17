@@ -1,3 +1,4 @@
+import { resolveSchemaCatalogCategoryLabel } from "@/lib/i18n/schema-catalog-sidebar-labels";
 import { getTaxonomyEntryBySlug, listTaxonomyCategorySlugs } from "@/lib/tools/category-taxonomy";
 import { getToolsByCategory, type ToolData } from "@/lib/tools/all-tools-data";
 
@@ -40,6 +41,10 @@ export function getTaxonomyCategoryLanding(
 export function resolveTaxonomyCategoryTitle(
   landing: Pick<TaxonomyCategoryLanding, "trTitle" | "enTitle">,
   locale: string,
+  slug?: string,
 ): string {
+  if (slug) {
+    return resolveSchemaCatalogCategoryLabel(slug, locale);
+  }
   return locale.toLowerCase() === "tr" ? landing.trTitle : landing.enTitle;
 }

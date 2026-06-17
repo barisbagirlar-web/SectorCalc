@@ -14,7 +14,7 @@ describe("hours-to-days-calculator", () => {
     "shifts_per_day": 1,
     "efficiency_factor": 1,
     "setup_time": 0
-  } as Hours_to_days_calculatorInput;
+  } as unknown as Hours_to_days_calculatorInput;
     const result = calculateHours_to_days_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

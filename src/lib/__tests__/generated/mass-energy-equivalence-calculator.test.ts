@@ -12,7 +12,7 @@ describe("mass-energy-equivalence-calculator", () => {
     "mass_g": 0,
     "mass_lb": 0,
     "mass_oz": 0
-  } as Mass_energy_equivalence_calculatorInput;
+  } as unknown as Mass_energy_equivalence_calculatorInput;
     const result = calculateMass_energy_equivalence_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

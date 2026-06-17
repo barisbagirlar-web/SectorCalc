@@ -10,7 +10,7 @@ describe("pythagorean-theorem-calculator", () => {
     const input = {
     "precision": 2,
     "tolerance": 0.0001
-  } as Pythagorean_theorem_calculatorInput;
+  } as unknown as Pythagorean_theorem_calculatorInput;
     const result = calculatePythagorean_theorem_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

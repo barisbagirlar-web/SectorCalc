@@ -12,7 +12,7 @@ describe("cbm-calculator", () => {
     "width": 100,
     "height": 100,
     "quantity": 1
-  } as Cbm_calculatorInput;
+  } as unknown as Cbm_calculatorInput;
     const result = calculateCbm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

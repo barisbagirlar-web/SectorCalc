@@ -12,7 +12,7 @@ describe("melanin-calculator", () => {
     "pheomelaninPercent": 30,
     "melanocyteDensity": 1000,
     "avgMelaninPerCell": 0.05
-  } as Melanin_calculatorInput;
+  } as unknown as Melanin_calculatorInput;
     const result = calculateMelanin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

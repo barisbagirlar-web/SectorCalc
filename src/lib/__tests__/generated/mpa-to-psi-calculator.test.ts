@@ -12,7 +12,7 @@ describe("mpa-to-psi-calculator", () => {
     "mpa2": 0,
     "mpa3": 0,
     "mpa4": 0
-  } as Mpa_to_psi_calculatorInput;
+  } as unknown as Mpa_to_psi_calculatorInput;
     const result = calculateMpa_to_psi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

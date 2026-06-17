@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Text Characters",
         "tr": "Metin Karakter Sayısı",
-        "de": "Number of Text Characters",
+        "de": "Anzahl der Textzeichen",
         "fr": "Number of Text Characters",
         "es": "Number of Text Characters",
         "ar": "Number of Text Characters"
       },
       "businessContext_i18n": {
         "en": "The number of characters in the email body text.",
-        "tr": "E-posta gövde metnindeki karakter sayısı."
+        "tr": "E-posta gövde metnindeki karakter sayısı.",
+        "de": "Die Anzahl der Zeichen im E-Mail-Text."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Attachments",
         "tr": "Ek Sayısı",
-        "de": "Number of Attachments",
+        "de": "Anzahl der Anhänge",
         "fr": "Number of Attachments",
         "es": "Number of Attachments",
         "ar": "Number of Attachments"
       },
       "businessContext_i18n": {
         "en": "Total number of file attachments.",
-        "tr": "Toplam dosya eki sayısı."
+        "tr": "Toplam dosya eki sayısı.",
+        "de": "Gesamtzahl der Dateianhänge."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Average Attachment Size",
         "tr": "Ortalama Ek Boyutu",
-        "de": "Average Attachment Size",
+        "de": "Durchschnittliche Anhangsgröße",
         "fr": "Average Attachment Size",
         "es": "Average Attachment Size",
         "ar": "Average Attachment Size"
       },
       "businessContext_i18n": {
         "en": "Average file size per attachment in kilobytes.",
-        "tr": "Ek başına kilobayt cinsinden ortalama dosya boyutu."
+        "tr": "Ek başına kilobayt cinsinden ortalama dosya boyutu.",
+        "de": "Durchschnittliche Dateigröße pro Anhang in Kilobyte."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Embedded Images",
         "tr": "Gömülü Görsel Sayısı",
-        "de": "Number of Embedded Images",
+        "de": "Anzahl der eingebetteten Bilder",
         "fr": "Number of Embedded Images",
         "es": "Number of Embedded Images",
         "ar": "Number of Embedded Images"
       },
       "businessContext_i18n": {
         "en": "Number of inline/embedded images in the email content.",
-        "tr": "E-posta içeriğindeki satır içi/gömülü görsel sayısı."
+        "tr": "E-posta içeriğindeki satır içi/gömülü görsel sayısı.",
+        "de": "Anzahl der Inline-/eingebetteten Bilder im E-Mail-Inhalt."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Average Image Size",
         "tr": "Ortalama Görsel Boyutu",
-        "de": "Average Image Size",
+        "de": "Durchschnittliche Bildgröße",
         "fr": "Average Image Size",
         "es": "Average Image Size",
         "ar": "Average Image Size"
       },
       "businessContext_i18n": {
         "en": "Average size per embedded image in kilobytes.",
-        "tr": "Gömülü görsel başına kilobayt cinsinden ortalama boyut."
+        "tr": "Gömülü görsel başına kilobayt cinsinden ortalama boyut.",
+        "de": "Durchschnittliche Größe pro eingebettetem Bild in Kilobyte."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Metadata Overhead",
         "tr": "Meta Veri Yükü",
-        "de": "Metadata Overhead",
+        "de": "Metadaten-Overhead",
         "fr": "Metadata Overhead",
         "es": "Metadata Overhead",
         "ar": "Metadata Overhead"
       },
       "businessContext_i18n": {
         "en": "Size of email headers, signatures, and other metadata in bytes.",
-        "tr": "E-posta başlıkları, imzalar ve diğer meta verilerin bayt cinsinden boyutu."
+        "tr": "E-posta başlıkları, imzalar ve diğer meta verilerin bayt cinsinden boyutu.",
+        "de": "Größe von E-Mail-Headern, Signaturen und anderen Metadaten in Bytes."
       }
     }
   ],

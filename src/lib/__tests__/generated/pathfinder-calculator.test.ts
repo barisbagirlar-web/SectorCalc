@@ -16,7 +16,7 @@ describe("pathfinder-calculator", () => {
     "stopDuration": 30,
     "tollCost": 50,
     "driverWage": 500
-  } as Pathfinder_calculatorInput;
+  } as unknown as Pathfinder_calculatorInput;
     const result = calculatePathfinder_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

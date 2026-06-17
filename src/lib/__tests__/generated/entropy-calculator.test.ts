@@ -12,7 +12,7 @@ describe("entropy-calculator", () => {
     "specificHeat": 4.18,
     "temp1": 273.15,
     "temp2": 373.15
-  } as Entropy_calculatorInput;
+  } as unknown as Entropy_calculatorInput;
     const result = calculateEntropy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

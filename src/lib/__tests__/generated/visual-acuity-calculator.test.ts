@@ -12,7 +12,7 @@ describe("visual-acuity-calculator", () => {
     "letterHeight": 8.87,
     "snellenNumerator": 20,
     "overrideDenom": 0
-  } as Visual_acuity_calculatorInput;
+  } as unknown as Visual_acuity_calculatorInput;
     const result = calculateVisual_acuity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("rmd-calculator", () => {
     "spouseAge": 70,
     "beneficiaryType": 1,
     "lifeExpectancyFactor": 0
-  } as Rmd_calculatorInput;
+  } as unknown as Rmd_calculatorInput;
     const result = calculateRmd_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

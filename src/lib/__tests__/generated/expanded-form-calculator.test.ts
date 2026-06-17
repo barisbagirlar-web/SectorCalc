@@ -14,7 +14,7 @@ describe("expanded-form-calculator", () => {
     "discountPercent": 0,
     "profitMargin": 20,
     "taxRate": 18
-  } as Expanded_form_calculatorInput;
+  } as unknown as Expanded_form_calculatorInput;
     const result = calculateExpanded_form_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

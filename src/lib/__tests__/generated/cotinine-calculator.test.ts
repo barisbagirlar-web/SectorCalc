@@ -13,7 +13,7 @@ describe("cotinine-calculator", () => {
     "intercept": 0,
     "bodyWeight": 70,
     "nicotinePerCig": 1
-  } as Cotinine_calculatorInput;
+  } as unknown as Cotinine_calculatorInput;
     const result = calculateCotinine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

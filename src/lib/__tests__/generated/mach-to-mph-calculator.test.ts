@@ -12,7 +12,7 @@ describe("mach-to-mph-calculator", () => {
     "temperature": 15,
     "altitude": 0,
     "useISA": 0
-  } as Mach_to_mph_calculatorInput;
+  } as unknown as Mach_to_mph_calculatorInput;
     const result = calculateMach_to_mph_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

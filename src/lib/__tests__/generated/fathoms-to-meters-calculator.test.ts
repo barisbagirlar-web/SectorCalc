@@ -14,7 +14,7 @@ describe("fathoms-to-meters-calculator", () => {
     "tolerance": 0.001,
     "measurementUncertainty": 0.05,
     "safetyFactor": 1
-  } as Fathoms_to_meters_calculatorInput;
+  } as unknown as Fathoms_to_meters_calculatorInput;
     const result = calculateFathoms_to_meters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

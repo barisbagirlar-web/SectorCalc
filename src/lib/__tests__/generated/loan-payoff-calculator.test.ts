@@ -12,7 +12,7 @@ describe("loan-payoff-calculator", () => {
     "annualInterestRate": 5.5,
     "monthlyPayment": 1000,
     "extraMonthlyPayment": 0
-  } as Loan_payoff_calculatorInput;
+  } as unknown as Loan_payoff_calculatorInput;
     const result = calculateLoan_payoff_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

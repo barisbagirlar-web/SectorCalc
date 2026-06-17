@@ -13,7 +13,7 @@ describe("drip-edge-calculator", () => {
     "roofPitch": 4,
     "gableOverhang": 1,
     "wasteFactor": 5
-  } as Drip_edge_calculatorInput;
+  } as unknown as Drip_edge_calculatorInput;
     const result = calculateDrip_edge_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

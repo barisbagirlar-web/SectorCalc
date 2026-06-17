@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Volume (ml)",
         "tr": "Hacim (ml)",
-        "de": "Volume (ml)",
+        "de": "Volumen (ml)",
         "fr": "Volume (ml)",
         "es": "Volume (ml)",
         "ar": "Volume (ml)"
       },
       "businessContext_i18n": {
         "en": "Total volume of ingredient in milliliters.",
-        "tr": "Mililitre cinsinden toplam içerik hacmi."
+        "tr": "Mililitre cinsinden toplam içerik hacmi.",
+        "de": "Gesamtvolumen der Zutat in Millilitern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Density (g/ml)",
         "tr": "Yoğunluk (g/ml)",
-        "de": "Density (g/ml)",
+        "de": "Dichte (g/ml)",
         "fr": "Density (g/ml)",
         "es": "Density (g/ml)",
         "ar": "Density (g/ml)"
       },
       "businessContext_i18n": {
         "en": "Density of the ingredient. Water: 1 g/ml.",
-        "tr": "İçeriğin yoğunluğu. Su: 1 g/ml."
+        "tr": "İçeriğin yoğunluğu. Su: 1 g/ml.",
+        "de": "Dichte der Zutat. Wasser: 1 g/ml."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Servings",
         "tr": "Porsiyon Sayısı",
-        "de": "Number of Servings",
+        "de": "Anzahl der Portionen",
         "fr": "Number of Servings",
         "es": "Number of Servings",
         "ar": "Number of Servings"
       },
       "businessContext_i18n": {
         "en": "Number of servings the volume is divided into.",
-        "tr": "Hacmin bölündüğü porsiyon sayısı."
+        "tr": "Hacmin bölündüğü porsiyon sayısı.",
+        "de": "Anzahl der Portionen, in die das Volumen aufgeteilt wird."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Calories per gram",
         "tr": "Gram başına kalori",
-        "de": "Calories per gram",
+        "de": "Kalorien pro Gramm",
         "fr": "Calories per gram",
         "es": "Calories per gram",
         "ar": "Calories per gram"
       },
       "businessContext_i18n": {
         "en": "Caloric content per gram of ingredient.",
-        "tr": "İçeriğin gram başına kalori içeriği."
+        "tr": "İçeriğin gram başına kalori içeriği.",
+        "de": "Kaloriengehalt pro Gramm der Zutat."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Cup Conversion Factor (ml/cup)",
         "tr": "Bardak Dönüşüm Faktörü (ml/bardak)",
-        "de": "Cup Conversion Factor (ml/cup)",
+        "de": "Tassen-Umrechnungsfaktor (ml/Tasse)",
         "fr": "Cup Conversion Factor (ml/cup)",
         "es": "Cup Conversion Factor (ml/cup)",
         "ar": "Cup Conversion Factor (ml/cup)"
       },
       "businessContext_i18n": {
         "en": "Number of milliliters in one standard cup.",
-        "tr": "Bir standart bardaktaki mililitre sayısı."
+        "tr": "Bir standart bardaktaki mililitre sayısı.",
+        "de": "Anzahl Milliliter in einer Standardtasse."
       }
     }
   ],

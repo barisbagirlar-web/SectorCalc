@@ -14,7 +14,7 @@ describe("debye-huckel-calculator", () => {
     "chargeCation": 1,
     "chargeAnion": 1,
     "ionSize": 3.04
-  } as Debye_huckel_calculatorInput;
+  } as unknown as Debye_huckel_calculatorInput;
     const result = calculateDebye_huckel_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("baby-formula-calculator", () => {
     "dailyMlPerKg": 150,
     "waterPerScoop": 60,
     "scoopWeight": 4.5
-  } as Baby_formula_calculatorInput;
+  } as unknown as Baby_formula_calculatorInput;
     const result = calculateBaby_formula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

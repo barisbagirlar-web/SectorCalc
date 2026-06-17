@@ -12,7 +12,7 @@ describe("strength-standard-calculator", () => {
     "reps": 5,
     "bodyWeight": 80,
     "age": 30
-  } as Strength_standard_calculatorInput;
+  } as unknown as Strength_standard_calculatorInput;
     const result = calculateStrength_standard_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

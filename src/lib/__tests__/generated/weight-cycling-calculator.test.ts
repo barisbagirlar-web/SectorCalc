@@ -14,7 +14,7 @@ describe("weight-cycling-calculator", () => {
     "operatingDays": 250,
     "efficiency": 90,
     "energyCost": 0.15
-  } as Weight_cycling_calculatorInput;
+  } as unknown as Weight_cycling_calculatorInput;
     const result = calculateWeight_cycling_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Revenue",
         "tr": "Gelir",
-        "de": "Revenue",
+        "de": "Umsatzerlöse",
         "fr": "Revenue",
         "es": "Revenue",
         "ar": "Revenue"
       },
       "businessContext_i18n": {
         "en": "Total revenue from sales or services",
-        "tr": "Satış veya hizmetlerden elde edilen toplam gelir"
+        "tr": "Satış veya hizmetlerden elde edilen toplam gelir",
+        "de": "Gesamtumsatz aus Verkäufen oder Dienstleistungen"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Operating Expenses",
         "tr": "Faaliyet Giderleri",
-        "de": "Operating Expenses",
+        "de": "Betriebskosten",
         "fr": "Operating Expenses",
         "es": "Operating Expenses",
         "ar": "Operating Expenses"
       },
       "businessContext_i18n": {
         "en": "Total operating expenses including depreciation and amortization",
-        "tr": "Amortisman ve itfa dahil toplam faaliyet giderleri"
+        "tr": "Amortisman ve itfa dahil toplam faaliyet giderleri",
+        "de": "Gesamte Betriebskosten einschließlich Abschreibungen und Amortisationen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Depreciation & Amortization",
         "tr": "Amortisman ve İtfa",
-        "de": "Depreciation & Amortization",
+        "de": "Abschreibungen und Amortisation",
         "fr": "Depreciation & Amortization",
         "es": "Depreciation & Amortization",
         "ar": "Depreciation & Amortization"
       },
       "businessContext_i18n": {
         "en": "Non-cash depreciation and amortization expense included in operating expenses",
-        "tr": "Faaliyet giderlerine dahil nakdi olmayan amortisman ve itfa gideri"
+        "tr": "Faaliyet giderlerine dahil nakdi olmayan amortisman ve itfa gideri",
+        "de": "Nicht zahlungswirksame Abschreibungen und Amortisationen, die in den Betriebskosten enthalten sind"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
-        "de": "Tax Rate",
+        "de": "Steuersatz",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Corporate tax rate as a decimal (e.g., 0.20 for 20%)",
-        "tr": "Kurumlar vergisi oranı ondalık olarak (ör. %20 için 0,20)"
+        "tr": "Kurumlar vergisi oranı ondalık olarak (ör. %20 için 0,20)",
+        "de": "Körperschaftsteuersatz als Dezimalzahl (z. B. 0,20 für 20 %)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Capital Expenditures (CapEx)",
         "tr": "Sermaye Harcamaları (CapEx)",
-        "de": "Capital Expenditures (CapEx)",
+        "de": "Investitionsausgaben (CapEx)",
         "fr": "Capital Expenditures (CapEx)",
         "es": "Capital Expenditures (CapEx)",
         "ar": "Capital Expenditures (CapEx)"
       },
       "businessContext_i18n": {
         "en": "Investment in fixed assets such as property, plant, and equipment",
-        "tr": "Maddi duran varlıklar gibi sabit varlıklara yatırım"
+        "tr": "Maddi duran varlıklar gibi sabit varlıklara yatırım",
+        "de": "Investitionen in Anlagevermögen wie Sachanlagen und Ausrüstung"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Change in Working Capital",
         "tr": "İşletme Sermayesindeki Değişim",
-        "de": "Change in Working Capital",
+        "de": "Veränderung des Betriebskapitals",
         "fr": "Change in Working Capital",
         "es": "Change in Working Capital",
         "ar": "Change in Working Capital"
       },
       "businessContext_i18n": {
         "en": "Increase in net working capital (current assets minus current liabilities)",
-        "tr": "Net işletme sermayesindeki artış (dönen varlıklar eksi kısa vadeli yükümlülükler)"
+        "tr": "Net işletme sermayesindeki artış (dönen varlıklar eksi kısa vadeli yükümlülükler)",
+        "de": "Anstieg des Nettobetriebskapitals (Umlaufvermögen abzüglich kurzfristiger Verbindlichkeiten)"
       }
     }
   ],

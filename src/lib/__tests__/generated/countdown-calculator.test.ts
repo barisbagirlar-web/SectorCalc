@@ -13,7 +13,7 @@ describe("countdown-calculator", () => {
     "bufferTime": 0,
     "warningThreshold": 20,
     "criticalThreshold": 5
-  } as Countdown_calculatorInput;
+  } as unknown as Countdown_calculatorInput;
     const result = calculateCountdown_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

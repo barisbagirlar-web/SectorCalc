@@ -14,7 +14,7 @@ describe("jewelry-calculator", () => {
     "gemstoneCost": 0,
     "laborCost": 50,
     "markupPercent": 100
-  } as Jewelry_calculatorInput;
+  } as unknown as Jewelry_calculatorInput;
     const result = calculateJewelry_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

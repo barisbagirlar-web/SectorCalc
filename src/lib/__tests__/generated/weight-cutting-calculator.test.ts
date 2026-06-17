@@ -13,7 +13,7 @@ describe("weight-cutting-calculator", () => {
     "width": 1,
     "thickness": 0.01,
     "desiredWeight": 100
-  } as Weight_cutting_calculatorInput;
+  } as unknown as Weight_cutting_calculatorInput;
     const result = calculateWeight_cutting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

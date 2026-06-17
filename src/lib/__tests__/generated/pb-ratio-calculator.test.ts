@@ -12,7 +12,7 @@ describe("pb-ratio-calculator", () => {
     "totalEquity": 1000000,
     "sharesOutstanding": 10000,
     "industryPB": 3
-  } as Pb_ratio_calculatorInput;
+  } as unknown as Pb_ratio_calculatorInput;
     const result = calculatePb_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

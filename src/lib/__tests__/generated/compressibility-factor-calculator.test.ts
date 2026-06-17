@@ -13,7 +13,7 @@ describe("compressibility-factor-calculator", () => {
     "moles": 1,
     "temperature": 273.15,
     "gasConstant": 8.314
-  } as Compressibility_factor_calculatorInput;
+  } as unknown as Compressibility_factor_calculatorInput;
     const result = calculateCompressibility_factor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

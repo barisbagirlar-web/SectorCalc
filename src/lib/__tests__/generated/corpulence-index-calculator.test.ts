@@ -15,7 +15,7 @@ describe("corpulence-index-calculator", () => {
     "weight_pounds": 0,
     "height_feet": 0,
     "height_inches": 0
-  } as Corpulence_index_calculatorInput;
+  } as unknown as Corpulence_index_calculatorInput;
     const result = calculateCorpulence_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

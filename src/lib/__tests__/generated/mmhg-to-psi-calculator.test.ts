@@ -12,7 +12,7 @@ describe("mmhg-to-psi-calculator", () => {
     "conversionFactor": 0.0193368,
     "offset": 0,
     "outputPrecision": 4
-  } as Mmhg_to_psi_calculatorInput;
+  } as unknown as Mmhg_to_psi_calculatorInput;
     const result = calculateMmhg_to_psi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

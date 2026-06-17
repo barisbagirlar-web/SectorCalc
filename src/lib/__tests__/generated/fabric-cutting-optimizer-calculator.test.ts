@@ -16,7 +16,7 @@ describe("fabric-cutting-optimizer-calculator", () => {
     "cutting_method": "single_ply",
     "material_cost_per_m2": 12.5,
     "labor_rate_per_hour": 25
-  } as Fabric_cutting_optimizer_calculatorInput;
+  } as unknown as Fabric_cutting_optimizer_calculatorInput;
     const result = calculateFabric_cutting_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

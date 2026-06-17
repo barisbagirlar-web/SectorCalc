@@ -12,7 +12,7 @@ describe("fortnights-to-days-calculator", () => {
     "daysPerFortnight": 14,
     "decimalPlaces": 2,
     "batchSize": 1
-  } as Fortnights_to_days_calculatorInput;
+  } as unknown as Fortnights_to_days_calculatorInput;
     const result = calculateFortnights_to_days_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

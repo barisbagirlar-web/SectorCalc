@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Shaft Speed",
         "tr": "Mil Hızı",
-        "de": "Shaft Speed",
+        "de": "Wellendrehzahl",
         "fr": "Shaft Speed",
         "es": "Shaft Speed",
         "ar": "Shaft Speed"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the shaft in revolutions per minute",
-        "tr": "Milinin dakikadaki devir sayısı cinsinden dönüş hızı"
+        "tr": "Milinin dakikadaki devir sayısı cinsinden dönüş hızı",
+        "de": "Drehzahl der Welle in Umdrehungen pro Minute"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Friction Coefficient",
         "tr": "Sürtünme Katsayısı",
-        "de": "Friction Coefficient",
+        "de": "Reibungskoeffizient",
         "fr": "Friction Coefficient",
         "es": "Friction Coefficient",
         "ar": "Friction Coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient of friction between bearing surfaces",
-        "tr": "Rulman yüzeyleri arasındaki sürtünme katsayısı"
+        "tr": "Rulman yüzeyleri arasındaki sürtünme katsayısı",
+        "de": "Reibungskoeffizient zwischen Lagerflächen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Radial Load",
         "tr": "Radyal Yük",
-        "de": "Radial Load",
+        "de": "Radiallast",
         "fr": "Radial Load",
         "es": "Radial Load",
         "ar": "Radial Load"
       },
       "businessContext_i18n": {
         "en": "Radial load applied on the bearing",
-        "tr": "Radyal yük (rulmana uygulanan)"
+        "tr": "Radyal yük (rulmana uygulanan)",
+        "de": "Radialbelastung auf das Lager"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Bore Diameter",
         "tr": "Delik Çapı",
-        "de": "Bore Diameter",
+        "de": "Bohrungsdurchmesser",
         "fr": "Bore Diameter",
         "es": "Bore Diameter",
         "ar": "Bore Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the bearing bore",
-        "tr": "Rulman yatağının iç çapı"
+        "tr": "Rulman yatağının iç çapı",
+        "de": "Innendurchmesser der Lagerbohrung"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
-        "de": "Ambient Temperature",
+        "de": "Umgebungstemperatur",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
       },
       "businessContext_i18n": {
         "en": "Surrounding ambient temperature",
-        "tr": "Ortam sıcaklığı"
+        "tr": "Ortam sıcaklığı",
+        "de": "Umgebungstemperatur"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Cooling Coefficient",
         "tr": "Soğutma Katsayısı",
-        "de": "Cooling Coefficient",
+        "de": "Kühlkoeffizient",
         "fr": "Cooling Coefficient",
         "es": "Cooling Coefficient",
         "ar": "Cooling Coefficient"
       },
       "businessContext_i18n": {
         "en": "Thermal dissipation capacity of the bearing housing",
-        "tr": "Rulman yuvasının ısı dağıtma kapasitesi"
+        "tr": "Rulman yuvasının ısı dağıtma kapasitesi",
+        "de": "Wärmeableitfähigkeit des Lagergehäuses"
       }
     }
   ],

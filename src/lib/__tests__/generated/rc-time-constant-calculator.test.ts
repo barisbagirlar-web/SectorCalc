@@ -12,7 +12,7 @@ describe("rc-time-constant-calculator", () => {
     "C": 0.000001,
     "V0": 5,
     "t": 0.001
-  } as Rc_time_constant_calculatorInput;
+  } as unknown as Rc_time_constant_calculatorInput;
     const result = calculateRc_time_constant_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

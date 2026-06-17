@@ -57,6 +57,13 @@ describe("seo-authority architecture", () => {
     expect(content).toContain("categorySlug");
     expect(content).toContain("routeStatus");
     expect(content).toContain("Tool route guidance");
+    expect(content).toContain("Sitemap locale shards");
+    expect(content).toContain("/sitemap/tr.xml");
+    expect(content).toContain("/sitemap/de.xml");
+    expect(content).toContain("/sitemap/fr.xml");
+    expect(content).toContain("/sitemap/es.xml");
+    expect(content).toContain("/sitemap/ar.xml");
+    expect(content).toContain("Supported locales: en, tr, de, fr, es, ar");
     expect(content).not.toContain("Free tool slugs");
     expect(content).not.toContain("Premium analyzer slugs");
     expect(content).not.toContain("AI & LLM Source Guide");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Electricity Consumption",
         "tr": "Elektrik Tüketimi",
-        "de": "Electricity Consumption",
+        "de": "Stromverbrauch",
         "fr": "Electricity Consumption",
         "es": "Electricity Consumption",
         "ar": "Electricity Consumption"
       },
       "businessContext_i18n": {
         "en": "Total monthly electricity consumption",
-        "tr": "Toplam aylık elektrik tüketimi"
+        "tr": "Toplam aylık elektrik tüketimi",
+        "de": "Monatlicher Gesamtstromverbrauch"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Natural Gas Consumption",
         "tr": "Doğal Gaz Tüketimi",
-        "de": "Natural Gas Consumption",
+        "de": "Erdgasverbrauch",
         "fr": "Natural Gas Consumption",
         "es": "Natural Gas Consumption",
         "ar": "Natural Gas Consumption"
       },
       "businessContext_i18n": {
         "en": "Total monthly natural gas consumption",
-        "tr": "Toplam aylık doğal gaz tüketimi"
+        "tr": "Toplam aylık doğal gaz tüketimi",
+        "de": "Monatlicher Gesamterdgasverbrauch"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Diesel Consumption",
         "tr": "Dizel Tüketimi",
-        "de": "Diesel Consumption",
+        "de": "Dieselverbrauch",
         "fr": "Diesel Consumption",
         "es": "Diesel Consumption",
         "ar": "Diesel Consumption"
       },
       "businessContext_i18n": {
         "en": "Total monthly diesel consumption",
-        "tr": "Toplam aylık dizel tüketimi"
+        "tr": "Toplam aylık dizel tüketimi",
+        "de": "Monatlicher Gesamtdieselverbrauch"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Production Output",
         "tr": "Üretim Çıktısı",
-        "de": "Production Output",
+        "de": "Produktionsausstoß",
         "fr": "Production Output",
         "es": "Production Output",
         "ar": "Production Output"
       },
       "businessContext_i18n": {
         "en": "Total monthly production output (e.g., kg, pieces)",
-        "tr": "Toplam aylık üretim çıktısı (örn. kg, adet)"
+        "tr": "Toplam aylık üretim çıktısı (örn. kg, adet)",
+        "de": "Monatlicher Gesamtproduktionsausstoß (z. B. kg, Stück)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Electricity Emission Factor",
         "tr": "Elektrik Emisyon Faktörü",
-        "de": "Electricity Emission Factor",
+        "de": "Strom-Emissionsfaktor",
         "fr": "Electricity Emission Factor",
         "es": "Electricity Emission Factor",
         "ar": "Electricity Emission Factor"
       },
       "businessContext_i18n": {
         "en": "Emission factor for grid electricity",
-        "tr": "Şebeke elektriği için emisyon faktörü"
+        "tr": "Şebeke elektriği için emisyon faktörü",
+        "de": "Emissionsfaktor für Netzstrom"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Natural Gas Emission Factor",
         "tr": "Doğal Gaz Emisyon Faktörü",
-        "de": "Natural Gas Emission Factor",
+        "de": "Erdgas-Emissionsfaktor",
         "fr": "Natural Gas Emission Factor",
         "es": "Natural Gas Emission Factor",
         "ar": "Natural Gas Emission Factor"
       },
       "businessContext_i18n": {
         "en": "Emission factor for natural gas",
-        "tr": "Doğal gaz için emisyon faktörü"
+        "tr": "Doğal gaz için emisyon faktörü",
+        "de": "Emissionsfaktor für Erdgas"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Diesel Emission Factor",
         "tr": "Dizel Emisyon Faktörü",
-        "de": "Diesel Emission Factor",
+        "de": "Diesel-Emissionsfaktor",
         "fr": "Diesel Emission Factor",
         "es": "Diesel Emission Factor",
         "ar": "Diesel Emission Factor"
       },
       "businessContext_i18n": {
         "en": "Emission factor for diesel fuel",
-        "tr": "Dizel yakıt için emisyon faktörü"
+        "tr": "Dizel yakıt için emisyon faktörü",
+        "de": "Emissionsfaktor für Dieselkraftstoff"
       }
     }
   ],

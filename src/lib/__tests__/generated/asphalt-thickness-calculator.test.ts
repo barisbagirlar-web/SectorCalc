@@ -12,7 +12,7 @@ describe("asphalt-thickness-calculator", () => {
     "mass": 240000,
     "density": 2400,
     "wasteFactor": 5
-  } as Asphalt_thickness_calculatorInput;
+  } as unknown as Asphalt_thickness_calculatorInput;
     const result = calculateAsphalt_thickness_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

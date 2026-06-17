@@ -13,7 +13,7 @@ describe("shell-method-calculator", () => {
     "a": 0,
     "b": 1,
     "c": 0
-  } as Shell_method_calculatorInput;
+  } as unknown as Shell_method_calculatorInput;
     const result = calculateShell_method_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

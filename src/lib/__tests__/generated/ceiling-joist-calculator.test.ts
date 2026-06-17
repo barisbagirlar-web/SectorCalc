@@ -14,7 +14,7 @@ describe("ceiling-joist-calculator", () => {
     "deadLoad": 10,
     "eModulus": 1600000,
     "iValue": 47.6
-  } as Ceiling_joist_calculatorInput;
+  } as unknown as Ceiling_joist_calculatorInput;
     const result = calculateCeiling_joist_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("barista-fire-calculator", () => {
     "withdrawalRate": 4,
     "annualExpenses": 40000,
     "partTimeIncome": 12000
-  } as Barista_fire_calculatorInput;
+  } as unknown as Barista_fire_calculatorInput;
     const result = calculateBarista_fire_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

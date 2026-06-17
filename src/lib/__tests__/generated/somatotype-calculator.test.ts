@@ -16,7 +16,7 @@ describe("somatotype-calculator", () => {
     "skinfold_calf": 8,
     "humerus_breadth": 6.5,
     "femur_breadth": 9.5
-  } as Somatotype_calculatorInput;
+  } as unknown as Somatotype_calculatorInput;
     const result = calculateSomatotype_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

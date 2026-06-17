@@ -13,7 +13,7 @@ describe("font-size-calculator", () => {
     "safetyFactor": 1.2,
     "pointConversion": 0.3528,
     "pixelDensity": 96
-  } as Font_size_calculatorInput;
+  } as unknown as Font_size_calculatorInput;
     const result = calculateFont_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

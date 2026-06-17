@@ -14,7 +14,7 @@ describe("monte-carlo-simulation", () => {
     "upperSpec": 120,
     "numSamples": 10000,
     "seed": 42
-  } as Monte_carlo_simulationInput;
+  } as unknown as Monte_carlo_simulationInput;
     const result = calculateMonte_carlo_simulation(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

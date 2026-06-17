@@ -16,7 +16,7 @@ describe("packing-list-calculator", () => {
     "cartonWeight": 12,
     "maxCartonsPerPallet": 24,
     "maxWeightPerPallet": 500
-  } as Packing_list_calculatorInput;
+  } as unknown as Packing_list_calculatorInput;
     const result = calculatePacking_list_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("digital-twin-cost-comparator-calculator", () => {
     "data_quality_index": 85,
     "labor_rate": 75,
     "expected_lifespan": 10
-  } as Digital_twin_cost_comparator_calculatorInput;
+  } as unknown as Digital_twin_cost_comparator_calculatorInput;
     const result = calculateDigital_twin_cost_comparator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

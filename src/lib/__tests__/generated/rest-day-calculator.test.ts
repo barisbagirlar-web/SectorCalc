@@ -13,7 +13,7 @@ describe("rest-day-calculator", () => {
     "tempCoeff": 1,
     "humidCoeff": 1,
     "safetyFactor": 1.2
-  } as Rest_day_calculatorInput;
+  } as unknown as Rest_day_calculatorInput;
     const result = calculateRest_day_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

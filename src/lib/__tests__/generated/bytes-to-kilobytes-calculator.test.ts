@@ -12,7 +12,7 @@ describe("bytes-to-kilobytes-calculator", () => {
     "precision": 2,
     "convention": 1024,
     "roundMode": 1
-  } as Bytes_to_kilobytes_calculatorInput;
+  } as unknown as Bytes_to_kilobytes_calculatorInput;
     const result = calculateBytes_to_kilobytes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

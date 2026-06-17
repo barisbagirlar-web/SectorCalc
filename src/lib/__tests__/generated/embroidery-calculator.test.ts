@@ -15,7 +15,7 @@ describe("embroidery-calculator", () => {
     "threadCostPerMeter": 0.05,
     "machineEfficiency": 600,
     "laborHourlyRate": 15
-  } as Embroidery_calculatorInput;
+  } as unknown as Embroidery_calculatorInput;
     const result = calculateEmbroidery_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

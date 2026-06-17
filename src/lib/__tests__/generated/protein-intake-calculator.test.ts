@@ -12,7 +12,7 @@ describe("protein-intake-calculator", () => {
     "baseProtein": 0.8,
     "activityFactor": 1,
     "goalFactor": 1
-  } as Protein_intake_calculatorInput;
+  } as unknown as Protein_intake_calculatorInput;
     const result = calculateProtein_intake_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

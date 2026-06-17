@@ -12,7 +12,7 @@ describe("dots-calculator", () => {
     "averageDailyUsage": 200,
     "safetyStock": 1000,
     "leadTimeDays": 7
-  } as Dots_calculatorInput;
+  } as unknown as Dots_calculatorInput;
     const result = calculateDots_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

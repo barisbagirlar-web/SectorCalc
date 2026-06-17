@@ -12,7 +12,7 @@ describe("sat-subject-tests-calculator", () => {
     "rawPhysics": 40,
     "rawChemistry": 35,
     "rawUSH": 25
-  } as Sat_subject_tests_calculatorInput;
+  } as unknown as Sat_subject_tests_calculatorInput;
     const result = calculateSat_subject_tests_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

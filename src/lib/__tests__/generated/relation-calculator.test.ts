@@ -12,7 +12,7 @@ describe("relation-calculator", () => {
     "value2": 50,
     "factor1": 1,
     "factor2": 1
-  } as Relation_calculatorInput;
+  } as unknown as Relation_calculatorInput;
     const result = calculateRelation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

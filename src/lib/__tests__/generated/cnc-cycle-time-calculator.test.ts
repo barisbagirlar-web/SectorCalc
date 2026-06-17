@@ -16,7 +16,7 @@ describe("cnc-cycle-time-calculator", () => {
     "rapid_traverse_rate": 15000,
     "tool_change_time": 5,
     "number_of_tool_changes": 2
-  } as Cnc_cycle_time_calculatorInput;
+  } as unknown as Cnc_cycle_time_calculatorInput;
     const result = calculateCnc_cycle_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

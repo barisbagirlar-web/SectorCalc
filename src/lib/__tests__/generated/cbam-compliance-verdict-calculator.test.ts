@@ -15,7 +15,7 @@ describe("cbam-compliance-verdict-calculator", () => {
     "free_allocation_factor": 0.9,
     "verification_status": "verified",
     "compliance_deadline_met": true
-  } as Cbam_compliance_verdict_calculatorInput;
+  } as unknown as Cbam_compliance_verdict_calculatorInput;
     const result = calculateCbam_compliance_verdict_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

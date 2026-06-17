@@ -13,7 +13,7 @@ describe("roof-truss-calculator", () => {
     "overhang": 0.6,
     "length": 12,
     "spacing": 0.6
-  } as Roof_truss_calculatorInput;
+  } as unknown as Roof_truss_calculatorInput;
     const result = calculateRoof_truss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

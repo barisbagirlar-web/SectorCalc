@@ -13,7 +13,7 @@ describe("mbps-to-gbps-calculator", () => {
     "decimalPrecision": 2,
     "calibrationOffset": 0,
     "measurementId": 0
-  } as Mbps_to_gbps_calculatorInput;
+  } as unknown as Mbps_to_gbps_calculatorInput;
     const result = calculateMbps_to_gbps_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

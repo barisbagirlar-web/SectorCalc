@@ -16,7 +16,7 @@ describe("break-even-safety-margin-calculator", () => {
     "demandUncertainty": 10,
     "costEscalationRate": 3,
     "includeTax": false
-  } as Break_even_safety_margin_calculatorInput;
+  } as unknown as Break_even_safety_margin_calculatorInput;
     const result = calculateBreak_even_safety_margin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

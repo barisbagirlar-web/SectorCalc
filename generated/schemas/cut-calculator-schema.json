@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Kesme Hızı (Vc)",
         "tr": "Kesme Hızı (Vc)",
-        "de": "Kesme Hızı (Vc)",
+        "de": "Schnittgeschwindigkeit (Vc)",
         "fr": "Kesme Hızı (Vc)",
         "es": "Kesme Hızı (Vc)",
         "ar": "Kesme Hızı (Vc)"
       },
       "businessContext_i18n": {
         "en": "Kesme hızı, malzeme ve takım özelliklerine bağlıdır.",
-        "tr": "Kesme hızı, malzeme ve takım özelliklerine bağlıdır."
+        "tr": "Kesme hızı, malzeme ve takım özelliklerine bağlıdır.",
+        "de": "Schnittgeschwindigkeit, abhängig von Material- und Werkzeugeigenschaften."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Diş Başı İlerleme (fz)",
         "tr": "Diş Başı İlerleme (fz)",
-        "de": "Diş Başı İlerleme (fz)",
+        "de": "Vorschub pro Zahn (fz)",
         "fr": "Diş Başı İlerleme (fz)",
         "es": "Diş Başı İlerleme (fz)",
         "ar": "Diş Başı İlerleme (fz)"
       },
       "businessContext_i18n": {
         "en": "Takım kataloğundan seçilen değer.",
-        "tr": "Takım kataloğundan seçilen değer."
+        "tr": "Takım kataloğundan seçilen değer.",
+        "de": "Aus dem Werkzeugkatalog ausgewählter Wert."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Diş Sayısı (z)",
         "tr": "Diş Sayısı (z)",
-        "de": "Diş Sayısı (z)",
+        "de": "Zähnezahl (z)",
         "fr": "Diş Sayısı (z)",
         "es": "Diş Sayısı (z)",
         "ar": "Diş Sayısı (z)"
       },
       "businessContext_i18n": {
         "en": "Kesici takımın diş sayısı.",
-        "tr": "Kesici takımın diş sayısı."
+        "tr": "Kesici takımın diş sayısı.",
+        "de": "Zähnezahl des Schneidwerkzeugs."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Takım Çapı (D)",
         "tr": "Takım Çapı (D)",
-        "de": "Takım Çapı (D)",
+        "de": "Werkzeugdurchmesser (D)",
         "fr": "Takım Çapı (D)",
         "es": "Takım Çapı (D)",
         "ar": "Takım Çapı (D)"
       },
       "businessContext_i18n": {
         "en": "Kesici takımın çapı.",
-        "tr": "Kesici takımın çapı."
+        "tr": "Kesici takımın çapı.",
+        "de": "Durchmesser des Schneidwerkzeugs."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Kesme Derinliği (ap)",
         "tr": "Kesme Derinliği (ap)",
-        "de": "Kesme Derinliği (ap)",
+        "de": "Schnitttiefe (ap)",
         "fr": "Kesme Derinliği (ap)",
         "es": "Kesme Derinliği (ap)",
         "ar": "Kesme Derinliği (ap)"
       },
       "businessContext_i18n": {
         "en": "Eksenel kesme derinliği.",
-        "tr": "Eksenel kesme derinliği."
+        "tr": "Eksenel kesme derinliği.",
+        "de": "Axiale Schnitttiefe."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Kesme Genişliği (ae)",
         "tr": "Kesme Genişliği (ae)",
-        "de": "Kesme Genişliği (ae)",
+        "de": "Schnittbreite (ae)",
         "fr": "Kesme Genişliği (ae)",
         "es": "Kesme Genişliği (ae)",
         "ar": "Kesme Genişliği (ae)"
       },
       "businessContext_i18n": {
         "en": "Radyal kesme genişliği.",
-        "tr": "Radyal kesme genişliği."
+        "tr": "Radyal kesme genişliği.",
+        "de": "Radiale Schnittbreite."
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("pipe-friction-calculator", () => {
     "roughness": 0.045,
     "fluidDensity": 1000,
     "dynamicViscosity": 0.001
-  } as Pipe_friction_calculatorInput;
+  } as unknown as Pipe_friction_calculatorInput;
     const result = calculatePipe_friction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

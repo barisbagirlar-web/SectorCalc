@@ -13,7 +13,7 @@ describe("pumpkin-yield-calculator", () => {
     "pumpkinsPerPlant": 1.5,
     "avgWeight": 5,
     "lossRate": 10
-  } as Pumpkin_yield_calculatorInput;
+  } as unknown as Pumpkin_yield_calculatorInput;
     const result = calculatePumpkin_yield_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

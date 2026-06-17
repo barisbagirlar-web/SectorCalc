@@ -12,7 +12,7 @@ describe("sunny-16-rule", () => {
     "iso": 100,
     "lightCondition": 0,
     "ndFilter": 0
-  } as Sunny_16_ruleInput;
+  } as unknown as Sunny_16_ruleInput;
     const result = calculateSunny_16_rule(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

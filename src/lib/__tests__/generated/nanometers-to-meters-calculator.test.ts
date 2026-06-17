@@ -15,7 +15,7 @@ describe("nanometers-to-meters-calculator", () => {
     "offset": 0,
     "targetUnitFactor": 1,
     "scientificNotation": 0
-  } as Nanometers_to_meters_calculatorInput;
+  } as unknown as Nanometers_to_meters_calculatorInput;
     const result = calculateNanometers_to_meters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

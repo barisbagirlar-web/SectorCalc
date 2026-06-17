@@ -13,7 +13,7 @@ describe("hit-points-calculator", () => {
     "cycles": 10,
     "safetyFactor": 1.5,
     "repairHP": 0
-  } as Hit_points_calculatorInput;
+  } as unknown as Hit_points_calculatorInput;
     const result = calculateHit_points_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

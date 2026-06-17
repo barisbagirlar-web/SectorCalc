@@ -16,7 +16,7 @@ describe("mtbf-mttr-financial-calculator", () => {
     "cost_per_failure_event": 500,
     "maintenance_labor_rate": 75,
     "reliability_improvement_investment": 0
-  } as Mtbf_mttr_financial_calculatorInput;
+  } as unknown as Mtbf_mttr_financial_calculatorInput;
     const result = calculateMtbf_mttr_financial_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

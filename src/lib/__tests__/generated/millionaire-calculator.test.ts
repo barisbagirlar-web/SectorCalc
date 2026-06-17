@@ -12,7 +12,7 @@ describe("millionaire-calculator", () => {
     "monthlyContribution": 500,
     "annualInterestRate": 7,
     "years": 30
-  } as Millionaire_calculatorInput;
+  } as unknown as Millionaire_calculatorInput;
     const result = calculateMillionaire_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("cell-potential-calculator", () => {
     "temperature": 298.15,
     "numberOfElectrons": 2,
     "reactionQuotient": 1
-  } as Cell_potential_calculatorInput;
+  } as unknown as Cell_potential_calculatorInput;
     const result = calculateCell_potential_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

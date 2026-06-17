@@ -12,7 +12,7 @@ describe("mass-percent-calculator", () => {
     "otherComponentMass": 0,
     "totalMass": 0,
     "precision": 2
-  } as Mass_percent_calculatorInput;
+  } as unknown as Mass_percent_calculatorInput;
     const result = calculateMass_percent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

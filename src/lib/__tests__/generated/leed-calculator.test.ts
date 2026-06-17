@@ -13,7 +13,7 @@ describe("leed-calculator", () => {
     "ea": 0,
     "mr": 0,
     "eq": 0
-  } as Leed_calculatorInput;
+  } as unknown as Leed_calculatorInput;
     const result = calculateLeed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

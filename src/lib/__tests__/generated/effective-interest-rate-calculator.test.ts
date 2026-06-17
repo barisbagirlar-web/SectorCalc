@@ -12,7 +12,7 @@ describe("effective-interest-rate-calculator", () => {
     "compoundingPeriodsPerYear": 12,
     "timePeriodYears": 1,
     "decimalPlaces": 2
-  } as Effective_interest_rate_calculatorInput;
+  } as unknown as Effective_interest_rate_calculatorInput;
     const result = calculateEffective_interest_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

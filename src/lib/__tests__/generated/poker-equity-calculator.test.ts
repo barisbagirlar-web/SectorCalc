@@ -12,7 +12,7 @@ describe("poker-equity-calculator", () => {
     "streets": 2,
     "potSize": 100,
     "betToCall": 50
-  } as Poker_equity_calculatorInput;
+  } as unknown as Poker_equity_calculatorInput;
     const result = calculatePoker_equity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

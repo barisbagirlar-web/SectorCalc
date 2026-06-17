@@ -14,7 +14,7 @@ describe("date-difference-calculator", () => {
     "endYear": 2024,
     "endMonth": 1,
     "endDay": 1
-  } as Date_difference_calculatorInput;
+  } as unknown as Date_difference_calculatorInput;
     const result = calculateDate_difference_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("boxing-calorie-calculator", () => {
     "duration": 30,
     "met": 7.8,
     "intensity": 100
-  } as Boxing_calorie_calculatorInput;
+  } as unknown as Boxing_calorie_calculatorInput;
     const result = calculateBoxing_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

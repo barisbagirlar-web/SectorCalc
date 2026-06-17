@@ -13,7 +13,7 @@ describe("creatine-calculator", () => {
     "lossRate": 2,
     "purity": 99,
     "costPerKg": 500
-  } as Creatine_calculatorInput;
+  } as unknown as Creatine_calculatorInput;
     const result = calculateCreatine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

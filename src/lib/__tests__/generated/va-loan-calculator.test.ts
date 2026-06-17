@@ -14,7 +14,7 @@ describe("va-loan-calculator", () => {
     "fundingFeeRate": 2.15,
     "propertyTaxRate": 1.2,
     "homeInsuranceAnnual": 1200
-  } as Va_loan_calculatorInput;
+  } as unknown as Va_loan_calculatorInput;
     const result = calculateVa_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

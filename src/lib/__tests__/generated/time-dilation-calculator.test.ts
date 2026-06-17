@@ -12,7 +12,7 @@ describe("time-dilation-calculator", () => {
     "properTime_s": 1,
     "c_m_s": 299792458,
     "outputTimeFactor": 1
-  } as Time_dilation_calculatorInput;
+  } as unknown as Time_dilation_calculatorInput;
     const result = calculateTime_dilation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

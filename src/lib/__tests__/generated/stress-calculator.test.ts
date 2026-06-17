@@ -13,7 +13,7 @@ describe("stress-calculator", () => {
     "safetyFactor": 1.5,
     "yieldStrength": 250,
     "kt": 1
-  } as Stress_calculatorInput;
+  } as unknown as Stress_calculatorInput;
     const result = calculateStress_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

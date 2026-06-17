@@ -13,7 +13,7 @@ describe("meat-cooking-temperature-calculator", () => {
     "targetTemp": 70,
     "ovenTemp": 180,
     "thermalFactor": 20
-  } as Meat_cooking_temperature_calculatorInput;
+  } as unknown as Meat_cooking_temperature_calculatorInput;
     const result = calculateMeat_cooking_temperature_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

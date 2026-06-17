@@ -15,7 +15,7 @@ describe("steel-column-calculator", () => {
     "elasticModulus": 200,
     "yieldStrength": 250,
     "safetyFactor": 1.67
-  } as Steel_column_calculatorInput;
+  } as unknown as Steel_column_calculatorInput;
     const result = calculateSteel_column_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

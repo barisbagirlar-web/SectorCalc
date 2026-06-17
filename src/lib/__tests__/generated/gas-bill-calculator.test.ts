@@ -13,7 +13,7 @@ describe("gas-bill-calculator", () => {
     "unitRate": 0.04,
     "standingCharge": 10,
     "vatRate": 20
-  } as Gas_bill_calculatorInput;
+  } as unknown as Gas_bill_calculatorInput;
     const result = calculateGas_bill_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("confidence-interval-for-mean", () => {
     "sampleStdDev": 1,
     "sampleSize": 30,
     "confidenceLevel": 0.95
-  } as Confidence_interval_for_meanInput;
+  } as unknown as Confidence_interval_for_meanInput;
     const result = calculateConfidence_interval_for_mean(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

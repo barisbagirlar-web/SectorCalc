@@ -13,7 +13,7 @@ describe("dividend-tax-calculator", () => {
     "taxRate": 10,
     "surchargeRate": 0,
     "cessRate": 4
-  } as Dividend_tax_calculatorInput;
+  } as unknown as Dividend_tax_calculatorInput;
     const result = calculateDividend_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

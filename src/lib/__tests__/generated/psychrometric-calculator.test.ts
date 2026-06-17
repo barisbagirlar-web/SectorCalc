@@ -11,7 +11,7 @@ describe("psychrometric-calculator", () => {
     "dryBulbTemp": 25,
     "relativeHumidity": 50,
     "atmosphericPressure": 101.325
-  } as Psychrometric_calculatorInput;
+  } as unknown as Psychrometric_calculatorInput;
     const result = calculatePsychrometric_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

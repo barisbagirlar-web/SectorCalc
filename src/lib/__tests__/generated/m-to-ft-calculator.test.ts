@@ -14,7 +14,7 @@ describe("m-to-ft-calculator", () => {
     "temperatureOffset": 0,
     "decimalPlaces": 3,
     "applyCorrection": 1
-  } as M_to_ft_calculatorInput;
+  } as unknown as M_to_ft_calculatorInput;
     const result = calculateM_to_ft_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

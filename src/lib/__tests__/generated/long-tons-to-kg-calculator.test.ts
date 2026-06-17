@@ -13,7 +13,7 @@ describe("long-tons-to-kg-calculator", () => {
     "conversionFactor": 1016.0469088,
     "safetyMargin": 0,
     "decimals": 2
-  } as Long_tons_to_kg_calculatorInput;
+  } as unknown as Long_tons_to_kg_calculatorInput;
     const result = calculateLong_tons_to_kg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

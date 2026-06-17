@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Batch Size (cookies)",
         "tr": "Parti Boyutu (kurabiye)",
-        "de": "Batch Size (cookies)",
+        "de": "Chargengröße (Kekse)",
         "fr": "Batch Size (cookies)",
         "es": "Batch Size (cookies)",
         "ar": "Batch Size (cookies)"
       },
       "businessContext_i18n": {
         "en": "Number of cookies per batch",
-        "tr": "Parti başına kurabiye sayısı"
+        "tr": "Parti başına kurabiye sayısı",
+        "de": "Anzahl der Kekse pro Charge"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Flour per Cookie",
         "tr": "Kurabiye Başına Un",
-        "de": "Flour per Cookie",
+        "de": "Mehl pro Keks",
         "fr": "Flour per Cookie",
         "es": "Flour per Cookie",
         "ar": "Flour per Cookie"
       },
       "businessContext_i18n": {
         "en": "Grams of flour per cookie",
-        "tr": "Kurabiye başına gram un"
+        "tr": "Kurabiye başına gram un",
+        "de": "Gramm Mehl pro Keks"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Sugar per Cookie",
         "tr": "Kurabiye Başına Şeker",
-        "de": "Sugar per Cookie",
+        "de": "Zucker pro Keks",
         "fr": "Sugar per Cookie",
         "es": "Sugar per Cookie",
         "ar": "Sugar per Cookie"
       },
       "businessContext_i18n": {
         "en": "Grams of sugar per cookie",
-        "tr": "Kurabiye başına gram şeker"
+        "tr": "Kurabiye başına gram şeker",
+        "de": "Gramm Zucker pro Keks"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Butter per Cookie",
         "tr": "Kurabiye Başına Tereyağı",
-        "de": "Butter per Cookie",
+        "de": "Butter pro Keks",
         "fr": "Butter per Cookie",
         "es": "Butter per Cookie",
         "ar": "Butter per Cookie"
       },
       "businessContext_i18n": {
         "en": "Grams of butter per cookie",
-        "tr": "Kurabiye başına gram tereyağı"
+        "tr": "Kurabiye başına gram tereyağı",
+        "de": "Gramm Butter pro Keks"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Egg per Cookie",
         "tr": "Kurabiye Başına Yumurta",
-        "de": "Egg per Cookie",
+        "de": "Ei pro Keks",
         "fr": "Egg per Cookie",
         "es": "Egg per Cookie",
         "ar": "Egg per Cookie"
       },
       "businessContext_i18n": {
         "en": "Grams of egg per cookie",
-        "tr": "Kurabiye başına gram yumurta"
+        "tr": "Kurabiye başına gram yumurta",
+        "de": "Gramm Ei pro Keks"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Chocolate per Cookie",
         "tr": "Kurabiye Başına Çikolata",
-        "de": "Chocolate per Cookie",
+        "de": "Schokolade pro Keks",
         "fr": "Chocolate per Cookie",
         "es": "Chocolate per Cookie",
         "ar": "Chocolate per Cookie"
       },
       "businessContext_i18n": {
         "en": "Grams of chocolate per cookie",
-        "tr": "Kurabiye başına gram çikolata"
+        "tr": "Kurabiye başına gram çikolata",
+        "de": "Gramm Schokolade pro Keks"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Oven Temperature",
         "tr": "Fırın Sıcaklığı",
-        "de": "Oven Temperature",
+        "de": "Ofentemperatur",
         "fr": "Oven Temperature",
         "es": "Oven Temperature",
         "ar": "Oven Temperature"
       },
       "businessContext_i18n": {
         "en": "Baking temperature in Celsius",
-        "tr": "Fırın sıcaklığı (Santigrat)"
+        "tr": "Fırın sıcaklığı (Santigrat)",
+        "de": "Backtemperatur in Grad Celsius"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Baking Time",
         "tr": "Pişirme Süresi",
-        "de": "Baking Time",
+        "de": "Backzeit",
         "fr": "Baking Time",
         "es": "Baking Time",
         "ar": "Baking Time"
       },
       "businessContext_i18n": {
         "en": "Baking time in minutes",
-        "tr": "Pişirme süresi (dakika)"
+        "tr": "Pişirme süresi (dakika)",
+        "de": "Backzeit in Minuten"
       }
     }
   ],

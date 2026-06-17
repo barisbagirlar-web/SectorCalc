@@ -14,7 +14,7 @@ describe("climbing-calculator", () => {
     "ratedMass": 80,
     "ratedFallFactor": 1.77,
     "safetyFactor": 1
-  } as Climbing_calculatorInput;
+  } as unknown as Climbing_calculatorInput;
     const result = calculateClimbing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

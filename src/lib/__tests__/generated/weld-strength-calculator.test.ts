@@ -16,7 +16,7 @@ describe("weld-strength-calculator", () => {
     "applied_load": 50,
     "load_angle": 90,
     "quality_level": "B"
-  } as Weld_strength_calculatorInput;
+  } as unknown as Weld_strength_calculatorInput;
     const result = calculateWeld_strength_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

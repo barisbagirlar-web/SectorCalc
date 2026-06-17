@@ -13,7 +13,7 @@ describe("tennis-serve-speed-calculator", () => {
     "ballMass": 0.0577,
     "launchHeight": 2.6,
     "landingHeight": 0
-  } as Tennis_serve_speed_calculatorInput;
+  } as unknown as Tennis_serve_speed_calculatorInput;
     const result = calculateTennis_serve_speed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

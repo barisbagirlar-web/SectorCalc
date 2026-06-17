@@ -12,7 +12,7 @@ describe("proportion-test", () => {
     "successes": 15,
     "hypothesized_proportion": 0.5,
     "significance_level": 0.05
-  } as Proportion_testInput;
+  } as unknown as Proportion_testInput;
     const result = calculateProportion_test(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

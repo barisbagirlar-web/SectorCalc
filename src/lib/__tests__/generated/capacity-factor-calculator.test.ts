@@ -13,7 +13,7 @@ describe("capacity-factor-calculator", () => {
     "hoursPeriod": 8760,
     "availabilityFactor": 1,
     "targetCapacityFactor": 50
-  } as Capacity_factor_calculatorInput;
+  } as unknown as Capacity_factor_calculatorInput;
     const result = calculateCapacity_factor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

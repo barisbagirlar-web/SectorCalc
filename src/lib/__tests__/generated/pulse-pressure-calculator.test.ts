@@ -12,7 +12,7 @@ describe("pulse-pressure-calculator", () => {
     "diastolicBP": 80,
     "heartRate": 70,
     "age": 50
-  } as Pulse_pressure_calculatorInput;
+  } as unknown as Pulse_pressure_calculatorInput;
     const result = calculatePulse_pressure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

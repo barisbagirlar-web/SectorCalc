@@ -14,7 +14,7 @@ describe("forex-calculator", () => {
     "pipSize": 0.0001,
     "pipValue": 10,
     "leverage": 100
-  } as Forex_calculatorInput;
+  } as unknown as Forex_calculatorInput;
     const result = calculateForex_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

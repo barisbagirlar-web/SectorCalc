@@ -14,7 +14,7 @@ describe("motor-calculator", () => {
     "efficiency": 90,
     "speed": 1450,
     "numberOfPhases": 3
-  } as Motor_calculatorInput;
+  } as unknown as Motor_calculatorInput;
     const result = calculateMotor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

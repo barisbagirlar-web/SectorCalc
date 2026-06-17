@@ -12,7 +12,7 @@ describe("bmr-calculator", () => {
     "height": 170,
     "age": 30,
     "isMale": 1
-  } as Bmr_calculatorInput;
+  } as unknown as Bmr_calculatorInput;
     const result = calculateBmr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

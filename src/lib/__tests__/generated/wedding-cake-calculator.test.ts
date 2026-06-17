@@ -15,7 +15,7 @@ describe("wedding-cake-calculator", () => {
     "laborRate": 20,
     "overheadPercent": 15,
     "profitMarginPercent": 30
-  } as Wedding_cake_calculatorInput;
+  } as unknown as Wedding_cake_calculatorInput;
     const result = calculateWedding_cake_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("3d-vector-calculator", () => {
     "v2x": 0,
     "v2y": 0,
     "v2z": 0
-  } as _3d_vector_calculatorInput;
+  } as unknown as _3d_vector_calculatorInput;
     const result = calculate_3d_vector_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

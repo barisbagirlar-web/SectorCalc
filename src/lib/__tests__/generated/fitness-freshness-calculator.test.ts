@@ -12,7 +12,7 @@ describe("fitness-freshness-calculator", () => {
     "maintenanceFrequency": 12,
     "productShelfLife": 30,
     "productAge": 10
-  } as Fitness_freshness_calculatorInput;
+  } as unknown as Fitness_freshness_calculatorInput;
     const result = calculateFitness_freshness_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

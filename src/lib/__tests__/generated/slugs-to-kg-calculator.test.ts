@@ -12,7 +12,7 @@ describe("slugs-to-kg-calculator", () => {
     "conversionFactor": 14.5939029372,
     "safetyFactor": 1,
     "quantity": 1
-  } as Slugs_to_kg_calculatorInput;
+  } as unknown as Slugs_to_kg_calculatorInput;
     const result = calculateSlugs_to_kg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

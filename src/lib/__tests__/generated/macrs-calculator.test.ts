@@ -14,7 +14,7 @@ describe("macrs-calculator", () => {
     "macrsRateYear1": 20,
     "recoveryPeriod": 5,
     "taxRate": 21
-  } as Macrs_calculatorInput;
+  } as unknown as Macrs_calculatorInput;
     const result = calculateMacrs_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

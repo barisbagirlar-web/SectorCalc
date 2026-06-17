@@ -14,7 +14,7 @@ describe("cows-calculator", () => {
     "lostProductionPerHour": 10,
     "profitPerUnit": 20,
     "overheadMultiplier": 1.5
-  } as Cows_calculatorInput;
+  } as unknown as Cows_calculatorInput;
     const result = calculateCows_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

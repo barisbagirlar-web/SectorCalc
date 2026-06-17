@@ -13,7 +13,7 @@ describe("dast-calculator", () => {
     "temperature": 23,
     "humidity": 50,
     "speed": 10
-  } as Dast_calculatorInput;
+  } as unknown as Dast_calculatorInput;
     const result = calculateDast_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

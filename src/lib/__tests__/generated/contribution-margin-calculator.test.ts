@@ -12,7 +12,7 @@ describe("contribution-margin-calculator", () => {
     "variableCostPerUnit": 60,
     "unitsSold": 1000,
     "fixedCosts": 20000
-  } as Contribution_margin_calculatorInput;
+  } as unknown as Contribution_margin_calculatorInput;
     const result = calculateContribution_margin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("epidural-calculator", () => {
     "maxDoseLimit": 4,
     "epinephrineAdded": 0,
     "volumeOnHand": 20
-  } as Epidural_calculatorInput;
+  } as unknown as Epidural_calculatorInput;
     const result = calculateEpidural_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

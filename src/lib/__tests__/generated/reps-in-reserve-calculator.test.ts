@@ -13,7 +13,7 @@ describe("reps-in-reserve-calculator", () => {
     "dailyUsageRate": 100,
     "safetyFactor": 5,
     "plannedProduction": 5000
-  } as Reps_in_reserve_calculatorInput;
+  } as unknown as Reps_in_reserve_calculatorInput;
     const result = calculateReps_in_reserve_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("product-carbon-footprint-calculator", () => {
     "useEnergy": 0,
     "useFactor": 0.5,
     "endOfLife": 0
-  } as Product_carbon_footprint_calculatorInput;
+  } as unknown as Product_carbon_footprint_calculatorInput;
     const result = calculateProduct_carbon_footprint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

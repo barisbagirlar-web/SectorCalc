@@ -14,7 +14,7 @@ describe("password-entropy-calculator", () => {
     "digitsPool": 10,
     "symbolsPool": 32,
     "customChars": 0
-  } as Password_entropy_calculatorInput;
+  } as unknown as Password_entropy_calculatorInput;
     const result = calculatePassword_entropy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

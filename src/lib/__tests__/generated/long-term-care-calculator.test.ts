@@ -15,7 +15,7 @@ describe("long-term-care-calculator", () => {
     "inflationRate": 2.5,
     "savingsForCare": 50000,
     "otherIncome": 20000
-  } as Long_term_care_calculatorInput;
+  } as unknown as Long_term_care_calculatorInput;
     const result = calculateLong_term_care_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

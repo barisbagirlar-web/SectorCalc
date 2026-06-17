@@ -12,7 +12,7 @@ describe("annual-return-calculator", () => {
     "finalValue": 15000,
     "years": 5,
     "inflationRate": 2
-  } as Annual_return_calculatorInput;
+  } as unknown as Annual_return_calculatorInput;
     const result = calculateAnnual_return_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("brick-wall-calculator", () => {
     "mortarJointThickness": 1,
     "brickPrice": 0.5,
     "mortarPrice": 100
-  } as Brick_wall_calculatorInput;
+  } as unknown as Brick_wall_calculatorInput;
     const result = calculateBrick_wall_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

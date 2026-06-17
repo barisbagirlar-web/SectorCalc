@@ -13,7 +13,7 @@ describe("stoichiometry-calculator", () => {
     "unknownMolarMass": 1,
     "coefficientKnown": 1,
     "coefficientUnknown": 1
-  } as Stoichiometry_calculatorInput;
+  } as unknown as Stoichiometry_calculatorInput;
     const result = calculateStoichiometry_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

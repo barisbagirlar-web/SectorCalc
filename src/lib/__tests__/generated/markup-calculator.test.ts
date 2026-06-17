@@ -12,7 +12,7 @@ describe("markup-calculator", () => {
     "markupPercent": 50,
     "quantity": 1,
     "additionalCostPerUnit": 0
-  } as Markup_calculatorInput;
+  } as unknown as Markup_calculatorInput;
     const result = calculateMarkup_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

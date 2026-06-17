@@ -12,7 +12,7 @@ describe("mortality-calculator", () => {
     "population": 100000,
     "period": 1,
     "multiplier": 100000
-  } as Mortality_calculatorInput;
+  } as unknown as Mortality_calculatorInput;
     const result = calculateMortality_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("percent-to-fraction", () => {
     "simplify": 1,
     "mixedNumber": 0,
     "precision": 2
-  } as Percent_to_fractionInput;
+  } as unknown as Percent_to_fractionInput;
     const result = calculatePercent_to_fraction(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

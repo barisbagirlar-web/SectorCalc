@@ -14,7 +14,7 @@ describe("electricity-cost-calculator", () => {
     "electricityRate": 0.12,
     "peakDemand": 0,
     "demandChargeRate": 0
-  } as Electricity_cost_calculatorInput;
+  } as unknown as Electricity_cost_calculatorInput;
     const result = calculateElectricity_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

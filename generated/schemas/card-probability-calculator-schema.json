@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Deck Size",
         "tr": "Deste Boyutu",
-        "de": "Deck Size",
+        "de": "Kartensatzgröße",
         "fr": "Deck Size",
         "es": "Deck Size",
         "ar": "Deck Size"
       },
       "businessContext_i18n": {
         "en": "Total number of cards in the deck.",
-        "tr": "Destedeki toplam kart sayısı."
+        "tr": "Destedeki toplam kart sayısı.",
+        "de": "Gesamtzahl der Karten im Kartensatz."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Successes in Deck",
         "tr": "Destedeki Başarılar",
-        "de": "Successes in Deck",
+        "de": "Erfolge im Kartensatz",
         "fr": "Successes in Deck",
         "es": "Successes in Deck",
         "ar": "Successes in Deck"
       },
       "businessContext_i18n": {
         "en": "Number of cards in the deck that are considered favorable outcomes.",
-        "tr": "Destede olumlu sonuç olarak kabul edilen kart sayısı."
+        "tr": "Destede olumlu sonuç olarak kabul edilen kart sayısı.",
+        "de": "Anzahl der Karten im Kartensatz, die als günstige Ergebnisse gelten."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Draws",
         "tr": "Çekiliş Sayısı",
-        "de": "Number of Draws",
+        "de": "Anzahl der Ziehungen",
         "fr": "Number of Draws",
         "es": "Number of Draws",
         "ar": "Number of Draws"
       },
       "businessContext_i18n": {
         "en": "Number of cards drawn from the deck without replacement.",
-        "tr": "Desteden iadesiz çekilen kart sayısı."
+        "tr": "Desteden iadesiz çekilen kart sayısı.",
+        "de": "Anzahl der aus dem Kartensatz ohne Zurücklegen gezogenen Karten."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Wanted Successes",
         "tr": "İstenen Başarılar",
-        "de": "Wanted Successes",
+        "de": "Gewünschte Erfolge",
         "fr": "Wanted Successes",
         "es": "Wanted Successes",
         "ar": "Wanted Successes"
       },
       "businessContext_i18n": {
         "en": "Number of successful cards you want to appear in the draw.",
-        "tr": "Çekilişte görünmesini istediğiniz başarılı kart sayısı."
+        "tr": "Çekilişte görünmesini istediğiniz başarılı kart sayısı.",
+        "de": "Anzahl der Erfolgskarten, die in der Ziehung erscheinen sollen."
       }
     }
   ],

@@ -11,7 +11,7 @@ describe("barrels-to-liters", () => {
     "barrels": 1,
     "barrelType": 1,
     "auto_input_3": 1
-  } as Barrels_to_litersInput;
+  } as unknown as Barrels_to_litersInput;
     const result = calculateBarrels_to_liters(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

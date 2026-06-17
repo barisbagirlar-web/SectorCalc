@@ -13,7 +13,7 @@ describe("rugby-vo2-max-calculator", () => {
     "gender": 0,
     "time": 15,
     "heartRate": 120
-  } as Rugby_vo2_max_calculatorInput;
+  } as unknown as Rugby_vo2_max_calculatorInput;
     const result = calculateRugby_vo2_max_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

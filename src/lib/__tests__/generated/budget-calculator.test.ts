@@ -15,7 +15,7 @@ describe("budget-calculator", () => {
     "transportation": 0,
     "savings": 0,
     "otherExpenses": 0
-  } as Budget_calculatorInput;
+  } as unknown as Budget_calculatorInput;
     const result = calculateBudget_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

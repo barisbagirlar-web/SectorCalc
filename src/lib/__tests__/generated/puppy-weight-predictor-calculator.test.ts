@@ -12,7 +12,7 @@ describe("puppy-weight-predictor-calculator", () => {
     "currentAgeWeeks": 12,
     "breedMaturityAgeMonths": 12,
     "adjustmentFactor": 1
-  } as Puppy_weight_predictor_calculatorInput;
+  } as unknown as Puppy_weight_predictor_calculatorInput;
     const result = calculatePuppy_weight_predictor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

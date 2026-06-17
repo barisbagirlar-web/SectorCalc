@@ -15,7 +15,7 @@ describe("tariff-calculator", () => {
     "standingCharge": 0.5,
     "days": 30,
     "taxRate": 20
-  } as Tariff_calculatorInput;
+  } as unknown as Tariff_calculatorInput;
     const result = calculateTariff_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

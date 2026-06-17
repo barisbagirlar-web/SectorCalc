@@ -16,7 +16,7 @@ describe("vehicle-depreciation-calculator", () => {
     "maintenance_cost_per_year": 800,
     "fuel_efficiency_mpg": 25,
     "fuel_price_per_gallon": 3.5
-  } as Vehicle_depreciation_calculatorInput;
+  } as unknown as Vehicle_depreciation_calculatorInput;
     const result = calculateVehicle_depreciation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

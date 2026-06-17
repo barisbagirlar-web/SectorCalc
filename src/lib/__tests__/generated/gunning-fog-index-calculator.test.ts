@@ -12,7 +12,7 @@ describe("gunning-fog-index-calculator", () => {
     "totalSentences": 5,
     "complexWords": 10,
     "exemptWords": 0
-  } as Gunning_fog_index_calculatorInput;
+  } as unknown as Gunning_fog_index_calculatorInput;
     const result = calculateGunning_fog_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

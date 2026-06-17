@@ -12,7 +12,7 @@ describe("normality-test-calculator", () => {
     "skewness": 0,
     "excessKurtosis": 0,
     "criticalZ": 2
-  } as Normality_test_calculatorInput;
+  } as unknown as Normality_test_calculatorInput;
     const result = calculateNormality_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

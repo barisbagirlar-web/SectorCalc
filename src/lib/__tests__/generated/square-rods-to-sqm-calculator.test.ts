@@ -12,7 +12,7 @@ describe("square-rods-to-sqm-calculator", () => {
     "conversionFactor": 25.29285264,
     "roundingDecimals": 2,
     "areaAdjustment": 0
-  } as Square_rods_to_sqm_calculatorInput;
+  } as unknown as Square_rods_to_sqm_calculatorInput;
     const result = calculateSquare_rods_to_sqm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

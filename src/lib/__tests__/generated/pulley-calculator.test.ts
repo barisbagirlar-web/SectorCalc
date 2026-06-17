@@ -12,7 +12,7 @@ describe("pulley-calculator", () => {
     "drivenDiameter": 200,
     "centerDistance": 500,
     "driverRPM": 1500
-  } as Pulley_calculatorInput;
+  } as unknown as Pulley_calculatorInput;
     const result = calculatePulley_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

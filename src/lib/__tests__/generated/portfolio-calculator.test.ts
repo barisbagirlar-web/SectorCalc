@@ -12,7 +12,7 @@ describe("portfolio-calculator", () => {
     "monthlyContribution": 500,
     "annualReturnRate": 7,
     "years": 30
-  } as Portfolio_calculatorInput;
+  } as unknown as Portfolio_calculatorInput;
     const result = calculatePortfolio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("tree-spacing-calculator", () => {
     "fieldWidth": 50,
     "treeSpacing": 4,
     "rowSpacing": 5
-  } as Tree_spacing_calculatorInput;
+  } as unknown as Tree_spacing_calculatorInput;
     const result = calculateTree_spacing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

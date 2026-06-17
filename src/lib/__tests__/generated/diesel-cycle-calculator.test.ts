@@ -14,7 +14,7 @@ describe("diesel-cycle-calculator", () => {
     "p1": 100000,
     "k": 1.4,
     "cv": 718
-  } as Diesel_cycle_calculatorInput;
+  } as unknown as Diesel_cycle_calculatorInput;
     const result = calculateDiesel_cycle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "A[1,1] (self-loop)",
         "tr": "A[1,1] (kendine döngü)",
-        "de": "A[1,1] (self-loop)",
+        "de": "A[1,1] (Selbstschleife)",
         "fr": "A[1,1] (self-loop)",
         "es": "A[1,1] (self-loop)",
         "ar": "A[1,1] (self-loop)"
       },
       "businessContext_i18n": {
         "en": "Self-loop on node 1",
-        "tr": "Düğüm 1 üzerinde kendine döngü"
+        "tr": "Düğüm 1 üzerinde kendine döngü",
+        "de": "Selbstschleife auf Knoten 1"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "A[1,2] (edge 1->2)",
         "tr": "A[1,2] (kenar 1->2)",
-        "de": "A[1,2] (edge 1->2)",
+        "de": "A[1,2] (Kante 1->2)",
         "fr": "A[1,2] (edge 1->2)",
         "es": "A[1,2] (edge 1->2)",
         "ar": "A[1,2] (edge 1->2)"
       },
       "businessContext_i18n": {
         "en": "Edge from node 1 to node 2",
-        "tr": "Düğüm 1'den düğüm 2'ye kenar"
+        "tr": "Düğüm 1'den düğüm 2'ye kenar",
+        "de": "Kante von Knoten 1 zu Knoten 2"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "A[2,1] (edge 2->1)",
         "tr": "A[2,1] (kenar 2->1)",
-        "de": "A[2,1] (edge 2->1)",
+        "de": "A[2,1] (Kante 2->1)",
         "fr": "A[2,1] (edge 2->1)",
         "es": "A[2,1] (edge 2->1)",
         "ar": "A[2,1] (edge 2->1)"
       },
       "businessContext_i18n": {
         "en": "Edge from node 2 to node 1",
-        "tr": "Düğüm 2'den düğüm 1'e kenar"
+        "tr": "Düğüm 2'den düğüm 1'e kenar",
+        "de": "Kante von Knoten 2 zu Knoten 1"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "A[2,2] (self-loop)",
         "tr": "A[2,2] (kendine döngü)",
-        "de": "A[2,2] (self-loop)",
+        "de": "A[2,2] (Selbstschleife)",
         "fr": "A[2,2] (self-loop)",
         "es": "A[2,2] (self-loop)",
         "ar": "A[2,2] (self-loop)"
       },
       "businessContext_i18n": {
         "en": "Self-loop on node 2",
-        "tr": "Düğüm 2 üzerinde kendine döngü"
+        "tr": "Düğüm 2 üzerinde kendine döngü",
+        "de": "Selbstschleife auf Knoten 2"
       }
     }
   ],

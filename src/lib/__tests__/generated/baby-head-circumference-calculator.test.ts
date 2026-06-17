@@ -13,7 +13,7 @@ describe("baby-head-circumference-calculator", () => {
     "head_height": 8,
     "unit_conversion": 1,
     "scale_factor": 1
-  } as Baby_head_circumference_calculatorInput;
+  } as unknown as Baby_head_circumference_calculatorInput;
     const result = calculateBaby_head_circumference_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

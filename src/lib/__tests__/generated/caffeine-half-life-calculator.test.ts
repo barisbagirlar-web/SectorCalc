@@ -12,7 +12,7 @@ describe("caffeine-half-life-calculator", () => {
     "halfLife": 5,
     "elapsedTime": 4,
     "bodyWeight": 70
-  } as Caffeine_half_life_calculatorInput;
+  } as unknown as Caffeine_half_life_calculatorInput;
     const result = calculateCaffeine_half_life_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

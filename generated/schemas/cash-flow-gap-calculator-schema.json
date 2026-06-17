@@ -22,11 +22,13 @@
       "businessContext": "Average number of days to collect payment after a sale. High DSO indicates potential cash flow issues.",
       "label_i18n": {
         "en": "Average Days Receivable (DSO)",
-        "tr": "Ortalama Tahsilat Süresi (DSO)"
+        "tr": "Ortalama Tahsilat Süresi (DSO)",
+        "de": "Durchschnittliche Forderungslaufzeit (DSO)"
       },
       "businessContext_i18n": {
         "en": "Average number of days to collect payment after a sale. High DSO indicates potential cash flow issues.",
-        "tr": "Bir satıştan sonra tahsilat için geçen ortalama gün sayısı. Yüksek DSO, potansiyel nakit akışı sorunlarını gösterir."
+        "tr": "Bir satıştan sonra tahsilat için geçen ortalama gün sayısı. Yüksek DSO, potansiyel nakit akışı sorunlarını gösterir.",
+        "de": "Durchschnittliche Anzahl Tage bis zum Zahlungseingang nach einem Verkauf. Ein hoher DSO deutet auf mögliche Cashflow-Probleme hin."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Average number of days to pay suppliers. Higher DPO can improve cash flow but may strain supplier relationships.",
       "label_i18n": {
         "en": "Average Days Payable (DPO)",
-        "tr": "Ortalama Ödeme Süresi (DPO)"
+        "tr": "Ortalama Ödeme Süresi (DPO)",
+        "de": "Durchschnittliche Verbindlichkeitslaufzeit (DPO)"
       },
       "businessContext_i18n": {
         "en": "Average number of days to pay suppliers. Higher DPO can improve cash flow but may strain supplier relationships.",
-        "tr": "Tedarikçilere ödeme yapmak için geçen ortalama gün sayısı. Daha yüksek DPO nakit akışını iyileştirebilir ancak tedarikçi ilişkilerini zorlayabilir."
+        "tr": "Tedarikçilere ödeme yapmak için geçen ortalama gün sayısı. Daha yüksek DPO nakit akışını iyileştirebilir ancak tedarikçi ilişkilerini zorlayabilir.",
+        "de": "Durchschnittliche Anzahl Tage bis zur Zahlung an Lieferanten. Ein höherer DPO kann den Cashflow verbessern, aber Lieferantenbeziehungen belasten."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Average number of days inventory is held before sale. High DII ties up cash and increases holding costs.",
       "label_i18n": {
         "en": "Inventory Days (DII)",
-        "tr": "Envanter Günleri (DII)"
+        "tr": "Envanter Günleri (DII)",
+        "de": "Lagerbestandstage (DII)"
       },
       "businessContext_i18n": {
         "en": "Average number of days inventory is held before sale. High DII ties up cash and increases holding costs.",
-        "tr": "Envanterin satıştan önce elde tutulduğu ortalama gün sayısı. Yüksek DII, nakdi bağlar ve elde tutma maliyetlerini artırır."
+        "tr": "Envanterin satıştan önce elde tutulduğu ortalama gün sayısı. Yüksek DII, nakdi bağlar ve elde tutma maliyetlerini artırır.",
+        "de": "Durchschnittliche Anzahl Tage, die der Lagerbestand vor dem Verkauf gehalten wird. Ein hoher DII bindet Kapital und erhöht die Lagerkosten."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Total daily operating costs including labor, materials, overhead. Used to compute cash gap in monetary terms.",
       "label_i18n": {
         "en": "Daily Operating Expenses",
-        "tr": "Günlük İşletme Giderleri"
+        "tr": "Günlük İşletme Giderleri",
+        "de": "Tägliche Betriebsausgaben"
       },
       "businessContext_i18n": {
         "en": "Total daily operating costs including labor, materials, overhead. Used to compute cash gap in monetary terms.",
-        "tr": "İşçilik, malzeme, genel giderler dahil toplam günlük işletme maliyetleri. Nakit açığını parasal olarak hesaplamak için kullanılır."
+        "tr": "İşçilik, malzeme, genel giderler dahil toplam günlük işletme maliyetleri. Nakit açığını parasal olarak hesaplamak için kullanılır.",
+        "de": "Tägliche Betriebskosten einschließlich Arbeit, Material, Gemeinkosten. Wird verwendet, um die Cash-Lücke in Geldbeträgen zu berechnen."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Average daily revenue from sales. Used to compute cash conversion cycle and gap.",
       "label_i18n": {
         "en": "Daily Revenue",
-        "tr": "Günlük Gelir"
+        "tr": "Günlük Gelir",
+        "de": "Täglicher Umsatz"
       },
       "businessContext_i18n": {
         "en": "Average daily revenue from sales. Used to compute cash conversion cycle and gap.",
-        "tr": "Satışlardan elde edilen ortalama günlük gelir. Nakit dönüşüm döngüsü ve açığını hesaplamak için kullanılır."
+        "tr": "Satışlardan elde edilen ortalama günlük gelir. Nakit dönüşüm döngüsü ve açığını hesaplamak için kullanılır.",
+        "de": "Durchschnittlicher täglicher Umsatz aus Verkäufen. Wird verwendet, um den Cash-Conversion-Zyklus und die Cash-Lücke zu berechnen."
       }
     },
     {
@@ -116,11 +126,13 @@
       "businessContext": "Standard payment terms offered by suppliers. Affects DPO and cash gap.",
       "label_i18n": {
         "en": "Supplier Payment Terms",
-        "tr": "Tedarikçi Ödeme Koşulları"
+        "tr": "Tedarikçi Ödeme Koşulları",
+        "de": "Zahlungsbedingungen der Lieferanten"
       },
       "businessContext_i18n": {
         "en": "Standard payment terms offered by suppliers. Affects DPO and cash gap.",
-        "tr": "Tedarikçiler tarafından sunulan standart ödeme koşulları. Borç ödeme gün sayısını (DPO) ve nakit açığını etkiler."
+        "tr": "Tedarikçiler tarafından sunulan standart ödeme koşulları. Borç ödeme gün sayısını (DPO) ve nakit açığını etkiler.",
+        "de": "Standard-Zahlungsbedingungen der Lieferanten. Beeinflusst DPO und Cash-Lücke."
       }
     },
     {
@@ -137,11 +149,13 @@
       "businessContext": "Historical customer payment behavior. Adjusts effective DSO.",
       "label_i18n": {
         "en": "Customer Payment Behavior",
-        "tr": "Müşteri Ödeme Davranışı"
+        "tr": "Müşteri Ödeme Davranışı",
+        "de": "Zahlungsverhalten der Kunden"
       },
       "businessContext_i18n": {
         "en": "Historical customer payment behavior. Adjusts effective DSO.",
-        "tr": "Geçmiş müşteri ödeme davranışı. Efektif alacak tahsilat gün sayısını (DSO) ayarlar."
+        "tr": "Geçmiş müşteri ödeme davranışı. Efektif alacak tahsilat gün sayısını (DSO) ayarlar.",
+        "de": "Historisches Zahlungsverhalten der Kunden. Passt den effektiven DSO an."
       }
     },
     {
@@ -153,11 +167,13 @@
       "businessContext": "Indicates if Lean inventory methods (e.g., JIT) are in place to reduce inventory days.",
       "label_i18n": {
         "en": "Lean Inventory Practices Active",
-        "tr": "Yalın Envanter Uygulamaları Aktif"
+        "tr": "Yalın Envanter Uygulamaları Aktif",
+        "de": "Lean-Bestandsmanagement aktiv"
       },
       "businessContext_i18n": {
         "en": "Indicates if Lean inventory methods (e.g., JIT) are in place to reduce inventory days.",
-        "tr": "Envanter günlerini azaltmak için yalın envanter yöntemlerinin (örn. JIT) uygulanıp uygulanmadığını belirtir."
+        "tr": "Envanter günlerini azaltmak için yalın envanter yöntemlerinin (örn. JIT) uygulanıp uygulanmadığını belirtir.",
+        "de": "Gibt an, ob Lean-Bestandsmethoden (z. B. JIT) zur Reduzierung der Lagerbestandstage eingesetzt werden."
       }
     }
   ],

@@ -5,10 +5,13 @@ import {
   formatEuroAmount,
   resolveCaseStudySavingsEur,
 } from "@/lib/case-studies/academic-database";
-import { formatAcademicDate, renderCaseStudyBodyContent } from "@/lib/case-studies/academic-format";
+import {
+  formatAcademicDate,
+  getLocalizedDuration,
+  renderCaseStudyBodyContent,
+} from "@/lib/case-studies/academic-format";
 import { buildCaseStudyJsonLd } from "@/lib/case-studies/case-study-seo";
 import type { CaseStudy } from "@/lib/case-studies/types";
-import { getLocalizedDuration } from "@/lib/i18n/duration";
 import { resolveGeneratedToolPath } from "@/lib/tools/paths";
 import { AcademicDatabaseChrome } from "@/components/case-studies/academic/AcademicDatabaseChrome";
 

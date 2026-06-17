@@ -15,7 +15,7 @@ describe("baby-cost-calculator", () => {
     "monthlyChildcare": 500,
     "monthlyMedical": 100,
     "oneTimeCosts": 1000
-  } as Baby_cost_calculatorInput;
+  } as unknown as Baby_cost_calculatorInput;
     const result = calculateBaby_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

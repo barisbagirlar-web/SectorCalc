@@ -12,7 +12,7 @@ describe("pull-up-calculator", () => {
     "inclineAngle": 30,
     "frictionCoefficient": 0.2,
     "mechanicalAdvantage": 1
-  } as Pull_up_calculatorInput;
+  } as unknown as Pull_up_calculatorInput;
     const result = calculatePull_up_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

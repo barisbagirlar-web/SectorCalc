@@ -16,7 +16,7 @@ describe("haccp-deviation-cost-calculator", () => {
     "downtime_hours": 2,
     "hourly_overhead_rate": 500,
     "regulatory_penalty_flag": false
-  } as Haccp_deviation_cost_calculatorInput;
+  } as unknown as Haccp_deviation_cost_calculatorInput;
     const result = calculateHaccp_deviation_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("skateboard-impact-calculator", () => {
     "boardMass": 2.5,
     "dropHeight": 1.5,
     "stoppingDistance": 0.05
-  } as Skateboard_impact_calculatorInput;
+  } as unknown as Skateboard_impact_calculatorInput;
     const result = calculateSkateboard_impact_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

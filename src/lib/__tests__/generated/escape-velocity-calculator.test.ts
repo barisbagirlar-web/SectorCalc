@@ -12,7 +12,7 @@ describe("escape-velocity-calculator", () => {
     "radius": 6371000,
     "altitude": 0,
     "G": 6.6743e-11
-  } as Escape_velocity_calculatorInput;
+  } as unknown as Escape_velocity_calculatorInput;
     const result = calculateEscape_velocity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

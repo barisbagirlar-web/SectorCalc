@@ -12,7 +12,7 @@ describe("days-to-hours-calculator", () => {
     "hoursPerDay": 24,
     "minutesPerHour": 60,
     "secondsPerMinute": 60
-  } as Days_to_hours_calculatorInput;
+  } as unknown as Days_to_hours_calculatorInput;
     const result = calculateDays_to_hours_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("seed-calculator", () => {
     "germinationRate": 90,
     "seedPurity": 98,
     "tkw": 35
-  } as Seed_calculatorInput;
+  } as unknown as Seed_calculatorInput;
     const result = calculateSeed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

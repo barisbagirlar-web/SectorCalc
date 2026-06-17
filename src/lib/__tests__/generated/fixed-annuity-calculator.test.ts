@@ -13,7 +13,7 @@ describe("fixed-annuity-calculator", () => {
     "numberOfPeriods": 10,
     "futureValue": 0,
     "paymentType": 0
-  } as Fixed_annuity_calculatorInput;
+  } as unknown as Fixed_annuity_calculatorInput;
     const result = calculateFixed_annuity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

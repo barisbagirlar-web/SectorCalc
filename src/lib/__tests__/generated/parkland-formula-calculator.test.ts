@@ -13,7 +13,7 @@ describe("parkland-formula-calculator", () => {
     "fluid_factor": 4,
     "first_half_hours": 8,
     "second_half_hours": 16
-  } as Parkland_formula_calculatorInput;
+  } as unknown as Parkland_formula_calculatorInput;
     const result = calculateParkland_formula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("wave-speed-calculator", () => {
     "linearDensity": 0.01,
     "length": 1,
     "harmonicNumber": 1
-  } as Wave_speed_calculatorInput;
+  } as unknown as Wave_speed_calculatorInput;
     const result = calculateWave_speed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

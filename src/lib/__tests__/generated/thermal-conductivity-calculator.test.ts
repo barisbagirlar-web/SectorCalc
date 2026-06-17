@@ -16,7 +16,7 @@ describe("thermal-conductivity-calculator", () => {
     "temperature_delta_k": 50,
     "moisture_content_pct": 0,
     "aging_factor": 1
-  } as Thermal_conductivity_calculatorInput;
+  } as unknown as Thermal_conductivity_calculatorInput;
     const result = calculateThermal_conductivity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

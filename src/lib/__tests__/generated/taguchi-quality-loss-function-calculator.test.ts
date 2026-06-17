@@ -16,7 +16,7 @@ describe("taguchi-quality-loss-function-calculator", () => {
     "cost_at_limit": 50,
     "deviation_at_limit": 0.5,
     "production_volume": 10000
-  } as Taguchi_quality_loss_function_calculatorInput;
+  } as unknown as Taguchi_quality_loss_function_calculatorInput;
     const result = calculateTaguchi_quality_loss_function_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

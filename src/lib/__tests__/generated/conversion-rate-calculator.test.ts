@@ -12,7 +12,7 @@ describe("conversion-rate-calculator", () => {
     "finishedProductOutput": 900,
     "reworkOutput": 50,
     "scrap": 50
-  } as Conversion_rate_calculatorInput;
+  } as unknown as Conversion_rate_calculatorInput;
     const result = calculateConversion_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

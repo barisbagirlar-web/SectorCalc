@@ -16,7 +16,7 @@ describe("cut-fill-balance-optimizer-calculator", () => {
     "unitHaulCost": 0.5,
     "wasteDisposalCost": 3,
     "borrowCost": 5
-  } as Cut_fill_balance_optimizer_calculatorInput;
+  } as unknown as Cut_fill_balance_optimizer_calculatorInput;
     const result = calculateCut_fill_balance_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

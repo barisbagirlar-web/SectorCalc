@@ -14,7 +14,7 @@ describe("etf-calculator", () => {
     "investmentPeriod": 20,
     "expenseRatio": 0.5,
     "inflationRate": 2
-  } as Etf_calculatorInput;
+  } as unknown as Etf_calculatorInput;
     const result = calculateEtf_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

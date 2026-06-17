@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Transmitted Frequency",
         "tr": "İletilen Frekans",
-        "de": "Transmitted Frequency",
+        "de": "Gesendete Frequenz",
         "fr": "Transmitted Frequency",
         "es": "Transmitted Frequency",
         "ar": "Transmitted Frequency"
       },
       "businessContext_i18n": {
         "en": "Base frequency of emitted sound wave",
-        "tr": "Yayılan ses dalgasının temel frekansı"
+        "tr": "Yayılan ses dalgasının temel frekansı",
+        "de": "Basis-Frequenz der ausgesendeten Schallwelle"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Target Speed",
         "tr": "Hedef Hız",
-        "de": "Target Speed",
+        "de": "Zielgeschwindigkeit",
         "fr": "Target Speed",
         "es": "Target Speed",
         "ar": "Target Speed"
       },
       "businessContext_i18n": {
         "en": "Speed of the reflecting target. Positive for approaching, negative for receding.",
-        "tr": "Yansıyan hedefin hızı. Yaklaşıyorsa pozitif, uzaklaşıyorsa negatif."
+        "tr": "Yansıyan hedefin hızı. Yaklaşıyorsa pozitif, uzaklaşıyorsa negatif.",
+        "de": "Geschwindigkeit des reflektierenden Ziels. Positiv bei Annäherung, negativ bei Entfernung."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Angle (θ)",
         "tr": "Açı (θ)",
-        "de": "Angle (θ)",
+        "de": "Winkel (θ)",
         "fr": "Angle (θ)",
         "es": "Angle (θ)",
         "ar": "Angle (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle between target velocity vector and the line connecting source and target. 0° for head-on approach.",
-        "tr": "Hedef hız vektörü ile kaynak ve hedefi birleştiren doğru arasındaki açı. Kafa kafaya yaklaşma için 0°."
+        "tr": "Hedef hız vektörü ile kaynak ve hedefi birleştiren doğru arasındaki açı. Kafa kafaya yaklaşma için 0°.",
+        "de": "Winkel zwischen Zielgeschwindigkeitsvektor und der Verbindungslinie zwischen Quelle und Ziel. 0° für frontale Annäherung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Speed of Sound",
         "tr": "Ses Hızı",
-        "de": "Speed of Sound",
+        "de": "Schallgeschwindigkeit",
         "fr": "Speed of Sound",
         "es": "Speed of Sound",
         "ar": "Speed of Sound"
       },
       "businessContext_i18n": {
         "en": "Speed of sound in the medium (e.g., air at 20°C)",
-        "tr": "Ortamdaki ses hızı (örneğin, 20°C'de hava)"
+        "tr": "Ortamdaki ses hızı (örneğin, 20°C'de hava)",
+        "de": "Schallgeschwindigkeit im Medium (z.B. Luft bei 20°C)"
       }
     }
   ],

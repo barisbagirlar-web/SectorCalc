@@ -14,7 +14,7 @@ describe("aquaponics-calculator", () => {
     "feedProtein": 35,
     "plantNitrogenUptake": 1.5,
     "fishDensity": 30
-  } as Aquaponics_calculatorInput;
+  } as unknown as Aquaponics_calculatorInput;
     const result = calculateAquaponics_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("belt-length-calculator", () => {
     "small_diameter": 100,
     "center_distance": 500,
     "configuration": 0
-  } as Belt_length_calculatorInput;
+  } as unknown as Belt_length_calculatorInput;
     const result = calculateBelt_length_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

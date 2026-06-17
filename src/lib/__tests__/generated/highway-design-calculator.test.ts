@@ -12,7 +12,7 @@ describe("highway-design-calculator", () => {
     "superelevation": 8,
     "frictionFactor": 0.14,
     "desiredRadius": 0
-  } as Highway_design_calculatorInput;
+  } as unknown as Highway_design_calculatorInput;
     const result = calculateHighway_design_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

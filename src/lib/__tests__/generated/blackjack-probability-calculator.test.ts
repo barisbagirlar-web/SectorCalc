@@ -12,7 +12,7 @@ describe("blackjack-probability-calculator", () => {
     "acesRemaining": 24,
     "tensRemaining": 96,
     "otherCardsRemaining": 192
-  } as Blackjack_probability_calculatorInput;
+  } as unknown as Blackjack_probability_calculatorInput;
     const result = calculateBlackjack_probability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("trip-cost-calculator", () => {
     "fuelPrice": 1.5,
     "tolls": 10,
     "otherCosts": 5
-  } as Trip_cost_calculatorInput;
+  } as unknown as Trip_cost_calculatorInput;
     const result = calculateTrip_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

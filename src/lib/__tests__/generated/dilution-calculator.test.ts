@@ -13,7 +13,7 @@ describe("dilution-calculator", () => {
     "finalVolume": 100,
     "overagePercent": 0,
     "unitConversionFactor": 1
-  } as Dilution_calculatorInput;
+  } as unknown as Dilution_calculatorInput;
     const result = calculateDilution_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

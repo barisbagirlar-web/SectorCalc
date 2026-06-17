@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number",
         "tr": "Sayı",
-        "de": "Number",
+        "de": "Anzahl",
         "fr": "Number",
         "es": "Number",
         "ar": "Number"
       },
       "businessContext_i18n": {
         "en": "The number whose logarithm base is to be converted.",
-        "tr": "Logaritması dönüştürülecek sayı."
+        "tr": "Logaritması dönüştürülecek sayı.",
+        "de": "Die Zahl, deren Logarithmusbasis umgerechnet werden soll."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "From Base",
         "tr": "Taban (Kaynak)",
-        "de": "From Base",
+        "de": "Von Basis",
         "fr": "From Base",
         "es": "From Base",
         "ar": "From Base"
       },
       "businessContext_i18n": {
         "en": "The base of the logarithm you are converting from.",
-        "tr": "Dönüştürülen logaritmanın tabanı."
+        "tr": "Dönüştürülen logaritmanın tabanı.",
+        "de": "Die Basis des Logarithmus, von dem Sie umrechnen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "To Base",
         "tr": "Taban (Hedef)",
-        "de": "To Base",
+        "de": "Zu Basis",
         "fr": "To Base",
         "es": "To Base",
         "ar": "To Base"
       },
       "businessContext_i18n": {
         "en": "The target logarithm base to convert to.",
-        "tr": "Dönüştürülecek hedef logaritma tabanı."
+        "tr": "Dönüştürülecek hedef logaritma tabanı.",
+        "de": "Die Ziel-Logarithmusbasis, in die umgerechnet werden soll."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result.",
-        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı."
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses."
       }
     }
   ],

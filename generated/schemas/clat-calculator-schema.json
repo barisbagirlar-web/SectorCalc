@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Mass (m)",
         "tr": "Kütle (m)",
-        "de": "Mass (m)",
+        "de": "Masse (m)",
         "fr": "Mass (m)",
         "es": "Mass (m)",
         "ar": "Mass (m)"
       },
       "businessContext_i18n": {
         "en": "Mass of the rotating component (e.g., blade, disk)",
-        "tr": "Dönen bileşenin kütlesi (ör. bıçak, disk)"
+        "tr": "Dönen bileşenin kütlesi (ör. bıçak, disk)",
+        "de": "Masse der rotierenden Komponente (z. B. Schaufel, Scheibe)"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Distance from rotation axis to center of mass",
-        "tr": "Dönme ekseninden kütle merkezine olan mesafe"
+        "tr": "Dönme ekseninden kütle merkezine olan mesafe",
+        "de": "Abstand von der Rotationsachse zum Massenschwerpunkt"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Angular Velocity (ω)",
         "tr": "Açısal Hız (ω)",
-        "de": "Angular Velocity (ω)",
+        "de": "Winkelgeschwindigkeit (ω)",
         "fr": "Angular Velocity (ω)",
         "es": "Angular Velocity (ω)",
         "ar": "Angular Velocity (ω)"
       },
       "businessContext_i18n": {
         "en": "Rotational speed in radians per second (1 rad/s ≈ 9.55 rpm)",
-        "tr": "Saniyede radyan cinsinden dönüş hızı (1 rad/s ≈ 9.55 rpm)"
+        "tr": "Saniyede radyan cinsinden dönüş hızı (1 rad/s ≈ 9.55 rpm)",
+        "de": "Drehzahl in Radiant pro Sekunde (1 rad/s ≈ 9,55 U/min)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Cross-sectional Area (A)",
         "tr": "Kesit Alanı (A)",
-        "de": "Cross-sectional Area (A)",
+        "de": "Querschnittsfläche (A)",
         "fr": "Cross-sectional Area (A)",
         "es": "Cross-sectional Area (A)",
         "ar": "Cross-sectional Area (A)"
       },
       "businessContext_i18n": {
         "en": "Effective cross-sectional area supporting the load",
-        "tr": "Yükü taşıyan etkin kesit alanı"
+        "tr": "Yükü taşıyan etkin kesit alanı",
+        "de": "Effektive Querschnittsfläche, die die Last trägt"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Yield Stress (σ_y)",
         "tr": "Akma Gerilmesi (σ_y)",
-        "de": "Yield Stress (σ_y)",
+        "de": "Streckgrenze (σ_y)",
         "fr": "Yield Stress (σ_y)",
         "es": "Yield Stress (σ_y)",
         "ar": "Yield Stress (σ_y)"
       },
       "businessContext_i18n": {
         "en": "Material yield strength (e.g., structural steel ~250 MPa)",
-        "tr": "Malzemenin akma dayanımı (örneğin yapısal çelik ~250 MPa)"
+        "tr": "Malzemenin akma dayanımı (örneğin yapısal çelik ~250 MPa)",
+        "de": "Materialstreckgrenze (z. B. Baustahl ~250 MPa)"
       }
     }
   ],

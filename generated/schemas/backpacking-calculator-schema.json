@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Trip Duration",
         "tr": "Seyahat Süresi",
-        "de": "Trip Duration",
+        "de": "Reisedauer",
         "fr": "Trip Duration",
         "es": "Trip Duration",
         "ar": "Trip Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of backpacking trip",
-        "tr": "Sırt çantasıyla seyahat süresi"
+        "tr": "Sırt çantasıyla seyahat süresi",
+        "de": "Dauer der Rucksackreise"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Daily Distance",
         "tr": "Günlük Mesafe",
-        "de": "Daily Distance",
+        "de": "Tägliche Distanz",
         "fr": "Daily Distance",
         "es": "Daily Distance",
         "ar": "Daily Distance"
       },
       "businessContext_i18n": {
         "en": "Planned hiking distance per day",
-        "tr": "Günlük planlanan yürüyüş mesafesi"
+        "tr": "Günlük planlanan yürüyüş mesafesi",
+        "de": "Geplante Wanderstrecke pro Tag"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Daily Elevation Gain",
         "tr": "Günlük Yükseklik Kazancı",
-        "de": "Daily Elevation Gain",
+        "de": "Täglicher Höhengewinn",
         "fr": "Daily Elevation Gain",
         "es": "Daily Elevation Gain",
         "ar": "Daily Elevation Gain"
       },
       "businessContext_i18n": {
         "en": "Average elevation gain per day",
-        "tr": "Günlük ortalama yükseklik kazancı"
+        "tr": "Günlük ortalama yükseklik kazancı",
+        "de": "Durchschnittlicher Höhengewinn pro Tag"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Base Pack Weight",
         "tr": "Temel Sırt Çantası Ağırlığı",
-        "de": "Base Pack Weight",
+        "de": "Basis-Packgewicht",
         "fr": "Base Pack Weight",
         "es": "Base Pack Weight",
         "ar": "Base Pack Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of all gear excluding food and water",
-        "tr": "Yiyecek ve su hariç tüm ekipmanın ağırlığı"
+        "tr": "Yiyecek ve su hariç tüm ekipmanın ağırlığı",
+        "de": "Gewicht der gesamten Ausrüstung ohne Nahrung und Wasser"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Daily Food Weight",
         "tr": "Günlük Yiyecek Ağırlığı",
-        "de": "Daily Food Weight",
+        "de": "Tägliches Lebensmittelgewicht",
         "fr": "Daily Food Weight",
         "es": "Daily Food Weight",
         "ar": "Daily Food Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of food carried per day",
-        "tr": "Günlük taşınan yiyecek ağırlığı"
+        "tr": "Günlük taşınan yiyecek ağırlığı",
+        "de": "Gewicht der pro Tag mitgeführten Lebensmittel"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Daily Water Weight",
         "tr": "Günlük Su Ağırlığı",
-        "de": "Daily Water Weight",
+        "de": "Tägliches Wassergewicht",
         "fr": "Daily Water Weight",
         "es": "Daily Water Weight",
         "ar": "Daily Water Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of water carried per day (1 L ≈ 1 kg)",
-        "tr": "Günlük taşınan su ağırlığı (1 L ≈ 1 kg)"
+        "tr": "Günlük taşınan su ağırlığı (1 L ≈ 1 kg)",
+        "de": "Gewicht des pro Tag mitgeführten Wassers (1 L ≈ 1 kg)"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Hiker Body Weight",
         "tr": "Yürüyüşçü Vücut Ağırlığı",
-        "de": "Hiker Body Weight",
+        "de": "Körpergewicht des Wanderers",
         "fr": "Hiker Body Weight",
         "es": "Hiker Body Weight",
         "ar": "Hiker Body Weight"
       },
       "businessContext_i18n": {
         "en": "Hiker's body weight used for calorie estimation",
-        "tr": "Kalori tahmini için kullanılan yürüyüşçünün vücut ağırlığı."
+        "tr": "Kalori tahmini için kullanılan yürüyüşçünün vücut ağırlığı.",
+        "de": "Körpergewicht des Wanderers zur Kalorienabschätzung"
       }
     }
   ],

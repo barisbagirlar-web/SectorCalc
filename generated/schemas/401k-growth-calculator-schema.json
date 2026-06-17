@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Current Age",
         "tr": "Mevcut Yaş",
-        "de": "Current Age",
+        "de": "Aktuelles Alter",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
       },
       "businessContext_i18n": {
         "en": "Age of the individual",
-        "tr": "Bireyin yaşı"
+        "tr": "Bireyin yaşı",
+        "de": "Alter der Person"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Retirement Age",
         "tr": "Emeklilik Yaşı",
-        "de": "Retirement Age",
+        "de": "Rentenalter",
         "fr": "Retirement Age",
         "es": "Retirement Age",
         "ar": "Retirement Age"
       },
       "businessContext_i18n": {
         "en": "Expected retirement age",
-        "tr": "Beklenen emeklilik yaşı"
+        "tr": "Beklenen emeklilik yaşı",
+        "de": "Erwartetes Rentenalter"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Current 401(k) Balance",
         "tr": "Mevcut 401(k) Bakiyesi",
-        "de": "Current 401(k) Balance",
+        "de": "Aktueller 401(k)-Kontostand",
         "fr": "Current 401(k) Balance",
         "es": "Current 401(k) Balance",
         "ar": "Current 401(k) Balance"
       },
       "businessContext_i18n": {
         "en": "Current balance in the 401(k) account",
-        "tr": "401(k) hesabındaki mevcut bakiye"
+        "tr": "401(k) hesabındaki mevcut bakiye",
+        "de": "Aktueller Kontostand auf dem 401(k)-Konto"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Annual Contribution",
         "tr": "Yıllık Katkı",
-        "de": "Annual Contribution",
+        "de": "Jährlicher Beitrag",
         "fr": "Annual Contribution",
         "es": "Annual Contribution",
         "ar": "Annual Contribution"
       },
       "businessContext_i18n": {
         "en": "Annual employee contribution amount",
-        "tr": "Yıllık çalışan katkı tutarı"
+        "tr": "Yıllık çalışan katkı tutarı",
+        "de": "Jährlicher Mitarbeiterbeitragsbetrag"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Annual Salary",
         "tr": "Yıllık Maaş",
-        "de": "Annual Salary",
+        "de": "Jahresgehalt",
         "fr": "Annual Salary",
         "es": "Annual Salary",
         "ar": "Annual Salary"
       },
       "businessContext_i18n": {
         "en": "Current annual salary, used to compute employer match in dollars",
-        "tr": "İşveren eşleştirmesini dolar cinsinden hesaplamak için kullanılan mevcut yıllık maaş"
+        "tr": "İşveren eşleştirmesini dolar cinsinden hesaplamak için kullanılan mevcut yıllık maaş",
+        "de": "Aktuelles Jahresgehalt, zur Berechnung des Arbeitgeber-Matchings in Dollar"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Employer Match Percentage",
         "tr": "İşveren Eşleştirme Yüzdesi",
-        "de": "Employer Match Percentage",
+        "de": "Arbeitgeber-Matching-Prozentsatz",
         "fr": "Employer Match Percentage",
         "es": "Employer Match Percentage",
         "ar": "Employer Match Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of salary matched by employer",
-        "tr": "İşveren tarafından eşleştirilen maaş yüzdesi"
+        "tr": "İşveren tarafından eşleştirilen maaş yüzdesi",
+        "de": "Prozentsatz des Gehalts, den der Arbeitgeber verdoppelt"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Expected Annual Return",
         "tr": "Beklenen Yıllık Getiri",
-        "de": "Expected Annual Return",
+        "de": "Erwartete jährliche Rendite",
         "fr": "Expected Annual Return",
         "es": "Expected Annual Return",
         "ar": "Expected Annual Return"
       },
       "businessContext_i18n": {
         "en": "Expected annual rate of return on investments",
-        "tr": "Yatırımlardan beklenen yıllık getiri oranı"
+        "tr": "Yatırımlardan beklenen yıllık getiri oranı",
+        "de": "Erwartete jährliche Rendite auf Investitionen"
       }
     }
   ],

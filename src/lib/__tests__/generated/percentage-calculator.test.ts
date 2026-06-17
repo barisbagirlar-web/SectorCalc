@@ -15,7 +15,7 @@ describe("percentage-calculator", () => {
     "target_yield": 99,
     "process_type": "manufacturing",
     "include_scrap_in_defect": true
-  } as Percentage_calculatorInput;
+  } as unknown as Percentage_calculatorInput;
     const result = calculatePercentage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("photoelectric-effect-calculator", () => {
     "workFunction": 2,
     "planckConstant": 4.135667662e-15,
     "speedOfLight": 299792458
-  } as Photoelectric_effect_calculatorInput;
+  } as unknown as Photoelectric_effect_calculatorInput;
     const result = calculatePhotoelectric_effect_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

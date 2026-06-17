@@ -12,7 +12,7 @@ describe("settlement-calculator", () => {
     "yearsOfService": 5,
     "unusedLeaveDays": 10,
     "noticePeriodDays": 30
-  } as Settlement_calculatorInput;
+  } as unknown as Settlement_calculatorInput;
     const result = calculateSettlement_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

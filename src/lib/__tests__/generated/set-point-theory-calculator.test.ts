@@ -12,7 +12,7 @@ describe("set-point-theory-calculator", () => {
     "processValue": 90,
     "gain": 1.5,
     "baseSetPoint": 0
-  } as Set_point_theory_calculatorInput;
+  } as unknown as Set_point_theory_calculatorInput;
     const result = calculateSet_point_theory_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

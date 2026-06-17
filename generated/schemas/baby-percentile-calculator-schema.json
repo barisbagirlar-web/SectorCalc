@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Baby's age in months, 0-36",
-        "tr": "Bebeğin ay cinsinden yaşı, 0-36"
+        "tr": "Bebeğin ay cinsinden yaşı, 0-36",
+        "de": "Alter des Babys in Monaten, 0-36"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
-        "de": "Weight",
+        "de": "Gewicht",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms",
-        "tr": "Vücut ağırlığı (kilogram cinsinden)."
+        "tr": "Vücut ağırlığı (kilogram cinsinden).",
+        "de": "Körpergewicht in Kilogramm"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Length",
         "tr": "Uzunluk",
-        "de": "Length",
+        "de": "Länge",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "Body length in centimeters",
-        "tr": "Santimetre cinsinden vücut uzunluğu"
+        "tr": "Santimetre cinsinden vücut uzunluğu",
+        "de": "Körperlänge in Zentimetern"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Head Circumference",
         "tr": "Baş Çevresi",
-        "de": "Head Circumference",
+        "de": "Kopfumfang",
         "fr": "Head Circumference",
         "es": "Head Circumference",
         "ar": "Head Circumference"
       },
       "businessContext_i18n": {
         "en": "Head circumference in centimeters",
-        "tr": "Santimetre cinsinden baş çevresi"
+        "tr": "Santimetre cinsinden baş çevresi",
+        "de": "Kopfumfang in Zentimetern"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Gender",
         "tr": "Cinsiyet",
-        "de": "Gender",
+        "de": "Geschlecht",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for boy, 1 for girl",
-        "tr": "0 erkek, 1 kız"
+        "tr": "0 erkek, 1 kız",
+        "de": "0 für Junge, 1 für Mädchen"
       }
     }
   ],

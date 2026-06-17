@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Birth Year",
         "tr": "Doğum Yılı",
-        "de": "Birth Year",
+        "de": "Geburtsjahr",
         "fr": "Birth Year",
         "es": "Birth Year",
         "ar": "Birth Year"
       },
       "businessContext_i18n": {
         "en": "Gregorian year of birth.",
-        "tr": "Miladi doğum yılı."
+        "tr": "Miladi doğum yılı.",
+        "de": "Gregorianisches Geburtsjahr."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Birth Month",
         "tr": "Doğum Ayı",
-        "de": "Birth Month",
+        "de": "Geburtsmonat",
         "fr": "Birth Month",
         "es": "Birth Month",
         "ar": "Birth Month"
       },
       "businessContext_i18n": {
         "en": "Month of birth (1-12). Not used for zodiac, but included for completeness.",
-        "tr": "Doğum ayı (1-12). Burç için kullanılmaz, ancak tamlık için dahil edilmiştir."
+        "tr": "Doğum ayı (1-12). Burç için kullanılmaz, ancak tamlık için dahil edilmiştir.",
+        "de": "Geburtsmonat (1-12). Wird nicht für das Tierkreiszeichen verwendet, aber der Vollständigkeit halber aufgenommen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Birth Day",
         "tr": "Doğum Günü",
-        "de": "Birth Day",
+        "de": "Geburtstag",
         "fr": "Birth Day",
         "es": "Birth Day",
         "ar": "Birth Day"
       },
       "businessContext_i18n": {
         "en": "Day of birth (1-31).",
-        "tr": "Doğum günü (1-31)."
+        "tr": "Doğum günü (1-31).",
+        "de": "Geburtstag (1-31)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Birth Hour",
         "tr": "Doğum Saati",
-        "de": "Birth Hour",
+        "de": "Geburtsstunde",
         "fr": "Birth Hour",
         "es": "Birth Hour",
         "ar": "Birth Hour"
       },
       "businessContext_i18n": {
         "en": "Hour of birth (0-23).",
-        "tr": "Doğum saati (0-23)."
+        "tr": "Doğum saati (0-23).",
+        "de": "Geburtsstunde (0-23)."
       }
     }
   ],

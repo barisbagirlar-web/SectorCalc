@@ -14,7 +14,7 @@ describe("handshaking-lemma-calculator", () => {
     "v4": 0,
     "v5": 0,
     "v6": 0
-  } as Handshaking_lemma_calculatorInput;
+  } as unknown as Handshaking_lemma_calculatorInput;
     const result = calculateHandshaking_lemma_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("debt-service-coverage-ratio-calculator", () => {
     "loanAmount": 500000,
     "interestRate": 5,
     "loanTerm": 10
-  } as Debt_service_coverage_ratio_calculatorInput;
+  } as unknown as Debt_service_coverage_ratio_calculatorInput;
     const result = calculateDebt_service_coverage_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

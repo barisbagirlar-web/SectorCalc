@@ -13,7 +13,7 @@ describe("refeed-day-calculator", () => {
     "refeedTargetRatio": 10,
     "refeedMaterialAvailability": 500,
     "maxRefeedCapacity": 0
-  } as Refeed_day_calculatorInput;
+  } as unknown as Refeed_day_calculatorInput;
     const result = calculateRefeed_day_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

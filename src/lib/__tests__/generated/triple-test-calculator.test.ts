@@ -15,7 +15,7 @@ describe("triple-test-calculator", () => {
     "cv_limit": 10,
     "min_individual": 25,
     "max_individual": 45
-  } as Triple_test_calculatorInput;
+  } as unknown as Triple_test_calculatorInput;
     const result = calculateTriple_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

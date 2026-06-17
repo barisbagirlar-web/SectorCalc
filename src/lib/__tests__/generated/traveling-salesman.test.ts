@@ -15,7 +15,7 @@ describe("traveling-salesman", () => {
     "costPerKm": 0.5,
     "fixedCostPerStop": 10,
     "numVehicles": 1
-  } as Traveling_salesmanInput;
+  } as unknown as Traveling_salesmanInput;
     const result = calculateTraveling_salesman(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("economic-order-quantity-calculator", () => {
     "orderingCost": 50,
     "holdingCost": 2,
     "unitCost": 10
-  } as Economic_order_quantity_calculatorInput;
+  } as unknown as Economic_order_quantity_calculatorInput;
     const result = calculateEconomic_order_quantity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

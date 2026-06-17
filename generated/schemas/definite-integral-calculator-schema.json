@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Kübik katsayı (a x³)",
         "tr": "Kübik katsayı (a x³)",
-        "de": "Kübik katsayı (a x³)",
+        "de": "Kubik-Koeffizient (a x³)",
         "fr": "Kübik katsayı (a x³)",
         "es": "Kübik katsayı (a x³)",
         "ar": "Kübik katsayı (a x³)"
       },
       "businessContext_i18n": {
         "en": "Cubic coefficient of f(x)=ax³+bx²+cx+d",
-        "tr": "f(x)=ax³+bx²+cx+d'nin kübik katsayısı"
+        "tr": "f(x)=ax³+bx²+cx+d'nin kübik katsayısı",
+        "de": "Kubischer Koeffizient von f(x)=ax³+bx²+cx+d"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Kare katsayı (b x²)",
         "tr": "Kare katsayı (b x²)",
-        "de": "Kare katsayı (b x²)",
+        "de": "Quadratischer Koeffizient (b x²)",
         "fr": "Kare katsayı (b x²)",
         "es": "Kare katsayı (b x²)",
         "ar": "Kare katsayı (b x²)"
       },
       "businessContext_i18n": {
         "en": "Quadratic coefficient of f(x)=ax³+bx²+cx+d",
-        "tr": "f(x)=ax³+bx²+cx+d'nin ikinci derece katsayısı"
+        "tr": "f(x)=ax³+bx²+cx+d'nin ikinci derece katsayısı",
+        "de": "Quadratischer Koeffizient von f(x)=ax³+bx²+cx+d"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Doğrusal katsayı (c x)",
         "tr": "Doğrusal katsayı (c x)",
-        "de": "Doğrusal katsayı (c x)",
+        "de": "Linearer Koeffizient (c x)",
         "fr": "Doğrusal katsayı (c x)",
         "es": "Doğrusal katsayı (c x)",
         "ar": "Doğrusal katsayı (c x)"
       },
       "businessContext_i18n": {
         "en": "Linear coefficient of f(x)=ax³+bx²+cx+d",
-        "tr": "f(x)=ax³+bx²+cx+d'nin doğrusal katsayısı"
+        "tr": "f(x)=ax³+bx²+cx+d'nin doğrusal katsayısı",
+        "de": "Linearer Koeffizient von f(x)=ax³+bx²+cx+d"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Sabit terim (d)",
         "tr": "Sabit terim (d)",
-        "de": "Sabit terim (d)",
+        "de": "Konstantes Glied (d)",
         "fr": "Sabit terim (d)",
         "es": "Sabit terim (d)",
         "ar": "Sabit terim (d)"
       },
       "businessContext_i18n": {
         "en": "Constant term of f(x)=ax³+bx²+cx+d",
-        "tr": "f(x)=ax³+bx²+cx+d'nin sabit terimi"
+        "tr": "f(x)=ax³+bx²+cx+d'nin sabit terimi",
+        "de": "Konstantes Glied von f(x)=ax³+bx²+cx+d"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Alt sınır",
         "tr": "Alt sınır",
-        "de": "Alt sınır",
+        "de": "Untere Grenze",
         "fr": "Alt sınır",
         "es": "Alt sınır",
         "ar": "Alt sınır"
       },
       "businessContext_i18n": {
         "en": "Lower integration limit",
-        "tr": "Alt entegrasyon sınırı"
+        "tr": "Alt entegrasyon sınırı",
+        "de": "Untere Integrationsgrenze"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Üst sınır",
         "tr": "Üst sınır",
-        "de": "Üst sınır",
+        "de": "Obere Grenze",
         "fr": "Üst sınır",
         "es": "Üst sınır",
         "ar": "Üst sınır"
       },
       "businessContext_i18n": {
         "en": "Upper integration limit",
-        "tr": "Üst entegrasyon limiti"
+        "tr": "Üst entegrasyon limiti",
+        "de": "Obere Integrationsgrenze"
       }
     }
   ],

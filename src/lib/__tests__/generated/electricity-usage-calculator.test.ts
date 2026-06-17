@@ -13,7 +13,7 @@ describe("electricity-usage-calculator", () => {
     "daysPerMonth": 30,
     "numberOfDevices": 1,
     "costPerKwh": 0.15
-  } as Electricity_usage_calculatorInput;
+  } as unknown as Electricity_usage_calculatorInput;
     const result = calculateElectricity_usage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

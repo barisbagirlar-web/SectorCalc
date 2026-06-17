@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Cement Content",
         "tr": "Çimento Miktarı",
-        "de": "Cement Content",
+        "de": "Zementgehalt",
         "fr": "Cement Content",
         "es": "Cement Content",
         "ar": "Cement Content"
       },
       "businessContext_i18n": {
         "en": "Amount of cement per cubic meter of concrete",
-        "tr": "Beton metreküp başına çimento miktarı"
+        "tr": "Beton metreküp başına çimento miktarı",
+        "de": "Menge Zement pro Kubikmeter Beton."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Water Content",
         "tr": "Su Miktarı",
-        "de": "Water Content",
+        "de": "Wassergehalt",
         "fr": "Water Content",
         "es": "Water Content",
         "ar": "Water Content"
       },
       "businessContext_i18n": {
         "en": "Amount of water per cubic meter of concrete",
-        "tr": "Beton metreküp başına su miktarı"
+        "tr": "Beton metreküp başına su miktarı",
+        "de": "Menge Wasser pro Kubikmeter Beton."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Age of Concrete",
         "tr": "Beton Yaşı",
-        "de": "Age of Concrete",
+        "de": "Betonalter",
         "fr": "Age of Concrete",
         "es": "Age of Concrete",
         "ar": "Age of Concrete"
       },
       "businessContext_i18n": {
         "en": "Time in days since casting",
-        "tr": "Dökümden bu yana geçen gün sayısı"
+        "tr": "Dökümden bu yana geçen gün sayısı",
+        "de": "Zeit in Tagen seit dem Gießen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "A coefficient (Abrams)",
         "tr": "A katsayısı (Abrams)",
-        "de": "A coefficient (Abrams)",
+        "de": "Koeffizient A (Abrams)",
         "fr": "A coefficient (Abrams)",
         "es": "A coefficient (Abrams)",
         "ar": "A coefficient (Abrams)"
       },
       "businessContext_i18n": {
         "en": "Empirical material constant A in Abrams' law (strength scale)",
-        "tr": "Abrams yasasında ampirik malzeme sabiti A (dayanım ölçeği)"
+        "tr": "Abrams yasasında ampirik malzeme sabiti A (dayanım ölçeği)",
+        "de": "Empirische Materialkonstante A im Abrams'schen Gesetz (Festigkeitsmaßstab)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "B coefficient (Abrams)",
         "tr": "B katsayısı (Abrams)",
-        "de": "B coefficient (Abrams)",
+        "de": "Koeffizient B (Abrams)",
         "fr": "B coefficient (Abrams)",
         "es": "B coefficient (Abrams)",
         "ar": "B coefficient (Abrams)"
       },
       "businessContext_i18n": {
         "en": "Empirical material constant B in Abrams' law (typically 10-20)",
-        "tr": "Abrams yasasında ampirik malzeme sabiti B (tipik olarak 10-20)"
+        "tr": "Abrams yasasında ampirik malzeme sabiti B (tipik olarak 10-20)",
+        "de": "Empirische Materialkonstante B im Abrams'schen Gesetz (typischerweise 10-20)."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("chronotype-calculator", () => {
     "workdayWaketime": 7,
     "freeDayBedtime": 0,
     "freeDayWaketime": 8
-  } as Chronotype_calculatorInput;
+  } as unknown as Chronotype_calculatorInput;
     const result = calculateChronotype_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("standard-error-calculator", () => {
     "n1": 1,
     "sd2": 0,
     "n2": 1
-  } as Standard_error_calculatorInput;
+  } as unknown as Standard_error_calculatorInput;
     const result = calculateStandard_error_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

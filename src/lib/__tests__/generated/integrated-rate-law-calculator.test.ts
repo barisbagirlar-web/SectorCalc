@@ -12,7 +12,7 @@ describe("integrated-rate-law-calculator", () => {
     "rateConstant": 0.1,
     "time": 10,
     "reactionOrder": 1
-  } as Integrated_rate_law_calculatorInput;
+  } as unknown as Integrated_rate_law_calculatorInput;
     const result = calculateIntegrated_rate_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

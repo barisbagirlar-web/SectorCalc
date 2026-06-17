@@ -12,7 +12,7 @@ describe("probability-gacha-calculator", () => {
     "probability": 0.05,
     "cost": 100,
     "guarantee": 0
-  } as Probability_gacha_calculatorInput;
+  } as unknown as Probability_gacha_calculatorInput;
     const result = calculateProbability_gacha_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

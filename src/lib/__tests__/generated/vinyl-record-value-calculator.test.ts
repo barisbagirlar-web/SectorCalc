@@ -13,7 +13,7 @@ describe("vinyl-record-value-calculator", () => {
     "rarityScore": 5,
     "popularityScore": 5,
     "ageYears": 10
-  } as Vinyl_record_value_calculatorInput;
+  } as unknown as Vinyl_record_value_calculatorInput;
     const result = calculateVinyl_record_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

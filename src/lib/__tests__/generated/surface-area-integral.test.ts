@@ -15,7 +15,7 @@ describe("surface-area-integral", () => {
     "theta_max": 3.141592653589793,
     "phi_min": 0,
     "phi_max": 6.283185307179586
-  } as Surface_area_integralInput;
+  } as unknown as Surface_area_integralInput;
     const result = calculateSurface_area_integral(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

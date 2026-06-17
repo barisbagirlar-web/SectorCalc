@@ -12,7 +12,7 @@ describe("work-calculator", () => {
     "distance": 5,
     "angle": 30,
     "frictionCoefficient": 0.1
-  } as Work_calculatorInput;
+  } as unknown as Work_calculatorInput;
     const result = calculateWork_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

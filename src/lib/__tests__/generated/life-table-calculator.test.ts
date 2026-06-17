@@ -12,7 +12,7 @@ describe("life-table-calculator", () => {
     "B": 0.0001,
     "c": 1.1,
     "age": 30
-  } as Life_table_calculatorInput;
+  } as unknown as Life_table_calculatorInput;
     const result = calculateLife_table_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("pool-calculator", () => {
     "width": 5,
     "shallowDepth": 1,
     "deepDepth": 2.5
-  } as Pool_calculatorInput;
+  } as unknown as Pool_calculatorInput;
     const result = calculatePool_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

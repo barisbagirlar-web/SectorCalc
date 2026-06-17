@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Kompresör Giriş Sıcaklığı (T1)",
         "tr": "Kompresör Giriş Sıcaklığı (T1)",
-        "de": "Kompresör Giriş Sıcaklığı (T1)",
+        "de": "Kompressor-Eintrittstemperatur (T1)",
         "fr": "Kompresör Giriş Sıcaklığı (T1)",
         "es": "Kompresör Giriş Sıcaklığı (T1)",
         "ar": "Kompresör Giriş Sıcaklığı (T1)"
       },
       "businessContext_i18n": {
         "en": "Brayton çevriminde kompresör giriş sıcaklığı",
-        "tr": "Brayton çevriminde kompresör giriş sıcaklığı"
+        "tr": "Brayton çevriminde kompresör giriş sıcaklığı",
+        "de": "Kompressor-Eintrittstemperatur im Brayton-Kreisprozess"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Türbin Giriş Sıcaklığı (T3)",
         "tr": "Türbin Giriş Sıcaklığı (T3)",
-        "de": "Türbin Giriş Sıcaklığı (T3)",
+        "de": "Turbineneintrittstemperatur (T3)",
         "fr": "Türbin Giriş Sıcaklığı (T3)",
         "es": "Türbin Giriş Sıcaklığı (T3)",
         "ar": "Türbin Giriş Sıcaklığı (T3)"
       },
       "businessContext_i18n": {
         "en": "Brayton çevriminde türbin giriş sıcaklığı",
-        "tr": "Brayton çevriminde türbin giriş sıcaklığı"
+        "tr": "Brayton çevriminde türbin giriş sıcaklığı",
+        "de": "Turbineneintrittstemperatur im Brayton-Kreisprozess"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Basınç Oranı (rp)",
         "tr": "Basınç Oranı (rp)",
-        "de": "Basınç Oranı (rp)",
+        "de": "Druckverhältnis (rp)",
         "fr": "Basınç Oranı (rp)",
         "es": "Basınç Oranı (rp)",
         "ar": "Basınç Oranı (rp)"
       },
       "businessContext_i18n": {
         "en": "Kompresör ve türbin boyunca basınç oranı",
-        "tr": "Kompresör ve türbin boyunca basınç oranı"
+        "tr": "Kompresör ve türbin boyunca basınç oranı",
+        "de": "Druckverhältnis über Kompressor und Turbine"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Kompresör İzantropik Verimi (ηc)",
         "tr": "Kompresör İzantropik Verimi (ηc)",
-        "de": "Kompresör İzantropik Verimi (ηc)",
+        "de": "Isentroper Wirkungsgrad des Kompressors (ηc)",
         "fr": "Kompresör İzantropik Verimi (ηc)",
         "es": "Kompresör İzantropik Verimi (ηc)",
         "ar": "Kompresör İzantropik Verimi (ηc)"
       },
       "businessContext_i18n": {
         "en": "Kompresörün izantropik verimi (0-1 arası)",
-        "tr": "Kompresörün izantropik verimi (0-1 arası)"
+        "tr": "Kompresörün izantropik verimi (0-1 arası)",
+        "de": "Isentroper Wirkungsgrad des Kompressors (0-1)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Türbin İzantropik Verimi (ηt)",
         "tr": "Türbin İzantropik Verimi (ηt)",
-        "de": "Türbin İzantropik Verimi (ηt)",
+        "de": "Turbinen-Isentropenwirkungsgrad (ηt)",
         "fr": "Türbin İzantropik Verimi (ηt)",
         "es": "Türbin İzantropik Verimi (ηt)",
         "ar": "Türbin İzantropik Verimi (ηt)"
       },
       "businessContext_i18n": {
         "en": "Türbinin izantropik verimi (0-1 arası)",
-        "tr": "Türbinin izantropik verimi (0-1 arası)"
+        "tr": "Türbinin izantropik verimi (0-1 arası)",
+        "de": "Isentropenwirkungsgrad der Turbine (0-1)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Özgül Isı Oranı (γ)",
         "tr": "Özgül Isı Oranı (γ)",
-        "de": "Özgül Isı Oranı (γ)",
+        "de": "Spezifisches Wärmeverhältnis (γ)",
         "fr": "Özgül Isı Oranı (γ)",
         "es": "Özgül Isı Oranı (γ)",
         "ar": "Özgül Isı Oranı (γ)"
       },
       "businessContext_i18n": {
         "en": "Çalışma akışkanının özgül ısı oranı (cp/cv)",
-        "tr": "Çalışma akışkanının özgül ısı oranı (cp/cv)"
+        "tr": "Çalışma akışkanının özgül ısı oranı (cp/cv)",
+        "de": "Spezifisches Wärmeverhältnis des Arbeitsmediums (cp/cv)"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Sabit Basınçta Özgül Isı (cp)",
         "tr": "Sabit Basınçta Özgül Isı (cp)",
-        "de": "Sabit Basınçta Özgül Isı (cp)",
+        "de": "Spezifische Wärmekapazität bei konstantem Druck (cp)",
         "fr": "Sabit Basınçta Özgül Isı (cp)",
         "es": "Sabit Basınçta Özgül Isı (cp)",
         "ar": "Sabit Basınçta Özgül Isı (cp)"
       },
       "businessContext_i18n": {
         "en": "Sabit basınçta özgül ısı kapasitesi",
-        "tr": "Sabit basınçta özgül ısı kapasitesi"
+        "tr": "Sabit basınçta özgül ısı kapasitesi",
+        "de": "Spezifische Wärmekapazität bei konstantem Druck"
       }
     }
   ],

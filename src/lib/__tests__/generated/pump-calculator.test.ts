@@ -13,7 +13,7 @@ describe("pump-calculator", () => {
     "density": 1000,
     "pumpEfficiency": 75,
     "motorEfficiency": 90
-  } as Pump_calculatorInput;
+  } as unknown as Pump_calculatorInput;
     const result = calculatePump_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

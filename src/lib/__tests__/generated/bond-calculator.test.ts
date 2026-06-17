@@ -13,7 +13,7 @@ describe("bond-calculator", () => {
     "marketRate": 5,
     "yearsToMaturity": 10,
     "frequency": 2
-  } as Bond_calculatorInput;
+  } as unknown as Bond_calculatorInput;
     const result = calculateBond_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

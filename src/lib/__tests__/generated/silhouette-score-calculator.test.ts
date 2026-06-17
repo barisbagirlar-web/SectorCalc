@@ -12,7 +12,7 @@ describe("silhouette-score-calculator", () => {
     "b1": 0,
     "a2": 0,
     "b2": 0
-  } as Silhouette_score_calculatorInput;
+  } as unknown as Silhouette_score_calculatorInput;
     const result = calculateSilhouette_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

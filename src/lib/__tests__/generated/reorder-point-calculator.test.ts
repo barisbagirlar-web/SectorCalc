@@ -12,7 +12,7 @@ describe("reorder-point-calculator", () => {
     "leadTime": 7,
     "dailyDemandStdDev": 15,
     "serviceLevelZ": 1.65
-  } as Reorder_point_calculatorInput;
+  } as unknown as Reorder_point_calculatorInput;
     const result = calculateReorder_point_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

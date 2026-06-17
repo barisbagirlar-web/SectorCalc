@@ -12,7 +12,7 @@ describe("cycling-cadence-calculator", () => {
     "frontTeeth": 50,
     "rearTeeth": 15,
     "wheelDiameter": 700
-  } as Cycling_cadence_calculatorInput;
+  } as unknown as Cycling_cadence_calculatorInput;
     const result = calculateCycling_cadence_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

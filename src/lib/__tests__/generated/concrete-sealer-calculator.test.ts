@@ -14,7 +14,7 @@ describe("concrete-sealer-calculator", () => {
     "wasteFactor": 10,
     "porosityFactor": 1,
     "pricePerUnit": 30
-  } as Concrete_sealer_calculatorInput;
+  } as unknown as Concrete_sealer_calculatorInput;
     const result = calculateConcrete_sealer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

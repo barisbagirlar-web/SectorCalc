@@ -12,7 +12,7 @@ describe("subtract-decimals-calculator", () => {
     "valueB": 0,
     "precision": 2,
     "offset": 0
-  } as Subtract_decimals_calculatorInput;
+  } as unknown as Subtract_decimals_calculatorInput;
     const result = calculateSubtract_decimals_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

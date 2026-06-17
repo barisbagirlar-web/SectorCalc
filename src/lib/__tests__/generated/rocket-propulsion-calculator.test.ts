@@ -13,7 +13,7 @@ describe("rocket-propulsion-calculator", () => {
     "specificImpulse": 300,
     "gravitationalAcceleration": 9.81,
     "massFlowRate": 500
-  } as Rocket_propulsion_calculatorInput;
+  } as unknown as Rocket_propulsion_calculatorInput;
     const result = calculateRocket_propulsion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("beneficiary-ira-calculator", () => {
     "accountBalance": 100000,
     "distributionFactor": 30,
     "annualGrowthRate": 5
-  } as Beneficiary_ira_calculatorInput;
+  } as unknown as Beneficiary_ira_calculatorInput;
     const result = calculateBeneficiary_ira_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

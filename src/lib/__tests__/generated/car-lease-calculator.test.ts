@@ -15,7 +15,7 @@ describe("car-lease-calculator", () => {
     "downPayment": 2000,
     "salesTaxRate": 18,
     "acquisitionFee": 500
-  } as Car_lease_calculatorInput;
+  } as unknown as Car_lease_calculatorInput;
     const result = calculateCar_lease_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("seconds-to-milliseconds-calculator", () => {
     "minutes": 0.0166666667,
     "hours": 0.00027777778,
     "days": 0.000011574074
-  } as Seconds_to_milliseconds_calculatorInput;
+  } as unknown as Seconds_to_milliseconds_calculatorInput;
     const result = calculateSeconds_to_milliseconds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

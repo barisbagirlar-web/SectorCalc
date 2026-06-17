@@ -22,11 +22,13 @@
       "businessContext": "Total number of items in the inspection lot per ISO 2859-1.",
       "label_i18n": {
         "en": "Lot Size (N)",
-        "tr": "Parti Büyüklüğü (N)"
+        "tr": "Parti Büyüklüğü (N)",
+        "de": "Losgröße (N)"
       },
       "businessContext_i18n": {
         "en": "Total number of items in the inspection lot per ISO 2859-1.",
-        "tr": "ISO 2859-1'e göre muayene partisindeki toplam ürün sayısı."
+        "tr": "ISO 2859-1'e göre muayene partisindeki toplam ürün sayısı.",
+        "de": "Gesamtzahl der Einheiten im Prüflos gemäß ISO 2859-1."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Acceptable Quality Level – maximum percent defective that is considered acceptable as a process average.",
       "label_i18n": {
         "en": "AQL (%)",
-        "tr": "AKK (%)"
+        "tr": "AKK (%)",
+        "de": "AQL (%)"
       },
       "businessContext_i18n": {
         "en": "Acceptable Quality Level – maximum percent defective that is considered acceptable as a process average.",
-        "tr": "Kabul Edilebilir Kalite Seviyesi – proses ortalaması olarak kabul edilebilir maksimum kusurlu yüzdesi."
+        "tr": "Kabul Edilebilir Kalite Seviyesi – proses ortalaması olarak kabul edilebilir maksimum kusurlu yüzdesi.",
+        "de": "Annehmbare Qualitätsgrenzlage – maximaler Prozentsatz fehlerhafter Einheiten, der als Prozessdurchschnitt noch akzeptabel ist."
       }
     },
     {
@@ -67,11 +71,13 @@
       "businessContext": "General or special inspection level per ISO 2859-1. Level II is normal.",
       "label_i18n": {
         "en": "Inspection Level",
-        "tr": "Muayene Seviyesi"
+        "tr": "Muayene Seviyesi",
+        "de": "Prüfniveau"
       },
       "businessContext_i18n": {
         "en": "General or special inspection level per ISO 2859-1. Level II is normal.",
-        "tr": "ISO 2859-1'e göre genel veya özel muayene seviyesi. Seviye II normaldir."
+        "tr": "ISO 2859-1'e göre genel veya özel muayene seviyesi. Seviye II normaldir.",
+        "de": "Allgemeines oder spezielles Prüfniveau gemäß ISO 2859-1. Stufe II ist normal."
       }
     },
     {
@@ -90,11 +96,13 @@
       "businessContext": "Switching rules for severity of sampling per ISO 2859-1.",
       "label_i18n": {
         "en": "Sampling Plan Type",
-        "tr": "Numune Alma Planı Türü"
+        "tr": "Numune Alma Planı Türü",
+        "de": "Stichprobenplan-Typ"
       },
       "businessContext_i18n": {
         "en": "Switching rules for severity of sampling per ISO 2859-1.",
-        "tr": "ISO 2859-1'e göre numune alma şiddeti için geçiş kuralları."
+        "tr": "ISO 2859-1'e göre numune alma şiddeti için geçiş kuralları.",
+        "de": "Umschaltregeln für die Schärfe der Stichprobenprüfung gemäß ISO 2859-1."
       }
     },
     {
@@ -108,11 +116,13 @@
       "businessContext": "Cost per unit item (production or purchase cost).",
       "label_i18n": {
         "en": "Unit Cost",
-        "tr": "Birim Maliyet"
+        "tr": "Birim Maliyet",
+        "de": "Stückkosten"
       },
       "businessContext_i18n": {
         "en": "Cost per unit item (production or purchase cost).",
-        "tr": "Birim başına maliyet (üretim veya satın alma maliyeti)."
+        "tr": "Birim başına maliyet (üretim veya satın alma maliyeti).",
+        "de": "Kosten pro Einheit (Produktions- oder Einkaufskosten)."
       }
     },
     {
@@ -126,11 +136,13 @@
       "businessContext": "Cost incurred if a defective unit reaches the customer (rework, warranty, loss of goodwill).",
       "label_i18n": {
         "en": "Defect Cost per Unit",
-        "tr": "Birim Kusur Maliyeti"
+        "tr": "Birim Kusur Maliyeti",
+        "de": "Fehlerkosten pro Einheit"
       },
       "businessContext_i18n": {
         "en": "Cost incurred if a defective unit reaches the customer (rework, warranty, loss of goodwill).",
-        "tr": "Kusurlu bir birimin müşteriye ulaşması durumunda ortaya çıkan maliyet (yeniden işleme, garanti, iyi niyet kaybı)."
+        "tr": "Kusurlu bir birimin müşteriye ulaşması durumunda ortaya çıkan maliyet (yeniden işleme, garanti, iyi niyet kaybı).",
+        "de": "Kosten, die entstehen, wenn eine fehlerhafte Einheit den Kunden erreicht (Nacharbeit, Garantie, Goodwill-Verlust)."
       }
     },
     {
@@ -144,11 +156,13 @@
       "businessContext": "Cost to inspect one unit (labor, equipment, overhead).",
       "label_i18n": {
         "en": "Inspection Cost per Unit",
-        "tr": "Birim Muayene Maliyeti"
+        "tr": "Birim Muayene Maliyeti",
+        "de": "Prüfkosten pro Einheit"
       },
       "businessContext_i18n": {
         "en": "Cost to inspect one unit (labor, equipment, overhead).",
-        "tr": "Bir birimi muayene etme maliyeti (işçilik, ekipman, genel giderler)."
+        "tr": "Bir birimi muayene etme maliyeti (işçilik, ekipman, genel giderler).",
+        "de": "Kosten für die Prüfung einer Einheit (Arbeit, Ausrüstung, Gemeinkosten)."
       }
     },
     {
@@ -162,11 +176,13 @@
       "businessContext": "Estimated true defect rate in the lot (from historical data or process capability).",
       "label_i18n": {
         "en": "Actual Defect Rate (p)",
-        "tr": "Gerçek Kusur Oranı (p)"
+        "tr": "Gerçek Kusur Oranı (p)",
+        "de": "Tatsächliche Fehlerrate (p)"
       },
       "businessContext_i18n": {
         "en": "Estimated true defect rate in the lot (from historical data or process capability).",
-        "tr": "Partideki tahmini gerçek kusur oranı (geçmiş verilerden veya proses yeteneğinden)."
+        "tr": "Partideki tahmini gerçek kusur oranı (geçmiş verilerden veya proses yeteneğinden).",
+        "de": "Geschätzte wahre Fehlerrate im Los (aus historischen Daten oder Prozessfähigkeit)."
       }
     }
   ],

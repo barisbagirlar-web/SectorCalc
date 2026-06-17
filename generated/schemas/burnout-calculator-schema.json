@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Motor Rated Power",
         "tr": "Motor Anma Gücü",
-        "de": "Motor Rated Power",
+        "de": "Motor-Nennleistung",
         "fr": "Motor Rated Power",
         "es": "Motor Rated Power",
         "ar": "Motor Rated Power"
       },
       "businessContext_i18n": {
         "en": "Nominal power of the motor at full load",
-        "tr": "Motorun tam yükteki nominal gücü"
+        "tr": "Motorun tam yükteki nominal gücü",
+        "de": "Nennleistung des Motors bei Volllast"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Actual Load",
         "tr": "Gerçek Yük",
-        "de": "Actual Load",
+        "de": "Tatsächliche Last",
         "fr": "Actual Load",
         "es": "Actual Load",
         "ar": "Actual Load"
       },
       "businessContext_i18n": {
         "en": "Actual mechanical power drawn by the driven equipment",
-        "tr": "Tahrik edilen ekipman tarafından çekilen gerçek mekanik güç"
+        "tr": "Tahrik edilen ekipman tarafından çekilen gerçek mekanik güç",
+        "de": "Tatsächliche mechanische Leistungsaufnahme der angetriebenen Ausrüstung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
-        "de": "Ambient Temperature",
+        "de": "Umgebungstemperatur",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the surrounding environment",
-        "tr": "Çevre Sıcaklığı"
+        "tr": "Çevre Sıcaklığı",
+        "de": "Temperatur der Umgebung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Insulation Max Temperature",
         "tr": "Yalıtım Maksimum Sıcaklığı",
-        "de": "Insulation Max Temperature",
+        "de": "Isolations-Maximaltemperatur",
         "fr": "Insulation Max Temperature",
         "es": "Insulation Max Temperature",
         "ar": "Insulation Max Temperature"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable winding temperature (insulation class limit)",
-        "tr": "İzin verilen maksimum sargı sıcaklığı (yalıtım sınıfı limiti)"
+        "tr": "İzin verilen maksimum sargı sıcaklığı (yalıtım sınıfı limiti)",
+        "de": "Maximal zulässige Wicklungstemperatur (Grenze der Isolationsklasse)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Rated Ambient Temperature",
         "tr": "Anma Ortam Sıcaklığı",
-        "de": "Rated Ambient Temperature",
+        "de": "Nenn-Umgebungstemperatur",
         "fr": "Rated Ambient Temperature",
         "es": "Rated Ambient Temperature",
         "ar": "Rated Ambient Temperature"
       },
       "businessContext_i18n": {
         "en": "Standard ambient temperature for motor design (typically 40°C)",
-        "tr": "Motor tasarımı için standart ortam sıcaklığı (tipik olarak 40°C)"
+        "tr": "Motor tasarımı için standart ortam sıcaklığı (tipik olarak 40°C)",
+        "de": "Standard-Umgebungstemperatur für Motordesign (typischerweise 40 °C)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Thermal Time Constant",
         "tr": "Termal Zaman Sabiti",
-        "de": "Thermal Time Constant",
+        "de": "Thermische Zeitkonstante",
         "fr": "Thermal Time Constant",
         "es": "Thermal Time Constant",
         "ar": "Thermal Time Constant"
       },
       "businessContext_i18n": {
         "en": "Time for the motor temperature to reach 63.2% of its steady-state rise",
-        "tr": "Motor sıcaklığının kararlı hal artışının %63,2'sine ulaşması için geçen süre"
+        "tr": "Motor sıcaklığının kararlı hal artışının %63,2'sine ulaşması için geçen süre",
+        "de": "Zeit, bis die Motortemperatur 63,2 % ihres stationären Anstiegs erreicht"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Duty Cycle",
         "tr": "Görev Çevrimi",
-        "de": "Duty Cycle",
+        "de": "Einschaltdauer",
         "fr": "Duty Cycle",
         "es": "Duty Cycle",
         "ar": "Duty Cycle"
       },
       "businessContext_i18n": {
         "en": "Fraction of time motor runs under load (0-1, 1 = continuous)",
-        "tr": "Motorun yük altında çalıştığı sürenin oranı (0-1, 1 = sürekli)"
+        "tr": "Motorun yük altında çalıştığı sürenin oranı (0-1, 1 = sürekli)",
+        "de": "Anteil der Zeit, in der der Motor unter Last läuft (0–1, 1 = Dauerbetrieb)"
       }
     }
   ],

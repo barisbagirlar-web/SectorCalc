@@ -16,7 +16,7 @@ describe("piotroski-f-score-calculator", () => {
     "currentRatioIncreased": 0,
     "grossMarginIncreased": 0,
     "assetTurnoverIncreased": 0
-  } as Piotroski_f_score_calculatorInput;
+  } as unknown as Piotroski_f_score_calculatorInput;
     const result = calculatePiotroski_f_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

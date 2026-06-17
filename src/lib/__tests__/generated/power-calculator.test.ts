@@ -11,7 +11,7 @@ describe("power-calculator", () => {
     "voltage": 230,
     "current": 10,
     "powerFactor": 1
-  } as Power_calculatorInput;
+  } as unknown as Power_calculatorInput;
     const result = calculatePower_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

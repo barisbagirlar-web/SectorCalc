@@ -14,7 +14,7 @@ describe("wedding-guest-calculator", () => {
     "decorationCost": 1500,
     "entertainmentCost": 3000,
     "miscPercent": 10
-  } as Wedding_guest_calculatorInput;
+  } as unknown as Wedding_guest_calculatorInput;
     const result = calculateWedding_guest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

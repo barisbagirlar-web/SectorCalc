@@ -13,7 +13,7 @@ describe("wind-turbine-calculator", () => {
     "windSpeed": 12,
     "cp": 0.45,
     "efficiency": 0.95
-  } as Wind_turbine_calculatorInput;
+  } as unknown as Wind_turbine_calculatorInput;
     const result = calculateWind_turbine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

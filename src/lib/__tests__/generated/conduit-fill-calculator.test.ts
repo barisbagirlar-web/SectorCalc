@@ -13,7 +13,7 @@ describe("conduit-fill-calculator", () => {
     "numberOfConductors": 3,
     "conduitFillLimitPercent": 0,
     "safetyMarginPercent": 0
-  } as Conduit_fill_calculatorInput;
+  } as unknown as Conduit_fill_calculatorInput;
     const result = calculateConduit_fill_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

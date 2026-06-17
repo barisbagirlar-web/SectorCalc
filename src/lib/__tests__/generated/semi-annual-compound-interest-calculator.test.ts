@@ -12,7 +12,7 @@ describe("semi-annual-compound-interest-calculator", () => {
     "annualRate": 5,
     "years": 10,
     "compoundingPeriods": 2
-  } as Semi_annual_compound_interest_calculatorInput;
+  } as unknown as Semi_annual_compound_interest_calculatorInput;
     const result = calculateSemi_annual_compound_interest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("breathing-exercise-calculator", () => {
     "cylinderPressure": 200,
     "safetyFactor": 0.8,
     "ambientPressure": 1
-  } as Breathing_exercise_calculatorInput;
+  } as unknown as Breathing_exercise_calculatorInput;
     const result = calculateBreathing_exercise_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

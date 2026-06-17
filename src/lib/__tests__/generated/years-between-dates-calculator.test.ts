@@ -14,7 +14,7 @@ describe("years-between-dates-calculator", () => {
     "endDay": 1,
     "endMonth": 1,
     "endYear": 2025
-  } as Years_between_dates_calculatorInput;
+  } as unknown as Years_between_dates_calculatorInput;
     const result = calculateYears_between_dates_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

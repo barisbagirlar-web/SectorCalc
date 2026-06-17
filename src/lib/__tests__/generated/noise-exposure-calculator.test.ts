@@ -13,7 +13,7 @@ describe("noise-exposure-calculator", () => {
     "exchangeRate": 3,
     "criterionLevel": 85,
     "thresholdLevel": 0
-  } as Noise_exposure_calculatorInput;
+  } as unknown as Noise_exposure_calculatorInput;
     const result = calculateNoise_exposure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("lh-surge-calculator", () => {
     "waveSpeed": 1200,
     "fluidDensity": 1000,
     "wallThickness": 0.01
-  } as Lh_surge_calculatorInput;
+  } as unknown as Lh_surge_calculatorInput;
     const result = calculateLh_surge_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

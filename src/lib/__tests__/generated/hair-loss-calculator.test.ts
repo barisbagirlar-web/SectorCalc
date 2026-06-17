@@ -14,7 +14,7 @@ describe("hair-loss-calculator", () => {
     "stressLevel": 5,
     "nutritionScore": 70,
     "hormoneIndex": 3
-  } as Hair_loss_calculatorInput;
+  } as unknown as Hair_loss_calculatorInput;
     const result = calculateHair_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

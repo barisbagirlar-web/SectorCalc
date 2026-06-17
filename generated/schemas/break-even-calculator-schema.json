@@ -22,11 +22,13 @@
       "businessContext": "Sum of all fixed costs (rent, salaries, insurance, depreciation) for the period. ISO 9001:2015 clause 7.1.4.",
       "label_i18n": {
         "en": "Total Fixed Costs (per period)",
-        "tr": "Toplam Sabit Maliyetler (dönem başına)"
+        "tr": "Toplam Sabit Maliyetler (dönem başına)",
+        "de": "Gesamte Fixkosten (pro Periode)"
       },
       "businessContext_i18n": {
         "en": "Sum of all fixed costs (rent, salaries, insurance, depreciation) for the period. ISO 9001:2015 clause 7.1.4.",
-        "tr": "Dönem için tüm sabit maliyetlerin toplamı (kira, maaşlar, sigorta, amortisman). ISO 9001:2015 madde 7.1.4."
+        "tr": "Dönem için tüm sabit maliyetlerin toplamı (kira, maaşlar, sigorta, amortisman). ISO 9001:2015 madde 7.1.4.",
+        "de": "Summe aller Fixkosten (Miete, Gehälter, Versicherungen, Abschreibungen) für den Zeitraum. ISO 9001:2015 Klausel 7.1.4."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Direct material, direct labor, and variable overhead per unit. Lean manufacturing standard cost approach.",
       "label_i18n": {
         "en": "Variable Cost per Unit",
-        "tr": "Birim Başına Değişken Maliyet"
+        "tr": "Birim Başına Değişken Maliyet",
+        "de": "Variable Kosten pro Einheit"
       },
       "businessContext_i18n": {
         "en": "Direct material, direct labor, and variable overhead per unit. Lean manufacturing standard cost approach.",
-        "tr": "Birim başına direkt malzeme, direkt işçilik ve değişken genel gider. Yalın üretim standart maliyet yaklaşımı."
+        "tr": "Birim başına direkt malzeme, direkt işçilik ve değişken genel gider. Yalın üretim standart maliyet yaklaşımı.",
+        "de": "Direktmaterial, Direktarbeit und variable Gemeinkosten pro Einheit. Lean Manufacturing Standardkostenansatz."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Net selling price after discounts and returns. WERC DC Metrics benchmark.",
       "label_i18n": {
         "en": "Selling Price per Unit",
-        "tr": "Birim Satış Fiyatı"
+        "tr": "Birim Satış Fiyatı",
+        "de": "Verkaufspreis pro Einheit"
       },
       "businessContext_i18n": {
         "en": "Net selling price after discounts and returns. WERC DC Metrics benchmark.",
-        "tr": "İndirimler ve iadeler sonrası net satış fiyatı. WERC DC Metrikleri kıyaslaması."
+        "tr": "İndirimler ve iadeler sonrası net satış fiyatı. WERC DC Metrikleri kıyaslaması.",
+        "de": "Nettoverkaufspreis nach Rabatten und Retouren. WERC DC Metrics Benchmark."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Parts per million defective. Six Sigma DMAIC metric. Typical baseline 5000 ppm (3.8 sigma).",
       "label_i18n": {
         "en": "Defect Rate (ppm)",
-        "tr": "Hata Oranı (ppm)"
+        "tr": "Hata Oranı (ppm)",
+        "de": "Fehlerrate (ppm)"
       },
       "businessContext_i18n": {
         "en": "Parts per million defective. Six Sigma DMAIC metric. Typical baseline 5000 ppm (3.8 sigma).",
-        "tr": "Milyonda hatalı parça sayısı. Altı Sigma DMAIC metriği. Tipik taban değer 5000 ppm (3,8 sigma)."
+        "tr": "Milyonda hatalı parça sayısı. Altı Sigma DMAIC metriği. Tipik taban değer 5000 ppm (3,8 sigma).",
+        "de": "Teile pro Million fehlerhaft. Six Sigma DMAIC Metrik. Typischer Basiswert 5000 ppm (3,8 Sigma)."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Cost to rework or scrap a defective unit. Includes labor, material, and overhead.",
       "label_i18n": {
         "en": "Rework Cost per Defective Unit",
-        "tr": "Birim Başına Yeniden İşleme Maliyeti"
+        "tr": "Birim Başına Yeniden İşleme Maliyeti",
+        "de": "Nacharbeitskosten pro fehlerhafter Einheit"
       },
       "businessContext_i18n": {
         "en": "Cost to rework or scrap a defective unit. Includes labor, material, and overhead.",
-        "tr": "Hatalı bir birimi yeniden işleme veya hurdaya ayırma maliyeti. İşçilik, malzeme ve genel giderleri içerir."
+        "tr": "Hatalı bir birimi yeniden işleme veya hurdaya ayırma maliyeti. İşçilik, malzeme ve genel giderleri içerir.",
+        "de": "Kosten für Nacharbeit oder Ausschuss einer fehlerhaften Einheit. Enthält Arbeit, Material und Gemeinkosten."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "Total units produced in the period. Used for actual vs. break-even comparison.",
       "label_i18n": {
         "en": "Actual Production Volume (units)",
-        "tr": "Gerçek Üretim Hacmi (birim)"
+        "tr": "Gerçek Üretim Hacmi (birim)",
+        "de": "Tatsächliches Produktionsvolumen (Einheiten)"
       },
       "businessContext_i18n": {
         "en": "Total units produced in the period. Used for actual vs. break-even comparison.",
-        "tr": "Dönemde üretilen toplam birim sayısı. Gerçek ve başabaş karşılaştırması için kullanılır."
+        "tr": "Dönemde üretilen toplam birim sayısı. Gerçek ve başabaş karşılaştırması için kullanılır.",
+        "de": "Gesamte im Zeitraum produzierte Einheiten. Wird für den Vergleich Ist vs. Break-even verwendet."
       }
     },
     {
@@ -132,11 +144,13 @@
       "businessContext": "Traditional uses single overhead rate; activity-based uses multiple cost drivers. ABC is recommended for ISO 9001:2015 clause 9.1.3.",
       "label_i18n": {
         "en": "Cost Allocation Method",
-        "tr": "Maliyet Dağıtım Yöntemi"
+        "tr": "Maliyet Dağıtım Yöntemi",
+        "de": "Kostenzuordnungsmethode"
       },
       "businessContext_i18n": {
         "en": "Traditional uses single overhead rate; activity-based uses multiple cost drivers. ABC is recommended for ISO 9001:2015 clause 9.1.3.",
-        "tr": "Geleneksel yöntem tek bir genel gider oranı kullanır; faaliyet tabanlı yöntem birden çok maliyet sürücüsü kullanır. ISO 9001:2015 madde 9.1.3 için ABC önerilir."
+        "tr": "Geleneksel yöntem tek bir genel gider oranı kullanır; faaliyet tabanlı yöntem birden çok maliyet sürücüsü kullanır. ISO 9001:2015 madde 9.1.3 için ABC önerilir.",
+        "de": "Traditionell verwendet einen einzigen Gemeinkostensatz; aktivitätsbasiert verwendet mehrere Kostentreiber. ABC wird für ISO 9001:2015 Klausel 9.1.3 empfohlen."
       }
     }
   ],

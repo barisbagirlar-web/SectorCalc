@@ -13,7 +13,7 @@ describe("miles-to-km-calculator", () => {
     "isNautical": 0,
     "conversionFactorStatute": 1.60934,
     "conversionFactorNautical": 1.852
-  } as Miles_to_km_calculatorInput;
+  } as unknown as Miles_to_km_calculatorInput;
     const result = calculateMiles_to_km_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

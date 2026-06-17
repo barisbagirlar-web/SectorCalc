@@ -12,7 +12,7 @@ describe("archimedes-principle-calculator", () => {
     "objectVolume": 0.5,
     "objectMass": 500,
     "gravity": 9.81
-  } as Archimedes_principle_calculatorInput;
+  } as unknown as Archimedes_principle_calculatorInput;
     const result = calculateArchimedes_principle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("coffee-caffeine-calculator", () => {
     "numberOfCups": 1,
     "brewStrengthFactor": 1,
     "isDecaf": 0
-  } as Coffee_caffeine_calculatorInput;
+  } as unknown as Coffee_caffeine_calculatorInput;
     const result = calculateCoffee_caffeine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

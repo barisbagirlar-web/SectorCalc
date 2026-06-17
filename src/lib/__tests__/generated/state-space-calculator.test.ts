@@ -14,7 +14,7 @@ describe("state-space-calculator", () => {
     "timeSteps": 10,
     "rewardPerState": 1,
     "discountFactor": 0.9
-  } as State_space_calculatorInput;
+  } as unknown as State_space_calculatorInput;
     const result = calculateState_space_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("pomodoro-calculator", () => {
     "longBreakDuration": 15,
     "pomodorosBeforeLongBreak": 4,
     "startTimeMinutes": 480
-  } as Pomodoro_calculatorInput;
+  } as unknown as Pomodoro_calculatorInput;
     const result = calculatePomodoro_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("swimming-turn-calculator", () => {
     "turnTime": 1.2,
     "pushOffVelocity": 2.5,
     "breakOutDistance": 5
-  } as Swimming_turn_calculatorInput;
+  } as unknown as Swimming_turn_calculatorInput;
     const result = calculateSwimming_turn_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

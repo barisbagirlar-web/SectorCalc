@@ -15,7 +15,7 @@ describe("compound-interest-calculator", () => {
     "additionalContribution": 0,
     "inflationRate": 2,
     "taxRate": 0
-  } as Compound_interest_calculatorInput;
+  } as unknown as Compound_interest_calculatorInput;
     const result = calculateCompound_interest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

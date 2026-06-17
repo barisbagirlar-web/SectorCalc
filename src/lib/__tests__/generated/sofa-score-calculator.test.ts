@@ -14,7 +14,7 @@ describe("sofa-score-calculator", () => {
     "cvScore": 0,
     "cnsScore": 0,
     "renalScore": 0
-  } as Sofa_score_calculatorInput;
+  } as unknown as Sofa_score_calculatorInput;
     const result = calculateSofa_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

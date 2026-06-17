@@ -12,7 +12,7 @@ describe("burn-rate-calculator", () => {
     "monthlyFixedExpenses": 20000,
     "monthlyVariableExpenses": 10000,
     "monthlyRevenue": 5000
-  } as Burn_rate_calculatorInput;
+  } as unknown as Burn_rate_calculatorInput;
     const result = calculateBurn_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

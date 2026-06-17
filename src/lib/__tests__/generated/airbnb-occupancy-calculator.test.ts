@@ -14,7 +14,7 @@ describe("airbnb-occupancy-calculator", () => {
     "cleaningFeePerBooking": 50,
     "numberOfBookings": 3,
     "fixedMonthlyCosts": 800
-  } as Airbnb_occupancy_calculatorInput;
+  } as unknown as Airbnb_occupancy_calculatorInput;
     const result = calculateAirbnb_occupancy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

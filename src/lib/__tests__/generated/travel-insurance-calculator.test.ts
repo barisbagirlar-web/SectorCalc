@@ -14,7 +14,7 @@ describe("travel-insurance-calculator", () => {
     "destinationRisk": 1,
     "deductible": 0,
     "numberOfTravelers": 1
-  } as Travel_insurance_calculatorInput;
+  } as unknown as Travel_insurance_calculatorInput;
     const result = calculateTravel_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

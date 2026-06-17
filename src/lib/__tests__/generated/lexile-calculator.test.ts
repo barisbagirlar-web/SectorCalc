@@ -12,7 +12,7 @@ describe("lexile-calculator", () => {
     "thickness": 2,
     "width": 10,
     "safetyFactor": 1.5
-  } as Lexile_calculatorInput;
+  } as unknown as Lexile_calculatorInput;
     const result = calculateLexile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

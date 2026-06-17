@@ -12,7 +12,7 @@ describe("metabolic-age-calculator", () => {
     "gender": 0,
     "weightKg": 70,
     "heightCm": 170
-  } as Metabolic_age_calculatorInput;
+  } as unknown as Metabolic_age_calculatorInput;
     const result = calculateMetabolic_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Mass (m)",
         "tr": "Kütle (m)",
-        "de": "Mass (m)",
+        "de": "Masse (m)",
         "fr": "Mass (m)",
         "es": "Mass (m)",
         "ar": "Mass (m)"
       },
       "businessContext_i18n": {
         "en": "Mass of the oscillating body.",
-        "tr": "Salınım yapan cismin kütlesi."
+        "tr": "Salınım yapan cismin kütlesi.",
+        "de": "Masse des schwingenden Körpers."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Damping Coefficient (c)",
         "tr": "Sönüm Katsayısı (c)",
-        "de": "Damping Coefficient (c)",
+        "de": "Dämpfungskoeffizient (c)",
         "fr": "Damping Coefficient (c)",
         "es": "Damping Coefficient (c)",
         "ar": "Damping Coefficient (c)"
       },
       "businessContext_i18n": {
         "en": "Viscous damping coefficient.",
-        "tr": "Viskoz sönüm katsayısı."
+        "tr": "Viskoz sönüm katsayısı.",
+        "de": "Viskoser Dämpfungskoeffizient."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Spring Constant (k)",
         "tr": "Yay Sabiti (k)",
-        "de": "Spring Constant (k)",
+        "de": "Federkonstante (k)",
         "fr": "Spring Constant (k)",
         "es": "Spring Constant (k)",
         "ar": "Spring Constant (k)"
       },
       "businessContext_i18n": {
         "en": "Stiffness of the spring.",
-        "tr": "Yayın sertliği."
+        "tr": "Yayın sertliği.",
+        "de": "Steifigkeit der Feder."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Initial Displacement (x₀)",
         "tr": "Başlangıç Yer Değiştirmesi (x₀)",
-        "de": "Initial Displacement (x₀)",
+        "de": "Anfangsauslenkung (x₀)",
         "fr": "Initial Displacement (x₀)",
         "es": "Initial Displacement (x₀)",
         "ar": "Initial Displacement (x₀)"
       },
       "businessContext_i18n": {
         "en": "Displacement at t=0.",
-        "tr": "t=0 anındaki yer değiştirme."
+        "tr": "t=0 anındaki yer değiştirme.",
+        "de": "Auslenkung bei t=0."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Initial Velocity (v₀)",
         "tr": "Başlangıç Hızı (v₀)",
-        "de": "Initial Velocity (v₀)",
+        "de": "Anfangsgeschwindigkeit (v₀)",
         "fr": "Initial Velocity (v₀)",
         "es": "Initial Velocity (v₀)",
         "ar": "Initial Velocity (v₀)"
       },
       "businessContext_i18n": {
         "en": "Velocity at t=0.",
-        "tr": "t=0 anındaki hız."
+        "tr": "t=0 anındaki hız.",
+        "de": "Geschwindigkeit bei t=0."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Time (t)",
         "tr": "Zaman (t)",
-        "de": "Time (t)",
+        "de": "Zeit (t)",
         "fr": "Time (t)",
         "es": "Time (t)",
         "ar": "Time (t)"
       },
       "businessContext_i18n": {
         "en": "Time instant to evaluate displacement.",
-        "tr": "Yer değiştirmenin değerlendirileceği zaman anı."
+        "tr": "Yer değiştirmenin değerlendirileceği zaman anı.",
+        "de": "Zeitpunkt zur Bewertung der Auslenkung."
       }
     }
   ],

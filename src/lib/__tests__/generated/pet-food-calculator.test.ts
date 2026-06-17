@@ -12,7 +12,7 @@ describe("pet-food-calculator", () => {
     "activityFactor": 1.5,
     "caloricDensity": 3500,
     "mealsPerDay": 2
-  } as Pet_food_calculatorInput;
+  } as unknown as Pet_food_calculatorInput;
     const result = calculatePet_food_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

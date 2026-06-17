@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Observer Height",
         "tr": "Gözlemci Yüksekliği",
-        "de": "Observer Height",
+        "de": "Beobachterhöhe",
         "fr": "Observer Height",
         "es": "Observer Height",
         "ar": "Observer Height"
       },
       "businessContext_i18n": {
         "en": "Height of the observer above the ground level in meters.",
-        "tr": "Gözlemcinin yer seviyesinden metre cinsinden yüksekliği."
+        "tr": "Gözlemcinin yer seviyesinden metre cinsinden yüksekliği.",
+        "de": "Höhe des Beobachters über dem Boden in Metern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Target Height",
         "tr": "Hedef Yüksekliği",
-        "de": "Target Height",
+        "de": "Zielhöhe",
         "fr": "Target Height",
         "es": "Target Height",
         "ar": "Target Height"
       },
       "businessContext_i18n": {
         "en": "Height of the target object above the ground level in meters. Set to 0 for horizon distance.",
-        "tr": "Hedef nesnenin yer seviyesinden yüksekliği (metre). Ufuk mesafesi için 0 olarak ayarlayın."
+        "tr": "Hedef nesnenin yer seviyesinden yüksekliği (metre). Ufuk mesafesi için 0 olarak ayarlayın.",
+        "de": "Höhe des Zielobjekts über dem Boden in Metern. Auf 0 setzen für Horizontentfernung."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Earth Radius",
         "tr": "Dünya Yarıçapı",
-        "de": "Earth Radius",
+        "de": "Erdradius",
         "fr": "Earth Radius",
         "es": "Earth Radius",
         "ar": "Earth Radius"
       },
       "businessContext_i18n": {
         "en": "Mean radius of the Earth in kilometers. Standard value is 6371 km.",
-        "tr": "Dünya'nın ortalama yarıçapı (kilometre). Standart değer 6371 km'dir."
+        "tr": "Dünya'nın ortalama yarıçapı (kilometre). Standart değer 6371 km'dir.",
+        "de": "Mittlerer Erdradius in Kilometern. Standardwert ist 6371 km."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Refraction Coefficient",
         "tr": "Kırılma Katsayısı",
-        "de": "Refraction Coefficient",
+        "de": "Refraktionskoeffizient",
         "fr": "Refraction Coefficient",
         "es": "Refraction Coefficient",
         "ar": "Refraction Coefficient"
       },
       "businessContext_i18n": {
         "en": "Atmospheric refraction coefficient. For standard atmosphere, k=0.13. Range typically 0 to 0.2.",
-        "tr": "Atmosferik kırılma katsayısı. Standart atmosfer için k=0,13. Aralık genellikle 0 ile 0,2 arasındadır."
+        "tr": "Atmosferik kırılma katsayısı. Standart atmosfer için k=0,13. Aralık genellikle 0 ile 0,2 arasındadır.",
+        "de": "Atmosphärischer Refraktionskoeffizient. Für Standardatmosphäre k=0,13. Bereich typischerweise 0 bis 0,2."
       }
     }
   ],

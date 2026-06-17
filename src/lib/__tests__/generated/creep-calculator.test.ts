@@ -14,7 +14,7 @@ describe("creep-calculator", () => {
     "n": 5,
     "Q": 280000,
     "R": 8.314
-  } as Creep_calculatorInput;
+  } as unknown as Creep_calculatorInput;
     const result = calculateCreep_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

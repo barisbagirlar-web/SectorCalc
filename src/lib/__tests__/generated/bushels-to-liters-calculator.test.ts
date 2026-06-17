@@ -12,7 +12,7 @@ describe("bushels-to-liters-calculator", () => {
     "conversion_factor": 35.2391,
     "batch_count": 1,
     "container_size": 20
-  } as Bushels_to_liters_calculatorInput;
+  } as unknown as Bushels_to_liters_calculatorInput;
     const result = calculateBushels_to_liters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

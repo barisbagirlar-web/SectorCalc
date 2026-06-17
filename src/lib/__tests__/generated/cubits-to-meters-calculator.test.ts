@@ -12,7 +12,7 @@ describe("cubits-to-meters-calculator", () => {
     "conversionFactor": 0.4572,
     "decimalPlaces": 2,
     "roundingMethod": 0
-  } as Cubits_to_meters_calculatorInput;
+  } as unknown as Cubits_to_meters_calculatorInput;
     const result = calculateCubits_to_meters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

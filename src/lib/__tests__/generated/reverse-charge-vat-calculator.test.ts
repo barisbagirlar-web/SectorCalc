@@ -12,7 +12,7 @@ describe("reverse-charge-vat-calculator", () => {
     "exchangeRate": 1,
     "vatRate": 20,
     "isCrossBorder": 1
-  } as Reverse_charge_vat_calculatorInput;
+  } as unknown as Reverse_charge_vat_calculatorInput;
     const result = calculateReverse_charge_vat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

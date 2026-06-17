@@ -12,7 +12,7 @@ describe("ounces-to-pounds-calculator", () => {
     "quantity": 1,
     "tare": 0,
     "conversionFactor": 16
-  } as Ounces_to_pounds_calculatorInput;
+  } as unknown as Ounces_to_pounds_calculatorInput;
     const result = calculateOunces_to_pounds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

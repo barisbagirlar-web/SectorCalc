@@ -13,7 +13,7 @@ describe("ach-fee-calculator", () => {
     "percentageFeeRate": 0.1,
     "totalMonthlyVolume": 50000,
     "monthlyBaseFee": 10
-  } as Ach_fee_calculatorInput;
+  } as unknown as Ach_fee_calculatorInput;
     const result = calculateAch_fee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

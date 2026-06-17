@@ -16,7 +16,7 @@ describe("heat-exchanger-design", () => {
     "cpCold": 4.18,
     "tempColdIn": 20,
     "overallHeatTransferCoeff": 500
-  } as Heat_exchanger_designInput;
+  } as unknown as Heat_exchanger_designInput;
     const result = calculateHeat_exchanger_design(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

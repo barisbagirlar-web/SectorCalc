@@ -12,7 +12,7 @@ describe("buoyancy-calculator", () => {
     "objectVolume": 0.5,
     "fluidDensity": 1000,
     "gravitationalAcceleration": 9.81
-  } as Buoyancy_calculatorInput;
+  } as unknown as Buoyancy_calculatorInput;
     const result = calculateBuoyancy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

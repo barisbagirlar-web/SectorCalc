@@ -16,7 +16,7 @@ describe("quartile-calculator", () => {
     "num6": 25,
     "num7": 30,
     "num8": 35
-  } as Quartile_calculatorInput;
+  } as unknown as Quartile_calculatorInput;
     const result = calculateQuartile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

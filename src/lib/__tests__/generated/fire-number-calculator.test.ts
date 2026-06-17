@@ -14,7 +14,7 @@ describe("fire-number-calculator", () => {
     "annualSavings": 20000,
     "expectedReturn": 7,
     "inflationRate": 2
-  } as Fire_number_calculatorInput;
+  } as unknown as Fire_number_calculatorInput;
     const result = calculateFire_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

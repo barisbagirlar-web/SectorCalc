@@ -15,7 +15,7 @@ describe("concrete-yield-calculator", () => {
     "admixtureMass": 0,
     "freshDensity": 2400,
     "bagMass": 50
-  } as Concrete_yield_calculatorInput;
+  } as unknown as Concrete_yield_calculatorInput;
     const result = calculateConcrete_yield_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

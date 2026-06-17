@@ -16,7 +16,7 @@ describe("recipe-cost-check-calculator", () => {
     "energy_cost_per_kwh": 0.12,
     "energy_consumption_kwh": 50,
     "overhead_rate_percent": 20
-  } as Recipe_cost_check_calculatorInput;
+  } as unknown as Recipe_cost_check_calculatorInput;
     const result = calculateRecipe_cost_check_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

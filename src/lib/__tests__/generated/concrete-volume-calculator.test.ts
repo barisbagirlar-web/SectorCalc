@@ -13,7 +13,7 @@ describe("concrete-volume-calculator", () => {
     "thickness": 15,
     "wasteFactor": 5,
     "density": 2400
-  } as Concrete_volume_calculatorInput;
+  } as unknown as Concrete_volume_calculatorInput;
     const result = calculateConcrete_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

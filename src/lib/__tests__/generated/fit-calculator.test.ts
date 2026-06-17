@@ -13,7 +13,7 @@ describe("fit-calculator", () => {
     "holeLowerDev": 0,
     "shaftUpperDev": 0,
     "shaftLowerDev": -0.016
-  } as Fit_calculatorInput;
+  } as unknown as Fit_calculatorInput;
     const result = calculateFit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

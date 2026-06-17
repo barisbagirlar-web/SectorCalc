@@ -14,7 +14,7 @@ describe("impulse-calculator", () => {
     "initialVelocity": 0,
     "finalVelocity": 5,
     "safetyFactor": 1.5
-  } as Impulse_calculatorInput;
+  } as unknown as Impulse_calculatorInput;
     const result = calculateImpulse_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

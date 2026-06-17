@@ -12,7 +12,7 @@ describe("flow-rate-converter-calculator", () => {
     "molarMass": 28.96,
     "temperature": 20,
     "pressure": 1.01325
-  } as Flow_rate_converter_calculatorInput;
+  } as unknown as Flow_rate_converter_calculatorInput;
     const result = calculateFlow_rate_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

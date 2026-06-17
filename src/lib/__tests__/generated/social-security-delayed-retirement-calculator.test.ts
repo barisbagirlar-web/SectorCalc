@@ -12,7 +12,7 @@ describe("social-security-delayed-retirement-calculator", () => {
     "plannedRetirementAge": 70,
     "primaryInsuranceAmount": 2000,
     "annualDelayCreditRate": 8
-  } as Social_security_delayed_retirement_calculatorInput;
+  } as unknown as Social_security_delayed_retirement_calculatorInput;
     const result = calculateSocial_security_delayed_retirement_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

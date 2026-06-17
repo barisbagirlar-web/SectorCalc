@@ -12,7 +12,7 @@ describe("calendar-converter", () => {
     "gregorianMonth": 1,
     "gregorianDay": 1,
     "targetCalendar": 0
-  } as Calendar_converterInput;
+  } as unknown as Calendar_converterInput;
     const result = calculateCalendar_converter(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

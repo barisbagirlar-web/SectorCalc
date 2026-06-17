@@ -12,7 +12,7 @@ describe("critical-angle-calculator", () => {
     "n2": 1,
     "outputUnit": 0,
     "precision": 2
-  } as Critical_angle_calculatorInput;
+  } as unknown as Critical_angle_calculatorInput;
     const result = calculateCritical_angle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

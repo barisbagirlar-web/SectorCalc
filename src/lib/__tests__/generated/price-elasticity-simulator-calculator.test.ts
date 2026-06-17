@@ -16,7 +16,7 @@ describe("price-elasticity-simulator-calculator", () => {
     "fixed_cost_monthly": 20000,
     "demand_shift_factor": 1,
     "confidence_level": "medium"
-  } as Price_elasticity_simulator_calculatorInput;
+  } as unknown as Price_elasticity_simulator_calculatorInput;
     const result = calculatePrice_elasticity_simulator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

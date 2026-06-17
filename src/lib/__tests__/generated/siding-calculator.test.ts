@@ -16,7 +16,7 @@ describe("siding-calculator", () => {
     "doorArea": 2,
     "sidingCoverage": 1,
     "wasteFactor": 0.1
-  } as Siding_calculatorInput;
+  } as unknown as Siding_calculatorInput;
     const result = calculateSiding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

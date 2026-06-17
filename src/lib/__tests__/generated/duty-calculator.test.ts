@@ -13,7 +13,7 @@ describe("duty-calculator", () => {
     "freight": 200,
     "dutyRate": 10,
     "vatRate": 18
-  } as Duty_calculatorInput;
+  } as unknown as Duty_calculatorInput;
     const result = calculateDuty_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("sleep-cycle-calculator", () => {
     "fall_asleep_minutes": 15,
     "recovery_efficiency": 1,
     "shift_worker": false
-  } as Sleep_cycle_calculatorInput;
+  } as unknown as Sleep_cycle_calculatorInput;
     const result = calculateSleep_cycle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

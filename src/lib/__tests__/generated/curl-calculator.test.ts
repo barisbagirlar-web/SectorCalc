@@ -14,7 +14,7 @@ describe("curl-calculator", () => {
     "dFz_dx": 0,
     "dFy_dx": 0,
     "dFx_dy": 0
-  } as Curl_calculatorInput;
+  } as unknown as Curl_calculatorInput;
     const result = calculateCurl_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

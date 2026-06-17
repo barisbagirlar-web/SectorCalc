@@ -12,7 +12,7 @@ describe("cycling-calorie-calculator", () => {
     "distance": 10,
     "duration": 30,
     "incline": 0
-  } as Cycling_calorie_calculatorInput;
+  } as unknown as Cycling_calorie_calculatorInput;
     const result = calculateCycling_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

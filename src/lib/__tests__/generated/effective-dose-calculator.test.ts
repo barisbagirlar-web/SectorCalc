@@ -13,7 +13,7 @@ describe("effective-dose-calculator", () => {
     "wR": 1,
     "wT": 0.12,
     "convFactor": 1
-  } as Effective_dose_calculatorInput;
+  } as unknown as Effective_dose_calculatorInput;
     const result = calculateEffective_dose_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

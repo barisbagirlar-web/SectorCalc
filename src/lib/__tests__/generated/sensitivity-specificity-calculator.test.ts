@@ -12,7 +12,7 @@ describe("sensitivity-specificity-calculator", () => {
     "falsePositive": 20,
     "falseNegative": 10,
     "trueNegative": 90
-  } as Sensitivity_specificity_calculatorInput;
+  } as unknown as Sensitivity_specificity_calculatorInput;
     const result = calculateSensitivity_specificity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

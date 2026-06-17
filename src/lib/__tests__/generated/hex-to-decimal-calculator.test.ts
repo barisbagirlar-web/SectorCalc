@@ -12,7 +12,7 @@ describe("hex-to-decimal-calculator", () => {
     "hexDigit1": 0,
     "hexDigit2": 0,
     "hexDigit3": 0
-  } as Hex_to_decimal_calculatorInput;
+  } as unknown as Hex_to_decimal_calculatorInput;
     const result = calculateHex_to_decimal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

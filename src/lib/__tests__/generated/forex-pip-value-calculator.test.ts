@@ -12,7 +12,7 @@ describe("forex-pip-value-calculator", () => {
     "contract_size": 100000,
     "pip_definition": 0.0001,
     "quote_to_account_rate": 1.2
-  } as Forex_pip_value_calculatorInput;
+  } as unknown as Forex_pip_value_calculatorInput;
     const result = calculateForex_pip_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

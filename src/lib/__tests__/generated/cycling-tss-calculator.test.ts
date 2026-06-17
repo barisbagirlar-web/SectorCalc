@@ -12,7 +12,7 @@ describe("cycling-tss-calculator", () => {
     "normalizedPower": 200,
     "ftp": 250,
     "averagePower": 0
-  } as Cycling_tss_calculatorInput;
+  } as unknown as Cycling_tss_calculatorInput;
     const result = calculateCycling_tss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("percent-decrease-calculator", () => {
     "precision": 2,
     "adjustmentFactor": 1,
     "targetDecreasePercent": 10
-  } as Percent_decrease_calculatorInput;
+  } as unknown as Percent_decrease_calculatorInput;
     const result = calculatePercent_decrease_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

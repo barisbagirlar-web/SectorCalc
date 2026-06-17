@@ -13,7 +13,7 @@ describe("vegan-calculator", () => {
     "waterSavedPerMeal": 1500,
     "co2SavedPerMeal": 2.5,
     "landSavedPerMeal": 5
-  } as Vegan_calculatorInput;
+  } as unknown as Vegan_calculatorInput;
     const result = calculateVegan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

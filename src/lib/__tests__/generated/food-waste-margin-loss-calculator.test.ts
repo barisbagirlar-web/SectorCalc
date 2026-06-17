@@ -16,7 +16,7 @@ describe("food-waste-margin-loss-calculator", () => {
     "rework_percentage": 2,
     "labor_hourly_rate": 25,
     "rework_hours_per_kg": 0.05
-  } as Food_waste_margin_loss_calculatorInput;
+  } as unknown as Food_waste_margin_loss_calculatorInput;
     const result = calculateFood_waste_margin_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

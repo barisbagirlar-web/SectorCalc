@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Toplam Satış",
         "tr": "Toplam Satış",
-        "de": "Toplam Satış",
+        "de": "Gesamtumsatz",
         "fr": "Toplam Satış",
         "es": "Toplam Satış",
         "ar": "Toplam Satış"
       },
       "businessContext_i18n": {
         "en": "Satış temsilcisinin toplam satış tutarı",
-        "tr": "Satış temsilcisinin toplam satış tutarı"
+        "tr": "Satış temsilcisinin toplam satış tutarı",
+        "de": "Gesamtumsatz des Verkaufsmitarbeiters"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Temel Komisyon Oranı",
         "tr": "Temel Komisyon Oranı",
-        "de": "Temel Komisyon Oranı",
+        "de": "Basisprovisionssatz",
         "fr": "Temel Komisyon Oranı",
         "es": "Temel Komisyon Oranı",
         "ar": "Temel Komisyon Oranı"
       },
       "businessContext_i18n": {
         "en": "Temel seviyedeki komisyon yüzdesi",
-        "tr": "Temel seviyedeki komisyon yüzdesi"
+        "tr": "Temel seviyedeki komisyon yüzdesi",
+        "de": "Prozentsatz der Provision auf Basisebene"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Yüksek Kademe Eşiği",
         "tr": "Yüksek Kademe Eşiği",
-        "de": "Yüksek Kademe Eşiği",
+        "de": "Schwellenwert für höhere Stufe",
         "fr": "Yüksek Kademe Eşiği",
         "es": "Yüksek Kademe Eşiği",
         "ar": "Yüksek Kademe Eşiği"
       },
       "businessContext_i18n": {
         "en": "Yüksek komisyon oranının uygulanacağı satış eşiği",
-        "tr": "Yüksek komisyon oranının uygulanacağı satış eşiği"
+        "tr": "Yüksek komisyon oranının uygulanacağı satış eşiği",
+        "de": "Umsatzschwelle für Anwendung des höheren Provisionssatzes"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Yüksek Kademe Oranı",
         "tr": "Yüksek Kademe Oranı",
-        "de": "Yüksek Kademe Oranı",
+        "de": "Provisionssatz für höhere Stufe",
         "fr": "Yüksek Kademe Oranı",
         "es": "Yüksek Kademe Oranı",
         "ar": "Yüksek Kademe Oranı"
       },
       "businessContext_i18n": {
         "en": "Yüksek satış seviyesinde uygulanacak komisyon yüzdesi",
-        "tr": "Yüksek satış seviyesinde uygulanacak komisyon yüzdesi"
+        "tr": "Yüksek satış seviyesinde uygulanacak komisyon yüzdesi",
+        "de": "Prozentsatz der Provision bei hohem Umsatz"
       }
     }
   ],

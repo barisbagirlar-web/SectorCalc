@@ -13,7 +13,7 @@ describe("warrior-diet-calculator", () => {
     "age": 30,
     "gender": 0,
     "activityLevel": 1.2
-  } as Warrior_diet_calculatorInput;
+  } as unknown as Warrior_diet_calculatorInput;
     const result = calculateWarrior_diet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Raw Material Input",
         "tr": "Hammadde Girdisi",
-        "de": "Raw Material Input",
+        "de": "Rohmaterialeinsatz",
         "fr": "Raw Material Input",
         "es": "Raw Material Input",
         "ar": "Raw Material Input"
       },
       "businessContext_i18n": {
         "en": "Amount of raw material entering the process",
-        "tr": "Proses giren hammadde miktarı"
+        "tr": "Proses giren hammadde miktarı",
+        "de": "Menge des in den Prozess eingehenden Rohmaterials"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Finished Product Output",
         "tr": "Bitmiş Ürün Çıktısı",
-        "de": "Finished Product Output",
+        "de": "Ausstoß an Fertigprodukten",
         "fr": "Finished Product Output",
         "es": "Finished Product Output",
         "ar": "Finished Product Output"
       },
       "businessContext_i18n": {
         "en": "Amount of acceptable finished product output",
-        "tr": "Kabul edilebilir bitmiş ürün çıktısı miktarı"
+        "tr": "Kabul edilebilir bitmiş ürün çıktısı miktarı",
+        "de": "Menge der akzeptablen Fertigprodukte"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Rework Output",
         "tr": "Yeniden İşlem Çıktısı",
-        "de": "Rework Output",
+        "de": "Nacharbeitsausstoß",
         "fr": "Rework Output",
         "es": "Rework Output",
         "ar": "Rework Output"
       },
       "businessContext_i18n": {
         "en": "Product that needed rework but became acceptable",
-        "tr": "Yeniden işlem gerektiren ancak kabul edilebilir hale gelen ürün"
+        "tr": "Yeniden işlem gerektiren ancak kabul edilebilir hale gelen ürün",
+        "de": "Produkt, das nachgearbeitet werden musste, aber akzeptabel wurde"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Scrap",
         "tr": "Fire",
-        "de": "Scrap",
+        "de": "Ausschuss",
         "fr": "Scrap",
         "es": "Scrap",
         "ar": "Scrap"
       },
       "businessContext_i18n": {
         "en": "Waste material that cannot be used",
-        "tr": "Kullanılamayan atık malzeme"
+        "tr": "Kullanılamayan atık malzeme",
+        "de": "Abfallmaterial, das nicht verwendet werden kann"
       }
     }
   ],

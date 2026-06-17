@@ -12,7 +12,7 @@ describe("amperes-law-calculator", () => {
     "distance": 0.1,
     "permeability": 0.0000012566370614,
     "wireCount": 1
-  } as Amperes_law_calculatorInput;
+  } as unknown as Amperes_law_calculatorInput;
     const result = calculateAmperes_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

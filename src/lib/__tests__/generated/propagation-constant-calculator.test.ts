@@ -13,7 +13,7 @@ describe("propagation-constant-calculator", () => {
     "g": 0,
     "c": 3e-11,
     "f": 1000000000
-  } as Propagation_constant_calculatorInput;
+  } as unknown as Propagation_constant_calculatorInput;
     const result = calculatePropagation_constant_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

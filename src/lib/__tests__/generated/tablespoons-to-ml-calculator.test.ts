@@ -13,7 +13,7 @@ describe("tablespoons-to-ml-calculator", () => {
     "conversionType": 1,
     "precision": 2,
     "customFactor": 0
-  } as Tablespoons_to_ml_calculatorInput;
+  } as unknown as Tablespoons_to_ml_calculatorInput;
     const result = calculateTablespoons_to_ml_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

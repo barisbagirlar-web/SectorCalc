@@ -13,7 +13,7 @@ describe("mph-to-knots-calculator", () => {
     "decimals": 1,
     "knownKnots": 0,
     "tolerance": 0.01
-  } as Mph_to_knots_calculatorInput;
+  } as unknown as Mph_to_knots_calculatorInput;
     const result = calculateMph_to_knots_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

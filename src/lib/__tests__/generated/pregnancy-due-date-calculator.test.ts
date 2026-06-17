@@ -14,7 +14,7 @@ describe("pregnancy-due-date-calculator", () => {
     "cycle_variability": 2,
     "parity": 0,
     "risk_factors": "none"
-  } as Pregnancy_due_date_calculatorInput;
+  } as unknown as Pregnancy_due_date_calculatorInput;
     const result = calculatePregnancy_due_date_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

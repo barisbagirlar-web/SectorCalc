@@ -12,7 +12,7 @@ describe("whole-life-insurance-calculator", () => {
     "mortalityRate": 0.01,
     "interestRate": 0.05,
     "expenseLoading": 0.1
-  } as Whole_life_insurance_calculatorInput;
+  } as unknown as Whole_life_insurance_calculatorInput;
     const result = calculateWhole_life_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Sum Assured",
         "tr": "Teminat Tutarı",
-        "de": "Sum Assured",
+        "de": "Versicherungssumme",
         "fr": "Sum Assured",
         "es": "Sum Assured",
         "ar": "Sum Assured"
       },
       "businessContext_i18n": {
         "en": "The amount payable upon the death of the insured",
-        "tr": "Sigortalının ölümü halinde ödenecek tutar"
+        "tr": "Sigortalının ölümü halinde ödenecek tutar",
+        "de": "Der Betrag, der im Todesfall der versicherten Person fällig wird."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Mortality Rate",
         "tr": "Yıllık Ölüm Oranı",
-        "de": "Annual Mortality Rate",
+        "de": "Jährliche Sterblichkeitsrate",
         "fr": "Annual Mortality Rate",
         "es": "Annual Mortality Rate",
         "ar": "Annual Mortality Rate"
       },
       "businessContext_i18n": {
         "en": "The probability that the insured dies within one year, used to calculate expected claim costs",
-        "tr": "Sigortalının bir yıl içinde ölme olasılığı, beklenen hasar maliyetlerini hesaplamak için kullanılır"
+        "tr": "Sigortalının bir yıl içinde ölme olasılığı, beklenen hasar maliyetlerini hesaplamak için kullanılır",
+        "de": "Die Wahrscheinlichkeit, dass die versicherte Person innerhalb eines Jahres stirbt, zur Berechnung der erwarteten Schadenskosten."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
-        "de": "Annual Interest Rate",
+        "de": "Jährlicher Zinssatz",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "The risk‑free discount rate used to compute present values of future benefits",
-        "tr": "Gelecekteki faydaların bugünkü değerini hesaplamak için kullanılan risksiz iskonto oranı"
+        "tr": "Gelecekteki faydaların bugünkü değerini hesaplamak için kullanılan risksiz iskonto oranı",
+        "de": "Der risikofreie Diskontierungssatz zur Berechnung der Barwerte zukünftiger Leistungen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Policy Term",
         "tr": "Poliçe Süresi",
-        "de": "Policy Term",
+        "de": "Versicherungsdauer",
         "fr": "Policy Term",
         "es": "Policy Term",
         "ar": "Policy Term"
       },
       "businessContext_i18n": {
         "en": "The number of years the insurance coverage remains in force",
-        "tr": "Sigorta kapsamının yürürlükte kaldığı yıl sayısı"
+        "tr": "Sigorta kapsamının yürürlükte kaldığı yıl sayısı",
+        "de": "Die Anzahl der Jahre, in denen der Versicherungsschutz besteht."
       }
     }
   ],

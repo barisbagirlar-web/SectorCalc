@@ -12,7 +12,7 @@ describe("strength-level-calculator", () => {
     "crossSectionArea": 50,
     "yieldStrength": 250,
     "safetyFactor": 1.5
-  } as Strength_level_calculatorInput;
+  } as unknown as Strength_level_calculatorInput;
     const result = calculateStrength_level_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

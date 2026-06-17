@@ -16,7 +16,7 @@ describe("cake-pan-converter-calculator", () => {
     "targetDim1": 24,
     "targetDim2": 0,
     "targetDepth": 5
-  } as Cake_pan_converter_calculatorInput;
+  } as unknown as Cake_pan_converter_calculatorInput;
     const result = calculateCake_pan_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

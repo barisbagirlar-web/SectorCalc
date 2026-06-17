@@ -14,7 +14,7 @@ describe("basement-wall-calculator", () => {
     "concrete_strength": 25,
     "steel_ratio": 1.5,
     "soil_pressure": 30
-  } as Basement_wall_calculatorInput;
+  } as unknown as Basement_wall_calculatorInput;
     const result = calculateBasement_wall_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

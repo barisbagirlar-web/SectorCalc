@@ -12,7 +12,7 @@ describe("fatigue-calculator", () => {
     "meanStress": 50,
     "enduranceLimit": 200,
     "ultimateTensileStrength": 400
-  } as Fatigue_calculatorInput;
+  } as unknown as Fatigue_calculatorInput;
     const result = calculateFatigue_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

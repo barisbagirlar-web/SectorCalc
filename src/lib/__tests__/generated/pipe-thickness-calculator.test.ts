@@ -13,7 +13,7 @@ describe("pipe-thickness-calculator", () => {
     "allowableStress": 138,
     "jointEfficiency": 1,
     "corrosionAllowance": 1.5
-  } as Pipe_thickness_calculatorInput;
+  } as unknown as Pipe_thickness_calculatorInput;
     const result = calculatePipe_thickness_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

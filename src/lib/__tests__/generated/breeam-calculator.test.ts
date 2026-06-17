@@ -14,7 +14,7 @@ describe("breeam-calculator", () => {
     "recycled_waste": 20,
     "co2_emissions": 200,
     "floor_area": 10000
-  } as Breeam_calculatorInput;
+  } as unknown as Breeam_calculatorInput;
     const result = calculateBreeam_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

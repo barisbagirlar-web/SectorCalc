@@ -14,7 +14,7 @@ describe("loan-comparison-calculator", () => {
     "loan2Amount": 12000,
     "loan2Rate": 4.5,
     "loan2Term": 5
-  } as Loan_comparison_calculatorInput;
+  } as unknown as Loan_comparison_calculatorInput;
     const result = calculateLoan_comparison_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

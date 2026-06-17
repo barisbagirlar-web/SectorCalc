@@ -16,7 +16,7 @@ describe("inches-to-cm-calculator", () => {
     "measurementTemperature": 20,
     "materialExpansionCoeff": 0.0000115,
     "referenceTemperature": 20
-  } as Inches_to_cm_calculatorInput;
+  } as unknown as Inches_to_cm_calculatorInput;
     const result = calculateInches_to_cm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

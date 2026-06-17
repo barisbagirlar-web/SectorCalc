@@ -14,7 +14,7 @@ describe("email-size-calculator", () => {
     "embeddedImageCount": 3,
     "avgImageSize": 200,
     "metadataSize": 1024
-  } as Email_size_calculatorInput;
+  } as unknown as Email_size_calculatorInput;
     const result = calculateEmail_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("fitzpatrick-scale-calculator", () => {
     "geneticFactor": 0.5,
     "hairColor": 3,
     "eyeColor": 3
-  } as Fitzpatrick_scale_calculatorInput;
+  } as unknown as Fitzpatrick_scale_calculatorInput;
     const result = calculateFitzpatrick_scale_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

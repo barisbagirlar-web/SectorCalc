@@ -12,7 +12,7 @@ describe("refrigerator-energy-calculator", () => {
     "dutyCycle": 50,
     "daysPerYear": 365,
     "costPerKwh": 0.15
-  } as Refrigerator_energy_calculatorInput;
+  } as unknown as Refrigerator_energy_calculatorInput;
     const result = calculateRefrigerator_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

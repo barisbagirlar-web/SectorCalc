@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Chronological Age (years)",
         "tr": "Kronolojik Yaş (yıl)",
-        "de": "Chronological Age (years)",
+        "de": "Chronologisches Alter (Jahre)",
         "fr": "Chronological Age (years)",
         "es": "Chronological Age (years)",
         "ar": "Chronological Age (years)"
       },
       "businessContext_i18n": {
         "en": "Patient's chronological age in years",
-        "tr": "Hastanın yıl cinsinden kronolojik yaşı"
+        "tr": "Hastanın yıl cinsinden kronolojik yaşı",
+        "de": "Chronologisches Alter des Patienten in Jahren"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sex (0=Male, 1=Female)",
         "tr": "Cinsiyet (0=Erkek, 1=Kadın)",
-        "de": "Sex (0=Male, 1=Female)",
+        "de": "Geschlecht (0=Männlich, 1=Weiblich)",
         "fr": "Sex (0=Male, 1=Female)",
         "es": "Sex (0=Male, 1=Female)",
         "ar": "Sex (0=Male, 1=Female)"
       },
       "businessContext_i18n": {
         "en": "Biological sex code for bone age estimation",
-        "tr": "Kemik yaşı tahmini için biyolojik cinsiyet kodu"
+        "tr": "Kemik yaşı tahmini için biyolojik cinsiyet kodu",
+        "de": "Biologischer Geschlechtscode für die Knochenalterschätzung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Height (cm)",
         "tr": "Boy (cm)",
-        "de": "Height (cm)",
+        "de": "Größe (cm)",
         "fr": "Height (cm)",
         "es": "Height (cm)",
         "ar": "Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Patient's height in centimeters",
-        "tr": "Hastanın santimetre cinsinden boyu"
+        "tr": "Hastanın santimetre cinsinden boyu",
+        "de": "Körpergröße des Patienten in Zentimetern"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Weight (kg)",
         "tr": "Ağırlık (kg)",
-        "de": "Weight (kg)",
+        "de": "Gewicht (kg)",
         "fr": "Weight (kg)",
         "es": "Weight (kg)",
         "ar": "Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "Patient's weight in kilograms",
-        "tr": "Hastanın kilogram cinsinden ağırlığı"
+        "tr": "Hastanın kilogram cinsinden ağırlığı",
+        "de": "Körpergewicht des Patienten in Kilogramm"
       }
     }
   ],

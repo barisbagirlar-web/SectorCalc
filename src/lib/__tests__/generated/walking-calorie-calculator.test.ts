@@ -12,7 +12,7 @@ describe("walking-calorie-calculator", () => {
     "duration": 30,
     "speed": 5,
     "grade": 0
-  } as Walking_calorie_calculatorInput;
+  } as unknown as Walking_calorie_calculatorInput;
     const result = calculateWalking_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

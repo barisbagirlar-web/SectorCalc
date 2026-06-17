@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Birim Malzeme Maliyeti",
         "tr": "Birim Malzeme Maliyeti",
-        "de": "Birim Malzeme Maliyeti",
+        "de": "Materialkosten pro Einheit",
         "fr": "Birim Malzeme Maliyeti",
         "es": "Birim Malzeme Maliyeti",
         "ar": "Birim Malzeme Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Ürün başına hammadde maliyeti",
-        "tr": "Ürün başına hammadde maliyeti"
+        "tr": "Ürün başına hammadde maliyeti",
+        "de": "Rohstoffkosten pro Produkt"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Birim İşçilik Maliyeti",
         "tr": "Birim İşçilik Maliyeti",
-        "de": "Birim İşçilik Maliyeti",
+        "de": "Arbeitskosten pro Einheit",
         "fr": "Birim İşçilik Maliyeti",
         "es": "Birim İşçilik Maliyeti",
         "ar": "Birim İşçilik Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Ürün başına direkt işçilik maliyeti",
-        "tr": "Ürün başına direkt işçilik maliyeti"
+        "tr": "Ürün başına direkt işçilik maliyeti",
+        "de": "Direkte Arbeitskosten pro Produkt"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Birim Genel Gider",
         "tr": "Birim Genel Gider",
-        "de": "Birim Genel Gider",
+        "de": "Gemeinkosten pro Einheit",
         "fr": "Birim Genel Gider",
         "es": "Birim Genel Gider",
         "ar": "Birim Genel Gider"
       },
       "businessContext_i18n": {
         "en": "Ürün başına amortisman, enerji vb. genel üretim gideri",
-        "tr": "Ürün başına amortisman, enerji vb. genel üretim gideri"
+        "tr": "Ürün başına amortisman, enerji vb. genel üretim gideri",
+        "de": "Allgemeine Fertigungsgemeinkosten (Abschreibung, Energie usw.) pro Produkt"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Üretim Miktarı",
         "tr": "Üretim Miktarı",
-        "de": "Üretim Miktarı",
+        "de": "Produktionsmenge",
         "fr": "Üretim Miktarı",
         "es": "Üretim Miktarı",
         "ar": "Üretim Miktarı"
       },
       "businessContext_i18n": {
         "en": "Üretilecek toplam ürün sayısı",
-        "tr": "Üretilecek toplam ürün sayısı"
+        "tr": "Üretilecek toplam ürün sayısı",
+        "de": "Gesamtzahl der zu produzierenden Produkte"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Kar Marjı (%)",
         "tr": "Kar Marjı (%)",
-        "de": "Kar Marjı (%)",
+        "de": "Gewinnmarge (%)",
         "fr": "Kar Marjı (%)",
         "es": "Kar Marjı (%)",
         "ar": "Kar Marjı (%)"
       },
       "businessContext_i18n": {
         "en": "Toplam maliyet üzerine eklenecek kar yüzdesi",
-        "tr": "Toplam maliyet üzerine eklenecek kar yüzdesi"
+        "tr": "Toplam maliyet üzerine eklenecek kar yüzdesi",
+        "de": "Prozentsatz des Gewinnaufschlags auf die Gesamtkosten"
       }
     }
   ],

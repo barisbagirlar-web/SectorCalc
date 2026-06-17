@@ -24,11 +24,13 @@
       "businessContext": "Total forecasted demand for the item over one year. Used to calculate order frequency and total cycle stock.",
       "label_i18n": {
         "en": "Annual Demand (units)",
-        "tr": "Yıllık Talep (birim)"
+        "tr": "Yıllık Talep (birim)",
+        "de": "Jahresbedarf (Einheiten)"
       },
       "businessContext_i18n": {
         "en": "Total forecasted demand for the item over one year. Used to calculate order frequency and total cycle stock.",
-        "tr": "Ürünün bir yıl boyunca toplam tahmini talebi. Sipariş sıklığı ve toplam çevrim stoğunu hesaplamak için kullanılır."
+        "tr": "Ürünün bir yıl boyunca toplam tahmini talebi. Sipariş sıklığı ve toplam çevrim stoğunu hesaplamak için kullanılır.",
+        "de": "Gesamtprognose des Bedarfs für das Produkt über ein Jahr. Wird zur Berechnung der Bestellhäufigkeit und des gesamten Umlaufbestands verwendet."
       }
     },
     {
@@ -42,11 +44,13 @@
       "businessContext": "Fixed cost incurred per purchase order (e.g., administrative, inspection, transportation setup).",
       "label_i18n": {
         "en": "Ordering Cost per Order",
-        "tr": "Sipariş Maliyeti (sipariş başına)"
+        "tr": "Sipariş Maliyeti (sipariş başına)",
+        "de": "Bestellkosten pro Bestellung"
       },
       "businessContext_i18n": {
         "en": "Fixed cost incurred per purchase order (e.g., administrative, inspection, transportation setup).",
-        "tr": "Satın alma siparişi başına sabit maliyet (ör. idari, muayene, nakliye kurulumu)."
+        "tr": "Satın alma siparişi başına sabit maliyet (ör. idari, muayene, nakliye kurulumu).",
+        "de": "Fixe Kosten pro Bestellung (z. B. Verwaltung, Prüfung, Transporteinrichtung)."
       }
     },
     {
@@ -60,11 +64,13 @@
       "businessContext": "Cost to hold one unit in inventory for one year, including storage, insurance, obsolescence, and capital cost.",
       "label_i18n": {
         "en": "Holding Cost per Unit per Year",
-        "tr": "Birim Başına Yıllık Elde Tutma Maliyeti"
+        "tr": "Birim Başına Yıllık Elde Tutma Maliyeti",
+        "de": "Lagerkosten pro Einheit pro Jahr"
       },
       "businessContext_i18n": {
         "en": "Cost to hold one unit in inventory for one year, including storage, insurance, obsolescence, and capital cost.",
-        "tr": "Bir birimi bir yıl boyunca stokta tutmanın maliyeti; depolama, sigorta, eskime ve sermaye maliyetini içerir."
+        "tr": "Bir birimi bir yıl boyunca stokta tutmanın maliyeti; depolama, sigorta, eskime ve sermaye maliyetini içerir.",
+        "de": "Kosten für die Lagerung einer Einheit für ein Jahr, einschließlich Lagerung, Versicherung, Veralterung und Kapitalkosten."
       }
     },
     {
@@ -78,11 +84,13 @@
       "businessContext": "Purchase price per unit from supplier. Used to calculate total annual purchase cost and capital tied up.",
       "label_i18n": {
         "en": "Unit Cost (Purchase Price)",
-        "tr": "Birim Maliyet (Satın Alma Fiyatı)"
+        "tr": "Birim Maliyet (Satın Alma Fiyatı)",
+        "de": "Stückkosten (Einkaufspreis)"
       },
       "businessContext_i18n": {
         "en": "Purchase price per unit from supplier. Used to calculate total annual purchase cost and capital tied up.",
-        "tr": "Tedarikçiden birim başına satın alma fiyatı. Yıllık toplam satın alma maliyeti ve bağlı sermayeyi hesaplamak için kullanılır."
+        "tr": "Tedarikçiden birim başına satın alma fiyatı. Yıllık toplam satın alma maliyeti ve bağlı sermayeyi hesaplamak için kullanılır.",
+        "de": "Einkaufspreis pro Einheit vom Lieferanten. Wird zur Berechnung der gesamten jährlichen Einkaufskosten und des gebundenen Kapitals verwendet."
       }
     },
     {
@@ -96,11 +104,13 @@
       "businessContext": "Average time from order placement to receipt. Critical for safety stock and reorder point calculations.",
       "label_i18n": {
         "en": "Lead Time (days)",
-        "tr": "Teslim Süresi (gün)"
+        "tr": "Teslim Süresi (gün)",
+        "de": "Lieferzeit (Tage)"
       },
       "businessContext_i18n": {
         "en": "Average time from order placement to receipt. Critical for safety stock and reorder point calculations.",
-        "tr": "Sipariş verme ile teslim alma arasındaki ortalama süre. Emniyet stoğu ve yeniden sipariş noktası hesaplamaları için kritiktir."
+        "tr": "Sipariş verme ile teslim alma arasındaki ortalama süre. Emniyet stoğu ve yeniden sipariş noktası hesaplamaları için kritiktir.",
+        "de": "Durchschnittliche Zeit von der Bestellung bis zum Eingang. Entscheidend für die Berechnung von Sicherheitsbestand und Meldebestand."
       }
     },
     {
@@ -114,11 +124,13 @@
       "businessContext": "Standard deviation of daily demand. Used to calculate safety stock under uncertainty (Six Sigma approach).",
       "label_i18n": {
         "en": "Demand Variability (Std Dev of Daily Demand)",
-        "tr": "Talep Değişkenliği (Günlük Talebin Standart Sapması)"
+        "tr": "Talep Değişkenliği (Günlük Talebin Standart Sapması)",
+        "de": "Nachfrageschwankung (Standardabweichung des Tagesbedarfs)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of daily demand. Used to calculate safety stock under uncertainty (Six Sigma approach).",
-        "tr": "Günlük talebin standart sapması. Belirsizlik altında emniyet stoğu hesaplamak için kullanılır (Altı Sigma yaklaşımı)."
+        "tr": "Günlük talebin standart sapması. Belirsizlik altında emniyet stoğu hesaplamak için kullanılır (Altı Sigma yaklaşımı).",
+        "de": "Standardabweichung des täglichen Bedarfs. Wird zur Berechnung des Sicherheitsbestands unter Unsicherheit (Six Sigma-Ansatz) verwendet."
       }
     },
     {
@@ -136,11 +148,13 @@
       "businessContext": "Target probability of not stocking out during lead time. Higher service levels increase safety stock.",
       "label_i18n": {
         "en": "Desired Service Level",
-        "tr": "İstenen Hizmet Seviyesi"
+        "tr": "İstenen Hizmet Seviyesi",
+        "de": "Gewünschter Servicegrad"
       },
       "businessContext_i18n": {
         "en": "Target probability of not stocking out during lead time. Higher service levels increase safety stock.",
-        "tr": "Teslim süresi boyunca stokta kalmama olasılığı hedefi. Daha yüksek hizmet seviyeleri emniyet stoğunu artırır."
+        "tr": "Teslim süresi boyunca stokta kalmama olasılığı hedefi. Daha yüksek hizmet seviyeleri emniyet stoğunu artırır.",
+        "de": "Zielwahrscheinlichkeit, während der Lieferzeit keinen Fehlbestand zu haben. Höhere Servicegrade erhöhen den Sicherheitsbestand."
       }
     },
     {
@@ -154,11 +168,13 @@
       "businessContext": "Cost incurred per unit when demand cannot be met from stock (lost sales, penalty, expediting).",
       "label_i18n": {
         "en": "Backorder Cost per Unit",
-        "tr": "Birim Başına Geri Sipariş Maliyeti"
+        "tr": "Birim Başına Geri Sipariş Maliyeti",
+        "de": "Fehlmengenkosten pro Einheit"
       },
       "businessContext_i18n": {
         "en": "Cost incurred per unit when demand cannot be met from stock (lost sales, penalty, expediting).",
-        "tr": "Talep stoktan karşılanamadığında birim başına oluşan maliyet (kayıp satış, ceza, hızlandırma)."
+        "tr": "Talep stoktan karşılanamadığında birim başına oluşan maliyet (kayıp satış, ceza, hızlandırma).",
+        "de": "Kosten pro Einheit, wenn die Nachfrage nicht aus dem Lagerbestand gedeckt werden kann (entgangene Verkäufe, Strafen, Eilbeschaffung)."
       }
     }
   ],

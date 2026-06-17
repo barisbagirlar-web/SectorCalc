@@ -12,7 +12,7 @@ describe("flow-rate-calculator", () => {
     "v": 1,
     "rho": 1000,
     "mu": 0.001
-  } as Flow_rate_calculatorInput;
+  } as unknown as Flow_rate_calculatorInput;
     const result = calculateFlow_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

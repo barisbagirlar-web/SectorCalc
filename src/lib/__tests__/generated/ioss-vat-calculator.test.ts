@@ -11,7 +11,7 @@ describe("ioss-vat-calculator", () => {
     "netPrice": 0,
     "shippingCost": 0,
     "vatRate": 21
-  } as Ioss_vat_calculatorInput;
+  } as unknown as Ioss_vat_calculatorInput;
     const result = calculateIoss_vat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

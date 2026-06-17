@@ -13,7 +13,7 @@ describe("oil-barrels-to-liters-calculator", () => {
     "referenceTemperature": 15,
     "alpha": 0.0007,
     "precision": 2
-  } as Oil_barrels_to_liters_calculatorInput;
+  } as unknown as Oil_barrels_to_liters_calculatorInput;
     const result = calculateOil_barrels_to_liters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

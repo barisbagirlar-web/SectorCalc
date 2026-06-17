@@ -15,7 +15,7 @@ describe("ybocs-calculator", () => {
     "overheadCostPerUnit": 3,
     "productionVolume": 1000,
     "defectRate": 5
-  } as Ybocs_calculatorInput;
+  } as unknown as Ybocs_calculatorInput;
     const result = calculateYbocs_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

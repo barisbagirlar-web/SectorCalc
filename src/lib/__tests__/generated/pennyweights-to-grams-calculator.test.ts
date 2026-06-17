@@ -13,7 +13,7 @@ describe("pennyweights-to-grams-calculator", () => {
     "decimalPrecision": 2,
     "sampleCount": 1,
     "tolerance": 0.001
-  } as Pennyweights_to_grams_calculatorInput;
+  } as unknown as Pennyweights_to_grams_calculatorInput;
     const result = calculatePennyweights_to_grams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

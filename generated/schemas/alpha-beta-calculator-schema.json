@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Stock/Portfolio Average Return",
         "tr": "Hisse/Portföy Ortalama Getirisi",
-        "de": "Stock/Portfolio Average Return",
+        "de": "Durchschnittsrendite des Portfolios",
         "fr": "Stock/Portfolio Average Return",
         "es": "Stock/Portfolio Average Return",
         "ar": "Stock/Portfolio Average Return"
       },
       "businessContext_i18n": {
         "en": "Expected or historical average annual return of the stock or portfolio being analyzed, expressed as a percentage.",
-        "tr": "Analiz edilen hisse senedi veya portföyün beklenen veya geçmiş ortalama yıllık getirisi (yüzde olarak ifade edilir)."
+        "tr": "Analiz edilen hisse senedi veya portföyün beklenen veya geçmiş ortalama yıllık getirisi (yüzde olarak ifade edilir).",
+        "de": "Erwartete oder historische durchschnittliche jährliche Rendite der analysierten Aktie oder des Portfolios, ausgedrückt als Prozentsatz."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Market Average Return",
         "tr": "Piyasa Ortalama Getirisi",
-        "de": "Market Average Return",
+        "de": "Marktdurchschnittsrendite",
         "fr": "Market Average Return",
         "es": "Market Average Return",
         "ar": "Market Average Return"
       },
       "businessContext_i18n": {
         "en": "Average annual return of the benchmark market index (e.g., S&P 500), expressed as a percentage.",
-        "tr": "Referans piyasa endeksinin (ör. S&P 500) ortalama yıllık getirisi (yüzde olarak ifade edilir)."
+        "tr": "Referans piyasa endeksinin (ör. S&P 500) ortalama yıllık getirisi (yüzde olarak ifade edilir).",
+        "de": "Durchschnittliche jährliche Rendite des Benchmark-Marktindex (z. B. S&P 500), ausgedrückt als Prozentsatz."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Risk-Free Rate",
         "tr": "Risksiz Faiz Oranı",
-        "de": "Risk-Free Rate",
+        "de": "Risikofreier Zinssatz",
         "fr": "Risk-Free Rate",
         "es": "Risk-Free Rate",
         "ar": "Risk-Free Rate"
       },
       "businessContext_i18n": {
         "en": "Annual return of a risk-free asset (e.g., government bond yield), expressed as a percentage.",
-        "tr": "Risksiz bir varlığın yıllık getirisi (ör. devlet tahvili faizi), yüzde olarak ifade edilir."
+        "tr": "Risksiz bir varlığın yıllık getirisi (ör. devlet tahvili faizi), yüzde olarak ifade edilir.",
+        "de": "Jährliche Rendite eines risikofreien Vermögenswerts (z. B. Staatsanleiherendite), ausgedrückt als Prozentsatz."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Covariance (Stock, Market)",
         "tr": "Kovaryans (Hisse, Piyasa)",
-        "de": "Covariance (Stock, Market)",
+        "de": "Kovarianz (Aktie, Markt)",
         "fr": "Covariance (Stock, Market)",
         "es": "Covariance (Stock, Market)",
         "ar": "Covariance (Stock, Market)"
       },
       "businessContext_i18n": {
         "en": "Covariance between the stock/portfolio returns and market returns, typically computed from historical data.",
-        "tr": "Hisse senedi/portföy getirileri ile piyasa getirileri arasındaki kovaryans, genellikle geçmiş verilerden hesaplanır."
+        "tr": "Hisse senedi/portföy getirileri ile piyasa getirileri arasındaki kovaryans, genellikle geçmiş verilerden hesaplanır.",
+        "de": "Kovarianz zwischen den Renditen der Aktie/des Portfolios und den Marktrenditen, typischerweise aus historischen Daten berechnet."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Variance of Market Returns",
         "tr": "Piyasa Getirilerinin Varyansı",
-        "de": "Variance of Market Returns",
+        "de": "Varianz der Marktrenditen",
         "fr": "Variance of Market Returns",
         "es": "Variance of Market Returns",
         "ar": "Variance of Market Returns"
       },
       "businessContext_i18n": {
         "en": "Variance of the benchmark market index returns, measuring total risk of the market.",
-        "tr": "Piyasanın toplam riskini ölçen kıyaslama piyasa endeksi getirilerinin varyansı."
+        "tr": "Piyasanın toplam riskini ölçen kıyaslama piyasa endeksi getirilerinin varyansı.",
+        "de": "Varianz der Renditen des Benchmark-Marktindex, die das Gesamtrisiko des Marktes misst."
       }
     }
   ],

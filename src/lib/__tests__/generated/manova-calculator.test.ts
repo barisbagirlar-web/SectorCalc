@@ -14,7 +14,7 @@ describe("manova-calculator", () => {
     "d2": 0.3,
     "v1": 1,
     "v2": 1
-  } as Manova_calculatorInput;
+  } as unknown as Manova_calculatorInput;
     const result = calculateManova_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

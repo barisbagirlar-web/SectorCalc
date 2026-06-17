@@ -14,7 +14,7 @@ describe("dot-product-calculator", () => {
     "b_x": 0,
     "b_y": 0,
     "b_z": 0
-  } as Dot_product_calculatorInput;
+  } as unknown as Dot_product_calculatorInput;
     const result = calculateDot_product_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

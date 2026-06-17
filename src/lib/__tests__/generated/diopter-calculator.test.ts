@@ -13,7 +13,7 @@ describe("diopter-calculator", () => {
     "diopter2": 1,
     "originalDiopter": -3,
     "vertexDistanceMm": 12
-  } as Diopter_calculatorInput;
+  } as unknown as Diopter_calculatorInput;
     const result = calculateDiopter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

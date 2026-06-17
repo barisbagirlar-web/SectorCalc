@@ -14,7 +14,7 @@ describe("recall-calculator", () => {
     "costPerRecallUnit": 50,
     "fixedRecallCost": 5000,
     "replacementCostPerUnit": 30
-  } as Recall_calculatorInput;
+  } as unknown as Recall_calculatorInput;
     const result = calculateRecall_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

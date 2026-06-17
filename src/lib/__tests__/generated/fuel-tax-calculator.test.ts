@@ -12,7 +12,7 @@ describe("fuel-tax-calculator", () => {
     "pricePerLiter": 1.5,
     "vatRate": 18,
     "exciseTaxPerLiter": 0.8
-  } as Fuel_tax_calculatorInput;
+  } as unknown as Fuel_tax_calculatorInput;
     const result = calculateFuel_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

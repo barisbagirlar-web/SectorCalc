@@ -12,7 +12,7 @@ describe("heart-rate-zone-calculator", () => {
     "restingHeartRate": 60,
     "lowerIntensity": 60,
     "upperIntensity": 70
-  } as Heart_rate_zone_calculatorInput;
+  } as unknown as Heart_rate_zone_calculatorInput;
     const result = calculateHeart_rate_zone_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("anova-calculator", () => {
     "group2_mean": 55,
     "group2_sd": 12,
     "confidenceLevel": 0.95
-  } as Anova_calculatorInput;
+  } as unknown as Anova_calculatorInput;
     const result = calculateAnova_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

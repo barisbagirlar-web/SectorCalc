@@ -15,7 +15,7 @@ describe("hsa-calculator", () => {
     "taxRate": 22,
     "yearsUntilRetirement": 35,
     "employerContribution": 0
-  } as Hsa_calculatorInput;
+  } as unknown as Hsa_calculatorInput;
     const result = calculateHsa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

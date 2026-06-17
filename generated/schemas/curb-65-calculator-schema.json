@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient age in years",
-        "tr": "Hasta yaşı (yıl)"
+        "tr": "Hasta yaşı (yıl)",
+        "de": "Patientenalter in Jahren"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Confusion",
         "tr": "Konfüzyon",
-        "de": "Confusion",
+        "de": "Verwirrtheit",
         "fr": "Confusion",
         "es": "Confusion",
         "ar": "Confusion"
       },
       "businessContext_i18n": {
         "en": "New onset confusion (1=Yes, 0=No)",
-        "tr": "Yeni başlayan konfüzyon (1=Evet, 0=Hayır)"
+        "tr": "Yeni başlayan konfüzyon (1=Evet, 0=Hayır)",
+        "de": "Neu aufgetretene Verwirrtheit (1=Ja, 0=Nein)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Blood Urea Nitrogen",
         "tr": "Kan Üre Azotu",
-        "de": "Blood Urea Nitrogen",
+        "de": "Blutharnstoffstickstoff",
         "fr": "Blood Urea Nitrogen",
         "es": "Blood Urea Nitrogen",
         "ar": "Blood Urea Nitrogen"
       },
       "businessContext_i18n": {
         "en": "Serum urea level in mmol/L",
-        "tr": "Serum üre seviyesi (mmol/L)"
+        "tr": "Serum üre seviyesi (mmol/L)",
+        "de": "Serumharnstoffspiegel in mmol/L"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Respiratory Rate",
         "tr": "Solunum Hızı",
-        "de": "Respiratory Rate",
+        "de": "Atemfrequenz",
         "fr": "Respiratory Rate",
         "es": "Respiratory Rate",
         "ar": "Respiratory Rate"
       },
       "businessContext_i18n": {
         "en": "Respiratory rate in breaths per minute",
-        "tr": "Dakikadaki solunum sayısı"
+        "tr": "Dakikadaki solunum sayısı",
+        "de": "Atemfrequenz in Atemzügen pro Minute"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
-        "de": "Systolic Blood Pressure",
+        "de": "Systolischer Blutdruck",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Systolic blood pressure in mmHg",
-        "tr": "Sistolik kan basıncı (mmHg)"
+        "tr": "Sistolik kan basıncı (mmHg)",
+        "de": "Systolischer Blutdruck in mmHg"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Diastolic Blood Pressure",
         "tr": "Diyastolik Kan Basıncı",
-        "de": "Diastolic Blood Pressure",
+        "de": "Diastolischer Blutdruck",
         "fr": "Diastolic Blood Pressure",
         "es": "Diastolic Blood Pressure",
         "ar": "Diastolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Diastolic blood pressure in mmHg",
-        "tr": "Diyastolik kan basıncı (mmHg)"
+        "tr": "Diyastolik kan basıncı (mmHg)",
+        "de": "Diastolischer Blutdruck in mmHg"
       }
     }
   ],

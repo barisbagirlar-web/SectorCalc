@@ -13,7 +13,7 @@ describe("thanksgiving-calculator", () => {
     "leftoverDays": 1,
     "adultWeight": 1.5,
     "childWeight": 0.75
-  } as Thanksgiving_calculatorInput;
+  } as unknown as Thanksgiving_calculatorInput;
     const result = calculateThanksgiving_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

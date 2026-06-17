@@ -14,7 +14,7 @@ describe("hiit-calorie-calculator", () => {
     "gender": 1,
     "duration": 30,
     "met": 8
-  } as Hiit_calorie_calculatorInput;
+  } as unknown as Hiit_calorie_calculatorInput;
     const result = calculateHiit_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

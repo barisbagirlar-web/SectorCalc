@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Passband Ripple (dB)",
         "tr": "Geçiş Bandı Dalgalanması (dB)",
-        "de": "Passband Ripple (dB)",
+        "de": "Durchlassbereichswelligkeit (dB)",
         "fr": "Passband Ripple (dB)",
         "es": "Passband Ripple (dB)",
         "ar": "Passband Ripple (dB)"
       },
       "businessContext_i18n": {
         "en": "Maximum ripple in the passband (Ap). Must be >0.",
-        "tr": "Geçiş bandındaki maksimum dalgalanma (Ap). >0 olmalıdır."
+        "tr": "Geçiş bandındaki maksimum dalgalanma (Ap). >0 olmalıdır.",
+        "de": "Maximale Welligkeit im Durchlassbereich (Ap). Muss >0 sein."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Stopband Attenuation (dB)",
         "tr": "Durdurma Bandı Zayıflaması (dB)",
-        "de": "Stopband Attenuation (dB)",
+        "de": "Sperrbereichsdämpfung (dB)",
         "fr": "Stopband Attenuation (dB)",
         "es": "Stopband Attenuation (dB)",
         "ar": "Stopband Attenuation (dB)"
       },
       "businessContext_i18n": {
         "en": "Minimum attenuation required in the stopband (As). Must be > passbandRipple.",
-        "tr": "Durdurma bandında gereken minimum zayıflama (As). geçişBandıDalgalanması'ndan büyük olmalıdır."
+        "tr": "Durdurma bandında gereken minimum zayıflama (As). geçişBandıDalgalanması'ndan büyük olmalıdır.",
+        "de": "Mindestdämpfung im Sperrbereich (As). Muss > Durchlassbereichswelligkeit sein."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Cutoff Frequency (Hz)",
         "tr": "Kesim Frekansı (Hz)",
-        "de": "Cutoff Frequency (Hz)",
+        "de": "Grenzfrequenz (Hz)",
         "fr": "Cutoff Frequency (Hz)",
         "es": "Cutoff Frequency (Hz)",
         "ar": "Cutoff Frequency (Hz)"
       },
       "businessContext_i18n": {
         "en": "Passband edge frequency (wp). For low-pass prototype, must be < stopbandFrequency.",
-        "tr": "Geçiş bandı kenar frekansı (wp). Alçak geçiren prototip için durdurmaBandıFrekansı'ndan küçük olmalıdır."
+        "tr": "Geçiş bandı kenar frekansı (wp). Alçak geçiren prototip için durdurmaBandıFrekansı'ndan küçük olmalıdır.",
+        "de": "Durchlassbereichsgrenzfrequenz (wp). Für Tiefpass-Prototyp muss < Sperrbereichsfrequenz sein."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Stopband Frequency (Hz)",
         "tr": "Durdurma Bandı Frekansı (Hz)",
-        "de": "Stopband Frequency (Hz)",
+        "de": "Sperrbereichsfrequenz (Hz)",
         "fr": "Stopband Frequency (Hz)",
         "es": "Stopband Frequency (Hz)",
         "ar": "Stopband Frequency (Hz)"
       },
       "businessContext_i18n": {
         "en": "Stopband edge frequency (ws). Must be > cutoffFrequency.",
-        "tr": "Durdurma bandı kenar frekansı (ws). kesimFrekansı'ndan büyük olmalıdır."
+        "tr": "Durdurma bandı kenar frekansı (ws). kesimFrekansı'ndan büyük olmalıdır.",
+        "de": "Sperrbereichsgrenzfrequenz (ws). Muss > Grenzfrequenz sein."
       }
     }
   ],

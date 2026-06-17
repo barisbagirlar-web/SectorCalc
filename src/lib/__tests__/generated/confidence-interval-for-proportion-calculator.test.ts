@@ -12,7 +12,7 @@ describe("confidence-interval-for-proportion-calculator", () => {
     "successes": 50,
     "zValue": 1.96,
     "confidenceLevel": 0.95
-  } as Confidence_interval_for_proportion_calculatorInput;
+  } as unknown as Confidence_interval_for_proportion_calculatorInput;
     const result = calculateConfidence_interval_for_proportion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

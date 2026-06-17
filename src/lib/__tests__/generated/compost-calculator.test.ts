@@ -14,7 +14,7 @@ describe("compost-calculator", () => {
     "brownWeight": 10,
     "brownC": 50,
     "brownN": 1
-  } as Compost_calculatorInput;
+  } as unknown as Compost_calculatorInput;
     const result = calculateCompost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

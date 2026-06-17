@@ -13,7 +13,7 @@ describe("slab-on-grade-calculator", () => {
     "thickness": 100,
     "concreteCost": 100,
     "wasteFactor": 5
-  } as Slab_on_grade_calculatorInput;
+  } as unknown as Slab_on_grade_calculatorInput;
     const result = calculateSlab_on_grade_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("deep-work-calculator", () => {
     "recoveryTime": 15,
     "deepWorkBlock": 90,
     "shallowWorkPercent": 30
-  } as Deep_work_calculatorInput;
+  } as unknown as Deep_work_calculatorInput;
     const result = calculateDeep_work_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

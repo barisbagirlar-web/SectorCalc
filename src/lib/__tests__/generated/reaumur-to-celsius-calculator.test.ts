@@ -12,7 +12,7 @@ describe("reaumur-to-celsius-calculator", () => {
     "decimalPlaces": 2,
     "measurementUncertainty": 0,
     "calibrationOffset": 0
-  } as Reaumur_to_celsius_calculatorInput;
+  } as unknown as Reaumur_to_celsius_calculatorInput;
     const result = calculateReaumur_to_celsius_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

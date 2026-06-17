@@ -12,7 +12,7 @@ describe("medicare-irmaa-calculator", () => {
     "filingStatus": 1,
     "partBBase": 174.7,
     "partDBase": 0
-  } as Medicare_irmaa_calculatorInput;
+  } as unknown as Medicare_irmaa_calculatorInput;
     const result = calculateMedicare_irmaa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

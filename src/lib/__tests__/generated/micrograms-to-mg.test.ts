@@ -11,7 +11,7 @@ describe("micrograms-to-mg", () => {
     "micrograms": 1000,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Micrograms_to_mgInput;
+  } as unknown as Micrograms_to_mgInput;
     const result = calculateMicrograms_to_mg(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("wire-mesh-calculator", () => {
     "sheetLength": 2,
     "quantity": 10,
     "materialDensity": 7850
-  } as Wire_mesh_calculatorInput;
+  } as unknown as Wire_mesh_calculatorInput;
     const result = calculateWire_mesh_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Wall Length",
         "tr": "Duvar Uzunluğu (m)",
-        "de": "Wall Length",
+        "de": "Duvar Uzunluğu",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
       },
       "businessContext_i18n": {
         "en": "Horizontal dimension of the wall",
-        "tr": "Duvarın yatay boyutu"
+        "tr": "Duvarın yatay boyutu",
+        "de": "Horizontale Abmessung der Wand"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
-        "de": "Wall Height",
+        "de": "Wandhöhe",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "Vertical dimension of the wall",
-        "tr": "Duvarın dikey boyutu"
+        "tr": "Duvarın dikey boyutu",
+        "de": "Vertikale Abmessung der Wand"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Wall Thickness",
         "tr": "Duvar Kalınlığı (cm)",
-        "de": "Wall Thickness",
+        "de": "Duvar Kalınlığı",
         "fr": "Wall Thickness",
         "es": "Wall Thickness",
         "ar": "Wall Thickness"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional thickness of the wall",
-        "tr": "Duvarın kesit kalınlığı"
+        "tr": "Duvarın kesit kalınlığı",
+        "de": "Querschnittsdicke der Wand"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Walls",
         "tr": "Duvar Sayısı",
-        "de": "Number of Walls",
+        "de": "Anzahl der Wände",
         "fr": "Number of Walls",
         "es": "Number of Walls",
         "ar": "Number of Walls"
       },
       "businessContext_i18n": {
         "en": "How many identical walls to cast",
-        "tr": "Dökülecek aynı duvar sayısı"
+        "tr": "Dökülecek aynı duvar sayısı",
+        "de": "Anzahl der identischen Wände"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
-        "de": "Waste Factor",
+        "de": "Abfallfaktor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Additional concrete to account for spillage, over-excavation, etc.",
-        "tr": "Dökülme, aşırı kazı vb. durumlar için ilave beton"
+        "tr": "Dökülme, aşırı kazı vb. durumlar için ilave beton",
+        "de": "Zusätzlicher Beton für Verschütten, Überaushub usw."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Concrete Cost per m³",
         "tr": "m³ başına Beton Maliyeti",
-        "de": "Concrete Cost per m³",
+        "de": "Betonkosten pro m³",
         "fr": "Concrete Cost per m³",
         "es": "Concrete Cost per m³",
         "ar": "Concrete Cost per m³"
       },
       "businessContext_i18n": {
         "en": "Unit price of ready-mix concrete",
-        "tr": "Hazır betonun birim fiyatı"
+        "tr": "Hazır betonun birim fiyatı",
+        "de": "Stückpreis für Transportbeton"
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Bore Diameter",
         "tr": "Delik Çapı",
-        "de": "Bore Diameter",
+        "de": "Bohrungsdurchmesser",
         "fr": "Bore Diameter",
         "es": "Bore Diameter",
         "ar": "Bore Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the cylinder bore",
-        "tr": "Silindir deliğinin iç çapı"
+        "tr": "Silindir deliğinin iç çapı",
+        "de": "Innendurchmesser der Zylinderbohrung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Rod Diameter",
         "tr": "Piston çubuğu çapı",
-        "de": "Rod Diameter",
+        "de": "Kolbenstangendurchmesser",
         "fr": "Rod Diameter",
         "es": "Rod Diameter",
         "ar": "Rod Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the piston rod (set to 0 for single-acting cylinder)",
-        "tr": "Piston çubuğunun çapı (tek etkili silindir için 0 girin)"
+        "tr": "Piston çubuğunun çapı (tek etkili silindir için 0 girin)",
+        "de": "Durchmesser der Kolbenstange (bei einfachwirkendem Zylinder auf 0 setzen)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Operating Pressure",
         "tr": "Çalışma basıncı",
-        "de": "Operating Pressure",
+        "de": "Betriebsdruck",
         "fr": "Operating Pressure",
         "es": "Operating Pressure",
         "ar": "Operating Pressure"
       },
       "businessContext_i18n": {
         "en": "Fluid pressure supplied to the cylinder",
-        "tr": "Silindire sağlanan akışkan basıncı"
+        "tr": "Silindire sağlanan akışkan basıncı",
+        "de": "Dem Zylinder zugeführter Fluiddruck"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",
-        "de": "Efficiency Factor",
+        "de": "Effizienzfaktor",
         "fr": "Efficiency Factor",
         "es": "Efficiency Factor",
         "ar": "Efficiency Factor"
       },
       "businessContext_i18n": {
         "en": "Mechanical efficiency of the cylinder (typical range 85-95%)",
-        "tr": "Silindirin mekanik verimliliği (tipik aralık %85-95)"
+        "tr": "Silindirin mekanik verimliliği (tipik aralık %85-95)",
+        "de": "Mechanischer Wirkungsgrad des Zylinders (typischer Bereich 85-95%)"
       }
     }
   ],

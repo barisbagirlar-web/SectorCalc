@@ -14,7 +14,7 @@ describe("vineyard-calculator", () => {
     "grapePrice": 1.2,
     "costPerHectare": 5000,
     "wasteRate": 5
-  } as Vineyard_calculatorInput;
+  } as unknown as Vineyard_calculatorInput;
     const result = calculateVineyard_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

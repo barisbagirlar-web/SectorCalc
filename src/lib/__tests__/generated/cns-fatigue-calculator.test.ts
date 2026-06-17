@@ -15,7 +15,7 @@ describe("cns-fatigue-calculator", () => {
     "restBetweenSets": 2,
     "daysSinceLastSession": 1,
     "trainingExperience": 2
-  } as Cns_fatigue_calculatorInput;
+  } as unknown as Cns_fatigue_calculatorInput;
     const result = calculateCns_fatigue_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

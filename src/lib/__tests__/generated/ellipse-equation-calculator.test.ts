@@ -13,7 +13,7 @@ describe("ellipse-equation-calculator", () => {
     "semiMajor": 5,
     "semiMinor": 3,
     "rotation": 0
-  } as Ellipse_equation_calculatorInput;
+  } as unknown as Ellipse_equation_calculatorInput;
     const result = calculateEllipse_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

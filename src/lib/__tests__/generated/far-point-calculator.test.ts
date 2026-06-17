@@ -12,7 +12,7 @@ describe("far-point-calculator", () => {
     "targetHeight": 0,
     "earthRadius": 6371,
     "refractionCoefficient": 0.13
-  } as Far_point_calculatorInput;
+  } as unknown as Far_point_calculatorInput;
     const result = calculateFar_point_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

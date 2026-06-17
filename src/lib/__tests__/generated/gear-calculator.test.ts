@@ -14,7 +14,7 @@ describe("gear-calculator", () => {
     "pressureAngle": 20,
     "ha": 1,
     "hf": 1.25
-  } as Gear_calculatorInput;
+  } as unknown as Gear_calculatorInput;
     const result = calculateGear_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

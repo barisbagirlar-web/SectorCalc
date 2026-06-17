@@ -12,7 +12,7 @@ describe("building-envelope-size-calculator", () => {
     "width": 10,
     "height": 3,
     "pitch": 30
-  } as Building_envelope_size_calculatorInput;
+  } as unknown as Building_envelope_size_calculatorInput;
     const result = calculateBuilding_envelope_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

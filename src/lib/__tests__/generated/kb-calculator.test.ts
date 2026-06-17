@@ -12,7 +12,7 @@ describe("kb-calculator", () => {
     "coilDia": 10,
     "activeCoils": 10,
     "shearModulus": 80000
-  } as Kb_calculatorInput;
+  } as unknown as Kb_calculatorInput;
     const result = calculateKb_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

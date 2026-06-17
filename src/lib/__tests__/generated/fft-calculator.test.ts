@@ -13,7 +13,7 @@ describe("fft-calculator", () => {
     "ballDiameter": 12,
     "pitchDiameter": 60,
     "contactAngle": 15
-  } as Fft_calculatorInput;
+  } as unknown as Fft_calculatorInput;
     const result = calculateFft_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

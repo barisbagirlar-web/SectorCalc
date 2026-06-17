@@ -13,7 +13,7 @@ describe("quad-screen-calculator", () => {
     "aspectHeight": 9,
     "numberOfScreens": 4,
     "costPerScreen": 200
-  } as Quad_screen_calculatorInput;
+  } as unknown as Quad_screen_calculatorInput;
     const result = calculateQuad_screen_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

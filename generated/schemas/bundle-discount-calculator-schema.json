@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Paket Sayısı",
         "tr": "Paket Sayısı",
-        "de": "Paket Sayısı",
+        "de": "Paketanzahl",
         "fr": "Paket Sayısı",
         "es": "Paket Sayısı",
         "ar": "Paket Sayısı"
       },
       "businessContext_i18n": {
         "en": "Satın alınan paket adedi",
-        "tr": "Satın alınan paket adedi"
+        "tr": "Satın alınan paket adedi",
+        "de": "Anzahl der gekauften Pakete"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Paket Başına Ürün",
         "tr": "Paket Başına Ürün",
-        "de": "Paket Başına Ürün",
+        "de": "Produkte pro Paket",
         "fr": "Paket Başına Ürün",
         "es": "Paket Başına Ürün",
         "ar": "Paket Başına Ürün"
       },
       "businessContext_i18n": {
         "en": "Bir paketteki ürün sayısı",
-        "tr": "Bir paketteki ürün sayısı"
+        "tr": "Bir paketteki ürün sayısı",
+        "de": "Anzahl der Produkte in einem Paket"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Birim Fiyatı",
         "tr": "Birim Fiyatı",
-        "de": "Birim Fiyatı",
+        "de": "Stückpreis",
         "fr": "Birim Fiyatı",
         "es": "Birim Fiyatı",
         "ar": "Birim Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Tek bir ürünün liste fiyatı",
-        "tr": "Tek bir ürünün liste fiyatı"
+        "tr": "Tek bir ürünün liste fiyatı",
+        "de": "Listenpreis eines einzelnen Produkts"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Paket İndirimi (%)",
         "tr": "Paket İndirimi (%)",
-        "de": "Paket İndirimi (%)",
+        "de": "Paketrabatt (%)",
         "fr": "Paket İndirimi (%)",
         "es": "Paket İndirimi (%)",
         "ar": "Paket İndirimi (%)"
       },
       "businessContext_i18n": {
         "en": "Paket olarak alındığında uygulanacak indirim yüzdesi",
-        "tr": "Paket olarak alındığında uygulanacak indirim yüzdesi"
+        "tr": "Paket olarak alındığında uygulanacak indirim yüzdesi",
+        "de": "Rabattprozentsatz beim Kauf als Paket"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Toplu Alım Eşiği",
         "tr": "Toplu Alım Eşiği",
-        "de": "Toplu Alım Eşiği",
+        "de": "Mengenschwellenwert",
         "fr": "Toplu Alım Eşiği",
         "es": "Toplu Alım Eşiği",
         "ar": "Toplu Alım Eşiği"
       },
       "businessContext_i18n": {
         "en": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır",
-        "tr": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır"
+        "tr": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır",
+        "de": "Bei Bestellung dieser oder einer höheren Anzahl von Paketen wird ein zusätzlicher Mengenrabatt gewährt"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Toplu İndirim Oranı (%)",
         "tr": "Toplu İndirim Oranı (%)",
-        "de": "Toplu İndirim Oranı (%)",
+        "de": "Mengenrabattsatz (%)",
         "fr": "Toplu İndirim Oranı (%)",
         "es": "Toplu İndirim Oranı (%)",
         "ar": "Toplu İndirim Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi",
-        "tr": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi"
+        "tr": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi",
+        "de": "Zusätzlicher Rabattprozentsatz nach Paketrabatt, wenn der Mengenschwellenwert überschritten wird"
       }
     }
   ],

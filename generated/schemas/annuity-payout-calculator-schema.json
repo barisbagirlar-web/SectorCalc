@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
-        "de": "Initial Investment",
+        "de": "Anfangsinvestition",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
       },
       "businessContext_i18n": {
         "en": "The present value or lump sum used to purchase the annuity.",
-        "tr": "Geliri satın almak için kullanılan bugünkü değer veya toplu meblağ."
+        "tr": "Geliri satın almak için kullanılan bugünkü değer veya toplu meblağ.",
+        "de": "Der Barwert oder die Einmalzahlung zum Kauf der Rente."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
-        "de": "Annual Interest Rate",
+        "de": "Jährlicher Zinssatz",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual nominal interest rate.",
-        "tr": "Yıllık nominal faiz oranı."
+        "tr": "Yıllık nominal faiz oranı.",
+        "de": "Jährlicher nominaler Zinssatz."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Years",
         "tr": "Yıl Sayısı",
-        "de": "Number of Years",
+        "de": "Anzahl der Jahre",
         "fr": "Number of Years",
         "es": "Number of Years",
         "ar": "Number of Years"
       },
       "businessContext_i18n": {
         "en": "Total number of years over which payments are made.",
-        "tr": "Ödemelerin yapıldığı toplam yıl sayısı."
+        "tr": "Ödemelerin yapıldığı toplam yıl sayısı.",
+        "de": "Gesamtzahl der Jahre, über die Zahlungen geleistet werden."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Payments Per Year",
         "tr": "Yıllık Ödeme Sayısı",
-        "de": "Payments Per Year",
+        "de": "Zahlungen pro Jahr",
         "fr": "Payments Per Year",
         "es": "Payments Per Year",
         "ar": "Payments Per Year"
       },
       "businessContext_i18n": {
         "en": "Frequency of payments: 12 for monthly, 4 for quarterly, 1 for annually.",
-        "tr": "Ödeme sıklığı: aylık için 12, üç aylık için 4, yıllık için 1."
+        "tr": "Ödeme sıklığı: aylık için 12, üç aylık için 4, yıllık için 1.",
+        "de": "Häufigkeit der Zahlungen: 12 für monatlich, 4 für vierteljährlich, 1 für jährlich."
       }
     }
   ],

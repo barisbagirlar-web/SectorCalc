@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Upstream Pressure",
         "tr": "Yukarı Akış Basıncı",
-        "de": "Upstream Pressure",
+        "de": "Vordruck",
         "fr": "Upstream Pressure",
         "es": "Upstream Pressure",
         "ar": "Upstream Pressure"
       },
       "businessContext_i18n": {
         "en": "Absolute pressure before the restriction",
-        "tr": "Kısıtlamadan önceki mutlak basınç"
+        "tr": "Kısıtlamadan önceki mutlak basınç",
+        "de": "Absoluter Druck vor der Drossel"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Downstream Pressure",
         "tr": "Aşağı Akış Basıncı",
-        "de": "Downstream Pressure",
+        "de": "Gegendruck",
         "fr": "Downstream Pressure",
         "es": "Downstream Pressure",
         "ar": "Downstream Pressure"
       },
       "businessContext_i18n": {
         "en": "Absolute pressure after the restriction",
-        "tr": "Kısıtlamadan sonraki mutlak basınç"
+        "tr": "Kısıtlamadan sonraki mutlak basınç",
+        "de": "Absoluter Druck nach der Drossel"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
-        "de": "Temperature",
+        "de": "Temperatur",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Absolute temperature of the gas",
-        "tr": "Gazın mutlak sıcaklığı"
+        "tr": "Gazın mutlak sıcaklığı",
+        "de": "Absolute Temperatur des Gases"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Specific Gas Constant",
         "tr": "Özgül gaz sabiti",
-        "de": "Specific Gas Constant",
+        "de": "Spezifische Gaskonstante",
         "fr": "Specific Gas Constant",
         "es": "Specific Gas Constant",
         "ar": "Specific Gas Constant"
       },
       "businessContext_i18n": {
         "en": "Gas constant for the specific gas (e.g., air)",
-        "tr": "Belirli bir gaz (örneğin hava) için gaz sabiti"
+        "tr": "Belirli bir gaz (örneğin hava) için gaz sabiti",
+        "de": "Gaskonstante für das spezifische Gas (z. B. Luft)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Specific Heat Ratio (γ)",
         "tr": "Özgül Isı Oranı (γ)",
-        "de": "Specific Heat Ratio (γ)",
+        "de": "Isentropenexponent (γ)",
         "fr": "Specific Heat Ratio (γ)",
         "es": "Specific Heat Ratio (γ)",
         "ar": "Specific Heat Ratio (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats (Cp/Cv)",
-        "tr": "Özgül ısı oranı (Cp/Cv)"
+        "tr": "Özgül ısı oranı (Cp/Cv)",
+        "de": "Isentropenexponent (Cp/Cv)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Orifice Diameter",
         "tr": "Orifis çapı",
-        "de": "Orifice Diameter",
+        "de": "Blendendurchmesser",
         "fr": "Orifice Diameter",
         "es": "Orifice Diameter",
         "ar": "Orifice Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the orifice or restriction",
-        "tr": "Orifis veya kısıtlamanın çapı"
+        "tr": "Orifis veya kısıtlamanın çapı",
+        "de": "Durchmesser der Blende oder Drossel"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Discharge Coefficient",
         "tr": "Debi Katsayısı",
-        "de": "Discharge Coefficient",
+        "de": "Ausflusskoeffizient",
         "fr": "Discharge Coefficient",
         "es": "Discharge Coefficient",
         "ar": "Discharge Coefficient"
       },
       "businessContext_i18n": {
         "en": "Empirical coefficient accounting for losses",
-        "tr": "Kayıpları hesaba katan ampirik katsayı"
+        "tr": "Kayıpları hesaba katan ampirik katsayı",
+        "de": "Empirischer Verlustbeiwert"
       }
     }
   ],

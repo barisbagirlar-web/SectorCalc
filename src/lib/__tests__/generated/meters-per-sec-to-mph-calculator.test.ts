@@ -12,7 +12,7 @@ describe("meters-per-sec-to-mph-calculator", () => {
     "factor_m_to_mi": 0.000621371,
     "factor_s_to_h": 3600,
     "decimal_places": 2
-  } as Meters_per_sec_to_mph_calculatorInput;
+  } as unknown as Meters_per_sec_to_mph_calculatorInput;
     const result = calculateMeters_per_sec_to_mph_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

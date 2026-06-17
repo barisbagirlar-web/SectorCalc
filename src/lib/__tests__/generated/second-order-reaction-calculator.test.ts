@@ -12,7 +12,7 @@ describe("second-order-reaction-calculator", () => {
     "rateConstant": 0.1,
     "time": 10,
     "targetConcentration": 0.5
-  } as Second_order_reaction_calculatorInput;
+  } as unknown as Second_order_reaction_calculatorInput;
     const result = calculateSecond_order_reaction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("coulombs-law-calculator", () => {
     "charge2": 0.000001,
     "distance": 1,
     "permittivity": 8.854187817e-12
-  } as Coulombs_law_calculatorInput;
+  } as unknown as Coulombs_law_calculatorInput;
     const result = calculateCoulombs_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

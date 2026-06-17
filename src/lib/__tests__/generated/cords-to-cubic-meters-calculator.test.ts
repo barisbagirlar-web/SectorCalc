@@ -13,7 +13,7 @@ describe("cords-to-cubic-meters-calculator", () => {
     "height_ft": 4,
     "stack_count": 1,
     "waste_percent": 0
-  } as Cords_to_cubic_meters_calculatorInput;
+  } as unknown as Cords_to_cubic_meters_calculatorInput;
     const result = calculateCords_to_cubic_meters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

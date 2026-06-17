@@ -15,7 +15,7 @@ describe("harmonic-distortion-calculator", () => {
     "v5": 0.5,
     "v6": 0.2,
     "v7": 0.1
-  } as Harmonic_distortion_calculatorInput;
+  } as unknown as Harmonic_distortion_calculatorInput;
     const result = calculateHarmonic_distortion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

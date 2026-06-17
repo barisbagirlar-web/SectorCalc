@@ -12,7 +12,7 @@ describe("walking-distance-calculator", () => {
     "stepLength": 70,
     "incline": 0,
     "terrainFactor": 1
-  } as Walking_distance_calculatorInput;
+  } as unknown as Walking_distance_calculatorInput;
     const result = calculateWalking_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

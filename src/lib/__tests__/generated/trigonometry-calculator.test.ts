@@ -13,7 +13,7 @@ describe("trigonometry-calculator", () => {
     "frequency": 1,
     "phase": 0,
     "verticalShift": 0
-  } as Trigonometry_calculatorInput;
+  } as unknown as Trigonometry_calculatorInput;
     const result = calculateTrigonometry_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("lean-body-mass-calculator", () => {
     "height": 170,
     "age": 30,
     "gender": 0
-  } as Lean_body_mass_calculatorInput;
+  } as unknown as Lean_body_mass_calculatorInput;
     const result = calculateLean_body_mass_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

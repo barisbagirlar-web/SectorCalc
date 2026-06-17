@@ -16,7 +16,7 @@ describe("gutter-calculator", () => {
     "gutterDepth": 100,
     "runoffCoefficient": 0.9,
     "additionalArea": 0
-  } as Gutter_calculatorInput;
+  } as unknown as Gutter_calculatorInput;
     const result = calculateGutter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

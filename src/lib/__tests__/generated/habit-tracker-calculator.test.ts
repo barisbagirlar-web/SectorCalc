@@ -14,7 +14,7 @@ describe("habit-tracker-calculator", () => {
     "totalDays": 30,
     "currentStreak": 0,
     "bestStreak": 0
-  } as Habit_tracker_calculatorInput;
+  } as unknown as Habit_tracker_calculatorInput;
     const result = calculateHabit_tracker_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

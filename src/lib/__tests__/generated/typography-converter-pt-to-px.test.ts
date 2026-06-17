@@ -12,7 +12,7 @@ describe("typography-converter-pt-to-px", () => {
     "ppi": 96,
     "baseFontSize": 16,
     "scaleFactor": 1
-  } as Typography_converter_pt_to_pxInput;
+  } as unknown as Typography_converter_pt_to_pxInput;
     const result = calculateTypography_converter_pt_to_px(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

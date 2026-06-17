@@ -13,7 +13,7 @@ describe("lucas-numbers-calculator", () => {
     "L0": 2,
     "L1": 1,
     "showSequence": 1
-  } as Lucas_numbers_calculatorInput;
+  } as unknown as Lucas_numbers_calculatorInput;
     const result = calculateLucas_numbers_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("tile-calculator", () => {
     "tileWidth": 30,
     "wasteFactor": 10,
     "pricePerTile": 5
-  } as Tile_calculatorInput;
+  } as unknown as Tile_calculatorInput;
     const result = calculateTile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

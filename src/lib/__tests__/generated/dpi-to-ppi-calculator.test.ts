@@ -13,7 +13,7 @@ describe("dpi-to-ppi-calculator", () => {
     "originalHeight": 11,
     "displayWidth": 5,
     "displayHeight": 7
-  } as Dpi_to_ppi_calculatorInput;
+  } as unknown as Dpi_to_ppi_calculatorInput;
     const result = calculateDpi_to_ppi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("circular-economy-calculator", () => {
     "total_waste_generated": 300,
     "recycled_waste": 150,
     "reused_waste": 50
-  } as Circular_economy_calculatorInput;
+  } as unknown as Circular_economy_calculatorInput;
     const result = calculateCircular_economy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

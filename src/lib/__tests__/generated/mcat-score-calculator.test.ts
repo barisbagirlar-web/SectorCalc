@@ -12,7 +12,7 @@ describe("mcat-score-calculator", () => {
     "raw-cars": 27,
     "raw-bbls": 30,
     "raw-psbb": 30
-  } as Mcat_score_calculatorInput;
+  } as unknown as Mcat_score_calculatorInput;
     const result = calculateMcat_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

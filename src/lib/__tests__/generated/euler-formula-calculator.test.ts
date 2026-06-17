@@ -12,7 +12,7 @@ describe("euler-formula-calculator", () => {
     "imagPart": 1,
     "angleDeg": 90,
     "modulus": 1
-  } as Euler_formula_calculatorInput;
+  } as unknown as Euler_formula_calculatorInput;
     const result = calculateEuler_formula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

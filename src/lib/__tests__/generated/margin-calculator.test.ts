@@ -12,7 +12,7 @@ describe("margin-calculator", () => {
     "sellingPrice": 0,
     "quantity": 1,
     "discount": 0
-  } as Margin_calculatorInput;
+  } as unknown as Margin_calculatorInput;
     const result = calculateMargin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

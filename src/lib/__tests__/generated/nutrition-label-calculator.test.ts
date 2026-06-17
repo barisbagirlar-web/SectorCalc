@@ -14,7 +14,7 @@ describe("nutrition-label-calculator", () => {
     "sodium": 500,
     "totalCarbs": 30,
     "protein": 5
-  } as Nutrition_label_calculatorInput;
+  } as unknown as Nutrition_label_calculatorInput;
     const result = calculateNutrition_label_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

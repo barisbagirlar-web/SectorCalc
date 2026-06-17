@@ -12,7 +12,7 @@ describe("mulch-calculator", () => {
     "width": 10,
     "depth": 3,
     "bagVolume": 2
-  } as Mulch_calculatorInput;
+  } as unknown as Mulch_calculatorInput;
     const result = calculateMulch_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

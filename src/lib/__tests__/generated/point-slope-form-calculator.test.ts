@@ -12,7 +12,7 @@ describe("point-slope-form-calculator", () => {
     "y1": 0,
     "m": 1,
     "x": 0
-  } as Point_slope_form_calculatorInput;
+  } as unknown as Point_slope_form_calculatorInput;
     const result = calculatePoint_slope_form_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

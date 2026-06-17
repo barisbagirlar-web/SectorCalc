@@ -12,7 +12,7 @@ describe("shakes-to-nanoseconds-calculator", () => {
     "precision": 2,
     "conversionFactor": 10,
     "outputScale": 1
-  } as Shakes_to_nanoseconds_calculatorInput;
+  } as unknown as Shakes_to_nanoseconds_calculatorInput;
     const result = calculateShakes_to_nanoseconds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("data-transfer-calculator", () => {
     "overheadPercent": 5,
     "numberOfFiles": 1,
     "latencyPerFile": 0
-  } as Data_transfer_calculatorInput;
+  } as unknown as Data_transfer_calculatorInput;
     const result = calculateData_transfer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

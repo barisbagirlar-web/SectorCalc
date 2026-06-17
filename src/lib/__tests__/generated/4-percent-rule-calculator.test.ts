@@ -12,7 +12,7 @@ describe("4-percent-rule-calculator", () => {
     "otherAnnualIncome": 20000,
     "withdrawalRate": 4,
     "currentSavings": 0
-  } as _4_percent_rule_calculatorInput;
+  } as unknown as _4_percent_rule_calculatorInput;
     const result = calculate_4_percent_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

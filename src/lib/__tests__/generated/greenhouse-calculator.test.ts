@@ -14,7 +14,7 @@ describe("greenhouse-calculator", () => {
     "ef_naturalGas": 1.9,
     "fuelOil": 100,
     "ef_fuelOil": 2.5
-  } as Greenhouse_calculatorInput;
+  } as unknown as Greenhouse_calculatorInput;
     const result = calculateGreenhouse_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

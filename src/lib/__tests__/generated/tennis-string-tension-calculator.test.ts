@@ -12,7 +12,7 @@ describe("tennis-string-tension-calculator", () => {
     "stringGauge": 1.25,
     "vibratingStringLength": 0.3,
     "stringMaterialDensity": 1100
-  } as Tennis_string_tension_calculatorInput;
+  } as unknown as Tennis_string_tension_calculatorInput;
     const result = calculateTennis_string_tension_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

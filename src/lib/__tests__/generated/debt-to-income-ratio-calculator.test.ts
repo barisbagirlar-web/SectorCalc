@@ -14,7 +14,7 @@ describe("debt-to-income-ratio-calculator", () => {
     "studentLoanMonth": 0,
     "otherDebtMonth": 0,
     "grossMonthlyIncome": 1
-  } as Debt_to_income_ratio_calculatorInput;
+  } as unknown as Debt_to_income_ratio_calculatorInput;
     const result = calculateDebt_to_income_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

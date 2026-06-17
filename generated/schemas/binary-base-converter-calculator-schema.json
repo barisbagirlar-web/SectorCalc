@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Decimal Number",
         "tr": "Ondalık Sayı",
-        "de": "Decimal Number",
+        "de": "Dezimalzahl",
         "fr": "Decimal Number",
         "es": "Decimal Number",
         "ar": "Decimal Number"
       },
       "businessContext_i18n": {
         "en": "The integer number to convert to binary, octal, and hexadecimal.",
-        "tr": "İkili, sekizli ve onaltılıya dönüştürülecek tam sayı."
+        "tr": "İkili, sekizli ve onaltılıya dönüştürülecek tam sayı.",
+        "de": "Die ganze Zahl, die in Binär-, Oktal- und Hexadezimal umgewandelt werden soll."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Binary Bits",
         "tr": "İkili Bitler",
-        "de": "Binary Bits",
+        "de": "Binärbits",
         "fr": "Binary Bits",
         "es": "Binary Bits",
         "ar": "Binary Bits"
       },
       "businessContext_i18n": {
         "en": "Number of bits for binary output (padded with leading zeros).",
-        "tr": "İkili çıktı için bit sayısı (başa sıfır eklenir)."
+        "tr": "İkili çıktı için bit sayısı (başa sıfır eklenir).",
+        "de": "Anzahl der Bits für die binäre Ausgabe (mit führenden Nullen aufgefüllt)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Octal Digits",
         "tr": "Sekizli Basamaklar",
-        "de": "Octal Digits",
+        "de": "Oktalstellen",
         "fr": "Octal Digits",
         "es": "Octal Digits",
         "ar": "Octal Digits"
       },
       "businessContext_i18n": {
         "en": "Number of digits for octal output.",
-        "tr": "Sekizli çıktı için basamak sayısı."
+        "tr": "Sekizli çıktı için basamak sayısı.",
+        "de": "Anzahl der Stellen für die oktale Ausgabe."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Hexadecimal Digits",
         "tr": "Onaltılı Basamaklar",
-        "de": "Hexadecimal Digits",
+        "de": "Hexadezimalstellen",
         "fr": "Hexadecimal Digits",
         "es": "Hexadecimal Digits",
         "ar": "Hexadecimal Digits"
       },
       "businessContext_i18n": {
         "en": "Number of digits for hexadecimal output.",
-        "tr": "Onaltılı çıktı için basamak sayısı."
+        "tr": "Onaltılı çıktı için basamak sayısı.",
+        "de": "Anzahl der Stellen für die hexadezimale Ausgabe."
       }
     }
   ],

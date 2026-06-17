@@ -12,7 +12,7 @@ describe("football-40-yard-dash-calculator", () => {
     "time_seconds": 4.5,
     "weight_lbs": 220,
     "wind_mph": 0
-  } as Football_40_yard_dash_calculatorInput;
+  } as unknown as Football_40_yard_dash_calculatorInput;
     const result = calculateFootball_40_yard_dash_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

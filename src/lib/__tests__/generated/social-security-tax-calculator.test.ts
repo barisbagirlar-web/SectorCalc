@@ -13,7 +13,7 @@ describe("social-security-tax-calculator", () => {
     "employerRate": 6.2,
     "annualCeiling": 160200,
     "payPeriods": 12
-  } as Social_security_tax_calculatorInput;
+  } as unknown as Social_security_tax_calculatorInput;
     const result = calculateSocial_security_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

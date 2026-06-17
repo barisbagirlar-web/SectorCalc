@@ -15,7 +15,7 @@ describe("rendering-time-calculator", () => {
     "renderEngineSpeed": 1000000,
     "complexityFactor": 1,
     "maxBounces": 4
-  } as Rendering_time_calculatorInput;
+  } as unknown as Rendering_time_calculatorInput;
     const result = calculateRendering_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

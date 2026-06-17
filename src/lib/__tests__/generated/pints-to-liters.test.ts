@@ -11,7 +11,7 @@ describe("pints-to-liters", () => {
     "pints": 1,
     "pintType": 1,
     "auto_input_3": 1
-  } as Pints_to_litersInput;
+  } as unknown as Pints_to_litersInput;
     const result = calculatePints_to_liters(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

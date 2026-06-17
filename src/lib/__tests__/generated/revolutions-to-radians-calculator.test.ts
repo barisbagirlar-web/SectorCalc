@@ -13,7 +13,7 @@ describe("revolutions-to-radians-calculator", () => {
     "phaseOffsetRev": 0,
     "radPerRev": 6.283185307179586,
     "decimalPlaces": 6
-  } as Revolutions_to_radians_calculatorInput;
+  } as unknown as Revolutions_to_radians_calculatorInput;
     const result = calculateRevolutions_to_radians_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

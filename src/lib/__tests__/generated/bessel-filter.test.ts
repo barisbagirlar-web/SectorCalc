@@ -12,7 +12,7 @@ describe("bessel-filter", () => {
     "cutoffFrequency": 1000,
     "samplingFrequency": 10000,
     "frequencyPoint": 500
-  } as Bessel_filterInput;
+  } as unknown as Bessel_filterInput;
     const result = calculateBessel_filter(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

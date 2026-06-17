@@ -14,7 +14,7 @@ describe("kaplan-meier-calculator", () => {
     "time2": 0,
     "risk2": 0,
     "events2": 0
-  } as Kaplan_meier_calculatorInput;
+  } as unknown as Kaplan_meier_calculatorInput;
     const result = calculateKaplan_meier_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("quilt-calculator", () => {
     "blockLength": 20,
     "seamAllowance": 0.6,
     "fabricWidth": 110
-  } as Quilt_calculatorInput;
+  } as unknown as Quilt_calculatorInput;
     const result = calculateQuilt_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("integer-partition-calculator", () => {
     "n": 10,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Integer_partition_calculatorInput;
+  } as unknown as Integer_partition_calculatorInput;
     const result = calculateInteger_partition_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

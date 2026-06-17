@@ -12,7 +12,7 @@ describe("overtime-calculator", () => {
     "overtimeHours": 5,
     "hourlyRate": 20,
     "overtimeMultiplier": 1.5
-  } as Overtime_calculatorInput;
+  } as unknown as Overtime_calculatorInput;
     const result = calculateOvertime_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

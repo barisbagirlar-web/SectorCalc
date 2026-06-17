@@ -12,7 +12,7 @@ describe("note-frequency-calculator", () => {
     "referenceNote": 69,
     "targetNote": 69,
     "centsAdjustment": 0
-  } as Note_frequency_calculatorInput;
+  } as unknown as Note_frequency_calculatorInput;
     const result = calculateNote_frequency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

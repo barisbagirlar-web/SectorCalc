@@ -16,7 +16,7 @@ describe("cbam-exposure-check-calculator", () => {
     "compliance_readiness_score": 60,
     "industry_benchmark_intensity": 1.2,
     "emission_scope": "Scope 1 & 2"
-  } as Cbam_exposure_check_calculatorInput;
+  } as unknown as Cbam_exposure_check_calculatorInput;
     const result = calculateCbam_exposure_check_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

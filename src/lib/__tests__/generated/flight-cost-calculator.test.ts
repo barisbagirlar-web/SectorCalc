@@ -15,7 +15,7 @@ describe("flight-cost-calculator", () => {
     "crewCostPerHour": 200,
     "landingFee": 500,
     "maintenanceCostPerHour": 100
-  } as Flight_cost_calculatorInput;
+  } as unknown as Flight_cost_calculatorInput;
     const result = calculateFlight_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

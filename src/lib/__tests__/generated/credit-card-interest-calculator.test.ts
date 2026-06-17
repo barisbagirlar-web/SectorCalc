@@ -12,7 +12,7 @@ describe("credit-card-interest-calculator", () => {
     "annualPercentageRate": 18,
     "billingDays": 30,
     "minimumPaymentPercent": 2
-  } as Credit_card_interest_calculatorInput;
+  } as unknown as Credit_card_interest_calculatorInput;
     const result = calculateCredit_card_interest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

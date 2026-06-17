@@ -16,7 +16,7 @@ describe("warehouse-layout-optimizer-calculator", () => {
     "avg_inventory_turns": 6,
     "labor_cost_per_hour": 25,
     "equipment_cost_per_hour": 15
-  } as Warehouse_layout_optimizer_calculatorInput;
+  } as unknown as Warehouse_layout_optimizer_calculatorInput;
     const result = calculateWarehouse_layout_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

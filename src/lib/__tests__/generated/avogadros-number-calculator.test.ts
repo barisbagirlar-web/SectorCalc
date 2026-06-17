@@ -14,7 +14,7 @@ describe("avogadros-number-calculator", () => {
     "moleculesPerUnitCell": 1,
     "unitCellVolume": 1,
     "density": 1
-  } as Avogadros_number_calculatorInput;
+  } as unknown as Avogadros_number_calculatorInput;
     const result = calculateAvogadros_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

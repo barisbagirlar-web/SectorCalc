@@ -13,7 +13,7 @@ describe("dash-diet-calculator", () => {
     "height_cm": 170,
     "weight_kg": 70,
     "activity_level": 3
-  } as Dash_diet_calculatorInput;
+  } as unknown as Dash_diet_calculatorInput;
     const result = calculateDash_diet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

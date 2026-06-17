@@ -12,7 +12,7 @@ describe("miles-to-meters-calculator", () => {
     "conversion_factor": 1609.344,
     "precision": 2,
     "rounding_mode": 0
-  } as Miles_to_meters_calculatorInput;
+  } as unknown as Miles_to_meters_calculatorInput;
     const result = calculateMiles_to_meters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

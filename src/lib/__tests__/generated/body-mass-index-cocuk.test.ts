@@ -12,7 +12,7 @@ describe("body-mass-index-cocuk", () => {
     "height": 130,
     "age": 8,
     "gender": 0
-  } as Body_mass_index_cocukInput;
+  } as unknown as Body_mass_index_cocukInput;
     const result = calculateBody_mass_index_cocuk(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

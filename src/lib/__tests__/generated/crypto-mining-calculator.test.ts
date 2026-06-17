@@ -13,7 +13,7 @@ describe("crypto-mining-calculator", () => {
     "electricityCost": 0.12,
     "poolFee": 2,
     "dailyRevenuePerTH": 0.06
-  } as Crypto_mining_calculatorInput;
+  } as unknown as Crypto_mining_calculatorInput;
     const result = calculateCrypto_mining_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

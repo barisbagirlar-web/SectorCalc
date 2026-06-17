@@ -13,7 +13,7 @@ describe("buy-vs-lease-calculator", () => {
     "leaseTerm": 36,
     "residualValue": 20000,
     "discountRate": 5
-  } as Buy_vs_lease_calculatorInput;
+  } as unknown as Buy_vs_lease_calculatorInput;
     const result = calculateBuy_vs_lease_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

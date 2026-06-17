@@ -12,7 +12,7 @@ describe("matrix-transpose-calculator", () => {
     "b": 0,
     "c": 0,
     "d": 0
-  } as Matrix_transpose_calculatorInput;
+  } as unknown as Matrix_transpose_calculatorInput;
     const result = calculateMatrix_transpose_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

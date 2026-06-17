@@ -15,7 +15,7 @@ describe("profitability-index-calculator", () => {
     "cashFlowYear3": 30000,
     "cashFlowYear4": 30000,
     "cashFlowYear5": 30000
-  } as Profitability_index_calculatorInput;
+  } as unknown as Profitability_index_calculatorInput;
     const result = calculateProfitability_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

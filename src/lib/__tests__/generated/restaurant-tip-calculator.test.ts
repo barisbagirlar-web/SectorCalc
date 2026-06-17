@@ -12,7 +12,7 @@ describe("restaurant-tip-calculator", () => {
     "taxAmount": 0,
     "tipPercentage": 15,
     "numberOfPeople": 1
-  } as Restaurant_tip_calculatorInput;
+  } as unknown as Restaurant_tip_calculatorInput;
     const result = calculateRestaurant_tip_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

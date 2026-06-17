@@ -11,7 +11,7 @@ describe("molarity-calculator", () => {
     "mass": 0,
     "molarMass": 0,
     "volume": 0
-  } as Molarity_calculatorInput;
+  } as unknown as Molarity_calculatorInput;
     const result = calculateMolarity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

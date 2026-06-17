@@ -14,7 +14,7 @@ describe("concrete-column-calculator", () => {
     "fy": 420,
     "as": 1256,
     "phi": 0.65
-  } as Concrete_column_calculatorInput;
+  } as unknown as Concrete_column_calculatorInput;
     const result = calculateConcrete_column_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

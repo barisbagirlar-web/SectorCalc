@@ -13,7 +13,7 @@ describe("fluoride-calculator", () => {
     "rawFluorideConc": 0.2,
     "compoundPurity": 98,
     "fluorideIonPercent": 45
-  } as Fluoride_calculatorInput;
+  } as unknown as Fluoride_calculatorInput;
     const result = calculateFluoride_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

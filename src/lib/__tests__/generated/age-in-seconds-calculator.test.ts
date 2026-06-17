@@ -14,7 +14,7 @@ describe("age-in-seconds-calculator", () => {
     "currentYear": 2025,
     "currentMonth": 1,
     "currentDay": 1
-  } as Age_in_seconds_calculatorInput;
+  } as unknown as Age_in_seconds_calculatorInput;
     const result = calculateAge_in_seconds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

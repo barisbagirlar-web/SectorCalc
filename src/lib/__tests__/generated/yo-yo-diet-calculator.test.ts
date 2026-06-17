@@ -14,7 +14,7 @@ describe("yo-yo-diet-calculator", () => {
     "weightLossPerCycle": 5,
     "weightRegainPerCycle": 4,
     "cycleDurationDays": 30
-  } as Yo_yo_diet_calculatorInput;
+  } as unknown as Yo_yo_diet_calculatorInput;
     const result = calculateYo_yo_diet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

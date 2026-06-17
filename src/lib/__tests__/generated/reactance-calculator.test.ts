@@ -12,7 +12,7 @@ describe("reactance-calculator", () => {
     "capacitance": 0.000001,
     "inductance": 0.1,
     "connectionType": 0
-  } as Reactance_calculatorInput;
+  } as unknown as Reactance_calculatorInput;
     const result = calculateReactance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

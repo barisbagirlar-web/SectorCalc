@@ -13,7 +13,7 @@ describe("purchasing-power-calculator", () => {
     "fromYear": 2020,
     "toYear": 2025,
     "compoundFrequency": 1
-  } as Purchasing_power_calculatorInput;
+  } as unknown as Purchasing_power_calculatorInput;
     const result = calculatePurchasing_power_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

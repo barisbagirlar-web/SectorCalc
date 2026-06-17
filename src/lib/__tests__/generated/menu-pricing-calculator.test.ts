@@ -14,7 +14,7 @@ describe("menu-pricing-calculator", () => {
     "overheadPercentage": 0,
     "desiredProfitMargin": 0,
     "numberOfServings": 1
-  } as Menu_pricing_calculatorInput;
+  } as unknown as Menu_pricing_calculatorInput;
     const result = calculateMenu_pricing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

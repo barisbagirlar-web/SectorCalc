@@ -12,7 +12,7 @@ describe("cycling-wkg-calculator", () => {
     "bikeWeight": 9,
     "power": 250,
     "duration": 60
-  } as Cycling_wkg_calculatorInput;
+  } as unknown as Cycling_wkg_calculatorInput;
     const result = calculateCycling_wkg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("sales-tax-calculator", () => {
     "use_sourcing": "origin",
     "include_shipping": true,
     "shipping_charge": 500
-  } as Sales_tax_calculatorInput;
+  } as unknown as Sales_tax_calculatorInput;
     const result = calculateSales_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

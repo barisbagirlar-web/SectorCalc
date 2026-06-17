@@ -12,7 +12,7 @@ describe("fractional-odds-calculator", () => {
     "denominator": 1,
     "stake": 10,
     "taxRate": 0
-  } as Fractional_odds_calculatorInput;
+  } as unknown as Fractional_odds_calculatorInput;
     const result = calculateFractional_odds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

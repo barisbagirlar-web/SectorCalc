@@ -16,7 +16,7 @@ describe("weighted-mean-calculator", () => {
     "weight3": 1,
     "value4": 0,
     "weight4": 1
-  } as Weighted_mean_calculatorInput;
+  } as unknown as Weighted_mean_calculatorInput;
     const result = calculateWeighted_mean_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

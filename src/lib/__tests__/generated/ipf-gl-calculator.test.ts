@@ -14,7 +14,7 @@ describe("ipf-gl-calculator", () => {
     "temp_hot": 80,
     "temp_cold": 20,
     "u_target": 0.5
-  } as Ipf_gl_calculatorInput;
+  } as unknown as Ipf_gl_calculatorInput;
     const result = calculateIpf_gl_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

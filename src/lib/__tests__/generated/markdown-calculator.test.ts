@@ -13,7 +13,7 @@ describe("markdown-calculator", () => {
     "fixedDiscount": 5,
     "quantity": 10,
     "vatRate": 20
-  } as Markdown_calculatorInput;
+  } as unknown as Markdown_calculatorInput;
     const result = calculateMarkdown_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

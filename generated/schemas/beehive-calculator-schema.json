@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Hives",
         "tr": "Kovan Sayısı",
-        "de": "Number of Hives",
+        "de": "Anzahl der Völker",
         "fr": "Number of Hives",
         "es": "Number of Hives",
         "ar": "Number of Hives"
       },
       "businessContext_i18n": {
         "en": "Total number of active beehives in the apiary.",
-        "tr": "Arılıktaki aktif kovanların toplam sayısı."
+        "tr": "Arılıktaki aktif kovanların toplam sayısı.",
+        "de": "Gesamtzahl der aktiven Bienenvölker in der Imkerei."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Frames per Hive",
         "tr": "Kovan Başına Çerçeve",
-        "de": "Frames per Hive",
+        "de": "Rahmen pro Volk",
         "fr": "Frames per Hive",
         "es": "Frames per Hive",
         "ar": "Frames per Hive"
       },
       "businessContext_i18n": {
         "en": "Number of frames per hive, typically 10 for Langstroth.",
-        "tr": "Kovan başına çerçeve sayısı, Langstroth için tipik olarak 10."
+        "tr": "Kovan başına çerçeve sayısı, Langstroth için tipik olarak 10.",
+        "de": "Anzahl der Rahmen pro Volk, typischerweise 10 bei Langstroth."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Honey per Frame",
         "tr": "Çerçeve Başına Bal",
-        "de": "Honey per Frame",
+        "de": "Honig pro Rahmen",
         "fr": "Honey per Frame",
         "es": "Honey per Frame",
         "ar": "Honey per Frame"
       },
       "businessContext_i18n": {
         "en": "Average honey yield per fully capped frame.",
-        "tr": "Tamamen sırlanmış çerçeve başına ortalama bal verimi."
+        "tr": "Tamamen sırlanmış çerçeve başına ortalama bal verimi.",
+        "de": "Durchschnittlicher Honigertrag pro vollverdeckeltem Rahmen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Extraction Loss",
         "tr": "Ekstraksiyon Kaybı",
-        "de": "Extraction Loss",
+        "de": "Extraktionsverlust",
         "fr": "Extraction Loss",
         "es": "Extraction Loss",
         "ar": "Extraction Loss"
       },
       "businessContext_i18n": {
         "en": "Percentage of honey lost during extraction and filtering.",
-        "tr": "Ekstraksiyon ve filtreleme sırasında kaybedilen bal yüzdesi."
+        "tr": "Ekstraksiyon ve filtreleme sırasında kaybedilen bal yüzdesi.",
+        "de": "Prozentsatz des Honigs, der während der Extraktion und Filterung verloren geht."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Price per kg",
         "tr": "Kg Başına Fiyat",
-        "de": "Price per kg",
+        "de": "Preis pro kg",
         "fr": "Price per kg",
         "es": "Price per kg",
         "ar": "Price per kg"
       },
       "businessContext_i18n": {
         "en": "Selling price per kilogram of honey.",
-        "tr": "Balın kilogram başına satış fiyatı."
+        "tr": "Balın kilogram başına satış fiyatı.",
+        "de": "Verkaufspreis pro Kilogramm Honig."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Cost per Hive",
         "tr": "Kovan Başına Maliyet",
-        "de": "Cost per Hive",
+        "de": "Kosten pro Volk",
         "fr": "Cost per Hive",
         "es": "Cost per Hive",
         "ar": "Cost per Hive"
       },
       "businessContext_i18n": {
         "en": "Annual operational cost per hive (feed, maintenance, etc.).",
-        "tr": "Kovan başına yıllık işletme maliyeti (yem, bakım vb.)."
+        "tr": "Kovan başına yıllık işletme maliyeti (yem, bakım vb.).",
+        "de": "Jährliche Betriebskosten pro Volk (Futter, Wartung usw.)."
       }
     }
   ],

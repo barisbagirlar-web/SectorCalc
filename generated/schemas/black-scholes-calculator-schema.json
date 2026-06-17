@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Current Stock Price",
         "tr": "Mevcut Hisse Senedi Fiyatı",
-        "de": "Current Stock Price",
+        "de": "Aktueller Aktienkurs",
         "fr": "Current Stock Price",
         "es": "Current Stock Price",
         "ar": "Current Stock Price"
       },
       "businessContext_i18n": {
         "en": "Current market price of the underlying stock",
-        "tr": "Dayanak varlığın mevcut piyasa fiyatı"
+        "tr": "Dayanak varlığın mevcut piyasa fiyatı",
+        "de": "Aktueller Marktpreis der zugrunde liegenden Aktie"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Strike Price",
         "tr": "Kullanım Fiyatı",
-        "de": "Strike Price",
+        "de": "Basispreis",
         "fr": "Strike Price",
         "es": "Strike Price",
         "ar": "Strike Price"
       },
       "businessContext_i18n": {
         "en": "Exercise price of the option",
-        "tr": "Opsiyonun kullanım fiyatı"
+        "tr": "Opsiyonun kullanım fiyatı",
+        "de": "Ausübungspreis der Option"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Risk-Free Rate",
         "tr": "Risksiz Faiz Oranı",
-        "de": "Risk-Free Rate",
+        "de": "Risikofreier Zinssatz",
         "fr": "Risk-Free Rate",
         "es": "Risk-Free Rate",
         "ar": "Risk-Free Rate"
       },
       "businessContext_i18n": {
         "en": "Annual risk-free interest rate for continuous compounding",
-        "tr": "Sürekli bileşik faiz için yıllık risksiz faiz oranı"
+        "tr": "Sürekli bileşik faiz için yıllık risksiz faiz oranı",
+        "de": "Jährlicher risikofreier Zinssatz für kontinuierliche Verzinsung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Volatility",
         "tr": "Volatilite",
-        "de": "Volatility",
+        "de": "Volatilität",
         "fr": "Volatility",
         "es": "Volatility",
         "ar": "Volatility"
       },
       "businessContext_i18n": {
         "en": "Annualized implied volatility of the underlying stock",
-        "tr": "Dayanak hisse senedinin yıllıklandırılmış içsel volatilitesi"
+        "tr": "Dayanak hisse senedinin yıllıklandırılmış içsel volatilitesi",
+        "de": "Annualisierte implizite Volatilität der zugrunde liegenden Aktie"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Time to Maturity",
         "tr": "Vadeye Kalan Süre",
-        "de": "Time to Maturity",
+        "de": "Restlaufzeit",
         "fr": "Time to Maturity",
         "es": "Time to Maturity",
         "ar": "Time to Maturity"
       },
       "businessContext_i18n": {
         "en": "Time remaining until option expiration",
-        "tr": "Opsiyon vadesine kalan süre"
+        "tr": "Opsiyon vadesine kalan süre",
+        "de": "Verbleibende Zeit bis zum Optionsverfall"
       }
     }
   ],

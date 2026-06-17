@@ -14,7 +14,7 @@ describe("perpendicular-line-calculator", () => {
     "y2": 1,
     "x3": 2,
     "y3": 3
-  } as Perpendicular_line_calculatorInput;
+  } as unknown as Perpendicular_line_calculatorInput;
     const result = calculatePerpendicular_line_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

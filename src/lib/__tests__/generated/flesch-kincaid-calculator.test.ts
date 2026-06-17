@@ -12,7 +12,7 @@ describe("flesch-kincaid-calculator", () => {
     "totalSentences": 0,
     "totalSyllables": 0,
     "totalCharacters": 0
-  } as Flesch_kincaid_calculatorInput;
+  } as unknown as Flesch_kincaid_calculatorInput;
     const result = calculateFlesch_kincaid_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

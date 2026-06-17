@@ -12,7 +12,7 @@ describe("arc-length-calculator", () => {
     "startAngle": 0,
     "endAngle": 90,
     "angleUnit": 0
-  } as Arc_length_calculatorInput;
+  } as unknown as Arc_length_calculatorInput;
     const result = calculateArc_length_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

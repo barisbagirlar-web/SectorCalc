@@ -12,7 +12,7 @@ describe("zero-order-reaction-calculator", () => {
     "rateConstant": 0.01,
     "time": 100,
     "targetConcentration": 0.5
-  } as Zero_order_reaction_calculatorInput;
+  } as unknown as Zero_order_reaction_calculatorInput;
     const result = calculateZero_order_reaction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

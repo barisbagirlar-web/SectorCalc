@@ -16,7 +16,7 @@ describe("scrap-rate-optimizer-calculator", () => {
     "overhead_cost_per_unit": 1.25,
     "process_stage": "final_assembly",
     "defect_type": "dimensional"
-  } as Scrap_rate_optimizer_calculatorInput;
+  } as unknown as Scrap_rate_optimizer_calculatorInput;
     const result = calculateScrap_rate_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

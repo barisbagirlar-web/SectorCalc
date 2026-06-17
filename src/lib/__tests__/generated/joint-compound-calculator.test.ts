@@ -14,7 +14,7 @@ describe("joint-compound-calculator", () => {
     "thickness": 1.5,
     "numCoats": 3,
     "coverageFactor": 1.2
-  } as Joint_compound_calculatorInput;
+  } as unknown as Joint_compound_calculatorInput;
     const result = calculateJoint_compound_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

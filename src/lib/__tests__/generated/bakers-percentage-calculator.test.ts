@@ -14,7 +14,7 @@ describe("bakers-percentage-calculator", () => {
     "saltPercentage": 2,
     "sugarPercentage": 0,
     "fatPercentage": 0
-  } as Bakers_percentage_calculatorInput;
+  } as unknown as Bakers_percentage_calculatorInput;
     const result = calculateBakers_percentage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

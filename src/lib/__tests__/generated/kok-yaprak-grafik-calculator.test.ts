@@ -16,7 +16,7 @@ describe("kok-yaprak-grafik-calculator", () => {
     "v6": 81,
     "v7": 89,
     "v8": 95
-  } as Kok_yaprak_grafik_calculatorInput;
+  } as unknown as Kok_yaprak_grafik_calculatorInput;
     const result = calculateKok_yaprak_grafik_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

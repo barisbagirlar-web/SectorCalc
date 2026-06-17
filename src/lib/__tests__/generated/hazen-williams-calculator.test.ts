@@ -12,7 +12,7 @@ describe("hazen-williams-calculator", () => {
     "pipeDiameter": 0.1,
     "pipeLength": 100,
     "cFactor": 130
-  } as Hazen_williams_calculatorInput;
+  } as unknown as Hazen_williams_calculatorInput;
     const result = calculateHazen_williams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

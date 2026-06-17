@@ -14,7 +14,7 @@ describe("backpacking-weight-calculator", () => {
     "fuelWeight": 0.2,
     "clothingWeight": 1,
     "tripDays": 3
-  } as Backpacking_weight_calculatorInput;
+  } as unknown as Backpacking_weight_calculatorInput;
     const result = calculateBackpacking_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

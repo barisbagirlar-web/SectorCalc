@@ -15,7 +15,7 @@ describe("centripetal-acceleration-calculator", () => {
     "radius_cm": 0,
     "radius_km": 0,
     "mass_kg": 0
-  } as Centripetal_acceleration_calculatorInput;
+  } as unknown as Centripetal_acceleration_calculatorInput;
     const result = calculateCentripetal_acceleration_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("indefinite-integral", () => {
     "coefficient": 1,
     "exponent": 2,
     "constant": 0
-  } as Indefinite_integralInput;
+  } as unknown as Indefinite_integralInput;
     const result = calculateIndefinite_integral(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

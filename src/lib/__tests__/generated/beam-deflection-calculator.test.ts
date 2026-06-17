@@ -16,7 +16,7 @@ describe("beam-deflection-calculator", () => {
     "young_modulus": 200,
     "moment_of_inertia": 500,
     "yield_strength": 250
-  } as Beam_deflection_calculatorInput;
+  } as unknown as Beam_deflection_calculatorInput;
     const result = calculateBeam_deflection_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

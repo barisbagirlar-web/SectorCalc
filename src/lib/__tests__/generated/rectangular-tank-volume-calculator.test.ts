@@ -13,7 +13,7 @@ describe("rectangular-tank-volume-calculator", () => {
     "outerHeight": 1,
     "wallThickness": 0.05,
     "fillLevel": 0.8
-  } as Rectangular_tank_volume_calculatorInput;
+  } as unknown as Rectangular_tank_volume_calculatorInput;
     const result = calculateRectangular_tank_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

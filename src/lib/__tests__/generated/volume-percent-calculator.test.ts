@@ -12,7 +12,7 @@ describe("volume-percent-calculator", () => {
     "solutionVolume": 1,
     "temperature": 20,
     "pressure": 1.01325
-  } as Volume_percent_calculatorInput;
+  } as unknown as Volume_percent_calculatorInput;
     const result = calculateVolume_percent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

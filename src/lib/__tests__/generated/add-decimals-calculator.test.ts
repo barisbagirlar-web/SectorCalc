@@ -12,7 +12,7 @@ describe("add-decimals-calculator", () => {
     "dec2": 0,
     "dec3": 0,
     "dec4": 0
-  } as Add_decimals_calculatorInput;
+  } as unknown as Add_decimals_calculatorInput;
     const result = calculateAdd_decimals_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

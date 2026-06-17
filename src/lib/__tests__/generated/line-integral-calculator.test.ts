@@ -15,7 +15,7 @@ describe("line-integral-calculator", () => {
     "c0": 0,
     "cx": 0,
     "cy": 0
-  } as Line_integral_calculatorInput;
+  } as unknown as Line_integral_calculatorInput;
     const result = calculateLine_integral_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

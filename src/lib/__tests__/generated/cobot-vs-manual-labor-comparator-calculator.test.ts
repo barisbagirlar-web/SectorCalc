@@ -16,7 +16,7 @@ describe("cobot-vs-manual-labor-comparator-calculator", () => {
     "discount_rate": 8,
     "labor_productivity_factor": 0.85,
     "cobot_uptime_percent": 95
-  } as Cobot_vs_manual_labor_comparator_calculatorInput;
+  } as unknown as Cobot_vs_manual_labor_comparator_calculatorInput;
     const result = calculateCobot_vs_manual_labor_comparator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

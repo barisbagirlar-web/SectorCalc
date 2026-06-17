@@ -14,7 +14,7 @@ describe("sprinkler-calculator", () => {
     "numSprinklers": 12,
     "safetyFactor": 1.1,
     "pipeFrictionLoss": 5
-  } as Sprinkler_calculatorInput;
+  } as unknown as Sprinkler_calculatorInput;
     const result = calculateSprinkler_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

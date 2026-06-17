@@ -13,7 +13,7 @@ describe("surface-area-calculator", () => {
     "topLength": 1,
     "topWidth": 0.8,
     "height": 3
-  } as Surface_area_calculatorInput;
+  } as unknown as Surface_area_calculatorInput;
     const result = calculateSurface_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

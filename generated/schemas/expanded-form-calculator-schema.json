@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Labor Cost",
         "tr": "İşçilik Maliyeti",
-        "de": "Labor Cost",
+        "de": "Arbeitskosten",
         "fr": "Labor Cost",
         "es": "Labor Cost",
         "ar": "Labor Cost"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost in EUR",
-        "tr": "Doğrudan işçilik maliyeti (EUR)"
+        "tr": "Doğrudan işçilik maliyeti (EUR)",
+        "de": "Direkte Arbeitskosten in EUR"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Material Cost",
         "tr": "Malzeme Maliyeti",
-        "de": "Material Cost",
+        "de": "Materialkosten",
         "fr": "Material Cost",
         "es": "Material Cost",
         "ar": "Material Cost"
       },
       "businessContext_i18n": {
         "en": "Direct material cost in EUR",
-        "tr": "Doğrudan malzeme maliyeti (EUR)"
+        "tr": "Doğrudan malzeme maliyeti (EUR)",
+        "de": "Direkte Materialkosten in EUR"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Overhead Cost",
         "tr": "Genel Gider Maliyeti",
-        "de": "Overhead Cost",
+        "de": "Gemeinkosten",
         "fr": "Overhead Cost",
         "es": "Overhead Cost",
         "ar": "Overhead Cost"
       },
       "businessContext_i18n": {
         "en": "Overhead cost allocated to the product",
-        "tr": "Ürüne tahsis edilen genel gider maliyeti"
+        "tr": "Ürüne tahsis edilen genel gider maliyeti",
+        "de": "Dem Produkt zugeordnete Gemeinkosten"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Discount Percentage",
         "tr": "İndirim Yüzdesi",
-        "de": "Discount Percentage",
+        "de": "Rabattprozentsatz",
         "fr": "Discount Percentage",
         "es": "Discount Percentage",
         "ar": "Discount Percentage"
       },
       "businessContext_i18n": {
         "en": "Discount given on subtotal as percentage",
-        "tr": "Ara toplam üzerinden yüzde olarak verilen indirim"
+        "tr": "Ara toplam üzerinden yüzde olarak verilen indirim",
+        "de": "Rabatt auf den Zwischensummenbetrag in Prozent"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Profit Margin",
         "tr": "Kâr Marjı",
-        "de": "Profit Margin",
+        "de": "Gewinnmarge",
         "fr": "Profit Margin",
         "es": "Profit Margin",
         "ar": "Profit Margin"
       },
       "businessContext_i18n": {
         "en": "Desired profit margin as percentage of cost after discount",
-        "tr": "İndirim sonrası maliyetin yüzdesi olarak istenen kar marjı"
+        "tr": "İndirim sonrası maliyetin yüzdesi olarak istenen kar marjı",
+        "de": "Gewünschte Gewinnspanne als Prozentsatz der Kosten nach Rabatt"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
-        "de": "Tax Rate",
+        "de": "Steuersatz",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Tax rate applied to taxable amount",
-        "tr": "Vergiye tabi tutara uygulanan vergi oranı"
+        "tr": "Vergiye tabi tutara uygulanan vergi oranı",
+        "de": "Steuersatz, der auf den steuerpflichtigen Betrag angewendet wird"
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("sober-date-calculator", () => {
     "endDay": 1,
     "endMonth": 1,
     "endYear": 2025
-  } as Sober_date_calculatorInput;
+  } as unknown as Sober_date_calculatorInput;
     const result = calculateSober_date_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

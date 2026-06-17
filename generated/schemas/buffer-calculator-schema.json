@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Average Daily Demand",
         "tr": "Ortalama Günlük Talep",
-        "de": "Average Daily Demand",
+        "de": "Durchschnittlicher Tagesbedarf",
         "fr": "Average Daily Demand",
         "es": "Average Daily Demand",
         "ar": "Average Daily Demand"
       },
       "businessContext_i18n": {
         "en": "The steady-state average daily usage rate derived from historical demand data.",
-        "tr": "Geçmiş talep verilerinden elde edilen kararlı durum ortalama günlük kullanım oranı."
+        "tr": "Geçmiş talep verilerinden elde edilen kararlı durum ortalama günlük kullanım oranı.",
+        "de": "Der stationäre durchschnittliche tägliche Verbrauch, abgeleitet aus historischen Bedarfsdaten."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Demand Standard Deviation",
         "tr": "Talep Standart Sapması",
-        "de": "Demand Standard Deviation",
+        "de": "Standardabweichung des Bedarfs",
         "fr": "Demand Standard Deviation",
         "es": "Demand Standard Deviation",
         "ar": "Demand Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "Variability of daily demand, measured as standard deviation, reflecting forecast error.",
-        "tr": "Günlük talebin standart sapma olarak ölçülen değişkenliği, tahmin hatasını yansıtır."
+        "tr": "Günlük talebin standart sapma olarak ölçülen değişkenliği, tahmin hatasını yansıtır.",
+        "de": "Variabilität der täglichen Nachfrage, gemessen als Standardabweichung, die den Prognosefehler widerspiegelt."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Average Lead Time",
         "tr": "Ortalama Tedarik Süresi",
-        "de": "Average Lead Time",
+        "de": "Durchschnittliche Vorlaufzeit",
         "fr": "Average Lead Time",
         "es": "Average Lead Time",
         "ar": "Average Lead Time"
       },
       "businessContext_i18n": {
         "en": "Mean replenishment lead time from supplier, in days.",
-        "tr": "Tedarikçiden ortalama yenileme süresi, gün cinsinden."
+        "tr": "Tedarikçiden ortalama yenileme süresi, gün cinsinden.",
+        "de": "Mittlere Wiederbeschaffungszeit vom Lieferanten in Tagen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Lead Time Standard Deviation",
         "tr": "Tedarik Süresi Standart Sapması",
-        "de": "Lead Time Standard Deviation",
+        "de": "Standardabweichung der Vorlaufzeit",
         "fr": "Lead Time Standard Deviation",
         "es": "Lead Time Standard Deviation",
         "ar": "Lead Time Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "Variability of lead time, measured as standard deviation, reflecting supply uncertainty.",
-        "tr": "Tedarik süresinin standart sapma olarak ölçülen değişkenliği, tedarik belirsizliğini yansıtır."
+        "tr": "Tedarik süresinin standart sapma olarak ölçülen değişkenliği, tedarik belirsizliğini yansıtır.",
+        "de": "Variabilität der Vorlaufzeit, gemessen als Standardabweichung, die die Lieferunsicherheit widerspiegelt."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Service Level (Z-score)",
         "tr": "Hizmet Seviyesi (Z-skoru)",
-        "de": "Service Level (Z-score)",
+        "de": "Servicegrad (Z-Wert)",
         "fr": "Service Level (Z-score)",
         "es": "Service Level (Z-score)",
         "ar": "Service Level (Z-score)"
       },
       "businessContext_i18n": {
         "en": "Z-score corresponding to desired service level (e.g., 1.65 for 95% fill rate). Must be positive.",
-        "tr": "İstenen hizmet seviyesine karşılık gelen Z-skoru (örneğin, %95 doluluk oranı için 1,65). Pozitif olmalıdır."
+        "tr": "İstenen hizmet seviyesine karşılık gelen Z-skoru (örneğin, %95 doluluk oranı için 1,65). Pozitif olmalıdır.",
+        "de": "Z-Wert, der dem gewünschten Servicegrad entspricht (z. B. 1,65 für 95 % Lieferbereitschaft). Muss positiv sein."
       }
     }
   ],

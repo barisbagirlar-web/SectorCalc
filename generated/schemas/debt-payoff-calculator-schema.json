@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Debt Amount",
         "tr": "Toplam Borç Tutarı",
-        "de": "Total Debt Amount",
+        "de": "Gesamtschuldenbetrag",
         "fr": "Total Debt Amount",
         "es": "Total Debt Amount",
         "ar": "Total Debt Amount"
       },
       "businessContext_i18n": {
         "en": "Total outstanding debt balance",
-        "tr": "Toplam ödenmemiş borç bakiyesi"
+        "tr": "Toplam ödenmemiş borç bakiyesi",
+        "de": "Gesamter ausstehender Schuldenbetrag"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
-        "de": "Annual Interest Rate",
+        "de": "Jährlicher Zinssatz",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual percentage rate on the debt",
-        "tr": "Borç üzerindeki yıllık yüzde oranı"
+        "tr": "Borç üzerindeki yıllık yüzde oranı",
+        "de": "Jährlicher Zinssatz auf die Schulden"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Monthly Payment",
         "tr": "Aylık Ödeme",
-        "de": "Monthly Payment",
+        "de": "Monatliche Zahlung",
         "fr": "Monthly Payment",
         "es": "Monthly Payment",
         "ar": "Monthly Payment"
       },
       "businessContext_i18n": {
         "en": "Fixed monthly payment amount",
-        "tr": "Sabit aylık ödeme tutarı"
+        "tr": "Sabit aylık ödeme tutarı",
+        "de": "Fester monatlicher Zahlungsbetrag"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Extra Monthly Payment",
         "tr": "Ek Aylık Ödeme",
-        "de": "Extra Monthly Payment",
+        "de": "Zusätzliche monatliche Zahlung",
         "fr": "Extra Monthly Payment",
         "es": "Extra Monthly Payment",
         "ar": "Extra Monthly Payment"
       },
       "businessContext_i18n": {
         "en": "Additional amount paid each month",
-        "tr": "Her ay ödenen ek miktar"
+        "tr": "Her ay ödenen ek miktar",
+        "de": "Zusätzlicher Betrag, der jeden Monat gezahlt wird"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Number of Debts",
         "tr": "Borç Sayısı",
-        "de": "Number of Debts",
+        "de": "Anzahl der Schulden",
         "fr": "Number of Debts",
         "es": "Number of Debts",
         "ar": "Number of Debts"
       },
       "businessContext_i18n": {
         "en": "Number of separate debts to consolidate",
-        "tr": "Birleştirilecek ayrı borç sayısı"
+        "tr": "Birleştirilecek ayrı borç sayısı",
+        "de": "Anzahl der separaten Schulden zur Konsolidierung"
       }
     }
   ],

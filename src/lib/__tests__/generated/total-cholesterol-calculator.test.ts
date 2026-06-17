@@ -12,7 +12,7 @@ describe("total-cholesterol-calculator", () => {
     "ldl": 100,
     "triglycerides": 150,
     "conversionFactor": 5
-  } as Total_cholesterol_calculatorInput;
+  } as unknown as Total_cholesterol_calculatorInput;
     const result = calculateTotal_cholesterol_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

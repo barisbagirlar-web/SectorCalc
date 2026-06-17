@@ -13,7 +13,7 @@ describe("thc-calculator", () => {
     "i5": 0.5,
     "i7": 0.3,
     "i9": 0.2
-  } as Thc_calculatorInput;
+  } as unknown as Thc_calculatorInput;
     const result = calculateThc_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

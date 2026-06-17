@@ -13,7 +13,7 @@ describe("intermittent-fasting-calculator", () => {
     "eatingWindowDurationHours": 8,
     "targetDailyCalories": 2000,
     "currentWeight": 70
-  } as Intermittent_fasting_calculatorInput;
+  } as unknown as Intermittent_fasting_calculatorInput;
     const result = calculateIntermittent_fasting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

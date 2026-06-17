@@ -13,7 +13,7 @@ describe("ready-mix-calculator", () => {
     "thickness": 15,
     "wasteFactor": 5,
     "density": 2400
-  } as Ready_mix_calculatorInput;
+  } as unknown as Ready_mix_calculatorInput;
     const result = calculateReady_mix_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

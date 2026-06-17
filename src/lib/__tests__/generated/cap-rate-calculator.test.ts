@@ -13,7 +13,7 @@ describe("cap-rate-calculator", () => {
     "annualOperatingExpenses": 15000,
     "vacancyRate": 5,
     "otherAnnualIncome": 0
-  } as Cap_rate_calculatorInput;
+  } as unknown as Cap_rate_calculatorInput;
     const result = calculateCap_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("duct-size-calculator", () => {
     "velocity": 5,
     "aspectRatio": 1,
     "safetyFactor": 1.1
-  } as Duct_size_calculatorInput;
+  } as unknown as Duct_size_calculatorInput;
     const result = calculateDuct_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

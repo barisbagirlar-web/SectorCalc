@@ -12,7 +12,7 @@ describe("npk-calculator", () => {
     "pPercent": 10,
     "kPercent": 10,
     "totalWeight": 50
-  } as Npk_calculatorInput;
+  } as unknown as Npk_calculatorInput;
     const result = calculateNpk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

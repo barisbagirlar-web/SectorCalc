@@ -19,7 +19,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { addLocaleToPath } from "@/lib/i18n/locale-routing";
-import { getLocalizedDuration } from "@/lib/i18n/duration";
+import { getLocalizedDuration } from "@/lib/case-studies/academic-format";
 import "@/styles/academic-case-studies-database.css";
 
 export const revalidate = 60;

@@ -13,7 +13,7 @@ describe("area-calculator", () => {
     "room2Length": 3,
     "room2Width": 2,
     "wasteFactor": 5
-  } as Area_calculatorInput;
+  } as unknown as Area_calculatorInput;
     const result = calculateArea_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

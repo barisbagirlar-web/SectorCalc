@@ -16,7 +16,7 @@ describe("compressor-energy-cost-calculator", () => {
     "electricity_cost_per_kwh": 0.12,
     "leakage_percentage": 20,
     "pressure_setpoint": 7
-  } as Compressor_energy_cost_calculatorInput;
+  } as unknown as Compressor_energy_cost_calculatorInput;
     const result = calculateCompressor_energy_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

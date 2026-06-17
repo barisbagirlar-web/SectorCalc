@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fever >38°C",
         "tr": "Ateş >38°C",
-        "de": "Fever >38°C",
+        "de": "Fieber >38°C",
         "fr": "Fever >38°C",
         "es": "Fever >38°C",
         "ar": "Fever >38°C"
       },
       "businessContext_i18n": {
         "en": "1 if fever present, 0 otherwise",
-        "tr": "Ateş varsa 1, yoksa 0"
+        "tr": "Ateş varsa 1, yoksa 0",
+        "de": "1 bei Fieber, sonst 0"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Tonsillar Exudates",
         "tr": "Bademcik Eksüdaları",
-        "de": "Tonsillar Exudates",
+        "de": "Tonsilläre Exsudate",
         "fr": "Tonsillar Exudates",
         "es": "Tonsillar Exudates",
         "ar": "Tonsillar Exudates"
       },
       "businessContext_i18n": {
         "en": "1 if exudates present, 0 otherwise",
-        "tr": "Eksüda varsa 1, yoksa 0"
+        "tr": "Eksüda varsa 1, yoksa 0",
+        "de": "1 bei Exsudaten, sonst 0"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Tender Anterior Cervical Lymphadenopathy",
         "tr": "Hassas Ön Servikal Lenfadenopati",
-        "de": "Tender Anterior Cervical Lymphadenopathy",
+        "de": "Druckempfindliche zervikale Lymphadenopathie",
         "fr": "Tender Anterior Cervical Lymphadenopathy",
         "es": "Tender Anterior Cervical Lymphadenopathy",
         "ar": "Tender Anterior Cervical Lymphadenopathy"
       },
       "businessContext_i18n": {
         "en": "1 if lymphadenopathy present, 0 otherwise",
-        "tr": "Lenfadenopati varsa 1, yoksa 0"
+        "tr": "Lenfadenopati varsa 1, yoksa 0",
+        "de": "1 bei Lymphadenopathie, sonst 0"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Absence of Cough",
         "tr": "Öksürük Yokluğu",
-        "de": "Absence of Cough",
+        "de": "Fehlender Husten",
         "fr": "Absence of Cough",
         "es": "Absence of Cough",
         "ar": "Absence of Cough"
       },
       "businessContext_i18n": {
         "en": "1 if cough absent, 0 if cough present",
-        "tr": "Öksürük yoksa 1, öksürük varsa 0"
+        "tr": "Öksürük yoksa 1, öksürük varsa 0",
+        "de": "1 wenn Husten nicht vorhanden, 0 wenn Husten vorhanden"
       }
     }
   ],

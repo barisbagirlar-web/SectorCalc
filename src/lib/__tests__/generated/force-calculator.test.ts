@@ -12,7 +12,7 @@ describe("force-calculator", () => {
     "initialVelocity": 0,
     "finalVelocity": 10,
     "time": 1
-  } as Force_calculatorInput;
+  } as unknown as Force_calculatorInput;
     const result = calculateForce_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

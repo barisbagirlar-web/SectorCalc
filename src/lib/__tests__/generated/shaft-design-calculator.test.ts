@@ -13,7 +13,7 @@ describe("shaft-design-calculator", () => {
     "diameter": 30,
     "yieldStrength": 250,
     "safetyFactor": 2
-  } as Shaft_design_calculatorInput;
+  } as unknown as Shaft_design_calculatorInput;
     const result = calculateShaft_design_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

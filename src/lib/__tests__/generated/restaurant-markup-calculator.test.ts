@@ -13,7 +13,7 @@ describe("restaurant-markup-calculator", () => {
     "overheadCost": 1,
     "wastePercent": 3,
     "desiredMarkupPercent": 300
-  } as Restaurant_markup_calculatorInput;
+  } as unknown as Restaurant_markup_calculatorInput;
     const result = calculateRestaurant_markup_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

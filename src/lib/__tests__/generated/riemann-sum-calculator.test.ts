@@ -13,7 +13,7 @@ describe("riemann-sum-calculator", () => {
     "upperBound": 1,
     "numIntervals": 10,
     "method": 0
-  } as Riemann_sum_calculatorInput;
+  } as unknown as Riemann_sum_calculatorInput;
     const result = calculateRiemann_sum_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

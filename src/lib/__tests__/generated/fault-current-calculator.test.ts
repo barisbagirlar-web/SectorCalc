@@ -13,7 +13,7 @@ describe("fault-current-calculator", () => {
     "sourceSCMVA": 500,
     "transformerKVA": 1000,
     "transformerPercentZ": 5.75
-  } as Fault_current_calculatorInput;
+  } as unknown as Fault_current_calculatorInput;
     const result = calculateFault_current_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

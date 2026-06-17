@@ -12,7 +12,7 @@ describe("decimal-to-hex-calculator", () => {
     "minLength": 1,
     "uppercase": 0,
     "prefix": 0
-  } as Decimal_to_hex_calculatorInput;
+  } as unknown as Decimal_to_hex_calculatorInput;
     const result = calculateDecimal_to_hex_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

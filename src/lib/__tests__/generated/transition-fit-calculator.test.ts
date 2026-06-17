@@ -13,7 +13,7 @@ describe("transition-fit-calculator", () => {
     "hole-lower-dev": 0,
     "shaft-upper-dev": 0.018,
     "shaft-lower-dev": 0.002
-  } as Transition_fit_calculatorInput;
+  } as unknown as Transition_fit_calculatorInput;
     const result = calculateTransition_fit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

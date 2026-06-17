@@ -12,7 +12,7 @@ describe("gratuity-calculator", () => {
     "tipPercentage": 15,
     "numberOfPeople": 1,
     "serviceChargePercent": 0
-  } as Gratuity_calculatorInput;
+  } as unknown as Gratuity_calculatorInput;
     const result = calculateGratuity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("electric-potential-calculator", () => {
     "r2": 0,
     "q3": 0,
     "r3": 0
-  } as Electric_potential_calculatorInput;
+  } as unknown as Electric_potential_calculatorInput;
     const result = calculateElectric_potential_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

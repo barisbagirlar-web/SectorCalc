@@ -12,7 +12,7 @@ describe("gas-mileage-calculator", () => {
     "endOdometer": 0,
     "fuelGallons": 0,
     "fuelPricePerGallon": 0
-  } as Gas_mileage_calculatorInput;
+  } as unknown as Gas_mileage_calculatorInput;
     const result = calculateGas_mileage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

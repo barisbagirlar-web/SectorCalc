@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Duruş Süresi (saat)",
         "tr": "Duruş Süresi (saat)",
-        "de": "Duruş Süresi (saat)",
+        "de": "Stillstandszeit (Stunden)",
         "fr": "Duruş Süresi (saat)",
         "es": "Duruş Süresi (saat)",
         "ar": "Duruş Süresi (saat)"
       },
       "businessContext_i18n": {
         "en": "Duruşun toplam süresi",
-        "tr": "Duruşun toplam süresi"
+        "tr": "Duruşun toplam süresi",
+        "de": "Gesamtdauer des Stillstands"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Etkilenen Makine Sayısı",
         "tr": "Etkilenen Makine Sayısı",
-        "de": "Etkilenen Makine Sayısı",
+        "de": "Anzahl betroffener Maschinen",
         "fr": "Etkilenen Makine Sayısı",
         "es": "Etkilenen Makine Sayısı",
         "ar": "Etkilenen Makine Sayısı"
       },
       "businessContext_i18n": {
         "en": "Duruştan etkilenen makine sayısı",
-        "tr": "Duruştan etkilenen makine sayısı"
+        "tr": "Duruştan etkilenen makine sayısı",
+        "de": "Anzahl der vom Stillstand betroffenen Maschinen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Makine Saatlik Maliyet",
         "tr": "Makine Saatlik Maliyet",
-        "de": "Makine Saatlik Maliyet",
+        "de": "Maschinenstundensatz",
         "fr": "Makine Saatlik Maliyet",
         "es": "Makine Saatlik Maliyet",
         "ar": "Makine Saatlik Maliyet"
       },
       "businessContext_i18n": {
         "en": "Makine başına saatlik maliyet (işçilik + amortisman)",
-        "tr": "Makine başına saatlik maliyet (işçilik + amortisman)"
+        "tr": "Makine başına saatlik maliyet (işçilik + amortisman)",
+        "de": "Stündliche Kosten pro Maschine (Arbeit + Abschreibung)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Saatlik Üretim Kaybı",
         "tr": "Saatlik Üretim Kaybı",
-        "de": "Saatlik Üretim Kaybı",
+        "de": "Stündlicher Produktionsverlust",
         "fr": "Saatlik Üretim Kaybı",
         "es": "Saatlik Üretim Kaybı",
         "ar": "Saatlik Üretim Kaybı"
       },
       "businessContext_i18n": {
         "en": "Makine başına saatlik kaybedilen üretim adedi",
-        "tr": "Makine başına saatlik kaybedilen üretim adedi"
+        "tr": "Makine başına saatlik kaybedilen üretim adedi",
+        "de": "Verlorene Produktionsstücke pro Maschine und Stunde"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Birim Başına Kar",
         "tr": "Birim Başına Kar",
-        "de": "Birim Başına Kar",
+        "de": "Gewinn pro Stück",
         "fr": "Birim Başına Kar",
         "es": "Birim Başına Kar",
         "ar": "Birim Başına Kar"
       },
       "businessContext_i18n": {
         "en": "Üretilen her birimden elde edilen kar",
-        "tr": "Üretilen her birimden elde edilen kar"
+        "tr": "Üretilen her birimden elde edilen kar",
+        "de": "Gewinn pro produzierter Einheit"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Genel Gider Çarpanı",
         "tr": "Genel Gider Çarpanı",
-        "de": "Genel Gider Çarpanı",
+        "de": "Gemeinkostenfaktor",
         "fr": "Genel Gider Çarpanı",
         "es": "Genel Gider Çarpanı",
         "ar": "Genel Gider Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Doğrudan maliyet ve kayıp kâra uygulanan genel gider çarpanı (1.0 = genel gider yok)",
-        "tr": "Doğrudan maliyet ve kayıp kâra uygulanan genel gider çarpanı (1.0 = genel gider yok)"
+        "tr": "Doğrudan maliyet ve kayıp kâra uygulanan genel gider çarpanı (1.0 = genel gider yok)",
+        "de": "Gemeinkostenfaktor, der auf direkte Kosten und entgangenen Gewinn angewendet wird (1,0 = keine Gemeinkosten)"
       }
     }
   ],

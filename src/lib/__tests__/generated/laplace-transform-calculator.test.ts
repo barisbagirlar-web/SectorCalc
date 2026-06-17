@@ -14,7 +14,7 @@ describe("laplace-transform-calculator", () => {
     "phase": 0,
     "delay": 0,
     "s": 1
-  } as Laplace_transform_calculatorInput;
+  } as unknown as Laplace_transform_calculatorInput;
     const result = calculateLaplace_transform_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

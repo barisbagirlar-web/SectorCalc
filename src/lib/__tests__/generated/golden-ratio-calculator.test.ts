@@ -12,7 +12,7 @@ describe("golden-ratio-calculator", () => {
     "longSegment": 61.8,
     "shortSegment": 38.2,
     "tolerance": 0.001
-  } as Golden_ratio_calculatorInput;
+  } as unknown as Golden_ratio_calculatorInput;
     const result = calculateGolden_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

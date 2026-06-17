@@ -13,7 +13,7 @@ describe("topsoil-calculator", () => {
     "depth": 15,
     "bulkDensity": 1500,
     "costPerUnit": 25
-  } as Topsoil_calculatorInput;
+  } as unknown as Topsoil_calculatorInput;
     const result = calculateTopsoil_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

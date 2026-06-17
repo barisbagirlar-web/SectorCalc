@@ -12,7 +12,7 @@ describe("redshift-calculator", () => {
     "emittedWavelength": 656.3,
     "z": 0,
     "hubbleConstant": 70
-  } as Redshift_calculatorInput;
+  } as unknown as Redshift_calculatorInput;
     const result = calculateRedshift_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

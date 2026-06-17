@@ -12,7 +12,7 @@ describe("transformer-calculator", () => {
     "secondaryVoltage": 12,
     "powerRating": 100,
     "primaryTurns": 1000
-  } as Transformer_calculatorInput;
+  } as unknown as Transformer_calculatorInput;
     const result = calculateTransformer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

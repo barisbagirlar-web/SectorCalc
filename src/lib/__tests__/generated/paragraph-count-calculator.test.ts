@@ -16,7 +16,7 @@ describe("paragraph-count-calculator", () => {
     "linesPerPage": 25,
     "wordsPerLine": 10,
     "paragraphsPerPage": 5
-  } as Paragraph_count_calculatorInput;
+  } as unknown as Paragraph_count_calculatorInput;
     const result = calculateParagraph_count_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

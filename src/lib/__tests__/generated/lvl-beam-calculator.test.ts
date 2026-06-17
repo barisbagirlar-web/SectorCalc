@@ -14,7 +14,7 @@ describe("lvl-beam-calculator", () => {
     "depth": 200,
     "allowableStress": 30,
     "elasticModulus": 13
-  } as Lvl_beam_calculatorInput;
+  } as unknown as Lvl_beam_calculatorInput;
     const result = calculateLvl_beam_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

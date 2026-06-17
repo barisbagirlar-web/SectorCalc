@@ -13,7 +13,7 @@ describe("histogram-calculator", () => {
     "dataMax": 100,
     "dataStdDev": 15,
     "dataIQR": 20
-  } as Histogram_calculatorInput;
+  } as unknown as Histogram_calculatorInput;
     const result = calculateHistogram_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

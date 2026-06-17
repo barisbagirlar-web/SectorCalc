@@ -12,7 +12,7 @@ describe("improper-fraction-calculator", () => {
     "numerator": 0,
     "denominator": 1,
     "decimalPlaces": 2
-  } as Improper_fraction_calculatorInput;
+  } as unknown as Improper_fraction_calculatorInput;
     const result = calculateImproper_fraction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

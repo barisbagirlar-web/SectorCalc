@@ -16,7 +16,7 @@ describe("supply-chain-disruption-risk-calculator", () => {
     "demand_volatility": 0.3,
     "transportation_disruption_probability": 0.05,
     "quality_defect_rate": 500
-  } as Supply_chain_disruption_risk_calculatorInput;
+  } as unknown as Supply_chain_disruption_risk_calculatorInput;
     const result = calculateSupply_chain_disruption_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("margin-of-safety-calculator", () => {
     "crossSectionArea": 100,
     "appliedForce": 10000,
     "safetyFactor": 1.5
-  } as Margin_of_safety_calculatorInput;
+  } as unknown as Margin_of_safety_calculatorInput;
     const result = calculateMargin_of_safety_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

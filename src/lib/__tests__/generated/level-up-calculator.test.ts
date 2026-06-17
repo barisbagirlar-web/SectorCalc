@@ -14,7 +14,7 @@ describe("level-up-calculator", () => {
     "fixedCosts": 150000,
     "levelUpPercent": 20,
     "additionalFixedCost": 30000
-  } as Level_up_calculatorInput;
+  } as unknown as Level_up_calculatorInput;
     const result = calculateLevel_up_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("spur-gear-calculator", () => {
     "pressureAngle": 20,
     "addendumCoeff": 1,
     "dedendumCoeff": 1.25
-  } as Spur_gear_calculatorInput;
+  } as unknown as Spur_gear_calculatorInput;
     const result = calculateSpur_gear_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

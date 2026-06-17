@@ -12,7 +12,7 @@ describe("turkey-cooking-time-calculator", () => {
     "ovenTempC": 175,
     "isStuffed": 0,
     "startTempC": 4
-  } as Turkey_cooking_time_calculatorInput;
+  } as unknown as Turkey_cooking_time_calculatorInput;
     const result = calculateTurkey_cooking_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

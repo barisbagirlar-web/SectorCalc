@@ -12,7 +12,7 @@ describe("tea-caffeine-calculator", () => {
     "teaAmount": 2.5,
     "steepingTime": 3,
     "waterTemperature": 90
-  } as Tea_caffeine_calculatorInput;
+  } as unknown as Tea_caffeine_calculatorInput;
     const result = calculateTea_caffeine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

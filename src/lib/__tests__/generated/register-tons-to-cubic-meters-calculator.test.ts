@@ -14,7 +14,7 @@ describe("register-tons-to-cubic-meters-calculator", () => {
     "decimalPlaces": 2,
     "useStandardConversion": 1,
     "customFactor": 2.8316846592
-  } as Register_tons_to_cubic_meters_calculatorInput;
+  } as unknown as Register_tons_to_cubic_meters_calculatorInput;
     const result = calculateRegister_tons_to_cubic_meters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

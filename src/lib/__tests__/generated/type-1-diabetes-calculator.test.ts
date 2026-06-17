@@ -14,7 +14,7 @@ describe("type-1-diabetes-calculator", () => {
     "carbIntake": 50,
     "insulinCarbRatio": 10,
     "activeInsulin": 0
-  } as Type_1_diabetes_calculatorInput;
+  } as unknown as Type_1_diabetes_calculatorInput;
     const result = calculateType_1_diabetes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

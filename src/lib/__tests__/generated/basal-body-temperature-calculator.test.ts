@@ -14,7 +14,7 @@ describe("basal-body-temperature-calculator", () => {
     "baselineTemp": 36.5,
     "threshold": 0.2,
     "daysToConfirm": 3
-  } as Basal_body_temperature_calculatorInput;
+  } as unknown as Basal_body_temperature_calculatorInput;
     const result = calculateBasal_body_temperature_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

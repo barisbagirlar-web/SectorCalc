@@ -14,7 +14,7 @@ describe("ltv-cac-ratio-calculator", () => {
     "discount": 10,
     "totalCacSpend": 50000,
     "newCustomers": 100
-  } as Ltv_cac_ratio_calculatorInput;
+  } as unknown as Ltv_cac_ratio_calculatorInput;
     const result = calculateLtv_cac_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

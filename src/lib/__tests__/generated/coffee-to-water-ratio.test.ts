@@ -12,7 +12,7 @@ describe("coffee-to-water-ratio", () => {
     "waterVolume": 300,
     "absorptionFactor": 2,
     "targetRatio": 15
-  } as Coffee_to_water_ratioInput;
+  } as unknown as Coffee_to_water_ratioInput;
     const result = calculateCoffee_to_water_ratio(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

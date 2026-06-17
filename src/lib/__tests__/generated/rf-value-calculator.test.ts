@@ -12,7 +12,7 @@ describe("rf-value-calculator", () => {
     "spotDistance1": 5,
     "spotDistance2": 5.2,
     "spotDistance3": 4.9
-  } as Rf_value_calculatorInput;
+  } as unknown as Rf_value_calculatorInput;
     const result = calculateRf_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

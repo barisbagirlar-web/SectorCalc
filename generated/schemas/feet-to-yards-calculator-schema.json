@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Length in Feet",
         "tr": "Fit Cinsinden Uzunluk",
-        "de": "Length in Feet",
+        "de": "Länge in Fuß",
         "fr": "Length in Feet",
         "es": "Length in Feet",
         "ar": "Length in Feet"
       },
       "businessContext_i18n": {
         "en": "The length measured in feet to be converted to yards.",
-        "tr": "Yarda dönüştürülecek fit cinsinden ölçülen uzunluk."
+        "tr": "Yarda dönüştürülecek fit cinsinden ölçülen uzunluk.",
+        "de": "Die gemessene Länge in Fuß, die in Yards umgerechnet werden soll."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Waste Percentage",
         "tr": "Fire Yüzdesi",
-        "de": "Waste Percentage",
+        "de": "Abfallprozentsatz",
         "fr": "Waste Percentage",
         "es": "Waste Percentage",
         "ar": "Waste Percentage"
       },
       "businessContext_i18n": {
         "en": "Additional material waste factor as a percentage to account for cutting, damage, or spillage.",
-        "tr": "Kesim, hasar veya dökülmeyi hesaba katmak için yüzde olarak ek malzeme fire faktörü."
+        "tr": "Kesim, hasar veya dökülmeyi hesaba katmak için yüzde olarak ek malzeme fire faktörü.",
+        "de": "Zusätzlicher Materialverschnittfaktor in Prozent, um Schnitte, Beschädigungen oder Verschüttungen zu berücksichtigen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Safety Margin Percentage",
         "tr": "Güvenlik Marjı Yüzdesi",
-        "de": "Safety Margin Percentage",
+        "de": "Sicherheitsmarge in Prozent",
         "fr": "Safety Margin Percentage",
         "es": "Safety Margin Percentage",
         "ar": "Safety Margin Percentage"
       },
       "businessContext_i18n": {
         "en": "Safety margin as a percentage to cover measurement errors or unforeseen requirements.",
-        "tr": "Ölçüm hatalarını veya öngörülemeyen gereksinimleri karşılamak için yüzde olarak güvenlik marjı."
+        "tr": "Ölçüm hatalarını veya öngörülemeyen gereksinimleri karşılamak için yüzde olarak güvenlik marjı.",
+        "de": "Sicherheitsmarge in Prozent, um Messfehler oder unvorhergesehene Anforderungen abzudecken."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Units",
         "tr": "Birim Sayısı",
-        "de": "Number of Units",
+        "de": "Anzahl der Einheiten",
         "fr": "Number of Units",
         "es": "Number of Units",
         "ar": "Number of Units"
       },
       "businessContext_i18n": {
         "en": "The number of identical pieces or sections measured in feet, for total material estimation.",
-        "tr": "Toplam malzeme tahmini için fit cinsinden ölçülen özdeş parça veya bölüm sayısı."
+        "tr": "Toplam malzeme tahmini için fit cinsinden ölçülen özdeş parça veya bölüm sayısı.",
+        "de": "Anzahl identischer Stücke oder Abschnitte, gemessen in Fuß, für die gesamte Materialschätzung."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Cost per Yard",
         "tr": "Yarda Başına Maliyet",
-        "de": "Cost per Yard",
+        "de": "Kosten pro Yard",
         "fr": "Cost per Yard",
         "es": "Cost per Yard",
         "ar": "Cost per Yard"
       },
       "businessContext_i18n": {
         "en": "Unit cost per yard of material, used to calculate total cost.",
-        "tr": "Toplam maliyeti hesaplamak için kullanılan yarda başına birim malzeme maliyeti."
+        "tr": "Toplam maliyeti hesaplamak için kullanılan yarda başına birim malzeme maliyeti.",
+        "de": "Stückkosten pro Yard Material, zur Berechnung der Gesamtkosten."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the output values.",
-        "tr": "Çıktı değerlerini yuvarlamak için ondalık basamak sayısı."
+        "tr": "Çıktı değerlerini yuvarlamak için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen zum Runden der Ausgabewerte."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("workout-volume-calculator", () => {
     "width": 5,
     "height": 3,
     "fill_factor": 50
-  } as Workout_volume_calculatorInput;
+  } as unknown as Workout_volume_calculatorInput;
     const result = calculateWorkout_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

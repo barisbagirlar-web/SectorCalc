@@ -14,7 +14,7 @@ describe("goal-setting-calculator", () => {
     "currentAvailability": 80,
     "currentPerformance": 90,
     "currentQuality": 95
-  } as Goal_setting_calculatorInput;
+  } as unknown as Goal_setting_calculatorInput;
     const result = calculateGoal_setting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

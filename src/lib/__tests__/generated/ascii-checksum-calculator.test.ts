@@ -12,7 +12,7 @@ describe("ascii-checksum-calculator", () => {
     "byte2": 0,
     "byte3": 0,
     "byte4": 0
-  } as Ascii_checksum_calculatorInput;
+  } as unknown as Ascii_checksum_calculatorInput;
     const result = calculateAscii_checksum_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

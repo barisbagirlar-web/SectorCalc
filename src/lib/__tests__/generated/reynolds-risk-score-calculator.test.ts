@@ -15,7 +15,7 @@ describe("reynolds-risk-score-calculator", () => {
     "smoker": 0,
     "diabetic": 0,
     "gender": 0
-  } as Reynolds_risk_score_calculatorInput;
+  } as unknown as Reynolds_risk_score_calculatorInput;
     const result = calculateReynolds_risk_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

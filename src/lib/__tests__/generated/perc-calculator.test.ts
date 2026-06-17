@@ -13,7 +13,7 @@ describe("perc-calculator", () => {
     "idealCycleTime": 60,
     "plannedProductionTime": 28800,
     "downtime": 3600
-  } as Perc_calculatorInput;
+  } as unknown as Perc_calculatorInput;
     const result = calculatePerc_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Pressure (bar)",
         "tr": "Basınç (bar)",
-        "de": "Pressure (bar)",
+        "de": "Druck (bar)",
         "fr": "Pressure (bar)",
         "es": "Pressure (bar)",
         "ar": "Pressure (bar)"
       },
       "businessContext_i18n": {
         "en": "Measured pressure value in bars.",
-        "tr": "Bar cinsinden ölçülen basınç değeri."
+        "tr": "Bar cinsinden ölçülen basınç değeri.",
+        "de": "Gemessener Druckwert in bar."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Calibration Offset (bar)",
         "tr": "Kalibrasyon Ofseti (bar)",
-        "de": "Calibration Offset (bar)",
+        "de": "Kalibrierungsversatz (bar)",
         "fr": "Calibration Offset (bar)",
         "es": "Calibration Offset (bar)",
         "ar": "Calibration Offset (bar)"
       },
       "businessContext_i18n": {
         "en": "Instrument calibration offset to apply to the measured pressure.",
-        "tr": "Ölçülen basınca uygulanacak enstrüman kalibrasyon ofseti."
+        "tr": "Ölçülen basınca uygulanacak enstrüman kalibrasyon ofseti.",
+        "de": "Instrumenten-Kalibrierungsversatz, der auf den gemessenen Druck angewendet wird."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Measurement Uncertainty (%)",
         "tr": "Ölçüm Belirsizliği (%)",
-        "de": "Measurement Uncertainty (%)",
+        "de": "Messunsicherheit (%)",
         "fr": "Measurement Uncertainty (%)",
         "es": "Measurement Uncertainty (%)",
         "ar": "Measurement Uncertainty (%)"
       },
       "businessContext_i18n": {
         "en": "Expanded measurement uncertainty as a percentage of the reading (k=2).",
-        "tr": "Okumanın yüzdesi olarak genişletilmiş ölçüm belirsizliği (k=2)."
+        "tr": "Okumanın yüzdesi olarak genişletilmiş ölçüm belirsizliği (k=2).",
+        "de": "Erweiterte Messunsicherheit als Prozentsatz des Messwerts (k=2)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output value.",
-        "tr": "Çıktı değeri için ondalık basamak sayısı."
+        "tr": "Çıktı değeri için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für den Ausgabewert."
       }
     }
   ],

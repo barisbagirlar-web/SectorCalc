@@ -14,7 +14,7 @@ describe("weight-loss-timeline-calculator", () => {
     "dryingRateConstant": 0.1,
     "processEfficiency": 100,
     "setupTime": 0.5
-  } as Weight_loss_timeline_calculatorInput;
+  } as unknown as Weight_loss_timeline_calculatorInput;
     const result = calculateWeight_loss_timeline_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

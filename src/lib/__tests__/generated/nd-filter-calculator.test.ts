@@ -12,7 +12,7 @@ describe("nd-filter-calculator", () => {
     "denominator": 125,
     "ndStops": 0,
     "od": 0
-  } as Nd_filter_calculatorInput;
+  } as unknown as Nd_filter_calculatorInput;
     const result = calculateNd_filter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

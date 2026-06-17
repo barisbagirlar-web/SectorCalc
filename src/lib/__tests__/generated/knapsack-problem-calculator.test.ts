@@ -15,7 +15,7 @@ describe("knapsack-problem-calculator", () => {
     "value2": 100,
     "weight3": 30,
     "value3": 150
-  } as Knapsack_problem_calculatorInput;
+  } as unknown as Knapsack_problem_calculatorInput;
     const result = calculateKnapsack_problem_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

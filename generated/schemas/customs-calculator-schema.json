@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "CIF Değeri",
         "tr": "CIF Değeri",
-        "de": "CIF Değeri",
+        "de": "CIF-Wert",
         "fr": "CIF Değeri",
         "es": "CIF Değeri",
         "ar": "CIF Değeri"
       },
       "businessContext_i18n": {
         "en": "Mal bedeli + sigorta + navlun (CIF)",
-        "tr": "Mal bedeli + sigorta + navlun (CIF)"
+        "tr": "Mal bedeli + sigorta + navlun (CIF)",
+        "de": "Warenkosten + Versicherung + Fracht (CIF)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Gümrük Vergisi Oranı (%)",
         "tr": "Gümrük Vergisi Oranı (%)",
-        "de": "Gümrük Vergisi Oranı (%)",
+        "de": "Zollsatz (%)",
         "fr": "Gümrük Vergisi Oranı (%)",
         "es": "Gümrük Vergisi Oranı (%)",
         "ar": "Gümrük Vergisi Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Gümrük vergisi oranı",
-        "tr": "Gümrük vergisi oranı"
+        "tr": "Gümrük vergisi oranı",
+        "de": "Zollsatz"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "KDV Oranı (%)",
         "tr": "KDV Oranı (%)",
-        "de": "KDV Oranı (%)",
+        "de": "Mehrwertsteuersatz (%)",
         "fr": "KDV Oranı (%)",
         "es": "KDV Oranı (%)",
         "ar": "KDV Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Katma Değer Vergisi oranı",
-        "tr": "Katma Değer Vergisi oranı"
+        "tr": "Katma Değer Vergisi oranı",
+        "de": "Mehrwertsteuersatz"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "ÖTV Oranı (%)",
         "tr": "ÖTV Oranı (%)",
-        "de": "ÖTV Oranı (%)",
+        "de": "Verbrauchsteuersatz (%)",
         "fr": "ÖTV Oranı (%)",
         "es": "ÖTV Oranı (%)",
         "ar": "ÖTV Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Özel Tüketim Vergisi oranı (varsa)",
-        "tr": "Özel Tüketim Vergisi oranı (varsa)"
+        "tr": "Özel Tüketim Vergisi oranı (varsa)",
+        "de": "Verbrauchsteuersatz (falls zutreffend)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Sabit Ücret",
         "tr": "Sabit Ücret",
-        "de": "Sabit Ücret",
+        "de": "Feste Gebühr",
         "fr": "Sabit Ücret",
         "es": "Sabit Ücret",
         "ar": "Sabit Ücret"
       },
       "businessContext_i18n": {
         "en": "Damga vergisi, gümrük sunum ücreti vb. sabit masraflar",
-        "tr": "Damga vergisi, gümrük sunum ücreti vb. sabit masraflar"
+        "tr": "Damga vergisi, gümrük sunum ücreti vb. sabit masraflar",
+        "de": "Feste Kosten wie Stempelsteuer, Zollanmeldegebühr usw."
       }
     }
   ],

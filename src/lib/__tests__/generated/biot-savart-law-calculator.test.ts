@@ -13,7 +13,7 @@ describe("biot-savart-law-calculator", () => {
     "zp": 0,
     "z1": -0.05,
     "z2": 0.05
-  } as Biot_savart_law_calculatorInput;
+  } as unknown as Biot_savart_law_calculatorInput;
     const result = calculateBiot_savart_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

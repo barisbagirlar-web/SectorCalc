@@ -16,7 +16,7 @@ describe("gpa-calculator", () => {
     "grade3": 0,
     "credit4": 3,
     "grade4": 0
-  } as Gpa_calculatorInput;
+  } as unknown as Gpa_calculatorInput;
     const result = calculateGpa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

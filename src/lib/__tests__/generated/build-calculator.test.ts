@@ -15,7 +15,7 @@ describe("build-calculator", () => {
     "wasteFactor": 5,
     "laborRate": 25,
     "laborHours": 40
-  } as Build_calculatorInput;
+  } as unknown as Build_calculatorInput;
     const result = calculateBuild_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

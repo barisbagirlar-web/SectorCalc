@@ -12,7 +12,7 @@ describe("gay-lussac-law-calculator", () => {
     "t1": 273.15,
     "p2": 0,
     "t2": 373.15
-  } as Gay_lussac_law_calculatorInput;
+  } as unknown as Gay_lussac_law_calculatorInput;
     const result = calculateGay_lussac_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

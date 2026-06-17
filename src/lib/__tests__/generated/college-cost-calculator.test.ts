@@ -14,7 +14,7 @@ describe("college-cost-calculator", () => {
     "years": 4,
     "inflation": 3,
     "scholarship": 0
-  } as College_cost_calculatorInput;
+  } as unknown as College_cost_calculatorInput;
     const result = calculateCollege_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

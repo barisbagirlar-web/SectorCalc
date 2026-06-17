@@ -16,7 +16,7 @@ describe("cookie-calculator", () => {
     "chocolate_per_cookie": 10,
     "oven_temp": 180,
     "baking_time": 12
-  } as Cookie_calculatorInput;
+  } as unknown as Cookie_calculatorInput;
     const result = calculateCookie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

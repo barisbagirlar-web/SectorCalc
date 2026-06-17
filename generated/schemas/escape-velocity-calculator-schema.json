@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Mass",
         "tr": "Kütle",
-        "de": "Mass",
+        "de": "Masse",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the celestial body (e.g., Earth = 5.972 × 10^24 kg)",
-        "tr": "Gök cisminin kütlesi (örneğin, Dünya = 5,972 × 10^24 kg)"
+        "tr": "Gök cisminin kütlesi (örneğin, Dünya = 5,972 × 10^24 kg)",
+        "de": "Masse des Himmelskörpers (z. B. Erde = 5,972 × 10^24 kg)"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Radius of the celestial body (e.g., Earth = 6,371 km)",
-        "tr": "Gök cisminin yarıçapı (örneğin, Dünya = 6.371 km)"
+        "tr": "Gök cisminin yarıçapı (örneğin, Dünya = 6.371 km)",
+        "de": "Radius des Himmelskörpers (z. B. Erde = 6.371 km)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Altitude",
         "tr": "Rakım",
-        "de": "Altitude",
+        "de": "Höhe",
         "fr": "Altitude",
         "es": "Altitude",
         "ar": "Altitude"
       },
       "businessContext_i18n": {
         "en": "Altitude above the surface (0 for surface launch)",
-        "tr": "Yüzeyin üzerindeki yükseklik (yüzey fırlatması için 0)"
+        "tr": "Yüzeyin üzerindeki yükseklik (yüzey fırlatması için 0)",
+        "de": "Höhe über der Oberfläche (0 für Start von der Oberfläche)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Gravitational Constant",
         "tr": "Yerçekimi Sabiti",
-        "de": "Gravitational Constant",
+        "de": "Gravitationskonstante",
         "fr": "Gravitational Constant",
         "es": "Gravitational Constant",
         "ar": "Gravitational Constant"
       },
       "businessContext_i18n": {
         "en": "Universal gravitational constant (default 6.67430×10^-11 m^3 kg^-1 s^-2)",
-        "tr": "Evrensel yerçekimi sabiti (varsayılan 6,67430×10^-11 m^3 kg^-1 s^-2)"
+        "tr": "Evrensel yerçekimi sabiti (varsayılan 6,67430×10^-11 m^3 kg^-1 s^-2)",
+        "de": "Universelle Gravitationskonstante (Standard 6,67430×10^-11 m^3 kg^-1 s^-2)"
       }
     }
   ],

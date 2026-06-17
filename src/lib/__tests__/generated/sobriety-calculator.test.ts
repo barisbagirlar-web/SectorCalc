@@ -13,7 +13,7 @@ describe("sobriety-calculator", () => {
     "weightKg": 70,
     "genderCode": 0,
     "timeHours": 1
-  } as Sobriety_calculatorInput;
+  } as unknown as Sobriety_calculatorInput;
     const result = calculateSobriety_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

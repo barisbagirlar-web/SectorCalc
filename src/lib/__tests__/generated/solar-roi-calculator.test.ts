@@ -13,7 +13,7 @@ describe("solar-roi-calculator", () => {
     "elektrikFiyati": 1.2,
     "sistemOmru": 25,
     "tesvikOrani": 20
-  } as Solar_roi_calculatorInput;
+  } as unknown as Solar_roi_calculatorInput;
     const result = calculateSolar_roi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

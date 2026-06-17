@@ -14,7 +14,7 @@ describe("poynting-vector-calculator", () => {
     "Hx": 0,
     "Hy": 0,
     "Hz": 0
-  } as Poynting_vector_calculatorInput;
+  } as unknown as Poynting_vector_calculatorInput;
     const result = calculatePoynting_vector_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

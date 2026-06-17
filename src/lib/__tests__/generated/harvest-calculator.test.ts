@@ -12,7 +12,7 @@ describe("harvest-calculator", () => {
     "cropYieldPerHectare": 5,
     "fieldLossPercent": 3,
     "storageLossPercent": 2
-  } as Harvest_calculatorInput;
+  } as unknown as Harvest_calculatorInput;
     const result = calculateHarvest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

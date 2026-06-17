@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Revenue",
         "tr": "Gelir",
-        "de": "Revenue",
+        "de": "Umsatzerlöse",
         "fr": "Revenue",
         "es": "Revenue",
         "ar": "Revenue"
       },
       "businessContext_i18n": {
         "en": "Total sales revenue from primary business operations",
-        "tr": "Toplam Satış Geliri"
+        "tr": "Toplam Satış Geliri",
+        "de": "Gesamtumsatz aus dem Hauptgeschäftsbetrieb"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cost of Goods Sold",
         "tr": "Satılan Malın Maliyeti",
-        "de": "Cost of Goods Sold",
+        "de": "Herstellkosten der verkauften Waren",
         "fr": "Cost of Goods Sold",
         "es": "Cost of Goods Sold",
         "ar": "Cost of Goods Sold"
       },
       "businessContext_i18n": {
         "en": "Direct costs attributable to the production of goods sold",
-        "tr": "Satılan malların üretimine doğrudan atfedilebilen maliyetler."
+        "tr": "Satılan malların üretimine doğrudan atfedilebilen maliyetler.",
+        "de": "Direkte Kosten, die der Produktion der verkauften Waren zuzurechnen sind"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Selling, General & Administrative Expenses",
         "tr": "Satış, Genel ve İdari Giderler",
-        "de": "Selling, General & Administrative Expenses",
+        "de": "Vertriebs-, allgemeine und Verwaltungskosten",
         "fr": "Selling, General & Administrative Expenses",
         "es": "Selling, General & Administrative Expenses",
         "ar": "Selling, General & Administrative Expenses"
       },
       "businessContext_i18n": {
         "en": "Indirect operating expenses including sales, marketing, and administrative costs",
-        "tr": "Satış, pazarlama ve idari maliyetleri içeren dolaylı işletme giderleri."
+        "tr": "Satış, pazarlama ve idari maliyetleri içeren dolaylı işletme giderleri.",
+        "de": "Indirekte Betriebskosten, einschließlich Vertriebs-, Marketing- und Verwaltungskosten"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Research & Development Expenses",
         "tr": "Araştırma ve Geliştirme Giderleri",
-        "de": "Research & Development Expenses",
+        "de": "Forschungs- und Entwicklungskosten",
         "fr": "Research & Development Expenses",
         "es": "Research & Development Expenses",
         "ar": "Research & Development Expenses"
       },
       "businessContext_i18n": {
         "en": "Expenditures for innovation, product development, and process improvements",
-        "tr": "İnovasyon, ürün geliştirme ve süreç iyileştirmeleri için yapılan harcamalar."
+        "tr": "İnovasyon, ürün geliştirme ve süreç iyileştirmeleri için yapılan harcamalar.",
+        "de": "Ausgaben für Innovation, Produktentwicklung und Prozessverbesserungen"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Depreciation & Amortization",
         "tr": "Amortisman ve İtfa",
-        "de": "Depreciation & Amortization",
+        "de": "Abschreibungen und Amortisation",
         "fr": "Depreciation & Amortization",
         "es": "Depreciation & Amortization",
         "ar": "Depreciation & Amortization"
       },
       "businessContext_i18n": {
         "en": "Systematic allocation of tangible and intangible asset costs over useful lives",
-        "tr": "Maddi ve maddi olmayan duran varlık maliyetlerinin faydalı ömürlerine sistematik olarak dağıtılması"
+        "tr": "Maddi ve maddi olmayan duran varlık maliyetlerinin faydalı ömürlerine sistematik olarak dağıtılması",
+        "de": "Systematische Verteilung der Anschaffungskosten von Sach- und immateriellen Vermögenswerten über die Nutzungsdauer"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Other Operating Expenses",
         "tr": "Diğer Faaliyet Giderleri",
-        "de": "Other Operating Expenses",
+        "de": "Sonstige betriebliche Aufwendungen",
         "fr": "Other Operating Expenses",
         "es": "Other Operating Expenses",
         "ar": "Other Operating Expenses"
       },
       "businessContext_i18n": {
         "en": "Additional operating costs not captured in SG&A, R&D, or D&A",
-        "tr": "SG&A, Ar-Ge veya D&A'ya dahil olmayan ek faaliyet giderleri"
+        "tr": "SG&A, Ar-Ge veya D&A'ya dahil olmayan ek faaliyet giderleri",
+        "de": "Zusätzliche Betriebskosten, die nicht in VVGK, FuE oder A&A enthalten sind"
       }
     }
   ],

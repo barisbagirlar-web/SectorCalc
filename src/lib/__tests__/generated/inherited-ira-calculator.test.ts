@@ -12,7 +12,7 @@ describe("inherited-ira-calculator", () => {
     "beneficiaryAge": 50,
     "lifeExpectancyFactor": 34.2,
     "expectedAnnualReturn": 6
-  } as Inherited_ira_calculatorInput;
+  } as unknown as Inherited_ira_calculatorInput;
     const result = calculateInherited_ira_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

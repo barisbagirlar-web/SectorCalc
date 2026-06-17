@@ -16,7 +16,7 @@ describe("cash-flow-gap-calculator", () => {
     "payment_terms_suppliers": "net30",
     "customer_payment_behavior": "average",
     "lean_inventory_flag": false
-  } as Cash_flow_gap_calculatorInput;
+  } as unknown as Cash_flow_gap_calculatorInput;
     const result = calculateCash_flow_gap_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

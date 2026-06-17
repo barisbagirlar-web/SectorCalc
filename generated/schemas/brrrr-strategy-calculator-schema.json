@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Purchase Price",
         "tr": "Satın Alma Fiyatı",
-        "de": "Purchase Price",
+        "de": "Kaufpreis",
         "fr": "Purchase Price",
         "es": "Purchase Price",
         "ar": "Purchase Price"
       },
       "businessContext_i18n": {
         "en": "The price at which the property is purchased.",
-        "tr": "Mülkün satın alındığı fiyat."
+        "tr": "Mülkün satın alındığı fiyat.",
+        "de": "Preis, zu dem die Immobilie gekauft wird."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Rehab Cost",
         "tr": "Rehab Maliyeti",
-        "de": "Rehab Cost",
+        "de": "Sanierungskosten",
         "fr": "Rehab Cost",
         "es": "Rehab Cost",
         "ar": "Rehab Cost"
       },
       "businessContext_i18n": {
         "en": "Total cost of renovations and repairs.",
-        "tr": "Yenileme ve onarımların toplam maliyeti."
+        "tr": "Yenileme ve onarımların toplam maliyeti.",
+        "de": "Gesamtkosten für Renovierungen und Reparaturen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "After Repair Value (ARV)",
         "tr": "Onarım Sonrası Değer (OSD)",
-        "de": "After Repair Value (ARV)",
+        "de": "Wert nach Sanierung (ARV)",
         "fr": "After Repair Value (ARV)",
         "es": "After Repair Value (ARV)",
         "ar": "After Repair Value (ARV)"
       },
       "businessContext_i18n": {
         "en": "Estimated market value of the property after renovations.",
-        "tr": "Yenileme sonrası mülkün tahmini piyasa değeri."
+        "tr": "Yenileme sonrası mülkün tahmini piyasa değeri.",
+        "de": "Geschätzter Marktwert der Immobilie nach Renovierungen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Monthly Rent",
         "tr": "Aylık Kira",
-        "de": "Monthly Rent",
+        "de": "Monatsmiete",
         "fr": "Monthly Rent",
         "es": "Monthly Rent",
         "ar": "Monthly Rent"
       },
       "businessContext_i18n": {
         "en": "Expected monthly rental income.",
-        "tr": "Beklenen aylık kira geliri."
+        "tr": "Beklenen aylık kira geliri.",
+        "de": "Erwartete monatliche Mieteinnahmen."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Operating Expense Percentage",
         "tr": "İşletme Gideri Yüzdesi",
-        "de": "Operating Expense Percentage",
+        "de": "Betriebskostenanteil (%)",
         "fr": "Operating Expense Percentage",
         "es": "Operating Expense Percentage",
         "ar": "Operating Expense Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of monthly rent reserved for operating expenses (taxes, insurance, maintenance, vacancy, management).",
-        "tr": "İşletme giderleri (vergiler, sigorta, bakım, boşluk, yönetim) için ayrılan aylık kira yüzdesi."
+        "tr": "İşletme giderleri (vergiler, sigorta, bakım, boşluk, yönetim) için ayrılan aylık kira yüzdesi.",
+        "de": "Prozentsatz der monatlichen Miete, der für Betriebskosten (Steuern, Versicherung, Instandhaltung, Leerstand, Verwaltung) reserviert ist."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Refinance LTV",
         "tr": "Yeniden Finansman Kredi-Değer Oranı",
-        "de": "Refinance LTV",
+        "de": "Refinanzierungs-Beleihungsquote (%)",
         "fr": "Refinance LTV",
         "es": "Refinance LTV",
         "ar": "Refinance LTV"
       },
       "businessContext_i18n": {
         "en": "Loan-to-value ratio for refinancing, expressed as a percentage of ARV.",
-        "tr": "Yeniden finansman için kredi-değer oranı, ARV'nin yüzdesi olarak ifade edilir."
+        "tr": "Yeniden finansman için kredi-değer oranı, ARV'nin yüzdesi olarak ifade edilir.",
+        "de": "Beleihungsquote für die Refinanzierung, ausgedrückt als Prozentsatz des ARV."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Refinance Interest Rate",
         "tr": "Yeniden Finansman Faiz Oranı",
-        "de": "Refinance Interest Rate",
+        "de": "Refinanzierungszinssatz (%)",
         "fr": "Refinance Interest Rate",
         "es": "Refinance Interest Rate",
         "ar": "Refinance Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate for the refinance mortgage.",
-        "tr": "Yeniden finansman ipoteği için yıllık faiz oranı."
+        "tr": "Yeniden finansman ipoteği için yıllık faiz oranı.",
+        "de": "Jährlicher Zinssatz für die Refinanzierungshypothek."
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
-        "de": "Loan Term",
+        "de": "Darlehenslaufzeit",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Duration of the refinance loan in years.",
-        "tr": "Yeniden finansman kredisinin yıl cinsinden süresi."
+        "tr": "Yeniden finansman kredisinin yıl cinsinden süresi.",
+        "de": "Laufzeit des Refinanzierungsdarlehens in Jahren."
       }
     }
   ],

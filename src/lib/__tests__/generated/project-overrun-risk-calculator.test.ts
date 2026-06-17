@@ -16,7 +16,7 @@ describe("project-overrun-risk-calculator", () => {
     "scopeChangeFrequency": "moderate",
     "teamExperience": "intermediate",
     "qualityDefectRate": 0.05
-  } as Project_overrun_risk_calculatorInput;
+  } as unknown as Project_overrun_risk_calculatorInput;
     const result = calculateProject_overrun_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

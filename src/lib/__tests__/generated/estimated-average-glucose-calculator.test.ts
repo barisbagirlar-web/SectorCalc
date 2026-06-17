@@ -13,7 +13,7 @@ describe("estimated-average-glucose-calculator", () => {
     "offset_mgdl": -46.7,
     "factor_mmol": 1.59,
     "offset_mmol": -2.59
-  } as Estimated_average_glucose_calculatorInput;
+  } as unknown as Estimated_average_glucose_calculatorInput;
     const result = calculateEstimated_average_glucose_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

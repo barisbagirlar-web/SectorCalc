@@ -13,7 +13,7 @@ describe("scale-calculator", () => {
     "realHeight": 200,
     "scaleNumerator": 1,
     "scaleDenominator": 100
-  } as Scale_calculatorInput;
+  } as unknown as Scale_calculatorInput;
     const result = calculateScale_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("killip-class-calculator", () => {
     "s3_gallop": 0,
     "systolic_bp": 120,
     "hypoperfusion": 0
-  } as Killip_class_calculatorInput;
+  } as unknown as Killip_class_calculatorInput;
     const result = calculateKillip_class_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

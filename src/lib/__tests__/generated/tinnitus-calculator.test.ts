@@ -13,7 +13,7 @@ describe("tinnitus-calculator", () => {
     "age_years": 40,
     "exposureYears": 10,
     "hearingProtection_dB": 0
-  } as Tinnitus_calculatorInput;
+  } as unknown as Tinnitus_calculatorInput;
     const result = calculateTinnitus_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

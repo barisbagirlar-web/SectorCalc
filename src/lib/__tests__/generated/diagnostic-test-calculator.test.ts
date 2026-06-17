@@ -12,7 +12,7 @@ describe("diagnostic-test-calculator", () => {
     "falsePositives": 20,
     "trueNegatives": 100,
     "falseNegatives": 10
-  } as Diagnostic_test_calculatorInput;
+  } as unknown as Diagnostic_test_calculatorInput;
     const result = calculateDiagnostic_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

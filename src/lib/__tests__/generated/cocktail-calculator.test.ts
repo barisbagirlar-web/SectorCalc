@@ -15,7 +15,7 @@ describe("cocktail-calculator", () => {
     "ingredient3Part": 1.5,
     "ingredient4Part": 0,
     "wastagePercentage": 5
-  } as Cocktail_calculatorInput;
+  } as unknown as Cocktail_calculatorInput;
     const result = calculateCocktail_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

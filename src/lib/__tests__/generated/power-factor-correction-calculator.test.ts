@@ -13,7 +13,7 @@ describe("power-factor-correction-calculator", () => {
     "targetPowerFactor": 0.95,
     "tariff": 0.8,
     "hoursPerDay": 24
-  } as Power_factor_correction_calculatorInput;
+  } as unknown as Power_factor_correction_calculatorInput;
     const result = calculatePower_factor_correction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

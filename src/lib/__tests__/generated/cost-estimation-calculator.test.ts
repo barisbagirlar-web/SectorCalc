@@ -14,7 +14,7 @@ describe("cost-estimation-calculator", () => {
     "overheadPercent": 10,
     "markupPercent": 20,
     "units": 1
-  } as Cost_estimation_calculatorInput;
+  } as unknown as Cost_estimation_calculatorInput;
     const result = calculateCost_estimation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

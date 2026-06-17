@@ -12,7 +12,7 @@ describe("bus-fare-calculator", () => {
     "distanceKm": 10,
     "numberOfPassengers": 1,
     "discountPercent": 0
-  } as Bus_fare_calculatorInput;
+  } as unknown as Bus_fare_calculatorInput;
     const result = calculateBus_fare_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

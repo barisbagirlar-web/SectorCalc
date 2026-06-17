@@ -12,7 +12,7 @@ describe("psi-to-pascal-calculator", () => {
     "conversion_factor": 6894.76,
     "calibration_offset": 0,
     "decimal_places": 2
-  } as Psi_to_pascal_calculatorInput;
+  } as unknown as Psi_to_pascal_calculatorInput;
     const result = calculatePsi_to_pascal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

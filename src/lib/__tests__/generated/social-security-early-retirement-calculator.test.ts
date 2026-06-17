@@ -12,7 +12,7 @@ describe("social-security-early-retirement-calculator", () => {
     "earlyRetirementAge": 62,
     "monthlyBenefitAtFRA": 1500,
     "scalingFactor": 1
-  } as Social_security_early_retirement_calculatorInput;
+  } as unknown as Social_security_early_retirement_calculatorInput;
     const result = calculateSocial_security_early_retirement_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

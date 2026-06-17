@@ -16,7 +16,7 @@ describe("hcg-level-calculator", () => {
     "x3": 5,
     "mass4": 50,
     "x4": 8
-  } as Hcg_level_calculatorInput;
+  } as unknown as Hcg_level_calculatorInput;
     const result = calculateHcg_level_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

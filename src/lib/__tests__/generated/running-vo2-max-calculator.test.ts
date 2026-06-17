@@ -12,7 +12,7 @@ describe("running-vo2-max-calculator", () => {
     "gender": 1,
     "distance": 2000,
     "bodyWeight": 70
-  } as Running_vo2_max_calculatorInput;
+  } as unknown as Running_vo2_max_calculatorInput;
     const result = calculateRunning_vo2_max_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

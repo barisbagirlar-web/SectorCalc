@@ -15,7 +15,7 @@ describe("electroplating-calculator", () => {
     "density": 8.96,
     "atomicWeight": 63.55,
     "valence": 2
-  } as Electroplating_calculatorInput;
+  } as unknown as Electroplating_calculatorInput;
     const result = calculateElectroplating_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

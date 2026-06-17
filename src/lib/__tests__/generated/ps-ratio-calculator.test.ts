@@ -12,7 +12,7 @@ describe("ps-ratio-calculator", () => {
     "totalSales": 0,
     "pricePerShare": 0,
     "salesPerShare": 0
-  } as Ps_ratio_calculatorInput;
+  } as unknown as Ps_ratio_calculatorInput;
     const result = calculatePs_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

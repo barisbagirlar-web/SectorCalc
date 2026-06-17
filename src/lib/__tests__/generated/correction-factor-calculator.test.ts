@@ -14,7 +14,7 @@ describe("correction-factor-calculator", () => {
     "standardTemperature": 0,
     "standardPressure": 1.01325,
     "compressibilityFactor": 1
-  } as Correction_factor_calculatorInput;
+  } as unknown as Correction_factor_calculatorInput;
     const result = calculateCorrection_factor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

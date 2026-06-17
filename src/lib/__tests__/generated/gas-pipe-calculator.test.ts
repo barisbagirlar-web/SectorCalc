@@ -14,7 +14,7 @@ describe("gas-pipe-calculator", () => {
     "outlet_pressure_bar": 5,
     "temperature_celsius": 15,
     "specific_gravity": 0.6
-  } as Gas_pipe_calculatorInput;
+  } as unknown as Gas_pipe_calculatorInput;
     const result = calculateGas_pipe_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

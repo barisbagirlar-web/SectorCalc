@@ -13,7 +13,7 @@ describe("compressible-flow-properties-calculator", () => {
     "staticTemperature": 300,
     "staticPressure": 101325,
     "gasConstant": 287
-  } as Compressible_flow_properties_calculatorInput;
+  } as unknown as Compressible_flow_properties_calculatorInput;
     const result = calculateCompressible_flow_properties_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Wall Length",
         "tr": "Duvar Uzunluğu (m)",
-        "de": "Wall Length",
+        "de": "Duvar Uzunluğu",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
       },
       "businessContext_i18n": {
         "en": "Total horizontal length of the wall to be constructed.",
-        "tr": "İnşa edilecek duvarın toplam yatay uzunluğu."
+        "tr": "İnşa edilecek duvarın toplam yatay uzunluğu.",
+        "de": "Gesamte horizontale Länge der zu bauenden Wand."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
-        "de": "Wall Height",
+        "de": "Wandhöhe",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "Total vertical height of the wall.",
-        "tr": "Duvarın toplam dikey yüksekliği."
+        "tr": "Duvarın toplam dikey yüksekliği.",
+        "de": "Gesamte vertikale Höhe der Wand."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Brick Length",
         "tr": "Tuğla uzunluğu",
-        "de": "Brick Length",
+        "de": "Ziegellänge",
         "fr": "Brick Length",
         "es": "Brick Length",
         "ar": "Brick Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single brick.",
-        "tr": "Tek bir tuğlanın uzunluğu."
+        "tr": "Tek bir tuğlanın uzunluğu.",
+        "de": "Länge eines einzelnen Ziegels."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Brick Height",
         "tr": "Tuğla yüksekliği",
-        "de": "Brick Height",
+        "de": "Ziegelhöhe",
         "fr": "Brick Height",
         "es": "Brick Height",
         "ar": "Brick Height"
       },
       "businessContext_i18n": {
         "en": "Height of a single brick.",
-        "tr": "Tek bir tuğlanın yüksekliği."
+        "tr": "Tek bir tuğlanın yüksekliği.",
+        "de": "Höhe eines einzelnen Ziegels."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Brick Width (Wall Thickness)",
         "tr": "Tuğla Genişliği (Duvar Kalınlığı)",
-        "de": "Brick Width (Wall Thickness)",
+        "de": "Ziegelbreite (Wandstärke)",
         "fr": "Brick Width (Wall Thickness)",
         "es": "Brick Width (Wall Thickness)",
         "ar": "Brick Width (Wall Thickness)"
       },
       "businessContext_i18n": {
         "en": "Width of a brick, which determines the thickness of the wall.",
-        "tr": "Duvar kalınlığını belirleyen tuğla genişliği."
+        "tr": "Duvar kalınlığını belirleyen tuğla genişliği.",
+        "de": "Breite eines Ziegels, die die Wandstärke bestimmt."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Mortar Joint Thickness",
         "tr": "Harç Derz Kalınlığı",
-        "de": "Mortar Joint Thickness",
+        "de": "Mörtelfugendicke",
         "fr": "Mortar Joint Thickness",
         "es": "Mortar Joint Thickness",
         "ar": "Mortar Joint Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of the mortar joint between bricks (both horizontal and vertical).",
-        "tr": "Tuğlalar arasındaki derz kalınlığı (hem yatay hem dikey)."
+        "tr": "Tuğlalar arasındaki derz kalınlığı (hem yatay hem dikey).",
+        "de": "Dicke der Mörtelfuge zwischen den Ziegeln (sowohl horizontal als auch vertikal)."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Brick Price per Piece",
         "tr": "Tuğla Birim Fiyatı",
-        "de": "Brick Price per Piece",
+        "de": "Ziegelpreis pro Stück",
         "fr": "Brick Price per Piece",
         "es": "Brick Price per Piece",
         "ar": "Brick Price per Piece"
       },
       "businessContext_i18n": {
         "en": "Cost of one brick in the selected currency.",
-        "tr": "Seçilen para biriminde bir tuğlanın maliyeti."
+        "tr": "Seçilen para biriminde bir tuğlanın maliyeti.",
+        "de": "Kosten eines Ziegels in der gewählten Währung."
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Mortar Price per Cubic Meter",
         "tr": "Harç Metreküp Fiyatı",
-        "de": "Mortar Price per Cubic Meter",
+        "de": "Mörtelpreis pro Kubikmeter",
         "fr": "Mortar Price per Cubic Meter",
         "es": "Mortar Price per Cubic Meter",
         "ar": "Mortar Price per Cubic Meter"
       },
       "businessContext_i18n": {
         "en": "Cost of mortar per cubic meter in the selected currency.",
-        "tr": "Seçilen para biriminde metreküp başına harç maliyeti."
+        "tr": "Seçilen para biriminde metreküp başına harç maliyeti.",
+        "de": "Kosten für Mörtel pro Kubikmeter in der gewählten Währung."
       }
     }
   ],

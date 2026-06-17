@@ -13,7 +13,7 @@ describe("s-n-curve-calculator", () => {
     "ultimate_tensile_strength": 600,
     "fatigue_strength_coefficient": 900,
     "fatigue_strength_exponent": -0.1
-  } as S_n_curve_calculatorInput;
+  } as unknown as S_n_curve_calculatorInput;
     const result = calculateS_n_curve_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

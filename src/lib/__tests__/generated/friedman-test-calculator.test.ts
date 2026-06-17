@@ -16,7 +16,7 @@ describe("friedman-test-calculator", () => {
     "R4": 0,
     "R5": 0,
     "R6": 0
-  } as Friedman_test_calculatorInput;
+  } as unknown as Friedman_test_calculatorInput;
     const result = calculateFriedman_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("smog-index-calculator", () => {
     "totalPolysyllabicWords": 10,
     "sampleSize": 30,
     "totalWords": 300
-  } as Smog_index_calculatorInput;
+  } as unknown as Smog_index_calculatorInput;
     const result = calculateSmog_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

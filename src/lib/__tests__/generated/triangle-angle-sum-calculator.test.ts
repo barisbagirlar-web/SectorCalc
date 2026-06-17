@@ -12,7 +12,7 @@ describe("triangle-angle-sum-calculator", () => {
     "angleB": 0,
     "angleC": 0,
     "tolerance": 0.0001
-  } as Triangle_angle_sum_calculatorInput;
+  } as unknown as Triangle_angle_sum_calculatorInput;
     const result = calculateTriangle_angle_sum_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

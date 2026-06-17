@@ -12,7 +12,7 @@ describe("ncr-calculator", () => {
     "r": 3,
     "decimalPlaces": 0,
     "maxIterations": 1000
-  } as Ncr_calculatorInput;
+  } as unknown as Ncr_calculatorInput;
     const result = calculateNcr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

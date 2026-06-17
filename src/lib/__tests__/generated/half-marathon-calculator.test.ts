@@ -12,7 +12,7 @@ describe("half-marathon-calculator", () => {
     "hours": 1,
     "minutes": 45,
     "seconds": 0
-  } as Half_marathon_calculatorInput;
+  } as unknown as Half_marathon_calculatorInput;
     const result = calculateHalf_marathon_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

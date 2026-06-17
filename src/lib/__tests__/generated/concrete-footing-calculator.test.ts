@@ -13,7 +13,7 @@ describe("concrete-footing-calculator", () => {
     "FootingDepth": 0.5,
     "NumberOfFootings": 1,
     "WasteFactor": 5
-  } as Concrete_footing_calculatorInput;
+  } as unknown as Concrete_footing_calculatorInput;
     const result = calculateConcrete_footing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

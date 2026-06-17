@@ -12,7 +12,7 @@ describe("business-debt-service-coverage-ratio-calculator", () => {
     "principalRepayments": 20000,
     "interestPayments": 10000,
     "leasePayments": 5000
-  } as Business_debt_service_coverage_ratio_calculatorInput;
+  } as unknown as Business_debt_service_coverage_ratio_calculatorInput;
     const result = calculateBusiness_debt_service_coverage_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("conception-date-calculator", () => {
     "plannedDurationDays": 100,
     "bufferDays": 10,
     "efficiencyFactor": 1
-  } as Conception_date_calculatorInput;
+  } as unknown as Conception_date_calculatorInput;
     const result = calculateConception_date_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

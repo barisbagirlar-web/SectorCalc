@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Başlangıç Değeri",
         "tr": "Başlangıç Değeri",
-        "de": "Başlangıç Değeri",
+        "de": "Startwert",
         "fr": "Başlangıç Değeri",
         "es": "Başlangıç Değeri",
         "ar": "Başlangıç Değeri"
       },
       "businessContext_i18n": {
         "en": "İyileştirme sürecinin başlangıcındaki performans göstergesi değeri (adet, oran, vb.)",
-        "tr": "İyileştirme sürecinin başlangıcındaki performans göstergesi değeri (adet, oran, vb.)"
+        "tr": "İyileştirme sürecinin başlangıcındaki performans göstergesi değeri (adet, oran, vb.)",
+        "de": "Leistungskennzahl zu Beginn des Verbesserungsprozesses (Stück, Rate, usw.)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Hedef Değer",
         "tr": "Hedef Değer",
-        "de": "Hedef Değer",
+        "de": "Zielwert",
         "fr": "Hedef Değer",
         "es": "Hedef Değer",
         "ar": "Hedef Değer"
       },
       "businessContext_i18n": {
         "en": "Ulaşılmak istenen hedef performans göstergesi değeri",
-        "tr": "Ulaşılmak istenen hedef performans göstergesi değeri"
+        "tr": "Ulaşılmak istenen hedef performans göstergesi değeri",
+        "de": "Angestrebter Ziel-Leistungskennzahlwert"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Mevcut Değer",
         "tr": "Mevcut Değer",
-        "de": "Mevcut Değer",
+        "de": "Aktueller Wert",
         "fr": "Mevcut Değer",
         "es": "Mevcut Değer",
         "ar": "Mevcut Değer"
       },
       "businessContext_i18n": {
         "en": "Şu anki güncel performans göstergesi değeri",
-        "tr": "Şu anki güncel performans göstergesi değeri"
+        "tr": "Şu anki güncel performans göstergesi değeri",
+        "de": "Aktueller Leistungskennzahlwert"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Geçen Yıl",
         "tr": "Geçen Yıl",
-        "de": "Geçen Yıl",
+        "de": "Vergangenes Jahr",
         "fr": "Geçen Yıl",
         "es": "Geçen Yıl",
         "ar": "Geçen Yıl"
       },
       "businessContext_i18n": {
         "en": "Başlangıçtan bugüne kadar geçen süre (yıl cinsinden)",
-        "tr": "Başlangıçtan bugüne kadar geçen süre (yıl cinsinden)"
+        "tr": "Başlangıçtan bugüne kadar geçen süre (yıl cinsinden)",
+        "de": "Seit Beginn vergangene Zeit (in Jahren)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Güven Kat Sayısı",
         "tr": "Güven Kat Sayısı",
-        "de": "Güven Kat Sayısı",
+        "de": "Vertrauensfaktor",
         "fr": "Güven Kat Sayısı",
         "es": "Güven Kat Sayısı",
         "ar": "Güven Kat Sayısı"
       },
       "businessContext_i18n": {
         "en": "Hesaplanan iyileştirme oranına uygulanacak güven düzeyi çarpanı (1: standart, >1: daha muhafazakâr tahmin)",
-        "tr": "Hesaplanan iyileştirme oranına uygulanacak güven düzeyi çarpanı (1: standart, >1: daha muhafazakâr tahmin)"
+        "tr": "Hesaplanan iyileştirme oranına uygulanacak güven düzeyi çarpanı (1: standart, >1: daha muhafazakâr tahmin)",
+        "de": "Multiplikator für das Vertrauensniveau, der auf die berechnete Verbesserungsrate angewendet wird (1: Standard, >1: konservativere Schätzung)"
       }
     }
   ],

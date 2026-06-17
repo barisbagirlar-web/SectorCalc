@@ -11,7 +11,7 @@ describe("square-miles-to-km2", () => {
     "square_miles": 1,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Square_miles_to_km2Input;
+  } as unknown as Square_miles_to_km2Input;
     const result = calculateSquare_miles_to_km2(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

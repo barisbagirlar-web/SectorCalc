@@ -14,7 +14,7 @@ describe("hebrew-calendar", () => {
     "hebrewYear": 5785,
     "hebrewMonth": 1,
     "hebrewDay": 1
-  } as Hebrew_calendarInput;
+  } as unknown as Hebrew_calendarInput;
     const result = calculateHebrew_calendar(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

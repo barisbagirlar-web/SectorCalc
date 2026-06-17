@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Purchase Price",
         "tr": "Satın Alma Fiyatı",
-        "de": "Purchase Price",
+        "de": "Kaufpreis",
         "fr": "Purchase Price",
         "es": "Purchase Price",
         "ar": "Purchase Price"
       },
       "businessContext_i18n": {
         "en": "Initial purchase price of the asset",
-        "tr": "Varlığın ilk satın alma fiyatı"
+        "tr": "Varlığın ilk satın alma fiyatı",
+        "de": "Anschaffungspreis des Vermögenswerts"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sale Price",
         "tr": "Satış Fiyatı",
-        "de": "Sale Price",
+        "de": "Verkaufspreis",
         "fr": "Sale Price",
         "es": "Sale Price",
         "ar": "Sale Price"
       },
       "businessContext_i18n": {
         "en": "Selling price of the asset",
-        "tr": "Varlığın satış fiyatı"
+        "tr": "Varlığın satış fiyatı",
+        "de": "Verkaufspreis des Vermögenswerts"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Acquisition Cost",
         "tr": "Edinme Maliyeti",
-        "de": "Acquisition Cost",
+        "de": "Anschaffungskosten",
         "fr": "Acquisition Cost",
         "es": "Acquisition Cost",
         "ar": "Acquisition Cost"
       },
       "businessContext_i18n": {
         "en": "Costs associated with purchasing the asset (e.g., brokerage fees)",
-        "tr": "Varlığın satın alınmasıyla ilgili maliyetler (ör. komisyon ücretleri)"
+        "tr": "Varlığın satın alınmasıyla ilgili maliyetler (ör. komisyon ücretleri)",
+        "de": "Kosten im Zusammenhang mit dem Erwerb des Vermögenswerts (z. B. Maklergebühren)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Improvement Cost",
         "tr": "İyileştirme Maliyeti",
-        "de": "Improvement Cost",
+        "de": "Verbesserungskosten",
         "fr": "Improvement Cost",
         "es": "Improvement Cost",
         "ar": "Improvement Cost"
       },
       "businessContext_i18n": {
         "en": "Costs of improvements made to the asset",
-        "tr": "Varlığa yapılan iyileştirmelerin maliyeti"
+        "tr": "Varlığa yapılan iyileştirmelerin maliyeti",
+        "de": "Kosten für Verbesserungen am Vermögenswert"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Exemption Amount",
         "tr": "Muafiyet Tutarı",
-        "de": "Exemption Amount",
+        "de": "Freibetrag",
         "fr": "Exemption Amount",
         "es": "Exemption Amount",
         "ar": "Exemption Amount"
       },
       "businessContext_i18n": {
         "en": "Tax-exempt amount, if applicable (e.g., primary residence exemption)",
-        "tr": "Varsa vergiden muaf tutar (ör. birincil konut muafiyeti)"
+        "tr": "Varsa vergiden muaf tutar (ör. birincil konut muafiyeti)",
+        "de": "Steuerfreier Betrag, falls zutreffend (z. B. Freibetrag für selbstgenutztes Wohneigentum)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
-        "de": "Tax Rate",
+        "de": "Steuersatz",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable capital gains tax rate (percentage)",
-        "tr": "Geçerli sermaye kazancı vergi oranı (yüzde)"
+        "tr": "Geçerli sermaye kazancı vergi oranı (yüzde)",
+        "de": "Anwendbarer Kapitalertragsteuersatz (Prozentsatz)"
       }
     }
   ],

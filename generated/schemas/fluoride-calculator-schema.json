@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Water Flow Rate",
         "tr": "Su Akış Hızı",
-        "de": "Water Flow Rate",
+        "de": "Wasserdurchflussrate",
         "fr": "Water Flow Rate",
         "es": "Water Flow Rate",
         "ar": "Water Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Daily volume of water to be fluoridated",
-        "tr": "Florlanacak günlük su hacmi"
+        "tr": "Florlanacak günlük su hacmi",
+        "de": "Tägliches Volumen des zu fluoridierenden Wassers"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Target Fluoride Concentration",
         "tr": "Hedef Florür Konsantrasyonu",
-        "de": "Target Fluoride Concentration",
+        "de": "Ziel-Fluoridkonzentration",
         "fr": "Target Fluoride Concentration",
         "es": "Target Fluoride Concentration",
         "ar": "Target Fluoride Concentration"
       },
       "businessContext_i18n": {
         "en": "Desired fluoride level in treated water",
-        "tr": "Arıtılmış suda istenen florür seviyesi"
+        "tr": "Arıtılmış suda istenen florür seviyesi",
+        "de": "Gewünschter Fluoridgehalt im aufbereiteten Wasser"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Raw Water Fluoride Concentration",
         "tr": "Ham Su Florür Konsantrasyonu",
-        "de": "Raw Water Fluoride Concentration",
+        "de": "Fluoridkonzentration im Rohwasser",
         "fr": "Raw Water Fluoride Concentration",
         "es": "Raw Water Fluoride Concentration",
         "ar": "Raw Water Fluoride Concentration"
       },
       "businessContext_i18n": {
         "en": "Natural fluoride level in source water",
-        "tr": "Kaynak sudaki doğal florür seviyesi"
+        "tr": "Kaynak sudaki doğal florür seviyesi",
+        "de": "Natürlicher Fluoridgehalt im Quellwasser"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Compound Purity",
         "tr": "Bileşik Saflığı",
-        "de": "Compound Purity",
+        "de": "Reinheit der Verbindung",
         "fr": "Compound Purity",
         "es": "Compound Purity",
         "ar": "Compound Purity"
       },
       "businessContext_i18n": {
         "en": "Purity of the fluoride chemical",
-        "tr": "Florür kimyasalının saflığı"
+        "tr": "Florür kimyasalının saflığı",
+        "de": "Reinheit der Fluoridchemikalie"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Available Fluoride Ion",
         "tr": "Mevcut Florür İyonu",
-        "de": "Available Fluoride Ion",
+        "de": "Verfügbares Fluoridion",
         "fr": "Available Fluoride Ion",
         "es": "Available Fluoride Ion",
         "ar": "Available Fluoride Ion"
       },
       "businessContext_i18n": {
         "en": "Percentage of fluoride ion in the compound by weight",
-        "tr": "Bileşikte ağırlıkça florür iyonu yüzdesi"
+        "tr": "Bileşikte ağırlıkça florür iyonu yüzdesi",
+        "de": "Gewichtsprozent Fluoridion in der Verbindung"
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("dpi-calculator", () => {
     "heightPixels": 1080,
     "widthInches": 13.6,
     "heightInches": 7.65
-  } as Dpi_calculatorInput;
+  } as unknown as Dpi_calculatorInput;
     const result = calculateDpi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

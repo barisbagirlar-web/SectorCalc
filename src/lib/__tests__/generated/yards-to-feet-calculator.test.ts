@@ -12,7 +12,7 @@ describe("yards-to-feet-calculator", () => {
     "conversionFactor": 3,
     "precision": 2,
     "roundingMethod": 0
-  } as Yards_to_feet_calculatorInput;
+  } as unknown as Yards_to_feet_calculatorInput;
     const result = calculateYards_to_feet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

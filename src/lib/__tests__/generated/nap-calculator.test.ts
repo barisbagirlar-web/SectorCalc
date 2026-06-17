@@ -13,7 +13,7 @@ describe("nap-calculator", () => {
     "sleepCycleMinutes": 90,
     "minNapMinutes": 10,
     "maxNapMinutes": 30
-  } as Nap_calculatorInput;
+  } as unknown as Nap_calculatorInput;
     const result = calculateNap_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

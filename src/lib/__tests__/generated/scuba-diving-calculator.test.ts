@@ -14,7 +14,7 @@ describe("scuba-diving-calculator", () => {
     "diveDepth": 18,
     "sacRate": 20,
     "waterDensity": 1.03
-  } as Scuba_diving_calculatorInput;
+  } as unknown as Scuba_diving_calculatorInput;
     const result = calculateScuba_diving_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

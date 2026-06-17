@@ -13,7 +13,7 @@ describe("recipe-nutrition-calculator", () => {
     "totalFat": 0,
     "totalWeight": 0,
     "numberOfServings": 4
-  } as Recipe_nutrition_calculatorInput;
+  } as unknown as Recipe_nutrition_calculatorInput;
     const result = calculateRecipe_nutrition_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

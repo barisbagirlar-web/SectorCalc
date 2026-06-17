@@ -15,7 +15,7 @@ describe("amazon-fba-calculator", () => {
     "shippingToAmazon": 0,
     "advertisingCost": 0,
     "storageCost": 0
-  } as Amazon_fba_calculatorInput;
+  } as unknown as Amazon_fba_calculatorInput;
     const result = calculateAmazon_fba_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

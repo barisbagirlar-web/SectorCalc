@@ -13,7 +13,7 @@ describe("quarterly-compound-interest-calculator", () => {
     "years": 10,
     "compoundingFrequency": 4,
     "inflationRate": 2
-  } as Quarterly_compound_interest_calculatorInput;
+  } as unknown as Quarterly_compound_interest_calculatorInput;
     const result = calculateQuarterly_compound_interest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

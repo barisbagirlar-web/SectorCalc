@@ -20,11 +20,13 @@
       "businessContext": "Total number of full-time equivalent employees in the organization.",
       "label_i18n": {
         "en": "Total Employees",
-        "tr": "Toplam Çalışan Sayısı"
+        "tr": "Toplam Çalışan Sayısı",
+        "de": "Gesamtmitarbeiter"
       },
       "businessContext_i18n": {
         "en": "Total number of full-time equivalent employees in the organization.",
-        "tr": "Organizasyondaki toplam tam zaman eşdeğeri çalışan sayısı."
+        "tr": "Organizasyondaki toplam tam zaman eşdeğeri çalışan sayısı.",
+        "de": "Gesamtzahl der Vollzeitäquivalent-Mitarbeiter in der Organisation."
       }
     },
     {
@@ -38,11 +40,13 @@
       "businessContext": "Percentage of scheduled work hours lost due to unplanned absences (ISO 30400).",
       "label_i18n": {
         "en": "Absenteeism Rate (%)",
-        "tr": "Devamsızlık Oranı (%)"
+        "tr": "Devamsızlık Oranı (%)",
+        "de": "Abwesenheitsrate (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of scheduled work hours lost due to unplanned absences (ISO 30400).",
-        "tr": "Planlanmamış devamsızlıklar nedeniyle kaybedilen planlı çalışma saatlerinin yüzdesi (ISO 30400)."
+        "tr": "Planlanmamış devamsızlıklar nedeniyle kaybedilen planlı çalışma saatlerinin yüzdesi (ISO 30400).",
+        "de": "Prozentsatz der geplanten Arbeitsstunden, die aufgrund ungeplanter Abwesenheiten verloren gehen (ISO 30400)."
       }
     },
     {
@@ -56,11 +60,13 @@
       "businessContext": "Weighted average hourly wage including benefits and payroll taxes.",
       "label_i18n": {
         "en": "Average Hourly Wage (USD)",
-        "tr": "Ortalama Saatlik Ücret (USD)"
+        "tr": "Ortalama Saatlik Ücret (USD)",
+        "de": "Durchschnittlicher Stundenlohn (€)"
       },
       "businessContext_i18n": {
         "en": "Weighted average hourly wage including benefits and payroll taxes.",
-        "tr": "Yan haklar ve bordro vergileri dahil ağırlıklı ortalama saatlik ücret."
+        "tr": "Yan haklar ve bordro vergileri dahil ağırlıklı ortalama saatlik ücret.",
+        "de": "Gewichteter Durchschnittsstundenlohn inklusive Zusatzleistungen und Lohnnebenkosten."
       }
     },
     {
@@ -74,11 +80,13 @@
       "businessContext": "Standard scheduled hours per employee per day.",
       "label_i18n": {
         "en": "Average Hours per Day",
-        "tr": "Günlük Ortalama Saat"
+        "tr": "Günlük Ortalama Saat",
+        "de": "Durchschnittliche Stunden pro Tag"
       },
       "businessContext_i18n": {
         "en": "Standard scheduled hours per employee per day.",
-        "tr": "Çalışan başına günlük standart planlı saat."
+        "tr": "Çalışan başına günlük standart planlı saat.",
+        "de": "Standardmäßig geplante Stunden pro Mitarbeiter pro Tag."
       }
     },
     {
@@ -92,11 +100,13 @@
       "businessContext": "Number of scheduled working days per year (excluding weekends and holidays).",
       "label_i18n": {
         "en": "Working Days per Year",
-        "tr": "Yıllık Çalışma Günü"
+        "tr": "Yıllık Çalışma Günü",
+        "de": "Arbeitstage pro Jahr"
       },
       "businessContext_i18n": {
         "en": "Number of scheduled working days per year (excluding weekends and holidays).",
-        "tr": "Yıllık planlanan çalışma günü sayısı (hafta sonları ve tatiller hariç)."
+        "tr": "Yıllık planlanan çalışma günü sayısı (hafta sonları ve tatiller hariç).",
+        "de": "Anzahl der geplanten Arbeitstage pro Jahr (ohne Wochenenden und Feiertage)."
       }
     },
     {
@@ -110,11 +120,13 @@
       "businessContext": "Average cost of overtime, temporary staff, or cross-training to cover absent employees.",
       "label_i18n": {
         "en": "Replacement Cost per Hour (USD)",
-        "tr": "Saat Başına İkame Maliyeti (USD)"
+        "tr": "Saat Başına İkame Maliyeti (USD)",
+        "de": "Ersatzkosten pro Stunde (USD)"
       },
       "businessContext_i18n": {
         "en": "Average cost of overtime, temporary staff, or cross-training to cover absent employees.",
-        "tr": "Devamsız çalışanları kapsamak için fazla mesai, geçici personel veya çapraz eğitimin ortalama maliyeti."
+        "tr": "Devamsız çalışanları kapsamak için fazla mesai, geçici personel veya çapraz eğitimin ortalama maliyeti.",
+        "de": "Durchschnittliche Kosten für Überstunden, Zeitarbeit oder Cross-Training zur Abdeckung abwesender Mitarbeiter."
       }
     },
     {
@@ -128,11 +140,13 @@
       "businessContext": "Multiplier to account for indirect costs (supervision, facilities, HR) per direct labor hour.",
       "label_i18n": {
         "en": "Overhead Multiplier",
-        "tr": "Genel Gider Çarpanı"
+        "tr": "Genel Gider Çarpanı",
+        "de": "Gemeinkosten-Multiplikator"
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for indirect costs (supervision, facilities, HR) per direct labor hour.",
-        "tr": "Doğrudan işçilik saati başına dolaylı maliyetleri (denetim, tesisler, İK) hesaba katan çarpan."
+        "tr": "Doğrudan işçilik saati başına dolaylı maliyetleri (denetim, tesisler, İK) hesaba katan çarpan.",
+        "de": "Multiplikator zur Berücksichtigung indirekter Kosten (Aufsicht, Einrichtungen, Personal) pro direkter Arbeitsstunde."
       }
     },
     {
@@ -154,11 +168,13 @@
       "businessContext": "Industry sector for benchmarking and adjusting cost factors.",
       "label_i18n": {
         "en": "Industry Type",
-        "tr": "Sektör Türü"
+        "tr": "Sektör Türü",
+        "de": "Branchentyp"
       },
       "businessContext_i18n": {
         "en": "Industry sector for benchmarking and adjusting cost factors.",
-        "tr": "Kıyaslama ve maliyet faktörlerini ayarlamak için endüstri sektörü."
+        "tr": "Kıyaslama ve maliyet faktörlerini ayarlamak için endüstri sektörü.",
+        "de": "Branchensektor für Benchmarking und Anpassung von Kostenfaktoren."
       }
     }
   ],

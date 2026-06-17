@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Dog Weight",
         "tr": "Köpek Ağırlığı",
-        "de": "Dog Weight",
+        "de": "Hundegewicht",
         "fr": "Dog Weight",
         "es": "Dog Weight",
         "ar": "Dog Weight"
       },
       "businessContext_i18n": {
         "en": "The dog's weight in kilograms, used as the base for calculating resting energy requirement.",
-        "tr": "Köpeğin kilogram cinsinden ağırlığı, dinlenme enerji ihtiyacının hesaplanmasında temel olarak kullanılır."
+        "tr": "Köpeğin kilogram cinsinden ağırlığı, dinlenme enerji ihtiyacının hesaplanmasında temel olarak kullanılır.",
+        "de": "Das Gewicht des Hundes in Kilogramm, das als Grundlage für die Berechnung des Ruheenergiebedarfs dient."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Activity & Life Stage Factor",
         "tr": "Aktivite ve Yaşam Evresi Faktörü",
-        "de": "Activity & Life Stage Factor",
+        "de": "Aktivitäts- und Lebensphasenfaktor",
         "fr": "Activity & Life Stage Factor",
         "es": "Activity & Life Stage Factor",
         "ar": "Activity & Life Stage Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for activity level and life stage. Typical values: 1.6 for neutered adult, 2.0 for active adult, 3.0 for working/pregnant dogs.",
-        "tr": "Aktivite seviyesi ve yaşam evresi için çarpan. Tipik değerler: kısırlaştırılmış yetişkin için 1.6, aktif yetişkin için 2.0, çalışan/gebe köpekler için 3.0."
+        "tr": "Aktivite seviyesi ve yaşam evresi için çarpan. Tipik değerler: kısırlaştırılmış yetişkin için 1.6, aktif yetişkin için 2.0, çalışan/gebe köpekler için 3.0.",
+        "de": "Multiplikator für Aktivitätsniveau und Lebensphase. Typische Werte: 1,6 für kastrierte Erwachsene, 2,0 für aktive Erwachsene, 3,0 für Arbeits-/trächtige Hunde."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "1=emaciated, 5=ideal, 9=obese. Used to adjust calories: underweight dogs need more, overweight need less.",
-        "tr": "1=zayıf, 5=ideal, 9=obez. Kalori ayarlamasında kullanılır: zayıf köpekler daha fazla, kilolu köpekler daha az kalori almalıdır."
+        "tr": "1=zayıf, 5=ideal, 9=obez. Kalori ayarlamasında kullanılır: zayıf köpekler daha fazla, kilolu köpekler daha az kalori almalıdır.",
+        "de": "1=abgemagert, 5=ideal, 9=fettleibig. Dient zur Kalorienanpassung: untergewichtige Hunde benötigen mehr, übergewichtige weniger."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Desired Weekly Weight Change",
         "tr": "Hedeflenen Haftalık Kilo Değişimi",
-        "de": "Desired Weekly Weight Change",
+        "de": "Gewünschte wöchentliche Gewichtsänderung",
         "fr": "Desired Weekly Weight Change",
         "es": "Desired Weekly Weight Change",
         "ar": "Desired Weekly Weight Change"
       },
       "businessContext_i18n": {
         "en": "Target weight change per week as a percentage of current weight. Negative for loss, positive for gain. Affects calorie adjustment.",
-        "tr": "Mevcut kilonun yüzdesi olarak haftalık hedef kilo değişimi. Kayıp için negatif, kazanç için pozitif. Kalori ayarlamasını etkiler."
+        "tr": "Mevcut kilonun yüzdesi olarak haftalık hedef kilo değişimi. Kayıp için negatif, kazanç için pozitif. Kalori ayarlamasını etkiler.",
+        "de": "Angestrebte Gewichtsänderung pro Woche in Prozent des aktuellen Gewichts. Negativ für Verlust, positiv für Zunahme. Beeinflusst die Kalorienanpassung."
       }
     }
   ],

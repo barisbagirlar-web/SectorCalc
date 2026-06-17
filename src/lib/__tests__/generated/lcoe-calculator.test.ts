@@ -16,7 +16,7 @@ describe("lcoe-calculator", () => {
     "capacityFactor": 25,
     "discountRate": 8,
     "lifetimeYears": 25
-  } as Lcoe_calculatorInput;
+  } as unknown as Lcoe_calculatorInput;
     const result = calculateLcoe_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

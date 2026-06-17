@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Transaction Amount",
         "tr": "İşlem Tutarı",
-        "de": "Transaction Amount",
+        "de": "Transaktionsbetrag",
         "fr": "Transaction Amount",
         "es": "Transaction Amount",
         "ar": "Transaction Amount"
       },
       "businessContext_i18n": {
         "en": "Total amount charged to the customer for the transaction.",
-        "tr": "Müşteriden işlem için tahsil edilen toplam tutar."
+        "tr": "Müşteriden işlem için tahsil edilen toplam tutar.",
+        "de": "Gesamtbetrag, der dem Kunden für die Transaktion berechnet wird."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Processing Rate",
         "tr": "İşlem Oranı",
-        "de": "Processing Rate",
+        "de": "Verarbeitungssatz",
         "fr": "Processing Rate",
         "es": "Processing Rate",
         "ar": "Processing Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage fee charged by the processor on the transaction amount.",
-        "tr": "İşlemci tarafından işlem tutarı üzerinden alınan yüzde ücret."
+        "tr": "İşlemci tarafından işlem tutarı üzerinden alınan yüzde ücret.",
+        "de": "Prozentsatzgebühr, die vom Prozessor auf den Transaktionsbetrag erhoben wird."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Per-Transaction Fee",
         "tr": "İşlem Başına Ücret",
-        "de": "Per-Transaction Fee",
+        "de": "Gebühr pro Transaktion",
         "fr": "Per-Transaction Fee",
         "es": "Per-Transaction Fee",
         "ar": "Per-Transaction Fee"
       },
       "businessContext_i18n": {
         "en": "Fixed fee charged per transaction by the processor.",
-        "tr": "İşlemci tarafından işlem başına alınan sabit ücret."
+        "tr": "İşlemci tarafından işlem başına alınan sabit ücret.",
+        "de": "Feste Gebühr pro Transaktion, die vom Prozessor erhoben wird."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Monthly Statement Fee",
         "tr": "Aylık Hesap Özeti Ücreti",
-        "de": "Monthly Statement Fee",
+        "de": "Monatliche Kontoauszugsgebühr",
         "fr": "Monthly Statement Fee",
         "es": "Monthly Statement Fee",
         "ar": "Monthly Statement Fee"
       },
       "businessContext_i18n": {
         "en": "Fixed monthly fee for account maintenance, distributed across transactions.",
-        "tr": "Hesap bakımı için sabit aylık ücret, işlemlere dağıtılır."
+        "tr": "Hesap bakımı için sabit aylık ücret, işlemlere dağıtılır.",
+        "de": "Feste monatliche Gebühr für die Kontoführung, verteilt auf Transaktionen."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Number of Monthly Transactions",
         "tr": "Aylık İşlem Sayısı",
-        "de": "Number of Monthly Transactions",
+        "de": "Anzahl monatlicher Transaktionen",
         "fr": "Number of Monthly Transactions",
         "es": "Number of Monthly Transactions",
         "ar": "Number of Monthly Transactions"
       },
       "businessContext_i18n": {
         "en": "Total number of transactions processed per month.",
-        "tr": "Ayda işlenen toplam işlem sayısı."
+        "tr": "Ayda işlenen toplam işlem sayısı.",
+        "de": "Gesamtzahl der pro Monat verarbeiteten Transaktionen."
       }
     }
   ],

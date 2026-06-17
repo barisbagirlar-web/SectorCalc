@@ -16,7 +16,7 @@ describe("renewable-energy-roi-calculator", () => {
     "inflation_rate_percent": 2.5,
     "discount_rate_percent": 8,
     "system_lifetime_years": 25
-  } as Renewable_energy_roi_calculatorInput;
+  } as unknown as Renewable_energy_roi_calculatorInput;
     const result = calculateRenewable_energy_roi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

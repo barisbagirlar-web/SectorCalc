@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Asset Cost (Purchase Price)",
         "tr": "Varlık Maliyeti (Satın Alma Fiyatı)",
-        "de": "Asset Cost (Purchase Price)",
+        "de": "Anschaffungskosten (Kaufpreis)",
         "fr": "Asset Cost (Purchase Price)",
         "es": "Asset Cost (Purchase Price)",
         "ar": "Asset Cost (Purchase Price)"
       },
       "businessContext_i18n": {
         "en": "The total cost of the asset before any deductions.",
-        "tr": "Herhangi bir kesintiden önce varlığın toplam maliyeti."
+        "tr": "Herhangi bir kesintiden önce varlığın toplam maliyeti.",
+        "de": "Die Gesamtkosten des Vermögenswerts vor Abzügen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Bonus Depreciation Rate (%)",
         "tr": "Bonus Amortisman Oranı (%)",
-        "de": "Bonus Depreciation Rate (%)",
+        "de": "Bonusabschreibungssatz (%)",
         "fr": "Bonus Depreciation Rate (%)",
         "es": "Bonus Depreciation Rate (%)",
         "ar": "Bonus Depreciation Rate (%)"
       },
       "businessContext_i18n": {
         "en": "The applicable bonus depreciation percentage for the tax year.",
-        "tr": "Vergi yılı için geçerli bonus amortisman yüzdesi."
+        "tr": "Vergi yılı için geçerli bonus amortisman yüzdesi.",
+        "de": "Der anwendbare Bonusabschreibungsprozentsatz für das Steuerjahr."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Business Use Percentage",
         "tr": "İşletme Kullanım Yüzdesi",
-        "de": "Business Use Percentage",
+        "de": "Geschäftlicher Nutzungsanteil",
         "fr": "Business Use Percentage",
         "es": "Business Use Percentage",
         "ar": "Business Use Percentage"
       },
       "businessContext_i18n": {
         "en": "The percentage the asset is used for business purposes.",
-        "tr": "Varlığın iş amaçlı kullanıldığı yüzde."
+        "tr": "Varlığın iş amaçlı kullanıldığı yüzde.",
+        "de": "Der Prozentsatz, zu dem der Vermögenswert geschäftlich genutzt wird."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Section 179 Deduction",
         "tr": "Bölüm 179 Kesintisi",
-        "de": "Section 179 Deduction",
+        "de": "Abschreibung nach § 179",
         "fr": "Section 179 Deduction",
         "es": "Section 179 Deduction",
         "ar": "Section 179 Deduction"
       },
       "businessContext_i18n": {
         "en": "Any Section 179 deduction claimed on this asset before bonus depreciation.",
-        "tr": "Bonus amortismandan önce bu varlık için talep edilen herhangi bir Bölüm 179 kesintisi."
+        "tr": "Bonus amortismandan önce bu varlık için talep edilen herhangi bir Bölüm 179 kesintisi.",
+        "de": "Etwaige Abschreibung nach § 179, die vor der Bonusabschreibung für diesen Vermögenswert geltend gemacht wurde."
       }
     }
   ],

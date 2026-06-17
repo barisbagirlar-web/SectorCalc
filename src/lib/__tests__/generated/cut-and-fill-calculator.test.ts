@@ -14,7 +14,7 @@ describe("cut-and-fill-calculator", () => {
     "fillArea2": 40,
     "distance": 100,
     "shrinkageFactor": 0.9
-  } as Cut_and_fill_calculatorInput;
+  } as unknown as Cut_and_fill_calculatorInput;
     const result = calculateCut_and_fill_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

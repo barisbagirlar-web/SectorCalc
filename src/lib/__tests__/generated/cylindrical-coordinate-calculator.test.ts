@@ -14,7 +14,7 @@ describe("cylindrical-coordinate-calculator", () => {
     "x": 0,
     "y": 0,
     "z": 0
-  } as Cylindrical_coordinate_calculatorInput;
+  } as unknown as Cylindrical_coordinate_calculatorInput;
     const result = calculateCylindrical_coordinate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

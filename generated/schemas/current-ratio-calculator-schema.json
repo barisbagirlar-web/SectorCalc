@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Cash & Equivalents",
         "tr": "Nakit ve Benzerleri",
-        "de": "Cash & Equivalents",
+        "de": "Zahlungsmittel und Äquivalente",
         "fr": "Cash & Equivalents",
         "es": "Cash & Equivalents",
         "ar": "Cash & Equivalents"
       },
       "businessContext_i18n": {
         "en": "Cash on hand and highly liquid short-term investments",
-        "tr": "Eldeki nakit ve yüksek likiditeye sahip kısa vadeli yatırımlar"
+        "tr": "Eldeki nakit ve yüksek likiditeye sahip kısa vadeli yatırımlar",
+        "de": "Kassenbestand und kurzfristige, hochliquide Anlagen"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Accounts Receivable",
         "tr": "Alacak Hesapları",
-        "de": "Accounts Receivable",
+        "de": "Forderungen aus Lieferungen und Leistungen",
         "fr": "Accounts Receivable",
         "es": "Accounts Receivable",
         "ar": "Accounts Receivable"
       },
       "businessContext_i18n": {
         "en": "Money owed by customers for goods or services delivered",
-        "tr": "Teslim edilen mal veya hizmetler için müşterilerin borçlu olduğu para"
+        "tr": "Teslim edilen mal veya hizmetler için müşterilerin borçlu olduğu para",
+        "de": "Von Kunden geschuldete Beträge für gelieferte Waren oder erbrachte Dienstleistungen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Inventory",
         "tr": "Stok",
-        "de": "Inventory",
+        "de": "Vorräte",
         "fr": "Inventory",
         "es": "Inventory",
         "ar": "Inventory"
       },
       "businessContext_i18n": {
         "en": "Raw materials, work-in-progress, and finished goods held for sale",
-        "tr": "Satış için elde tutulan hammaddeler, yarı mamuller ve bitmiş ürünler"
+        "tr": "Satış için elde tutulan hammaddeler, yarı mamuller ve bitmiş ürünler",
+        "de": "Rohstoffe, unfertige und fertige Erzeugnisse zum Verkauf"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Other Current Assets",
         "tr": "Diğer Dönen Varlıklar",
-        "de": "Other Current Assets",
+        "de": "Sonstige kurzfristige Vermögenswerte",
         "fr": "Other Current Assets",
         "es": "Other Current Assets",
         "ar": "Other Current Assets"
       },
       "businessContext_i18n": {
         "en": "Any other short-term assets not included above, such as prepaid expenses",
-        "tr": "Peşin ödenmiş giderler gibi yukarıda yer almayan diğer kısa vadeli varlıklar"
+        "tr": "Peşin ödenmiş giderler gibi yukarıda yer almayan diğer kısa vadeli varlıklar",
+        "de": "Sonstige kurzfristige Vermögenswerte, die nicht oben enthalten sind, wie z. B. Rechnungsabgrenzungsposten"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Accounts Payable",
         "tr": "Borç Hesapları",
-        "de": "Accounts Payable",
+        "de": "Verbindlichkeiten aus Lieferungen und Leistungen",
         "fr": "Accounts Payable",
         "es": "Accounts Payable",
         "ar": "Accounts Payable"
       },
       "businessContext_i18n": {
         "en": "Money owed to suppliers for goods and services purchased on credit",
-        "tr": "Kredili olarak satın alınan mal ve hizmetler için tedarikçilere borçlu olunan para"
+        "tr": "Kredili olarak satın alınan mal ve hizmetler için tedarikçilere borçlu olunan para",
+        "de": "Geldbeträge, die Lieferanten für auf Kredit gekaufte Waren und Dienstleistungen geschuldet werden"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Short-Term Debt",
         "tr": "Kısa Vadeli Borç",
-        "de": "Short-Term Debt",
+        "de": "Kurzfristige Schulden",
         "fr": "Short-Term Debt",
         "es": "Short-Term Debt",
         "ar": "Short-Term Debt"
       },
       "businessContext_i18n": {
         "en": "Borrowings and current portion of long-term debt due within one year",
-        "tr": "Bir yıl içinde vadesi gelen borçlanmalar ve uzun vadeli borcun kısa vadeli kısmı"
+        "tr": "Bir yıl içinde vadesi gelen borçlanmalar ve uzun vadeli borcun kısa vadeli kısmı",
+        "de": "Kreditaufnahmen und kurzfristiger Anteil langfristiger Schulden, die innerhalb eines Jahres fällig werden"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Other Current Liabilities",
         "tr": "Diğer Kısa Vadeli Yükümlülükler",
-        "de": "Other Current Liabilities",
+        "de": "Sonstige kurzfristige Verbindlichkeiten",
         "fr": "Other Current Liabilities",
         "es": "Other Current Liabilities",
         "ar": "Other Current Liabilities"
       },
       "businessContext_i18n": {
         "en": "Other obligations due within one year, such as accrued expenses, taxes payable",
-        "tr": "Tahakkuk etmiş giderler, ödenecek vergiler gibi bir yıl içinde vadesi gelen diğer yükümlülükler"
+        "tr": "Tahakkuk etmiş giderler, ödenecek vergiler gibi bir yıl içinde vadesi gelen diğer yükümlülükler",
+        "de": "Andere innerhalb eines Jahres fällige Verpflichtungen, wie z. B. Rückstellungen, Steuerschulden"
       }
     }
   ],

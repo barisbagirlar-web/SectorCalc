@@ -12,7 +12,7 @@ describe("bolt-stretch-calculator", () => {
     "gripLength": 100,
     "area": 58,
     "modulus": 200000
-  } as Bolt_stretch_calculatorInput;
+  } as unknown as Bolt_stretch_calculatorInput;
     const result = calculateBolt_stretch_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

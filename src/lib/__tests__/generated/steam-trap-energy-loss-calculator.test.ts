@@ -15,7 +15,7 @@ describe("steam-trap-energy-loss-calculator", () => {
     "trap_type": "Float & Thermostatic",
     "failure_mode": "Blow-through (fully open)",
     "condensate_recovery": true
-  } as Steam_trap_energy_loss_calculatorInput;
+  } as unknown as Steam_trap_energy_loss_calculatorInput;
     const result = calculateSteam_trap_energy_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

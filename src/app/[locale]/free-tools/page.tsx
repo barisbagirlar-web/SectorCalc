@@ -6,7 +6,8 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
-import { SchemaToolsCatalogExplorer } from "@/components/tools/SchemaToolsCatalogExplorer";
+import { CatalogHubToolsSection } from "@/components/tools/CatalogHubToolsSection";
+import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
@@ -14,9 +15,13 @@ import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref } from "@/lib/tools/tool-links";
 import { getFreeTools } from "@/lib/tools/all-tools-data";
 import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
+import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/tools/filter-catalog-hub-tools";
 import type { AppLocale } from "@/i18n/routing";
 
-type PageProps = { params: Promise<{ locale: string }> };
+type PageProps = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
@@ -32,8 +37,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-export default async function FreeToolsPage({ params }: PageProps) {
+function resolveSearchParam(
+  value: string | string[] | undefined,
+): string | undefined {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+export default async function FreeToolsPage({ params, searchParams }: PageProps) {
   const { locale } = await params;
+  const resolvedSearchParams = await searchParams;
   setRequestLocale(locale);
   const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
   const tPage = await getTranslations({ locale, namespace: "freeTools" });
@@ -54,7 +66,7 @@ export default async function FreeToolsPage({ params }: PageProps) {
       locale,
     ),
     buildItemListJsonLd(
-      tools.map((tool) => ({
+      tools.slice(0, CATALOG_HUB_JSONLD_MAX_ITEMS).map((tool) => ({
         name: tool.name,
         path: tool.href,
       })),
@@ -68,6 +80,7 @@ export default async function FreeToolsPage({ params }: PageProps) {
       <JsonLd data={jsonLd} />
       <section className="sc-pro-section sc-pro-section--border">
         <ToolsPageSearchProvider>
+          <CatalogSearchUrlSync />
           <ToolsPageLayout
             title={tPage("title")}
             subtitle={tPage("subtitle")}
@@ -85,11 +98,12 @@ export default async function FreeToolsPage({ params }: PageProps) {
             </div>
 
             <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-              <SchemaToolsCatalogExplorer
+              <CatalogHubToolsSection
+                locale={locale}
                 tools={tools}
-                filterBy="sector"
                 variant="free-tools"
-                hideBrowseSection
+                sectorFilter={resolveSearchParam(resolvedSearchParams.sector)}
+                searchQuery={resolveSearchParam(resolvedSearchParams.q)}
               />
             </Suspense>
 

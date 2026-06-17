@@ -15,7 +15,7 @@ describe("5k-calculator", () => {
     "machineHoursPerUnit": 0.1,
     "productionQuantity": 5000,
     "sellingPricePerUnit": 20
-  } as _5k_calculatorInput;
+  } as unknown as _5k_calculatorInput;
     const result = calculate_5k_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

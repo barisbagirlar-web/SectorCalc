@@ -13,7 +13,7 @@ describe("debt-to-capital-ratio-calculator", () => {
     "preferredStock": 0,
     "retainedEarnings": 0,
     "otherEquity": 0
-  } as Debt_to_capital_ratio_calculatorInput;
+  } as unknown as Debt_to_capital_ratio_calculatorInput;
     const result = calculateDebt_to_capital_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

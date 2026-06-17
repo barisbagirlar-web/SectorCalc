@@ -14,7 +14,7 @@ describe("cookie-cost-calculator", () => {
     "butterCost": 5,
     "eggCost": 0.3,
     "chocolateCost": 8
-  } as Cookie_cost_calculatorInput;
+  } as unknown as Cookie_cost_calculatorInput;
     const result = calculateCookie_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

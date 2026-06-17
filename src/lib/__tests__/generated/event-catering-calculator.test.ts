@@ -16,7 +16,7 @@ describe("event-catering-calculator", () => {
     "overheadFixed": 500,
     "profitMarginPercent": 20,
     "taxRatePercent": 8
-  } as Event_catering_calculatorInput;
+  } as unknown as Event_catering_calculatorInput;
     const result = calculateEvent_catering_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

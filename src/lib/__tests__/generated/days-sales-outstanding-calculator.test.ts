@@ -12,7 +12,7 @@ describe("days-sales-outstanding-calculator", () => {
     "endingAR": 0,
     "netCreditSales": 0,
     "periodDays": 365
-  } as Days_sales_outstanding_calculatorInput;
+  } as unknown as Days_sales_outstanding_calculatorInput;
     const result = calculateDays_sales_outstanding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

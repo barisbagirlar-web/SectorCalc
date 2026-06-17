@@ -12,7 +12,7 @@ describe("midpoint-calculator", () => {
     "y1": 0,
     "x2": 0,
     "y2": 0
-  } as Midpoint_calculatorInput;
+  } as unknown as Midpoint_calculatorInput;
     const result = calculateMidpoint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

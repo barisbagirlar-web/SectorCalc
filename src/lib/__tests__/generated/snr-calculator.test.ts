@@ -13,7 +13,7 @@ describe("snr-calculator", () => {
     "bandwidth": 1000000,
     "temperature": 290,
     "noiseFigure": 0
-  } as Snr_calculatorInput;
+  } as unknown as Snr_calculatorInput;
     const result = calculateSnr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

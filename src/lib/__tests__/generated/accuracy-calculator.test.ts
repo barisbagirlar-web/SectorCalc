@@ -13,7 +13,7 @@ describe("accuracy-calculator", () => {
     "full_scale": 200,
     "tolerance_limit": 2,
     "calibration_offset": 0
-  } as Accuracy_calculatorInput;
+  } as unknown as Accuracy_calculatorInput;
     const result = calculateAccuracy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

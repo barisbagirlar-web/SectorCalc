@@ -14,7 +14,7 @@ describe("wood-siding-calculator", () => {
     "boardLength": 12,
     "wasteFactor": 10,
     "pricePerBoard": 8.5
-  } as Wood_siding_calculatorInput;
+  } as unknown as Wood_siding_calculatorInput;
     const result = calculateWood_siding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

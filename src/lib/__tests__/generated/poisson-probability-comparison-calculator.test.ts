@@ -12,7 +12,7 @@ describe("poisson-probability-comparison-calculator", () => {
     "kA": 2,
     "lambdaB": 3,
     "kB": 2
-  } as Poisson_probability_comparison_calculatorInput;
+  } as unknown as Poisson_probability_comparison_calculatorInput;
     const result = calculatePoisson_probability_comparison_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

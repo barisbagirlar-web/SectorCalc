@@ -14,7 +14,7 @@ describe("curb-65-calculator", () => {
     "respiratoryRate": 0,
     "systolicBP": 0,
     "diastolicBP": 0
-  } as Curb_65_calculatorInput;
+  } as unknown as Curb_65_calculatorInput;
     const result = calculateCurb_65_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

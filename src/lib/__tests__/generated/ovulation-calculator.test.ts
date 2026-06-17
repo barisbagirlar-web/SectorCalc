@@ -14,7 +14,7 @@ describe("ovulation-calculator", () => {
     "cycle_variability": 2,
     "age_group": "20-30",
     "has_irregular_cycles": false
-  } as Ovulation_calculatorInput;
+  } as unknown as Ovulation_calculatorInput;
     const result = calculateOvulation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

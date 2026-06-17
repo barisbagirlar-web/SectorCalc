@@ -13,7 +13,7 @@ describe("kwh-calculator", () => {
     "usageHoursPerDay": 8,
     "daysPerMonth": 30,
     "electricityRate": 0.15
-  } as Kwh_calculatorInput;
+  } as unknown as Kwh_calculatorInput;
     const result = calculateKwh_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

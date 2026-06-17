@@ -12,7 +12,7 @@ describe("torus-volume-calculator", () => {
     "minorRadius": 0.5,
     "density": 0,
     "precision": 2
-  } as Torus_volume_calculatorInput;
+  } as unknown as Torus_volume_calculatorInput;
     const result = calculateTorus_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("treynor-ratio-calculator", () => {
     "riskFreeRate": 2,
     "portfolioBeta": 1.2,
     "periodsPerYear": 1
-  } as Treynor_ratio_calculatorInput;
+  } as unknown as Treynor_ratio_calculatorInput;
     const result = calculateTreynor_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

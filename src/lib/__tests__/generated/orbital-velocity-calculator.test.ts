@@ -12,7 +12,7 @@ describe("orbital-velocity-calculator", () => {
     "centralBodyRadius": 6371000,
     "altitude": 0,
     "gravitationalConstant": 6.6743e-11
-  } as Orbital_velocity_calculatorInput;
+  } as unknown as Orbital_velocity_calculatorInput;
     const result = calculateOrbital_velocity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

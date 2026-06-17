@@ -16,7 +16,7 @@ describe("heat-exchanger-fouling-loss-calculator", () => {
     "hot_specific_heat": 2.5,
     "energy_cost": 0.08,
     "operating_hours_per_year": 8000
-  } as Heat_exchanger_fouling_loss_calculatorInput;
+  } as unknown as Heat_exchanger_fouling_loss_calculatorInput;
     const result = calculateHeat_exchanger_fouling_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

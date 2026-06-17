@@ -11,7 +11,7 @@ describe("youngs-rule-calculator", () => {
     "age": 2,
     "adultDose": 500,
     "auto_input_3": 1
-  } as Youngs_rule_calculatorInput;
+  } as unknown as Youngs_rule_calculatorInput;
     const result = calculateYoungs_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

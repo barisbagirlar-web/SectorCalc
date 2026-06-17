@@ -13,7 +13,7 @@ describe("deck-stain-calculator", () => {
     "coverage": 250,
     "coats": 2,
     "waste": 10
-  } as Deck_stain_calculatorInput;
+  } as unknown as Deck_stain_calculatorInput;
     const result = calculateDeck_stain_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

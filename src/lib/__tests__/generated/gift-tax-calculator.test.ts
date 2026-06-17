@@ -13,7 +13,7 @@ describe("gift-tax-calculator", () => {
     "totalLifetimeExemption": 12060000,
     "lifetimeExemptionUsed": 0,
     "taxRate": 40
-  } as Gift_tax_calculatorInput;
+  } as unknown as Gift_tax_calculatorInput;
     const result = calculateGift_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

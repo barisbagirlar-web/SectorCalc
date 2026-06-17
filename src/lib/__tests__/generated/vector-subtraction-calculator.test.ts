@@ -14,7 +14,7 @@ describe("vector-subtraction-calculator", () => {
     "b_x": 0,
     "b_y": 0,
     "b_z": 0
-  } as Vector_subtraction_calculatorInput;
+  } as unknown as Vector_subtraction_calculatorInput;
     const result = calculateVector_subtraction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

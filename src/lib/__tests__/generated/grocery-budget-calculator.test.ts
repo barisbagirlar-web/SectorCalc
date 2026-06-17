@@ -12,7 +12,7 @@ describe("grocery-budget-calculator", () => {
     "groceryPercentage": 15,
     "numberOfPeople": 1,
     "extraExpenses": 0
-  } as Grocery_budget_calculatorInput;
+  } as unknown as Grocery_budget_calculatorInput;
     const result = calculateGrocery_budget_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

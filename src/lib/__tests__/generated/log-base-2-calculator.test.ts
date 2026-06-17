@@ -13,7 +13,7 @@ describe("log-base-2-calculator", () => {
     "exponent": 3,
     "bias": 127,
     "precision": 4
-  } as Log_base_2_calculatorInput;
+  } as unknown as Log_base_2_calculatorInput;
     const result = calculateLog_base_2_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("catering-calculator", () => {
     "serviceChargePercent": 10,
     "wasteFactor": 5,
     "vatRate": 18
-  } as Catering_calculatorInput;
+  } as unknown as Catering_calculatorInput;
     const result = calculateCatering_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

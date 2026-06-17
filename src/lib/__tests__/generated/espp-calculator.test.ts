@@ -14,7 +14,7 @@ describe("espp-calculator", () => {
     "holdingPeriodMonths": 0,
     "ordinaryIncomeTaxRate": 22,
     "capitalGainsTaxRate": 15
-  } as Espp_calculatorInput;
+  } as unknown as Espp_calculatorInput;
     const result = calculateEspp_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

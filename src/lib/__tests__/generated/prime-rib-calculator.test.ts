@@ -12,7 +12,7 @@ describe("prime-rib-calculator", () => {
     "minutesPerPound": 5,
     "baseTime": 0,
     "restingTime": 15
-  } as Prime_rib_calculatorInput;
+  } as unknown as Prime_rib_calculatorInput;
     const result = calculatePrime_rib_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

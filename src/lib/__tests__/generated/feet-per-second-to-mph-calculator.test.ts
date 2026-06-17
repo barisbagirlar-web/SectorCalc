@@ -12,7 +12,7 @@ describe("feet-per-second-to-mph-calculator", () => {
     "precision": 2,
     "calibrationOffset": 0,
     "outputUnitScaling": 1
-  } as Feet_per_second_to_mph_calculatorInput;
+  } as unknown as Feet_per_second_to_mph_calculatorInput;
     const result = calculateFeet_per_second_to_mph_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

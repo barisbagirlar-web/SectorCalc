@@ -12,7 +12,7 @@ describe("time-value-of-money-calculator", () => {
     "annualInterestRate": 5,
     "numberOfYears": 10,
     "compoundingFrequency": 1
-  } as Time_value_of_money_calculatorInput;
+  } as unknown as Time_value_of_money_calculatorInput;
     const result = calculateTime_value_of_money_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("biodiversity-calculator", () => {
     "sp3": 0,
     "sp4": 0,
     "sp5": 0
-  } as Biodiversity_calculatorInput;
+  } as unknown as Biodiversity_calculatorInput;
     const result = calculateBiodiversity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

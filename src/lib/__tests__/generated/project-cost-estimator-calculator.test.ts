@@ -16,7 +16,7 @@ describe("project-cost-estimator-calculator", () => {
     "complexity_factor": "medium",
     "quality_level": "3",
     "use_lean_standardization": false
-  } as Project_cost_estimator_calculatorInput;
+  } as unknown as Project_cost_estimator_calculatorInput;
     const result = calculateProject_cost_estimator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

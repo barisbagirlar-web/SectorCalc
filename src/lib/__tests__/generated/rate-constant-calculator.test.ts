@@ -12,7 +12,7 @@ describe("rate-constant-calculator", () => {
     "activationEnergy": 100000,
     "temperature": 298.15,
     "gasConstant": 8.314
-  } as Rate_constant_calculatorInput;
+  } as unknown as Rate_constant_calculatorInput;
     const result = calculateRate_constant_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

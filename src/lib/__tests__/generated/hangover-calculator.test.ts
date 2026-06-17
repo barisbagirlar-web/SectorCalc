@@ -14,7 +14,7 @@ describe("hangover-calculator", () => {
     "gender": 1,
     "food_intake": 0.5,
     "hydration": 0.5
-  } as Hangover_calculatorInput;
+  } as unknown as Hangover_calculatorInput;
     const result = calculateHangover_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

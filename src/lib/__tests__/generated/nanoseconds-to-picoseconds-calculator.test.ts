@@ -14,7 +14,7 @@ describe("nanoseconds-to-picoseconds-calculator", () => {
     "scale": 1,
     "offset": 0,
     "scientificNotation": 0
-  } as Nanoseconds_to_picoseconds_calculatorInput;
+  } as unknown as Nanoseconds_to_picoseconds_calculatorInput;
     const result = calculateNanoseconds_to_picoseconds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

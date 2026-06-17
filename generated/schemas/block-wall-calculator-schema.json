@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Wall Length",
         "tr": "Duvar Uzunluğu (m)",
-        "de": "Wall Length",
+        "de": "Duvar Uzunluğu",
         "fr": "Wall Length",
         "es": "Wall Length",
         "ar": "Wall Length"
       },
       "businessContext_i18n": {
         "en": "Total horizontal length of the wall in meters.",
-        "tr": "Duvarın metre cinsinden toplam yatay uzunluğu."
+        "tr": "Duvarın metre cinsinden toplam yatay uzunluğu.",
+        "de": "Gesamte horizontale Länge der Wand in Metern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
-        "de": "Wall Height",
+        "de": "Wandhöhe",
         "fr": "Wall Height",
         "es": "Wall Height",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "Vertical height of the wall from floor to ceiling in meters.",
-        "tr": "Duvarın zeminden tavana metre cinsinden dikey yüksekliği."
+        "tr": "Duvarın zeminden tavana metre cinsinden dikey yüksekliği.",
+        "de": "Vertikale Höhe der Wand vom Boden bis zur Decke in Metern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Block Length",
         "tr": "Blok Uzunluğu",
-        "de": "Block Length",
+        "de": "Blocklänge",
         "fr": "Block Length",
         "es": "Block Length",
         "ar": "Block Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single block including any interlocking features in millimeters.",
-        "tr": "Kilitleme özellikleri dahil tek bir bloğun milimetre cinsinden uzunluğu."
+        "tr": "Kilitleme özellikleri dahil tek bir bloğun milimetre cinsinden uzunluğu.",
+        "de": "Länge eines einzelnen Blocks einschließlich etwaiger Verriegelungsmerkmale in Millimetern."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Block Height",
         "tr": "Blok Yüksekliği",
-        "de": "Block Height",
+        "de": "Blockhöhe",
         "fr": "Block Height",
         "es": "Block Height",
         "ar": "Block Height"
       },
       "businessContext_i18n": {
         "en": "Height of a single block in millimeters.",
-        "tr": "Tek bir bloğun milimetre cinsinden yüksekliği."
+        "tr": "Tek bir bloğun milimetre cinsinden yüksekliği.",
+        "de": "Höhe eines einzelnen Blocks in Millimetern."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Mortar Joint Thickness",
         "tr": "Harç Derz Kalınlığı",
-        "de": "Mortar Joint Thickness",
+        "de": "Mörtelfugendicke",
         "fr": "Mortar Joint Thickness",
         "es": "Mortar Joint Thickness",
         "ar": "Mortar Joint Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of the mortar joint between blocks in millimeters.",
-        "tr": "Bloklar arasındaki harç derzinin milimetre cinsinden kalınlığı."
+        "tr": "Bloklar arasındaki harç derzinin milimetre cinsinden kalınlığı.",
+        "de": "Dicke der Mörtelfuge zwischen den Blöcken in Millimetern."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Price per Block",
         "tr": "Blok Başına Fiyat",
-        "de": "Price per Block",
+        "de": "Preis pro Block",
         "fr": "Price per Block",
         "es": "Price per Block",
         "ar": "Price per Block"
       },
       "businessContext_i18n": {
         "en": "Unit price of one block in USD.",
-        "tr": "Bir bloğun USD cinsinden birim fiyatı."
+        "tr": "Bir bloğun USD cinsinden birim fiyatı.",
+        "de": "Stückpreis eines Blocks in USD."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
-        "de": "Waste Factor",
+        "de": "Abfallfaktor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra blocks to account for cutting, breakage, and waste.",
-        "tr": "Kesim, kırılma ve fireyi hesaba katmak için ek blok yüzdesi."
+        "tr": "Kesim, kırılma ve fireyi hesaba katmak için ek blok yüzdesi.",
+        "de": "Prozentsatz zusätzlicher Blöcke für Schnitt, Bruch und Abfall."
       }
     }
   ],

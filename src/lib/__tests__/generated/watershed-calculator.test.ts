@@ -13,7 +13,7 @@ describe("watershed-calculator", () => {
     "rainfallIntensity": 25,
     "channelLength": 500,
     "slope": 0.01
-  } as Watershed_calculatorInput;
+  } as unknown as Watershed_calculatorInput;
     const result = calculateWatershed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

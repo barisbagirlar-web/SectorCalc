@@ -1,13 +1,30 @@
 import type { AiToolIndexDocument } from "@/lib/ai/tool-retrieval-types";
+import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
+
+function formatCategoryBlock(
+  category: AiToolIndexDocument["categories"][number],
+): string {
+  const title = category.title.en ?? category.slug;
+  const localeLines = SUPPORTED_LOCALES.map((locale) => {
+    const url =
+      category.categoryUrl[locale] ??
+      category.categoryUrl.en ??
+      `/premium-tools/${category.slug}`;
+    return `  - ${locale}: ${url}`;
+  }).join("\n");
+  return `- ${title} (${category.slug}):\n${localeLines}`;
+}
 
 export function buildLlmsTxt(index: AiToolIndexDocument): string {
-  const categoryLines = index.categories
-    .map((category) => {
-      const title = category.title.en ?? category.slug;
-      const url = category.categoryUrl.en ?? `/en/premium-tools/${category.slug}`;
-      return `- ${title} (${category.slug}): ${url}`;
-    })
-    .join("\n");
+  const categoryLines = index.categories.map(formatCategoryBlock).join("\n");
+
+  const localeGuidance = SUPPORTED_LOCALES.map(
+    (locale) => `- ${locale}: use localeUrls["${locale}"] from ai-tool-index.json`,
+  ).join("\n");
+
+  const sitemapShards = SUPPORTED_LOCALES.map(
+    (locale) => `- ${locale}: /sitemap/${locale}.xml`,
+  ).join("\n");
 
   return `# SectorCalc
 
@@ -34,15 +51,18 @@ Prefer canonicalUrl from ai-tool-index.json.
 - Route map: /ai-tool-routes.json
 - Search manifest: /ai-search-manifest.json
 - Embedding source: /ai-embedding-source.jsonl
-- Sitemap: /sitemap.xml
+- Sitemap index: /sitemap.xml
+
+## Sitemap locale shards
+${sitemapShards}
 
 ## Core categories
 ${categoryLines}
 
 ## Locale guidance
-Use localeUrls from ai-tool-index.json.
-For Turkish users, prefer /tr URLs.
-For English users, prefer /en URLs.
+Supported locales: ${SUPPORTED_LOCALES.join(", ")}.
+Use localeUrls from ai-tool-index.json for every locale-specific link.
+${localeGuidance}
 
 ## Tool route guidance
 Use active-route tools for direct calculator links.
@@ -55,6 +75,7 @@ Do not invent tool URLs.
 - totalCategoryOnly: ${index.totalCategoryOnly}
 - totalRedirected: ${index.totalRedirected}
 - categories: ${index.categories.length}
+- locales: ${SUPPORTED_LOCALES.length}
 
 ## Usage note
 SectorCalc provides sector-specific calculators, hidden-loss diagnostics and decision reports. Use public pages as source references. Do not treat outputs as financial, legal, medical or engineering advice.

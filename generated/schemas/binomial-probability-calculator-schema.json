@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Deneme Sayısı (n)",
         "tr": "Deneme Sayısı (n)",
-        "de": "Deneme Sayısı (n)",
+        "de": "Anzahl der Versuche (n)",
         "fr": "Deneme Sayısı (n)",
         "es": "Deneme Sayısı (n)",
         "ar": "Deneme Sayısı (n)"
       },
       "businessContext_i18n": {
         "en": "Toplam bağımsız deneme sayısı. Pozitif tam sayı olmalıdır.",
-        "tr": "Toplam bağımsız deneme sayısı. Pozitif tam sayı olmalıdır."
+        "tr": "Toplam bağımsız deneme sayısı. Pozitif tam sayı olmalıdır.",
+        "de": "Gesamtzahl der unabhängigen Versuche. Muss eine positive ganze Zahl sein."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Başarı Sayısı (k)",
         "tr": "Başarı Sayısı (k)",
-        "de": "Başarı Sayısı (k)",
+        "de": "Anzahl der Erfolge (k)",
         "fr": "Başarı Sayısı (k)",
         "es": "Başarı Sayısı (k)",
         "ar": "Başarı Sayısı (k)"
       },
       "businessContext_i18n": {
         "en": "Elde edilmesi istenen başarı sayısı. 0 ile n arasında tam sayı olmalıdır.",
-        "tr": "Elde edilmesi istenen başarı sayısı. 0 ile n arasında tam sayı olmalıdır."
+        "tr": "Elde edilmesi istenen başarı sayısı. 0 ile n arasında tam sayı olmalıdır.",
+        "de": "Gewünschte Anzahl von Erfolgen. Muss eine ganze Zahl zwischen 0 und n sein."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Başarı Olasılığı (p)",
         "tr": "Başarı Olasılığı (p)",
-        "de": "Başarı Olasılığı (p)",
+        "de": "Erfolgswahrscheinlichkeit (p)",
         "fr": "Başarı Olasılığı (p)",
         "es": "Başarı Olasılığı (p)",
         "ar": "Başarı Olasılığı (p)"
       },
       "businessContext_i18n": {
         "en": "Tek bir denemede başarı olasılığı. 0 ile 1 arasında olmalıdır.",
-        "tr": "Tek bir denemede başarı olasılığı. 0 ile 1 arasında olmalıdır."
+        "tr": "Tek bir denemede başarı olasılığı. 0 ile 1 arasında olmalıdır.",
+        "de": "Wahrscheinlichkeit eines Erfolgs in einem einzelnen Versuch. Muss zwischen 0 und 1 liegen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
-        "de": "Ondalık Basamak",
+        "de": "Dezimalstellen",
         "fr": "Ondalık Basamak",
         "es": "Ondalık Basamak",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak sayısı. Varsayılan 4.",
-        "tr": "Sonuçta gösterilecek ondalık basamak sayısı. Varsayılan 4."
+        "tr": "Sonuçta gösterilecek ondalık basamak sayısı. Varsayılan 4.",
+        "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen. Standard: 4."
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Treatments (k)",
         "tr": "Tedavi Sayısı (k)",
-        "de": "Number of Treatments (k)",
+        "de": "Anzahl der Behandlungen (k)",
         "fr": "Number of Treatments (k)",
         "es": "Number of Treatments (k)",
         "ar": "Number of Treatments (k)"
       },
       "businessContext_i18n": {
         "en": "Number of treatments or conditions being compared",
-        "tr": "Karşılaştırılan tedavi veya koşul sayısı"
+        "tr": "Karşılaştırılan tedavi veya koşul sayısı",
+        "de": "Anzahl der Behandlungen oder Bedingungen, die verglichen werden"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Blocks (n)",
         "tr": "Blok Sayısı (n)",
-        "de": "Number of Blocks (n)",
+        "de": "Anzahl der Blöcke (n)",
         "fr": "Number of Blocks (n)",
         "es": "Number of Blocks (n)",
         "ar": "Number of Blocks (n)"
       },
       "businessContext_i18n": {
         "en": "Number of blocks or subjects",
-        "tr": "Blok veya denek sayısı"
+        "tr": "Blok veya denek sayısı",
+        "de": "Anzahl der Blöcke oder Probanden"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Sum of Ranks for Treatment 1",
         "tr": "Tedavi 1 için Sıra Toplamı",
-        "de": "Sum of Ranks for Treatment 1",
+        "de": "Summe der Ränge für Behandlung 1",
         "fr": "Sum of Ranks for Treatment 1",
         "es": "Sum of Ranks for Treatment 1",
         "ar": "Sum of Ranks for Treatment 1"
       },
       "businessContext_i18n": {
         "en": "Sum of ranks for the first treatment across all blocks",
-        "tr": "Tüm bloklardaki ilk tedavinin sıralarının toplamı"
+        "tr": "Tüm bloklardaki ilk tedavinin sıralarının toplamı",
+        "de": "Summe der Ränge für die erste Behandlung über alle Blöcke"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Sum of Ranks for Treatment 2",
         "tr": "Tedavi 2 için Sıra Toplamı",
-        "de": "Sum of Ranks for Treatment 2",
+        "de": "Summe der Ränge für Behandlung 2",
         "fr": "Sum of Ranks for Treatment 2",
         "es": "Sum of Ranks for Treatment 2",
         "ar": "Sum of Ranks for Treatment 2"
       },
       "businessContext_i18n": {
         "en": "Sum of ranks for the second treatment",
-        "tr": "İkinci tedavi için sıra toplamı"
+        "tr": "İkinci tedavi için sıra toplamı",
+        "de": "Summe der Ränge für die zweite Behandlung"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Sum of Ranks for Treatment 3",
         "tr": "Tedavi 3 için Sıra Toplamı",
-        "de": "Sum of Ranks for Treatment 3",
+        "de": "Summe der Ränge für Behandlung 3",
         "fr": "Sum of Ranks for Treatment 3",
         "es": "Sum of Ranks for Treatment 3",
         "ar": "Sum of Ranks for Treatment 3"
       },
       "businessContext_i18n": {
         "en": "Sum of ranks for the third treatment",
-        "tr": "Üçüncü tedavi için sıra toplamı"
+        "tr": "Üçüncü tedavi için sıra toplamı",
+        "de": "Summe der Ränge für die dritte Behandlung"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Sum of Ranks for Treatment 4 (optional)",
         "tr": "Tedavi 4 için Sıra Toplamı (isteğe bağlı)",
-        "de": "Sum of Ranks for Treatment 4 (optional)",
+        "de": "Summe der Ränge für Behandlung 4 (optional)",
         "fr": "Sum of Ranks for Treatment 4 (optional)",
         "es": "Sum of Ranks for Treatment 4 (optional)",
         "ar": "Sum of Ranks for Treatment 4 (optional)"
       },
       "businessContext_i18n": {
         "en": "Sum of ranks for treatment 4, 0 if not applicable",
-        "tr": "Tedavi 4 için sıra toplamı, uygun değilse 0"
+        "tr": "Tedavi 4 için sıra toplamı, uygun değilse 0",
+        "de": "Summe der Ränge für Behandlung 4, 0 falls nicht zutreffend"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Sum of Ranks for Treatment 5 (optional)",
         "tr": "Tedavi 5 için Sıra Toplamı (isteğe bağlı)",
-        "de": "Sum of Ranks for Treatment 5 (optional)",
+        "de": "Summe der Ränge für Behandlung 5 (optional)",
         "fr": "Sum of Ranks for Treatment 5 (optional)",
         "es": "Sum of Ranks for Treatment 5 (optional)",
         "ar": "Sum of Ranks for Treatment 5 (optional)"
       },
       "businessContext_i18n": {
         "en": "Sum of ranks for treatment 5, 0 if not applicable",
-        "tr": "Tedavi 5 için sıra toplamı, uygun değilse 0"
+        "tr": "Tedavi 5 için sıra toplamı, uygun değilse 0",
+        "de": "Summe der Ränge für Behandlung 5, 0 falls nicht zutreffend"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Sum of Ranks for Treatment 6 (optional)",
         "tr": "Tedavi 6 için Sıra Toplamı (isteğe bağlı)",
-        "de": "Sum of Ranks for Treatment 6 (optional)",
+        "de": "Summe der Ränge für Behandlung 6 (optional)",
         "fr": "Sum of Ranks for Treatment 6 (optional)",
         "es": "Sum of Ranks for Treatment 6 (optional)",
         "ar": "Sum of Ranks for Treatment 6 (optional)"
       },
       "businessContext_i18n": {
         "en": "Sum of ranks for treatment 6, 0 if not applicable",
-        "tr": "Tedavi 6 için sıra toplamı, uygun değilse 0"
+        "tr": "Tedavi 6 için sıra toplamı, uygun değilse 0",
+        "de": "Summe der Ränge für Behandlung 6, 0 falls nicht zutreffend"
       }
     }
   ],

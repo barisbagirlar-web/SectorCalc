@@ -14,7 +14,7 @@ describe("pump-head-calculator", () => {
     "pipeLength": 50,
     "pipeDiameter": 100,
     "roughnessCoefficient": 120
-  } as Pump_head_calculatorInput;
+  } as unknown as Pump_head_calculatorInput;
     const result = calculatePump_head_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

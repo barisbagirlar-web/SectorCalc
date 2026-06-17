@@ -14,7 +14,7 @@ describe("cash-conversion-cycle-calculator", () => {
     "revenue": 0,
     "averagePayables": 0,
     "daysInPeriod": 365
-  } as Cash_conversion_cycle_calculatorInput;
+  } as unknown as Cash_conversion_cycle_calculatorInput;
     const result = calculateCash_conversion_cycle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

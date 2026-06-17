@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Latitude (°)",
         "tr": "Enlem (°)",
-        "de": "Latitude (°)",
+        "de": "Breitengrad (°)",
         "fr": "Latitude (°)",
         "es": "Latitude (°)",
         "ar": "Latitude (°)"
       },
       "businessContext_i18n": {
         "en": "Geographic latitude of the location (positive for north, negative for south)",
-        "tr": "Konumun coğrafi enlemi (kuzey için pozitif, güney için negatif)"
+        "tr": "Konumun coğrafi enlemi (kuzey için pozitif, güney için negatif)",
+        "de": "Geografischer Breitengrad des Standorts (positiv für Norden, negativ für Süden)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Elevation",
         "tr": "Yükseklik",
-        "de": "Elevation",
+        "de": "Höhe",
         "fr": "Elevation",
         "es": "Elevation",
         "ar": "Elevation"
       },
       "businessContext_i18n": {
         "en": "Elevation above sea level in meters",
-        "tr": "Deniz seviyesinden metre cinsinden yükseklik"
+        "tr": "Deniz seviyesinden metre cinsinden yükseklik",
+        "de": "Höhe über dem Meeresspiegel in Metern"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Average March Temperature",
         "tr": "Ortalama Mart Sıcaklığı",
-        "de": "Average March Temperature",
+        "de": "Durchschnittstemperatur März",
         "fr": "Average March Temperature",
         "es": "Average March Temperature",
         "ar": "Average March Temperature"
       },
       "businessContext_i18n": {
         "en": "Historical average temperature for March in Celsius",
-        "tr": "Mart ayı için Santigrat cinsinden tarihsel ortalama sıcaklık"
+        "tr": "Mart ayı için Santigrat cinsinden tarihsel ortalama sıcaklık",
+        "de": "Historische Durchschnittstemperatur für März in Grad Celsius"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Proximity to Water",
         "tr": "Suya Yakınlık",
-        "de": "Proximity to Water",
+        "de": "Nähe zu Gewässern",
         "fr": "Proximity to Water",
         "es": "Proximity to Water",
         "ar": "Proximity to Water"
       },
       "businessContext_i18n": {
         "en": "Index indicating proximity to large water bodies (0 = far inland, 1 = coastal)",
-        "tr": "Büyük su kütlelerine yakınlığı gösteren indeks (0 = iç kesimler, 1 = kıyı)"
+        "tr": "Büyük su kütlelerine yakınlığı gösteren indeks (0 = iç kesimler, 1 = kıyı)",
+        "de": "Index für Nähe zu großen Gewässern (0 = weit im Landesinneren, 1 = Küste)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Year Offset from 2000",
         "tr": "2000'den Yıl Farkı",
-        "de": "Year Offset from 2000",
+        "de": "Jahresversatz ab 2000",
         "fr": "Year Offset from 2000",
         "es": "Year Offset from 2000",
         "ar": "Year Offset from 2000"
       },
       "businessContext_i18n": {
         "en": "Number of years since 2000 to account for climate trends",
-        "tr": "İklim eğilimlerini hesaba katmak için 2000 yılından bu yana geçen yıl sayısı"
+        "tr": "İklim eğilimlerini hesaba katmak için 2000 yılından bu yana geçen yıl sayısı",
+        "de": "Anzahl der Jahre seit 2000 zur Berücksichtigung von Klimatrends"
       }
     }
   ],

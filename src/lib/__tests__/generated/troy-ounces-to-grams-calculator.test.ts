@@ -12,7 +12,7 @@ describe("troy-ounces-to-grams-calculator", () => {
     "conversionFactor": 31.1034768,
     "precision": 2,
     "quantity": 1
-  } as Troy_ounces_to_grams_calculatorInput;
+  } as unknown as Troy_ounces_to_grams_calculatorInput;
     const result = calculateTroy_ounces_to_grams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

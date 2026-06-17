@@ -12,7 +12,7 @@ describe("law-of-tangents-verification-calculator", () => {
     "b": 4,
     "A": 60,
     "B": 40
-  } as Law_of_tangents_verification_calculatorInput;
+  } as unknown as Law_of_tangents_verification_calculatorInput;
     const result = calculateLaw_of_tangents_verification_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

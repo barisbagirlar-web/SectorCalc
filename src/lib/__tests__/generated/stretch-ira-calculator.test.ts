@@ -12,7 +12,7 @@ describe("stretch-ira-calculator", () => {
     "annualReturnRate": 5,
     "beneficiaryAge": 50,
     "lifeExpectancyFactor": 36.2
-  } as Stretch_ira_calculatorInput;
+  } as unknown as Stretch_ira_calculatorInput;
     const result = calculateStretch_ira_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

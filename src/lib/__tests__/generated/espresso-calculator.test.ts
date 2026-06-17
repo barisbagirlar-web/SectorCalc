@@ -12,7 +12,7 @@ describe("espresso-calculator", () => {
     "coffeeBagPrice": 10,
     "bagWeight": 1000,
     "wastePercentage": 5
-  } as Espresso_calculatorInput;
+  } as unknown as Espresso_calculatorInput;
     const result = calculateEspresso_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

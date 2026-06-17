@@ -14,7 +14,7 @@ describe("rng-hesaplayici-calculator", () => {
     "modulus": 4294967296,
     "outputMin": 0,
     "outputMax": 100
-  } as Rng_hesaplayici_calculatorInput;
+  } as unknown as Rng_hesaplayici_calculatorInput;
     const result = calculateRng_hesaplayici_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("down-syndrome-risk-calculator", () => {
     "nt": 1.5,
     "pappa": 1,
     "hcg": 1
-  } as Down_syndrome_risk_calculatorInput;
+  } as unknown as Down_syndrome_risk_calculatorInput;
     const result = calculateDown_syndrome_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

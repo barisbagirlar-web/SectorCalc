@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Flips (n)",
         "tr": "Atış Sayısı (n)",
-        "de": "Number of Flips (n)",
+        "de": "Anzahl der Würfe (n)",
         "fr": "Number of Flips (n)",
         "es": "Number of Flips (n)",
         "ar": "Number of Flips (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of independent coin flips",
-        "tr": "Toplam bağımsız yazı tura atış sayısı"
+        "tr": "Toplam bağımsız yazı tura atış sayısı",
+        "de": "Gesamtzahl der unabhängigen Münzwürfe"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Heads (k)",
         "tr": "Tura Sayısı (k)",
-        "de": "Number of Heads (k)",
+        "de": "Anzahl der Köpfe (k)",
         "fr": "Number of Heads (k)",
         "es": "Number of Heads (k)",
         "ar": "Number of Heads (k)"
       },
       "businessContext_i18n": {
         "en": "Number of heads observed or desired",
-        "tr": "Gözlemlenen veya istenen tura sayısı"
+        "tr": "Gözlemlenen veya istenen tura sayısı",
+        "de": "Beobachtete oder gewünschte Anzahl von Köpfen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Probability of Head (p)",
         "tr": "Tura Olasılığı (p)",
-        "de": "Probability of Head (p)",
+        "de": "Wahrscheinlichkeit für Kopf (p)",
         "fr": "Probability of Head (p)",
         "es": "Probability of Head (p)",
         "ar": "Probability of Head (p)"
       },
       "businessContext_i18n": {
         "en": "Probability of getting a head in a single flip (0.5 for fair coin)",
-        "tr": "Tek atışta tura gelme olasılığı (adil para için 0.5)"
+        "tr": "Tek atışta tura gelme olasılığı (adil para için 0.5)",
+        "de": "Wahrscheinlichkeit für Kopf bei einem einzelnen Wurf (0,5 bei fairer Münze)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding results",
-        "tr": "Sonuçların yuvarlanması için ondalık basamak sayısı"
+        "tr": "Sonuçların yuvarlanması için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für Rundungsergebnisse"
       }
     }
   ],

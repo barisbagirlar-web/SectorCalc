@@ -14,7 +14,7 @@ describe("levelized-cost-of-energy-calculator", () => {
     "discountRate": 5,
     "projectLifetime": 20,
     "decommissioningCost": 0
-  } as Levelized_cost_of_energy_calculatorInput;
+  } as unknown as Levelized_cost_of_energy_calculatorInput;
     const result = calculateLevelized_cost_of_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

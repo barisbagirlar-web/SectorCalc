@@ -12,7 +12,7 @@ describe("ciwa-calculator", () => {
     "weight1": 5,
     "cost2": 15,
     "weight2": 3
-  } as Ciwa_calculatorInput;
+  } as unknown as Ciwa_calculatorInput;
     const result = calculateCiwa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

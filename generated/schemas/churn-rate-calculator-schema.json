@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Dönem Başı Müşteri Sayısı",
         "tr": "Dönem Başı Müşteri Sayısı",
-        "de": "Dönem Başı Müşteri Sayısı",
+        "de": "Kunden zu Periodenbeginn",
         "fr": "Dönem Başı Müşteri Sayısı",
         "es": "Dönem Başı Müşteri Sayısı",
         "ar": "Dönem Başı Müşteri Sayısı"
       },
       "businessContext_i18n": {
         "en": "Ölçüm döneminin başındaki aktif müşteri sayısı",
-        "tr": "Ölçüm döneminin başındaki aktif müşteri sayısı"
+        "tr": "Ölçüm döneminin başındaki aktif müşteri sayısı",
+        "de": "Anzahl aktiver Kunden zu Beginn des Messzeitraums"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Kaybedilen Müşteri Sayısı",
         "tr": "Kaybedilen Müşteri Sayısı",
-        "de": "Kaybedilen Müşteri Sayısı",
+        "de": "Verlorene Kunden",
         "fr": "Kaybedilen Müşteri Sayısı",
         "es": "Kaybedilen Müşteri Sayısı",
         "ar": "Kaybedilen Müşteri Sayısı"
       },
       "businessContext_i18n": {
         "en": "Dönem içinde kaybedilen (churn eden) müşteri sayısı",
-        "tr": "Dönem içinde kaybedilen (churn eden) müşteri sayısı"
+        "tr": "Dönem içinde kaybedilen (churn eden) müşteri sayısı",
+        "de": "Anzahl der im Zeitraum verlorenen (abgewanderten) Kunden"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
         "tr": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
-        "de": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
+        "de": "Monatlich wiederkehrender Umsatz (MRR) zu Periodenbeginn",
         "fr": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
         "es": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
         "ar": "Dönem Başı Aylık Yinelenen Gelir (MRR)"
       },
       "businessContext_i18n": {
         "en": "Dönem başındaki toplam aylık yinelenen gelir",
-        "tr": "Dönem başındaki toplam aylık yinelenen gelir"
+        "tr": "Dönem başındaki toplam aylık yinelenen gelir",
+        "de": "Gesamter monatlich wiederkehrender Umsatz zu Periodenbeginn"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Kaybedilen MRR",
         "tr": "Kaybedilen MRR",
-        "de": "Kaybedilen MRR",
+        "de": "Verlorener MRR",
         "fr": "Kaybedilen MRR",
         "es": "Kaybedilen MRR",
         "ar": "Kaybedilen MRR"
       },
       "businessContext_i18n": {
         "en": "Kaybedilen müşterilerden gelen aylık yinelenen gelir kaybı",
-        "tr": "Kaybedilen müşterilerden gelen aylık yinelenen gelir kaybı"
+        "tr": "Kaybedilen müşterilerden gelen aylık yinelenen gelir kaybı",
+        "de": "Verlust an monatlich wiederkehrendem Umsatz durch verlorene Kunden"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Ölçüm Dönemi (Ay)",
         "tr": "Ölçüm Dönemi (Ay)",
-        "de": "Ölçüm Dönemi (Ay)",
+        "de": "Messzeitraum (Monate)",
         "fr": "Ölçüm Dönemi (Ay)",
         "es": "Ölçüm Dönemi (Ay)",
         "ar": "Ölçüm Dönemi (Ay)"
       },
       "businessContext_i18n": {
         "en": "Kayıp oranının hesaplandığı dönem (genellikle aylık)",
-        "tr": "Kayıp oranının hesaplandığı dönem (genellikle aylık)"
+        "tr": "Kayıp oranının hesaplandığı dönem (genellikle aylık)",
+        "de": "Zeitraum, für den die Verlustrate berechnet wird (normalerweise monatlich)"
       }
     }
   ],

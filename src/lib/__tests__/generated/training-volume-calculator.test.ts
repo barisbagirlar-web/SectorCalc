@@ -12,7 +12,7 @@ describe("training-volume-calculator", () => {
     "reps": 10,
     "weight": 50,
     "intensityFactor": 1
-  } as Training_volume_calculatorInput;
+  } as unknown as Training_volume_calculatorInput;
     const result = calculateTraining_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

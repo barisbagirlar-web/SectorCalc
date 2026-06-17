@@ -13,7 +13,7 @@ describe("percent-composition-calculator", () => {
     "mass3": 0,
     "mass4": 0,
     "mass5": 0
-  } as Percent_composition_calculatorInput;
+  } as unknown as Percent_composition_calculatorInput;
     const result = calculatePercent_composition_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

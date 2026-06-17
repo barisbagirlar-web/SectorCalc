@@ -12,7 +12,7 @@ describe("chinese-calendar", () => {
     "month": 1,
     "day": 1,
     "leapMonth": 0
-  } as Chinese_calendarInput;
+  } as unknown as Chinese_calendarInput;
     const result = calculateChinese_calendar(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

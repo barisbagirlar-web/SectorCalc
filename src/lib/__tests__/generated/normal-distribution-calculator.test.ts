@@ -11,7 +11,7 @@ describe("normal-distribution-calculator", () => {
     "mean": 0,
     "stdDev": 1,
     "x": 0
-  } as Normal_distribution_calculatorInput;
+  } as unknown as Normal_distribution_calculatorInput;
     const result = calculateNormal_distribution_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

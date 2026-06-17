@@ -13,7 +13,7 @@ describe("beehive-tank-calculator", () => {
     "wallThickness": 5,
     "materialDensity": 7850,
     "materialCost": 10
-  } as Beehive_tank_calculatorInput;
+  } as unknown as Beehive_tank_calculatorInput;
     const result = calculateBeehive_tank_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

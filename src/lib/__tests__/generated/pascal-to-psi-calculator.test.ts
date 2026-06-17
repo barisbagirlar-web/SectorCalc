@@ -13,7 +13,7 @@ describe("pascal-to-psi-calculator", () => {
     "sensorMaxPa": 100000,
     "sensorAccuracyClass": 0.5,
     "outputDecimals": 4
-  } as Pascal_to_psi_calculatorInput;
+  } as unknown as Pascal_to_psi_calculatorInput;
     const result = calculatePascal_to_psi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

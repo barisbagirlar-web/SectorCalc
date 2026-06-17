@@ -12,7 +12,7 @@ describe("leagues-to-miles-calculator", () => {
     "leagueType": 0,
     "decimals": 2,
     "conversionFactorOverride": 0
-  } as Leagues_to_miles_calculatorInput;
+  } as unknown as Leagues_to_miles_calculatorInput;
     const result = calculateLeagues_to_miles_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

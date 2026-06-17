@@ -14,7 +14,7 @@ describe("tonicity-calculator", () => {
     "drug1E": 1,
     "drug2Amt": 0,
     "drug2E": 1
-  } as Tonicity_calculatorInput;
+  } as unknown as Tonicity_calculatorInput;
     const result = calculateTonicity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

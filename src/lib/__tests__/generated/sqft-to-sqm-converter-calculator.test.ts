@@ -12,7 +12,7 @@ describe("sqft-to-sqm-converter-calculator", () => {
     "measurement_accuracy": "standard",
     "rounding_precision": "2",
     "include_tolerance": false
-  } as Sqft_to_sqm_converter_calculatorInput;
+  } as unknown as Sqft_to_sqm_converter_calculatorInput;
     const result = calculateSqft_to_sqm_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

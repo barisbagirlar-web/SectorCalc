@@ -12,7 +12,7 @@ describe("sunrise-sunset-calculator", () => {
     "longitude": -74.006,
     "dayOfYear": 172,
     "timezoneOffset": -4
-  } as Sunrise_sunset_calculatorInput;
+  } as unknown as Sunrise_sunset_calculatorInput;
     const result = calculateSunrise_sunset_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

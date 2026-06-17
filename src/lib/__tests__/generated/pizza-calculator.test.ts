@@ -12,7 +12,7 @@ describe("pizza-calculator", () => {
     "pizzaPrice": 10,
     "quantity": 1,
     "discountRate": 0
-  } as Pizza_calculatorInput;
+  } as unknown as Pizza_calculatorInput;
     const result = calculatePizza_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("beneish-m-score-calculator", () => {
     "sgai": 1,
     "lvgi": 1,
     "tata": 0
-  } as Beneish_m_score_calculatorInput;
+  } as unknown as Beneish_m_score_calculatorInput;
     const result = calculateBeneish_m_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

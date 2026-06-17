@@ -16,7 +16,7 @@ describe("route-cost-calculator", () => {
     "maintenance_cost_per_km": 0.12,
     "toll_cost_total": 15,
     "load_weight_tonnes": 20
-  } as Route_cost_calculatorInput;
+  } as unknown as Route_cost_calculatorInput;
     const result = calculateRoute_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Principal Amount",
         "tr": "Anapara Tutarı",
-        "de": "Principal Amount",
+        "de": "Kapitalbetrag",
         "fr": "Principal Amount",
         "es": "Principal Amount",
         "ar": "Principal Amount"
       },
       "businessContext_i18n": {
         "en": "Initial investment or loan amount.",
-        "tr": "İlk yatırım veya kredi tutarı"
+        "tr": "İlk yatırım veya kredi tutarı",
+        "de": "Anfangsinvestition oder Darlehensbetrag."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
-        "de": "Annual Interest Rate",
+        "de": "Jährlicher Zinssatz",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Nominal annual interest rate.",
-        "tr": "Nominal yıllık faiz oranı"
+        "tr": "Nominal yıllık faiz oranı",
+        "de": "Nominaler jährlicher Zinssatz."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Time Period",
         "tr": "Zaman Periyodu",
-        "de": "Time Period",
+        "de": "Zeitraum",
         "fr": "Time Period",
         "es": "Time Period",
         "ar": "Time Period"
       },
       "businessContext_i18n": {
         "en": "Total number of days the money is invested or borrowed for.",
-        "tr": "Paranın yatırıldığı veya ödünç alındığı toplam gün sayısı"
+        "tr": "Paranın yatırıldığı veya ödünç alındığı toplam gün sayısı",
+        "de": "Gesamtzahl der Tage, an denen das Geld angelegt oder geliehen wird."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Days in Year",
         "tr": "Yıldaki Gün Sayısı",
-        "de": "Days in Year",
+        "de": "Tage im Jahr",
         "fr": "Days in Year",
         "es": "Days in Year",
         "ar": "Days in Year"
       },
       "businessContext_i18n": {
         "en": "Day count convention: 365 for standard, 360 for some financial markets.",
-        "tr": "Gün sayım kuralı: standart için 365, bazı finans piyasaları için 360"
+        "tr": "Gün sayım kuralı: standart için 365, bazı finans piyasaları için 360",
+        "de": "Tagezählungskonvention: 365 für Standard, 360 für einige Finanzmärkte."
       }
     }
   ],

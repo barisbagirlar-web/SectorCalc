@@ -11,7 +11,7 @@ describe("torque-converter", () => {
     "torqueNm": 100,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Torque_converterInput;
+  } as unknown as Torque_converterInput;
     const result = calculateTorque_converter(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

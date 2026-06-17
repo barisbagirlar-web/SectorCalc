@@ -13,7 +13,7 @@ describe("medicare-premium-calculator", () => {
     "partBBase": 174.7,
     "partDBase": 33.35,
     "planCost": 30
-  } as Medicare_premium_calculatorInput;
+  } as unknown as Medicare_premium_calculatorInput;
     const result = calculateMedicare_premium_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

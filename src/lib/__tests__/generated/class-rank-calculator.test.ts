@@ -14,7 +14,7 @@ describe("class-rank-calculator", () => {
     "sameCount": 0,
     "minScore": 0,
     "maxScore": 100
-  } as Class_rank_calculatorInput;
+  } as unknown as Class_rank_calculatorInput;
     const result = calculateClass_rank_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

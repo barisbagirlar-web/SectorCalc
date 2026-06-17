@@ -11,7 +11,7 @@ describe("charles-law-calculator", () => {
     "initialVolume": 1,
     "initialTemperature": 273.15,
     "finalTemperature": 373.15
-  } as Charles_law_calculatorInput;
+  } as unknown as Charles_law_calculatorInput;
     const result = calculateCharles_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

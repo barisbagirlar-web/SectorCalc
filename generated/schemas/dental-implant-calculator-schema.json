@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Titanium Cost per Implant (€)",
         "tr": "İmplant Başına Titanyum Maliyeti (€)",
-        "de": "Titanium Cost per Implant (€)",
+        "de": "Titankosten pro Implantat (€)",
         "fr": "Titanium Cost per Implant (€)",
         "es": "Titanium Cost per Implant (€)",
         "ar": "Titanium Cost per Implant (€)"
       },
       "businessContext_i18n": {
         "en": "Cost of titanium blank per implant",
-        "tr": "İmplant başına titanyum boşluk maliyeti"
+        "tr": "İmplant başına titanyum boşluk maliyeti",
+        "de": "Kosten des Titanrohlings pro Implantat"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Machining Time per Implant (hours)",
         "tr": "İmplant Başına İşleme Süresi (saat)",
-        "de": "Machining Time per Implant (hours)",
+        "de": "Bearbeitungszeit pro Implantat (Stunden)",
         "fr": "Machining Time per Implant (hours)",
         "es": "Machining Time per Implant (hours)",
         "ar": "Machining Time per Implant (hours)"
       },
       "businessContext_i18n": {
         "en": "CNC machining time per single implant",
-        "tr": "Tek bir implant için CNC işleme süresi"
+        "tr": "Tek bir implant için CNC işleme süresi",
+        "de": "CNC-Bearbeitungszeit für ein einzelnes Implantat"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Machine Hourly Rate (€/hour)",
         "tr": "Makine Saatlik Ücreti (€/saat)",
-        "de": "Machine Hourly Rate (€/hour)",
+        "de": "Maschinenstundensatz (€/Stunde)",
         "fr": "Machine Hourly Rate (€/hour)",
         "es": "Machine Hourly Rate (€/hour)",
         "ar": "Machine Hourly Rate (€/hour)"
       },
       "businessContext_i18n": {
         "en": "Operating cost of CNC machine per hour",
-        "tr": "CNC makinesinin saatlik işletme maliyeti"
+        "tr": "CNC makinesinin saatlik işletme maliyeti",
+        "de": "Betriebskosten der CNC-Maschine pro Stunde"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Labor Cost per Hour (€/hour)",
         "tr": "İşçilik Saatlik Ücreti (€/saat)",
-        "de": "Labor Cost per Hour (€/hour)",
+        "de": "Arbeitskosten pro Stunde (€/Stunde)",
         "fr": "Labor Cost per Hour (€/hour)",
         "es": "Labor Cost per Hour (€/hour)",
         "ar": "Labor Cost per Hour (€/hour)"
       },
       "businessContext_i18n": {
         "en": "Operator wage rate per hour",
-        "tr": "Operatör saatlik ücreti"
+        "tr": "Operatör saatlik ücreti",
+        "de": "Stundenlohn des Bedieners"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Overhead & Indirect Cost (%)",
         "tr": "Genel Gider ve Dolaylı Maliyet (%)",
-        "de": "Overhead & Indirect Cost (%)",
+        "de": "Gemeinkosten & indirekte Kosten (%)",
         "fr": "Overhead & Indirect Cost (%)",
         "es": "Overhead & Indirect Cost (%)",
         "ar": "Overhead & Indirect Cost (%)"
       },
       "businessContext_i18n": {
         "en": "Indirect cost percentage applied to direct cost",
-        "tr": "Doğrudan maliyete uygulanan dolaylı maliyet yüzdesi"
+        "tr": "Doğrudan maliyete uygulanan dolaylı maliyet yüzdesi",
+        "de": "Prozentsatz der indirekten Kosten, angewendet auf direkte Kosten"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Batch Size (units)",
         "tr": "Parti Büyüklüğü (birim)",
-        "de": "Batch Size (units)",
+        "de": "Chargengröße (Einheiten)",
         "fr": "Batch Size (units)",
         "es": "Batch Size (units)",
         "ar": "Batch Size (units)"
       },
       "businessContext_i18n": {
         "en": "Number of implants per batch for setup cost distribution",
-        "tr": "Kurulum maliyeti dağıtımı için parti başına implant sayısı"
+        "tr": "Kurulum maliyeti dağıtımı için parti başına implant sayısı",
+        "de": "Anzahl der Implantate pro Charge zur Verteilung der Rüstkosten"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Setup Time per Batch (hours)",
         "tr": "Parti Başına Kurulum Süresi (saat)",
-        "de": "Setup Time per Batch (hours)",
+        "de": "Rüstzeit pro Charge (Stunden)",
         "fr": "Setup Time per Batch (hours)",
         "es": "Setup Time per Batch (hours)",
         "ar": "Setup Time per Batch (hours)"
       },
       "businessContext_i18n": {
         "en": "Machine setup time per batch",
-        "tr": "Parti başına makine kurulum süresi"
+        "tr": "Parti başına makine kurulum süresi",
+        "de": "Maschinenrüstzeit pro Charge"
       }
     }
   ],

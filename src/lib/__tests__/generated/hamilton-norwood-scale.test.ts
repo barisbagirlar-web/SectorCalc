@@ -14,7 +14,7 @@ describe("hamilton-norwood-scale", () => {
     "temporal_thinning_percent": 10,
     "family_history_score": 1,
     "duration_years": 5
-  } as Hamilton_norwood_scaleInput;
+  } as unknown as Hamilton_norwood_scaleInput;
     const result = calculateHamilton_norwood_scale(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

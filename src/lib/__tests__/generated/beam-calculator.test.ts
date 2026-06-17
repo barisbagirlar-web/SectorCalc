@@ -12,7 +12,7 @@ describe("beam-calculator", () => {
     "span": 5,
     "elasticModulus": 200,
     "momentOfInertia": 1000
-  } as Beam_calculatorInput;
+  } as unknown as Beam_calculatorInput;
     const result = calculateBeam_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

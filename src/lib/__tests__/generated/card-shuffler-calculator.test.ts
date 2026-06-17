@@ -16,7 +16,7 @@ describe("card-shuffler-calculator", () => {
     "maintenanceHours": 0.5,
     "laborCost": 20,
     "electricityCost": 0.12
-  } as Card_shuffler_calculatorInput;
+  } as unknown as Card_shuffler_calculatorInput;
     const result = calculateCard_shuffler_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

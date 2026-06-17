@@ -13,7 +13,7 @@ describe("alcohol-metabolism-calculator", () => {
     "body_weight_kg": 70,
     "time_hours": 1,
     "elimination_rate": 0.015
-  } as Alcohol_metabolism_calculatorInput;
+  } as unknown as Alcohol_metabolism_calculatorInput;
     const result = calculateAlcohol_metabolism_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Column Load",
         "tr": "Kolon Yükü",
-        "de": "Column Load",
+        "de": "Stützenlast",
         "fr": "Column Load",
         "es": "Column Load",
         "ar": "Column Load"
       },
       "businessContext_i18n": {
         "en": "Service axial load from column",
-        "tr": "Kolon servis eksenel yükü"
+        "tr": "Kolon servis eksenel yükü",
+        "de": "Nutzlast der Stütze aus der Stütze"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Soil Bearing Capacity",
         "tr": "Toprak Taşıma Kapasitesi",
-        "de": "Soil Bearing Capacity",
+        "de": "Bodentragfähigkeit",
         "fr": "Soil Bearing Capacity",
         "es": "Soil Bearing Capacity",
         "ar": "Soil Bearing Capacity"
       },
       "businessContext_i18n": {
         "en": "Allowable soil bearing capacity",
-        "tr": "İzin verilen zemin taşıma kapasitesi"
+        "tr": "İzin verilen zemin taşıma kapasitesi",
+        "de": "Zulässige Bodenpressung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
-        "de": "Safety Factor",
+        "de": "Sicherheitsfaktor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Factor of safety for bearing",
-        "tr": "Taşıma için güvenlik faktörü"
+        "tr": "Taşıma için güvenlik faktörü",
+        "de": "Sicherheitsfaktor für die Pressung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Length/Width Ratio",
         "tr": "Uzunluk/Genişlik Oranı",
-        "de": "Length/Width Ratio",
+        "de": "Längen-/Breitenverhältnis",
         "fr": "Length/Width Ratio",
         "es": "Length/Width Ratio",
         "ar": "Length/Width Ratio"
       },
       "businessContext_i18n": {
         "en": "Desired footing length to width ratio",
-        "tr": "İstenen temel uzunluk/genişlik oranı"
+        "tr": "İstenen temel uzunluk/genişlik oranı",
+        "de": "Gewünschtes Längen-zu-Breiten-Verhältnis des Fundaments"
       }
     }
   ],

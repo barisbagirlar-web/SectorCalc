@@ -12,7 +12,7 @@ describe("blood-pressure-category-calculator", () => {
     "diastolic": 80,
     "heart_rate": 70,
     "rest_duration": 5
-  } as Blood_pressure_category_calculatorInput;
+  } as unknown as Blood_pressure_category_calculatorInput;
     const result = calculateBlood_pressure_category_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("employee-stock-option-calculator", () => {
     "currentPrice": 15,
     "numberOfOptions": 1000,
     "vestedOptions": 500
-  } as Employee_stock_option_calculatorInput;
+  } as unknown as Employee_stock_option_calculatorInput;
     const result = calculateEmployee_stock_option_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

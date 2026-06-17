@@ -12,7 +12,7 @@ describe("stefan-boltzmann-calculator", () => {
     "area": 1,
     "temperature": 300,
     "stefanConstant": 5.670367e-8
-  } as Stefan_boltzmann_calculatorInput;
+  } as unknown as Stefan_boltzmann_calculatorInput;
     const result = calculateStefan_boltzmann_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

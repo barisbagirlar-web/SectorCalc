@@ -12,7 +12,7 @@ describe("dividend-payout-ratio-calculator", () => {
     "netIncome": 5000000,
     "dividendsPerShare": 2,
     "earningsPerShare": 5
-  } as Dividend_payout_ratio_calculatorInput;
+  } as unknown as Dividend_payout_ratio_calculatorInput;
     const result = calculateDividend_payout_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

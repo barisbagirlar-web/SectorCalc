@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Population Size",
         "tr": "Popülasyon Büyüklüğü",
-        "de": "Population Size",
+        "de": "Grundgesamtheit",
         "fr": "Population Size",
         "es": "Population Size",
         "ar": "Population Size"
       },
       "businessContext_i18n": {
         "en": "Total number of items in the population to be audited.",
-        "tr": "Denetlenecek popülasyondaki toplam öğe sayısı."
+        "tr": "Denetlenecek popülasyondaki toplam öğe sayısı.",
+        "de": "Gesamtzahl der zu prüfenden Elemente in der Grundgesamtheit."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Z-Score",
         "tr": "Z-Skoru",
-        "de": "Z-Score",
+        "de": "Z-Wert",
         "fr": "Z-Score",
         "es": "Z-Score",
         "ar": "Z-Score"
       },
       "businessContext_i18n": {
         "en": "Z-score corresponding to the desired confidence level (e.g., 1.96 for 95%).",
-        "tr": "İstenen güven düzeyine karşılık gelen Z-skoru (örneğin, %95 için 1,96)."
+        "tr": "İstenen güven düzeyine karşılık gelen Z-skoru (örneğin, %95 için 1,96).",
+        "de": "Z-Wert entsprechend dem gewünschten Konfidenzniveau (z. B. 1,96 für 95 %)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Margin of Error",
         "tr": "Hata Payı",
-        "de": "Margin of Error",
+        "de": "Fehlermarge",
         "fr": "Margin of Error",
         "es": "Margin of Error",
         "ar": "Margin of Error"
       },
       "businessContext_i18n": {
         "en": "Acceptable margin of error as a percentage (e.g., 5 for ±5%).",
-        "tr": "Yüzde olarak kabul edilebilir hata payı (örneğin, ±%5 için 5)."
+        "tr": "Yüzde olarak kabul edilebilir hata payı (örneğin, ±%5 için 5).",
+        "de": "Akzeptable Fehlermarge in Prozent (z. B. 5 für ±5 %)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Estimated Proportion",
         "tr": "Tahmini Oran",
-        "de": "Estimated Proportion",
+        "de": "Geschätzter Anteil",
         "fr": "Estimated Proportion",
         "es": "Estimated Proportion",
         "ar": "Estimated Proportion"
       },
       "businessContext_i18n": {
         "en": "Estimated proportion of an attribute present in the population (0 to 1). Use 0.5 for maximum variability.",
-        "tr": "Popülasyonda bulunan bir özelliğin tahmini oranı (0 ile 1 arası). Maksimum değişkenlik için 0,5 kullanın."
+        "tr": "Popülasyonda bulunan bir özelliğin tahmini oranı (0 ile 1 arası). Maksimum değişkenlik için 0,5 kullanın.",
+        "de": "Geschätzter Anteil eines Attributs in der Grundgesamtheit (0 bis 1). Verwenden Sie 0,5 für maximale Variabilität."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Expected Response Rate",
         "tr": "Beklenen Yanıt Oranı",
-        "de": "Expected Response Rate",
+        "de": "Erwartete Rücklaufquote",
         "fr": "Expected Response Rate",
         "es": "Expected Response Rate",
         "ar": "Expected Response Rate"
       },
       "businessContext_i18n": {
         "en": "Expected response rate to adjust sample size for non-response (e.g., 80 for 80%).",
-        "tr": "Yanıtsızlık için örneklem büyüklüğünü ayarlamak üzere beklenen yanıt oranı (örneğin, %80 için 80)."
+        "tr": "Yanıtsızlık için örneklem büyüklüğünü ayarlamak üzere beklenen yanıt oranı (örneğin, %80 için 80).",
+        "de": "Erwartete Rücklaufquote zur Anpassung der Stichprobengröße an Nichtbeantwortung (z. B. 80 für 80 %)."
       }
     }
   ],

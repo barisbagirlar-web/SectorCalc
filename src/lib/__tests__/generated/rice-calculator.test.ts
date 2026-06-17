@@ -12,7 +12,7 @@ describe("rice-calculator", () => {
     "waterRatio": 2,
     "yieldFactor": 2.5,
     "servingSize": 150
-  } as Rice_calculatorInput;
+  } as unknown as Rice_calculatorInput;
     const result = calculateRice_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

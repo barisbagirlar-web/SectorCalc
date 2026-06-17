@@ -22,11 +22,13 @@
       "businessContext": "Total distinct production or storage areas in the facility.",
       "label_i18n": {
         "en": "Number of Departments",
-        "tr": "Departman Sayısı"
+        "tr": "Departman Sayısı",
+        "de": "Anzahl der Abteilungen"
       },
       "businessContext_i18n": {
         "en": "Total distinct production or storage areas in the facility.",
-        "tr": "Tesisteki toplam farklı üretim veya depolama alanı sayısı."
+        "tr": "Tesisteki toplam farklı üretim veya depolama alanı sayısı.",
+        "de": "Gesamtzahl der verschiedenen Produktions- oder Lagerbereiche in der Anlage."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Number of material movements between each pair of departments per day.",
       "label_i18n": {
         "en": "Flow Intensity Matrix (triangular, comma-separated per row)",
-        "tr": "Akış Yoğunluğu Matrisi (üçgen, satır başına virgülle ayrılmış)"
+        "tr": "Akış Yoğunluğu Matrisi (üçgen, satır başına virgülle ayrılmış)",
+        "de": "Flussintensitätsmatrix (dreieckig, zeilenweise durch Komma getrennt)"
       },
       "businessContext_i18n": {
         "en": "Number of material movements between each pair of departments per day.",
-        "tr": "Her bir departman çifti arasında günlük malzeme hareketi sayısı."
+        "tr": "Her bir departman çifti arasında günlük malzeme hareketi sayısı.",
+        "de": "Anzahl der Materialbewegungen zwischen jedem Abteilungspaar pro Tag."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Current or proposed travel distances between department centroids.",
       "label_i18n": {
         "en": "Distance Matrix (triangular, comma-separated per row)",
-        "tr": "Mesafe Matrisi (üçgen, satır başına virgülle ayrılmış)"
+        "tr": "Mesafe Matrisi (üçgen, satır başına virgülle ayrılmış)",
+        "de": "Entfernungsmatrix (dreieckig, zeilenweise durch Komma getrennt)"
       },
       "businessContext_i18n": {
         "en": "Current or proposed travel distances between department centroids.",
-        "tr": "Departman merkezleri arasındaki mevcut veya önerilen seyahat mesafeleri."
+        "tr": "Departman merkezleri arasındaki mevcut veya önerilen seyahat mesafeleri.",
+        "de": "Aktuelle oder geplante Transportentfernungen zwischen Abteilungsschwerpunkten."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Ratio of straight-line distance to actual travel path (1.0 = perfect straight line).",
       "label_i18n": {
         "en": "Path Efficiency Factor",
-        "tr": "Yol Verimlilik Faktörü"
+        "tr": "Yol Verimlilik Faktörü",
+        "de": "Pfadeffizienzfaktor"
       },
       "businessContext_i18n": {
         "en": "Ratio of straight-line distance to actual travel path (1.0 = perfect straight line).",
-        "tr": "Düz çizgi mesafesinin gerçek seyahat yoluna oranı (1.0 = mükemmel düz çizgi)."
+        "tr": "Düz çizgi mesafesinin gerçek seyahat yoluna oranı (1.0 = mükemmel düz çizgi).",
+        "de": "Verhältnis der geradlinigen Entfernung zum tatsächlichen Transportweg (1,0 = perfekte gerade Linie)."
       }
     },
     {
@@ -98,11 +106,13 @@
       "businessContext": "Classification of the facility layout according to standard industrial engineering taxonomy.",
       "label_i18n": {
         "en": "Layout Type",
-        "tr": "Yerleşim Türü"
+        "tr": "Yerleşim Türü",
+        "de": "Layout-Typ"
       },
       "businessContext_i18n": {
         "en": "Classification of the facility layout according to standard industrial engineering taxonomy.",
-        "tr": "Tesis yerleşiminin standart endüstri mühendisliği sınıflandırmasına göre sınıflandırılması."
+        "tr": "Tesis yerleşiminin standart endüstri mühendisliği sınıflandırmasına göre sınıflandırılması.",
+        "de": "Klassifizierung des Anlagenlayouts nach Standardtaxonomie des Industrial Engineering."
       }
     },
     {
@@ -114,11 +124,13 @@
       "businessContext": "If true, the primary result is the sum of flow × distance; otherwise raw distance sum.",
       "label_i18n": {
         "en": "Use Weighted Distance (Flow × Distance)",
-        "tr": "Ağırlıklı Mesafe Kullan (Akış × Mesafe)"
+        "tr": "Ağırlıklı Mesafe Kullan (Akış × Mesafe)",
+        "de": "Gewichtete Entfernung verwenden (Fluss × Entfernung)"
       },
       "businessContext_i18n": {
         "en": "If true, the primary result is the sum of flow × distance; otherwise raw distance sum.",
-        "tr": "Doğruysa, birincil sonuç akış × mesafe toplamıdır; aksi halde ham mesafe toplamı."
+        "tr": "Doğruysa, birincil sonuç akış × mesafe toplamıdır; aksi halde ham mesafe toplamı.",
+        "de": "Wenn wahr, ist das primäre Ergebnis die Summe von Fluss × Entfernung; andernfalls die rohe Entfernungssumme."
       }
     }
   ],

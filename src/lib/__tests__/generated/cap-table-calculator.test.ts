@@ -13,7 +13,7 @@ describe("cap-table-calculator", () => {
     "optionPoolSize": 500000,
     "newInvestment": 1000000,
     "preMoneyValuation": 10000000
-  } as Cap_table_calculatorInput;
+  } as unknown as Cap_table_calculatorInput;
     const result = calculateCap_table_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

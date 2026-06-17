@@ -15,7 +15,7 @@ describe("lifo-fifo-calculator", () => {
     "purchase2Units": 0,
     "purchase2CostPerUnit": 0,
     "unitsSold": 0
-  } as Lifo_fifo_calculatorInput;
+  } as unknown as Lifo_fifo_calculatorInput;
     const result = calculateLifo_fifo_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

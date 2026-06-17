@@ -12,7 +12,7 @@ describe("epoxy-calculator", () => {
     "resinRatio": 100,
     "hardenerRatio": 25,
     "wasteFactor": 5
-  } as Epoxy_calculatorInput;
+  } as unknown as Epoxy_calculatorInput;
     const result = calculateEpoxy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("grass-seed-calculator", () => {
     "germinationRate": 85,
     "seedPurity": 95,
     "overseedingFactor": 1
-  } as Grass_seed_calculatorInput;
+  } as unknown as Grass_seed_calculatorInput;
     const result = calculateGrass_seed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("billionaire-calculator", () => {
     "savingsRate": 20,
     "annualReturn": 7,
     "desiredNetWorth": 1000000000
-  } as Billionaire_calculatorInput;
+  } as unknown as Billionaire_calculatorInput;
     const result = calculateBillionaire_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

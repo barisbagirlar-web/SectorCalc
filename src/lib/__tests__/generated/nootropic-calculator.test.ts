@@ -14,7 +14,7 @@ describe("nootropic-calculator", () => {
     "alphagpc": 300,
     "bodyWeight": 70,
     "tolerance": 5
-  } as Nootropic_calculatorInput;
+  } as unknown as Nootropic_calculatorInput;
     const result = calculateNootropic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Altitude",
         "tr": "Başlangıç Rakımı",
-        "de": "Initial Altitude",
+        "de": "Anfangshöhe",
         "fr": "Initial Altitude",
         "es": "Initial Altitude",
         "ar": "Initial Altitude"
       },
       "businessContext_i18n": {
         "en": "Altitude of the reference point where initial temperature is measured.",
-        "tr": "Başlangıç sıcaklığının ölçüldüğü referans noktasının rakımı."
+        "tr": "Başlangıç sıcaklığının ölçüldüğü referans noktasının rakımı.",
+        "de": "Höhe des Referenzpunkts, an dem die Anfangstemperatur gemessen wird."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Final Altitude",
         "tr": "Son Rakım",
-        "de": "Final Altitude",
+        "de": "Endhöhe",
         "fr": "Final Altitude",
         "es": "Final Altitude",
         "ar": "Final Altitude"
       },
       "businessContext_i18n": {
         "en": "Altitude at which temperature is to be calculated.",
-        "tr": "Sıcaklığın hesaplanacağı rakım."
+        "tr": "Sıcaklığın hesaplanacağı rakım.",
+        "de": "Höhe, auf die die Temperatur berechnet werden soll."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Initial Temperature",
         "tr": "Başlangıç Sıcaklığı",
-        "de": "Initial Temperature",
+        "de": "Anfangstemperatur",
         "fr": "Initial Temperature",
         "es": "Initial Temperature",
         "ar": "Initial Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature at the initial altitude (in Kelvin). For Celsius, use same numeric temperature change.",
-        "tr": "Başlangıç yüksekliğindeki sıcaklık (Kelvin cinsinden). Celsius için aynı sayısal sıcaklık değişimini kullanın."
+        "tr": "Başlangıç yüksekliğindeki sıcaklık (Kelvin cinsinden). Celsius için aynı sayısal sıcaklık değişimini kullanın.",
+        "de": "Temperatur in der Ausgangshöhe (in Kelvin). Für Celsius denselben numerischen Temperaturwechsel verwenden."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Specific Heat Capacity",
         "tr": "Özgül Isı Kapasitesi",
-        "de": "Specific Heat Capacity",
+        "de": "Spezifische Wärmekapazität",
         "fr": "Specific Heat Capacity",
         "es": "Specific Heat Capacity",
         "ar": "Specific Heat Capacity"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of air at constant pressure (dry air ≈ 1005 J/(kg·K)).",
-        "tr": "Sabit basınçta havanın özgül ısı kapasitesi (kuru hava ≈ 1005 J/(kg·K))."
+        "tr": "Sabit basınçta havanın özgül ısı kapasitesi (kuru hava ≈ 1005 J/(kg·K)).",
+        "de": "Spezifische Wärmekapazität von Luft bei konstantem Druck (trockene Luft ≈ 1005 J/(kg·K))."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Gravity Acceleration",
         "tr": "Yerçekimi İvmesi",
-        "de": "Gravity Acceleration",
+        "de": "Erdbeschleunigung",
         "fr": "Gravity Acceleration",
         "es": "Gravity Acceleration",
         "ar": "Gravity Acceleration"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity (standard 9.81 m/s²).",
-        "tr": "Yerçekimi ivmesi (standart 9,81 m/s²)."
+        "tr": "Yerçekimi ivmesi (standart 9,81 m/s²).",
+        "de": "Erdbeschleunigung (Standard 9,81 m/s²)."
       }
     }
   ],

@@ -10,5 +10,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function EnglishRootHomePage() {
-  return HomePage({ params: englishParams });
+  return await HomePage({ params: englishParams });
 }

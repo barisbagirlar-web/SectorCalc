@@ -13,7 +13,7 @@ describe("ounces-to-grams-calculator", () => {
     "measurementUncertaintyOunces": 0.001,
     "outputPrecision": 2,
     "batchMultiplier": 1
-  } as Ounces_to_grams_calculatorInput;
+  } as unknown as Ounces_to_grams_calculatorInput;
     const result = calculateOunces_to_grams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

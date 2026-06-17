@@ -14,7 +14,7 @@ describe("radiation-exposure-calculator", () => {
     "shieldThickness": 0,
     "hvl": 1,
     "conversionFactor": 8.77
-  } as Radiation_exposure_calculatorInput;
+  } as unknown as Radiation_exposure_calculatorInput;
     const result = calculateRadiation_exposure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

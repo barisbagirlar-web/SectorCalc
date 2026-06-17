@@ -12,7 +12,7 @@ describe("law-of-sines-calculator", () => {
     "angleA": 30,
     "angleB": 45,
     "precision": 2
-  } as Law_of_sines_calculatorInput;
+  } as unknown as Law_of_sines_calculatorInput;
     const result = calculateLaw_of_sines_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

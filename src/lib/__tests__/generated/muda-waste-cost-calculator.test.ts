@@ -16,7 +16,7 @@ describe("muda-waste-cost-calculator", () => {
     "scrap_rate": 2,
     "waiting_time_per_unit": 0.1,
     "excess_motion_cost_per_unit": 0.05
-  } as Muda_waste_cost_calculatorInput;
+  } as unknown as Muda_waste_cost_calculatorInput;
     const result = calculateMuda_waste_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Joist Span",
         "tr": "Kiriş Açıklığı",
-        "de": "Joist Span",
+        "de": "Balkenspannweite",
         "fr": "Joist Span",
         "es": "Joist Span",
         "ar": "Joist Span"
       },
       "businessContext_i18n": {
         "en": "Distance from ledger to beam",
-        "tr": "Kirişten ana taşıyıcıya mesafe"
+        "tr": "Kirişten ana taşıyıcıya mesafe",
+        "de": "Abstand von der Randbohle zum Balken"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Joist Spacing",
         "tr": "Kiriş Aralığı",
-        "de": "Joist Spacing",
+        "de": "Balkenabstand",
         "fr": "Joist Spacing",
         "es": "Joist Spacing",
         "ar": "Joist Spacing"
       },
       "businessContext_i18n": {
         "en": "Center-to-center spacing of joists",
-        "tr": "Döşeme kirişlerinin merkezden merkeze aralığı"
+        "tr": "Döşeme kirişlerinin merkezden merkeze aralığı",
+        "de": "Mittenabstand der Balken"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Beam Span between Posts",
         "tr": "Direkler Arası Kiriş Açıklığı",
-        "de": "Beam Span between Posts",
+        "de": "Balkenspannweite zwischen Pfosten",
         "fr": "Beam Span between Posts",
         "es": "Beam Span between Posts",
         "ar": "Beam Span between Posts"
       },
       "businessContext_i18n": {
         "en": "Distance between support posts",
-        "tr": "Destek direkleri arasındaki mesafe"
+        "tr": "Destek direkleri arasındaki mesafe",
+        "de": "Abstand zwischen Stützpfosten"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Live Load",
         "tr": "Hareketli Yük",
-        "de": "Live Load",
+        "de": "Nutzlast",
         "fr": "Live Load",
         "es": "Live Load",
         "ar": "Live Load"
       },
       "businessContext_i18n": {
         "en": "Occupancy load per square foot",
-        "tr": "Metrekare başına kullanım yükü"
+        "tr": "Metrekare başına kullanım yükü",
+        "de": "Nutzlast pro Quadratfuß"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Dead Load",
         "tr": "Sabit Yük",
-        "de": "Dead Load",
+        "de": "Eigenlast",
         "fr": "Dead Load",
         "es": "Dead Load",
         "ar": "Dead Load"
       },
       "businessContext_i18n": {
         "en": "Weight of deck materials",
-        "tr": "Güverte malzemelerinin ağırlığı"
+        "tr": "Güverte malzemelerinin ağırlığı",
+        "de": "Gewicht der Terrassenmaterialien"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Soil Bearing Capacity",
         "tr": "Toprak Taşıma Kapasitesi",
-        "de": "Soil Bearing Capacity",
+        "de": "Bodentragfähigkeit",
         "fr": "Soil Bearing Capacity",
         "es": "Soil Bearing Capacity",
         "ar": "Soil Bearing Capacity"
       },
       "businessContext_i18n": {
         "en": "Allowable soil pressure",
-        "tr": "İzin verilen toprak basıncı"
+        "tr": "İzin verilen toprak basıncı",
+        "de": "Zulässiger Bodendruck"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Footing Thickness",
         "tr": "Temel Kalınlığı",
-        "de": "Footing Thickness",
+        "de": "Fundamentdicke",
         "fr": "Footing Thickness",
         "es": "Footing Thickness",
         "ar": "Footing Thickness"
       },
       "businessContext_i18n": {
         "en": "Depth of concrete footing",
-        "tr": "Beton temel derinliği"
+        "tr": "Beton temel derinliği",
+        "de": "Tiefe des Betonfundaments"
       }
     }
   ],

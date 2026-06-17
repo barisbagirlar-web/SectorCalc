@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Ondalıklı Değer",
         "tr": "Ondalıklı Değer",
-        "de": "Ondalıklı Değer",
+        "de": "Dezimalwert",
         "fr": "Ondalıklı Değer",
         "es": "Ondalıklı Değer",
         "ar": "Ondalıklı Değer"
       },
       "businessContext_i18n": {
         "en": "Kesire dönüştürülecek ondalıklı sayı",
-        "tr": "Kesire dönüştürülecek ondalıklı sayı"
+        "tr": "Kesire dönüştürülecek ondalıklı sayı",
+        "de": "Dezimalzahl, die in einen Bruch umgewandelt werden soll"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Maksimum Payda",
         "tr": "Maksimum Payda",
-        "de": "Maksimum Payda",
+        "de": "Maximaler Nenner",
         "fr": "Maksimum Payda",
         "es": "Maksimum Payda",
         "ar": "Maksimum Payda"
       },
       "businessContext_i18n": {
         "en": "Kesir yaklaşımı için izin verilen en büyük payda",
-        "tr": "Kesir yaklaşımı için izin verilen en büyük payda"
+        "tr": "Kesir yaklaşımı için izin verilen en büyük payda",
+        "de": "Größter zulässiger Nenner für die Bruchnäherung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Sadeleştirme",
         "tr": "Sadeleştirme",
-        "de": "Sadeleştirme",
+        "de": "Vereinfachen",
         "fr": "Sadeleştirme",
         "es": "Sadeleştirme",
         "ar": "Sadeleştirme"
       },
       "businessContext_i18n": {
         "en": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)",
-        "tr": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)"
+        "tr": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)",
+        "de": "Bruch auf einfachste Form reduzieren (1: Ja, 0: Nein)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Kesir Formatı",
         "tr": "Kesir Formatı",
-        "de": "Kesir Formatı",
+        "de": "Bruchformat",
         "fr": "Kesir Formatı",
         "es": "Kesir Formatı",
         "ar": "Kesir Formatı"
       },
       "businessContext_i18n": {
         "en": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir",
-        "tr": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir"
+        "tr": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir",
+        "de": "0: Einfacher Bruch, 1: Gemischter Bruch, 2: Unechter Bruch"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Yuvarlama Modu",
         "tr": "Yuvarlama Modu",
-        "de": "Yuvarlama Modu",
+        "de": "Rundungsmodus",
         "fr": "Yuvarlama Modu",
         "es": "Yuvarlama Modu",
         "ar": "Yuvarlama Modu"
       },
       "businessContext_i18n": {
         "en": "0: En Yakın, 1: Aşağı, 2: Yukarı",
-        "tr": "0: En Yakın, 1: Aşağı, 2: Yukarı"
+        "tr": "0: En Yakın, 1: Aşağı, 2: Yukarı",
+        "de": "0: Nächster, 1: Abrunden, 2: Aufrunden"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Tolerans",
         "tr": "Tolerans",
-        "de": "Tolerans",
+        "de": "Toleranz",
         "fr": "Tolerans",
         "es": "Tolerans",
         "ar": "Tolerans"
       },
       "businessContext_i18n": {
         "en": "Ondalıklı sayının kesir eşleşmesi için tolerans",
-        "tr": "Ondalıklı sayının kesir eşleşmesi için tolerans"
+        "tr": "Ondalıklı sayının kesir eşleşmesi için tolerans",
+        "de": "Toleranz für die Bruchübereinstimmung der Dezimalzahl"
       }
     }
   ],

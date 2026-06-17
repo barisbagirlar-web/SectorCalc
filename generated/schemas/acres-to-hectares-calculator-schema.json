@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Input Value",
         "tr": "Giriş Değeri",
-        "de": "Input Value",
+        "de": "Eingabewert",
         "fr": "Input Value",
         "es": "Input Value",
         "ar": "Input Value"
       },
       "businessContext_i18n": {
         "en": "Numeric value to convert.",
-        "tr": "Dönüştürülecek sayısal değer."
+        "tr": "Dönüştürülecek sayısal değer.",
+        "de": "Numerischer Wert zur Umrechnung."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Input Unit (0: acres, 1: hectares)",
         "tr": "Giriş Birimi (0: dönüm, 1: hektar)",
-        "de": "Input Unit (0: acres, 1: hectares)",
+        "de": "Eingabeeinheit (0: Acres, 1: Hektar)",
         "fr": "Input Unit (0: acres, 1: hectares)",
         "es": "Input Unit (0: acres, 1: hectares)",
         "ar": "Input Unit (0: acres, 1: hectares)"
       },
       "businessContext_i18n": {
         "en": "Select input unit: 0 for acres, 1 for hectares.",
-        "tr": "Giriş birimini seçin: 0 dönüm, 1 hektar."
+        "tr": "Giriş birimini seçin: 0 dönüm, 1 hektar.",
+        "de": "Wählen Sie die Eingabeeinheit: 0 für Acres, 1 für Hektar."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the result.",
-        "tr": "Sonuç için ondalık basamak sayısı."
+        "tr": "Sonuç için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für das Ergebnis."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Conversion Factor (ha/ac)",
         "tr": "Dönüşüm Faktörü (ha/ac)",
-        "de": "Conversion Factor (ha/ac)",
+        "de": "Umrechnungsfaktor (ha/ac)",
         "fr": "Conversion Factor (ha/ac)",
         "es": "Conversion Factor (ha/ac)",
         "ar": "Conversion Factor (ha/ac)"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from acres to hectares (default: 1 ac = 0.40468564224 ha).",
-        "tr": "Dönümden hektara dönüşüm faktörü (varsayılan: 1 ac = 0,40468564224 ha)."
+        "tr": "Dönümden hektara dönüşüm faktörü (varsayılan: 1 ac = 0,40468564224 ha).",
+        "de": "Umrechnungsfaktor von Acres in Hektar (Standard: 1 ac = 0,40468564224 ha)."
       }
     }
   ],

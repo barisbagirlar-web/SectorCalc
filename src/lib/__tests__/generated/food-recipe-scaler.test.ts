@@ -13,7 +13,7 @@ describe("food-recipe-scaler", () => {
     "ingredient1Amount": 200,
     "ingredient2Amount": 100,
     "ingredient3Amount": 50
-  } as Food_recipe_scalerInput;
+  } as unknown as Food_recipe_scalerInput;
     const result = calculateFood_recipe_scaler(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

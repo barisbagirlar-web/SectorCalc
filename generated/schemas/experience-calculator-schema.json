@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "İlk Birim Zamanı",
         "tr": "İlk Birim Zamanı",
-        "de": "İlk Birim Zamanı",
+        "de": "Erststückzeit",
         "fr": "İlk Birim Zamanı",
         "es": "İlk Birim Zamanı",
         "ar": "İlk Birim Zamanı"
       },
       "businessContext_i18n": {
         "en": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir.",
-        "tr": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir."
+        "tr": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir.",
+        "de": "Produktionszeit des ersten Stücks. Basiswert für Lernkurvenberechnungen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Öğrenme Oranı",
         "tr": "Öğrenme Oranı",
-        "de": "Öğrenme Oranı",
+        "de": "Lernrate",
         "fr": "Öğrenme Oranı",
         "es": "Öğrenme Oranı",
         "ar": "Öğrenme Oranı"
       },
       "businessContext_i18n": {
         "en": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır.",
-        "tr": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır."
+        "tr": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır.",
+        "de": "Prozentuale Verringerung der Stückzeit bei Verdopplung der kumulierten Produktion. Typische Werte zwischen 70 und 90."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Toplam Birim Sayısı",
         "tr": "Toplam Birim Sayısı",
-        "de": "Toplam Birim Sayısı",
+        "de": "Gesamtstückzahl",
         "fr": "Toplam Birim Sayısı",
         "es": "Toplam Birim Sayısı",
         "ar": "Toplam Birim Sayısı"
       },
       "businessContext_i18n": {
         "en": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi.",
-        "tr": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi."
+        "tr": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi.",
+        "de": "Kumulierte Stückzahl, für die der Lerneffekt berechnet wird."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("us-fl-oz-to-imperial-fl-oz-calculator", () => {
     "batchSize": 100,
     "packageCount": 1,
     "tolerance": 0.5
-  } as Us_fl_oz_to_imperial_fl_oz_calculatorInput;
+  } as unknown as Us_fl_oz_to_imperial_fl_oz_calculatorInput;
     const result = calculateUs_fl_oz_to_imperial_fl_oz_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

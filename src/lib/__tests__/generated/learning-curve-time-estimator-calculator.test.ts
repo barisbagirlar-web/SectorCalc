@@ -16,7 +16,7 @@ describe("learning-curve-time-estimator-calculator", () => {
     "learning_model": "wright",
     "include_break_in": false,
     "break_in_penalty": 10
-  } as Learning_curve_time_estimator_calculatorInput;
+  } as unknown as Learning_curve_time_estimator_calculatorInput;
     const result = calculateLearning_curve_time_estimator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

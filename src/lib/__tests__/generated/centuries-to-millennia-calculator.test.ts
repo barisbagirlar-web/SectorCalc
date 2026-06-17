@@ -12,7 +12,7 @@ describe("centuries-to-millennia-calculator", () => {
     "centuryYears": 100,
     "millenniumYears": 1000,
     "precision": 2
-  } as Centuries_to_millennia_calculatorInput;
+  } as unknown as Centuries_to_millennia_calculatorInput;
     const result = calculateCenturies_to_millennia_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

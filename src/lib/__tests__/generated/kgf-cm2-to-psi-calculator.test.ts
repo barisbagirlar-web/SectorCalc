@@ -12,7 +12,7 @@ describe("kgf-cm2-to-psi-calculator", () => {
     "conversionFactorConstant": 14.22334330711986,
     "decimalPlaces": 2,
     "outputScale": 1
-  } as Kgf_cm2_to_psi_calculatorInput;
+  } as unknown as Kgf_cm2_to_psi_calculatorInput;
     const result = calculateKgf_cm2_to_psi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

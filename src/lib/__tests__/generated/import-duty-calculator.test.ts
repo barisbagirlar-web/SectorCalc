@@ -14,7 +14,7 @@ describe("import-duty-calculator", () => {
     "dutyRate": 0,
     "vatRate": 0,
     "additionalFees": 0
-  } as Import_duty_calculatorInput;
+  } as unknown as Import_duty_calculatorInput;
     const result = calculateImport_duty_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("balloon-loan-calculator", () => {
     "loanTermYears": 5,
     "balloonPercent": 20,
     "paymentsPerYear": 12
-  } as Balloon_loan_calculatorInput;
+  } as unknown as Balloon_loan_calculatorInput;
     const result = calculateBalloon_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

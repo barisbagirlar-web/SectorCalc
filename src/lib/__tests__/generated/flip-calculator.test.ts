@@ -14,7 +14,7 @@ describe("flip-calculator", () => {
     "sellingPrice": 150000,
     "sellingCosts": 10000,
     "financingCosts": 3000
-  } as Flip_calculatorInput;
+  } as unknown as Flip_calculatorInput;
     const result = calculateFlip_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

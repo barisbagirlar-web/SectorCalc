@@ -13,7 +13,7 @@ describe("subjective-well-being-calculator", () => {
     "social": 5,
     "emotional": 5,
     "spiritual": 5
-  } as Subjective_well_being_calculatorInput;
+  } as unknown as Subjective_well_being_calculatorInput;
     const result = calculateSubjective_well_being_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

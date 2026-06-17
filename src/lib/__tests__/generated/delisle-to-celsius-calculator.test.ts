@@ -12,7 +12,7 @@ describe("delisle-to-celsius-calculator", () => {
     "freezingDe": 150,
     "boilingDe": 0,
     "decimals": 2
-  } as Delisle_to_celsius_calculatorInput;
+  } as unknown as Delisle_to_celsius_calculatorInput;
     const result = calculateDelisle_to_celsius_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

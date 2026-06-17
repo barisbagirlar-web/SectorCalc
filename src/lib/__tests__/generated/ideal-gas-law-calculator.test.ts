@@ -12,7 +12,7 @@ describe("ideal-gas-law-calculator", () => {
     "moles": 1,
     "temperature": 273.15,
     "gasConstant": 0.082057
-  } as Ideal_gas_law_calculatorInput;
+  } as unknown as Ideal_gas_law_calculatorInput;
     const result = calculateIdeal_gas_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

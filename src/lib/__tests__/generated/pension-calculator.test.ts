@@ -14,7 +14,7 @@ describe("pension-calculator", () => {
     "monthlyContribution": 1000,
     "annualReturnRate": 5,
     "inflationRate": 2
-  } as Pension_calculatorInput;
+  } as unknown as Pension_calculatorInput;
     const result = calculatePension_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

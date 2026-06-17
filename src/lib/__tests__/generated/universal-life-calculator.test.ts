@@ -14,7 +14,7 @@ describe("universal-life-calculator", () => {
     "interestRate": 4,
     "policyDuration": 20,
     "expenseCharge": 2
-  } as Universal_life_calculatorInput;
+  } as unknown as Universal_life_calculatorInput;
     const result = calculateUniversal_life_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("speed-of-light-calculator", () => {
     "n": 1,
     "f": 500000000000000,
     "d": 1
-  } as Speed_of_light_calculatorInput;
+  } as unknown as Speed_of_light_calculatorInput;
     const result = calculateSpeed_of_light_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

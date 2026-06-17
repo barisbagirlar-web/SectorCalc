@@ -12,7 +12,7 @@ describe("bench-press-calculator", () => {
     "reps": 8,
     "desiredReps": 1,
     "percentage": 70
-  } as Bench_press_calculatorInput;
+  } as unknown as Bench_press_calculatorInput;
     const result = calculateBench_press_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

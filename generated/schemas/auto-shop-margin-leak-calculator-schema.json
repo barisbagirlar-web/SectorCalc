@@ -22,11 +22,13 @@
       "businessContext": "Standard hourly labor rate billed to customer. Typical range for auto shops.",
       "label_i18n": {
         "en": "Labor Rate Charged to Customer",
-        "tr": "Müşteriye Yansıtılan İşçilik Ücreti"
+        "tr": "Müşteriye Yansıtılan İşçilik Ücreti",
+        "de": "Berechneter Stundensatz für Kunden"
       },
       "businessContext_i18n": {
         "en": "Standard hourly labor rate billed to customer. Typical range for auto shops.",
-        "tr": "Müşteriye faturalanan standart saatlik işçilik ücreti. Oto atölyeleri için tipik aralık."
+        "tr": "Müşteriye faturalanan standart saatlik işçilik ücreti. Oto atölyeleri için tipik aralık.",
+        "de": "Standardmäßiger Stundensatz, der dem Kunden in Rechnung gestellt wird. Typische Spanne für Autowerkstätten."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Actual average labor rate realized after discounts, warranty adjustments, or internal write-offs.",
       "label_i18n": {
         "en": "Effective Labor Rate (After Discounts/Write-offs)",
-        "tr": "Efektif İşçilik Ücreti (İndirimler/İptaller Sonrası)"
+        "tr": "Efektif İşçilik Ücreti (İndirimler/İptaller Sonrası)",
+        "de": "Effektiver Stundensatz (nach Rabatten/Abschreibungen)"
       },
       "businessContext_i18n": {
         "en": "Actual average labor rate realized after discounts, warranty adjustments, or internal write-offs.",
-        "tr": "İndirimler, garanti ayarlamaları veya iç iptaller sonrası elde edilen gerçek ortalama işçilik ücreti."
+        "tr": "İndirimler, garanti ayarlamaları veya iç iptaller sonrası elde edilen gerçek ortalama işçilik ücreti.",
+        "de": "Tatsächlicher durchschnittlicher Stundensatz nach Rabatten, Garantieanpassungen oder internen Abschreibungen."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Total billable labor hours sold in the period (monthly or annually).",
       "label_i18n": {
         "en": "Total Labor Hours Sold",
-        "tr": "Satılan Toplam İşçilik Saati"
+        "tr": "Satılan Toplam İşçilik Saati",
+        "de": "Verkaufte Gesamtarbeitsstunden"
       },
       "businessContext_i18n": {
         "en": "Total billable labor hours sold in the period (monthly or annually).",
-        "tr": "Dönemde (aylık veya yıllık) satılan toplam faturalanabilir işçilik saati."
+        "tr": "Dönemde (aylık veya yıllık) satılan toplam faturalanabilir işçilik saati.",
+        "de": "Gesamte abrechenbare Arbeitsstunden im Zeitraum (monatlich oder jährlich)."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Standard markup on parts cost before any discounts.",
       "label_i18n": {
         "en": "Parts Markup Percentage",
-        "tr": "Parça Kâr Marjı Yüzdesi"
+        "tr": "Parça Kâr Marjı Yüzdesi",
+        "de": "Teileaufschlag in Prozent"
       },
       "businessContext_i18n": {
         "en": "Standard markup on parts cost before any discounts.",
-        "tr": "Herhangi bir indirim öncesi parça maliyetine uygulanan standart kâr marjı."
+        "tr": "Herhangi bir indirim öncesi parça maliyetine uygulanan standart kâr marjı.",
+        "de": "Standardmäßiger Aufschlag auf Teilekosten vor Rabatten."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Actual markup realized after discounts, promotions, or supplier constraints.",
       "label_i18n": {
         "en": "Realized Parts Markup Percentage",
-        "tr": "Gerçekleşen Parça Kâr Marjı Yüzdesi"
+        "tr": "Gerçekleşen Parça Kâr Marjı Yüzdesi",
+        "de": "Real erzielter Teileaufschlag in Prozent"
       },
       "businessContext_i18n": {
         "en": "Actual markup realized after discounts, promotions, or supplier constraints.",
-        "tr": "İndirimler, promosyonlar veya tedarikçi kısıtlamaları sonrası elde edilen gerçek kâr marjı."
+        "tr": "İndirimler, promosyonlar veya tedarikçi kısıtlamaları sonrası elde edilen gerçek kâr marjı.",
+        "de": "Tatsächlicher Aufschlag nach Rabatten, Aktionen oder Lieferantenbeschränkungen."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "Total cost of parts sold in the period.",
       "label_i18n": {
         "en": "Total Parts Cost (COGS)",
-        "tr": "Toplam Parça Maliyeti (COGS)"
+        "tr": "Toplam Parça Maliyeti (COGS)",
+        "de": "Gesamtteilekosten (COGS)"
       },
       "businessContext_i18n": {
         "en": "Total cost of parts sold in the period.",
-        "tr": "Dönemde satılan parçaların toplam maliyeti."
+        "tr": "Dönemde satılan parçaların toplam maliyeti.",
+        "de": "Gesamtkosten der im Zeitraum verkauften Teile."
       }
     },
     {
@@ -130,11 +142,13 @@
       "businessContext": "Standard shop supply fee charged per repair order.",
       "label_i18n": {
         "en": "Shop Supply Charge per Repair Order",
-        "tr": "Tamir Emri Başına Atölye Sarf Malzemesi Ücreti"
+        "tr": "Tamir Emri Başına Atölye Sarf Malzemesi Ücreti",
+        "de": "Ladengebühr pro Reparaturauftrag"
       },
       "businessContext_i18n": {
         "en": "Standard shop supply fee charged per repair order.",
-        "tr": "Tamir emri başına alınan standart atölye sarf malzemesi ücreti."
+        "tr": "Tamir emri başına alınan standart atölye sarf malzemesi ücreti.",
+        "de": "Standardmäßige Ladengebühr pro Reparaturauftrag."
       }
     },
     {
@@ -148,11 +162,13 @@
       "businessContext": "Actual cost incurred for shop supplies per repair order.",
       "label_i18n": {
         "en": "Actual Shop Supply Cost per Repair Order",
-        "tr": "Tamir Emri Başına Gerçek Atölye Sarf Malzemesi Maliyeti"
+        "tr": "Tamir Emri Başına Gerçek Atölye Sarf Malzemesi Maliyeti",
+        "de": "Tatsächliche Ladengebührenkosten pro Reparaturauftrag"
       },
       "businessContext_i18n": {
         "en": "Actual cost incurred for shop supplies per repair order.",
-        "tr": "Tamir emri başına atölye sarf malzemeleri için oluşan gerçek maliyet."
+        "tr": "Tamir emri başına atölye sarf malzemeleri için oluşan gerçek maliyet.",
+        "de": "Tatsächlich angefallene Kosten für Ladengebühren pro Reparaturauftrag."
       }
     }
   ],

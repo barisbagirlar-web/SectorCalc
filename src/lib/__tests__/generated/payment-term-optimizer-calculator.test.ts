@@ -16,7 +16,7 @@ describe("payment-term-optimizer-calculator", () => {
     "discount_window_days": 10,
     "cost_of_capital_pct": 8,
     "customer_acceptance_rate_pct": 40
-  } as Payment_term_optimizer_calculatorInput;
+  } as unknown as Payment_term_optimizer_calculatorInput;
     const result = calculatePayment_term_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

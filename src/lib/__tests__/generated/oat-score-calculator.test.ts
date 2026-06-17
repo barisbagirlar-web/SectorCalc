@@ -13,7 +13,7 @@ describe("oat-score-calculator", () => {
     "vibrationLevel": 0.5,
     "defectCount": 2,
     "calibrationFactor": 1
-  } as Oat_score_calculatorInput;
+  } as unknown as Oat_score_calculatorInput;
     const result = calculateOat_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

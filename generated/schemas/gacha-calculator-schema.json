@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Tek Çekim Maliyeti",
         "tr": "Tek çekim maliyeti",
-        "de": "Tek Çekim Maliyeti",
+        "de": "Kosten pro Einzelziehung",
         "fr": "Tek Çekim Maliyeti",
         "es": "Tek Çekim Maliyeti",
         "ar": "Tek Çekim Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Bir gacha çekiminin birim maliyeti.",
-        "tr": "Bir çekimin birim maliyeti."
+        "tr": "Bir çekimin birim maliyeti.",
+        "de": "Stückkosten einer Gacha-Ziehung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Temel Başarı Olasılığı",
         "tr": "Temel başarı olasılığı",
-        "de": "Temel Başarı Olasılığı",
+        "de": "Basis-Erfolgswahrscheinlichkeit",
         "fr": "Temel Başarı Olasılığı",
         "es": "Temel Başarı Olasılığı",
         "ar": "Temel Başarı Olasılığı"
       },
       "businessContext_i18n": {
         "en": "Her bir çekimde başarılı sonuç alma olasılığı (yüzde).",
-        "tr": "Her bir çekimde başarılı sonuç alma olasılığı (yüzde)."
+        "tr": "Her bir çekimde başarılı sonuç alma olasılığı (yüzde).",
+        "de": "Wahrscheinlichkeit eines erfolgreichen Ergebnisses pro Ziehung (Prozent)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Garanti Eşiği (Çekim Sayısı)",
         "tr": "Garanti eşiği (çekim sayısı)",
-        "de": "Garanti Eşiği (Çekim Sayısı)",
+        "de": "Garantieschwelle (Anzahl Ziehungen)",
         "fr": "Garanti Eşiği (Çekim Sayısı)",
         "es": "Garanti Eşiği (Çekim Sayısı)",
         "ar": "Garanti Eşiği (Çekim Sayısı)"
       },
       "businessContext_i18n": {
         "en": "Bu çekim sayısına ulaşıldığında başarı garanti olur. 0 ise garanti yok.",
-        "tr": "Bu çekim sayısına ulaşıldığında başarı garanti olur. 0 ise garanti yok."
+        "tr": "Bu çekim sayısına ulaşıldığında başarı garanti olur. 0 ise garanti yok.",
+        "de": "Bei Erreichen dieser Ziehungsanzahl ist der Erfolg garantiert. 0 bedeutet keine Garantie."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Hedef Başarı Sayısı",
         "tr": "Hedef başarı sayısı",
-        "de": "Hedef Başarı Sayısı",
+        "de": "Angestrebte Anzahl Erfolge",
         "fr": "Hedef Başarı Sayısı",
         "es": "Hedef Başarı Sayısı",
         "ar": "Hedef Başarı Sayısı"
       },
       "businessContext_i18n": {
         "en": "Elde edilmek istenen başarılı sonuç sayısı.",
-        "tr": "Elde edilmek istenen başarılı sonuç sayısı."
+        "tr": "Elde edilmek istenen başarılı sonuç sayısı.",
+        "de": "Anzahl der gewünschten erfolgreichen Ergebnisse"
       }
     }
   ],

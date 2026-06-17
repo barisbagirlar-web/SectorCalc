@@ -12,7 +12,7 @@ describe("electronegativity-calculator", () => {
     "electronAffinity": 0.754,
     "effectiveNuclearCharge": 1,
     "covalentRadius": 0.37
-  } as Electronegativity_calculatorInput;
+  } as unknown as Electronegativity_calculatorInput;
     const result = calculateElectronegativity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

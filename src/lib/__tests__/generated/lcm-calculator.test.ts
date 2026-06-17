@@ -16,7 +16,7 @@ describe("lcm-calculator", () => {
     "parts_cost_per_incident": 500,
     "downtime_cost_per_hour": 1000,
     "energy_cost_per_kwh": 0.12
-  } as Lcm_calculatorInput;
+  } as unknown as Lcm_calculatorInput;
     const result = calculateLcm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

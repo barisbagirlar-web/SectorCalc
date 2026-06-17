@@ -13,7 +13,7 @@ describe("passive-earth-pressure-calculator", () => {
     "frictionAngle": 30,
     "cohesion": 0,
     "surcharge": 0
-  } as Passive_earth_pressure_calculatorInput;
+  } as unknown as Passive_earth_pressure_calculatorInput;
     const result = calculatePassive_earth_pressure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

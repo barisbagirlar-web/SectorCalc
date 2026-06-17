@@ -13,7 +13,7 @@ describe("wavelength-calculator", () => {
     "energy": 4e-19,
     "planckConstant": 6.62607015e-34,
     "refractiveIndex": 1
-  } as Wavelength_calculatorInput;
+  } as unknown as Wavelength_calculatorInput;
     const result = calculateWavelength_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("four-percent-rule-calculator", () => {
     "portfolioValue": 1000000,
     "desiredAnnualWithdrawal": 40000,
     "withdrawalRate": 4
-  } as Four_percent_rule_calculatorInput;
+  } as unknown as Four_percent_rule_calculatorInput;
     const result = calculateFour_percent_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("treasury-bond-calculator", () => {
     "yearsToMaturity": 10,
     "yieldToMaturity": 4,
     "frequency": 2
-  } as Treasury_bond_calculatorInput;
+  } as unknown as Treasury_bond_calculatorInput;
     const result = calculateTreasury_bond_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

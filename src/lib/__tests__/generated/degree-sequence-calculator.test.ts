@@ -14,7 +14,7 @@ describe("degree-sequence-calculator", () => {
     "d4": 2,
     "d5": 1,
     "d6": 1
-  } as Degree_sequence_calculatorInput;
+  } as unknown as Degree_sequence_calculatorInput;
     const result = calculateDegree_sequence_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

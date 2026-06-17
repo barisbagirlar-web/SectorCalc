@@ -13,7 +13,7 @@ describe("dielectric-calculator", () => {
     "plate_distance": 0.001,
     "frequency": 1000000,
     "loss_tangent": 0.001
-  } as Dielectric_calculatorInput;
+  } as unknown as Dielectric_calculatorInput;
     const result = calculateDielectric_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

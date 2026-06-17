@@ -13,7 +13,7 @@ describe("hyperbola-equation-calculator", () => {
     "a": 3,
     "b": 2,
     "orientation": 0
-  } as Hyperbola_equation_calculatorInput;
+  } as unknown as Hyperbola_equation_calculatorInput;
     const result = calculateHyperbola_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

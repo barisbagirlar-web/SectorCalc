@@ -14,7 +14,7 @@ describe("blood-alcohol-calculator", () => {
     "bodyWeight": 70,
     "gender": 1,
     "hoursSinceFirstDrink": 2
-  } as Blood_alcohol_calculatorInput;
+  } as unknown as Blood_alcohol_calculatorInput;
     const result = calculateBlood_alcohol_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

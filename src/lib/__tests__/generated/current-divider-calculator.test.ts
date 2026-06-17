@@ -13,7 +13,7 @@ describe("current-divider-calculator", () => {
     "R2": 200,
     "R3": 0,
     "R4": 0
-  } as Current_divider_calculatorInput;
+  } as unknown as Current_divider_calculatorInput;
     const result = calculateCurrent_divider_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("maintenance-cost-calculator", () => {
     "maintenanceFrequency": 12,
     "partsCostPerMaintenance": 200,
     "overheadCostPerMaintenance": 100
-  } as Maintenance_cost_calculatorInput;
+  } as unknown as Maintenance_cost_calculatorInput;
     const result = calculateMaintenance_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

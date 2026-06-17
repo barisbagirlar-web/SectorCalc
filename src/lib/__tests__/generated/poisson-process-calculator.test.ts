@@ -12,7 +12,7 @@ describe("poisson-process-calculator", () => {
     "t1": 1,
     "t2": 2,
     "t3": 3
-  } as Poisson_process_calculatorInput;
+  } as unknown as Poisson_process_calculatorInput;
     const result = calculatePoisson_process_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

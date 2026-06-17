@@ -12,7 +12,7 @@ describe("complex-number-multiplication-calculator", () => {
     "imag1": 0,
     "real2": 0,
     "imag2": 0
-  } as Complex_number_multiplication_calculatorInput;
+  } as unknown as Complex_number_multiplication_calculatorInput;
     const result = calculateComplex_number_multiplication_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

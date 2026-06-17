@@ -15,7 +15,7 @@ describe("compressible-flow-calculator", () => {
     "specificHeatRatio": 1.4,
     "orificeDiameter": 10,
     "dischargeCoefficient": 0.85
-  } as Compressible_flow_calculatorInput;
+  } as unknown as Compressible_flow_calculatorInput;
     const result = calculateCompressible_flow_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

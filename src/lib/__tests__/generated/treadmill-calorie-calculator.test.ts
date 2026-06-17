@@ -13,7 +13,7 @@ describe("treadmill-calorie-calculator", () => {
     "incline": 0,
     "duration": 30,
     "exerciseType": 0
-  } as Treadmill_calorie_calculatorInput;
+  } as unknown as Treadmill_calorie_calculatorInput;
     const result = calculateTreadmill_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

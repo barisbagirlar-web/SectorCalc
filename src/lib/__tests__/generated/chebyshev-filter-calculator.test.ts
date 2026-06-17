@@ -12,7 +12,7 @@ describe("chebyshev-filter-calculator", () => {
     "stopbandAttenuation": 40,
     "cutoffFrequency": 1000,
     "stopbandFrequency": 2000
-  } as Chebyshev_filter_calculatorInput;
+  } as unknown as Chebyshev_filter_calculatorInput;
     const result = calculateChebyshev_filter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("bogo-calculator", () => {
     "numberOfSets": 1,
     "taxRate": 0,
     "additionalDiscount": 0
-  } as Bogo_calculatorInput;
+  } as unknown as Bogo_calculatorInput;
     const result = calculateBogo_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

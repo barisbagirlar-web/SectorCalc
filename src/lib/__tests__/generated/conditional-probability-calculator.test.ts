@@ -13,7 +13,7 @@ describe("conditional-probability-calculator", () => {
     "pB": 0.5,
     "countBoth": 30,
     "countB": 50
-  } as Conditional_probability_calculatorInput;
+  } as unknown as Conditional_probability_calculatorInput;
     const result = calculateConditional_probability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

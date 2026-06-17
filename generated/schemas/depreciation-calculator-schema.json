@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Cost",
         "tr": "Başlangıç Maliyeti",
-        "de": "Initial Cost",
+        "de": "Anschaffungskosten",
         "fr": "Initial Cost",
         "es": "Initial Cost",
         "ar": "Initial Cost"
       },
       "businessContext_i18n": {
         "en": "The initial purchase price of the asset.",
-        "tr": "Varlığın ilk satın alma fiyatı."
+        "tr": "Varlığın ilk satın alma fiyatı.",
+        "de": "Der ursprüngliche Kaufpreis des Vermögenswerts."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Salvage Value",
         "tr": "Hurda Değeri",
-        "de": "Salvage Value",
+        "de": "Restwert",
         "fr": "Salvage Value",
         "es": "Salvage Value",
         "ar": "Salvage Value"
       },
       "businessContext_i18n": {
         "en": "The estimated residual value at the end of useful life.",
-        "tr": "Faydalı ömür sonunda tahmini hurda değeri."
+        "tr": "Faydalı ömür sonunda tahmini hurda değeri.",
+        "de": "Der geschätzte Restwert am Ende der Nutzungsdauer."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Useful Life (Years)",
         "tr": "Faydalı Ömür (Yıl)",
-        "de": "Useful Life (Years)",
+        "de": "Nutzungsdauer (Jahre)",
         "fr": "Useful Life (Years)",
         "es": "Useful Life (Years)",
         "ar": "Useful Life (Years)"
       },
       "businessContext_i18n": {
         "en": "The expected useful life of the asset in years.",
-        "tr": "Varlığın beklenen faydalı ömrü (yıl)."
+        "tr": "Varlığın beklenen faydalı ömrü (yıl).",
+        "de": "Die erwartete Nutzungsdauer des Vermögenswerts in Jahren."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Years Elapsed",
         "tr": "Geçen Yıllar",
-        "de": "Years Elapsed",
+        "de": "Verstrichene Jahre",
         "fr": "Years Elapsed",
         "es": "Years Elapsed",
         "ar": "Years Elapsed"
       },
       "businessContext_i18n": {
         "en": "Number of years the asset has been in use.",
-        "tr": "Varlığın kullanımda olduğu yıl sayısı."
+        "tr": "Varlığın kullanımda olduğu yıl sayısı.",
+        "de": "Anzahl der Jahre, die der Vermögenswert in Nutzung ist."
       }
     }
   ],

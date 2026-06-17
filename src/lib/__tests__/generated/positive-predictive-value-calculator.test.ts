@@ -12,7 +12,7 @@ describe("positive-predictive-value-calculator", () => {
     "falsePositives": 0,
     "trueNegatives": 0,
     "falseNegatives": 0
-  } as Positive_predictive_value_calculatorInput;
+  } as unknown as Positive_predictive_value_calculatorInput;
     const result = calculatePositive_predictive_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

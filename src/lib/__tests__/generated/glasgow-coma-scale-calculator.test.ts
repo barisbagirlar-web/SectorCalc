@@ -12,7 +12,7 @@ describe("glasgow-coma-scale-calculator", () => {
     "verbal": 5,
     "motor": 6,
     "modifier": 0
-  } as Glasgow_coma_scale_calculatorInput;
+  } as unknown as Glasgow_coma_scale_calculatorInput;
     const result = calculateGlasgow_coma_scale_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

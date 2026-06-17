@@ -12,7 +12,7 @@ describe("kilobytes-to-megabytes-calculator", () => {
     "divisor": 1024,
     "decimalPlaces": 2,
     "offset": 0
-  } as Kilobytes_to_megabytes_calculatorInput;
+  } as unknown as Kilobytes_to_megabytes_calculatorInput;
     const result = calculateKilobytes_to_megabytes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

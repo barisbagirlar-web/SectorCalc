@@ -14,7 +14,7 @@ describe("spherical-coordinate-calculator", () => {
     "x": 0,
     "y": 0,
     "z": 0
-  } as Spherical_coordinate_calculatorInput;
+  } as unknown as Spherical_coordinate_calculatorInput;
     const result = calculateSpherical_coordinate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

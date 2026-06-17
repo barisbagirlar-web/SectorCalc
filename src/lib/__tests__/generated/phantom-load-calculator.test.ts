@@ -14,7 +14,7 @@ describe("phantom-load-calculator", () => {
     "electricityCost": 1.5,
     "carbonFactor": 0.5,
     "operatingDaysPerYear": 365
-  } as Phantom_load_calculatorInput;
+  } as unknown as Phantom_load_calculatorInput;
     const result = calculatePhantom_load_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("slums-calculator", () => {
     "weight": 500,
     "unitLoadCapacity": 1000,
     "volumePerUnit": 1.5
-  } as Slums_calculatorInput;
+  } as unknown as Slums_calculatorInput;
     const result = calculateSlums_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

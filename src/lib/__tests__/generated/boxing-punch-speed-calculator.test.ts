@@ -13,7 +13,7 @@ describe("boxing-punch-speed-calculator", () => {
     "hip_angle": 45,
     "step_length": 0.2,
     "punch_time": 0.15
-  } as Boxing_punch_speed_calculatorInput;
+  } as unknown as Boxing_punch_speed_calculatorInput;
     const result = calculateBoxing_punch_speed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

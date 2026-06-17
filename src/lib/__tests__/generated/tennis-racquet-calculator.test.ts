@@ -13,7 +13,7 @@ describe("tennis-racquet-calculator", () => {
     "racquetSwingWeight": 320,
     "addedMass": 5,
     "addedPosition": 68.5
-  } as Tennis_racquet_calculatorInput;
+  } as unknown as Tennis_racquet_calculatorInput;
     const result = calculateTennis_racquet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("hair-density-calculator", () => {
     "sample_area_cm2": 1,
     "magnification": 1,
     "calibration_factor": 1
-  } as Hair_density_calculatorInput;
+  } as unknown as Hair_density_calculatorInput;
     const result = calculateHair_density_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

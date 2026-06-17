@@ -12,7 +12,7 @@ describe("baseball-launch-angle-calculator", () => {
     "launchAngle": 30,
     "initialHeight": 1,
     "gravity": 9.81
-  } as Baseball_launch_angle_calculatorInput;
+  } as unknown as Baseball_launch_angle_calculatorInput;
     const result = calculateBaseball_launch_angle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

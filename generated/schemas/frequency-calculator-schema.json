@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Period (T)",
         "tr": "Periyot (T)",
-        "de": "Period (T)",
+        "de": "Periode (T)",
         "fr": "Period (T)",
         "es": "Period (T)",
         "ar": "Period (T)"
       },
       "businessContext_i18n": {
         "en": "Time for one complete cycle. Used in f = 1/T.",
-        "tr": "Bir tam döngü için geçen süre. f = 1/T formülünde kullanılır."
+        "tr": "Bir tam döngü için geçen süre. f = 1/T formülünde kullanılır.",
+        "de": "Zeit für einen vollständigen Zyklus. Verwendet in f = 1/T."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Cycles",
         "tr": "Döngü Sayısı",
-        "de": "Number of Cycles",
+        "de": "Anzahl der Zyklen",
         "fr": "Number of Cycles",
         "es": "Number of Cycles",
         "ar": "Number of Cycles"
       },
       "businessContext_i18n": {
         "en": "Number of cycles observed. Used with Total Time to compute frequency.",
-        "tr": "Gözlemlenen döngü sayısı. Frekansı hesaplamak için Toplam Süre ile birlikte kullanılır."
+        "tr": "Gözlemlenen döngü sayısı. Frekansı hesaplamak için Toplam Süre ile birlikte kullanılır.",
+        "de": "Anzahl der beobachteten Zyklen. Wird mit der Gesamtzeit zur Berechnung der Frequenz verwendet."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Total Time",
         "tr": "Toplam Süre",
-        "de": "Total Time",
+        "de": "Gesamtzeit",
         "fr": "Total Time",
         "es": "Total Time",
         "ar": "Total Time"
       },
       "businessContext_i18n": {
         "en": "Total time over which cycles were counted. Used in f = cycles / time.",
-        "tr": "Döngülerin sayıldığı toplam süre. f = döngü/süre formülünde kullanılır."
+        "tr": "Döngülerin sayıldığı toplam süre. f = döngü/süre formülünde kullanılır.",
+        "de": "Gesamtzeit, über die Zyklen gezählt wurden. Verwendet in f = Zyklen / Zeit."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Velocity (v)",
         "tr": "Hız (v)",
-        "de": "Velocity (v)",
+        "de": "Geschwindigkeit (v)",
         "fr": "Velocity (v)",
         "es": "Velocity (v)",
         "ar": "Velocity (v)"
       },
       "businessContext_i18n": {
         "en": "Wave propagation speed. Used with Wavelength to compute frequency.",
-        "tr": "Dalga yayılma hızı. Frekansı hesaplamak için Dalga Boyu ile birlikte kullanılır."
+        "tr": "Dalga yayılma hızı. Frekansı hesaplamak için Dalga Boyu ile birlikte kullanılır.",
+        "de": "Wellenausbreitungsgeschwindigkeit. Wird mit der Wellenlänge zur Berechnung der Frequenz verwendet."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Wavelength (λ)",
         "tr": "Dalga Boyu (λ)",
-        "de": "Wavelength (λ)",
+        "de": "Wellenlänge (λ)",
         "fr": "Wavelength (λ)",
         "es": "Wavelength (λ)",
         "ar": "Wavelength (λ)"
       },
       "businessContext_i18n": {
         "en": "Distance between successive peaks. Used with Velocity in f = v/λ.",
-        "tr": "Ardışık tepeler arasındaki mesafe. f = v/λ formülünde Hız ile birlikte kullanılır."
+        "tr": "Ardışık tepeler arasındaki mesafe. f = v/λ formülünde Hız ile birlikte kullanılır.",
+        "de": "Abstand zwischen aufeinanderfolgenden Wellenbergen. Wird mit der Geschwindigkeit in f = v/λ verwendet."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Angular Frequency (ω)",
         "tr": "Açısal Frekans (ω)",
-        "de": "Angular Frequency (ω)",
+        "de": "Winkelgeschwindigkeit (ω)",
         "fr": "Angular Frequency (ω)",
         "es": "Angular Frequency (ω)",
         "ar": "Angular Frequency (ω)"
       },
       "businessContext_i18n": {
         "en": "Angular frequency in radians per second. Converted to Hz via f = ω/(2π).",
-        "tr": "Radyan/saniye cinsinden açısal frekans. f = ω/(2π) ile Hz'e dönüştürülür."
+        "tr": "Radyan/saniye cinsinden açısal frekans. f = ω/(2π) ile Hz'e dönüştürülür.",
+        "de": "Winkelgeschwindigkeit in Radiant pro Sekunde. Umrechnung in Hz über f = ω/(2π)."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Revolutions per Minute (RPM)",
         "tr": "Dakikadaki Devir Sayısı (RPM)",
-        "de": "Revolutions per Minute (RPM)",
+        "de": "Umdrehungen pro Minute (RPM)",
         "fr": "Revolutions per Minute (RPM)",
         "es": "Revolutions per Minute (RPM)",
         "ar": "Revolutions per Minute (RPM)"
       },
       "businessContext_i18n": {
         "en": "Rotational speed in revolutions per minute. Converted to Hz via f = RPM/60.",
-        "tr": "Dakikadaki devir cinsinden dönüş hızı. f = RPM/60 ile Hz'e dönüştürülür."
+        "tr": "Dakikadaki devir cinsinden dönüş hızı. f = RPM/60 ile Hz'e dönüştürülür.",
+        "de": "Drehzahl in Umdrehungen pro Minute. Umrechnung in Hz über f = RPM/60."
       }
     }
   ],

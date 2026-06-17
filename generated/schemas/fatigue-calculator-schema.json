@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Alternating Stress",
         "tr": "Değişken Gerilme",
-        "de": "Alternating Stress",
+        "de": "Wechselspannung",
         "fr": "Alternating Stress",
         "es": "Alternating Stress",
         "ar": "Alternating Stress"
       },
       "businessContext_i18n": {
         "en": "Stress amplitude (sigma_a)",
-        "tr": "Gerilme genliği (sigma_a)"
+        "tr": "Gerilme genliği (sigma_a)",
+        "de": "Spannungsamplitude (sigma_a)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Mean Stress",
         "tr": "Ortalama Gerilme",
-        "de": "Mean Stress",
+        "de": "Mittelspannung",
         "fr": "Mean Stress",
         "es": "Mean Stress",
         "ar": "Mean Stress"
       },
       "businessContext_i18n": {
         "en": "Mean stress (sigma_m)",
-        "tr": "Ortalama gerilme (sigma_m)"
+        "tr": "Ortalama gerilme (sigma_m)",
+        "de": "Mittelspannung (sigma_m)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Endurance Limit",
         "tr": "Yorulma Sınırı",
-        "de": "Endurance Limit",
+        "de": "Dauerfestigkeit",
         "fr": "Endurance Limit",
         "es": "Endurance Limit",
         "ar": "Endurance Limit"
       },
       "businessContext_i18n": {
         "en": "Material endurance limit (S_e)",
-        "tr": "Malzeme yorulma sınırı (S_e)"
+        "tr": "Malzeme yorulma sınırı (S_e)",
+        "de": "Dauerfestigkeit des Materials (S_e)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Ultimate Tensile Strength",
         "tr": "Çekme Dayanımı",
-        "de": "Ultimate Tensile Strength",
+        "de": "Zugfestigkeit",
         "fr": "Ultimate Tensile Strength",
         "es": "Ultimate Tensile Strength",
         "ar": "Ultimate Tensile Strength"
       },
       "businessContext_i18n": {
         "en": "Material ultimate tensile strength (S_ut)",
-        "tr": "Malzeme nihai çekme dayanımı (S_ut)"
+        "tr": "Malzeme nihai çekme dayanımı (S_ut)",
+        "de": "Zugfestigkeit des Materials (S_ut)"
       }
     }
   ],

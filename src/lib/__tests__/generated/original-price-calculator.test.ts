@@ -14,7 +14,7 @@ describe("original-price-calculator", () => {
     "overheadPercentage": 15,
     "profitMarginPercentage": 20,
     "vatPercentage": 18
-  } as Original_price_calculatorInput;
+  } as unknown as Original_price_calculatorInput;
     const result = calculateOriginal_price_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

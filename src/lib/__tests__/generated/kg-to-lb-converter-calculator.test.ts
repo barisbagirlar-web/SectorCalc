@@ -12,7 +12,7 @@ describe("kg-to-lb-converter-calculator", () => {
     "precision_level": "2",
     "use_industry_rounding": true,
     "measurement_uncertainty": 0.5
-  } as Kg_to_lb_converter_calculatorInput;
+  } as unknown as Kg_to_lb_converter_calculatorInput;
     const result = calculateKg_to_lb_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

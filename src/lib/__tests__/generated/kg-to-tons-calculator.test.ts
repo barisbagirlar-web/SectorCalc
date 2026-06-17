@@ -12,7 +12,7 @@ describe("kg-to-tons-calculator", () => {
     "tare_kg": 0,
     "batch_count": 1,
     "decimal_places": 3
-  } as Kg_to_tons_calculatorInput;
+  } as unknown as Kg_to_tons_calculatorInput;
     const result = calculateKg_to_tons_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

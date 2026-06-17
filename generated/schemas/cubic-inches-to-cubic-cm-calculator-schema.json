@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Volume in Cubic Inches",
         "tr": "İnç Küp Cinsinden Hacim",
-        "de": "Volume in Cubic Inches",
+        "de": "Volumen in Kubikzoll",
         "fr": "Volume in Cubic Inches",
         "es": "Volume in Cubic Inches",
         "ar": "Volume in Cubic Inches"
       },
       "businessContext_i18n": {
         "en": "The volume measurement in cubic inches to be converted to cubic centimeters.",
-        "tr": "Santimetreküpe dönüştürülecek inç küp cinsinden hacim ölçümü."
+        "tr": "Santimetreküpe dönüştürülecek inç küp cinsinden hacim ölçümü.",
+        "de": "Das Volumen in Kubikzoll, das in Kubikzentimeter umgerechnet werden soll."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
-        "de": "Conversion Factor",
+        "de": "Umrechnungsfaktor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "The standard conversion factor from cubic inches to cubic centimeters (1 in³ = 16.387064 cm³).",
-        "tr": "İnç küpten santimetreküpe standart dönüşüm faktörü (1 in³ = 16.387064 cm³)."
+        "tr": "İnç küpten santimetreküpe standart dönüşüm faktörü (1 in³ = 16.387064 cm³).",
+        "de": "Der Standard-Umrechnungsfaktor von Kubikzoll in Kubikzentimeter (1 in³ = 16,387064 cm³)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the rounded output.",
-        "tr": "Yuvarlanmış çıktı için ondalık basamak sayısı."
+        "tr": "Yuvarlanmış çıktı için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für das gerundete Ergebnis."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Rounding Mode",
         "tr": "Yuvarlama Modu",
-        "de": "Rounding Mode",
+        "de": "Rundungsmodus",
         "fr": "Rounding Mode",
         "es": "Rounding Mode",
         "ar": "Rounding Mode"
       },
       "businessContext_i18n": {
         "en": "0 = round, 1 = floor, 2 = ceil.",
-        "tr": "0 = yuvarla, 1 = taban, 2 = tavan."
+        "tr": "0 = yuvarla, 1 = taban, 2 = tavan.",
+        "de": "0 = runden, 1 = abrunden, 2 = aufrunden."
       }
     }
   ],

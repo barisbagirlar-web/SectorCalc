@@ -14,7 +14,7 @@ describe("1rm-calculator", () => {
     "reps2": 15,
     "weight3": 60,
     "reps3": 20
-  } as _1rm_calculatorInput;
+  } as unknown as _1rm_calculatorInput;
     const result = calculate_1rm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

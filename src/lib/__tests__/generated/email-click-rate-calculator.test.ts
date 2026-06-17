@@ -13,7 +13,7 @@ describe("email-click-rate-calculator", () => {
     "totalOpens": 0,
     "totalSent": 0,
     "bouncedEmails": 0
-  } as Email_click_rate_calculatorInput;
+  } as unknown as Email_click_rate_calculatorInput;
     const result = calculateEmail_click_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

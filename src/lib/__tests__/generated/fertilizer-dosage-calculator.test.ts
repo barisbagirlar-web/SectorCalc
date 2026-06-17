@@ -16,7 +16,7 @@ describe("fertilizer-dosage-calculator", () => {
     "application_efficiency": 70,
     "fertilizer_type_n": "urea",
     "fertilizer_type_p": "dap"
-  } as Fertilizer_dosage_calculatorInput;
+  } as unknown as Fertilizer_dosage_calculatorInput;
     const result = calculateFertilizer_dosage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Cannabinoid",
         "tr": "Başlangıç Kannabinoid",
-        "de": "Initial Cannabinoid",
+        "de": "Anfängliches Cannabinoid",
         "fr": "Initial Cannabinoid",
         "es": "Initial Cannabinoid",
         "ar": "Initial Cannabinoid"
       },
       "businessContext_i18n": {
         "en": "Total cannabinoid content before extraction, measured in milligrams.",
-        "tr": "Ekstraksiyondan önce toplam kannabinoid içeriği, miligram cinsinden ölçülür."
+        "tr": "Ekstraksiyondan önce toplam kannabinoid içeriği, miligram cinsinden ölçülür.",
+        "de": "Gesamtcannabinoidgehalt vor der Extraktion, gemessen in Milligramm."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Solvent Volume",
         "tr": "Çözücü Hacmi",
-        "de": "Solvent Volume",
+        "de": "Lösungsmittelvolumen",
         "fr": "Solvent Volume",
         "es": "Solvent Volume",
         "ar": "Solvent Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of solvent used in extraction, in milliliters.",
-        "tr": "Ekstraksiyonda kullanılan çözücü hacmi, mililitre cinsinden."
+        "tr": "Ekstraksiyonda kullanılan çözücü hacmi, mililitre cinsinden.",
+        "de": "Volumen des verwendeten Lösungsmittels in Millilitern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Extraction Time",
         "tr": "Ekstraksiyon Süresi",
-        "de": "Extraction Time",
+        "de": "Extraktionszeit",
         "fr": "Extraction Time",
         "es": "Extraction Time",
         "ar": "Extraction Time"
       },
       "businessContext_i18n": {
         "en": "Duration of extraction process in minutes.",
-        "tr": "Ekstraksiyon işleminin dakika cinsinden süresi."
+        "tr": "Ekstraksiyon işleminin dakika cinsinden süresi.",
+        "de": "Dauer des Extraktionsprozesses in Minuten."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
-        "de": "Temperature",
+        "de": "Temperatur",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Operating temperature in degrees Celsius, affects rate constant via Arrhenius equation.",
-        "tr": "Santigrat derece cinsinden işletme sıcaklığı, Arrhenius denklemi yoluyla hız sabitini etkiler."
+        "tr": "Santigrat derece cinsinden işletme sıcaklığı, Arrhenius denklemi yoluyla hız sabitini etkiler.",
+        "de": "Betriebstemperatur in Grad Celsius, beeinflusst die Geschwindigkeitskonstante über die Arrhenius-Gleichung."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Pre-exponential Factor",
         "tr": "Ön-Üstel Faktör",
-        "de": "Pre-exponential Factor",
+        "de": "Präexponentieller Faktor",
         "fr": "Pre-exponential Factor",
         "es": "Pre-exponential Factor",
         "ar": "Pre-exponential Factor"
       },
       "businessContext_i18n": {
         "en": "Frequency factor in the Arrhenius rate equation, represents maximum possible rate.",
-        "tr": "Arrhenius hız denklemindeki frekans faktörü, mümkün olan maksimum hızı temsil eder."
+        "tr": "Arrhenius hız denklemindeki frekans faktörü, mümkün olan maksimum hızı temsil eder.",
+        "de": "Frequenzfaktor in der Arrhenius-Geschwindigkeitsgleichung, stellt die maximale mögliche Rate dar."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Activation Energy",
         "tr": "Aktivasyon Enerjisi",
-        "de": "Activation Energy",
+        "de": "Aktivierungsenergie",
         "fr": "Activation Energy",
         "es": "Activation Energy",
         "ar": "Activation Energy"
       },
       "businessContext_i18n": {
         "en": "Energy barrier for extraction, in joules per mole.",
-        "tr": "Ekstraksiyon için enerji bariyeri, mol başına joule cinsinden."
+        "tr": "Ekstraksiyon için enerji bariyeri, mol başına joule cinsinden.",
+        "de": "Energiebarriere für die Extraktion, in Joule pro Mol."
       }
     }
   ],

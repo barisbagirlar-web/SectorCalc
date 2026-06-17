@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Congestive Heart Failure (1 point)",
         "tr": "Konjestif Kalp Yetmezliği (1 puan)",
-        "de": "Congestive Heart Failure (1 point)",
+        "de": "Kongestive Herzinsuffizienz (1 Punkt)",
         "fr": "Congestive Heart Failure (1 point)",
         "es": "Congestive Heart Failure (1 point)",
         "ar": "Congestive Heart Failure (1 point)"
       },
       "businessContext_i18n": {
         "en": "History of CHF",
-        "tr": "KKY öyküsü"
+        "tr": "KKY öyküsü",
+        "de": "Vorgeschichte von CHF"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Hypertension (1 point)",
         "tr": "Hipertansiyon (1 puan)",
-        "de": "Hypertension (1 point)",
+        "de": "Hypertonie (1 Punkt)",
         "fr": "Hypertension (1 point)",
         "es": "Hypertension (1 point)",
         "ar": "Hypertension (1 point)"
       },
       "businessContext_i18n": {
         "en": "Diagnosed hypertension",
-        "tr": "Tanı almış hipertansiyon"
+        "tr": "Tanı almış hipertansiyon",
+        "de": "Diagnostizierte Hypertonie"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Age ≥75 years (2 points)",
         "tr": "Yaş ≥75 yıl (2 puan)",
-        "de": "Age ≥75 years (2 points)",
+        "de": "Alter ≥75 Jahre (2 Punkte)",
         "fr": "Age ≥75 years (2 points)",
         "es": "Age ≥75 years (2 points)",
         "ar": "Age ≥75 years (2 points)"
       },
       "businessContext_i18n": {
         "en": "Patient age 75 or older",
-        "tr": "Hasta yaşı 75 veya üzeri"
+        "tr": "Hasta yaşı 75 veya üzeri",
+        "de": "Patientenalter 75 oder älter"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Diabetes Mellitus (1 point)",
         "tr": "Diyabetes Mellitus (1 puan)",
-        "de": "Diabetes Mellitus (1 point)",
+        "de": "Diabetes mellitus (1 Punkt)",
         "fr": "Diabetes Mellitus (1 point)",
         "es": "Diabetes Mellitus (1 point)",
         "ar": "Diabetes Mellitus (1 point)"
       },
       "businessContext_i18n": {
         "en": "Diagnosed diabetes",
-        "tr": "Tanı almış diyabet"
+        "tr": "Tanı almış diyabet",
+        "de": "Diagnostizierter Diabetes"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Prior Stroke/TIA/Thromboembolism (2 points)",
         "tr": "Önceki İnme/TIA/Tromboemboli (2 puan)",
-        "de": "Prior Stroke/TIA/Thromboembolism (2 points)",
+        "de": "Früherer Schlaganfall/TIA/Thromboembolie (2 Punkte)",
         "fr": "Prior Stroke/TIA/Thromboembolism (2 points)",
         "es": "Prior Stroke/TIA/Thromboembolism (2 points)",
         "ar": "Prior Stroke/TIA/Thromboembolism (2 points)"
       },
       "businessContext_i18n": {
         "en": "History of stroke, TIA, or systemic embolism",
-        "tr": "İnme, TIA veya sistemik emboli öyküsü"
+        "tr": "İnme, TIA veya sistemik emboli öyküsü",
+        "de": "Vorgeschichte von Schlaganfall, TIA oder systemischer Embolie"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Vascular Disease (1 point)",
         "tr": "Vasküler Hastalık (1 puan)",
-        "de": "Vascular Disease (1 point)",
+        "de": "Gefäßerkrankung (1 Punkt)",
         "fr": "Vascular Disease (1 point)",
         "es": "Vascular Disease (1 point)",
         "ar": "Vascular Disease (1 point)"
       },
       "businessContext_i18n": {
         "en": "Prior MI, peripheral artery disease, or aortic plaque",
-        "tr": "Önceki MI, periferik arter hastalığı veya aort plağı"
+        "tr": "Önceki MI, periferik arter hastalığı veya aort plağı",
+        "de": "Früherer Herzinfarkt, periphere arterielle Verschlusskrankheit oder Aortenplaque"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Age 65-74 years (1 point)",
         "tr": "65-74 yaş (1 puan)",
-        "de": "Age 65-74 years (1 point)",
+        "de": "Alter 65–74 Jahre (1 Punkt)",
         "fr": "Age 65-74 years (1 point)",
         "es": "Age 65-74 years (1 point)",
         "ar": "Age 65-74 years (1 point)"
       },
       "businessContext_i18n": {
         "en": "Patient age between 65 and 74",
-        "tr": "Hasta yaşı 65 ile 74 arasında"
+        "tr": "Hasta yaşı 65 ile 74 arasında",
+        "de": "Patientenalter zwischen 65 und 74"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Female Sex (1 point)",
         "tr": "Kadın cinsiyet (1 puan)",
-        "de": "Female Sex (1 point)",
+        "de": "Weibliches Geschlecht (1 Punkt)",
         "fr": "Female Sex (1 point)",
         "es": "Female Sex (1 point)",
         "ar": "Female Sex (1 point)"
       },
       "businessContext_i18n": {
         "en": "Patient is female",
-        "tr": "Hasta kadın"
+        "tr": "Hasta kadın",
+        "de": "Patientin ist weiblich"
       }
     }
   ],

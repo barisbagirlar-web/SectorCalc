@@ -484,6 +484,11 @@ export function normalizeRawGeneratedSchema(
   const catalogCategory = asString(record.catalogCategory) || undefined;
   const sectorSlug = asString(record.sectorSlug) || undefined;
   const categorySlug = asString(record.categorySlug) || undefined;
+  const sectorId = asString(record.sectorId) || undefined;
+  const categoryId = asString(record.categoryId) || undefined;
+  const sector = asString(record.sector) || undefined;
+  const category = asString(record.category) || undefined;
+  const profession = asString(record.profession) || undefined;
   const about = normalizeAboutContent(record);
 
   return {
@@ -491,6 +496,11 @@ export function normalizeRawGeneratedSchema(
     catalogCategory,
     sectorSlug,
     categorySlug,
+    sectorId,
+    categoryId,
+    sector,
+    category,
+    profession,
     lastUpdated: normalizeLastUpdated(record.lastUpdated),
     standardOptions: normalizeStandardOptions(record.standardOptions),
     inputs,

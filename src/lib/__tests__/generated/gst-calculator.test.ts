@@ -11,7 +11,7 @@ describe("gst-calculator", () => {
     "amount": 100,
     "gstRate": 10,
     "country": 1
-  } as Gst_calculatorInput;
+  } as unknown as Gst_calculatorInput;
     const result = calculateGst_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

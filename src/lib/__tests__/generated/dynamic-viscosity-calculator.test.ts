@@ -12,7 +12,7 @@ describe("dynamic-viscosity-calculator", () => {
     "muRef": 0.001002,
     "activationEnergy": 16000,
     "temp": 313
-  } as Dynamic_viscosity_calculatorInput;
+  } as unknown as Dynamic_viscosity_calculatorInput;
     const result = calculateDynamic_viscosity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

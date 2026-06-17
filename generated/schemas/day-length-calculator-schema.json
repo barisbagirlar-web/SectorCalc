@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Enlem",
         "tr": "Enlem",
-        "de": "Enlem",
+        "de": "Breitengrad",
         "fr": "Enlem",
         "es": "Enlem",
         "ar": "Enlem"
       },
       "businessContext_i18n": {
         "en": "Gözlem noktasının enlemi (-90 ile 90 arası)",
-        "tr": "Gözlem noktasının enlemi (-90 ile 90 arası)"
+        "tr": "Gözlem noktasının enlemi (-90 ile 90 arası)",
+        "de": "Breitengrad des Beobachtungspunkts (-90 bis 90)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Yıl",
         "tr": "Yıl",
-        "de": "Yıl",
+        "de": "Jahr",
         "fr": "Yıl",
         "es": "Yıl",
         "ar": "Yıl"
       },
       "businessContext_i18n": {
         "en": "Gözlem yılı",
-        "tr": "Gözlem yılı"
+        "tr": "Gözlem yılı",
+        "de": "Beobachtungsjahr"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Ay",
         "tr": "Ay",
-        "de": "Ay",
+        "de": "Monat",
         "fr": "Ay",
         "es": "Ay",
         "ar": "Ay"
       },
       "businessContext_i18n": {
         "en": "Gözlem ayı (1–12)",
-        "tr": "Gözlem ayı (1–12)"
+        "tr": "Gözlem ayı (1–12)",
+        "de": "Beobachtungsmonat (1–12)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Gün",
         "tr": "Gün",
-        "de": "Gün",
+        "de": "Tag",
         "fr": "Gün",
         "es": "Gün",
         "ar": "Gün"
       },
       "businessContext_i18n": {
         "en": "Gözlem günü (1–31)",
-        "tr": "Gözlem günü (1–31)"
+        "tr": "Gözlem günü (1–31)",
+        "de": "Beobachtungstag (1–31)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "UTC Sapması",
         "tr": "UTC Sapması",
-        "de": "UTC Sapması",
+        "de": "UTC-Abweichung",
         "fr": "UTC Sapması",
         "es": "UTC Sapması",
         "ar": "UTC Sapması"
       },
       "businessContext_i18n": {
         "en": "Zaman dilimi UTC farkı (Türkiye için +3)",
-        "tr": "Zaman dilimi UTC farkı (Türkiye için +3)"
+        "tr": "Zaman dilimi UTC farkı (Türkiye için +3)",
+        "de": "Zeitzonen-UTC-Differenz (für Türkei +3)"
       }
     }
   ],

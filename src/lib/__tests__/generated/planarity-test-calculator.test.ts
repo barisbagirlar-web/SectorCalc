@@ -11,7 +11,7 @@ describe("planarity-test-calculator", () => {
     "vertices": 5,
     "edges": 8,
     "isBipartite": 0
-  } as Planarity_test_calculatorInput;
+  } as unknown as Planarity_test_calculatorInput;
     const result = calculatePlanarity_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

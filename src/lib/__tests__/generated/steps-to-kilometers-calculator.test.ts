@@ -13,7 +13,7 @@ describe("steps-to-kilometers-calculator", () => {
     "heightCm": 170,
     "useHeightEstimation": 0,
     "strideRatio": 0.46
-  } as Steps_to_kilometers_calculatorInput;
+  } as unknown as Steps_to_kilometers_calculatorInput;
     const result = calculateSteps_to_kilometers_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

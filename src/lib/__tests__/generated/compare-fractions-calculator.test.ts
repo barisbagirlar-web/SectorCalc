@@ -12,7 +12,7 @@ describe("compare-fractions-calculator", () => {
     "den1": 2,
     "num2": 3,
     "den2": 4
-  } as Compare_fractions_calculatorInput;
+  } as unknown as Compare_fractions_calculatorInput;
     const result = calculateCompare_fractions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

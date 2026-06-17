@@ -11,7 +11,7 @@
       "label_i18n": {
         "en": "Distance (km)",
         "tr": "Mesafe (km)",
-        "de": "Distance (km)",
+        "de": "Strecke (km)",
         "fr": "Distance (km)",
         "es": "Distance (km)",
         "ar": "Distance (km)"
@@ -31,7 +31,7 @@
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
-        "de": "Conversion Factor",
+        "de": "Umrechnungsfaktor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
@@ -51,14 +51,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result.",
-        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı."
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses."
       }
     },
     {
@@ -71,14 +72,15 @@
       "label_i18n": {
         "en": "Rounding Method",
         "tr": "Yuvarlama yöntemi",
-        "de": "Rounding Method",
+        "de": "Rundungsmethode",
         "fr": "Rounding Method",
         "es": "Rounding Method",
         "ar": "Rounding Method"
       },
       "businessContext_i18n": {
         "en": "0 = round, 1 = floor, 2 = ceil.",
-        "tr": "0 = yuvarla, 1 = taban, 2 = tavan."
+        "tr": "0 = yuvarla, 1 = taban, 2 = tavan.",
+        "de": "0 = runden, 1 = abrunden, 2 = aufrunden."
       }
     },
     {
@@ -131,7 +133,7 @@
       "label_i18n": {
         "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
-        "de": "Scale Factor",
+        "de": "Skalierungsfaktor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"

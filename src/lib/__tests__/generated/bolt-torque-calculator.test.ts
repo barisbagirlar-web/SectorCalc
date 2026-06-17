@@ -13,7 +13,7 @@ describe("bolt-torque-calculator", () => {
     "yieldStrength": 640,
     "safetyFactor": 2,
     "nutFactor": 0.2
-  } as Bolt_torque_calculatorInput;
+  } as unknown as Bolt_torque_calculatorInput;
     const result = calculateBolt_torque_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

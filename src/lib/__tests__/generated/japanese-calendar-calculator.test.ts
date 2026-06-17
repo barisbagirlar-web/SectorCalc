@@ -11,7 +11,7 @@ describe("japanese-calendar-calculator", () => {
     "gregorianYear": 2025,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Japanese_calendar_calculatorInput;
+  } as unknown as Japanese_calendar_calculatorInput;
     const result = calculateJapanese_calendar_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("shear-force-diagram-calculator", () => {
     "loadMagnitude": 100,
     "loadDistanceFromLeft": 5,
     "calculationPoint": 0
-  } as Shear_force_diagram_calculatorInput;
+  } as unknown as Shear_force_diagram_calculatorInput;
     const result = calculateShear_force_diagram_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

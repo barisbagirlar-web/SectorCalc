@@ -12,7 +12,7 @@ describe("percent-difference-calculator", () => {
     "value2": 0,
     "referenceValue": 0,
     "tolerance": 5
-  } as Percent_difference_calculatorInput;
+  } as unknown as Percent_difference_calculatorInput;
     const result = calculatePercent_difference_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

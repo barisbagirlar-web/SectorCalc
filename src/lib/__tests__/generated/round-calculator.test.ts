@@ -12,7 +12,7 @@ describe("round-calculator", () => {
     "length": 1000,
     "density": 7.85,
     "quantity": 1
-  } as Round_calculatorInput;
+  } as unknown as Round_calculatorInput;
     const result = calculateRound_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

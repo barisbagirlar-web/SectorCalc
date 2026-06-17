@@ -12,7 +12,7 @@ describe("months-between-dates-calculator", () => {
     "startMonth": 1,
     "endYear": 2024,
     "endMonth": 1
-  } as Months_between_dates_calculatorInput;
+  } as unknown as Months_between_dates_calculatorInput;
     const result = calculateMonths_between_dates_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

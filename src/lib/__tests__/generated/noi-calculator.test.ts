@@ -16,7 +16,7 @@ describe("noi-calculator", () => {
     "insurance": 4000,
     "utilities": 3000,
     "otherOperatingExpenses": 2000
-  } as Noi_calculatorInput;
+  } as unknown as Noi_calculatorInput;
     const result = calculateNoi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

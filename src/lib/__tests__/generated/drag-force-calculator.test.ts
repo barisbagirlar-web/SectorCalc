@@ -12,7 +12,7 @@ describe("drag-force-calculator", () => {
     "velocity": 10,
     "dragCoefficient": 0.5,
     "referenceArea": 1
-  } as Drag_force_calculatorInput;
+  } as unknown as Drag_force_calculatorInput;
     const result = calculateDrag_force_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

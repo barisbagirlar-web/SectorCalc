@@ -13,7 +13,7 @@ describe("surface-finish-calculator", () => {
     "cuttingSpeed": 150,
     "depthOfCut": 1,
     "desiredRa": 3.2
-  } as Surface_finish_calculatorInput;
+  } as unknown as Surface_finish_calculatorInput;
     const result = calculateSurface_finish_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

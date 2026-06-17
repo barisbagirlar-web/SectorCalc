@@ -15,7 +15,7 @@ describe("ltt-calculator-wales", () => {
     "average_speed_kmh": 60,
     "load_tonnes": 20,
     "co2_emission_factor_kg_per_l": 2.68
-  } as Ltt_calculator_walesInput;
+  } as unknown as Ltt_calculator_walesInput;
     const result = calculateLtt_calculator_wales(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

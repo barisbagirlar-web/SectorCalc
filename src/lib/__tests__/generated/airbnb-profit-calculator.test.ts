@@ -15,7 +15,7 @@ describe("airbnb-profit-calculator", () => {
     "cleaningFee": 50,
     "airbnbFeePercent": 3,
     "monthlyExpenses": 2000
-  } as Airbnb_profit_calculatorInput;
+  } as unknown as Airbnb_profit_calculatorInput;
     const result = calculateAirbnb_profit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("pte-academic-calculator", () => {
     "reading": 50,
     "speaking": 50,
     "writing": 50
-  } as Pte_academic_calculatorInput;
+  } as unknown as Pte_academic_calculatorInput;
     const result = calculatePte_academic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

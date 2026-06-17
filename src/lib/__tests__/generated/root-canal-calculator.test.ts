@@ -12,7 +12,7 @@ describe("root-canal-calculator", () => {
     "d16Diameter": 1,
     "workingLength": 22,
     "desiredOrificeDiameter": 1.2
-  } as Root_canal_calculatorInput;
+  } as unknown as Root_canal_calculatorInput;
     const result = calculateRoot_canal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

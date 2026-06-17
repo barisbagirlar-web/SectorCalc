@@ -14,7 +14,7 @@ describe("motorcycle-loan-calculator", () => {
     "interestRate": 15,
     "loanTerm": 36,
     "salesTaxRate": 18
-  } as Motorcycle_loan_calculatorInput;
+  } as unknown as Motorcycle_loan_calculatorInput;
     const result = calculateMotorcycle_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("snells-law-calculator", () => {
     "theta1": 30,
     "n2": 1.5,
     "theta2": 19.47
-  } as Snells_law_calculatorInput;
+  } as unknown as Snells_law_calculatorInput;
     const result = calculateSnells_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("running-calorie-calculator", () => {
     "distance": 10,
     "elevation_gain": 0,
     "load_kg": 0
-  } as Running_calorie_calculatorInput;
+  } as unknown as Running_calorie_calculatorInput;
     const result = calculateRunning_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

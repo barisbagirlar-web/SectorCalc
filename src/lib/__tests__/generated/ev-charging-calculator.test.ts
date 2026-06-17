@@ -14,7 +14,7 @@ describe("ev-charging-calculator", () => {
     "chargingPower": 50,
     "electricityCost": 0.15,
     "efficiency": 90
-  } as Ev_charging_calculatorInput;
+  } as unknown as Ev_charging_calculatorInput;
     const result = calculateEv_charging_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

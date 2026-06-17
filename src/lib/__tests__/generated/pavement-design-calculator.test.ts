@@ -14,7 +14,7 @@ describe("pavement-design-calculator", () => {
     "designLife": 20,
     "subgradeCBR": 5,
     "reliabilityFactor": 1
-  } as Pavement_design_calculatorInput;
+  } as unknown as Pavement_design_calculatorInput;
     const result = calculatePavement_design_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

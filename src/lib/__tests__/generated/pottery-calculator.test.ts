@@ -15,7 +15,7 @@ describe("pottery-calculator", () => {
     "glazeCostPerLiter": 15,
     "firingCostPerPiece": 1.2,
     "overheadPercentage": 20
-  } as Pottery_calculatorInput;
+  } as unknown as Pottery_calculatorInput;
     const result = calculatePottery_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

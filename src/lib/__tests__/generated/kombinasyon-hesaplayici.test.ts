@@ -11,7 +11,7 @@ describe("kombinasyon-hesaplayici", () => {
     "n": 10,
     "r": 3,
     "auto_input_3": 1
-  } as Kombinasyon_hesaplayiciInput;
+  } as unknown as Kombinasyon_hesaplayiciInput;
     const result = calculateKombinasyon_hesaplayici(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

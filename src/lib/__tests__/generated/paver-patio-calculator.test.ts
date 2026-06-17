@@ -15,7 +15,7 @@ describe("paver-patio-calculator", () => {
     "gap": 0.005,
     "wasteFactor": 0.05,
     "paverCostPerUnit": 1
-  } as Paver_patio_calculatorInput;
+  } as unknown as Paver_patio_calculatorInput;
     const result = calculatePaver_patio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

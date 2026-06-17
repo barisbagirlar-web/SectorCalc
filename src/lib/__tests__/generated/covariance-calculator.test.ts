@@ -16,7 +16,7 @@ describe("covariance-calculator", () => {
     "y3": 0,
     "x4": 0,
     "y4": 0
-  } as Covariance_calculatorInput;
+  } as unknown as Covariance_calculatorInput;
     const result = calculateCovariance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Distance",
         "tr": "Mesafe",
-        "de": "Distance",
+        "de": "Entfernung",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Distance traveled",
-        "tr": "Kat edilen mesafe"
+        "tr": "Kat edilen mesafe",
+        "de": "Zurückgelegte Strecke"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Distance Unit",
         "tr": "Mesafe Birimi",
-        "de": "Distance Unit",
+        "de": "Streckeneinheit",
         "fr": "Distance Unit",
         "es": "Distance Unit",
         "ar": "Distance Unit"
       },
       "businessContext_i18n": {
         "en": "0: km, 1: miles",
-        "tr": "0: km, 1: mil"
+        "tr": "0: km, 1: mil",
+        "de": "0: km, 1: Meilen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fuel Used",
         "tr": "Kullanılan Yakıt",
-        "de": "Fuel Used",
+        "de": "Verbrauchter Kraftstoff",
         "fr": "Fuel Used",
         "es": "Fuel Used",
         "ar": "Fuel Used"
       },
       "businessContext_i18n": {
         "en": "Fuel consumed",
-        "tr": "Tüketilen yakıt"
+        "tr": "Tüketilen yakıt",
+        "de": "Verbrauchter Kraftstoff"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Fuel Unit",
         "tr": "Yakıt Birimi",
-        "de": "Fuel Unit",
+        "de": "Kraftstoffeinheit",
         "fr": "Fuel Unit",
         "es": "Fuel Unit",
         "ar": "Fuel Unit"
       },
       "businessContext_i18n": {
         "en": "0: liters, 1: US gal, 2: UK gal",
-        "tr": "0: litre, 1: ABD galonu, 2: İngiliz galonu"
+        "tr": "0: litre, 1: ABD galonu, 2: İngiliz galonu",
+        "de": "0: Liter, 1: US-Gallone, 2: UK-Gallone"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Output Unit",
         "tr": "Çıktı Birimi",
-        "de": "Output Unit",
+        "de": "Ausgabeeinheit",
         "fr": "Output Unit",
         "es": "Output Unit",
         "ar": "Output Unit"
       },
       "businessContext_i18n": {
         "en": "0: L/100km, 1: km/L, 2: MPG US, 3: MPG UK, 4: G/100mi US",
-        "tr": "0: L/100km, 1: km/L, 2: MPG ABD, 3: MPG İngiltere, 4: G/100mi ABD"
+        "tr": "0: L/100km, 1: km/L, 2: MPG ABD, 3: MPG İngiltere, 4: G/100mi ABD",
+        "de": "0: L/100km, 1: km/L, 2: MPG US, 3: MPG UK, 4: G/100mi US"
       }
     }
   ],

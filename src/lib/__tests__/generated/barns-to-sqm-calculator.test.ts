@@ -12,7 +12,7 @@ describe("barns-to-sqm-calculator", () => {
     "multiplier": 1,
     "constant": 0,
     "precision": 6
-  } as Barns_to_sqm_calculatorInput;
+  } as unknown as Barns_to_sqm_calculatorInput;
     const result = calculateBarns_to_sqm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

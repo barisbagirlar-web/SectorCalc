@@ -12,7 +12,7 @@ describe("concentration-calculator", () => {
     "concentration1": 1,
     "volume2": 0,
     "concentration2": 0
-  } as Concentration_calculatorInput;
+  } as unknown as Concentration_calculatorInput;
     const result = calculateConcentration_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

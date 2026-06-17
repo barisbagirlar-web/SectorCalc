@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Distance",
         "tr": "Mesafe",
-        "de": "Distance",
+        "de": "Entfernung",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Total route distance",
-        "tr": "Toplam rota mesafesi"
+        "tr": "Toplam rota mesafesi",
+        "de": "Gesamte Routenentfernung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Average Speed",
         "tr": "Ortalama Hız",
-        "de": "Average Speed",
+        "de": "Durchschnittsgeschwindigkeit",
         "fr": "Average Speed",
         "es": "Average Speed",
         "ar": "Average Speed"
       },
       "businessContext_i18n": {
         "en": "Expected average travel speed",
-        "tr": "Beklenen ortalama seyahat hızı"
+        "tr": "Beklenen ortalama seyahat hızı",
+        "de": "Erwartete Durchschnittsgeschwindigkeit"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fuel Consumption",
         "tr": "Yakıt Tüketimi",
-        "de": "Fuel Consumption",
+        "de": "Kraftstoffverbrauch",
         "fr": "Fuel Consumption",
         "es": "Fuel Consumption",
         "ar": "Fuel Consumption"
       },
       "businessContext_i18n": {
         "en": "Vehicle fuel consumption rate",
-        "tr": "Araç yakıt tüketim oranı"
+        "tr": "Araç yakıt tüketim oranı",
+        "de": "Kraftstoffverbrauch des Fahrzeugs"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Fuel Price",
         "tr": "Yakıt Fiyatı",
-        "de": "Fuel Price",
+        "de": "Kraftstoffpreis",
         "fr": "Fuel Price",
         "es": "Fuel Price",
         "ar": "Fuel Price"
       },
       "businessContext_i18n": {
         "en": "Cost of fuel per litre",
-        "tr": "Litre başına yakıt maliyeti"
+        "tr": "Litre başına yakıt maliyeti",
+        "de": "Kraftstoffkosten pro Liter"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Number of Stops",
         "tr": "Duruş Sayısı",
-        "de": "Number of Stops",
+        "de": "Anzahl der Stopps",
         "fr": "Number of Stops",
         "es": "Number of Stops",
         "ar": "Number of Stops"
       },
       "businessContext_i18n": {
         "en": "Number of rest/delivery stops",
-        "tr": "Dinlenme/teslimat durağı sayısı"
+        "tr": "Dinlenme/teslimat durağı sayısı",
+        "de": "Anzahl der Ruhe-/Lieferstopps"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Time per Stop",
         "tr": "Durak Başına Süre",
-        "de": "Time per Stop",
+        "de": "Zeit pro Stopp",
         "fr": "Time per Stop",
         "es": "Time per Stop",
         "ar": "Time per Stop"
       },
       "businessContext_i18n": {
         "en": "Average time spent per stop",
-        "tr": "Durak başına ortalama harcanan süre"
+        "tr": "Durak başına ortalama harcanan süre",
+        "de": "Durchschnittliche Zeit pro Stopp"
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("improper-integral-calculator", () => {
     "B": 1,
     "a": 0,
     "x0": 0
-  } as Improper_integral_calculatorInput;
+  } as unknown as Improper_integral_calculatorInput;
     const result = calculateImproper_integral_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

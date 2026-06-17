@@ -14,7 +14,7 @@ describe("generating-function-calculator", () => {
     "a3": 0,
     "a4": 0,
     "x": 0
-  } as Generating_function_calculatorInput;
+  } as unknown as Generating_function_calculatorInput;
     const result = calculateGenerating_function_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

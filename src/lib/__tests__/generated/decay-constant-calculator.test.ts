@@ -14,7 +14,7 @@ describe("decay-constant-calculator", () => {
     "finalQuantity": 0,
     "timeElapsed": 0,
     "timeUnitConversion": 1
-  } as Decay_constant_calculatorInput;
+  } as unknown as Decay_constant_calculatorInput;
     const result = calculateDecay_constant_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

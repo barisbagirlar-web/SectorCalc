@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gross Income ($)",
         "tr": "Brüt Gelir ($)",
-        "de": "Gross Income ($)",
+        "de": "Bruttoeinkommen ($)",
         "fr": "Gross Income ($)",
         "es": "Gross Income ($)",
         "ar": "Gross Income ($)"
       },
       "businessContext_i18n": {
         "en": "Total income received from all 1099 contracts before any deductions.",
-        "tr": "Tüm 1099 sözleşmelerinden herhangi bir kesinti öncesi alınan toplam gelir."
+        "tr": "Tüm 1099 sözleşmelerinden herhangi bir kesinti öncesi alınan toplam gelir.",
+        "de": "Gesamteinkommen aus allen 1099-Verträgen vor Abzügen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Business Expenses ($)",
         "tr": "İşletme Giderleri ($)",
-        "de": "Business Expenses ($)",
+        "de": "Betriebsausgaben ($)",
         "fr": "Business Expenses ($)",
         "es": "Business Expenses ($)",
         "ar": "Business Expenses ($)"
       },
       "businessContext_i18n": {
         "en": "Ordinary and necessary expenses directly related to the business (e.g., supplies, home office, mileage).",
-        "tr": "İşletmeyle doğrudan ilgili olağan ve gerekli giderler (örn. malzemeler, ev ofisi, kilometre)."
+        "tr": "İşletmeyle doğrudan ilgili olağan ve gerekli giderler (örn. malzemeler, ev ofisi, kilometre).",
+        "de": "Gewöhnliche und notwendige Ausgaben, die direkt mit dem Geschäft zusammenhängen (z. B. Büromaterial, Homeoffice, Kilometer)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Federal Tax Rate (%)",
         "tr": "Federal Vergi Oranı (%)",
-        "de": "Federal Tax Rate (%)",
+        "de": "Bundessteuersatz (%)",
         "fr": "Federal Tax Rate (%)",
         "es": "Federal Tax Rate (%)",
         "ar": "Federal Tax Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Marginal federal income tax rate applied to taxable income after deductions.",
-        "tr": "Kesintilerden sonra vergilendirilebilir gelire uygulanan marjinal federal gelir vergisi oranı."
+        "tr": "Kesintilerden sonra vergilendirilebilir gelire uygulanan marjinal federal gelir vergisi oranı.",
+        "de": "Grenzsteuersatz der Bundessteuer auf das zu versteuernde Einkommen nach Abzügen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "State Tax Rate (%)",
         "tr": "Eyalet Vergi Oranı (%)",
-        "de": "State Tax Rate (%)",
+        "de": "Landessteuersatz (%)",
         "fr": "State Tax Rate (%)",
         "es": "State Tax Rate (%)",
         "ar": "State Tax Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Combined state and local income tax rate, if applicable.",
-        "tr": "Varsa, birleşik eyalet ve yerel gelir vergisi oranı."
+        "tr": "Varsa, birleşik eyalet ve yerel gelir vergisi oranı.",
+        "de": "Kombinierter Landes- und Kommunalsteuersatz, falls zutreffend."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Self-Employment Tax Rate (%)",
         "tr": "Serbest Meslek Vergi Oranı (%)",
-        "de": "Self-Employment Tax Rate (%)",
+        "de": "Selbstständigensteuersatz (%)",
         "fr": "Self-Employment Tax Rate (%)",
         "es": "Self-Employment Tax Rate (%)",
         "ar": "Self-Employment Tax Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Social Security and Medicare taxes for self-employed individuals (typically 15.3% on 92.35% of net profit).",
-        "tr": "Serbest meslek sahipleri için Sosyal Güvenlik ve Medicare vergileri (genellikle net kârın %92,35'i üzerinden %15,3)."
+        "tr": "Serbest meslek sahipleri için Sosyal Güvenlik ve Medicare vergileri (genellikle net kârın %92,35'i üzerinden %15,3).",
+        "de": "Sozialversicherungs- und Medicare-Steuern für Selbstständige (in der Regel 15,3 % auf 92,35 % des Nettogewinns)."
       }
     }
   ],

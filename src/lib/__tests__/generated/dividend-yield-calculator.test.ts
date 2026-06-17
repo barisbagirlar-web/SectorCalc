@@ -12,7 +12,7 @@ describe("dividend-yield-calculator", () => {
     "marketPricePerShare": 40,
     "numberOfShares": 100,
     "taxRate": 0
-  } as Dividend_yield_calculatorInput;
+  } as unknown as Dividend_yield_calculatorInput;
     const result = calculateDividend_yield_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

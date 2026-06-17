@@ -12,7 +12,7 @@ describe("binomial-coefficient-calculator", () => {
     "k": 2,
     "useSymmetry": 1,
     "decimalPlaces": 0
-  } as Binomial_coefficient_calculatorInput;
+  } as unknown as Binomial_coefficient_calculatorInput;
     const result = calculateBinomial_coefficient_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

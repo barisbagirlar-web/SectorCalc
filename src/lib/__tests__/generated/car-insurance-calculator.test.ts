@@ -16,7 +16,7 @@ describe("car-insurance-calculator", () => {
     "coverageLevel": 3,
     "regionRisk": 5,
     "vehicleAge": 3
-  } as Car_insurance_calculatorInput;
+  } as unknown as Car_insurance_calculatorInput;
     const result = calculateCar_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

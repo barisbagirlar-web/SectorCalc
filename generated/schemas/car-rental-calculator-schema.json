@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Rental Duration (days)",
         "tr": "Kiralama Süresi (gün)",
-        "de": "Rental Duration (days)",
+        "de": "Mietdauer (Tage)",
         "fr": "Rental Duration (days)",
         "es": "Rental Duration (days)",
         "ar": "Rental Duration (days)"
       },
       "businessContext_i18n": {
         "en": "Number of days the car is rented",
-        "tr": "Aracın kiralandığı gün sayısı"
+        "tr": "Aracın kiralandığı gün sayısı",
+        "de": "Anzahl der Tage, an denen das Auto gemietet wird"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Daily Rental Rate",
         "tr": "Günlük Kiralama Ücreti",
-        "de": "Daily Rental Rate",
+        "de": "Täglicher Mietpreis",
         "fr": "Daily Rental Rate",
         "es": "Daily Rental Rate",
         "ar": "Daily Rental Rate"
       },
       "businessContext_i18n": {
         "en": "Base rental rate per day",
-        "tr": "Günlük baz kiralama ücreti"
+        "tr": "Günlük baz kiralama ücreti",
+        "de": "Basismietpreis pro Tag"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Average Mileage per Day",
         "tr": "Günlük Ortalama Kilometre",
-        "de": "Average Mileage per Day",
+        "de": "Durchschnittliche Kilometer pro Tag",
         "fr": "Average Mileage per Day",
         "es": "Average Mileage per Day",
         "ar": "Average Mileage per Day"
       },
       "businessContext_i18n": {
         "en": "Estimated kilometers driven per day",
-        "tr": "Günde tahmini sürülen kilometre"
+        "tr": "Günde tahmini sürülen kilometre",
+        "de": "Geschätzte Kilometer pro Tag"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Fuel Price per Liter",
         "tr": "Litre Başına Yakıt Fiyatı",
-        "de": "Fuel Price per Liter",
+        "de": "Kraftstoffpreis pro Liter",
         "fr": "Fuel Price per Liter",
         "es": "Fuel Price per Liter",
         "ar": "Fuel Price per Liter"
       },
       "businessContext_i18n": {
         "en": "Current fuel price per liter",
-        "tr": "Litre başına güncel yakıt fiyatı"
+        "tr": "Litre başına güncel yakıt fiyatı",
+        "de": "Aktueller Kraftstoffpreis pro Liter"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Fuel Efficiency",
         "tr": "Yakıt Verimliliği",
-        "de": "Fuel Efficiency",
+        "de": "Kraftstoffeffizienz",
         "fr": "Fuel Efficiency",
         "es": "Fuel Efficiency",
         "ar": "Fuel Efficiency"
       },
       "businessContext_i18n": {
         "en": "Car's fuel consumption rate",
-        "tr": "Aracın yakıt tüketim oranı"
+        "tr": "Aracın yakıt tüketim oranı",
+        "de": "Kraftstoffverbrauch des Autos"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Insurance Cost per Day",
         "tr": "Günlük Sigorta Maliyeti",
-        "de": "Insurance Cost per Day",
+        "de": "Versicherungskosten pro Tag",
         "fr": "Insurance Cost per Day",
         "es": "Insurance Cost per Day",
         "ar": "Insurance Cost per Day"
       },
       "businessContext_i18n": {
         "en": "Optional insurance charge per day",
-        "tr": "Günlük isteğe bağlı sigorta ücreti"
+        "tr": "Günlük isteğe bağlı sigorta ücreti",
+        "de": "Optionale Versicherungsgebühr pro Tag"
       }
     }
   ],

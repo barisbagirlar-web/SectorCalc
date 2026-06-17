@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Köşe Kaynak Kalınlığı (a)",
         "tr": "Köşe Kaynak Kalınlığı (a)",
-        "de": "Köşe Kaynak Kalınlığı (a)",
+        "de": "Kehlnahtdicke (a)",
         "fr": "Köşe Kaynak Kalınlığı (a)",
         "es": "Köşe Kaynak Kalınlığı (a)",
         "ar": "Köşe Kaynak Kalınlığı (a)"
       },
       "businessContext_i18n": {
         "en": "Teknik çizimde belirtilen köşe kaynak dikiş kalınlığı",
-        "tr": "Teknik çizimde belirtilen köşe kaynak dikiş kalınlığı"
+        "tr": "Teknik çizimde belirtilen köşe kaynak dikiş kalınlığı",
+        "de": "In der technischen Zeichnung angegebene Kehlnahtdicke"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Kaynak Boyu",
         "tr": "Kaynak Boyu",
-        "de": "Kaynak Boyu",
+        "de": "Schweißnahtlänge",
         "fr": "Kaynak Boyu",
         "es": "Kaynak Boyu",
         "ar": "Kaynak Boyu"
       },
       "businessContext_i18n": {
         "en": "Köşe kaynağının toplam uzunluğu",
-        "tr": "Köşe kaynağının toplam uzunluğu"
+        "tr": "Köşe kaynağının toplam uzunluğu",
+        "de": "Gesamtlänge der Kehlnaht"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Elektrot Akma Dayanımı",
         "tr": "Elektrot Akma Dayanımı",
-        "de": "Elektrot Akma Dayanımı",
+        "de": "Streckgrenze des Elektrodenmaterials",
         "fr": "Elektrot Akma Dayanımı",
         "es": "Elektrot Akma Dayanımı",
         "ar": "Elektrot Akma Dayanımı"
       },
       "businessContext_i18n": {
         "en": "Kullanılan elektrot malzemesinin akma dayanımı (örneğin E42)",
-        "tr": "Kullanılan elektrot malzemesinin akma dayanımı (örneğin E42)"
+        "tr": "Kullanılan elektrot malzemesinin akma dayanımı (örneğin E42)",
+        "de": "Streckgrenze des verwendeten Elektrodenmaterials (z. B. E42)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Güvenlik Katsayısı",
         "tr": "Güvenlik Katsayısı",
-        "de": "Güvenlik Katsayısı",
+        "de": "Sicherheitsfaktor",
         "fr": "Güvenlik Katsayısı",
         "es": "Güvenlik Katsayısı",
         "ar": "Güvenlik Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Emniyet gerilmesi hesaplaması için yapısal güvenlik kat sayısı",
-        "tr": "Emniyet gerilmesi hesaplaması için yapısal güvenlik kat sayısı"
+        "tr": "Emniyet gerilmesi hesaplaması için yapısal güvenlik kat sayısı",
+        "de": "Sicherheitsfaktor für die Berechnung der zulässigen Spannung"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Tasarım Yükü",
         "tr": "Tasarım Yükü",
-        "de": "Tasarım Yükü",
+        "de": "Auslegungslast",
         "fr": "Tasarım Yükü",
         "es": "Tasarım Yükü",
         "ar": "Tasarım Yükü"
       },
       "businessContext_i18n": {
         "en": "Kaynak bağlantısına etkiyen tasarım yükü",
-        "tr": "Kaynak bağlantısına etkiyen tasarım yükü"
+        "tr": "Kaynak bağlantısına etkiyen tasarım yükü",
+        "de": "Auf die Schweißverbindung wirkende Auslegungslast"
       }
     }
   ],

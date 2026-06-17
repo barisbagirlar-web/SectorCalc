@@ -13,7 +13,7 @@ describe("training-load-calculator", () => {
     "restingHeartRate": 60,
     "maxHeartRate": 190,
     "kFactor": 0.64
-  } as Training_load_calculatorInput;
+  } as unknown as Training_load_calculatorInput;
     const result = calculateTraining_load_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

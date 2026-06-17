@@ -12,7 +12,7 @@ describe("quantum-tunneling-calculator", () => {
     "barrier_height": 1,
     "particle_energy": 0.5,
     "barrier_width": 0.5
-  } as Quantum_tunneling_calculatorInput;
+  } as unknown as Quantum_tunneling_calculatorInput;
     const result = calculateQuantum_tunneling_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

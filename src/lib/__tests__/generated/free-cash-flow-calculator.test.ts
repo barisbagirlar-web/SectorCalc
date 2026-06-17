@@ -13,7 +13,7 @@ describe("free-cash-flow-calculator", () => {
     "depreciation": 100000,
     "capex": 200000,
     "changeNWC": 50000
-  } as Free_cash_flow_calculatorInput;
+  } as unknown as Free_cash_flow_calculatorInput;
     const result = calculateFree_cash_flow_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

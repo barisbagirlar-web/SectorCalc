@@ -12,7 +12,7 @@ describe("supplement-calculator", () => {
     "baseConc": 5,
     "desiredConc": 10,
     "suppConc": 90
-  } as Supplement_calculatorInput;
+  } as unknown as Supplement_calculatorInput;
     const result = calculateSupplement_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

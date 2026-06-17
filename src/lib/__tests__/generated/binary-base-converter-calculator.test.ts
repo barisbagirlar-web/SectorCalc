@@ -12,7 +12,7 @@ describe("binary-base-converter-calculator", () => {
     "binaryBits": 8,
     "octalDigits": 3,
     "hexDigits": 4
-  } as Binary_base_converter_calculatorInput;
+  } as unknown as Binary_base_converter_calculatorInput;
     const result = calculateBinary_base_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

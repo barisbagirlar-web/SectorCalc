@@ -12,7 +12,7 @@ describe("hectares-to-acres-calculator", () => {
     "field2": 0,
     "field3": 0,
     "conversionFactor": 2.47105
-  } as Hectares_to_acres_calculatorInput;
+  } as unknown as Hectares_to_acres_calculatorInput;
     const result = calculateHectares_to_acres_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

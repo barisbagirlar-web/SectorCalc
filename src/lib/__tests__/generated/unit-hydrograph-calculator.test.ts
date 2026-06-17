@@ -12,7 +12,7 @@ describe("unit-hydrograph-calculator", () => {
     "timeConcentration": 1.5,
     "peakFactor": 2.08,
     "rainfallDuration": 0.2
-  } as Unit_hydrograph_calculatorInput;
+  } as unknown as Unit_hydrograph_calculatorInput;
     const result = calculateUnit_hydrograph_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

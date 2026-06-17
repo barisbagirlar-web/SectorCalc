@@ -11,7 +11,7 @@ describe("z-score-calculator", () => {
     "confidence_level": "95",
     "tail_type": "two-tailed",
     "use_sample_std": true
-  } as Z_score_calculatorInput;
+  } as unknown as Z_score_calculatorInput;
     const result = calculateZ_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

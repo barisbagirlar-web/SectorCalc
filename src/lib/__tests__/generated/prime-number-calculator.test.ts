@@ -12,7 +12,7 @@ describe("prime-number-calculator", () => {
     "upperBound": 100,
     "sampleSize": 10,
     "tolerance": 5
-  } as Prime_number_calculatorInput;
+  } as unknown as Prime_number_calculatorInput;
     const result = calculatePrime_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

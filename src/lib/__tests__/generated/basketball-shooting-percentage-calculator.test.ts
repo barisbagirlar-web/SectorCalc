@@ -14,7 +14,7 @@ describe("basketball-shooting-percentage-calculator", () => {
     "threePointersAttempted": 0,
     "freeThrowsMade": 0,
     "freeThrowsAttempted": 0
-  } as Basketball_shooting_percentage_calculatorInput;
+  } as unknown as Basketball_shooting_percentage_calculatorInput;
     const result = calculateBasketball_shooting_percentage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

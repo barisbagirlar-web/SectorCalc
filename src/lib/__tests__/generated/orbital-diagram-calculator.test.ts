@@ -12,7 +12,7 @@ describe("orbital-diagram-calculator", () => {
     "eccentricity": 0.001,
     "mu": 398600.4418,
     "trueAnomaly": 0
-  } as Orbital_diagram_calculatorInput;
+  } as unknown as Orbital_diagram_calculatorInput;
     const result = calculateOrbital_diagram_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

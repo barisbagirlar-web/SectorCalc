@@ -12,7 +12,7 @@ describe("decimal-odds-calculator", () => {
     "stake": 100,
     "margin": 0,
     "taxRate": 0
-  } as Decimal_odds_calculatorInput;
+  } as unknown as Decimal_odds_calculatorInput;
     const result = calculateDecimal_odds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

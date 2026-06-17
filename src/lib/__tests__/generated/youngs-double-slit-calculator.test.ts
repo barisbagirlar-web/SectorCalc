@@ -12,7 +12,7 @@ describe("youngs-double-slit-calculator", () => {
     "slitSeparation": 0.001,
     "screenDistance": 1,
     "fringeOrder": 1
-  } as Youngs_double_slit_calculatorInput;
+  } as unknown as Youngs_double_slit_calculatorInput;
     const result = calculateYoungs_double_slit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

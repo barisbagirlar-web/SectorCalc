@@ -11,7 +11,7 @@ describe("frieds-rule-calculator", () => {
     "age": 12,
     "adultDose": 500,
     "auto_input_3": 1
-  } as Frieds_rule_calculatorInput;
+  } as unknown as Frieds_rule_calculatorInput;
     const result = calculateFrieds_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("parallel-capacitor-calculator", () => {
     "c3": 0,
     "c4": 0,
     "c5": 0
-  } as Parallel_capacitor_calculatorInput;
+  } as unknown as Parallel_capacitor_calculatorInput;
     const result = calculateParallel_capacitor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

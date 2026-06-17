@@ -14,7 +14,7 @@ describe("buffet-calculator", () => {
     "laborCost": 500,
     "overheadCost": 200,
     "wastePercentage": 5
-  } as Buffet_calculatorInput;
+  } as unknown as Buffet_calculatorInput;
     const result = calculateBuffet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

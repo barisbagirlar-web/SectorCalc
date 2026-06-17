@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Frequency",
         "tr": "Frekans",
-        "de": "Frequency",
+        "de": "Frequenz",
         "fr": "Frequency",
         "es": "Frequency",
         "ar": "Frequency"
       },
       "businessContext_i18n": {
         "en": "Operating frequency in megahertz",
-        "tr": "Megahertz cinsinden çalışma frekansı"
+        "tr": "Megahertz cinsinden çalışma frekansı",
+        "de": "Betriebsfrequenz in Megahertz"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Velocity Factor",
         "tr": "Hız Faktörü",
-        "de": "Velocity Factor",
+        "de": "Verkürzungsfaktor",
         "fr": "Velocity Factor",
         "es": "Velocity Factor",
         "ar": "Velocity Factor"
       },
       "businessContext_i18n": {
         "en": "Velocity factor of wire or cable. 0.95 for bare copper, 0.66 for insulated wire",
-        "tr": "Tel veya kablonun hız faktörü. Çıplak bakır için 0.95, yalıtımlı tel için 0.66."
+        "tr": "Tel veya kablonun hız faktörü. Çıplak bakır için 0.95, yalıtımlı tel için 0.66.",
+        "de": "Verkürzungsfaktor von Draht oder Kabel. 0,95 für blankes Kupfer, 0,66 für isolierten Draht"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Wavelength Fraction",
         "tr": "Dalga Boyu Kesri",
-        "de": "Wavelength Fraction",
+        "de": "Wellenlängenanteil",
         "fr": "Wavelength Fraction",
         "es": "Wavelength Fraction",
         "ar": "Wavelength Fraction"
       },
       "businessContext_i18n": {
         "en": "Fraction of wavelength. Use 0.5 for half-wave dipole, 1.0 for full-wave",
-        "tr": "Dalga boyunun kesri. Yarım dalga dipol için 0.5, tam dalga için 1.0 kullanın."
+        "tr": "Dalga boyunun kesri. Yarım dalga dipol için 0.5, tam dalga için 1.0 kullanın.",
+        "de": "Bruchteil der Wellenlänge. Verwenden Sie 0,5 für einen Halbwellendipol, 1,0 für einen Vollwellendipol"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Unit Selection",
         "tr": "Birim Seçimi",
-        "de": "Unit Selection",
+        "de": "Einheitenauswahl",
         "fr": "Unit Selection",
         "es": "Unit Selection",
         "ar": "Unit Selection"
       },
       "businessContext_i18n": {
         "en": "0 for feet, 1 for meters",
-        "tr": "Fit için 0, metre için 1."
+        "tr": "Fit için 0, metre için 1.",
+        "de": "0 für Fuß, 1 für Meter"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "End Effect Correction",
         "tr": "Uç Etkisi Düzeltmesi",
-        "de": "End Effect Correction",
+        "de": "Endeffekt-Korrektur",
         "fr": "End Effect Correction",
         "es": "End Effect Correction",
         "ar": "End Effect Correction"
       },
       "businessContext_i18n": {
         "en": "Adjustment factor for end effect. Use 0.95-0.98 for practical shortening",
-        "tr": "Uç etkisi için ayar faktörü. Pratik kısaltma için 0.95-0.98 kullanın."
+        "tr": "Uç etkisi için ayar faktörü. Pratik kısaltma için 0.95-0.98 kullanın.",
+        "de": "Anpassungsfaktor für den Endeffekt. Verwenden Sie 0,95–0,98 für praktische Verkürzung"
       }
     }
   ],

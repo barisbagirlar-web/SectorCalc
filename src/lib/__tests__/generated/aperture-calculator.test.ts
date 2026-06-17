@@ -12,7 +12,7 @@ describe("aperture-calculator", () => {
     "fNumber": 2.8,
     "transmissionPercent": 100,
     "wavelength": 550
-  } as Aperture_calculatorInput;
+  } as unknown as Aperture_calculatorInput;
     const result = calculateAperture_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

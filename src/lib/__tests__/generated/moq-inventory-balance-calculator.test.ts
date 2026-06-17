@@ -16,7 +16,7 @@ describe("moq-inventory-balance-calculator", () => {
     "lead_time_days": 30,
     "demand_std_dev": 10,
     "service_level": 95
-  } as Moq_inventory_balance_calculatorInput;
+  } as unknown as Moq_inventory_balance_calculatorInput;
     const result = calculateMoq_inventory_balance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

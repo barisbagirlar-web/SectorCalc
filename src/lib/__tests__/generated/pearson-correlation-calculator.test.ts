@@ -16,7 +16,7 @@ describe("pearson-correlation-calculator", () => {
     "y3": 0,
     "x4": 0,
     "y4": 0
-  } as Pearson_correlation_calculatorInput;
+  } as unknown as Pearson_correlation_calculatorInput;
     const result = calculatePearson_correlation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

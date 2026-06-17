@@ -13,7 +13,7 @@ describe("fascia-calculator", () => {
     "overlap": 0.05,
     "wasteFactor": 10,
     "pricePerBoard": 20
-  } as Fascia_calculatorInput;
+  } as unknown as Fascia_calculatorInput;
     const result = calculateFascia_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

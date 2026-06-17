@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Pipe Internal Diameter (mm)",
         "tr": "Boru İç Çapı (mm)",
-        "de": "Pipe Internal Diameter (mm)",
+        "de": "Rohrinnendurchmesser (mm)",
         "fr": "Pipe Internal Diameter (mm)",
         "es": "Pipe Internal Diameter (mm)",
         "ar": "Pipe Internal Diameter (mm)"
       },
       "businessContext_i18n": {
         "en": "Internal diameter of the pipe used for gas flow.",
-        "tr": "Gaz akışı için kullanılan borunun iç çapı."
+        "tr": "Gaz akışı için kullanılan borunun iç çapı.",
+        "de": "Innendurchmesser des für den Gasfluss verwendeten Rohrs."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Pipe Length (m)",
         "tr": "Boru Uzunluğu (m)",
-        "de": "Pipe Length (m)",
+        "de": "Rohrlänge (m)",
         "fr": "Pipe Length (m)",
         "es": "Pipe Length (m)",
         "ar": "Pipe Length (m)"
       },
       "businessContext_i18n": {
         "en": "Total length of the pipe segment.",
-        "tr": "Boru bölümünün toplam uzunluğu."
+        "tr": "Boru bölümünün toplam uzunluğu.",
+        "de": "Gesamtlänge des Rohrabschnitts."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Inlet Pressure (bar)",
         "tr": "Giriş Basıncı (bar)",
-        "de": "Inlet Pressure (bar)",
+        "de": "Einlassdruck (bar)",
         "fr": "Inlet Pressure (bar)",
         "es": "Inlet Pressure (bar)",
         "ar": "Inlet Pressure (bar)"
       },
       "businessContext_i18n": {
         "en": "Absolute pressure at the pipe inlet.",
-        "tr": "Boru girişindeki mutlak basınç."
+        "tr": "Boru girişindeki mutlak basınç.",
+        "de": "Absoluter Druck am Rohreinlass."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Outlet Pressure (bar)",
         "tr": "Çıkış Basıncı (bar)",
-        "de": "Outlet Pressure (bar)",
+        "de": "Auslassdruck (bar)",
         "fr": "Outlet Pressure (bar)",
         "es": "Outlet Pressure (bar)",
         "ar": "Outlet Pressure (bar)"
       },
       "businessContext_i18n": {
         "en": "Absolute pressure at the pipe outlet.",
-        "tr": "Boru çıkışındaki mutlak basınç."
+        "tr": "Boru çıkışındaki mutlak basınç.",
+        "de": "Absoluter Druck am Rohrauslass."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Gas Temperature (°C)",
         "tr": "Gaz Sıcaklığı (°C)",
-        "de": "Gas Temperature (°C)",
+        "de": "Gastemperatur (°C)",
         "fr": "Gas Temperature (°C)",
         "es": "Gas Temperature (°C)",
         "ar": "Gas Temperature (°C)"
       },
       "businessContext_i18n": {
         "en": "Average gas temperature inside the pipe.",
-        "tr": "Boru içindeki ortalama gaz sıcaklığı."
+        "tr": "Boru içindeki ortalama gaz sıcaklığı.",
+        "de": "Durchschnittliche Gastemperatur im Rohr."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Specific Gravity (dimensionless)",
         "tr": "Özgül Ağırlık (boyutsuz)",
-        "de": "Specific Gravity (dimensionless)",
+        "de": "Spezifisches Gewicht (dimensionslos)",
         "fr": "Specific Gravity (dimensionless)",
         "es": "Specific Gravity (dimensionless)",
         "ar": "Specific Gravity (dimensionless)"
       },
       "businessContext_i18n": {
         "en": "Ratio of gas density to air density at standard conditions.",
-        "tr": "Gaz yoğunluğunun standart koşullardaki hava yoğunluğuna oranı."
+        "tr": "Gaz yoğunluğunun standart koşullardaki hava yoğunluğuna oranı.",
+        "de": "Verhältnis der Gasdichte zur Luftdichte unter Standardbedingungen."
       }
     }
   ],

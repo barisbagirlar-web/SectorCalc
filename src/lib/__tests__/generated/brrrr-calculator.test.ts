@@ -16,7 +16,7 @@ describe("brrrr-calculator", () => {
     "interestRate": 4,
     "loanTermYears": 30,
     "monthlyExpenses": 500
-  } as Brrrr_calculatorInput;
+  } as unknown as Brrrr_calculatorInput;
     const result = calculateBrrrr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

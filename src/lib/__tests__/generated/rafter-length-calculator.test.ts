@@ -12,7 +12,7 @@ describe("rafter-length-calculator", () => {
     "ridgeThickness": 38,
     "overhang": 300,
     "roofPitch": 30
-  } as Rafter_length_calculatorInput;
+  } as unknown as Rafter_length_calculatorInput;
     const result = calculateRafter_length_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

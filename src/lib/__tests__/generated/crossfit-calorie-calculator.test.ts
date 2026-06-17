@@ -12,7 +12,7 @@ describe("crossfit-calorie-calculator", () => {
     "duration": 30,
     "metValue": 8,
     "genderFactor": 1
-  } as Crossfit_calorie_calculatorInput;
+  } as unknown as Crossfit_calorie_calculatorInput;
     const result = calculateCrossfit_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

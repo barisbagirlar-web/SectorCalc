@@ -15,7 +15,7 @@ describe("sugar-stages-calculator", () => {
     "seedMass": 100,
     "vacuumPressure": -90,
     "residenceTime": 4
-  } as Sugar_stages_calculatorInput;
+  } as unknown as Sugar_stages_calculatorInput;
     const result = calculateSugar_stages_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

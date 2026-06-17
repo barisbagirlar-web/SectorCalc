@@ -13,7 +13,7 @@ describe("garmin-calorie-calculator", () => {
     "heartRate": 120,
     "duration": 30,
     "genderFactor": 1
-  } as Garmin_calorie_calculatorInput;
+  } as unknown as Garmin_calorie_calculatorInput;
     const result = calculateGarmin_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

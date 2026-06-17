@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "The number to be divided",
-        "tr": "Bölünecek sayı"
+        "tr": "Bölünecek sayı",
+        "de": "Die zu teilende Zahl"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "The number to divide by (must be non-zero)",
-        "tr": "Bölen sayı (sıfır olmamalıdır)"
+        "tr": "Bölen sayı (sıfır olmamalıdır)",
+        "de": "Die Zahl, durch die geteilt wird (muss ungleich Null sein)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result",
-        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı"
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Rounding Mode",
         "tr": "Yuvarlama Modu",
-        "de": "Rounding Mode",
+        "de": "Rundungsmodus",
         "fr": "Rounding Mode",
         "es": "Rounding Mode",
         "ar": "Rounding Mode"
       },
       "businessContext_i18n": {
         "en": "0 = floor, 1 = half up, 2 = ceiling",
-        "tr": "0 = taban, 1 = yarı yukarı, 2 = tavan"
+        "tr": "0 = taban, 1 = yarı yukarı, 2 = tavan",
+        "de": "0 = abrunden, 1 = kaufmännisch runden, 2 = aufrunden"
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Curing Temperature",
         "tr": "Kür Sıcaklığı",
-        "de": "Curing Temperature",
+        "de": "Aushärtetemperatur",
         "fr": "Curing Temperature",
         "es": "Curing Temperature",
         "ar": "Curing Temperature"
       },
       "businessContext_i18n": {
         "en": "Average temperature during the curing period.",
-        "tr": "Kür süresi boyunca ortalama sıcaklık."
+        "tr": "Kür süresi boyunca ortalama sıcaklık.",
+        "de": "Durchschnittstemperatur während der Aushärtezeit."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Curing Time",
         "tr": "Kür Süresi",
-        "de": "Curing Time",
+        "de": "Aushärtezeit",
         "fr": "Curing Time",
         "es": "Curing Time",
         "ar": "Curing Time"
       },
       "businessContext_i18n": {
         "en": "Total duration of curing in hours.",
-        "tr": "Kürün toplam süresi (saat)."
+        "tr": "Kürün toplam süresi (saat).",
+        "de": "Gesamtdauer der Aushärtung in Stunden."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Datum Temperature",
         "tr": "Referans Sıcaklık",
-        "de": "Datum Temperature",
+        "de": "Datumstemperatur",
         "fr": "Datum Temperature",
         "es": "Datum Temperature",
         "ar": "Datum Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature below which hydration ceases for the specific concrete mix.",
-        "tr": "Belirli beton karışımı için hidratasyonun durduğu sıcaklık."
+        "tr": "Belirli beton karışımı için hidratasyonun durduğu sıcaklık.",
+        "de": "Temperatur, unterhalb derer die Hydratation für die spezifische Betonmischung aufhört."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Strength Coefficient A",
         "tr": "Mukavemet Katsayısı A",
-        "de": "Strength Coefficient A",
+        "de": "Festigkeitskoeffizient A",
         "fr": "Strength Coefficient A",
         "es": "Strength Coefficient A",
         "ar": "Strength Coefficient A"
       },
       "businessContext_i18n": {
         "en": "Intercept of the maturity-strength logarithmic relationship.",
-        "tr": "Olgunluk-mukavemet logaritmik ilişkisinin kesişimi."
+        "tr": "Olgunluk-mukavemet logaritmik ilişkisinin kesişimi.",
+        "de": "Achsenabschnitt der logarithmischen Reife-Festigkeits-Beziehung."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Strength Coefficient B",
         "tr": "Mukavemet Katsayısı B",
-        "de": "Strength Coefficient B",
+        "de": "Festigkeitskoeffizient B",
         "fr": "Strength Coefficient B",
         "es": "Strength Coefficient B",
         "ar": "Strength Coefficient B"
       },
       "businessContext_i18n": {
         "en": "Slope of the maturity-strength logarithmic relationship.",
-        "tr": "Olgunluk-mukavemet logaritmik ilişkisinin eğimi."
+        "tr": "Olgunluk-mukavemet logaritmik ilişkisinin eğimi.",
+        "de": "Steigung der logarithmischen Reife-Festigkeits-Beziehung."
       }
     }
   ],

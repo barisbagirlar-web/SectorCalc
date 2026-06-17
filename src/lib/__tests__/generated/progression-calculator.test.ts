@@ -12,7 +12,7 @@ describe("progression-calculator", () => {
     "commonDifference": 1,
     "startIndex": 1,
     "endIndex": 10
-  } as Progression_calculatorInput;
+  } as unknown as Progression_calculatorInput;
     const result = calculateProgression_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

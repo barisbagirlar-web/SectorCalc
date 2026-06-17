@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Battery Capacity (Ah)",
         "tr": "Akü Kapasitesi (Ah)",
-        "de": "Battery Capacity (Ah)",
+        "de": "Batteriekapazität (Ah)",
         "fr": "Battery Capacity (Ah)",
         "es": "Battery Capacity (Ah)",
         "ar": "Battery Capacity (Ah)"
       },
       "businessContext_i18n": {
         "en": "Nominal capacity of the battery in ampere-hours.",
-        "tr": "Akünün amper-saat cinsinden nominal kapasitesi."
+        "tr": "Akünün amper-saat cinsinden nominal kapasitesi.",
+        "de": "Nennkapazität der Batterie in Amperestunden"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Current (A)",
         "tr": "Akım (A)",
-        "de": "Current (A)",
+        "de": "Strom (A)",
         "fr": "Current (A)",
         "es": "Current (A)",
         "ar": "Current (A)"
       },
       "businessContext_i18n": {
         "en": "Charge or discharge current in amperes.",
-        "tr": "Amper cinsinden şarj veya deşarj akımı."
+        "tr": "Amper cinsinden şarj veya deşarj akımı.",
+        "de": "Lade- oder Entladestrom in Ampere"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Nominal Voltage (V)",
         "tr": "Nominal Gerilim (V)",
-        "de": "Nominal Voltage (V)",
+        "de": "Nennspannung (V)",
         "fr": "Nominal Voltage (V)",
         "es": "Nominal Voltage (V)",
         "ar": "Nominal Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "Nominal voltage of the battery.",
-        "tr": "Akünün nominal voltajı."
+        "tr": "Akünün nominal voltajı.",
+        "de": "Nennspannung der Batterie"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Efficiency (%)",
         "tr": "Verimlilik (%)",
-        "de": "Efficiency (%)",
+        "de": "Wirkungsgrad (%)",
         "fr": "Efficiency (%)",
         "es": "Efficiency (%)",
         "ar": "Efficiency (%)"
       },
       "businessContext_i18n": {
         "en": "Charging/discharging efficiency for adjusted calculations (not used in core C-rate).",
-        "tr": "Düzeltilmiş hesaplamalar için şarj/deşarj verimliliği (temel C-oranında kullanılmaz)."
+        "tr": "Düzeltilmiş hesaplamalar için şarj/deşarj verimliliği (temel C-oranında kullanılmaz).",
+        "de": "Lade-/Entladewirkungsgrad für angepasste Berechnungen (wird nicht im Kern-C-Rate verwendet)"
       }
     }
   ],

@@ -16,7 +16,7 @@ describe("sleep-debt-calculator", () => {
     "actualSleepDay5": 8,
     "actualSleepDay6": 8,
     "actualSleepDay7": 8
-  } as Sleep_debt_calculatorInput;
+  } as unknown as Sleep_debt_calculatorInput;
     const result = calculateSleep_debt_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

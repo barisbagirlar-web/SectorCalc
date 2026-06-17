@@ -12,7 +12,7 @@ describe("baby-teeth-calculator", () => {
     "geneticFactor": 1,
     "calciumIntake": 500,
     "breastfeedingDuration": 6
-  } as Baby_teeth_calculatorInput;
+  } as unknown as Baby_teeth_calculatorInput;
     const result = calculateBaby_teeth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Investment (PV)",
         "tr": "Başlangıç Yatırımı (BD)",
-        "de": "Initial Investment (PV)",
+        "de": "Anfangsinvestition (Barwert)",
         "fr": "Initial Investment (PV)",
         "es": "Initial Investment (PV)",
         "ar": "Initial Investment (PV)"
       },
       "businessContext_i18n": {
         "en": "The amount of money you start with.",
-        "tr": "Başlangıçta sahip olduğunuz para miktarı."
+        "tr": "Başlangıçta sahip olduğunuz para miktarı.",
+        "de": "Der Geldbetrag, mit dem Sie beginnen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
-        "de": "Annual Interest Rate",
+        "de": "Jährlicher Zinssatz",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "The annual nominal interest rate.",
-        "tr": "Yıllık nominal faiz oranı."
+        "tr": "Yıllık nominal faiz oranı.",
+        "de": "Der jährliche Nominalzinssatz."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Years",
         "tr": "Yıl Sayısı",
-        "de": "Number of Years",
+        "de": "Anzahl der Jahre",
         "fr": "Number of Years",
         "es": "Number of Years",
         "ar": "Number of Years"
       },
       "businessContext_i18n": {
         "en": "The total number of years the money is invested for.",
-        "tr": "Paranın yatırıldığı toplam yıl sayısı."
+        "tr": "Paranın yatırıldığı toplam yıl sayısı.",
+        "de": "Die Gesamtzahl der Jahre, in denen das Geld angelegt ist."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Compounding Frequency",
         "tr": "Bileşik Sıklığı",
-        "de": "Compounding Frequency",
+        "de": "Zinseszinshäufigkeit",
         "fr": "Compounding Frequency",
         "es": "Compounding Frequency",
         "ar": "Compounding Frequency"
       },
       "businessContext_i18n": {
         "en": "How often interest is compounded per year (e.g., 1 for annual, 12 for monthly).",
-        "tr": "Faizin yılda kaç kez bileşiklendiği (örneğin, yıllık için 1, aylık için 12)."
+        "tr": "Faizin yılda kaç kez bileşiklendiği (örneğin, yıllık için 1, aylık için 12).",
+        "de": "Häufigkeit der Zinsgutschrift pro Jahr (z. B. 1 für jährlich, 12 für monatlich)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Periodic Payment (PMT)",
         "tr": "Dönemsel Ödeme (PMT)",
-        "de": "Periodic Payment (PMT)",
+        "de": "Periodische Zahlung (PMT)",
         "fr": "Periodic Payment (PMT)",
         "es": "Periodic Payment (PMT)",
         "ar": "Periodic Payment (PMT)"
       },
       "businessContext_i18n": {
         "en": "The amount added to the investment at each compounding period. Positive for contributions.",
-        "tr": "Her bileşik döneminde yatırıma eklenen miktar. Katkılar için pozitif."
+        "tr": "Her bileşik döneminde yatırıma eklenen miktar. Katkılar için pozitif.",
+        "de": "Der Betrag, der bei jeder Zinsperiode zur Anlage hinzugefügt wird. Positiv für Einzahlungen."
       }
     }
   ],

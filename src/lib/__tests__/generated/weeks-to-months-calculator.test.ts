@@ -14,7 +14,7 @@ describe("weeks-to-months-calculator", () => {
     "workDaysPerWeek": 5,
     "workDaysPerMonth": 22,
     "precision": 2
-  } as Weeks_to_months_calculatorInput;
+  } as unknown as Weeks_to_months_calculatorInput;
     const result = calculateWeeks_to_months_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

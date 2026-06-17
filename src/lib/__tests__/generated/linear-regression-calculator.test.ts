@@ -14,7 +14,7 @@ describe("linear-regression-calculator", () => {
     "sumX2": 0,
     "sumXY": 0,
     "sumY2": 0
-  } as Linear_regression_calculatorInput;
+  } as unknown as Linear_regression_calculatorInput;
     const result = calculateLinear_regression_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

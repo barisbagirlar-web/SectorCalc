@@ -13,7 +13,7 @@ describe("deans-list-calculator", () => {
     "gpa": 3.5,
     "minGpa": 3.5,
     "minCredits": 12
-  } as Deans_list_calculatorInput;
+  } as unknown as Deans_list_calculatorInput;
     const result = calculateDeans_list_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

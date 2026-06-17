@@ -12,7 +12,7 @@ describe("joules-to-calories-calculator", () => {
     "calorie_type": 1,
     "precision": 2,
     "round_method": 0
-  } as Joules_to_calories_calculatorInput;
+  } as unknown as Joules_to_calories_calculatorInput;
     const result = calculateJoules_to_calories_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

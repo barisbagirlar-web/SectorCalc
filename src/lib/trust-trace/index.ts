@@ -51,3 +51,10 @@ export {
   buildApprovedReportCsv,
   buildApprovedReportWordHtml,
 } from "./export";
+
+// Verification helpers (enterprise Trust Trace stamp)
+export {
+  generateVerificationHash,
+  generateQRData,
+  generateVerifyPageUrl,
+} from "./verification";

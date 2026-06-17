@@ -12,7 +12,7 @@ describe("time-signature-calculator", () => {
     "denominator": 4,
     "tempo": 120,
     "measures": 1
-  } as Time_signature_calculatorInput;
+  } as unknown as Time_signature_calculatorInput;
     const result = calculateTime_signature_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

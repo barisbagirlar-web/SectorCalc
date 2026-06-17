@@ -11,7 +11,7 @@ describe("squat-calculator", () => {
     "weight": 100,
     "reps": 5,
     "auto_input_3": 1
-  } as Squat_calculatorInput;
+  } as unknown as Squat_calculatorInput;
     const result = calculateSquat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

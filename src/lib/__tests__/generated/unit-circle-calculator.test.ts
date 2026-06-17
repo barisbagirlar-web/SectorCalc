@@ -12,7 +12,7 @@ describe("unit-circle-calculator", () => {
     "angularVelocity": 0,
     "time": 0,
     "decimalPlaces": 2
-  } as Unit_circle_calculatorInput;
+  } as unknown as Unit_circle_calculatorInput;
     const result = calculateUnit_circle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

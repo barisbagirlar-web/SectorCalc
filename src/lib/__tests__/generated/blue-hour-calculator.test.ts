@@ -14,7 +14,7 @@ describe("blue-hour-calculator", () => {
     "longitude": -74,
     "timezone_offset": -5,
     "day_of_year": 172
-  } as Blue_hour_calculatorInput;
+  } as unknown as Blue_hour_calculatorInput;
     const result = calculateBlue_hour_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

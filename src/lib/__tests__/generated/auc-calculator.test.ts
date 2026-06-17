@@ -16,7 +16,7 @@ describe("auc-calculator", () => {
     "y3": 4,
     "x4": 3,
     "y4": 6
-  } as Auc_calculatorInput;
+  } as unknown as Auc_calculatorInput;
     const result = calculateAuc_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

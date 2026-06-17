@@ -14,7 +14,7 @@ describe("capacitive-reactance-calculator", () => {
     "temperature": 25,
     "esr": 0.1,
     "safety_factor": 1
-  } as Capacitive_reactance_calculatorInput;
+  } as unknown as Capacitive_reactance_calculatorInput;
     const result = calculateCapacitive_reactance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("density-altitude-calculator", () => {
     "altimeterSetting": 29.92,
     "temperature": 15,
     "dewPoint": 10
-  } as Density_altitude_calculatorInput;
+  } as unknown as Density_altitude_calculatorInput;
     const result = calculateDensity_altitude_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("mohr-dairesi-hesaplayici-calculator", () => {
     "sigma_y": 0,
     "tau_xy": 0,
     "theta": 0
-  } as Mohr_dairesi_hesaplayici_calculatorInput;
+  } as unknown as Mohr_dairesi_hesaplayici_calculatorInput;
     const result = calculateMohr_dairesi_hesaplayici_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

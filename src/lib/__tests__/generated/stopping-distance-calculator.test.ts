@@ -12,7 +12,7 @@ describe("stopping-distance-calculator", () => {
     "reactionTime": 1.5,
     "friction": 0.7,
     "gradient": 0
-  } as Stopping_distance_calculatorInput;
+  } as unknown as Stopping_distance_calculatorInput;
     const result = calculateStopping_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

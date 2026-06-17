@@ -13,7 +13,7 @@ describe("ctr-calculator", () => {
     "totalConversions": 0,
     "totalCost": 0,
     "ctrTarget": 0
-  } as Ctr_calculatorInput;
+  } as unknown as Ctr_calculatorInput;
     const result = calculateCtr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

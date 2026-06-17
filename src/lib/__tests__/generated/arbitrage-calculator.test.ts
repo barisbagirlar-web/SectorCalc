@@ -13,7 +13,7 @@ describe("arbitrage-calculator", () => {
     "quantity": 10,
     "buyFee": 5,
     "sellFee": 5
-  } as Arbitrage_calculatorInput;
+  } as unknown as Arbitrage_calculatorInput;
     const result = calculateArbitrage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("act-percentile-calculator", () => {
     "science": 20,
     "distributionMean": 20.8,
     "distributionStd": 5.6
-  } as Act_percentile_calculatorInput;
+  } as unknown as Act_percentile_calculatorInput;
     const result = calculateAct_percentile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

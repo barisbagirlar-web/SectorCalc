@@ -12,7 +12,7 @@ describe("scientific-notation-calculator", () => {
     "exponent": 0,
     "value": 0,
     "precision": 4
-  } as Scientific_notation_calculatorInput;
+  } as unknown as Scientific_notation_calculatorInput;
     const result = calculateScientific_notation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("annual-compound-interest-calculator", () => {
     "annualRate": 5,
     "years": 10,
     "compoundFreq": 1
-  } as Annual_compound_interest_calculatorInput;
+  } as unknown as Annual_compound_interest_calculatorInput;
     const result = calculateAnnual_compound_interest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

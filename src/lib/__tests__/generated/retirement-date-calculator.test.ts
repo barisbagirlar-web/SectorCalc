@@ -13,7 +13,7 @@ describe("retirement-date-calculator", () => {
     "monthlyContribution": 1000,
     "annualReturnPercent": 7,
     "targetCorpus": 1000000
-  } as Retirement_date_calculatorInput;
+  } as unknown as Retirement_date_calculatorInput;
     const result = calculateRetirement_date_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("alternate-day-fasting-calculator", () => {
     "fastingCal": 500,
     "totalDays": 30,
     "startDay": 0
-  } as Alternate_day_fasting_calculatorInput;
+  } as unknown as Alternate_day_fasting_calculatorInput;
     const result = calculateAlternate_day_fasting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

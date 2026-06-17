@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Length",
         "tr": "Uzunluk",
-        "de": "Length",
+        "de": "Länge",
         "fr": "Length",
         "es": "Length",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "Length of the bonding surface in meters.",
-        "tr": "Yapışma yüzeyinin metre cinsinden uzunluğu."
+        "tr": "Yapışma yüzeyinin metre cinsinden uzunluğu.",
+        "de": "Länge der Klebefläche in Metern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Width",
         "tr": "Genişlik",
-        "de": "Width",
+        "de": "Breite",
         "fr": "Width",
         "es": "Width",
         "ar": "Width"
       },
       "businessContext_i18n": {
         "en": "Width of the bonding surface in meters.",
-        "tr": "Yapışma yüzeyinin metre cinsinden genişliği."
+        "tr": "Yapışma yüzeyinin metre cinsinden genişliği.",
+        "de": "Breite der Klebefläche in Metern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Coverage Rate",
         "tr": "Kaplama Oranı",
-        "de": "Coverage Rate",
+        "de": "Auftragsrate",
         "fr": "Coverage Rate",
         "es": "Coverage Rate",
         "ar": "Coverage Rate"
       },
       "businessContext_i18n": {
         "en": "Adhesive consumption per square meter in kilograms per square meter.",
-        "tr": "Metrekare başına kilogram cinsinden yapıştırıcı tüketimi."
+        "tr": "Metrekare başına kilogram cinsinden yapıştırıcı tüketimi.",
+        "de": "Klebstoffverbrauch pro Quadratmeter in Kilogramm pro Quadratmeter."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
-        "de": "Waste Factor",
+        "de": "Abfallfaktor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of additional adhesive to account for waste, spillage, and application loss.",
-        "tr": "Atık, dökülme ve uygulama kaybını hesaba katmak için ek yapıştırıcı yüzdesi."
+        "tr": "Atık, dökülme ve uygulama kaybını hesaba katmak için ek yapıştırıcı yüzdesi.",
+        "de": "Prozentsatz des zusätzlichen Klebstoffs für Abfall, Verschütten und Auftragsverluste."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Number of Layers",
         "tr": "Katman Sayısı",
-        "de": "Number of Layers",
+        "de": "Anzahl der Schichten",
         "fr": "Number of Layers",
         "es": "Number of Layers",
         "ar": "Number of Layers"
       },
       "businessContext_i18n": {
         "en": "Number of adhesive layers to be applied (e.g., for multi-coat applications).",
-        "tr": "Uygulanacak yapıştırıcı katmanı sayısı (örneğin, çok katlı uygulamalar için)."
+        "tr": "Uygulanacak yapıştırıcı katmanı sayısı (örneğin, çok katlı uygulamalar için).",
+        "de": "Anzahl der aufzutragenden Klebstoffschichten (z. B. bei Mehrschichtanwendungen)."
       }
     }
   ],

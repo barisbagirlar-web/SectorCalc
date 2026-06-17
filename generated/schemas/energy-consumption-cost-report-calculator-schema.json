@@ -20,11 +20,13 @@
       "businessContext": "Total electrical energy consumed by the facility over the reporting period (e.g., monthly).",
       "label_i18n": {
         "en": "Total Energy Consumption (kWh)",
-        "tr": "Toplam Enerji Tüketimi (kWh)"
+        "tr": "Toplam Enerji Tüketimi (kWh)",
+        "de": "Gesamtenergieverbrauch (kWh)"
       },
       "businessContext_i18n": {
         "en": "Total electrical energy consumed by the facility over the reporting period (e.g., monthly).",
-        "tr": "Tesisin raporlama dönemi boyunca (örneğin aylık) tükettiği toplam elektrik enerjisi."
+        "tr": "Tesisin raporlama dönemi boyunca (örneğin aylık) tükettiği toplam elektrik enerjisi.",
+        "de": "Gesamte elektrische Energie, die von der Einrichtung im Berichtszeitraum (z. B. monatlich) verbraucht wurde."
       }
     },
     {
@@ -38,11 +40,13 @@
       "businessContext": "Highest recorded power demand during the period; used for demand charge calculation.",
       "label_i18n": {
         "en": "Peak Demand (kW)",
-        "tr": "Tepe Talebi (kW)"
+        "tr": "Tepe Talebi (kW)",
+        "de": "Spitzenlast (kW)"
       },
       "businessContext_i18n": {
         "en": "Highest recorded power demand during the period; used for demand charge calculation.",
-        "tr": "Dönem boyunca kaydedilen en yüksek güç talebi; talep ücreti hesaplamasında kullanılır."
+        "tr": "Dönem boyunca kaydedilen en yüksek güç talebi; talep ücreti hesaplamasında kullanılır.",
+        "de": "Höchste aufgezeichnete Leistungsnachfrage im Zeitraum; wird für die Berechnung der Leistungspreise verwendet."
       }
     },
     {
@@ -56,11 +60,13 @@
       "businessContext": "Average cost per kWh from utility bill (blended rate).",
       "label_i18n": {
         "en": "Energy Rate ($/kWh)",
-        "tr": "Enerji Birim Fiyatı ($/kWh)"
+        "tr": "Enerji Birim Fiyatı ($/kWh)",
+        "de": "Energiepreis ($/kWh)"
       },
       "businessContext_i18n": {
         "en": "Average cost per kWh from utility bill (blended rate).",
-        "tr": "Fatura üzerinden kWh başına ortalama maliyet (karma oran)."
+        "tr": "Fatura üzerinden kWh başına ortalama maliyet (karma oran).",
+        "de": "Durchschnittliche Kosten pro kWh aus der Stromrechnung (Mischpreis)."
       }
     },
     {
@@ -74,11 +80,13 @@
       "businessContext": "Utility demand charge per kW of peak demand.",
       "label_i18n": {
         "en": "Demand Charge ($/kW)",
-        "tr": "Talep Ücreti ($/kW)"
+        "tr": "Talep Ücreti ($/kW)",
+        "de": "Leistungspreis ($/kW)"
       },
       "businessContext_i18n": {
         "en": "Utility demand charge per kW of peak demand.",
-        "tr": "Tepe talebin kW'ı başına uygulanan talep ücreti."
+        "tr": "Tepe talebin kW'ı başına uygulanan talep ücreti.",
+        "de": "Leistungspreis des Versorgers pro kW Spitzenlast."
       }
     },
     {
@@ -92,11 +100,13 @@
       "businessContext": "Number of units produced in the period (e.g., pieces, kg, liters).",
       "label_i18n": {
         "en": "Total Production Units",
-        "tr": "Toplam Üretim Birimi"
+        "tr": "Toplam Üretim Birimi",
+        "de": "Gesamtproduktionseinheiten"
       },
       "businessContext_i18n": {
         "en": "Number of units produced in the period (e.g., pieces, kg, liters).",
-        "tr": "Dönemde üretilen birim sayısı (örneğin adet, kg, litre)."
+        "tr": "Dönemde üretilen birim sayısı (örneğin adet, kg, litre).",
+        "de": "Anzahl der im Zeitraum produzierten Einheiten (z. B. Stück, kg, Liter)."
       }
     },
     {
@@ -117,11 +127,13 @@
       ],
       "label_i18n": {
         "en": "Facility Type",
-        "tr": "Tesis Türü"
+        "tr": "Tesis Türü",
+        "de": "Einrichtungstyp"
       },
       "businessContext_i18n": {
         "en": "Type of facility for benchmarking and normalization.",
-        "tr": "Kıyaslama ve normalleştirme için tesis türü."
+        "tr": "Kıyaslama ve normalleştirme için tesis türü.",
+        "de": "Art der Einrichtung für Benchmarking und Normierung."
       }
     },
     {
@@ -135,11 +147,13 @@
       "businessContext": "If true, subtracts renewable generation from total consumption for net cost calculation.",
       "label_i18n": {
         "en": "Include Renewable Energy Offset",
-        "tr": "Yenilenebilir Enerji Mahsupunu Dahil Et"
+        "tr": "Yenilenebilir Enerji Mahsupunu Dahil Et",
+        "de": "Erneuerbare-Energie-Ausgleich einbeziehen"
       },
       "businessContext_i18n": {
         "en": "If true, subtracts renewable generation from total consumption for net cost calculation.",
-        "tr": "Doğruysa, net maliyet hesaplaması için yenilenebilir üretimi toplam tüketimden düşer."
+        "tr": "Doğruysa, net maliyet hesaplaması için yenilenebilir üretimi toplam tüketimden düşer.",
+        "de": "Wenn aktiviert, wird die erzeugte erneuerbare Energie vom Gesamtverbrauch abgezogen, um die Nettokosten zu berechnen."
       }
     },
     {
@@ -153,11 +167,13 @@
       "businessContext": "On-site renewable generation (solar, wind) during the period.",
       "label_i18n": {
         "en": "Renewable Energy Generated (kWh)",
-        "tr": "Üretilen Yenilenebilir Enerji (kWh)"
+        "tr": "Üretilen Yenilenebilir Enerji (kWh)",
+        "de": "Erzeugte erneuerbare Energie (kWh)"
       },
       "businessContext_i18n": {
         "en": "On-site renewable generation (solar, wind) during the period.",
-        "tr": "Dönem boyunca sahada üretilen yenilenebilir enerji (güneş, rüzgar)."
+        "tr": "Dönem boyunca sahada üretilen yenilenebilir enerji (güneş, rüzgar).",
+        "de": "Eigene erneuerbare Erzeugung (Solar, Wind) im betrachteten Zeitraum."
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("exponent-calculator", () => {
     "constantAdd": 0,
     "modulus": 0,
     "precision": 2
-  } as Exponent_calculatorInput;
+  } as unknown as Exponent_calculatorInput;
     const result = calculateExponent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

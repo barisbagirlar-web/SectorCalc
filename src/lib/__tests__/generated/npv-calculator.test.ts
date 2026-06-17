@@ -16,7 +16,7 @@ describe("npv-calculator", () => {
     "salvage_value": 10000,
     "inflation_rate": 2,
     "tax_rate": 25
-  } as Npv_calculatorInput;
+  } as unknown as Npv_calculatorInput;
     const result = calculateNpv_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

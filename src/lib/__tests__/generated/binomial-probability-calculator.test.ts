@@ -12,7 +12,7 @@ describe("binomial-probability-calculator", () => {
     "k": 5,
     "p": 0.5,
     "precision": 4
-  } as Binomial_probability_calculatorInput;
+  } as unknown as Binomial_probability_calculatorInput;
     const result = calculateBinomial_probability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

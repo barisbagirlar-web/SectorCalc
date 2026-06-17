@@ -16,7 +16,7 @@ describe("flourishing-scale-calculator", () => {
     "item6": 4,
     "item7": 4,
     "item8": 4
-  } as Flourishing_scale_calculatorInput;
+  } as unknown as Flourishing_scale_calculatorInput;
     const result = calculateFlourishing_scale_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

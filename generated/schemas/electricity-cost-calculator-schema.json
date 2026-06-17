@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Power Consumption",
         "tr": "Güç Tüketimi",
-        "de": "Power Consumption",
+        "de": "Stromverbrauch",
         "fr": "Power Consumption",
         "es": "Power Consumption",
         "ar": "Power Consumption"
       },
       "businessContext_i18n": {
         "en": "Average power draw of the equipment or facility in kilowatts.",
-        "tr": "Ekipmanın veya tesisin kilovat cinsinden ortalama güç tüketimi."
+        "tr": "Ekipmanın veya tesisin kilovat cinsinden ortalama güç tüketimi.",
+        "de": "Durchschnittliche Leistungsaufnahme der Anlage in Kilowatt."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Operating Hours per Day",
         "tr": "Günlük Çalışma Saati",
-        "de": "Operating Hours per Day",
+        "de": "Betriebsstunden pro Tag",
         "fr": "Operating Hours per Day",
         "es": "Operating Hours per Day",
         "ar": "Operating Hours per Day"
       },
       "businessContext_i18n": {
         "en": "Number of hours the equipment operates each day.",
-        "tr": "Ekipmanın her gün çalıştığı saat sayısı."
+        "tr": "Ekipmanın her gün çalıştığı saat sayısı.",
+        "de": "Anzahl der Betriebsstunden pro Tag."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Operating Days per Month",
         "tr": "Aylık Çalışma Günü",
-        "de": "Operating Days per Month",
+        "de": "Betriebstage pro Monat",
         "fr": "Operating Days per Month",
         "es": "Operating Days per Month",
         "ar": "Operating Days per Month"
       },
       "businessContext_i18n": {
         "en": "Typical number of operating days in a month.",
-        "tr": "Bir aydaki tipik çalışma günü sayısı."
+        "tr": "Bir aydaki tipik çalışma günü sayısı.",
+        "de": "Typische Anzahl der Betriebstage in einem Monat."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Electricity Rate",
         "tr": "Elektrik Tarifesi",
-        "de": "Electricity Rate",
+        "de": "Stromtarif",
         "fr": "Electricity Rate",
         "es": "Electricity Rate",
         "ar": "Electricity Rate"
       },
       "businessContext_i18n": {
         "en": "Cost per kilowatt-hour of energy consumed.",
-        "tr": "Tüketilen enerjinin kilovat-saat başına maliyeti."
+        "tr": "Tüketilen enerjinin kilovat-saat başına maliyeti.",
+        "de": "Kosten pro Kilowattstunde verbrauchter Energie."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Peak Demand",
         "tr": "Pik Talep",
-        "de": "Peak Demand",
+        "de": "Spitzenlast",
         "fr": "Peak Demand",
         "es": "Peak Demand",
         "ar": "Peak Demand"
       },
       "businessContext_i18n": {
         "en": "Highest average demand in kW during a 15-minute interval in the billing period. Set to 0 if no demand charge.",
-        "tr": "Fatura döneminde 15 dakikalık bir aralıkta kW cinsinden en yüksek ortalama talep. Talep ücreti yoksa 0 olarak ayarlayın."
+        "tr": "Fatura döneminde 15 dakikalık bir aralıkta kW cinsinden en yüksek ortalama talep. Talep ücreti yoksa 0 olarak ayarlayın.",
+        "de": "Höchste durchschnittliche Last in kW während eines 15-Minuten-Intervalls im Abrechnungszeitraum. Auf 0 setzen, wenn keine Leistungspreiskomponente."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Demand Charge Rate",
         "tr": "Talep Ücreti Oranı",
-        "de": "Demand Charge Rate",
+        "de": "Leistungspreis",
         "fr": "Demand Charge Rate",
         "es": "Demand Charge Rate",
         "ar": "Demand Charge Rate"
       },
       "businessContext_i18n": {
         "en": "Cost per kW of peak demand. Set to 0 if no demand charge.",
-        "tr": "Pik talep başına kW maliyeti. Talep ücreti yoksa 0 olarak ayarlayın."
+        "tr": "Pik talep başına kW maliyeti. Talep ücreti yoksa 0 olarak ayarlayın.",
+        "de": "Kosten pro kW Spitzenlast. Auf 0 setzen, wenn keine Leistungspreiskomponente."
       }
     }
   ],

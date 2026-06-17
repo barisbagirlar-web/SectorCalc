@@ -14,7 +14,7 @@ describe("otto-cycle-calculator", () => {
     "initialPressure": 100,
     "maxTemperature": 2000,
     "specificHeatCv": 0.718
-  } as Otto_cycle_calculatorInput;
+  } as unknown as Otto_cycle_calculatorInput;
     const result = calculateOtto_cycle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

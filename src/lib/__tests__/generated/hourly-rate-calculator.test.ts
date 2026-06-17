@@ -13,7 +13,7 @@ describe("hourly-rate-calculator", () => {
     "hoursPerWeek": 40,
     "benefitsRate": 0.3,
     "overheadRate": 0.5
-  } as Hourly_rate_calculatorInput;
+  } as unknown as Hourly_rate_calculatorInput;
     const result = calculateHourly_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("recipe-cost-calculator", () => {
     "laborCostPerHour": 15,
     "laborHours": 1,
     "overheadPercent": 10
-  } as Recipe_cost_calculatorInput;
+  } as unknown as Recipe_cost_calculatorInput;
     const result = calculateRecipe_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

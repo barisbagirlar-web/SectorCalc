@@ -12,7 +12,7 @@ describe("pipe-volume-calculator", () => {
     "wallThickness": 5,
     "length": 1,
     "quantity": 1
-  } as Pipe_volume_calculatorInput;
+  } as unknown as Pipe_volume_calculatorInput;
     const result = calculatePipe_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

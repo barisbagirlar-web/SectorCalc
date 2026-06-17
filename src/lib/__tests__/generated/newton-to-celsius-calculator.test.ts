@@ -12,7 +12,7 @@ describe("newton-to-celsius-calculator", () => {
     "precision": 2,
     "roundingMethod": 0,
     "offset": 0
-  } as Newton_to_celsius_calculatorInput;
+  } as unknown as Newton_to_celsius_calculatorInput;
     const result = calculateNewton_to_celsius_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

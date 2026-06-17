@@ -13,7 +13,7 @@ describe("body-volume-index-calculator", () => {
     "waist": 80,
     "hip": 95,
     "chest": 100
-  } as Body_volume_index_calculatorInput;
+  } as unknown as Body_volume_index_calculatorInput;
     const result = calculateBody_volume_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

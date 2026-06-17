@@ -12,7 +12,7 @@ describe("osmolarity-calculator", () => {
     "glucose": 90,
     "bun": 14,
     "measuredOsmolarity": 285
-  } as Osmolarity_calculatorInput;
+  } as unknown as Osmolarity_calculatorInput;
     const result = calculateOsmolarity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

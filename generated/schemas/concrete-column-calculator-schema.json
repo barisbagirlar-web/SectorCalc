@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Column Width (b)",
         "tr": "Kolon Genişliği (b)",
-        "de": "Column Width (b)",
+        "de": "Stützenbreite (b)",
         "fr": "Column Width (b)",
         "es": "Column Width (b)",
         "ar": "Column Width (b)"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional width of the concrete column.",
-        "tr": "Beton kolonun enine kesit genişliği."
+        "tr": "Beton kolonun enine kesit genişliği.",
+        "de": "Querschnittsbreite der Betonstütze."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Column Depth (h)",
         "tr": "Kolon Derinliği (h)",
-        "de": "Column Depth (h)",
+        "de": "Stützentiefe (h)",
         "fr": "Column Depth (h)",
         "es": "Column Depth (h)",
         "ar": "Column Depth (h)"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional depth of the concrete column.",
-        "tr": "Beton kolonun enine kesit derinliği."
+        "tr": "Beton kolonun enine kesit derinliği.",
+        "de": "Querschnittstiefe der Betonstütze."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Concrete Compressive Strength (f'c)",
         "tr": "Beton Basınç Dayanımı (f'c)",
-        "de": "Concrete Compressive Strength (f'c)",
+        "de": "Beton-Druckfestigkeit (f'c)",
         "fr": "Concrete Compressive Strength (f'c)",
         "es": "Concrete Compressive Strength (f'c)",
         "ar": "Concrete Compressive Strength (f'c)"
       },
       "businessContext_i18n": {
         "en": "Specified compressive strength of concrete at 28 days.",
-        "tr": "28 günde belirtilen beton basınç dayanımı."
+        "tr": "28 günde belirtilen beton basınç dayanımı.",
+        "de": "Festgelegte Druckfestigkeit des Betons nach 28 Tagen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Steel Yield Strength (fy)",
         "tr": "Çelik Akma Dayanımı (fy)",
-        "de": "Steel Yield Strength (fy)",
+        "de": "Streckgrenze des Betonstahls (fy)",
         "fr": "Steel Yield Strength (fy)",
         "es": "Steel Yield Strength (fy)",
         "ar": "Steel Yield Strength (fy)"
       },
       "businessContext_i18n": {
         "en": "Yield strength of longitudinal reinforcing steel.",
-        "tr": "Boyuna donatı çeliğinin akma dayanımı."
+        "tr": "Boyuna donatı çeliğinin akma dayanımı.",
+        "de": "Streckgrenze des Längsbewehrungsstahls."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Total Steel Area (As)",
         "tr": "Toplam Çelik Alanı (As)",
-        "de": "Total Steel Area (As)",
+        "de": "Gesamte Stahlfläche (As)",
         "fr": "Total Steel Area (As)",
         "es": "Total Steel Area (As)",
         "ar": "Total Steel Area (As)"
       },
       "businessContext_i18n": {
         "en": "Total cross-sectional area of longitudinal reinforcement.",
-        "tr": "Boyuna donatının toplam enine kesit alanı."
+        "tr": "Boyuna donatının toplam enine kesit alanı.",
+        "de": "Gesamte Querschnittsfläche der Längsbewehrung."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Strength Reduction Factor (φ)",
         "tr": "Dayanım Azaltma Faktörü (φ)",
-        "de": "Strength Reduction Factor (φ)",
+        "de": "Abminderungsfaktor (φ)",
         "fr": "Strength Reduction Factor (φ)",
         "es": "Strength Reduction Factor (φ)",
         "ar": "Strength Reduction Factor (φ)"
       },
       "businessContext_i18n": {
         "en": "Strength reduction factor for tied columns (0.65 per ACI 318).",
-        "tr": "Fretli kolonlar için dayanım azaltma faktörü (ACI 318'e göre 0.65)."
+        "tr": "Fretli kolonlar için dayanım azaltma faktörü (ACI 318'e göre 0.65).",
+        "de": "Festigkeitsminderungsfaktor für umschnürte Stützen (0,65 gemäß ACI 318)."
       }
     }
   ],

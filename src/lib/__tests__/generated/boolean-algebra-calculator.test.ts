@@ -12,7 +12,7 @@ describe("boolean-algebra-calculator", () => {
     "B": 0,
     "C": 0,
     "D": 0
-  } as Boolean_algebra_calculatorInput;
+  } as unknown as Boolean_algebra_calculatorInput;
     const result = calculateBoolean_algebra_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

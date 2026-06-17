@@ -12,7 +12,7 @@ describe("miller-formula-calculator", () => {
     "heightM": 20,
     "formFactor": 0.42,
     "adjustmentFactor": 1
-  } as Miller_formula_calculatorInput;
+  } as unknown as Miller_formula_calculatorInput;
     const result = calculateMiller_formula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

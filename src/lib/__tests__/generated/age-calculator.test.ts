@@ -14,7 +14,7 @@ describe("age-calculator", () => {
     "referenceYear": 2025,
     "referenceMonth": 1,
     "referenceDay": 1
-  } as Age_calculatorInput;
+  } as unknown as Age_calculatorInput;
     const result = calculateAge_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

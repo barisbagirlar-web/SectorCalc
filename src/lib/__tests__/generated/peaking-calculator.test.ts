@@ -14,7 +14,7 @@ describe("peaking-calculator", () => {
     "offPeakHours": 16,
     "peakRate": 0.15,
     "offPeakRate": 0.05
-  } as Peaking_calculatorInput;
+  } as unknown as Peaking_calculatorInput;
     const result = calculatePeaking_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

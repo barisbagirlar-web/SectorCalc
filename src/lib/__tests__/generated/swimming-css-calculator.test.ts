@@ -12,7 +12,7 @@ describe("swimming-css-calculator", () => {
     "time1": 300,
     "dist2": 200,
     "time2": 140
-  } as Swimming_css_calculatorInput;
+  } as unknown as Swimming_css_calculatorInput;
     const result = calculateSwimming_css_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

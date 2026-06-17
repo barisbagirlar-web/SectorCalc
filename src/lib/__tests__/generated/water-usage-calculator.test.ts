@@ -16,7 +16,7 @@ describe("water-usage-calculator", () => {
     "washingMachineLoadsPerWeek": 5,
     "waterPerLoad": 50,
     "otherDailyUsage": 30
-  } as Water_usage_calculatorInput;
+  } as unknown as Water_usage_calculatorInput;
     const result = calculateWater_usage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

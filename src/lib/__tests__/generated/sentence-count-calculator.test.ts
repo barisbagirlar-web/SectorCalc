@@ -16,7 +16,7 @@ describe("sentence-count-calculator", () => {
     "avgSentencesPerParagraph": 3,
     "lineCount": 0,
     "wordsPerLine": 10
-  } as Sentence_count_calculatorInput;
+  } as unknown as Sentence_count_calculatorInput;
     const result = calculateSentence_count_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

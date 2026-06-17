@@ -13,7 +13,7 @@ describe("equivalent-fractions-checker-calculator", () => {
     "n2": 4,
     "d2": 6,
     "tol": 0.0001
-  } as Equivalent_fractions_checker_calculatorInput;
+  } as unknown as Equivalent_fractions_checker_calculatorInput;
     const result = calculateEquivalent_fractions_checker_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

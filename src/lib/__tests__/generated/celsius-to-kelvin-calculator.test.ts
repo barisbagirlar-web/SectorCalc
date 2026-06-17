@@ -12,7 +12,7 @@ describe("celsius-to-kelvin-calculator", () => {
     "offset": 0,
     "decimalPlaces": 1,
     "uncertainty": 0.1
-  } as Celsius_to_kelvin_calculatorInput;
+  } as unknown as Celsius_to_kelvin_calculatorInput;
     const result = calculateCelsius_to_kelvin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

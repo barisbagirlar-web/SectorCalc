@@ -12,7 +12,7 @@ describe("rng-calculator", () => {
     "max": 100,
     "count": 1,
     "seed": 42
-  } as Rng_calculatorInput;
+  } as unknown as Rng_calculatorInput;
     const result = calculateRng_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

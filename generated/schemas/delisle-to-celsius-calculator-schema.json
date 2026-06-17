@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Delisle Temperature",
         "tr": "Delisle Sıcaklığı",
-        "de": "Delisle Temperature",
+        "de": "Delisle-Temperatur",
         "fr": "Delisle Temperature",
         "es": "Delisle Temperature",
         "ar": "Delisle Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature reading on the Delisle scale.",
-        "tr": "Delisle ölçeğindeki sıcaklık okuması."
+        "tr": "Delisle ölçeğindeki sıcaklık okuması.",
+        "de": "Temperaturmesswert auf der Delisle-Skala."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Freezing Point (Delisle)",
         "tr": "Donma Noktası (Delisle)",
-        "de": "Freezing Point (Delisle)",
+        "de": "Gefrierpunkt (Delisle)",
         "fr": "Freezing Point (Delisle)",
         "es": "Freezing Point (Delisle)",
         "ar": "Freezing Point (Delisle)"
       },
       "businessContext_i18n": {
         "en": "Delisle value at the freezing point of water (0°C). Historically 150°De.",
-        "tr": "Suyun donma noktasındaki Delisle değeri (0°C). Tarihsel olarak 150°De."
+        "tr": "Suyun donma noktasındaki Delisle değeri (0°C). Tarihsel olarak 150°De.",
+        "de": "Delisle-Wert am Gefrierpunkt von Wasser (0°C). Historisch 150°De."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Boiling Point (Delisle)",
         "tr": "Kaynama Noktası (Delisle)",
-        "de": "Boiling Point (Delisle)",
+        "de": "Siedepunkt (Delisle)",
         "fr": "Boiling Point (Delisle)",
         "es": "Boiling Point (Delisle)",
         "ar": "Boiling Point (Delisle)"
       },
       "businessContext_i18n": {
         "en": "Delisle value at the boiling point of water (100°C). Historically 0°De.",
-        "tr": "Suyun kaynama noktasındaki Delisle değeri (100°C). Tarihsel olarak 0°De."
+        "tr": "Suyun kaynama noktasındaki Delisle değeri (100°C). Tarihsel olarak 0°De.",
+        "de": "Delisle-Wert am Siedepunkt von Wasser (100°C). Historisch 0°De."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
-        "de": "Decimal Precision",
+        "de": "Dezimalgenauigkeit",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output.",
-        "tr": "Çıktı için ondalık basamak sayısı."
+        "tr": "Çıktı için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Ausgabe."
       }
     }
   ],

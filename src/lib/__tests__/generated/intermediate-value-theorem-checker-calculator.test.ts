@@ -13,7 +13,7 @@ describe("intermediate-value-theorem-checker-calculator", () => {
     "f_a": -1,
     "f_b": 1,
     "k": 0
-  } as Intermediate_value_theorem_checker_calculatorInput;
+  } as unknown as Intermediate_value_theorem_checker_calculatorInput;
     const result = calculateIntermediate_value_theorem_checker_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

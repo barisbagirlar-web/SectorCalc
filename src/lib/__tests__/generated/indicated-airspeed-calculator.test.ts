@@ -12,7 +12,7 @@ describe("indicated-airspeed-calculator", () => {
     "staticPressure": 101325,
     "airDensity": 1.225,
     "positionErrorCorrection": 1
-  } as Indicated_airspeed_calculatorInput;
+  } as unknown as Indicated_airspeed_calculatorInput;
     const result = calculateIndicated_airspeed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

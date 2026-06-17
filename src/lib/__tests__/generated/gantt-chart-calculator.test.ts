@@ -12,7 +12,7 @@ describe("gantt-chart-calculator", () => {
     "taskDuration": 5,
     "overlap": 20,
     "startDelay": 0
-  } as Gantt_chart_calculatorInput;
+  } as unknown as Gantt_chart_calculatorInput;
     const result = calculateGantt_chart_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

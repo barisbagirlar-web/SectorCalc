@@ -12,7 +12,7 @@ describe("rowing-calorie-calculator", () => {
     "active_duration": 30,
     "rest_duration": 5,
     "met": 7
-  } as Rowing_calorie_calculatorInput;
+  } as unknown as Rowing_calorie_calculatorInput;
     const result = calculateRowing_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

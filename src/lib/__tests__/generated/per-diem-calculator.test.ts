@@ -13,7 +13,7 @@ describe("per-diem-calculator", () => {
     "dailyLodging": 100,
     "incidentals": 20,
     "exchangeRate": 1
-  } as Per_diem_calculatorInput;
+  } as unknown as Per_diem_calculatorInput;
     const result = calculatePer_diem_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

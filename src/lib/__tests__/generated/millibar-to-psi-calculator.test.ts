@@ -12,7 +12,7 @@ describe("millibar-to-psi-calculator", () => {
     "conversionFactor": 0.0145037738,
     "calibrationOffset": 0,
     "temperatureCorrection": 1
-  } as Millibar_to_psi_calculatorInput;
+  } as unknown as Millibar_to_psi_calculatorInput;
     const result = calculateMillibar_to_psi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

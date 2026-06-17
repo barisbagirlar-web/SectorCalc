@@ -14,7 +14,7 @@ describe("subtract-fractions-calculator", () => {
     "denominator2": 1,
     "simplify": 1,
     "decimalPrecision": 2
-  } as Subtract_fractions_calculatorInput;
+  } as unknown as Subtract_fractions_calculatorInput;
     const result = calculateSubtract_fractions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

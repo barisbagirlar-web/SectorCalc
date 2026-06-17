@@ -15,7 +15,7 @@ describe("saas-shelfware-cost-calculator", () => {
     "monthly_support_cost": 2000,
     "contract_months_remaining": 12,
     "utilization_threshold": 80
-  } as Saas_shelfware_cost_calculatorInput;
+  } as unknown as Saas_shelfware_cost_calculatorInput;
     const result = calculateSaas_shelfware_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

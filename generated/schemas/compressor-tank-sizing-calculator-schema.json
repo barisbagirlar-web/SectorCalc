@@ -22,11 +22,13 @@
       "businessContext": "Rated free air delivery of the compressor at standard conditions.",
       "label_i18n": {
         "en": "Compressor Flow Rate",
-        "tr": "Kompresör Debisi"
+        "tr": "Kompresör Debisi",
+        "de": "Kompressor-Durchflussrate"
       },
       "businessContext_i18n": {
         "en": "Rated free air delivery of the compressor at standard conditions.",
-        "tr": "Kompresörün standart koşullardaki anma serbest hava debisi."
+        "tr": "Kompresörün standart koşullardaki anma serbest hava debisi.",
+        "de": "Nenn-Liefermenge des Kompressors bei Standardbedingungen."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Average compressed air consumption of the system.",
       "label_i18n": {
         "en": "Average Demand Flow Rate",
-        "tr": "Ortalama Talep Debisi"
+        "tr": "Ortalama Talep Debisi",
+        "de": "Durchschnittliche Bedarfs-Durchflussrate"
       },
       "businessContext_i18n": {
         "en": "Average compressed air consumption of the system.",
-        "tr": "Sistemin ortalama basınçlı hava tüketimi."
+        "tr": "Sistemin ortalama basınçlı hava tüketimi.",
+        "de": "Durchschnittlicher Druckluftverbrauch des Systems."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Maximum instantaneous demand during operation.",
       "label_i18n": {
         "en": "Peak Demand Flow Rate",
-        "tr": "Tepe Talep Debisi"
+        "tr": "Tepe Talep Debisi",
+        "de": "Spitzenbedarfs-Durchflussrate"
       },
       "businessContext_i18n": {
         "en": "Maximum instantaneous demand during operation.",
-        "tr": "Çalışma sırasında maksimum anlık talep."
+        "tr": "Çalışma sırasında maksimum anlık talep.",
+        "de": "Maximaler momentaner Bedarf während des Betriebs."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Duration of the peak demand event.",
       "label_i18n": {
         "en": "Peak Demand Duration",
-        "tr": "Tepe Talep Süresi"
+        "tr": "Tepe Talep Süresi",
+        "de": "Spitzenbedarfsdauer"
       },
       "businessContext_i18n": {
         "en": "Duration of the peak demand event.",
-        "tr": "Tepe talep olayının süresi."
+        "tr": "Tepe talep olayının süresi.",
+        "de": "Dauer des Spitzenbedarfsereignisses."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Nominal pressure at which the system operates.",
       "label_i18n": {
         "en": "System Operating Pressure",
-        "tr": "Sistem Çalışma Basıncı"
+        "tr": "Sistem Çalışma Basıncı",
+        "de": "Systembetriebsdruck"
       },
       "businessContext_i18n": {
         "en": "Nominal pressure at which the system operates.",
-        "tr": "Sistemin çalıştığı nominal basınç."
+        "tr": "Sistemin çalıştığı nominal basınç.",
+        "de": "Nenndruck, bei dem das System arbeitet."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "Maximum acceptable pressure drop during peak event.",
       "label_i18n": {
         "en": "Allowable Pressure Differential",
-        "tr": "İzin Verilen Basınç Farkı"
+        "tr": "İzin Verilen Basınç Farkı",
+        "de": "Zulässige Druckdifferenz"
       },
       "businessContext_i18n": {
         "en": "Maximum acceptable pressure drop during peak event.",
-        "tr": "Tepe olayı sırasında izin verilen maksimum basınç düşüşü."
+        "tr": "Tepe olayı sırasında izin verilen maksimum basınç düşüşü.",
+        "de": "Maximal akzeptabler Druckabfall während des Spitzenereignisses."
       }
     },
     {
@@ -133,11 +145,13 @@
       "businessContext": "Type of compressor capacity control, affects tank sizing factor.",
       "label_i18n": {
         "en": "Compressor Control Type",
-        "tr": "Kompresör Kontrol Tipi"
+        "tr": "Kompresör Kontrol Tipi",
+        "de": "Kompressor-Regelungsart"
       },
       "businessContext_i18n": {
         "en": "Type of compressor capacity control, affects tank sizing factor.",
-        "tr": "Kompresör kapasite kontrol tipi, tank boyutlandırma faktörünü etkiler."
+        "tr": "Kompresör kapasite kontrol tipi, tank boyutlandırma faktörünü etkiler.",
+        "de": "Art der Kompressorleistungsregelung, beeinflusst den Tankdimensionierungsfaktor."
       },
       "unit": "unit"
     },
@@ -152,11 +166,13 @@
       "businessContext": "Average ambient temperature at compressor location.",
       "label_i18n": {
         "en": "Ambient Temperature",
-        "tr": "Ortam Sıcaklığı"
+        "tr": "Ortam Sıcaklığı",
+        "de": "Umgebungstemperatur"
       },
       "businessContext_i18n": {
         "en": "Average ambient temperature at compressor location.",
-        "tr": "Kompresör konumundaki ortalama ortam sıcaklığı."
+        "tr": "Kompresör konumundaki ortalama ortam sıcaklığı.",
+        "de": "Durchschnittliche Umgebungstemperatur am Kompressorstandort."
       }
     }
   ],

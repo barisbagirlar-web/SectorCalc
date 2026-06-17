@@ -13,7 +13,7 @@ describe("nuclear-fission-calculator", () => {
     "molarMass": 235.0439299,
     "avogadroNumber": 6.02214076e+23,
     "mevToJoules": 1.602176634e-13
-  } as Nuclear_fission_calculatorInput;
+  } as unknown as Nuclear_fission_calculatorInput;
     const result = calculateNuclear_fission_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

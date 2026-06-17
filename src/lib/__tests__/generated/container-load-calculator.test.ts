@@ -16,7 +16,7 @@ describe("container-load-calculator", () => {
     "stacking_factor": 1,
     "load_secure_method": "blocking",
     "use_pallet": true
-  } as Container_load_calculatorInput;
+  } as unknown as Container_load_calculatorInput;
     const result = calculateContainer_load_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

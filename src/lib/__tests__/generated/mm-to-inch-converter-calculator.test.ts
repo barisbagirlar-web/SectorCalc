@@ -13,7 +13,7 @@ describe("mm-to-inch-converter-calculator", () => {
     "tolerance_mm": 0.1,
     "unit_system": "imperial",
     "apply_six_sigma": false
-  } as Mm_to_inch_converter_calculatorInput;
+  } as unknown as Mm_to_inch_converter_calculatorInput;
     const result = calculateMm_to_inch_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

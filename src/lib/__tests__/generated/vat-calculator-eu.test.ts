@@ -12,7 +12,7 @@ describe("vat-calculator-eu", () => {
     "vatRate": 20,
     "quantity": 1,
     "discountPercent": 0
-  } as Vat_calculator_euInput;
+  } as unknown as Vat_calculator_euInput;
     const result = calculateVat_calculator_eu(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

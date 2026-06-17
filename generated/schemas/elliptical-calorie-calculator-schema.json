@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
-        "de": "Body Weight",
+        "de": "Körpergewicht",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of the user in kilograms for accurate calorie expenditure estimation.",
-        "tr": "Kullanıcının kilogram cinsinden ağırlığı, doğru kalori harcaması tahmini için."
+        "tr": "Kullanıcının kilogram cinsinden ağırlığı, doğru kalori harcaması tahmini için.",
+        "de": "Gewicht des Benutzers in Kilogramm für eine genaue Schätzung des Kalorienverbrauchs."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Exercise Duration",
         "tr": "Egzersiz Süresi",
-        "de": "Exercise Duration",
+        "de": "Trainingsdauer",
         "fr": "Exercise Duration",
         "es": "Exercise Duration",
         "ar": "Exercise Duration"
       },
       "businessContext_i18n": {
         "en": "Total time spent on the elliptical machine in minutes.",
-        "tr": "Eliptik bisiklette geçirilen toplam süre (dakika)."
+        "tr": "Eliptik bisiklette geçirilen toplam süre (dakika).",
+        "de": "Gesamtzeit auf dem Ellipsentrainer in Minuten."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "MET Value",
         "tr": "MET Değeri",
-        "de": "MET Value",
+        "de": "MET-Wert",
         "fr": "MET Value",
         "es": "MET Value",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task for elliptical exercise (typical range: 5–9, depending on intensity).",
-        "tr": "Eliptik egzersiz için metabolik eşdeğer (tipik aralık: 5–9, yoğunluğa bağlı)."
+        "tr": "Eliptik egzersiz için metabolik eşdeğer (tipik aralık: 5–9, yoğunluğa bağlı).",
+        "de": "Metabolisches Äquivalent für das Training auf dem Ellipsentrainer (typischer Bereich: 5–9, je nach Intensität)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Personal Correction Factor",
         "tr": "Kişisel Düzeltme Faktörü",
-        "de": "Personal Correction Factor",
+        "de": "Persönlicher Korrekturfaktor",
         "fr": "Personal Correction Factor",
         "es": "Personal Correction Factor",
         "ar": "Personal Correction Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust for individual physiological differences (e.g., efficiency, fitness level). Default 1.0 indicates standard estimation.",
-        "tr": "Bireysel fizyolojik farklılıkları (örn. verimlilik, fitness seviyesi) ayarlamak için çarpan. Varsayılan 1.0 standart tahmini ifade eder."
+        "tr": "Bireysel fizyolojik farklılıkları (örn. verimlilik, fitness seviyesi) ayarlamak için çarpan. Varsayılan 1.0 standart tahmini ifade eder.",
+        "de": "Multiplikator zur Anpassung an individuelle physiologische Unterschiede (z. B. Effizienz, Fitnessniveau). Standard 1,0 bedeutet Standard-Schätzung."
       }
     }
   ],

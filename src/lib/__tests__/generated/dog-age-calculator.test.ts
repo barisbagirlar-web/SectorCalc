@@ -12,7 +12,7 @@ describe("dog-age-calculator", () => {
     "dogAgeMonths": 0,
     "sizeCategory": 2,
     "conversionModel": 2
-  } as Dog_age_calculatorInput;
+  } as unknown as Dog_age_calculatorInput;
     const result = calculateDog_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

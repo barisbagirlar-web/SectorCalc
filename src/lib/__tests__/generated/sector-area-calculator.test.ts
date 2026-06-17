@@ -12,7 +12,7 @@ describe("sector-area-calculator", () => {
     "diameter": 0,
     "angleDegrees": 90,
     "angleRadians": 0
-  } as Sector_area_calculatorInput;
+  } as unknown as Sector_area_calculatorInput;
     const result = calculateSector_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

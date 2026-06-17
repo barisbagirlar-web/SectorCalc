@@ -12,7 +12,7 @@ describe("gradians-to-degrees-calculator", () => {
     "instrumentGain": 0.9,
     "instrumentOffset": 0,
     "roundingDecimals": 2
-  } as Gradians_to_degrees_calculatorInput;
+  } as unknown as Gradians_to_degrees_calculatorInput;
     const result = calculateGradians_to_degrees_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

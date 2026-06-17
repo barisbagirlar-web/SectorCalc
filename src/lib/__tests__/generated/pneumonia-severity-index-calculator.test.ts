@@ -16,7 +16,7 @@ describe("pneumonia-severity-index-calculator", () => {
     "glucose": 100,
     "hematocrit": 40,
     "paO2": 80
-  } as Pneumonia_severity_index_calculatorInput;
+  } as unknown as Pneumonia_severity_index_calculatorInput;
     const result = calculatePneumonia_severity_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

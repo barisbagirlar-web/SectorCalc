@@ -12,7 +12,7 @@ describe("balloon-kredi-hesaplayici-calculator", () => {
     "annualInterestRate": 10,
     "termMonths": 60,
     "balloonPercent": 30
-  } as Balloon_kredi_hesaplayici_calculatorInput;
+  } as unknown as Balloon_kredi_hesaplayici_calculatorInput;
     const result = calculateBalloon_kredi_hesaplayici_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

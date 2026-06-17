@@ -12,7 +12,7 @@ describe("parsecs-to-light-years-calculator", () => {
     "conversionFactor": 3.26156,
     "decimalPlaces": 2,
     "scientificNotation": 0
-  } as Parsecs_to_light_years_calculatorInput;
+  } as unknown as Parsecs_to_light_years_calculatorInput;
     const result = calculateParsecs_to_light_years_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

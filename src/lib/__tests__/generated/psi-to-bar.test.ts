@@ -11,7 +11,7 @@ describe("psi-to-bar", () => {
     "psi_value": 14.5038,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Psi_to_barInput;
+  } as unknown as Psi_to_barInput;
     const result = calculatePsi_to_bar(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

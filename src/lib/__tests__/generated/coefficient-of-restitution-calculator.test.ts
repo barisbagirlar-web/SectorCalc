@@ -12,7 +12,7 @@ describe("coefficient-of-restitution-calculator", () => {
     "v2i": 0,
     "v1f": 0,
     "v2f": 0
-  } as Coefficient_of_restitution_calculatorInput;
+  } as unknown as Coefficient_of_restitution_calculatorInput;
     const result = calculateCoefficient_of_restitution_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

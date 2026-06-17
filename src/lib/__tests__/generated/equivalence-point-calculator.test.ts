@@ -13,7 +13,7 @@ describe("equivalence-point-calculator", () => {
     "c_titrant": 0.1,
     "mole_ratio_analyte": 1,
     "mole_ratio_titrant": 1
-  } as Equivalence_point_calculatorInput;
+  } as unknown as Equivalence_point_calculatorInput;
     const result = calculateEquivalence_point_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

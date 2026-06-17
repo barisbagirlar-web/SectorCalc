@@ -14,7 +14,7 @@ describe("simple-ira-calculator", () => {
     "currentBalance": 50000,
     "annualReturnRate": 7,
     "inflationRate": 2.5
-  } as Simple_ira_calculatorInput;
+  } as unknown as Simple_ira_calculatorInput;
     const result = calculateSimple_ira_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("sedimentation-calculator", () => {
     "basinLength": 20,
     "basinWidth": 5,
     "basinDepth": 3
-  } as Sedimentation_calculatorInput;
+  } as unknown as Sedimentation_calculatorInput;
     const result = calculateSedimentation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

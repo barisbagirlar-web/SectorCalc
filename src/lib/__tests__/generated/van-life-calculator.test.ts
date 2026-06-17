@@ -16,7 +16,7 @@ describe("van-life-calculator", () => {
     "daysAutonomy": 2,
     "batteryVoltage": 12,
     "depthOfDischarge": 50
-  } as Van_life_calculatorInput;
+  } as unknown as Van_life_calculatorInput;
     const result = calculateVan_life_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

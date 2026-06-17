@@ -13,7 +13,7 @@ describe("pregnancy-week-calculator", () => {
     "prePregnancyWeight": 0,
     "currentWeight": 0,
     "height": 0
-  } as Pregnancy_week_calculatorInput;
+  } as unknown as Pregnancy_week_calculatorInput;
     const result = calculatePregnancy_week_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

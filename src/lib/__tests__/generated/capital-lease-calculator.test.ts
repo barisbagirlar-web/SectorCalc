@@ -13,7 +13,7 @@ describe("capital-lease-calculator", () => {
     "interestRate": 8,
     "residualValue": 20000,
     "paymentFrequency": 12
-  } as Capital_lease_calculatorInput;
+  } as unknown as Capital_lease_calculatorInput;
     const result = calculateCapital_lease_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

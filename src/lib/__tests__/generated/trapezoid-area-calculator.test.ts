@@ -12,7 +12,7 @@ describe("trapezoid-area-calculator", () => {
     "base2": 0,
     "height": 0,
     "outputUnitSelection": 1
-  } as Trapezoid_area_calculatorInput;
+  } as unknown as Trapezoid_area_calculatorInput;
     const result = calculateTrapezoid_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

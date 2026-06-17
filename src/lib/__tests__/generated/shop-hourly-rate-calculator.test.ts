@@ -16,7 +16,7 @@ describe("shop-hourly-rate-calculator", () => {
     "average_shop_efficiency_percent": 85,
     "quality_yield_percent": 95,
     "shift_premium_factor": 1
-  } as Shop_hourly_rate_calculatorInput;
+  } as unknown as Shop_hourly_rate_calculatorInput;
     const result = calculateShop_hourly_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

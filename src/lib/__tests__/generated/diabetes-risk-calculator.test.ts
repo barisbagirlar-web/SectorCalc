@@ -14,7 +14,7 @@ describe("diabetes-risk-calculator", () => {
     "hba1c": 5.5,
     "familyHistory": 0,
     "physicalActivity": 1
-  } as Diabetes_risk_calculatorInput;
+  } as unknown as Diabetes_risk_calculatorInput;
     const result = calculateDiabetes_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

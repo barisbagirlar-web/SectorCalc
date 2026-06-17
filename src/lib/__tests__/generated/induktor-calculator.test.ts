@@ -12,7 +12,7 @@ describe("induktor-calculator", () => {
     "length": 20,
     "turns": 100,
     "frequency": 100
-  } as Induktor_calculatorInput;
+  } as unknown as Induktor_calculatorInput;
     const result = calculateInduktor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

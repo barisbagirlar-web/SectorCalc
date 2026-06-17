@@ -13,7 +13,7 @@ describe("robinson-formula-calculator", () => {
     "unitWeight": 1,
     "scrap": 150,
     "rework": 50
-  } as Robinson_formula_calculatorInput;
+  } as unknown as Robinson_formula_calculatorInput;
     const result = calculateRobinson_formula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

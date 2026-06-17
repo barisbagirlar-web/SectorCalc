@@ -14,7 +14,7 @@ describe("startup-cost-calculator", () => {
     "initialInventoryCost": 0,
     "marketingLaunchCost": 0,
     "workingCapital": 0
-  } as Startup_cost_calculatorInput;
+  } as unknown as Startup_cost_calculatorInput;
     const result = calculateStartup_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

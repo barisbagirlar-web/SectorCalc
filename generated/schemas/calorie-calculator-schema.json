@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
-        "de": "Weight",
+        "de": "Gewicht",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "User body weight for metabolic rate estimation",
-        "tr": "Metabolik hız tahmini için kullanıcı vücut ağırlığı"
+        "tr": "Metabolik hız tahmini için kullanıcı vücut ağırlığı",
+        "de": "Körpergewicht des Benutzers zur Schätzung der Stoffwechselrate"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
-        "de": "Height",
+        "de": "Größe",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "User height for body surface area proxy",
-        "tr": "Vücut yüzey alanı vekili için kullanıcı boyu"
+        "tr": "Vücut yüzey alanı vekili için kullanıcı boyu",
+        "de": "Körpergröße des Benutzers als Proxy für die Körperoberfläche"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age affects basal metabolic rate",
-        "tr": "Yaş, bazal metabolizma hızını etkiler"
+        "tr": "Yaş, bazal metabolizma hızını etkiler",
+        "de": "Alter beeinflusst den Grundumsatz"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Gender",
         "tr": "Cinsiyet",
-        "de": "Gender",
+        "de": "Geschlecht",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "Biological sex for Mifflin-St Jeor equation",
-        "tr": "Mifflin-St Jeor denklemi için biyolojik cinsiyet"
+        "tr": "Mifflin-St Jeor denklemi için biyolojik cinsiyet",
+        "de": "Biologisches Geschlecht für die Mifflin-St-Jeor-Gleichung"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Activity Factor",
         "tr": "Aktivite Faktörü",
-        "de": "Activity Factor",
+        "de": "Aktivitätsfaktor",
         "fr": "Activity Factor",
         "es": "Activity Factor",
         "ar": "Activity Factor"
       },
       "businessContext_i18n": {
         "en": "Physical activity level multiplier for TDEE",
-        "tr": "Toplam günlük enerji harcaması için fiziksel aktivite seviyesi çarpanı"
+        "tr": "Toplam günlük enerji harcaması için fiziksel aktivite seviyesi çarpanı",
+        "de": "Multiplikator für körperliche Aktivität für den Gesamtenergieumsatz"
       }
     }
   ],

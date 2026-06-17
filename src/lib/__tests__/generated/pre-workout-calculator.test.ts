@@ -13,7 +13,7 @@ describe("pre-workout-calculator", () => {
     "betaAlaninePerKg": 50,
     "citrullinePerKg": 80,
     "water": 300
-  } as Pre_workout_calculatorInput;
+  } as unknown as Pre_workout_calculatorInput;
     const result = calculatePre_workout_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

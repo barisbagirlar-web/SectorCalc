@@ -13,7 +13,7 @@ describe("mortgage-points-calculator", () => {
     "pointsPurchased": 2,
     "rateReductionPerPoint": 0.25,
     "loanTermYears": 30
-  } as Mortgage_points_calculatorInput;
+  } as unknown as Mortgage_points_calculatorInput;
     const result = calculateMortgage_points_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

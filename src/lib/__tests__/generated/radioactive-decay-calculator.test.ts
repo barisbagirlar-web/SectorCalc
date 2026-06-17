@@ -12,7 +12,7 @@ describe("radioactive-decay-calculator", () => {
     "halfLife": 10,
     "startTime": 0,
     "endTime": 5
-  } as Radioactive_decay_calculatorInput;
+  } as unknown as Radioactive_decay_calculatorInput;
     const result = calculateRadioactive_decay_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

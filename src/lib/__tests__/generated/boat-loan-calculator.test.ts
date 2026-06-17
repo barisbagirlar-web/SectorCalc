@@ -14,7 +14,7 @@ describe("boat-loan-calculator", () => {
     "salesTaxRate": 6,
     "loanTerm": 5,
     "annualInterestRate": 5
-  } as Boat_loan_calculatorInput;
+  } as unknown as Boat_loan_calculatorInput;
     const result = calculateBoat_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

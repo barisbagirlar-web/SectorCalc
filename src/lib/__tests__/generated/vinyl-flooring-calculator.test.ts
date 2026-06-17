@@ -14,7 +14,7 @@ describe("vinyl-flooring-calculator", () => {
     "plankWidth": 0.2,
     "wasteFactor": 10,
     "plankPrice": 15
-  } as Vinyl_flooring_calculatorInput;
+  } as unknown as Vinyl_flooring_calculatorInput;
     const result = calculateVinyl_flooring_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

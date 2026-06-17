@@ -12,7 +12,7 @@ describe("reading-addition-calculator", () => {
     "reading2": 0,
     "reading3": 0,
     "reading4": 0
-  } as Reading_addition_calculatorInput;
+  } as unknown as Reading_addition_calculatorInput;
     const result = calculateReading_addition_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

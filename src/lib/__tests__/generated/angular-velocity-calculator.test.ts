@@ -12,7 +12,7 @@ describe("angular-velocity-calculator", () => {
     "radius": 0.1,
     "time": 1,
     "gearRatio": 1
-  } as Angular_velocity_calculatorInput;
+  } as unknown as Angular_velocity_calculatorInput;
     const result = calculateAngular_velocity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("fiber-cement-siding-estimator-calculator", () => {
     "costPerPanel": 5,
     "laborHoursPerPanel": 0.1,
     "laborCostPerHour": 50
-  } as Fiber_cement_siding_estimator_calculatorInput;
+  } as unknown as Fiber_cement_siding_estimator_calculatorInput;
     const result = calculateFiber_cement_siding_estimator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

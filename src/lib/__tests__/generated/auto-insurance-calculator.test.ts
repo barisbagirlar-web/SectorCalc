@@ -15,7 +15,7 @@ describe("auto-insurance-calculator", () => {
     "deductible": 500,
     "vehicleAge": 3,
     "annualMileage": 12000
-  } as Auto_insurance_calculatorInput;
+  } as unknown as Auto_insurance_calculatorInput;
     const result = calculateAuto_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

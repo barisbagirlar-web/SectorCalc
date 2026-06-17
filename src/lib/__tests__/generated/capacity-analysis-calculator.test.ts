@@ -14,7 +14,7 @@ describe("capacity-analysis-calculator", () => {
     "efficiency": 85,
     "productDemand": 10000,
     "cycleTime": 1.5
-  } as Capacity_analysis_calculatorInput;
+  } as unknown as Capacity_analysis_calculatorInput;
     const result = calculateCapacity_analysis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

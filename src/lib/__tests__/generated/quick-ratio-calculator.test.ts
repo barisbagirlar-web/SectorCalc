@@ -12,7 +12,7 @@ describe("quick-ratio-calculator", () => {
     "marketableSecurities": 0,
     "accountsReceivable": 0,
     "currentLiabilities": 0
-  } as Quick_ratio_calculatorInput;
+  } as unknown as Quick_ratio_calculatorInput;
     const result = calculateQuick_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

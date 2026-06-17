@@ -12,7 +12,7 @@ describe("hair-growth-calculator", () => {
     "targetLength": 30,
     "growthRate": 1.25,
     "healthFactor": 1
-  } as Hair_growth_calculatorInput;
+  } as unknown as Hair_growth_calculatorInput;
     const result = calculateHair_growth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

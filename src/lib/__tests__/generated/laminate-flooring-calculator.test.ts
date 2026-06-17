@@ -13,7 +13,7 @@ describe("laminate-flooring-calculator", () => {
     "plankLength": 1.29,
     "plankWidth": 0.192,
     "wastePercentage": 10
-  } as Laminate_flooring_calculatorInput;
+  } as unknown as Laminate_flooring_calculatorInput;
     const result = calculateLaminate_flooring_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

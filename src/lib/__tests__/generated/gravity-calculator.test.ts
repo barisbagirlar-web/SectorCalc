@@ -12,7 +12,7 @@ describe("gravity-calculator", () => {
     "mass2": 1,
     "distance": 6371000,
     "gravitationalConstant": 6.6743e-11
-  } as Gravity_calculatorInput;
+  } as unknown as Gravity_calculatorInput;
     const result = calculateGravity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

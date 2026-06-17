@@ -13,7 +13,7 @@ describe("polar-koordinat-donusturucu-calculator", () => {
     "y": 0,
     "r": 0,
     "theta": 0
-  } as Polar_koordinat_donusturucu_calculatorInput;
+  } as unknown as Polar_koordinat_donusturucu_calculatorInput;
     const result = calculatePolar_koordinat_donusturucu_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

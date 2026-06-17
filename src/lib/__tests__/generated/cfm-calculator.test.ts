@@ -12,7 +12,7 @@ describe("cfm-calculator", () => {
     "ductWidth": 12,
     "ductHeight": 8,
     "safetyFactor": 1.1
-  } as Cfm_calculatorInput;
+  } as unknown as Cfm_calculatorInput;
     const result = calculateCfm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

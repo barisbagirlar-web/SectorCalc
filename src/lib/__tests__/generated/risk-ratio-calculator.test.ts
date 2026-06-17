@@ -12,7 +12,7 @@ describe("risk-ratio-calculator", () => {
     "exposedTotal": 0,
     "controlEvents": 0,
     "controlTotal": 0
-  } as Risk_ratio_calculatorInput;
+  } as unknown as Risk_ratio_calculatorInput;
     const result = calculateRisk_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("vsm-financial-converter-calculator", () => {
     "totalValueAddedTime": 15,
     "defectRate": 2,
     "reworkCostPerUnit": 10
-  } as Vsm_financial_converter_calculatorInput;
+  } as unknown as Vsm_financial_converter_calculatorInput;
     const result = calculateVsm_financial_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

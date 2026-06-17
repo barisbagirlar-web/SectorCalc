@@ -12,7 +12,7 @@ describe("pixel-calculator", () => {
     "heightPx": 1080,
     "diagInches": 24,
     "pixelAspect": 1
-  } as Pixel_calculatorInput;
+  } as unknown as Pixel_calculatorInput;
     const result = calculatePixel_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

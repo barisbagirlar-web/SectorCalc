@@ -16,7 +16,7 @@ describe("water-intake-calculator", () => {
     "leakageFactor": 5,
     "recyclingRate": 20,
     "seasonalFactor": 1
-  } as Water_intake_calculatorInput;
+  } as unknown as Water_intake_calculatorInput;
     const result = calculateWater_intake_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Base Fare per Km",
         "tr": "Km Başına Taban Ücret",
-        "de": "Base Fare per Km",
+        "de": "Grundpreis pro km",
         "fr": "Base Fare per Km",
         "es": "Base Fare per Km",
         "ar": "Base Fare per Km"
       },
       "businessContext_i18n": {
         "en": "The fixed cost per kilometer for the bus service.",
-        "tr": "Otobüs hizmeti için kilometre başına sabit maliyet."
+        "tr": "Otobüs hizmeti için kilometre başına sabit maliyet.",
+        "de": "Die fixen Kosten pro Kilometer für den Busdienst."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Distance",
         "tr": "Mesafe",
-        "de": "Distance",
+        "de": "Entfernung",
         "fr": "Distance",
         "es": "Distance",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Total travel distance in kilometers.",
-        "tr": "Kilometre cinsinden toplam seyahat mesafesi."
+        "tr": "Kilometre cinsinden toplam seyahat mesafesi.",
+        "de": "Gesamte Fahrstrecke in Kilometern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Passengers",
         "tr": "Yolcu Sayısı",
-        "de": "Number of Passengers",
+        "de": "Anzahl der Fahrgäste",
         "fr": "Number of Passengers",
         "es": "Number of Passengers",
         "ar": "Number of Passengers"
       },
       "businessContext_i18n": {
         "en": "Total number of passengers traveling.",
-        "tr": "Seyahat eden toplam yolcu sayısı."
+        "tr": "Seyahat eden toplam yolcu sayısı.",
+        "de": "Gesamtzahl der reisenden Fahrgäste."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Discount Percentage",
         "tr": "İndirim Yüzdesi",
-        "de": "Discount Percentage",
+        "de": "Rabattprozentsatz",
         "fr": "Discount Percentage",
         "es": "Discount Percentage",
         "ar": "Discount Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage discount applied to the total fare, e.g., for group travels or promotions.",
-        "tr": "Toplam ücrete uygulanan yüzde indirim, örn. grup seyahatleri veya promosyonlar için."
+        "tr": "Toplam ücrete uygulanan yüzde indirim, örn. grup seyahatleri veya promosyonlar için.",
+        "de": "Prozentualer Rabatt auf den Gesamtfahrpreis, z. B. für Gruppenreisen oder Aktionen."
       }
     }
   ],

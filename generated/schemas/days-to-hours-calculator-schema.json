@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Days",
         "tr": "Gün",
-        "de": "Days",
+        "de": "Tage",
         "fr": "Days",
         "es": "Days",
         "ar": "Days"
       },
       "businessContext_i18n": {
         "en": "Number of days to convert.",
-        "tr": "Dönüştürülecek gün sayısı."
+        "tr": "Dönüştürülecek gün sayısı.",
+        "de": "Anzahl der umzurechnenden Tage."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Hours per Day",
         "tr": "Saat/Gün",
-        "de": "Hours per Day",
+        "de": "Stunden pro Tag",
         "fr": "Hours per Day",
         "es": "Hours per Day",
         "ar": "Hours per Day"
       },
       "businessContext_i18n": {
         "en": "Conversion factor: hours in one day.",
-        "tr": "Dönüşüm faktörü: bir gündeki saat sayısı."
+        "tr": "Dönüşüm faktörü: bir gündeki saat sayısı.",
+        "de": "Umrechnungsfaktor: Stunden an einem Tag."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Minutes per Hour",
         "tr": "Dakika/Saat",
-        "de": "Minutes per Hour",
+        "de": "Minuten pro Stunde",
         "fr": "Minutes per Hour",
         "es": "Minutes per Hour",
         "ar": "Minutes per Hour"
       },
       "businessContext_i18n": {
         "en": "Minutes in an hour for breakdown into minutes.",
-        "tr": "Dakikalara ayırmak için bir saatteki dakika sayısı."
+        "tr": "Dakikalara ayırmak için bir saatteki dakika sayısı.",
+        "de": "Minuten in einer Stunde für die Aufschlüsselung in Minuten."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Seconds per Minute",
         "tr": "Saniye/Dakika",
-        "de": "Seconds per Minute",
+        "de": "Sekunden pro Minute",
         "fr": "Seconds per Minute",
         "es": "Seconds per Minute",
         "ar": "Seconds per Minute"
       },
       "businessContext_i18n": {
         "en": "Seconds in a minute for breakdown into seconds.",
-        "tr": "Saniyelere ayırmak için bir dakikadaki saniye sayısı."
+        "tr": "Saniyelere ayırmak için bir dakikadaki saniye sayısı.",
+        "de": "Sekunden in einer Minute für die Aufschlüsselung in Sekunden."
       }
     }
   ],

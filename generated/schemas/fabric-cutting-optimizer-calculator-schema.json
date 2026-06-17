@@ -20,11 +20,13 @@
       "businessContext": "Standard industrial fabric roll width, typically 150-320 cm for apparel and upholstery.",
       "label_i18n": {
         "en": "Fabric Width (cm)",
-        "tr": "Kumaş Eni (cm)"
+        "tr": "Kumaş Eni (cm)",
+        "de": "Stoffbreite (cm)"
       },
       "businessContext_i18n": {
         "en": "Standard industrial fabric roll width, typically 150-320 cm for apparel and upholstery.",
-        "tr": "Standart endüstriyel kumaş rulo genişliği, giyim ve döşemelik için tipik olarak 150-320 cm."
+        "tr": "Standart endüstriyel kumaş rulo genişliği, giyim ve döşemelik için tipik olarak 150-320 cm.",
+        "de": "Standardindustrielle Stoffrollenbreite, typischerweise 150-320 cm für Bekleidung und Polster."
       }
     },
     {
@@ -38,11 +40,13 @@
       "businessContext": "Total length of fabric roll or batch, used to compute total area.",
       "label_i18n": {
         "en": "Fabric Length (m)",
-        "tr": "Kumaş Uzunluğu (m)"
+        "tr": "Kumaş Uzunluğu (m)",
+        "de": "Stofflänge (m)"
       },
       "businessContext_i18n": {
         "en": "Total length of fabric roll or batch, used to compute total area.",
-        "tr": "Kumaş rulosu veya partisinin toplam uzunluğu, toplam alanı hesaplamak için kullanılır."
+        "tr": "Kumaş rulosu veya partisinin toplam uzunluğu, toplam alanı hesaplamak için kullanılır.",
+        "de": "Gesamtlänge der Stoffrolle oder -charge, zur Berechnung der Gesamtfläche."
       }
     },
     {
@@ -56,11 +60,13 @@
       "businessContext": "Length of one garment or component pattern piece along the grain.",
       "label_i18n": {
         "en": "Pattern Length (cm)",
-        "tr": "Kalıp Uzunluğu (cm)"
+        "tr": "Kalıp Uzunluğu (cm)",
+        "de": "Schnittteillänge (cm)"
       },
       "businessContext_i18n": {
         "en": "Length of one garment or component pattern piece along the grain.",
-        "tr": "Bir giysi veya bileşen kalıp parçasının damar yönü boyunca uzunluğu."
+        "tr": "Bir giysi veya bileşen kalıp parçasının damar yönü boyunca uzunluğu.",
+        "de": "Länge eines Kleidungsstücks oder Komponentenschnittteils entlang des Fadenlaufs."
       }
     },
     {
@@ -74,11 +80,13 @@
       "businessContext": "Width of one pattern piece perpendicular to the grain.",
       "label_i18n": {
         "en": "Pattern Width (cm)",
-        "tr": "Kalıp Genişliği (cm)"
+        "tr": "Kalıp Genişliği (cm)",
+        "de": "Schnittbreite (cm)"
       },
       "businessContext_i18n": {
         "en": "Width of one pattern piece perpendicular to the grain.",
-        "tr": "Bir kalıp parçasının damar yönüne dik genişliği."
+        "tr": "Bir kalıp parçasının damar yönüne dik genişliği.",
+        "de": "Breite eines Schnittteils senkrecht zum Fadenlauf."
       }
     },
     {
@@ -92,11 +100,13 @@
       "businessContext": "Number of identical pieces to be cut from the fabric.",
       "label_i18n": {
         "en": "Quantity to Cut",
-        "tr": "Kesilecek Miktar"
+        "tr": "Kesilecek Miktar",
+        "de": "Zuschnittmenge"
       },
       "businessContext_i18n": {
         "en": "Number of identical pieces to be cut from the fabric.",
-        "tr": "Kumaştan kesilecek aynı parçaların sayısı."
+        "tr": "Kumaştan kesilecek aynı parçaların sayısı.",
+        "de": "Anzahl identischer Teile, die aus dem Stoff geschnitten werden sollen."
       }
     },
     {
@@ -115,11 +125,13 @@
       ],
       "label_i18n": {
         "en": "Cutting Method",
-        "tr": "Kesim Yöntemi"
+        "tr": "Kesim Yöntemi",
+        "de": "Zuschnittverfahren"
       },
       "businessContext_i18n": {
         "en": "Method affects material utilization and labor cost. Single-ply is manual; multi-ply is automated.",
-        "tr": "Yöntem, malzeme kullanımını ve işçilik maliyetini etkiler. Tek kat manuel, çok kat otomatiktir."
+        "tr": "Yöntem, malzeme kullanımını ve işçilik maliyetini etkiler. Tek kat manuel, çok kat otomatiktir.",
+        "de": "Das Verfahren beeinflusst Materialausnutzung und Arbeitskosten. Einzellage ist manuell, Mehrlage automatisiert."
       }
     },
     {
@@ -133,11 +145,13 @@
       "businessContext": "Cost of fabric per square meter, used for financial loss calculations.",
       "label_i18n": {
         "en": "Material Cost per m²",
-        "tr": "m² Başına Malzeme Maliyeti"
+        "tr": "m² Başına Malzeme Maliyeti",
+        "de": "Materialkosten pro m²"
       },
       "businessContext_i18n": {
         "en": "Cost of fabric per square meter, used for financial loss calculations.",
-        "tr": "Metrekare başına kumaş maliyeti, finansal kayıp hesaplamaları için kullanılır."
+        "tr": "Metrekare başına kumaş maliyeti, finansal kayıp hesaplamaları için kullanılır.",
+        "de": "Stoffkosten pro Quadratmeter, verwendet für finanzielle Verlustberechnungen."
       }
     },
     {
@@ -151,11 +165,13 @@
       "businessContext": "Hourly wage of cutting operator, used for labor cost estimation.",
       "label_i18n": {
         "en": "Labor Rate per Hour",
-        "tr": "Saatlik İşçilik Ücreti"
+        "tr": "Saatlik İşçilik Ücreti",
+        "de": "Stundensatz"
       },
       "businessContext_i18n": {
         "en": "Hourly wage of cutting operator, used for labor cost estimation.",
-        "tr": "Kesim operatörünün saatlik ücreti, işçilik maliyeti tahmini için kullanılır."
+        "tr": "Kesim operatörünün saatlik ücreti, işçilik maliyeti tahmini için kullanılır.",
+        "de": "Stundenlohn des Zuschneiders, verwendet für Arbeitskostenschätzung."
       }
     }
   ],

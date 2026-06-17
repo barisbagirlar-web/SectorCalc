@@ -16,7 +16,7 @@ describe("scaffolding-rental-optimizer-calculator", () => {
     "labor_cost_per_hour": 35,
     "erection_hours_per_sqm": 0.3,
     "dismantle_hours_per_sqm": 0.2
-  } as Scaffolding_rental_optimizer_calculatorInput;
+  } as unknown as Scaffolding_rental_optimizer_calculatorInput;
     const result = calculateScaffolding_rental_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("antilog-calculator", () => {
     "base": 10,
     "precision": 4,
     "scaleFactor": 1
-  } as Antilog_calculatorInput;
+  } as unknown as Antilog_calculatorInput;
     const result = calculateAntilog_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@
       "label_i18n": {
         "en": "Material Cost",
         "tr": "Malzeme Maliyeti",
-        "de": "Material Cost",
+        "de": "Materialkosten",
         "fr": "Material Cost",
         "es": "Material Cost",
         "ar": "Material Cost"
@@ -31,14 +31,15 @@
       "label_i18n": {
         "en": "Labor Cost",
         "tr": "İşçilik Maliyeti",
-        "de": "Labor Cost",
+        "de": "Arbeitskosten",
         "fr": "Labor Cost",
         "es": "Labor Cost",
         "ar": "Labor Cost"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost per unit",
-        "tr": "Birim başına direkt işçilik maliyeti"
+        "tr": "Birim başına direkt işçilik maliyeti",
+        "de": "Direkte Arbeitskosten pro Einheit"
       }
     },
     {
@@ -91,14 +92,15 @@
       "label_i18n": {
         "en": "Quantity",
         "tr": "Miktar",
-        "de": "Quantity",
+        "de": "Menge",
         "fr": "Quantity",
         "es": "Quantity",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of units produced",
-        "tr": "Üretilen birim sayısı"
+        "tr": "Üretilen birim sayısı",
+        "de": "Anzahl der produzierten Einheiten"
       }
     }
   ],

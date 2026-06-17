@@ -12,7 +12,7 @@ describe("hdl-calculator", () => {
     "hdlCholesterol": 50,
     "ldlCholesterol": 100,
     "triglycerides": 150
-  } as Hdl_calculatorInput;
+  } as unknown as Hdl_calculatorInput;
     const result = calculateHdl_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

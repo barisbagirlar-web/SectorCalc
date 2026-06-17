@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Velocity",
         "tr": "Başlangıç Hızı",
-        "de": "Initial Velocity",
+        "de": "Anfangsgeschwindigkeit",
         "fr": "Initial Velocity",
         "es": "Initial Velocity",
         "ar": "Initial Velocity"
       },
       "businessContext_i18n": {
         "en": "Starting velocity of the object before acceleration",
-        "tr": "İvmeden önce nesnenin başlangıç hızı"
+        "tr": "İvmeden önce nesnenin başlangıç hızı",
+        "de": "Startgeschwindigkeit des Objekts vor Beschleunigung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Final Velocity",
         "tr": "Son Hız",
-        "de": "Final Velocity",
+        "de": "Endgeschwindigkeit",
         "fr": "Final Velocity",
         "es": "Final Velocity",
         "ar": "Final Velocity"
       },
       "businessContext_i18n": {
         "en": "Ending velocity after acceleration period",
-        "tr": "İvme periyodundan sonraki bitiş hızı"
+        "tr": "İvme periyodundan sonraki bitiş hızı",
+        "de": "Endgeschwindigkeit nach Beschleunigungsphase"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Time Interval",
         "tr": "Zaman Aralığı",
-        "de": "Time Interval",
+        "de": "Zeitintervall",
         "fr": "Time Interval",
         "es": "Time Interval",
         "ar": "Time Interval"
       },
       "businessContext_i18n": {
         "en": "Duration over which velocity changes",
-        "tr": "Hızın değiştiği süre"
+        "tr": "Hızın değiştiği süre",
+        "de": "Dauer der Geschwindigkeitsänderung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Applied Force",
         "tr": "Uygulanan Kuvvet",
-        "de": "Applied Force",
+        "de": "Angewandte Kraft",
         "fr": "Applied Force",
         "es": "Applied Force",
         "ar": "Applied Force"
       },
       "businessContext_i18n": {
         "en": "Net force applied to the object (optional for alternative calculation)",
-        "tr": "Nesneye uygulanan net kuvvet (alternatif hesaplama için isteğe bağlı)"
+        "tr": "Nesneye uygulanan net kuvvet (alternatif hesaplama için isteğe bağlı)",
+        "de": "Nettokraft auf das Objekt (optional für alternative Berechnung)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Mass",
         "tr": "Kütle",
-        "de": "Mass",
+        "de": "Masse",
         "fr": "Mass",
         "es": "Mass",
         "ar": "Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the object being accelerated",
-        "tr": "İvmelendirilen nesnenin kütlesi"
+        "tr": "İvmelendirilen nesnenin kütlesi",
+        "de": "Masse des beschleunigten Objekts"
       }
     }
   ],

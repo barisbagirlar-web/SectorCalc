@@ -16,7 +16,7 @@ describe("six-sigma-project-prioritizer-calculator", () => {
     "project_risk": "medium",
     "strategic_alignment": 7,
     "customer_impact": 8
-  } as Six_sigma_project_prioritizer_calculatorInput;
+  } as unknown as Six_sigma_project_prioritizer_calculatorInput;
     const result = calculateSix_sigma_project_prioritizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

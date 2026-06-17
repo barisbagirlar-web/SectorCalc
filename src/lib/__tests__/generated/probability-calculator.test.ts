@@ -14,7 +14,7 @@ describe("probability-calculator", () => {
     "distribution_type": "binomial",
     "confidence_level": "95",
     "use_historical_bias": false
-  } as Probability_calculatorInput;
+  } as unknown as Probability_calculatorInput;
     const result = calculateProbability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

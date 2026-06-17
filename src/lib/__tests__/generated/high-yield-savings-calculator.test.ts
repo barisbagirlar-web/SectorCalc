@@ -13,7 +13,7 @@ describe("high-yield-savings-calculator", () => {
     "annualInterestRate": 2.5,
     "years": 10,
     "compoundFrequency": 12
-  } as High_yield_savings_calculatorInput;
+  } as unknown as High_yield_savings_calculatorInput;
     const result = calculateHigh_yield_savings_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

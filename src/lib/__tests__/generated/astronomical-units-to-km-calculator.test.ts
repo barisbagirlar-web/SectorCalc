@@ -12,7 +12,7 @@ describe("astronomical-units-to-km-calculator", () => {
     "conversionFactor": 149597870.7,
     "precision": 2,
     "outputMultiplier": 1
-  } as Astronomical_units_to_km_calculatorInput;
+  } as unknown as Astronomical_units_to_km_calculatorInput;
     const result = calculateAstronomical_units_to_km_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

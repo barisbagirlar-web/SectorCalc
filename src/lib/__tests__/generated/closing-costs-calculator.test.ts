@@ -14,7 +14,7 @@ describe("closing-costs-calculator", () => {
     "appraisalFee": 500,
     "titleInsurance": 1000,
     "recordingFees": 200
-  } as Closing_costs_calculatorInput;
+  } as unknown as Closing_costs_calculatorInput;
     const result = calculateClosing_costs_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

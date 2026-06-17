@@ -13,7 +13,7 @@ describe("sports-card-calculator", () => {
     "gradingCost": 20,
     "shippingCost": 10,
     "taxRate": 0
-  } as Sports_card_calculatorInput;
+  } as unknown as Sports_card_calculatorInput;
     const result = calculateSports_card_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

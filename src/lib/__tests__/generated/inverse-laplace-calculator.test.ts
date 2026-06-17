@@ -15,7 +15,7 @@ describe("inverse-laplace-calculator", () => {
     "time_value": 1,
     "damping_ratio": 0.5,
     "natural_frequency": 1
-  } as Inverse_laplace_calculatorInput;
+  } as unknown as Inverse_laplace_calculatorInput;
     const result = calculateInverse_laplace_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

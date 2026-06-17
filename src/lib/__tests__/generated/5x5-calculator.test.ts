@@ -13,7 +13,7 @@ describe("5x5-calculator", () => {
     "shineScore": 3,
     "standardizeScore": 3,
     "sustainScore": 3
-  } as _5x5_calculatorInput;
+  } as unknown as _5x5_calculatorInput;
     const result = calculate_5x5_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

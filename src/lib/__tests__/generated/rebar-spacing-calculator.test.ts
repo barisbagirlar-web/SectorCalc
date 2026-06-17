@@ -13,7 +13,7 @@ describe("rebar-spacing-calculator", () => {
     "rightCover": 40,
     "rebarDiameter": 12,
     "numberOfBars": 5
-  } as Rebar_spacing_calculatorInput;
+  } as unknown as Rebar_spacing_calculatorInput;
     const result = calculateRebar_spacing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

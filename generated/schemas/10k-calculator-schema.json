@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
-        "de": "Batch Size",
+        "de": "Losgröße",
         "fr": "Batch Size",
         "es": "Batch Size",
         "ar": "Batch Size"
       },
       "businessContext_i18n": {
         "en": "Number of units per production batch",
-        "tr": "Üretim partisi başına birim sayısı"
+        "tr": "Üretim partisi başına birim sayısı",
+        "de": "Anzahl der Einheiten pro Produktionslos"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cycle Time per Unit",
         "tr": "Birim Başına Çevrim Süresi",
-        "de": "Cycle Time per Unit",
+        "de": "Zykluszeit pro Einheit",
         "fr": "Cycle Time per Unit",
         "es": "Cycle Time per Unit",
         "ar": "Cycle Time per Unit"
       },
       "businessContext_i18n": {
         "en": "Time to produce one unit on one machine",
-        "tr": "Bir birimi tek bir makinede üretme süresi"
+        "tr": "Bir birimi tek bir makinede üretme süresi",
+        "de": "Zeit zur Herstellung einer Einheit auf einer Maschine"
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Overall Equipment Effectiveness percentage",
-        "tr": "Toplam Ekipman Etkinliği yüzdesi"
+        "tr": "Toplam Ekipman Etkinliği yüzdesi",
+        "de": "Gesamtanlageneffektivität in Prozent"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Machines",
         "tr": "Makine Sayısı",
-        "de": "Number of Machines",
+        "de": "Anzahl der Maschinen",
         "fr": "Number of Machines",
         "es": "Number of Machines",
         "ar": "Number of Machines"
       },
       "businessContext_i18n": {
         "en": "Number of parallel machines",
-        "tr": "Paralel makine sayısı"
+        "tr": "Paralel makine sayısı",
+        "de": "Anzahl paralleler Maschinen"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Setup Time",
         "tr": "Kurulum Süresi",
-        "de": "Setup Time",
+        "de": "Rüstzeit",
         "fr": "Setup Time",
         "es": "Setup Time",
         "ar": "Setup Time"
       },
       "businessContext_i18n": {
         "en": "Time to set up before production",
-        "tr": "Üretimden önce kurulum için geçen süre"
+        "tr": "Üretimden önce kurulum için geçen süre",
+        "de": "Zeit für die Einrichtung vor der Produktion"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Shift Duration",
         "tr": "Vardiya Süresi",
-        "de": "Shift Duration",
+        "de": "Schichtdauer",
         "fr": "Shift Duration",
         "es": "Shift Duration",
         "ar": "Shift Duration"
       },
       "businessContext_i18n": {
         "en": "Length of one work shift",
-        "tr": "Bir iş vardiyasının uzunluğu"
+        "tr": "Bir iş vardiyasının uzunluğu",
+        "de": "Länge einer Arbeitsschicht"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Break Time per Shift",
         "tr": "Vardiya Başına Mola Süresi",
-        "de": "Break Time per Shift",
+        "de": "Pausenzeit pro Schicht",
         "fr": "Break Time per Shift",
         "es": "Break Time per Shift",
         "ar": "Break Time per Shift"
       },
       "businessContext_i18n": {
         "en": "Non-productive time per shift",
-        "tr": "Vardiya başına üretken olmayan süre"
+        "tr": "Vardiya başına üretken olmayan süre",
+        "de": "Nicht-produktive Zeit pro Schicht"
       }
     }
   ],

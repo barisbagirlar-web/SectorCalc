@@ -16,7 +16,7 @@ describe("welding-cost-calculator", () => {
     "welding_speed_mm_per_min": 300,
     "filler_wire_cost_per_kg": 3.5,
     "gas_cost_per_liter": 0.08
-  } as Welding_cost_calculatorInput;
+  } as unknown as Welding_cost_calculatorInput;
     const result = calculateWelding_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

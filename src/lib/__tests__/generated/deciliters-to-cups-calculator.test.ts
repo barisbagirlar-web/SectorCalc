@@ -12,7 +12,7 @@ describe("deciliters-to-cups-calculator", () => {
     "conversionFactor": 0.422675,
     "precision": 2,
     "batchSize": 1
-  } as Deciliters_to_cups_calculatorInput;
+  } as unknown as Deciliters_to_cups_calculatorInput;
     const result = calculateDeciliters_to_cups_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

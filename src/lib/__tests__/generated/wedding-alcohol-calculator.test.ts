@@ -15,7 +15,7 @@ describe("wedding-alcohol-calculator", () => {
     "beerRatio": 0.4,
     "wineRatio": 0.4,
     "spiritsRatio": 0.2
-  } as Wedding_alcohol_calculatorInput;
+  } as unknown as Wedding_alcohol_calculatorInput;
     const result = calculateWedding_alcohol_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

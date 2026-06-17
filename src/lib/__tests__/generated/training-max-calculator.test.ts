@@ -13,7 +13,7 @@ describe("training-max-calculator", () => {
     "trainingMaxPercentage": 90,
     "coefficientA": 1.0278,
     "coefficientB": 0.0278
-  } as Training_max_calculatorInput;
+  } as unknown as Training_max_calculatorInput;
     const result = calculateTraining_max_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

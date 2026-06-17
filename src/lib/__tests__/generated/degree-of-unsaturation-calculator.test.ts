@@ -12,7 +12,7 @@ describe("degree-of-unsaturation-calculator", () => {
     "hydrogenCount": 0,
     "nitrogenCount": 0,
     "halogenCount": 0
-  } as Degree_of_unsaturation_calculatorInput;
+  } as unknown as Degree_of_unsaturation_calculatorInput;
     const result = calculateDegree_of_unsaturation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

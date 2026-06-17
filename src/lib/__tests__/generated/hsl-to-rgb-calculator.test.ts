@@ -12,7 +12,7 @@ describe("hsl-to-rgb-calculator", () => {
     "saturation": 100,
     "lightness": 50,
     "max": 255
-  } as Hsl_to_rgb_calculatorInput;
+  } as unknown as Hsl_to_rgb_calculatorInput;
     const result = calculateHsl_to_rgb_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

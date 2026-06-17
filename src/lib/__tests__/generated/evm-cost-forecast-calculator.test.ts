@@ -16,7 +16,7 @@ describe("evm-cost-forecast-calculator", () => {
     "cpi": 0.8,
     "spi": 0.67,
     "useWeightedMethod": false
-  } as Evm_cost_forecast_calculatorInput;
+  } as unknown as Evm_cost_forecast_calculatorInput;
     const result = calculateEvm_cost_forecast_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

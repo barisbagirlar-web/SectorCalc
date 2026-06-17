@@ -12,7 +12,7 @@ describe("proportion-calculator", () => {
     "comp2": 0,
     "comp3": 0,
     "comp4": 0
-  } as Proportion_calculatorInput;
+  } as unknown as Proportion_calculatorInput;
     const result = calculateProportion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

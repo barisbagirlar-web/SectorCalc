@@ -15,7 +15,7 @@ describe("protective-relay-calculator", () => {
     "curve_constant_k": 0.14,
     "curve_constant_alpha": 0.02,
     "curve_constant_c": 0
-  } as Protective_relay_calculatorInput;
+  } as unknown as Protective_relay_calculatorInput;
     const result = calculateProtective_relay_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

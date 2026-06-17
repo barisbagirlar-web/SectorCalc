@@ -12,7 +12,7 @@ describe("kibibytes-to-kilobytes-calculator", () => {
     "decimalPlaces": 2,
     "redundancyFactor": 1,
     "overheadPercent": 0
-  } as Kibibytes_to_kilobytes_calculatorInput;
+  } as unknown as Kibibytes_to_kilobytes_calculatorInput;
     const result = calculateKibibytes_to_kilobytes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

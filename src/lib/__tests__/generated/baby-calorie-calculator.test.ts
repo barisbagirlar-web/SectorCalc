@@ -12,7 +12,7 @@ describe("baby-calorie-calculator", () => {
     "age": 2,
     "feedingMultiplier": 1,
     "solidCalories": 0
-  } as Baby_calorie_calculatorInput;
+  } as unknown as Baby_calorie_calculatorInput;
     const result = calculateBaby_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

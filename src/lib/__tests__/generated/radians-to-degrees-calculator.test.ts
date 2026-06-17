@@ -13,7 +13,7 @@ describe("radians-to-degrees-calculator", () => {
     "scaleFactor": 1,
     "offset": 0,
     "precision": 2
-  } as Radians_to_degrees_calculatorInput;
+  } as unknown as Radians_to_degrees_calculatorInput;
     const result = calculateRadians_to_degrees_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

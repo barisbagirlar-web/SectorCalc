@@ -23,11 +23,13 @@
       "businessContext": "Total number of units produced per year across all product variants.",
       "label_i18n": {
         "en": "Annual Production Volume",
-        "tr": "Yıllık Üretim Hacmi"
+        "tr": "Yıllık Üretim Hacmi",
+        "de": "Jährliches Produktionsvolumen"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced per year across all product variants.",
-        "tr": "Tüm ürün varyantlarında yılda üretilen toplam birim sayısı."
+        "tr": "Tüm ürün varyantlarında yılda üretilen toplam birim sayısı.",
+        "de": "Gesamtzahl der pro Jahr produzierten Einheiten über alle Produktvarianten hinweg."
       }
     },
     {
@@ -41,11 +43,13 @@
       "businessContext": "Average number of units produced per production run before changeover.",
       "label_i18n": {
         "en": "Average Batch Size",
-        "tr": "Ortalama Toplu İşlem Boyutu"
+        "tr": "Ortalama Toplu İşlem Boyutu",
+        "de": "Durchschnittliche Batch-Größe"
       },
       "businessContext_i18n": {
         "en": "Average number of units produced per production run before changeover.",
-        "tr": "Değişim öncesi üretim partisi başına üretilen ortalama birim sayısı."
+        "tr": "Değişim öncesi üretim partisi başına üretilen ortalama birim sayısı.",
+        "de": "Durchschnittliche Anzahl der pro Produktionslauf produzierten Einheiten vor dem Rüstwechsel."
       }
     },
     {
@@ -59,11 +63,13 @@
       "businessContext": "Time required to change from one product to another in the current system.",
       "label_i18n": {
         "en": "Current Setup Time per Changeover",
-        "tr": "Mevcut Değişim Süresi (her değişim için)"
+        "tr": "Mevcut Değişim Süresi (her değişim için)",
+        "de": "Aktuelle Rüstzeit pro Rüstwechsel"
       },
       "businessContext_i18n": {
         "en": "Time required to change from one product to another in the current system.",
-        "tr": "Mevcut sistemde bir üründen diğerine geçiş için gereken süre."
+        "tr": "Mevcut sistemde bir üründen diğerine geçiş için gereken süre.",
+        "de": "Zeit, die benötigt wird, um im aktuellen System von einem Produkt auf ein anderes umzustellen."
       }
     },
     {
@@ -77,11 +83,13 @@
       "businessContext": "Expected setup time after implementing flexible manufacturing system (e.g., SMED).",
       "label_i18n": {
         "en": "Target Setup Time per Changeover (after FMS)",
-        "tr": "Hedef Değişim Süresi (FMS sonrası)"
+        "tr": "Hedef Değişim Süresi (FMS sonrası)",
+        "de": "Ziel-Rüstzeit pro Rüstwechsel (nach FMS)"
       },
       "businessContext_i18n": {
         "en": "Expected setup time after implementing flexible manufacturing system (e.g., SMED).",
-        "tr": "Esnek üretim sistemi (örneğin SMED) uygulandıktan sonra beklenen değişim süresi."
+        "tr": "Esnek üretim sistemi (örneğin SMED) uygulandıktan sonra beklenen değişim süresi.",
+        "de": "Erwartete Rüstzeit nach Implementierung eines flexiblen Fertigungssystems (z. B. SMED)."
       }
     },
     {
@@ -95,11 +103,13 @@
       "businessContext": "Fully burdened hourly cost of production labor and overhead.",
       "label_i18n": {
         "en": "Hourly Operating Cost (labor + overhead)",
-        "tr": "Saatlik İşletme Maliyeti (işçilik + genel giderler)"
+        "tr": "Saatlik İşletme Maliyeti (işçilik + genel giderler)",
+        "de": "Stündliche Betriebskosten (Arbeit + Gemeinkosten)"
       },
       "businessContext_i18n": {
         "en": "Fully burdened hourly cost of production labor and overhead.",
-        "tr": "Tam yüklü saatlik üretim işçiliği ve genel gider maliyeti."
+        "tr": "Tam yüklü saatlik üretim işçiliği ve genel gider maliyeti.",
+        "de": "Voll belastete stündliche Kosten für Produktionsarbeit und Gemeinkosten."
       }
     },
     {
@@ -113,11 +123,13 @@
       "businessContext": "Total cost incurred per hour of changeover, including lost production and labor.",
       "label_i18n": {
         "en": "Changeover Cost per Hour (downtime + labor)",
-        "tr": "Değişim Başına Saatlik Maliyet (duruş + işçilik)"
+        "tr": "Değişim Başına Saatlik Maliyet (duruş + işçilik)",
+        "de": "Rüstkosten pro Stunde (Ausfallzeit + Arbeit)"
       },
       "businessContext_i18n": {
         "en": "Total cost incurred per hour of changeover, including lost production and labor.",
-        "tr": "Kayıp üretim ve işçilik dahil olmak üzere değişim saati başına toplam maliyet."
+        "tr": "Kayıp üretim ve işçilik dahil olmak üzere değişim saati başına toplam maliyet.",
+        "de": "Gesamtkosten pro Stunde Rüstzeit, einschließlich Produktionsausfall und Arbeit."
       }
     },
     {
@@ -131,11 +143,13 @@
       "businessContext": "Annual cost to hold inventory as a percentage of inventory value (includes storage, insurance, obsolescence).",
       "label_i18n": {
         "en": "Inventory Holding Cost Rate",
-        "tr": "Envanter Bulundurma Maliyet Oranı"
+        "tr": "Envanter Bulundurma Maliyet Oranı",
+        "de": "Lagerhaltungskostensatz"
       },
       "businessContext_i18n": {
         "en": "Annual cost to hold inventory as a percentage of inventory value (includes storage, insurance, obsolescence).",
-        "tr": "Envanter değerinin yüzdesi olarak yıllık envanter bulundurma maliyeti (depolama, sigorta, eskime dahil)."
+        "tr": "Envanter değerinin yüzdesi olarak yıllık envanter bulundurma maliyeti (depolama, sigorta, eskime dahil).",
+        "de": "Jährliche Kosten für die Lagerhaltung als Prozentsatz des Lagerwerts (inklusive Lagerung, Versicherung, Veralterung)."
       }
     },
     {
@@ -149,11 +163,13 @@
       "businessContext": "Current average value of raw materials, WIP, and finished goods inventory.",
       "label_i18n": {
         "en": "Average Inventory Value (current)",
-        "tr": "Ortalama Envanter Değeri (mevcut)"
+        "tr": "Ortalama Envanter Değeri (mevcut)",
+        "de": "Durchschnittlicher Lagerwert (aktuell)"
       },
       "businessContext_i18n": {
         "en": "Current average value of raw materials, WIP, and finished goods inventory.",
-        "tr": "Hammadde, YDİ ve mamul envanterinin mevcut ortalama değeri."
+        "tr": "Hammadde, YDİ ve mamul envanterinin mevcut ortalama değeri.",
+        "de": "Aktueller Durchschnittswert der Rohmaterial-, Umlauf- und Fertigwarenbestände."
       }
     }
   ],

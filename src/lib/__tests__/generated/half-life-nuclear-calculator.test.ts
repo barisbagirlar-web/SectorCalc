@@ -12,7 +12,7 @@ describe("half-life-nuclear-calculator", () => {
     "halfLife": 10,
     "elapsedTime": 20,
     "safetyFactor": 1
-  } as Half_life_nuclear_calculatorInput;
+  } as unknown as Half_life_nuclear_calculatorInput;
     const result = calculateHalf_life_nuclear_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

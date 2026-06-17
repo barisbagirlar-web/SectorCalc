@@ -11,7 +11,7 @@ describe("magnification-calculator-optics-calculator", () => {
     "focalLength": 50,
     "objectDistance": 100,
     "auto_input_3": 1
-  } as Magnification_calculator_optics_calculatorInput;
+  } as unknown as Magnification_calculator_optics_calculatorInput;
     const result = calculateMagnification_calculator_optics_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("atomic-mass-units-to-kg", () => {
     "amu": 1,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Atomic_mass_units_to_kgInput;
+  } as unknown as Atomic_mass_units_to_kgInput;
     const result = calculateAtomic_mass_units_to_kg(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

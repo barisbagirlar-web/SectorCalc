@@ -12,7 +12,7 @@ describe("lens-power-calculator", () => {
     "R1": 100,
     "R2": -100,
     "d": 5
-  } as Lens_power_calculatorInput;
+  } as unknown as Lens_power_calculatorInput;
     const result = calculateLens_power_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("hamwi-formula-calculator", () => {
     "heightFeet": 5,
     "heightInches": 8,
     "outputUnit": 0
-  } as Hamwi_formula_calculatorInput;
+  } as unknown as Hamwi_formula_calculatorInput;
     const result = calculateHamwi_formula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

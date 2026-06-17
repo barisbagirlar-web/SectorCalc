@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Dice",
         "tr": "Zar Sayısı",
-        "de": "Number of Dice",
+        "de": "Anzahl der Würfel",
         "fr": "Number of Dice",
         "es": "Number of Dice",
         "ar": "Number of Dice"
       },
       "businessContext_i18n": {
         "en": "How many dice are rolled",
-        "tr": "Kaç zar atılıyor"
+        "tr": "Kaç zar atılıyor",
+        "de": "Wie viele Würfel werden geworfen"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sides per Die",
         "tr": "Zar Yüzeyi",
-        "de": "Sides per Die",
+        "de": "Seiten pro Würfel",
         "fr": "Sides per Die",
         "es": "Sides per Die",
         "ar": "Sides per Die"
       },
       "businessContext_i18n": {
         "en": "Number of faces on each die",
-        "tr": "Her zardaki yüz sayısı"
+        "tr": "Her zardaki yüz sayısı",
+        "de": "Anzahl der Seiten pro Würfel"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Target Number",
         "tr": "Hedef Sayı",
-        "de": "Target Number",
+        "de": "Zielzahl",
         "fr": "Target Number",
         "es": "Target Number",
         "ar": "Target Number"
       },
       "businessContext_i18n": {
         "en": "Minimum roll needed to succeed on a single die",
-        "tr": "Tek bir zarda başarılı olmak için gereken minimum atış"
+        "tr": "Tek bir zarda başarılı olmak için gereken minimum atış",
+        "de": "Mindestwurf, um mit einem einzelnen Würfel zu bestehen"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Modifier",
         "tr": "Düzeltici",
-        "de": "Modifier",
+        "de": "Modifikator",
         "fr": "Modifier",
         "es": "Modifier",
         "ar": "Modifier"
       },
       "businessContext_i18n": {
         "en": "Flat bonus added to total expected sum",
-        "tr": "Beklenen toplam toplama eklenen sabit bonus"
+        "tr": "Beklenen toplam toplama eklenen sabit bonus",
+        "de": "Pauschaler Bonus zur erwarteten Gesamtsumme"
       }
     }
   ],

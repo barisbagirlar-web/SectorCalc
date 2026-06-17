@@ -14,7 +14,7 @@ describe("tree-calculator", () => {
     "carbonFraction": 0.5,
     "formFactor": 0.5,
     "branchFactor": 0.3
-  } as Tree_calculatorInput;
+  } as unknown as Tree_calculatorInput;
     const result = calculateTree_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

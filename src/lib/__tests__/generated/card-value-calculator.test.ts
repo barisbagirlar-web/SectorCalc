@@ -14,7 +14,7 @@ describe("card-value-calculator", () => {
     "otherBenefits": 0,
     "interestRate": 0,
     "averageBalance": 0
-  } as Card_value_calculatorInput;
+  } as unknown as Card_value_calculatorInput;
     const result = calculateCard_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

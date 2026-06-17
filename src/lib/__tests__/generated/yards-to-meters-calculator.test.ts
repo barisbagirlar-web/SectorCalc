@@ -12,7 +12,7 @@ describe("yards-to-meters-calculator", () => {
     "yards2": 0,
     "yards3": 0,
     "yards4": 0
-  } as Yards_to_meters_calculatorInput;
+  } as unknown as Yards_to_meters_calculatorInput;
     const result = calculateYards_to_meters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

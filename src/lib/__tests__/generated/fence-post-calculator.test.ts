@@ -14,7 +14,7 @@ describe("fence-post-calculator", () => {
     "numberOfGateOpenings": 1,
     "postDiameter": 0.1,
     "postDepth": 0.6
-  } as Fence_post_calculatorInput;
+  } as unknown as Fence_post_calculatorInput;
     const result = calculateFence_post_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

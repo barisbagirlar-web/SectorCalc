@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Barns",
         "tr": "Ahır",
-        "de": "Barns",
+        "de": "Barn",
         "fr": "Barns",
         "es": "Barns",
         "ar": "Barns"
       },
       "businessContext_i18n": {
         "en": "The number of barns to convert.",
-        "tr": "Dönüştürülecek ahır sayısı."
+        "tr": "Dönüştürülecek ahır sayısı.",
+        "de": "Die Anzahl der umzurechnenden Barn."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
-        "de": "Scale Factor",
+        "de": "Skalierungsfaktor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to apply after conversion.",
-        "tr": "Dönüşümden sonra uygulanacak çarpan."
+        "tr": "Dönüşümden sonra uygulanacak çarpan.",
+        "de": "Multiplikator, der nach der Umrechnung angewendet wird."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Additive constant in square meters.",
-        "tr": "Metrekare cinsinden toplamsal sabit."
+        "tr": "Metrekare cinsinden toplamsal sabit.",
+        "de": "Additive Konstante in Quadratmetern."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding.",
-        "tr": "Yuvarlama için ondalık basamak sayısı."
+        "tr": "Yuvarlama için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Rundung."
       }
     }
   ],

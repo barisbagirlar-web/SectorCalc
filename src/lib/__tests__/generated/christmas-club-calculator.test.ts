@@ -13,7 +13,7 @@ describe("christmas-club-calculator", () => {
     "annualInterestRate": 2,
     "compoundingFrequency": 52,
     "startingBalance": 0
-  } as Christmas_club_calculatorInput;
+  } as unknown as Christmas_club_calculatorInput;
     const result = calculateChristmas_club_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

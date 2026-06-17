@@ -14,7 +14,7 @@ describe("multiple-calculator", () => {
     "overheadFixed": 1000,
     "profitMarginPercent": 20,
     "taxRatePercent": 18
-  } as Multiple_calculatorInput;
+  } as unknown as Multiple_calculatorInput;
     const result = calculateMultiple_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

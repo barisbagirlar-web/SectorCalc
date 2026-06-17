@@ -14,7 +14,7 @@ describe("fundamental-theorem-calculus-calculator", () => {
     "c1": 0,
     "c2": 0,
     "c3": 0
-  } as Fundamental_theorem_calculus_calculatorInput;
+  } as unknown as Fundamental_theorem_calculus_calculatorInput;
     const result = calculateFundamental_theorem_calculus_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("feet-to-inches-calculator", () => {
     "inches": 0,
     "fractionNumerator": 0,
     "fractionDenominator": 1
-  } as Feet_to_inches_calculatorInput;
+  } as unknown as Feet_to_inches_calculatorInput;
     const result = calculateFeet_to_inches_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

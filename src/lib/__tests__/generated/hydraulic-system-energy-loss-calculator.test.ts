@@ -16,7 +16,7 @@ describe("hydraulic-system-energy-loss-calculator", () => {
     "pipe_diameter": 25,
     "valve_count": 5,
     "fitting_count": 20
-  } as Hydraulic_system_energy_loss_calculatorInput;
+  } as unknown as Hydraulic_system_energy_loss_calculatorInput;
     const result = calculateHydraulic_system_energy_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

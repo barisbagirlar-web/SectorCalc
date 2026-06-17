@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import {
   Bot,
+  Boxes,
   Clock,
   Cpu,
   DollarSign,
@@ -43,7 +44,7 @@ export const CATEGORY_ICON_MAP = {
   "textile-print-lab": Shirt,
   "electrical-power-systems": Zap,
   "mechanical-hvac-energy-loss": Fan,
-  "packaging-local-business": Package,
+  "packaging-local-business": Boxes,
   "global-compliance-trade": Globe2,
   "technology-ai-cloud-cyber": Bot,
 } as const satisfies Record<GlobalToolCategorySlug, LucideIcon>;

@@ -12,7 +12,7 @@ describe("orbit-calculator", () => {
     "apogeeAltitude": 2000,
     "earthRadius": 6371,
     "mu": 398600.4418
-  } as Orbit_calculatorInput;
+  } as unknown as Orbit_calculatorInput;
     const result = calculateOrbit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

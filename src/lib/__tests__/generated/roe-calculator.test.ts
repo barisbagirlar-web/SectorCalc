@@ -12,7 +12,7 @@ describe("roe-calculator", () => {
     "revenue": 5000000,
     "totalAssets": 10000000,
     "shareholdersEquity": 4000000
-  } as Roe_calculatorInput;
+  } as unknown as Roe_calculatorInput;
     const result = calculateRoe_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

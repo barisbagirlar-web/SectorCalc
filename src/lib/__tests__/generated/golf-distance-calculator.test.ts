@@ -14,7 +14,7 @@ describe("golf-distance-calculator", () => {
     "spinRate": 2500,
     "windSpeed": 0,
     "altitude": 0
-  } as Golf_distance_calculatorInput;
+  } as unknown as Golf_distance_calculatorInput;
     const result = calculateGolf_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

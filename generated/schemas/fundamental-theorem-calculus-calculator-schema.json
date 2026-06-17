@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Lower Limit (a)",
         "tr": "Alt sınır (a)",
-        "de": "Lower Limit (a)",
+        "de": "Untere Grenze (a)",
         "fr": "Lower Limit (a)",
         "es": "Lower Limit (a)",
         "ar": "Lower Limit (a)"
       },
       "businessContext_i18n": {
         "en": "Alt integrasyon sınırı",
-        "tr": "Alt integrasyon sınırı"
+        "tr": "Alt integrasyon sınırı",
+        "de": "Untere Integrationsgrenze"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Upper Limit (b)",
         "tr": "Üst sınır (b)",
-        "de": "Upper Limit (b)",
+        "de": "Obere Grenze (b)",
         "fr": "Upper Limit (b)",
         "es": "Upper Limit (b)",
         "ar": "Upper Limit (b)"
       },
       "businessContext_i18n": {
         "en": "Üst integrasyon sınırı",
-        "tr": "Üst integrasyon sınırı"
+        "tr": "Üst integrasyon sınırı",
+        "de": "Obere Integrationsgrenze"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Constant Coefficient (c₀)",
         "tr": "Sabit katsayı (c₀)",
-        "de": "Constant Coefficient (c₀)",
+        "de": "Konstanter Koeffizient (c₀)",
         "fr": "Constant Coefficient (c₀)",
         "es": "Constant Coefficient (c₀)",
         "ar": "Constant Coefficient (c₀)"
       },
       "businessContext_i18n": {
         "en": "Sabit terim katsayısı",
-        "tr": "Sabit terim katsayısı"
+        "tr": "Sabit terim katsayısı",
+        "de": "Koeffizient des konstanten Terms"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Linear Coefficient (c₁)",
         "tr": "Doğrusal katsayı (c₁)",
-        "de": "Linear Coefficient (c₁)",
+        "de": "Linearer Koeffizient (c₁)",
         "fr": "Linear Coefficient (c₁)",
         "es": "Linear Coefficient (c₁)",
         "ar": "Linear Coefficient (c₁)"
       },
       "businessContext_i18n": {
         "en": "x terimi katsayısı",
-        "tr": "x terimi katsayısı"
+        "tr": "x terimi katsayısı",
+        "de": "Koeffizient des x-Terms"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Quadratic Coefficient (c₂)",
         "tr": "İkinci derece katsayı (c₂)",
-        "de": "Quadratic Coefficient (c₂)",
+        "de": "Quadratischer Koeffizient (c₂)",
         "fr": "Quadratic Coefficient (c₂)",
         "es": "Quadratic Coefficient (c₂)",
         "ar": "Quadratic Coefficient (c₂)"
       },
       "businessContext_i18n": {
         "en": "x² terimi katsayısı",
-        "tr": "x² terimi katsayısı"
+        "tr": "x² terimi katsayısı",
+        "de": "Koeffizient des x²-Terms"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Cubic Coefficient (c₃)",
         "tr": "Üçüncü derece katsayı (c₃)",
-        "de": "Cubic Coefficient (c₃)",
+        "de": "Kubischer Koeffizient (c₃)",
         "fr": "Cubic Coefficient (c₃)",
         "es": "Cubic Coefficient (c₃)",
         "ar": "Cubic Coefficient (c₃)"
       },
       "businessContext_i18n": {
         "en": "x³ terimi katsayısı",
-        "tr": "x³ terimi katsayısı"
+        "tr": "x³ terimi katsayısı",
+        "de": "Koeffizient des x³-Terms"
       }
     }
   ],

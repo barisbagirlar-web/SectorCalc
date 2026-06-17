@@ -13,7 +13,7 @@ describe("fan-calculator", () => {
     "fanEfficiency": 70,
     "motorEfficiency": 90,
     "airDensity": 1.2
-  } as Fan_calculatorInput;
+  } as unknown as Fan_calculatorInput;
     const result = calculateFan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

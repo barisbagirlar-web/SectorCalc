@@ -13,7 +13,7 @@ describe("magnification-calculator", () => {
     "focalLength": 0,
     "objectHeight": 10,
     "imageHeight": 20
-  } as Magnification_calculatorInput;
+  } as unknown as Magnification_calculatorInput;
     const result = calculateMagnification_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

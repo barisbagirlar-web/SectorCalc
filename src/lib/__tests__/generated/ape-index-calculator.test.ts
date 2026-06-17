@@ -12,7 +12,7 @@ describe("ape-index-calculator", () => {
     "heightIn": 9,
     "armspanFt": 5,
     "armspanIn": 9
-  } as Ape_index_calculatorInput;
+  } as unknown as Ape_index_calculatorInput;
     const result = calculateApe_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Bit Depth",
         "tr": "Bit Derinliği",
-        "de": "Bit Depth",
+        "de": "Bittiefe",
         "fr": "Bit Depth",
         "es": "Bit Depth",
         "ar": "Bit Depth"
       },
       "businessContext_i18n": {
         "en": "Number of bits used to represent each sample. Determines dynamic range and number of possible values.",
-        "tr": "Her örneği temsil etmek için kullanılan bit sayısı. Dinamik aralığı ve olası değer sayısını belirler."
+        "tr": "Her örneği temsil etmek için kullanılan bit sayısı. Dinamik aralığı ve olası değer sayısını belirler.",
+        "de": "Anzahl der Bits zur Darstellung jedes Samples. Bestimmt Dynamikumfang und Anzahl möglicher Werte."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sample Rate",
         "tr": "Örnekleme Hızı",
-        "de": "Sample Rate",
+        "de": "Abtastrate",
         "fr": "Sample Rate",
         "es": "Sample Rate",
         "ar": "Sample Rate"
       },
       "businessContext_i18n": {
         "en": "Samples per second. Common values: 44.1 kHz for CD, 48 kHz for video, 96 kHz for high‑res.",
-        "tr": "Saniyedeki örnek sayısı. Yaygın değerler: CD için 44,1 kHz, video için 48 kHz, yüksek çözünürlük için 96 kHz."
+        "tr": "Saniyedeki örnek sayısı. Yaygın değerler: CD için 44,1 kHz, video için 48 kHz, yüksek çözünürlük için 96 kHz.",
+        "de": "Samples pro Sekunde. Übliche Werte: 44,1 kHz für CD, 48 kHz für Video, 96 kHz für High-Res."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Channels",
         "tr": "Kanal Sayısı",
-        "de": "Number of Channels",
+        "de": "Anzahl der Kanäle",
         "fr": "Number of Channels",
         "es": "Number of Channels",
         "ar": "Number of Channels"
       },
       "businessContext_i18n": {
         "en": "1 for mono, 2 for stereo, 5.1 for surround, etc.",
-        "tr": "1 mono, 2 stereo, 5.1 surround vb. için."
+        "tr": "1 mono, 2 stereo, 5.1 surround vb. için.",
+        "de": "1 für Mono, 2 für Stereo, 5.1 für Surround usw."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Duration",
         "tr": "Süre",
-        "de": "Duration",
+        "de": "Dauer",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of the audio stream in seconds.",
-        "tr": "Ses akışının saniye cinsinden süresi."
+        "tr": "Ses akışının saniye cinsinden süresi.",
+        "de": "Dauer des Audiostreams in Sekunden."
       }
     }
   ],

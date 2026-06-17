@@ -7,7 +7,7 @@ import {
 
 describe("runoff-calculator", () => {
   it("calculates with schema default inputs", () => {
-    const input = {} as Runoff_calculatorInput;
+    const input = {} as unknown as Runoff_calculatorInput;
     const result = calculateRunoff_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

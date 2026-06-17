@@ -5,11 +5,9 @@ import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
 import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
 import { Container } from "@/components/ui/Container";
 import { getCachedCategoryPageCatalogGroups } from "@/lib/catalog/cached-catalog-groups";
-import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/seo/schema-mesh";
-import { buildCoreHubCrawlGroups, buildFreeToolsCrawlGroups, buildPremiumToolsCrawlGroups } from "@/lib/seo/crawl-index";
 
 export async function generateMetadata(): Promise<Metadata> {
   return createPageMetadata({
@@ -61,18 +59,6 @@ export default async function CategoriesPage({ params }: PageProps) {
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
           <SectorCatalogExplorer groups={groups} variant="categories" />
-        </Container>
-      </section>
-
-      <section className="sc-pro-section sc-pro-section--border">
-        <Container className="sc-pro-container">
-          <CrawlIndexLinkList
-            groups={[
-              ...buildCoreHubCrawlGroups(),
-              ...buildFreeToolsCrawlGroups(),
-              ...buildPremiumToolsCrawlGroups(locale),
-            ]}
-          />
         </Container>
       </section>
     </PageLayout>

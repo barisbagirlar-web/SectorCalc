@@ -12,7 +12,7 @@ describe("download-time-calculator", () => {
     "downloadSpeed": 50,
     "overheadPercentage": 10,
     "parallelConnections": 1
-  } as Download_time_calculatorInput;
+  } as unknown as Download_time_calculatorInput;
     const result = calculateDownload_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

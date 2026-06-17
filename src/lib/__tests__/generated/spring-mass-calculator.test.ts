@@ -12,7 +12,7 @@ describe("spring-mass-calculator", () => {
     "mass": 1,
     "initialDisplacement": 0.1,
     "initialVelocity": 0
-  } as Spring_mass_calculatorInput;
+  } as unknown as Spring_mass_calculatorInput;
     const result = calculateSpring_mass_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

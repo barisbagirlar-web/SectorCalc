@@ -12,7 +12,7 @@ describe("kelly-criterion-calculator", () => {
     "b": 2,
     "bankroll": 1000,
     "fraction": 1
-  } as Kelly_criterion_calculatorInput;
+  } as unknown as Kelly_criterion_calculatorInput;
     const result = calculateKelly_criterion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

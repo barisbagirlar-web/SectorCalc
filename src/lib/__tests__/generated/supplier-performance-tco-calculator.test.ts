@@ -16,7 +16,7 @@ describe("supplier-performance-tco-calculator", () => {
     "lead_time_days": 30,
     "carrying_cost_rate": 25,
     "warranty_claim_rate": 2
-  } as Supplier_performance_tco_calculatorInput;
+  } as unknown as Supplier_performance_tco_calculatorInput;
     const result = calculateSupplier_performance_tco_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

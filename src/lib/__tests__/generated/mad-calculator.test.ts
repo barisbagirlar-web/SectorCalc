@@ -11,7 +11,7 @@ describe("mad-calculator", () => {
     "data_points": "10,12,23,23,16,23,21,16",
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Mad_calculatorInput;
+  } as unknown as Mad_calculatorInput;
     const result = calculateMad_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

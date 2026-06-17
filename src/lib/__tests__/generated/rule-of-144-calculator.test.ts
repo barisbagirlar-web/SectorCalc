@@ -12,7 +12,7 @@ describe("rule-of-144-calculator", () => {
     "compoundingPeriods": 1,
     "initialInvestment": 1000,
     "targetMultiplier": 2
-  } as Rule_of_144_calculatorInput;
+  } as unknown as Rule_of_144_calculatorInput;
     const result = calculateRule_of_144_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

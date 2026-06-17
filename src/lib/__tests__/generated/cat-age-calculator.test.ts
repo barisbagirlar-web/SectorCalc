@@ -13,7 +13,7 @@ describe("cat-age-calculator", () => {
     "lifestyle_factor": 1,
     "diet_factor": 1,
     "neuter_factor": 1
-  } as Cat_age_calculatorInput;
+  } as unknown as Cat_age_calculatorInput;
     const result = calculateCat_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

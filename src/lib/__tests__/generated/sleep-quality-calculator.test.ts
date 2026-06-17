@@ -12,7 +12,7 @@ describe("sleep-quality-calculator", () => {
     "timeToFallAsleep": 15,
     "awakeningsCount": 1,
     "sleepEfficiency": 90
-  } as Sleep_quality_calculatorInput;
+  } as unknown as Sleep_quality_calculatorInput;
     const result = calculateSleep_quality_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

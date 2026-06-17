@@ -12,7 +12,7 @@ describe("treadmill-pace-calculator", () => {
     "hours": 0,
     "minutes": 30,
     "seconds": 0
-  } as Treadmill_pace_calculatorInput;
+  } as unknown as Treadmill_pace_calculatorInput;
     const result = calculateTreadmill_pace_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

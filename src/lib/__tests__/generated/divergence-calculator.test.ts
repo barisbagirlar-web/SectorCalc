@@ -14,7 +14,7 @@ describe("divergence-calculator", () => {
     "x": 0,
     "y": 0,
     "z": 0
-  } as Divergence_calculatorInput;
+  } as unknown as Divergence_calculatorInput;
     const result = calculateDivergence_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

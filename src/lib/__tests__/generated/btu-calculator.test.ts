@@ -15,7 +15,7 @@ describe("btu-calculator", () => {
     "windowArea": 20,
     "occupants": 2,
     "applianceHeat": 1000
-  } as Btu_calculatorInput;
+  } as unknown as Btu_calculatorInput;
     const result = calculateBtu_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -23,11 +23,13 @@
       "businessContext": "Total number of repair orders completed in the period (ISO 9001:2015 clause 8.5.1)",
       "label_i18n": {
         "en": "Total Repair Orders (monthly)",
-        "tr": "Toplam Onarım Emri (aylık)"
+        "tr": "Toplam Onarım Emri (aylık)",
+        "de": "Reparaturaufträge gesamt (monatlich)"
       },
       "businessContext_i18n": {
         "en": "Total number of repair orders completed in the period (ISO 9001:2015 clause 8.5.1)",
-        "tr": "Dönemde tamamlanan toplam onarım emri sayısı (ISO 9001:2015 madde 8.5.1)."
+        "tr": "Dönemde tamamlanan toplam onarım emri sayısı (ISO 9001:2015 madde 8.5.1).",
+        "de": "Gesamtzahl der im Zeitraum abgeschlossenen Reparaturaufträge (ISO 9001:2015 Klausel 8.5.1)."
       }
     },
     {
@@ -41,11 +43,13 @@
       "businessContext": "Number of repair orders that returned for rework within warranty or service period (Six Sigma DPMO metric)",
       "label_i18n": {
         "en": "Comeback Count (monthly)",
-        "tr": "Geri Dönüş Sayısı (aylık)"
+        "tr": "Geri Dönüş Sayısı (aylık)",
+        "de": "Wiederholungsaufträge (monatlich)"
       },
       "businessContext_i18n": {
         "en": "Number of repair orders that returned for rework within warranty or service period (Six Sigma DPMO metric)",
-        "tr": "Garanti veya servis süresi içinde yeniden işlem için geri dönen onarım emri sayısı (Altı Sigma DPMO metriği)."
+        "tr": "Garanti veya servis süresi içinde yeniden işlem için geri dönen onarım emri sayısı (Altı Sigma DPMO metriği).",
+        "de": "Anzahl der Reparaturaufträge, die innerhalb der Garantie- oder Servicefrist zur Nacharbeit zurückkamen (Six Sigma DPMO-Kennzahl)."
       }
     },
     {
@@ -59,11 +63,13 @@
       "businessContext": "Fully burdened labor rate including overhead (WERC DC Measures)",
       "label_i18n": {
         "en": "Average Labor Rate",
-        "tr": "Ortalama İşçilik Ücreti"
+        "tr": "Ortalama İşçilik Ücreti",
+        "de": "Durchschnittlicher Stundensatz"
       },
       "businessContext_i18n": {
         "en": "Fully burdened labor rate including overhead (WERC DC Measures)",
-        "tr": "Genel giderler dahil tam yüklü işçilik ücreti (WERC DC Ölçütleri)."
+        "tr": "Genel giderler dahil tam yüklü işçilik ücreti (WERC DC Ölçütleri).",
+        "de": "Voll belasteter Stundensatz inklusive Gemeinkosten (WERC DC Measures)."
       }
     },
     {
@@ -77,11 +83,13 @@
       "businessContext": "Average technician hours spent diagnosing and re-repairing a comeback (Lean Takt time impact)",
       "label_i18n": {
         "en": "Average Hours per Comeback",
-        "tr": "Geri Dönüş Başına Ortalama Saat"
+        "tr": "Geri Dönüş Başına Ortalama Saat",
+        "de": "Durchschnittliche Stunden pro Wiederholungsauftrag"
       },
       "businessContext_i18n": {
         "en": "Average technician hours spent diagnosing and re-repairing a comeback (Lean Takt time impact)",
-        "tr": "Bir geri dönüşü teşhis ve yeniden onarım için harcanan ortalama teknisyen saati (Yalın Takt süresi etkisi)."
+        "tr": "Bir geri dönüşü teşhis ve yeniden onarım için harcanan ortalama teknisyen saati (Yalın Takt süresi etkisi).",
+        "de": "Durchschnittliche Technikerstunden für Diagnose und erneute Reparatur eines Wiederholungsauftrags (Lean Taktzeit-Auswirkung)."
       }
     },
     {
@@ -95,11 +103,13 @@
       "businessContext": "Replacement parts and materials consumed per comeback (ISO 14001 waste reduction)",
       "label_i18n": {
         "en": "Average Parts Cost per Comeback",
-        "tr": "Geri Dönüş Başına Ortalama Parça Maliyeti"
+        "tr": "Geri Dönüş Başına Ortalama Parça Maliyeti",
+        "de": "Durchschnittliche Teilekosten pro Wiederholungsauftrag"
       },
       "businessContext_i18n": {
         "en": "Replacement parts and materials consumed per comeback (ISO 14001 waste reduction)",
-        "tr": "Geri dönüş başına tüketilen yedek parça ve malzemeler (ISO 14001 atık azaltımı)."
+        "tr": "Geri dönüş başına tüketilen yedek parça ve malzemeler (ISO 14001 atık azaltımı).",
+        "de": "Verbrauchte Ersatzteile und Materialien pro Wiederholungsauftrag (ISO 14001 Abfallreduzierung)."
       }
     },
     {
@@ -113,11 +123,13 @@
       "businessContext": "Estimated net profit from a loyal customer over their relationship with the shop",
       "label_i18n": {
         "en": "Customer Lifetime Value (CLV)",
-        "tr": "Müşteri Yaşam Boyu Değeri (CLV)"
+        "tr": "Müşteri Yaşam Boyu Değeri (CLV)",
+        "de": "Kundenlebenszeitwert (CLV)"
       },
       "businessContext_i18n": {
         "en": "Estimated net profit from a loyal customer over their relationship with the shop",
-        "tr": "Sadık bir müşterinin atölye ile ilişkisi boyunca tahmini net karı."
+        "tr": "Sadık bir müşterinin atölye ile ilişkisi boyunca tahmini net karı.",
+        "de": "Geschätzter Nettogewinn eines treuen Kunden über die gesamte Geschäftsbeziehung zur Werkstatt."
       }
     },
     {
@@ -131,11 +143,13 @@
       "businessContext": "Percentage of customers who never return after a comeback experience (Net Promoter Score correlation)",
       "label_i18n": {
         "en": "Lost Customer Rate per Comeback",
-        "tr": "Geri Dönüş Başına Kaybedilen Müşteri Oranı"
+        "tr": "Geri Dönüş Başına Kaybedilen Müşteri Oranı",
+        "de": "Verlustrate pro Wiederholungsauftrag"
       },
       "businessContext_i18n": {
         "en": "Percentage of customers who never return after a comeback experience (Net Promoter Score correlation)",
-        "tr": "Bir geri dönüş deneyiminden sonra bir daha asla gelmeyen müşterilerin yüzdesi (Net Tavsiye Skoru korelasyonu)"
+        "tr": "Bir geri dönüş deneyiminden sonra bir daha asla gelmeyen müşterilerin yüzdesi (Net Tavsiye Skoru korelasyonu)",
+        "de": "Prozentsatz der Kunden, die nach einem Comeback-Erlebnis nie wiederkehren (Net Promoter Score-Korrelation)"
       }
     },
     {
@@ -153,11 +167,13 @@
       "businessContext": "Type of repair facility influences overhead multipliers (ASA industry standards)",
       "label_i18n": {
         "en": "Shop Type",
-        "tr": "Atölye Türü"
+        "tr": "Atölye Türü",
+        "de": "Werkstatttyp"
       },
       "businessContext_i18n": {
         "en": "Type of repair facility influences overhead multipliers (ASA industry standards)",
-        "tr": "Onarım tesisi türü, genel gider çarpanlarını etkiler (ASA endüstri standartları)"
+        "tr": "Onarım tesisi türü, genel gider çarpanlarını etkiler (ASA endüstri standartları)",
+        "de": "Der Werkstatttyp beeinflusst die Gemeinkostenmultiplikatoren (ASA-Branchenstandards)"
       }
     }
   ],

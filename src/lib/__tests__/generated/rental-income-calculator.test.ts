@@ -14,7 +14,7 @@ describe("rental-income-calculator", () => {
     "maintenanceMonthly": 100,
     "insuranceMonthly": 50,
     "propertyTaxAnnual": 2000
-  } as Rental_income_calculatorInput;
+  } as unknown as Rental_income_calculatorInput;
     const result = calculateRental_income_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("toll-calculator", () => {
     "fixed_toll_fee": 0,
     "weight_factor": 1,
     "vat_rate": 18
-  } as Toll_calculatorInput;
+  } as unknown as Toll_calculatorInput;
     const result = calculateToll_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

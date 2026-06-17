@@ -12,7 +12,7 @@ describe("body-surface-area-pediatric-calculator", () => {
     "height": 100,
     "formula": 1,
     "adjustment": 1
-  } as Body_surface_area_pediatric_calculatorInput;
+  } as unknown as Body_surface_area_pediatric_calculatorInput;
     const result = calculateBody_surface_area_pediatric_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

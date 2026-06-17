@@ -13,7 +13,7 @@ describe("underlayment-calculator", () => {
     "rollWidth": 4,
     "wasteFactor": 10,
     "pricePerRoll": 30
-  } as Underlayment_calculatorInput;
+  } as unknown as Underlayment_calculatorInput;
     const result = calculateUnderlayment_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

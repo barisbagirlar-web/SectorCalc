@@ -12,7 +12,7 @@ describe("adc-calculator", () => {
     "referenceVoltage": 3.3,
     "inputVoltage": 1.65,
     "gain": 1
-  } as Adc_calculatorInput;
+  } as unknown as Adc_calculatorInput;
     const result = calculateAdc_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

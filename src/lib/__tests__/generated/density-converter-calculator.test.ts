@@ -12,7 +12,7 @@ describe("density-converter-calculator", () => {
     "fromUnit": 1,
     "toUnit": 2,
     "precision": 2
-  } as Density_converter_calculatorInput;
+  } as unknown as Density_converter_calculatorInput;
     const result = calculateDensity_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

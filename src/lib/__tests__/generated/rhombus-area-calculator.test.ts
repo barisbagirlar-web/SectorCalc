@@ -13,7 +13,7 @@ describe("rhombus-area-calculator", () => {
     "sideLength": 0,
     "height": 0,
     "angle": 0
-  } as Rhombus_area_calculatorInput;
+  } as unknown as Rhombus_area_calculatorInput;
     const result = calculateRhombus_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

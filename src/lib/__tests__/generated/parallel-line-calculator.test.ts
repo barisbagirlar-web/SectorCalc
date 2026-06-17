@@ -12,7 +12,7 @@ describe("parallel-line-calculator", () => {
     "R2": 1,
     "R3": 1,
     "R4": 1
-  } as Parallel_line_calculatorInput;
+  } as unknown as Parallel_line_calculatorInput;
     const result = calculateParallel_line_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("mutual-fund-calculator", () => {
     "annualReturnRate": 7,
     "investmentPeriod": 20,
     "inflationRate": 2.5
-  } as Mutual_fund_calculatorInput;
+  } as unknown as Mutual_fund_calculatorInput;
     const result = calculateMutual_fund_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

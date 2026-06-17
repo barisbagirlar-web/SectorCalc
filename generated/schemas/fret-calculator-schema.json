@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Scale Length",
         "tr": "Skala Uzunluğu",
-        "de": "Scale Length",
+        "de": "Mensurlänge",
         "fr": "Scale Length",
         "es": "Scale Length",
         "ar": "Scale Length"
       },
       "businessContext_i18n": {
         "en": "The distance from the nut to the bridge saddle, typically measured in millimeters.",
-        "tr": "Somundan köprü eşiğine olan mesafe, tipik olarak milimetre cinsinden ölçülür."
+        "tr": "Somundan köprü eşiğine olan mesafe, tipik olarak milimetre cinsinden ölçülür.",
+        "de": "Der Abstand von der Mutter zum Steg, typischerweise in Millimetern gemessen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Fret Number",
         "tr": "Perde Numarası",
-        "de": "Fret Number",
+        "de": "Bundnummer",
         "fr": "Fret Number",
         "es": "Fret Number",
         "ar": "Fret Number"
       },
       "businessContext_i18n": {
         "en": "The fret position to calculate (1-indexed).",
-        "tr": "Hesaplanacak perde konumu (1'den başlayarak)."
+        "tr": "Hesaplanacak perde konumu (1'den başlayarak).",
+        "de": "Die zu berechnende Bundposition (1-basiert)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Total Frets",
         "tr": "Toplam Perde Sayısı",
-        "de": "Total Frets",
+        "de": "Gesamtanzahl Bünde",
         "fr": "Total Frets",
         "es": "Total Frets",
         "ar": "Total Frets"
       },
       "businessContext_i18n": {
         "en": "The total number of frets on the instrument fingerboard.",
-        "tr": "Enstrüman klavyesindeki toplam perde sayısı."
+        "tr": "Enstrüman klavyesindeki toplam perde sayısı.",
+        "de": "Die Gesamtzahl der Bünde auf dem Griffbrett des Instruments."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Compensation",
         "tr": "Dengeleme",
-        "de": "Compensation",
+        "de": "Kompensation",
         "fr": "Compensation",
         "es": "Compensation",
         "ar": "Compensation"
       },
       "businessContext_i18n": {
         "en": "Additional length added to the scale length for intonation compensation at the bridge.",
-        "tr": "Köprüde entonasyon dengelemesi için skala uzunluğuna eklenen ek uzunluk."
+        "tr": "Köprüde entonasyon dengelemesi için skala uzunluğuna eklenen ek uzunluk.",
+        "de": "Zusätzliche Länge zur Mensurlänge für die Intonationskompensation am Steg."
       }
     }
   ],

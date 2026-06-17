@@ -23,11 +23,13 @@
       "businessContext": "Standard selling price before any discount, as defined in ISO 9001 cost accounting procedures.",
       "label_i18n": {
         "en": "List Price (per unit)",
-        "tr": "Liste Fiyatı (birim başına)"
+        "tr": "Liste Fiyatı (birim başına)",
+        "de": "Listenpreis (pro Einheit)"
       },
       "businessContext_i18n": {
         "en": "Standard selling price before any discount, as defined in ISO 9001 cost accounting procedures.",
-        "tr": "ISO 9001 maliyet muhasebesi prosedürlerinde tanımlandığı gibi, herhangi bir indirimden önceki standart satış fiyatı."
+        "tr": "ISO 9001 maliyet muhasebesi prosedürlerinde tanımlandığı gibi, herhangi bir indirimden önceki standart satış fiyatı.",
+        "de": "Standardverkaufspreis vor Rabatt, gemäß ISO 9001 Kostenrechnungsverfahren."
       }
     },
     {
@@ -41,11 +43,13 @@
       "businessContext": "Negotiated or promotional discount off list price, typical in Lean pricing strategies.",
       "label_i18n": {
         "en": "Discount Percentage",
-        "tr": "İndirim Yüzdesi"
+        "tr": "İndirim Yüzdesi",
+        "de": "Rabattprozentsatz"
       },
       "businessContext_i18n": {
         "en": "Negotiated or promotional discount off list price, typical in Lean pricing strategies.",
-        "tr": "Yalın fiyatlandırma stratejilerinde tipik olan, liste fiyatından müzakere edilen veya promosyonel indirim."
+        "tr": "Yalın fiyatlandırma stratejilerinde tipik olan, liste fiyatından müzakere edilen veya promosyonel indirim.",
+        "de": "Ausgehandelter oder werblicher Rabatt auf den Listenpreis, typisch für Lean-Preisstrategien."
       }
     },
     {
@@ -59,11 +63,13 @@
       "businessContext": "Number of units in the transaction, used for volume-based discount analysis per WERC DC metrics.",
       "label_i18n": {
         "en": "Order Quantity",
-        "tr": "Sipariş Miktarı"
+        "tr": "Sipariş Miktarı",
+        "de": "Bestellmenge"
       },
       "businessContext_i18n": {
         "en": "Number of units in the transaction, used for volume-based discount analysis per WERC DC metrics.",
-        "tr": "WERC DC metriklerine göre hacim bazlı indirim analizi için kullanılan işlemdeki birim sayısı."
+        "tr": "WERC DC metriklerine göre hacim bazlı indirim analizi için kullanılan işlemdeki birim sayısı.",
+        "de": "Anzahl der Einheiten in der Transaktion, verwendet für mengenbasierte Rabattanalyse gemäß WERC DC-Kennzahlen."
       }
     },
     {
@@ -77,11 +83,13 @@
       "businessContext": "Direct material, labor, and variable overhead per unit (ISO 14051 MFCA standard).",
       "label_i18n": {
         "en": "Variable Cost per Unit",
-        "tr": "Birim Başına Değişken Maliyet"
+        "tr": "Birim Başına Değişken Maliyet",
+        "de": "Variable Kosten pro Einheit"
       },
       "businessContext_i18n": {
         "en": "Direct material, labor, and variable overhead per unit (ISO 14051 MFCA standard).",
-        "tr": "Birim başına direkt malzeme, işçilik ve değişken genel gider (ISO 14051 MFCA standardı)."
+        "tr": "Birim başına direkt malzeme, işçilik ve değişken genel gider (ISO 14051 MFCA standardı).",
+        "de": "Direkte Material-, Arbeits- und variable Gemeinkosten pro Einheit (ISO 14051 MFCA-Standard)."
       }
     },
     {
@@ -95,11 +103,13 @@
       "businessContext": "Allocated fixed costs for the order batch (e.g., setup, engineering, admin) per Lean cost deployment.",
       "label_i18n": {
         "en": "Fixed Cost Allocation (total)",
-        "tr": "Sabit Maliyet Dağıtımı (toplam)"
+        "tr": "Sabit Maliyet Dağıtımı (toplam)",
+        "de": "Fixkostenzuschlag (gesamt)"
       },
       "businessContext_i18n": {
         "en": "Allocated fixed costs for the order batch (e.g., setup, engineering, admin) per Lean cost deployment.",
-        "tr": "Sipariş partisi için dağıtılan sabit maliyetler (örn. hazırlık, mühendislik, idari) Yalın maliyet dağıtımına göre."
+        "tr": "Sipariş partisi için dağıtılan sabit maliyetler (örn. hazırlık, mühendislik, idari) Yalın maliyet dağıtımına göre.",
+        "de": "Zugewiesene Fixkosten für den Auftragslos (z. B. Rüstkosten, Engineering, Verwaltung) gemäß Lean-Kostenzuordnung."
       }
     },
     {
@@ -114,11 +124,13 @@
       "businessContext": "Method of discount application: percentage off list or fixed dollar amount per unit.",
       "label_i18n": {
         "en": "Discount Type",
-        "tr": "İndirim Türü"
+        "tr": "İndirim Türü",
+        "de": "Rabattart"
       },
       "businessContext_i18n": {
         "en": "Method of discount application: percentage off list or fixed dollar amount per unit.",
-        "tr": "İndirim uygulama yöntemi: liste fiyatından yüzde indirim veya birim başına sabit dolar tutarı."
+        "tr": "İndirim uygulama yöntemi: liste fiyatından yüzde indirim veya birim başına sabit dolar tutarı.",
+        "de": "Methode der Rabattanwendung: Prozentualer Rabatt auf den Listenpreis oder fester Dollarbetrag pro Einheit."
       },
       "unit": "unit"
     },
@@ -130,11 +142,13 @@
       "businessContext": "If true, discount applies to entire quantity; if false, only to incremental units (tiered pricing).",
       "label_i18n": {
         "en": "Apply Discount to All Units",
-        "tr": "İndirimi Tüm Birimlere Uygula"
+        "tr": "İndirimi Tüm Birimlere Uygula",
+        "de": "Rabatt auf alle Einheiten anwenden"
       },
       "businessContext_i18n": {
         "en": "If true, discount applies to entire quantity; if false, only to incremental units (tiered pricing).",
-        "tr": "Doğruysa, indirim tüm miktara uygulanır; yanlışsa, yalnızca artan birimlere (kademeli fiyatlandırma)."
+        "tr": "Doğruysa, indirim tüm miktara uygulanır; yanlışsa, yalnızca artan birimlere (kademeli fiyatlandırma).",
+        "de": "Wenn wahr, gilt der Rabatt für die gesamte Menge; wenn falsch, nur für zusätzliche Einheiten (gestaffelte Preisgestaltung)."
       },
       "unit": "unit"
     }

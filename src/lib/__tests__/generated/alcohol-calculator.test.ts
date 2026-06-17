@@ -12,7 +12,7 @@ describe("alcohol-calculator", () => {
     "startABV": 96,
     "targetABV": 40,
     "temperature": 20
-  } as Alcohol_calculatorInput;
+  } as unknown as Alcohol_calculatorInput;
     const result = calculateAlcohol_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

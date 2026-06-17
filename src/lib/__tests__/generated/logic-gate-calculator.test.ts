@@ -13,7 +13,7 @@ describe("logic-gate-calculator", () => {
     "B": 0,
     "C": 0,
     "D": 0
-  } as Logic_gate_calculatorInput;
+  } as unknown as Logic_gate_calculatorInput;
     const result = calculateLogic_gate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

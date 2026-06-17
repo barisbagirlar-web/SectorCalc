@@ -12,7 +12,7 @@ describe("mtbf-calculator", () => {
     "unitCount": 1,
     "failureCount": 5,
     "repairHours": 50
-  } as Mtbf_calculatorInput;
+  } as unknown as Mtbf_calculatorInput;
     const result = calculateMtbf_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

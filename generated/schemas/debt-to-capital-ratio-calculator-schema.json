@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Debt",
         "tr": "Toplam Borç",
-        "de": "Total Debt",
+        "de": "Gesamtschulden",
         "fr": "Total Debt",
         "es": "Total Debt",
         "ar": "Total Debt"
       },
       "businessContext_i18n": {
         "en": "Total interest-bearing debt (short-term + long-term)",
-        "tr": "Toplam faiz getiren borç (kısa vadeli + uzun vadeli)"
+        "tr": "Toplam faiz getiren borç (kısa vadeli + uzun vadeli)",
+        "de": "Gesamte verzinsliche Schulden (kurzfristig + langfristig)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Common Stock",
         "tr": "Adi Hisse Senedi",
-        "de": "Common Stock",
+        "de": "Stammaktien",
         "fr": "Common Stock",
         "es": "Common Stock",
         "ar": "Common Stock"
       },
       "businessContext_i18n": {
         "en": "Common stock equity",
-        "tr": "Adi hisse senedi özkaynağı"
+        "tr": "Adi hisse senedi özkaynağı",
+        "de": "Stammaktienkapital"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Preferred Stock",
         "tr": "İmtiyazlı Hisse Senedi",
-        "de": "Preferred Stock",
+        "de": "Vorzugsaktien",
         "fr": "Preferred Stock",
         "es": "Preferred Stock",
         "ar": "Preferred Stock"
       },
       "businessContext_i18n": {
         "en": "Preferred stock equity",
-        "tr": "İmtiyazlı hisse senedi özkaynağı"
+        "tr": "İmtiyazlı hisse senedi özkaynağı",
+        "de": "Vorzugsaktienkapital"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Retained Earnings",
         "tr": "Dağıtılmamış Kârlar",
-        "de": "Retained Earnings",
+        "de": "Gewinnrücklagen",
         "fr": "Retained Earnings",
         "es": "Retained Earnings",
         "ar": "Retained Earnings"
       },
       "businessContext_i18n": {
         "en": "Accumulated retained earnings",
-        "tr": "Birikmiş karlar"
+        "tr": "Birikmiş karlar",
+        "de": "Kumulierte Gewinnrücklagen"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Other Equity",
         "tr": "Diğer Özkaynak",
-        "de": "Other Equity",
+        "de": "Sonstiges Eigenkapital",
         "fr": "Other Equity",
         "es": "Other Equity",
         "ar": "Other Equity"
       },
       "businessContext_i18n": {
         "en": "Other comprehensive equity components",
-        "tr": "Diğer kapsamlı özkaynak bileşenleri"
+        "tr": "Diğer kapsamlı özkaynak bileşenleri",
+        "de": "Sonstige Bestandteile des Gesamtergebnisses"
       }
     }
   ],

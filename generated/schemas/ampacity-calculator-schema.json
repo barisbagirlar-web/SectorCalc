@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
         "tr": "İletken Malzeme Faktörü (Bakır=1, Alüminyum=0,61)",
-        "de": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
+        "de": "Leitermaterialfaktor (Kupfer=1, Aluminium=0,61)",
         "fr": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
         "es": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
         "ar": "Conductor Material Factor (Copper=1, Aluminum=0.61)"
       },
       "businessContext_i18n": {
         "en": "Select 1 for copper or 0.61 for aluminum conductors as per ampacity standards.",
-        "tr": "Ampasite standartlarına göre bakır için 1 veya alüminyum için 0,61 seçin."
+        "tr": "Ampasite standartlarına göre bakır için 1 veya alüminyum için 0,61 seçin.",
+        "de": "Wählen Sie 1 für Kupfer oder 0,61 für Aluminiumleiter gemäß den Strombelastbarkeitsnormen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cross-Sectional Area",
         "tr": "Kesit Alanı",
-        "de": "Cross-Sectional Area",
+        "de": "Querschnittsfläche",
         "fr": "Cross-Sectional Area",
         "es": "Cross-Sectional Area",
         "ar": "Cross-Sectional Area"
       },
       "businessContext_i18n": {
         "en": "Nominal cross-sectional area of the conductor in square millimeters.",
-        "tr": "İletkenin milimetrekare cinsinden nominal kesit alanı."
+        "tr": "İletkenin milimetrekare cinsinden nominal kesit alanı.",
+        "de": "Nennquerschnittsfläche des Leiters in Quadratmillimetern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Insulation Temperature Rating",
         "tr": "Yalıtım Sıcaklık Derecesi",
-        "de": "Insulation Temperature Rating",
+        "de": "Isolations-Temperaturklasse",
         "fr": "Insulation Temperature Rating",
         "es": "Insulation Temperature Rating",
         "ar": "Insulation Temperature Rating"
       },
       "businessContext_i18n": {
         "en": "Maximum operating temperature of the insulation (e.g., 60, 75, 90°C).",
-        "tr": "Yalıtımın maksimum çalışma sıcaklığı (örn. 60, 75, 90°C)."
+        "tr": "Yalıtımın maksimum çalışma sıcaklığı (örn. 60, 75, 90°C).",
+        "de": "Maximale Betriebstemperatur der Isolierung (z. B. 60, 75, 90 °C)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
-        "de": "Ambient Temperature",
+        "de": "Umgebungstemperatur",
         "fr": "Ambient Temperature",
         "es": "Ambient Temperature",
         "ar": "Ambient Temperature"
       },
       "businessContext_i18n": {
         "en": "Expected ambient temperature for the installation environment.",
-        "tr": "Kurulum ortamı için beklenen ortam sıcaklığı."
+        "tr": "Kurulum ortamı için beklenen ortam sıcaklığı.",
+        "de": "Erwartete Umgebungstemperatur für die Installationsumgebung."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Bundling/Grouping Factor",
         "tr": "Demetleme/Gruplama Faktörü",
-        "de": "Bundling/Grouping Factor",
+        "de": "Bündelungs-/Gruppenfaktor",
         "fr": "Bundling/Grouping Factor",
         "es": "Bundling/Grouping Factor",
         "ar": "Bundling/Grouping Factor"
       },
       "businessContext_i18n": {
         "en": "Derating factor for multiple conductors in a raceway or cable (1.0 for single, typically <1 for multiple). Range 0 to 1.",
-        "tr": "Bir kanal veya kablodaki birden fazla iletken için düşürme faktörü (tek için 1,0, birden fazla için tipik olarak <1). Aralık 0 ile 1 arası."
+        "tr": "Bir kanal veya kablodaki birden fazla iletken için düşürme faktörü (tek için 1,0, birden fazla için tipik olarak <1). Aralık 0 ile 1 arası.",
+        "de": "Minderungsfaktor für mehrere Leiter in einem Kabelkanal oder Kabel (1,0 für einzeln, typischerweise <1 für mehrere). Bereich 0 bis 1."
       }
     }
   ],

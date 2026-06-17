@@ -11,7 +11,7 @@ describe("medicare-calculator", () => {
     "annualIncome": 50000,
     "filingStatus": 0,
     "auto_input_3": 1
-  } as Medicare_calculatorInput;
+  } as unknown as Medicare_calculatorInput;
     const result = calculateMedicare_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

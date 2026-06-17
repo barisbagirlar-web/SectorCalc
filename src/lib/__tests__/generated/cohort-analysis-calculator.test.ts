@@ -13,7 +13,7 @@ describe("cohort-analysis-calculator", () => {
     "retentionRateA": 80,
     "retentionRateB": 75,
     "periods": 12
-  } as Cohort_analysis_calculatorInput;
+  } as unknown as Cohort_analysis_calculatorInput;
     const result = calculateCohort_analysis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

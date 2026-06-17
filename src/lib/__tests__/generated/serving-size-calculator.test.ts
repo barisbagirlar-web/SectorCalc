@@ -12,7 +12,7 @@ describe("serving-size-calculator", () => {
     "numberOfServings": 10,
     "desiredServings": 20,
     "batchCost": 50
-  } as Serving_size_calculatorInput;
+  } as unknown as Serving_size_calculatorInput;
     const result = calculateServing_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

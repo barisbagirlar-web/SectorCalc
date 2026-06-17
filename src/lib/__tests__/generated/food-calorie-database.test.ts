@@ -14,7 +14,7 @@ describe("food-calorie-database", () => {
     "fiber_g": 0,
     "alcohol_g": 0,
     "serving_size_g": 100
-  } as Food_calorie_databaseInput;
+  } as unknown as Food_calorie_databaseInput;
     const result = calculateFood_calorie_database(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

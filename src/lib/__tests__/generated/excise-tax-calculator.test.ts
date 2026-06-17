@@ -12,7 +12,7 @@ describe("excise-tax-calculator", () => {
     "quantity": 1,
     "adValoremRate": 10,
     "specificTaxPerUnit": 5
-  } as Excise_tax_calculatorInput;
+  } as unknown as Excise_tax_calculatorInput;
     const result = calculateExcise_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

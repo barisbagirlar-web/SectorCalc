@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fin Length",
         "tr": "Kanat uzunluğu",
-        "de": "Fin Length",
+        "de": "Rippenlänge",
         "fr": "Fin Length",
         "es": "Fin Length",
         "ar": "Fin Length"
       },
       "businessContext_i18n": {
         "en": "Length of the fin from base to tip",
-        "tr": "Kanadın tabandan uca uzunluğu"
+        "tr": "Kanadın tabandan uca uzunluğu",
+        "de": "Länge der Rippe von der Basis bis zur Spitze"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Fin Thickness",
         "tr": "Kanat kalınlığı",
-        "de": "Fin Thickness",
+        "de": "Rippendicke",
         "fr": "Fin Thickness",
         "es": "Fin Thickness",
         "ar": "Fin Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of the fin cross-section",
-        "tr": "Kanat kesit kalınlığı"
+        "tr": "Kanat kesit kalınlığı",
+        "de": "Dicke des Rippenquerschnitts"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fin Width",
         "tr": "Kanat genişliği",
-        "de": "Fin Width",
+        "de": "Rippenbreite",
         "fr": "Fin Width",
         "es": "Fin Width",
         "ar": "Fin Width"
       },
       "businessContext_i18n": {
         "en": "Width of the fin (perpendicular to flow, typically larger than thickness)",
-        "tr": "Kanadın genişliği (akışa dik, genellikle kalınlıktan büyük)"
+        "tr": "Kanadın genişliği (akışa dik, genellikle kalınlıktan büyük)",
+        "de": "Breite der Rippe (senkrecht zur Strömung, typischerweise größer als die Dicke)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Heat Transfer Coefficient",
         "tr": "Isı Transfer Katsayısı",
-        "de": "Heat Transfer Coefficient",
+        "de": "Wärmeübergangskoeffizient",
         "fr": "Heat Transfer Coefficient",
         "es": "Heat Transfer Coefficient",
         "ar": "Heat Transfer Coefficient"
       },
       "businessContext_i18n": {
         "en": "Convective heat transfer coefficient on fin surface",
-        "tr": "Kanat yüzeyindeki konvektif ısı transfer katsayısı"
+        "tr": "Kanat yüzeyindeki konvektif ısı transfer katsayısı",
+        "de": "Konvektiver Wärmeübergangskoeffizient auf der Rippenoberfläche"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Thermal Conductivity",
         "tr": "Isıl İletkenlik",
-        "de": "Thermal Conductivity",
+        "de": "Wärmeleitfähigkeit",
         "fr": "Thermal Conductivity",
         "es": "Thermal Conductivity",
         "ar": "Thermal Conductivity"
       },
       "businessContext_i18n": {
         "en": "Thermal conductivity of fin material",
-        "tr": "Kanat malzemesinin termal iletkenliği"
+        "tr": "Kanat malzemesinin termal iletkenliği",
+        "de": "Wärmeleitfähigkeit des Rippenmaterials"
       }
     }
   ],

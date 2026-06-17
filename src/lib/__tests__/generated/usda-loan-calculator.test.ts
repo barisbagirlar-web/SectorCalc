@@ -15,7 +15,7 @@ describe("usda-loan-calculator", () => {
     "annualFeePercent": 0.35,
     "annualPropertyTax": 2400,
     "annualHomeInsurance": 1200
-  } as Usda_loan_calculatorInput;
+  } as unknown as Usda_loan_calculatorInput;
     const result = calculateUsda_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

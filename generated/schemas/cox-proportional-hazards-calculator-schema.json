@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Operating Hours",
         "tr": "Çalışma Saatleri",
-        "de": "Operating Hours",
+        "de": "Betriebsstunden",
         "fr": "Operating Hours",
         "es": "Operating Hours",
         "ar": "Operating Hours"
       },
       "businessContext_i18n": {
         "en": "Total hours machine has been operating",
-        "tr": "Makinenin çalıştığı toplam saat"
+        "tr": "Makinenin çalıştığı toplam saat",
+        "de": "Gesamtstunden, die die Maschine in Betrieb war"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
-        "de": "Temperature",
+        "de": "Temperatur",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Average operating temperature",
-        "tr": "Ortalama çalışma sıcaklığı"
+        "tr": "Ortalama çalışma sıcaklığı",
+        "de": "Durchschnittliche Betriebstemperatur"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Vibration Level",
         "tr": "Titreşim Seviyesi",
-        "de": "Vibration Level",
+        "de": "Vibrationspegel",
         "fr": "Vibration Level",
         "es": "Vibration Level",
         "ar": "Vibration Level"
       },
       "businessContext_i18n": {
         "en": "RMS vibration velocity",
-        "tr": "RMS titreşim hızı"
+        "tr": "RMS titreşim hızı",
+        "de": "RMS-Schwinggeschwindigkeit"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Maintenance Score",
         "tr": "Bakım Puanı",
-        "de": "Maintenance Score",
+        "de": "Wartungspunktzahl",
         "fr": "Maintenance Score",
         "es": "Maintenance Score",
         "ar": "Maintenance Score"
       },
       "businessContext_i18n": {
         "en": "Preventive maintenance compliance (0-1, 1=fully compliant)",
-        "tr": "Önleyici bakım uyumu (0-1, 1=tam uyumlu)"
+        "tr": "Önleyici bakım uyumu (0-1, 1=tam uyumlu)",
+        "de": "Einhaltung der vorbeugenden Wartung (0-1, 1 = vollständig eingehalten)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Coefficient: Operating Hours",
         "tr": "Katsayı: Çalışma Saatleri",
-        "de": "Coefficient: Operating Hours",
+        "de": "Koeffizient: Betriebsstunden",
         "fr": "Coefficient: Operating Hours",
         "es": "Coefficient: Operating Hours",
         "ar": "Coefficient: Operating Hours"
       },
       "businessContext_i18n": {
         "en": "Effect of operating hours on log hazard",
-        "tr": "Çalışma saatlerinin log tehlike üzerindeki etkisi"
+        "tr": "Çalışma saatlerinin log tehlike üzerindeki etkisi",
+        "de": "Einfluss der Betriebsstunden auf das Log-Hazard"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Coefficient: Temperature",
         "tr": "Katsayı: Sıcaklık",
-        "de": "Coefficient: Temperature",
+        "de": "Koeffizient: Temperatur",
         "fr": "Coefficient: Temperature",
         "es": "Coefficient: Temperature",
         "ar": "Coefficient: Temperature"
       },
       "businessContext_i18n": {
         "en": "Effect of temperature on log hazard",
-        "tr": "Sıcaklığın log tehlike üzerindeki etkisi"
+        "tr": "Sıcaklığın log tehlike üzerindeki etkisi",
+        "de": "Einfluss der Temperatur auf das Log-Hazard"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Coefficient: Vibration",
         "tr": "Katsayı: Titreşim",
-        "de": "Coefficient: Vibration",
+        "de": "Koeffizient: Vibration",
         "fr": "Coefficient: Vibration",
         "es": "Coefficient: Vibration",
         "ar": "Coefficient: Vibration"
       },
       "businessContext_i18n": {
         "en": "Effect of vibration on log hazard",
-        "tr": "Titreşimin log tehlike üzerindeki etkisi"
+        "tr": "Titreşimin log tehlike üzerindeki etkisi",
+        "de": "Einfluss der Vibration auf das Log-Hazard"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Coefficient: Maintenance Score",
         "tr": "Katsayı: Bakım Puanı",
-        "de": "Coefficient: Maintenance Score",
+        "de": "Koeffizient: Wartungspunktzahl",
         "fr": "Coefficient: Maintenance Score",
         "es": "Coefficient: Maintenance Score",
         "ar": "Coefficient: Maintenance Score"
       },
       "businessContext_i18n": {
         "en": "Effect of maintenance compliance on log hazard (negative reduces hazard)",
-        "tr": "Bakım uyumunun log tehlike üzerindeki etkisi (negatif, tehlikeyi azaltır)"
+        "tr": "Bakım uyumunun log tehlike üzerindeki etkisi (negatif, tehlikeyi azaltır)",
+        "de": "Einfluss der Wartungseinhaltung auf das Log-Hazard (negativ verringert das Hazard)"
       }
     }
   ],

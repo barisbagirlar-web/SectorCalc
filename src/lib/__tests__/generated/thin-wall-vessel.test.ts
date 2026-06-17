@@ -14,7 +14,7 @@ describe("thin-wall-vessel", () => {
     "allowableStress": 200,
     "jointEfficiency": 0.85,
     "corrosionAllowance": 2
-  } as Thin_wall_vesselInput;
+  } as unknown as Thin_wall_vesselInput;
     const result = calculateThin_wall_vessel(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

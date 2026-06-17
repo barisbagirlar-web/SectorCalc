@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Present Value",
         "tr": "Bugünkü Değer",
-        "de": "Present Value",
+        "de": "Barwert",
         "fr": "Present Value",
         "es": "Present Value",
         "ar": "Present Value"
       },
       "businessContext_i18n": {
         "en": "Lump sum amount invested today",
-        "tr": "Bugün yatırılan toplu para miktarı"
+        "tr": "Bugün yatırılan toplu para miktarı",
+        "de": "Heute investierter Einmalbetrag"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
-        "de": "Annual Interest Rate",
+        "de": "Jährlicher Zinssatz",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Fixed annual interest rate during both deferral and payout phases",
-        "tr": "Hem erteleme hem de ödeme aşamalarında sabit yıllık faiz oranı"
+        "tr": "Hem erteleme hem de ödeme aşamalarında sabit yıllık faiz oranı",
+        "de": "Fester jährlicher Zinssatz während der Aufschub- und Auszahlungsphase"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Deferral Years",
         "tr": "Erteleme Yılları",
-        "de": "Deferral Years",
+        "de": "Aufschubjahre",
         "fr": "Deferral Years",
         "es": "Deferral Years",
         "ar": "Deferral Years"
       },
       "businessContext_i18n": {
         "en": "Number of years the investment accumulates before payouts begin",
-        "tr": "Yatırımın ödemeler başlamadan önce biriktiği yıl sayısı"
+        "tr": "Yatırımın ödemeler başlamadan önce biriktiği yıl sayısı",
+        "de": "Anzahl der Jahre, in denen die Anlage vor Auszahlungsbeginn anwächst"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Payout Years",
         "tr": "Ödeme Yılları",
-        "de": "Payout Years",
+        "de": "Auszahlungsjahre",
         "fr": "Payout Years",
         "es": "Payout Years",
         "ar": "Payout Years"
       },
       "businessContext_i18n": {
         "en": "Number of years over which the accumulated value is paid out annually",
-        "tr": "Birikmiş değerin yıllık olarak ödendiği yıl sayısı"
+        "tr": "Birikmiş değerin yıllık olarak ödendiği yıl sayısı",
+        "de": "Anzahl der Jahre, über die der angesammelte Betrag jährlich ausgezahlt wird"
       }
     }
   ],

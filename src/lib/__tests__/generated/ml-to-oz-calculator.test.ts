@@ -12,7 +12,7 @@ describe("ml-to-oz-calculator", () => {
     "factor_us": 0.033814,
     "factor_uk": 0.035195,
     "precision": 2
-  } as Ml_to_oz_calculatorInput;
+  } as unknown as Ml_to_oz_calculatorInput;
     const result = calculateMl_to_oz_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

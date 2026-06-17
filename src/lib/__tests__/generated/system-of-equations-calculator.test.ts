@@ -14,7 +14,7 @@ describe("system-of-equations-calculator", () => {
     "materialPerUnitProd1": 3,
     "materialPerUnitProd2": 1,
     "totalMaterial": 60
-  } as System_of_equations_calculatorInput;
+  } as unknown as System_of_equations_calculatorInput;
     const result = calculateSystem_of_equations_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("triathlon-calculator", () => {
     "swimPace": 2,
     "bikeSpeed": 30,
     "runPace": 5
-  } as Triathlon_calculatorInput;
+  } as unknown as Triathlon_calculatorInput;
     const result = calculateTriathlon_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

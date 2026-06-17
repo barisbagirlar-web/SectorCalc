@@ -12,7 +12,7 @@ describe("kurtosis-calculator", () => {
     "sumSquared": 10,
     "sumFourth": 30,
     "decimalPlaces": 4
-  } as Kurtosis_calculatorInput;
+  } as unknown as Kurtosis_calculatorInput;
     const result = calculateKurtosis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

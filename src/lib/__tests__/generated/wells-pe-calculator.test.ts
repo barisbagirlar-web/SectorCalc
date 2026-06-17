@@ -12,7 +12,7 @@ describe("wells-pe-calculator", () => {
     "trueVerticalDepth": 1000,
     "annularPressureLoss": 500000,
     "gravity": 9.81
-  } as Wells_pe_calculatorInput;
+  } as unknown as Wells_pe_calculatorInput;
     const result = calculateWells_pe_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

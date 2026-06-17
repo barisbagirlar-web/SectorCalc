@@ -14,7 +14,7 @@ describe("meal-plan-calculator", () => {
     "prepTimePerMeal": 10,
     "overheadPercent": 15,
     "wastePercent": 5
-  } as Meal_plan_calculatorInput;
+  } as unknown as Meal_plan_calculatorInput;
     const result = calculateMeal_plan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

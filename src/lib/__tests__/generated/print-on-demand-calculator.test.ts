@@ -14,7 +14,7 @@ describe("print-on-demand-calculator", () => {
     "shippingCost": 20,
     "platformFee": 10,
     "additionalCosts": 0
-  } as Print_on_demand_calculatorInput;
+  } as unknown as Print_on_demand_calculatorInput;
     const result = calculatePrint_on_demand_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

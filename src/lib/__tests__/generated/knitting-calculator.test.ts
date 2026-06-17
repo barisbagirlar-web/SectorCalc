@@ -14,7 +14,7 @@ describe("knitting-calculator", () => {
     "rowGauge": 7,
     "yarnPerStitch": 1.5,
     "yarnDensity": 50
-  } as Knitting_calculatorInput;
+  } as unknown as Knitting_calculatorInput;
     const result = calculateKnitting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

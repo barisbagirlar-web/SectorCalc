@@ -12,7 +12,7 @@ describe("reading-level-calculator", () => {
     "totalSentences": 10,
     "totalSyllables": 150,
     "totalComplexWords": 20
-  } as Reading_level_calculatorInput;
+  } as unknown as Reading_level_calculatorInput;
     const result = calculateReading_level_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

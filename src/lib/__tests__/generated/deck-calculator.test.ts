@@ -14,7 +14,7 @@ describe("deck-calculator", () => {
     "boardWidth": 0.14,
     "boardPrice": 8.5,
     "wasteFactor": 10
-  } as Deck_calculatorInput;
+  } as unknown as Deck_calculatorInput;
     const result = calculateDeck_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

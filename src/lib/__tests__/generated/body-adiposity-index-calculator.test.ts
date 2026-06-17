@@ -15,7 +15,7 @@ describe("body-adiposity-index-calculator", () => {
     "waistCm": 80,
     "gender": 0,
     "age": 30
-  } as Body_adiposity_index_calculatorInput;
+  } as unknown as Body_adiposity_index_calculatorInput;
     const result = calculateBody_adiposity_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

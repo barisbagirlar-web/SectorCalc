@@ -11,7 +11,7 @@ describe("relative-fat-mass-calculator", () => {
     "height": 170,
     "waist": 80,
     "sex": 0
-  } as Relative_fat_mass_calculatorInput;
+  } as unknown as Relative_fat_mass_calculatorInput;
     const result = calculateRelative_fat_mass_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

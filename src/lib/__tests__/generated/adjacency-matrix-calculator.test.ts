@@ -12,7 +12,7 @@ describe("adjacency-matrix-calculator", () => {
     "a12": 1,
     "a21": 1,
     "a22": 0
-  } as Adjacency_matrix_calculatorInput;
+  } as unknown as Adjacency_matrix_calculatorInput;
     const result = calculateAdjacency_matrix_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("terabytes-to-petabytes-calculator", () => {
     "raidUsableMultiplier": 1,
     "formatOverheadPercent": 5,
     "conversionFactor": 1000
-  } as Terabytes_to_petabytes_calculatorInput;
+  } as unknown as Terabytes_to_petabytes_calculatorInput;
     const result = calculateTerabytes_to_petabytes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("ev-range-calculator", () => {
     "driving_style_factor": 1,
     "auxiliary_power": 500,
     "average_speed": 60
-  } as Ev_range_calculatorInput;
+  } as unknown as Ev_range_calculatorInput;
     const result = calculateEv_range_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

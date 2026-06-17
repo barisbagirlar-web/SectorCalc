@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Amount",
         "tr": "Miktar",
-        "de": "Amount",
+        "de": "Betrag",
         "fr": "Amount",
         "es": "Amount",
         "ar": "Amount"
       },
       "businessContext_i18n": {
         "en": "Amount to convert",
-        "tr": "Dönüştürülecek miktar"
+        "tr": "Dönüştürülecek miktar",
+        "de": "Umzurechnender Betrag"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Exchange Rate",
         "tr": "Döviz Kuru",
-        "de": "Exchange Rate",
+        "de": "Wechselkurs",
         "fr": "Exchange Rate",
         "es": "Exchange Rate",
         "ar": "Exchange Rate"
       },
       "businessContext_i18n": {
         "en": "Current exchange rate",
-        "tr": "Güncel döviz kuru"
+        "tr": "Güncel döviz kuru",
+        "de": "Aktueller Wechselkurs"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Conversion Fee (%)",
         "tr": "Dönüşüm Ücreti (%)",
-        "de": "Conversion Fee (%)",
+        "de": "Umrechnungsgebühr (%)",
         "fr": "Conversion Fee (%)",
         "es": "Conversion Fee (%)",
         "ar": "Conversion Fee (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage fee for conversion",
-        "tr": "Dönüşüm için yüzde ücret"
+        "tr": "Dönüşüm için yüzde ücret",
+        "de": "Prozentsatz der Gebühr für die Umrechnung"
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Spread added to exchange rate",
-        "tr": "Döviz kuruna eklenen spread"
+        "tr": "Döviz kuruna eklenen spread",
+        "de": "Aufschlag auf den Wechselkurs"
       }
     }
   ],

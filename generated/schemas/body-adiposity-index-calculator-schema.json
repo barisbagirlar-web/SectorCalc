@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Hip Circumference",
         "tr": "Kalça Çevresi",
-        "de": "Hip Circumference",
+        "de": "Hüftumfang",
         "fr": "Hip Circumference",
         "es": "Hip Circumference",
         "ar": "Hip Circumference"
       },
       "businessContext_i18n": {
         "en": "Measured at the widest part of the hips, in centimeters. Typical range 80-130 cm for adults.",
-        "tr": "Kalçanın en geniş kısmından ölçülür, santimetre cinsinden. Yetişkinler için tipik aralık 80-130 cm."
+        "tr": "Kalçanın en geniş kısmından ölçülür, santimetre cinsinden. Yetişkinler için tipik aralık 80-130 cm.",
+        "de": "Gemessen an der breitesten Stelle der Hüften, in Zentimetern. Typischer Bereich 80-130 cm für Erwachsene."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
-        "de": "Height",
+        "de": "Größe",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Standing height without shoes, in centimeters. Typical range 140-200 cm.",
-        "tr": "Ayakta, ayakkabısız boy, santimetre cinsinden. Yetişkinler için tipik aralık 140-200 cm."
+        "tr": "Ayakta, ayakkabısız boy, santimetre cinsinden. Yetişkinler için tipik aralık 140-200 cm.",
+        "de": "Körpergröße ohne Schuhe, in Zentimetern. Typischer Bereich 140-200 cm."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
-        "de": "Weight",
+        "de": "Gewicht",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms. Typical range 40-150 kg.",
-        "tr": "Vücut ağırlığı, kilogram cinsinden. Tipik aralık 40-150 kg."
+        "tr": "Vücut ağırlığı, kilogram cinsinden. Tipik aralık 40-150 kg.",
+        "de": "Körpergewicht in Kilogramm. Typischer Bereich 40-150 kg."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Neck Circumference",
         "tr": "Boyun Çevresi",
-        "de": "Neck Circumference",
+        "de": "Halsumfang",
         "fr": "Neck Circumference",
         "es": "Neck Circumference",
         "ar": "Neck Circumference"
       },
       "businessContext_i18n": {
         "en": "Neck circumference measured below the larynx, in centimeters. Typical range 30-50 cm.",
-        "tr": "Gırtlağın altından ölçülen boyun çevresi, santimetre cinsinden. Tipik aralık 30-50 cm."
+        "tr": "Gırtlağın altından ölçülen boyun çevresi, santimetre cinsinden. Tipik aralık 30-50 cm.",
+        "de": "Halsumfang gemessen unterhalb des Kehlkopfes, in Zentimetern. Typischer Bereich 30-50 cm."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Waist Circumference",
         "tr": "Bel Çevresi",
-        "de": "Waist Circumference",
+        "de": "Taillenumfang",
         "fr": "Waist Circumference",
         "es": "Waist Circumference",
         "ar": "Waist Circumference"
       },
       "businessContext_i18n": {
         "en": "Waist circumference measured at the narrowest point or navel, in centimeters. Typical range 60-120 cm.",
-        "tr": "En dar noktadan veya göbek deliğinden ölçülen bel çevresi, santimetre cinsinden. Tipik aralık 60-120 cm."
+        "tr": "En dar noktadan veya göbek deliğinden ölçülen bel çevresi, santimetre cinsinden. Tipik aralık 60-120 cm.",
+        "de": "Taillenumfang gemessen an der schmalsten Stelle oder am Bauchnabel, in Zentimetern. Typischer Bereich 60-120 cm."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Gender (0=Male, 1=Female)",
         "tr": "Cinsiyet (0=Erkek, 1=Kadın)",
-        "de": "Gender (0=Male, 1=Female)",
+        "de": "Geschlecht (0=Männlich, 1=Weiblich)",
         "fr": "Gender (0=Male, 1=Female)",
         "es": "Gender (0=Male, 1=Female)",
         "ar": "Gender (0=Male, 1=Female)"
       },
       "businessContext_i18n": {
         "en": "Biological sex: 0 for male, 1 for female. Determines body fat estimation model.",
-        "tr": "Biyolojik cinsiyet: 0 erkek, 1 kadın. Vücut yağı tahmin modelini belirler."
+        "tr": "Biyolojik cinsiyet: 0 erkek, 1 kadın. Vücut yağı tahmin modelini belirler.",
+        "de": "Biologisches Geschlecht: 0 für männlich, 1 für weiblich. Bestimmt das Modell zur Körperfettschätzung."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age in years. For reference; not used in calculations but may affect interpretation.",
-        "tr": "Yaş (yıl). Referans amaçlıdır; hesaplamalarda kullanılmaz ancak yorumlamayı etkileyebilir."
+        "tr": "Yaş (yıl). Referans amaçlıdır; hesaplamalarda kullanılmaz ancak yorumlamayı etkileyebilir.",
+        "de": "Alter in Jahren. Dient als Referenz; wird nicht in Berechnungen verwendet, kann aber die Interpretation beeinflussen."
       }
     }
   ],

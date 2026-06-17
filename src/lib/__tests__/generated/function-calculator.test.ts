@@ -14,7 +14,7 @@ describe("function-calculator", () => {
     "c": 1,
     "d": 1,
     "e": 0
-  } as Function_calculatorInput;
+  } as unknown as Function_calculatorInput;
     const result = calculateFunction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

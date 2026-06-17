@@ -13,7 +13,7 @@ describe("healthy-life-years-calculator", () => {
     "moderate_prevalence": 0.15,
     "severe_weight": 0.7,
     "moderate_weight": 0.3
-  } as Healthy_life_years_calculatorInput;
+  } as unknown as Healthy_life_years_calculatorInput;
     const result = calculateHealthy_life_years_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

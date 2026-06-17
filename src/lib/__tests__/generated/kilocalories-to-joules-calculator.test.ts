@@ -12,7 +12,7 @@ describe("kilocalories-to-joules-calculator", () => {
     "precision": 2,
     "joulePerKcal": 4184,
     "scale": 1
-  } as Kilocalories_to_joules_calculatorInput;
+  } as unknown as Kilocalories_to_joules_calculatorInput;
     const result = calculateKilocalories_to_joules_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

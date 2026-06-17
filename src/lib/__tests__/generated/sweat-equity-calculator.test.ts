@@ -12,7 +12,7 @@ describe("sweat-equity-calculator", () => {
     "cashInvestment": 200000,
     "hoursWorked": 2000,
     "hourlyRate": 50
-  } as Sweat_equity_calculatorInput;
+  } as unknown as Sweat_equity_calculatorInput;
     const result = calculateSweat_equity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

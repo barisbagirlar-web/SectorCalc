@@ -13,7 +13,7 @@ describe("noom-kalori-hesaplayici", () => {
     "age": 30,
     "gender": 0,
     "activityLevel": 1.2
-  } as Noom_kalori_hesaplayiciInput;
+  } as unknown as Noom_kalori_hesaplayiciInput;
     const result = calculateNoom_kalori_hesaplayici(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("swimming-calorie-calculator", () => {
     "durationMinutes": 30,
     "metValue": 8,
     "calorieBurnRate": 1
-  } as Swimming_calorie_calculatorInput;
+  } as unknown as Swimming_calorie_calculatorInput;
     const result = calculateSwimming_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

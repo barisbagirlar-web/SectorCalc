@@ -15,7 +15,7 @@ describe("spackle-calculator", () => {
     "spackleDensity": 1500,
     "containerSize": 5,
     "wasteFactor": 10
-  } as Spackle_calculatorInput;
+  } as unknown as Spackle_calculatorInput;
     const result = calculateSpackle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

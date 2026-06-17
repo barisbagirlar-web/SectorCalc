@@ -11,7 +11,7 @@ describe("true-airspeed-calculator", () => {
     "indicatedAirSpeed": 150,
     "pressureAltitude": 10000,
     "outsideAirTemperature": -5
-  } as True_airspeed_calculatorInput;
+  } as unknown as True_airspeed_calculatorInput;
     const result = calculateTrue_airspeed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

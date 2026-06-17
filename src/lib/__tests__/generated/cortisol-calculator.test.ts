@@ -13,7 +13,7 @@ describe("cortisol-calculator", () => {
     "time_factor": 1,
     "stress_multiplier": 1,
     "age_factor": 1
-  } as Cortisol_calculatorInput;
+  } as unknown as Cortisol_calculatorInput;
     const result = calculateCortisol_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

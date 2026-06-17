@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient age in years",
-        "tr": "Hasta yaşı (yıl)"
+        "tr": "Hasta yaşı (yıl)",
+        "de": "Patientenalter in Jahren"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Total Cholesterol",
         "tr": "Toplam Kolesterol",
-        "de": "Total Cholesterol",
+        "de": "Gesamtcholesterin",
         "fr": "Total Cholesterol",
         "es": "Total Cholesterol",
         "ar": "Total Cholesterol"
       },
       "businessContext_i18n": {
         "en": "Total serum cholesterol level",
-        "tr": "Toplam serum kolesterol seviyesi"
+        "tr": "Toplam serum kolesterol seviyesi",
+        "de": "Gesamtserumcholesterinspiegel"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "HDL Cholesterol",
         "tr": "HDL Kolesterol",
-        "de": "HDL Cholesterol",
+        "de": "HDL-Cholesterin",
         "fr": "HDL Cholesterol",
         "es": "HDL Cholesterol",
         "ar": "HDL Cholesterol"
       },
       "businessContext_i18n": {
         "en": "High-density lipoprotein cholesterol level",
-        "tr": "Yüksek yoğunluklu lipoprotein kolesterol seviyesi"
+        "tr": "Yüksek yoğunluklu lipoprotein kolesterol seviyesi",
+        "de": "High-Density-Lipoprotein-Cholesterinspiegel"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
-        "de": "Systolic Blood Pressure",
+        "de": "Systolischer Blutdruck",
         "fr": "Systolic Blood Pressure",
         "es": "Systolic Blood Pressure",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Systolic blood pressure reading",
-        "tr": "Sistolik kan basıncı değeri"
+        "tr": "Sistolik kan basıncı değeri",
+        "de": "Systolischer Blutdruckwert"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Treated for Hypertension",
         "tr": "Hipertansiyon Tedavisi Görüyor",
-        "de": "Treated for Hypertension",
+        "de": "Behandelt wegen Bluthochdruck",
         "fr": "Treated for Hypertension",
         "es": "Treated for Hypertension",
         "ar": "Treated for Hypertension"
       },
       "businessContext_i18n": {
         "en": "1 if patient is on hypertension medication, else 0",
-        "tr": "Hasta hipertansiyon ilacı kullanıyorsa 1, değilse 0"
+        "tr": "Hasta hipertansiyon ilacı kullanıyorsa 1, değilse 0",
+        "de": "1 wenn Patient blutdrucksenkende Medikamente einnimmt, sonst 0"
       }
     },
     {
@@ -118,7 +123,8 @@
       },
       "businessContext_i18n": {
         "en": "1 if patient has diabetes, else 0",
-        "tr": "Hastada diyabet varsa 1, yoksa 0"
+        "tr": "Hastada diyabet varsa 1, yoksa 0",
+        "de": "1 wenn Patient Diabetes hat, sonst 0"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Current Smoker",
         "tr": "Sigara İçiyor",
-        "de": "Current Smoker",
+        "de": "Aktueller Raucher",
         "fr": "Current Smoker",
         "es": "Current Smoker",
         "ar": "Current Smoker"
       },
       "businessContext_i18n": {
         "en": "1 if patient is a current smoker, else 0",
-        "tr": "Hasta şu anda sigara içiyorsa 1, içmiyorsa 0"
+        "tr": "Hasta şu anda sigara içiyorsa 1, içmiyorsa 0",
+        "de": "1 wenn Patient aktuell raucht, sonst 0"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Male Sex",
         "tr": "Erkek Cinsiyet",
-        "de": "Male Sex",
+        "de": "Männliches Geschlecht",
         "fr": "Male Sex",
         "es": "Male Sex",
         "ar": "Male Sex"
       },
       "businessContext_i18n": {
         "en": "1 if male, 0 if female",
-        "tr": "Erkekse 1, kadınsa 0"
+        "tr": "Erkekse 1, kadınsa 0",
+        "de": "1 wenn männlich, 0 wenn weiblich"
       }
     }
   ],

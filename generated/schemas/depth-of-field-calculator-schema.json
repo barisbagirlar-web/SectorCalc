@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Focal Length",
         "tr": "Odak Uzaklığı",
-        "de": "Focal Length",
+        "de": "Brennweite",
         "fr": "Focal Length",
         "es": "Focal Length",
         "ar": "Focal Length"
       },
       "businessContext_i18n": {
         "en": "Lens focal length in millimeters",
-        "tr": "Milimetre cinsinden lens odak uzaklığı"
+        "tr": "Milimetre cinsinden lens odak uzaklığı",
+        "de": "Brennweite des Objektivs in Millimetern"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Aperture (f-number)",
         "tr": "Diyafram (f-sayısı)",
-        "de": "Aperture (f-number)",
+        "de": "Blende (f-Zahl)",
         "fr": "Aperture (f-number)",
         "es": "Aperture (f-number)",
         "ar": "Aperture (f-number)"
       },
       "businessContext_i18n": {
         "en": "Aperture f-number (e.g., 2.8, 5.6, 8)",
-        "tr": "Diyafram f-sayısı (örn. 2.8, 5.6, 8)"
+        "tr": "Diyafram f-sayısı (örn. 2.8, 5.6, 8)",
+        "de": "Blendenöffnung (z.B. 2,8, 5,6, 8)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Subject Distance",
         "tr": "Nesne Mesafesi",
-        "de": "Subject Distance",
+        "de": "Objektabstand",
         "fr": "Subject Distance",
         "es": "Subject Distance",
         "ar": "Subject Distance"
       },
       "businessContext_i18n": {
         "en": "Distance from camera to subject in meters",
-        "tr": "Kameradan nesneye metre cinsinden mesafe"
+        "tr": "Kameradan nesneye metre cinsinden mesafe",
+        "de": "Abstand von Kamera zum Objekt in Metern"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Circle of Confusion",
         "tr": "Karışıklık Çemberi",
-        "de": "Circle of Confusion",
+        "de": "Zerstreuungskreis",
         "fr": "Circle of Confusion",
         "es": "Circle of Confusion",
         "ar": "Circle of Confusion"
       },
       "businessContext_i18n": {
         "en": "Circle of confusion in mm (0.03 for full-frame 35mm)",
-        "tr": "mm cinsinden karışıklık çemberi (tam kare 35mm için 0.03)"
+        "tr": "mm cinsinden karışıklık çemberi (tam kare 35mm için 0.03)",
+        "de": "Zerstreuungskreis in mm (0,03 für Vollformat 35mm)"
       }
     }
   ],

@@ -13,7 +13,7 @@ describe("skin-type-calculator", () => {
     "sensitivity": 2,
     "pigmentation": 2,
     "elasticity": 2
-  } as Skin_type_calculatorInput;
+  } as unknown as Skin_type_calculatorInput;
     const result = calculateSkin_type_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

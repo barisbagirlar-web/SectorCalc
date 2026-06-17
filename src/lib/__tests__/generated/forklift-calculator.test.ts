@@ -14,7 +14,7 @@ describe("forklift-calculator", () => {
     "liftHeight": 4,
     "maxLiftHeight": 5,
     "safetyFactor": 1.5
-  } as Forklift_calculatorInput;
+  } as unknown as Forklift_calculatorInput;
     const result = calculateForklift_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

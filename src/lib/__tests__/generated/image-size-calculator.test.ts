@@ -13,7 +13,7 @@ describe("image-size-calculator", () => {
     "bitDepth": 8,
     "channels": 3,
     "dpi": 72
-  } as Image_size_calculatorInput;
+  } as unknown as Image_size_calculatorInput;
     const result = calculateImage_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

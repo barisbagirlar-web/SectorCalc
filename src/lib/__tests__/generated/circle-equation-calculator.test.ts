@@ -12,7 +12,7 @@ describe("circle-equation-calculator", () => {
     "centerY": 0,
     "pointX": 1,
     "pointY": 0
-  } as Circle_equation_calculatorInput;
+  } as unknown as Circle_equation_calculatorInput;
     const result = calculateCircle_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

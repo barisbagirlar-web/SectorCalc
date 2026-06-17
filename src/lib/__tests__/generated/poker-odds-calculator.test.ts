@@ -13,7 +13,7 @@ describe("poker-odds-calculator", () => {
     "betToCall": 20,
     "knownCards": 5,
     "totalCards": 52
-  } as Poker_odds_calculatorInput;
+  } as unknown as Poker_odds_calculatorInput;
     const result = calculatePoker_odds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

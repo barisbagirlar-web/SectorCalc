@@ -14,7 +14,7 @@ describe("turns-to-degrees-calculator", () => {
     "measurementDate": 20230101,
     "machineId": 0,
     "batchNumber": 0
-  } as Turns_to_degrees_calculatorInput;
+  } as unknown as Turns_to_degrees_calculatorInput;
     const result = calculateTurns_to_degrees_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

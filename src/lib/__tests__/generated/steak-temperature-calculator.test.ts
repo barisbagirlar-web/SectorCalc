@@ -12,7 +12,7 @@ describe("steak-temperature-calculator", () => {
     "initialTemp": 5,
     "targetTemp": 55,
     "grillTemp": 200
-  } as Steak_temperature_calculatorInput;
+  } as unknown as Steak_temperature_calculatorInput;
     const result = calculateSteak_temperature_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

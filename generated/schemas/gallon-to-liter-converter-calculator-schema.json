@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Konteyner Sayısı",
         "tr": "Konteyner Sayısı",
-        "de": "Konteyner Sayısı",
+        "de": "Anzahl der Behälter",
         "fr": "Konteyner Sayısı",
         "es": "Konteyner Sayısı",
         "ar": "Konteyner Sayısı"
       },
       "businessContext_i18n": {
         "en": "Konteyner sayısı",
-        "tr": "Konteyner sayısı"
+        "tr": "Konteyner sayısı",
+        "de": "Anzahl der Behälter"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Konteyner Başına Galon",
         "tr": "Konteyner Başına Galon",
-        "de": "Konteyner Başına Galon",
+        "de": "Gallonen pro Behälter",
         "fr": "Konteyner Başına Galon",
         "es": "Konteyner Başına Galon",
         "ar": "Konteyner Başına Galon"
       },
       "businessContext_i18n": {
         "en": "Konteyner başına galon",
-        "tr": "Konteyner başına galon"
+        "tr": "Konteyner başına galon",
+        "de": "Gallonen pro Behälter"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Galon Tipi",
         "tr": "Galon Tipi",
-        "de": "Galon Tipi",
+        "de": "Gallonentyp",
         "fr": "Galon Tipi",
         "es": "Galon Tipi",
         "ar": "Galon Tipi"
       },
       "businessContext_i18n": {
         "en": "0: ABD galonu, 1: İngiliz galonu",
-        "tr": "0: ABD galonu, 1: İngiliz galonu"
+        "tr": "0: ABD galonu, 1: İngiliz galonu",
+        "de": "0: US-Gallone, 1: Britische Gallone"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Özel Dönüşüm Faktörü",
         "tr": "Özel Dönüşüm Faktörü",
-        "de": "Özel Dönüşüm Faktörü",
+        "de": "Benutzerdefinierter Umrechnungsfaktor",
         "fr": "Özel Dönüşüm Faktörü",
         "es": "Özel Dönüşüm Faktörü",
         "ar": "Özel Dönüşüm Faktörü"
       },
       "businessContext_i18n": {
         "en": "0 ise birim tipine göre standart faktör kullanılır",
-        "tr": "0 ise birim tipine göre standart faktör kullanılır"
+        "tr": "0 ise birim tipine göre standart faktör kullanılır",
+        "de": "Bei 0 wird Standardfaktor nach Einheitentyp verwendet"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Fire Yüzdesi",
         "tr": "Fire Yüzdesi",
-        "de": "Fire Yüzdesi",
+        "de": "Prozessverlust in Prozent",
         "fr": "Fire Yüzdesi",
         "es": "Fire Yüzdesi",
         "ar": "Fire Yüzdesi"
       },
       "businessContext_i18n": {
         "en": "Proses firesini yüzde olarak girin (ör. 5)",
-        "tr": "Proses firesini yüzde olarak girin (ör. 5)"
+        "tr": "Proses firesini yüzde olarak girin (ör. 5)",
+        "de": "Prozessverlust in Prozent eingeben (z. B. 5)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Ondalık Basamak Sayısı",
         "tr": "Ondalık Basamak Sayısı",
-        "de": "Ondalık Basamak Sayısı",
+        "de": "Anzahl Dezimalstellen",
         "fr": "Ondalık Basamak Sayısı",
         "es": "Ondalık Basamak Sayısı",
         "ar": "Ondalık Basamak Sayısı"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak sayısı",
-        "tr": "Sonuçta gösterilecek ondalık basamak sayısı"
+        "tr": "Sonuçta gösterilecek ondalık basamak sayısı",
+        "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen"
       }
     }
   ],

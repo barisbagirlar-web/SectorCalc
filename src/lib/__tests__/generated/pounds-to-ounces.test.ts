@@ -11,7 +11,7 @@ describe("pounds-to-ounces", () => {
     "pounds": 1,
     "decimalPlaces": 2,
     "auto_input_3": 1
-  } as Pounds_to_ouncesInput;
+  } as unknown as Pounds_to_ouncesInput;
     const result = calculatePounds_to_ounces(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

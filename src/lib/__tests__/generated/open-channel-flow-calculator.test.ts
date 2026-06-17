@@ -14,7 +14,7 @@ describe("open-channel-flow-calculator", () => {
     "manningN": 0.013,
     "slope": 0.001,
     "gravity": 9.81
-  } as Open_channel_flow_calculatorInput;
+  } as unknown as Open_channel_flow_calculatorInput;
     const result = calculateOpen_channel_flow_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

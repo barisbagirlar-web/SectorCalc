@@ -12,7 +12,7 @@ describe("ultrasound-due-date-calculator", () => {
     "minThicknessMm": 5,
     "corrosionRateMmPerYear": 0.2,
     "measurementConfidenceFactor": 1
-  } as Ultrasound_due_date_calculatorInput;
+  } as unknown as Ultrasound_due_date_calculatorInput;
     const result = calculateUltrasound_due_date_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

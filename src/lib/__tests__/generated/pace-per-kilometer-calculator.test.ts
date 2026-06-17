@@ -11,7 +11,7 @@ describe("pace-per-kilometer-calculator", () => {
     "totalMinutes": 30,
     "totalSeconds": 0,
     "distanceKm": 5
-  } as Pace_per_kilometer_calculatorInput;
+  } as unknown as Pace_per_kilometer_calculatorInput;
     const result = calculatePace_per_kilometer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

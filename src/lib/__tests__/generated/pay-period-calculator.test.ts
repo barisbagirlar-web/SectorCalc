@@ -16,7 +16,7 @@ describe("pay-period-calculator", () => {
     "deductions": 0,
     "taxRate": 20,
     "otherWithholdings": 0
-  } as Pay_period_calculatorInput;
+  } as unknown as Pay_period_calculatorInput;
     const result = calculatePay_period_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

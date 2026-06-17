@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Shipping Distance",
         "tr": "Nakliye Mesafesi",
-        "de": "Shipping Distance",
+        "de": "Versanddistanz",
         "fr": "Shipping Distance",
         "es": "Shipping Distance",
         "ar": "Shipping Distance"
       },
       "businessContext_i18n": {
         "en": "The total distance the freight will travel from origin to destination.",
-        "tr": "Navlunun menşeiden varış noktasına kat edeceği toplam mesafe."
+        "tr": "Navlunun menşeiden varış noktasına kat edeceği toplam mesafe.",
+        "de": "Gesamte Transportentfernung vom Ursprung zum Ziel."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Shipment Weight",
         "tr": "Gönderi Ağırlığı",
-        "de": "Shipment Weight",
+        "de": "Sendungsgewicht",
         "fr": "Shipment Weight",
         "es": "Shipment Weight",
         "ar": "Shipment Weight"
       },
       "businessContext_i18n": {
         "en": "Total weight of the goods being shipped.",
-        "tr": "Gönderilen malların toplam ağırlığı."
+        "tr": "Gönderilen malların toplam ağırlığı.",
+        "de": "Gesamtgewicht der versendeten Ware."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fuel Cost per Liter",
         "tr": "Litre Başına Yakıt Maliyeti",
-        "de": "Fuel Cost per Liter",
+        "de": "Kraftstoffkosten pro Liter",
         "fr": "Fuel Cost per Liter",
         "es": "Fuel Cost per Liter",
         "ar": "Fuel Cost per Liter"
       },
       "businessContext_i18n": {
         "en": "Current cost of diesel or fuel per liter.",
-        "tr": "Litre başına güncel mazot veya yakıt maliyeti."
+        "tr": "Litre başına güncel mazot veya yakıt maliyeti.",
+        "de": "Aktueller Diesel- oder Kraftstoffpreis pro Liter."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Fuel Efficiency",
         "tr": "Yakıt Verimliliği",
-        "de": "Fuel Efficiency",
+        "de": "Kraftstoffeffizienz",
         "fr": "Fuel Efficiency",
         "es": "Fuel Efficiency",
         "ar": "Fuel Efficiency"
       },
       "businessContext_i18n": {
         "en": "Average kilometers the transport vehicle travels per liter of fuel.",
-        "tr": "Nakliye aracının litre yakıt başına kat ettiği ortalama kilometre."
+        "tr": "Nakliye aracının litre yakıt başına kat ettiği ortalama kilometre.",
+        "de": "Durchschnittliche Kilometer pro Liter Kraftstoff des Transportfahrzeugs."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Handling Rate per Kg",
         "tr": "Kg Başına Elleçleme Ücreti",
-        "de": "Handling Rate per Kg",
+        "de": "Handhabungskosten pro kg",
         "fr": "Handling Rate per Kg",
         "es": "Handling Rate per Kg",
         "ar": "Handling Rate per Kg"
       },
       "businessContext_i18n": {
         "en": "Cost of handling, loading, and unloading per kilogram.",
-        "tr": "Kilogram başına elleçleme, yükleme ve boşaltma maliyeti."
+        "tr": "Kilogram başına elleçleme, yükleme ve boşaltma maliyeti.",
+        "de": "Kosten für Be- und Entladung pro Kilogramm."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Additional Charges",
         "tr": "Ek Ücretler",
-        "de": "Additional Charges",
+        "de": "Zusätzliche Gebühren",
         "fr": "Additional Charges",
         "es": "Additional Charges",
         "ar": "Additional Charges"
       },
       "businessContext_i18n": {
         "en": "Any tolls, surcharges, or fixed costs not included elsewhere.",
-        "tr": "Başka yerde dahil edilmeyen geçiş ücretleri, ek ücretler veya sabit maliyetler."
+        "tr": "Başka yerde dahil edilmeyen geçiş ücretleri, ek ücretler veya sabit maliyetler.",
+        "de": "Zusätzliche Mautgebühren, Zuschläge oder Fixkosten, die nicht anderweitig enthalten sind."
       }
     }
   ],

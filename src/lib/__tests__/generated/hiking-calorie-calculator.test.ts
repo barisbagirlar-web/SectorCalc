@@ -13,7 +13,7 @@ describe("hiking-calorie-calculator", () => {
     "distance": 10,
     "elevationGain": 500,
     "terrainFactor": 1.2
-  } as Hiking_calorie_calculatorInput;
+  } as unknown as Hiking_calorie_calculatorInput;
     const result = calculateHiking_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

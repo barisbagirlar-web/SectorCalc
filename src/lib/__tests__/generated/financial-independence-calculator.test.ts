@@ -14,7 +14,7 @@ describe("financial-independence-calculator", () => {
     "annualExpenses": 40000,
     "annualReturn": 7,
     "safeWithdrawalRate": 4
-  } as Financial_independence_calculatorInput;
+  } as unknown as Financial_independence_calculatorInput;
     const result = calculateFinancial_independence_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

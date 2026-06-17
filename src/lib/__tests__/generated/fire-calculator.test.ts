@@ -16,7 +16,7 @@ describe("fire-calculator", () => {
     "annualContribution": 20000,
     "expectedReturn": 7,
     "withdrawalRate": 4
-  } as Fire_calculatorInput;
+  } as unknown as Fire_calculatorInput;
     const result = calculateFire_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

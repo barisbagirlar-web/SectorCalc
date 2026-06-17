@@ -14,7 +14,7 @@ describe("ecommerce-profit-calculator", () => {
     "shippingCostPerUnit": 5,
     "marketingSpend": 200,
     "taxRate": 10
-  } as Ecommerce_profit_calculatorInput;
+  } as unknown as Ecommerce_profit_calculatorInput;
     const result = calculateEcommerce_profit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

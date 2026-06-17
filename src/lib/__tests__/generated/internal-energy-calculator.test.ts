@@ -12,7 +12,7 @@ describe("internal-energy-calculator", () => {
     "specificHeatCapacity": 0.718,
     "initialTemperature": 300,
     "finalTemperature": 350
-  } as Internal_energy_calculatorInput;
+  } as unknown as Internal_energy_calculatorInput;
     const result = calculateInternal_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Total number of items, n >= 0",
-        "tr": "Toplam öğe sayısı, n >= 0"
+        "tr": "Toplam öğe sayısı, n >= 0",
+        "de": "Gesamtzahl der Elemente, n >= 0"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Number of items to choose, 0 <= k <= n",
-        "tr": "Seçilecek öğe sayısı, 0 <= k <= n"
+        "tr": "Seçilecek öğe sayısı, 0 <= k <= n",
+        "de": "Anzahl der auszuwählenden Elemente, 0 <= k <= n"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Use Symmetry",
         "tr": "Simetri Kullan",
-        "de": "Use Symmetry",
+        "de": "Symmetrie nutzen",
         "fr": "Use Symmetry",
         "es": "Use Symmetry",
         "ar": "Use Symmetry"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to use C(n,k)=C(n,n-k) when k > n/2 for efficiency",
-        "tr": "Verimlilik için k > n/2 olduğunda C(n,k)=C(n,n-k) kullanmak için 1 olarak ayarlayın"
+        "tr": "Verimlilik için k > n/2 olduğunda C(n,k)=C(n,n-k) kullanmak için 1 olarak ayarlayın",
+        "de": "Auf 1 setzen, um C(n,k)=C(n,n-k) zu verwenden, wenn k > n/2, für Effizienz"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result. Default 0 for integer coefficient.",
-        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı. Tam sayı katsayısı için varsayılan 0."
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı. Tam sayı katsayısı için varsayılan 0.",
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses. Standard 0 für ganzzahligen Koeffizienten."
       }
     }
   ],

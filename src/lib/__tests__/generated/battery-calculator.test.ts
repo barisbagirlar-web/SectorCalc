@@ -14,7 +14,7 @@ describe("battery-calculator", () => {
     "dod": 50,
     "efficiency": 90,
     "numberOfBatteries": 1
-  } as Battery_calculatorInput;
+  } as unknown as Battery_calculatorInput;
     const result = calculateBattery_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

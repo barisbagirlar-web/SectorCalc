@@ -12,7 +12,7 @@ describe("child-growth-calculator", () => {
     "bomMultiplier": 1,
     "scrapRate": 0,
     "safetyStockFactor": 0
-  } as Child_growth_calculatorInput;
+  } as unknown as Child_growth_calculatorInput;
     const result = calculateChild_growth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

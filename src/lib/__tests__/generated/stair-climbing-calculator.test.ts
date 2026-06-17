@@ -12,7 +12,7 @@ describe("stair-climbing-calculator", () => {
     "treadDepth": 28,
     "riserHeightTarget": 17,
     "stairWidth": 100
-  } as Stair_climbing_calculatorInput;
+  } as unknown as Stair_climbing_calculatorInput;
     const result = calculateStair_climbing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

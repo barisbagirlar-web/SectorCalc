@@ -12,7 +12,7 @@ describe("scs-method-calculator", () => {
     "curveNumber": 75,
     "amc": 2,
     "iaRatio": 0.2
-  } as Scs_method_calculatorInput;
+  } as unknown as Scs_method_calculatorInput;
     const result = calculateScs_method_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("coupon-calculator", () => {
     "couponRate": 5,
     "frequency": 2,
     "yearsToMaturity": 10
-  } as Coupon_calculatorInput;
+  } as unknown as Coupon_calculatorInput;
     const result = calculateCoupon_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

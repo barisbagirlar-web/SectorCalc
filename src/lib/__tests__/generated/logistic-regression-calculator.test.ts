@@ -15,7 +15,7 @@ describe("logistic-regression-calculator", () => {
     "value2": 0,
     "coef3": 0,
     "value3": 0
-  } as Logistic_regression_calculatorInput;
+  } as unknown as Logistic_regression_calculatorInput;
     const result = calculateLogistic_regression_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

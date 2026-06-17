@@ -12,7 +12,7 @@ describe("bulk-discount-calculator", () => {
     "quantity": 100,
     "maxDiscount": 20,
     "scale": 200
-  } as Bulk_discount_calculatorInput;
+  } as unknown as Bulk_discount_calculatorInput;
     const result = calculateBulk_discount_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

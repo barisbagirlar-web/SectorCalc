@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "First Number (a)",
         "tr": "Birinci Sayı (a)",
-        "de": "First Number (a)",
+        "de": "Erste Zahl (a)",
         "fr": "First Number (a)",
         "es": "First Number (a)",
         "ar": "First Number (a)"
       },
       "businessContext_i18n": {
         "en": "The first integer to compare.",
-        "tr": "Karşılaştırılacak ilk tam sayı."
+        "tr": "Karşılaştırılacak ilk tam sayı.",
+        "de": "Die erste zu vergleichende ganze Zahl."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Second Number (b)",
         "tr": "İkinci Sayı (b)",
-        "de": "Second Number (b)",
+        "de": "Zweite Zahl (b)",
         "fr": "Second Number (b)",
         "es": "Second Number (b)",
         "ar": "Second Number (b)"
       },
       "businessContext_i18n": {
         "en": "The second integer to compare.",
-        "tr": "Karşılaştırılacak ikinci tam sayı."
+        "tr": "Karşılaştırılacak ikinci tam sayı.",
+        "de": "Die zweite zu vergleichende ganze Zahl."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Modulus",
         "tr": "Modül",
-        "de": "Modulus",
+        "de": "Modul",
         "fr": "Modulus",
         "es": "Modulus",
         "ar": "Modulus"
       },
       "businessContext_i18n": {
         "en": "Modulus for the congruence relation.",
-        "tr": "Kongruans ilişkisi için modül."
+        "tr": "Kongruans ilişkisi için modül.",
+        "de": "Modul für die Kongruenzrelation."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Shift",
         "tr": "Kaydırma",
-        "de": "Shift",
+        "de": "Verschiebung",
         "fr": "Shift",
         "es": "Shift",
         "ar": "Shift"
       },
       "businessContext_i18n": {
         "en": "Value added to a before checking congruence.",
-        "tr": "Kongruans kontrolünden önce a'ya eklenen değer."
+        "tr": "Kongruans kontrolünden önce a'ya eklenen değer.",
+        "de": "Wert, der vor der Prüfung der Kongruenz zu a addiert wird."
       }
     }
   ],

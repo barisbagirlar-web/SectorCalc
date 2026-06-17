@@ -14,7 +14,7 @@ describe("maximum-drawdown-calculator", () => {
     "timeToTrough": 6,
     "recoveryValue": 15000,
     "recoveryTime": 12
-  } as Maximum_drawdown_calculatorInput;
+  } as unknown as Maximum_drawdown_calculatorInput;
     const result = calculateMaximum_drawdown_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

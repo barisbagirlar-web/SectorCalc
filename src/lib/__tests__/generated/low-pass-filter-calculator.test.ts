@@ -13,7 +13,7 @@ describe("low-pass-filter-calculator", () => {
     "c": 0.000001,
     "c_tol": 10,
     "fin": 100
-  } as Low_pass_filter_calculatorInput;
+  } as unknown as Low_pass_filter_calculatorInput;
     const result = calculateLow_pass_filter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

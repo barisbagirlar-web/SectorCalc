@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Pressure",
         "tr": "Başlangıç Basıncı",
-        "de": "Initial Pressure",
+        "de": "Anfangsdruck",
         "fr": "Initial Pressure",
         "es": "Initial Pressure",
         "ar": "Initial Pressure"
       },
       "businessContext_i18n": {
         "en": "Vessel pressure before decompression",
-        "tr": "Dekompresyon öncesi kap basıncı"
+        "tr": "Dekompresyon öncesi kap basıncı",
+        "de": "Behälterdruck vor der Dekompression"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Final Pressure",
         "tr": "Nihai Basınç",
-        "de": "Final Pressure",
+        "de": "Enddruck",
         "fr": "Final Pressure",
         "es": "Final Pressure",
         "ar": "Final Pressure"
       },
       "businessContext_i18n": {
         "en": "Target pressure after decompression",
-        "tr": "Dekompresyon sonrası hedef basınç"
+        "tr": "Dekompresyon sonrası hedef basınç",
+        "de": "Zieldruck nach der Dekompression"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Vessel Volume",
         "tr": "Kap Hacmi",
-        "de": "Vessel Volume",
+        "de": "Behältervolumen",
         "fr": "Vessel Volume",
         "es": "Vessel Volume",
         "ar": "Vessel Volume"
       },
       "businessContext_i18n": {
         "en": "Internal volume of the pressure vessel",
-        "tr": "Basınçlı kabın iç hacmi"
+        "tr": "Basınçlı kabın iç hacmi",
+        "de": "Innenvolumen des Druckbehälters"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Flow Rate (Std)",
         "tr": "Debi (Std)",
-        "de": "Flow Rate (Std)",
+        "de": "Durchflussrate (Norm)",
         "fr": "Flow Rate (Std)",
         "es": "Flow Rate (Std)",
         "ar": "Flow Rate (Std)"
       },
       "businessContext_i18n": {
         "en": "Standard flow rate (1 atm, 20°C) of gas release",
-        "tr": "Standart debi (1 atm, 20°C) gaz çıkışı"
+        "tr": "Standart debi (1 atm, 20°C) gaz çıkışı",
+        "de": "Normdurchflussrate (1 atm, 20°C) der Gasfreisetzung"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Gas Temperature",
         "tr": "Gaz Sıcaklığı",
-        "de": "Gas Temperature",
+        "de": "Gastemperatur",
         "fr": "Gas Temperature",
         "es": "Gas Temperature",
         "ar": "Gas Temperature"
       },
       "businessContext_i18n": {
         "en": "Operating temperature of the gas, used for correction",
-        "tr": "Gazın çalışma sıcaklığı, düzeltme için kullanılır"
+        "tr": "Gazın çalışma sıcaklığı, düzeltme için kullanılır",
+        "de": "Betriebstemperatur des Gases, für Korrektur verwendet"
       }
     }
   ],

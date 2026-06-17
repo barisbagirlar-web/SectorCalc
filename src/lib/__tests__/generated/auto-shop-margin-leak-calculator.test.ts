@@ -16,7 +16,7 @@ describe("auto-shop-margin-leak-calculator", () => {
     "total_parts_cost": 240000,
     "shop_supply_charge_per_ro": 15,
     "shop_supply_cost_per_ro": 22
-  } as Auto_shop_margin_leak_calculatorInput;
+  } as unknown as Auto_shop_margin_leak_calculatorInput;
     const result = calculateAuto_shop_margin_leak_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

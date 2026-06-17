@@ -14,7 +14,7 @@ describe("packaging-calculator", () => {
     "materialCostPerSqm": 0.5,
     "numberOfItems": 100,
     "wasteFactor": 10
-  } as Packaging_calculatorInput;
+  } as unknown as Packaging_calculatorInput;
     const result = calculatePackaging_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

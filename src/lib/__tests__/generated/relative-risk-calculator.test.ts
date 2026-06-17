@@ -12,7 +12,7 @@ describe("relative-risk-calculator", () => {
     "exposed_total": 100,
     "control_events": 5,
     "control_total": 100
-  } as Relative_risk_calculatorInput;
+  } as unknown as Relative_risk_calculatorInput;
     const result = calculateRelative_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

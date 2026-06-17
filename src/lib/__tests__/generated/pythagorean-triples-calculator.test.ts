@@ -12,7 +12,7 @@ describe("pythagorean-triples-calculator", () => {
     "n": 1,
     "scaleFactor": 1,
     "maxHypotenuse": 0
-  } as Pythagorean_triples_calculatorInput;
+  } as unknown as Pythagorean_triples_calculatorInput;
     const result = calculatePythagorean_triples_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

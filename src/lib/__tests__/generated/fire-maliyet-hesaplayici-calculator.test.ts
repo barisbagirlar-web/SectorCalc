@@ -14,7 +14,7 @@ describe("fire-maliyet-hesaplayici-calculator", () => {
     "scrapPrice": 2.5,
     "materialCost": 12,
     "laborOverhead": 5
-  } as Fire_maliyet_hesaplayici_calculatorInput;
+  } as unknown as Fire_maliyet_hesaplayici_calculatorInput;
     const result = calculateFire_maliyet_hesaplayici_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

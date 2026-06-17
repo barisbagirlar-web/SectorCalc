@@ -15,7 +15,7 @@ describe("solar-payback-calculator", () => {
     "tax_credit_percent": 26,
     "degradation_rate": 0.005,
     "escalation_rate": 0.03
-  } as Solar_payback_calculatorInput;
+  } as unknown as Solar_payback_calculatorInput;
     const result = calculateSolar_payback_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

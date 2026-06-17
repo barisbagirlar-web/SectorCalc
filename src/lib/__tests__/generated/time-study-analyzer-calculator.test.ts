@@ -14,7 +14,7 @@ describe("time-study-analyzer-calculator", () => {
     "frequency_per_cycle": 1,
     "work_measurement_method": "Stopwatch",
     "include_learning_curve": false
-  } as Time_study_analyzer_calculatorInput;
+  } as unknown as Time_study_analyzer_calculatorInput;
     const result = calculateTime_study_analyzer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

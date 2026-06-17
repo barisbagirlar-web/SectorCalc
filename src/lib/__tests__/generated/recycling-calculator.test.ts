@@ -13,7 +13,7 @@ describe("recycling-calculator", () => {
     "contaminationRate": 5,
     "disposalCostPerKg": 0.5,
     "revenuePerKg": 1.2
-  } as Recycling_calculatorInput;
+  } as unknown as Recycling_calculatorInput;
     const result = calculateRecycling_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

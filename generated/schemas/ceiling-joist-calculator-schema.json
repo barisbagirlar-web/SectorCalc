@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Joist Span",
         "tr": "Kiriş Açıklığı",
-        "de": "Joist Span",
+        "de": "Balkenspannweite",
         "fr": "Joist Span",
         "es": "Joist Span",
         "ar": "Joist Span"
       },
       "businessContext_i18n": {
         "en": "Distance between supports in feet",
-        "tr": "Destekler arasındaki fit cinsinden mesafe."
+        "tr": "Destekler arasındaki fit cinsinden mesafe.",
+        "de": "Abstand zwischen den Stützen in Fuß"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Joist Spacing",
         "tr": "Kiriş Aralığı",
-        "de": "Joist Spacing",
+        "de": "Balkenabstand",
         "fr": "Joist Spacing",
         "es": "Joist Spacing",
         "ar": "Joist Spacing"
       },
       "businessContext_i18n": {
         "en": "Center-to-center distance between joists in inches",
-        "tr": "Kirişler arasındaki inç cinsinden merkezden merkeze mesafe."
+        "tr": "Kirişler arasındaki inç cinsinden merkezden merkeze mesafe.",
+        "de": "Mittenabstand zwischen den Balken in Zoll"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Live Load",
         "tr": "Hareketli Yük",
-        "de": "Live Load",
+        "de": "Nutzlast",
         "fr": "Live Load",
         "es": "Live Load",
         "ar": "Live Load"
       },
       "businessContext_i18n": {
         "en": "Design live load (e.g., 40 psf for residential)",
-        "tr": "Tasarım hareketli yükü (örneğin, konut için 40 psf)."
+        "tr": "Tasarım hareketli yükü (örneğin, konut için 40 psf).",
+        "de": "Bemessungsnutzlast (z. B. 40 psf für Wohngebäude)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Dead Load",
         "tr": "Sabit Yük",
-        "de": "Dead Load",
+        "de": "Eigenlast",
         "fr": "Dead Load",
         "es": "Dead Load",
         "ar": "Dead Load"
       },
       "businessContext_i18n": {
         "en": "Dead load including joist weight, ceiling, etc.",
-        "tr": "Kiriş ağırlığı, tavan vb. dahil sabit yük."
+        "tr": "Kiriş ağırlığı, tavan vb. dahil sabit yük.",
+        "de": "Eigenlast inklusive Balkengewicht, Decke usw."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Modulus of Elasticity",
         "tr": "Elastisite Modülü",
-        "de": "Modulus of Elasticity",
+        "de": "Elastizitätsmodul",
         "fr": "Modulus of Elasticity",
         "es": "Modulus of Elasticity",
         "ar": "Modulus of Elasticity"
       },
       "businessContext_i18n": {
         "en": "E value for joist material (e.g., 1,600,000 psi for SPF)",
-        "tr": "Kiriş malzemesi için E değeri (örneğin, SPF için 1.600.000 psi)."
+        "tr": "Kiriş malzemesi için E değeri (örneğin, SPF için 1.600.000 psi).",
+        "de": "E-Modul des Balkenmaterials (z. B. 1.600.000 psi für SPF)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Moment of Inertia",
         "tr": "Eylemsizlik Momenti",
-        "de": "Moment of Inertia",
+        "de": "Trägheitsmoment",
         "fr": "Moment of Inertia",
         "es": "Moment of Inertia",
         "ar": "Moment of Inertia"
       },
       "businessContext_i18n": {
         "en": "I value for joist cross-section (e.g., 47.6 in^4 for a 2x10)",
-        "tr": "Kiriş kesiti için I değeri (örneğin, 2x10 için 47,6 in^4)."
+        "tr": "Kiriş kesiti için I değeri (örneğin, 2x10 için 47,6 in^4).",
+        "de": "Flächenträgheitsmoment des Balkenquerschnitts (z. B. 47,6 in^4 für 2x10)"
       }
     }
   ],

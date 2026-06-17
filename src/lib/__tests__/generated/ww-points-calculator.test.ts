@@ -12,7 +12,7 @@ describe("ww-points-calculator", () => {
     "saturatedFat": 0,
     "protein": 0,
     "fiber": 0
-  } as Ww_points_calculatorInput;
+  } as unknown as Ww_points_calculatorInput;
     const result = calculateWw_points_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

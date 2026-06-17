@@ -16,7 +16,7 @@ describe("saps-ii-calculator", () => {
     "paO2FiO2": 0,
     "urineOutput": 1.5,
     "serumUrea": 5
-  } as Saps_ii_calculatorInput;
+  } as unknown as Saps_ii_calculatorInput;
     const result = calculateSaps_ii_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

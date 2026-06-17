@@ -12,7 +12,7 @@ describe("deadlift-calculator", () => {
     "repetitions": 5,
     "body_weight": 80,
     "fatigue_factor": 90
-  } as Deadlift_calculatorInput;
+  } as unknown as Deadlift_calculatorInput;
     const result = calculateDeadlift_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

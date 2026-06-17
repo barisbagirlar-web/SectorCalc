@@ -12,7 +12,7 @@ describe("fluid-ounces-to-ml-calculator", () => {
     "ounceStandard": 0,
     "precision": 2,
     "batchSize": 1
-  } as Fluid_ounces_to_ml_calculatorInput;
+  } as unknown as Fluid_ounces_to_ml_calculatorInput;
     const result = calculateFluid_ounces_to_ml_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("julian-date-calculator", () => {
     "hour": 12,
     "minute": 0,
     "second": 0
-  } as Julian_date_calculatorInput;
+  } as unknown as Julian_date_calculatorInput;
     const result = calculateJulian_date_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

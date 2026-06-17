@@ -13,7 +13,7 @@ describe("triglyceride-calculator", () => {
     "glycerol_moles": 1,
     "glycerol_mw": 92.09,
     "yield_percent": 95
-  } as Triglyceride_calculatorInput;
+  } as unknown as Triglyceride_calculatorInput;
     const result = calculateTriglyceride_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

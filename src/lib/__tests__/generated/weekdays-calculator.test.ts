@@ -14,7 +14,7 @@ describe("weekdays-calculator", () => {
     "endDay": 31,
     "endMonth": 12,
     "endYear": 2025
-  } as Weekdays_calculatorInput;
+  } as unknown as Weekdays_calculatorInput;
     const result = calculateWeekdays_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

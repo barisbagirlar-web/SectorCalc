@@ -14,7 +14,7 @@ describe("roth-vs-traditional-ira-calculator", () => {
     "expectedRetirementTaxRate": 15,
     "expectedAnnualReturn": 7,
     "yearsUntilRetirement": 30
-  } as Roth_vs_traditional_ira_calculatorInput;
+  } as unknown as Roth_vs_traditional_ira_calculatorInput;
     const result = calculateRoth_vs_traditional_ira_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

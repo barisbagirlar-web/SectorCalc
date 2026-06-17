@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Flour Weight",
         "tr": "Un Ağırlığı",
-        "de": "Flour Weight",
+        "de": "Mehlgewicht",
         "fr": "Flour Weight",
         "es": "Flour Weight",
         "ar": "Flour Weight"
       },
       "businessContext_i18n": {
         "en": "The weight of flour used as the base (100%)",
-        "tr": "Temel olarak kullanılan un ağırlığı (%100)"
+        "tr": "Temel olarak kullanılan un ağırlığı (%100)",
+        "de": "Das Gewicht des Mehls als Basis (100%)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Water %",
         "tr": "Su %",
-        "de": "Water %",
+        "de": "Wasser %",
         "fr": "Water %",
         "es": "Water %",
         "ar": "Water %"
       },
       "businessContext_i18n": {
         "en": "Hydration percentage relative to flour weight",
-        "tr": "Una göre hidrasyon yüzdesi"
+        "tr": "Una göre hidrasyon yüzdesi",
+        "de": "Hydratationsprozentsatz bezogen auf das Mehlgewicht"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Yeast %",
         "tr": "Maya %",
-        "de": "Yeast %",
+        "de": "Hefe %",
         "fr": "Yeast %",
         "es": "Yeast %",
         "ar": "Yeast %"
       },
       "businessContext_i18n": {
         "en": "Instant dry yeast percentage (usually 0.5–2%)",
-        "tr": "Instant kuru maya yüzdesi (genellikle %0.5–2)"
+        "tr": "Instant kuru maya yüzdesi (genellikle %0.5–2)",
+        "de": "Prozentsatz der Trockenhefe (normalerweise 0,5–2%)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Salt %",
         "tr": "Tuz %",
-        "de": "Salt %",
+        "de": "Salz %",
         "fr": "Salt %",
         "es": "Salt %",
         "ar": "Salt %"
       },
       "businessContext_i18n": {
         "en": "Salt percentage (typically 1.5–2.5%)",
-        "tr": "Tuz yüzdesi (genellikle %1.5–2.5)"
+        "tr": "Tuz yüzdesi (genellikle %1.5–2.5)",
+        "de": "Salzprozentsatz (typischerweise 1,5–2,5%)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Sugar %",
         "tr": "Şeker %",
-        "de": "Sugar %",
+        "de": "Zucker %",
         "fr": "Sugar %",
         "es": "Sugar %",
         "ar": "Sugar %"
       },
       "businessContext_i18n": {
         "en": "Optional sugar percentage",
-        "tr": "İsteğe bağlı şeker yüzdesi"
+        "tr": "İsteğe bağlı şeker yüzdesi",
+        "de": "Optionaler Zuckerprozentsatz"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Fat %",
         "tr": "Yağ %",
-        "de": "Fat %",
+        "de": "Fett %",
         "fr": "Fat %",
         "es": "Fat %",
         "ar": "Fat %"
       },
       "businessContext_i18n": {
         "en": "Optional fat (butter, oil) percentage",
-        "tr": "İsteğe bağlı yağ (tereyağı, sıvı yağ) yüzdesi"
+        "tr": "İsteğe bağlı yağ (tereyağı, sıvı yağ) yüzdesi",
+        "de": "Optionaler Fettprozentsatz (Butter, Öl)"
       }
     }
   ],

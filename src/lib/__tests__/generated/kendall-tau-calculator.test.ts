@@ -13,7 +13,7 @@ describe("kendall-tau-calculator", () => {
     "Q": 0,
     "T": 0,
     "U": 0
-  } as Kendall_tau_calculatorInput;
+  } as unknown as Kendall_tau_calculatorInput;
     const result = calculateKendall_tau_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

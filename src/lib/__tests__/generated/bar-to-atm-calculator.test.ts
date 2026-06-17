@@ -12,7 +12,7 @@ describe("bar-to-atm-calculator", () => {
     "calibration_offset_bar": 0,
     "uncertainty_percent": 0,
     "decimal_places": 4
-  } as Bar_to_atm_calculatorInput;
+  } as unknown as Bar_to_atm_calculatorInput;
     const result = calculateBar_to_atm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

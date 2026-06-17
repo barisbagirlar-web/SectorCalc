@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fahrenheit Sıcaklık",
         "tr": "Fahrenheit Sıcaklık",
-        "de": "Fahrenheit Sıcaklık",
+        "de": "Fahrenheit Temperatur",
         "fr": "Fahrenheit Sıcaklık",
         "es": "Fahrenheit Sıcaklık",
         "ar": "Fahrenheit Sıcaklık"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek Fahrenheit sıcaklık değeri",
-        "tr": "Dönüştürülecek Fahrenheit sıcaklık değeri"
+        "tr": "Dönüştürülecek Fahrenheit sıcaklık değeri",
+        "de": "Umzurechnender Fahrenheit-Temperaturwert"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
-        "de": "Ondalık Basamak",
+        "de": "Dezimalstellen",
         "fr": "Ondalık Basamak",
         "es": "Ondalık Basamak",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak sayısı (0-10)",
-        "tr": "Sonuçta gösterilecek ondalık basamak sayısı (0-10)"
+        "tr": "Sonuçta gösterilecek ondalık basamak sayısı (0-10)",
+        "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen (0-10)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Atmosfer Basıncı",
         "tr": "Atmosfer Basıncı",
-        "de": "Atmosfer Basıncı",
+        "de": "Atmosphärendruck",
         "fr": "Atmosfer Basıncı",
         "es": "Atmosfer Basıncı",
         "ar": "Atmosfer Basıncı"
       },
       "businessContext_i18n": {
         "en": "Ortam basıncı (ISO 9001 kaydı için, hesaplamaya etkisi yok)",
-        "tr": "Ortam basıncı (ISO 9001 kaydı için, hesaplamaya etkisi yok)"
+        "tr": "Ortam basıncı (ISO 9001 kaydı için, hesaplamaya etkisi yok)",
+        "de": "Umgebungsdruck (für ISO 9001-Aufzeichnung, kein Einfluss auf Berechnung)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Bağıl Nem",
         "tr": "Bağıl Nem",
-        "de": "Bağıl Nem",
+        "de": "Relative Luftfeuchtigkeit",
         "fr": "Bağıl Nem",
         "es": "Bağıl Nem",
         "ar": "Bağıl Nem"
       },
       "businessContext_i18n": {
         "en": "Bağıl nem (ISO 9001 kaydı için)",
-        "tr": "Bağıl nem (ISO 9001 kaydı için)"
+        "tr": "Bağıl nem (ISO 9001 kaydı için)",
+        "de": "Relative Luftfeuchtigkeit (für ISO 9001-Aufzeichnung)"
       }
     }
   ],

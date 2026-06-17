@@ -12,7 +12,7 @@ describe("absorbed-dose-converter-calculator", () => {
     "calibrationFactor": 1,
     "safetyMargin": 1,
     "minimalDetectionLimit": 0.001
-  } as Absorbed_dose_converter_calculatorInput;
+  } as unknown as Absorbed_dose_converter_calculatorInput;
     const result = calculateAbsorbed_dose_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

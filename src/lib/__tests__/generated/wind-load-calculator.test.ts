@@ -16,7 +16,7 @@ describe("wind-load-calculator", () => {
     "pressure_coefficient": 0.8,
     "air_density": 1.225,
     "is_cyclic_loading": false
-  } as Wind_load_calculatorInput;
+  } as unknown as Wind_load_calculatorInput;
     const result = calculateWind_load_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

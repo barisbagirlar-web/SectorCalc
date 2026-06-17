@@ -12,7 +12,7 @@ describe("load-factor-calculator", () => {
     "peakDemand": 200,
     "numberOfDays": 30,
     "dailyOperatingHours": 24
-  } as Load_factor_calculatorInput;
+  } as unknown as Load_factor_calculatorInput;
     const result = calculateLoad_factor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

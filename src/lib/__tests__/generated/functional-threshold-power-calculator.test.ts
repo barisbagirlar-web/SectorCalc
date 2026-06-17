@@ -12,7 +12,7 @@ describe("functional-threshold-power-calculator", () => {
     "weight": 70,
     "factor": 0.95,
     "testDuration": 20
-  } as Functional_threshold_power_calculatorInput;
+  } as unknown as Functional_threshold_power_calculatorInput;
     const result = calculateFunctional_threshold_power_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

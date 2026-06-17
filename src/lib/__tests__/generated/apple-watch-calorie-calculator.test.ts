@@ -14,7 +14,7 @@ describe("apple-watch-calorie-calculator", () => {
     "gender": 1,
     "met": 8,
     "durationMinutes": 30
-  } as Apple_watch_calorie_calculatorInput;
+  } as unknown as Apple_watch_calorie_calculatorInput;
     const result = calculateApple_watch_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("break-even-calculator", () => {
     "rework_cost_per_unit": 8,
     "production_volume": 10000,
     "cost_allocation_method": "traditional"
-  } as Break_even_calculatorInput;
+  } as unknown as Break_even_calculatorInput;
     const result = calculateBreak_even_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

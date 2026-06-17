@@ -12,7 +12,7 @@ describe("moon-phase-calculator", () => {
     "month": 1,
     "day": 1,
     "hour": 0
-  } as Moon_phase_calculatorInput;
+  } as unknown as Moon_phase_calculatorInput;
     const result = calculateMoon_phase_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

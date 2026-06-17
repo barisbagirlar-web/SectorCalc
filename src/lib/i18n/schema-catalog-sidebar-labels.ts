@@ -6,6 +6,10 @@ import { resolveIndustrySectorDisplayLabel } from "@/lib/i18n/industry-sector-di
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
 import { CATEGORY_TAXONOMY, TAXONOMY_CATEGORY_NAMES } from "@/lib/tools/category-taxonomy";
+import {
+  resolveTaxonomyCategoryDisplayLabel,
+  resolveTaxonomySectorDisplayLabel,
+} from "@/lib/i18n/taxonomy-display-labels";
 import { getSectorById } from "@/lib/tools/taxonomy";
 
 type LocaleLabelMap = Readonly<Record<SupportedLocale, string>>;
@@ -254,6 +258,11 @@ const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
 };
 
 export function resolveSchemaCatalogCategoryLabel(categoryKey: string, locale: string): string {
+  const taxonomyCategory = resolveTaxonomyCategoryDisplayLabel(categoryKey, locale);
+  if (taxonomyCategory) {
+    return taxonomyCategory;
+  }
+
   const globalCategory = getGlobalCategoryBySlug(categoryKey);
   if (globalCategory) {
     return resolveGlobalCategoryTitle(globalCategory, locale);
@@ -268,6 +277,11 @@ export function resolveSchemaCatalogSectorLabel(sectorKey: string, locale: strin
   const industryLabel = resolveIndustrySectorDisplayLabel(sectorKey, locale);
   if (industryLabel) {
     return industryLabel;
+  }
+
+  const taxonomySectorLabel = resolveTaxonomySectorDisplayLabel(sectorKey, locale);
+  if (taxonomySectorLabel) {
+    return taxonomySectorLabel;
   }
 
   const taxonomySector = getSectorById(sectorKey);

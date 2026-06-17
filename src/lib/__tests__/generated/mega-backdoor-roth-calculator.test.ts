@@ -14,7 +14,7 @@ describe("mega-backdoor-roth-calculator", () => {
     "age": 35,
     "overallLimit": 69000,
     "catchUpLimit": 7500
-  } as Mega_backdoor_roth_calculatorInput;
+  } as unknown as Mega_backdoor_roth_calculatorInput;
     const result = calculateMega_backdoor_roth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

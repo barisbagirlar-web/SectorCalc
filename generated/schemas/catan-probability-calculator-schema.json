@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Zar Sayısı",
         "tr": "Zar Sayısı",
-        "de": "Zar Sayısı",
+        "de": "Anzahl der Würfel",
         "fr": "Zar Sayısı",
         "es": "Zar Sayısı",
         "ar": "Zar Sayısı"
       },
       "businessContext_i18n": {
         "en": "Kullanılan zar adedi (Catan için 2)",
-        "tr": "Kullanılan zar adedi (Catan için 2)"
+        "tr": "Kullanılan zar adedi (Catan için 2)",
+        "de": "Anzahl der verwendeten Würfel (für Catan: 2)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Zar Yüz Sayısı",
         "tr": "Zar Yüz Sayısı",
-        "de": "Zar Yüz Sayısı",
+        "de": "Augenzahl pro Würfel",
         "fr": "Zar Yüz Sayısı",
         "es": "Zar Yüz Sayısı",
         "ar": "Zar Yüz Sayısı"
       },
       "businessContext_i18n": {
         "en": "Her bir zarın yüz sayısı",
-        "tr": "Her bir zarın yüz sayısı"
+        "tr": "Her bir zarın yüz sayısı",
+        "de": "Anzahl der Seiten jedes Würfels"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Hedef Toplam",
         "tr": "Hedef Toplam",
-        "de": "Hedef Toplam",
+        "de": "Zielsumme",
         "fr": "Hedef Toplam",
         "es": "Hedef Toplam",
         "ar": "Hedef Toplam"
       },
       "businessContext_i18n": {
         "en": "Hangi toplamın üretim tetiklediği",
-        "tr": "Hangi toplamın üretim tetiklediği"
+        "tr": "Hangi toplamın üretim tetiklediği",
+        "de": "Welche Summe die Produktion auslöst"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Yerleşim Sayısı",
         "tr": "Yerleşim Sayısı",
-        "de": "Yerleşim Sayısı",
+        "de": "Anzahl der Siedlungen",
         "fr": "Yerleşim Sayısı",
         "es": "Yerleşim Sayısı",
         "ar": "Yerleşim Sayısı"
       },
       "businessContext_i18n": {
         "en": "Bu altıgen üzerindeki yerleşim sayısı",
-        "tr": "Bu altıgen üzerindeki yerleşim sayısı"
+        "tr": "Bu altıgen üzerindeki yerleşim sayısı",
+        "de": "Anzahl der Siedlungen auf diesem Hexagon"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Tur Sayısı",
         "tr": "Tur Sayısı",
-        "de": "Tur Sayısı",
+        "de": "Anzahl der Runden",
         "fr": "Tur Sayısı",
         "es": "Tur Sayısı",
         "ar": "Tur Sayısı"
       },
       "businessContext_i18n": {
         "en": "Kaç zar atışı (tur) sonrası olasılık hesaplanacak",
-        "tr": "Kaç zar atışı (tur) sonrası olasılık hesaplanacak"
+        "tr": "Kaç zar atışı (tur) sonrası olasılık hesaplanacak",
+        "de": "Nach wie vielen Würfen (Runden) die Wahrscheinlichkeit berechnet wird"
       }
     }
   ],

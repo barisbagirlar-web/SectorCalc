@@ -13,7 +13,7 @@ describe("stokes-law-calculator", () => {
     "dynamicViscosity": 0.001,
     "particleDiameter": 0.001,
     "gravity": 9.81
-  } as Stokes_law_calculatorInput;
+  } as unknown as Stokes_law_calculatorInput;
     const result = calculateStokes_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

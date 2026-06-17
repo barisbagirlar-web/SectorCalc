@@ -13,7 +13,7 @@ describe("portion-cost-calculator", () => {
     "other-costs": 0,
     "number-of-portions": 1,
     "desired-margin-percent": 0
-  } as Portion_cost_calculatorInput;
+  } as unknown as Portion_cost_calculatorInput;
     const result = calculatePortion_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

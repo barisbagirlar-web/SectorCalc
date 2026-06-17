@@ -13,7 +13,7 @@ describe("meld-score-calculator", () => {
     "laborProductivity": 50,
     "defectRate": 2,
     "machineUtilization": 80
-  } as Meld_score_calculatorInput;
+  } as unknown as Meld_score_calculatorInput;
     const result = calculateMeld_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

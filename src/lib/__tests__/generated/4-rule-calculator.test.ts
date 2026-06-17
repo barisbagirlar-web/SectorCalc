@@ -13,7 +13,7 @@ describe("4-rule-calculator", () => {
     "retirementYears": 30,
     "inflationRate": 2,
     "expectedReturn": 7
-  } as _4_rule_calculatorInput;
+  } as unknown as _4_rule_calculatorInput;
     const result = calculate_4_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

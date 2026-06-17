@@ -12,7 +12,7 @@ describe("percent-yield-calculator", () => {
     "productOutput": 0,
     "expectedYieldPercent": 95,
     "wasteMaterial": 0
-  } as Percent_yield_calculatorInput;
+  } as unknown as Percent_yield_calculatorInput;
     const result = calculatePercent_yield_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

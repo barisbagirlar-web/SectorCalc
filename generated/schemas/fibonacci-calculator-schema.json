@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Başlangıç İndeksi",
         "tr": "Başlangıç indeksi",
-        "de": "Başlangıç İndeksi",
+        "de": "Startindex",
         "fr": "Başlangıç İndeksi",
         "es": "Başlangıç İndeksi",
         "ar": "Başlangıç İndeksi"
       },
       "businessContext_i18n": {
         "en": "Dizinin ilk teriminin indeksi.",
-        "tr": "Dizinin ilk teriminin indeksi."
+        "tr": "Dizinin ilk teriminin indeksi.",
+        "de": "Index des ersten Terms der Folge."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "İlk Terim (F₀)",
         "tr": "İlk terim (F₀)",
-        "de": "İlk Terim (F₀)",
+        "de": "Erster Term (F₀)",
         "fr": "İlk Terim (F₀)",
         "es": "İlk Terim (F₀)",
         "ar": "İlk Terim (F₀)"
       },
       "businessContext_i18n": {
         "en": "Dizinin başlangıç indeksindeki değeri.",
-        "tr": "Dizinin başlangıç indeksindeki değeri."
+        "tr": "Dizinin başlangıç indeksindeki değeri.",
+        "de": "Wert der Folge am Startindex."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "İkinci Terim (F₁)",
         "tr": "İkinci terim (F₁)",
-        "de": "İkinci Terim (F₁)",
+        "de": "Zweiter Term (F₁)",
         "fr": "İkinci Terim (F₁)",
         "es": "İkinci Terim (F₁)",
         "ar": "İkinci Terim (F₁)"
       },
       "businessContext_i18n": {
         "en": "Dizinin başlangıç indeksi + 1'deki değeri.",
-        "tr": "Dizinin başlangıç indeksi + 1'deki değeri."
+        "tr": "Dizinin başlangıç indeksi + 1'deki değeri.",
+        "de": "Wert der Folge am Startindex + 1."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Çarpan a",
         "tr": "Çarpan a",
-        "de": "Çarpan a",
+        "de": "Multiplikator a",
         "fr": "Çarpan a",
         "es": "Çarpan a",
         "ar": "Çarpan a"
       },
       "businessContext_i18n": {
         "en": "Bir önceki terim için katsayı (F(n-1)).",
-        "tr": "Bir önceki terim için katsayı (F(n-1))."
+        "tr": "Bir önceki terim için katsayı (F(n-1)).",
+        "de": "Koeffizient für den vorherigen Term (F(n-1))."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Çarpan b",
         "tr": "Çarpan b",
-        "de": "Çarpan b",
+        "de": "Multiplikator b",
         "fr": "Çarpan b",
         "es": "Çarpan b",
         "ar": "Çarpan b"
       },
       "businessContext_i18n": {
         "en": "İki önceki terim için katsayı (F(n-2)).",
-        "tr": "İki önceki terim için katsayı (F(n-2))."
+        "tr": "İki önceki terim için katsayı (F(n-2)).",
+        "de": "Koeffizient für den zwei vorherigen Term (F(n-2))."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Terim Sayısı",
         "tr": "Terim Sayısı",
-        "de": "Terim Sayısı",
+        "de": "Anzahl der Terme",
         "fr": "Terim Sayısı",
         "es": "Terim Sayısı",
         "ar": "Terim Sayısı"
       },
       "businessContext_i18n": {
         "en": "Oluşturulacak toplam terim sayısı.",
-        "tr": "Oluşturulacak toplam terim sayısı."
+        "tr": "Oluşturulacak toplam terim sayısı.",
+        "de": "Gesamtzahl der zu erzeugenden Terme."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
-        "de": "Ondalık Basamak",
+        "de": "Dezimalstellen",
         "fr": "Ondalık Basamak",
         "es": "Ondalık Basamak",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Yuvarlama için ondalık basamak sayısı (0 tam sayı).",
-        "tr": "Yuvarlama için ondalık basamak sayısı (0 tam sayı)."
+        "tr": "Yuvarlama için ondalık basamak sayısı (0 tam sayı).",
+        "de": "Dezimalstellen für Rundung (0 = ganze Zahl)."
       }
     }
   ],

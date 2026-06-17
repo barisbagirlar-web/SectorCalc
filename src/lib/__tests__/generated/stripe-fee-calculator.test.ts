@@ -12,7 +12,7 @@ describe("stripe-fee-calculator", () => {
     "percentageFee": 2.9,
     "fixedFee": 0.3,
     "extraPercentage": 0
-  } as Stripe_fee_calculatorInput;
+  } as unknown as Stripe_fee_calculatorInput;
     const result = calculateStripe_fee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Oil Volume",
         "tr": "Yağ Hacmi",
-        "de": "Oil Volume",
+        "de": "Ölvolumen",
         "fr": "Oil Volume",
         "es": "Oil Volume",
         "ar": "Oil Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of frying oil in the fryer",
-        "tr": "Fritözdeki kızartma yağı hacmi"
+        "tr": "Fritözdeki kızartma yağı hacmi",
+        "de": "Volumen des Frittieröls in der Fritteuse"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Initial Oil Temperature",
         "tr": "Başlangıç Yağ Sıcaklığı",
-        "de": "Initial Oil Temperature",
+        "de": "Anfängliche Öltemperatur",
         "fr": "Initial Oil Temperature",
         "es": "Initial Oil Temperature",
         "ar": "Initial Oil Temperature"
       },
       "businessContext_i18n": {
         "en": "Starting temperature of oil before heating",
-        "tr": "Isıtmadan önce yağın başlangıç sıcaklığı"
+        "tr": "Isıtmadan önce yağın başlangıç sıcaklığı",
+        "de": "Starttemperatur des Öls vor dem Erhitzen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Frying Temperature",
         "tr": "Kızartma Sıcaklığı",
-        "de": "Frying Temperature",
+        "de": "Frittiertemperatur",
         "fr": "Frying Temperature",
         "es": "Frying Temperature",
         "ar": "Frying Temperature"
       },
       "businessContext_i18n": {
         "en": "Target frying temperature",
-        "tr": "Hedef kızartma sıcaklığı"
+        "tr": "Hedef kızartma sıcaklığı",
+        "de": "Ziel-Frittiertemperatur"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Frying Time per Batch",
         "tr": "Parti Başına Kızartma Süresi",
-        "de": "Frying Time per Batch",
+        "de": "Frittierzeit pro Charge",
         "fr": "Frying Time per Batch",
         "es": "Frying Time per Batch",
         "ar": "Frying Time per Batch"
       },
       "businessContext_i18n": {
         "en": "Duration of frying one batch of food",
-        "tr": "Bir parti yiyeceği kızartma süresi"
+        "tr": "Bir parti yiyeceği kızartma süresi",
+        "de": "Dauer des Frittierens einer Charge Lebensmittel"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Fryer Power",
         "tr": "Fritöz Gücü",
-        "de": "Fryer Power",
+        "de": "Fritteusenleistung",
         "fr": "Fryer Power",
         "es": "Fryer Power",
         "ar": "Fryer Power"
       },
       "businessContext_i18n": {
         "en": "Rated power of the deep fryer",
-        "tr": "Derin fritözün anma gücü"
+        "tr": "Derin fritözün anma gücü",
+        "de": "Nennleistung der Fritteuse"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",
-        "de": "Electricity Cost",
+        "de": "Stromkosten",
         "fr": "Electricity Cost",
         "es": "Electricity Cost",
         "ar": "Electricity Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kilowatt-hour",
-        "tr": "Kilovatsaat başına elektrik maliyeti"
+        "tr": "Kilovatsaat başına elektrik maliyeti",
+        "de": "Stromkosten pro Kilowattstunde"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Oil Cost per Liter",
         "tr": "Litre Başına Yağ Maliyeti",
-        "de": "Oil Cost per Liter",
+        "de": "Ölkosten pro Liter",
         "fr": "Oil Cost per Liter",
         "es": "Oil Cost per Liter",
         "ar": "Oil Cost per Liter"
       },
       "businessContext_i18n": {
         "en": "Purchase price of frying oil per liter",
-        "tr": "Litre başına kızartma yağı satın alma fiyatı"
+        "tr": "Litre başına kızartma yağı satın alma fiyatı",
+        "de": "Kaufpreis des Frittieröls pro Liter"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Oil Life (Batches)",
         "tr": "Yağ Ömrü (Parti)",
-        "de": "Oil Life (Batches)",
+        "de": "Öllebensdauer (Chargen)",
         "fr": "Oil Life (Batches)",
         "es": "Oil Life (Batches)",
         "ar": "Oil Life (Batches)"
       },
       "businessContext_i18n": {
         "en": "Number of frying batches before oil replacement",
-        "tr": "Yağ değişiminden önceki kızartma partisi sayısı"
+        "tr": "Yağ değişiminden önceki kızartma partisi sayısı",
+        "de": "Anzahl der Frittierchargen vor Ölwechsel"
       }
     }
   ],

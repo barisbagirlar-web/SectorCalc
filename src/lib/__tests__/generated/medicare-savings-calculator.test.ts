@@ -14,7 +14,7 @@ describe("medicare-savings-calculator", () => {
     "inflationRate": 4.5,
     "yearsInRetirement": 25,
     "expectedReturnRate": 6
-  } as Medicare_savings_calculatorInput;
+  } as unknown as Medicare_savings_calculatorInput;
     const result = calculateMedicare_savings_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("tempo-calculator", () => {
     "shiftsPerDay": 1,
     "demandPerDay": 1000,
     "efficiencyFactor": 100
-  } as Tempo_calculatorInput;
+  } as unknown as Tempo_calculatorInput;
     const result = calculateTempo_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

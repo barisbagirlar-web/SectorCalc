@@ -15,7 +15,7 @@ describe("top-speed-calculator", () => {
     "rollingResistanceCoefficient": 0.015,
     "airDensity": 1.225,
     "drivetrainEfficiency": 85
-  } as Top_speed_calculatorInput;
+  } as unknown as Top_speed_calculatorInput;
     const result = calculateTop_speed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

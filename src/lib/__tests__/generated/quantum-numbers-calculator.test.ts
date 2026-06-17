@@ -12,7 +12,7 @@ describe("quantum-numbers-calculator", () => {
     "l": 0,
     "ml": 0,
     "ms": 0.5
-  } as Quantum_numbers_calculatorInput;
+  } as unknown as Quantum_numbers_calculatorInput;
     const result = calculateQuantum_numbers_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

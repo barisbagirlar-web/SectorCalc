@@ -12,7 +12,7 @@ describe("extreme-value-theorem-calculator", () => {
     "scale": 1,
     "shape": 0,
     "returnPeriod": 100
-  } as Extreme_value_theorem_calculatorInput;
+  } as unknown as Extreme_value_theorem_calculatorInput;
     const result = calculateExtreme_value_theorem_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

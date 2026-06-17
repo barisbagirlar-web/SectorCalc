@@ -11,7 +11,7 @@ describe("t-distribution-calculator", () => {
     "t_value": 1.5,
     "degrees_of_freedom": 10,
     "tails": 2
-  } as T_distribution_calculatorInput;
+  } as unknown as T_distribution_calculatorInput;
     const result = calculateT_distribution_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("molecular-formula-calculator", () => {
     "numH": 12,
     "numO": 6,
     "numN": 0
-  } as Molecular_formula_calculatorInput;
+  } as unknown as Molecular_formula_calculatorInput;
     const result = calculateMolecular_formula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

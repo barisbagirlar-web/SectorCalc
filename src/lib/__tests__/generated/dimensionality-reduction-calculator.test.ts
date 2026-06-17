@@ -12,7 +12,7 @@ describe("dimensionality-reduction-calculator", () => {
     "r": 0.9,
     "a": 100,
     "threshold": 0.95
-  } as Dimensionality_reduction_calculatorInput;
+  } as unknown as Dimensionality_reduction_calculatorInput;
     const result = calculateDimensionality_reduction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

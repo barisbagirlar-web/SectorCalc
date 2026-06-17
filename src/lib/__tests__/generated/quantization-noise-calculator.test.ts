@@ -12,7 +12,7 @@ describe("quantization-noise-calculator", () => {
     "bits": 12,
     "signalAmplitudePeak": 2.5,
     "loadResistance": 50
-  } as Quantization_noise_calculatorInput;
+  } as unknown as Quantization_noise_calculatorInput;
     const result = calculateQuantization_noise_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

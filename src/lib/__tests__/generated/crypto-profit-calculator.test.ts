@@ -13,7 +13,7 @@ describe("crypto-profit-calculator", () => {
     "sellPrice": 150,
     "feePercent": 0.5,
     "taxPercent": 0
-  } as Crypto_profit_calculatorInput;
+  } as unknown as Crypto_profit_calculatorInput;
     const result = calculateCrypto_profit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

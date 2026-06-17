@@ -11,7 +11,7 @@ describe("gallons-to-liters", () => {
     "gallons": 1,
     "precision": 2,
     "auto_input_3": 1
-  } as Gallons_to_litersInput;
+  } as unknown as Gallons_to_litersInput;
     const result = calculateGallons_to_liters(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

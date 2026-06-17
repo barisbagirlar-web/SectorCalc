@@ -14,7 +14,7 @@ describe("self-employment-tax-calculator", () => {
     "socialSecurityWageBase": 160200,
     "additionalMedicareThreshold": 200000,
     "additionalMedicareRate": 0.9
-  } as Self_employment_tax_calculatorInput;
+  } as unknown as Self_employment_tax_calculatorInput;
     const result = calculateSelf_employment_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("thermic-effect-of-food-calculator", () => {
     "carbohydrates": 0,
     "fat": 0,
     "alcohol": 0
-  } as Thermic_effect_of_food_calculatorInput;
+  } as unknown as Thermic_effect_of_food_calculatorInput;
     const result = calculateThermic_effect_of_food_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

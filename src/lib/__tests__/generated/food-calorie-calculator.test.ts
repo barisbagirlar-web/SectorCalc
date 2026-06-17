@@ -14,7 +14,7 @@ describe("food-calorie-calculator", () => {
     "fiber": 0,
     "alc": 0,
     "servings": 1
-  } as Food_calorie_calculatorInput;
+  } as unknown as Food_calorie_calculatorInput;
     const result = calculateFood_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("auto-repair-quote-consistency-calculator", () => {
     "shop_type": "independent",
     "repair_category": "mechanical",
     "use_original_parts": true
-  } as Auto_repair_quote_consistency_calculatorInput;
+  } as unknown as Auto_repair_quote_consistency_calculatorInput;
     const result = calculateAuto_repair_quote_consistency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

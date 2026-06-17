@@ -12,7 +12,7 @@ describe("cube-volume-calculator", () => {
     "quantity": 1,
     "wasteFactor": 5,
     "density": 1000
-  } as Cube_volume_calculatorInput;
+  } as unknown as Cube_volume_calculatorInput;
     const result = calculateCube_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

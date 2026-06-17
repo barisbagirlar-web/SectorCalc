@@ -11,7 +11,7 @@ describe("kc-calculator", () => {
     "d10": 0.1,
     "d30": 0.5,
     "d60": 1
-  } as Kc_calculatorInput;
+  } as unknown as Kc_calculatorInput;
     const result = calculateKc_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

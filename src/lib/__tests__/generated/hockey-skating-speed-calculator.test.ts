@@ -12,7 +12,7 @@ describe("hockey-skating-speed-calculator", () => {
     "time": 10,
     "strideLength": 1.5,
     "strideFrequency": 2
-  } as Hockey_skating_speed_calculatorInput;
+  } as unknown as Hockey_skating_speed_calculatorInput;
     const result = calculateHockey_skating_speed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

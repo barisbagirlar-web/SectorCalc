@@ -16,7 +16,7 @@ describe("coffee-calculator", () => {
     "brewTimeMinutes": 3,
     "laborCostPerHour": 12,
     "overheadFactor": 15
-  } as Coffee_calculatorInput;
+  } as unknown as Coffee_calculatorInput;
     const result = calculateCoffee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Bebeğin Ağırlığı (kg)",
         "tr": "Bebeğin Ağırlığı (kg)",
-        "de": "Bebeğin Ağırlığı (kg)",
+        "de": "Babygewicht (kg)",
         "fr": "Bebeğin Ağırlığı (kg)",
         "es": "Bebeğin Ağırlığı (kg)",
         "ar": "Bebeğin Ağırlığı (kg)"
       },
       "businessContext_i18n": {
         "en": "Bebeğin mevcut ağırlığı.",
-        "tr": "Bebeğin mevcut ağırlığı."
+        "tr": "Bebeğin mevcut ağırlığı.",
+        "de": "Aktuelles Gewicht des Babys."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Günlük Öğün Sayısı",
         "tr": "Günlük Öğün Sayısı",
-        "de": "Günlük Öğün Sayısı",
+        "de": "Anzahl der Mahlzeiten pro Tag",
         "fr": "Günlük Öğün Sayısı",
         "es": "Günlük Öğün Sayısı",
         "ar": "Günlük Öğün Sayısı"
       },
       "businessContext_i18n": {
         "en": "Bebeğin günde kaç kez beslendiği.",
-        "tr": "Bebeğin günde kaç kez beslendiği."
+        "tr": "Bebeğin günde kaç kez beslendiği.",
+        "de": "Wie oft das Baby pro Tag gefüttert wird."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Günlük Sıvı İhtiyacı (ml/kg)",
         "tr": "Günlük Sıvı İhtiyacı (ml/kg)",
-        "de": "Günlük Sıvı İhtiyacı (ml/kg)",
+        "de": "Täglicher Flüssigkeitsbedarf (ml/kg)",
         "fr": "Günlük Sıvı İhtiyacı (ml/kg)",
         "es": "Günlük Sıvı İhtiyacı (ml/kg)",
         "ar": "Günlük Sıvı İhtiyacı (ml/kg)"
       },
       "businessContext_i18n": {
         "en": "Bebeğin kg başına günlük ihtiyaç duyduğu hazır mama miktarı (genellikle 150-200 ml).",
-        "tr": "Bebeğin kg başına günlük ihtiyaç duyduğu hazır mama miktarı (genellikle 150-200 ml)."
+        "tr": "Bebeğin kg başına günlük ihtiyaç duyduğu hazır mama miktarı (genellikle 150-200 ml).",
+        "de": "Tägliche benötigte Fertignahrungsmenge pro kg Babygewicht (normalerweise 150-200 ml)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Bir Ölçek İçin Su Miktarı",
         "tr": "Bir Ölçek İçin Su Miktarı",
-        "de": "Bir Ölçek İçin Su Miktarı",
+        "de": "Wassermenge pro Messlöffel",
         "fr": "Bir Ölçek İçin Su Miktarı",
         "es": "Bir Ölçek İçin Su Miktarı",
         "ar": "Bir Ölçek İçin Su Miktarı"
       },
       "businessContext_i18n": {
         "en": "Bir ölçek mama tozu için eklenmesi gereken su miktarı (üretici talimatı).",
-        "tr": "Bir ölçek mama tozu için eklenmesi gereken su miktarı (üretici talimatı)."
+        "tr": "Bir ölçek mama tozu için eklenmesi gereken su miktarı (üretici talimatı).",
+        "de": "Wassermenge, die pro Messlöffel Pulver hinzugefügt werden muss (Herstellerangabe)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Bir Ölçek Toz Ağırlığı",
         "tr": "Bir Ölçek Toz Ağırlığı",
-        "de": "Bir Ölçek Toz Ağırlığı",
+        "de": "Gewicht eines Messlöffels Pulver",
         "fr": "Bir Ölçek Toz Ağırlığı",
         "es": "Bir Ölçek Toz Ağırlığı",
         "ar": "Bir Ölçek Toz Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Bir ölçek mama tozunun ağırlığı (genelde 4-5g).",
-        "tr": "Bir ölçek mama tozunun ağırlığı (genelde 4-5g)."
+        "tr": "Bir ölçek mama tozunun ağırlığı (genelde 4-5g).",
+        "de": "Gewicht eines Messlöffels Pulver (normalerweise 4-5 g)."
       }
     }
   ],

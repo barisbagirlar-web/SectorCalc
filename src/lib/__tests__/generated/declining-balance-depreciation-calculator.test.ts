@@ -13,7 +13,7 @@ describe("declining-balance-depreciation-calculator", () => {
     "life": 5,
     "factor": 2,
     "year": 1
-  } as Declining_balance_depreciation_calculatorInput;
+  } as unknown as Declining_balance_depreciation_calculatorInput;
     const result = calculateDeclining_balance_depreciation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

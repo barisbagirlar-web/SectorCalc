@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Property Value",
         "tr": "Mülk Değeri",
-        "de": "Property Value",
+        "de": "Eigenschaftswert",
         "fr": "Property Value",
         "es": "Property Value",
         "ar": "Property Value"
       },
       "businessContext_i18n": {
         "en": "The total value of the insured property including buildings and contents.",
-        "tr": "Binalar ve içindekiler dahil sigortalı mülkün toplam değeri."
+        "tr": "Binalar ve içindekiler dahil sigortalı mülkün toplam değeri.",
+        "de": "Gesamtwert der versicherten Immobilie einschließlich Gebäude und Inhalt."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Flood Zone Risk Factor",
         "tr": "Sel Bölgesi Risk Faktörü",
-        "de": "Flood Zone Risk Factor",
+        "de": "Risikofaktor Überschwemmungszone",
         "fr": "Flood Zone Risk Factor",
         "es": "Flood Zone Risk Factor",
         "ar": "Flood Zone Risk Factor"
       },
       "businessContext_i18n": {
         "en": "A factor representing the flood risk: 0.01 for low risk, 0.05 for high risk. Based on FEMA flood maps.",
-        "tr": "Sel riskini temsil eden faktör: düşük risk için 0.01, yüksek risk için 0.05. FEMA sel haritalarına dayanır."
+        "tr": "Sel riskini temsil eden faktör: düşük risk için 0.01, yüksek risk için 0.05. FEMA sel haritalarına dayanır.",
+        "de": "Ein Faktor, der das Überschwemmungsrisiko darstellt: 0,01 für geringes Risiko, 0,05 für hohes Risiko. Basierend auf FEMA-Überschwemmungskarten."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Coverage Amount",
         "tr": "Teminat Tutarı",
-        "de": "Coverage Amount",
+        "de": "Deckungssumme",
         "fr": "Coverage Amount",
         "es": "Coverage Amount",
         "ar": "Coverage Amount"
       },
       "businessContext_i18n": {
         "en": "The maximum amount the insurance will pay out.",
-        "tr": "Sigortanın ödeyeceği maksimum tutar."
+        "tr": "Sigortanın ödeyeceği maksimum tutar.",
+        "de": "Der maximale Betrag, den die Versicherung auszahlt."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Deductible",
         "tr": "Muafiyet",
-        "de": "Deductible",
+        "de": "Selbstbehalt",
         "fr": "Deductible",
         "es": "Deductible",
         "ar": "Deductible"
       },
       "businessContext_i18n": {
         "en": "The amount the policyholder pays out-of-pocket before insurance coverage kicks in.",
-        "tr": "Sigorta kapsamı devreye girmeden önce poliçe sahibinin cepten ödediği tutar."
+        "tr": "Sigorta kapsamı devreye girmeden önce poliçe sahibinin cepten ödediği tutar.",
+        "de": "Der Betrag, den der Versicherungsnehmer aus eigener Tasche zahlt, bevor die Versicherung greift."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Building Type Factor",
         "tr": "Bina Tipi Faktörü",
-        "de": "Building Type Factor",
+        "de": "Gebäudetyp-Faktor",
         "fr": "Building Type Factor",
         "es": "Building Type Factor",
         "ar": "Building Type Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier based on building type: 1.0 for residential, 1.2 for commercial, 1.5 for industrial.",
-        "tr": "Bina tipine göre çarpan: konut için 1.0, ticari için 1.2, endüstriyel için 1.5."
+        "tr": "Bina tipine göre çarpan: konut için 1.0, ticari için 1.2, endüstriyel için 1.5.",
+        "de": "Multiplikator basierend auf Gebäudetyp: 1,0 für Wohngebäude, 1,2 für Gewerbe, 1,5 für Industrie."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Building Age",
         "tr": "Bina Yaşı",
-        "de": "Building Age",
+        "de": "Gebäudealter",
         "fr": "Building Age",
         "es": "Building Age",
         "ar": "Building Age"
       },
       "businessContext_i18n": {
         "en": "Age of the building in years, used to calculate depreciation factor.",
-        "tr": "Yıl cinsinden bina yaşı, amortisman faktörünü hesaplamak için kullanılır."
+        "tr": "Yıl cinsinden bina yaşı, amortisman faktörünü hesaplamak için kullanılır.",
+        "de": "Alter des Gebäudes in Jahren, zur Berechnung des Abschreibungsfaktors."
       }
     }
   ],

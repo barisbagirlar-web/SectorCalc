@@ -14,7 +14,7 @@ describe("currency-risk-calculator", () => {
     "hedge_ratio": 50,
     "time_horizon_days": 30,
     "enable_lean_adjustment": true
-  } as Currency_risk_calculatorInput;
+  } as unknown as Currency_risk_calculatorInput;
     const result = calculateCurrency_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

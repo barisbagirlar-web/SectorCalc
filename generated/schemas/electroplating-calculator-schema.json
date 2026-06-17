@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
-        "de": "Surface Area",
+        "de": "Oberfläche",
         "fr": "Surface Area",
         "es": "Surface Area",
         "ar": "Surface Area"
       },
       "businessContext_i18n": {
         "en": "total area to be plated",
-        "tr": "kaplanacak toplam alan"
+        "tr": "kaplanacak toplam alan",
+        "de": "Gesamte zu beschichtende Fläche"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Plating Thickness",
         "tr": "Kaplama Kalınlığı",
-        "de": "Plating Thickness",
+        "de": "Beschichtungsdicke",
         "fr": "Plating Thickness",
         "es": "Plating Thickness",
         "ar": "Plating Thickness"
       },
       "businessContext_i18n": {
         "en": "desired coating thickness",
-        "tr": "istenen kaplama kalınlığı"
+        "tr": "istenen kaplama kalınlığı",
+        "de": "Gewünschte Schichtdicke"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Current Density",
         "tr": "Akım Yoğunluğu",
-        "de": "Current Density",
+        "de": "Stromdichte",
         "fr": "Current Density",
         "es": "Current Density",
         "ar": "Current Density"
       },
       "businessContext_i18n": {
         "en": "applied current per unit area",
-        "tr": "birim alana uygulanan akım"
+        "tr": "birim alana uygulanan akım",
+        "de": "Angewandte Stromdichte"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Cathode Efficiency",
         "tr": "Katot Verimliliği",
-        "de": "Cathode Efficiency",
+        "de": "Kathodenwirkungsgrad",
         "fr": "Cathode Efficiency",
         "es": "Cathode Efficiency",
         "ar": "Cathode Efficiency"
       },
       "businessContext_i18n": {
         "en": "percentage of current used for metal deposition",
-        "tr": "metal biriktirme için kullanılan akım yüzdesi"
+        "tr": "metal biriktirme için kullanılan akım yüzdesi",
+        "de": "Prozentsatz des für die Metallabscheidung genutzten Stroms"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Metal Density",
         "tr": "Metal Yoğunluğu",
-        "de": "Metal Density",
+        "de": "Metalldichte",
         "fr": "Metal Density",
         "es": "Metal Density",
         "ar": "Metal Density"
       },
       "businessContext_i18n": {
         "en": "density of plating metal",
-        "tr": "kaplama metalinin yoğunluğu"
+        "tr": "kaplama metalinin yoğunluğu",
+        "de": "Dichte des Plattierungsmetalls"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Atomic Weight",
         "tr": "Atom Ağırlığı",
-        "de": "Atomic Weight",
+        "de": "Atomgewicht",
         "fr": "Atomic Weight",
         "es": "Atomic Weight",
         "ar": "Atomic Weight"
       },
       "businessContext_i18n": {
         "en": "molar mass of metal",
-        "tr": "metal mol kütlesi"
+        "tr": "metal mol kütlesi",
+        "de": "Molare Masse des Metalls"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Valence",
         "tr": "Değerlik",
-        "de": "Valence",
+        "de": "Wertigkeit",
         "fr": "Valence",
         "es": "Valence",
         "ar": "Valence"
       },
       "businessContext_i18n": {
         "en": "number of electrons transferred per ion",
-        "tr": "iyon başına aktarılan elektron sayısı"
+        "tr": "iyon başına aktarılan elektron sayısı",
+        "de": "Anzahl der pro Ion übertragenen Elektronen"
       }
     }
   ],

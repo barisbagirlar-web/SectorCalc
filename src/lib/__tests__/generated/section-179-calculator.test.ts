@@ -13,7 +13,7 @@ describe("section-179-calculator", () => {
     "section179Limit": 1220000,
     "phaseOutThreshold": 3050000,
     "totalAssetAdditions": 50000
-  } as Section_179_calculatorInput;
+  } as unknown as Section_179_calculatorInput;
     const result = calculateSection_179_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

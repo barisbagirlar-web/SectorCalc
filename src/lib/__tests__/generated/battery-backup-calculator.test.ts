@@ -15,7 +15,7 @@ describe("battery-backup-calculator", () => {
     "inverterEfficiency": 90,
     "safetyFactor": 1,
     "temperatureDerating": 1
-  } as Battery_backup_calculatorInput;
+  } as unknown as Battery_backup_calculatorInput;
     const result = calculateBattery_backup_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

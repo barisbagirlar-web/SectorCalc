@@ -12,7 +12,7 @@ describe("vent-size-calculator", () => {
     "ach": 5,
     "velocity": 2,
     "safetyFactor": 1.2
-  } as Vent_size_calculatorInput;
+  } as unknown as Vent_size_calculatorInput;
     const result = calculateVent_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

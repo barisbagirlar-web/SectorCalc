@@ -14,7 +14,7 @@ describe("oblique-shock-calculator", () => {
     "p01": 101325,
     "T01": 300,
     "gas_constant": 287
-  } as Oblique_shock_calculatorInput;
+  } as unknown as Oblique_shock_calculatorInput;
     const result = calculateOblique_shock_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

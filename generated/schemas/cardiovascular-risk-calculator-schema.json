@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Yaş",
         "tr": "Yaş",
-        "de": "Yaş",
+        "de": "Alter",
         "fr": "Yaş",
         "es": "Yaş",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Hastanın yaşı (yıl)",
-        "tr": "Hastanın yaşı (yıl)"
+        "tr": "Hastanın yaşı (yıl)",
+        "de": "Alter des Patienten (Jahre)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cinsiyet (Erkek:1, Kadın:0)",
         "tr": "Cinsiyet (Erkek:1, Kadın:0)",
-        "de": "Cinsiyet (Erkek:1, Kadın:0)",
+        "de": "Geschlecht (Männlich:1, Weiblich:0)",
         "fr": "Cinsiyet (Erkek:1, Kadın:0)",
         "es": "Cinsiyet (Erkek:1, Kadın:0)",
         "ar": "Cinsiyet (Erkek:1, Kadın:0)"
       },
       "businessContext_i18n": {
         "en": "Cinsiyet (1: Erkek, 0: Kadın)",
-        "tr": "Cinsiyet (1: Erkek, 0: Kadın)"
+        "tr": "Cinsiyet (1: Erkek, 0: Kadın)",
+        "de": "Geschlecht (1: Männlich, 0: Weiblich)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Total Kolesterol",
         "tr": "Total Kolesterol",
-        "de": "Total Kolesterol",
+        "de": "Gesamtcholesterin",
         "fr": "Total Kolesterol",
         "es": "Total Kolesterol",
         "ar": "Total Kolesterol"
       },
       "businessContext_i18n": {
         "en": "Total kolesterol seviyesi (mg/dL)",
-        "tr": "Total kolesterol seviyesi (mg/dL)"
+        "tr": "Total kolesterol seviyesi (mg/dL)",
+        "de": "Gesamtcholesterinspiegel (mg/dL)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "HDL Kolesterol",
         "tr": "HDL Kolesterol",
-        "de": "HDL Kolesterol",
+        "de": "HDL-Cholesterin",
         "fr": "HDL Kolesterol",
         "es": "HDL Kolesterol",
         "ar": "HDL Kolesterol"
       },
       "businessContext_i18n": {
         "en": "HDL kolesterol seviyesi (mg/dL)",
-        "tr": "HDL kolesterol seviyesi (mg/dL)"
+        "tr": "HDL kolesterol seviyesi (mg/dL)",
+        "de": "HDL-Cholesterinwert (mg/dL)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Sistolik Kan Basıncı",
         "tr": "Sistolik Kan Basıncı",
-        "de": "Sistolik Kan Basıncı",
+        "de": "Systolischer Blutdruck",
         "fr": "Sistolik Kan Basıncı",
         "es": "Sistolik Kan Basıncı",
         "ar": "Sistolik Kan Basıncı"
       },
       "businessContext_i18n": {
         "en": "Sistolik kan basıncı (mmHg)",
-        "tr": "Sistolik kan basıncı (mmHg)"
+        "tr": "Sistolik kan basıncı (mmHg)",
+        "de": "Systolischer Blutdruck (mmHg)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Sigara (Evet:1, Hayır:0)",
         "tr": "Sigara (Evet:1, Hayır:0)",
-        "de": "Sigara (Evet:1, Hayır:0)",
+        "de": "Rauchen (Ja:1, Nein:0)",
         "fr": "Sigara (Evet:1, Hayır:0)",
         "es": "Sigara (Evet:1, Hayır:0)",
         "ar": "Sigara (Evet:1, Hayır:0)"
       },
       "businessContext_i18n": {
         "en": "Sigara içme durumu (1: Evet, 0: Hayır)",
-        "tr": "Sigara içme durumu (1: Evet, 0: Hayır)"
+        "tr": "Sigara içme durumu (1: Evet, 0: Hayır)",
+        "de": "Raucherstatus (1: Ja, 0: Nein)"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Diyabet (Var:1, Yok:0)",
         "tr": "Diyabet (Var:1, Yok:0)",
-        "de": "Diyabet (Var:1, Yok:0)",
+        "de": "Diabetes (Vorhanden:1, Nicht vorhanden:0)",
         "fr": "Diyabet (Var:1, Yok:0)",
         "es": "Diyabet (Var:1, Yok:0)",
         "ar": "Diyabet (Var:1, Yok:0)"
       },
       "businessContext_i18n": {
         "en": "Diyabet varlığı (1: Var, 0: Yok)",
-        "tr": "Diyabet varlığı (1: Var, 0: Yok)"
+        "tr": "Diyabet varlığı (1: Var, 0: Yok)",
+        "de": "Diabetes vorhanden (1: Ja, 0: Nein)"
       }
     }
   ],

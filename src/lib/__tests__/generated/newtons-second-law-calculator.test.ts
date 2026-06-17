@@ -13,7 +13,7 @@ describe("newtons-second-law-calculator", () => {
     "acceleration": 0,
     "force": 0,
     "safetyFactor": 1
-  } as Newtons_second_law_calculatorInput;
+  } as unknown as Newtons_second_law_calculatorInput;
     const result = calculateNewtons_second_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

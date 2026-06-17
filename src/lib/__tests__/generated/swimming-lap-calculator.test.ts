@@ -12,7 +12,7 @@ describe("swimming-lap-calculator", () => {
     "numLaps": 10,
     "pacePer100m": 120,
     "restBetweenLaps": 15
-  } as Swimming_lap_calculatorInput;
+  } as unknown as Swimming_lap_calculatorInput;
     const result = calculateSwimming_lap_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

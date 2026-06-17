@@ -14,7 +14,7 @@ describe("life-insurance-calculator", () => {
     "smokingStatus": 0,
     "gender": 0,
     "healthScore": 80
-  } as Life_insurance_calculatorInput;
+  } as unknown as Life_insurance_calculatorInput;
     const result = calculateLife_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

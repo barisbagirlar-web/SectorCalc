@@ -14,7 +14,7 @@ describe("indicated-horsepower-calculator", () => {
     "speed": 3000,
     "cylinders": 4,
     "cycles": 4
-  } as Indicated_horsepower_calculatorInput;
+  } as unknown as Indicated_horsepower_calculatorInput;
     const result = calculateIndicated_horsepower_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

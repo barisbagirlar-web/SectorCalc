@@ -13,7 +13,7 @@ describe("palliative-performance-scale-calculator", () => {
     "selfCareScore": 100,
     "intakeScore": 100,
     "consciousnessScore": 100
-  } as Palliative_performance_scale_calculatorInput;
+  } as unknown as Palliative_performance_scale_calculatorInput;
     const result = calculatePalliative_performance_scale_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

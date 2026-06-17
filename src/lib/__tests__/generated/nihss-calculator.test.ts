@@ -15,7 +15,7 @@ describe("nihss-calculator", () => {
     "motor_arm": 0,
     "motor_leg": 0,
     "language": 0
-  } as Nihss_calculatorInput;
+  } as unknown as Nihss_calculatorInput;
     const result = calculateNihss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

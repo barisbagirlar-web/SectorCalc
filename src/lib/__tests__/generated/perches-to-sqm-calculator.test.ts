@@ -13,7 +13,7 @@ describe("perches-to-sqm-calculator", () => {
     "knownSqm": 0,
     "offset": 0,
     "precision": 2
-  } as Perches_to_sqm_calculatorInput;
+  } as unknown as Perches_to_sqm_calculatorInput;
     const result = calculatePerches_to_sqm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

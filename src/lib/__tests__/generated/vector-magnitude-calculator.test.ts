@@ -12,7 +12,7 @@ describe("vector-magnitude-calculator", () => {
     "component2": 0,
     "component3": 0,
     "component4": 0
-  } as Vector_magnitude_calculatorInput;
+  } as unknown as Vector_magnitude_calculatorInput;
     const result = calculateVector_magnitude_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

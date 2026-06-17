@@ -15,7 +15,7 @@ describe("multivariate-test-calculator", () => {
     "sd1": 2,
     "sd2": 2.5,
     "sd3": 3
-  } as Multivariate_test_calculatorInput;
+  } as unknown as Multivariate_test_calculatorInput;
     const result = calculateMultivariate_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

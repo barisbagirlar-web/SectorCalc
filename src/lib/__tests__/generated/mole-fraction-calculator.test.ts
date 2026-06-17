@@ -13,7 +13,7 @@ describe("mole-fraction-calculator", () => {
     "moleC": 0,
     "moleD": 0,
     "selectedIndex": 1
-  } as Mole_fraction_calculatorInput;
+  } as unknown as Mole_fraction_calculatorInput;
     const result = calculateMole_fraction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

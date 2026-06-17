@@ -12,7 +12,7 @@ describe("weight-loss-calculator", () => {
     "initialMoisture": 50,
     "finalMoisture": 10,
     "targetWeightLoss": 40
-  } as Weight_loss_calculatorInput;
+  } as unknown as Weight_loss_calculatorInput;
     const result = calculateWeight_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

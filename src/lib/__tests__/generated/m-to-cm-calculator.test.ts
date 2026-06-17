@@ -12,7 +12,7 @@ describe("m-to-cm-calculator", () => {
     "conversion_factor": 100,
     "uncertainty_percent": 0,
     "decimal_places": 2
-  } as M_to_cm_calculatorInput;
+  } as unknown as M_to_cm_calculatorInput;
     const result = calculateM_to_cm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

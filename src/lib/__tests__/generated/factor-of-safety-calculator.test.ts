@@ -14,7 +14,7 @@ describe("factor-of-safety-calculator", () => {
     "ultimateTensileStrength": 400,
     "designFactor": 1.5,
     "stressConcentrationFactor": 1
-  } as Factor_of_safety_calculatorInput;
+  } as unknown as Factor_of_safety_calculatorInput;
     const result = calculateFactor_of_safety_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

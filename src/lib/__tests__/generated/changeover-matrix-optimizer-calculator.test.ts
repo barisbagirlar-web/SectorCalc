@@ -16,7 +16,7 @@ describe("changeover-matrix-optimizer-calculator", () => {
     "standard_deviation_changeover_time": 8,
     "shift_pattern": "2-shift",
     "lean_smed_implemented": false
-  } as Changeover_matrix_optimizer_calculatorInput;
+  } as unknown as Changeover_matrix_optimizer_calculatorInput;
     const result = calculateChangeover_matrix_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Engine Speed",
         "tr": "Motor Devri",
-        "de": "Engine Speed",
+        "de": "Motordrehzahl",
         "fr": "Engine Speed",
         "es": "Engine Speed",
         "ar": "Engine Speed"
       },
       "businessContext_i18n": {
         "en": "Motor devri (dakikadaki dönüş sayısı)",
-        "tr": "Motor devri (dakikadaki dönüş sayısı)"
+        "tr": "Motor devri (dakikadaki dönüş sayısı)",
+        "de": "Motordrehzahl (Umdrehungen pro Minute)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Torque",
         "tr": "Tork",
-        "de": "Torque",
+        "de": "Drehmoment",
         "fr": "Torque",
         "es": "Torque",
         "ar": "Torque"
       },
       "businessContext_i18n": {
         "en": "Motor torku",
-        "tr": "Motor Torku"
+        "tr": "Motor Torku",
+        "de": "Motordrehmoment"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fuel Consumption",
         "tr": "Yakıt Tüketimi",
-        "de": "Fuel Consumption",
+        "de": "Kraftstoffverbrauch",
         "fr": "Fuel Consumption",
         "es": "Fuel Consumption",
         "ar": "Fuel Consumption"
       },
       "businessContext_i18n": {
         "en": "Saatlik yakıt tüketimi",
-        "tr": "Saatlik Yakıt Tüketimi"
+        "tr": "Saatlik Yakıt Tüketimi",
+        "de": "Stündlicher Kraftstoffverbrauch"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Fuel Density",
         "tr": "Yakıt Yoğunluğu",
-        "de": "Fuel Density",
+        "de": "Kraftstoffdichte",
         "fr": "Fuel Density",
         "es": "Fuel Density",
         "ar": "Fuel Density"
       },
       "businessContext_i18n": {
         "en": "Yakıt yoğunluğu (dizel için tipik: 0.84 kg/L)",
-        "tr": "Yakıt yoğunluğu (dizel için tipik: 0.84 kg/L)"
+        "tr": "Yakıt yoğunluğu (dizel için tipik: 0.84 kg/L)",
+        "de": "Kraftstoffdichte (typisch für Diesel: 0,84 kg/L)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Fuel Heating Value",
         "tr": "Yakıt Isıl Değeri",
-        "de": "Fuel Heating Value",
+        "de": "Heizwert des Kraftstoffs",
         "fr": "Fuel Heating Value",
         "es": "Fuel Heating Value",
         "ar": "Fuel Heating Value"
       },
       "businessContext_i18n": {
         "en": "Yakıt alt ısıl değeri (dizel için tipik: 42.5 MJ/kg)",
-        "tr": "Yakıt alt ısıl değeri (dizel için tipik: 42.5 MJ/kg)"
+        "tr": "Yakıt alt ısıl değeri (dizel için tipik: 42.5 MJ/kg)",
+        "de": "Unterer Heizwert des Kraftstoffs (typisch für Diesel: 42,5 MJ/kg)"
       }
     }
   ],

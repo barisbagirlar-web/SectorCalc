@@ -14,7 +14,7 @@ describe("skill-point-calculator", () => {
     "taskComplexity": 5,
     "certifications": 0,
     "errorRate": 5
-  } as Skill_point_calculatorInput;
+  } as unknown as Skill_point_calculatorInput;
     const result = calculateSkill_point_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

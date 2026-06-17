@@ -25,11 +25,13 @@
       "businessContext": "Select the category of waste to apply appropriate cost factors and regulatory thresholds.",
       "label_i18n": {
         "en": "Waste Type",
-        "tr": "Atık Türü"
+        "tr": "Atık Türü",
+        "de": "Abfallart"
       },
       "businessContext_i18n": {
         "en": "Select the category of waste to apply appropriate cost factors and regulatory thresholds.",
-        "tr": "Uygun maliyet faktörlerini ve düzenleyici eşikleri uygulamak için atık kategorisini seçin."
+        "tr": "Uygun maliyet faktörlerini ve düzenleyici eşikleri uygulamak için atık kategorisini seçin.",
+        "de": "Wählen Sie die Abfallkategorie, um entsprechende Kostenfaktoren und regulatorische Schwellenwerte anzuwenden."
       }
     },
     {
@@ -43,11 +45,13 @@
       "businessContext": "Total mass of waste generated in the reporting period.",
       "label_i18n": {
         "en": "Waste Volume (kg)",
-        "tr": "Atık Hacmi (kg)"
+        "tr": "Atık Hacmi (kg)",
+        "de": "Abfallvolumen (kg)"
       },
       "businessContext_i18n": {
         "en": "Total mass of waste generated in the reporting period.",
-        "tr": "Raporlama döneminde üretilen toplam atık kütlesi."
+        "tr": "Raporlama döneminde üretilen toplam atık kütlesi.",
+        "de": "Gesamtmasse des im Berichtszeitraum erzeugten Abfalls."
       }
     },
     {
@@ -61,11 +65,13 @@
       "businessContext": "Average cost paid to waste management vendor per kilogram.",
       "label_i18n": {
         "en": "Disposal Cost per kg",
-        "tr": "Bertaraf Maliyeti (kg başına)"
+        "tr": "Bertaraf Maliyeti (kg başına)",
+        "de": "Entsorgungskosten pro kg"
       },
       "businessContext_i18n": {
         "en": "Average cost paid to waste management vendor per kilogram.",
-        "tr": "Atık yönetimi tedarikçisine kilogram başına ödenen ortalama maliyet."
+        "tr": "Atık yönetimi tedarikçisine kilogram başına ödenen ortalama maliyet.",
+        "de": "Durchschnittliche Kosten, die pro Kilogramm an den Abfallentsorgungsdienstleister gezahlt werden."
       }
     },
     {
@@ -79,11 +85,13 @@
       "businessContext": "One-way distance from facility to disposal or recycling site.",
       "label_i18n": {
         "en": "Transport Distance (km)",
-        "tr": "Taşıma Mesafesi (km)"
+        "tr": "Taşıma Mesafesi (km)",
+        "de": "Transportentfernung (km)"
       },
       "businessContext_i18n": {
         "en": "One-way distance from facility to disposal or recycling site.",
-        "tr": "Tesisten bertaraf veya geri dönüşüm sahasına tek yön mesafe."
+        "tr": "Tesisten bertaraf veya geri dönüşüm sahasına tek yön mesafe.",
+        "de": "Einfache Entfernung von der Anlage zur Entsorgungs- oder Recyclingstelle."
       }
     },
     {
@@ -97,11 +105,13 @@
       "businessContext": "Cost per kilometer for waste transport, including fuel and labor.",
       "label_i18n": {
         "en": "Transport Cost per km",
-        "tr": "Taşıma Maliyeti (km başına)"
+        "tr": "Taşıma Maliyeti (km başına)",
+        "de": "Transportkosten pro km"
       },
       "businessContext_i18n": {
         "en": "Cost per kilometer for waste transport, including fuel and labor.",
-        "tr": "Yakıt ve işçilik dahil atık taşıma için kilometre başına maliyet."
+        "tr": "Yakıt ve işçilik dahil atık taşıma için kilometre başına maliyet.",
+        "de": "Kosten pro Kilometer für den Abfalltransport, einschließlich Kraftstoff und Arbeit."
       }
     },
     {
@@ -115,11 +125,13 @@
       "businessContext": "Direct labor hours required to handle, sort, and prepare one ton of waste.",
       "label_i18n": {
         "en": "Labor Hours per Ton",
-        "tr": "Ton başına İşçilik Saati"
+        "tr": "Ton başına İşçilik Saati",
+        "de": "Arbeitsstunden pro Tonne"
       },
       "businessContext_i18n": {
         "en": "Direct labor hours required to handle, sort, and prepare one ton of waste.",
-        "tr": "Bir ton atığı elleçlemek, ayırmak ve hazırlamak için gereken doğrudan işçilik saati."
+        "tr": "Bir ton atığı elleçlemek, ayırmak ve hazırlamak için gereken doğrudan işçilik saati.",
+        "de": "Direkte Arbeitsstunden, die für die Handhabung, Sortierung und Vorbereitung einer Tonne Abfall erforderlich sind."
       }
     },
     {
@@ -133,11 +145,13 @@
       "businessContext": "Hourly wage including overhead for waste handling personnel.",
       "label_i18n": {
         "en": "Labor Rate per Hour",
-        "tr": "Saatlik İşçilik Ücreti"
+        "tr": "Saatlik İşçilik Ücreti",
+        "de": "Stundensatz"
       },
       "businessContext_i18n": {
         "en": "Hourly wage including overhead for waste handling personnel.",
-        "tr": "Atık elleçleme personeli için genel giderler dahil saatlik ücret."
+        "tr": "Atık elleçleme personeli için genel giderler dahil saatlik ücret.",
+        "de": "Stundenlohn inklusive Gemeinkosten für das Abfallpersonal."
       }
     },
     {
@@ -151,11 +165,13 @@
       "businessContext": "Revenue received from selling recyclable materials per kilogram.",
       "label_i18n": {
         "en": "Recycling Revenue per kg",
-        "tr": "Geri Dönüşüm Geliri (kg başına)"
+        "tr": "Geri Dönüşüm Geliri (kg başına)",
+        "de": "Recycling-Erlös pro kg"
       },
       "businessContext_i18n": {
         "en": "Revenue received from selling recyclable materials per kilogram.",
-        "tr": "Geri dönüştürülebilir malzemelerin kilogram başına satışından elde edilen gelir."
+        "tr": "Geri dönüştürülebilir malzemelerin kilogram başına satışından elde edilen gelir.",
+        "de": "Erlös aus dem Verkauf von recycelbaren Materialien pro Kilogramm."
       }
     }
   ],

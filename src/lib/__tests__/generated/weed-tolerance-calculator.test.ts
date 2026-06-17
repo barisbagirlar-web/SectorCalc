@@ -14,7 +14,7 @@ describe("weed-tolerance-calculator", () => {
     "materialFactor": 0.5,
     "temperature": 20,
     "expansionCoeff": 12
-  } as Weed_tolerance_calculatorInput;
+  } as unknown as Weed_tolerance_calculatorInput;
     const result = calculateWeed_tolerance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

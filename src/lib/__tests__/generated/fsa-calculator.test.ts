@@ -14,7 +14,7 @@ describe("fsa-calculator", () => {
     "efficiencyImprovement": 5,
     "engineLoadFactor": 70,
     "operatingYears": 1
-  } as Fsa_calculatorInput;
+  } as unknown as Fsa_calculatorInput;
     const result = calculateFsa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

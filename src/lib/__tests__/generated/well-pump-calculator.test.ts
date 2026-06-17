@@ -14,7 +14,7 @@ describe("well-pump-calculator", () => {
     "frictionLoss": 2,
     "flowRate": 10,
     "pumpEfficiency": 70
-  } as Well_pump_calculatorInput;
+  } as unknown as Well_pump_calculatorInput;
     const result = calculateWell_pump_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

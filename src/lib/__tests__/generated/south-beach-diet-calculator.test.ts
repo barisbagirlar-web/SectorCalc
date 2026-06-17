@@ -13,7 +13,7 @@ describe("south-beach-diet-calculator", () => {
     "height": 170,
     "gender": 0,
     "activityFactor": 1.2
-  } as South_beach_diet_calculatorInput;
+  } as unknown as South_beach_diet_calculatorInput;
     const result = calculateSouth_beach_diet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

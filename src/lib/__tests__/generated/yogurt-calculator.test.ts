@@ -14,7 +14,7 @@ describe("yogurt-calculator", () => {
     "batchSizeLiters": 100,
     "packagingCostPerKg": 2,
     "overheadCostPerBatch": 50
-  } as Yogurt_calculatorInput;
+  } as unknown as Yogurt_calculatorInput;
     const result = calculateYogurt_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

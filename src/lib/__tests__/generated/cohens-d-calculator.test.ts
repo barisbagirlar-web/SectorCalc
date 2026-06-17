@@ -14,7 +14,7 @@ describe("cohens-d-calculator", () => {
     "sd2": 1,
     "n1": 30,
     "n2": 30
-  } as Cohens_d_calculatorInput;
+  } as unknown as Cohens_d_calculatorInput;
     const result = calculateCohens_d_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

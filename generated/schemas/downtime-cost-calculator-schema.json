@@ -22,11 +22,13 @@
       "businessContext": "The standard output rate per hour under normal operating conditions (ISO 22400).",
       "label_i18n": {
         "en": "Planned Production Rate",
-        "tr": "Planlanan Üretim Hızı"
+        "tr": "Planlanan Üretim Hızı",
+        "de": "Reduktionsfaktor"
       },
       "businessContext_i18n": {
         "en": "The standard output rate per hour under normal operating conditions (ISO 22400).",
-        "tr": "Normal çalışma koşullarında saat başına standart çıktı oranı (ISO 22400)."
+        "tr": "Normal çalışma koşullarında saat başına standart çıktı oranı (ISO 22400).",
+        "de": "Reduktionsfaktor für Bögen, Hindernisse und Installationsunvollkommenheiten."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Total duration of the unplanned downtime event.",
       "label_i18n": {
         "en": "Downtime Duration",
-        "tr": "Arıza Süresi"
+        "tr": "Arıza Süresi",
+        "de": "Geplante Produktionsrate"
       },
       "businessContext_i18n": {
         "en": "Total duration of the unplanned downtime event.",
-        "tr": "Plansız duruş olayının toplam süresi."
+        "tr": "Plansız duruş olayının toplam süresi.",
+        "de": "Die Standard-Ausbringungsrate pro Stunde unter normalen Betriebsbedingungen (ISO 22400)."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Selling price or standard cost per unit of output.",
       "label_i18n": {
         "en": "Revenue per Unit",
-        "tr": "Birim Başına Gelir"
+        "tr": "Birim Başına Gelir",
+        "de": "Stillstandszeit"
       },
       "businessContext_i18n": {
         "en": "Selling price or standard cost per unit of output.",
-        "tr": "Birim çıktı başına satış fiyatı veya standart maliyet."
+        "tr": "Birim çıktı başına satış fiyatı veya standart maliyet.",
+        "de": "Verkaufspreis oder Standardkosten pro Ausgabeeinheit."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Average hourly wage including benefits for operators affected by downtime.",
       "label_i18n": {
         "en": "Direct Labor Cost per Hour",
-        "tr": "Saat Başına Doğrudan İşçilik Maliyeti"
+        "tr": "Saat Başına Doğrudan İşçilik Maliyeti",
+        "de": "Direkte Arbeitskosten pro Stunde"
       },
       "businessContext_i18n": {
         "en": "Average hourly wage including benefits for operators affected by downtime.",
-        "tr": "Duruştan etkilenen operatörler için yan haklar dahil ortalama saatlik ücret."
+        "tr": "Duruştan etkilenen operatörler için yan haklar dahil ortalama saatlik ücret.",
+        "de": "Durchschnittlicher Stundenlohn inkl. Zuschläge für von Ausfallzeiten betroffene Bediener."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Average cost of electricity, gas, or other energy consumed during production.",
       "label_i18n": {
         "en": "Energy Cost per Hour",
-        "tr": "Saat Başına Enerji Maliyeti"
+        "tr": "Saat Başına Enerji Maliyeti",
+        "de": "Energiekosten pro Stunde"
       },
       "businessContext_i18n": {
         "en": "Average cost of electricity, gas, or other energy consumed during production.",
-        "tr": "Üretim sırasında tüketilen elektrik, gaz veya diğer enerjinin ortalama maliyeti."
+        "tr": "Üretim sırasında tüketilen elektrik, gaz veya diğer enerjinin ortalama maliyeti.",
+        "de": "Durchschnittliche Kosten für Strom, Gas oder andere während der Produktion verbrauchte Energie."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "Percentage of material wasted due to restart or instability after downtime (Six Sigma defect rate).",
       "label_i18n": {
         "en": "Scrap Rate During Downtime",
-        "tr": "Duruş Sırasında Fire Oranı"
+        "tr": "Duruş Sırasında Fire Oranı",
+        "de": "Ausschussrate während Ausfallzeit"
       },
       "businessContext_i18n": {
         "en": "Percentage of material wasted due to restart or instability after downtime (Six Sigma defect rate).",
-        "tr": "Duruş sonrası yeniden başlatma veya istikrarsızlık nedeniyle israf edilen malzeme yüzdesi (Altı Sigma kusur oranı)."
+        "tr": "Duruş sonrası yeniden başlatma veya istikrarsızlık nedeniyle israf edilen malzeme yüzdesi (Altı Sigma kusur oranı).",
+        "de": "Prozentsatz des Materialausschusses durch Neustart oder Instabilität nach Ausfallzeit (Six Sigma Fehlerrate)."
       }
     },
     {
@@ -130,11 +142,13 @@
       "businessContext": "Multiplier for additional time needed to return to steady-state production (Lean Takt time recovery).",
       "label_i18n": {
         "en": "Recovery Time Factor",
-        "tr": "Toparlanma Süresi Faktörü"
+        "tr": "Toparlanma Süresi Faktörü",
+        "de": "Erholungszeitfaktor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for additional time needed to return to steady-state production (Lean Takt time recovery).",
-        "tr": "Sabit üretime dönmek için gereken ek süre çarpanı (Yalın Takt süresi toparlanması)."
+        "tr": "Sabit üretime dönmek için gereken ek süre çarpanı (Yalın Takt süresi toparlanması).",
+        "de": "Multiplikator für zusätzliche Zeit zur Rückkehr in den stationären Produktionszustand (Lean Taktzeit-Erholung)."
       }
     },
     {
@@ -151,11 +165,13 @@
       "businessContext": "Shift during which downtime occurred; affects labor cost multipliers (night/weekend premiums).",
       "label_i18n": {
         "en": "Shift Type",
-        "tr": "Vardiya Türü"
+        "tr": "Vardiya Türü",
+        "de": "Schichttyp"
       },
       "businessContext_i18n": {
         "en": "Shift during which downtime occurred; affects labor cost multipliers (night/weekend premiums).",
-        "tr": "Duruşun meydana geldiği vardiya; işçilik maliyeti çarpanlarını etkiler (gece/hafta sonu primleri)."
+        "tr": "Duruşun meydana geldiği vardiya; işçilik maliyeti çarpanlarını etkiler (gece/hafta sonu primleri).",
+        "de": "Schicht, in der die Ausfallzeit auftrat; beeinflusst Arbeitskostenzuschläge (Nacht-/Wochenendzuschläge)."
       }
     }
   ],

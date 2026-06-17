@@ -15,7 +15,7 @@ describe("paint-cost-calculator", () => {
     "laborHours": 8,
     "laborRate": 50,
     "wasteFactor": 5
-  } as Paint_cost_calculatorInput;
+  } as unknown as Paint_cost_calculatorInput;
     const result = calculatePaint_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

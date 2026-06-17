@@ -12,7 +12,7 @@ describe("conservation-of-momentum-calculator", () => {
     "velocity1": 0,
     "mass2": 1,
     "velocity2": 0
-  } as Conservation_of_momentum_calculatorInput;
+  } as unknown as Conservation_of_momentum_calculatorInput;
     const result = calculateConservation_of_momentum_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

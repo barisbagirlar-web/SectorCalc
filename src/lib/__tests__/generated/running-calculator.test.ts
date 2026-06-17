@@ -12,7 +12,7 @@ describe("running-calculator", () => {
     "time_hours": 0,
     "time_minutes": 50,
     "time_seconds": 0
-  } as Running_calculatorInput;
+  } as unknown as Running_calculatorInput;
     const result = calculateRunning_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

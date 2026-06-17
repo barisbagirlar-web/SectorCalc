@@ -13,7 +13,7 @@ describe("network-calculator", () => {
     "ip3": 1,
     "ip4": 1,
     "cidr": 24
-  } as Network_calculatorInput;
+  } as unknown as Network_calculatorInput;
     const result = calculateNetwork_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

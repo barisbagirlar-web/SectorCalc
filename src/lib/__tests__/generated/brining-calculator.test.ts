@@ -12,7 +12,7 @@ describe("brining-calculator", () => {
     "desiredSaltPercent": 5,
     "desiredSugarPercent": 0,
     "waterDensity": 1
-  } as Brining_calculatorInput;
+  } as unknown as Brining_calculatorInput;
     const result = calculateBrining_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

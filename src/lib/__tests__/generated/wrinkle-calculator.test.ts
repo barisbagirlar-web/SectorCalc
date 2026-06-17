@@ -14,7 +14,7 @@ describe("wrinkle-calculator", () => {
     "drawDepth": 50,
     "yieldStrength": 250,
     "elasticModulus": 210
-  } as Wrinkle_calculatorInput;
+  } as unknown as Wrinkle_calculatorInput;
     const result = calculateWrinkle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

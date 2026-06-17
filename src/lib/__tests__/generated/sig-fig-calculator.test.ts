@@ -13,7 +13,7 @@ describe("sig-fig-calculator", () => {
     "num3": 0,
     "num4": 0,
     "operation": 1
-  } as Sig_fig_calculatorInput;
+  } as unknown as Sig_fig_calculatorInput;
     const result = calculateSig_fig_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

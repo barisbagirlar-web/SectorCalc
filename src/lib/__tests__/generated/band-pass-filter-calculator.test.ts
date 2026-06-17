@@ -12,7 +12,7 @@ describe("band-pass-filter-calculator", () => {
     "bandwidth": 100,
     "gain_dB": 0,
     "filterOrder": 1
-  } as Band_pass_filter_calculatorInput;
+  } as unknown as Band_pass_filter_calculatorInput;
     const result = calculateBand_pass_filter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

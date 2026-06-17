@@ -14,7 +14,7 @@ describe("metalworking-calculator", () => {
     "chipLoad": 0.1,
     "axialDepthOfCut": 5,
     "radialWidthOfCut": 5
-  } as Metalworking_calculatorInput;
+  } as unknown as Metalworking_calculatorInput;
     const result = calculateMetalworking_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

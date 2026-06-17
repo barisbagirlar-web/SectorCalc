@@ -14,7 +14,7 @@ describe("intermediate-value-theorem", () => {
     "fb": 1,
     "k": 0,
     "tolerance": 0.001
-  } as Intermediate_value_theoremInput;
+  } as unknown as Intermediate_value_theoremInput;
     const result = calculateIntermediate_value_theorem(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

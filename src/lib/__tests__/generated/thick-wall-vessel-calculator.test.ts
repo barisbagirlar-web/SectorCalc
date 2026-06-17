@@ -13,7 +13,7 @@ describe("thick-wall-vessel-calculator", () => {
     "internalPressure": 10,
     "externalPressure": 0,
     "yieldStrength": 250
-  } as Thick_wall_vessel_calculatorInput;
+  } as unknown as Thick_wall_vessel_calculatorInput;
     const result = calculateThick_wall_vessel_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

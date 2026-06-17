@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Başlangıç Yüksekliği",
         "tr": "Başlangıç Yüksekliği",
-        "de": "Başlangıç Yüksekliği",
+        "de": "Anfangshöhe",
         "fr": "Başlangıç Yüksekliği",
         "es": "Başlangıç Yüksekliği",
         "ar": "Başlangıç Yüksekliği"
       },
       "businessContext_i18n": {
         "en": "Nesnenin serbest düşüşe başladığı yükseklik (metre).",
-        "tr": "Nesnenin serbest düşüşe başladığı yükseklik (metre)."
+        "tr": "Nesnenin serbest düşüşe başladığı yükseklik (metre).",
+        "de": "Höhe (in Metern), aus der das Objekt fallen gelassen wird."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Başlangıç Hızı",
         "tr": "Başlangıç Hızı",
-        "de": "Başlangıç Hızı",
+        "de": "Anfangsgeschwindigkeit",
         "fr": "Başlangıç Hızı",
         "es": "Başlangıç Hızı",
         "ar": "Başlangıç Hızı"
       },
       "businessContext_i18n": {
         "en": "Nesnenin ilk düşey hızı (pozitif aşağı yönlü).",
-        "tr": "Nesnenin ilk düşey hızı (pozitif aşağı yönlü)."
+        "tr": "Nesnenin ilk düşey hızı (pozitif aşağı yönlü).",
+        "de": "Anfängliche vertikale Geschwindigkeit des Objekts (positiv nach unten)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Yerçekimi İvmesi",
         "tr": "Yerçekimi İvmesi",
-        "de": "Yerçekimi İvmesi",
+        "de": "Erdbeschleunigung",
         "fr": "Yerçekimi İvmesi",
         "es": "Yerçekimi İvmesi",
         "ar": "Yerçekimi İvmesi"
       },
       "businessContext_i18n": {
         "en": "Standart yerçekimi ivmesi (Dünya için 9.80665 m/s²).",
-        "tr": "Standart yerçekimi ivmesi (Dünya için 9.80665 m/s²)."
+        "tr": "Standart yerçekimi ivmesi (Dünya için 9.80665 m/s²).",
+        "de": "Standard-Erdbeschleunigung (9,80665 m/s² auf der Erde)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Kütle",
         "tr": "Kütle",
-        "de": "Kütle",
+        "de": "Masse",
         "fr": "Kütle",
         "es": "Kütle",
         "ar": "Kütle"
       },
       "businessContext_i18n": {
         "en": "Nesnenin kütlesi (kinetik enerji hesaplamasında kullanılır).",
-        "tr": "Nesnenin kütlesi (kinetik enerji hesaplamasında kullanılır)."
+        "tr": "Nesnenin kütlesi (kinetik enerji hesaplamasında kullanılır).",
+        "de": "Masse des Objekts (wird für die kinetische Energieberechnung verwendet)."
       }
     }
   ],

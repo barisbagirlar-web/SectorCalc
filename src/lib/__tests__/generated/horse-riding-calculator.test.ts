@@ -15,7 +15,7 @@ describe("horse-riding-calculator", () => {
     "insurancePerLesson": 5,
     "travelCost": 5,
     "numberOfLessons": 4
-  } as Horse_riding_calculatorInput;
+  } as unknown as Horse_riding_calculatorInput;
     const result = calculateHorse_riding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

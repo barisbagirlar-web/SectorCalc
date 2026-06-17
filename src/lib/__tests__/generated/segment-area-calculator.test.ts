@@ -12,7 +12,7 @@ describe("segment-area-calculator", () => {
     "centralAngle": 90,
     "scaleFactor": 1,
     "numberOfSegments": 1
-  } as Segment_area_calculatorInput;
+  } as unknown as Segment_area_calculatorInput;
     const result = calculateSegment_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

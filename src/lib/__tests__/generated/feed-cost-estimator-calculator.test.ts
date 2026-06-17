@@ -14,7 +14,7 @@ describe("feed-cost-estimator-calculator", () => {
     "moisture_adjustment_factor": 1,
     "quality_grade": "standard",
     "include_transport_cost": false
-  } as Feed_cost_estimator_calculatorInput;
+  } as unknown as Feed_cost_estimator_calculatorInput;
     const result = calculateFeed_cost_estimator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

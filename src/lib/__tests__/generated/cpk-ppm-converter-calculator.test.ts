@@ -14,7 +14,7 @@ describe("cpk-ppm-converter-calculator", () => {
     "sampleSize": 100,
     "confidenceLevel": 0.95,
     "useConfidenceInterval": false
-  } as Cpk_ppm_converter_calculatorInput;
+  } as unknown as Cpk_ppm_converter_calculatorInput;
     const result = calculateCpk_ppm_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

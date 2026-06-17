@@ -12,7 +12,7 @@ describe("progesterone-calculator", () => {
     "molecularWeight": 314.46,
     "dilutionFactor": 1,
     "volumeSample": 1
-  } as Progesterone_calculatorInput;
+  } as unknown as Progesterone_calculatorInput;
     const result = calculateProgesterone_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

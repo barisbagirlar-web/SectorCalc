@@ -12,7 +12,7 @@ describe("horsepower-hours-to-kwh-calculator", () => {
     "hours": 1,
     "efficiency": 100,
     "cost_per_kwh": 0.1
-  } as Horsepower_hours_to_kwh_calculatorInput;
+  } as unknown as Horsepower_hours_to_kwh_calculatorInput;
     const result = calculateHorsepower_hours_to_kwh_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

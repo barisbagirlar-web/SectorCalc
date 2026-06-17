@@ -16,7 +16,7 @@ describe("birthday-party-calculator", () => {
     "venueRental": 300,
     "cakeCost": 50,
     "miscCost": 50
-  } as Birthday_party_calculatorInput;
+  } as unknown as Birthday_party_calculatorInput;
     const result = calculateBirthday_party_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

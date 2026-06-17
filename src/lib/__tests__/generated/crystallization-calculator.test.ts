@@ -13,7 +13,7 @@ describe("crystallization-calculator", () => {
     "solubilityFinal": 20,
     "temperatureInitial": 80,
     "temperatureFinal": 25
-  } as Crystallization_calculatorInput;
+  } as unknown as Crystallization_calculatorInput;
     const result = calculateCrystallization_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

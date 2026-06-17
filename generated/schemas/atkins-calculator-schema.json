@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Güç Girişi",
         "tr": "Güç Girişi",
-        "de": "Güç Girişi",
+        "de": "Leistungseingang",
         "fr": "Güç Girişi",
         "es": "Güç Girişi",
         "ar": "Güç Girişi"
       },
       "businessContext_i18n": {
         "en": "Sisteme verilen anlık güç.",
-        "tr": "Sisteme verilen anlık güç."
+        "tr": "Sisteme verilen anlık güç.",
+        "de": "Momentane Leistung, die dem System zugeführt wird."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Kütle Akışı",
         "tr": "Kütle Akışı",
-        "de": "Kütle Akışı",
+        "de": "Massenstrom",
         "fr": "Kütle Akışı",
         "es": "Kütle Akışı",
         "ar": "Kütle Akışı"
       },
       "businessContext_i18n": {
         "en": "Isı transfer akışkanının kütlesel debisi.",
-        "tr": "Isı transfer akışkanının kütlesel debisi."
+        "tr": "Isı transfer akışkanının kütlesel debisi.",
+        "de": "Massenstrom des Wärmeübertragungsfluids."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Özgül Isı",
         "tr": "Özgül Isı",
-        "de": "Özgül Isı",
+        "de": "Spezifische Wärme",
         "fr": "Özgül Isı",
         "es": "Özgül Isı",
         "ar": "Özgül Isı"
       },
       "businessContext_i18n": {
         "en": "Akışkanın özgül ısı kapasitesi.",
-        "tr": "Akışkanın özgül ısı kapasitesi."
+        "tr": "Akışkanın özgül ısı kapasitesi.",
+        "de": "Spezifische Wärmekapazität des Fluids."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Sıcaklık Farkı",
         "tr": "Sıcaklık Farkı",
-        "de": "Sıcaklık Farkı",
+        "de": "Temperaturdifferenz",
         "fr": "Sıcaklık Farkı",
         "es": "Sıcaklık Farkı",
         "ar": "Sıcaklık Farkı"
       },
       "businessContext_i18n": {
         "en": "Giriş ve çıkış arasındaki sıcaklık farkı.",
-        "tr": "Giriş ve çıkış arasındaki sıcaklık farkı."
+        "tr": "Giriş ve çıkış arasındaki sıcaklık farkı.",
+        "de": "Temperaturdifferenz zwischen Einlass und Auslass."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Verimlilik Faktörü",
         "tr": "Verimlilik Faktörü",
-        "de": "Verimlilik Faktörü",
+        "de": "Wirkungsgradfaktor",
         "fr": "Verimlilik Faktörü",
         "es": "Verimlilik Faktörü",
         "ar": "Verimlilik Faktörü"
       },
       "businessContext_i18n": {
         "en": "Sistem kayıplarını hesaba katan faktör.",
-        "tr": "Sistem kayıplarını hesaba katan faktör."
+        "tr": "Sistem kayıplarını hesaba katan faktör.",
+        "de": "Faktor zur Berücksichtigung von Systemverlusten."
       }
     }
   ],

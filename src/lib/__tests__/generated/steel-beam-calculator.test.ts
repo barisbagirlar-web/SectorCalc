@@ -14,7 +14,7 @@ describe("steel-beam-calculator", () => {
     "momentInertia": 1000000,
     "yieldStrength": 250,
     "sectionModulus": 10000
-  } as Steel_beam_calculatorInput;
+  } as unknown as Steel_beam_calculatorInput;
     const result = calculateSteel_beam_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

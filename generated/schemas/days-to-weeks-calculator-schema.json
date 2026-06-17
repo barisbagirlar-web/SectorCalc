@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Days",
         "tr": "Toplam Gün",
-        "de": "Total Days",
+        "de": "Gesamttage",
         "fr": "Total Days",
         "es": "Total Days",
         "ar": "Total Days"
       },
       "businessContext_i18n": {
         "en": "Total number of days to be converted into weeks.",
-        "tr": "Haftalara dönüştürülecek toplam gün sayısı."
+        "tr": "Haftalara dönüştürülecek toplam gün sayısı.",
+        "de": "Gesamtzahl der Tage, die in Wochen umgerechnet werden sollen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Days per Week",
         "tr": "Gün/Hafta",
-        "de": "Days per Week",
+        "de": "Tage pro Woche",
         "fr": "Days per Week",
         "es": "Days per Week",
         "ar": "Days per Week"
       },
       "businessContext_i18n": {
         "en": "Standard number of days per week for the conversion (e.g., 7 for calendar weeks, 5 for work weeks).",
-        "tr": "Dönüşüm için haftadaki standart gün sayısı (ör. takvim haftaları için 7, iş haftaları için 5)."
+        "tr": "Dönüşüm için haftadaki standart gün sayısı (ör. takvim haftaları için 7, iş haftaları için 5).",
+        "de": "Standardanzahl Tage pro Woche für die Umrechnung (z. B. 7 für Kalenderwochen, 5 für Arbeitswochen)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
-        "de": "Decimal Precision",
+        "de": "Dezimalgenauigkeit",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the primary output (weeks).",
-        "tr": "Ana çıktı (hafta) için ondalık basamak sayısı."
+        "tr": "Ana çıktı (hafta) için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die primäre Ausgabe (Wochen)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Show Remainder Days",
         "tr": "Kalan Günleri Göster",
-        "de": "Show Remainder Days",
+        "de": "Resttage anzeigen",
         "fr": "Show Remainder Days",
         "es": "Show Remainder Days",
         "ar": "Show Remainder Days"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to include the breakdown of full weeks and remainder days; 0 to output only decimal weeks.",
-        "tr": "Tam haftalar ve kalan günlerin dökümünü dahil etmek için 1, yalnızca ondalık hafta çıktısı için 0."
+        "tr": "Tam haftalar ve kalan günlerin dökümünü dahil etmek için 1, yalnızca ondalık hafta çıktısı için 0.",
+        "de": "Auf 1 setzen, um die Aufschlüsselung in volle Wochen und Resttage einzuschließen; 0, um nur Dezimalwochen auszugeben."
       }
     }
   ],

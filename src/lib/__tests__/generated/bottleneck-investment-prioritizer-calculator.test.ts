@@ -16,7 +16,7 @@ describe("bottleneck-investment-prioritizer-calculator", () => {
     "operating_hours_per_year": 4000,
     "profit_margin_per_unit": 5,
     "quality_yield": 95
-  } as Bottleneck_investment_prioritizer_calculatorInput;
+  } as unknown as Bottleneck_investment_prioritizer_calculatorInput;
     const result = calculateBottleneck_investment_prioritizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

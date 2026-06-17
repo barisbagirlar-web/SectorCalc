@@ -14,7 +14,7 @@ describe("stone-calculator", () => {
     "density": 1600,
     "costPerTon": 150,
     "wastagePercent": 10
-  } as Stone_calculatorInput;
+  } as unknown as Stone_calculatorInput;
     const result = calculateStone_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

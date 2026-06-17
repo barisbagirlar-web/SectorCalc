@@ -13,7 +13,7 @@ describe("volumetric-efficiency-calculator", () => {
     "cylinders": 4,
     "speed": 1500,
     "actualFlow": 500
-  } as Volumetric_efficiency_calculatorInput;
+  } as unknown as Volumetric_efficiency_calculatorInput;
     const result = calculateVolumetric_efficiency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

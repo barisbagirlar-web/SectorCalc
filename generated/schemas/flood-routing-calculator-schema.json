@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Previous Inflow",
         "tr": "Önceki Giriş",
-        "de": "Previous Inflow",
+        "de": "Vorheriger Zufluss",
         "fr": "Previous Inflow",
         "es": "Previous Inflow",
         "ar": "Previous Inflow"
       },
       "businessContext_i18n": {
         "en": "Muskingum routing - upstream inflow at previous time step",
-        "tr": "Muskingum yönlendirmesi - önceki zaman adımında yukarı akış girişi"
+        "tr": "Muskingum yönlendirmesi - önceki zaman adımında yukarı akış girişi",
+        "de": "Muskingum-Routing - Oberwasserzufluss zum vorherigen Zeitschritt"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Current Inflow",
         "tr": "Mevcut Giriş",
-        "de": "Current Inflow",
+        "de": "Aktueller Zufluss",
         "fr": "Current Inflow",
         "es": "Current Inflow",
         "ar": "Current Inflow"
       },
       "businessContext_i18n": {
         "en": "Muskingum routing - upstream inflow at current time step",
-        "tr": "Muskingum yönlendirmesi - mevcut zaman adımında yukarı akış girişi"
+        "tr": "Muskingum yönlendirmesi - mevcut zaman adımında yukarı akış girişi",
+        "de": "Muskingum-Routing - Oberwasserzufluss zum aktuellen Zeitschritt"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Previous Outflow",
         "tr": "Önceki Çıkış",
-        "de": "Previous Outflow",
+        "de": "Vorheriger Abfluss",
         "fr": "Previous Outflow",
         "es": "Previous Outflow",
         "ar": "Previous Outflow"
       },
       "businessContext_i18n": {
         "en": "Muskingum routing - downstream outflow at previous time step",
-        "tr": "Muskingum yönlendirmesi - önceki zaman adımında aşağı akış çıkışı"
+        "tr": "Muskingum yönlendirmesi - önceki zaman adımında aşağı akış çıkışı",
+        "de": "Muskingum-Routing - Unterwasserabfluss zum vorherigen Zeitschritt"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Time Step",
         "tr": "Zaman Adımı",
-        "de": "Time Step",
+        "de": "Zeitschritt",
         "fr": "Time Step",
         "es": "Time Step",
         "ar": "Time Step"
       },
       "businessContext_i18n": {
         "en": "Routing time step Δt, must be less than K",
-        "tr": "Yönlendirme zaman adımı Δt, K'dan küçük olmalıdır"
+        "tr": "Yönlendirme zaman adımı Δt, K'dan küçük olmalıdır",
+        "de": "Routing-Zeitschritt Δt, muss kleiner als K sein"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Storage Constant K",
         "tr": "Depolama Sabiti K",
-        "de": "Storage Constant K",
+        "de": "Speicherkonstante K",
         "fr": "Storage Constant K",
         "es": "Storage Constant K",
         "ar": "Storage Constant K"
       },
       "businessContext_i18n": {
         "en": "Muskingum parameter K, travel time of flood wave through reach",
-        "tr": "Muskingum parametresi K, taşkın dalgasının kol boyunca seyahat süresi"
+        "tr": "Muskingum parametresi K, taşkın dalgasının kol boyunca seyahat süresi",
+        "de": "Muskingum-Parameter K, Reisezeit der Hochwasserwelle durch den Flussabschnitt"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Weighting Factor x",
         "tr": "Ağırlık Faktörü x",
-        "de": "Weighting Factor x",
+        "de": "Gewichtungsfaktor x",
         "fr": "Weighting Factor x",
         "es": "Weighting Factor x",
         "ar": "Weighting Factor x"
       },
       "businessContext_i18n": {
         "en": "Muskingum parameter x, 0 ≤ x ≤ 0.5, typical 0.1-0.3 for natural streams",
-        "tr": "Muskingum parametresi x, 0 ≤ x ≤ 0.5, doğal akarsular için tipik 0.1-0.3"
+        "tr": "Muskingum parametresi x, 0 ≤ x ≤ 0.5, doğal akarsular için tipik 0.1-0.3",
+        "de": "Muskingum-Parameter x, 0 ≤ x ≤ 0,5, typisch 0,1-0,3 für natürliche Fließgewässer"
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("rolles-theorem-calculator", () => {
     "fb": 0,
     "derivativeCoeff": 2,
     "derivativeConstant": 0
-  } as Rolles_theorem_calculatorInput;
+  } as unknown as Rolles_theorem_calculatorInput;
     const result = calculateRolles_theorem_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

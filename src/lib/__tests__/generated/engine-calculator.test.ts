@@ -13,7 +13,7 @@ describe("engine-calculator", () => {
     "fuelConsumption": 15,
     "fuelDensity": 0.84,
     "heatingValue": 42.5
-  } as Engine_calculatorInput;
+  } as unknown as Engine_calculatorInput;
     const result = calculateEngine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

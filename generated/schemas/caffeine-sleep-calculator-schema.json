@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Caffeine Dose",
         "tr": "Kafein Dozu",
-        "de": "Caffeine Dose",
+        "de": "Koffeindosis",
         "fr": "Caffeine Dose",
         "es": "Caffeine Dose",
         "ar": "Caffeine Dose"
       },
       "businessContext_i18n": {
         "en": "Amount of caffeine consumed in milligrams. Typical cup of coffee: ~100 mg.",
-        "tr": "Miligram cinsinden tüketilen kafein miktarı. Tipik bir fincan kahve: ~100 mg."
+        "tr": "Miligram cinsinden tüketilen kafein miktarı. Tipik bir fincan kahve: ~100 mg.",
+        "de": "Menge des konsumierten Koffeins in Milligramm. Typische Tasse Kaffee: ~100 mg."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Caffeine Half-life",
         "tr": "Kafein Yarılanma Süresi",
-        "de": "Caffeine Half-life",
+        "de": "Koffein-Halbwertszeit",
         "fr": "Caffeine Half-life",
         "es": "Caffeine Half-life",
         "ar": "Caffeine Half-life"
       },
       "businessContext_i18n": {
         "en": "Elimination half-life of caffeine. Default 5 hours for healthy adults.",
-        "tr": "Kafeinin eliminasyon yarılanma süresi. Sağlıklı yetişkinler için varsayılan 5 saat."
+        "tr": "Kafeinin eliminasyon yarılanma süresi. Sağlıklı yetişkinler için varsayılan 5 saat.",
+        "de": "Eliminationshalbwertszeit von Koffein. Standard 5 Stunden für gesunde Erwachsene."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Time Until Sleep",
         "tr": "Uykuya Kadar Geçen Süre",
-        "de": "Time Until Sleep",
+        "de": "Zeit bis zum Schlafengehen",
         "fr": "Time Until Sleep",
         "es": "Time Until Sleep",
         "ar": "Time Until Sleep"
       },
       "businessContext_i18n": {
         "en": "Number of hours from caffeine consumption to desired bedtime.",
-        "tr": "Kafein tüketiminden istenen yatma saatine kadar geçen saat sayısı."
+        "tr": "Kafein tüketiminden istenen yatma saatine kadar geçen saat sayısı.",
+        "de": "Anzahl der Stunden vom Koffeinkonsum bis zur gewünschten Schlafenszeit."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Tolerance Factor",
         "tr": "Tolerans Faktörü",
-        "de": "Tolerance Factor",
+        "de": "Toleranzfaktor",
         "fr": "Tolerance Factor",
         "es": "Tolerance Factor",
         "ar": "Tolerance Factor"
       },
       "businessContext_i18n": {
         "en": "Individual tolerance multiplier: 1=normal, <1 more sensitive, >1 higher tolerance.",
-        "tr": "Bireysel tolerans çarpanı: 1=normal, <1 daha hassas, >1 daha yüksek tolerans."
+        "tr": "Bireysel tolerans çarpanı: 1=normal, <1 daha hassas, >1 daha yüksek tolerans.",
+        "de": "Individueller Toleranzmultiplikator: 1=normal, <1 empfindlicher, >1 höhere Toleranz."
       }
     }
   ],

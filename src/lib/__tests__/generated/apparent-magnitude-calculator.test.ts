@@ -12,7 +12,7 @@ describe("apparent-magnitude-calculator", () => {
     "referenceFlux": 1e-8,
     "magnitudeZeroPoint": 0,
     "extinction": 0
-  } as Apparent_magnitude_calculatorInput;
+  } as unknown as Apparent_magnitude_calculatorInput;
     const result = calculateApparent_magnitude_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

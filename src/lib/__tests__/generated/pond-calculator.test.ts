@@ -12,7 +12,7 @@ describe("pond-calculator", () => {
     "pondWidth": 3,
     "pondDepth": 1.5,
     "linerOverlap": 0.5
-  } as Pond_calculatorInput;
+  } as unknown as Pond_calculatorInput;
     const result = calculatePond_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

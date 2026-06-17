@@ -13,7 +13,7 @@ describe("centiliters-to-oz-calculator", () => {
     "containerCount": 1,
     "wasteFactor": 0,
     "roundingPrecision": 2
-  } as Centiliters_to_oz_calculatorInput;
+  } as unknown as Centiliters_to_oz_calculatorInput;
     const result = calculateCentiliters_to_oz_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

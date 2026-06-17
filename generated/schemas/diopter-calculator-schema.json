@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Focal Length (cm)",
         "tr": "Odak Uzaklığı (cm)",
-        "de": "Focal Length (cm)",
+        "de": "Brennweite (cm)",
         "fr": "Focal Length (cm)",
         "es": "Focal Length (cm)",
         "ar": "Focal Length (cm)"
       },
       "businessContext_i18n": {
         "en": "Enter focal length in centimeters to calculate diopter.",
-        "tr": "Diyoptri hesaplamak için odak uzaklığını santimetre cinsinden girin."
+        "tr": "Diyoptri hesaplamak için odak uzaklığını santimetre cinsinden girin.",
+        "de": "Brennweite in Zentimetern eingeben, um Dioptrien zu berechnen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Lens 1 Power",
         "tr": "Mercek 1 Gücü",
-        "de": "Lens 1 Power",
+        "de": "Linsenleistung 1",
         "fr": "Lens 1 Power",
         "es": "Lens 1 Power",
         "ar": "Lens 1 Power"
       },
       "businessContext_i18n": {
         "en": "Power of first thin lens in diopters.",
-        "tr": "Birinci ince merceğin diyoptri cinsinden gücü."
+        "tr": "Birinci ince merceğin diyoptri cinsinden gücü.",
+        "de": "Leistung der ersten dünnen Linse in Dioptrien."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Lens 2 Power",
         "tr": "Mercek 2 Gücü",
-        "de": "Lens 2 Power",
+        "de": "Linsenleistung 2",
         "fr": "Lens 2 Power",
         "es": "Lens 2 Power",
         "ar": "Lens 2 Power"
       },
       "businessContext_i18n": {
         "en": "Power of second thin lens in diopters.",
-        "tr": "İkinci ince merceğin diyoptri cinsinden gücü."
+        "tr": "İkinci ince merceğin diyoptri cinsinden gücü.",
+        "de": "Leistung der zweiten dünnen Linse in Dioptrien."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Original Prescription",
         "tr": "Orijinal Reçete",
-        "de": "Original Prescription",
+        "de": "Ursprüngliche Verschreibung",
         "fr": "Original Prescription",
         "es": "Original Prescription",
         "ar": "Original Prescription"
       },
       "businessContext_i18n": {
         "en": "Lens power before vertex distance change (negative for myopia).",
-        "tr": "Köşe mesafesi değişikliğinden önceki mercek gücü (miyopi için negatif)."
+        "tr": "Köşe mesafesi değişikliğinden önceki mercek gücü (miyopi için negatif).",
+        "de": "Linsenleistung vor Scheitelabstandsänderung (negativ für Myopie)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Vertex Distance Change",
         "tr": "Köşe Mesafesi Değişimi",
-        "de": "Vertex Distance Change",
+        "de": "Scheitelabstandsänderung",
         "fr": "Vertex Distance Change",
         "es": "Vertex Distance Change",
         "ar": "Vertex Distance Change"
       },
       "businessContext_i18n": {
         "en": "Distance the lens is moved from the eye (in mm, positive if moved away).",
-        "tr": "Merceğin gözden taşındığı mesafe (mm cinsinden, gözden uzaklaşıyorsa pozitif)."
+        "tr": "Merceğin gözden taşındığı mesafe (mm cinsinden, gözden uzaklaşıyorsa pozitif).",
+        "de": "Abstand, um den die Linse vom Auge bewegt wird (in mm, positiv wenn vom Auge weg)."
       }
     }
   ],

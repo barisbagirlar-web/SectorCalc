@@ -12,7 +12,7 @@ describe("employee-tax-calculator", () => {
     "taxAllowance": 1000,
     "socialSecurityRate": 5,
     "incomeTaxRate": 20
-  } as Employee_tax_calculatorInput;
+  } as unknown as Employee_tax_calculatorInput;
     const result = calculateEmployee_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

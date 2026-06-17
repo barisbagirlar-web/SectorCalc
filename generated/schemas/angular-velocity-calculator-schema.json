@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Rotational Speed (RPM)",
         "tr": "Dönüş Hızı (RPM)",
-        "de": "Rotational Speed (RPM)",
+        "de": "Drehzahl (U/min)",
         "fr": "Rotational Speed (RPM)",
         "es": "Rotational Speed (RPM)",
         "ar": "Rotational Speed (RPM)"
       },
       "businessContext_i18n": {
         "en": "Typical motor speed for industrial applications",
-        "tr": "Endüstriyel uygulamalar için tipik motor hızı"
+        "tr": "Endüstriyel uygulamalar için tipik motor hızı",
+        "de": "Typische Motordrehzahl für industrielle Anwendungen"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Distance from center of rotation to point of interest",
-        "tr": "Dönme merkezinden ilgili noktaya olan mesafe"
+        "tr": "Dönme merkezinden ilgili noktaya olan mesafe",
+        "de": "Abstand vom Rotationszentrum zum interessierenden Punkt"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Time",
         "tr": "Zaman",
-        "de": "Time",
+        "de": "Zeit",
         "fr": "Time",
         "es": "Time",
         "ar": "Time"
       },
       "businessContext_i18n": {
         "en": "Time interval for angular displacement calculation",
-        "tr": "Açısal yer değiştirme hesaplaması için zaman aralığı"
+        "tr": "Açısal yer değiştirme hesaplaması için zaman aralığı",
+        "de": "Zeitintervall für die Berechnung der Winkelverschiebung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Gear Ratio (output/input)",
         "tr": "Dişli Oranı (çıkış/giriş)",
-        "de": "Gear Ratio (output/input)",
+        "de": "Übersetzungsverhältnis (Ausgang/Eingang)",
         "fr": "Gear Ratio (output/input)",
         "es": "Gear Ratio (output/input)",
         "ar": "Gear Ratio (output/input)"
       },
       "businessContext_i18n": {
         "en": "Transmission ratio affecting final angular velocity",
-        "tr": "Nihai açısal hızı etkileyen transmisyon oranı"
+        "tr": "Nihai açısal hızı etkileyen transmisyon oranı",
+        "de": "Übersetzungsverhältnis, das die endgültige Winkelgeschwindigkeit beeinflusst"
       }
     }
   ],

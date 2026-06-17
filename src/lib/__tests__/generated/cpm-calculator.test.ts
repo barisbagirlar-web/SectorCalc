@@ -16,7 +16,7 @@ describe("cpm-calculator", () => {
     "averageSpeed": 60,
     "tollCost": 0,
     "otherCosts": 0
-  } as Cpm_calculatorInput;
+  } as unknown as Cpm_calculatorInput;
     const result = calculateCpm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

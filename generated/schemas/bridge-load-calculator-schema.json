@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Span Length",
         "tr": "Açıklık Uzunluğu",
-        "de": "Span Length",
+        "de": "Stützweite",
         "fr": "Span Length",
         "es": "Span Length",
         "ar": "Span Length"
       },
       "businessContext_i18n": {
         "en": "The distance between the supports of the bridge beam.",
-        "tr": "Köprü kirişinin mesnetleri arasındaki mesafe."
+        "tr": "Köprü kirişinin mesnetleri arasındaki mesafe.",
+        "de": "Der Abstand zwischen den Auflagern des Brückenträgers."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Beam Width",
         "tr": "Kiriş Genişliği",
-        "de": "Beam Width",
+        "de": "Balkenbreite",
         "fr": "Beam Width",
         "es": "Beam Width",
         "ar": "Beam Width"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional width of the bridge beam.",
-        "tr": "Köprü kirişinin kesit genişliği."
+        "tr": "Köprü kirişinin kesit genişliği.",
+        "de": "Querschnittsbreite des Brückenträgers."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Beam Height",
         "tr": "Kiriş Yüksekliği",
-        "de": "Beam Height",
+        "de": "Balkenhöhe",
         "fr": "Beam Height",
         "es": "Beam Height",
         "ar": "Beam Height"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional height (depth) of the bridge beam.",
-        "tr": "Köprü kirişinin kesit yüksekliği (derinlik)."
+        "tr": "Köprü kirişinin kesit yüksekliği (derinlik).",
+        "de": "Querschnittshöhe (Tiefe) des Brückenträgers."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Material Ultimate Tensile Strength",
         "tr": "Malzeme Nihai Çekme Dayanımı",
-        "de": "Material Ultimate Tensile Strength",
+        "de": "Zugfestigkeit des Materials",
         "fr": "Material Ultimate Tensile Strength",
         "es": "Material Ultimate Tensile Strength",
         "ar": "Material Ultimate Tensile Strength"
       },
       "businessContext_i18n": {
         "en": "Ultimate tensile strength of the beam material.",
-        "tr": "Kiriş malzemesinin nihai çekme dayanımı."
+        "tr": "Kiriş malzemesinin nihai çekme dayanımı.",
+        "de": "Zugfestigkeit des Balkenmaterials."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
-        "de": "Safety Factor",
+        "de": "Sicherheitsfaktor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Factor of safety applied to material strength for allowable stress.",
-        "tr": "İzin verilen gerilme için malzeme dayanımına uygulanan güvenlik faktörü."
+        "tr": "İzin verilen gerilme için malzeme dayanımına uygulanan güvenlik faktörü.",
+        "de": "Sicherheitsfaktor für die zulässige Spannung."
       }
     }
   ],

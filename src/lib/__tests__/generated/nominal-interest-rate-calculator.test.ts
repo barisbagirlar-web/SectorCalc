@@ -12,7 +12,7 @@ describe("nominal-interest-rate-calculator", () => {
     "inflationRate": 3,
     "taxRate": 25,
     "feePercentage": 0.5
-  } as Nominal_interest_rate_calculatorInput;
+  } as unknown as Nominal_interest_rate_calculatorInput;
     const result = calculateNominal_interest_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

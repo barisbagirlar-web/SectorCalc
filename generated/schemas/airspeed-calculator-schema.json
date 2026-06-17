@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Indicated Airspeed",
         "tr": "Gösterge Hava Hızı",
-        "de": "Indicated Airspeed",
+        "de": "Angezeigte Fluggeschwindigkeit",
         "fr": "Indicated Airspeed",
         "es": "Indicated Airspeed",
         "ar": "Indicated Airspeed"
       },
       "businessContext_i18n": {
         "en": "Airspeed shown on the airspeed indicator",
-        "tr": "Hava hızı göstergesinde görünen hava hızı"
+        "tr": "Hava hızı göstergesinde görünen hava hızı",
+        "de": "Auf dem Fahrtmesser angezeigte Fluggeschwindigkeit"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Indicated Altitude",
         "tr": "Gösterge İrtifası",
-        "de": "Indicated Altitude",
+        "de": "Angezeigte Höhe",
         "fr": "Indicated Altitude",
         "es": "Indicated Altitude",
         "ar": "Indicated Altitude"
       },
       "businessContext_i18n": {
         "en": "Altitude shown on the altimeter with a given altimeter setting",
-        "tr": "Belirli bir altimetre ayarı ile altimetrede görünen irtifa"
+        "tr": "Belirli bir altimetre ayarı ile altimetrede görünen irtifa",
+        "de": "Höhe, die auf dem Höhenmesser bei einer bestimmten Höhenmessereinstellung angezeigt wird"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Altimeter Setting",
         "tr": "Altimetre Ayarı",
-        "de": "Altimeter Setting",
+        "de": "Höhenmessereinstellung",
         "fr": "Altimeter Setting",
         "es": "Altimeter Setting",
         "ar": "Altimeter Setting"
       },
       "businessContext_i18n": {
         "en": "Current altimeter setting from weather station",
-        "tr": "Hava istasyonundan güncel altimetre ayarı"
+        "tr": "Hava istasyonundan güncel altimetre ayarı",
+        "de": "Aktuelle Höhenmessereinstellung von der Wetterstation"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Outside Air Temperature",
         "tr": "Dış Hava Sıcaklığı",
-        "de": "Outside Air Temperature",
+        "de": "Außenlufttemperatur",
         "fr": "Outside Air Temperature",
         "es": "Outside Air Temperature",
         "ar": "Outside Air Temperature"
       },
       "businessContext_i18n": {
         "en": "OAT measured in Celsius",
-        "tr": "Santigrat cinsinden ölçülen DHS"
+        "tr": "Santigrat cinsinden ölçülen DHS",
+        "de": "OAT gemessen in Celsius"
       }
     }
   ],

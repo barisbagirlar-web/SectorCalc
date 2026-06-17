@@ -15,7 +15,7 @@ describe("flux-surface-integral-calculator", () => {
     "ny": 0,
     "nz": 1,
     "area": 1
-  } as Flux_surface_integral_calculatorInput;
+  } as unknown as Flux_surface_integral_calculatorInput;
     const result = calculateFlux_surface_integral_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

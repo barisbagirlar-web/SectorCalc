@@ -12,7 +12,7 @@ describe("degree-to-radian-calculator", () => {
     "angleOffset": 0,
     "decimalPlaces": 6,
     "piValue": 3.141592653589793
-  } as Degree_to_radian_calculatorInput;
+  } as unknown as Degree_to_radian_calculatorInput;
     const result = calculateDegree_to_radian_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

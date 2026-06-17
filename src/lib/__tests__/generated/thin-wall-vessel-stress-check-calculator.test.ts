@@ -13,7 +13,7 @@ describe("thin-wall-vessel-stress-check-calculator", () => {
     "t": 10,
     "S": 150,
     "E": 1
-  } as Thin_wall_vessel_stress_check_calculatorInput;
+  } as unknown as Thin_wall_vessel_stress_check_calculatorInput;
     const result = calculateThin_wall_vessel_stress_check_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

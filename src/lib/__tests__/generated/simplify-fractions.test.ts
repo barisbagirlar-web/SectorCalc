@@ -16,7 +16,7 @@ describe("simplify-fractions", () => {
     "den3": 1,
     "num4": 0,
     "den4": 1
-  } as Simplify_fractionsInput;
+  } as unknown as Simplify_fractionsInput;
     const result = calculateSimplify_fractions(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

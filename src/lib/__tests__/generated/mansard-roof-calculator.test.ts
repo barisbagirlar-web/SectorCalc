@@ -13,7 +13,7 @@ describe("mansard-roof-calculator", () => {
     "lowerAngle": 70,
     "upperAngle": 30,
     "lowerHeight": 2.5
-  } as Mansard_roof_calculatorInput;
+  } as unknown as Mansard_roof_calculatorInput;
     const result = calculateMansard_roof_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

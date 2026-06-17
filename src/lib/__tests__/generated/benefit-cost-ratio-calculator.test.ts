@@ -13,7 +13,7 @@ describe("benefit-cost-ratio-calculator", () => {
     "annualCosts": 5000,
     "projectLife": 10,
     "discountRate": 8
-  } as Benefit_cost_ratio_calculatorInput;
+  } as unknown as Benefit_cost_ratio_calculatorInput;
     const result = calculateBenefit_cost_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

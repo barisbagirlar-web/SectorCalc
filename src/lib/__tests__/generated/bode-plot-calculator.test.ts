@@ -12,7 +12,7 @@ describe("bode-plot-calculator", () => {
     "poleFreq": 1000,
     "zeroFreq": 10000,
     "freq": 1000
-  } as Bode_plot_calculatorInput;
+  } as unknown as Bode_plot_calculatorInput;
     const result = calculateBode_plot_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

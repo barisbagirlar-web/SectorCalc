@@ -13,7 +13,7 @@ describe("brooke-formula-calculator", () => {
     "fluidFactor": 2,
     "firstPeriodHours": 8,
     "secondPeriodHours": 16
-  } as Brooke_formula_calculatorInput;
+  } as unknown as Brooke_formula_calculatorInput;
     const result = calculateBrooke_formula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

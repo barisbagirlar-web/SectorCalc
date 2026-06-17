@@ -12,7 +12,7 @@ describe("refraction-calculator", () => {
     "refractiveIndex1": 1,
     "refractiveIndex2": 1.5,
     "thickness": 10
-  } as Refraction_calculatorInput;
+  } as unknown as Refraction_calculatorInput;
     const result = calculateRefraction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

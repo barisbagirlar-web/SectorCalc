@@ -12,7 +12,7 @@ describe("bps-to-kbps-calculator", () => {
     "conversionFactor": 0.001,
     "roundingDecimal": 3,
     "confirmationBit": 1
-  } as Bps_to_kbps_calculatorInput;
+  } as unknown as Bps_to_kbps_calculatorInput;
     const result = calculateBps_to_kbps_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
-        "de": "Initial Investment",
+        "de": "Anfangsinvestition",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
       },
       "businessContext_i18n": {
         "en": "Initial cash outflow at time 0",
-        "tr": "0. zamandaki ilk nakit çıkışı"
+        "tr": "0. zamandaki ilk nakit çıkışı",
+        "de": "Anfänglicher Mittelabfluss zum Zeitpunkt 0"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Periodic Cash Flow",
         "tr": "Dönemsel Nakit Akışı",
-        "de": "Periodic Cash Flow",
+        "de": "Periodischer Cashflow",
         "fr": "Periodic Cash Flow",
         "es": "Periodic Cash Flow",
         "ar": "Periodic Cash Flow"
       },
       "businessContext_i18n": {
         "en": "Net cash generated each period",
-        "tr": "Her dönemde üretilen net nakit"
+        "tr": "Her dönemde üretilen net nakit",
+        "de": "Netto-Cashflow pro Periode"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Periods",
         "tr": "Dönem Sayısı",
-        "de": "Number of Periods",
+        "de": "Anzahl der Perioden",
         "fr": "Number of Periods",
         "es": "Number of Periods",
         "ar": "Number of Periods"
       },
       "businessContext_i18n": {
         "en": "Number of time periods (e.g., years)",
-        "tr": "Zaman dönemi sayısı (örneğin, yıl)"
+        "tr": "Zaman dönemi sayısı (örneğin, yıl)",
+        "de": "Anzahl der Zeitperioden (z. B. Jahre)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Discount Rate",
         "tr": "İndirim Oranı",
-        "de": "Discount Rate",
+        "de": "Rabattsatz",
         "fr": "Discount Rate",
         "es": "Discount Rate",
         "ar": "Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Cost of capital or required rate of return",
-        "tr": "Sermaye maliyeti veya gerekli getiri oranı"
+        "tr": "Sermaye maliyeti veya gerekli getiri oranı",
+        "de": "Kapitalkosten oder erforderliche Rendite"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Salvage Value",
         "tr": "Hurda Değeri",
-        "de": "Salvage Value",
+        "de": "Restwert",
         "fr": "Salvage Value",
         "es": "Salvage Value",
         "ar": "Salvage Value"
       },
       "businessContext_i18n": {
         "en": "Cash value at end of project",
-        "tr": "Proje sonundaki nakit değeri"
+        "tr": "Proje sonundaki nakit değeri",
+        "de": "Barwert am Projektende"
       }
     }
   ],

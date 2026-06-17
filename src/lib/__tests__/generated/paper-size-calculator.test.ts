@@ -13,7 +13,7 @@ describe("paper-size-calculator", () => {
     "scalingPercent": 100,
     "gsm": 80,
     "quantity": 1
-  } as Paper_size_calculatorInput;
+  } as unknown as Paper_size_calculatorInput;
     const result = calculatePaper_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

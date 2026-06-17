@@ -12,7 +12,7 @@ describe("real-return-calculator", () => {
     "inflationRate": 2,
     "taxRate": 0,
     "investmentAmount": 1000
-  } as Real_return_calculatorInput;
+  } as unknown as Real_return_calculatorInput;
     const result = calculateReal_return_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

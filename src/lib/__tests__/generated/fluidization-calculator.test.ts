@@ -16,7 +16,7 @@ describe("fluidization-calculator", () => {
     "sphericity": 0.8,
     "gravity": 9.81,
     "bedHeight": 0.5
-  } as Fluidization_calculatorInput;
+  } as unknown as Fluidization_calculatorInput;
     const result = calculateFluidization_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

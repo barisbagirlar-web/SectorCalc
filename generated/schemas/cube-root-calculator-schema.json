@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Volume",
         "tr": "Hacim",
-        "de": "Volume",
+        "de": "Volumen",
         "fr": "Volume",
         "es": "Volume",
         "ar": "Volume"
       },
       "businessContext_i18n": {
         "en": "Total volume of the cube or material.",
-        "tr": "Küpün veya malzemenin toplam hacmi."
+        "tr": "Küpün veya malzemenin toplam hacmi.",
+        "de": "Gesamtvolumen des Würfels oder Materials."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Tolerance",
         "tr": "Tolerans",
-        "de": "Tolerance",
+        "de": "Toleranz",
         "fr": "Tolerance",
         "es": "Tolerance",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Manufacturing tolerance for rounding the side length.",
-        "tr": "Kenar uzunluğunu yuvarlamak için üretim toleransı."
+        "tr": "Kenar uzunluğunu yuvarlamak için üretim toleransı.",
+        "de": "Fertigungstoleranz zum Runden der Seitenlänge."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Oversize Allowance",
         "tr": "Büyük Boy Payı",
-        "de": "Oversize Allowance",
+        "de": "Übermaßzugabe",
         "fr": "Oversize Allowance",
         "es": "Oversize Allowance",
         "ar": "Oversize Allowance"
       },
       "businessContext_i18n": {
         "en": "Extra material allowance to add to side.",
-        "tr": "Kenara eklenecek ekstra malzeme payı."
+        "tr": "Kenara eklenecek ekstra malzeme payı.",
+        "de": "Zusätzliche Materialzugabe zur Seite."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
-        "de": "Calibration Offset",
+        "de": "Kalibrierungsversatz",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
       },
       "businessContext_i18n": {
         "en": "Instrument calibration offset to apply.",
-        "tr": "Uygulanacak enstrüman kalibrasyon ofseti."
+        "tr": "Uygulanacak enstrüman kalibrasyon ofseti.",
+        "de": "Anzuwendender Instrumentenkalibrierungs-Offset."
       }
     }
   ],

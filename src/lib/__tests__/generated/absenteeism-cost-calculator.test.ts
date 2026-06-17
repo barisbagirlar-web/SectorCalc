@@ -16,7 +16,7 @@ describe("absenteeism-cost-calculator", () => {
     "replacement_cost_per_hour": 35,
     "overhead_multiplier": 1.3,
     "industry_type": "Manufacturing"
-  } as Absenteeism_cost_calculatorInput;
+  } as unknown as Absenteeism_cost_calculatorInput;
     const result = calculateAbsenteeism_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

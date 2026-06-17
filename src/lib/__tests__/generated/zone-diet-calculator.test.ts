@@ -11,7 +11,7 @@ describe("zone-diet-calculator", () => {
     "weight": 150,
     "bodyFat": 20,
     "activityFactor": 0.7
-  } as Zone_diet_calculatorInput;
+  } as unknown as Zone_diet_calculatorInput;
     const result = calculateZone_diet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

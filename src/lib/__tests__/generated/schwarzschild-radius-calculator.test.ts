@@ -12,7 +12,7 @@ describe("schwarzschild-radius-calculator", () => {
     "gravitationalConstant": 6.6743e-11,
     "speedOfLight": 299792458,
     "outputUnitFactor": 1
-  } as Schwarzschild_radius_calculatorInput;
+  } as unknown as Schwarzschild_radius_calculatorInput;
     const result = calculateSchwarzschild_radius_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

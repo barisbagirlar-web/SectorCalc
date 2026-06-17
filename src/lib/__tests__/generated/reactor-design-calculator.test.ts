@@ -14,7 +14,7 @@ describe("reactor-design-calculator", () => {
     "rateConstant": 0.5,
     "reactionOrder": 1,
     "safetyFactor": 1.2
-  } as Reactor_design_calculatorInput;
+  } as unknown as Reactor_design_calculatorInput;
     const result = calculateReactor_design_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

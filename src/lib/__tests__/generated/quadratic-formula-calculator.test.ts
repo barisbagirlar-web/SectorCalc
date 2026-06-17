@@ -13,7 +13,7 @@ describe("quadratic-formula-calculator", () => {
     "coefficient_c": 0,
     "precision_mode": "standard",
     "use_complex_roots": false
-  } as Quadratic_formula_calculatorInput;
+  } as unknown as Quadratic_formula_calculatorInput;
     const result = calculateQuadratic_formula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

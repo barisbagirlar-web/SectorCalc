@@ -15,7 +15,7 @@ describe("parallelogram-area-calculator", () => {
     "diagonal1": 0,
     "diagonal2": 0,
     "angleDiagonals": 0
-  } as Parallelogram_area_calculatorInput;
+  } as unknown as Parallelogram_area_calculatorInput;
     const result = calculateParallelogram_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

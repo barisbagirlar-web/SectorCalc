@@ -14,7 +14,7 @@ describe("page-count-calculator", () => {
     "imagesHalfPage": 0,
     "tablesFullPage": 0,
     "tablesHalfPage": 0
-  } as Page_count_calculatorInput;
+  } as unknown as Page_count_calculatorInput;
     const result = calculatePage_count_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

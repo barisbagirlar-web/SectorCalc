@@ -14,7 +14,7 @@ describe("push-up-calculator", () => {
     "distance": 5,
     "time": 10,
     "gravity": 9.81
-  } as Push_up_calculatorInput;
+  } as unknown as Push_up_calculatorInput;
     const result = calculatePush_up_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

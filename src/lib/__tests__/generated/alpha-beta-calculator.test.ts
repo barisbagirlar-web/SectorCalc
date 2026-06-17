@@ -13,7 +13,7 @@ describe("alpha-beta-calculator", () => {
     "riskFreeRate": 3,
     "covSM": 0.015,
     "varM": 0.01
-  } as Alpha_beta_calculatorInput;
+  } as unknown as Alpha_beta_calculatorInput;
     const result = calculateAlpha_beta_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

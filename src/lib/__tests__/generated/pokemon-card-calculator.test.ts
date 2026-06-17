@@ -15,7 +15,7 @@ describe("pokemon-card-calculator", () => {
     "sellingFeePercent": 10,
     "shippingCost": 5,
     "acquisitionCost": 20
-  } as Pokemon_card_calculatorInput;
+  } as unknown as Pokemon_card_calculatorInput;
     const result = calculatePokemon_card_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

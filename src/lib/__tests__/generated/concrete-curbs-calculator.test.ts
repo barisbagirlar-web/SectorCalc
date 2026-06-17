@@ -14,7 +14,7 @@ describe("concrete-curbs-calculator", () => {
     "curbCount": 100,
     "concreteDensity": 2400,
     "wasteFactor": 5
-  } as Concrete_curbs_calculatorInput;
+  } as unknown as Concrete_curbs_calculatorInput;
     const result = calculateConcrete_curbs_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

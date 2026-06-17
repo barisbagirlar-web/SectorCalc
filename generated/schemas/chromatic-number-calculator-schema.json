@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Refractive Index n_d",
         "tr": "Kırılma İndisi n_d",
-        "de": "Refractive Index n_d",
+        "de": "Brechungsindex n_d",
         "fr": "Refractive Index n_d",
         "es": "Refractive Index n_d",
         "ar": "Refractive Index n_d"
       },
       "businessContext_i18n": {
         "en": "Refractive index at the Fraunhofer D-line (589.3 nm), typically for yellow light.",
-        "tr": "Fraunhofer D-çizgisinde (589.3 nm) kırılma indisi, tipik olarak sarı ışık için."
+        "tr": "Fraunhofer D-çizgisinde (589.3 nm) kırılma indisi, tipik olarak sarı ışık için.",
+        "de": "Brechungsindex an der Fraunhofer D-Linie (589,3 nm), typischerweise für gelbes Licht."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Refractive Index n_F",
         "tr": "Kırılma İndisi n_F",
-        "de": "Refractive Index n_F",
+        "de": "Brechungsindex n_F",
         "fr": "Refractive Index n_F",
         "es": "Refractive Index n_F",
         "ar": "Refractive Index n_F"
       },
       "businessContext_i18n": {
         "en": "Refractive index at the Fraunhofer F-line (486.1 nm), blue hydrogen line.",
-        "tr": "Fraunhofer F-çizgisinde (486.1 nm) kırılma indisi, mavi hidrojen çizgisi."
+        "tr": "Fraunhofer F-çizgisinde (486.1 nm) kırılma indisi, mavi hidrojen çizgisi.",
+        "de": "Brechungsindex an der Fraunhofer F-Linie (486,1 nm), blaue Wasserstofflinie."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Refractive Index n_C",
         "tr": "Kırılma İndisi n_C",
-        "de": "Refractive Index n_C",
+        "de": "Brechungsindex n_C",
         "fr": "Refractive Index n_C",
         "es": "Refractive Index n_C",
         "ar": "Refractive Index n_C"
       },
       "businessContext_i18n": {
         "en": "Refractive index at the Fraunhofer C-line (656.3 nm), red hydrogen line.",
-        "tr": "Fraunhofer C-çizgisinde (656.3 nm) kırılma indisi, kırmızı hidrojen çizgisi."
+        "tr": "Fraunhofer C-çizgisinde (656.3 nm) kırılma indisi, kırmızı hidrojen çizgisi.",
+        "de": "Brechungsindex an der Fraunhofer C-Linie (656,3 nm), rote Wasserstofflinie."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Reference Wavelength",
         "tr": "Referans Dalga Boyu",
-        "de": "Reference Wavelength",
+        "de": "Referenzwellenlänge",
         "fr": "Reference Wavelength",
         "es": "Reference Wavelength",
         "ar": "Reference Wavelength"
       },
       "businessContext_i18n": {
         "en": "Wavelength for n_d measurement, default is 589.3 nm.",
-        "tr": "n_d ölçümü için dalga boyu, varsayılan 589,3 nm."
+        "tr": "n_d ölçümü için dalga boyu, varsayılan 589,3 nm.",
+        "de": "Wellenlänge für n_d-Messung, Standard ist 589,3 nm."
       }
     }
   ],

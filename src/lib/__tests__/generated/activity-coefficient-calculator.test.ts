@@ -12,7 +12,7 @@ describe("activity-coefficient-calculator", () => {
     "T": 298.15,
     "T0": 298.15,
     "A": 1
-  } as Activity_coefficient_calculatorInput;
+  } as unknown as Activity_coefficient_calculatorInput;
     const result = calculateActivity_coefficient_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

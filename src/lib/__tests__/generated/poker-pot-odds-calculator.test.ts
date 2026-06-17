@@ -11,7 +11,7 @@ describe("poker-pot-odds-calculator", () => {
     "potBeforeBet": 0,
     "opponentBet": 0,
     "callAmount": 0
-  } as Poker_pot_odds_calculatorInput;
+  } as unknown as Poker_pot_odds_calculatorInput;
     const result = calculatePoker_pot_odds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

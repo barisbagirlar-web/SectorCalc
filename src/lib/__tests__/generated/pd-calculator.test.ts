@@ -14,7 +14,7 @@ describe("pd-calculator", () => {
     "density": 998.2,
     "viscosity": 0.001002,
     "roughness": 0.000046
-  } as Pd_calculatorInput;
+  } as unknown as Pd_calculatorInput;
     const result = calculatePd_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -22,11 +22,13 @@
       "businessContext": "Theoretical maximum yield based on seed genetics and local potential.",
       "label_i18n": {
         "en": "Expected Yield (kg/ha)",
-        "tr": "Beklenen Verim (kg/ha)"
+        "tr": "Beklenen Verim (kg/ha)",
+        "de": "Erwarteter Ertrag (kg/ha)"
       },
       "businessContext_i18n": {
         "en": "Theoretical maximum yield based on seed genetics and local potential.",
-        "tr": "Tohum genetiği ve yerel potansiyele dayalı teorik maksimum verim."
+        "tr": "Tohum genetiği ve yerel potansiyele dayalı teorik maksimum verim.",
+        "de": "Theoretischer Maximalertrag basierend auf Saatgutgenetik und lokalem Potenzial."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Measured yield at harvest, used as baseline for loss calculation.",
       "label_i18n": {
         "en": "Actual Yield (kg/ha)",
-        "tr": "Gerçek Verim (kg/ha)"
+        "tr": "Gerçek Verim (kg/ha)",
+        "de": "Tatsächlicher Ertrag (kg/ha)"
       },
       "businessContext_i18n": {
         "en": "Measured yield at harvest, used as baseline for loss calculation.",
-        "tr": "Hasatta ölçülen verim, kayıp hesaplaması için temel olarak kullanılır."
+        "tr": "Hasatta ölçülen verim, kayıp hesaplaması için temel olarak kullanılır.",
+        "de": "Gemessener Ertrag bei der Ernte, als Basis für die Verlustberechnung."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Percentage of crop lost during harvesting operations (shattering, header loss, etc.).",
       "label_i18n": {
         "en": "Harvest Loss (%)",
-        "tr": "Hasat Kaybı (%)"
+        "tr": "Hasat Kaybı (%)",
+        "de": "Ernteverlust (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of crop lost during harvesting operations (shattering, header loss, etc.).",
-        "tr": "Hasat işlemleri sırasında kaybedilen ürün yüzdesi (dökülme, başlık kaybı vb.)."
+        "tr": "Hasat işlemleri sırasında kaybedilen ürün yüzdesi (dökülme, başlık kaybı vb.).",
+        "de": "Prozentsatz der während der Erntevorgänge verlorenen Ernte (Ausfall, Schneidwerksverlust usw.)."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Losses during handling, storage, and transport after harvest.",
       "label_i18n": {
         "en": "Post-Harvest Loss (%)",
-        "tr": "Hasat Sonrası Kayıp (%)"
+        "tr": "Hasat Sonrası Kayıp (%)",
+        "de": "Nachernteverlust (%)"
       },
       "businessContext_i18n": {
         "en": "Losses during handling, storage, and transport after harvest.",
-        "tr": "Hasat sonrası elleçleme, depolama ve nakliye sırasındaki kayıplar."
+        "tr": "Hasat sonrası elleçleme, depolama ve nakliye sırasındaki kayıplar.",
+        "de": "Verluste bei Handhabung, Lagerung und Transport nach der Ernte."
       }
     },
     {
@@ -100,11 +108,13 @@
       "businessContext": "Overall field condition affecting crop uniformity and loss potential.",
       "label_i18n": {
         "en": "Field Condition",
-        "tr": "Tarla Durumu"
+        "tr": "Tarla Durumu",
+        "de": "Feldzustand"
       },
       "businessContext_i18n": {
         "en": "Overall field condition affecting crop uniformity and loss potential.",
-        "tr": "Ürün tekdüzeliğini ve kayıp potansiyelini etkileyen genel tarla durumu."
+        "tr": "Ürün tekdüzeliğini ve kayıp potansiyelini etkileyen genel tarla durumu.",
+        "de": "Gesamtzustand des Feldes, der die Gleichmäßigkeit der Ernte und das Verlustpotenzial beeinflusst."
       }
     },
     {
@@ -124,11 +134,13 @@
       "businessContext": "Irrigation method influences water stress and yield consistency.",
       "label_i18n": {
         "en": "Irrigation Type",
-        "tr": "Sulama Türü"
+        "tr": "Sulama Türü",
+        "de": "Bewässerungsart"
       },
       "businessContext_i18n": {
         "en": "Irrigation method influences water stress and yield consistency.",
-        "tr": "Sulama yöntemi su stresini ve verim tutarlılığını etkiler."
+        "tr": "Sulama yöntemi su stresini ve verim tutarlılığını etkiler.",
+        "de": "Die Bewässerungsmethode beeinflusst Wasserstress und Ertragskonsistenz."
       }
     },
     {
@@ -142,11 +154,13 @@
       "businessContext": "Subjective rating of pest infestation level (0 = none, 10 = severe).",
       "label_i18n": {
         "en": "Pest Pressure (0-10)",
-        "tr": "Zararlı Baskısı (0-10)"
+        "tr": "Zararlı Baskısı (0-10)",
+        "de": "Schädlingsdruck (0-10)"
       },
       "businessContext_i18n": {
         "en": "Subjective rating of pest infestation level (0 = none, 10 = severe).",
-        "tr": "Zararlı istilası seviyesinin subjektif derecelendirmesi (0 = yok, 10 = şiddetli)."
+        "tr": "Zararlı istilası seviyesinin subjektif derecelendirmesi (0 = yok, 10 = şiddetli).",
+        "de": "Subjektive Bewertung des Schädlingsbefalls (0 = kein, 10 = schwer)."
       }
     },
     {
@@ -160,11 +174,13 @@
       "businessContext": "Subjective rating of disease severity (0 = none, 10 = total loss).",
       "label_i18n": {
         "en": "Disease Index (0-10)",
-        "tr": "Hastalık İndeksi (0-10)"
+        "tr": "Hastalık İndeksi (0-10)",
+        "de": "Krankheitsindex (0-10)"
       },
       "businessContext_i18n": {
         "en": "Subjective rating of disease severity (0 = none, 10 = total loss).",
-        "tr": "Hastalık şiddetinin subjektif derecelendirmesi (0 = yok, 10 = tam kayıp)."
+        "tr": "Hastalık şiddetinin subjektif derecelendirmesi (0 = yok, 10 = tam kayıp).",
+        "de": "Subjektive Bewertung der Krankheitsschwere (0 = keine, 10 = Totalverlust)."
       }
     }
   ],

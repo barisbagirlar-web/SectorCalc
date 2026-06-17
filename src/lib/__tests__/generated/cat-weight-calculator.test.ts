@@ -12,7 +12,7 @@ describe("cat-weight-calculator", () => {
     "girth": 35,
     "breedFactor": 1,
     "sexFactor": 1
-  } as Cat_weight_calculatorInput;
+  } as unknown as Cat_weight_calculatorInput;
     const result = calculateCat_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

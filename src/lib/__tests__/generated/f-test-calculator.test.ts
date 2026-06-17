@@ -12,7 +12,7 @@ describe("f-test-calculator", () => {
     "df1": 1,
     "ss2": 0,
     "df2": 1
-  } as F_test_calculatorInput;
+  } as unknown as F_test_calculatorInput;
     const result = calculateF_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

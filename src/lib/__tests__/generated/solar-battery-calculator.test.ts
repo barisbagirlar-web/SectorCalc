@@ -15,7 +15,7 @@ describe("solar-battery-calculator", () => {
     "daysOfAutonomy": 3,
     "batteryEfficiency": 0.85,
     "batteryCapacityAh": 200
-  } as Solar_battery_calculatorInput;
+  } as unknown as Solar_battery_calculatorInput;
     const result = calculateSolar_battery_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("capillary-action-calculator", () => {
     "density": 1000,
     "radius": 0.0005,
     "gravity": 9.81
-  } as Capillary_action_calculatorInput;
+  } as unknown as Capillary_action_calculatorInput;
     const result = calculateCapillary_action_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

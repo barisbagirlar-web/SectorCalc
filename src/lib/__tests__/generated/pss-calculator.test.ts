@@ -13,7 +13,7 @@ describe("pss-calculator", () => {
     "mechPower": 0.8,
     "maxElecPower": 1.5,
     "frequency": 50
-  } as Pss_calculatorInput;
+  } as unknown as Pss_calculatorInput;
     const result = calculatePss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("basement-calculator", () => {
     "floorThickness": 20,
     "concreteCost": 1200,
     "waterproofingCost": 50
-  } as Basement_calculatorInput;
+  } as unknown as Basement_calculatorInput;
     const result = calculateBasement_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

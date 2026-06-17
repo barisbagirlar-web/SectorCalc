@@ -14,7 +14,7 @@ describe("income-tax-calculator-us-federal", () => {
     "standard_deduction": 13850,
     "additional_income": 0,
     "tax_credits": 0
-  } as Income_tax_calculator_us_federalInput;
+  } as unknown as Income_tax_calculator_us_federalInput;
     const result = calculateIncome_tax_calculator_us_federal(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

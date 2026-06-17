@@ -14,7 +14,7 @@ describe("type-2-diabetes-calculator", () => {
     "fastingGlucose": 100,
     "hdl": 50,
     "systolicBP": 120
-  } as Type_2_diabetes_calculatorInput;
+  } as unknown as Type_2_diabetes_calculatorInput;
     const result = calculateType_2_diabetes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

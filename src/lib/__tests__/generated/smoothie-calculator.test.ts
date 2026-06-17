@@ -15,7 +15,7 @@ describe("smoothie-calculator", () => {
     "baseCostPerLiter": 1.5,
     "fruitCostPerKg": 4,
     "iceCostPerKg": 0.1
-  } as Smoothie_calculatorInput;
+  } as unknown as Smoothie_calculatorInput;
     const result = calculateSmoothie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

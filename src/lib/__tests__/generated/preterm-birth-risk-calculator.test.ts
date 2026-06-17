@@ -12,7 +12,7 @@ describe("preterm-birth-risk-calculator", () => {
     "cervicalLength": 35,
     "fetalFibronectin": 20,
     "previousPreterm": 0
-  } as Preterm_birth_risk_calculatorInput;
+  } as unknown as Preterm_birth_risk_calculatorInput;
     const result = calculatePreterm_birth_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

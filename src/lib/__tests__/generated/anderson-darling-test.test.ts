@@ -12,7 +12,7 @@ describe("anderson-darling-test", () => {
     "sortedData": "1,2,3,4,5,6,7,8,9,10",
     "mean": 5.5,
     "stdDev": 2.872
-  } as Anderson_darling_testInput;
+  } as unknown as Anderson_darling_testInput;
     const result = calculateAnderson_darling_test(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

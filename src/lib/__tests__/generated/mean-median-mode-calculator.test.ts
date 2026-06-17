@@ -16,7 +16,7 @@ describe("mean-median-mode-calculator", () => {
     "value6": 0,
     "value7": 0,
     "value8": 0
-  } as Mean_median_mode_calculatorInput;
+  } as unknown as Mean_median_mode_calculatorInput;
     const result = calculateMean_median_mode_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

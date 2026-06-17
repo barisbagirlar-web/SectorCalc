@@ -16,7 +16,7 @@ describe("inventory-turnover-risk-calculator", () => {
     "lead_time_days": 30,
     "service_level_target": 95,
     "inventory_accuracy_pct": 98
-  } as Inventory_turnover_risk_calculatorInput;
+  } as unknown as Inventory_turnover_risk_calculatorInput;
     const result = calculateInventory_turnover_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

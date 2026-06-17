@@ -15,7 +15,7 @@ describe("muscle-gain-calculator", () => {
     "activityLevel": 1.55,
     "calorieSurplus": 300,
     "proteinIntake": 160
-  } as Muscle_gain_calculatorInput;
+  } as unknown as Muscle_gain_calculatorInput;
     const result = calculateMuscle_gain_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

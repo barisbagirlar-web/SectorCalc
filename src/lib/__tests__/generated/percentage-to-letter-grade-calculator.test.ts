@@ -13,7 +13,7 @@ describe("percentage-to-letter-grade-calculator", () => {
     "bMin": 80,
     "cMin": 70,
     "dMin": 60
-  } as Percentage_to_letter_grade_calculatorInput;
+  } as unknown as Percentage_to_letter_grade_calculatorInput;
     const result = calculatePercentage_to_letter_grade_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

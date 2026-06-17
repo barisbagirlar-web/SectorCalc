@@ -14,7 +14,7 @@ describe("damped-harmonic-oscillator-calculator", () => {
     "initDisp": 0.1,
     "initVeloc": 0,
     "time": 1
-  } as Damped_harmonic_oscillator_calculatorInput;
+  } as unknown as Damped_harmonic_oscillator_calculatorInput;
     const result = calculateDamped_harmonic_oscillator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

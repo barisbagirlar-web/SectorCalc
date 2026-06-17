@@ -14,7 +14,7 @@ describe("meal-prep-calculator", () => {
     "wastePercentage": 5,
     "packagingCostPerServing": 0.3,
     "fixedCost": 0
-  } as Meal_prep_calculatorInput;
+  } as unknown as Meal_prep_calculatorInput;
     const result = calculateMeal_prep_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

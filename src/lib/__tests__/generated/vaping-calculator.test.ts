@@ -14,7 +14,7 @@ describe("vaping-calculator", () => {
     "legLength": 5,
     "resistivity": 0.00000145,
     "voltage": 4.2
-  } as Vaping_calculatorInput;
+  } as unknown as Vaping_calculatorInput;
     const result = calculateVaping_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

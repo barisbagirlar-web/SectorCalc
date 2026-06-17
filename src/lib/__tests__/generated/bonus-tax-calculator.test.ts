@@ -13,7 +13,7 @@ describe("bonus-tax-calculator", () => {
     "socialSecurityRate": 6.2,
     "medicareRate": 1.45,
     "stateTaxRate": 5
-  } as Bonus_tax_calculatorInput;
+  } as unknown as Bonus_tax_calculatorInput;
     const result = calculateBonus_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

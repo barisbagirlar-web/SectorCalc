@@ -12,7 +12,7 @@ describe("quarts-to-liters-calculator", () => {
     "numberOfContainers": 1,
     "quartType": 0,
     "wasteFactor": 0
-  } as Quarts_to_liters_calculatorInput;
+  } as unknown as Quarts_to_liters_calculatorInput;
     const result = calculateQuarts_to_liters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

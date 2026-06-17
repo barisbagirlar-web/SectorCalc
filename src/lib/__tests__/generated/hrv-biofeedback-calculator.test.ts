@@ -14,7 +14,7 @@ describe("hrv-biofeedback-calculator", () => {
     "hrvSDNN": 50,
     "sessionDuration": 10,
     "age": 30
-  } as Hrv_biofeedback_calculatorInput;
+  } as unknown as Hrv_biofeedback_calculatorInput;
     const result = calculateHrv_biofeedback_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

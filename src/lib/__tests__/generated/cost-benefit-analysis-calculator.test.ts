@@ -14,7 +14,7 @@ describe("cost-benefit-analysis-calculator", () => {
     "discountRate": 10,
     "projectLifetime": 5,
     "salvageValue": 0
-  } as Cost_benefit_analysis_calculatorInput;
+  } as unknown as Cost_benefit_analysis_calculatorInput;
     const result = calculateCost_benefit_analysis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

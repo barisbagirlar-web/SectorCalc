@@ -13,7 +13,7 @@ describe("first-trimester-screening-calculator", () => {
     "crownRumpLength": 65,
     "pappA": 1,
     "freeBetaHCG": 1
-  } as First_trimester_screening_calculatorInput;
+  } as unknown as First_trimester_screening_calculatorInput;
     const result = calculateFirst_trimester_screening_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

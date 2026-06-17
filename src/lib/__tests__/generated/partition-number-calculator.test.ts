@@ -12,7 +12,7 @@ describe("partition-number-calculator", () => {
     "pi": 3.141592653589793,
     "sqrt3": 1.7320508075688772,
     "divisor": 4
-  } as Partition_number_calculatorInput;
+  } as unknown as Partition_number_calculatorInput;
     const result = calculatePartition_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

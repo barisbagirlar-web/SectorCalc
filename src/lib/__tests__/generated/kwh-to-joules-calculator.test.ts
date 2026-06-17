@@ -13,7 +13,7 @@ describe("kwh-to-joules-calculator", () => {
     "time_h": 0,
     "conversion_factor": 3600000,
     "precision": 2
-  } as Kwh_to_joules_calculatorInput;
+  } as unknown as Kwh_to_joules_calculatorInput;
     const result = calculateKwh_to_joules_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

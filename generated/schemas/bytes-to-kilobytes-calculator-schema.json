@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Enter the number of bytes to convert to kilobytes",
-        "tr": "Kilobayta dönüştürmek için bayt sayısını girin"
+        "tr": "Kilobayta dönüştürmek için bayt sayısını girin",
+        "de": "Geben Sie die Anzahl der Bytes ein, die in Kilobyte umgerechnet werden sollen"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output",
-        "tr": "Çıktı için ondalık basamak sayısı"
+        "tr": "Çıktı için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die Ausgabe"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Conversion Base",
         "tr": "Dönüşüm Tabanı",
-        "de": "Conversion Base",
+        "de": "Umrechnungsbasis",
         "fr": "Conversion Base",
         "es": "Conversion Base",
         "ar": "Conversion Base"
       },
       "businessContext_i18n": {
         "en": "1024 for binary (IEC) kilobytes, 1000 for decimal (SI) kilobytes",
-        "tr": "İkili (IEC) kilobayt için 1024, ondalık (SI) kilobayt için 1000"
+        "tr": "İkili (IEC) kilobayt için 1024, ondalık (SI) kilobayt için 1000",
+        "de": "1024 für binäre (IEC) Kilobyte, 1000 für dezimale (SI) Kilobyte"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Rounding Mode",
         "tr": "Yuvarlama Modu",
-        "de": "Rounding Mode",
+        "de": "Rundungsmodus",
         "fr": "Rounding Mode",
         "es": "Rounding Mode",
         "ar": "Rounding Mode"
       },
       "businessContext_i18n": {
         "en": "0: No rounding, 1: Round half up, 2: Ceil, 3: Floor",
-        "tr": "0: Yuvarlama yok, 1: Yarım yukarı yuvarla, 2: Tavan, 3: Taban"
+        "tr": "0: Yuvarlama yok, 1: Yarım yukarı yuvarla, 2: Tavan, 3: Taban",
+        "de": "0: Keine Rundung, 1: Kaufmännisch runden, 2: Aufrunden, 3: Abrunden"
       }
     }
   ],

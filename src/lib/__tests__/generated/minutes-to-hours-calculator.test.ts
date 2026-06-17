@@ -12,7 +12,7 @@ describe("minutes-to-hours-calculator", () => {
     "decPlaces": 2,
     "fmt": 0,
     "rndMode": 0
-  } as Minutes_to_hours_calculatorInput;
+  } as unknown as Minutes_to_hours_calculatorInput;
     const result = calculateMinutes_to_hours_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

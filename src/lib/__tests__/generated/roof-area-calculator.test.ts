@@ -12,7 +12,7 @@ describe("roof-area-calculator", () => {
     "buildingLength": 12,
     "roofPitch": 30,
     "overhang": 0.5
-  } as Roof_area_calculatorInput;
+  } as unknown as Roof_area_calculatorInput;
     const result = calculateRoof_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

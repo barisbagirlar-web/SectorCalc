@@ -14,7 +14,7 @@ describe("arctangent-calculator", () => {
     "precision": 2,
     "scale": 1,
     "offset": 0
-  } as Arctangent_calculatorInput;
+  } as unknown as Arctangent_calculatorInput;
     const result = calculateArctangent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

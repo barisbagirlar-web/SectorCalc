@@ -12,7 +12,7 @@ describe("hearing-loss-calculator", () => {
     "exposure_hours": 8,
     "years_exposed": 10,
     "age": 30
-  } as Hearing_loss_calculatorInput;
+  } as unknown as Hearing_loss_calculatorInput;
     const result = calculateHearing_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

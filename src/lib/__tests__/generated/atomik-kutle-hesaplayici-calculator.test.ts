@@ -16,7 +16,7 @@ describe("atomik-kutle-hesaplayici-calculator", () => {
     "abundance3": 0,
     "mass4": 0,
     "abundance4": 0
-  } as Atomik_kutle_hesaplayici_calculatorInput;
+  } as unknown as Atomik_kutle_hesaplayici_calculatorInput;
     const result = calculateAtomik_kutle_hesaplayici_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

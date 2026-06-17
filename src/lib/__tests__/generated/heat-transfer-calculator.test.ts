@@ -15,7 +15,7 @@ describe("heat-transfer-calculator", () => {
     "hOutside": 25,
     "tempInside": 100,
     "tempOutside": 20
-  } as Heat_transfer_calculatorInput;
+  } as unknown as Heat_transfer_calculatorInput;
     const result = calculateHeat_transfer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

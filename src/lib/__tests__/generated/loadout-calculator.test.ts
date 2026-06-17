@@ -15,7 +15,7 @@ describe("loadout-calculator", () => {
     "safetyFactor": 1.1,
     "axleLimit": 5000,
     "numberOfAxles": 2
-  } as Loadout_calculatorInput;
+  } as unknown as Loadout_calculatorInput;
     const result = calculateLoadout_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

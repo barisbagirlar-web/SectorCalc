@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Length (cm)",
         "tr": "Boy (cm)",
-        "de": "Length (cm)",
+        "de": "Länge (cm)",
         "fr": "Length (cm)",
         "es": "Length (cm)",
         "ar": "Length (cm)"
       },
       "businessContext_i18n": {
         "en": "Measured length at reference temperature (20°C) in centimeters.",
-        "tr": "Referans sıcaklıkta (20°C) santimetre cinsinden ölçülen uzunluk."
+        "tr": "Referans sıcaklıkta (20°C) santimetre cinsinden ölçülen uzunluk.",
+        "de": "Gemessene Länge bei Referenztemperatur (20°C) in Zentimetern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Correction Factor",
         "tr": "Düzeltme Faktörü",
-        "de": "Correction Factor",
+        "de": "Korrekturfaktor",
         "fr": "Correction Factor",
         "es": "Correction Factor",
         "ar": "Correction Factor"
       },
       "businessContext_i18n": {
         "en": "Systematic measurement correction factor (dimensionless).",
-        "tr": "Sistematik ölçüm düzeltme faktörü (boyutsuz)."
+        "tr": "Sistematik ölçüm düzeltme faktörü (boyutsuz).",
+        "de": "Systematischer Messkorrekturfaktor (dimensionslos)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Temperature (°C)",
         "tr": "Sıcaklık (°C)",
-        "de": "Temperature (°C)",
+        "de": "Temperatur (°C)",
         "fr": "Temperature (°C)",
         "es": "Temperature (°C)",
         "ar": "Temperature (°C)"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature in degrees Celsius.",
-        "tr": "Santigrat derece cinsinden ortam sıcaklığı."
+        "tr": "Santigrat derece cinsinden ortam sıcaklığı.",
+        "de": "Umgebungstemperatur in Grad Celsius."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Expansion Coefficient",
         "tr": "Genleşme Katsayısı",
-        "de": "Expansion Coefficient",
+        "de": "Ausdehnungskoeffizient",
         "fr": "Expansion Coefficient",
         "es": "Expansion Coefficient",
         "ar": "Expansion Coefficient"
       },
       "businessContext_i18n": {
         "en": "Linear thermal expansion coefficient of material in per degree Celsius.",
-        "tr": "Malzemenin santigrat derece başına doğrusal termal genleşme katsayısı."
+        "tr": "Malzemenin santigrat derece başına doğrusal termal genleşme katsayısı.",
+        "de": "Linearer thermischer Ausdehnungskoeffizient des Materials in pro Grad Celsius."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Tolerance (cm)",
         "tr": "Tolerans (cm)",
-        "de": "Tolerance (cm)",
+        "de": "Toleranz (cm)",
         "fr": "Tolerance (cm)",
         "es": "Tolerance (cm)",
         "ar": "Tolerance (cm)"
       },
       "businessContext_i18n": {
         "en": "Manufacturing tolerance limit in centimeters.",
-        "tr": "Santimetre cinsinden üretim tolerans sınırı."
+        "tr": "Santimetre cinsinden üretim tolerans sınırı.",
+        "de": "Fertigungstoleranzgrenze in Zentimetern."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Batch Quantity",
         "tr": "Parti Miktarı",
-        "de": "Batch Quantity",
+        "de": "Chargenmenge",
         "fr": "Batch Quantity",
         "es": "Batch Quantity",
         "ar": "Batch Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of identical pieces.",
-        "tr": "Özdeş parça sayısı."
+        "tr": "Özdeş parça sayısı.",
+        "de": "Anzahl identischer Teile."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output formatting.",
-        "tr": "Çıktı biçimlendirmesi için ondalık basamak sayısı."
+        "tr": "Çıktı biçimlendirmesi için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Ausgabeformatierung."
       }
     }
   ],

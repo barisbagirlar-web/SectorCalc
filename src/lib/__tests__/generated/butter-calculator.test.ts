@@ -13,7 +13,7 @@ describe("butter-calculator", () => {
     "butterFatPercentage": 80,
     "processEfficiency": 90,
     "saltPercentage": 0
-  } as Butter_calculatorInput;
+  } as unknown as Butter_calculatorInput;
     const result = calculateButter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

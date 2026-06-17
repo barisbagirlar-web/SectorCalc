@@ -12,7 +12,7 @@ describe("chi-square-test-calculator", () => {
     "b": 0,
     "c": 0,
     "d": 0
-  } as Chi_square_test_calculatorInput;
+  } as unknown as Chi_square_test_calculatorInput;
     const result = calculateChi_square_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("ampacity-calculator", () => {
     "insulationTemp": 60,
     "ambientTemp": 30,
     "bundlingFactor": 1
-  } as Ampacity_calculatorInput;
+  } as unknown as Ampacity_calculatorInput;
     const result = calculateAmpacity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

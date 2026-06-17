@@ -15,7 +15,7 @@ describe("pole-zero-calculator", () => {
     "pole2_imag": 0,
     "zero1_real": 100,
     "zero1_imag": 0
-  } as Pole_zero_calculatorInput;
+  } as unknown as Pole_zero_calculatorInput;
     const result = calculatePole_zero_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

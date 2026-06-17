@@ -13,7 +13,7 @@ describe("stain-calculator", () => {
     "coverageRate": 10,
     "efficiency": 80,
     "numberOfCoats": 1
-  } as Stain_calculatorInput;
+  } as unknown as Stain_calculatorInput;
     const result = calculateStain_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

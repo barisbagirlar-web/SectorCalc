@@ -15,7 +15,7 @@ describe("fish-tank-calculator", () => {
     "conditionFactor": 0.02,
     "stockingDensity": 10,
     "safetyFactor": 0.8
-  } as Fish_tank_calculatorInput;
+  } as unknown as Fish_tank_calculatorInput;
     const result = calculateFish_tank_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

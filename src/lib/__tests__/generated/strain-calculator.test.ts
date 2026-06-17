@@ -13,7 +13,7 @@ describe("strain-calculator", () => {
     "temperature_change": 0,
     "cte": 0.000012,
     "elastic_modulus": 200
-  } as Strain_calculatorInput;
+  } as unknown as Strain_calculatorInput;
     const result = calculateStrain_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

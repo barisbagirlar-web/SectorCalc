@@ -23,11 +23,13 @@
       "businessContext": "Cpk is a standard Six Sigma metric indicating how well a process meets specification limits, accounting for centering. Typical targets: 1.33 (minimum acceptable), 1.67 (good), 2.0 (excellent).",
       "label_i18n": {
         "en": "Process Capability Index (Cpk)",
-        "tr": "Proses Yeterlilik İndeksi (Cpk)"
+        "tr": "Proses Yeterlilik İndeksi (Cpk)",
+        "de": "Prozessfähigkeitsindex (Cpk)"
       },
       "businessContext_i18n": {
         "en": "Cpk is a standard Six Sigma metric indicating how well a process meets specification limits, accounting for centering. Typical targets: 1.33 (minimum acceptable), 1.67 (good), 2.0 (excellent).",
-        "tr": "Cpk, bir prosesin spesifikasyon limitlerini ne kadar iyi karşıladığını ve merkezlemeyi hesaba katan standart bir Altı Sigma metriğidir. Tipik hedefler: 1,33 (minimum kabul edilebilir), 1,67 (iyi), 2,0 (mükemmel)."
+        "tr": "Cpk, bir prosesin spesifikasyon limitlerini ne kadar iyi karşıladığını ve merkezlemeyi hesaba katan standart bir Altı Sigma metriğidir. Tipik hedefler: 1,33 (minimum kabul edilebilir), 1,67 (iyi), 2,0 (mükemmel).",
+        "de": "Cpk ist eine standardmäßige Six-Sigma-Kennzahl, die angibt, wie gut ein Prozess die Spezifikationsgrenzen einhält, unter Berücksichtigung der Zentrierung. Typische Zielwerte: 1,33 (minimal akzeptabel), 1,67 (gut), 2,0 (ausgezeichnet)."
       }
     },
     {
@@ -42,11 +44,13 @@
       "businessContext": "Accounts for long-term process drift. Standard Six Sigma assumption is 1.5 sigma shift. Adjust based on historical data or industry norms (e.g., automotive often uses 1.5).",
       "label_i18n": {
         "en": "Sigma Shift (long-term drift)",
-        "tr": "Sigma Kayması (uzun vadeli sapma)"
+        "tr": "Sigma Kayması (uzun vadeli sapma)",
+        "de": "Sigma-Verschiebung (langfristige Drift)"
       },
       "businessContext_i18n": {
         "en": "Accounts for long-term process drift. Standard Six Sigma assumption is 1.5 sigma shift. Adjust based on historical data or industry norms (e.g., automotive often uses 1.5).",
-        "tr": "Uzun vadeli proses kaymasını hesaba katar. Standart Altı Sigma varsayımı 1,5 sigma kaymasıdır. Geçmiş verilere veya endüstri normlarına (örneğin otomotiv genellikle 1,5 kullanır) göre ayarlayın."
+        "tr": "Uzun vadeli proses kaymasını hesaba katar. Standart Altı Sigma varsayımı 1,5 sigma kaymasıdır. Geçmiş verilere veya endüstri normlarına (örneğin otomotiv genellikle 1,5 kullanır) göre ayarlayın.",
+        "de": "Berücksichtigt langfristige Prozessdrift. Standardannahme bei Six Sigma ist eine 1,5-Sigma-Verschiebung. Anpassung basierend auf historischen Daten oder Branchenstandards (z. B. Automobilindustrie verwendet oft 1,5)."
       }
     },
     {
@@ -61,11 +65,13 @@
       "businessContext": "Select distribution based on sample size and data characteristics. Normal for large samples (n>30), t-distribution for small samples (n<30) to account for uncertainty.",
       "label_i18n": {
         "en": "Distribution Type",
-        "tr": "Dağılım Türü"
+        "tr": "Dağılım Türü",
+        "de": "Verteilungstyp"
       },
       "businessContext_i18n": {
         "en": "Select distribution based on sample size and data characteristics. Normal for large samples (n>30), t-distribution for small samples (n<30) to account for uncertainty.",
-        "tr": "Örneklem büyüklüğü ve veri özelliklerine göre dağılım seçin. Büyük örneklemler (n>30) için Normal, küçük örneklemler (n<30) için belirsizliği hesaba katmak üzere t-dağılımı."
+        "tr": "Örneklem büyüklüğü ve veri özelliklerine göre dağılım seçin. Büyük örneklemler (n>30) için Normal, küçük örneklemler (n<30) için belirsizliği hesaba katmak üzere t-dağılımı.",
+        "de": "Wählen Sie die Verteilung basierend auf Stichprobengröße und Datencharakteristik. Normalverteilung für große Stichproben (n>30), t-Verteilung für kleine Stichproben (n<30) zur Berücksichtigung der Unsicherheit."
       },
       "unit": "unit"
     },
@@ -81,11 +87,13 @@
       "businessContext": "Number of observations used to estimate Cpk. Larger samples improve confidence. Required for t-distribution adjustment.",
       "label_i18n": {
         "en": "Sample Size (n)",
-        "tr": "Örneklem Büyüklüğü (n)"
+        "tr": "Örneklem Büyüklüğü (n)",
+        "de": "Stichprobengröße (n)"
       },
       "businessContext_i18n": {
         "en": "Number of observations used to estimate Cpk. Larger samples improve confidence. Required for t-distribution adjustment.",
-        "tr": "Cpk tahmini için kullanılan gözlem sayısı. Daha büyük örneklemler güveni artırır. t-dağılımı ayarlaması için gereklidir."
+        "tr": "Cpk tahmini için kullanılan gözlem sayısı. Daha büyük örneklemler güveni artırır. t-dağılımı ayarlaması için gereklidir.",
+        "de": "Anzahl der Beobachtungen zur Schätzung von Cpk. Größere Stichproben verbessern die Genauigkeit. Erforderlich für die t-Verteilungsanpassung."
       }
     },
     {
@@ -101,11 +109,13 @@
       "businessContext": "Confidence level for the confidence interval of the PPM estimate. Higher levels provide more conservative (wider) intervals.",
       "label_i18n": {
         "en": "Confidence Level",
-        "tr": "Güven Düzeyi"
+        "tr": "Güven Düzeyi",
+        "de": "Konfidenzniveau"
       },
       "businessContext_i18n": {
         "en": "Confidence level for the confidence interval of the PPM estimate. Higher levels provide more conservative (wider) intervals.",
-        "tr": "PPM tahmininin güven aralığı için güven düzeyi. Daha yüksek düzeyler daha muhafazakar (daha geniş) aralıklar sağlar."
+        "tr": "PPM tahmininin güven aralığı için güven düzeyi. Daha yüksek düzeyler daha muhafazakar (daha geniş) aralıklar sağlar.",
+        "de": "Konfidenzniveau für das Konfidenzintervall der PPM-Schätzung. Höhere Werte liefern konservativere (breitere) Intervalle."
       },
       "unit": "unit"
     },
@@ -117,11 +127,13 @@
       "businessContext": "If enabled, the tool calculates lower and upper bounds for PPM based on the confidence level. Useful for risk assessment.",
       "label_i18n": {
         "en": "Use Confidence Interval",
-        "tr": "Güven Aralığı Kullan"
+        "tr": "Güven Aralığı Kullan",
+        "de": "Konfidenzintervall verwenden"
       },
       "businessContext_i18n": {
         "en": "If enabled, the tool calculates lower and upper bounds for PPM based on the confidence level. Useful for risk assessment.",
-        "tr": "Etkinleştirilirse, araç güven düzeyine göre PPM için alt ve üst sınırları hesaplar. Risk değerlendirmesi için kullanışlıdır."
+        "tr": "Etkinleştirilirse, araç güven düzeyine göre PPM için alt ve üst sınırları hesaplar. Risk değerlendirmesi için kullanışlıdır.",
+        "de": "Wenn aktiviert, berechnet das Tool untere und obere Grenzen für PPM basierend auf dem Konfidenzniveau. Nützlich für die Risikobewertung."
       },
       "unit": "unit"
     }

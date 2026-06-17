@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Filter Order (n)",
         "tr": "Filtre Derecesi (n)",
-        "de": "Filter Order (n)",
+        "de": "Filterordnung (n)",
         "fr": "Filter Order (n)",
         "es": "Filter Order (n)",
         "ar": "Filter Order (n)"
       },
       "businessContext_i18n": {
         "en": "Order of the Butterworth filter (positive integer). Higher order gives steeper roll-off.",
-        "tr": "Butterworth filtresinin derecesi (pozitif tam sayı). Yüksek derece daha dik geçiş sağlar."
+        "tr": "Butterworth filtresinin derecesi (pozitif tam sayı). Yüksek derece daha dik geçiş sağlar.",
+        "de": "Ordnung des Butterworth-Filters (positive ganze Zahl). Höhere Ordnung ergibt steileren Abfall."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cutoff Frequency",
         "tr": "Kesme Frekansı",
-        "de": "Cutoff Frequency",
+        "de": "Grenzfrequenz",
         "fr": "Cutoff Frequency",
         "es": "Cutoff Frequency",
         "ar": "Cutoff Frequency"
       },
       "businessContext_i18n": {
         "en": "Cutoff frequency at -3 dB point.",
-        "tr": "-3 dB noktasındaki kesme frekansı."
+        "tr": "-3 dB noktasındaki kesme frekansı.",
+        "de": "Grenzfrequenz am -3 dB-Punkt."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Frequency of Interest",
         "tr": "İlgi Frekansı",
-        "de": "Frequency of Interest",
+        "de": "Frequenz von Interesse",
         "fr": "Frequency of Interest",
         "es": "Frequency of Interest",
         "ar": "Frequency of Interest"
       },
       "businessContext_i18n": {
         "en": "Frequency at which to evaluate the filter response.",
-        "tr": "Filtre yanıtının değerlendirileceği frekans."
+        "tr": "Filtre yanıtının değerlendirileceği frekans.",
+        "de": "Frequenz, bei der die Filterantwort ausgewertet wird."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Passband Gain",
         "tr": "Geçiş Bandı Kazancı",
-        "de": "Passband Gain",
+        "de": "Durchlassverstärkung",
         "fr": "Passband Gain",
         "es": "Passband Gain",
         "ar": "Passband Gain"
       },
       "businessContext_i18n": {
         "en": "Linear gain in the passband (for active filters). Typically 1 for unity-gain Sallen-Key.",
-        "tr": "Geçiş bandındaki doğrusal kazanç (aktif filtreler için). Sallen-Key birim kazanç için tipik olarak 1."
+        "tr": "Geçiş bandındaki doğrusal kazanç (aktif filtreler için). Sallen-Key birim kazanç için tipik olarak 1.",
+        "de": "Lineare Verstärkung im Durchlassbereich (für aktive Filter). Typischerweise 1 für Sallen-Key mit Einheitsverstärkung."
       }
     }
   ],

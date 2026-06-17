@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
-        "de": "Initial Investment",
+        "de": "Anfangsinvestition",
         "fr": "Initial Investment",
         "es": "Initial Investment",
         "ar": "Initial Investment"
       },
       "businessContext_i18n": {
         "en": "The initial amount of money invested or saved.",
-        "tr": "Yatırılan veya biriktirilen başlangıç para miktarı."
+        "tr": "Yatırılan veya biriktirilen başlangıç para miktarı.",
+        "de": "Der anfänglich investierte oder gesparte Geldbetrag."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
-        "de": "Annual Interest Rate",
+        "de": "Jährlicher Zinssatz",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "The yearly nominal interest rate.",
-        "tr": "Yıllık nominal faiz oranı."
+        "tr": "Yıllık nominal faiz oranı.",
+        "de": "Der jährliche Nominalzinssatz."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Years",
         "tr": "Yıl Sayısı",
-        "de": "Number of Years",
+        "de": "Anzahl der Jahre",
         "fr": "Number of Years",
         "es": "Number of Years",
         "ar": "Number of Years"
       },
       "businessContext_i18n": {
         "en": "The investment duration in years.",
-        "tr": "Yatırım süresi (yıl olarak)."
+        "tr": "Yatırım süresi (yıl olarak).",
+        "de": "Die Anlagedauer in Jahren."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Compounding Frequency",
         "tr": "Bileşik Sıklığı",
-        "de": "Compounding Frequency",
+        "de": "Zinseszinshäufigkeit",
         "fr": "Compounding Frequency",
         "es": "Compounding Frequency",
         "ar": "Compounding Frequency"
       },
       "businessContext_i18n": {
         "en": "Number of times interest is compounded per year. e.g., 1 for annual, 12 for monthly.",
-        "tr": "Yılda faizin bileşik hesaplanma sayısı. Örn: yıllık için 1, aylık için 12."
+        "tr": "Yılda faizin bileşik hesaplanma sayısı. Örn: yıllık için 1, aylık için 12.",
+        "de": "Anzahl der Zinseszinsperioden pro Jahr. Z.B. 1 für jährlich, 12 für monatlich."
       }
     }
   ],

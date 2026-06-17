@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Body Weight (kg)",
         "tr": "Vücut Ağırlığı (kg)",
-        "de": "Body Weight (kg)",
+        "de": "Körpergewicht (kg)",
         "fr": "Body Weight (kg)",
         "es": "Body Weight (kg)",
         "ar": "Body Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "User's body weight in kilograms.",
-        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı."
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı.",
+        "de": "Körpergewicht des Benutzers in Kilogramm."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Activity Duration (minutes)",
         "tr": "Aktivite Süresi (dakika)",
-        "de": "Activity Duration (minutes)",
+        "de": "Aktivitätsdauer (Minuten)",
         "fr": "Activity Duration (minutes)",
         "es": "Activity Duration (minutes)",
         "ar": "Activity Duration (minutes)"
       },
       "businessContext_i18n": {
         "en": "Duration of the physical activity in minutes.",
-        "tr": "Fiziksel aktivitenin dakika cinsinden süresi."
+        "tr": "Fiziksel aktivitenin dakika cinsinden süresi.",
+        "de": "Dauer der körperlichen Aktivität in Minuten."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "MET Value",
         "tr": "MET Değeri",
-        "de": "MET Value",
+        "de": "MET-Wert",
         "fr": "MET Value",
         "es": "MET Value",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task for the activity (e.g., walking = 3.5, jogging = 7, running = 10).",
-        "tr": "Aktivitenin Metabolik Eşdeğeri (örneğin, yürüme = 3.5, koşu = 7, tempolu koşu = 10)."
+        "tr": "Aktivitenin Metabolik Eşdeğeri (örneğin, yürüme = 3.5, koşu = 7, tempolu koşu = 10).",
+        "de": "Metabolisches Äquivalent der Aufgabe für die Aktivität (z. B. Gehen = 3,5, Joggen = 7, Laufen = 10)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",
-        "de": "Efficiency Factor",
+        "de": "Effizienzfaktor",
         "fr": "Efficiency Factor",
         "es": "Efficiency Factor",
         "ar": "Efficiency Factor"
       },
       "businessContext_i18n": {
         "en": "Personal adjustment factor accounting for individual metabolic efficiency (0.5–1.5).",
-        "tr": "Bireysel metabolik verimliliği hesaba katan kişisel ayar faktörü (0.5–1.5)."
+        "tr": "Bireysel metabolik verimliliği hesaba katan kişisel ayar faktörü (0.5–1.5).",
+        "de": "Persönlicher Anpassungsfaktor für die individuelle Stoffwechseleffizienz (0,5–1,5)."
       }
     }
   ],

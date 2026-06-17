@@ -12,7 +12,7 @@ describe("resting-heart-rate-calculator", () => {
     "seconds": 15,
     "age": 30,
     "fitnessLevel": 5
-  } as Resting_heart_rate_calculatorInput;
+  } as unknown as Resting_heart_rate_calculatorInput;
     const result = calculateResting_heart_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

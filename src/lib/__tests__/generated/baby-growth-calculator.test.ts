@@ -14,7 +14,7 @@ describe("baby-growth-calculator", () => {
     "length": 50,
     "headCircumference": 35,
     "gender": 0
-  } as Baby_growth_calculatorInput;
+  } as unknown as Baby_growth_calculatorInput;
     const result = calculateBaby_growth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

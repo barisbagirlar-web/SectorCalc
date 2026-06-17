@@ -12,7 +12,7 @@ describe("phase-diagram-calculator", () => {
     "solidComposition": 10,
     "liquidComposition": 60,
     "temperature": 300
-  } as Phase_diagram_calculatorInput;
+  } as unknown as Phase_diagram_calculatorInput;
     const result = calculatePhase_diagram_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

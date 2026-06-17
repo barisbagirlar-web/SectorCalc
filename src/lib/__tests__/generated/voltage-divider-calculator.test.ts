@@ -12,7 +12,7 @@ describe("voltage-divider-calculator", () => {
     "r1": 1000,
     "r2": 1000,
     "tolerance": 5
-  } as Voltage_divider_calculatorInput;
+  } as unknown as Voltage_divider_calculatorInput;
     const result = calculateVoltage_divider_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

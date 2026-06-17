@@ -12,7 +12,7 @@ describe("crawl-space-calculator", () => {
     "width": 20,
     "height": 4,
     "ventRatio": 0.00667
-  } as Crawl_space_calculatorInput;
+  } as unknown as Crawl_space_calculatorInput;
     const result = calculateCrawl_space_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

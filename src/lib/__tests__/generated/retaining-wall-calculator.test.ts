@@ -15,7 +15,7 @@ describe("retaining-wall-calculator", () => {
     "soilDensity": 18,
     "concreteDensity": 24,
     "frictionAngle": 30
-  } as Retaining_wall_calculatorInput;
+  } as unknown as Retaining_wall_calculatorInput;
     const result = calculateRetaining_wall_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

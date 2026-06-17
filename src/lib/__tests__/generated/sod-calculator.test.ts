@@ -13,7 +13,7 @@ describe("sod-calculator", () => {
     "wasteFactor": 5,
     "rollCoverage": 10,
     "pricePerRoll": 0
-  } as Sod_calculatorInput;
+  } as unknown as Sod_calculatorInput;
     const result = calculateSod_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

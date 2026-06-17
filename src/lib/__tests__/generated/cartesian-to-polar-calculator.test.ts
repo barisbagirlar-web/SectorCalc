@@ -12,7 +12,7 @@ describe("cartesian-to-polar-calculator", () => {
     "pointY": 0,
     "originX": 0,
     "originY": 0
-  } as Cartesian_to_polar_calculatorInput;
+  } as unknown as Cartesian_to_polar_calculatorInput;
     const result = calculateCartesian_to_polar_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

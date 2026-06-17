@@ -16,7 +16,7 @@ describe("roc-curve-calculator", () => {
     "fpr3": 0,
     "tpr4": 0,
     "fpr4": 0
-  } as Roc_curve_calculatorInput;
+  } as unknown as Roc_curve_calculatorInput;
     const result = calculateRoc_curve_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("heart-rate-variability-calculator", () => {
     "sumSquaredRR": 64250000,
     "sumSuccessiveDiffsSq": 89100,
     "countNN50": 10
-  } as Heart_rate_variability_calculatorInput;
+  } as unknown as Heart_rate_variability_calculatorInput;
     const result = calculateHeart_rate_variability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

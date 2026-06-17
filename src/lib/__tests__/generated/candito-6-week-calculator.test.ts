@@ -12,7 +12,7 @@ describe("candito-6-week-calculator", () => {
     "bench1RM": 100,
     "deadlift1RM": 180,
     "trainingMaxPercent": 90
-  } as Candito_6_week_calculatorInput;
+  } as unknown as Candito_6_week_calculatorInput;
     const result = calculateCandito_6_week_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("credit-card-payoff-calculator", () => {
     "balance": 1000,
     "annualInterestRate": 18,
     "monthlyPayment": 50
-  } as Credit_card_payoff_calculatorInput;
+  } as unknown as Credit_card_payoff_calculatorInput;
     const result = calculateCredit_card_payoff_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

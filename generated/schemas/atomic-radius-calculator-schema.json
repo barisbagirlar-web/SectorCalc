@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Density",
         "tr": "Yoğunluk",
-        "de": "Density",
+        "de": "Dichte",
         "fr": "Density",
         "es": "Density",
         "ar": "Density"
       },
       "businessContext_i18n": {
         "en": "The density of the material in grams per cubic centimeter.",
-        "tr": "Malzemenin santimetreküp başına gram cinsinden yoğunluğu."
+        "tr": "Malzemenin santimetreküp başına gram cinsinden yoğunluğu.",
+        "de": "Die Dichte des Materials in Gramm pro Kubikzentimeter."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Molar Mass",
         "tr": "Molar Kütle",
-        "de": "Molar Mass",
+        "de": "Molmasse",
         "fr": "Molar Mass",
         "es": "Molar Mass",
         "ar": "Molar Mass"
       },
       "businessContext_i18n": {
         "en": "The molar mass of the element in grams per mole.",
-        "tr": "Elementin mol başına gram cinsinden molar kütlesi."
+        "tr": "Elementin mol başına gram cinsinden molar kütlesi.",
+        "de": "Die molare Masse des Elements in Gramm pro Mol."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Crystal Structure",
         "tr": "Kristal Yapı",
-        "de": "Crystal Structure",
+        "de": "Kristallstruktur",
         "fr": "Crystal Structure",
         "es": "Crystal Structure",
         "ar": "Crystal Structure"
       },
       "businessContext_i18n": {
         "en": "Crystal structure index: 0=Custom packing factor, 1=Simple Cubic, 2=BCC, 3=FCC, 4=HCP.",
-        "tr": "Kristal yapı indeksi: 0=Özel paketleme faktörü, 1=Basit Kübik, 2=HMK, 3=YMK, 4=HDP."
+        "tr": "Kristal yapı indeksi: 0=Özel paketleme faktörü, 1=Basit Kübik, 2=HMK, 3=YMK, 4=HDP.",
+        "de": "Kristallstruktur-Index: 0=Benutzerdefinierter Packungsfaktor, 1=Einfach kubisch, 2=krz, 3=kfz, 4=hexagonal dichteste Kugelpackung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Custom Packing Factor",
         "tr": "Özel Paketleme Faktörü",
-        "de": "Custom Packing Factor",
+        "de": "Benutzerdefinierter Packungsfaktor",
         "fr": "Custom Packing Factor",
         "es": "Custom Packing Factor",
         "ar": "Custom Packing Factor"
       },
       "businessContext_i18n": {
         "en": "Used only if structure type is 0. Typical values: 0.52 (SC), 0.68 (BCC), 0.74 (FCC/HCP).",
-        "tr": "Yalnızca yapı türü 0 ise kullanılır. Tipik değerler: 0.52 (BK), 0.68 (HMK), 0.74 (YMK/HDP)."
+        "tr": "Yalnızca yapı türü 0 ise kullanılır. Tipik değerler: 0.52 (BK), 0.68 (HMK), 0.74 (YMK/HDP).",
+        "de": "Wird nur verwendet, wenn der Strukturtyp 0 ist. Typische Werte: 0,52 (kubisch primitiv), 0,68 (krz), 0,74 (kfz/hexagonal)."
       }
     }
   ],

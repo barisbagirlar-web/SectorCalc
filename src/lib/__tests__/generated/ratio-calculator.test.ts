@@ -12,7 +12,7 @@ describe("ratio-calculator", () => {
     "denominator": 1,
     "multiplier": 1,
     "decimalPlaces": 2
-  } as Ratio_calculatorInput;
+  } as unknown as Ratio_calculatorInput;
     const result = calculateRatio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

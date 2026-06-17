@@ -13,7 +13,7 @@ describe("vet-bill-calculator", () => {
     "procedureCost": 0,
     "labTestsCost": 0,
     "discountPercent": 0
-  } as Vet_bill_calculatorInput;
+  } as unknown as Vet_bill_calculatorInput;
     const result = calculateVet_bill_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

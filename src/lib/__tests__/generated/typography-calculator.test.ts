@@ -12,7 +12,7 @@ describe("typography-calculator", () => {
     "ageFactor": 1,
     "lightingFactor": 1,
     "safetyFactor": 1
-  } as Typography_calculatorInput;
+  } as unknown as Typography_calculatorInput;
     const result = calculateTypography_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("10k-calculator", () => {
     "setupTime": 0.5,
     "shiftDuration": 8,
     "breaks": 0.5
-  } as _10k_calculatorInput;
+  } as unknown as _10k_calculatorInput;
     const result = calculate_10k_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("aspect-ratio-calculator", () => {
     "height": 1080,
     "targetRatioW": 16,
     "targetRatioH": 9
-  } as Aspect_ratio_calculatorInput;
+  } as unknown as Aspect_ratio_calculatorInput;
     const result = calculateAspect_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

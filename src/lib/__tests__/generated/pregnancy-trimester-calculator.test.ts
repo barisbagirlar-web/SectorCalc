@@ -14,7 +14,7 @@ describe("pregnancy-trimester-calculator", () => {
     "currentDay": 1,
     "currentMonth": 1,
     "currentYear": 2024
-  } as Pregnancy_trimester_calculatorInput;
+  } as unknown as Pregnancy_trimester_calculatorInput;
     const result = calculatePregnancy_trimester_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

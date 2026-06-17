@@ -13,7 +13,7 @@ describe("box-breathing-calculator", () => {
     "exhaleTime": 4,
     "holdTime2": 4,
     "numCycles": 10
-  } as Box_breathing_calculatorInput;
+  } as unknown as Box_breathing_calculatorInput;
     const result = calculateBox_breathing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

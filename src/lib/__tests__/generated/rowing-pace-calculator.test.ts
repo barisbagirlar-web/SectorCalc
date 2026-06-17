@@ -12,7 +12,7 @@ describe("rowing-pace-calculator", () => {
     "time_minutes": 0,
     "time_seconds": 0,
     "target_distance": 2000
-  } as Rowing_pace_calculatorInput;
+  } as unknown as Rowing_pace_calculatorInput;
     const result = calculateRowing_pace_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

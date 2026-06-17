@@ -14,7 +14,7 @@ describe("hasi-calculator", () => {
     "vibrationLevel": 5,
     "wallThickness": 10,
     "corrosionRate": 0.1
-  } as Hasi_calculatorInput;
+  } as unknown as Hasi_calculatorInput;
     const result = calculateHasi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("price-comparison-calculator", () => {
     "discountA": 0,
     "discountB": 0,
     "taxRate": 18
-  } as Price_comparison_calculatorInput;
+  } as unknown as Price_comparison_calculatorInput;
     const result = calculatePrice_comparison_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

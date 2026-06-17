@@ -13,7 +13,7 @@ describe("profit-margin-calculator", () => {
     "operatingExpenses": 20000,
     "otherExpenses": 5000,
     "taxExpense": 5000
-  } as Profit_margin_calculatorInput;
+  } as unknown as Profit_margin_calculatorInput;
     const result = calculateProfit_margin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

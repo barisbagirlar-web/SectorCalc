@@ -13,7 +13,7 @@ describe("age-in-minutes-calculator", () => {
     "days": 0,
     "hours": 0,
     "minutes": 0
-  } as Age_in_minutes_calculatorInput;
+  } as unknown as Age_in_minutes_calculatorInput;
     const result = calculateAge_in_minutes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

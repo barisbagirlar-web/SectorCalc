@@ -14,7 +14,7 @@ describe("storm-sewer-calculator", () => {
     "pipe_diameter": 0.5,
     "pipe_slope": 0.01,
     "manning_n": 0.013
-  } as Storm_sewer_calculatorInput;
+  } as unknown as Storm_sewer_calculatorInput;
     const result = calculateStorm_sewer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

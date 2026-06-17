@@ -12,7 +12,7 @@ describe("drink-mixer-calculator", () => {
     "abvA": 5,
     "volumeB": 100,
     "abvB": 5
-  } as Drink_mixer_calculatorInput;
+  } as unknown as Drink_mixer_calculatorInput;
     const result = calculateDrink_mixer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

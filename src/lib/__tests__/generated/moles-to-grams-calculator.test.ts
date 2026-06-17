@@ -13,7 +13,7 @@ describe("moles-to-grams-calculator", () => {
     "purity": 100,
     "scalingFactor": 1,
     "tolerance": 0
-  } as Moles_to_grams_calculatorInput;
+  } as unknown as Moles_to_grams_calculatorInput;
     const result = calculateMoles_to_grams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("honor-roll-calculator", () => {
     "productivity": 85,
     "targetProductivity": 100,
     "safetyIncidents": 0
-  } as Honor_roll_calculatorInput;
+  } as unknown as Honor_roll_calculatorInput;
     const result = calculateHonor_roll_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

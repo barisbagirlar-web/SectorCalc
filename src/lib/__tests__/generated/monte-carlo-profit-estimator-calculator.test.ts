@@ -14,7 +14,7 @@ describe("monte-carlo-profit-estimator-calculator", () => {
     "costStd": 5000,
     "correlation": 0,
     "zScore": 1.96
-  } as Monte_carlo_profit_estimator_calculatorInput;
+  } as unknown as Monte_carlo_profit_estimator_calculatorInput;
     const result = calculateMonte_carlo_profit_estimator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

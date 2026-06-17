@@ -16,7 +16,7 @@ describe("turnover-cost-calculator", () => {
     "training_cost_per_hire": 5000,
     "lost_productivity_months": 3,
     "productivity_factor": 50
-  } as Turnover_cost_calculatorInput;
+  } as unknown as Turnover_cost_calculatorInput;
     const result = calculateTurnover_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("tool-wear-cost-calculator", () => {
     "rework_cost_per_part": 5,
     "scrap_rate": 0.5,
     "scrap_material_cost": 12
-  } as Tool_wear_cost_calculatorInput;
+  } as unknown as Tool_wear_cost_calculatorInput;
     const result = calculateTool_wear_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

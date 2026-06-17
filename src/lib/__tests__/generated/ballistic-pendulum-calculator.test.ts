@@ -13,7 +13,7 @@ describe("ballistic-pendulum-calculator", () => {
     "pendulum_length": 1.5,
     "angle": 30,
     "gravity": 9.81
-  } as Ballistic_pendulum_calculatorInput;
+  } as unknown as Ballistic_pendulum_calculatorInput;
     const result = calculateBallistic_pendulum_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

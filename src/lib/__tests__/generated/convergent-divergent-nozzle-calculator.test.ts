@@ -15,7 +15,7 @@ describe("convergent-divergent-nozzle-calculator", () => {
     "gasConstant": 287,
     "specificHeatRatio": 1.4,
     "ambientPressure": 101325
-  } as Convergent_divergent_nozzle_calculatorInput;
+  } as unknown as Convergent_divergent_nozzle_calculatorInput;
     const result = calculateConvergent_divergent_nozzle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

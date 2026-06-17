@@ -12,7 +12,7 @@ describe("angular-acceleration-calculator", () => {
     "momentOfInertia": 1,
     "initialAngularVelocity": 0,
     "time": 1
-  } as Angular_acceleration_calculatorInput;
+  } as unknown as Angular_acceleration_calculatorInput;
     const result = calculateAngular_acceleration_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

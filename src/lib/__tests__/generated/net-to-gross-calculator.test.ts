@@ -13,7 +13,7 @@ describe("net-to-gross-calculator", () => {
     "socialInsuranceRate": 15,
     "additionalDeductionRate": 5,
     "otherDeductionsFixed": 0
-  } as Net_to_gross_calculatorInput;
+  } as unknown as Net_to_gross_calculatorInput;
     const result = calculateNet_to_gross_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

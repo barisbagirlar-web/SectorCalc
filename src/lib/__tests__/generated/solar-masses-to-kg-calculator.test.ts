@@ -12,7 +12,7 @@ describe("solar-masses-to-kg-calculator", () => {
     "conversionFactor": 1.989e+30,
     "decimalPlaces": 0,
     "uncertaintyPercent": 0
-  } as Solar_masses_to_kg_calculatorInput;
+  } as unknown as Solar_masses_to_kg_calculatorInput;
     const result = calculateSolar_masses_to_kg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

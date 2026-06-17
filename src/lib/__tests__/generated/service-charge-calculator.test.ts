@@ -13,7 +13,7 @@ describe("service-charge-calculator", () => {
     "minServiceCharge": 5,
     "partySize": 1,
     "partyThreshold": 6
-  } as Service_charge_calculatorInput;
+  } as unknown as Service_charge_calculatorInput;
     const result = calculateService_charge_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

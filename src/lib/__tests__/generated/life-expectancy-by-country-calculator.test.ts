@@ -12,7 +12,7 @@ describe("life-expectancy-by-country-calculator", () => {
     "gender": 0,
     "countryLifeExpectancy": 75,
     "healthFactor": 1
-  } as Life_expectancy_by_country_calculatorInput;
+  } as unknown as Life_expectancy_by_country_calculatorInput;
     const result = calculateLife_expectancy_by_country_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

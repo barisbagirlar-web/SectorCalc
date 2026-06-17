@@ -15,7 +15,7 @@ describe("deck-footing-calculator", () => {
     "deadLoad": 10,
     "soilBearing": 2000,
     "footingThickness": 8
-  } as Deck_footing_calculatorInput;
+  } as unknown as Deck_footing_calculatorInput;
     const result = calculateDeck_footing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("spring-force-calculator", () => {
     "coilDiameter": 20,
     "activeCoils": 10,
     "shearModulus": 80000
-  } as Spring_force_calculatorInput;
+  } as unknown as Spring_force_calculatorInput;
     const result = calculateSpring_force_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

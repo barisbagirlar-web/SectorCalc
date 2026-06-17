@@ -16,7 +16,7 @@ describe("warehouse-calculator", () => {
     "operatingDays": 250,
     "annualFixedCost": 100000,
     "variableCostPerPallet": 10
-  } as Warehouse_calculatorInput;
+  } as unknown as Warehouse_calculatorInput;
     const result = calculateWarehouse_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

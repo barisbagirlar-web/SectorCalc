@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Beta/Gamma Dose",
         "tr": "Beta/Gama Dozu",
-        "de": "Beta/Gamma Dose",
+        "de": "Beta/Gamma-Dosis",
         "fr": "Beta/Gamma Dose",
         "es": "Beta/Gamma Dose",
         "ar": "Beta/Gamma Dose"
       },
       "businessContext_i18n": {
         "en": "Absorbed dose from beta particles or gamma rays.",
-        "tr": "Beta parçacıkları veya gama ışınlarından soğurulan doz."
+        "tr": "Beta parçacıkları veya gama ışınlarından soğurulan doz.",
+        "de": "Energiedosis durch Betateilchen oder Gammastrahlen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Alpha Dose",
         "tr": "Alfa Dozu",
-        "de": "Alpha Dose",
+        "de": "Alpha-Dosis",
         "fr": "Alpha Dose",
         "es": "Alpha Dose",
         "ar": "Alpha Dose"
       },
       "businessContext_i18n": {
         "en": "Absorbed dose from alpha particles.",
-        "tr": "Alfa parçacıklarından soğurulan doz."
+        "tr": "Alfa parçacıklarından soğurulan doz.",
+        "de": "Energiedosis durch Alphateilchen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Neutron Dose",
         "tr": "Nötron Dozu",
-        "de": "Neutron Dose",
+        "de": "Neutronendosis",
         "fr": "Neutron Dose",
         "es": "Neutron Dose",
         "ar": "Neutron Dose"
       },
       "businessContext_i18n": {
         "en": "Absorbed dose from neutrons.",
-        "tr": "Nötronlardan soğurulan doz."
+        "tr": "Nötronlardan soğurulan doz.",
+        "de": "Energiedosis durch Neutronen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Beta/Gamma Factor",
         "tr": "Beta/Gama Faktörü",
-        "de": "Beta/Gamma Factor",
+        "de": "Beta/Gamma-Faktor",
         "fr": "Beta/Gamma Factor",
         "es": "Beta/Gamma Factor",
         "ar": "Beta/Gamma Factor"
       },
       "businessContext_i18n": {
         "en": "Radiation weighting factor for beta/gamma radiation (typically 1).",
-        "tr": "Beta/gama radyasyonu için radyasyon ağırlık faktörü (genellikle 1)."
+        "tr": "Beta/gama radyasyonu için radyasyon ağırlık faktörü (genellikle 1).",
+        "de": "Strahlungswichtungsfaktor für Beta/Gamma-Strahlung (typischerweise 1)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Alpha Factor",
         "tr": "Alfa Faktörü",
-        "de": "Alpha Factor",
+        "de": "Alpha-Faktor",
         "fr": "Alpha Factor",
         "es": "Alpha Factor",
         "ar": "Alpha Factor"
       },
       "businessContext_i18n": {
         "en": "Radiation weighting factor for alpha particles (typically 20).",
-        "tr": "Alfa parçacıkları için radyasyon ağırlık faktörü (genellikle 20)."
+        "tr": "Alfa parçacıkları için radyasyon ağırlık faktörü (genellikle 20).",
+        "de": "Strahlungswichtungsfaktor für Alphateilchen (typischerweise 20)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Neutron Factor",
         "tr": "Nötron Faktörü",
-        "de": "Neutron Factor",
+        "de": "Neutronenfaktor",
         "fr": "Neutron Factor",
         "es": "Neutron Factor",
         "ar": "Neutron Factor"
       },
       "businessContext_i18n": {
         "en": "Radiation weighting factor for neutrons (simplified, typically 5-20 depending on energy).",
-        "tr": "Nötronlar için radyasyon ağırlık faktörü (basitleştirilmiş, enerjiye bağlı olarak genellikle 5-20)."
+        "tr": "Nötronlar için radyasyon ağırlık faktörü (basitleştirilmiş, enerjiye bağlı olarak genellikle 5-20).",
+        "de": "Strahlungswichtungsfaktor für Neutronen (vereinfacht, typischerweise 5–20 je nach Energie)."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("markov-chain-calculator", () => {
     "pBA": 0.3,
     "initA": 1,
     "steps": 1
-  } as Markov_chain_calculatorInput;
+  } as unknown as Markov_chain_calculatorInput;
     const result = calculateMarkov_chain_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

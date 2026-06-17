@@ -13,7 +13,7 @@ describe("lift-to-drag-ratio-calculator", () => {
     "airDensity": 1.225,
     "velocity": 50,
     "referenceArea": 10
-  } as Lift_to_drag_ratio_calculatorInput;
+  } as unknown as Lift_to_drag_ratio_calculatorInput;
     const result = calculateLift_to_drag_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

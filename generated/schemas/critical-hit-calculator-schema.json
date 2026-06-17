@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Base Critical Rate",
         "tr": "Temel Kritik Oran",
-        "de": "Base Critical Rate",
+        "de": "Basis-Kritische-Trefferchance",
         "fr": "Base Critical Rate",
         "es": "Base Critical Rate",
         "ar": "Base Critical Rate"
       },
       "businessContext_i18n": {
         "en": "Base probability of a critical event per operation",
-        "tr": "Operasyon başına kritik olayın temel olasılığı"
+        "tr": "Operasyon başına kritik olayın temel olasılığı",
+        "de": "Basiswahrscheinlichkeit eines kritischen Ereignisses pro Vorgang"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Critical Modifier",
         "tr": "Kritik Değiştirici",
-        "de": "Critical Modifier",
+        "de": "Kritischer Modifikator",
         "fr": "Critical Modifier",
         "es": "Critical Modifier",
         "ar": "Critical Modifier"
       },
       "businessContext_i18n": {
         "en": "Additional probability from stress factors or conditions",
-        "tr": "Stres faktörleri veya koşullardan gelen ek olasılık"
+        "tr": "Stres faktörleri veya koşullardan gelen ek olasılık",
+        "de": "Zusätzliche Wahrscheinlichkeit durch Stressfaktoren oder Bedingungen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Critical Damage Multiplier",
         "tr": "Kritik Hasar Çarpanı",
-        "de": "Critical Damage Multiplier",
+        "de": "Kritischer Schadensmultiplikator",
         "fr": "Critical Damage Multiplier",
         "es": "Critical Damage Multiplier",
         "ar": "Critical Damage Multiplier"
       },
       "businessContext_i18n": {
         "en": "Severity factor when a critical event occurs",
-        "tr": "Kritik bir olay meydana geldiğinde şiddet faktörü"
+        "tr": "Kritik bir olay meydana geldiğinde şiddet faktörü",
+        "de": "Schweregradfaktor bei Eintritt eines kritischen Ereignisses"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Operations",
         "tr": "Operasyon Sayısı",
-        "de": "Number of Operations",
+        "de": "Anzahl der Vorgänge",
         "fr": "Number of Operations",
         "es": "Number of Operations",
         "ar": "Number of Operations"
       },
       "businessContext_i18n": {
         "en": "Total independent operations or trials",
-        "tr": "Toplam bağımsız operasyon veya deneme"
+        "tr": "Toplam bağımsız operasyon veya deneme",
+        "de": "Gesamtzahl unabhängiger Vorgänge oder Versuche"
       }
     }
   ],

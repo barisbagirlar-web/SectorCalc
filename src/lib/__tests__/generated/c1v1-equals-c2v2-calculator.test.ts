@@ -12,7 +12,7 @@ describe("c1v1-equals-c2v2-calculator", () => {
     "v1": 10,
     "c2": 20,
     "fire": 0
-  } as C1v1_equals_c2v2_calculatorInput;
+  } as unknown as C1v1_equals_c2v2_calculatorInput;
     const result = calculateC1v1_equals_c2v2_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

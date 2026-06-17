@@ -12,7 +12,7 @@ describe("absolute-humidity-calculator", () => {
     "relativeHumidity": 50,
     "molarMassWater": 18.015,
     "gasConstant": 8.314
-  } as Absolute_humidity_calculatorInput;
+  } as unknown as Absolute_humidity_calculatorInput;
     const result = calculateAbsolute_humidity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

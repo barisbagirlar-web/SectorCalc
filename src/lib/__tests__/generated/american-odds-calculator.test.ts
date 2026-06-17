@@ -12,7 +12,7 @@ describe("american-odds-calculator", () => {
     "americanOdds": -110,
     "wager": 100,
     "desiredProfit": 100
-  } as American_odds_calculatorInput;
+  } as unknown as American_odds_calculatorInput;
     const result = calculateAmerican_odds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("mswd-calculator", () => {
     "numberOfDataPoints": 10,
     "numberOfParameters": 2,
     "significanceLevel": 0.05
-  } as Mswd_calculatorInput;
+  } as unknown as Mswd_calculatorInput;
     const result = calculateMswd_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

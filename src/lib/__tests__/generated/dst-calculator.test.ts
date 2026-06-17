@@ -14,7 +14,7 @@ describe("dst-calculator", () => {
     "fuelPrice": 1.5,
     "numStops": 0,
     "stopTime": 15
-  } as Dst_calculatorInput;
+  } as unknown as Dst_calculatorInput;
     const result = calculateDst_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

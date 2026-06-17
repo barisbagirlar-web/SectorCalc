@@ -14,7 +14,7 @@ describe("brick-veneer-calculator", () => {
     "brickHeight": 76,
     "mortarJoint": 10,
     "wasteFactor": 5
-  } as Brick_veneer_calculatorInput;
+  } as unknown as Brick_veneer_calculatorInput;
     const result = calculateBrick_veneer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

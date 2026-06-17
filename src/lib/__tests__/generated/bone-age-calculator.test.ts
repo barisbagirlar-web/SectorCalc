@@ -12,7 +12,7 @@ describe("bone-age-calculator", () => {
     "sex": 0,
     "height": 140,
     "weight": 35
-  } as Bone_age_calculatorInput;
+  } as unknown as Bone_age_calculatorInput;
     const result = calculateBone_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

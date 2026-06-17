@@ -12,7 +12,7 @@ describe("college-admission-calculator", () => {
     "testScore": 1200,
     "extracurriculars": 3,
     "essayRating": 7
-  } as College_admission_calculatorInput;
+  } as unknown as College_admission_calculatorInput;
     const result = calculateCollege_admission_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

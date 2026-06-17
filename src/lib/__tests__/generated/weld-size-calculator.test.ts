@@ -13,7 +13,7 @@ describe("weld-size-calculator", () => {
     "numWelds": 2,
     "weldLengthPer": 100,
     "safetyFactor": 1.5
-  } as Weld_size_calculatorInput;
+  } as unknown as Weld_size_calculatorInput;
     const result = calculateWeld_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

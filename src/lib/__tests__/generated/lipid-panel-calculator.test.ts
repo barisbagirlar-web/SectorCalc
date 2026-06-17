@@ -12,7 +12,7 @@ describe("lipid-panel-calculator", () => {
     "hdlCholesterol": 50,
     "triglycerides": 150,
     "age": 30
-  } as Lipid_panel_calculatorInput;
+  } as unknown as Lipid_panel_calculatorInput;
     const result = calculateLipid_panel_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

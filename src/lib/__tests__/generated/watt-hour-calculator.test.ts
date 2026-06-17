@@ -13,7 +13,7 @@ describe("watt-hour-calculator", () => {
     "powerFactor": 1,
     "time": 1,
     "efficiency": 100
-  } as Watt_hour_calculatorInput;
+  } as unknown as Watt_hour_calculatorInput;
     const result = calculateWatt_hour_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

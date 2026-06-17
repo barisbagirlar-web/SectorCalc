@@ -14,7 +14,7 @@ describe("local-tax-calculator", () => {
     "salesTaxRate": 0,
     "incomeAmount": 0,
     "incomeTaxRate": 0
-  } as Local_tax_calculatorInput;
+  } as unknown as Local_tax_calculatorInput;
     const result = calculateLocal_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

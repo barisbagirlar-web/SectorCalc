@@ -14,7 +14,7 @@ describe("gravel-calculator", () => {
     "compactionFactor": 5,
     "wasteFactor": 10,
     "density": 120
-  } as Gravel_calculatorInput;
+  } as unknown as Gravel_calculatorInput;
     const result = calculateGravel_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

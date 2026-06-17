@@ -15,7 +15,7 @@ describe("convection-calculator", () => {
     "k": 0.0257,
     "nu": 0.000016,
     "Pr": 0.7
-  } as Convection_calculatorInput;
+  } as unknown as Convection_calculatorInput;
     const result = calculateConvection_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

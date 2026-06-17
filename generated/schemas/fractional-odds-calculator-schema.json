@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Numerator (a in a/b)",
         "tr": "Pay (a/b'de a)",
-        "de": "Numerator (a in a/b)",
+        "de": "Zähler (a in a/b)",
         "fr": "Numerator (a in a/b)",
         "es": "Numerator (a in a/b)",
         "ar": "Numerator (a in a/b)"
       },
       "businessContext_i18n": {
         "en": "The first number in fractional odds (e.g., 5 in 5/1).",
-        "tr": "Kesirli oranlardaki ilk sayı (ör. 5/1'de 5)."
+        "tr": "Kesirli oranlardaki ilk sayı (ör. 5/1'de 5).",
+        "de": "Die erste Zahl in Bruchquoten (z. B. 5 bei 5/1)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Denominator (b in a/b)",
         "tr": "Payda (a/b'de b)",
-        "de": "Denominator (b in a/b)",
+        "de": "Nenner (b in a/b)",
         "fr": "Denominator (b in a/b)",
         "es": "Denominator (b in a/b)",
         "ar": "Denominator (b in a/b)"
       },
       "businessContext_i18n": {
         "en": "The second number in fractional odds (e.g., 1 in 5/1).",
-        "tr": "Kesirli oranlardaki ikinci sayı (ör. 5/1'de 1)."
+        "tr": "Kesirli oranlardaki ikinci sayı (ör. 5/1'de 1).",
+        "de": "Die zweite Zahl in Bruchquoten (z. B. 1 bei 5/1)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Stake Amount",
         "tr": "Bahis Miktarı",
-        "de": "Stake Amount",
+        "de": "Einsatzbetrag",
         "fr": "Stake Amount",
         "es": "Stake Amount",
         "ar": "Stake Amount"
       },
       "businessContext_i18n": {
         "en": "The amount wagered.",
-        "tr": "Yatırılan miktar."
+        "tr": "Yatırılan miktar.",
+        "de": "Der gesetzte Betrag."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Tax Rate on Winnings",
         "tr": "Kazançlarda Vergi Oranı",
-        "de": "Tax Rate on Winnings",
+        "de": "Steuersatz auf Gewinne",
         "fr": "Tax Rate on Winnings",
         "es": "Tax Rate on Winnings",
         "ar": "Tax Rate on Winnings"
       },
       "businessContext_i18n": {
         "en": "Applicable tax percentage on net profit (0 for no tax).",
-        "tr": "Net kâr üzerinden geçerli vergi yüzdesi (vergi yoksa 0)."
+        "tr": "Net kâr üzerinden geçerli vergi yüzdesi (vergi yoksa 0).",
+        "de": "Anwendbarer Steuersatz auf den Nettogewinn (0 für keine Steuer)."
       }
     }
   ],

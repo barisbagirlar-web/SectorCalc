@@ -16,7 +16,7 @@ describe("kwh-cost-calculator", () => {
     "pf_penalty_threshold": 0.9,
     "pf_penalty_rate": 0.5,
     "system_efficiency": 95
-  } as Kwh_cost_calculatorInput;
+  } as unknown as Kwh_cost_calculatorInput;
     const result = calculateKwh_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

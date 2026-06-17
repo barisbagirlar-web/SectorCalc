@@ -12,7 +12,7 @@ describe("inflation-calculator", () => {
     "inflation-rate": 2,
     "years": 10,
     "frequency": 1
-  } as Inflation_calculatorInput;
+  } as unknown as Inflation_calculatorInput;
     const result = calculateInflation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

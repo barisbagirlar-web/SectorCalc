@@ -12,7 +12,7 @@ describe("add-fractions-calculator", () => {
     "denominator1": 1,
     "numerator2": 0,
     "denominator2": 1
-  } as Add_fractions_calculatorInput;
+  } as unknown as Add_fractions_calculatorInput;
     const result = calculateAdd_fractions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

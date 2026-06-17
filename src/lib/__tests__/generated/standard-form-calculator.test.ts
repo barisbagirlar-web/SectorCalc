@@ -12,7 +12,7 @@ describe("standard-form-calculator", () => {
     "sigFig": 3,
     "notationMode": 0,
     "roundingMode": 0
-  } as Standard_form_calculatorInput;
+  } as unknown as Standard_form_calculatorInput;
     const result = calculateStandard_form_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

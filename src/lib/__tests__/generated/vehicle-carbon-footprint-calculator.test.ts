@@ -12,7 +12,7 @@ describe("vehicle-carbon-footprint-calculator", () => {
     "fuelConsumption": 8,
     "emissionFactor": 2.31,
     "numberOfTrips": 1
-  } as Vehicle_carbon_footprint_calculatorInput;
+  } as unknown as Vehicle_carbon_footprint_calculatorInput;
     const result = calculateVehicle_carbon_footprint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

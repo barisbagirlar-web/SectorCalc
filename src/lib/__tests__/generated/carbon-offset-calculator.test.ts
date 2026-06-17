@@ -14,7 +14,7 @@ describe("carbon-offset-calculator", () => {
     "flightMiles": 5000,
     "wasteGeneration": 2000,
     "waterUsage": 50000
-  } as Carbon_offset_calculatorInput;
+  } as unknown as Carbon_offset_calculatorInput;
     const result = calculateCarbon_offset_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

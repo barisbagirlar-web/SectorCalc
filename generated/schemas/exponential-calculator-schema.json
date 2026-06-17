@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Initial Value (a)",
         "tr": "Başlangıç Değeri (a)",
-        "de": "Initial Value (a)",
+        "de": "Anfangswert (a)",
         "fr": "Initial Value (a)",
         "es": "Initial Value (a)",
         "ar": "Initial Value (a)"
       },
       "businessContext_i18n": {
         "en": "Starting quantity before exponential change.",
-        "tr": "Üstel değişimden önceki başlangıç miktarı."
+        "tr": "Üstel değişimden önceki başlangıç miktarı.",
+        "de": "Startmenge vor der exponentiellen Änderung."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Rate Constant (k)",
         "tr": "Hız Sabiti (k)",
-        "de": "Rate Constant (k)",
+        "de": "Geschwindigkeitskonstante (k)",
         "fr": "Rate Constant (k)",
         "es": "Rate Constant (k)",
         "ar": "Rate Constant (k)"
       },
       "businessContext_i18n": {
         "en": "Continuous growth (positive) or decay (negative) rate per unit time.",
-        "tr": "Birim zaman başına sürekli büyüme (pozitif) veya azalma (negatif) oranı."
+        "tr": "Birim zaman başına sürekli büyüme (pozitif) veya azalma (negatif) oranı.",
+        "de": "Kontinuierliche Wachstums- (positiv) oder Zerfallsrate (negativ) pro Zeiteinheit."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Time (t)",
         "tr": "Zaman (t)",
-        "de": "Time (t)",
+        "de": "Zeit (t)",
         "fr": "Time (t)",
         "es": "Time (t)",
         "ar": "Time (t)"
       },
       "businessContext_i18n": {
         "en": "Elapsed time for the exponential process.",
-        "tr": "Üstel süreç için geçen süre."
+        "tr": "Üstel süreç için geçen süre.",
+        "de": "Verstrichene Zeit für den exponentiellen Prozess."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Rounding precision for the final result.",
-        "tr": "Nihai sonuç için yuvarlama hassasiyeti."
+        "tr": "Nihai sonuç için yuvarlama hassasiyeti.",
+        "de": "Rundungsgenauigkeit für das Endergebnis."
       }
     }
   ],

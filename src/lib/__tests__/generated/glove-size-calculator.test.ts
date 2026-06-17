@@ -11,7 +11,7 @@ describe("glove-size-calculator", () => {
     "handCircumferenceCm": 20,
     "handLengthCm": 18.5,
     "auto_input_3": 1
-  } as Glove_size_calculatorInput;
+  } as unknown as Glove_size_calculatorInput;
     const result = calculateGlove_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

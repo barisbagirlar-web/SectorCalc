@@ -14,7 +14,7 @@ describe("utf-8-calculator", () => {
     "three_byte_ratio": 15,
     "four_byte_ratio": 5,
     "overhead_percent": 10
-  } as Utf_8_calculatorInput;
+  } as unknown as Utf_8_calculatorInput;
     const result = calculateUtf_8_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("win-rate-calculator", () => {
     "wonOpportunities": 25,
     "pendingOpportunities": 20,
     "targetWinRate": 25
-  } as Win_rate_calculatorInput;
+  } as unknown as Win_rate_calculatorInput;
     const result = calculateWin_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Malt Miktarı (kg)",
         "tr": "Malt Miktarı (kg)",
-        "de": "Malt Miktarı (kg)",
+        "de": "Malzmenge (kg)",
         "fr": "Malt Miktarı (kg)",
         "es": "Malt Miktarı (kg)",
         "ar": "Malt Miktarı (kg)"
       },
       "businessContext_i18n": {
         "en": "Batch başına kullanılan malt miktarı",
-        "tr": "Batch başına kullanılan malt miktarı"
+        "tr": "Batch başına kullanılan malt miktarı",
+        "de": "Verwendete Malzmenge pro Charge"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Malt Birim Fiyatı (TL/kg)",
         "tr": "Malt Birim Fiyatı (TL/kg)",
-        "de": "Malt Birim Fiyatı (TL/kg)",
+        "de": "Malzstückpreis (TL/kg)",
         "fr": "Malt Birim Fiyatı (TL/kg)",
         "es": "Malt Birim Fiyatı (TL/kg)",
         "ar": "Malt Birim Fiyatı (TL/kg)"
       },
       "businessContext_i18n": {
         "en": "Maltın kilogram başına maliyeti",
-        "tr": "Maltın kilogram başına maliyeti"
+        "tr": "Maltın kilogram başına maliyeti",
+        "de": "Kosten pro Kilogramm Malz"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Şerbetçiotu Miktarı (g)",
         "tr": "Şerbetçiotu Miktarı (g)",
-        "de": "Şerbetçiotu Miktarı (g)",
+        "de": "Hopfenmenge (g)",
         "fr": "Şerbetçiotu Miktarı (g)",
         "es": "Şerbetçiotu Miktarı (g)",
         "ar": "Şerbetçiotu Miktarı (g)"
       },
       "businessContext_i18n": {
         "en": "Batch başına şerbetçiotu miktarı",
-        "tr": "Batch başına şerbetçiotu miktarı"
+        "tr": "Batch başına şerbetçiotu miktarı",
+        "de": "Hopfenmenge pro Charge"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Şerbetçiotu 100g Fiyatı (TL)",
         "tr": "Şerbetçiotu 100g Fiyatı (TL)",
-        "de": "Şerbetçiotu 100g Fiyatı (TL)",
+        "de": "Hopfenpreis pro 100 g (TL)",
         "fr": "Şerbetçiotu 100g Fiyatı (TL)",
         "es": "Şerbetçiotu 100g Fiyatı (TL)",
         "ar": "Şerbetçiotu 100g Fiyatı (TL)"
       },
       "businessContext_i18n": {
         "en": "100 gram şerbetçiotu fiyatı",
-        "tr": "100 gram şerbetçiotu fiyatı"
+        "tr": "100 gram şerbetçiotu fiyatı",
+        "de": "Preis für 100 Gramm Hopfen"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Maya Maliyeti (TL)",
         "tr": "Maya Maliyeti (TL)",
-        "de": "Maya Maliyeti (TL)",
+        "de": "Hefekosten (TL)",
         "fr": "Maya Maliyeti (TL)",
         "es": "Maya Maliyeti (TL)",
         "ar": "Maya Maliyeti (TL)"
       },
       "businessContext_i18n": {
         "en": "Batch başına maya maliyeti",
-        "tr": "Batch başına maya maliyeti"
+        "tr": "Batch başına maya maliyeti",
+        "de": "Hefekosten pro Charge"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Enerji Birim Fiyatı (TL/kWh)",
         "tr": "Enerji Birim Fiyatı (TL/kWh)",
-        "de": "Enerji Birim Fiyatı (TL/kWh)",
+        "de": "Energiestückpreis (TL/kWh)",
         "fr": "Enerji Birim Fiyatı (TL/kWh)",
         "es": "Enerji Birim Fiyatı (TL/kWh)",
         "ar": "Enerji Birim Fiyatı (TL/kWh)"
       },
       "businessContext_i18n": {
         "en": "Fabrika elektrik birim fiyatı",
-        "tr": "Fabrika elektrik birim fiyatı"
+        "tr": "Fabrika elektrik birim fiyatı",
+        "de": "Fabrikstrompreis pro Einheit"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Üretim Hacmi (L)",
         "tr": "Üretim Hacmi (L)",
-        "de": "Üretim Hacmi (L)",
+        "de": "Produktionsvolumen (L)",
         "fr": "Üretim Hacmi (L)",
         "es": "Üretim Hacmi (L)",
         "ar": "Üretim Hacmi (L)"
       },
       "businessContext_i18n": {
         "en": "Batch sonucu elde edilen bira miktarı (litre)",
-        "tr": "Batch sonucu elde edilen bira miktarı (litre)"
+        "tr": "Batch sonucu elde edilen bira miktarı (litre)",
+        "de": "Erhaltene Biermenge pro Charge (Liter)"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Genel Gider (TL)",
         "tr": "Genel Gider (TL)",
-        "de": "Genel Gider (TL)",
+        "de": "Gemeinkosten (TL)",
         "fr": "Genel Gider (TL)",
         "es": "Genel Gider (TL)",
         "ar": "Genel Gider (TL)"
       },
       "businessContext_i18n": {
         "en": "İşçilik, bakım, amortisman vb. dahil batch başına sabit gider",
-        "tr": "İşçilik, bakım, amortisman vb. dahil batch başına sabit gider"
+        "tr": "İşçilik, bakım, amortisman vb. dahil batch başına sabit gider",
+        "de": "Fixe Kosten pro Charge inkl. Arbeit, Wartung, Abschreibung usw."
       }
     }
   ],

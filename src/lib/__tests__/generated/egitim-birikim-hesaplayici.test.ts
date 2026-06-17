@@ -12,7 +12,7 @@ describe("egitim-birikim-hesaplayici", () => {
     "monthlyContribution": 200,
     "annualInterestRate": 7,
     "years": 18
-  } as Egitim_birikim_hesaplayiciInput;
+  } as unknown as Egitim_birikim_hesaplayiciInput;
     const result = calculateEgitim_birikim_hesaplayici(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

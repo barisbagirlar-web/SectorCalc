@@ -13,7 +13,7 @@ describe("ecog-performance-status-calculator", () => {
     "runtimeHours": 2000,
     "oilQuality": 80,
     "noiseLevel": 85
-  } as Ecog_performance_status_calculatorInput;
+  } as unknown as Ecog_performance_status_calculatorInput;
     const result = calculateEcog_performance_status_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

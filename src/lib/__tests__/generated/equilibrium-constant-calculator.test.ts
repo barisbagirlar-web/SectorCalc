@@ -16,7 +16,7 @@ describe("equilibrium-constant-calculator", () => {
     "b": 1,
     "c": 1,
     "d": 1
-  } as Equilibrium_constant_calculatorInput;
+  } as unknown as Equilibrium_constant_calculatorInput;
     const result = calculateEquilibrium_constant_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

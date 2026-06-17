@@ -12,7 +12,7 @@ describe("number-of-stages-calculator", () => {
     "p_out": 10,
     "r_max": 3.5,
     "safety_factor": 1.1
-  } as Number_of_stages_calculatorInput;
+  } as unknown as Number_of_stages_calculatorInput;
     const result = calculateNumber_of_stages_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

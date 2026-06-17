@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Data Length (characters)",
         "tr": "Veri Uzunluğu (karakter)",
-        "de": "Data Length (characters)",
+        "de": "Datenlänge (Zeichen)",
         "fr": "Data Length (characters)",
         "es": "Data Length (characters)",
         "ar": "Data Length (characters)"
       },
       "businessContext_i18n": {
         "en": "Number of alphanumeric characters to encode",
-        "tr": "Kodlanacak alfanümerik karakter sayısı"
+        "tr": "Kodlanacak alfanümerik karakter sayısı",
+        "de": "Anzahl der alphanumerischen Zeichen zur Kodierung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Module Width",
         "tr": "Modül Genişliği",
-        "de": "Module Width",
+        "de": "Modulbreite",
         "fr": "Module Width",
         "es": "Module Width",
         "ar": "Module Width"
       },
       "businessContext_i18n": {
         "en": "Width of the narrowest element (X-dimension)",
-        "tr": "En dar elemanın genişliği (X-boyutu)"
+        "tr": "En dar elemanın genişliği (X-boyutu)",
+        "de": "Breite des schmalsten Elements (X-Dimension)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Left Quiet Zone",
         "tr": "Sol Sessiz Bölge",
-        "de": "Left Quiet Zone",
+        "de": "Linke Ruhezone",
         "fr": "Left Quiet Zone",
         "es": "Left Quiet Zone",
         "ar": "Left Quiet Zone"
       },
       "businessContext_i18n": {
         "en": "Left quiet zone width in modules",
-        "tr": "Sol sessiz bölge genişliği (modül cinsinden)"
+        "tr": "Sol sessiz bölge genişliği (modül cinsinden)",
+        "de": "Breite der linken Ruhezone in Modulen"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Right Quiet Zone",
         "tr": "Sağ Sessiz Bölge",
-        "de": "Right Quiet Zone",
+        "de": "Rechte Ruhezone",
         "fr": "Right Quiet Zone",
         "es": "Right Quiet Zone",
         "ar": "Right Quiet Zone"
       },
       "businessContext_i18n": {
         "en": "Right quiet zone width in modules",
-        "tr": "Sağ sessiz bölge genişliği (modül cinsinden)"
+        "tr": "Sağ sessiz bölge genişliği (modül cinsinden)",
+        "de": "Breite der rechten Ruhezone in Modulen"
       }
     }
   ],

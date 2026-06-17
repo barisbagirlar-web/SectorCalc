@@ -12,7 +12,7 @@ describe("excel-date-calculator", () => {
     "endSerial": 44927,
     "daysOffset": 0,
     "adjustStart": 0
-  } as Excel_date_calculatorInput;
+  } as unknown as Excel_date_calculatorInput;
     const result = calculateExcel_date_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

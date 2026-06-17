@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Clicks",
         "tr": "Toplam Tıklama",
-        "de": "Total Clicks",
+        "de": "Gesamte Klicks",
         "fr": "Total Clicks",
         "es": "Total Clicks",
         "ar": "Total Clicks"
       },
       "businessContext_i18n": {
         "en": "Total number of unique clicks on links in the email campaign.",
-        "tr": "E-posta kampanyasındaki bağlantılara yapılan toplam benzersiz tıklama sayısı."
+        "tr": "E-posta kampanyasındaki bağlantılara yapılan toplam benzersiz tıklama sayısı.",
+        "de": "Gesamtzahl der eindeutigen Klicks auf Links in der E-Mail-Kampagne."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Total Delivered Emails",
         "tr": "Teslim Edilen E-postalar",
-        "de": "Total Delivered Emails",
+        "de": "Gesamtzahl der zugestellten E-Mails",
         "fr": "Total Delivered Emails",
         "es": "Total Delivered Emails",
         "ar": "Total Delivered Emails"
       },
       "businessContext_i18n": {
         "en": "Total number of emails successfully delivered to recipients' inboxes.",
-        "tr": "Alıcıların gelen kutularına başarıyla teslim edilen toplam e-posta sayısı."
+        "tr": "Alıcıların gelen kutularına başarıyla teslim edilen toplam e-posta sayısı.",
+        "de": "Gesamtzahl der erfolgreich in den Posteingängen der Empfänger zugestellten E-Mails."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Total Opens",
         "tr": "Toplam Açılma",
-        "de": "Total Opens",
+        "de": "Gesamtzahl der Öffnungen",
         "fr": "Total Opens",
         "es": "Total Opens",
         "ar": "Total Opens"
       },
       "businessContext_i18n": {
         "en": "Total number of times the email was opened (optional, for click-to-open rate).",
-        "tr": "E-postanın açılma toplam sayısı (isteğe bağlı, tıklama/açılma oranı için)."
+        "tr": "E-postanın açılma toplam sayısı (isteğe bağlı, tıklama/açılma oranı için).",
+        "de": "Gesamtzahl der Öffnungen der E-Mail (optional, für die Klick-zu-Öffnungs-Rate)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Total Sent Emails",
         "tr": "Gönderilen E-postalar",
-        "de": "Total Sent Emails",
+        "de": "Gesendete E-Mails insgesamt",
         "fr": "Total Sent Emails",
         "es": "Total Sent Emails",
         "ar": "Total Sent Emails"
       },
       "businessContext_i18n": {
         "en": "Total number of emails sent in the campaign.",
-        "tr": "Kampanyada gönderilen toplam e-posta sayısı."
+        "tr": "Kampanyada gönderilen toplam e-posta sayısı.",
+        "de": "Gesamtzahl der in der Kampagne gesendeten E-Mails."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Bounced Emails",
         "tr": "Geri Dönen E-postalar",
-        "de": "Bounced Emails",
+        "de": "Zurückgewiesene E-Mails",
         "fr": "Bounced Emails",
         "es": "Bounced Emails",
         "ar": "Bounced Emails"
       },
       "businessContext_i18n": {
         "en": "Number of emails that were not delivered due to hard or soft bounces.",
-        "tr": "Sert veya yumuşak geri dönüşler nedeniyle teslim edilemeyen e-posta sayısı."
+        "tr": "Sert veya yumuşak geri dönüşler nedeniyle teslim edilemeyen e-posta sayısı.",
+        "de": "Anzahl der E-Mails, die aufgrund von harten oder weichen Bounces nicht zugestellt wurden."
       }
     }
   ],

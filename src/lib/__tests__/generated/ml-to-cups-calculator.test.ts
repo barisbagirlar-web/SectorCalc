@@ -12,7 +12,7 @@ describe("ml-to-cups-calculator", () => {
     "cupSize": 236.5882365,
     "decimals": 2,
     "quantity": 1
-  } as Ml_to_cups_calculatorInput;
+  } as unknown as Ml_to_cups_calculatorInput;
     const result = calculateMl_to_cups_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

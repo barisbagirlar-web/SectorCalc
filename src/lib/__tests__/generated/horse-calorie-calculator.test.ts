@@ -13,7 +13,7 @@ describe("horse-calorie-calculator", () => {
     "pregnancyStage": 1,
     "lactationStage": 1,
     "ageFactor": 1
-  } as Horse_calorie_calculatorInput;
+  } as unknown as Horse_calorie_calculatorInput;
     const result = calculateHorse_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

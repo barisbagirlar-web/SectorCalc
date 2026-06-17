@@ -16,7 +16,7 @@ describe("mirr-calculator", () => {
     "cf5": 40000,
     "financeRate": 10,
     "reinvestmentRate": 12
-  } as Mirr_calculatorInput;
+  } as unknown as Mirr_calculatorInput;
     const result = calculateMirr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

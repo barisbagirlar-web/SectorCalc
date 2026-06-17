@@ -15,7 +15,7 @@ describe("car-affordability-calculator", () => {
     "annualInterestRate": 5,
     "otherCarCosts": 200,
     "maxPaymentPercent": 15
-  } as Car_affordability_calculatorInput;
+  } as unknown as Car_affordability_calculatorInput;
     const result = calculateCar_affordability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

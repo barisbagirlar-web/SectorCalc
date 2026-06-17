@@ -14,7 +14,7 @@ describe("body-fat-percentage-calculator", () => {
     "neck": 38,
     "waist": 85,
     "hip": 90
-  } as Body_fat_percentage_calculatorInput;
+  } as unknown as Body_fat_percentage_calculatorInput;
     const result = calculateBody_fat_percentage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

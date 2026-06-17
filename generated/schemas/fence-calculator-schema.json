@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Toplam Çit Uzunluğu",
         "tr": "Toplam Çit Uzunluğu",
-        "de": "Toplam Çit Uzunluğu",
+        "de": "Gesamte Zaunlänge",
         "fr": "Toplam Çit Uzunluğu",
         "es": "Toplam Çit Uzunluğu",
         "ar": "Toplam Çit Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Çit hattının toplam uzunluğu (kapılar hariç)",
-        "tr": "Çit hattının toplam uzunluğu (kapılar hariç)"
+        "tr": "Çit hattının toplam uzunluğu (kapılar hariç)",
+        "de": "Gesamtlänge der Zaunlinie (ohne Tore)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Çit Yüksekliği",
         "tr": "Çit Yüksekliği",
-        "de": "Çit Yüksekliği",
+        "de": "Zaunhöhe",
         "fr": "Çit Yüksekliği",
         "es": "Çit Yüksekliği",
         "ar": "Çit Yüksekliği"
       },
       "businessContext_i18n": {
         "en": "Panel yüksekliği",
-        "tr": "Panel yüksekliği"
+        "tr": "Panel yüksekliği",
+        "de": "Paneelhöhe"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Direk Aralığı",
         "tr": "Direk Aralığı",
-        "de": "Direk Aralığı",
+        "de": "Pfostenabstand",
         "fr": "Direk Aralığı",
         "es": "Direk Aralığı",
         "ar": "Direk Aralığı"
       },
       "businessContext_i18n": {
         "en": "Direkler arası mesafe",
-        "tr": "Direkler arası mesafe"
+        "tr": "Direkler arası mesafe",
+        "de": "Abstand zwischen den Pfosten"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Direk Birim Fiyatı",
         "tr": "Direk Birim Fiyatı",
-        "de": "Direk Birim Fiyatı",
+        "de": "Stückpreis Pfosten",
         "fr": "Direk Birim Fiyatı",
         "es": "Direk Birim Fiyatı",
         "ar": "Direk Birim Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Bir direk maliyeti",
-        "tr": "Bir direk maliyeti"
+        "tr": "Bir direk maliyeti",
+        "de": "Kosten pro Pfosten"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Panel Metrekare Fiyatı",
         "tr": "Panel Metrekare Fiyatı",
-        "de": "Panel Metrekare Fiyatı",
+        "de": "Preis pro Quadratmeter Paneel",
         "fr": "Panel Metrekare Fiyatı",
         "es": "Panel Metrekare Fiyatı",
         "ar": "Panel Metrekare Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Panel malzemesinin metrekare başına fiyatı",
-        "tr": "Panel malzemesinin metrekare başına fiyatı"
+        "tr": "Panel malzemesinin metrekare başına fiyatı",
+        "de": "Preis pro Quadratmeter des Paneelmaterials"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Kapı Sayısı",
         "tr": "Kapı Sayısı",
-        "de": "Kapı Sayısı",
+        "de": "Anzahl Türen",
         "fr": "Kapı Sayısı",
         "es": "Kapı Sayısı",
         "ar": "Kapı Sayısı"
       },
       "businessContext_i18n": {
         "en": "Çite eklenecek kapı adedi",
-        "tr": "Çite eklenecek kapı adedi"
+        "tr": "Çite eklenecek kapı adedi",
+        "de": "Anzahl der zum Zaun hinzuzufügenden Tore"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Kapı Birim Fiyatı",
         "tr": "Kapı Birim Fiyatı",
-        "de": "Kapı Birim Fiyatı",
+        "de": "Stückpreis Tor",
         "fr": "Kapı Birim Fiyatı",
         "es": "Kapı Birim Fiyatı",
         "ar": "Kapı Birim Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Bir kapı maliyeti",
-        "tr": "Bir kapı maliyeti"
+        "tr": "Bir kapı maliyeti",
+        "de": "Kosten pro Tor"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Direk Başı Beton Maliyeti",
         "tr": "Direk Başı Beton Maliyeti",
-        "de": "Direk Başı Beton Maliyeti",
+        "de": "Betonkosten pro Pfosten",
         "fr": "Direk Başı Beton Maliyeti",
         "es": "Direk Başı Beton Maliyeti",
         "ar": "Direk Başı Beton Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Bir direk için gerekli betonun toplam maliyeti",
-        "tr": "Bir direk için gerekli betonun toplam maliyeti"
+        "tr": "Bir direk için gerekli betonun toplam maliyeti",
+        "de": "Gesamtkosten des für einen Pfosten benötigten Betons"
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Cake Shape",
         "tr": "Kek Şekli",
-        "de": "Cake Shape",
+        "de": "Kuchenform",
         "fr": "Cake Shape",
         "es": "Cake Shape",
         "ar": "Cake Shape"
       },
       "businessContext_i18n": {
         "en": "0 for round, 1 for rectangular",
-        "tr": "0 yuvarlak, 1 dikdörtgen"
+        "tr": "0 yuvarlak, 1 dikdörtgen",
+        "de": "0 für rund, 1 für rechteckig"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Diameter (round) / Length (rectangular)",
         "tr": "Çap (yuvarlak) / Uzunluk (dikdörtgen)",
-        "de": "Diameter (round) / Length (rectangular)",
+        "de": "Durchmesser (rund) / Länge (rechteckig)",
         "fr": "Diameter (round) / Length (rectangular)",
         "es": "Diameter (round) / Length (rectangular)",
         "ar": "Diameter (round) / Length (rectangular)"
       },
       "businessContext_i18n": {
         "en": "Primary dimension of the cake",
-        "tr": "Kekin ana boyutu"
+        "tr": "Kekin ana boyutu",
+        "de": "Primäre Abmessung des Kuchens"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Width (rectangular, enter 0 for round)",
         "tr": "Genişlik (dikdörtgen, yuvarlak için 0 girin)",
-        "de": "Width (rectangular, enter 0 for round)",
+        "de": "Breite (rechteckig, bei rund 0 eingeben)",
         "fr": "Width (rectangular, enter 0 for round)",
         "es": "Width (rectangular, enter 0 for round)",
         "ar": "Width (rectangular, enter 0 for round)"
       },
       "businessContext_i18n": {
         "en": "Secondary dimension, only for rectangular cakes",
-        "tr": "Sadece dikdörtgen kekler için ikincil boyut"
+        "tr": "Sadece dikdörtgen kekler için ikincil boyut",
+        "de": "Sekundäre Abmessung, nur bei rechteckigen Kuchen"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Area per Serving",
         "tr": "Porsiyon Başına Alan",
-        "de": "Area per Serving",
+        "de": "Fläche pro Portion",
         "fr": "Area per Serving",
         "es": "Area per Serving",
         "ar": "Area per Serving"
       },
       "businessContext_i18n": {
         "en": "Typical area per serving (e.g., 25 cm²)",
-        "tr": "Porsiyon başına tipik alan (örn. 25 cm²)"
+        "tr": "Porsiyon başına tipik alan (örn. 25 cm²)",
+        "de": "Typische Fläche pro Portion (z.B. 25 cm²)"
       }
     }
   ],

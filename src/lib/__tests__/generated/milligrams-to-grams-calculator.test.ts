@@ -13,7 +13,7 @@ describe("milligrams-to-grams-calculator", () => {
     "decimalPlaces": 3,
     "batchMultiplier": 1,
     "roundingMode": 0
-  } as Milligrams_to_grams_calculatorInput;
+  } as unknown as Milligrams_to_grams_calculatorInput;
     const result = calculateMilligrams_to_grams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

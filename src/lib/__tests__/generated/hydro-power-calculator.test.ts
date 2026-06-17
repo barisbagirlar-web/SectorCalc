@@ -14,7 +14,7 @@ describe("hydro-power-calculator", () => {
     "generatorEfficiency": 95,
     "waterDensity": 1000,
     "gravity": 9.81
-  } as Hydro_power_calculatorInput;
+  } as unknown as Hydro_power_calculatorInput;
     const result = calculateHydro_power_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

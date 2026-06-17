@@ -16,7 +16,7 @@ describe("clv-cac-calculator", () => {
     "retention_rate": 70,
     "discount_rate": 10,
     "data_confidence": "medium"
-  } as Clv_cac_calculatorInput;
+  } as unknown as Clv_cac_calculatorInput;
     const result = calculateClv_cac_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

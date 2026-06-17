@@ -12,7 +12,7 @@ describe("crane-load-calculator", () => {
     "riggingWeight": 1,
     "dynamicFactor": 1.2,
     "windFactor": 1.1
-  } as Crane_load_calculatorInput;
+  } as unknown as Crane_load_calculatorInput;
     const result = calculateCrane_load_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

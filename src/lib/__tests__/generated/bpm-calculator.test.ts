@@ -12,7 +12,7 @@ describe("bpm-calculator", () => {
     "sampleRate": 44100,
     "beats": 4,
     "division": 1
-  } as Bpm_calculatorInput;
+  } as unknown as Bpm_calculatorInput;
     const result = calculateBpm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

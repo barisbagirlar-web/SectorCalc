@@ -12,7 +12,7 @@ describe("outlier-calculator", () => {
     "q3": 0,
     "value": 0,
     "multiplier": 1.5
-  } as Outlier_calculatorInput;
+  } as unknown as Outlier_calculatorInput;
     const result = calculateOutlier_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

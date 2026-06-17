@@ -12,7 +12,7 @@ describe("string-tension-calculator", () => {
     "stringDiameter": 1,
     "stringLength": 65,
     "frequency": 440
-  } as String_tension_calculatorInput;
+  } as unknown as String_tension_calculatorInput;
     const result = calculateString_tension_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

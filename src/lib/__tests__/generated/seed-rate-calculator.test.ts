@@ -16,7 +16,7 @@ describe("seed-rate-calculator", () => {
     "planter_efficiency": 95,
     "seed_cost_per_unit": 5,
     "expected_yield_value": 200
-  } as Seed_rate_calculatorInput;
+  } as unknown as Seed_rate_calculatorInput;
     const result = calculateSeed_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

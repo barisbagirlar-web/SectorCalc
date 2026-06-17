@@ -13,7 +13,7 @@ describe("diabetic-calculator", () => {
     "targetBG": 100,
     "insulinToCarbRatio": 15,
     "insulinSensitivity": 50
-  } as Diabetic_calculatorInput;
+  } as unknown as Diabetic_calculatorInput;
     const result = calculateDiabetic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

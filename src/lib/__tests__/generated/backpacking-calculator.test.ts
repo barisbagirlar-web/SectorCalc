@@ -15,7 +15,7 @@ describe("backpacking-calculator", () => {
     "foodPerDay": 0.8,
     "waterPerDay": 2,
     "hikerWeight": 70
-  } as Backpacking_calculatorInput;
+  } as unknown as Backpacking_calculatorInput;
     const result = calculateBackpacking_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

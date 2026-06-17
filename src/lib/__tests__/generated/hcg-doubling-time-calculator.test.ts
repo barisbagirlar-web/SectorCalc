@@ -11,7 +11,7 @@ describe("hcg-doubling-time-calculator", () => {
     "hcg1": 100,
     "hcg2": 200,
     "timeInterval": 48
-  } as Hcg_doubling_time_calculatorInput;
+  } as unknown as Hcg_doubling_time_calculatorInput;
     const result = calculateHcg_doubling_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

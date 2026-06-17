@@ -14,7 +14,7 @@ describe("irrigation-calculator", () => {
     "peakFactor": 1.2,
     "systemLosses": 5,
     "operatingHours": 12
-  } as Irrigation_calculatorInput;
+  } as unknown as Irrigation_calculatorInput;
     const result = calculateIrrigation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

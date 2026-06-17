@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Average Inventory",
         "tr": "Ortalama Envanter",
-        "de": "Average Inventory",
+        "de": "Durchschnittlicher Lagerbestand",
         "fr": "Average Inventory",
         "es": "Average Inventory",
         "ar": "Average Inventory"
       },
       "businessContext_i18n": {
         "en": "The average value of inventory held during the period. Typically (Beginning Inventory + Ending Inventory) / 2.",
-        "tr": "Dönem boyunca elde tutulan ortalama stok değeri. Genellikle (Dönem Başı Stok + Dönem Sonu Stok) / 2."
+        "tr": "Dönem boyunca elde tutulan ortalama stok değeri. Genellikle (Dönem Başı Stok + Dönem Sonu Stok) / 2.",
+        "de": "Der durchschnittliche Lagerbestandswert während des Zeitraums. Typischerweise (Anfangsbestand + Endbestand) / 2."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cost of Goods Sold (COGS)",
         "tr": "Satılan Malların Maliyeti (COGS)",
-        "de": "Cost of Goods Sold (COGS)",
+        "de": "Umsatzkosten (COGS)",
         "fr": "Cost of Goods Sold (COGS)",
         "es": "Cost of Goods Sold (COGS)",
         "ar": "Cost of Goods Sold (COGS)"
       },
       "businessContext_i18n": {
         "en": "The total cost of goods sold during the period.",
-        "tr": "Dönem boyunca satılan malların toplam maliyeti."
+        "tr": "Dönem boyunca satılan malların toplam maliyeti.",
+        "de": "Die Gesamtkosten der verkauften Waren während des Zeitraums."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Period Length (Days)",
         "tr": "Dönem Uzunluğu (Gün)",
-        "de": "Period Length (Days)",
+        "de": "Periodenlänge (Tage)",
         "fr": "Period Length (Days)",
         "es": "Period Length (Days)",
         "ar": "Period Length (Days)"
       },
       "businessContext_i18n": {
         "en": "Number of days in the measurement period. Standard is 365 for annual calculation.",
-        "tr": "Ölçüm dönemindeki gün sayısı. Yıllık hesaplama için standart 365'tir."
+        "tr": "Ölçüm dönemindeki gün sayısı. Yıllık hesaplama için standart 365'tir.",
+        "de": "Anzahl der Tage im Messzeitraum. Standard ist 365 für die jährliche Berechnung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Inventory Turnover Ratio (Optional)",
         "tr": "Stok Devir Hızı (İsteğe Bağlı)",
-        "de": "Inventory Turnover Ratio (Optional)",
+        "de": "Lagerumschlagshäufigkeit (optional)",
         "fr": "Inventory Turnover Ratio (Optional)",
         "es": "Inventory Turnover Ratio (Optional)",
         "ar": "Inventory Turnover Ratio (Optional)"
       },
       "businessContext_i18n": {
         "en": "If known, enter the inventory turnover ratio (COGS / Average Inventory). If provided, DIO will be calculated as Period Days / Turnover Ratio. Leave 0 to calculate from Average Inventory and COGS.",
-        "tr": "Biliniyorsa, stok devir hızını (SMM / Ortalama Stok) girin. Sağlanırsa, DIO = Dönem Günü / Devir Hızı olarak hesaplanır. Ortalama Stok ve SMM'den hesaplamak için 0 bırakın."
+        "tr": "Biliniyorsa, stok devir hızını (SMM / Ortalama Stok) girin. Sağlanırsa, DIO = Dönem Günü / Devir Hızı olarak hesaplanır. Ortalama Stok ve SMM'den hesaplamak için 0 bırakın.",
+        "de": "Falls bekannt, geben Sie die Lagerumschlagshäufigkeit ein (COGS / Durchschnittlicher Lagerbestand). Falls angegeben, wird DIO als Periodentage / Umschlagshäufigkeit berechnet. Lassen Sie 0, um aus durchschnittlichem Lagerbestand und COGS zu berechnen."
       }
     }
   ],

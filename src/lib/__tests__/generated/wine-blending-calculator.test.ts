@@ -12,7 +12,7 @@ describe("wine-blending-calculator", () => {
     "abv1": 15,
     "abv2": 10,
     "targetABV": 13
-  } as Wine_blending_calculatorInput;
+  } as unknown as Wine_blending_calculatorInput;
     const result = calculateWine_blending_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("skateboarding-calculator", () => {
     "truckWidth": 5.5,
     "riderWeight": 150,
     "skateStyle": 1
-  } as Skateboarding_calculatorInput;
+  } as unknown as Skateboarding_calculatorInput;
     const result = calculateSkateboarding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

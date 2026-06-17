@@ -11,7 +11,7 @@ describe("celsius-to-fahrenheit", () => {
     "celsius": 0,
     "precision": 2,
     "auto_input_3": 1
-  } as Celsius_to_fahrenheitInput;
+  } as unknown as Celsius_to_fahrenheitInput;
     const result = calculateCelsius_to_fahrenheit(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

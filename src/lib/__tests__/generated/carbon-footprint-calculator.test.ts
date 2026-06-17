@@ -13,7 +13,7 @@ describe("carbon-footprint-calculator", () => {
     "fuel_liters": 2000,
     "waste_kg": 100,
     "water_m3": 50
-  } as Carbon_footprint_calculatorInput;
+  } as unknown as Carbon_footprint_calculatorInput;
     const result = calculateCarbon_footprint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

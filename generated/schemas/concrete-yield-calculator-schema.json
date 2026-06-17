@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Cement Mass",
         "tr": "Çimento Kütlesi",
-        "de": "Cement Mass",
+        "de": "Zementmasse",
         "fr": "Cement Mass",
         "es": "Cement Mass",
         "ar": "Cement Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of cement in the concrete batch, typically in kilograms.",
-        "tr": "Beton partisindeki çimento kütlesi, tipik olarak kilogram cinsinden."
+        "tr": "Beton partisindeki çimento kütlesi, tipik olarak kilogram cinsinden.",
+        "de": "Masse des Zements in der Betonmischung, typischerweise in Kilogramm."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Water Mass",
         "tr": "Su Kütlesi",
-        "de": "Water Mass",
+        "de": "Wassermasse",
         "fr": "Water Mass",
         "es": "Water Mass",
         "ar": "Water Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of water in the batch, including water in admixtures if applicable.",
-        "tr": "Partideki su kütlesi, varsa katkılardaki su dahil."
+        "tr": "Partideki su kütlesi, varsa katkılardaki su dahil.",
+        "de": "Masse des Wassers in der Mischung, einschließlich Wasser in Zusatzmitteln, falls zutreffend."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fine Aggregate (Sand) Mass",
         "tr": "İnce Agrega (Kum) Kütlesi",
-        "de": "Fine Aggregate (Sand) Mass",
+        "de": "Feine Gesteinskörnung (Sand) Masse",
         "fr": "Fine Aggregate (Sand) Mass",
         "es": "Fine Aggregate (Sand) Mass",
         "ar": "Fine Aggregate (Sand) Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of fine aggregate (sand) in the batch.",
-        "tr": "Partideki ince agrega (kum) kütlesi."
+        "tr": "Partideki ince agrega (kum) kütlesi.",
+        "de": "Masse der feinen Gesteinskörnung (Sand) in der Mischung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Coarse Aggregate Mass",
         "tr": "İri Agrega Kütlesi",
-        "de": "Coarse Aggregate Mass",
+        "de": "Grobe Gesteinskörnung Masse",
         "fr": "Coarse Aggregate Mass",
         "es": "Coarse Aggregate Mass",
         "ar": "Coarse Aggregate Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of coarse aggregate (gravel or crushed stone) in the batch.",
-        "tr": "Partideki iri agrega (çakıl veya kırma taş) kütlesi."
+        "tr": "Partideki iri agrega (çakıl veya kırma taş) kütlesi.",
+        "de": "Masse der groben Gesteinskörnung (Kies oder Schotter) in der Mischung."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Admixture Mass",
         "tr": "Katkı Kütlesi",
-        "de": "Admixture Mass",
+        "de": "Zusatzmittelmasse",
         "fr": "Admixture Mass",
         "es": "Admixture Mass",
         "ar": "Admixture Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of chemical admixtures added (if any), in kilograms. Convert liquid volume to mass using density if applicable.",
-        "tr": "Eklenen kimyasal katkıların kütlesi (varsa), kilogram cinsinden. Sıvı hacmi, yoğunluk kullanılarak kütleye dönüştürülür."
+        "tr": "Eklenen kimyasal katkıların kütlesi (varsa), kilogram cinsinden. Sıvı hacmi, yoğunluk kullanılarak kütleye dönüştürülür.",
+        "de": "Masse der chemischen Zusatzmittel (falls vorhanden) in Kilogramm. Flüssigkeitsvolumen ggf. mit Dichte in Masse umrechnen."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Fresh Concrete Density",
         "tr": "Taze Beton Yoğunluğu",
-        "de": "Fresh Concrete Density",
+        "de": "Frischbetondichte",
         "fr": "Fresh Concrete Density",
         "es": "Fresh Concrete Density",
         "ar": "Fresh Concrete Density"
       },
       "businessContext_i18n": {
         "en": "Measured unit weight (density) of the fresh concrete. Typical range: 2200–2500 kg/m³.",
-        "tr": "Taze betonun ölçülen birim ağırlığı (yoğunluğu). Tipik aralık: 2200–2500 kg/m³."
+        "tr": "Taze betonun ölçülen birim ağırlığı (yoğunluğu). Tipik aralık: 2200–2500 kg/m³.",
+        "de": "Gemessene Rohdichte (Dichte) des Frischbetons. Typischer Bereich: 2200–2500 kg/m³."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Cement Bag Mass",
         "tr": "Çimento Torba Ağırlığı",
-        "de": "Cement Bag Mass",
+        "de": "Zementsackmasse",
         "fr": "Cement Bag Mass",
         "es": "Cement Bag Mass",
         "ar": "Cement Bag Mass"
       },
       "businessContext_i18n": {
         "en": "Standard mass of one cement bag (e.g., 50 kg). Used to calculate yield per bag.",
-        "tr": "Bir çimento torbasının standart kütlesi (ör. 50 kg). Torba başına verimi hesaplamak için kullanılır."
+        "tr": "Bir çimento torbasının standart kütlesi (ör. 50 kg). Torba başına verimi hesaplamak için kullanılır.",
+        "de": "Standardmasse eines Zementsacks (z. B. 50 kg). Wird zur Berechnung der Ausbeute pro Sack verwendet."
       }
     }
   ],

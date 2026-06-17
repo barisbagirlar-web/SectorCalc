@@ -12,7 +12,7 @@ describe("turbine-calculator", () => {
     "rotorDiameter": 80,
     "windSpeed": 12,
     "efficiency": 40
-  } as Turbine_calculatorInput;
+  } as unknown as Turbine_calculatorInput;
     const result = calculateTurbine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

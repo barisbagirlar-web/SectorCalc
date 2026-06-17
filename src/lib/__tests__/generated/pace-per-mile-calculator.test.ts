@@ -12,7 +12,7 @@ describe("pace-per-mile-calculator", () => {
     "minutes": 0,
     "seconds": 0,
     "distance": 1
-  } as Pace_per_mile_calculatorInput;
+  } as unknown as Pace_per_mile_calculatorInput;
     const result = calculatePace_per_mile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

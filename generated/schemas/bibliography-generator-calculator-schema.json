@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Document Page Count",
         "tr": "Belge Sayfa Sayısı",
-        "de": "Document Page Count",
+        "de": "Seitenanzahl des Dokuments",
         "fr": "Document Page Count",
         "es": "Document Page Count",
         "ar": "Document Page Count"
       },
       "businessContext_i18n": {
         "en": "Total number of pages in the document.",
-        "tr": "Belgedeki toplam sayfa sayısı."
+        "tr": "Belgedeki toplam sayfa sayısı.",
+        "de": "Gesamtanzahl der Seiten im Dokument."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Average References per Page",
         "tr": "Sayfa Başına Ortalama Referans",
-        "de": "Average References per Page",
+        "de": "Durchschnittliche Referenzen pro Seite",
         "fr": "Average References per Page",
         "es": "Average References per Page",
         "ar": "Average References per Page"
       },
       "businessContext_i18n": {
         "en": "Typical number of citations per page.",
-        "tr": "Sayfa başına tipik alıntı sayısı."
+        "tr": "Sayfa başına tipik alıntı sayısı.",
+        "de": "Typische Anzahl von Zitaten pro Seite."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Citation Density",
         "tr": "Alıntı Yoğunluğu",
-        "de": "Citation Density",
+        "de": "Zitationsdichte",
         "fr": "Citation Density",
         "es": "Citation Density",
         "ar": "Citation Density"
       },
       "businessContext_i18n": {
         "en": "Percentage of pages that have citations.",
-        "tr": "Alıntı içeren sayfaların yüzdesi."
+        "tr": "Alıntı içeren sayfaların yüzdesi.",
+        "de": "Prozentsatz der Seiten mit Zitaten."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Formatting Time per Reference",
         "tr": "Referans Başına Biçimlendirme Süresi",
-        "de": "Formatting Time per Reference",
+        "de": "Formatierungszeit pro Referenz",
         "fr": "Formatting Time per Reference",
         "es": "Formatting Time per Reference",
         "ar": "Formatting Time per Reference"
       },
       "businessContext_i18n": {
         "en": "Time to format one reference according to style.",
-        "tr": "Stile göre bir referansı biçimlendirme süresi."
+        "tr": "Stile göre bir referansı biçimlendirme süresi.",
+        "de": "Zeit, eine Referenz gemäß Stil zu formatieren."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Style Complexity Factor",
         "tr": "Stil Karmaşıklık Faktörü",
-        "de": "Style Complexity Factor",
+        "de": "Stil-Komplexitätsfaktor",
         "fr": "Style Complexity Factor",
         "es": "Style Complexity Factor",
         "ar": "Style Complexity Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for bibliography style complexity (e.g., APA = 1.0, Chicago = 1.2).",
-        "tr": "Kaynakça stili karmaşıklığı için çarpan (örn. APA = 1.0, Chicago = 1.2)."
+        "tr": "Kaynakça stili karmaşıklığı için çarpan (örn. APA = 1.0, Chicago = 1.2).",
+        "de": "Multiplikator für die Komplexität des Bibliografiestils (z. B. APA = 1,0, Chicago = 1,2)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Overhead Time",
         "tr": "Genel Gider Süresi",
-        "de": "Overhead Time",
+        "de": "Overhead-Zeit",
         "fr": "Overhead Time",
         "es": "Overhead Time",
         "ar": "Overhead Time"
       },
       "businessContext_i18n": {
         "en": "Fixed time for setting up bibliography tools.",
-        "tr": "Kaynakça araçlarını kurmak için sabit süre."
+        "tr": "Kaynakça araçlarını kurmak için sabit süre.",
+        "de": "Feste Zeit für die Einrichtung von Bibliografiewerkzeugen."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "External References Count",
         "tr": "Harici Referans Sayısı",
-        "de": "External References Count",
+        "de": "Anzahl externer Referenzen",
         "fr": "External References Count",
         "es": "External References Count",
         "ar": "External References Count"
       },
       "businessContext_i18n": {
         "en": "Number of references imported from external databases.",
-        "tr": "Harici veritabanlarından içe aktarılan referans sayısı."
+        "tr": "Harici veritabanlarından içe aktarılan referans sayısı.",
+        "de": "Anzahl der aus externen Datenbanken importierten Referenzen."
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Auto-Generation Time per Reference",
         "tr": "Referans Başına Otomatik Oluşturma Süresi",
-        "de": "Auto-Generation Time per Reference",
+        "de": "Auto-Generierungszeit pro Referenz",
         "fr": "Auto-Generation Time per Reference",
         "es": "Auto-Generation Time per Reference",
         "ar": "Auto-Generation Time per Reference"
       },
       "businessContext_i18n": {
         "en": "Time to automatically generate a reference from a database.",
-        "tr": "Bir veritabanından referansı otomatik olarak oluşturma süresi."
+        "tr": "Bir veritabanından referansı otomatik olarak oluşturma süresi.",
+        "de": "Zeit, eine Referenz automatisch aus einer Datenbank zu generieren."
       }
     }
   ],

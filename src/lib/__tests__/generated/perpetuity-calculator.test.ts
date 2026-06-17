@@ -12,7 +12,7 @@ describe("perpetuity-calculator", () => {
     "payment": 1000,
     "discountRate": 5,
     "growthRate": 2
-  } as Perpetuity_calculatorInput;
+  } as unknown as Perpetuity_calculatorInput;
     const result = calculatePerpetuity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

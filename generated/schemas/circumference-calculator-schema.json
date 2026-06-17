@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "The radius of the circle. Provide if known.",
-        "tr": "Dairenin yarıçapı. Biliniyorsa girin."
+        "tr": "Dairenin yarıçapı. Biliniyorsa girin.",
+        "de": "Der Radius des Kreises. Angeben, falls bekannt."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Diameter",
         "tr": "Çap",
-        "de": "Diameter",
+        "de": "Durchmesser",
         "fr": "Diameter",
         "es": "Diameter",
         "ar": "Diameter"
       },
       "businessContext_i18n": {
         "en": "The diameter of the circle. Provide if known.",
-        "tr": "Dairenin çapı. Biliniyorsa girin."
+        "tr": "Dairenin çapı. Biliniyorsa girin.",
+        "de": "Der Durchmesser des Kreises. Angeben, falls bekannt."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Area",
         "tr": "Alan",
-        "de": "Area",
+        "de": "Fläche",
         "fr": "Area",
         "es": "Area",
         "ar": "Area"
       },
       "businessContext_i18n": {
         "en": "The area of the circle. Provide if known.",
-        "tr": "Dairenin alanı. Biliniyorsa girin."
+        "tr": "Dairenin alanı. Biliniyorsa girin.",
+        "de": "Die Fläche des Kreises. Angeben, falls bekannt."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Unit Conversion Factor",
         "tr": "Birim Dönüşüm Faktörü",
-        "de": "Unit Conversion Factor",
+        "de": "Einheitenumrechnungsfaktor",
         "fr": "Unit Conversion Factor",
         "es": "Unit Conversion Factor",
         "ar": "Unit Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Factor to convert input length unit to output length unit. E.g., cm to m: 0.01. Area is squared automatically.",
-        "tr": "Giriş uzunluk birimini çıkış uzunluk birimine dönüştüren faktör. Örn. cm'den m'ye: 0.01. Alan otomatik olarak kare alınır."
+        "tr": "Giriş uzunluk birimini çıkış uzunluk birimine dönüştüren faktör. Örn. cm'den m'ye: 0.01. Alan otomatik olarak kare alınır.",
+        "de": "Faktor zur Umrechnung der Eingangslängeneinheit in die Ausgangslängeneinheit. Z.B. cm in m: 0,01. Fläche wird automatisch quadriert."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding outputs.",
-        "tr": "Çıktıları yuvarlamak için ondalık basamak sayısı."
+        "tr": "Çıktıları yuvarlamak için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen zum Runden der Ausgaben."
       }
     }
   ],

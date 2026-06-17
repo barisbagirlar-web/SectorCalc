@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Carbohydrates",
         "tr": "Toplam Karbonhidrat",
-        "de": "Total Carbohydrates",
+        "de": "Gesamtkohlenhydrate",
         "fr": "Total Carbohydrates",
         "es": "Total Carbohydrates",
         "ar": "Total Carbohydrates"
       },
       "businessContext_i18n": {
         "en": "Amount of carbohydrates in the meal to be consumed.",
-        "tr": "Tüketilecek öğündeki karbonhidrat miktarı."
+        "tr": "Tüketilecek öğündeki karbonhidrat miktarı.",
+        "de": "Menge an Kohlenhydraten in der Mahlzeit, die verzehrt wird."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Insulin-to-Carb Ratio",
         "tr": "İnsülin/Karbonhidrat Oranı",
-        "de": "Insulin-to-Carb Ratio",
+        "de": "Insulin-Kohlenhydrat-Verhältnis",
         "fr": "Insulin-to-Carb Ratio",
         "es": "Insulin-to-Carb Ratio",
         "ar": "Insulin-to-Carb Ratio"
       },
       "businessContext_i18n": {
         "en": "Grams of carbohydrate covered by one unit of rapid-acting insulin.",
-        "tr": "Bir ünite hızlı etkili insülinin kapsadığı gram karbonhidrat."
+        "tr": "Bir ünite hızlı etkili insülinin kapsadığı gram karbonhidrat.",
+        "de": "Gramm Kohlenhydrate, die von einer Einheit schnell wirkendem Insulin abgedeckt werden."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Current Blood Glucose",
         "tr": "Mevcut Kan Şekeri",
-        "de": "Current Blood Glucose",
+        "de": "Aktueller Blutzucker",
         "fr": "Current Blood Glucose",
         "es": "Current Blood Glucose",
         "ar": "Current Blood Glucose"
       },
       "businessContext_i18n": {
         "en": "Pre-meal capillary blood glucose measurement.",
-        "tr": "Yemek öncesi kılcal kan şekeri ölçümü."
+        "tr": "Yemek öncesi kılcal kan şekeri ölçümü.",
+        "de": "Kapillarer Blutzuckermesswert vor der Mahlzeit."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Target Blood Glucose",
         "tr": "Hedef Kan Şekeri",
-        "de": "Target Blood Glucose",
+        "de": "Zielblutzucker",
         "fr": "Target Blood Glucose",
         "es": "Target Blood Glucose",
         "ar": "Target Blood Glucose"
       },
       "businessContext_i18n": {
         "en": "Individualized post-prandial blood glucose goal.",
-        "tr": "Bireyselleştirilmiş tokluk kan şekeri hedefi."
+        "tr": "Bireyselleştirilmiş tokluk kan şekeri hedefi.",
+        "de": "Individuelles postprandiales Blutzuckerziel."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Insulin Sensitivity Factor",
         "tr": "İnsülin Duyarlılık Faktörü",
-        "de": "Insulin Sensitivity Factor",
+        "de": "Insulinsensitivitätsfaktor",
         "fr": "Insulin Sensitivity Factor",
         "es": "Insulin Sensitivity Factor",
         "ar": "Insulin Sensitivity Factor"
       },
       "businessContext_i18n": {
         "en": "Expected drop in blood glucose per unit of insulin (correction factor).",
-        "tr": "Bir ünite insülin başına beklenen kan şekeri düşüşü (düzeltme faktörü)."
+        "tr": "Bir ünite insülin başına beklenen kan şekeri düşüşü (düzeltme faktörü).",
+        "de": "Erwarteter Blutzuckerabfall pro Einheit Insulin (Korrekturfaktor)."
       }
     }
   ],

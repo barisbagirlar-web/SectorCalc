@@ -12,7 +12,7 @@ describe("dog-years-calculator", () => {
     "breedSize": 2,
     "weight": 15,
     "activityLevel": 2
-  } as Dog_years_calculatorInput;
+  } as unknown as Dog_years_calculatorInput;
     const result = calculateDog_years_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

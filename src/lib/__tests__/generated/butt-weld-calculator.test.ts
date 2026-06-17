@@ -13,7 +13,7 @@ describe("butt-weld-calculator", () => {
     "includedAngle": 60,
     "weldLength": 1,
     "metalDensity": 7850
-  } as Butt_weld_calculatorInput;
+  } as unknown as Butt_weld_calculatorInput;
     const result = calculateButt_weld_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

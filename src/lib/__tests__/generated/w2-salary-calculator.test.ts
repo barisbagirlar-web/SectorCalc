@@ -15,7 +15,7 @@ describe("w2-salary-calculator", () => {
     "socialSecurityRate": 6.2,
     "medicareRate": 1.45,
     "otherDeductions": 0
-  } as W2_salary_calculatorInput;
+  } as unknown as W2_salary_calculatorInput;
     const result = calculateW2_salary_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Yaş",
         "tr": "Yaş",
-        "de": "Yaş",
+        "de": "Alter",
         "fr": "Yaş",
         "es": "Yaş",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Hastanın yaşı",
-        "tr": "Hastanın yaşı"
+        "tr": "Hastanın yaşı",
+        "de": "Alter des Patienten"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Komorbidite Sayısı",
         "tr": "Komorbidite Sayısı",
-        "de": "Komorbidite Sayısı",
+        "de": "Anzahl der Komorbiditäten",
         "fr": "Komorbidite Sayısı",
         "es": "Komorbidite Sayısı",
         "ar": "Komorbidite Sayısı"
       },
       "businessContext_i18n": {
         "en": "Eşlik eden kronik hastalık sayısı",
-        "tr": "Eşlik eden kronik hastalık sayısı"
+        "tr": "Eşlik eden kronik hastalık sayısı",
+        "de": "Anzahl der begleitenden chronischen Erkrankungen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Günlük Yaşam Aktiviteleri Skoru (0-7)",
         "tr": "Günlük Yaşam Aktiviteleri Skoru (0-7)",
-        "de": "Günlük Yaşam Aktiviteleri Skoru (0-7)",
+        "de": "Aktivitäten des täglichen Lebens (ADL) Score (0-7)",
         "fr": "Günlük Yaşam Aktiviteleri Skoru (0-7)",
         "es": "Günlük Yaşam Aktiviteleri Skoru (0-7)",
         "ar": "Günlük Yaşam Aktiviteleri Skoru (0-7)"
       },
       "businessContext_i18n": {
         "en": "Barthel İndeksi benzeri fonksiyonel bağımsızlık ölçümü (7: tam bağımsız, 0: tam bağımlı)",
-        "tr": "Barthel İndeksi benzeri fonksiyonel bağımsızlık ölçümü (7: tam bağımsız, 0: tam bağımlı)"
+        "tr": "Barthel İndeksi benzeri fonksiyonel bağımsızlık ölçümü (7: tam bağımsız, 0: tam bağımlı)",
+        "de": "Funktionale Unabhängigkeit ähnlich Barthel-Index (7: völlig unabhängig, 0: völlig abhängig)"
       }
     }
   ],

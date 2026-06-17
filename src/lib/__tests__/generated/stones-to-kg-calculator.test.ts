@@ -12,7 +12,7 @@ describe("stones-to-kg-calculator", () => {
     "pounds": 0,
     "conversionFactor": 6.35029,
     "precision": 2
-  } as Stones_to_kg_calculatorInput;
+  } as unknown as Stones_to_kg_calculatorInput;
     const result = calculateStones_to_kg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

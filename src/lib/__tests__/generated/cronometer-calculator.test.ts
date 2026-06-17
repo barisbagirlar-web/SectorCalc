@@ -12,7 +12,7 @@ describe("cronometer-calculator", () => {
     "cycles": 1,
     "ratingFactor": 100,
     "allowanceFactor": 15
-  } as Cronometer_calculatorInput;
+  } as unknown as Cronometer_calculatorInput;
     const result = calculateCronometer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

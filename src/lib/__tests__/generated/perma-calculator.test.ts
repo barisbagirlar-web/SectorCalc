@@ -13,7 +13,7 @@ describe("perma-calculator", () => {
     "relationships": 5,
     "meaning": 5,
     "accomplishment": 5
-  } as Perma_calculatorInput;
+  } as unknown as Perma_calculatorInput;
     const result = calculatePerma_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("myfitnesspal-macro-calculator", () => {
     "gender": 0,
     "activityLevel": 1.55,
     "goalFactor": 0.8
-  } as Myfitnesspal_macro_calculatorInput;
+  } as unknown as Myfitnesspal_macro_calculatorInput;
     const result = calculateMyfitnesspal_macro_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

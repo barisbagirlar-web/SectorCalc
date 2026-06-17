@@ -12,7 +12,7 @@ describe("critical-hit-calculator", () => {
     "critical-modifier": 0,
     "crit-damage-multiplier": 1.5,
     "number-of-attacks": 10
-  } as Critical_hit_calculatorInput;
+  } as unknown as Critical_hit_calculatorInput;
     const result = calculateCritical_hit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("sewing-thread-calculator", () => {
     "threadConsumptionPerStitch": 0.75,
     "numberOfGarments": 1,
     "wastePercentage": 5
-  } as Sewing_thread_calculatorInput;
+  } as unknown as Sewing_thread_calculatorInput;
     const result = calculateSewing_thread_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

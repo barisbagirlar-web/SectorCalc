@@ -12,7 +12,7 @@ describe("hours-to-minutes-calculator", () => {
     "batchSize": 1,
     "machineCount": 1,
     "adjustmentPercent": 0
-  } as Hours_to_minutes_calculatorInput;
+  } as unknown as Hours_to_minutes_calculatorInput;
     const result = calculateHours_to_minutes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

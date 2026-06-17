@@ -15,7 +15,7 @@ describe("atomic-mass-calculator", () => {
     "neutronMass": 1.008665,
     "electronMass": 0.00054858,
     "bindingEnergy": 0
-  } as Atomic_mass_calculatorInput;
+  } as unknown as Atomic_mass_calculatorInput;
     const result = calculateAtomic_mass_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

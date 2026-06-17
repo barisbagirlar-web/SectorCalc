@@ -13,7 +13,7 @@ describe("mma-weight-cut-calculator", () => {
     "target_weight": 70,
     "dehydration_pct": 5,
     "time_to_fight": 7
-  } as Mma_weight_cut_calculatorInput;
+  } as unknown as Mma_weight_cut_calculatorInput;
     const result = calculateMma_weight_cut_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

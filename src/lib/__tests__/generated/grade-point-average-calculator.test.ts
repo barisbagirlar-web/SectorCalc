@@ -16,7 +16,7 @@ describe("grade-point-average-calculator", () => {
     "grade3": 0,
     "credit4": 0,
     "grade4": 0
-  } as Grade_point_average_calculatorInput;
+  } as unknown as Grade_point_average_calculatorInput;
     const result = calculateGrade_point_average_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

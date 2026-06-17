@@ -15,7 +15,7 @@ describe("m-to-inches-calculator", () => {
     "tolerance": 0.005,
     "expansionCoeff": 0.000011,
     "tempDelta": 0
-  } as M_to_inches_calculatorInput;
+  } as unknown as M_to_inches_calculatorInput;
     const result = calculateM_to_inches_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

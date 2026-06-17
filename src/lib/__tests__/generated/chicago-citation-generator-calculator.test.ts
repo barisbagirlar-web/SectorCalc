@@ -13,7 +13,7 @@ describe("chicago-citation-generator-calculator", () => {
     "pageCount": 100,
     "citationFreq": 5,
     "relevance": 0.8
-  } as Chicago_citation_generator_calculatorInput;
+  } as unknown as Chicago_citation_generator_calculatorInput;
     const result = calculateChicago_citation_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

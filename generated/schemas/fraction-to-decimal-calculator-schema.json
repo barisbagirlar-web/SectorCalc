@@ -22,11 +22,13 @@
       "businessContext": "The top part of the fraction (dividend). For mixed numbers, use the fractional part only.",
       "label_i18n": {
         "en": "Numerator",
-        "tr": "Pay"
+        "tr": "Pay",
+        "de": "Zähler"
       },
       "businessContext_i18n": {
         "en": "The top part of the fraction (dividend). For mixed numbers, use the fractional part only.",
-        "tr": "Kesrin üst kısmı (bölünen). Tam sayılı kesirlerde yalnızca kesirli kısmı kullanın."
+        "tr": "Kesrin üst kısmı (bölünen). Tam sayılı kesirlerde yalnızca kesirli kısmı kullanın.",
+        "de": "Der obere Teil des Bruchs (Dividend). Bei gemischten Zahlen nur den Bruchteil angeben."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "The bottom part of the fraction (divisor). Must be non-zero.",
       "label_i18n": {
         "en": "Denominator",
-        "tr": "Payda"
+        "tr": "Payda",
+        "de": "Nenner"
       },
       "businessContext_i18n": {
         "en": "The bottom part of the fraction (divisor). Must be non-zero.",
-        "tr": "Kesrin alt kısmı (bölen). Sıfırdan farklı olmalıdır."
+        "tr": "Kesrin alt kısmı (bölen). Sıfırdan farklı olmalıdır.",
+        "de": "Der untere Teil des Bruchs (Divisor). Muss ungleich Null sein."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Integer part of a mixed number (e.g., 3 in 3 1/4). Set to 0 for proper fractions.",
       "label_i18n": {
         "en": "Whole Number (for mixed fractions)",
-        "tr": "Tam Sayı (tam sayılı kesirler için)"
+        "tr": "Tam Sayı (tam sayılı kesirler için)",
+        "de": "Ganze Zahl (bei gemischten Brüchen)"
       },
       "businessContext_i18n": {
         "en": "Integer part of a mixed number (e.g., 3 in 3 1/4). Set to 0 for proper fractions.",
-        "tr": "Tam sayı kısmı (ör. 3 1/4'te 3). Basit kesirler için 0 girin."
+        "tr": "Tam sayı kısmı (ör. 3 1/4'te 3). Basit kesirler için 0 girin.",
+        "de": "Ganzzahliger Teil einer gemischten Zahl (z. B. 3 bei 3 1/4). Bei echten Brüchen auf 0 setzen."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Number of decimal places for the result. Follows ISO 80000-1 rounding rules.",
       "label_i18n": {
         "en": "Decimal Places (precision)",
-        "tr": "Ondalık basamak sayısı (hassasiyet)"
+        "tr": "Ondalık basamak sayısı (hassasiyet)",
+        "de": "Dezimalstellen (Genauigkeit)"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the result. Follows ISO 80000-1 rounding rules.",
-        "tr": "Sonuç için ondalık basamak sayısı. ISO 80000-1 yuvarlama kurallarına uyar."
+        "tr": "Sonuç için ondalık basamak sayısı. ISO 80000-1 yuvarlama kurallarına uyar.",
+        "de": "Anzahl der Dezimalstellen für das Ergebnis. Folgt den Rundungsregeln nach ISO 80000-1."
       }
     },
     {
@@ -100,11 +108,13 @@
       "businessContext": "Rounding rule per ISO 80000-1 (half_even recommended for statistical work).",
       "label_i18n": {
         "en": "Rounding Method",
-        "tr": "Yuvarlama yöntemi"
+        "tr": "Yuvarlama yöntemi",
+        "de": "Rundungsmethode"
       },
       "businessContext_i18n": {
         "en": "Rounding rule per ISO 80000-1 (half_even recommended for statistical work).",
-        "tr": "ISO 80000-1'e göre yuvarlama kuralı (istatistiksel çalışmalar için half_even önerilir)."
+        "tr": "ISO 80000-1'e göre yuvarlama kuralı (istatistiksel çalışmalar için half_even önerilir).",
+        "de": "Rundungsregel nach ISO 80000-1 (half_even für statistische Arbeiten empfohlen)."
       }
     },
     {
@@ -118,11 +128,13 @@
       "businessContext": "Absolute uncertainty in the numerator (e.g., from measurement tolerance). Used for Six Sigma uncertainty propagation.",
       "label_i18n": {
         "en": "Measurement Uncertainty (±)",
-        "tr": "Ölçüm belirsizliği (±)"
+        "tr": "Ölçüm belirsizliği (±)",
+        "de": "Messunsicherheit (±)"
       },
       "businessContext_i18n": {
         "en": "Absolute uncertainty in the numerator (e.g., from measurement tolerance). Used for Six Sigma uncertainty propagation.",
-        "tr": "Paydaki mutlak belirsizlik (ör. ölçüm toleransından). Altı Sigma belirsizlik yayılımı için kullanılır."
+        "tr": "Paydaki mutlak belirsizlik (ör. ölçüm toleransından). Altı Sigma belirsizlik yayılımı için kullanılır.",
+        "de": "Absolute Unsicherheit im Zähler (z. B. aus Messtoleranz). Für Six Sigma Unsicherheitsfortpflanzung."
       }
     }
   ],

@@ -15,7 +15,7 @@ describe("orchard-calculator", () => {
     "pricePerKg": 2,
     "annualCostPerTree": 15,
     "initialInvestment": 50000
-  } as Orchard_calculatorInput;
+  } as unknown as Orchard_calculatorInput;
     const result = calculateOrchard_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

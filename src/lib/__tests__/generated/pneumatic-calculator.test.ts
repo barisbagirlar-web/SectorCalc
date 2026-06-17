@@ -14,7 +14,7 @@ describe("pneumatic-calculator", () => {
     "stroke": 100,
     "cyclesPerMinute": 30,
     "safetyFactor": 10
-  } as Pneumatic_calculatorInput;
+  } as unknown as Pneumatic_calculatorInput;
     const result = calculatePneumatic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

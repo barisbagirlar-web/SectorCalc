@@ -12,7 +12,7 @@ describe("color-converter-calculator", () => {
     "green": 0,
     "blue": 0,
     "alpha": 1
-  } as Color_converter_calculatorInput;
+  } as unknown as Color_converter_calculatorInput;
     const result = calculateColor_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

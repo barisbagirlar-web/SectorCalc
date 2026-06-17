@@ -12,7 +12,7 @@ describe("retention-rate-calculator", () => {
     "customersEnd": 900,
     "newCustomers": 200,
     "periodDays": 30
-  } as Retention_rate_calculatorInput;
+  } as unknown as Retention_rate_calculatorInput;
     const result = calculateRetention_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

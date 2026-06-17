@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Accounts Payable (Beginning)",
         "tr": "Ticari Borçlar (Dönem Başı)",
-        "de": "Accounts Payable (Beginning)",
+        "de": "Verbindlichkeiten aus Lieferungen und Leistungen (Anfang)",
         "fr": "Accounts Payable (Beginning)",
         "es": "Accounts Payable (Beginning)",
         "ar": "Accounts Payable (Beginning)"
       },
       "businessContext_i18n": {
         "en": "Beginning balance of accounts payable from the balance sheet at the start of the period.",
-        "tr": "Dönem başındaki bilançodan ticari borçların başlangıç bakiyesi."
+        "tr": "Dönem başındaki bilançodan ticari borçların başlangıç bakiyesi.",
+        "de": "Anfangsbestand der Verbindlichkeiten aus Lieferungen und Leistungen aus der Bilanz zu Beginn des Zeitraums."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Accounts Payable (Ending)",
         "tr": "Ticari Borçlar (Dönem Sonu)",
-        "de": "Accounts Payable (Ending)",
+        "de": "Verbindlichkeiten aus Lieferungen und Leistungen (Ende)",
         "fr": "Accounts Payable (Ending)",
         "es": "Accounts Payable (Ending)",
         "ar": "Accounts Payable (Ending)"
       },
       "businessContext_i18n": {
         "en": "Ending balance of accounts payable from the balance sheet at the end of the period.",
-        "tr": "Dönem sonundaki bilançodan ticari borçların bitiş bakiyesi."
+        "tr": "Dönem sonundaki bilançodan ticari borçların bitiş bakiyesi.",
+        "de": "Endbestand der Verbindlichkeiten aus Lieferungen und Leistungen aus der Bilanz am Ende des Zeitraums."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Cost of Goods Sold (COGS)",
         "tr": "Satılan Malların Maliyeti (COGS)",
-        "de": "Cost of Goods Sold (COGS)",
+        "de": "Umsatzkosten (COGS)",
         "fr": "Cost of Goods Sold (COGS)",
         "es": "Cost of Goods Sold (COGS)",
         "ar": "Cost of Goods Sold (COGS)"
       },
       "businessContext_i18n": {
         "en": "Total cost of goods sold during the period, from the income statement.",
-        "tr": "Dönem boyunca satılan malların toplam maliyeti, gelir tablosundan."
+        "tr": "Dönem boyunca satılan malların toplam maliyeti, gelir tablosundan.",
+        "de": "Gesamtkosten der verkauften Waren während des Zeitraums, aus der Gewinn- und Verlustrechnung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Days in Period",
         "tr": "Dönemdeki Gün Sayısı",
-        "de": "Number of Days in Period",
+        "de": "Anzahl der Tage im Zeitraum",
         "fr": "Number of Days in Period",
         "es": "Number of Days in Period",
         "ar": "Number of Days in Period"
       },
       "businessContext_i18n": {
         "en": "Number of calendar days in the measurement period (e.g., 365 for annual, 90 for quarterly).",
-        "tr": "Ölçüm dönemindeki takvim günü sayısı (örneğin, yıllık için 365, üç aylık için 90)."
+        "tr": "Ölçüm dönemindeki takvim günü sayısı (örneğin, yıllık için 365, üç aylık için 90).",
+        "de": "Anzahl der Kalendertage im Messzeitraum (z. B. 365 für jährlich, 90 für vierteljährlich)."
       }
     }
   ],

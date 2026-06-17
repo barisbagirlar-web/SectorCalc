@@ -14,7 +14,7 @@ describe("working-days-calculator", () => {
     "includeEnd": 1,
     "weekendDaysPerWeek": 2,
     "holidays": 0
-  } as Working_days_calculatorInput;
+  } as unknown as Working_days_calculatorInput;
     const result = calculateWorking_days_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

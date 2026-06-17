@@ -15,7 +15,7 @@ describe("column-load-calculator", () => {
     "yieldStrength": 250,
     "effectiveLengthFactor": 1,
     "safetyFactor": 1.5
-  } as Column_load_calculatorInput;
+  } as unknown as Column_load_calculatorInput;
     const result = calculateColumn_load_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

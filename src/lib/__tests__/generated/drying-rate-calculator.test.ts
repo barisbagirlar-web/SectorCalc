@@ -13,7 +13,7 @@ describe("drying-rate-calculator", () => {
     "solid_mass": 1000,
     "drying_rate": 50,
     "specific_energy": 1.2
-  } as Drying_rate_calculatorInput;
+  } as unknown as Drying_rate_calculatorInput;
     const result = calculateDrying_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

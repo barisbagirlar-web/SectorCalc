@@ -12,7 +12,7 @@ describe("duolingo-english-test-calculator", () => {
     "comprehension": 120,
     "conversation": 120,
     "production": 120
-  } as Duolingo_english_test_calculatorInput;
+  } as unknown as Duolingo_english_test_calculatorInput;
     const result = calculateDuolingo_english_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Süre (on yıl)",
         "tr": "Süre (on yıl)",
-        "de": "Süre (on yıl)",
+        "de": "Dauer (Jahrzehnt)",
         "fr": "Süre (on yıl)",
         "es": "Süre (on yıl)",
         "ar": "Süre (on yıl)"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek on yıl miktarı",
-        "tr": "Dönüştürülecek on yıl miktarı"
+        "tr": "Dönüştürülecek on yıl miktarı",
+        "de": "Umzurechnende Jahrzehntmenge"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Hassasiyet (ondalık basamak)",
         "tr": "Hassasiyet (ondalık basamak)",
-        "de": "Hassasiyet (ondalık basamak)",
+        "de": "Genauigkeit (Dezimalstellen)",
         "fr": "Hassasiyet (ondalık basamak)",
         "es": "Hassasiyet (ondalık basamak)",
         "ar": "Hassasiyet (ondalık basamak)"
       },
       "businessContext_i18n": {
         "en": "Hesaplama sonucu ondalık basamak sayısı",
-        "tr": "Hesaplama sonucu ondalık basamak sayısı"
+        "tr": "Hesaplama sonucu ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen im Berechnungsergebnis"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Güven Aralığı (%)",
         "tr": "Güven Aralığı (%)",
-        "de": "Güven Aralığı (%)",
+        "de": "Konfidenzintervall (%)",
         "fr": "Güven Aralığı (%)",
         "es": "Güven Aralığı (%)",
         "ar": "Güven Aralığı (%)"
       },
       "businessContext_i18n": {
         "en": "İstatistiksel güven aralığı yüzdesi",
-        "tr": "İstatistiksel güven aralığı yüzdesi"
+        "tr": "İstatistiksel güven aralığı yüzdesi",
+        "de": "Statistisches Konfidenzintervall in Prozent"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Ölçüm Hatası (on yıl)",
         "tr": "Ölçüm Hatası (on yıl)",
-        "de": "Ölçüm Hatası (on yıl)",
+        "de": "Messfehler (Jahrzehnt)",
         "fr": "Ölçüm Hatası (on yıl)",
         "es": "Ölçüm Hatası (on yıl)",
         "ar": "Ölçüm Hatası (on yıl)"
       },
       "businessContext_i18n": {
         "en": "On yıl cinsinden ölçüm belirsizliği (±)",
-        "tr": "On yıl cinsinden ölçüm belirsizliği (±)"
+        "tr": "On yıl cinsinden ölçüm belirsizliği (±)",
+        "de": "Messunsicherheit in Jahrzehnten (±)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
         "tr": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
-        "de": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
+        "de": "Rundungsmethode (0=runden,1=abrunden,2=aufrunden)",
         "fr": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
         "es": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
         "ar": "Yuvarlama Metodu (0=round,1=floor,2=ceil)"
       },
       "businessContext_i18n": {
         "en": "0: yuvarla, 1: aşağı yuvarla, 2: yukarı yuvarla",
-        "tr": "0: yuvarla, 1: aşağı yuvarla, 2: yukarı yuvarla"
+        "tr": "0: yuvarla, 1: aşağı yuvarla, 2: yukarı yuvarla",
+        "de": "0: runden, 1: abrunden, 2: aufrunden"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Ölçüm Sıcaklığı (°C)",
         "tr": "Ölçüm Sıcaklığı (°C)",
-        "de": "Ölçüm Sıcaklığı (°C)",
+        "de": "Messtemperatur (°C)",
         "fr": "Ölçüm Sıcaklığı (°C)",
         "es": "Ölçüm Sıcaklığı (°C)",
         "ar": "Ölçüm Sıcaklığı (°C)"
       },
       "businessContext_i18n": {
         "en": "Ölçümün yapıldığı ortam sıcaklığı (izlenebilirlik için)",
-        "tr": "Ölçümün yapıldığı ortam sıcaklığı (izlenebilirlik için)"
+        "tr": "Ölçümün yapıldığı ortam sıcaklığı (izlenebilirlik için)",
+        "de": "Umgebungstemperatur bei der Messung (für Rückverfolgbarkeit)"
       }
     }
   ],

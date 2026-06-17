@@ -14,7 +14,7 @@ describe("wallpaper-calculator", () => {
     "rollLength": 10,
     "patternRepeat": 0,
     "wastePercent": 10
-  } as Wallpaper_calculatorInput;
+  } as unknown as Wallpaper_calculatorInput;
     const result = calculateWallpaper_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

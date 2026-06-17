@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Year",
         "tr": "Yıl",
-        "de": "Year",
+        "de": "Jahr",
         "fr": "Year",
         "es": "Year",
         "ar": "Year"
       },
       "businessContext_i18n": {
         "en": "Gregorian year for which to calculate Easter date",
-        "tr": "Paskalya tarihinin hesaplanacağı Gregoryen yıl"
+        "tr": "Paskalya tarihinin hesaplanacağı Gregoryen yıl",
+        "de": "Gregorianisches Jahr, für das das Osterdatum berechnet werden soll"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Days Adjustment",
         "tr": "Gün Ayarı",
-        "de": "Days Adjustment",
+        "de": "Tageanpassung",
         "fr": "Days Adjustment",
         "es": "Days Adjustment",
         "ar": "Days Adjustment"
       },
       "businessContext_i18n": {
         "en": "Number of days to shift the computed Easter date",
-        "tr": "Hesaplanan Paskalya tarihine eklenecek gün sayısı"
+        "tr": "Hesaplanan Paskalya tarihine eklenecek gün sayısı",
+        "de": "Anzahl der Tage, um das berechnete Osterdatum zu verschieben"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Algorithm Version",
         "tr": "Algoritma Sürümü",
-        "de": "Algorithm Version",
+        "de": "Algorithmusversion",
         "fr": "Algorithm Version",
         "es": "Algorithm Version",
         "ar": "Algorithm Version"
       },
       "businessContext_i18n": {
         "en": "Version of the computus algorithm (1 = Gregorian, 2 = Julian, not used in formula)",
-        "tr": "Kullanılan hesaplama algoritmasının sürümü (1 = Gregoryen, 2 = Jülyen, formülde kullanılmaz)"
+        "tr": "Kullanılan hesaplama algoritmasının sürümü (1 = Gregoryen, 2 = Jülyen, formülde kullanılmaz)",
+        "de": "Version des Computus-Algorithmus (1 = gregorianisch, 2 = julianisch, nicht in Formel verwendet)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Moon Phase Offset",
         "tr": "Ay Fazı Ofseti",
-        "de": "Moon Phase Offset",
+        "de": "Mondphasenversatz",
         "fr": "Moon Phase Offset",
         "es": "Moon Phase Offset",
         "ar": "Moon Phase Offset"
       },
       "businessContext_i18n": {
         "en": "Offset in days to adjust the paschal full moon calculation",
-        "tr": "Paskalya dolunayı hesaplamasını ayarlamak için gün cinsinden ofset"
+        "tr": "Paskalya dolunayı hesaplamasını ayarlamak için gün cinsinden ofset",
+        "de": "Versatz in Tagen zur Anpassung der Berechnung des Ostervollmonds"
       }
     }
   ],

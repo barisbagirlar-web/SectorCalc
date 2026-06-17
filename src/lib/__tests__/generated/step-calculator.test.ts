@@ -13,7 +13,7 @@ describe("step-calculator", () => {
     "stepDepth": 28,
     "landingWidth": 100,
     "headroom": 210
-  } as Step_calculatorInput;
+  } as unknown as Step_calculatorInput;
     const result = calculateStep_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

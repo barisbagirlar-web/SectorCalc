@@ -16,7 +16,7 @@ describe("dye-recipe-cost-optimizer-calculator", () => {
     "labor_cost_per_hour": 25,
     "batch_time_hours": 4,
     "waste_percentage": 3
-  } as Dye_recipe_cost_optimizer_calculatorInput;
+  } as unknown as Dye_recipe_cost_optimizer_calculatorInput;
     const result = calculateDye_recipe_cost_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

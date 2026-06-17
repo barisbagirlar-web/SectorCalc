@@ -13,7 +13,7 @@ describe("vat-moss-calculator", () => {
     "quantity": 1,
     "discountPercent": 0,
     "additionalCosts": 0
-  } as Vat_moss_calculatorInput;
+  } as unknown as Vat_moss_calculatorInput;
     const result = calculateVat_moss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("heart-rate-recovery-calculator", () => {
     "hr1min": 140,
     "hr2min": 120,
     "restingHR": 70
-  } as Heart_rate_recovery_calculatorInput;
+  } as unknown as Heart_rate_recovery_calculatorInput;
     const result = calculateHeart_rate_recovery_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

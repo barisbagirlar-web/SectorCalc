@@ -15,7 +15,7 @@ describe("camping-calculator", () => {
     "firewoodPerNight": 10,
     "temperatureAdjust": 0,
     "safetyMargin": 10
-  } as Camping_calculatorInput;
+  } as unknown as Camping_calculatorInput;
     const result = calculateCamping_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

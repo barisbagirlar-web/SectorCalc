@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Hava Debisi",
         "tr": "Hava Debisi",
-        "de": "Hava Debisi",
+        "de": "Luftvolumenstrom",
         "fr": "Hava Debisi",
         "es": "Hava Debisi",
         "ar": "Hava Debisi"
       },
       "businessContext_i18n": {
         "en": "Sistemin taşıması gereken hava miktarı. Soğutma/ısıtma yüküne göre hesaplanır.",
-        "tr": "Sistemin taşıması gereken hava miktarı. Soğutma/ısıtma yüküne göre hesaplanır."
+        "tr": "Sistemin taşıması gereken hava miktarı. Soğutma/ısıtma yüküne göre hesaplanır.",
+        "de": "Luftmenge, die das System fördern muss. Berechnet aus Kühl-/Heizlast."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Hava Hızı",
         "tr": "Hava Hızı",
-        "de": "Hava Hızı",
+        "de": "Luftgeschwindigkeit",
         "fr": "Hava Hızı",
         "es": "Hava Hızı",
         "ar": "Hava Hızı"
       },
       "businessContext_i18n": {
         "en": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s.",
-        "tr": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s."
+        "tr": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s.",
+        "de": "Maximal zulässige Luftgeschwindigkeit im Kanal. Abhängig von Lärm- und Druckverlustgrenzen. Typisch 5-8 m/s bei Komfortanwendungen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "En/Boy Oranı",
         "tr": "En/Boy Oranı",
-        "de": "En/Boy Oranı",
+        "de": "Seitenverhältnis",
         "fr": "En/Boy Oranı",
         "es": "En/Boy Oranı",
         "ar": "En/Boy Oranı"
       },
       "businessContext_i18n": {
         "en": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir.",
-        "tr": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir."
+        "tr": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir.",
+        "de": "Verhältnis von Breite zu Höhe bei rechteckigen Kanälen. Wird für Platzoptimierung und Kostenoptimierung verwendet. 1 ergibt einen quadratischen Kanal."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Emniyet Katsayısı",
         "tr": "Emniyet Katsayısı",
-        "de": "Emniyet Katsayısı",
+        "de": "Sicherheitsfaktor",
         "fr": "Emniyet Katsayısı",
         "es": "Emniyet Katsayısı",
         "ar": "Emniyet Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör.",
-        "tr": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör."
+        "tr": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör.",
+        "de": "Sicherheitsfaktor"
       }
     }
   ],

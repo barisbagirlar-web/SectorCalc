@@ -13,7 +13,7 @@ describe("cd-calculator", () => {
     "termMonths": 12,
     "compoundingFrequency": 12,
     "additionalDeposit": 0
-  } as Cd_calculatorInput;
+  } as unknown as Cd_calculatorInput;
     const result = calculateCd_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

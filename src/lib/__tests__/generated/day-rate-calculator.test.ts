@@ -13,7 +13,7 @@ describe("day-rate-calculator", () => {
     "overheadPercentage": 30,
     "profitMarginPercentage": 20,
     "billableHoursPerDay": 8
-  } as Day_rate_calculatorInput;
+  } as unknown as Day_rate_calculatorInput;
     const result = calculateDay_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

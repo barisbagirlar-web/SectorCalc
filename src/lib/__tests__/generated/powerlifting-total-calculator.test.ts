@@ -12,7 +12,7 @@ describe("powerlifting-total-calculator", () => {
     "benchPress": 0,
     "deadlift": 0,
     "bodyWeight": 0
-  } as Powerlifting_total_calculatorInput;
+  } as unknown as Powerlifting_total_calculatorInput;
     const result = calculatePowerlifting_total_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

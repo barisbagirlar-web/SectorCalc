@@ -12,7 +12,7 @@ describe("calories-to-joules-calculator", () => {
     "conversionFactor": 4.184,
     "decimalPlaces": 2,
     "batchSize": 1
-  } as Calories_to_joules_calculatorInput;
+  } as unknown as Calories_to_joules_calculatorInput;
     const result = calculateCalories_to_joules_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

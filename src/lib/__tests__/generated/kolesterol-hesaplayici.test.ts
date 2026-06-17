@@ -12,7 +12,7 @@ describe("kolesterol-hesaplayici", () => {
     "hdlKolesterol": 50,
     "trigliserit": 150,
     "ldlKolesterol": 0
-  } as Kolesterol_hesaplayiciInput;
+  } as unknown as Kolesterol_hesaplayiciInput;
     const result = calculateKolesterol_hesaplayici(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

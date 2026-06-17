@@ -12,7 +12,7 @@ describe("torque-calculator", () => {
     "diameter_mm": 10,
     "tension_kn": 50,
     "safety_factor": 1.2
-  } as Torque_calculatorInput;
+  } as unknown as Torque_calculatorInput;
     const result = calculateTorque_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

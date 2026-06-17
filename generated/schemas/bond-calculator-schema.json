@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Face Value",
         "tr": "Nominal Değer",
-        "de": "Face Value",
+        "de": "Nennwert",
         "fr": "Face Value",
         "es": "Face Value",
         "ar": "Face Value"
       },
       "businessContext_i18n": {
         "en": "Par value of the bond paid at maturity",
-        "tr": "Vadede ödenen tahvilin itibari değeri"
+        "tr": "Vadede ödenen tahvilin itibari değeri",
+        "de": "Nennwert der Anleihe, der bei Fälligkeit gezahlt wird"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Coupon Rate",
         "tr": "Kupon Oranı",
-        "de": "Coupon Rate",
+        "de": "Kuponrate",
         "fr": "Coupon Rate",
         "es": "Coupon Rate",
         "ar": "Coupon Rate"
       },
       "businessContext_i18n": {
         "en": "Annual coupon payment as a percentage of face value",
-        "tr": "Nominal değerin yüzdesi olarak yıllık kupon ödemesi"
+        "tr": "Nominal değerin yüzdesi olarak yıllık kupon ödemesi",
+        "de": "Jährliche Kuponzahlung als Prozentsatz des Nennwerts"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Market Interest Rate (YTM)",
         "tr": "Piyasa Faiz Oranı (YTM)",
-        "de": "Market Interest Rate (YTM)",
+        "de": "Marktzinssatz (Rendite bis Fälligkeit)",
         "fr": "Market Interest Rate (YTM)",
         "es": "Market Interest Rate (YTM)",
         "ar": "Market Interest Rate (YTM)"
       },
       "businessContext_i18n": {
         "en": "Yield to maturity required by investors",
-        "tr": "Yatırımcılar tarafından talep edilen vadeye kadar getiri"
+        "tr": "Yatırımcılar tarafından talep edilen vadeye kadar getiri",
+        "de": "Von Anlegern geforderte Rendite bis Fälligkeit"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Years to Maturity",
         "tr": "Vadeye Kalan Yıl",
-        "de": "Years to Maturity",
+        "de": "Jahre bis Fälligkeit",
         "fr": "Years to Maturity",
         "es": "Years to Maturity",
         "ar": "Years to Maturity"
       },
       "businessContext_i18n": {
         "en": "Time until bond matures",
-        "tr": "Tahvilin vadesine kadar kalan süre"
+        "tr": "Tahvilin vadesine kadar kalan süre",
+        "de": "Zeit bis zur Fälligkeit der Anleihe"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Coupon Frequency",
         "tr": "Kupon Sıklığı",
-        "de": "Coupon Frequency",
+        "de": "Kuponhäufigkeit",
         "fr": "Coupon Frequency",
         "es": "Coupon Frequency",
         "ar": "Coupon Frequency"
       },
       "businessContext_i18n": {
         "en": "Number of coupon payments per year (e.g., 2 for semi-annual)",
-        "tr": "Yıllık kupon ödemesi sayısı (örn. altı aylık için 2)"
+        "tr": "Yıllık kupon ödemesi sayısı (örn. altı aylık için 2)",
+        "de": "Anzahl der Kuponzahlungen pro Jahr (z. B. 2 für halbjährlich)"
       }
     }
   ],

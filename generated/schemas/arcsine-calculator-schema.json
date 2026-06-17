@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Sine Value",
         "tr": "Sinüs Değeri",
-        "de": "Sine Value",
+        "de": "Sinuswert",
         "fr": "Sine Value",
         "es": "Sine Value",
         "ar": "Sine Value"
       },
       "businessContext_i18n": {
         "en": "The sine of the angle to compute the arcsine. Must be between -1 and 1. Typical use in engineering for angle determination from ratios.",
-        "tr": "Arksinüs hesaplanacak açının sinüsü. -1 ile 1 arasında olmalıdır. Oranlardan açı belirlemede tipik mühendislik kullanımı."
+        "tr": "Arksinüs hesaplanacak açının sinüsü. -1 ile 1 arasında olmalıdır. Oranlardan açı belirlemede tipik mühendislik kullanımı.",
+        "de": "Der Sinus des Winkels zur Berechnung des Arcussinus. Muss zwischen -1 und 1 liegen. Typische Anwendung im Ingenieurwesen zur Winkelbestimmung aus Verhältnissen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Output Unit (0:Degrees, 1:Radians)",
         "tr": "Çıktı Birimi (0:Derece, 1:Radyan)",
-        "de": "Output Unit (0:Degrees, 1:Radians)",
+        "de": "Ausgabeeinheit (0:Grad, 1:Bogenmaß)",
         "fr": "Output Unit (0:Degrees, 1:Radians)",
         "es": "Output Unit (0:Degrees, 1:Radians)",
         "ar": "Output Unit (0:Degrees, 1:Radians)"
       },
       "businessContext_i18n": {
         "en": "Select output angle unit: 0 for degrees (common in construction), 1 for radians (mathematical analysis).",
-        "tr": "Çıktı açı birimini seçin: 0 derece (inşaatta yaygın), 1 radyan (matematiksel analiz)."
+        "tr": "Çıktı açı birimini seçin: 0 derece (inşaatta yaygın), 1 radyan (matematiksel analiz).",
+        "de": "Wählen Sie die Ausgabewinkeleinheit: 0 für Grad (üblich im Bauwesen), 1 für Bogenmaß (mathematische Analyse)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result, ensuring measurement precision.",
-        "tr": "Sonucun yuvarlanması için ondalık basamak sayısı, ölçüm hassasiyetini sağlar."
+        "tr": "Sonucun yuvarlanması için ondalık basamak sayısı, ölçüm hassasiyetini sağlar.",
+        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses, um Messgenauigkeit zu gewährleisten."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Angle Selection (0:Principal, 1:Supplementary, 2:Both)",
         "tr": "Açı Seçimi (0:Asal, 1:Tümler, 2:Her ikisi)",
-        "de": "Angle Selection (0:Principal, 1:Supplementary, 2:Both)",
+        "de": "Winkelauswahl (0:Hauptwert, 1:Supplementwinkel, 2:Beide)",
         "fr": "Angle Selection (0:Principal, 1:Supplementary, 2:Both)",
         "es": "Angle Selection (0:Principal, 1:Supplementary, 2:Both)",
         "ar": "Angle Selection (0:Principal, 1:Supplementary, 2:Both)"
       },
       "businessContext_i18n": {
         "en": "Principal value in [-90°,90°], supplementary is 180° - principal for specific applications like geometry.",
-        "tr": "Asal değer [-90°,90°] aralığında, tümler değer 180° - asal değer (geometri gibi belirli uygulamalar için)."
+        "tr": "Asal değer [-90°,90°] aralığında, tümler değer 180° - asal değer (geometri gibi belirli uygulamalar için).",
+        "de": "Hauptwert in [-90°,90°], Supplementwinkel ist 180° - Hauptwert für spezifische Anwendungen wie Geometrie."
       }
     }
   ],

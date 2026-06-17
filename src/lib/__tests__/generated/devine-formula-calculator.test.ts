@@ -12,7 +12,7 @@ describe("devine-formula-calculator", () => {
     "sex": 0,
     "age": 30,
     "currentWeight": 70
-  } as Devine_formula_calculatorInput;
+  } as unknown as Devine_formula_calculatorInput;
     const result = calculateDevine_formula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

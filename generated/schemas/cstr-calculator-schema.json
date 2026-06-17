@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Volumetric Flow Rate (v0)",
         "tr": "Hacimsel Akış Hızı (v0)",
-        "de": "Volumetric Flow Rate (v0)",
+        "de": "Volumenstrom (v0)",
         "fr": "Volumetric Flow Rate (v0)",
         "es": "Volumetric Flow Rate (v0)",
         "ar": "Volumetric Flow Rate (v0)"
       },
       "businessContext_i18n": {
         "en": "Inlet volumetric flow rate of the reactant stream.",
-        "tr": "Reaktan akışının giriş hacimsel debisi."
+        "tr": "Reaktan akışının giriş hacimsel debisi.",
+        "de": "Eingangsvolumenstrom des Reaktantenstroms"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Inlet Concentration (CA0)",
         "tr": "Giriş Konsantrasyonu (CA0)",
-        "de": "Inlet Concentration (CA0)",
+        "de": "Eingangskonzentration (CA0)",
         "fr": "Inlet Concentration (CA0)",
         "es": "Inlet Concentration (CA0)",
         "ar": "Inlet Concentration (CA0)"
       },
       "businessContext_i18n": {
         "en": "Concentration of reactant A in the feed.",
-        "tr": "Beslemedeki A reaktanının konsantrasyonu."
+        "tr": "Beslemedeki A reaktanının konsantrasyonu.",
+        "de": "Konzentration des Reaktanten A im Zulauf"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Rate Constant (k)",
         "tr": "Hız Sabiti (k)",
-        "de": "Rate Constant (k)",
+        "de": "Geschwindigkeitskonstante (k)",
         "fr": "Rate Constant (k)",
         "es": "Rate Constant (k)",
         "ar": "Rate Constant (k)"
       },
       "businessContext_i18n": {
         "en": "First-order reaction rate constant.",
-        "tr": "Birinci derece reaksiyon hız sabiti."
+        "tr": "Birinci derece reaksiyon hız sabiti.",
+        "de": "Geschwindigkeitskonstante erster Ordnung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Conversion (X)",
         "tr": "Dönüşüm (X)",
-        "de": "Conversion (X)",
+        "de": "Umsatz (X)",
         "fr": "Conversion (X)",
         "es": "Conversion (X)",
         "ar": "Conversion (X)"
       },
       "businessContext_i18n": {
         "en": "Required fractional conversion of reactant A.",
-        "tr": "Gerekli kesirli dönüşüm oranı."
+        "tr": "Gerekli kesirli dönüşüm oranı.",
+        "de": "Erforderlicher fraktioneller Umsatz von Reaktant A"
       }
     }
   ],

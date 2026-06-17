@@ -12,7 +12,7 @@ describe("sale-price-calculator", () => {
     "markupPercentage": 20,
     "discount": 0,
     "taxRate": 10
-  } as Sale_price_calculatorInput;
+  } as unknown as Sale_price_calculatorInput;
     const result = calculateSale_price_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

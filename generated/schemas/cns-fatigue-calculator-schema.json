@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
-        "de": "Body Weight",
+        "de": "Körpergewicht",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "User's body weight in kilograms.",
-        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı."
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı.",
+        "de": "Körpergewicht des Benutzers in Kilogramm."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Weight Lifted",
         "tr": "Kaldırılan Ağırlık",
-        "de": "Weight Lifted",
+        "de": "Gehobenes Gewicht",
         "fr": "Weight Lifted",
         "es": "Weight Lifted",
         "ar": "Weight Lifted"
       },
       "businessContext_i18n": {
         "en": "Weight lifted during the exercise.",
-        "tr": "Egzersiz sırasında kaldırılan ağırlık."
+        "tr": "Egzersiz sırasında kaldırılan ağırlık.",
+        "de": "Während der Übung gehobenes Gewicht."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Repetitions per Set",
         "tr": "Set Başına Tekrar Sayısı",
-        "de": "Repetitions per Set",
+        "de": "Wiederholungen pro Satz",
         "fr": "Repetitions per Set",
         "es": "Repetitions per Set",
         "ar": "Repetitions per Set"
       },
       "businessContext_i18n": {
         "en": "Number of repetitions per set.",
-        "tr": "Set başına tekrar sayısı."
+        "tr": "Set başına tekrar sayısı.",
+        "de": "Anzahl der Wiederholungen pro Satz."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Sets",
         "tr": "Set Sayısı",
-        "de": "Number of Sets",
+        "de": "Anzahl der Sets",
         "fr": "Number of Sets",
         "es": "Number of Sets",
         "ar": "Number of Sets"
       },
       "businessContext_i18n": {
         "en": "Number of sets performed.",
-        "tr": "Gerçekleştirilen set sayısı."
+        "tr": "Gerçekleştirilen set sayısı.",
+        "de": "Anzahl der durchgeführten Sätze."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Rest Between Sets",
         "tr": "Setler Arası Dinlenme",
-        "de": "Rest Between Sets",
+        "de": "Pause zwischen den Sätzen",
         "fr": "Rest Between Sets",
         "es": "Rest Between Sets",
         "ar": "Rest Between Sets"
       },
       "businessContext_i18n": {
         "en": "Rest period between sets in minutes.",
-        "tr": "Setler arasındaki dinlenme süresi (dakika)."
+        "tr": "Setler arasındaki dinlenme süresi (dakika).",
+        "de": "Ruhezeit zwischen den Sätzen in Minuten."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Days Since Last Session",
         "tr": "Son Seansın Üzerinden Geçen Gün Sayısı",
-        "de": "Days Since Last Session",
+        "de": "Tage seit letzter Einheit",
         "fr": "Days Since Last Session",
         "es": "Days Since Last Session",
         "ar": "Days Since Last Session"
       },
       "businessContext_i18n": {
         "en": "Number of days since the previous training session.",
-        "tr": "Önceki antrenman seansından bu yana geçen gün sayısı."
+        "tr": "Önceki antrenman seansından bu yana geçen gün sayısı.",
+        "de": "Anzahl der Tage seit der vorherigen Trainingseinheit."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Training Experience",
         "tr": "Antrenman Deneyimi",
-        "de": "Training Experience",
+        "de": "Trainingserfahrung",
         "fr": "Training Experience",
         "es": "Training Experience",
         "ar": "Training Experience"
       },
       "businessContext_i18n": {
         "en": "Years of consistent training experience.",
-        "tr": "Yıllar cinsinden tutarlı antrenman deneyimi."
+        "tr": "Yıllar cinsinden tutarlı antrenman deneyimi.",
+        "de": "Jahre konsequenter Trainingserfahrung."
       }
     }
   ],

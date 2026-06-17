@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Head Length",
         "tr": "Baş Uzunluğu",
-        "de": "Head Length",
+        "de": "Kopflänge",
         "fr": "Head Length",
         "es": "Head Length",
         "ar": "Head Length"
       },
       "businessContext_i18n": {
         "en": "Maximum front-to-back length of the baby's head in centimeters.",
-        "tr": "Bebeğin başının maksimum ön-arka uzunluğu (cm)."
+        "tr": "Bebeğin başının maksimum ön-arka uzunluğu (cm).",
+        "de": "Maximale fronto-okzipitale Länge des Babykopfes in Zentimetern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Head Width",
         "tr": "Baş Genişliği",
-        "de": "Head Width",
+        "de": "Kopfbreite",
         "fr": "Head Width",
         "es": "Head Width",
         "ar": "Head Width"
       },
       "businessContext_i18n": {
         "en": "Maximum width of the baby's head in centimeters.",
-        "tr": "Bebeğin başının maksimum genişliği (cm)."
+        "tr": "Bebeğin başının maksimum genişliği (cm).",
+        "de": "Maximale Breite des Babykopfes in Zentimetern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Head Height",
         "tr": "Baş Yüksekliği",
-        "de": "Head Height",
+        "de": "Kopfhöhe",
         "fr": "Head Height",
         "es": "Head Height",
         "ar": "Head Height"
       },
       "businessContext_i18n": {
         "en": "Height from crown to base of skull in centimeters.",
-        "tr": "Taçtan kafatası tabanına yükseklik (cm)."
+        "tr": "Taçtan kafatası tabanına yükseklik (cm).",
+        "de": "Höhe vom Scheitel bis zur Schädelbasis in Zentimetern."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Output Unit Factor",
         "tr": "Çıktı Birim Faktörü",
-        "de": "Output Unit Factor",
+        "de": "Ausgabeeinheitenfaktor",
         "fr": "Output Unit Factor",
         "es": "Output Unit Factor",
         "ar": "Output Unit Factor"
       },
       "businessContext_i18n": {
         "en": "Multiply output lengths by this factor (1 for cm, 0.3937 for inches).",
-        "tr": "Çıktı uzunluklarını bu faktörle çarpın (cm için 1, inç için 0,3937)."
+        "tr": "Çıktı uzunluklarını bu faktörle çarpın (cm için 1, inç için 0,3937).",
+        "de": "Multiplizieren Sie die Ausgabelängen mit diesem Faktor (1 für cm, 0,3937 für Zoll)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
-        "de": "Scale Factor",
+        "de": "Skalierungsfaktor",
         "fr": "Scale Factor",
         "es": "Scale Factor",
         "ar": "Scale Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust circumference for growth or fitting allowance.",
-        "tr": "Büyüme veya uyum payı için çevreyi ayarlamak üzere çarpan."
+        "tr": "Büyüme veya uyum payı için çevreyi ayarlamak üzere çarpan.",
+        "de": "Multiplikator zur Anpassung des Umfangs für Wachstum oder Passformzugabe."
       }
     }
   ],

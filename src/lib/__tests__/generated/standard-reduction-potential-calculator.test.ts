@@ -15,7 +15,7 @@ describe("standard-reduction-potential-calculator", () => {
     "Red": 1,
     "a": 1,
     "b": 1
-  } as Standard_reduction_potential_calculatorInput;
+  } as unknown as Standard_reduction_potential_calculatorInput;
     const result = calculateStandard_reduction_potential_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

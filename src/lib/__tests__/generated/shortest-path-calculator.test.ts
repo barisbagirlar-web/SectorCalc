@@ -12,7 +12,7 @@ describe("shortest-path-calculator", () => {
     "y1": 0,
     "x2": 0,
     "y2": 0
-  } as Shortest_path_calculatorInput;
+  } as unknown as Shortest_path_calculatorInput;
     const result = calculateShortest_path_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

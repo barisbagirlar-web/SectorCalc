@@ -12,7 +12,7 @@ describe("projectile-motion-calculator", () => {
     "launchAngle": 45,
     "initialHeight": 0,
     "gravity": 9.81
-  } as Projectile_motion_calculatorInput;
+  } as unknown as Projectile_motion_calculatorInput;
     const result = calculateProjectile_motion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("relativistic-energy", () => {
     "mass": 1,
     "velocity": 0,
     "speedOfLight": 299792458
-  } as Relativistic_energyInput;
+  } as unknown as Relativistic_energyInput;
     const result = calculateRelativistic_energy(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

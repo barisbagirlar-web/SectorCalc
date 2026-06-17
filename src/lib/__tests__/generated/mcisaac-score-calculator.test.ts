@@ -13,7 +13,7 @@ describe("mcisaac-score-calculator", () => {
     "tenderLymph": 0,
     "feverTemp": 37,
     "cough": 0
-  } as Mcisaac_score_calculatorInput;
+  } as unknown as Mcisaac_score_calculatorInput;
     const result = calculateMcisaac_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

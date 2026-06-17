@@ -12,7 +12,7 @@ describe("miles-to-feet-calculator", () => {
     "decimalPlaces": 2,
     "showYards": 1,
     "conversionFactor": 5280
-  } as Miles_to_feet_calculatorInput;
+  } as unknown as Miles_to_feet_calculatorInput;
     const result = calculateMiles_to_feet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("backsplash-calculator", () => {
     "tileWidth": 10,
     "tileHeight": 10,
     "wastePercentage": 10
-  } as Backsplash_calculatorInput;
+  } as unknown as Backsplash_calculatorInput;
     const result = calculateBacksplash_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

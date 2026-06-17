@@ -12,7 +12,7 @@ describe("watts-to-calories-calculator", () => {
     "time": 1,
     "calFactor": 4.184,
     "efficiency": 100
-  } as Watts_to_calories_calculatorInput;
+  } as unknown as Watts_to_calories_calculatorInput;
     const result = calculateWatts_to_calories_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

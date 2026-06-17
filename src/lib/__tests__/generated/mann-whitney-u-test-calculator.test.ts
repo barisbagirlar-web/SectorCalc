@@ -14,7 +14,7 @@ describe("mann-whitney-u-test-calculator", () => {
     "g2v1": 4,
     "g2v2": 5,
     "g2v3": 6
-  } as Mann_whitney_u_test_calculatorInput;
+  } as unknown as Mann_whitney_u_test_calculatorInput;
     const result = calculateMann_whitney_u_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

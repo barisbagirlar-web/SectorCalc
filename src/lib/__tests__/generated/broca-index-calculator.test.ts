@@ -12,7 +12,7 @@ describe("broca-index-calculator", () => {
     "sex": 0,
     "frameSize": 1,
     "currentWeight": 70
-  } as Broca_index_calculatorInput;
+  } as unknown as Broca_index_calculatorInput;
     const result = calculateBroca_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

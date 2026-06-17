@@ -15,7 +15,7 @@ describe("homebrew-calculator", () => {
     "boilTime": 60,
     "attenuation": 75,
     "efficiency": 75
-  } as Homebrew_calculatorInput;
+  } as unknown as Homebrew_calculatorInput;
     const result = calculateHomebrew_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

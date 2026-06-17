@@ -14,7 +14,7 @@ describe("circadian-rhythm-diet-calculator", () => {
     "fastingWindow": 12,
     "costPerMeal": 5,
     "days": 30
-  } as Circadian_rhythm_diet_calculatorInput;
+  } as unknown as Circadian_rhythm_diet_calculatorInput;
     const result = calculateCircadian_rhythm_diet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

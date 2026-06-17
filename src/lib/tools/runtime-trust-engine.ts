@@ -126,7 +126,7 @@ function applyTrustPolicy(
 
   const registryAudit = hasFormulaSourceAudit(slug);
   let formulaGateEligible =
-    registryAudit &&
+    (registryAudit || isToolBackingActivationEligible(slug)) &&
     readiness.status === "ready" &&
     isP24TrustPassForSlug(slug) &&
     !findings.includes("audit_status_not_pass") &&

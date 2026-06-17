@@ -12,7 +12,7 @@ describe("graph-theory-calculator", () => {
     "edges": 6,
     "faces": 4,
     "components": 1
-  } as Graph_theory_calculatorInput;
+  } as unknown as Graph_theory_calculatorInput;
     const result = calculateGraph_theory_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

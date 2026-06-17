@@ -14,7 +14,7 @@ describe("dat-score-calculator", () => {
     "totalOrders": 120,
     "damageFreeShipments": 115,
     "totalShipments": 120
-  } as Dat_score_calculatorInput;
+  } as unknown as Dat_score_calculatorInput;
     const result = calculateDat_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -20,11 +20,13 @@
       "businessContext": "Total raw milk received daily from suppliers or own herd.",
       "label_i18n": {
         "en": "Milk Volume (Liters per day)",
-        "tr": "Süt Hacmi (Litre/gün)"
+        "tr": "Süt Hacmi (Litre/gün)",
+        "de": "Milchvolumen (Liter pro Tag)"
       },
       "businessContext_i18n": {
         "en": "Total raw milk received daily from suppliers or own herd.",
-        "tr": "Tedarikçilerden veya kendi sürüden günlük alınan toplam çiğ süt."
+        "tr": "Tedarikçilerden veya kendi sürüden günlük alınan toplam çiğ süt.",
+        "de": "Tägliche Rohmilchmenge von Lieferanten oder eigener Herde."
       }
     },
     {
@@ -38,11 +40,13 @@
       "businessContext": "Average butterfat content of incoming milk, critical for yield calculations.",
       "label_i18n": {
         "en": "Fat Content (%)",
-        "tr": "Yağ Oranı (%)"
+        "tr": "Yağ Oranı (%)",
+        "de": "Fettgehalt (%)"
       },
       "businessContext_i18n": {
         "en": "Average butterfat content of incoming milk, critical for yield calculations.",
-        "tr": "Gelen sütün ortalama tereyağı içeriği, verim hesaplamaları için kritiktir."
+        "tr": "Gelen sütün ortalama tereyağı içeriği, verim hesaplamaları için kritiktir.",
+        "de": "Durchschnittlicher Butterfettgehalt der eingehenden Milch, entscheidend für die Ausbeuteberechnung."
       }
     },
     {
@@ -56,11 +60,13 @@
       "businessContext": "Average protein content, affects cheese and powder yields.",
       "label_i18n": {
         "en": "Protein Content (%)",
-        "tr": "Protein Oranı (%)"
+        "tr": "Protein Oranı (%)",
+        "de": "Proteingehalt (%)"
       },
       "businessContext_i18n": {
         "en": "Average protein content, affects cheese and powder yields.",
-        "tr": "Ortalama protein içeriği, peynir ve toz verimini etkiler."
+        "tr": "Ortalama protein içeriği, peynir ve toz verimini etkiler.",
+        "de": "Durchschnittlicher Proteingehalt, beeinflusst Käse- und Pulverausbeute."
       }
     },
     {
@@ -74,11 +80,13 @@
       "businessContext": "Average revenue per liter of raw milk sold to processor or retail.",
       "label_i18n": {
         "en": "Selling Price (per Liter)",
-        "tr": "Satış Fiyatı (Litre başına)"
+        "tr": "Satış Fiyatı (Litre başına)",
+        "de": "Verkaufspreis (pro Liter)"
       },
       "businessContext_i18n": {
         "en": "Average revenue per liter of raw milk sold to processor or retail.",
-        "tr": "İşlenmiş veya perakende satılan çiğ sütün litre başına ortalama geliri."
+        "tr": "İşlenmiş veya perakende satılan çiğ sütün litre başına ortalama geliri.",
+        "de": "Durchschnittlicher Erlös pro Liter Rohmilch beim Verkauf an Verarbeiter oder im Einzelhandel."
       }
     },
     {
@@ -92,11 +100,13 @@
       "businessContext": "Includes feed, labor, utilities, veterinary, and overhead per liter.",
       "label_i18n": {
         "en": "Production Cost (per Liter)",
-        "tr": "Üretim Maliyeti (Litre başına)"
+        "tr": "Üretim Maliyeti (Litre başına)",
+        "de": "Produktionskosten (pro Liter)"
       },
       "businessContext_i18n": {
         "en": "Includes feed, labor, utilities, veterinary, and overhead per liter.",
-        "tr": "Litre başına yem, işçilik, enerji, veteriner ve genel giderleri içerir."
+        "tr": "Litre başına yem, işçilik, enerji, veteriner ve genel giderleri içerir.",
+        "de": "Umfasst Futter, Arbeit, Betriebskosten, Tierarzt und Gemeinkosten pro Liter."
       }
     },
     {
@@ -110,11 +120,13 @@
       "businessContext": "Milk lost due to spoilage, spillage, or quality rejection.",
       "label_i18n": {
         "en": "Waste / Shrinkage (%)",
-        "tr": "Fire / Kayıp (%)"
+        "tr": "Fire / Kayıp (%)",
+        "de": "Ausschuss / Schwund (%)"
       },
       "businessContext_i18n": {
         "en": "Milk lost due to spoilage, spillage, or quality rejection.",
-        "tr": "Bozulma, dökülme veya kalite reddi nedeniyle kaybedilen süt."
+        "tr": "Bozulma, dökülme veya kalite reddi nedeniyle kaybedilen süt.",
+        "de": "Milchverlust durch Verderb, Verschütten oder Qualitätsablehnung."
       }
     },
     {
@@ -128,11 +140,13 @@
       "businessContext": "Total direct labor hours used in milk production and handling.",
       "label_i18n": {
         "en": "Labor Hours per Day",
-        "tr": "Günlük İşçilik Saati"
+        "tr": "Günlük İşçilik Saati",
+        "de": "Arbeitsstunden pro Tag"
       },
       "businessContext_i18n": {
         "en": "Total direct labor hours used in milk production and handling.",
-        "tr": "Süt üretimi ve işlemede kullanılan toplam doğrudan işçilik saati."
+        "tr": "Süt üretimi ve işlemede kullanılan toplam doğrudan işçilik saati.",
+        "de": "Gesamte direkte Arbeitsstunden in der Milchproduktion und -handhabung."
       }
     },
     {
@@ -146,11 +160,13 @@
       "businessContext": "Average hourly wage including benefits.",
       "label_i18n": {
         "en": "Labor Rate (per Hour)",
-        "tr": "İşçilik Ücreti (Saat başına)"
+        "tr": "İşçilik Ücreti (Saat başına)",
+        "de": "Stundensatz (pro Stunde)"
       },
       "businessContext_i18n": {
         "en": "Average hourly wage including benefits.",
-        "tr": "Yan haklar dahil ortalama saatlik ücret."
+        "tr": "Yan haklar dahil ortalama saatlik ücret.",
+        "de": "Durchschnittlicher Stundenlohn inklusive Zusatzleistungen."
       }
     }
   ],

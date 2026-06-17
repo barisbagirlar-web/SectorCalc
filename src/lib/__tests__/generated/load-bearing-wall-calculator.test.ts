@@ -13,7 +13,7 @@ describe("load-bearing-wall-calculator", () => {
     "wallHeight": 3,
     "compressiveStrength": 20,
     "safetyFactor": 2
-  } as Load_bearing_wall_calculatorInput;
+  } as unknown as Load_bearing_wall_calculatorInput;
     const result = calculateLoad_bearing_wall_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

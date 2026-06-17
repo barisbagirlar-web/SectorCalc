@@ -14,7 +14,7 @@ describe("energy-audit-calculator", () => {
     "costPerKWh": 0.12,
     "floorArea": 1000,
     "emissionFactor": 0.5
-  } as Energy_audit_calculatorInput;
+  } as unknown as Energy_audit_calculatorInput;
     const result = calculateEnergy_audit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

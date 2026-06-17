@@ -12,7 +12,7 @@ describe("thinset-calculator", () => {
     "notchSize": 6,
     "wasteFactor": 5,
     "bagWeight": 20
-  } as Thinset_calculatorInput;
+  } as unknown as Thinset_calculatorInput;
     const result = calculateThinset_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

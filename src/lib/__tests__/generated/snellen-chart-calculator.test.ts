@@ -11,7 +11,7 @@ describe("snellen-chart-calculator", () => {
     "testDistance": 6,
     "optotypeHeight": 8.73,
     "auto_input_3": 1
-  } as Snellen_chart_calculatorInput;
+  } as unknown as Snellen_chart_calculatorInput;
     const result = calculateSnellen_chart_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

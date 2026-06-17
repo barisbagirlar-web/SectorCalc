@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Eriyik Sıcaklığı",
         "tr": "Eriyik Sıcaklığı",
-        "de": "Eriyik Sıcaklığı",
+        "de": "Schmelztemperatur",
         "fr": "Eriyik Sıcaklığı",
         "es": "Eriyik Sıcaklığı",
         "ar": "Eriyik Sıcaklığı"
       },
       "businessContext_i18n": {
         "en": "Metal eriyik sıcaklığı, gaz çözünürlüğünü ve akışkanlığı etkiler. Yüksek sıcaklık gözenek riskini artırabilir.",
-        "tr": "Metal eriyik sıcaklığı, gaz çözünürlüğünü ve akışkanlığı etkiler. Yüksek sıcaklık gözenek riskini artırabilir."
+        "tr": "Metal eriyik sıcaklığı, gaz çözünürlüğünü ve akışkanlığı etkiler. Yüksek sıcaklık gözenek riskini artırabilir.",
+        "de": "Metallschmelztemperatur beeinflusst Gaslöslichkeit und Fließfähigkeit. Hohe Temperatur kann Porenrisiko erhöhen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Kalıp Sıcaklığı",
         "tr": "Kalıp Sıcaklığı",
-        "de": "Kalıp Sıcaklığı",
+        "de": "Formtemperatur",
         "fr": "Kalıp Sıcaklığı",
         "es": "Kalıp Sıcaklığı",
         "ar": "Kalıp Sıcaklığı"
       },
       "businessContext_i18n": {
         "en": "Kalıp sıcaklığı katılaşma hızını belirler. Uygun olmayan kalıp sıcaklığı çekme boşluklarına yol açar.",
-        "tr": "Kalıp sıcaklığı katılaşma hızını belirler. Uygun olmayan kalıp sıcaklığı çekme boşluklarına yol açar."
+        "tr": "Kalıp sıcaklığı katılaşma hızını belirler. Uygun olmayan kalıp sıcaklığı çekme boşluklarına yol açar.",
+        "de": "Formtemperatur bestimmt die Erstarrungsgeschwindigkeit. Ungeeignete Formtemperatur führt zu Lunkern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Enjeksiyon Basıncı",
         "tr": "Enjeksiyon Basıncı",
-        "de": "Enjeksiyon Basıncı",
+        "de": "Einspritzdruck",
         "fr": "Enjeksiyon Basıncı",
         "es": "Enjeksiyon Basıncı",
         "ar": "Enjeksiyon Basıncı"
       },
       "businessContext_i18n": {
         "en": "Basınç, metalin kalıbı tam doldurmasını sağlar. Düşük basınç boşluk oluşumuna neden olur.",
-        "tr": "Basınç, metalin kalıbı tam doldurmasını sağlar. Düşük basınç boşluk oluşumuna neden olur."
+        "tr": "Basınç, metalin kalıbı tam doldurmasını sağlar. Düşük basınç boşluk oluşumuna neden olur.",
+        "de": "Druck stellt sicher, dass das Metall die Form vollständig füllt. Niedriger Druck verursacht Lunkerbildung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Soğuma Hızı",
         "tr": "Soğuma Hızı",
-        "de": "Soğuma Hızı",
+        "de": "Abkühlgeschwindigkeit",
         "fr": "Soğuma Hızı",
         "es": "Soğuma Hızı",
         "ar": "Soğuma Hızı"
       },
       "businessContext_i18n": {
         "en": "Hızlı soğuma, metalin besleme yapamadan katılaşmasına ve mikro boşluklara yol açabilir.",
-        "tr": "Hızlı soğuma, metalin besleme yapamadan katılaşmasına ve mikro boşluklara yol açabilir."
+        "tr": "Hızlı soğuma, metalin besleme yapamadan katılaşmasına ve mikro boşluklara yol açabilir.",
+        "de": "Schnelle Abkühlung kann zur Erstarrung ohne Nachspeisung und zu Mikrolunkern führen."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Alaşım Saflığı",
         "tr": "Alaşım Saflığı",
-        "de": "Alaşım Saflığı",
+        "de": "Legierungsreinheit",
         "fr": "Alaşım Saflığı",
         "es": "Alaşım Saflığı",
         "ar": "Alaşım Saflığı"
       },
       "businessContext_i18n": {
         "en": "Safsızlıklar gaz kabarcıklarına ve yapısal kusurlara neden olur. Saflık arttıkça risk azalır.",
-        "tr": "Safsızlıklar gaz kabarcıklarına ve yapısal kusurlara neden olur. Saflık arttıkça risk azalır."
+        "tr": "Safsızlıklar gaz kabarcıklarına ve yapısal kusurlara neden olur. Saflık arttıkça risk azalır.",
+        "de": "Verunreinigungen verursachen Gasblasen und Strukturfehler. Mit steigender Reinheit sinkt das Risiko."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Havalandırma Verimi",
         "tr": "Havalandırma Verimi",
-        "de": "Havalandırma Verimi",
+        "de": "Entlüftungseffizienz",
         "fr": "Havalandırma Verimi",
         "es": "Havalandırma Verimi",
         "ar": "Havalandırma Verimi"
       },
       "businessContext_i18n": {
         "en": "Havalandırma, kalıp içindeki havanın tahliyesini sağlar. Yetersiz havalandırma gaz sıkışmasına bağlı boşluklar oluşturur.",
-        "tr": "Havalandırma, kalıp içindeki havanın tahliyesini sağlar. Yetersiz havalandırma gaz sıkışmasına bağlı boşluklar oluşturur."
+        "tr": "Havalandırma, kalıp içindeki havanın tahliyesini sağlar. Yetersiz havalandırma gaz sıkışmasına bağlı boşluklar oluşturur.",
+        "de": "Entlüftung ermöglicht den Abtransport von Luft aus der Form. Unzureichende Entlüftung erzeugt gasbedingte Lunker."
       }
     }
   ],

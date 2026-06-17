@@ -13,7 +13,7 @@ describe("critical-speed-calculator", () => {
     "youngsModulus": 210000000000,
     "density": 7850,
     "supportFactor": 3.141592653589793
-  } as Critical_speed_calculatorInput;
+  } as unknown as Critical_speed_calculatorInput;
     const result = calculateCritical_speed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

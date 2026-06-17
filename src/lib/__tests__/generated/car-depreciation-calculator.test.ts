@@ -14,7 +14,7 @@ describe("car-depreciation-calculator", () => {
     "expectedLifespan": 15,
     "mileage": 100000,
     "expectedMileage": 300000
-  } as Car_depreciation_calculatorInput;
+  } as unknown as Car_depreciation_calculatorInput;
     const result = calculateCar_depreciation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

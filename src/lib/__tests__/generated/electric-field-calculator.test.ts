@@ -14,7 +14,7 @@ describe("electric-field-calculator", () => {
     "r2": 1,
     "theta": 90,
     "epsilon_r": 1
-  } as Electric_field_calculatorInput;
+  } as unknown as Electric_field_calculatorInput;
     const result = calculateElectric_field_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

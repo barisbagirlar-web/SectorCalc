@@ -16,7 +16,7 @@ describe("logistics-route-loss-calculator", () => {
     "fuel_cost_per_km": 0.35,
     "driver_wage_per_hour": 25,
     "vehicle_operating_cost_per_km": 0.15
-  } as Logistics_route_loss_calculatorInput;
+  } as unknown as Logistics_route_loss_calculatorInput;
     const result = calculateLogistics_route_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

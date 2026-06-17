@@ -15,7 +15,7 @@ describe("current-ratio-calculator", () => {
     "payables": 0,
     "shortTermDebt": 0,
     "otherCurrentLiabilities": 0
-  } as Current_ratio_calculatorInput;
+  } as unknown as Current_ratio_calculatorInput;
     const result = calculateCurrent_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("circuit-training-calculator", () => {
     "voltage": 12,
     "resistance1": 1000,
     "resistance2": 2200
-  } as Circuit_training_calculatorInput;
+  } as unknown as Circuit_training_calculatorInput;
     const result = calculateCircuit_training_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

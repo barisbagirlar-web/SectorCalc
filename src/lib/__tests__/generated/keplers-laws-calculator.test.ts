@@ -14,7 +14,7 @@ describe("keplers-laws-calculator", () => {
     "massCentralBody": 1,
     "distanceAtPerihelion": 0.5,
     "distanceAtAphelion": 1.5
-  } as Keplers_laws_calculatorInput;
+  } as unknown as Keplers_laws_calculatorInput;
     const result = calculateKeplers_laws_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

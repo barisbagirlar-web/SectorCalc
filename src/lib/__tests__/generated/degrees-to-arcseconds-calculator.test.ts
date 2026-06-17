@@ -13,7 +13,7 @@ describe("degrees-to-arcseconds-calculator", () => {
     "minutes": 0,
     "seconds": 0,
     "precision": 2
-  } as Degrees_to_arcseconds_calculatorInput;
+  } as unknown as Degrees_to_arcseconds_calculatorInput;
     const result = calculateDegrees_to_arcseconds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

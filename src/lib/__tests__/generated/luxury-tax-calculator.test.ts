@@ -13,7 +13,7 @@ describe("luxury-tax-calculator", () => {
     "taxRate": 10,
     "quantity": 1,
     "fixedDeduction": 0
-  } as Luxury_tax_calculatorInput;
+  } as unknown as Luxury_tax_calculatorInput;
     const result = calculateLuxury_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

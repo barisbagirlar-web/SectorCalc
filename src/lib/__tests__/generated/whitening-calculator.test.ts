@@ -14,7 +14,7 @@ describe("whitening-calculator", () => {
     "finalL": 95,
     "finala": -0.5,
     "finalb": 2
-  } as Whitening_calculatorInput;
+  } as unknown as Whitening_calculatorInput;
     const result = calculateWhitening_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

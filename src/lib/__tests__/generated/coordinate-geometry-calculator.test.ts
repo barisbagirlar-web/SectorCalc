@@ -12,7 +12,7 @@ describe("coordinate-geometry-calculator", () => {
     "y1": 0,
     "x2": 0,
     "y2": 0
-  } as Coordinate_geometry_calculatorInput;
+  } as unknown as Coordinate_geometry_calculatorInput;
     const result = calculateCoordinate_geometry_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

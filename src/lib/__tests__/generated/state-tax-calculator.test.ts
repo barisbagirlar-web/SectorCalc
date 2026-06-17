@@ -13,7 +13,7 @@ describe("state-tax-calculator", () => {
     "standardDeduction": 12000,
     "additionalDeductions": 0,
     "taxCredits": 0
-  } as State_tax_calculatorInput;
+  } as unknown as State_tax_calculatorInput;
     const result = calculateState_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

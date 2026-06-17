@@ -12,7 +12,7 @@ describe("atm-to-psi-calculator", () => {
     "conversionFactor": 14.6959,
     "precision": 2,
     "offset": 0
-  } as Atm_to_psi_calculatorInput;
+  } as unknown as Atm_to_psi_calculatorInput;
     const result = calculateAtm_to_psi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

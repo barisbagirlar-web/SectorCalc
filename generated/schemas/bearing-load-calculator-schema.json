@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Radial Load (Fr)",
         "tr": "Radyal Yük (Fr)",
-        "de": "Radial Load (Fr)",
+        "de": "Radiallast (Fr)",
         "fr": "Radial Load (Fr)",
         "es": "Radial Load (Fr)",
         "ar": "Radial Load (Fr)"
       },
       "businessContext_i18n": {
         "en": "The radial force acting on the bearing",
-        "tr": "Rulmana etki eden radyal kuvvet"
+        "tr": "Rulmana etki eden radyal kuvvet",
+        "de": "Die auf das Lager wirkende Radialkraft"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Axial Load (Fa)",
         "tr": "Eksenel Yük (Fa)",
-        "de": "Axial Load (Fa)",
+        "de": "Axialbelastung (Fa)",
         "fr": "Axial Load (Fa)",
         "es": "Axial Load (Fa)",
         "ar": "Axial Load (Fa)"
       },
       "businessContext_i18n": {
         "en": "The axial force acting on the bearing",
-        "tr": "Rulman üzerine etki eden eksenel kuvvet"
+        "tr": "Rulman üzerine etki eden eksenel kuvvet",
+        "de": "Die auf das Lager wirkende Axialkraft"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Radial Factor (X)",
         "tr": "Radyal Faktör (X)",
-        "de": "Radial Factor (X)",
+        "de": "Radialfaktor (X)",
         "fr": "Radial Factor (X)",
         "es": "Radial Factor (X)",
         "ar": "Radial Factor (X)"
       },
       "businessContext_i18n": {
         "en": "Radial load factor from bearing tables",
-        "tr": "Rulman tablolarından radyal yük faktörü"
+        "tr": "Rulman tablolarından radyal yük faktörü",
+        "de": "Radiallastfaktor aus Lagertabellen"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Axial Factor (Y)",
         "tr": "Eksenel Faktör (Y)",
-        "de": "Axial Factor (Y)",
+        "de": "Axialfaktor (Y)",
         "fr": "Axial Factor (Y)",
         "es": "Axial Factor (Y)",
         "ar": "Axial Factor (Y)"
       },
       "businessContext_i18n": {
         "en": "Axial load factor from bearing tables",
-        "tr": "Rulman tablolarından eksenel yük faktörü"
+        "tr": "Rulman tablolarından eksenel yük faktörü",
+        "de": "Axiallastfaktor aus Lagertabellen"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Dynamic Load Rating (C)",
         "tr": "Dinamik Yük Değeri (C)",
-        "de": "Dynamic Load Rating (C)",
+        "de": "Dynamische Tragzahl (C)",
         "fr": "Dynamic Load Rating (C)",
         "es": "Dynamic Load Rating (C)",
         "ar": "Dynamic Load Rating (C)"
       },
       "businessContext_i18n": {
         "en": "Basic dynamic load rating of the bearing",
-        "tr": "Rulmanın temel dinamik yük değeri"
+        "tr": "Rulmanın temel dinamik yük değeri",
+        "de": "Basis-dynamische Tragzahl des Lagers"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Life Exponent (p)",
         "tr": "Ömür Üssü (p)",
-        "de": "Life Exponent (p)",
+        "de": "Lebensdauerexponent (p)",
         "fr": "Life Exponent (p)",
         "es": "Life Exponent (p)",
         "ar": "Life Exponent (p)"
       },
       "businessContext_i18n": {
         "en": "Exponent for life formula: 3 for ball bearings, 10/3 for roller bearings",
-        "tr": "Ömür formülü için üs: bilyalı rulmanlar için 3, makaralı rulmanlar için 10/3"
+        "tr": "Ömür formülü için üs: bilyalı rulmanlar için 3, makaralı rulmanlar için 10/3",
+        "de": "Exponent für Lebensdauerformel: 3 für Kugellager, 10/3 für Rollenlager"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Rotational Speed (n)",
         "tr": "Dönüş Hızı (n)",
-        "de": "Rotational Speed (n)",
+        "de": "Drehzahl (n)",
         "fr": "Rotational Speed (n)",
         "es": "Rotational Speed (n)",
         "ar": "Rotational Speed (n)"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the bearing in revolutions per minute",
-        "tr": "Rulmanın dakikadaki devir sayısı"
+        "tr": "Rulmanın dakikadaki devir sayısı",
+        "de": "Drehzahl des Lagers in Umdrehungen pro Minute"
       }
     }
   ],

@@ -11,7 +11,7 @@ describe("significant-figures-calculator", () => {
     "value": 0,
     "sigFigs": 3,
     "auto_input_3": 1
-  } as Significant_figures_calculatorInput;
+  } as unknown as Significant_figures_calculatorInput;
     const result = calculateSignificant_figures_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

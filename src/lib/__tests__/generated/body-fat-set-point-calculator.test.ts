@@ -14,7 +14,7 @@ describe("body-fat-set-point-calculator", () => {
     "height": 170,
     "age": 30,
     "activityLevel": 1.55
-  } as Body_fat_set_point_calculatorInput;
+  } as unknown as Body_fat_set_point_calculatorInput;
     const result = calculateBody_fat_set_point_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

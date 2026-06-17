@@ -15,7 +15,7 @@ describe("induction-calculator", () => {
     "voltage": 400,
     "current": 20,
     "powerFactor": 0.85
-  } as Induction_calculatorInput;
+  } as unknown as Induction_calculatorInput;
     const result = calculateInduction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

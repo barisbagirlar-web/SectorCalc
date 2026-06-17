@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
-        "de": "Temperature",
+        "de": "Temperatur",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Air temperature in Celsius",
-        "tr": "Santigrat cinsinden hava sıcaklığı"
+        "tr": "Santigrat cinsinden hava sıcaklığı",
+        "de": "Lufttemperatur in Celsius"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Relative Humidity",
         "tr": "Bağıl Nem",
-        "de": "Relative Humidity",
+        "de": "Relative Luftfeuchtigkeit",
         "fr": "Relative Humidity",
         "es": "Relative Humidity",
         "ar": "Relative Humidity"
       },
       "businessContext_i18n": {
         "en": "Relative humidity percentage (0-100)",
-        "tr": "Bağıl nem yüzdesi (0-100)"
+        "tr": "Bağıl nem yüzdesi (0-100)",
+        "de": "Relative Luftfeuchtigkeit in Prozent (0-100)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Molar Mass of Water",
         "tr": "Suyun Molar Kütlesi",
-        "de": "Molar Mass of Water",
+        "de": "Molmasse von Wasser",
         "fr": "Molar Mass of Water",
         "es": "Molar Mass of Water",
         "ar": "Molar Mass of Water"
       },
       "businessContext_i18n": {
         "en": "Molar mass of water vapor, standard value 18.015 g/mol",
-        "tr": "Su buharının molar kütlesi, standart değer 18,015 g/mol"
+        "tr": "Su buharının molar kütlesi, standart değer 18,015 g/mol",
+        "de": "Molmasse von Wasserdampf, Standardwert 18,015 g/mol"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Universal Gas Constant",
         "tr": "Evrensel Gaz Sabiti",
-        "de": "Universal Gas Constant",
+        "de": "Universelle Gaskonstante",
         "fr": "Universal Gas Constant",
         "es": "Universal Gas Constant",
         "ar": "Universal Gas Constant"
       },
       "businessContext_i18n": {
         "en": "Ideal gas constant R, standard value 8.314 J/(mol·K)",
-        "tr": "İdeal gaz sabiti R, standart değer 8,314 J/(mol·K)"
+        "tr": "İdeal gaz sabiti R, standart değer 8,314 J/(mol·K)",
+        "de": "Ideale Gaskonstante R, Standardwert 8,314 J/(mol·K)"
       }
     }
   ],

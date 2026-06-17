@@ -12,7 +12,7 @@ describe("rectangular-prism-volume-calculator", () => {
     "width": 500,
     "height": 300,
     "quantity": 1
-  } as Rectangular_prism_volume_calculatorInput;
+  } as unknown as Rectangular_prism_volume_calculatorInput;
     const result = calculateRectangular_prism_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

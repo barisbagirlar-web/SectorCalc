@@ -13,7 +13,7 @@ describe("muscle-recovery-calculator", () => {
     "workoutDuration": 60,
     "intensity": 5,
     "restTime": 8
-  } as Muscle_recovery_calculatorInput;
+  } as unknown as Muscle_recovery_calculatorInput;
     const result = calculateMuscle_recovery_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

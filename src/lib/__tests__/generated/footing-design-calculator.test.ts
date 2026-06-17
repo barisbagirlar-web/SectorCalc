@@ -12,7 +12,7 @@ describe("footing-design-calculator", () => {
     "soilBearingCapacity": 150,
     "safetyFactor": 2.5,
     "lengthToWidthRatio": 1.5
-  } as Footing_design_calculatorInput;
+  } as unknown as Footing_design_calculatorInput;
     const result = calculateFooting_design_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

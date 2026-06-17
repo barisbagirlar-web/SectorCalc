@@ -12,7 +12,7 @@ describe("cash-on-cash-return-calculator", () => {
     "annualOperatingExpenses": 4000,
     "annualDebtService": 5000,
     "totalCashInvested": 50000
-  } as Cash_on_cash_return_calculatorInput;
+  } as unknown as Cash_on_cash_return_calculatorInput;
     const result = calculateCash_on_cash_return_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

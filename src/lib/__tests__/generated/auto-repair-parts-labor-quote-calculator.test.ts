@@ -16,7 +16,7 @@ describe("auto-repair-parts-labor-quote-calculator", () => {
     "tax_rate": 8,
     "discount_percent": 0,
     "parts_markup": 30
-  } as Auto_repair_parts_labor_quote_calculatorInput;
+  } as unknown as Auto_repair_parts_labor_quote_calculatorInput;
     const result = calculateAuto_repair_parts_labor_quote_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("weight-gain-calculator", () => {
     "coatingThickness": 50,
     "coatingDensity": 1200,
     "numberOfParts": 100
-  } as Weight_gain_calculatorInput;
+  } as unknown as Weight_gain_calculatorInput;
     const result = calculateWeight_gain_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

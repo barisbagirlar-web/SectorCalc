@@ -13,7 +13,7 @@ describe("exterior-angle-calculator", () => {
     "sumInteriorAngles": 0,
     "exteriorAngleGiven": 0,
     "precision": 2
-  } as Exterior_angle_calculatorInput;
+  } as unknown as Exterior_angle_calculatorInput;
     const result = calculateExterior_angle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

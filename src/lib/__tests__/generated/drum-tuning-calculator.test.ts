@@ -13,7 +13,7 @@ describe("drum-tuning-calculator", () => {
     "headDensity": 1400,
     "tension": 500,
     "densityAdjustment": 1
-  } as Drum_tuning_calculatorInput;
+  } as unknown as Drum_tuning_calculatorInput;
     const result = calculateDrum_tuning_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

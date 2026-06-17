@@ -13,7 +13,7 @@ describe("shear-stress-calculator", () => {
     "planes": 1,
     "allowStress": 250,
     "safetyFactor": 2
-  } as Shear_stress_calculatorInput;
+  } as unknown as Shear_stress_calculatorInput;
     const result = calculateShear_stress_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("steam-move-calculator", () => {
     "diameter": 50,
     "pressure": 10,
     "temperature": 200
-  } as Steam_move_calculatorInput;
+  } as unknown as Steam_move_calculatorInput;
     const result = calculateSteam_move_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

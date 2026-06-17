@@ -14,7 +14,7 @@ describe("mead-calculator", () => {
     "yieldFactor": 100,
     "honeyDensity": 1.36,
     "waterDensity": 1
-  } as Mead_calculatorInput;
+  } as unknown as Mead_calculatorInput;
     const result = calculateMead_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

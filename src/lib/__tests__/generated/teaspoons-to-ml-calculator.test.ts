@@ -12,7 +12,7 @@ describe("teaspoons-to-ml-calculator", () => {
     "mlPerTeaspoon": 5,
     "decimalPlaces": 2,
     "numberOfConversions": 1
-  } as Teaspoons_to_ml_calculatorInput;
+  } as unknown as Teaspoons_to_ml_calculatorInput;
     const result = calculateTeaspoons_to_ml_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

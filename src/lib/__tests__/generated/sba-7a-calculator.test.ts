@@ -14,7 +14,7 @@ describe("sba-7a-calculator", () => {
     "guaranteeFeeRate": 2,
     "originationFeeRate": 1,
     "annualRevenue": 2000000
-  } as Sba_7a_calculatorInput;
+  } as unknown as Sba_7a_calculatorInput;
     const result = calculateSba_7a_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("blackbody-radiation-calculator", () => {
     "emissivity": 1,
     "area": 1,
     "distance": 1
-  } as Blackbody_radiation_calculatorInput;
+  } as unknown as Blackbody_radiation_calculatorInput;
     const result = calculateBlackbody_radiation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("islamic-calendar", () => {
     "gregorianMonth": 1,
     "gregorianDay": 1,
     "adjustmentDays": 0
-  } as Islamic_calendarInput;
+  } as unknown as Islamic_calendarInput;
     const result = calculateIslamic_calendar(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

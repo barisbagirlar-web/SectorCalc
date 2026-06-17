@@ -12,7 +12,7 @@ describe("parabolic-dish-calculator", () => {
     "derinlik": 0.25,
     "frekans": 3000,
     "verim": 60
-  } as Parabolic_dish_calculatorInput;
+  } as unknown as Parabolic_dish_calculatorInput;
     const result = calculateParabolic_dish_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

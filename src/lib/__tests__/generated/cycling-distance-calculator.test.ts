@@ -13,7 +13,7 @@ describe("cycling-distance-calculator", () => {
     "frontTeeth": 50,
     "rearTeeth": 15,
     "timeMinutes": 60
-  } as Cycling_distance_calculatorInput;
+  } as unknown as Cycling_distance_calculatorInput;
     const result = calculateCycling_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

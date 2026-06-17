@@ -13,7 +13,7 @@ describe("recovery-time-calculator", () => {
     "repairTime": 2,
     "restartTime": 0.5,
     "verificationTime": 0.5
-  } as Recovery_time_calculatorInput;
+  } as unknown as Recovery_time_calculatorInput;
     const result = calculateRecovery_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

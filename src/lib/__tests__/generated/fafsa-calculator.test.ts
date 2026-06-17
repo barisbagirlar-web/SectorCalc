@@ -13,7 +13,7 @@ describe("fafsa-calculator", () => {
     "parentAssets": 0,
     "studentAssets": 0,
     "numberInCollege": 1
-  } as Fafsa_calculatorInput;
+  } as unknown as Fafsa_calculatorInput;
     const result = calculateFafsa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

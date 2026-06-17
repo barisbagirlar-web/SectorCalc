@@ -12,7 +12,7 @@ describe("quadratic-equation-solver-calculator", () => {
     "b": 0,
     "c": 0,
     "x": 0
-  } as Quadratic_equation_solver_calculatorInput;
+  } as unknown as Quadratic_equation_solver_calculatorInput;
     const result = calculateQuadratic_equation_solver_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

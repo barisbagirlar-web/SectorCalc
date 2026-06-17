@@ -14,7 +14,7 @@ describe("fence-stain-calculator", () => {
     "picketSpacing": 0.05,
     "coveragePerGallon": 5,
     "numberOfCoats": 2
-  } as Fence_stain_calculatorInput;
+  } as unknown as Fence_stain_calculatorInput;
     const result = calculateFence_stain_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

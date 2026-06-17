@@ -12,7 +12,7 @@ describe("pascals-triangle", () => {
     "colIndex": 2,
     "numRows": 5,
     "maxValue": 100
-  } as Pascals_triangleInput;
+  } as unknown as Pascals_triangleInput;
     const result = calculatePascals_triangle(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

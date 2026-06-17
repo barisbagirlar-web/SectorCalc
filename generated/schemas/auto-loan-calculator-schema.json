@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Vehicle Price",
         "tr": "Araç Fiyatı",
-        "de": "Vehicle Price",
+        "de": "Fahrzeugpreis",
         "fr": "Vehicle Price",
         "es": "Vehicle Price",
         "ar": "Vehicle Price"
       },
       "businessContext_i18n": {
         "en": "Total price of the vehicle including any additional fees.",
-        "tr": "Ek ücretler dahil aracın toplam fiyatı."
+        "tr": "Ek ücretler dahil aracın toplam fiyatı.",
+        "de": "Gesamtpreis des Fahrzeugs inklusive aller zusätzlichen Gebühren."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Down Payment",
         "tr": "Peşinat",
-        "de": "Down Payment",
+        "de": "Anzahlung",
         "fr": "Down Payment",
         "es": "Down Payment",
         "ar": "Down Payment"
       },
       "businessContext_i18n": {
         "en": "Amount paid upfront that reduces the loan principal.",
-        "tr": "Kredi anaparasını azaltan peşin ödenen tutar."
+        "tr": "Kredi anaparasını azaltan peşin ödenen tutar.",
+        "de": "Vorauszahlung, die den Darlehensbetrag reduziert."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Trade-In Value",
         "tr": "Takas Değeri",
-        "de": "Trade-In Value",
+        "de": "Inzahlungnahmewert",
         "fr": "Trade-In Value",
         "es": "Trade-In Value",
         "ar": "Trade-In Value"
       },
       "businessContext_i18n": {
         "en": "Value of a vehicle traded in, which reduces the amount to finance.",
-        "tr": "Takas edilen aracın değeri, finanse edilecek tutarı azaltır."
+        "tr": "Takas edilen aracın değeri, finanse edilecek tutarı azaltır.",
+        "de": "Wert eines in Zahlung gegebenen Fahrzeugs, der den zu finanzierenden Betrag reduziert."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Sales Tax Rate",
         "tr": "Satış Vergisi Oranı",
-        "de": "Sales Tax Rate",
+        "de": "Umsatzsteuersatz",
         "fr": "Sales Tax Rate",
         "es": "Sales Tax Rate",
         "ar": "Sales Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable sales tax percentage on the taxable amount (vehicle price minus trade-in).",
-        "tr": "Vergiye tabi tutar (araç fiyatı eksi takas) üzerinden uygulanan satış vergisi yüzdesi."
+        "tr": "Vergiye tabi tutar (araç fiyatı eksi takas) üzerinden uygulanan satış vergisi yüzdesi.",
+        "de": "Anwendbarer Umsatzsteuerprozentsatz auf den steuerpflichtigen Betrag (Fahrzeugpreis abzüglich Inzahlungnahme)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Interest Rate (APR)",
         "tr": "Faiz Oranı (APR)",
-        "de": "Interest Rate (APR)",
+        "de": "Zinssatz (effektiver Jahreszins)",
         "fr": "Interest Rate (APR)",
         "es": "Interest Rate (APR)",
         "ar": "Interest Rate (APR)"
       },
       "businessContext_i18n": {
         "en": "Annual Percentage Rate for the loan.",
-        "tr": "Kredi için yıllık yüzde oranı."
+        "tr": "Kredi için yıllık yüzde oranı.",
+        "de": "Effektiver Jahreszins für das Darlehen."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
-        "de": "Loan Term",
+        "de": "Darlehenslaufzeit",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Duration of the loan in months.",
-        "tr": "Kredi vadesi (ay olarak)."
+        "tr": "Kredi vadesi (ay olarak).",
+        "de": "Laufzeit des Darlehens in Monaten."
       }
     }
   ],

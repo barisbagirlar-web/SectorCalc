@@ -12,7 +12,7 @@ describe("kbps-to-mbps-calculator", () => {
     "conversionStandard": 0,
     "networkOverhead": 0,
     "precision": 2
-  } as Kbps_to_mbps_calculatorInput;
+  } as unknown as Kbps_to_mbps_calculatorInput;
     const result = calculateKbps_to_mbps_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

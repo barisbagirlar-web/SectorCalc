@@ -12,7 +12,7 @@ describe("pizza-size-calculator", () => {
     "price1": 10,
     "diameter2": 40,
     "price2": 15
-  } as Pizza_size_calculatorInput;
+  } as unknown as Pizza_size_calculatorInput;
     const result = calculatePizza_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

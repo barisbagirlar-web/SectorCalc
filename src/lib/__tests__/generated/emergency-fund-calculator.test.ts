@@ -12,7 +12,7 @@ describe("emergency-fund-calculator", () => {
     "coverageMonths": 6,
     "currentSavings": 0,
     "safetyMargin": 10
-  } as Emergency_fund_calculatorInput;
+  } as unknown as Emergency_fund_calculatorInput;
     const result = calculateEmergency_fund_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

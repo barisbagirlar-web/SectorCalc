@@ -13,7 +13,7 @@ describe("renters-insurance-calculator", () => {
     "deductible": 1000,
     "locationRiskFactor": 1,
     "securityDiscount": 5
-  } as Renters_insurance_calculatorInput;
+  } as unknown as Renters_insurance_calculatorInput;
     const result = calculateRenters_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

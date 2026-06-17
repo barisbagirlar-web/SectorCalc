@@ -13,7 +13,7 @@ describe("thou-to-mm-calculator", () => {
     "lowerToleranceThou": 0,
     "conversionFactor": 0.0254,
     "precision": 3
-  } as Thou_to_mm_calculatorInput;
+  } as unknown as Thou_to_mm_calculatorInput;
     const result = calculateThou_to_mm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

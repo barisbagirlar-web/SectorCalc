@@ -14,7 +14,7 @@ describe("hvac-energy-calculator", () => {
     "acCop": 3.5,
     "hoursPerDay": 12,
     "electricityRate": 0.1
-  } as Hvac_energy_calculatorInput;
+  } as unknown as Hvac_energy_calculatorInput;
     const result = calculateHvac_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

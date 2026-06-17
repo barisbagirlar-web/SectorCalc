@@ -12,7 +12,7 @@ describe("gre-score-calculator", () => {
     "verbalTotal": 40,
     "quantCorrect": 20,
     "quantTotal": 40
-  } as Gre_score_calculatorInput;
+  } as unknown as Gre_score_calculatorInput;
     const result = calculateGre_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

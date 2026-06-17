@@ -12,7 +12,7 @@ describe("worm-gear-calculator", () => {
     "z1": 1,
     "z2": 40,
     "centerDistance": 50
-  } as Worm_gear_calculatorInput;
+  } as unknown as Worm_gear_calculatorInput;
     const result = calculateWorm_gear_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

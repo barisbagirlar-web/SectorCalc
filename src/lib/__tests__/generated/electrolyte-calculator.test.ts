@@ -13,7 +13,7 @@ describe("electrolyte-calculator", () => {
     "solutePurity": 99.5,
     "molecularWeight": 58.44,
     "hydrationNumber": 0
-  } as Electrolyte_calculatorInput;
+  } as unknown as Electrolyte_calculatorInput;
     const result = calculateElectrolyte_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

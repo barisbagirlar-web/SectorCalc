@@ -12,7 +12,7 @@ describe("chains-to-links-calculator", () => {
     "linksPerChain": 100,
     "decimalPlaces": 2,
     "roundingMethod": 0
-  } as Chains_to_links_calculatorInput;
+  } as unknown as Chains_to_links_calculatorInput;
     const result = calculateChains_to_links_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

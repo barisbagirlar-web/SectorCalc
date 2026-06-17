@@ -13,7 +13,7 @@ describe("wrestling-weight-cut-calculator", () => {
     "hoursUntilWeighIn": 24,
     "bodyFatPercentage": 15,
     "maxDehydrationPercentage": 5
-  } as Wrestling_weight_cut_calculatorInput;
+  } as unknown as Wrestling_weight_cut_calculatorInput;
     const result = calculateWrestling_weight_cut_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

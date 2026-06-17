@@ -14,7 +14,7 @@ describe("baby-height-percentile-calculator", () => {
     "L": 1,
     "M": 76,
     "S": 0.04
-  } as Baby_height_percentile_calculatorInput;
+  } as unknown as Baby_height_percentile_calculatorInput;
     const result = calculateBaby_height_percentile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

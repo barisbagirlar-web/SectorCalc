@@ -12,7 +12,7 @@ describe("beck-depression-inventory-calculator", () => {
     "somatic": 0,
     "performance": 0,
     "guilt": 0
-  } as Beck_depression_inventory_calculatorInput;
+  } as unknown as Beck_depression_inventory_calculatorInput;
     const result = calculateBeck_depression_inventory_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

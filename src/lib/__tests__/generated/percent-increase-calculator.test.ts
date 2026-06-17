@@ -12,7 +12,7 @@ describe("percent-increase-calculator", () => {
     "newValue": 120,
     "decimalPlaces": 2,
     "thresholdPercent": 10
-  } as Percent_increase_calculatorInput;
+  } as unknown as Percent_increase_calculatorInput;
     const result = calculatePercent_increase_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

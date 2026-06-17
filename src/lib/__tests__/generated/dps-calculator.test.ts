@@ -12,7 +12,7 @@ describe("dps-calculator", () => {
     "sharesOutstanding": 10000,
     "netIncome": 200000,
     "payoutRatio": 50
-  } as Dps_calculatorInput;
+  } as unknown as Dps_calculatorInput;
     const result = calculateDps_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("ksi-to-psi-calculator", () => {
     "temperature_derating": 1,
     "ambient_pressure_psi": 14.7,
     "allowable_stress_ksi": 30
-  } as Ksi_to_psi_calculatorInput;
+  } as unknown as Ksi_to_psi_calculatorInput;
     const result = calculateKsi_to_psi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

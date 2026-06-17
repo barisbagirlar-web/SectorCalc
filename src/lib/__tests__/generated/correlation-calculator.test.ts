@@ -16,7 +16,7 @@ describe("correlation-calculator", () => {
     "y3": 6,
     "x4": 4,
     "y4": 8
-  } as Correlation_calculatorInput;
+  } as unknown as Correlation_calculatorInput;
     const result = calculateCorrelation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

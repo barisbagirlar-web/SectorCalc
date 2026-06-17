@@ -12,7 +12,7 @@ describe("home-carbon-footprint-calculator", () => {
     "gasAnnual": 400,
     "carMilesAnnual": 12000,
     "airTravelAnnual": 5000
-  } as Home_carbon_footprint_calculatorInput;
+  } as unknown as Home_carbon_footprint_calculatorInput;
     const result = calculateHome_carbon_footprint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

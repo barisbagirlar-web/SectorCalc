@@ -13,7 +13,7 @@ describe("bouldering-calculator", () => {
     "matThickness": 10,
     "matStiffness": 50,
     "g": 9.81
-  } as Bouldering_calculatorInput;
+  } as unknown as Bouldering_calculatorInput;
     const result = calculateBouldering_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

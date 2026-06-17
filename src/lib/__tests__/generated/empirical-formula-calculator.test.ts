@@ -12,7 +12,7 @@ describe("empirical-formula-calculator", () => {
     "y1": 2,
     "x2": 3,
     "y2": 18
-  } as Empirical_formula_calculatorInput;
+  } as unknown as Empirical_formula_calculatorInput;
     const result = calculateEmpirical_formula_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

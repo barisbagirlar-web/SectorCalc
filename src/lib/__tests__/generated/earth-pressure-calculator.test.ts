@@ -13,7 +13,7 @@ describe("earth-pressure-calculator", () => {
     "frictionAngle": 30,
     "cohesion": 0,
     "surcharge": 0
-  } as Earth_pressure_calculatorInput;
+  } as unknown as Earth_pressure_calculatorInput;
     const result = calculateEarth_pressure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

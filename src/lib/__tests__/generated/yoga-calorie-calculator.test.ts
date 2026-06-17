@@ -14,7 +14,7 @@ describe("yoga-calorie-calculator", () => {
     "gender": 0,
     "duration": 60,
     "met": 3
-  } as Yoga_calorie_calculatorInput;
+  } as unknown as Yoga_calorie_calculatorInput;
     const result = calculateYoga_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

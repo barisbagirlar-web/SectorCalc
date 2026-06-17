@@ -12,7 +12,7 @@ describe("fixed-charge-coverage-ratio-calculator", () => {
     "interestExpense": 0,
     "currentMaturities": 0,
     "leasePayments": 0
-  } as Fixed_charge_coverage_ratio_calculatorInput;
+  } as unknown as Fixed_charge_coverage_ratio_calculatorInput;
     const result = calculateFixed_charge_coverage_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

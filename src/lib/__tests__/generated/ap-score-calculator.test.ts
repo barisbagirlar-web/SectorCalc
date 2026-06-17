@@ -12,7 +12,7 @@ describe("ap-score-calculator", () => {
     "multipleChoiceTotal": 60,
     "freeResponsePoints": 0,
     "freeResponseMaxPoints": 60
-  } as Ap_score_calculatorInput;
+  } as unknown as Ap_score_calculatorInput;
     const result = calculateAp_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

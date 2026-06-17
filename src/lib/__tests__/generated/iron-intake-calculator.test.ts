@@ -12,7 +12,7 @@ describe("iron-intake-calculator", () => {
     "ironConcentration": 62,
     "moistureContent": 8,
     "recoveryRate": 95
-  } as Iron_intake_calculatorInput;
+  } as unknown as Iron_intake_calculatorInput;
     const result = calculateIron_intake_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("cash-flow-calculator", () => {
     "periods": 5,
     "discountRate": 10,
     "salvageValue": 0
-  } as Cash_flow_calculatorInput;
+  } as unknown as Cash_flow_calculatorInput;
     const result = calculateCash_flow_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

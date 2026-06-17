@@ -12,7 +12,7 @@ describe("k-d-ratio-calculator", () => {
     "defective_parts": 0,
     "reworked_parts": 0,
     "total_inspected": 0
-  } as K_d_ratio_calculatorInput;
+  } as unknown as K_d_ratio_calculatorInput;
     const result = calculateK_d_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("calibrated-airspeed-calculator", () => {
     "referencePressure": 101325,
     "airDensity": 1.225,
     "gamma": 1.4
-  } as Calibrated_airspeed_calculatorInput;
+  } as unknown as Calibrated_airspeed_calculatorInput;
     const result = calculateCalibrated_airspeed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

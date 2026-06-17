@@ -15,7 +15,7 @@ describe("discount-calculator", () => {
     "fixed_cost_allocation": 5000,
     "discount_type": "percentage",
     "apply_to_all_units": true
-  } as Discount_calculatorInput;
+  } as unknown as Discount_calculatorInput;
     const result = calculateDiscount_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

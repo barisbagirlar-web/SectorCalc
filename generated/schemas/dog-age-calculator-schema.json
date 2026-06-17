@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Dog Age Years",
         "tr": "Köpek Yaşı (Yıl)",
-        "de": "Dog Age Years",
+        "de": "Hundealter in Jahren",
         "fr": "Dog Age Years",
         "es": "Dog Age Years",
         "ar": "Dog Age Years"
       },
       "businessContext_i18n": {
         "en": "The whole number of years the dog has lived.",
-        "tr": "Köpeğin yaşadığı tam yıl sayısı."
+        "tr": "Köpeğin yaşadığı tam yıl sayısı.",
+        "de": "Die ganzen Jahre, die der Hund gelebt hat."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Dog Age Months",
         "tr": "Köpek Yaşı (Ay)",
-        "de": "Dog Age Months",
+        "de": "Hundealter in Monaten",
         "fr": "Dog Age Months",
         "es": "Dog Age Months",
         "ar": "Dog Age Months"
       },
       "businessContext_i18n": {
         "en": "Additional months beyond last full year.",
-        "tr": "Son tam yılın ötesindeki ek aylar."
+        "tr": "Son tam yılın ötesindeki ek aylar.",
+        "de": "Zusätzliche Monate über das letzte vollendete Jahr hinaus."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Breed Size Category",
         "tr": "Irk Boyut Kategorisi",
-        "de": "Breed Size Category",
+        "de": "Größenkategorie der Rasse",
         "fr": "Breed Size Category",
         "es": "Breed Size Category",
         "ar": "Breed Size Category"
       },
       "businessContext_i18n": {
         "en": "Size category of the dog breed, impacting age conversion factor.",
-        "tr": "Köpek ırkının boyut kategorisi, yaş dönüşüm faktörünü etkiler."
+        "tr": "Köpek ırkının boyut kategorisi, yaş dönüşüm faktörünü etkiler.",
+        "de": "Größenkategorie der Hunderasse, die den Altersumrechnungsfaktor beeinflusst."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Conversion Model",
         "tr": "Dönüşüm Modeli",
-        "de": "Conversion Model",
+        "de": "Umrechnungsmodell",
         "fr": "Conversion Model",
         "es": "Conversion Model",
         "ar": "Conversion Model"
       },
       "businessContext_i18n": {
         "en": "Select the mathematical model for age conversion.",
-        "tr": "Yaş dönüşümü için matematiksel modeli seçin."
+        "tr": "Yaş dönüşümü için matematiksel modeli seçin.",
+        "de": "Wählen Sie das mathematische Modell für die Altersumrechnung."
       }
     }
   ],

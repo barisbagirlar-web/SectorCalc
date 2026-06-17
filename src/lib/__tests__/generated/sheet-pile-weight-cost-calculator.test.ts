@@ -14,7 +14,7 @@ describe("sheet-pile-weight-cost-calculator", () => {
     "weightPerArea": 120,
     "costPerTon": 900,
     "wasteFactor": 5
-  } as Sheet_pile_weight_cost_calculatorInput;
+  } as unknown as Sheet_pile_weight_cost_calculatorInput;
     const result = calculateSheet_pile_weight_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

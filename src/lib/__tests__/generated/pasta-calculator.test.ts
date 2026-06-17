@@ -14,7 +14,7 @@ describe("pasta-calculator", () => {
     "saltConcentration": 10,
     "cookingTimeLoss": 1.8,
     "caloriesPer100g": 371
-  } as Pasta_calculatorInput;
+  } as unknown as Pasta_calculatorInput;
     const result = calculatePasta_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

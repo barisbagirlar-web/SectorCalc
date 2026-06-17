@@ -13,7 +13,7 @@ describe("inches-to-feet-calculator", () => {
     "inch3": 0,
     "inch4": 0,
     "precision": 2
-  } as Inches_to_feet_calculatorInput;
+  } as unknown as Inches_to_feet_calculatorInput;
     const result = calculateInches_to_feet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

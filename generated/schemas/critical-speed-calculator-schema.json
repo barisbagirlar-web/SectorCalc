@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Shaft Length (L)",
         "tr": "Mil Uzunluğu (L)",
-        "de": "Shaft Length (L)",
+        "de": "Wellenlänge (L)",
         "fr": "Shaft Length (L)",
         "es": "Shaft Length (L)",
         "ar": "Shaft Length (L)"
       },
       "businessContext_i18n": {
         "en": "Length of the shaft between supports.",
-        "tr": "Mesnetler arasındaki mil uzunluğu."
+        "tr": "Mesnetler arasındaki mil uzunluğu.",
+        "de": "Länge der Welle zwischen den Lagern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Shaft Diameter (D)",
         "tr": "Mil Çapı (D)",
-        "de": "Shaft Diameter (D)",
+        "de": "Wellendurchmesser (D)",
         "fr": "Shaft Diameter (D)",
         "es": "Shaft Diameter (D)",
         "ar": "Shaft Diameter (D)"
       },
       "businessContext_i18n": {
         "en": "Diameter of the solid cylindrical shaft.",
-        "tr": "Katı silindirik milin çapı."
+        "tr": "Katı silindirik milin çapı.",
+        "de": "Durchmesser der massiven zylindrischen Welle."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Young's Modulus (E)",
         "tr": "Elastisite Modülü (E)",
-        "de": "Young's Modulus (E)",
+        "de": "Elastizitätsmodul (E)",
         "fr": "Young's Modulus (E)",
         "es": "Young's Modulus (E)",
         "ar": "Young's Modulus (E)"
       },
       "businessContext_i18n": {
         "en": "Material's modulus of elasticity, e.g., steel ~210 GPa.",
-        "tr": "Malzemenin elastisite modülü, örn. çelik ~210 GPa."
+        "tr": "Malzemenin elastisite modülü, örn. çelik ~210 GPa.",
+        "de": "Elastizitätsmodul des Materials, z. B. Stahl ~210 GPa."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Material Density (ρ)",
         "tr": "Malzeme Yoğunluğu (ρ)",
-        "de": "Material Density (ρ)",
+        "de": "Materialdichte (ρ)",
         "fr": "Material Density (ρ)",
         "es": "Material Density (ρ)",
         "ar": "Material Density (ρ)"
       },
       "businessContext_i18n": {
         "en": "Density of the shaft material, e.g., steel ~7850 kg/m³.",
-        "tr": "Mil malzemesinin yoğunluğu, örn. çelik ~7850 kg/m³."
+        "tr": "Mil malzemesinin yoğunluğu, örn. çelik ~7850 kg/m³.",
+        "de": "Dichte des Wellenmaterials, z. B. Stahl ~7850 kg/m³."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Support Factor (C)",
         "tr": "Destek Faktörü (C)",
-        "de": "Support Factor (C)",
+        "de": "Lagerfaktor (C)",
         "fr": "Support Factor (C)",
         "es": "Support Factor (C)",
         "ar": "Support Factor (C)"
       },
       "businessContext_i18n": {
         "en": "Dimensionless factor based on end conditions: π for pinned-pinned, 4.730 for fixed-fixed, 3.927 for fixed-pinned, 1.875 for fixed-free.",
-        "tr": "Uç koşullarına bağlı boyutsuz faktör: mafsallı-mafsallı için π, ankastre-ankastre için 4.730, ankastre-mafsallı için 3.927, ankastre-serbest için 1.875."
+        "tr": "Uç koşullarına bağlı boyutsuz faktör: mafsallı-mafsallı için π, ankastre-ankastre için 4.730, ankastre-mafsallı için 3.927, ankastre-serbest için 1.875.",
+        "de": "Dimensionsloser Faktor basierend auf den Endbedingungen: π für beidseitig gelenkig gelagert, 4,730 für beidseitig fest eingespannt, 3,927 für fest-gelenkig, 1,875 für fest-frei."
       }
     }
   ],

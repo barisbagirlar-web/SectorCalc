@@ -13,7 +13,7 @@ describe("baseball-bat-speed-calculator", () => {
     "pivotDistance": 10,
     "sweetSpotOffset": 15,
     "batMass": 900
-  } as Baseball_bat_speed_calculatorInput;
+  } as unknown as Baseball_bat_speed_calculatorInput;
     const result = calculateBaseball_bat_speed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

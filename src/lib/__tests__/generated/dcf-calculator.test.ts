@@ -15,7 +15,7 @@ describe("dcf-calculator", () => {
     "cf5": 0,
     "discountRate": 10,
     "growthRate": 2
-  } as Dcf_calculatorInput;
+  } as unknown as Dcf_calculatorInput;
     const result = calculateDcf_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

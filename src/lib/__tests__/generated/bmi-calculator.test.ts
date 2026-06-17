@@ -14,7 +14,7 @@ describe("bmi-calculator", () => {
     "gender": "male",
     "activity_level": "moderate",
     "waist_circumference_cm": 80
-  } as Bmi_calculatorInput;
+  } as unknown as Bmi_calculatorInput;
     const result = calculateBmi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

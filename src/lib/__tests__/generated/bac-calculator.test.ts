@@ -14,7 +14,7 @@ describe("bac-calculator", () => {
     "hours": 1,
     "alcoholPercentage": 5,
     "volumePerDrink": 355
-  } as Bac_calculatorInput;
+  } as unknown as Bac_calculatorInput;
     const result = calculateBac_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

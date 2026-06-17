@@ -16,7 +16,7 @@ describe("wind-turbine-roi-calculator", () => {
     "discount_rate": 8,
     "project_lifetime": 20,
     "degradation_rate": 0.5
-  } as Wind_turbine_roi_calculatorInput;
+  } as unknown as Wind_turbine_roi_calculatorInput;
     const result = calculateWind_turbine_roi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

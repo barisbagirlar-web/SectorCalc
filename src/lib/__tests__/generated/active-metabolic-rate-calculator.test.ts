@@ -13,7 +13,7 @@ describe("active-metabolic-rate-calculator", () => {
     "age": 30,
     "sex": 0,
     "activityFactor": 1.2
-  } as Active_metabolic_rate_calculatorInput;
+  } as unknown as Active_metabolic_rate_calculatorInput;
     const result = calculateActive_metabolic_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

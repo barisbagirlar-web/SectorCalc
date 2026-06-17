@@ -13,7 +13,7 @@ describe("kayaking-calculator", () => {
     "crossSectionalArea": 0.3,
     "waterDensity": 1000,
     "paddlingEfficiency": 70
-  } as Kayaking_calculatorInput;
+  } as unknown as Kayaking_calculatorInput;
     const result = calculateKayaking_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

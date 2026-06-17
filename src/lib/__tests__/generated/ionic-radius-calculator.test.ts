@@ -12,7 +12,7 @@ describe("ionic-radius-calculator", () => {
     "shieldingConstant": 0,
     "principalQuantumNumber": 1,
     "scalingFactor": 1
-  } as Ionic_radius_calculatorInput;
+  } as unknown as Ionic_radius_calculatorInput;
     const result = calculateIonic_radius_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("pound-to-ounce-calculator", () => {
     "tareWeightLb": 0,
     "conversionFactor": 16,
     "decimalPlaces": 2
-  } as Pound_to_ounce_calculatorInput;
+  } as unknown as Pound_to_ounce_calculatorInput;
     const result = calculatePound_to_ounce_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

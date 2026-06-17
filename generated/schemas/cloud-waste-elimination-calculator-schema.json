@@ -20,11 +20,13 @@
       "businessContext": "Total monthly cloud infrastructure cost across all services.",
       "label_i18n": {
         "en": "Total Cloud Spend (Monthly)",
-        "tr": "Toplam Bulut Harcaması (Aylık)"
+        "tr": "Toplam Bulut Harcaması (Aylık)",
+        "de": "Gesamte Cloud-Ausgaben (monatlich)"
       },
       "businessContext_i18n": {
         "en": "Total monthly cloud infrastructure cost across all services.",
-        "tr": "Tüm hizmetler genelinde aylık toplam bulut altyapı maliyeti."
+        "tr": "Tüm hizmetler genelinde aylık toplam bulut altyapı maliyeti.",
+        "de": "Monatliche Gesamtkosten der Cloud-Infrastruktur über alle Dienste hinweg."
       }
     },
     {
@@ -38,11 +40,13 @@
       "businessContext": "Average CPU/memory utilization across all compute instances.",
       "label_i18n": {
         "en": "Average Compute Utilization Rate",
-        "tr": "Ortalama Bilgi İşlem Kullanım Oranı"
+        "tr": "Ortalama Bilgi İşlem Kullanım Oranı",
+        "de": "Durchschnittliche Compute-Auslastungsrate"
       },
       "businessContext_i18n": {
         "en": "Average CPU/memory utilization across all compute instances.",
-        "tr": "Tüm bilgi işlem örnekleri genelinde ortalama CPU/bellek kullanımı."
+        "tr": "Tüm bilgi işlem örnekleri genelinde ortalama CPU/bellek kullanımı.",
+        "de": "Durchschnittliche CPU-/Speicherauslastung aller Compute-Instanzen."
       }
     },
     {
@@ -56,11 +60,13 @@
       "businessContext": "Estimated percentage of storage that is orphaned, unused, or over-provisioned.",
       "label_i18n": {
         "en": "Storage Waste Percentage",
-        "tr": "Depolama İsrafı Yüzdesi"
+        "tr": "Depolama İsrafı Yüzdesi",
+        "de": "Speicherverschwendungsprozentsatz"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of storage that is orphaned, unused, or over-provisioned.",
-        "tr": "Yetim kalmış, kullanılmayan veya aşırı sağlanmış depolamanın tahmini yüzdesi."
+        "tr": "Yetim kalmış, kullanılmayan veya aşırı sağlanmış depolamanın tahmini yüzdesi.",
+        "de": "Geschätzter Prozentsatz des Speichers, der verwaist, ungenutzt oder überdimensioniert ist."
       }
     },
     {
@@ -74,11 +80,13 @@
       "businessContext": "Number of compute instances that have been idle for more than 7 days.",
       "label_i18n": {
         "en": "Idle Resource Count",
-        "tr": "Boşta Kaynak Sayısı"
+        "tr": "Boşta Kaynak Sayısı",
+        "de": "Anzahl der Leerlaufressourcen"
       },
       "businessContext_i18n": {
         "en": "Number of compute instances that have been idle for more than 7 days.",
-        "tr": "7 günden uzun süredir boşta olan bilgi işlem örneği sayısı."
+        "tr": "7 günden uzun süredir boşta olan bilgi işlem örneği sayısı.",
+        "de": "Anzahl der Compute-Instanzen, die länger als 7 Tage im Leerlauf waren."
       }
     },
     {
@@ -92,11 +100,13 @@
       "businessContext": "Total outbound data transfer volume per month.",
       "label_i18n": {
         "en": "Monthly Data Transfer Out",
-        "tr": "Aylık Veri Çıkışı"
+        "tr": "Aylık Veri Çıkışı",
+        "de": "Monatliches Datenübertragungsvolumen ausgehend"
       },
       "businessContext_i18n": {
         "en": "Total outbound data transfer volume per month.",
-        "tr": "Aylık toplam giden veri aktarım hacmi."
+        "tr": "Aylık toplam giden veri aktarım hacmi.",
+        "de": "Gesamtes ausgehendes Datenübertragungsvolumen pro Monat."
       }
     },
     {
@@ -110,11 +120,13 @@
       "businessContext": "Percentage of compute spend covered by reserved or savings plans.",
       "label_i18n": {
         "en": "Reserved Instance Coverage",
-        "tr": "Ayrılmış Örnek Kapsamı"
+        "tr": "Ayrılmış Örnek Kapsamı",
+        "de": "Abdeckung reservierter Instanzen"
       },
       "businessContext_i18n": {
         "en": "Percentage of compute spend covered by reserved or savings plans.",
-        "tr": "Ayrılmış veya tasarruf planları tarafından karşılanan bilgi işlem harcaması yüzdesi."
+        "tr": "Ayrılmış veya tasarruf planları tarafından karşılanan bilgi işlem harcaması yüzdesi.",
+        "de": "Prozentsatz der Compute-Ausgaben, die durch reservierte oder Sparpläne abgedeckt sind."
       }
     },
     {
@@ -128,11 +140,13 @@
       "businessContext": "Aggregate score (0-100) indicating potential savings from instance type adjustments.",
       "label_i18n": {
         "en": "Rightsizing Opportunity Score",
-        "tr": "Doğru Boyutlandırma Fırsat Puanı"
+        "tr": "Doğru Boyutlandırma Fırsat Puanı",
+        "de": "Optimierungspotenzial-Score"
       },
       "businessContext_i18n": {
         "en": "Aggregate score (0-100) indicating potential savings from instance type adjustments.",
-        "tr": "Örnek türü ayarlamalarından potansiyel tasarrufu gösteren toplam puan (0-100)."
+        "tr": "Örnek türü ayarlamalarından potansiyel tasarrufu gösteren toplam puan (0-100).",
+        "de": "Aggregierter Score (0-100), der potenzielle Einsparungen durch Anpassungen des Instanztyps anzeigt."
       }
     },
     {
@@ -152,11 +166,13 @@
       ],
       "label_i18n": {
         "en": "Cloud Provider",
-        "tr": "Bulut Sağlayıcısı"
+        "tr": "Bulut Sağlayıcısı",
+        "de": "Cloud-Anbieter"
       },
       "businessContext_i18n": {
         "en": "Primary cloud provider for cost analysis.",
-        "tr": "Maliyet analizi için birincil bulut sağlayıcısı."
+        "tr": "Maliyet analizi için birincil bulut sağlayıcısı.",
+        "de": "Primärer Cloud-Anbieter für Kostenanalyse."
       }
     }
   ],

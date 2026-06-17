@@ -12,7 +12,7 @@ describe("growing-annuity-calculator", () => {
     "growthRate": 0.03,
     "discountRate": 0.05,
     "periods": 10
-  } as Growing_annuity_calculatorInput;
+  } as unknown as Growing_annuity_calculatorInput;
     const result = calculateGrowing_annuity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

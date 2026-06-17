@@ -13,7 +13,7 @@ describe("steps-to-miles-calculator", () => {
     "strideLength": 0,
     "height": 0,
     "terrainFactor": 1
-  } as Steps_to_miles_calculatorInput;
+  } as unknown as Steps_to_miles_calculatorInput;
     const result = calculateSteps_to_miles_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

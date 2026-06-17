@@ -13,7 +13,7 @@ describe("unicode-calculator", () => {
     "overhead": 0,
     "lineCount": 1,
     "costPerMB": 0.05
-  } as Unicode_calculatorInput;
+  } as unknown as Unicode_calculatorInput;
     const result = calculateUnicode_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

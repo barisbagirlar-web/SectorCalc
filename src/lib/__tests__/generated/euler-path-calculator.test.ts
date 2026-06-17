@@ -14,7 +14,7 @@ describe("euler-path-calculator", () => {
     "isConnected": 1,
     "minDegree": 1,
     "maxDegree": 3
-  } as Euler_path_calculatorInput;
+  } as unknown as Euler_path_calculatorInput;
     const result = calculateEuler_path_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

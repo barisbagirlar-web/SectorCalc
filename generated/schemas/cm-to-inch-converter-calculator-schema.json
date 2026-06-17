@@ -20,11 +20,13 @@
       "businessContext": "Measured length in centimeters, typically from calipers, rulers, or CAD models.",
       "label_i18n": {
         "en": "Length in Centimeters",
-        "tr": "Uzunluk (cm)"
+        "tr": "Uzunluk (cm)",
+        "de": "Länge in Zentimetern"
       },
       "businessContext_i18n": {
         "en": "Measured length in centimeters, typically from calipers, rulers, or CAD models.",
-        "tr": "Kumpas, cetvel veya CAD modellerinden tipik olarak ölçülen santimetre cinsinden uzunluk."
+        "tr": "Kumpas, cetvel veya CAD modellerinden tipik olarak ölçülen santimetre cinsinden uzunluk.",
+        "de": "Gemessene Länge in Zentimetern, typischerweise von Messschiebern, Linealen oder CAD-Modellen."
       }
     },
     {
@@ -38,11 +40,13 @@
       "businessContext": "Estimated uncertainty of the measurement (e.g., ±0.05 cm for standard calipers).",
       "label_i18n": {
         "en": "Measurement Uncertainty",
-        "tr": "Ölçüm Belirsizliği"
+        "tr": "Ölçüm Belirsizliği",
+        "de": "Messunsicherheit"
       },
       "businessContext_i18n": {
         "en": "Estimated uncertainty of the measurement (e.g., ±0.05 cm for standard calipers).",
-        "tr": "Ölçümün tahmini belirsizliği (standart kumpas için ±0,05 cm gibi)."
+        "tr": "Ölçümün tahmini belirsizliği (standart kumpas için ±0,05 cm gibi).",
+        "de": "Geschätzte Messunsicherheit (z. B. ±0,05 cm für Standard-Messschieber)."
       }
     },
     {
@@ -59,11 +63,13 @@
       "businessContext": "Select the conversion factor precision based on industry standard (ISO 80000-1, NIST).",
       "label_i18n": {
         "en": "Conversion Precision",
-        "tr": "Dönüşüm Hassasiyeti"
+        "tr": "Dönüşüm Hassasiyeti",
+        "de": "Umrechnungsgenauigkeit"
       },
       "businessContext_i18n": {
         "en": "Select the conversion factor precision based on industry standard (ISO 80000-1, NIST).",
-        "tr": "Endüstri standardına (ISO 80000-1, NIST) göre dönüşüm faktörü hassasiyetini seçin."
+        "tr": "Endüstri standardına (ISO 80000-1, NIST) göre dönüşüm faktörü hassasiyetini seçin.",
+        "de": "Wählen Sie die Genauigkeit des Umrechnungsfaktors gemäß Industriestandard (ISO 80000-1, NIST)."
       }
     },
     {
@@ -80,11 +86,13 @@
       "businessContext": "Tolerance class for dimensional inspection per ISO 2768. Affects alert thresholds.",
       "label_i18n": {
         "en": "Tolerance Class",
-        "tr": "Tolerans Sınıfı"
+        "tr": "Tolerans Sınıfı",
+        "de": "Toleranzklasse"
       },
       "businessContext_i18n": {
         "en": "Tolerance class for dimensional inspection per ISO 2768. Affects alert thresholds.",
-        "tr": "ISO 2768'e göre boyutsal muayene için tolerans sınıfı. Uyarı eşiklerini etkiler."
+        "tr": "ISO 2768'e göre boyutsal muayene için tolerans sınıfı. Uyarı eşiklerini etkiler.",
+        "de": "Toleranzklasse für Maßprüfung nach ISO 2768. Beeinflusst die Alarmschwellen."
       }
     },
     {
@@ -98,11 +106,13 @@
       "businessContext": "Cost per inch of material or product, used for cost estimation in Lean/Six Sigma projects.",
       "label_i18n": {
         "en": "Unit Cost per Inch",
-        "tr": "Birim Maliyet (inç başına)"
+        "tr": "Birim Maliyet (inç başına)",
+        "de": "Stückkosten pro Zoll"
       },
       "businessContext_i18n": {
         "en": "Cost per inch of material or product, used for cost estimation in Lean/Six Sigma projects.",
-        "tr": "Malzeme veya ürünün inç başına maliyeti, Yalın/Altı Sigma projelerinde maliyet tahmini için kullanılır."
+        "tr": "Malzeme veya ürünün inç başına maliyeti, Yalın/Altı Sigma projelerinde maliyet tahmini için kullanılır.",
+        "de": "Kosten pro Zoll Material oder Produkt, verwendet für Kostenschätzung in Lean/Six Sigma-Projekten."
       }
     },
     {
@@ -116,11 +126,13 @@
       "businessContext": "Number of units in the batch for total cost and waste calculations.",
       "label_i18n": {
         "en": "Batch Quantity",
-        "tr": "Parti Miktarı"
+        "tr": "Parti Miktarı",
+        "de": "Chargenmenge"
       },
       "businessContext_i18n": {
         "en": "Number of units in the batch for total cost and waste calculations.",
-        "tr": "Toplam maliyet ve fire hesaplamaları için partideki birim sayısı."
+        "tr": "Toplam maliyet ve fire hesaplamaları için partideki birim sayısı.",
+        "de": "Anzahl der Einheiten in der Charge für Gesamtkosten- und Abfallberechnungen."
       }
     }
   ],

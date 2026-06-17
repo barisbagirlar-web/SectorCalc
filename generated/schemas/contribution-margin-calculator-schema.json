@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Satış Fiyatı (Birim)",
         "tr": "Satış Fiyatı (Birim)",
-        "de": "Satış Fiyatı (Birim)",
+        "de": "Verkaufspreis (pro Einheit)",
         "fr": "Satış Fiyatı (Birim)",
         "es": "Satış Fiyatı (Birim)",
         "ar": "Satış Fiyatı (Birim)"
       },
       "businessContext_i18n": {
         "en": "Birim başına satış fiyatı",
-        "tr": "Birim başına satış fiyatı"
+        "tr": "Birim başına satış fiyatı",
+        "de": "Verkaufspreis pro Einheit"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Değişken Maliyet (Birim)",
         "tr": "Değişken Maliyet (Birim)",
-        "de": "Değişken Maliyet (Birim)",
+        "de": "Variable Kosten (pro Einheit)",
         "fr": "Değişken Maliyet (Birim)",
         "es": "Değişken Maliyet (Birim)",
         "ar": "Değişken Maliyet (Birim)"
       },
       "businessContext_i18n": {
         "en": "Birim başına doğrudan değişken maliyet",
-        "tr": "Birim başına doğrudan değişken maliyet"
+        "tr": "Birim başına doğrudan değişken maliyet",
+        "de": "Direkte variable Kosten pro Einheit"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Satılan Miktar",
         "tr": "Satılan Miktar",
-        "de": "Satılan Miktar",
+        "de": "Verkaufte Menge",
         "fr": "Satılan Miktar",
         "es": "Satılan Miktar",
         "ar": "Satılan Miktar"
       },
       "businessContext_i18n": {
         "en": "Satılan toplam birim sayısı",
-        "tr": "Satılan toplam birim sayısı"
+        "tr": "Satılan toplam birim sayısı",
+        "de": "Gesamtzahl der verkauften Einheiten"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Sabit Maliyetler",
         "tr": "Sabit Maliyetler",
-        "de": "Sabit Maliyetler",
+        "de": "Fixkosten",
         "fr": "Sabit Maliyetler",
         "es": "Sabit Maliyetler",
         "ar": "Sabit Maliyetler"
       },
       "businessContext_i18n": {
         "en": "Toplam sabit maliyetler (faaliyet karı hesaplaması için isteğe bağlı)",
-        "tr": "Toplam sabit maliyetler (faaliyet karı hesaplaması için isteğe bağlı)"
+        "tr": "Toplam sabit maliyetler (faaliyet karı hesaplaması için isteğe bağlı)",
+        "de": "Gesamte Fixkosten (optional für die Berechnung des Betriebsgewinns)"
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("fractal-calculator", () => {
     "scalingFactor": 0.333,
     "iterationCount": 1,
     "initialLength": 1
-  } as Fractal_calculatorInput;
+  } as unknown as Fractal_calculatorInput;
     const result = calculateFractal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

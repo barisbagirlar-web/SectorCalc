@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Loan Amount",
         "tr": "Kredi Tutarı",
-        "de": "Loan Amount",
+        "de": "Darlehensbetrag",
         "fr": "Loan Amount",
         "es": "Loan Amount",
         "ar": "Loan Amount"
       },
       "businessContext_i18n": {
         "en": "Total business loan principal requested.",
-        "tr": "Talep edilen toplam işletme kredisi anaparası."
+        "tr": "Talep edilen toplam işletme kredisi anaparası.",
+        "de": "Geforderter Gesamtbetrag des Geschäftskredits."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
-        "de": "Annual Interest Rate",
+        "de": "Jährlicher Zinssatz",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Nominal annual interest rate quoted by lender.",
-        "tr": "Borç veren tarafından belirtilen nominal yıllık faiz oranı."
+        "tr": "Borç veren tarafından belirtilen nominal yıllık faiz oranı.",
+        "de": "Vom Kreditgeber angegebener nominaler jährlicher Zinssatz."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
-        "de": "Loan Term",
+        "de": "Darlehenslaufzeit",
         "fr": "Loan Term",
         "es": "Loan Term",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Repayment period in years.",
-        "tr": "Yıl cinsinden geri ödeme süresi."
+        "tr": "Yıl cinsinden geri ödeme süresi.",
+        "de": "Rückzahlungszeitraum in Jahren."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Origination Fee",
         "tr": "Başlangıç Ücreti",
-        "de": "Origination Fee",
+        "de": "Bearbeitungsgebühr",
         "fr": "Origination Fee",
         "es": "Origination Fee",
         "ar": "Origination Fee"
       },
       "businessContext_i18n": {
         "en": "One-time fee charged as percentage of loan amount.",
-        "tr": "Kredi tutarının yüzdesi olarak tahsil edilen tek seferlik ücret."
+        "tr": "Kredi tutarının yüzdesi olarak tahsil edilen tek seferlik ücret.",
+        "de": "Einmalige Gebühr, berechnet als Prozentsatz des Kreditbetrags."
       }
     }
   ],

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Start Odometer",
         "tr": "Başlangıç Kilometre Sayacı",
-        "de": "Start Odometer",
+        "de": "Startkilometerstand",
         "fr": "Start Odometer",
         "es": "Start Odometer",
         "ar": "Start Odometer"
       },
       "businessContext_i18n": {
         "en": "Initial odometer reading before trip",
-        "tr": "Yolculuk öncesi ilk kilometre sayacı okuması"
+        "tr": "Yolculuk öncesi ilk kilometre sayacı okuması",
+        "de": "Anfänglicher Kilometerstand vor der Fahrt"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "End Odometer",
         "tr": "Bitiş Kilometre Sayacı",
-        "de": "End Odometer",
+        "de": "Endkilometerstand",
         "fr": "End Odometer",
         "es": "End Odometer",
         "ar": "End Odometer"
       },
       "businessContext_i18n": {
         "en": "Final odometer reading after trip",
-        "tr": "Yolculuk sonrası son kilometre sayacı okuması"
+        "tr": "Yolculuk sonrası son kilometre sayacı okuması",
+        "de": "Endstand des Kilometerzählers nach der Fahrt"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fuel Used",
         "tr": "Kullanılan Yakıt",
-        "de": "Fuel Used",
+        "de": "Verbrauchter Kraftstoff",
         "fr": "Fuel Used",
         "es": "Fuel Used",
         "ar": "Fuel Used"
       },
       "businessContext_i18n": {
         "en": "Volume of fuel consumed during trip",
-        "tr": "Yolculuk sırasında tüketilen yakıt hacmi"
+        "tr": "Yolculuk sırasında tüketilen yakıt hacmi",
+        "de": "Während der Fahrt verbrauchte Kraftstoffmenge"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Fuel Price",
         "tr": "Yakıt Fiyatı",
-        "de": "Fuel Price",
+        "de": "Kraftstoffpreis",
         "fr": "Fuel Price",
         "es": "Fuel Price",
         "ar": "Fuel Price"
       },
       "businessContext_i18n": {
         "en": "Price of fuel per gallon for cost calculation",
-        "tr": "Maliyet hesaplaması için galon başına yakıt fiyatı"
+        "tr": "Maliyet hesaplaması için galon başına yakıt fiyatı",
+        "de": "Kraftstoffpreis pro Gallone für die Kostenberechnung"
       }
     }
   ],

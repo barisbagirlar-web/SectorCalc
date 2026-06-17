@@ -13,7 +13,7 @@ describe("cup-to-gram-calculator", () => {
     "density": 1,
     "temperature": 20,
     "densityCorrectionFactor": 0
-  } as Cup_to_gram_calculatorInput;
+  } as unknown as Cup_to_gram_calculatorInput;
     const result = calculateCup_to_gram_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

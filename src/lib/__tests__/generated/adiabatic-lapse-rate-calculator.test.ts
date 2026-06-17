@@ -13,7 +13,7 @@ describe("adiabatic-lapse-rate-calculator", () => {
     "initialTemperature": 293.15,
     "specificHeatCapacity": 1005,
     "gravityAcceleration": 9.81
-  } as Adiabatic_lapse_rate_calculatorInput;
+  } as unknown as Adiabatic_lapse_rate_calculatorInput;
     const result = calculateAdiabatic_lapse_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

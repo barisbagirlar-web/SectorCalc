@@ -16,7 +16,7 @@ describe("rca-recurring-cost-calculator", () => {
     "overhead_rate": 20,
     "cycle_time_minutes": 30,
     "defect_rate": 2
-  } as Rca_recurring_cost_calculatorInput;
+  } as unknown as Rca_recurring_cost_calculatorInput;
     const result = calculateRca_recurring_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

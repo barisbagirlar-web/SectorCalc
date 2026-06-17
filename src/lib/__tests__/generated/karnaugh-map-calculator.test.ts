@@ -12,7 +12,7 @@ describe("karnaugh-map-calculator", () => {
     "f01": 0,
     "f10": 0,
     "f11": 0
-  } as Karnaugh_map_calculatorInput;
+  } as unknown as Karnaugh_map_calculatorInput;
     const result = calculateKarnaugh_map_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

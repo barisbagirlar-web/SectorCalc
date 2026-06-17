@@ -12,7 +12,7 @@ describe("feet-to-miles-calculator", () => {
     "feetPerMile": 5280,
     "decimalPlaces": 2,
     "milesValue": 0
-  } as Feet_to_miles_calculatorInput;
+  } as unknown as Feet_to_miles_calculatorInput;
     const result = calculateFeet_to_miles_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

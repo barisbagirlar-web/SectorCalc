@@ -13,7 +13,7 @@ describe("roic-calculator", () => {
     "totalDebt": 500000,
     "totalEquity": 500000,
     "cash": 50000
-  } as Roic_calculatorInput;
+  } as unknown as Roic_calculatorInput;
     const result = calculateRoic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

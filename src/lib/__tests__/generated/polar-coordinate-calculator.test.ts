@@ -11,7 +11,7 @@ describe("polar-coordinate-calculator", () => {
     "radius": 1,
     "angle": 45,
     "auto_input_3": 1
-  } as Polar_coordinate_calculatorInput;
+  } as unknown as Polar_coordinate_calculatorInput;
     const result = calculatePolar_coordinate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

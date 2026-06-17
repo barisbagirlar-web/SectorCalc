@@ -16,7 +16,7 @@ describe("chair-rail-calculator", () => {
     "windowWidth": 4,
     "wasteFactor": 10,
     "pricePerFoot": 0
-  } as Chair_rail_calculatorInput;
+  } as unknown as Chair_rail_calculatorInput;
     const result = calculateChair_rail_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

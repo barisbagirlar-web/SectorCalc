@@ -13,7 +13,7 @@ describe("comic-book-value-calculator", () => {
     "initialValue": 1.99,
     "rarityIndex": 50,
     "demandIndex": 50
-  } as Comic_book_value_calculatorInput;
+  } as unknown as Comic_book_value_calculatorInput;
     const result = calculateComic_book_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

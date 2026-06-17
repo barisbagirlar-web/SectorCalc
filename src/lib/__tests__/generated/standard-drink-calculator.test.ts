@@ -12,7 +12,7 @@ describe("standard-drink-calculator", () => {
     "abv": 5,
     "standardGrams": 14,
     "quantity": 1
-  } as Standard_drink_calculatorInput;
+  } as unknown as Standard_drink_calculatorInput;
     const result = calculateStandard_drink_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

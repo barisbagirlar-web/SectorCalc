@@ -13,7 +13,7 @@ describe("trading-card-calculator", () => {
     "gradeMultiplier": 2.5,
     "shippingCost": 10,
     "sellingFee": 10
-  } as Trading_card_calculatorInput;
+  } as unknown as Trading_card_calculatorInput;
     const result = calculateTrading_card_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

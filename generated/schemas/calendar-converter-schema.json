@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gregorian Year",
         "tr": "Miladi Yıl",
-        "de": "Gregorian Year",
+        "de": "Gregorianisches Jahr",
         "fr": "Gregorian Year",
         "es": "Gregorian Year",
         "ar": "Gregorian Year"
       },
       "businessContext_i18n": {
         "en": "Gregorian calendar year to convert",
-        "tr": "Dönüştürülecek miladi takvim yılı"
+        "tr": "Dönüştürülecek miladi takvim yılı",
+        "de": "Umzurechnendes gregorianisches Kalenderjahr"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Gregorian Month",
         "tr": "Miladi Ay",
-        "de": "Gregorian Month",
+        "de": "Gregorianischer Monat",
         "fr": "Gregorian Month",
         "es": "Gregorian Month",
         "ar": "Gregorian Month"
       },
       "businessContext_i18n": {
         "en": "Gregorian calendar month (1-12)",
-        "tr": "Miladi takvim ayı (1-12)"
+        "tr": "Miladi takvim ayı (1-12)",
+        "de": "Gregorianischer Kalendermonat (1-12)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Gregorian Day",
         "tr": "Miladi Gün",
-        "de": "Gregorian Day",
+        "de": "Gregorianischer Tag",
         "fr": "Gregorian Day",
         "es": "Gregorian Day",
         "ar": "Gregorian Day"
       },
       "businessContext_i18n": {
         "en": "Gregorian calendar day (1-31)",
-        "tr": "Miladi takvim günü (1-31)"
+        "tr": "Miladi takvim günü (1-31)",
+        "de": "Gregorianischer Kalendertag (1-31)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
         "tr": "Hedef Takvim (0=Jülyen, 1=İslami, 2=İbrani)",
-        "de": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
+        "de": "Zielkalender (0=Julianisch, 1=Islamisch, 2=Hebräisch)",
         "fr": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
         "es": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
         "ar": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)"
       },
       "businessContext_i18n": {
         "en": "0 for Julian, 1 for Islamic, 2 for Hebrew",
-        "tr": "0 Jülyen, 1 İslami, 2 İbrani"
+        "tr": "0 Jülyen, 1 İslami, 2 İbrani",
+        "de": "0 für Julianisch, 1 für Islamisch, 2 für Hebräisch"
       }
     }
   ],

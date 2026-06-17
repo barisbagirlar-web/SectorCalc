@@ -12,7 +12,7 @@ describe("pregnancy-weight-gain-calculator", () => {
     "height": 165,
     "currentWeight": 65,
     "currentWeek": 20
-  } as Pregnancy_weight_gain_calculatorInput;
+  } as unknown as Pregnancy_weight_gain_calculatorInput;
     const result = calculatePregnancy_weight_gain_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

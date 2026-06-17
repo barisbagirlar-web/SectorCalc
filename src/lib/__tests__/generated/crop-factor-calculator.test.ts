@@ -12,7 +12,7 @@ describe("crop-factor-calculator", () => {
     "sensorHeight": 14.9,
     "fullFrameWidth": 36,
     "fullFrameHeight": 24
-  } as Crop_factor_calculatorInput;
+  } as unknown as Crop_factor_calculatorInput;
     const result = calculateCrop_factor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

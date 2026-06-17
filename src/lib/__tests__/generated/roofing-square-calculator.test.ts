@@ -12,7 +12,7 @@ describe("roofing-square-calculator", () => {
     "roofWidth": 20,
     "pitchAngle": 20,
     "wastePercent": 10
-  } as Roofing_square_calculatorInput;
+  } as unknown as Roofing_square_calculatorInput;
     const result = calculateRoofing_square_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

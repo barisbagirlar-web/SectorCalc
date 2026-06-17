@@ -12,7 +12,7 @@ describe("a-level-calculator", () => {
     "reference": 0.00002,
     "dbMultiplier": 20,
     "systemGain": 0
-  } as A_level_calculatorInput;
+  } as unknown as A_level_calculatorInput;
     const result = calculateA_level_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

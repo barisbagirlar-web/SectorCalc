@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Athlete's age in years",
-        "tr": "Sporcunun yaşı (yıl cinsinden)"
+        "tr": "Sporcunun yaşı (yıl cinsinden)",
+        "de": "Alter des Athleten in Jahren"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Fitness Level",
         "tr": "Fitness Seviyesi",
-        "de": "Fitness Level",
+        "de": "Fitness-Level",
         "fr": "Fitness Level",
         "es": "Fitness Level",
         "ar": "Fitness Level"
       },
       "businessContext_i18n": {
         "en": "Self-assessed fitness from 1 (sedentary) to 10 (elite)",
-        "tr": "1 (hareketsiz) ile 10 (elit) arasında kendini değerlendirme fitness seviyesi"
+        "tr": "1 (hareketsiz) ile 10 (elit) arasında kendini değerlendirme fitness seviyesi",
+        "de": "Selbsteinschätzung der Fitness von 1 (sitzend) bis 10 (Elite)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Exercise Intensity",
         "tr": "Egzersiz Yoğunluğu",
-        "de": "Exercise Intensity",
+        "de": "Trainingsintensität",
         "fr": "Exercise Intensity",
         "es": "Exercise Intensity",
         "ar": "Exercise Intensity"
       },
       "businessContext_i18n": {
         "en": "Perceived exertion from 1 (very light) to 10 (maximal)",
-        "tr": "1 (çok hafif) ile 10 (maksimal) arasında algılanan efor"
+        "tr": "1 (çok hafif) ile 10 (maksimal) arasında algılanan efor",
+        "de": "Wahrgenommene Anstrengung von 1 (sehr leicht) bis 10 (maximal)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Exercise Duration",
         "tr": "Egzersiz Süresi",
-        "de": "Exercise Duration",
+        "de": "Trainingsdauer",
         "fr": "Exercise Duration",
         "es": "Exercise Duration",
         "ar": "Exercise Duration"
       },
       "businessContext_i18n": {
         "en": "Total duration of the exercise session in minutes",
-        "tr": "Egzersiz seansının dakika cinsinden toplam süresi"
+        "tr": "Egzersiz seansının dakika cinsinden toplam süresi",
+        "de": "Gesamtdauer der Trainingseinheit in Minuten"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Recovery Hours",
         "tr": "Toparlanma Saatleri",
-        "de": "Recovery Hours",
+        "de": "Erholungsstunden",
         "fr": "Recovery Hours",
         "es": "Recovery Hours",
         "ar": "Recovery Hours"
       },
       "businessContext_i18n": {
         "en": "Time elapsed since exercise for recovery assessment",
-        "tr": "Egzersiz sonrası toparlanma değerlendirmesi için geçen süre"
+        "tr": "Egzersiz sonrası toparlanma değerlendirmesi için geçen süre",
+        "de": "Zeit seit dem Training für die Erholungsbewertung"
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("esg-score-calculator", () => {
     "weightE": 0.33,
     "weightS": 0.33,
     "weightG": 0.34
-  } as Esg_score_calculatorInput;
+  } as unknown as Esg_score_calculatorInput;
     const result = calculateEsg_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

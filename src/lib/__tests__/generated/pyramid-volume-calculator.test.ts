@@ -12,7 +12,7 @@ describe("pyramid-volume-calculator", () => {
     "width": 1,
     "height": 1,
     "quantity": 1
-  } as Pyramid_volume_calculatorInput;
+  } as unknown as Pyramid_volume_calculatorInput;
     const result = calculatePyramid_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Sides",
         "tr": "Kenar Sayısı",
-        "de": "Number of Sides",
+        "de": "Anzahl der Seiten",
         "fr": "Number of Sides",
         "es": "Number of Sides",
         "ar": "Number of Sides"
       },
       "businessContext_i18n": {
         "en": "Number of sides of the regular polygon",
-        "tr": "Düzgün çokgenin kenar sayısı"
+        "tr": "Düzgün çokgenin kenar sayısı",
+        "de": "Anzahl der Seiten des regelmäßigen Polygons"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Interior Angle",
         "tr": "İç Açı",
-        "de": "Interior Angle",
+        "de": "Innenwinkel",
         "fr": "Interior Angle",
         "es": "Interior Angle",
         "ar": "Interior Angle"
       },
       "businessContext_i18n": {
         "en": "Each interior angle of the polygon",
-        "tr": "Çokgenin her bir iç açısı"
+        "tr": "Çokgenin her bir iç açısı",
+        "de": "Jeder Innenwinkel des Polygons"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Sum of Interior Angles",
         "tr": "İç Açılar Toplamı",
-        "de": "Sum of Interior Angles",
+        "de": "Summe der Innenwinkel",
         "fr": "Sum of Interior Angles",
         "es": "Sum of Interior Angles",
         "ar": "Sum of Interior Angles"
       },
       "businessContext_i18n": {
         "en": "Total sum of all interior angles",
-        "tr": "Tüm iç açıların toplamı"
+        "tr": "Tüm iç açıların toplamı",
+        "de": "Gesamtsumme aller Innenwinkel"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Exterior Angle (if known)",
         "tr": "Dış Açı (biliniyorsa)",
-        "de": "Exterior Angle (if known)",
+        "de": "Außenwinkel (falls bekannt)",
         "fr": "Exterior Angle (if known)",
         "es": "Exterior Angle (if known)",
         "ar": "Exterior Angle (if known)"
       },
       "businessContext_i18n": {
         "en": "Pre-known exterior angle for verification",
-        "tr": "Doğrulama için önceden bilinen dış açı"
+        "tr": "Doğrulama için önceden bilinen dış açı",
+        "de": "Bekannter Außenwinkel zur Überprüfung"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
-        "de": "Decimal Precision",
+        "de": "Dezimalgenauigkeit",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding output",
-        "tr": "Yuvarlama için ondalık basamak sayısı"
+        "tr": "Yuvarlama için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabe"
       }
     }
   ],

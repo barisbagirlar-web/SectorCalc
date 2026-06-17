@@ -14,7 +14,7 @@ describe("journaling-calculator", () => {
     "rotationalSpeed": 1500,
     "oilViscosity": 30,
     "radialClearance": 0.05
-  } as Journaling_calculatorInput;
+  } as unknown as Journaling_calculatorInput;
     const result = calculateJournaling_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

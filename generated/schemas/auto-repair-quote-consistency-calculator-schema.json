@@ -22,11 +22,13 @@
       "businessContext": "Standard hourly labor charge from the repair shop.",
       "label_i18n": {
         "en": "Labor Rate per Hour",
-        "tr": "Saatlik İşçilik Ücreti"
+        "tr": "Saatlik İşçilik Ücreti",
+        "de": "Stundensatz"
       },
       "businessContext_i18n": {
         "en": "Standard hourly labor charge from the repair shop.",
-        "tr": "Atölyeden standart saatlik işçilik ücreti."
+        "tr": "Atölyeden standart saatlik işçilik ücreti.",
+        "de": "Standardmäßiger Arbeitslohn der Werkstatt pro Stunde."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Total labor hours quoted for the repair job.",
       "label_i18n": {
         "en": "Estimated Labor Hours",
-        "tr": "Tahmini İşçilik Saati"
+        "tr": "Tahmini İşçilik Saati",
+        "de": "Geschätzte Arbeitsstunden"
       },
       "businessContext_i18n": {
         "en": "Total labor hours quoted for the repair job.",
-        "tr": "Onarım işi için teklif edilen toplam işçilik saati."
+        "tr": "Onarım işi için teklif edilen toplam işçilik saati.",
+        "de": "Gesamte Arbeitsstunden, die für den Reparaturauftrag veranschlagt wurden."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Total cost of replacement parts as quoted.",
       "label_i18n": {
         "en": "Parts Cost",
-        "tr": "Parça Maliyeti"
+        "tr": "Parça Maliyeti",
+        "de": "Teilekosten"
       },
       "businessContext_i18n": {
         "en": "Total cost of replacement parts as quoted.",
-        "tr": "Teklif edilen yedek parçaların toplam maliyeti."
+        "tr": "Teklif edilen yedek parçaların toplam maliyeti.",
+        "de": "Gesamtkosten der Ersatzteile laut Angebot."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Miscellaneous supplies charge (e.g., fluids, rags).",
       "label_i18n": {
         "en": "Shop Supplies Fee",
-        "tr": "Atölye Sarf Malzemesi Ücreti"
+        "tr": "Atölye Sarf Malzemesi Ücreti",
+        "de": "Ladengebühren"
       },
       "businessContext_i18n": {
         "en": "Miscellaneous supplies charge (e.g., fluids, rags).",
-        "tr": "Sarf malzemeleri (ör. sıvılar, bezler) için ücret."
+        "tr": "Sarf malzemeleri (ör. sıvılar, bezler) için ücret.",
+        "de": "Gebühr für verschiedene Verbrauchsmaterialien (z. B. Flüssigkeiten, Lappen)."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Applicable sales tax percentage on parts and supplies.",
       "label_i18n": {
         "en": "Sales Tax Rate",
-        "tr": "Satış Vergisi Oranı"
+        "tr": "Satış Vergisi Oranı",
+        "de": "Umsatzsteuersatz"
       },
       "businessContext_i18n": {
         "en": "Applicable sales tax percentage on parts and supplies.",
-        "tr": "Parça ve sarf malzemelerinde geçerli satış vergisi yüzdesi."
+        "tr": "Parça ve sarf malzemelerinde geçerli satış vergisi yüzdesi.",
+        "de": "Anwendbarer Umsatzsteuersatz auf Teile und Verbrauchsmaterialien."
       }
     },
     {
@@ -117,11 +127,13 @@
       "businessContext": "Type of repair shop influences benchmark labor rates.",
       "label_i18n": {
         "en": "Shop Type",
-        "tr": "Atölye Türü"
+        "tr": "Atölye Türü",
+        "de": "Werkstatttyp"
       },
       "businessContext_i18n": {
         "en": "Type of repair shop influences benchmark labor rates.",
-        "tr": "Tamir atölyesi türü, referans işçilik ücretlerini etkiler."
+        "tr": "Tamir atölyesi türü, referans işçilik ücretlerini etkiler.",
+        "de": "Die Art der Reparaturwerkstatt beeinflusst die Richtwerte für Arbeitsstunden."
       }
     },
     {
@@ -141,11 +153,13 @@
       "businessContext": "Category of repair affects typical labor hours and parts markup.",
       "label_i18n": {
         "en": "Repair Category",
-        "tr": "Tamir Kategorisi"
+        "tr": "Tamir Kategorisi",
+        "de": "Reparaturkategorie"
       },
       "businessContext_i18n": {
         "en": "Category of repair affects typical labor hours and parts markup.",
-        "tr": "Tamir kategorisi, tipik işçilik saatlerini ve parça kâr marjını etkiler."
+        "tr": "Tamir kategorisi, tipik işçilik saatlerini ve parça kâr marjını etkiler.",
+        "de": "Die Reparaturkategorie beeinflusst die typischen Arbeitsstunden und den Teileaufschlag."
       }
     },
     {
@@ -159,11 +173,13 @@
       "businessContext": "OEM parts are typically more expensive than aftermarket.",
       "label_i18n": {
         "en": "Use Original Equipment Manufacturer (OEM) Parts",
-        "tr": "Orijinal Ekipman Üreticisi (OEM) Parçaları Kullan"
+        "tr": "Orijinal Ekipman Üreticisi (OEM) Parçaları Kullan",
+        "de": "Originalteile (OEM) verwenden"
       },
       "businessContext_i18n": {
         "en": "OEM parts are typically more expensive than aftermarket.",
-        "tr": "OEM parçaları genellikle yedek parçalardan daha pahalıdır."
+        "tr": "OEM parçaları genellikle yedek parçalardan daha pahalıdır.",
+        "de": "OEM-Teile sind in der Regel teurer als Ersatzteile."
       }
     }
   ],

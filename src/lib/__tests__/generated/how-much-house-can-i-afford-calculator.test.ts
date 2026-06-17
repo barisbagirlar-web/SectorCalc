@@ -16,7 +16,7 @@ describe("how-much-house-can-i-afford-calculator", () => {
     "propertyTaxRate": 1.2,
     "insuranceRate": 0.5,
     "monthlyHOA": 0
-  } as How_much_house_can_i_afford_calculatorInput;
+  } as unknown as How_much_house_can_i_afford_calculatorInput;
     const result = calculateHow_much_house_can_i_afford_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

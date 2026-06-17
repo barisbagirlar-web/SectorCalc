@@ -13,7 +13,7 @@ describe("absorbed-dose-calculator", () => {
     "time": 3600,
     "density": 1000,
     "volume": 0.001
-  } as Absorbed_dose_calculatorInput;
+  } as unknown as Absorbed_dose_calculatorInput;
     const result = calculateAbsorbed_dose_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

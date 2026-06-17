@@ -14,7 +14,7 @@ describe("decimal-to-fraction-calculator", () => {
     "format": 0,
     "rounding": 0,
     "tolerance": 1e-9
-  } as Decimal_to_fraction_calculatorInput;
+  } as unknown as Decimal_to_fraction_calculatorInput;
     const result = calculateDecimal_to_fraction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

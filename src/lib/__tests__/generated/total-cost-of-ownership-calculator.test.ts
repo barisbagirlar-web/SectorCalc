@@ -14,7 +14,7 @@ describe("total-cost-of-ownership-calculator", () => {
     "resaleValue": 3000,
     "ownershipYears": 5,
     "discountRate": 5
-  } as Total_cost_of_ownership_calculatorInput;
+  } as unknown as Total_cost_of_ownership_calculatorInput;
     const result = calculateTotal_cost_of_ownership_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

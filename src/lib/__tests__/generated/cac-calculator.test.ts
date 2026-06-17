@@ -13,7 +13,7 @@ describe("cac-calculator", () => {
     "technologyCosts": 2000,
     "otherCosts": 1500,
     "newCustomers": 100
-  } as Cac_calculatorInput;
+  } as unknown as Cac_calculatorInput;
     const result = calculateCac_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

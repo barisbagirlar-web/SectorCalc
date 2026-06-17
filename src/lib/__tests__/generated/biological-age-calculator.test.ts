@@ -16,7 +16,7 @@ describe("biological-age-calculator", () => {
     "weeklyExercise": 3,
     "smoking": 0,
     "restingHeartRate": 70
-  } as Biological_age_calculatorInput;
+  } as unknown as Biological_age_calculatorInput;
     const result = calculateBiological_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

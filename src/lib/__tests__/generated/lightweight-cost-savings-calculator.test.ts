@@ -16,7 +16,7 @@ describe("lightweight-cost-savings-calculator", () => {
     "waste_rate_percent": 5,
     "labor_hours_per_unit": 0.5,
     "labor_rate_per_hour": 20
-  } as Lightweight_cost_savings_calculatorInput;
+  } as unknown as Lightweight_cost_savings_calculatorInput;
     const result = calculateLightweight_cost_savings_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

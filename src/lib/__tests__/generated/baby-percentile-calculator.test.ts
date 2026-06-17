@@ -13,7 +13,7 @@ describe("baby-percentile-calculator", () => {
     "length": 74,
     "head": 44,
     "gender": 0
-  } as Baby_percentile_calculatorInput;
+  } as unknown as Baby_percentile_calculatorInput;
     const result = calculateBaby_percentile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

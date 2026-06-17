@@ -12,7 +12,7 @@ describe("weight-distribution", () => {
     "frontAxleDist": 2.5,
     "rearAxleDist": 1.5,
     "wheelbase": 4
-  } as Weight_distributionInput;
+  } as unknown as Weight_distributionInput;
     const result = calculateWeight_distribution(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

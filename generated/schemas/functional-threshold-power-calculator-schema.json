@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "20 Dakika Ortalama Güç",
         "tr": "20 Dakika Ortalama Güç",
-        "de": "20 Dakika Ortalama Güç",
+        "de": "20-Minuten-Durchschnittsleistung",
         "fr": "20 Dakika Ortalama Güç",
         "es": "20 Dakika Ortalama Güç",
         "ar": "20 Dakika Ortalama Güç"
       },
       "businessContext_i18n": {
         "en": "20 dakikalık maksimum eforda üretilen ortalama güç (watt)",
-        "tr": "20 dakikalık maksimum eforda üretilen ortalama güç (watt)"
+        "tr": "20 dakikalık maksimum eforda üretilen ortalama güç (watt)",
+        "de": "Durchschnittliche Leistung (Watt) bei maximaler Anstrengung über 20 Minuten"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sürücü Ağırlığı",
         "tr": "Sürücü Ağırlığı",
-        "de": "Sürücü Ağırlığı",
+        "de": "Fahrergewicht",
         "fr": "Sürücü Ağırlığı",
         "es": "Sürücü Ağırlığı",
         "ar": "Sürücü Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Sürücünün ağırlığı (kilogram)",
-        "tr": "Sürücünün ağırlığı (kilogram)"
+        "tr": "Sürücünün ağırlığı (kilogram)",
+        "de": "Gewicht des Fahrers in Kilogramm"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Ayarlama Faktörü",
         "tr": "Ayarlama Faktörü",
-        "de": "Ayarlama Faktörü",
+        "de": "Anpassungsfaktor",
         "fr": "Ayarlama Faktörü",
         "es": "Ayarlama Faktörü",
         "ar": "Ayarlama Faktörü"
       },
       "businessContext_i18n": {
         "en": "FTP hesaplamak için kullanılan katsayı (standart 20 dk testi için 0.95)",
-        "tr": "FTP hesaplamak için kullanılan katsayı (standart 20 dk testi için 0.95)"
+        "tr": "FTP hesaplamak için kullanılan katsayı (standart 20 dk testi için 0.95)",
+        "de": "Koeffizient zur Berechnung des FTP (Standard 20-Minuten-Test: 0,95)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Test Süresi",
         "tr": "Test Süresi",
-        "de": "Test Süresi",
+        "de": "Testdauer",
         "fr": "Test Süresi",
         "es": "Test Süresi",
         "ar": "Test Süresi"
       },
       "businessContext_i18n": {
         "en": "Testin süresi (dakika), referans amaçlıdır, hesaplamayı etkilemez",
-        "tr": "Testin süresi (dakika), referans amaçlıdır, hesaplamayı etkilemez"
+        "tr": "Testin süresi (dakika), referans amaçlıdır, hesaplamayı etkilemez",
+        "de": "Testdauer in Minuten, dient als Referenz, beeinflusst die Berechnung nicht"
       }
     }
   ],

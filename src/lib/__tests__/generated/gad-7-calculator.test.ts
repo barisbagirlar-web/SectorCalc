@@ -15,7 +15,7 @@ describe("gad-7-calculator", () => {
     "q5": 0,
     "q6": 0,
     "q7": 0
-  } as Gad_7_calculatorInput;
+  } as unknown as Gad_7_calculatorInput;
     const result = calculateGad_7_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

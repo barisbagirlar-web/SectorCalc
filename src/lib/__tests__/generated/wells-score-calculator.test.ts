@@ -16,7 +16,7 @@ describe("wells-score-calculator", () => {
     "calfSwellingOver3cm": 0,
     "pittingEdema": 0,
     "alternativeDiagnosis": 0
-  } as Wells_score_calculatorInput;
+  } as unknown as Wells_score_calculatorInput;
     const result = calculateWells_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

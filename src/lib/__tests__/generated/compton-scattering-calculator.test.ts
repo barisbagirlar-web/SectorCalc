@@ -12,7 +12,7 @@ describe("compton-scattering-calculator", () => {
     "incidentWavelength": 0,
     "scatteringAngle": 90,
     "electronRestEnergy": 511
-  } as Compton_scattering_calculatorInput;
+  } as unknown as Compton_scattering_calculatorInput;
     const result = calculateCompton_scattering_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

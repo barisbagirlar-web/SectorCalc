@@ -14,7 +14,7 @@ describe("green-building-calculator", () => {
     "gas": 10000,
     "gasFactor": 0.184,
     "renewable": 10000
-  } as Green_building_calculatorInput;
+  } as unknown as Green_building_calculatorInput;
     const result = calculateGreen_building_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

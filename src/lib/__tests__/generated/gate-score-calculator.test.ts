@@ -16,7 +16,7 @@ describe("gate-score-calculator", () => {
     "weightA": 25,
     "weightT": 25,
     "weightE": 25
-  } as Gate_score_calculatorInput;
+  } as unknown as Gate_score_calculatorInput;
     const result = calculateGate_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

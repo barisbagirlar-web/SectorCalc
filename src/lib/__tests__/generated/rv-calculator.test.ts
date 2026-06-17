@@ -12,7 +12,7 @@ describe("rv-calculator", () => {
     "downtimeHours": 8,
     "costPerHour": 1000,
     "detectionProbability": 0.7
-  } as Rv_calculatorInput;
+  } as unknown as Rv_calculatorInput;
     const result = calculateRv_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

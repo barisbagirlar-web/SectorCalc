@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Player A Rating",
         "tr": "Oyuncu A Derecesi",
-        "de": "Player A Rating",
+        "de": "Spieler-A-Wertung",
         "fr": "Player A Rating",
         "es": "Player A Rating",
         "ar": "Player A Rating"
       },
       "businessContext_i18n": {
         "en": "Current Elo rating of player A.",
-        "tr": "Oyuncu A'nın mevcut Elo derecesi."
+        "tr": "Oyuncu A'nın mevcut Elo derecesi.",
+        "de": "Aktuelle Elo-Zahl von Spieler A."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Player B Rating",
         "tr": "Oyuncu B Derecesi",
-        "de": "Player B Rating",
+        "de": "Spieler-B-Wertung",
         "fr": "Player B Rating",
         "es": "Player B Rating",
         "ar": "Player B Rating"
       },
       "businessContext_i18n": {
         "en": "Current Elo rating of player B.",
-        "tr": "Oyuncu B'nin mevcut Elo derecesi."
+        "tr": "Oyuncu B'nin mevcut Elo derecesi.",
+        "de": "Aktuelle Elo-Zahl von Spieler B."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Score for Player A",
         "tr": "Oyuncu A Skoru",
-        "de": "Score for Player A",
+        "de": "Punktzahl für Spieler A",
         "fr": "Score for Player A",
         "es": "Score for Player A",
         "ar": "Score for Player A"
       },
       "businessContext_i18n": {
         "en": "Match score for player A: 1 = win, 0.5 = draw, 0 = loss.",
-        "tr": "Oyuncu A için maç skoru: 1 = galibiyet, 0.5 = beraberlik, 0 = mağlubiyet."
+        "tr": "Oyuncu A için maç skoru: 1 = galibiyet, 0.5 = beraberlik, 0 = mağlubiyet.",
+        "de": "Spielergebnis für Spieler A: 1 = Sieg, 0,5 = Unentschieden, 0 = Niederlage."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "K-factor",
         "tr": "K-faktörü",
-        "de": "K-factor",
+        "de": "K-Faktor",
         "fr": "K-factor",
         "es": "K-factor",
         "ar": "K-factor"
       },
       "businessContext_i18n": {
         "en": "Development coefficient (e.g., 32 for amateurs, 16 for professionals).",
-        "tr": "Gelişim katsayısı (örn. amatörler için 32, profesyoneller için 16)."
+        "tr": "Gelişim katsayısı (örn. amatörler için 32, profesyoneller için 16).",
+        "de": "Entwicklungskoeffizient (z. B. 32 für Amateure, 16 für Profis)."
       }
     }
   ],

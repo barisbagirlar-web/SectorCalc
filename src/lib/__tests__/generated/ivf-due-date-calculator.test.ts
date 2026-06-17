@@ -12,7 +12,7 @@ describe("ivf-due-date-calculator", () => {
     "transferMonth": 1,
     "transferDay": 1,
     "embryoAge": 3
-  } as Ivf_due_date_calculatorInput;
+  } as unknown as Ivf_due_date_calculatorInput;
     const result = calculateIvf_due_date_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

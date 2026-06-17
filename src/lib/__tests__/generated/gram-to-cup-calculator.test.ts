@@ -12,7 +12,7 @@ describe("gram-to-cup-calculator", () => {
     "density": 0.59,
     "cupVolume": 240,
     "packingFactor": 1
-  } as Gram_to_cup_calculatorInput;
+  } as unknown as Gram_to_cup_calculatorInput;
     const result = calculateGram_to_cup_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

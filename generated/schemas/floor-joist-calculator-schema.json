@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Span (ft)",
         "tr": "Açıklık (ft)",
-        "de": "Span (ft)",
+        "de": "Spannweite (ft)",
         "fr": "Span (ft)",
         "es": "Span (ft)",
         "ar": "Span (ft)"
       },
       "businessContext_i18n": {
         "en": "Length of joist span in feet",
-        "tr": "Kiriş açıklığının fit cinsinden uzunluğu"
+        "tr": "Kiriş açıklığının fit cinsinden uzunluğu",
+        "de": "Länge der Balkenspannweite in Fuß"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Spacing (in)",
         "tr": "Aralık (in)",
-        "de": "Spacing (in)",
+        "de": "Abstand (in)",
         "fr": "Spacing (in)",
         "es": "Spacing (in)",
         "ar": "Spacing (in)"
       },
       "businessContext_i18n": {
         "en": "Center-to-center joist spacing in inches",
-        "tr": "Kirişler arası merkezden merkeze mesafe (inç cinsinden)"
+        "tr": "Kirişler arası merkezden merkeze mesafe (inç cinsinden)",
+        "de": "Mittenabstand der Balken in Zoll"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Dead Load (psf)",
         "tr": "Ölü Yük (psf)",
-        "de": "Dead Load (psf)",
+        "de": "Eigenlast (psf)",
         "fr": "Dead Load (psf)",
         "es": "Dead Load (psf)",
         "ar": "Dead Load (psf)"
       },
       "businessContext_i18n": {
         "en": "Uniform dead load in pounds per square foot",
-        "tr": "Metrekare başına pound cinsinden düzgün yayılı ölü yük"
+        "tr": "Metrekare başına pound cinsinden düzgün yayılı ölü yük",
+        "de": "Gleichmäßige Eigenlast in Pfund pro Quadratfuß"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Live Load (psf)",
         "tr": "Hareketli Yük (psf)",
-        "de": "Live Load (psf)",
+        "de": "Nutzlast (psf)",
         "fr": "Live Load (psf)",
         "es": "Live Load (psf)",
         "ar": "Live Load (psf)"
       },
       "businessContext_i18n": {
         "en": "Uniform live load in pounds per square foot",
-        "tr": "Metrekare başına pound cinsinden düzgün yayılı hareketli yük"
+        "tr": "Metrekare başına pound cinsinden düzgün yayılı hareketli yük",
+        "de": "Gleichmäßige Nutzlast in Pfund pro Quadratfuß"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Modulus of Elasticity (psi)",
         "tr": "Elastisite Modülü (psi)",
-        "de": "Modulus of Elasticity (psi)",
+        "de": "Elastizitätsmodul (psi)",
         "fr": "Modulus of Elasticity (psi)",
         "es": "Modulus of Elasticity (psi)",
         "ar": "Modulus of Elasticity (psi)"
       },
       "businessContext_i18n": {
         "en": "Modulus of elasticity of the joist material",
-        "tr": "Kiriş malzemesinin elastisite modülü"
+        "tr": "Kiriş malzemesinin elastisite modülü",
+        "de": "Elastizitätsmodul des Balkenmaterials"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Moment of Inertia (in⁴)",
         "tr": "Atalet Momenti (in⁴)",
-        "de": "Moment of Inertia (in⁴)",
+        "de": "Flächenträgheitsmoment (in⁴)",
         "fr": "Moment of Inertia (in⁴)",
         "es": "Moment of Inertia (in⁴)",
         "ar": "Moment of Inertia (in⁴)"
       },
       "businessContext_i18n": {
         "en": "Moment of inertia of the joist cross-section",
-        "tr": "Kiriş kesitinin atalet momenti"
+        "tr": "Kiriş kesitinin atalet momenti",
+        "de": "Flächenträgheitsmoment des Balkenquerschnitts"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Deflection Limit (L/x)",
         "tr": "Sehim Sınırı (L/x)",
-        "de": "Deflection Limit (L/x)",
+        "de": "Durchbiegungsgrenze (L/x)",
         "fr": "Deflection Limit (L/x)",
         "es": "Deflection Limit (L/x)",
         "ar": "Deflection Limit (L/x)"
       },
       "businessContext_i18n": {
         "en": "Deflection limit denominator, e.g., 360 for L/360",
-        "tr": "Sehim sınırı paydası, örn. L/360 için 360"
+        "tr": "Sehim sınırı paydası, örn. L/360 için 360",
+        "de": "Nenner der Durchbiegungsgrenze, z. B. 360 für L/360"
       }
     }
   ],

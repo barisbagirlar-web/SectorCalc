@@ -14,7 +14,7 @@ describe("wire-size-calculator", () => {
     "material": 0,
     "voltageDropPercent": 3,
     "phases": 1
-  } as Wire_size_calculatorInput;
+  } as unknown as Wire_size_calculatorInput;
     const result = calculateWire_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

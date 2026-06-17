@@ -12,7 +12,7 @@ describe("sample-size-calculator", () => {
     "proportion": 0.5,
     "marginOfError": 0.05,
     "zScore": 1.96
-  } as Sample_size_calculatorInput;
+  } as unknown as Sample_size_calculatorInput;
     const result = calculateSample_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

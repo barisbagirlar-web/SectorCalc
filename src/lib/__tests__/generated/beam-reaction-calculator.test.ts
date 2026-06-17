@@ -15,7 +15,7 @@ describe("beam-reaction-calculator", () => {
     "pos2": 3,
     "load3": 0,
     "pos3": 4
-  } as Beam_reaction_calculatorInput;
+  } as unknown as Beam_reaction_calculatorInput;
     const result = calculateBeam_reaction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

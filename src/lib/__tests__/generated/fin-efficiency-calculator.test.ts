@@ -13,7 +13,7 @@ describe("fin-efficiency-calculator", () => {
     "finWidth": 0.05,
     "heatTransferCoefficient": 25,
     "thermalConductivity": 200
-  } as Fin_efficiency_calculatorInput;
+  } as unknown as Fin_efficiency_calculatorInput;
     const result = calculateFin_efficiency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

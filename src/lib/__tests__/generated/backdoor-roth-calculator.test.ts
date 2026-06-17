@@ -12,7 +12,7 @@ describe("backdoor-roth-calculator", () => {
     "afterTaxBasis": 5000,
     "conversionAmount": 7000,
     "taxRate": 0.24
-  } as Backdoor_roth_calculatorInput;
+  } as unknown as Backdoor_roth_calculatorInput;
     const result = calculateBackdoor_roth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

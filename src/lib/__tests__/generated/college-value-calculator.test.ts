@@ -14,7 +14,7 @@ describe("college-value-calculator", () => {
     "alternativeSalary": 35000,
     "workingYears": 40,
     "discountRate": 5
-  } as College_value_calculatorInput;
+  } as unknown as College_value_calculatorInput;
     const result = calculateCollege_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

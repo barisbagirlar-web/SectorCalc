@@ -14,7 +14,7 @@ describe("atom-ekonomisi-hesaplayici-calculator", () => {
     "reactantMW3": 0,
     "reactantMW4": 0,
     "reactantMW5": 0
-  } as Atom_ekonomisi_hesaplayici_calculatorInput;
+  } as unknown as Atom_ekonomisi_hesaplayici_calculatorInput;
     const result = calculateAtom_ekonomisi_hesaplayici_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

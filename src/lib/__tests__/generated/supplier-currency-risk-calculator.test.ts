@@ -16,7 +16,7 @@ describe("supplier-currency-risk-calculator", () => {
     "confidence_level": "95",
     "supplier_credit_rating": "BBB",
     "use_iso_31000": true
-  } as Supplier_currency_risk_calculatorInput;
+  } as unknown as Supplier_currency_risk_calculatorInput;
     const result = calculateSupplier_currency_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

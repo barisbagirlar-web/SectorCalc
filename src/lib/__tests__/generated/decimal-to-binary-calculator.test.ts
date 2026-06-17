@@ -13,7 +13,7 @@ describe("decimal-to-binary-calculator", () => {
     "groupSize": 0,
     "includePrefix": 0,
     "outputNumberFormat": 0
-  } as Decimal_to_binary_calculatorInput;
+  } as unknown as Decimal_to_binary_calculatorInput;
     const result = calculateDecimal_to_binary_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

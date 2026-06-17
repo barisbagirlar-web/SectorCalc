@@ -12,7 +12,7 @@ describe("kilograms-to-grams-calculator", () => {
     "items": 1,
     "packagingKg": 0,
     "factor": 1000
-  } as Kilograms_to_grams_calculatorInput;
+  } as unknown as Kilograms_to_grams_calculatorInput;
     const result = calculateKilograms_to_grams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

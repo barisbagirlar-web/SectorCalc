@@ -14,7 +14,7 @@ describe("home-maintenance-calculator", () => {
     "ageMultiplier": 0.02,
     "inflation": 0.03,
     "yearsToProject": 5
-  } as Home_maintenance_calculatorInput;
+  } as unknown as Home_maintenance_calculatorInput;
     const result = calculateHome_maintenance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

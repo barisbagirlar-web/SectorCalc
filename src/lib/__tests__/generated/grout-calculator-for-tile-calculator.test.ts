@@ -15,7 +15,7 @@ describe("grout-calculator-for-tile-calculator", () => {
     "area": 10,
     "wasteFactor": 1.2,
     "groutDensity": 1.8
-  } as Grout_calculator_for_tile_calculatorInput;
+  } as unknown as Grout_calculator_for_tile_calculatorInput;
     const result = calculateGrout_calculator_for_tile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

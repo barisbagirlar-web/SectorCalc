@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Pressure (bar)",
         "tr": "Basınç (bar)",
-        "de": "Pressure (bar)",
+        "de": "Druck (bar)",
         "fr": "Pressure (bar)",
         "es": "Pressure (bar)",
         "ar": "Pressure (bar)"
       },
       "businessContext_i18n": {
         "en": "Pressure value to convert from bar to psi.",
-        "tr": "Bar'dan psi'ye dönüştürülecek basınç değeri."
+        "tr": "Bar'dan psi'ye dönüştürülecek basınç değeri.",
+        "de": "Druckwert zur Umrechnung von bar in psi."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Reference Type",
         "tr": "Referans Türü",
-        "de": "Reference Type",
+        "de": "Bezugstyp",
         "fr": "Reference Type",
         "es": "Reference Type",
         "ar": "Reference Type"
       },
       "businessContext_i18n": {
         "en": "0 for absolute pressure, 1 for gauge pressure. If gauge, atmospheric pressure is added to obtain absolute pressure before conversion.",
-        "tr": "Mutlak basınç için 0, gösterge basıncı için 1. Gösterge ise, dönüşümden önce mutlak basınç elde etmek için atmosfer basıncı eklenir."
+        "tr": "Mutlak basınç için 0, gösterge basıncı için 1. Gösterge ise, dönüşümden önce mutlak basınç elde etmek için atmosfer basıncı eklenir.",
+        "de": "0 für Absolutdruck, 1 für Relativdruck. Bei Relativdruck wird der Atmosphärendruck addiert, um den Absolutdruck vor der Umrechnung zu erhalten."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Atmospheric Pressure",
         "tr": "Atmosfer Basıncı",
-        "de": "Atmospheric Pressure",
+        "de": "Atmosphärendruck",
         "fr": "Atmospheric Pressure",
         "es": "Atmospheric Pressure",
         "ar": "Atmospheric Pressure"
       },
       "businessContext_i18n": {
         "en": "Standard atmospheric pressure at sea level. Used only when reference type is gauge.",
-        "tr": "Deniz seviyesinde standart atmosfer basıncı. Yalnızca referans türü gösterge olduğunda kullanılır."
+        "tr": "Deniz seviyesinde standart atmosfer basıncı. Yalnızca referans türü gösterge olduğunda kullanılır.",
+        "de": "Standard-Atmosphärendruck auf Meereshöhe. Wird nur verwendet, wenn der Bezugstyp Relativdruck ist."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
-        "de": "Decimal Precision",
+        "de": "Dezimalgenauigkeit",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the converted psi value.",
-        "tr": "Dönüştürülen psi değeri için ondalık basamak sayısı."
+        "tr": "Dönüştürülen psi değeri için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für den umgerechneten psi-Wert."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
-        "de": "Conversion Factor",
+        "de": "Umrechnungsfaktor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Custom conversion factor (default is 1 bar = 14.503773773 psi). Modify only if a different definition is required.",
-        "tr": "Özel dönüşüm faktörü (varsayılan 1 bar = 14.503773773 psi). Yalnızca farklı bir tanım gerekiyorsa değiştirin."
+        "tr": "Özel dönüşüm faktörü (varsayılan 1 bar = 14.503773773 psi). Yalnızca farklı bir tanım gerekiyorsa değiştirin.",
+        "de": "Benutzerdefinierter Umrechnungsfaktor (Standard: 1 bar = 14,503773773 psi). Nur ändern, wenn eine andere Definition erforderlich ist."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Measurement Temperature",
         "tr": "Ölçüm Sıcaklığı",
-        "de": "Measurement Temperature",
+        "de": "Messtemperatur",
         "fr": "Measurement Temperature",
         "es": "Measurement Temperature",
         "ar": "Measurement Temperature"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature at the measurement point (for documentation only, does not affect the conversion).",
-        "tr": "Ölçüm noktasındaki ortam sıcaklığı (yalnızca dokümantasyon için, dönüşümü etkilemez)."
+        "tr": "Ölçüm noktasındaki ortam sıcaklığı (yalnızca dokümantasyon için, dönüşümü etkilemez).",
+        "de": "Umgebungstemperatur am Messpunkt (nur zur Dokumentation, beeinflusst die Umrechnung nicht)."
       }
     }
   ],

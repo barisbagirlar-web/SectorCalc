@@ -12,7 +12,7 @@ describe("archery-calculator", () => {
     "drawWeight": 70,
     "drawLength": 30,
     "arrowWeight": 350
-  } as Archery_calculatorInput;
+  } as unknown as Archery_calculatorInput;
     const result = calculateArchery_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

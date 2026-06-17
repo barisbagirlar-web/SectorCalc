@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Bore (Cylinder Diameter)",
         "tr": "Silindir çapı",
-        "de": "Bore (Cylinder Diameter)",
+        "de": "Zylinderdurchmesser (Bohrung)",
         "fr": "Bore (Cylinder Diameter)",
         "es": "Bore (Cylinder Diameter)",
         "ar": "Bore (Cylinder Diameter)"
       },
       "businessContext_i18n": {
         "en": "Diameter of the engine cylinder bore.",
-        "tr": "Motor silindir deliğinin çapı."
+        "tr": "Motor silindir deliğinin çapı.",
+        "de": "Durchmesser der Zylinderbohrung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Stroke Length",
         "tr": "Strok uzunluğu",
-        "de": "Stroke Length",
+        "de": "Hublänge",
         "fr": "Stroke Length",
         "es": "Stroke Length",
         "ar": "Stroke Length"
       },
       "businessContext_i18n": {
         "en": "Piston stroke length from BDC to TDC.",
-        "tr": "Pistonun AÖN'den ÜÖN'ye strok uzunluğu."
+        "tr": "Pistonun AÖN'den ÜÖN'ye strok uzunluğu.",
+        "de": "Kolbenhub von UT zu OT."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Combustion Chamber Volume",
         "tr": "Yanma odası hacmi",
-        "de": "Combustion Chamber Volume",
+        "de": "Brennraumvolumen",
         "fr": "Combustion Chamber Volume",
         "es": "Combustion Chamber Volume",
         "ar": "Combustion Chamber Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of combustion chamber in the cylinder head.",
-        "tr": "Silindir kafasındaki yanma odasının hacmi."
+        "tr": "Silindir kafasındaki yanma odasının hacmi.",
+        "de": "Volumen des Brennraums im Zylinderkopf."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Gasket Thickness",
         "tr": "Conta kalınlığı",
-        "de": "Gasket Thickness",
+        "de": "Dichtungsdicke",
         "fr": "Gasket Thickness",
         "es": "Gasket Thickness",
         "ar": "Gasket Thickness"
       },
       "businessContext_i18n": {
         "en": "Compressed thickness of the head gasket.",
-        "tr": "Kafa contasının sıkıştırılmış kalınlığı."
+        "tr": "Kafa contasının sıkıştırılmış kalınlığı.",
+        "de": "Komprimierte Dicke der Zylinderkopfdichtung."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Gasket Bore Diameter",
         "tr": "Conta delik çapı",
-        "de": "Gasket Bore Diameter",
+        "de": "Dichtungsbohrungsdurchmesser",
         "fr": "Gasket Bore Diameter",
         "es": "Gasket Bore Diameter",
         "ar": "Gasket Bore Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the gasket's bore opening.",
-        "tr": "Contanın delik açıklığının çapı."
+        "tr": "Contanın delik açıklığının çapı.",
+        "de": "Durchmesser der Dichtungsbohrung."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Deck Clearance",
         "tr": "Üst boşluk",
-        "de": "Deck Clearance",
+        "de": "Deckabstand",
         "fr": "Deck Clearance",
         "es": "Deck Clearance",
         "ar": "Deck Clearance"
       },
       "businessContext_i18n": {
         "en": "Distance from piston crown to deck at TDC.",
-        "tr": "Piston tepesinden silindir kapağına kadar olan mesafe (ÜÖN'de)."
+        "tr": "Piston tepesinden silindir kapağına kadar olan mesafe (ÜÖN'de).",
+        "de": "Abstand von Kolbenkrone zur Deckfläche bei OT."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Piston Dish Volume",
         "tr": "Piston çukur hacmi",
-        "de": "Piston Dish Volume",
+        "de": "Kolbenmuldenvolumen",
         "fr": "Piston Dish Volume",
         "es": "Piston Dish Volume",
         "ar": "Piston Dish Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of dish in piston top (positive for dish, negative for dome).",
-        "tr": "Piston tepesindeki çukurun hacmi (çukur için pozitif, kubbe için negatif)."
+        "tr": "Piston tepesindeki çukurun hacmi (çukur için pozitif, kubbe için negatif).",
+        "de": "Volumen der Mulde im Kolbenboden (positiv für Mulde, negativ für Dom)."
       }
     }
   ],

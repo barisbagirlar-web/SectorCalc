@@ -12,7 +12,7 @@ describe("mmse-calculator", () => {
     "predictedValue1": 0,
     "actualValue2": 0,
     "predictedValue2": 0
-  } as Mmse_calculatorInput;
+  } as unknown as Mmse_calculatorInput;
     const result = calculateMmse_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

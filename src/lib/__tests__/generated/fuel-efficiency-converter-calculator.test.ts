@@ -13,7 +13,7 @@ describe("fuel-efficiency-converter-calculator", () => {
     "fuelUsed": 10,
     "fuelUnit": 0,
     "outputUnit": 0
-  } as Fuel_efficiency_converter_calculatorInput;
+  } as unknown as Fuel_efficiency_converter_calculatorInput;
     const result = calculateFuel_efficiency_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("iqr-calculator", () => {
     "median": 0,
     "q3": 0,
     "max": 0
-  } as Iqr_calculatorInput;
+  } as unknown as Iqr_calculatorInput;
     const result = calculateIqr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

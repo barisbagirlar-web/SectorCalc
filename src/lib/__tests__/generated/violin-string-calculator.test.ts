@@ -12,7 +12,7 @@ describe("violin-string-calculator", () => {
     "frequency": 440,
     "stringDiameter": 0.0005,
     "materialDensity": 7800
-  } as Violin_string_calculatorInput;
+  } as unknown as Violin_string_calculatorInput;
     const result = calculateViolin_string_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

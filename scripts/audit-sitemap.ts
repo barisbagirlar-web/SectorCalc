@@ -7,6 +7,8 @@ import {
   getSitemapIndexEntries,
 } from "@/lib/seo/locale-sitemap";
 import { buildLocalizedUrl, getSitemapManifest } from "@/lib/seo/sitemap-manifest";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 
 const MAX_URLS_PER_SITEMAP = 50_000;
 const MAX_SITEMAP_BYTES = 50 * 1024 * 1024;
@@ -110,6 +112,17 @@ async function main(): Promise<void> {
     }
     if (!entry.url.endsWith(".xml")) {
       record("error", `index shard URL must end with .xml: ${entry.url}`);
+    }
+    const localeMatch = entry.url.match(/\/sitemap\/([a-z]{2})\.xml$/);
+    if (!localeMatch || !SUPPORTED_LOCALES.includes(localeMatch[1] as (typeof SUPPORTED_LOCALES)[number])) {
+      record("error", `index shard URL must use supported locale: ${entry.url}`);
+    }
+  }
+
+  for (const locale of SUPPORTED_LOCALES) {
+    const staticPath = join(process.cwd(), "public", "sitemap", `${locale}.xml`);
+    if (!existsSync(staticPath)) {
+      record("error", `missing static shard file: public/sitemap/${locale}.xml`);
     }
   }
 

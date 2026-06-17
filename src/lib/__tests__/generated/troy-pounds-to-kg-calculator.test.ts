@@ -13,7 +13,7 @@ describe("troy-pounds-to-kg-calculator", () => {
     "batchSize": 1,
     "scaleCalibrationFactor": 1,
     "measurementUncertainty": 0.1
-  } as Troy_pounds_to_kg_calculatorInput;
+  } as unknown as Troy_pounds_to_kg_calculatorInput;
     const result = calculateTroy_pounds_to_kg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

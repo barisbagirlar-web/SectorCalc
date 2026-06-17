@@ -12,7 +12,7 @@ describe("resonance-calculator", () => {
     "stiffness": 100,
     "dampingRatio": 0.05,
     "excitationFrequency": 1
-  } as Resonance_calculatorInput;
+  } as unknown as Resonance_calculatorInput;
     const result = calculateResonance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

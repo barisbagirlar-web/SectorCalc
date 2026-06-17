@@ -12,7 +12,7 @@ describe("escrow-calculator", () => {
     "annualInsurancePremium": 1200,
     "cushionMonths": 2,
     "monthsPerYear": 12
-  } as Escrow_calculatorInput;
+  } as unknown as Escrow_calculatorInput;
     const result = calculateEscrow_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

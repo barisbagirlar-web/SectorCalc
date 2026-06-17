@@ -13,7 +13,7 @@ describe("energy-savings-calculator", () => {
     "efficiencyGain": 15,
     "operatingHours": 720,
     "emissionFactor": 0.5
-  } as Energy_savings_calculatorInput;
+  } as unknown as Energy_savings_calculatorInput;
     const result = calculateEnergy_savings_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("hookes-law-calculator", () => {
     "force": 100,
     "springConstant": 500,
     "displacement": 0.2
-  } as Hookes_law_calculatorInput;
+  } as unknown as Hookes_law_calculatorInput;
     const result = calculateHookes_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

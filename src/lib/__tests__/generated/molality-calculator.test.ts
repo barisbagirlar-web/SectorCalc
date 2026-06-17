@@ -11,7 +11,7 @@ describe("molality-calculator", () => {
     "soluteMass": 10,
     "molarMass": 58.44,
     "solventMass": 500
-  } as Molality_calculatorInput;
+  } as unknown as Molality_calculatorInput;
     const result = calculateMolality_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

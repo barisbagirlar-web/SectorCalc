@@ -15,7 +15,7 @@ describe("heat-gain-calculator", () => {
     "windowUvalue": 2,
     "windowSHGC": 0.7,
     "solarRadiation": 500
-  } as Heat_gain_calculatorInput;
+  } as unknown as Heat_gain_calculatorInput;
     const result = calculateHeat_gain_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

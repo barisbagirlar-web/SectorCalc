@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Current Body Fat (%)",
         "tr": "Mevcut Vücut Yağ Oranı (%)",
-        "de": "Current Body Fat (%)",
+        "de": "Aktueller Körperfettanteil (%)",
         "fr": "Current Body Fat (%)",
         "es": "Current Body Fat (%)",
         "ar": "Current Body Fat (%)"
       },
       "businessContext_i18n": {
         "en": "Mevcut vücut yağ yüzdesi (kaliper, DXA veya biyoempedans ile ölçülmüş).",
-        "tr": "Mevcut vücut yağ yüzdesi (kaliper, DXA veya biyoempedans ile ölçülmüş)."
+        "tr": "Mevcut vücut yağ yüzdesi (kaliper, DXA veya biyoempedans ile ölçülmüş).",
+        "de": "Aktueller Körperfettanteil in Prozent (gemessen mit Kaliper, DXA oder Bioimpedanz)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Desired Body Fat (%)",
         "tr": "Hedef Vücut Yağ Oranı (%)",
-        "de": "Desired Body Fat (%)",
+        "de": "Gewünschter Körperfettanteil (%)",
         "fr": "Desired Body Fat (%)",
         "es": "Desired Body Fat (%)",
         "ar": "Desired Body Fat (%)"
       },
       "businessContext_i18n": {
         "en": "Hedef vücut yağ yüzdesi.",
-        "tr": "Hedef vücut yağ yüzdesi."
+        "tr": "Hedef vücut yağ yüzdesi.",
+        "de": "Ziel-Körperfettanteil in Prozent."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
-        "de": "Current Weight",
+        "de": "Aktuelles Gewicht",
         "fr": "Current Weight",
         "es": "Current Weight",
         "ar": "Current Weight"
       },
       "businessContext_i18n": {
         "en": "Güncel vücut ağırlığı (kg).",
-        "tr": "Güncel vücut ağırlığı (kg)."
+        "tr": "Güncel vücut ağırlığı (kg).",
+        "de": "Aktuelles Körpergewicht (kg)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
-        "de": "Height",
+        "de": "Größe",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Boy uzunluğu (cm).",
-        "tr": "Boy uzunluğu (cm)."
+        "tr": "Boy uzunluğu (cm).",
+        "de": "Körpergröße (cm)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Yaş (yıl). Metabolik değişikliklerin hesaba katılması için.",
-        "tr": "Yaş (yıl). Metabolik değişikliklerin hesaba katılması için."
+        "tr": "Yaş (yıl). Metabolik değişikliklerin hesaba katılması için.",
+        "de": "Alter (Jahre). Zur Berücksichtigung von Stoffwechselveränderungen."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
-        "de": "Activity Level",
+        "de": "Aktivitätsniveau",
         "fr": "Activity Level",
         "es": "Activity Level",
         "ar": "Activity Level"
       },
       "businessContext_i18n": {
         "en": "Fiziksel aktivite çarpanı (1.2 sedanter, 1.375 hafif, 1.55 orta, 1.725 çok aktif, 1.9 ağır antrenman).",
-        "tr": "Fiziksel aktivite çarpanı (1.2 sedanter, 1.375 hafif, 1.55 orta, 1.725 çok aktif, 1.9 ağır antrenman)."
+        "tr": "Fiziksel aktivite çarpanı (1.2 sedanter, 1.375 hafif, 1.55 orta, 1.725 çok aktif, 1.9 ağır antrenman).",
+        "de": "Bewegungsfaktor (1,2 sitzend, 1,375 leicht, 1,55 mäßig, 1,725 sehr aktiv, 1,9 schweres Training)."
       }
     }
   ],

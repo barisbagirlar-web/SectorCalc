@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Current Year",
         "tr": "Mevcut Yıl",
-        "de": "Current Year",
+        "de": "Aktuelles Jahr",
         "fr": "Current Year",
         "es": "Current Year",
         "ar": "Current Year"
       },
       "businessContext_i18n": {
         "en": "Calendar year of the current date",
-        "tr": "Geçerli tarihin takvim yılı"
+        "tr": "Geçerli tarihin takvim yılı",
+        "de": "Kalenderjahr des aktuellen Datums"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Current Month",
         "tr": "Geçerli Ay",
-        "de": "Current Month",
+        "de": "Aktueller Monat",
         "fr": "Current Month",
         "es": "Current Month",
         "ar": "Current Month"
       },
       "businessContext_i18n": {
         "en": "Month number of the current date (1-12)",
-        "tr": "Geçerli tarihin ay numarası (1-12)"
+        "tr": "Geçerli tarihin ay numarası (1-12)",
+        "de": "Monatsnummer des aktuellen Datums (1-12)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Current Day",
         "tr": "Geçerli Gün",
-        "de": "Current Day",
+        "de": "Aktueller Tag",
         "fr": "Current Day",
         "es": "Current Day",
         "ar": "Current Day"
       },
       "businessContext_i18n": {
         "en": "Day of month of the current date (1-31)",
-        "tr": "Geçerli tarihin ay içindeki günü (1-31)"
+        "tr": "Geçerli tarihin ay içindeki günü (1-31)",
+        "de": "Tag des Monats des aktuellen Datums (1-31)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Fiscal Year Start Month",
         "tr": "Mali Yıl Başlangıç Ayı",
-        "de": "Fiscal Year Start Month",
+        "de": "Startmonat des Geschäftsjahres",
         "fr": "Fiscal Year Start Month",
         "es": "Fiscal Year Start Month",
         "ar": "Fiscal Year Start Month"
       },
       "businessContext_i18n": {
         "en": "Month when the fiscal year begins",
-        "tr": "Mali yılın başladığı ay"
+        "tr": "Mali yılın başladığı ay",
+        "de": "Monat, in dem das Geschäftsjahr beginnt"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Fiscal Year Start Day",
         "tr": "Mali Yıl Başlangıç Günü",
-        "de": "Fiscal Year Start Day",
+        "de": "Starttag des Geschäftsjahres",
         "fr": "Fiscal Year Start Day",
         "es": "Fiscal Year Start Day",
         "ar": "Fiscal Year Start Day"
       },
       "businessContext_i18n": {
         "en": "Day when the fiscal year begins",
-        "tr": "Mali yılın başladığı gün"
+        "tr": "Mali yılın başladığı gün",
+        "de": "Tag, an dem das Geschäftsjahr beginnt"
       }
     }
   ],

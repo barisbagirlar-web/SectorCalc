@@ -15,7 +15,7 @@ describe("college-roi-calculator", () => {
     "salaryGrowth": 3,
     "workingYears": 40,
     "discountRate": 5
-  } as College_roi_calculatorInput;
+  } as unknown as College_roi_calculatorInput;
     const result = calculateCollege_roi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

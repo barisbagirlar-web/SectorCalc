@@ -12,7 +12,7 @@ describe("present-value-calculator", () => {
     "discountRate": 5,
     "periods": 10,
     "compoundingFrequency": 1
-  } as Present_value_calculatorInput;
+  } as unknown as Present_value_calculatorInput;
     const result = calculatePresent_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

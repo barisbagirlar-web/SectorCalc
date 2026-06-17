@@ -16,7 +16,7 @@ describe("inflation-escalation-calculator", () => {
     "energy_escalation_rate": 5,
     "labor_productivity_gain": 1,
     "material_volatility_index": 1
-  } as Inflation_escalation_calculatorInput;
+  } as unknown as Inflation_escalation_calculatorInput;
     const result = calculateInflation_escalation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

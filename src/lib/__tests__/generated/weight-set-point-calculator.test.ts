@@ -13,7 +13,7 @@ describe("weight-set-point-calculator", () => {
     "minimumLegalNetWeight": 485,
     "safetyFactorZ": 1.645,
     "tareWeight": 0
-  } as Weight_set_point_calculatorInput;
+  } as unknown as Weight_set_point_calculatorInput;
     const result = calculateWeight_set_point_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

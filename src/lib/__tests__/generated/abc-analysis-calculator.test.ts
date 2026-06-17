@@ -13,7 +13,7 @@ describe("abc-analysis-calculator", () => {
     "totalUsageValue": 100000,
     "aClassThreshold": 70,
     "bClassThreshold": 90
-  } as Abc_analysis_calculatorInput;
+  } as unknown as Abc_analysis_calculatorInput;
     const result = calculateAbc_analysis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

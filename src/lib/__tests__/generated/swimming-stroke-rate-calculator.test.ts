@@ -12,7 +12,7 @@ describe("swimming-stroke-rate-calculator", () => {
     "time": 30,
     "laps": 1,
     "poolLength": 25
-  } as Swimming_stroke_rate_calculatorInput;
+  } as unknown as Swimming_stroke_rate_calculatorInput;
     const result = calculateSwimming_stroke_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

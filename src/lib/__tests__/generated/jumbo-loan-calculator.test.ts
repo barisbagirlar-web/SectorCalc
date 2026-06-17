@@ -14,7 +14,7 @@ describe("jumbo-loan-calculator", () => {
     "downPaymentPercent": 20,
     "propertyTaxRate": 1.2,
     "annualHomeInsurance": 1500
-  } as Jumbo_loan_calculatorInput;
+  } as unknown as Jumbo_loan_calculatorInput;
     const result = calculateJumbo_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

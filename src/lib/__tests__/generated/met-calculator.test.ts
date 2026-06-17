@@ -12,7 +12,7 @@ describe("met-calculator", () => {
     "weightKg": 70,
     "durationMin": 30,
     "adjustmentFactor": 1
-  } as Met_calculatorInput;
+  } as unknown as Met_calculatorInput;
     const result = calculateMet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

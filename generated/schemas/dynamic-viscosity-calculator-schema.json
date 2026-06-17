@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Reference Temperature",
         "tr": "Referans Sıcaklık",
-        "de": "Reference Temperature",
+        "de": "Referenztemperatur",
         "fr": "Reference Temperature",
         "es": "Reference Temperature",
         "ar": "Reference Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature at which the reference viscosity is known (Kelvin)",
-        "tr": "Referans viskozitenin bilindiği sıcaklık (Kelvin)"
+        "tr": "Referans viskozitenin bilindiği sıcaklık (Kelvin)",
+        "de": "Temperatur, bei der die Referenzviskosität bekannt ist (Kelvin)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Reference Viscosity",
         "tr": "Referans Viskozite",
-        "de": "Reference Viscosity",
+        "de": "Referenzviskosität",
         "fr": "Reference Viscosity",
         "es": "Reference Viscosity",
         "ar": "Reference Viscosity"
       },
       "businessContext_i18n": {
         "en": "Dynamic viscosity at reference temperature (Pascal-seconds)",
-        "tr": "Referans sıcaklıktaki dinamik viskozite (Pascal-saniye)"
+        "tr": "Referans sıcaklıktaki dinamik viskozite (Pascal-saniye)",
+        "de": "Dynamische Viskosität bei Referenztemperatur (Pascal-Sekunden)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Activation Energy",
         "tr": "Aktivasyon Enerjisi",
-        "de": "Activation Energy",
+        "de": "Aktivierungsenergie",
         "fr": "Activation Energy",
         "es": "Activation Energy",
         "ar": "Activation Energy"
       },
       "businessContext_i18n": {
         "en": "Activation energy for viscous flow (Joules per mole)",
-        "tr": "Viskoz akış için aktivasyon enerjisi (Joule/mol)"
+        "tr": "Viskoz akış için aktivasyon enerjisi (Joule/mol)",
+        "de": "Aktivierungsenergie für viskoses Fließen (Joule pro Mol)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
-        "de": "Temperature",
+        "de": "Temperatur",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature at which to calculate viscosity (Kelvin)",
-        "tr": "Viskozitenin hesaplanacağı sıcaklık (Kelvin)"
+        "tr": "Viskozitenin hesaplanacağı sıcaklık (Kelvin)",
+        "de": "Temperatur, bei der die Viskosität berechnet werden soll (Kelvin)"
       }
     }
   ],

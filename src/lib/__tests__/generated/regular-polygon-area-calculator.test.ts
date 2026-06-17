@@ -12,7 +12,7 @@ describe("regular-polygon-area-calculator", () => {
     "sideLength": 1,
     "unitScale": 1,
     "decimals": 2
-  } as Regular_polygon_area_calculatorInput;
+  } as unknown as Regular_polygon_area_calculatorInput;
     const result = calculateRegular_polygon_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

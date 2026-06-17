@@ -16,7 +16,7 @@ describe("eoq-inventory-calculator", () => {
     "demand_variability": 10,
     "service_level": "95",
     "backorder_cost": 5
-  } as Eoq_inventory_calculatorInput;
+  } as unknown as Eoq_inventory_calculatorInput;
     const result = calculateEoq_inventory_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

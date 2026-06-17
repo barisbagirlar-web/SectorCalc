@@ -14,7 +14,7 @@ describe("numerical-integration-calculator", () => {
     "coeffA": 0,
     "coeffB": 0,
     "coeffC": 0
-  } as Numerical_integration_calculatorInput;
+  } as unknown as Numerical_integration_calculatorInput;
     const result = calculateNumerical_integration_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -22,11 +22,13 @@
       "businessContext": "Total volume of dye liquor in the batch.",
       "label_i18n": {
         "en": "Dye bath volume (liters)",
-        "tr": "Boya banyo hacmi (litre)"
+        "tr": "Boya banyo hacmi (litre)",
+        "de": "Färbebadvolumen (Liter)"
       },
       "businessContext_i18n": {
         "en": "Total volume of dye liquor in the batch.",
-        "tr": "Partideki toplam boya likörü hacmi."
+        "tr": "Partideki toplam boya likörü hacmi.",
+        "de": "Gesamtvolumen der Flotte im Ansatz."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Grams of dye powder per liter of bath.",
       "label_i18n": {
         "en": "Dye concentration (g/L)",
-        "tr": "Boya konsantrasyonu (g/L)"
+        "tr": "Boya konsantrasyonu (g/L)",
+        "de": "Farbstoffkonzentration (g/L)"
       },
       "businessContext_i18n": {
         "en": "Grams of dye powder per liter of bath.",
-        "tr": "Litre banyo başına gram boya tozu."
+        "tr": "Litre banyo başına gram boya tozu.",
+        "de": "Gramm Farbstoffpulver pro Liter Bad."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Purchase price of dye powder.",
       "label_i18n": {
         "en": "Dye price (USD/kg)",
-        "tr": "Boya fiyatı (USD/kg)"
+        "tr": "Boya fiyatı (USD/kg)",
+        "de": "Farbstoffpreis (USD/kg)"
       },
       "businessContext_i18n": {
         "en": "Purchase price of dye powder.",
-        "tr": "Boya tozunun satın alma fiyatı."
+        "tr": "Boya tozunun satın alma fiyatı.",
+        "de": "Einkaufspreis des Farbstoffpulvers."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Cost of salts, acids, bases, etc., per liter of bath.",
       "label_i18n": {
         "en": "Auxiliary chemicals cost (USD/L)",
-        "tr": "Yardımcı kimyasal maliyeti (USD/L)"
+        "tr": "Yardımcı kimyasal maliyeti (USD/L)",
+        "de": "Hilfschemikalienkosten (USD/L)"
       },
       "businessContext_i18n": {
         "en": "Cost of salts, acids, bases, etc., per liter of bath.",
-        "tr": "Litre banyo başına tuz, asit, baz vb. maliyeti."
+        "tr": "Litre banyo başına tuz, asit, baz vb. maliyeti.",
+        "de": "Kosten für Salze, Säuren, Basen usw. pro Liter Bad."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Electricity, steam, or gas cost for heating and running the dyeing machine.",
       "label_i18n": {
         "en": "Energy cost per batch (USD)",
-        "tr": "Parti başına enerji maliyeti (USD)"
+        "tr": "Parti başına enerji maliyeti (USD)",
+        "de": "Energiekosten pro Charge (USD)"
       },
       "businessContext_i18n": {
         "en": "Electricity, steam, or gas cost for heating and running the dyeing machine.",
-        "tr": "Boya makinesini ısıtmak ve çalıştırmak için elektrik, buhar veya gaz maliyeti."
+        "tr": "Boya makinesini ısıtmak ve çalıştırmak için elektrik, buhar veya gaz maliyeti.",
+        "de": "Strom-, Dampf- oder Gaskosten für Heizung und Betrieb der Färbemaschine."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "Hourly wage including overhead.",
       "label_i18n": {
         "en": "Labor cost (USD/hour)",
-        "tr": "İşçilik maliyeti (USD/saat)"
+        "tr": "İşçilik maliyeti (USD/saat)",
+        "de": "Arbeitskosten (USD/Stunde)"
       },
       "businessContext_i18n": {
         "en": "Hourly wage including overhead.",
-        "tr": "Genel giderler dahil saatlik ücret."
+        "tr": "Genel giderler dahil saatlik ücret.",
+        "de": "Stundenlohn inkl. Gemeinkosten."
       }
     },
     {
@@ -130,11 +142,13 @@
       "businessContext": "Total time from loading to unloading.",
       "label_i18n": {
         "en": "Batch cycle time (hours)",
-        "tr": "Parti çevrim süresi (saat)"
+        "tr": "Parti çevrim süresi (saat)",
+        "de": "Batch-Zykluszeit (Stunden)"
       },
       "businessContext_i18n": {
         "en": "Total time from loading to unloading.",
-        "tr": "Yüklemeden boşaltmaya kadar geçen toplam süre."
+        "tr": "Yüklemeden boşaltmaya kadar geçen toplam süre.",
+        "de": "Gesamtzeit von Beladung bis Entladung."
       }
     },
     {
@@ -148,11 +162,13 @@
       "businessContext": "Percentage of batches that require re-dyeing or are scrapped.",
       "label_i18n": {
         "en": "Waste / rework rate (%)",
-        "tr": "Atık / yeniden işleme oranı (%)"
+        "tr": "Atık / yeniden işleme oranı (%)",
+        "de": "Ausschuss-/Nacharbeitsrate (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of batches that require re-dyeing or are scrapped.",
-        "tr": "Yeniden boyama veya hurdaya ayrılması gereken parti yüzdesi."
+        "tr": "Yeniden boyama veya hurdaya ayrılması gereken parti yüzdesi.",
+        "de": "Prozentsatz der Chargen, die nachgefärbt oder verschrottet werden müssen."
       }
     }
   ],

@@ -23,11 +23,13 @@
       "businessContext": "Total distance of the planned route as per logistics plan.",
       "label_i18n": {
         "en": "Planned Route Distance",
-        "tr": "Planlanan Rota Mesafesi"
+        "tr": "Planlanan Rota Mesafesi",
+        "de": "Geplante Routenentfernung"
       },
       "businessContext_i18n": {
         "en": "Total distance of the planned route as per logistics plan.",
-        "tr": "Lojistik planına göre planlanan rotanın toplam mesafesi."
+        "tr": "Lojistik planına göre planlanan rotanın toplam mesafesi.",
+        "de": "Gesamtentfernung der geplanten Route gemäß Logistikplan."
       }
     },
     {
@@ -41,11 +43,13 @@
       "businessContext": "Total distance actually driven, including deviations.",
       "label_i18n": {
         "en": "Actual Route Distance",
-        "tr": "Gerçek Rota Mesafesi"
+        "tr": "Gerçek Rota Mesafesi",
+        "de": "Tatsächliche Routenentfernung"
       },
       "businessContext_i18n": {
         "en": "Total distance actually driven, including deviations.",
-        "tr": "Sapmalar dahil fiilen sürülen toplam mesafe."
+        "tr": "Sapmalar dahil fiilen sürülen toplam mesafe.",
+        "de": "Tatsächlich gefahrene Gesamtstrecke inkl. Abweichungen."
       }
     },
     {
@@ -59,11 +63,13 @@
       "businessContext": "Vehicle fuel consumption rate under standard conditions (ISO 14040).",
       "label_i18n": {
         "en": "Average Fuel Consumption Rate",
-        "tr": "Ortalama Yakıt Tüketim Oranı"
+        "tr": "Ortalama Yakıt Tüketim Oranı",
+        "de": "Durchschnittlicher Kraftstoffverbrauch"
       },
       "businessContext_i18n": {
         "en": "Vehicle fuel consumption rate under standard conditions (ISO 14040).",
-        "tr": "Standart koşullar altında (ISO 14040) araç yakıt tüketim oranı."
+        "tr": "Standart koşullar altında (ISO 14040) araç yakıt tüketim oranı.",
+        "de": "Kraftstoffverbrauch des Fahrzeugs unter Standardbedingungen (ISO 14040)."
       }
     },
     {
@@ -77,11 +83,13 @@
       "businessContext": "Current market price of diesel or gasoline per liter.",
       "label_i18n": {
         "en": "Fuel Price per Liter",
-        "tr": "Litre Başına Yakıt Fiyatı"
+        "tr": "Litre Başına Yakıt Fiyatı",
+        "de": "Kraftstoffpreis pro Liter"
       },
       "businessContext_i18n": {
         "en": "Current market price of diesel or gasoline per liter.",
-        "tr": "Litre başına dizel veya benzinin güncel piyasa fiyatı."
+        "tr": "Litre başına dizel veya benzinin güncel piyasa fiyatı.",
+        "de": "Aktueller Marktpreis für Diesel oder Benzin pro Liter."
       }
     },
     {
@@ -95,11 +103,13 @@
       "businessContext": "Total weight of cargo carried, affects fuel consumption.",
       "label_i18n": {
         "en": "Load Weight",
-        "tr": "Yük Ağırlığı"
+        "tr": "Yük Ağırlığı",
+        "de": "Lastgewicht"
       },
       "businessContext_i18n": {
         "en": "Total weight of cargo carried, affects fuel consumption.",
-        "tr": "Taşınan toplam yük ağırlığı, yakıt tüketimini etkiler."
+        "tr": "Taşınan toplam yük ağırlığı, yakıt tüketimini etkiler.",
+        "de": "Gesamtgewicht der transportierten Ladung, beeinflusst den Kraftstoffverbrauch."
       }
     },
     {
@@ -115,11 +125,13 @@
       "businessContext": "Terrain classification affecting fuel efficiency (WERC guidelines).",
       "label_i18n": {
         "en": "Terrain Type",
-        "tr": "Arazi Türü"
+        "tr": "Arazi Türü",
+        "de": "Geländetyp"
       },
       "businessContext_i18n": {
         "en": "Terrain classification affecting fuel efficiency (WERC guidelines).",
-        "tr": "Yakıt verimliliğini etkileyen arazi sınıflandırması (WERC yönergeleri)."
+        "tr": "Yakıt verimliliğini etkileyen arazi sınıflandırması (WERC yönergeleri).",
+        "de": "Geländeklassifizierung, die die Kraftstoffeffizienz beeinflusst (WERC-Richtlinien)."
       },
       "unit": "unit"
     },
@@ -136,11 +148,13 @@
       "businessContext": "Traffic density impact on fuel consumption and route drift.",
       "label_i18n": {
         "en": "Traffic Condition",
-        "tr": "Trafik Durumu"
+        "tr": "Trafik Durumu",
+        "de": "Verkehrsbedingungen"
       },
       "businessContext_i18n": {
         "en": "Traffic density impact on fuel consumption and route drift.",
-        "tr": "Yakıt tüketimi ve rota sapması üzerinde trafik yoğunluğu etkisi."
+        "tr": "Yakıt tüketimi ve rota sapması üzerinde trafik yoğunluğu etkisi.",
+        "de": "Auswirkung der Verkehrsdichte auf Kraftstoffverbrauch und Routenabweichung."
       },
       "unit": "unit"
     },
@@ -155,11 +169,13 @@
       "businessContext": "Eco-driving score based on acceleration, braking, idling (Lean Six Sigma metric).",
       "label_i18n": {
         "en": "Driver Behavior Score",
-        "tr": "Sürücü Davranış Puanı"
+        "tr": "Sürücü Davranış Puanı",
+        "de": "Fahrerverhaltensbewertung"
       },
       "businessContext_i18n": {
         "en": "Eco-driving score based on acceleration, braking, idling (Lean Six Sigma metric).",
-        "tr": "Hızlanma, frenleme, rölantiye dayalı eko-sürüş puanı (Yalın Altı Sigma metriği)."
+        "tr": "Hızlanma, frenleme, rölantiye dayalı eko-sürüş puanı (Yalın Altı Sigma metriği).",
+        "de": "Öko-Fahrbewertung basierend auf Beschleunigung, Bremsen, Leerlauf (Lean Six Sigma-Metrik)."
       }
     }
   ],

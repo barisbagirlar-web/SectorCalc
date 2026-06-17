@@ -14,7 +14,7 @@ describe("compressor-calculator", () => {
     "adiabaticIndex": 1.4,
     "compressorEfficiency": 80,
     "motorEfficiency": 95
-  } as Compressor_calculatorInput;
+  } as unknown as Compressor_calculatorInput;
     const result = calculateCompressor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

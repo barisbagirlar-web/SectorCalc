@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Black Hole Mass",
         "tr": "Kara Delik Kütlesi",
-        "de": "Black Hole Mass",
+        "de": "Schwarze-Loch-Masse",
         "fr": "Black Hole Mass",
         "es": "Black Hole Mass",
         "ar": "Black Hole Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the black hole in solar masses. Typical stellar mass black holes: 5-20 M☉; supermassive: 10^6-10^9 M☉.",
-        "tr": "Kara deliğin güneş kütlesi cinsinden kütlesi. Tipik yıldızsal kütleli kara delikler: 5-20 M☉; süper kütleli: 10^6-10^9 M☉."
+        "tr": "Kara deliğin güneş kütlesi cinsinden kütlesi. Tipik yıldızsal kütleli kara delikler: 5-20 M☉; süper kütleli: 10^6-10^9 M☉.",
+        "de": "Masse des Schwarzen Lochs in Sonnenmassen. Typische stellare Schwarze Löcher: 5-20 M☉; supermassereich: 10^6-10^9 M☉."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Spin Parameter (a/M)",
         "tr": "Spin Parametresi (a/M)",
-        "de": "Spin Parameter (a/M)",
+        "de": "Spin-Parameter (a/M)",
         "fr": "Spin Parameter (a/M)",
         "es": "Spin Parameter (a/M)",
         "ar": "Spin Parameter (a/M)"
       },
       "businessContext_i18n": {
         "en": "Dimensionless spin parameter, from 0 (non-rotating) to 1 (maximal). For astrophysical black holes, typical spin ~0.1-0.998.",
-        "tr": "Boyutsuz spin parametresi, 0 (dönmeyen) ile 1 (maksimum) arasında. Astrofiziksel kara delikler için tipik spin ~0.1-0.998."
+        "tr": "Boyutsuz spin parametresi, 0 (dönmeyen) ile 1 (maksimum) arasında. Astrofiziksel kara delikler için tipik spin ~0.1-0.998.",
+        "de": "Dimensionsloser Spin-Parameter von 0 (nicht rotierend) bis 1 (maximal). Für astrophysikalische Schwarze Löcher typischer Spin ~0,1-0,998."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Electric Charge (Q/M)",
         "tr": "Elektrik Yükü (Q/M)",
-        "de": "Electric Charge (Q/M)",
+        "de": "Elektrische Ladung (Q/M)",
         "fr": "Electric Charge (Q/M)",
         "es": "Electric Charge (Q/M)",
         "ar": "Electric Charge (Q/M)"
       },
       "businessContext_i18n": {
         "en": "Dimensionless charge parameter. Astrophysical black holes are expected to be neutral (0).",
-        "tr": "Boyutsuz yük parametresi. Astrofiziksel kara deliklerin nötr (0) olması beklenir."
+        "tr": "Boyutsuz yük parametresi. Astrofiziksel kara deliklerin nötr (0) olması beklenir.",
+        "de": "Dimensionsloser Ladungsparameter. Astrophysikalische Schwarze Löcher werden als neutral (0) angenommen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Observer Distance from Center",
         "tr": "Gözlemcinin Merkeze Uzaklığı",
-        "de": "Observer Distance from Center",
+        "de": "Beobachterabstand vom Zentrum",
         "fr": "Observer Distance from Center",
         "es": "Observer Distance from Center",
         "ar": "Observer Distance from Center"
       },
       "businessContext_i18n": {
         "en": "Distance from the black hole center at which to calculate time dilation. Must be greater than event horizon. Default: 10,000 km (e.g., for a stellar black hole).",
-        "tr": "Zaman genişlemesini hesaplamak için kara delik merkezine olan mesafe. Olay ufkundan büyük olmalıdır. Varsayılan: 10.000 km (örneğin, bir yıldız kara deliği için)."
+        "tr": "Zaman genişlemesini hesaplamak için kara delik merkezine olan mesafe. Olay ufkundan büyük olmalıdır. Varsayılan: 10.000 km (örneğin, bir yıldız kara deliği için).",
+        "de": "Abstand vom Schwarzen-Loch-Zentrum zur Berechnung der Zeitdilatation. Muss größer als der Ereignishorizont sein. Standard: 10.000 km (z. B. für ein stellares Schwarzes Loch)."
       }
     }
   ],

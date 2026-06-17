@@ -12,7 +12,7 @@ describe("ascii-calculator", () => {
     "char2": 66,
     "char3": 67,
     "char4": 68
-  } as Ascii_calculatorInput;
+  } as unknown as Ascii_calculatorInput;
     const result = calculateAscii_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

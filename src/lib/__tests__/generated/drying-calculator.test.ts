@@ -14,7 +14,7 @@ describe("drying-calculator", () => {
     "dryingTime": 8,
     "energyConsumption": 1.5,
     "energyCost": 0.12
-  } as Drying_calculatorInput;
+  } as unknown as Drying_calculatorInput;
     const result = calculateDrying_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

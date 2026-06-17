@@ -13,7 +13,7 @@ describe("visa-funds-calculator", () => {
     "exchangeRate": 1.1,
     "bufferPercent": 20,
     "applicationFee": 800
-  } as Visa_funds_calculatorInput;
+  } as unknown as Visa_funds_calculatorInput;
     const result = calculateVisa_funds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

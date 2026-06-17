@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
-        "de": "Weight",
+        "de": "Gewicht",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms (e.g., from scale measurement).",
-        "tr": "Vücut ağırlığı, kilogram (örneğin tartıdan)."
+        "tr": "Vücut ağırlığı, kilogram (örneğin tartıdan).",
+        "de": "Körpergewicht in Kilogramm (z. B. von der Waage)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
-        "de": "Height",
+        "de": "Größe",
         "fr": "Height",
         "es": "Height",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Body height in centimeters.",
-        "tr": "Vücut boyu, santimetre."
+        "tr": "Vücut boyu, santimetre.",
+        "de": "Körpergröße in Zentimetern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age in years (for reference only; Navy formula does not use age).",
-        "tr": "Yaş (sadece referans amaçlı; Navy formülü yaşı kullanmaz)."
+        "tr": "Yaş (sadece referans amaçlı; Navy formülü yaşı kullanmaz).",
+        "de": "Alter in Jahren (nur als Referenz; die Navy-Formel verwendet kein Alter)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Gender",
         "tr": "Cinsiyet",
-        "de": "Gender",
+        "de": "Geschlecht",
         "fr": "Gender",
         "es": "Gender",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for female, 1 for male (required for U.S. Navy body fat formula).",
-        "tr": "0 kadın, 1 erkek (ABD Navy vücut yağ formülü için gereklidir)."
+        "tr": "0 kadın, 1 erkek (ABD Navy vücut yağ formülü için gereklidir).",
+        "de": "0 für weiblich, 1 für männlich (erforderlich für die U.S. Navy-Körperfettformel)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Waist Circumference",
         "tr": "Bel Çevresi",
-        "de": "Waist Circumference",
+        "de": "Taillenumfang",
         "fr": "Waist Circumference",
         "es": "Waist Circumference",
         "ar": "Waist Circumference"
       },
       "businessContext_i18n": {
         "en": "Waist circumference measured at the navel level (required for Navy formula).",
-        "tr": "Göbek hizasında bel çevresi (Navy formülü için gereklidir)."
+        "tr": "Göbek hizasında bel çevresi (Navy formülü için gereklidir).",
+        "de": "Taillenumfang gemessen auf Nabelhöhe (erforderlich für die Navy-Formel)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Hip Circumference",
         "tr": "Kalça Çevresi",
-        "de": "Hip Circumference",
+        "de": "Hüftumfang",
         "fr": "Hip Circumference",
         "es": "Hip Circumference",
         "ar": "Hip Circumference"
       },
       "businessContext_i18n": {
         "en": "Hip circumference at the widest point (required for female Navy formula).",
-        "tr": "En geniş noktada kalça çevresi (kadın Navy formülü için gereklidir)."
+        "tr": "En geniş noktada kalça çevresi (kadın Navy formülü için gereklidir).",
+        "de": "Hüftumfang an der breitesten Stelle (erforderlich für die weibliche Navy-Formel)."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Neck Circumference",
         "tr": "Boyun Çevresi",
-        "de": "Neck Circumference",
+        "de": "Halsumfang",
         "fr": "Neck Circumference",
         "es": "Neck Circumference",
         "ar": "Neck Circumference"
       },
       "businessContext_i18n": {
         "en": "Neck circumference measured just below the larynx (required for Navy formula).",
-        "tr": "Gırtlağın hemen altında boyun çevresi (Navy formülü için gereklidir)."
+        "tr": "Gırtlağın hemen altında boyun çevresi (Navy formülü için gereklidir).",
+        "de": "Halsumfang gemessen direkt unterhalb des Kehlkopfes (erforderlich für die Navy-Formel)."
       }
     }
   ],

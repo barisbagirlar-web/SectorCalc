@@ -12,7 +12,7 @@ describe("eu-shoe-size-to-us-calculator", () => {
     "conversionType": 1,
     "brandAdjustment": 0,
     "calibrationOffset": 0
-  } as Eu_shoe_size_to_us_calculatorInput;
+  } as unknown as Eu_shoe_size_to_us_calculatorInput;
     const result = calculateEu_shoe_size_to_us_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

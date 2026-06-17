@@ -13,7 +13,7 @@ describe("sustainable-development-score-calculator", () => {
     "wastePerUnit": 2,
     "renewablePct": 30,
     "recycledPct": 25
-  } as Sustainable_development_score_calculatorInput;
+  } as unknown as Sustainable_development_score_calculatorInput;
     const result = calculateSustainable_development_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

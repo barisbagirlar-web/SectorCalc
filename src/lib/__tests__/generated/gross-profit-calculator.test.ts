@@ -13,7 +13,7 @@ describe("gross-profit-calculator", () => {
     "salesDiscounts": 0,
     "salesAllowances": 0,
     "cogs": 0
-  } as Gross_profit_calculatorInput;
+  } as unknown as Gross_profit_calculatorInput;
     const result = calculateGross_profit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

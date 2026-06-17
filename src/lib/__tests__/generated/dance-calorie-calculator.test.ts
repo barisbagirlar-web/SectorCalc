@@ -12,7 +12,7 @@ describe("dance-calorie-calculator", () => {
     "duration": 30,
     "met": 5,
     "intensityFactor": 1
-  } as Dance_calorie_calculatorInput;
+  } as unknown as Dance_calorie_calculatorInput;
     const result = calculateDance_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

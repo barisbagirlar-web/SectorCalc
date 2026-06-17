@@ -16,7 +16,7 @@ describe("mortgage-calculator", () => {
     "insurance_rate": 0.5,
     "monthly_hoa": 0,
     "annual_income": 120000
-  } as Mortgage_calculatorInput;
+  } as unknown as Mortgage_calculatorInput;
     const result = calculateMortgage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

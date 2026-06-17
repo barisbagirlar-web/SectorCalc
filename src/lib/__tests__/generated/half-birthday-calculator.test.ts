@@ -12,7 +12,7 @@ describe("half-birthday-calculator", () => {
     "birthMonth": 1,
     "birthYear": 2000,
     "monthOffset": 6
-  } as Half_birthday_calculatorInput;
+  } as unknown as Half_birthday_calculatorInput;
     const result = calculateHalf_birthday_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("decimal-calculator", () => {
     "operation": 1,
     "precision": 2,
     "roundingMode": 0
-  } as Decimal_calculatorInput;
+  } as unknown as Decimal_calculatorInput;
     const result = calculateDecimal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

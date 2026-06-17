@@ -11,7 +11,7 @@ describe("skiing-calorie-calculator", () => {
     "weight": 70,
     "duration": 60,
     "met": 7
-  } as Skiing_calorie_calculatorInput;
+  } as unknown as Skiing_calorie_calculatorInput;
     const result = calculateSkiing_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

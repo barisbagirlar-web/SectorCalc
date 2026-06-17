@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Cup Amount",
         "tr": "Bardak Miktarı",
-        "de": "Cup Amount",
+        "de": "Tassenmenge",
         "fr": "Cup Amount",
         "es": "Cup Amount",
         "ar": "Cup Amount"
       },
       "businessContext_i18n": {
         "en": "Number of standard cups to convert to grams.",
-        "tr": "Gram'a dönüştürülecek standart bardak sayısı."
+        "tr": "Gram'a dönüştürülecek standart bardak sayısı.",
+        "de": "Anzahl der Standardtassen zur Umrechnung in Gramm."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cup Volume",
         "tr": "Fincan Hacmi",
-        "de": "Cup Volume",
+        "de": "Bechervolumen",
         "fr": "Cup Volume",
         "es": "Cup Volume",
         "ar": "Cup Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of one cup in milliliters. Standard US cup is 236.588 mL.",
-        "tr": "Bir bardağın mililitre cinsinden hacmi. Standart ABD bardağı 236.588 mL'dir."
+        "tr": "Bir bardağın mililitre cinsinden hacmi. Standart ABD bardağı 236.588 mL'dir.",
+        "de": "Volumen einer Tasse in Millilitern. Standard-US-Tasse ist 236,588 ml."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Density",
         "tr": "Yoğunluk",
-        "de": "Density",
+        "de": "Dichte",
         "fr": "Density",
         "es": "Density",
         "ar": "Density"
       },
       "businessContext_i18n": {
         "en": "Density of the ingredient in grams per milliliter at 20°C. Water = 1 g/mL.",
-        "tr": "Malzemenin 20°C'de gram/mililitre cinsinden yoğunluğu. Su = 1 g/mL."
+        "tr": "Malzemenin 20°C'de gram/mililitre cinsinden yoğunluğu. Su = 1 g/mL.",
+        "de": "Dichte der Zutat in Gramm pro Milliliter bei 20 °C. Wasser = 1 g/ml."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Temperature",
         "tr": "Sıcaklık",
-        "de": "Temperature",
+        "de": "Temperatur",
         "fr": "Temperature",
         "es": "Temperature",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the ingredient for density correction. Default is 20°C.",
-        "tr": "Yoğunluk düzeltmesi için malzemenin sıcaklığı. Varsayılan 20°C."
+        "tr": "Yoğunluk düzeltmesi için malzemenin sıcaklığı. Varsayılan 20°C.",
+        "de": "Temperatur der Zutat für Dichtekorrektur. Standard ist 20 °C."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Temp. Correction Factor",
         "tr": "Sıcaklık Düzeltme Faktörü",
-        "de": "Temp. Correction Factor",
+        "de": "Temperaturkorrekturfaktor",
         "fr": "Temp. Correction Factor",
         "es": "Temp. Correction Factor",
         "ar": "Temp. Correction Factor"
       },
       "businessContext_i18n": {
         "en": "Linear temperature coefficient of density. Density(T) = density(20°C) × (1 + coeff × (T−20)). Usually small; set to 0 if no correction needed.",
-        "tr": "Yoğunluğun lineer sıcaklık katsayısı. Yoğunluk(T) = yoğunluk(20°C) × (1 + katsayı × (T−20)). Genellikle küçüktür; düzeltme gerekmiyorsa 0 olarak ayarlayın."
+        "tr": "Yoğunluğun lineer sıcaklık katsayısı. Yoğunluk(T) = yoğunluk(20°C) × (1 + katsayı × (T−20)). Genellikle küçüktür; düzeltme gerekmiyorsa 0 olarak ayarlayın.",
+        "de": "Linearer Temperaturkoeffizient der Dichte. Dichte(T) = Dichte(20 °C) × (1 + Koeffizient × (T−20)). Normalerweise klein; auf 0 setzen, wenn keine Korrektur erforderlich."
       }
     }
   ],

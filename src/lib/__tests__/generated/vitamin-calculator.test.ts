@@ -15,7 +15,7 @@ describe("vitamin-calculator", () => {
     "food2VitPerServing": 20,
     "food3Servings": 1,
     "food3VitPerServing": 10
-  } as Vitamin_calculatorInput;
+  } as unknown as Vitamin_calculatorInput;
     const result = calculateVitamin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

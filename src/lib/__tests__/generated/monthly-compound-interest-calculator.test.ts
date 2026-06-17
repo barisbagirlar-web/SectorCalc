@@ -12,7 +12,7 @@ describe("monthly-compound-interest-calculator", () => {
     "annualInterestRate": 5,
     "years": 5,
     "monthlyContribution": 0
-  } as Monthly_compound_interest_calculatorInput;
+  } as unknown as Monthly_compound_interest_calculatorInput;
     const result = calculateMonthly_compound_interest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

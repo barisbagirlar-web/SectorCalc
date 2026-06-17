@@ -12,7 +12,7 @@ describe("body-surface-area-calculator", () => {
     "height_cm": 170,
     "weight_lb": 154,
     "height_in": 67
-  } as Body_surface_area_calculatorInput;
+  } as unknown as Body_surface_area_calculatorInput;
     const result = calculateBody_surface_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

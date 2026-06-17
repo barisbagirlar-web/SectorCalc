@@ -12,7 +12,7 @@ describe("lorentz-factor-calculator", () => {
     "vy": 0,
     "vz": 0,
     "c": 299792458
-  } as Lorentz_factor_calculatorInput;
+  } as unknown as Lorentz_factor_calculatorInput;
     const result = calculateLorentz_factor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("health-insurance-calculator", () => {
     "smokerStatus": 0,
     "preExisting": 0,
     "occupationRisk": 1
-  } as Health_insurance_calculatorInput;
+  } as unknown as Health_insurance_calculatorInput;
     const result = calculateHealth_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

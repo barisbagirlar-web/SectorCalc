@@ -15,7 +15,7 @@ describe("salary-to-hourly-calculator", () => {
     "benefits_percentage": 30,
     "shift_type": "day",
     "include_productivity_factor": true
-  } as Salary_to_hourly_calculatorInput;
+  } as unknown as Salary_to_hourly_calculatorInput;
     const result = calculateSalary_to_hourly_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

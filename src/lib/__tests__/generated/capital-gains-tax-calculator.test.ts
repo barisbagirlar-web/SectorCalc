@@ -14,7 +14,7 @@ describe("capital-gains-tax-calculator", () => {
     "improvementCost": 0,
     "exemption": 0,
     "taxRate": 15
-  } as Capital_gains_tax_calculatorInput;
+  } as unknown as Capital_gains_tax_calculatorInput;
     const result = calculateCapital_gains_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

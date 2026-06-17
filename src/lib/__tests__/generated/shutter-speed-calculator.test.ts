@@ -13,7 +13,7 @@ describe("shutter-speed-calculator", () => {
     "focalLength": 50,
     "pixelSize": 5,
     "allowableBlur": 1
-  } as Shutter_speed_calculatorInput;
+  } as unknown as Shutter_speed_calculatorInput;
     const result = calculateShutter_speed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

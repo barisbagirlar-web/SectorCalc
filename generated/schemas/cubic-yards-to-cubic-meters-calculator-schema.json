@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Length (yd)",
         "tr": "Uzunluk (yd)",
-        "de": "Length (yd)",
+        "de": "Länge (yd)",
         "fr": "Length (yd)",
         "es": "Length (yd)",
         "ar": "Length (yd)"
       },
       "businessContext_i18n": {
         "en": "Enter the length in yards.",
-        "tr": "Uzunluğu yarda cinsinden girin."
+        "tr": "Uzunluğu yarda cinsinden girin.",
+        "de": "Geben Sie die Länge in Yards ein."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Width (yd)",
         "tr": "Genişlik (yd)",
-        "de": "Width (yd)",
+        "de": "Breite (yd)",
         "fr": "Width (yd)",
         "es": "Width (yd)",
         "ar": "Width (yd)"
       },
       "businessContext_i18n": {
         "en": "Enter the width in yards.",
-        "tr": "Genişliği yarda cinsinden girin."
+        "tr": "Genişliği yarda cinsinden girin.",
+        "de": "Geben Sie die Breite in Yards ein."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Height (yd)",
         "tr": "Yükseklik (yd)",
-        "de": "Height (yd)",
+        "de": "Höhe (yd)",
         "fr": "Height (yd)",
         "es": "Height (yd)",
         "ar": "Height (yd)"
       },
       "businessContext_i18n": {
         "en": "Enter the height in yards.",
-        "tr": "Yüksekliği yarda cinsinden girin."
+        "tr": "Yüksekliği yarda cinsinden girin.",
+        "de": "Geben Sie die Höhe in Yards ein."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Cubic Yards",
         "tr": "Yarda Küp",
-        "de": "Cubic Yards",
+        "de": "Kubikyards",
         "fr": "Cubic Yards",
         "es": "Cubic Yards",
         "ar": "Cubic Yards"
       },
       "businessContext_i18n": {
         "en": "Alternatively, enter the volume directly in cubic yards. Overrides dimensions if non-zero.",
-        "tr": "Alternatif olarak hacmi doğrudan yarda küp cinsinden girin. Sıfırdan farklıysa boyutları geçersiz kılar."
+        "tr": "Alternatif olarak hacmi doğrudan yarda küp cinsinden girin. Sıfırdan farklıysa boyutları geçersiz kılar.",
+        "de": "Alternativ das Volumen direkt in Kubikyards eingeben. Überschreibt die Abmessungen, wenn ungleich Null."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the final result.",
-        "tr": "Nihai sonuç için ondalık basamak sayısı."
+        "tr": "Nihai sonuç için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für das Endergebnis."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
-        "de": "Conversion Factor",
+        "de": "Umrechnungsfaktor",
         "fr": "Conversion Factor",
         "es": "Conversion Factor",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Fixed conversion factor: 1 yd³ = 0.764554857992 m³.",
-        "tr": "Sabit dönüşüm faktörü: 1 yd³ = 0,764554857992 m³."
+        "tr": "Sabit dönüşüm faktörü: 1 yd³ = 0,764554857992 m³.",
+        "de": "Fester Umrechnungsfaktor: 1 yd³ = 0,764554857992 m³."
       }
     }
   ],

@@ -13,7 +13,7 @@ describe("second-derivative-calculator", () => {
     "c": 0,
     "d": 0,
     "x": 0
-  } as Second_derivative_calculatorInput;
+  } as unknown as Second_derivative_calculatorInput;
     const result = calculateSecond_derivative_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

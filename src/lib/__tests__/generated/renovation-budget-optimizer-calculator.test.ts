@@ -16,7 +16,7 @@ describe("renovation-budget-optimizer-calculator", () => {
     "contingency_pct": 15,
     "region_cost_index": 1,
     "sustainability_target": "none"
-  } as Renovation_budget_optimizer_calculatorInput;
+  } as unknown as Renovation_budget_optimizer_calculatorInput;
     const result = calculateRenovation_budget_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("eulers-formula-column-calculator", () => {
     "K": 1,
     "L": 3000,
     "A": 1000
-  } as Eulers_formula_column_calculatorInput;
+  } as unknown as Eulers_formula_column_calculatorInput;
     const result = calculateEulers_formula_column_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("stair-stringer-calculator", () => {
     "treadDepth": 280,
     "stringerWidth": 286,
     "nosing": 25
-  } as Stair_stringer_calculatorInput;
+  } as unknown as Stair_stringer_calculatorInput;
     const result = calculateStair_stringer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

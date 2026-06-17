@@ -12,7 +12,7 @@ describe("annuity-income-calculator", () => {
     "annualInterestRate": 5,
     "periods": 20,
     "paymentFrequency": 12
-  } as Annuity_income_calculatorInput;
+  } as unknown as Annuity_income_calculatorInput;
     const result = calculateAnnuity_income_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

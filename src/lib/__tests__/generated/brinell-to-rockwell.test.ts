@@ -11,7 +11,7 @@ describe("brinell-to-rockwell", () => {
     "hbw": 200,
     "scale": 1,
     "auto_input_3": 1
-  } as Brinell_to_rockwellInput;
+  } as unknown as Brinell_to_rockwellInput;
     const result = calculateBrinell_to_rockwell(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

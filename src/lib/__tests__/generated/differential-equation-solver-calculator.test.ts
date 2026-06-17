@@ -13,7 +13,7 @@ describe("differential-equation-solver-calculator", () => {
     "b": 0,
     "t0": 0,
     "t": 1
-  } as Differential_equation_solver_calculatorInput;
+  } as unknown as Differential_equation_solver_calculatorInput;
     const result = calculateDifferential_equation_solver_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

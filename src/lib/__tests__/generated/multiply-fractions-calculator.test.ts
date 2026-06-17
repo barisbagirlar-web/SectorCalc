@@ -12,7 +12,7 @@ describe("multiply-fractions-calculator", () => {
     "denominator1": 1,
     "numerator2": 0,
     "denominator2": 1
-  } as Multiply_fractions_calculatorInput;
+  } as unknown as Multiply_fractions_calculatorInput;
     const result = calculateMultiply_fractions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("auto-repair-comeback-cost-calculator", () => {
     "customer_lifetime_value": 2500,
     "lost_customer_rate": 15,
     "shop_type": "independent"
-  } as Auto_repair_comeback_cost_calculatorInput;
+  } as unknown as Auto_repair_comeback_cost_calculatorInput;
     const result = calculateAuto_repair_comeback_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

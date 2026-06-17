@@ -16,7 +16,7 @@ describe("venn-diagram-calculator", () => {
     "intersectBC": 0,
     "intersectABC": 0,
     "universal": 0
-  } as Venn_diagram_calculatorInput;
+  } as unknown as Venn_diagram_calculatorInput;
     const result = calculateVenn_diagram_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

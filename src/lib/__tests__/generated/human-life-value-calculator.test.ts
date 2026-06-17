@@ -14,7 +14,7 @@ describe("human-life-value-calculator", () => {
     "rateOfReturn": 0.05,
     "inflationRate": 0.02,
     "currentSavings": 0
-  } as Human_life_value_calculatorInput;
+  } as unknown as Human_life_value_calculatorInput;
     const result = calculateHuman_life_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

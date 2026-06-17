@@ -13,7 +13,7 @@ describe("catan-probability-calculator", () => {
     "targetSum": 7,
     "settlementCount": 1,
     "rolls": 1
-  } as Catan_probability_calculatorInput;
+  } as unknown as Catan_probability_calculatorInput;
     const result = calculateCatan_probability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

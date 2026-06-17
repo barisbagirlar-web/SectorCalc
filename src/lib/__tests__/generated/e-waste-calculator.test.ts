@@ -12,7 +12,7 @@ describe("e-waste-calculator", () => {
     "avgWeight": 2.5,
     "recyclablePercent": 60,
     "recoveryRate": 80
-  } as E_waste_calculatorInput;
+  } as unknown as E_waste_calculatorInput;
     const result = calculateE_waste_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

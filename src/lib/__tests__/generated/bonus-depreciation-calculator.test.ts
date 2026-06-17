@@ -12,7 +12,7 @@ describe("bonus-depreciation-calculator", () => {
     "bonusRate": 100,
     "businessUse": 100,
     "section179": 0
-  } as Bonus_depreciation_calculatorInput;
+  } as unknown as Bonus_depreciation_calculatorInput;
     const result = calculateBonus_depreciation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

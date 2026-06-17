@@ -13,7 +13,7 @@ describe("scientific-notation-converter-calculator", () => {
     "scientificExponent": 3,
     "conversionMode": 0,
     "precision": 6
-  } as Scientific_notation_converter_calculatorInput;
+  } as unknown as Scientific_notation_converter_calculatorInput;
     const result = calculateScientific_notation_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

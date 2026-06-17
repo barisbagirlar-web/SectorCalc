@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Sabit Maliyetler",
         "tr": "Sabit Maliyetler",
-        "de": "Sabit Maliyetler",
+        "de": "Fixkosten",
         "fr": "Sabit Maliyetler",
         "es": "Sabit Maliyetler",
         "ar": "Sabit Maliyetler"
       },
       "businessContext_i18n": {
         "en": "Toplam sabit maliyetler (kira, amortisman vb.)",
-        "tr": "Toplam sabit maliyetler (kira, amortisman vb.)"
+        "tr": "Toplam sabit maliyetler (kira, amortisman vb.)",
+        "de": "Gesamte Fixkosten (Miete, Abschreibung usw.)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Birim Malzeme Maliyeti",
         "tr": "Birim Malzeme Maliyeti",
-        "de": "Birim Malzeme Maliyeti",
+        "de": "Materialkosten pro Einheit",
         "fr": "Birim Malzeme Maliyeti",
         "es": "Birim Malzeme Maliyeti",
         "ar": "Birim Malzeme Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Birim başına malzeme maliyeti",
-        "tr": "Birim başına malzeme maliyeti"
+        "tr": "Birim başına malzeme maliyeti",
+        "de": "Materialkosten pro Stück"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Birim İşçilik Maliyeti",
         "tr": "Birim İşçilik Maliyeti",
-        "de": "Birim İşçilik Maliyeti",
+        "de": "Arbeitskosten pro Einheit",
         "fr": "Birim İşçilik Maliyeti",
         "es": "Birim İşçilik Maliyeti",
         "ar": "Birim İşçilik Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Birim başına işçilik maliyeti",
-        "tr": "Birim başına işçilik maliyeti"
+        "tr": "Birim başına işçilik maliyeti",
+        "de": "Arbeitskosten pro Stück"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Makine Saat Maliyeti",
         "tr": "Makine Saat Maliyeti",
-        "de": "Makine Saat Maliyeti",
+        "de": "Maschinenstundensatz",
         "fr": "Makine Saat Maliyeti",
         "es": "Makine Saat Maliyeti",
         "ar": "Makine Saat Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Makine saat başına maliyet",
-        "tr": "Makine saat başına maliyet"
+        "tr": "Makine saat başına maliyet",
+        "de": "Kosten pro Maschinenstunde"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Birim Makine Süresi",
         "tr": "Birim Makine Süresi",
-        "de": "Birim Makine Süresi",
+        "de": "Maschinenzeit pro Einheit",
         "fr": "Birim Makine Süresi",
         "es": "Birim Makine Süresi",
         "ar": "Birim Makine Süresi"
       },
       "businessContext_i18n": {
         "en": "Birim başına makine süresi",
-        "tr": "Birim başına makine süresi"
+        "tr": "Birim başına makine süresi",
+        "de": "Maschinenzeit pro Stück"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Üretim Miktarı",
         "tr": "Üretim Miktarı",
-        "de": "Üretim Miktarı",
+        "de": "Produktionsmenge",
         "fr": "Üretim Miktarı",
         "es": "Üretim Miktarı",
         "ar": "Üretim Miktarı"
       },
       "businessContext_i18n": {
         "en": "Üretim miktarı (varsayılan 5K)",
-        "tr": "Üretim miktarı (varsayılan 5K)"
+        "tr": "Üretim miktarı (varsayılan 5K)",
+        "de": "Produktionsmenge (Standard 5K)"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Birim Satış Fiyatı",
         "tr": "Birim Satış Fiyatı",
-        "de": "Birim Satış Fiyatı",
+        "de": "Verkaufspreis pro Einheit",
         "fr": "Birim Satış Fiyatı",
         "es": "Birim Satış Fiyatı",
         "ar": "Birim Satış Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Birim başına satış fiyatı",
-        "tr": "Birim başına satış fiyatı"
+        "tr": "Birim başına satış fiyatı",
+        "de": "Verkaufspreis pro Einheit"
       }
     }
   ],

@@ -13,7 +13,7 @@ describe("ib-score-calculator", () => {
     "deliveryScore": 90,
     "safetyScore": 85,
     "costScore": 70
-  } as Ib_score_calculatorInput;
+  } as unknown as Ib_score_calculatorInput;
     const result = calculateIb_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

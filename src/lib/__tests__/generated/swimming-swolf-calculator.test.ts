@@ -12,7 +12,7 @@ describe("swimming-swolf-calculator", () => {
     "timeSeconds": 0,
     "totalStrokes": 0,
     "numberOfLengths": 1
-  } as Swimming_swolf_calculatorInput;
+  } as unknown as Swimming_swolf_calculatorInput;
     const result = calculateSwimming_swolf_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

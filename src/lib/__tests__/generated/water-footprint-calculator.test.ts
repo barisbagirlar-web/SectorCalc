@@ -13,7 +13,7 @@ describe("water-footprint-calculator", () => {
     "electricityConsumption": 3000,
     "fuelConsumption": 1000,
     "wastewater": 50
-  } as Water_footprint_calculatorInput;
+  } as unknown as Water_footprint_calculatorInput;
     const result = calculateWater_footprint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("standard-deviation-calculator", () => {
     "data_type": "continuous",
     "population_flag": "sample",
     "unit_of_measure": "mm"
-  } as Standard_deviation_calculatorInput;
+  } as unknown as Standard_deviation_calculatorInput;
     const result = calculateStandard_deviation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

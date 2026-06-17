@@ -12,7 +12,7 @@ describe("stem-and-leaf-plot", () => {
     "leafUnit": 1,
     "stemUnit": 10,
     "sortOrder": 1
-  } as Stem_and_leaf_plotInput;
+  } as unknown as Stem_and_leaf_plotInput;
     const result = calculateStem_and_leaf_plot(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

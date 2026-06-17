@@ -12,7 +12,7 @@ describe("length-contraction-calculator", () => {
     "relativeVelocity": 0,
     "speedOfLight": 299792458,
     "outputUnitFactor": 1
-  } as Length_contraction_calculatorInput;
+  } as unknown as Length_contraction_calculatorInput;
     const result = calculateLength_contraction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

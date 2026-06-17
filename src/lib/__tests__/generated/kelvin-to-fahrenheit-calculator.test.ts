@@ -12,7 +12,7 @@ describe("kelvin-to-fahrenheit-calculator", () => {
     "precision": 2,
     "calibrationOffset": 0,
     "expectedFahrenheit": 32
-  } as Kelvin_to_fahrenheit_calculatorInput;
+  } as unknown as Kelvin_to_fahrenheit_calculatorInput;
     const result = calculateKelvin_to_fahrenheit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

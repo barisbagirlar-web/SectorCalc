@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Ortalama Tahmin",
         "tr": "Ortalama Tahmin",
-        "de": "Ortalama Tahmin",
+        "de": "Mittlere Schätzung",
         "fr": "Ortalama Tahmin",
         "es": "Ortalama Tahmin",
         "ar": "Ortalama Tahmin"
       },
       "businessContext_i18n": {
         "en": "Modelin farklı eğitim setleri üzerindeki tahminlerinin ortalaması",
-        "tr": "Modelin farklı eğitim setleri üzerindeki tahminlerinin ortalaması"
+        "tr": "Modelin farklı eğitim setleri üzerindeki tahminlerinin ortalaması",
+        "de": "Mittelwert der Vorhersagen des Modells über verschiedene Trainingsdatensätze."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Gerçek Değer",
         "tr": "Gerçek Değer",
-        "de": "Gerçek Değer",
+        "de": "Tatsächlicher Wert",
         "fr": "Gerçek Değer",
         "es": "Gerçek Değer",
         "ar": "Gerçek Değer"
       },
       "businessContext_i18n": {
         "en": "Hedef değişkenin gerçek değeri",
-        "tr": "Hedef değişkenin gerçek değeri"
+        "tr": "Hedef değişkenin gerçek değeri",
+        "de": "Tatsächlicher Wert der Zielvariablen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Varyans",
         "tr": "Varyans",
-        "de": "Varyans",
+        "de": "Varianz",
         "fr": "Varyans",
         "es": "Varyans",
         "ar": "Varyans"
       },
       "businessContext_i18n": {
         "en": "Tahminlerin varyansı, modelin veriye duyarlılığını gösterir",
-        "tr": "Tahminlerin varyansı, modelin veriye duyarlılığını gösterir"
+        "tr": "Tahminlerin varyansı, modelin veriye duyarlılığını gösterir",
+        "de": "Varianz der Vorhersagen, zeigt die Empfindlichkeit des Modells gegenüber den Daten."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "İndirgenemez Hata",
         "tr": "İndirgenemez Hata",
-        "de": "İndirgenemez Hata",
+        "de": "Unvermeidbarer Fehler",
         "fr": "İndirgenemez Hata",
         "es": "İndirgenemez Hata",
         "ar": "İndirgenemez Hata"
       },
       "businessContext_i18n": {
         "en": "Verideki gürültüden kaynaklanan ve model tarafından yakalanamayan hata",
-        "tr": "Verideki gürültüden kaynaklanan ve model tarafından yakalanamayan hata"
+        "tr": "Verideki gürültüden kaynaklanan ve model tarafından yakalanamayan hata",
+        "de": "Fehler durch Rauschen in den Daten, der vom Modell nicht erfasst werden kann."
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("futures-calculator", () => {
     "contracts": 1,
     "marginRate": 10,
     "commission": 0
-  } as Futures_calculatorInput;
+  } as unknown as Futures_calculatorInput;
     const result = calculateFutures_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

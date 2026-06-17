@@ -14,7 +14,7 @@ describe("cycling-ftp-calculator", () => {
     "testDuration": 20,
     "age": 30,
     "temperature": 20
-  } as Cycling_ftp_calculatorInput;
+  } as unknown as Cycling_ftp_calculatorInput;
     const result = calculateCycling_ftp_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("water-bill-calculator", () => {
     "fixedCharge": 5,
     "ratePerCubicMeter": 1.5,
     "taxRate": 10
-  } as Water_bill_calculatorInput;
+  } as unknown as Water_bill_calculatorInput;
     const result = calculateWater_bill_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

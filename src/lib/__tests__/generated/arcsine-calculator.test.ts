@@ -12,7 +12,7 @@ describe("arcsine-calculator", () => {
     "outputUnit": 1,
     "decimalPlaces": 4,
     "angleSelection": 0
-  } as Arcsine_calculatorInput;
+  } as unknown as Arcsine_calculatorInput;
     const result = calculateArcsine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

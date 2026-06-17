@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Brake Power",
         "tr": "Fren Gücü",
-        "de": "Brake Power",
+        "de": "Bremsleistung",
         "fr": "Brake Power",
         "es": "Brake Power",
         "ar": "Brake Power"
       },
       "businessContext_i18n": {
         "en": "Measured brake power from engine dynamometer.",
-        "tr": "Motor dinamometresinden ölçülen fren gücü."
+        "tr": "Motor dinamometresinden ölçülen fren gücü.",
+        "de": "Gemessene Bremsleistung vom Motorprüfstand."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Fuel Mass Flow Rate",
         "tr": "Yakıt Kütle Akış Hızı",
-        "de": "Fuel Mass Flow Rate",
+        "de": "Kraftstoff-Massendurchsatz",
         "fr": "Fuel Mass Flow Rate",
         "es": "Fuel Mass Flow Rate",
         "ar": "Fuel Mass Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Fuel consumption rate measured by fuel flow meter.",
-        "tr": "Yakıt akış ölçer ile ölçülen yakıt tüketim hızı."
+        "tr": "Yakıt akış ölçer ile ölçülen yakıt tüketim hızı.",
+        "de": "Kraftstoffverbrauch, gemessen mit Durchflussmesser."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Lower Heating Value",
         "tr": "Alt Isıl Değer",
-        "de": "Lower Heating Value",
+        "de": "Unterer Heizwert",
         "fr": "Lower Heating Value",
         "es": "Lower Heating Value",
         "ar": "Lower Heating Value"
       },
       "businessContext_i18n": {
         "en": "Lower heating value of the fuel (energy content).",
-        "tr": "Yakıtın alt ısıl değeri (enerji içeriği)."
+        "tr": "Yakıtın alt ısıl değeri (enerji içeriği).",
+        "de": "Unterer Heizwert des Kraftstoffs (Energiegehalt)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Efficiency Correction Factor",
         "tr": "Verim Düzeltme Faktörü",
-        "de": "Efficiency Correction Factor",
+        "de": "Wirkungsgrad-Korrekturfaktor",
         "fr": "Efficiency Correction Factor",
         "es": "Efficiency Correction Factor",
         "ar": "Efficiency Correction Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for environmental or measurement corrections (default 1 for no correction).",
-        "tr": "Çevresel veya ölçüm düzeltmelerini hesaba katan çarpan (düzeltme yok için varsayılan 1)."
+        "tr": "Çevresel veya ölçüm düzeltmelerini hesaba katan çarpan (düzeltme yok için varsayılan 1).",
+        "de": "Multiplikator für Umgebungs- oder Messkorrekturen (Standard 1 für keine Korrektur)."
       }
     }
   ],

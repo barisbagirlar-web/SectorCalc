@@ -41,7 +41,8 @@
       "businessContext": "Highest 15-minute average demand in the period. Drives demand charges per utility tariff.",
       "label_i18n": {
         "en": "Peak Demand (kW)",
-        "tr": "Tepe Talebi (kW)"
+        "tr": "Tepe Talebi (kW)",
+        "de": "Spitzenlast (kW)"
       },
       "businessContext_i18n": {
         "en": "Highest 15-minute average demand in the period. Drives demand charges per utility tariff.",
@@ -59,7 +60,8 @@
       "businessContext": "Blended energy charge from utility bill, including generation and transmission.",
       "label_i18n": {
         "en": "Energy Rate ($/kWh)",
-        "tr": "Enerji Birim Fiyatı ($/kWh)"
+        "tr": "Enerji Birim Fiyatı ($/kWh)",
+        "de": "Energiepreis ($/kWh)"
       },
       "businessContext_i18n": {
         "en": "Blended energy charge from utility bill, including generation and transmission.",
@@ -95,7 +97,8 @@
       "businessContext": "Ratio of real power to apparent power. Low PF incurs penalties per utility tariff.",
       "label_i18n": {
         "en": "Power Factor",
-        "tr": "Güç Faktörü"
+        "tr": "Güç Faktörü",
+        "de": "Leistungsfaktor"
       },
       "businessContext_i18n": {
         "en": "Ratio of real power to apparent power. Low PF incurs penalties per utility tariff.",
@@ -149,7 +152,8 @@
       "businessContext": "Overall electrical system efficiency including transformers, cables, and motors. Used for loss adjustment.",
       "label_i18n": {
         "en": "System Efficiency (%)",
-        "tr": "Sistem Verimliliği (%)"
+        "tr": "Sistem Verimliliği (%)",
+        "de": "Systemwirkungsgrad (%)"
       },
       "businessContext_i18n": {
         "en": "Overall electrical system efficiency including transformers, cables, and motors. Used for loss adjustment.",

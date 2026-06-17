@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Yaş",
         "tr": "Yaş",
-        "de": "Yaş",
+        "de": "Alter",
         "fr": "Yaş",
         "es": "Yaş",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının yaşı",
-        "tr": "Kullanıcının yaşı"
+        "tr": "Kullanıcının yaşı",
+        "de": "Alter des Benutzers"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Baba Kellik Durumu",
         "tr": "Baba Kellik Durumu",
-        "de": "Baba Kellik Durumu",
+        "de": "Vater Glatzenbildung",
         "fr": "Baba Kellik Durumu",
         "es": "Baba Kellik Durumu",
         "ar": "Baba Kellik Durumu"
       },
       "businessContext_i18n": {
         "en": "Babanın kellik derecesi (0: hiç yok, 1: tam kel)",
-        "tr": "Babanın kellik derecesi (0: hiç yok, 1: tam kel)"
+        "tr": "Babanın kellik derecesi (0: hiç yok, 1: tam kel)",
+        "de": "Kahlheitsgrad des Vaters (0: kein, 1: vollständig kahl)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Stres Seviyesi",
         "tr": "Stres Seviyesi",
-        "de": "Stres Seviyesi",
+        "de": "Stresslevel",
         "fr": "Stres Seviyesi",
         "es": "Stres Seviyesi",
         "ar": "Stres Seviyesi"
       },
       "businessContext_i18n": {
         "en": "Günlük stres seviyesi (0: yok, 10: çok yüksek)",
-        "tr": "Günlük stres seviyesi (0: yok, 10: çok yüksek)"
+        "tr": "Günlük stres seviyesi (0: yok, 10: çok yüksek)",
+        "de": "Tägliches Stresslevel (0: kein, 10: sehr hoch)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "DHT Seviyesi",
         "tr": "DHT Seviyesi",
-        "de": "DHT Seviyesi",
+        "de": "DHT-Spiegel",
         "fr": "DHT Seviyesi",
         "es": "DHT Seviyesi",
         "ar": "DHT Seviyesi"
       },
       "businessContext_i18n": {
         "en": "Kandaki DHT hormon seviyesi",
-        "tr": "Kandaki DHT hormon seviyesi"
+        "tr": "Kandaki DHT hormon seviyesi",
+        "de": "DHT-Hormonspiegel im Blut"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Saç Yoğunluğu",
         "tr": "Saç Yoğunluğu",
-        "de": "Saç Yoğunluğu",
+        "de": "Haardichte",
         "fr": "Saç Yoğunluğu",
         "es": "Saç Yoğunluğu",
         "ar": "Saç Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Mevcut saç yoğunluğu (saç teli/cm²)",
-        "tr": "Mevcut saç yoğunluğu (saç teli/cm²)"
+        "tr": "Mevcut saç yoğunluğu (saç teli/cm²)",
+        "de": "Aktuelle Haardichte (Haare/cm²)"
       }
     }
   ],

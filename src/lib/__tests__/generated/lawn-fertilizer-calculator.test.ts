@@ -14,7 +14,7 @@ describe("lawn-fertilizer-calculator", () => {
     "applicationsPerYear": 1,
     "bagWeight": 10,
     "bagCost": 0
-  } as Lawn_fertilizer_calculatorInput;
+  } as unknown as Lawn_fertilizer_calculatorInput;
     const result = calculateLawn_fertilizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

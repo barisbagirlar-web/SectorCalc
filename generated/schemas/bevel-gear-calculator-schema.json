@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Modül (m)",
         "tr": "Modül (m)",
-        "de": "Modül (m)",
+        "de": "Modul (m)",
         "fr": "Modül (m)",
         "es": "Modül (m)",
         "ar": "Modül (m)"
       },
       "businessContext_i18n": {
         "en": "Modül, dişli boyutlandırma için standart bir parametredir.",
-        "tr": "Modül, dişli boyutlandırma için standart bir parametredir."
+        "tr": "Modül, dişli boyutlandırma için standart bir parametredir.",
+        "de": "Modul, ein Standardparameter für die Zahnradbemessung."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Pinyon Diş Sayısı (z₁)",
         "tr": "Pinyon Diş Sayısı (z₁)",
-        "de": "Pinyon Diş Sayısı (z₁)",
+        "de": "Ritzel Zähnezahl (z₁)",
         "fr": "Pinyon Diş Sayısı (z₁)",
         "es": "Pinyon Diş Sayısı (z₁)",
         "ar": "Pinyon Diş Sayısı (z₁)"
       },
       "businessContext_i18n": {
         "en": "Küçük (pinyon) dişlinin diş sayısı.",
-        "tr": "Küçük (pinyon) dişlinin diş sayısı."
+        "tr": "Küçük (pinyon) dişlinin diş sayısı.",
+        "de": "Zähnezahl des kleinen (Ritzel-)Zahnrads."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Ayna Diş Sayısı (z₂)",
         "tr": "Ayna Diş Sayısı (z₂)",
-        "de": "Ayna Diş Sayısı (z₂)",
+        "de": "Tellerrad Zähnezahl (z₂)",
         "fr": "Ayna Diş Sayısı (z₂)",
         "es": "Ayna Diş Sayısı (z₂)",
         "ar": "Ayna Diş Sayısı (z₂)"
       },
       "businessContext_i18n": {
         "en": "Büyük (ayna) dişlinin diş sayısı.",
-        "tr": "Büyük (ayna) dişlinin diş sayısı."
+        "tr": "Büyük (ayna) dişlinin diş sayısı.",
+        "de": "Zähnezahl des großen (Tellerrad-)Zahnrads."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Mil Açısı (Σ)",
         "tr": "Mil Açısı (Σ)",
-        "de": "Mil Açısı (Σ)",
+        "de": "Wellenwinkel (Σ)",
         "fr": "Mil Açısı (Σ)",
         "es": "Mil Açısı (Σ)",
         "ar": "Mil Açısı (Σ)"
       },
       "businessContext_i18n": {
         "en": "Kesişen iki mil arasındaki açı (genellikle 90°).",
-        "tr": "Kesişen iki mil arasındaki açı (genellikle 90°)."
+        "tr": "Kesişen iki mil arasındaki açı (genellikle 90°).",
+        "de": "Winkel zwischen den beiden sich kreuzenden Wellen (normalerweise 90°)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Kavrama Açısı (α)",
         "tr": "Kavrama Açısı (α)",
-        "de": "Kavrama Açısı (α)",
+        "de": "Eingriffswinkel (α)",
         "fr": "Kavrama Açısı (α)",
         "es": "Kavrama Açısı (α)",
         "ar": "Kavrama Açısı (α)"
       },
       "businessContext_i18n": {
         "en": "Standart kavrama açısı; çoğunlukla 20° kullanılır.",
-        "tr": "Standart kavrama açısı; çoğunlukla 20° kullanılır."
+        "tr": "Standart kavrama açısı; çoğunlukla 20° kullanılır.",
+        "de": "Standard-Eingriffswinkel; meist 20° verwendet."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Diş Genişliği Faktörü (k)",
         "tr": "Diş Genişliği Faktörü (k)",
-        "de": "Diş Genişliği Faktörü (k)",
+        "de": "Zahnbreitenfaktor (k)",
         "fr": "Diş Genişliği Faktörü (k)",
         "es": "Diş Genişliği Faktörü (k)",
         "ar": "Diş Genişliği Faktörü (k)"
       },
       "businessContext_i18n": {
         "en": "Diş genişliğinin konik mesafeye oranı (genelde 0,2 – 0,3 aralığında).",
-        "tr": "Diş genişliğinin konik mesafeye oranı (genelde 0,2 – 0,3 aralığında)."
+        "tr": "Diş genişliğinin konik mesafeye oranı (genelde 0,2 – 0,3 aralığında).",
+        "de": "Verhältnis der Zahnbreite zur Kegeldistanz (normalerweise 0,2–0,3)."
       }
     }
   ],

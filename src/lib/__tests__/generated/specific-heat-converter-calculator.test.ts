@@ -12,7 +12,7 @@ describe("specific-heat-converter-calculator", () => {
     "fromUnit": 1,
     "toUnit": 3,
     "precision": 2
-  } as Specific_heat_converter_calculatorInput;
+  } as unknown as Specific_heat_converter_calculatorInput;
     const result = calculateSpecific_heat_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Energy (eV)",
         "tr": "Enerji (eV)",
-        "de": "Energy (eV)",
+        "de": "Energie (eV)",
         "fr": "Energy (eV)",
         "es": "Energy (eV)",
         "ar": "Energy (eV)"
       },
       "businessContext_i18n": {
         "en": "Energy value in electronvolts.",
-        "tr": "Elektronvolt cinsinden enerji değeri."
+        "tr": "Elektronvolt cinsinden enerji değeri.",
+        "de": "Energiewert in Elektronenvolt."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Input unit multiplier",
         "tr": "Giriş birim çarpanı",
-        "de": "Input unit multiplier",
+        "de": "Eingabe-Einheitenmultiplikator",
         "fr": "Input unit multiplier",
         "es": "Input unit multiplier",
         "ar": "Input unit multiplier"
       },
       "businessContext_i18n": {
         "en": "Set to 1000 for keV, 1e6 for MeV. Default 1 for eV.",
-        "tr": "keV için 1000, MeV için 1e6 olarak ayarlayın. eV için varsayılan 1."
+        "tr": "keV için 1000, MeV için 1e6 olarak ayarlayın. eV için varsayılan 1.",
+        "de": "Auf 1000 für keV, 1e6 für MeV setzen. Standard 1 für eV."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Conversion factor",
         "tr": "Dönüşüm faktörü",
-        "de": "Conversion factor",
+        "de": "Umrechnungsfaktor",
         "fr": "Conversion factor",
         "es": "Conversion factor",
         "ar": "Conversion factor"
       },
       "businessContext_i18n": {
         "en": "1.602176634×10⁻¹⁹ J/eV (exact, CODATA 2018).",
-        "tr": "1,602176634×10⁻¹⁹ J/eV (kesin, CODATA 2018)."
+        "tr": "1,602176634×10⁻¹⁹ J/eV (kesin, CODATA 2018).",
+        "de": "1,602176634×10⁻¹⁹ J/eV (exakt, CODATA 2018)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Output unit multiplier",
         "tr": "Çıkış birim çarpanı",
-        "de": "Output unit multiplier",
+        "de": "Ausgabe-Einheitenmultiplikator",
         "fr": "Output unit multiplier",
         "es": "Output unit multiplier",
         "ar": "Output unit multiplier"
       },
       "businessContext_i18n": {
         "en": "Set to 0.001 for kJ, 1e-6 for MJ. Default 1 for joules.",
-        "tr": "kJ için 0,001, MJ için 1e-6 olarak ayarlayın. Joule için varsayılan 1."
+        "tr": "kJ için 0,001, MJ için 1e-6 olarak ayarlayın. Joule için varsayılan 1.",
+        "de": "Auf 0,001 für kJ, 1e-6 für MJ setzen. Standard 1 für Joule."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Decimal places",
         "tr": "Ondalık basamaklar",
-        "de": "Decimal places",
+        "de": "Dezimalstellen",
         "fr": "Decimal places",
         "es": "Decimal places",
         "ar": "Decimal places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the result.",
-        "tr": "Sonuç için ondalık basamak sayısı."
+        "tr": "Sonuç için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für das Ergebnis."
       }
     }
   ],

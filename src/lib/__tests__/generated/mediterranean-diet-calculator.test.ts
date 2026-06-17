@@ -14,7 +14,7 @@ describe("mediterranean-diet-calculator", () => {
     "fish": 2,
     "legumes": 3,
     "wholeGrains": 3
-  } as Mediterranean_diet_calculatorInput;
+  } as unknown as Mediterranean_diet_calculatorInput;
     const result = calculateMediterranean_diet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("pack-year-calculator", () => {
     "end_age": 50,
     "cigarettes_per_day": 20,
     "cigarettes_per_pack": 20
-  } as Pack_year_calculatorInput;
+  } as unknown as Pack_year_calculatorInput;
     const result = calculatePack_year_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

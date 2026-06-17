@@ -14,7 +14,7 @@ describe("halloween-calculator", () => {
     "decor_budget": 50,
     "pumpkin_count": 3,
     "pumpkin_cost": 10
-  } as Halloween_calculatorInput;
+  } as unknown as Halloween_calculatorInput;
     const result = calculateHalloween_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

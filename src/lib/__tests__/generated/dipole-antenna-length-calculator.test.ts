@@ -13,7 +13,7 @@ describe("dipole-antenna-length-calculator", () => {
     "wavelengthFraction": 0.5,
     "unitSelection": 0,
     "endEffectCorrection": 1
-  } as Dipole_antenna_length_calculatorInput;
+  } as unknown as Dipole_antenna_length_calculatorInput;
     const result = calculateDipole_antenna_length_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

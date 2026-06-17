@@ -14,7 +14,7 @@ describe("factor-of-safety-slope-calculator", () => {
     "soilUnitWeight": 18,
     "slipDepth": 2,
     "waterDepthAboveSlip": 0
-  } as Factor_of_safety_slope_calculatorInput;
+  } as unknown as Factor_of_safety_slope_calculatorInput;
     const result = calculateFactor_of_safety_slope_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

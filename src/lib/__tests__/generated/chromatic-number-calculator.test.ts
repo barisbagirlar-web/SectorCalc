@@ -12,7 +12,7 @@ describe("chromatic-number-calculator", () => {
     "n_F": 1.529,
     "n_C": 1.52,
     "lambda_d": 589.3
-  } as Chromatic_number_calculatorInput;
+  } as unknown as Chromatic_number_calculatorInput;
     const result = calculateChromatic_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

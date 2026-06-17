@@ -14,7 +14,7 @@ describe("pneumatic-force-calculator", () => {
     "cylinderCount": 1,
     "safetyFactor": 1.5,
     "efficiency": 0.9
-  } as Pneumatic_force_calculatorInput;
+  } as unknown as Pneumatic_force_calculatorInput;
     const result = calculatePneumatic_force_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

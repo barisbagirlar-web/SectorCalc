@@ -12,7 +12,7 @@ describe("half-life-calculator", () => {
     "halfLife": 10,
     "elapsedTime": 10,
     "targetAmount": 50
-  } as Half_life_calculatorInput;
+  } as unknown as Half_life_calculatorInput;
     const result = calculateHalf_life_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

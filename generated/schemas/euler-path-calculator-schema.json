@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Toplam Düğüm Sayısı",
         "tr": "Toplam Düğüm Sayısı",
-        "de": "Toplam Düğüm Sayısı",
+        "de": "Gesamtzahl der Knoten",
         "fr": "Toplam Düğüm Sayısı",
         "es": "Toplam Düğüm Sayısı",
         "ar": "Toplam Düğüm Sayısı"
       },
       "businessContext_i18n": {
         "en": "Grafikteki toplam düğüm (vertex) sayısı",
-        "tr": "Grafikteki toplam düğüm (vertex) sayısı"
+        "tr": "Grafikteki toplam düğüm (vertex) sayısı",
+        "de": "Gesamtzahl der Knoten (Vertices) im Graphen"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Toplam Kenar Sayısı",
         "tr": "Toplam Kenar Sayısı",
-        "de": "Toplam Kenar Sayısı",
+        "de": "Gesamtzahl der Kanten",
         "fr": "Toplam Kenar Sayısı",
         "es": "Toplam Kenar Sayısı",
         "ar": "Toplam Kenar Sayısı"
       },
       "businessContext_i18n": {
         "en": "Grafikteki toplam kenar (edge) sayısı",
-        "tr": "Grafikteki toplam kenar (edge) sayısı"
+        "tr": "Grafikteki toplam kenar (edge) sayısı",
+        "de": "Gesamtzahl der Kanten (Edges) im Graphen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Tek Dereceli Düğüm Sayısı",
         "tr": "Tek Dereceli Düğüm Sayısı",
-        "de": "Tek Dereceli Düğüm Sayısı",
+        "de": "Anzahl der Knoten mit ungeradem Grad",
         "fr": "Tek Dereceli Düğüm Sayısı",
         "es": "Tek Dereceli Düğüm Sayısı",
         "ar": "Tek Dereceli Düğüm Sayısı"
       },
       "businessContext_i18n": {
         "en": "Derecesi tek olan düğümlerin sayısı",
-        "tr": "Derecesi tek olan düğümlerin sayısı"
+        "tr": "Derecesi tek olan düğümlerin sayısı",
+        "de": "Anzahl der Knoten mit ungeradem Grad"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Bağlantılı Grafik",
         "tr": "Bağlantılı Grafik",
-        "de": "Bağlantılı Grafik",
+        "de": "Zusammenhängender Graph",
         "fr": "Bağlantılı Grafik",
         "es": "Bağlantılı Grafik",
         "ar": "Bağlantılı Grafik"
       },
       "businessContext_i18n": {
         "en": "Grafik bağlı ise 1, değilse 0",
-        "tr": "Grafik bağlı ise 1, değilse 0"
+        "tr": "Grafik bağlı ise 1, değilse 0",
+        "de": "1, wenn der Graph zusammenhängend ist, sonst 0"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Minimum Derece",
         "tr": "Minimum Derece",
-        "de": "Minimum Derece",
+        "de": "Minimaler Grad",
         "fr": "Minimum Derece",
         "es": "Minimum Derece",
         "ar": "Minimum Derece"
       },
       "businessContext_i18n": {
         "en": "Grafikteki en küçük düğüm derecesi",
-        "tr": "Grafikteki en küçük düğüm derecesi"
+        "tr": "Grafikteki en küçük düğüm derecesi",
+        "de": "Kleinster Knotengrad im Graphen"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Maksimum Derece",
         "tr": "Maksimum Derece",
-        "de": "Maksimum Derece",
+        "de": "Maximaler Grad",
         "fr": "Maksimum Derece",
         "es": "Maksimum Derece",
         "ar": "Maksimum Derece"
       },
       "businessContext_i18n": {
         "en": "Grafikteki en büyük düğüm derecesi",
-        "tr": "Grafikteki en büyük düğüm derecesi"
+        "tr": "Grafikteki en büyük düğüm derecesi",
+        "de": "Größter Knotengrad im Graphen"
       }
     }
   ],

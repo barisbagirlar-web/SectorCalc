@@ -12,7 +12,7 @@ describe("velocity-calculator", () => {
     "acceleration": 0,
     "time": 0,
     "distance": 0
-  } as Velocity_calculatorInput;
+  } as unknown as Velocity_calculatorInput;
     const result = calculateVelocity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

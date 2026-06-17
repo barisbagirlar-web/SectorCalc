@@ -23,11 +23,13 @@
       "businessContext": "Total length of the tool path in contact with the workpiece. Derived from CAM or drawing.",
       "label_i18n": {
         "en": "Cutting Length",
-        "tr": "Kesme Uzunluğu"
+        "tr": "Kesme Uzunluğu",
+        "de": "Schnittlänge"
       },
       "businessContext_i18n": {
         "en": "Total length of the tool path in contact with the workpiece. Derived from CAM or drawing.",
-        "tr": "Takım yolunun iş parçasıyla temas halindeki toplam uzunluğu. CAM veya çizimden elde edilir."
+        "tr": "Takım yolunun iş parçasıyla temas halindeki toplam uzunluğu. CAM veya çizimden elde edilir.",
+        "de": "Gesamtlänge des Werkzeugwegs im Kontakt mit dem Werkstück. Abgeleitet aus CAM oder Zeichnung."
       }
     },
     {
@@ -41,11 +43,13 @@
       "businessContext": "Linear feed speed of the cutting tool. Based on material and tool specifications.",
       "label_i18n": {
         "en": "Feed Rate",
-        "tr": "İlerleme Hızı"
+        "tr": "İlerleme Hızı",
+        "de": "Vorschubgeschwindigkeit"
       },
       "businessContext_i18n": {
         "en": "Linear feed speed of the cutting tool. Based on material and tool specifications.",
-        "tr": "Kesici takımın doğrusal ilerleme hızı. Malzeme ve takım özelliklerine göre belirlenir."
+        "tr": "Kesici takımın doğrusal ilerleme hızı. Malzeme ve takım özelliklerine göre belirlenir.",
+        "de": "Lineare Vorschubgeschwindigkeit des Schneidwerkzeugs. Basierend auf Material- und Werkzeugspezifikationen."
       }
     },
     {
@@ -59,11 +63,13 @@
       "businessContext": "Rotational speed of the spindle. Affects cutting speed and surface finish.",
       "label_i18n": {
         "en": "Spindle Speed",
-        "tr": "İş Mili Hızı"
+        "tr": "İş Mili Hızı",
+        "de": "Spindeldrehzahl"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the spindle. Affects cutting speed and surface finish.",
-        "tr": "İş milinin dönüş hızı. Kesme hızını ve yüzey kalitesini etkiler."
+        "tr": "İş milinin dönüş hızı. Kesme hızını ve yüzey kalitesini etkiler.",
+        "de": "Rotationsgeschwindigkeit der Spindel. Beeinflusst Schnittgeschwindigkeit und Oberflächengüte."
       }
     },
     {
@@ -77,11 +83,13 @@
       "businessContext": "Number of cutting passes required to achieve final geometry.",
       "label_i18n": {
         "en": "Number of Passes",
-        "tr": "Pas Sayısı"
+        "tr": "Pas Sayısı",
+        "de": "Anzahl der Schnitte"
       },
       "businessContext_i18n": {
         "en": "Number of cutting passes required to achieve final geometry.",
-        "tr": "Nihai geometriyi elde etmek için gereken kesme pası sayısı."
+        "tr": "Nihai geometriyi elde etmek için gereken kesme pası sayısı.",
+        "de": "Anzahl der erforderlichen Schnitte zur Erzielung der endgültigen Geometrie."
       }
     },
     {
@@ -95,11 +103,13 @@
       "businessContext": "Total distance traveled at rapid traverse (non-cutting moves).",
       "label_i18n": {
         "en": "Rapid Traverse Distance",
-        "tr": "Hızlı Hareket Mesafesi"
+        "tr": "Hızlı Hareket Mesafesi",
+        "de": "Eilgangstrecke"
       },
       "businessContext_i18n": {
         "en": "Total distance traveled at rapid traverse (non-cutting moves).",
-        "tr": "Hızlı hareketle kat edilen toplam mesafe (kesme dışı hareketler)."
+        "tr": "Hızlı hareketle kat edilen toplam mesafe (kesme dışı hareketler).",
+        "de": "Gesamtstrecke im Eilgang (Nicht-Schnittbewegungen)."
       }
     },
     {
@@ -113,11 +123,13 @@
       "businessContext": "Maximum speed of the machine during rapid moves.",
       "label_i18n": {
         "en": "Rapid Traverse Rate",
-        "tr": "Hızlı Hareket Hızı"
+        "tr": "Hızlı Hareket Hızı",
+        "de": "Eilganggeschwindigkeit"
       },
       "businessContext_i18n": {
         "en": "Maximum speed of the machine during rapid moves.",
-        "tr": "Makinenin hızlı hareketler sırasındaki maksimum hızı."
+        "tr": "Makinenin hızlı hareketler sırasındaki maksimum hızı.",
+        "de": "Maximale Geschwindigkeit der Maschine bei Eilbewegungen."
       }
     },
     {
@@ -131,11 +143,13 @@
       "businessContext": "Average time to change a tool, including turret indexing.",
       "label_i18n": {
         "en": "Tool Change Time",
-        "tr": "Takım Değiştirme Süresi"
+        "tr": "Takım Değiştirme Süresi",
+        "de": "Werkzeugwechselzeit"
       },
       "businessContext_i18n": {
         "en": "Average time to change a tool, including turret indexing.",
-        "tr": "Bir takımı değiştirmek için geçen ortalama süre, taret indeksleme dahil."
+        "tr": "Bir takımı değiştirmek için geçen ortalama süre, taret indeksleme dahil.",
+        "de": "Durchschnittliche Zeit für einen Werkzeugwechsel, einschließlich Revolverindexierung."
       }
     },
     {
@@ -149,11 +163,13 @@
       "businessContext": "Total tool changes required for the operation.",
       "label_i18n": {
         "en": "Number of Tool Changes",
-        "tr": "Takım Değiştirme Sayısı"
+        "tr": "Takım Değiştirme Sayısı",
+        "de": "Anzahl der Werkzeugwechsel"
       },
       "businessContext_i18n": {
         "en": "Total tool changes required for the operation.",
-        "tr": "Operasyon için gereken toplam takım değiştirme sayısı."
+        "tr": "Operasyon için gereken toplam takım değiştirme sayısı.",
+        "de": "Gesamtzahl der für den Vorgang erforderlichen Werkzeugwechsel."
       }
     }
   ],

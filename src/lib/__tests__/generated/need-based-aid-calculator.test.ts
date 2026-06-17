@@ -13,7 +13,7 @@ describe("need-based-aid-calculator", () => {
     "numberOfDependents": 1,
     "assets": 0,
     "otherAid": 0
-  } as Need_based_aid_calculatorInput;
+  } as unknown as Need_based_aid_calculatorInput;
     const result = calculateNeed_based_aid_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

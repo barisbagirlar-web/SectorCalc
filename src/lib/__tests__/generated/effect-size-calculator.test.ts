@@ -14,7 +14,7 @@ describe("effect-size-calculator", () => {
     "sd2": 1,
     "n1": 30,
     "n2": 30
-  } as Effect_size_calculatorInput;
+  } as unknown as Effect_size_calculatorInput;
     const result = calculateEffect_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

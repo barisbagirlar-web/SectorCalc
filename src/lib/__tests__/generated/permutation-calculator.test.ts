@@ -11,7 +11,7 @@ describe("permutation-calculator", () => {
     "n": 5,
     "r": 3,
     "auto_input_3": 1
-  } as Permutation_calculatorInput;
+  } as unknown as Permutation_calculatorInput;
     const result = calculatePermutation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

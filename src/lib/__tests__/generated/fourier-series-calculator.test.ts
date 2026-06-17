@@ -13,7 +13,7 @@ describe("fourier-series-calculator", () => {
     "period": 1,
     "time": 0,
     "numHarmonics": 3
-  } as Fourier_series_calculatorInput;
+  } as unknown as Fourier_series_calculatorInput;
     const result = calculateFourier_series_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

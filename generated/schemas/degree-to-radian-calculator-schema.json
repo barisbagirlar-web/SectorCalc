@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Angle (degrees)",
         "tr": "Açı (derece)",
-        "de": "Angle (degrees)",
+        "de": "Winkel (Grad)",
         "fr": "Angle (degrees)",
         "es": "Angle (degrees)",
         "ar": "Angle (degrees)"
       },
       "businessContext_i18n": {
         "en": "Angle to convert from degrees to radians",
-        "tr": "Dereceden radyana dönüştürülecek açı"
+        "tr": "Dereceden radyana dönüştürülecek açı",
+        "de": "Winkel zur Umrechnung von Grad in Bogenmaß"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Constant offset added to angle before conversion (e.g., for calibration)",
-        "tr": "Dönüşümden önce açıya eklenen sabit ofset (örneğin, kalibrasyon için)"
+        "tr": "Dönüşümden önce açıya eklenen sabit ofset (örneğin, kalibrasyon için)",
+        "de": "Konstanter Offset, der vor der Umrechnung zum Winkel addiert wird (z. B. für Kalibrierung)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the rounded output",
-        "tr": "Yuvarlanmış çıktı için ondalık basamak sayısı"
+        "tr": "Yuvarlanmış çıktı için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für das gerundete Ergebnis"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "π Value",
         "tr": "π Değeri",
-        "de": "π Value",
+        "de": "π-Wert",
         "fr": "π Value",
         "es": "π Value",
         "ar": "π Value"
       },
       "businessContext_i18n": {
         "en": "Value of π used in conversion factor",
-        "tr": "Dönüşüm faktöründe kullanılan π değeri"
+        "tr": "Dönüşüm faktöründe kullanılan π değeri",
+        "de": "Wert von π, der im Umrechnungsfaktor verwendet wird"
       }
     }
   ],

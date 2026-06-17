@@ -12,7 +12,7 @@ describe("wedding-catering-calculator", () => {
     "costPerPlate": 200,
     "drinksPerGuest": 50,
     "serviceChargePercent": 10
-  } as Wedding_catering_calculatorInput;
+  } as unknown as Wedding_catering_calculatorInput;
     const result = calculateWedding_catering_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

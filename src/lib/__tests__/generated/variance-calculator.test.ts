@@ -12,7 +12,7 @@ describe("variance-calculator", () => {
     "sumX": 0,
     "sumX2": 0,
     "isPopulation": 1
-  } as Variance_calculatorInput;
+  } as unknown as Variance_calculatorInput;
     const result = calculateVariance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

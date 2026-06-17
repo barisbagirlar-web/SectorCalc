@@ -12,7 +12,7 @@ describe("chi-square-calculator", () => {
     "cell12": 0,
     "cell21": 0,
     "cell22": 0
-  } as Chi_square_calculatorInput;
+  } as unknown as Chi_square_calculatorInput;
     const result = calculateChi_square_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

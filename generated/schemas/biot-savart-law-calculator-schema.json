@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Current",
         "tr": "Akım",
-        "de": "Current",
+        "de": "Strom",
         "fr": "Current",
         "es": "Current",
         "ar": "Current"
       },
       "businessContext_i18n": {
         "en": "Electric current flowing through the wire segment",
-        "tr": "Tel segmentinden geçen elektrik akımı"
+        "tr": "Tel segmentinden geçen elektrik akımı",
+        "de": "Elektrischer Strom, der durch das Leitersegment fließt"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Perpendicular Distance",
         "tr": "Dik Mesafe",
-        "de": "Perpendicular Distance",
+        "de": "Senkrechter Abstand",
         "fr": "Perpendicular Distance",
         "es": "Perpendicular Distance",
         "ar": "Perpendicular Distance"
       },
       "businessContext_i18n": {
         "en": "Shortest distance from the point to the infinite line containing the wire segment",
-        "tr": "Noktadan teli içeren sonsuz doğruya olan en kısa mesafe"
+        "tr": "Noktadan teli içeren sonsuz doğruya olan en kısa mesafe",
+        "de": "Kürzester Abstand vom Punkt zur unendlichen Linie, die das Leitersegment enthält"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Observation Point Z",
         "tr": "Gözlem Noktası Z",
-        "de": "Observation Point Z",
+        "de": "Beobachtungspunkt Z",
         "fr": "Observation Point Z",
         "es": "Observation Point Z",
         "ar": "Observation Point Z"
       },
       "businessContext_i18n": {
         "en": "Z-coordinate of the observation point relative to the wire segment (wire along Z-axis)",
-        "tr": "Gözlem noktasının tel segmentine göre Z koordinatı (tel Z ekseni boyunca)"
+        "tr": "Gözlem noktasının tel segmentine göre Z koordinatı (tel Z ekseni boyunca)",
+        "de": "Z-Koordinate des Beobachtungspunkts relativ zum Leitersegment (Leiter entlang der Z-Achse)"
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Z-coordinate of the wire segment start",
-        "tr": "Tel segmentinin başlangıç Z koordinatı"
+        "tr": "Tel segmentinin başlangıç Z koordinatı",
+        "de": "Z-Koordinate des Leitersegmentstarts"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Segment End Z",
         "tr": "Segment Bitiş Z",
-        "de": "Segment End Z",
+        "de": "Segment Ende Z",
         "fr": "Segment End Z",
         "es": "Segment End Z",
         "ar": "Segment End Z"
       },
       "businessContext_i18n": {
         "en": "Z-coordinate of the wire segment end",
-        "tr": "Tel segmentinin bitiş Z koordinatı"
+        "tr": "Tel segmentinin bitiş Z koordinatı",
+        "de": "Z-Koordinate des Leitersegmentendes"
       }
     }
   ],

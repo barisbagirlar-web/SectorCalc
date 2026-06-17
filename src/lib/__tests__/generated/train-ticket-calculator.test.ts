@@ -15,7 +15,7 @@ describe("train-ticket-calculator", () => {
     "childDiscount": 50,
     "groupDiscount": 10,
     "serviceFee": 2
-  } as Train_ticket_calculatorInput;
+  } as unknown as Train_ticket_calculatorInput;
     const result = calculateTrain_ticket_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

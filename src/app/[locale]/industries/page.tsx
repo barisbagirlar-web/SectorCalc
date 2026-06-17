@@ -5,17 +5,20 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
-import { SchemaToolsCatalogExplorer } from "@/components/tools/SchemaToolsCatalogExplorer";
+import { CatalogHubToolsSection } from "@/components/tools/CatalogHubToolsSection";
+import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { getAllTools } from "@/lib/tools/all-tools-data";
 import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
+import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/tools/filter-catalog-hub-tools";
 import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 export const revalidate = 3600;
@@ -32,8 +35,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-export default async function IndustriesPage({ params }: PageProps) {
+function resolveSearchParam(
+  value: string | string[] | undefined,
+): string | undefined {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+export default async function IndustriesPage({ params, searchParams }: PageProps) {
   const { locale } = await params;
+  const resolvedSearchParams = await searchParams;
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "industries" });
@@ -55,7 +65,7 @@ export default async function IndustriesPage({ params }: PageProps) {
       locale,
     ),
     buildItemListJsonLd(
-      tools.map((tool) => ({
+      tools.slice(0, CATALOG_HUB_JSONLD_MAX_ITEMS).map((tool) => ({
         name: tool.name,
         path: tool.href,
       })),
@@ -69,6 +79,7 @@ export default async function IndustriesPage({ params }: PageProps) {
       <JsonLd data={jsonLd} />
       <section className="sc-pro-section sc-pro-section--border">
         <ToolsPageSearchProvider>
+          <CatalogSearchUrlSync />
           <ToolsPageLayout
             title={t("title")}
             subtitle={t("subtitle")}
@@ -86,11 +97,12 @@ export default async function IndustriesPage({ params }: PageProps) {
             </div>
 
             <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-              <SchemaToolsCatalogExplorer
+              <CatalogHubToolsSection
+                locale={locale}
                 tools={tools}
-                filterBy="sector"
                 variant="industries"
-                hideBrowseSection
+                sectorFilter={resolveSearchParam(resolvedSearchParams.sector)}
+                searchQuery={resolveSearchParam(resolvedSearchParams.q)}
               />
             </Suspense>
           </ToolsPageLayout>

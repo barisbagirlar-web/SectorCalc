@@ -15,7 +15,7 @@ describe("bearing-load-calculator", () => {
     "dynamicLoadRating": 5000,
     "exponent": 3,
     "speed": 1500
-  } as Bearing_load_calculatorInput;
+  } as unknown as Bearing_load_calculatorInput;
     const result = calculateBearing_load_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

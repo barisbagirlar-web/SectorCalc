@@ -13,7 +13,7 @@ describe("carb-to-insulin-ratio-calculator", () => {
     "current_bg": 150,
     "target_bg": 100,
     "isf": 50
-  } as Carb_to_insulin_ratio_calculatorInput;
+  } as unknown as Carb_to_insulin_ratio_calculatorInput;
     const result = calculateCarb_to_insulin_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

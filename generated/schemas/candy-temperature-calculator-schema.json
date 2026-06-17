@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Candy Stage",
         "tr": "Şeker Aşaması",
-        "de": "Candy Stage",
+        "de": "Zuckerstadium",
         "fr": "Candy Stage",
         "es": "Candy Stage",
         "ar": "Candy Stage"
       },
       "businessContext_i18n": {
         "en": "Select candy cooking stage: 1=Thread (230°F), 2=Soft Ball (238°F), 3=Firm Ball (245°F), 4=Hard Ball (255°F), 5=Soft Crack (280°F), 6=Hard Crack (305°F), 7=Caramel (335°F), 0=Custom",
-        "tr": "Şeker pişirme aşamasını seçin: 1=İplik (230°F), 2=Yumuşak Top (238°F), 3=Sert Top (245°F), 4=Sert Top (255°F), 5=Yumuşak Kırılma (280°F), 6=Sert Kırılma (305°F), 7=Karamel (335°F), 0=Özel"
+        "tr": "Şeker pişirme aşamasını seçin: 1=İplik (230°F), 2=Yumuşak Top (238°F), 3=Sert Top (245°F), 4=Sert Top (255°F), 5=Yumuşak Kırılma (280°F), 6=Sert Kırılma (305°F), 7=Karamel (335°F), 0=Özel",
+        "de": "Wählen Sie das Zuckerkochstadium: 1=Faden (230°F), 2=Weicher Ball (238°F), 3=Fester Ball (245°F), 4=Harter Ball (255°F), 5=Weicher Knack (280°F), 6=Harter Knack (305°F), 7=Karamell (335°F), 0=Benutzerdefiniert"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Altitude (feet)",
         "tr": "Rakım (feet)",
-        "de": "Altitude (feet)",
+        "de": "Höhe (Fuß)",
         "fr": "Altitude (feet)",
         "es": "Altitude (feet)",
         "ar": "Altitude (feet)"
       },
       "businessContext_i18n": {
         "en": "Elevation above sea level; for every 500 ft, boiling point drops ~1°F",
-        "tr": "Deniz seviyesinden yükseklik; her 500 ft'de kaynama noktası ~1°F düşer."
+        "tr": "Deniz seviyesinden yükseklik; her 500 ft'de kaynama noktası ~1°F düşer.",
+        "de": "Höhe über dem Meeresspiegel; alle 500 Fuß sinkt der Siedepunkt um ~1°F"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Custom Target Temp (°F)",
         "tr": "Özel Hedef Sıcaklık (°F)",
-        "de": "Custom Target Temp (°F)",
+        "de": "Benutzerdefinierte Zieltemperatur (°F)",
         "fr": "Custom Target Temp (°F)",
         "es": "Custom Target Temp (°F)",
         "ar": "Custom Target Temp (°F)"
       },
       "businessContext_i18n": {
         "en": "Target temperature when using custom stage (stage = 0)",
-        "tr": "Özel aşama kullanıldığında hedef sıcaklık (aşama = 0)."
+        "tr": "Özel aşama kullanıldığında hedef sıcaklık (aşama = 0).",
+        "de": "Zieltemperatur bei Verwendung der benutzerdefinierten Stufe (Stufe = 0)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Thermometer Offset (°F)",
         "tr": "Termometre Ofseti (°F)",
-        "de": "Thermometer Offset (°F)",
+        "de": "Thermometer-Offset (°F)",
         "fr": "Thermometer Offset (°F)",
         "es": "Thermometer Offset (°F)",
         "ar": "Thermometer Offset (°F)"
       },
       "businessContext_i18n": {
         "en": "Correction if your thermometer is inaccurate (e.g., +2°F if it reads low)",
-        "tr": "Termometreniz hatalıysa düzeltme (örneğin, düşük gösteriyorsa +2°F)."
+        "tr": "Termometreniz hatalıysa düzeltme (örneğin, düşük gösteriyorsa +2°F).",
+        "de": "Korrektur, falls Ihr Thermometer ungenau ist (z. B. +2°F, wenn es zu niedrig anzeigt)"
       }
     }
   ],

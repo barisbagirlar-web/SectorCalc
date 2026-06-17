@@ -13,7 +13,7 @@ describe("bishop-score-for-labor-calculator", () => {
     "stationScore": 0,
     "consistencyScore": 0,
     "positionScore": 0
-  } as Bishop_score_for_labor_calculatorInput;
+  } as unknown as Bishop_score_for_labor_calculatorInput;
     const result = calculateBishop_score_for_labor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

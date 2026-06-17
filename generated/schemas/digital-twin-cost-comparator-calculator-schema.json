@@ -24,11 +24,13 @@
       "businessContext": "Select the scope of the digital twin: asset, process, system, or enterprise. Influences complexity and cost multipliers.",
       "label_i18n": {
         "en": "Digital Twin Scope",
-        "tr": "Dijital İkiz Kapsamı"
+        "tr": "Dijital İkiz Kapsamı",
+        "de": "Digitaler Zwilling – Umfang"
       },
       "businessContext_i18n": {
         "en": "Select the scope of the digital twin: asset, process, system, or enterprise. Influences complexity and cost multipliers.",
-        "tr": "Dijital ikizin kapsamını seçin: varlık, süreç, sistem veya kuruluş. Karmaşıklık ve maliyet çarpanlarını etkiler."
+        "tr": "Dijital ikizin kapsamını seçin: varlık, süreç, sistem veya kuruluş. Karmaşıklık ve maliyet çarpanlarını etkiler.",
+        "de": "Wählen Sie den Umfang des digitalen Zwillings: Anlage, Prozess, System oder Unternehmen. Beeinflusst Komplexitäts- und Kostenmultiplikatoren."
       }
     },
     {
@@ -42,11 +44,13 @@
       "businessContext": "Total number of physical assets or entities to be modeled in the digital twin.",
       "label_i18n": {
         "en": "Number of Assets/Entities",
-        "tr": "Varlık/Varlık Sayısı"
+        "tr": "Varlık/Varlık Sayısı",
+        "de": "Anzahl der Anlagen/Entitäten"
       },
       "businessContext_i18n": {
         "en": "Total number of physical assets or entities to be modeled in the digital twin.",
-        "tr": "Dijital ikizde modellenecek toplam fiziksel varlık veya varlık sayısı."
+        "tr": "Dijital ikizde modellenecek toplam fiziksel varlık veya varlık sayısı.",
+        "de": "Gesamtzahl der physischen Anlagen oder Entitäten, die im digitalen Zwilling modelliert werden sollen."
       }
     },
     {
@@ -60,11 +64,13 @@
       "businessContext": "Average number of IoT sensors per asset. Higher density increases data acquisition and processing costs.",
       "label_i18n": {
         "en": "Sensor Density (sensors per asset)",
-        "tr": "Sensör Yoğunluğu (varlık başına sensör)"
+        "tr": "Sensör Yoğunluğu (varlık başına sensör)",
+        "de": "Sensordichte (Sensoren pro Anlage)"
       },
       "businessContext_i18n": {
         "en": "Average number of IoT sensors per asset. Higher density increases data acquisition and processing costs.",
-        "tr": "Varlık başına ortalama IoT sensör sayısı. Yüksek yoğunluk, veri toplama ve işleme maliyetlerini artırır."
+        "tr": "Varlık başına ortalama IoT sensör sayısı. Yüksek yoğunluk, veri toplama ve işleme maliyetlerini artırır.",
+        "de": "Durchschnittliche Anzahl von IoT-Sensoren pro Anlage. Höhere Dichte erhöht die Kosten für Datenerfassung und -verarbeitung."
       }
     },
     {
@@ -78,11 +84,13 @@
       "businessContext": "Frequency of data collection: 0.1 (every 10s), 1 (per second), 10 (10 Hz), 100 (100 Hz). Higher frequency increases data volume and cost.",
       "label_i18n": {
         "en": "Data Acquisition Frequency",
-        "tr": "Veri Toplama Sıklığı"
+        "tr": "Veri Toplama Sıklığı",
+        "de": "Datenerfassungsfrequenz"
       },
       "businessContext_i18n": {
         "en": "Frequency of data collection: 0.1 (every 10s), 1 (per second), 10 (10 Hz), 100 (100 Hz). Higher frequency increases data volume and cost.",
-        "tr": "Veri toplama sıklığı: 0.1 (her 10 saniyede bir), 1 (saniyede bir), 10 (10 Hz), 100 (100 Hz). Yüksek sıklık, veri hacmini ve maliyeti artırır."
+        "tr": "Veri toplama sıklığı: 0.1 (her 10 saniyede bir), 1 (saniyede bir), 10 (10 Hz), 100 (100 Hz). Yüksek sıklık, veri hacmini ve maliyeti artırır.",
+        "de": "Häufigkeit der Datenerfassung: 0,1 (alle 10 s), 1 (pro Sekunde), 10 (10 Hz), 100 (100 Hz). Höhere Frequenz erhöht das Datenvolumen und die Kosten."
       }
     },
     {
@@ -96,11 +104,13 @@
       "businessContext": "Complexity of integrating with existing systems (ERP, MES, CMMS). Low, medium, high. Affects labor and software costs.",
       "label_i18n": {
         "en": "Integration Complexity",
-        "tr": "Entegrasyon Karmaşıklığı"
+        "tr": "Entegrasyon Karmaşıklığı",
+        "de": "Integrationskomplexität"
       },
       "businessContext_i18n": {
         "en": "Complexity of integrating with existing systems (ERP, MES, CMMS). Low, medium, high. Affects labor and software costs.",
-        "tr": "Mevcut sistemlerle (ERP, MES, CMMS) entegrasyon karmaşıklığı. Düşük, orta, yüksek. İşçilik ve yazılım maliyetlerini etkiler."
+        "tr": "Mevcut sistemlerle (ERP, MES, CMMS) entegrasyon karmaşıklığı. Düşük, orta, yüksek. İşçilik ve yazılım maliyetlerini etkiler.",
+        "de": "Komplexität der Integration mit bestehenden Systemen (ERP, MES, CMMS). Niedrig, mittel, hoch. Beeinflusst Arbeits- und Softwarekosten."
       }
     },
     {
@@ -114,11 +124,13 @@
       "businessContext": "Percentage of data that is accurate, complete, and timely. Based on ISO 8000 data quality standards.",
       "label_i18n": {
         "en": "Data Quality Index (DQI)",
-        "tr": "Veri Kalite Endeksi (VKE)"
+        "tr": "Veri Kalite Endeksi (VKE)",
+        "de": "Datenqualitätsindex (DQI)"
       },
       "businessContext_i18n": {
         "en": "Percentage of data that is accurate, complete, and timely. Based on ISO 8000 data quality standards.",
-        "tr": "Doğru, eksiksiz ve zamanında olan veri yüzdesi. ISO 8000 veri kalitesi standartlarına dayanır."
+        "tr": "Doğru, eksiksiz ve zamanında olan veri yüzdesi. ISO 8000 veri kalitesi standartlarına dayanır.",
+        "de": "Prozentsatz der Daten, die genau, vollständig und zeitnah sind. Basierend auf ISO-8000-Datenqualitätsstandards."
       }
     },
     {
@@ -132,11 +144,13 @@
       "businessContext": "Blended hourly rate for engineering and IT staff involved in digital twin development and maintenance.",
       "label_i18n": {
         "en": "Average Labor Rate (USD/hour)",
-        "tr": "Ortalama İşçilik Ücreti (USD/saat)"
+        "tr": "Ortalama İşçilik Ücreti (USD/saat)",
+        "de": "Durchschnittlicher Stundensatz (USD/Stunde)"
       },
       "businessContext_i18n": {
         "en": "Blended hourly rate for engineering and IT staff involved in digital twin development and maintenance.",
-        "tr": "Dijital ikiz geliştirme ve bakımında yer alan mühendislik ve BT personeli için harmanlanmış saatlik ücret."
+        "tr": "Dijital ikiz geliştirme ve bakımında yer alan mühendislik ve BT personeli için harmanlanmış saatlik ücret.",
+        "de": "Gemischter Stundensatz für Ingenieur- und IT-Personal, das an der Entwicklung und Wartung des digitalen Zwillings beteiligt ist."
       }
     },
     {
@@ -150,11 +164,13 @@
       "businessContext": "Expected operational lifespan of the digital twin system. Used for amortization and total cost of ownership calculations.",
       "label_i18n": {
         "en": "Expected Lifespan (years)",
-        "tr": "Beklenen Kullanım Ömrü (yıl)"
+        "tr": "Beklenen Kullanım Ömrü (yıl)",
+        "de": "Erwartete Lebensdauer (Jahre)"
       },
       "businessContext_i18n": {
         "en": "Expected operational lifespan of the digital twin system. Used for amortization and total cost of ownership calculations.",
-        "tr": "Dijital ikiz sisteminin beklenen operasyonel kullanım ömrü. Amortisman ve toplam sahip olma maliyeti hesaplamaları için kullanılır."
+        "tr": "Dijital ikiz sisteminin beklenen operasyonel kullanım ömrü. Amortisman ve toplam sahip olma maliyeti hesaplamaları için kullanılır.",
+        "de": "Erwartete betriebliche Lebensdauer des digitalen Zwillingssystems. Wird für Abschreibung und Gesamtbetriebskostenberechnungen verwendet."
       }
     }
   ],

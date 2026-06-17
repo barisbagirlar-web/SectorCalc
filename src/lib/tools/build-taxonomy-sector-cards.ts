@@ -34,17 +34,22 @@ export function buildTaxonomySectorCards(
     sectorCounts.set(tool.sectorKey, (sectorCounts.get(tool.sectorKey) ?? 0) + 1);
   }
 
-  const cards: TaxonomySectorCard[] = SECTORS.map((sector) => {
+  const cards: TaxonomySectorCard[] = SECTORS.flatMap((sector) => {
     const count = sectorCounts.get(sector.id) ?? 0;
-    return {
-      sector,
-      label: resolveTaxonomySectorLabel(locale, sector.id, sector.label, sector.labelEn),
-      professionLabels: sector.professions.map((profession) =>
-        resolveTaxonomyProfessionDisplayLabel(profession, locale),
-      ),
-      count,
-      countLabel: String(count),
-    };
+    if (count === 0) {
+      return [];
+    }
+    return [
+      {
+        sector,
+        label: resolveTaxonomySectorLabel(locale, sector.id, sector.label, sector.labelEn),
+        professionLabels: sector.professions.map((profession) =>
+          resolveTaxonomyProfessionDisplayLabel(profession, locale),
+        ),
+        count,
+        countLabel: String(count),
+      },
+    ];
   });
 
   const otherCount = sectorCounts.get("diger") ?? 0;

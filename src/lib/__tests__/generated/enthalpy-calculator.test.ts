@@ -12,7 +12,7 @@ describe("enthalpy-calculator", () => {
     "specificHeat": 4.186,
     "initialTemp": 20,
     "finalTemp": 100
-  } as Enthalpy_calculatorInput;
+  } as unknown as Enthalpy_calculatorInput;
     const result = calculateEnthalpy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

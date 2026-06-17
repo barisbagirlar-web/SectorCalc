@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Bit rate (bps)",
         "tr": "Bit hızı (bps)",
-        "de": "Bit rate (bps)",
+        "de": "Bitrate (bps)",
         "fr": "Bit rate (bps)",
         "es": "Bit rate (bps)",
         "ar": "Bit rate (bps)"
       },
       "businessContext_i18n": {
         "en": "Data transfer rate in bits per second",
-        "tr": "Saniyedeki bit cinsinden veri aktarım hızı"
+        "tr": "Saniyedeki bit cinsinden veri aktarım hızı",
+        "de": "Datenübertragungsrate in Bits pro Sekunde"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Conversion factor",
         "tr": "Dönüşüm faktörü",
-        "de": "Conversion factor",
+        "de": "Umrechnungsfaktor",
         "fr": "Conversion factor",
         "es": "Conversion factor",
         "ar": "Conversion factor"
       },
       "businessContext_i18n": {
         "en": "Factor to convert bps to kbps (0.001 for SI standard)",
-        "tr": "bps'yi kbps'ye dönüştürme faktörü (SI standardı için 0.001)"
+        "tr": "bps'yi kbps'ye dönüştürme faktörü (SI standardı için 0.001)",
+        "de": "Faktor zur Umrechnung von bps in kbps (0,001 für SI-Standard)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Rounding decimals",
         "tr": "Yuvarlama basamak sayısı",
-        "de": "Rounding decimals",
+        "de": "Rundungsdezimalstellen",
         "fr": "Rounding decimals",
         "es": "Rounding decimals",
         "ar": "Rounding decimals"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places in the converted output",
-        "tr": "Dönüştürülmüş çıktıdaki ondalık basamak sayısı"
+        "tr": "Dönüştürülmüş çıktıdaki ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen in der umgerechneten Ausgabe"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Confirmation bit",
         "tr": "Onay biti",
-        "de": "Confirmation bit",
+        "de": "Bestätigungsbit",
         "fr": "Confirmation bit",
         "es": "Confirmation bit",
         "ar": "Confirmation bit"
       },
       "businessContext_i18n": {
         "en": "Integrity check: set to 1 to proceed with conversion",
-        "tr": "Bütünlük kontrolü: dönüştürmeye devam etmek için 1 olarak ayarlayın"
+        "tr": "Bütünlük kontrolü: dönüştürmeye devam etmek için 1 olarak ayarlayın",
+        "de": "Integritätsprüfung: auf 1 setzen, um mit der Umrechnung fortzufahren"
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("mile-calculator", () => {
     "maintenanceCost": 0.05,
     "otherFixedCosts": 1200,
     "annualMiles": 12000
-  } as Mile_calculatorInput;
+  } as unknown as Mile_calculatorInput;
     const result = calculateMile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

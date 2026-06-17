@@ -14,7 +14,7 @@ describe("paver-calculator", () => {
     "paverWidth": 100,
     "jointWidth": 5,
     "wasteFactor": 10
-  } as Paver_calculatorInput;
+  } as unknown as Paver_calculatorInput;
     const result = calculatePaver_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

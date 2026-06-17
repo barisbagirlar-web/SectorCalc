@@ -16,7 +16,7 @@ describe("beer-calculator", () => {
     "energyCost": 2.5,
     "batchVolume": 1000,
     "overheadCost": 500
-  } as Beer_calculatorInput;
+  } as unknown as Beer_calculatorInput;
     const result = calculateBeer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("high-pass-filter-calculator", () => {
     "capacitance": 0.000001,
     "frequency": 1000,
     "inputVoltage": 1
-  } as High_pass_filter_calculatorInput;
+  } as unknown as High_pass_filter_calculatorInput;
     const result = calculateHigh_pass_filter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

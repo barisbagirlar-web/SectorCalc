@@ -14,7 +14,7 @@ describe("adaptive-thermogenesis-calculator", () => {
     "weight": 70,
     "tau": 14,
     "fatFreeMass": 50
-  } as Adaptive_thermogenesis_calculatorInput;
+  } as unknown as Adaptive_thermogenesis_calculatorInput;
     const result = calculateAdaptive_thermogenesis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

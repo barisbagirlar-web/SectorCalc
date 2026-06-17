@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Raw Material Unit Cost",
         "tr": "Hammadde Birim Maliyeti",
-        "de": "Raw Material Unit Cost",
+        "de": "Rohmaterialstückkosten",
         "fr": "Raw Material Unit Cost",
         "es": "Raw Material Unit Cost",
         "ar": "Raw Material Unit Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of raw materials per unit",
-        "tr": "Birim başına hammadde maliyeti"
+        "tr": "Birim başına hammadde maliyeti",
+        "de": "Rohmaterialkosten pro Einheit"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Labor Unit Cost",
         "tr": "İşçilik Birim Maliyeti",
-        "de": "Labor Unit Cost",
+        "de": "Arbeitskosten pro Einheit",
         "fr": "Labor Unit Cost",
         "es": "Labor Unit Cost",
         "ar": "Labor Unit Cost"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost per unit",
-        "tr": "Birim başına direkt işçilik maliyeti"
+        "tr": "Birim başına direkt işçilik maliyeti",
+        "de": "Direkte Arbeitskosten pro Einheit"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Overhead Unit Cost",
         "tr": "Genel Gider Birim Maliyeti",
-        "de": "Overhead Unit Cost",
+        "de": "Gemeinkosten pro Einheit",
         "fr": "Overhead Unit Cost",
         "es": "Overhead Unit Cost",
         "ar": "Overhead Unit Cost"
       },
       "businessContext_i18n": {
         "en": "Manufacturing overhead per unit",
-        "tr": "Birim başına üretim genel gideri"
+        "tr": "Birim başına üretim genel gideri",
+        "de": "Fertigungsgemeinkosten pro Einheit"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Selling Price Per Unit",
         "tr": "Birim Satış Fiyatı",
-        "de": "Selling Price Per Unit",
+        "de": "Verkaufspreis pro Einheit",
         "fr": "Selling Price Per Unit",
         "es": "Selling Price Per Unit",
         "ar": "Selling Price Per Unit"
       },
       "businessContext_i18n": {
         "en": "Selling price per unit",
-        "tr": "Birim başına satış fiyatı"
+        "tr": "Birim başına satış fiyatı",
+        "de": "Verkaufspreis pro Einheit"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Units Produced",
         "tr": "Üretilen Birim",
-        "de": "Units Produced",
+        "de": "Produzierte Einheiten",
         "fr": "Units Produced",
         "es": "Units Produced",
         "ar": "Units Produced"
       },
       "businessContext_i18n": {
         "en": "Number of units produced",
-        "tr": "Üretilen birim sayısı"
+        "tr": "Üretilen birim sayısı",
+        "de": "Anzahl der produzierten Einheiten"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
-        "de": "Tax Rate",
+        "de": "Steuersatz",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Corporate tax rate percentage",
-        "tr": "Kurumlar vergisi oranı yüzdesi"
+        "tr": "Kurumlar vergisi oranı yüzdesi",
+        "de": "Körperschaftsteuersatz in Prozent"
       }
     }
   ],

@@ -13,7 +13,7 @@ describe("clustering-distance-calculator", () => {
     "x2": 0,
     "y2": 0,
     "w": 1
-  } as Clustering_distance_calculatorInput;
+  } as unknown as Clustering_distance_calculatorInput;
     const result = calculateClustering_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

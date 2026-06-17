@@ -12,7 +12,7 @@ describe("cat-calorie-calculator", () => {
     "activityLevel": 3,
     "lifeStage": 2,
     "neutered": 1
-  } as Cat_calorie_calculatorInput;
+  } as unknown as Cat_calorie_calculatorInput;
     const result = calculateCat_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

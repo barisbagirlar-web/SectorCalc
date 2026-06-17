@@ -12,7 +12,7 @@ describe("km-to-miles-and-feet-calculator", () => {
     "miles_factor": 0.621371,
     "feet_per_mile": 5280,
     "decimal_places": 2
-  } as Km_to_miles_and_feet_calculatorInput;
+  } as unknown as Km_to_miles_and_feet_calculatorInput;
     const result = calculateKm_to_miles_and_feet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

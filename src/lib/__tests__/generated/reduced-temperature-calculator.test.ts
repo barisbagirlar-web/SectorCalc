@@ -12,7 +12,7 @@ describe("reduced-temperature-calculator", () => {
     "actual_temperature_unit": 1,
     "critical_temperature_value": 400,
     "critical_temperature_unit": 1
-  } as Reduced_temperature_calculatorInput;
+  } as unknown as Reduced_temperature_calculatorInput;
     const result = calculateReduced_temperature_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

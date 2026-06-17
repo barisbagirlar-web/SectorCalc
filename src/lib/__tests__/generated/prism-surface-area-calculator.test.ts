@@ -12,7 +12,7 @@ describe("prism-surface-area-calculator", () => {
     "width": 50,
     "height": 200,
     "quantity": 1
-  } as Prism_surface_area_calculatorInput;
+  } as unknown as Prism_surface_area_calculatorInput;
     const result = calculatePrism_surface_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

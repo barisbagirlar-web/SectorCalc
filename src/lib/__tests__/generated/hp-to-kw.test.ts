@@ -14,7 +14,7 @@ describe("hp-to-kw", () => {
     "voltage": 400,
     "current": 10,
     "phases": 3
-  } as Hp_to_kwInput;
+  } as unknown as Hp_to_kwInput;
     const result = calculateHp_to_kw(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

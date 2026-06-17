@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fluid Pressure",
         "tr": "Akışkan Basıncı",
-        "de": "Fluid Pressure",
+        "de": "Fluiddruck",
         "fr": "Fluid Pressure",
         "es": "Fluid Pressure",
         "ar": "Fluid Pressure"
       },
       "businessContext_i18n": {
         "en": "Absolute static pressure of the fluid at the point of interest",
-        "tr": "İlgili noktadaki akışkanın mutlak statik basıncı"
+        "tr": "İlgili noktadaki akışkanın mutlak statik basıncı",
+        "de": "Absoluter statischer Druck des Fluids am interessierenden Punkt"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Vapor Pressure",
         "tr": "Buhar Basıncı",
-        "de": "Vapor Pressure",
+        "de": "Dampfdruck",
         "fr": "Vapor Pressure",
         "es": "Vapor Pressure",
         "ar": "Vapor Pressure"
       },
       "businessContext_i18n": {
         "en": "Vapor pressure of the fluid at operating temperature",
-        "tr": "Akışkanın çalışma sıcaklığındaki buhar basıncı"
+        "tr": "Akışkanın çalışma sıcaklığındaki buhar basıncı",
+        "de": "Dampfdruck des Fluids bei Betriebstemperatur"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
-        "de": "Fluid Density",
+        "de": "Flüssigkeitsdichte",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid under operating conditions",
-        "tr": "Akışkanın çalışma koşullarındaki yoğunluğu"
+        "tr": "Akışkanın çalışma koşullarındaki yoğunluğu",
+        "de": "Dichte des Fluids unter Betriebsbedingungen"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Flow Velocity",
         "tr": "Akış Hızı",
-        "de": "Flow Velocity",
+        "de": "Strömungsgeschwindigkeit",
         "fr": "Flow Velocity",
         "es": "Flow Velocity",
         "ar": "Flow Velocity"
       },
       "businessContext_i18n": {
         "en": "Mean flow velocity at the section under evaluation",
-        "tr": "Değerlendirilen kesitteki ortalama akış hızı"
+        "tr": "Değerlendirilen kesitteki ortalama akış hızı",
+        "de": "Mittlere Strömungsgeschwindigkeit im betrachteten Querschnitt"
       }
     }
   ],

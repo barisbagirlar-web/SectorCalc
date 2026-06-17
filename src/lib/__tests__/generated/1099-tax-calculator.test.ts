@@ -13,7 +13,7 @@ describe("1099-tax-calculator", () => {
     "federalTaxRate": 22,
     "stateTaxRate": 5,
     "selfEmploymentTaxRate": 15.3
-  } as _1099_tax_calculatorInput;
+  } as unknown as _1099_tax_calculatorInput;
     const result = calculate_1099_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

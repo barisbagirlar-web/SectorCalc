@@ -12,7 +12,7 @@ describe("sinking-fund-calculator", () => {
     "annualInterestRate": 5,
     "years": 10,
     "compoundsPerYear": 12
-  } as Sinking_fund_calculatorInput;
+  } as unknown as Sinking_fund_calculatorInput;
     const result = calculateSinking_fund_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

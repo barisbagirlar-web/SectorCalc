@@ -13,7 +13,7 @@ describe("thrust-to-weight-ratio-calculator", () => {
     "payloadMass": 2000,
     "thrust": 120000,
     "gravity": 9.81
-  } as Thrust_to_weight_ratio_calculatorInput;
+  } as unknown as Thrust_to_weight_ratio_calculatorInput;
     const result = calculateThrust_to_weight_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

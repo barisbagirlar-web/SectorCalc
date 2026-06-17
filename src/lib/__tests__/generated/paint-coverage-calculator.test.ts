@@ -14,7 +14,7 @@ describe("paint-coverage-calculator", () => {
     "waste_factor": 10,
     "roughness_factor": 1.2,
     "paint_price_per_liter": 30
-  } as Paint_coverage_calculatorInput;
+  } as unknown as Paint_coverage_calculatorInput;
     const result = calculatePaint_coverage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

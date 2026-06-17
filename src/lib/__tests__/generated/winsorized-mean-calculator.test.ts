@@ -15,7 +15,7 @@ describe("winsorized-mean-calculator", () => {
     "x5": 0,
     "x6": 0,
     "winPercent": 10
-  } as Winsorized_mean_calculatorInput;
+  } as unknown as Winsorized_mean_calculatorInput;
     const result = calculateWinsorized_mean_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

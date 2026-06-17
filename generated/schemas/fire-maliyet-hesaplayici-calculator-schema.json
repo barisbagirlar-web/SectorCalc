@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Toplam Malzeme (kg)",
         "tr": "Toplam Malzeme (kg)",
-        "de": "Toplam Malzeme (kg)",
+        "de": "Gesamtmaterial (kg)",
         "fr": "Toplam Malzeme (kg)",
         "es": "Toplam Malzeme (kg)",
         "ar": "Toplam Malzeme (kg)"
       },
       "businessContext_i18n": {
         "en": "Üretime giren toplam hammadde miktarı",
-        "tr": "Üretime giren toplam hammadde miktarı"
+        "tr": "Üretime giren toplam hammadde miktarı",
+        "de": "Gesamtmenge des in die Produktion eingehenden Rohmaterials"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "İyi Ürün (kg)",
         "tr": "İyi Ürün (kg)",
-        "de": "İyi Ürün (kg)",
+        "de": "Gutprodukt (kg)",
         "fr": "İyi Ürün (kg)",
         "es": "İyi Ürün (kg)",
         "ar": "İyi Ürün (kg)"
       },
       "businessContext_i18n": {
         "en": "Kalite kontrolden geçen nihai ürün ağırlığı",
-        "tr": "Kalite kontrolden geçen nihai ürün ağırlığı"
+        "tr": "Kalite kontrolden geçen nihai ürün ağırlığı",
+        "de": "Gewicht des Endprodukts, das die Qualitätskontrolle bestanden hat"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Yeniden İşlenebilir (kg)",
         "tr": "Yeniden İşlenebilir (kg)",
-        "de": "Yeniden İşlenebilir (kg)",
+        "de": "Nachbearbeitbar (kg)",
         "fr": "Yeniden İşlenebilir (kg)",
         "es": "Yeniden İşlenebilir (kg)",
         "ar": "Yeniden İşlenebilir (kg)"
       },
       "businessContext_i18n": {
         "en": "Tamir edilebilir hurda miktarı",
-        "tr": "Tamir edilebilir hurda miktarı"
+        "tr": "Tamir edilebilir hurda miktarı",
+        "de": "Menge des reparierbaren Ausschusses"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Hurda Fiyatı (TL/kg)",
         "tr": "Hurda Fiyatı (TL/kg)",
-        "de": "Hurda Fiyatı (TL/kg)",
+        "de": "Schrottpreis (TL/kg)",
         "fr": "Hurda Fiyatı (TL/kg)",
         "es": "Hurda Fiyatı (TL/kg)",
         "ar": "Hurda Fiyatı (TL/kg)"
       },
       "businessContext_i18n": {
         "en": "Güncel hurda alım fiyatı",
-        "tr": "Güncel hurda alım fiyatı"
+        "tr": "Güncel hurda alım fiyatı",
+        "de": "Aktueller Schrottankaufspreis"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Malzeme Maliyeti (TL/kg)",
         "tr": "Malzeme Maliyeti (TL/kg)",
-        "de": "Malzeme Maliyeti (TL/kg)",
+        "de": "Materialkosten (TL/kg)",
         "fr": "Malzeme Maliyeti (TL/kg)",
         "es": "Malzeme Maliyeti (TL/kg)",
         "ar": "Malzeme Maliyeti (TL/kg)"
       },
       "businessContext_i18n": {
         "en": "Hammadde birim maliyeti",
-        "tr": "Hammadde birim maliyeti"
+        "tr": "Hammadde birim maliyeti",
+        "de": "Stückkosten des Rohmaterials"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "İşçilik ve Genel Gider (TL/kg)",
         "tr": "İşçilik ve Genel Gider (TL/kg)",
-        "de": "İşçilik ve Genel Gider (TL/kg)",
+        "de": "Arbeits- und Gemeinkosten (TL/kg)",
         "fr": "İşçilik ve Genel Gider (TL/kg)",
         "es": "İşçilik ve Genel Gider (TL/kg)",
         "ar": "İşçilik ve Genel Gider (TL/kg)"
       },
       "businessContext_i18n": {
         "en": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı",
-        "tr": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı"
+        "tr": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı",
+        "de": "Verteilung der Arbeits- und Gemeinkosten pro kg"
       }
     }
   ],

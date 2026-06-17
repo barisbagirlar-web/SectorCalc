@@ -12,7 +12,7 @@ describe("rpe-calculator", () => {
     "coEmp": 50,
     "indRev": 5000000,
     "indEmp": 100
-  } as Rpe_calculatorInput;
+  } as unknown as Rpe_calculatorInput;
     const result = calculateRpe_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

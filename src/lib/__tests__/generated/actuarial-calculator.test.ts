@@ -12,7 +12,7 @@ describe("actuarial-calculator", () => {
     "mortalityRate": 0.005,
     "interestRate": 0.03,
     "term": 20
-  } as Actuarial_calculatorInput;
+  } as unknown as Actuarial_calculatorInput;
     const result = calculateActuarial_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

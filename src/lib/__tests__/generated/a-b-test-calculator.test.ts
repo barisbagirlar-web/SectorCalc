@@ -13,7 +13,7 @@ describe("a-b-test-calculator", () => {
     "sampleSizeB": 1000,
     "conversionsB": 100,
     "confidence": 95
-  } as A_b_test_calculatorInput;
+  } as unknown as A_b_test_calculatorInput;
     const result = calculateA_b_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

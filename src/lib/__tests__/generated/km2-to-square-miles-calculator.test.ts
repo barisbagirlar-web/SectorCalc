@@ -13,7 +13,7 @@ describe("km2-to-square-miles-calculator", () => {
     "precision": 4,
     "multiplier": 1,
     "threshold": 0
-  } as Km2_to_square_miles_calculatorInput;
+  } as unknown as Km2_to_square_miles_calculatorInput;
     const result = calculateKm2_to_square_miles_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

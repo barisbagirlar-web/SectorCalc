@@ -12,7 +12,7 @@ describe("tesla-calculator", () => {
     "current": 10,
     "coilLength": 0.5,
     "relativePermeability": 1
-  } as Tesla_calculatorInput;
+  } as unknown as Tesla_calculatorInput;
     const result = calculateTesla_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

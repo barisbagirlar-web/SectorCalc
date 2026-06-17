@@ -14,7 +14,7 @@ describe("low-birth-weight-risk-calculator", () => {
     "smoking": 0,
     "previousLBW": 0,
     "parity": 1
-  } as Low_birth_weight_risk_calculatorInput;
+  } as unknown as Low_birth_weight_risk_calculatorInput;
     const result = calculateLow_birth_weight_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

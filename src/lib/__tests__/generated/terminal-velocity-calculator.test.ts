@@ -13,7 +13,7 @@ describe("terminal-velocity-calculator", () => {
     "dragCoefficient": 1,
     "fluidDensity": 1.225,
     "gravity": 9.81
-  } as Terminal_velocity_calculatorInput;
+  } as unknown as Terminal_velocity_calculatorInput;
     const result = calculateTerminal_velocity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

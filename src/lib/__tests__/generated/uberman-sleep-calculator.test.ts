@@ -12,7 +12,7 @@ describe("uberman-sleep-calculator", () => {
     "intervalBetweenNaps": 4,
     "numberOfNaps": 6,
     "startHour": 0
-  } as Uberman_sleep_calculatorInput;
+  } as unknown as Uberman_sleep_calculatorInput;
     const result = calculateUberman_sleep_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

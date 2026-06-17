@@ -14,7 +14,7 @@ describe("rebar-calculator", () => {
     "lapLength": 0,
     "wastagePercent": 5,
     "weightPerMeter": 0
-  } as Rebar_calculatorInput;
+  } as unknown as Rebar_calculatorInput;
     const result = calculateRebar_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

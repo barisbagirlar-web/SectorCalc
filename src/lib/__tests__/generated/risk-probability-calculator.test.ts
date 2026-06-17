@@ -14,7 +14,7 @@ describe("risk-probability-calculator", () => {
     "maintenanceFactor": 0.9,
     "detectionProbability": 0.8,
     "redundancyLevel": 1
-  } as Risk_probability_calculatorInput;
+  } as unknown as Risk_probability_calculatorInput;
     const result = calculateRisk_probability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

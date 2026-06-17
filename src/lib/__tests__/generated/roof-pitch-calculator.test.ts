@@ -12,7 +12,7 @@ describe("roof-pitch-calculator", () => {
     "span": 8,
     "length": 10,
     "overhang": 0.5
-  } as Roof_pitch_calculatorInput;
+  } as unknown as Roof_pitch_calculatorInput;
     const result = calculateRoof_pitch_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

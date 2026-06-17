@@ -16,7 +16,7 @@ describe("pid-controller-calculator", () => {
     "dt": 0.1,
     "previousError": 10,
     "integral": 5
-  } as Pid_controller_calculatorInput;
+  } as unknown as Pid_controller_calculatorInput;
     const result = calculatePid_controller_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

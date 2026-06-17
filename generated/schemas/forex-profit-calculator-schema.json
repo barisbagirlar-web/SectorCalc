@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Direction (1=Buy, -1=Sell)",
         "tr": "Yön (1=Alış, -1=Satış)",
-        "de": "Direction (1=Buy, -1=Sell)",
+        "de": "Richtung (1=Kauf, -1=Verkauf)",
         "fr": "Direction (1=Buy, -1=Sell)",
         "es": "Direction (1=Buy, -1=Sell)",
         "ar": "Direction (1=Buy, -1=Sell)"
       },
       "businessContext_i18n": {
         "en": "Indicates trade direction: 1 for long (buy), -1 for short (sell).",
-        "tr": "İşlem yönünü belirtir: 1 uzun (alış), -1 kısa (satış)."
+        "tr": "İşlem yönünü belirtir: 1 uzun (alış), -1 kısa (satış).",
+        "de": "Gibt die Handelsrichtung an: 1 für Long (Kauf), -1 für Short (Verkauf)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Entry Price",
         "tr": "Giriş Fiyatı",
-        "de": "Entry Price",
+        "de": "Einstiegskurs",
         "fr": "Entry Price",
         "es": "Entry Price",
         "ar": "Entry Price"
       },
       "businessContext_i18n": {
         "en": "The exchange rate at which the position was entered.",
-        "tr": "Pozisyonun girildiği döviz kuru."
+        "tr": "Pozisyonun girildiği döviz kuru.",
+        "de": "Der Wechselkurs, zu dem die Position eröffnet wurde."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Exit Price",
         "tr": "Çıkış Fiyatı",
-        "de": "Exit Price",
+        "de": "Ausstiegskurs",
         "fr": "Exit Price",
         "es": "Exit Price",
         "ar": "Exit Price"
       },
       "businessContext_i18n": {
         "en": "The exchange rate at which the position was closed.",
-        "tr": "Pozisyonun kapatıldığı döviz kuru."
+        "tr": "Pozisyonun kapatıldığı döviz kuru.",
+        "de": "Der Wechselkurs, zu dem die Position geschlossen wurde."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Lot Size",
         "tr": "Parti Büyüklüğü",
-        "de": "Lot Size",
+        "de": "Losgröße",
         "fr": "Lot Size",
         "es": "Lot Size",
         "ar": "Lot Size"
       },
       "businessContext_i18n": {
         "en": "Number of standard lots traded (1 lot = 100,000 units typically).",
-        "tr": "İşlem gören standart lot sayısı (1 lot = genellikle 100.000 birim)."
+        "tr": "İşlem gören standart lot sayısı (1 lot = genellikle 100.000 birim).",
+        "de": "Anzahl der Standard-Lots (1 Lot = üblicherweise 100.000 Einheiten)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Pip Value per Lot",
         "tr": "Lot Başına Pip Değeri",
-        "de": "Pip Value per Lot",
+        "de": "Pip-Wert pro Lot",
         "fr": "Pip Value per Lot",
         "es": "Pip Value per Lot",
         "ar": "Pip Value per Lot"
       },
       "businessContext_i18n": {
         "en": "Monetary value of one pip movement for one standard lot in account currency.",
-        "tr": "Hesap para biriminde bir standart lot için bir pip hareketinin parasal değeri."
+        "tr": "Hesap para biriminde bir standart lot için bir pip hareketinin parasal değeri.",
+        "de": "Geldwert einer Pip-Bewegung für ein Standard-Lot in Kontowährung."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Pip Size",
         "tr": "Pip Boyutu",
-        "de": "Pip Size",
+        "de": "Pip-Größe",
         "fr": "Pip Size",
         "es": "Pip Size",
         "ar": "Pip Size"
       },
       "businessContext_i18n": {
         "en": "Smallest incremental price movement, typically 0.0001 except for JPY pairs (0.01).",
-        "tr": "En küçük artış fiyat hareketi, genellikle JPY çiftleri hariç 0.0001 (0.01)."
+        "tr": "En küçük artış fiyat hareketi, genellikle JPY çiftleri hariç 0.0001 (0.01).",
+        "de": "Kleinste inkrementelle Preisbewegung, typischerweise 0,0001 außer bei JPY-Paaren (0,01)."
       }
     }
   ],

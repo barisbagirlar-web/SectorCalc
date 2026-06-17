@@ -16,7 +16,7 @@ describe("cha2ds2-vasc-calculator", () => {
     "vascular": 0,
     "age65to74": 0,
     "sexFemale": 0
-  } as Cha2ds2_vasc_calculatorInput;
+  } as unknown as Cha2ds2_vasc_calculatorInput;
     const result = calculateCha2ds2_vasc_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

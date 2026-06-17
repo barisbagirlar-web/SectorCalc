@@ -16,7 +16,7 @@ describe("total-employee-cost-calculator", () => {
     "training_cost": 1500,
     "productivity_factor": 0.85,
     "turnover_rate": 15
-  } as Total_employee_cost_calculatorInput;
+  } as unknown as Total_employee_cost_calculatorInput;
     const result = calculateTotal_employee_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

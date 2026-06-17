@@ -12,7 +12,7 @@ describe("divide-decimals-calculator", () => {
     "divisor": 3,
     "decimalPlaces": 2,
     "roundingMode": 1
-  } as Divide_decimals_calculatorInput;
+  } as unknown as Divide_decimals_calculatorInput;
     const result = calculateDivide_decimals_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

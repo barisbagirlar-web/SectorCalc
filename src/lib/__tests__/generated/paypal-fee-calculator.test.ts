@@ -13,7 +13,7 @@ describe("paypal-fee-calculator", () => {
     "fixedFee": 0.3,
     "isInternational": 0,
     "internationalFeePercentage": 1.5
-  } as Paypal_fee_calculatorInput;
+  } as unknown as Paypal_fee_calculatorInput;
     const result = calculatePaypal_fee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

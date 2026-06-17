@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Roof Length",
         "tr": "Çatı Uzunluğu",
-        "de": "Roof Length",
+        "de": "Dachlänge",
         "fr": "Roof Length",
         "es": "Roof Length",
         "ar": "Roof Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single roof plane along the eave (horizontal).",
-        "tr": "Bir çatı yüzeyinin saçak boyunca yatay uzunluğu."
+        "tr": "Bir çatı yüzeyinin saçak boyunca yatay uzunluğu.",
+        "de": "Länge einer einzelnen Dachfläche entlang der Traufe (horizontal)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Roof Width",
         "tr": "Çatı Genişliği",
-        "de": "Roof Width",
+        "de": "Dachbreite",
         "fr": "Roof Width",
         "es": "Roof Width",
         "ar": "Roof Width"
       },
       "businessContext_i18n": {
         "en": "Horizontal span from eave to ridge of one roof plane.",
-        "tr": "Bir çatı yüzeyinin saçaktan mahyaya yatay açıklığı."
+        "tr": "Bir çatı yüzeyinin saçaktan mahyaya yatay açıklığı.",
+        "de": "Horizontaler Abstand von Traufe bis First einer Dachfläche."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Pitch (rise per 12'')",
         "tr": "Eğim (12''de yükselme)",
-        "de": "Pitch (rise per 12'')",
+        "de": "Neigung (Anstieg pro 12'')",
         "fr": "Pitch (rise per 12'')",
         "es": "Pitch (rise per 12'')",
         "ar": "Pitch (rise per 12'')"
       },
       "businessContext_i18n": {
         "en": "Roof pitch expressed as rise in inches per 12 inches of run (e.g., 4 for a 4/12 pitch).",
-        "tr": "12 inç yatay mesafede yükselme miktarı (örneğin 4/12 eğim için 4)."
+        "tr": "12 inç yatay mesafede yükselme miktarı (örneğin 4/12 eğim için 4).",
+        "de": "Dachneigung ausgedrückt als Anstieg in Zoll pro 12 Zoll Grundlinie (z.B. 4 für eine 4/12-Neigung)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Planes",
         "tr": "Yüzey Sayısı",
-        "de": "Number of Planes",
+        "de": "Anzahl der Flächen",
         "fr": "Number of Planes",
         "es": "Number of Planes",
         "ar": "Number of Planes"
       },
       "businessContext_i18n": {
         "en": "Number of identical roof planes (e.g., 2 for a standard gable roof).",
-        "tr": "Özdeş çatı yüzeylerinin sayısı (örneğin standart beşik çatı için 2)."
+        "tr": "Özdeş çatı yüzeylerinin sayısı (örneğin standart beşik çatı için 2).",
+        "de": "Anzahl identischer Dachflächen (z.B. 2 für ein Standard-Satteldach)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
-        "de": "Waste Factor",
+        "de": "Abfallfaktor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra material to account for cutting waste and errors.",
-        "tr": "Kesim ve hata payı için ek malzeme yüzdesi."
+        "tr": "Kesim ve hata payı için ek malzeme yüzdesi.",
+        "de": "Prozentsatz an zusätzlichem Material für Verschnitt und Fehler."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Bundle Coverage",
         "tr": "Paket Kaplama Alanı",
-        "de": "Bundle Coverage",
+        "de": "Bündelabdeckung",
         "fr": "Bundle Coverage",
         "es": "Bundle Coverage",
         "ar": "Bundle Coverage"
       },
       "businessContext_i18n": {
         "en": "Area covered by one bundle of shingles (sq ft); typically 33.33 sq ft for 3-bundle squares.",
-        "tr": "Bir paket shingle'ın kapladığı alan (ft²); tipik olarak 3 paketlik kare için 33.33 ft²."
+        "tr": "Bir paket shingle'ın kapladığı alan (ft²); tipik olarak 3 paketlik kare için 33.33 ft².",
+        "de": "Fläche, die von einem Bündel Schindeln abgedeckt wird (Quadratfuß); typischerweise 33,33 sq ft für 3-Bündel-Quadrat."
       }
     }
   ],

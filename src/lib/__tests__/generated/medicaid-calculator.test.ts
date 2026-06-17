@@ -13,7 +13,7 @@ describe("medicaid-calculator", () => {
     "deductions": 0,
     "dependents": 1,
     "thresholdPercent": 138
-  } as Medicaid_calculatorInput;
+  } as unknown as Medicaid_calculatorInput;
     const result = calculateMedicaid_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

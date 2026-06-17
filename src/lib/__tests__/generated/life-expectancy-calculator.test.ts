@@ -14,7 +14,7 @@ describe("life-expectancy-calculator", () => {
     "alcoholConsumption": 3,
     "bmi": 25,
     "exerciseHours": 2
-  } as Life_expectancy_calculatorInput;
+  } as unknown as Life_expectancy_calculatorInput;
     const result = calculateLife_expectancy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

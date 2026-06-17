@@ -12,7 +12,7 @@ describe("rsu-calculator", () => {
     "vestedPercentage": 100,
     "sharePrice": 50,
     "taxRate": 30
-  } as Rsu_calculatorInput;
+  } as unknown as Rsu_calculatorInput;
     const result = calculateRsu_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

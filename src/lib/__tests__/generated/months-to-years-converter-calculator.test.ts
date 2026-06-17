@@ -12,7 +12,7 @@ describe("months-to-years-converter-calculator", () => {
     "monthsPerYear": 12,
     "decimalPlaces": 4,
     "outputMode": 0
-  } as Months_to_years_converter_calculatorInput;
+  } as unknown as Months_to_years_converter_calculatorInput;
     const result = calculateMonths_to_years_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("propositional-logic-calculator", () => {
     "probB": 0.5,
     "probC": 0.5,
     "probD": 0.5
-  } as Propositional_logic_calculatorInput;
+  } as unknown as Propositional_logic_calculatorInput;
     const result = calculatePropositional_logic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

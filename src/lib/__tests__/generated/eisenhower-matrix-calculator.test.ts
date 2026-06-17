@@ -12,7 +12,7 @@ describe("eisenhower-matrix-calculator", () => {
     "importance": 5,
     "weightUrgency": 0.5,
     "weightImportance": 0.5
-  } as Eisenhower_matrix_calculatorInput;
+  } as unknown as Eisenhower_matrix_calculatorInput;
     const result = calculateEisenhower_matrix_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

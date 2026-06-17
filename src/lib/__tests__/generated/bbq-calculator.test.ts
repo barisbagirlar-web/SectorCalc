@@ -13,7 +13,7 @@ describe("bbq-calculator", () => {
     "sidesPerPerson": 200,
     "cookingLoss": 20,
     "butcherYield": 75
-  } as Bbq_calculatorInput;
+  } as unknown as Bbq_calculatorInput;
     const result = calculateBbq_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

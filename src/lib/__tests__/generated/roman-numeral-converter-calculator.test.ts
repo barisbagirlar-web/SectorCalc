@@ -16,7 +16,7 @@ describe("roman-numeral-converter-calculator", () => {
     "s6": 0,
     "s7": 0,
     "s8": 0
-  } as Roman_numeral_converter_calculatorInput;
+  } as unknown as Roman_numeral_converter_calculatorInput;
     const result = calculateRoman_numeral_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

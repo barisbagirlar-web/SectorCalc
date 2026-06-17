@@ -14,7 +14,7 @@ describe("distance-modulus-calculator", () => {
     "absoluteMagnitudeError": 0.1,
     "extinction": 0,
     "extinctionError": 0
-  } as Distance_modulus_calculatorInput;
+  } as unknown as Distance_modulus_calculatorInput;
     const result = calculateDistance_modulus_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

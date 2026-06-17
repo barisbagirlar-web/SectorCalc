@@ -13,7 +13,7 @@ describe("harvard-citation-generator-calculator", () => {
     "hourlyRate": 25,
     "overheadPercentage": 20,
     "profitMarginPercentage": 15
-  } as Harvard_citation_generator_calculatorInput;
+  } as unknown as Harvard_citation_generator_calculatorInput;
     const result = calculateHarvard_citation_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

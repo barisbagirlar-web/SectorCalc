@@ -16,7 +16,7 @@ describe("lease-vs-buy-comparator-calculator", () => {
     "leaseMaintenanceIncluded": true,
     "discountRate": 8,
     "utilizationRate": 85
-  } as Lease_vs_buy_comparator_calculatorInput;
+  } as unknown as Lease_vs_buy_comparator_calculatorInput;
     const result = calculateLease_vs_buy_comparator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

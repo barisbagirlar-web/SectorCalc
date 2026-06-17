@@ -14,7 +14,7 @@ describe("preeclampsia-risk-calculator", () => {
     "diastolic_bp": 80,
     "previous_preeclampsia": 0,
     "family_history": 0
-  } as Preeclampsia_risk_calculatorInput;
+  } as unknown as Preeclampsia_risk_calculatorInput;
     const result = calculatePreeclampsia_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

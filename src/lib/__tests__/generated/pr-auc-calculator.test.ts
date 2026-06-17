@@ -16,7 +16,7 @@ describe("pr-auc-calculator", () => {
     "p3": 0,
     "r4": 0,
     "p4": 0
-  } as Pr_auc_calculatorInput;
+  } as unknown as Pr_auc_calculatorInput;
     const result = calculatePr_auc_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("hessian-calculator", () => {
     "c": 1,
     "x": 0,
     "y": 0
-  } as Hessian_calculatorInput;
+  } as unknown as Hessian_calculatorInput;
     const result = calculateHessian_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("gacha-calculator", () => {
     "baseProbability": 0.6,
     "hardPityAt": 90,
     "desiredSuccesses": 1
-  } as Gacha_calculatorInput;
+  } as unknown as Gacha_calculatorInput;
     const result = calculateGacha_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

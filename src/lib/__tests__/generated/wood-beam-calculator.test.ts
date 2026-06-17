@@ -14,7 +14,7 @@ describe("wood-beam-calculator", () => {
     "depth": 200,
     "modulusElasticity": 10000,
     "allowableStress": 10
-  } as Wood_beam_calculatorInput;
+  } as unknown as Wood_beam_calculatorInput;
     const result = calculateWood_beam_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

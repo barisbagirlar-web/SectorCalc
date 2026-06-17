@@ -12,7 +12,7 @@ describe("gravity-assist-calculator", () => {
     "v_inf": 3,
     "r_p": 6671,
     "mu": 398600.4418
-  } as Gravity_assist_calculatorInput;
+  } as unknown as Gravity_assist_calculatorInput;
     const result = calculateGravity_assist_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

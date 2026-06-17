@@ -15,7 +15,7 @@ describe("magic-card-calculator", () => {
     "materialCostPerKg": 10,
     "wasteFactor": 5,
     "batchSize": 1000
-  } as Magic_card_calculatorInput;
+  } as unknown as Magic_card_calculatorInput;
     const result = calculateMagic_card_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("round-to-nearest-calculator", () => {
     "nearest": 0.5,
     "offset": 0,
     "decimals": 2
-  } as Round_to_nearest_calculatorInput;
+  } as unknown as Round_to_nearest_calculatorInput;
     const result = calculateRound_to_nearest_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

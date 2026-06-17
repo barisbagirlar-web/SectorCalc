@@ -13,7 +13,7 @@ describe("delay-calculator", () => {
     "processDelay": 0,
     "transportDelay": 0,
     "unplannedDelay": 0
-  } as Delay_calculatorInput;
+  } as unknown as Delay_calculatorInput;
     const result = calculateDelay_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("turkey-installment-calculator", () => {
     "bsmv": 5,
     "kkdf": 15,
     "fee": 0
-  } as Turkey_installment_calculatorInput;
+  } as unknown as Turkey_installment_calculatorInput;
     const result = calculateTurkey_installment_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

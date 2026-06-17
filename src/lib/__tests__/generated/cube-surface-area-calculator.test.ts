@@ -13,7 +13,7 @@ describe("cube-surface-area-calculator", () => {
     "exposedFaces": 6,
     "unitConversionFactor": 1,
     "safetyMargin": 0
-  } as Cube_surface_area_calculatorInput;
+  } as unknown as Cube_surface_area_calculatorInput;
     const result = calculateCube_surface_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

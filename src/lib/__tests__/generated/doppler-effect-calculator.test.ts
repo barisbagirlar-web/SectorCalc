@@ -12,7 +12,7 @@ describe("doppler-effect-calculator", () => {
     "waveSpeed": 343,
     "sourceVelocity": 0,
     "observerVelocity": 0
-  } as Doppler_effect_calculatorInput;
+  } as unknown as Doppler_effect_calculatorInput;
     const result = calculateDoppler_effect_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

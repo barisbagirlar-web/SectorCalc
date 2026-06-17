@@ -13,7 +13,7 @@ describe("business-carbon-footprint-calculator", () => {
     "vehicleFuel": 0,
     "businessFlights": 0,
     "wasteGenerated": 0
-  } as Business_carbon_footprint_calculatorInput;
+  } as unknown as Business_carbon_footprint_calculatorInput;
     const result = calculateBusiness_carbon_footprint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

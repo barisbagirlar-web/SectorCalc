@@ -13,7 +13,7 @@ describe("mast-calculator", () => {
     "windSpeed": 30,
     "materialYieldStrength": 250,
     "safetyFactor": 1.5
-  } as Mast_calculatorInput;
+  } as unknown as Mast_calculatorInput;
     const result = calculateMast_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

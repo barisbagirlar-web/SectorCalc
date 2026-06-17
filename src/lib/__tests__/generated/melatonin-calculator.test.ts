@@ -12,7 +12,7 @@ describe("melatonin-calculator", () => {
     "weight": 70,
     "nightShift": 0,
     "jetLagFactor": 0
-  } as Melatonin_calculatorInput;
+  } as unknown as Melatonin_calculatorInput;
     const result = calculateMelatonin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

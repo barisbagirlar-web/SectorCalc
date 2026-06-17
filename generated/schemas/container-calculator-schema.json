@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Toplam Adet",
         "tr": "Toplam Adet",
-        "de": "Toplam Adet",
+        "de": "Gesamtanzahl",
         "fr": "Toplam Adet",
         "es": "Toplam Adet",
         "ar": "Toplam Adet"
       },
       "businessContext_i18n": {
         "en": "Sevk edilecek toplam birim sayısı",
-        "tr": "Sevk edilecek toplam birim sayısı"
+        "tr": "Sevk edilecek toplam birim sayısı",
+        "de": "Gesamtzahl der zu versendenden Einheiten"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Palet Başına Adet",
         "tr": "Palet Başına Adet",
-        "de": "Palet Başına Adet",
+        "de": "Einheiten pro Palette",
         "fr": "Palet Başına Adet",
         "es": "Palet Başına Adet",
         "ar": "Palet Başına Adet"
       },
       "businessContext_i18n": {
         "en": "Bir palete sığan birim sayısı",
-        "tr": "Bir palete sığan birim sayısı"
+        "tr": "Bir palete sığan birim sayısı",
+        "de": "Anzahl der Einheiten, die auf eine Palette passen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Konteyner Başına Palet",
         "tr": "Konteyner Başına Palet",
-        "de": "Konteyner Başına Palet",
+        "de": "Paletten pro Container",
         "fr": "Konteyner Başına Palet",
         "es": "Konteyner Başına Palet",
         "ar": "Konteyner Başına Palet"
       },
       "businessContext_i18n": {
         "en": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)",
-        "tr": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)"
+        "tr": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)",
+        "de": "Anzahl der Paletten, die in einen Container geladen werden können (z.B. 20 Paletten = TEU)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Yedek Oranı (%)",
         "tr": "Yedek Oranı (%)",
-        "de": "Yedek Oranı (%)",
+        "de": "Reservequote (%)",
         "fr": "Yedek Oranı (%)",
         "es": "Yedek Oranı (%)",
         "ar": "Yedek Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Hasar, kayıp vb. için ek yedek yüzdesi",
-        "tr": "Hasar, kayıp vb. için ek yedek yüzdesi"
+        "tr": "Hasar, kayıp vb. için ek yedek yüzdesi",
+        "de": "Zusätzlicher Prozentsatz für Ausschuss, Verlust usw."
       }
     }
   ],

@@ -16,7 +16,7 @@ describe("u-value-calculator", () => {
     "thickness3": 0.02,
     "conductivity3": 0.5,
     "rse": 0.04
-  } as U_value_calculatorInput;
+  } as unknown as U_value_calculatorInput;
     const result = calculateU_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

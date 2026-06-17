@@ -12,7 +12,7 @@ describe("mandelbrot-calculator", () => {
     "imag": 0,
     "maxIter": 100,
     "escapeRadius": 2
-  } as Mandelbrot_calculatorInput;
+  } as unknown as Mandelbrot_calculatorInput;
     const result = calculateMandelbrot_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

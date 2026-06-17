@@ -11,7 +11,7 @@ describe("mpg-to-l-per-100km", () => {
     "mpg": 25,
     "fuelType": 1,
     "auto_input_3": 1
-  } as Mpg_to_l_per_100kmInput;
+  } as unknown as Mpg_to_l_per_100kmInput;
     const result = calculateMpg_to_l_per_100km(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

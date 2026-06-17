@@ -13,7 +13,7 @@ describe("downspout-calculator", () => {
     "rainfallIntensity": 50,
     "downspoutDiameter": 100,
     "efficiencyFactor": 85
-  } as Downspout_calculatorInput;
+  } as unknown as Downspout_calculatorInput;
     const result = calculateDownspout_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

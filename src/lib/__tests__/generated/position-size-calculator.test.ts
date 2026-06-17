@@ -12,7 +12,7 @@ describe("position-size-calculator", () => {
     "riskPercent": 2,
     "entryPrice": 100,
     "stopLossPrice": 95
-  } as Position_size_calculatorInput;
+  } as unknown as Position_size_calculatorInput;
     const result = calculatePosition_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

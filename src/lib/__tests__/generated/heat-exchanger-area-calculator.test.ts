@@ -14,7 +14,7 @@ describe("heat-exchanger-area-calculator", () => {
     "hotOutletTemp": 100,
     "coldInletTemp": 30,
     "coldOutletTemp": 80
-  } as Heat_exchanger_area_calculatorInput;
+  } as unknown as Heat_exchanger_area_calculatorInput;
     const result = calculateHeat_exchanger_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("truth-table-generator-calculator", () => {
     "varB": 0,
     "varC": 0,
     "varD": 0
-  } as Truth_table_generator_calculatorInput;
+  } as unknown as Truth_table_generator_calculatorInput;
     const result = calculateTruth_table_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

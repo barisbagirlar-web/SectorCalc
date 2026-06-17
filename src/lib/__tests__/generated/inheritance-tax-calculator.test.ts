@@ -13,7 +13,7 @@ describe("inheritance-tax-calculator", () => {
     "debts": 0,
     "taxAllowance": 0,
     "taxRate": 0
-  } as Inheritance_tax_calculatorInput;
+  } as unknown as Inheritance_tax_calculatorInput;
     const result = calculateInheritance_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

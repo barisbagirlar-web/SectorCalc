@@ -12,7 +12,7 @@ describe("hyperfocal-distance-calculator", () => {
     "aperture": 8,
     "circleOfConfusion": 0.03,
     "outputUnitMultiplier": 1
-  } as Hyperfocal_distance_calculatorInput;
+  } as unknown as Hyperfocal_distance_calculatorInput;
     const result = calculateHyperfocal_distance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

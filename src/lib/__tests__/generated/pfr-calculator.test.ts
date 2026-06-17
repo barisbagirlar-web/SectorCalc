@@ -13,7 +13,7 @@ describe("pfr-calculator", () => {
     "Ca0": 100,
     "v0": 0.01,
     "safetyFactor": 1.2
-  } as Pfr_calculatorInput;
+  } as unknown as Pfr_calculatorInput;
     const result = calculatePfr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

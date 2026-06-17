@@ -14,7 +14,7 @@ describe("trapezoidal-rule-calculator", () => {
     "fa": 0,
     "fb": 0,
     "sumMid": 0
-  } as Trapezoidal_rule_calculatorInput;
+  } as unknown as Trapezoidal_rule_calculatorInput;
     const result = calculateTrapezoidal_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

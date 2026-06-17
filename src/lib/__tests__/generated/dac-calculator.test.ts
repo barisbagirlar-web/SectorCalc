@@ -14,7 +14,7 @@ describe("dac-calculator", () => {
     "operatingHours": 8000,
     "energyPerTon": 2000,
     "electricityPrice": 0.1
-  } as Dac_calculatorInput;
+  } as unknown as Dac_calculatorInput;
     const result = calculateDac_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

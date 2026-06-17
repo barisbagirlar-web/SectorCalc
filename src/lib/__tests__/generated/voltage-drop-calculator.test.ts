@@ -16,7 +16,7 @@ describe("voltage-drop-calculator", () => {
     "phase_type": "three_phase",
     "power_factor": 0.85,
     "ambient_temperature": 30
-  } as Voltage_drop_calculatorInput;
+  } as unknown as Voltage_drop_calculatorInput;
     const result = calculateVoltage_drop_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

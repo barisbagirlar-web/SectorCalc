@@ -12,7 +12,7 @@ describe("elo-rating-calculator", () => {
     "ratingB": 1200,
     "scoreA": 0.5,
     "kFactor": 32
-  } as Elo_rating_calculatorInput;
+  } as unknown as Elo_rating_calculatorInput;
     const result = calculateElo_rating_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

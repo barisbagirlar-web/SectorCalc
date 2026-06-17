@@ -12,7 +12,7 @@ describe("modular-arithmetic-calculator", () => {
     "a": 5,
     "b": 3,
     "exponent": 2
-  } as Modular_arithmetic_calculatorInput;
+  } as unknown as Modular_arithmetic_calculatorInput;
     const result = calculateModular_arithmetic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

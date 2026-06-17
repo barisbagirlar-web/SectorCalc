@@ -12,7 +12,7 @@ describe("paint-calculator", () => {
     "coverage": 10,
     "coats": 2,
     "wastage": 5
-  } as Paint_calculatorInput;
+  } as unknown as Paint_calculatorInput;
     const result = calculatePaint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

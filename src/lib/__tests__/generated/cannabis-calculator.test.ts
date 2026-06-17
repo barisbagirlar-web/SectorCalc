@@ -14,7 +14,7 @@ describe("cannabis-calculator", () => {
     "temperature_c": 25,
     "k0": 0.01,
     "Ea": 50000
-  } as Cannabis_calculatorInput;
+  } as unknown as Cannabis_calculatorInput;
     const result = calculateCannabis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("square-yards-to-sqm-calculator", () => {
     "widthYards": 1,
     "precision": 2,
     "conversionFactor": 0.83612736
-  } as Square_yards_to_sqm_calculatorInput;
+  } as unknown as Square_yards_to_sqm_calculatorInput;
     const result = calculateSquare_yards_to_sqm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

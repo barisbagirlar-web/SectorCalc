@@ -12,7 +12,7 @@ describe("macro-calculator", () => {
     "proteinPct": 30,
     "carbsPct": 40,
     "fatPct": 30
-  } as Macro_calculatorInput;
+  } as unknown as Macro_calculatorInput;
     const result = calculateMacro_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

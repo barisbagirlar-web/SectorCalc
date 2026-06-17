@@ -14,7 +14,7 @@ describe("electrical-panel-calculator", () => {
     "loadPerCircuit": 20,
     "diversityFactor": 0.8,
     "powerFactor": 0.85
-  } as Electrical_panel_calculatorInput;
+  } as unknown as Electrical_panel_calculatorInput;
     const result = calculateElectrical_panel_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

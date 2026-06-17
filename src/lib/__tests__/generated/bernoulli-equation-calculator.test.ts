@@ -16,7 +16,7 @@ describe("bernoulli-equation-calculator", () => {
     "P2": 101325,
     "z2": 0,
     "head_loss": 0
-  } as Bernoulli_equation_calculatorInput;
+  } as unknown as Bernoulli_equation_calculatorInput;
     const result = calculateBernoulli_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

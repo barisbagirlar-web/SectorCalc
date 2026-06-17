@@ -14,7 +14,7 @@ describe("fabric-calculator", () => {
     "fabricWidth": 150,
     "wasteFactor": 5,
     "patternRepeat": 0
-  } as Fabric_calculatorInput;
+  } as unknown as Fabric_calculatorInput;
     const result = calculateFabric_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

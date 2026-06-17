@@ -13,7 +13,7 @@ describe("gestational-diabetes-glucose-monitoring-calculator", () => {
     "timeSinceMeal": 2,
     "targetLow": 70,
     "targetHigh": 140
-  } as Gestational_diabetes_glucose_monitoring_calculatorInput;
+  } as unknown as Gestational_diabetes_glucose_monitoring_calculatorInput;
     const result = calculateGestational_diabetes_glucose_monitoring_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

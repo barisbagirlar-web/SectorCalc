@@ -14,7 +14,7 @@ describe("percentile-calculator", () => {
     "data4": 0,
     "data5": 0,
     "percentile": 50
-  } as Percentile_calculatorInput;
+  } as unknown as Percentile_calculatorInput;
     const result = calculatePercentile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

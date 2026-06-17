@@ -13,7 +13,7 @@ describe("screen-resolution-calculator", () => {
     "screenDiagonal": 24,
     "aspectRatioX": 16,
     "aspectRatioY": 9
-  } as Screen_resolution_calculatorInput;
+  } as unknown as Screen_resolution_calculatorInput;
     const result = calculateScreen_resolution_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

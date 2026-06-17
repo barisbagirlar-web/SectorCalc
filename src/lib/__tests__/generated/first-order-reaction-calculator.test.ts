@@ -12,7 +12,7 @@ describe("first-order-reaction-calculator", () => {
     "k": 0.1,
     "t": 10,
     "order": 1
-  } as First_order_reaction_calculatorInput;
+  } as unknown as First_order_reaction_calculatorInput;
     const result = calculateFirst_order_reaction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

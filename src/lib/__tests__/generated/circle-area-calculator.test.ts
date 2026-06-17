@@ -13,7 +13,7 @@ describe("circle-area-calculator", () => {
     "decimalPlaces": 2,
     "scaleFactor": 1,
     "pricePerUnitArea": 0
-  } as Circle_area_calculatorInput;
+  } as unknown as Circle_area_calculatorInput;
     const result = calculateCircle_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

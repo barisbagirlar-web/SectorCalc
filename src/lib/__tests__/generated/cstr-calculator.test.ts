@@ -12,7 +12,7 @@ describe("cstr-calculator", () => {
     "inletConcentration": 1,
     "rateConstant": 0.1,
     "conversion": 0.8
-  } as Cstr_calculatorInput;
+  } as unknown as Cstr_calculatorInput;
     const result = calculateCstr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

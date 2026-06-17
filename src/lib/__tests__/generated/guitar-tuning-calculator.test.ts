@@ -14,7 +14,7 @@ describe("guitar-tuning-calculator", () => {
     "linearDensity": 0.001,
     "openNoteFrequency": 82.41,
     "fretNumber": 5
-  } as Guitar_tuning_calculatorInput;
+  } as unknown as Guitar_tuning_calculatorInput;
     const result = calculateGuitar_tuning_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("voltage-regulation-calculator", () => {
     "lineResistance": 0.5,
     "lineReactance": 1,
     "powerFactor": 0.8
-  } as Voltage_regulation_calculatorInput;
+  } as unknown as Voltage_regulation_calculatorInput;
     const result = calculateVoltage_regulation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

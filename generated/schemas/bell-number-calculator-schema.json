@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Power 1 (P1)",
         "tr": "Güç 1 (P1)",
-        "de": "Power 1 (P1)",
+        "de": "Leistung 1 (P1)",
         "fr": "Power 1 (P1)",
         "es": "Power 1 (P1)",
         "ar": "Power 1 (P1)"
       },
       "businessContext_i18n": {
         "en": "Measured power in watts.",
-        "tr": "Watt cinsinden ölçülen güç."
+        "tr": "Watt cinsinden ölçülen güç.",
+        "de": "Gemessene Leistung in Watt."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Power 2 (P0)",
         "tr": "Güç 2 (P0)",
-        "de": "Power 2 (P0)",
+        "de": "Leistung 2 (P0)",
         "fr": "Power 2 (P0)",
         "es": "Power 2 (P0)",
         "ar": "Power 2 (P0)"
       },
       "businessContext_i18n": {
         "en": "Reference power in watts.",
-        "tr": "Watt cinsinden referans güç."
+        "tr": "Watt cinsinden referans güç.",
+        "de": "Referenzleistung in Watt."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Environmental Factor",
         "tr": "Çevresel Faktör",
-        "de": "Environmental Factor",
+        "de": "Umweltfaktor",
         "fr": "Environmental Factor",
         "es": "Environmental Factor",
         "ar": "Environmental Factor"
       },
       "businessContext_i18n": {
         "en": "Adjustment factor for environmental conditions (default 1 for standard conditions).",
-        "tr": "Çevresel koşullar için ayar faktörü (standart koşullar için varsayılan 1)."
+        "tr": "Çevresel koşullar için ayar faktörü (standart koşullar için varsayılan 1).",
+        "de": "Anpassungsfaktor für Umgebungsbedingungen (Standard 1 für normale Bedingungen)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
-        "de": "Calibration Offset",
+        "de": "Kalibrierungsversatz",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
       },
       "businessContext_i18n": {
         "en": "Systematic offset in Bels from calibration.",
-        "tr": "Kalibrasyondan kaynaklanan Bel cinsinden sistematik sapma."
+        "tr": "Kalibrasyondan kaynaklanan Bel cinsinden sistematik sapma.",
+        "de": "Systematischer Offset in Bel aus der Kalibrierung."
       }
     }
   ],

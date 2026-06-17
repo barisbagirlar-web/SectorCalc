@@ -13,7 +13,7 @@ describe("electron-volts-to-joules-calculator", () => {
     "conversionFactor": 1.602176634e-19,
     "outputScale": 1,
     "decimalPlaces": 4
-  } as Electron_volts_to_joules_calculatorInput;
+  } as unknown as Electron_volts_to_joules_calculatorInput;
     const result = calculateElectron_volts_to_joules_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

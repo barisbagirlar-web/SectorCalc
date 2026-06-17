@@ -12,7 +12,7 @@ describe("cylinder-surface-area-calculator", () => {
     "innerRadius": 0.5,
     "height": 2,
     "includeEnds": 1
-  } as Cylinder_surface_area_calculatorInput;
+  } as unknown as Cylinder_surface_area_calculatorInput;
     const result = calculateCylinder_surface_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

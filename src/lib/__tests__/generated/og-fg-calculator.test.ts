@@ -13,7 +13,7 @@ describe("og-fg-calculator", () => {
     "ogTemp": 20,
     "fgTemp": 20,
     "calibTemp": 20
-  } as Og_fg_calculatorInput;
+  } as unknown as Og_fg_calculatorInput;
     const result = calculateOg_fg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

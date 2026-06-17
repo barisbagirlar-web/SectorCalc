@@ -16,7 +16,7 @@ describe("airbnb-cost-calculator", () => {
     "extraGuestFee": 20,
     "extraGuests": 0,
     "discountRate": 0
-  } as Airbnb_cost_calculatorInput;
+  } as unknown as Airbnb_cost_calculatorInput;
     const result = calculateAirbnb_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

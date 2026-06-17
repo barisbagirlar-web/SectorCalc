@@ -12,7 +12,7 @@ describe("anaerobic-threshold-calculator", () => {
     "restingHeartRate": 60,
     "maxHeartRate": 0,
     "intensity": 85
-  } as Anaerobic_threshold_calculatorInput;
+  } as unknown as Anaerobic_threshold_calculatorInput;
     const result = calculateAnaerobic_threshold_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

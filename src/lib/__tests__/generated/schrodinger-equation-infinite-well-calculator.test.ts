@@ -13,7 +13,7 @@ describe("schrodinger-equation-infinite-well-calculator", () => {
     "L": 1e-9,
     "x": 5e-10,
     "hbar": 1.054571817e-34
-  } as Schrodinger_equation_infinite_well_calculatorInput;
+  } as unknown as Schrodinger_equation_infinite_well_calculatorInput;
     const result = calculateSchrodinger_equation_infinite_well_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

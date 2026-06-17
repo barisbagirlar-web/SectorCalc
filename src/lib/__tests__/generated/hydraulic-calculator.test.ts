@@ -13,7 +13,7 @@ describe("hydraulic-calculator", () => {
     "efficiency": 85,
     "boreDia": 80,
     "rodDia": 40
-  } as Hydraulic_calculatorInput;
+  } as unknown as Hydraulic_calculatorInput;
     const result = calculateHydraulic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

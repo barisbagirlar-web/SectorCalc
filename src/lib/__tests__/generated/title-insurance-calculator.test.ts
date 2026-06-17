@@ -13,7 +13,7 @@ describe("title-insurance-calculator", () => {
     "ratePerThousand": 5,
     "policyFee": 150,
     "stateTaxRate": 0.5
-  } as Title_insurance_calculatorInput;
+  } as unknown as Title_insurance_calculatorInput;
     const result = calculateTitle_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

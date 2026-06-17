@@ -14,7 +14,7 @@ describe("non-inverting-amplifier-calculator", () => {
     "vcc": 15,
     "vee": -15,
     "headroom": 1.5
-  } as Non_inverting_amplifier_calculatorInput;
+  } as unknown as Non_inverting_amplifier_calculatorInput;
     const result = calculateNon_inverting_amplifier_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

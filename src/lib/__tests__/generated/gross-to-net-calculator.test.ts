@@ -12,7 +12,7 @@ describe("gross-to-net-calculator", () => {
     "taxRate": 20,
     "socialSecurityRate": 15,
     "otherDeductions": 0
-  } as Gross_to_net_calculatorInput;
+  } as unknown as Gross_to_net_calculatorInput;
     const result = calculateGross_to_net_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

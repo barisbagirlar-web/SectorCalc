@@ -13,7 +13,7 @@ describe("fiscal-year-calculator", () => {
     "currentDay": 1,
     "fiscalStartMonth": 7,
     "fiscalStartDay": 1
-  } as Fiscal_year_calculatorInput;
+  } as unknown as Fiscal_year_calculatorInput;
     const result = calculateFiscal_year_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

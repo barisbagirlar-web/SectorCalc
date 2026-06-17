@@ -13,7 +13,7 @@ describe("buffer-calculator", () => {
     "average_lead_time_days": 5,
     "lead_time_standard_deviation": 1,
     "service_level_z": 1.65
-  } as Buffer_calculatorInput;
+  } as unknown as Buffer_calculatorInput;
     const result = calculateBuffer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("heatmap-calculator", () => {
     "residualImpact": 2,
     "inherentWeight": 0.5,
     "residualWeight": 0.5
-  } as Heatmap_calculatorInput;
+  } as unknown as Heatmap_calculatorInput;
     const result = calculateHeatmap_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

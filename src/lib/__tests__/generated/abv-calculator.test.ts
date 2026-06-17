@@ -11,7 +11,7 @@ describe("abv-calculator", () => {
     "og": 1.05,
     "fg": 1.01,
     "auto_input_3": 1
-  } as Abv_calculatorInput;
+  } as unknown as Abv_calculatorInput;
     const result = calculateAbv_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

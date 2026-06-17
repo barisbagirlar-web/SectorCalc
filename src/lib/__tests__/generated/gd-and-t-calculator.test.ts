@@ -16,7 +16,7 @@ describe("gd-and-t-calculator", () => {
     "holeDiaTolLower": 0.1,
     "holeDiaActual": 9.95,
     "positionTol": 0.2
-  } as Gd_and_t_calculatorInput;
+  } as unknown as Gd_and_t_calculatorInput;
     const result = calculateGd_and_t_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

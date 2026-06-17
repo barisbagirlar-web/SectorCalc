@@ -16,7 +16,7 @@ describe("textile-waste-risk-calculator", () => {
     "energy_cost_per_kwh": 0.12,
     "labor_cost_per_hour": 15,
     "recycling_capability": "low"
-  } as Textile_waste_risk_calculatorInput;
+  } as unknown as Textile_waste_risk_calculatorInput;
     const result = calculateTextile_waste_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

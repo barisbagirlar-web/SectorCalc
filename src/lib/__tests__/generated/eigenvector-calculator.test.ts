@@ -12,7 +12,7 @@ describe("eigenvector-calculator", () => {
     "a12": 2,
     "a21": 3,
     "a22": 4
-  } as Eigenvector_calculatorInput;
+  } as unknown as Eigenvector_calculatorInput;
     const result = calculateEigenvector_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

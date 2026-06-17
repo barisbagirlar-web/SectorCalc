@@ -11,7 +11,7 @@ describe("clarks-rule-calculator", () => {
     "adultDose": 500,
     "patientWeight": 70,
     "auto_input_3": 1
-  } as Clarks_rule_calculatorInput;
+  } as unknown as Clarks_rule_calculatorInput;
     const result = calculateClarks_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

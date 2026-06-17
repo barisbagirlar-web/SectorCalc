@@ -13,7 +13,7 @@ describe("piano-tuning-calculator", () => {
     "targetMidi": 60,
     "detuneCents": 0,
     "inharmonicityCoeff": 0
-  } as Piano_tuning_calculatorInput;
+  } as unknown as Piano_tuning_calculatorInput;
     const result = calculatePiano_tuning_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

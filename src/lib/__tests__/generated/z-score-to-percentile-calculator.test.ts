@@ -14,7 +14,7 @@ describe("z-score-to-percentile-calculator", () => {
     "rawScore": 0,
     "rawScoreProvided": 0,
     "tail": 0
-  } as Z_score_to_percentile_calculatorInput;
+  } as unknown as Z_score_to_percentile_calculatorInput;
     const result = calculateZ_score_to_percentile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("xirr-calculator", () => {
     "cf2Days": 0,
     "finalValue": 11000,
     "finalDays": 365
-  } as Xirr_calculatorInput;
+  } as unknown as Xirr_calculatorInput;
     const result = calculateXirr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

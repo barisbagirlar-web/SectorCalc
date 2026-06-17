@@ -12,7 +12,7 @@ describe("dice-roller-calculator", () => {
     "sides": 6,
     "target": 4,
     "modifier": 0
-  } as Dice_roller_calculatorInput;
+  } as unknown as Dice_roller_calculatorInput;
     const result = calculateDice_roller_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

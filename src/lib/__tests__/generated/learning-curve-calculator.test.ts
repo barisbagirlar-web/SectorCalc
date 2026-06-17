@@ -12,7 +12,7 @@ describe("learning-curve-calculator", () => {
     "learningRate": 90,
     "unitNumber": 100,
     "batchSize": 1000
-  } as Learning_curve_calculatorInput;
+  } as unknown as Learning_curve_calculatorInput;
     const result = calculateLearning_curve_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of 14 AWG Conductors",
         "tr": "14 AWG İletken Sayısı",
-        "de": "Number of 14 AWG Conductors",
+        "de": "Anzahl der 14 AWG-Leiter",
         "fr": "Number of 14 AWG Conductors",
         "es": "Number of 14 AWG Conductors",
         "ar": "Number of 14 AWG Conductors"
       },
       "businessContext_i18n": {
         "en": "Enter count of 14 AWG conductors",
-        "tr": "14 AWG iletken sayısını girin."
+        "tr": "14 AWG iletken sayısını girin.",
+        "de": "Anzahl der 14 AWG-Leiter eingeben"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of 12 AWG Conductors",
         "tr": "12 AWG İletken Sayısı",
-        "de": "Number of 12 AWG Conductors",
+        "de": "Anzahl der 12 AWG-Leiter",
         "fr": "Number of 12 AWG Conductors",
         "es": "Number of 12 AWG Conductors",
         "ar": "Number of 12 AWG Conductors"
       },
       "businessContext_i18n": {
         "en": "Enter count of 12 AWG conductors",
-        "tr": "12 AWG iletken sayısını girin"
+        "tr": "12 AWG iletken sayısını girin",
+        "de": "Anzahl der 12 AWG-Leiter eingeben"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of 10 AWG Conductors",
         "tr": "10 AWG İletken Sayısı",
-        "de": "Number of 10 AWG Conductors",
+        "de": "Anzahl der 10 AWG-Leiter",
         "fr": "Number of 10 AWG Conductors",
         "es": "Number of 10 AWG Conductors",
         "ar": "Number of 10 AWG Conductors"
       },
       "businessContext_i18n": {
         "en": "Enter count of 10 AWG conductors",
-        "tr": "10 AWG iletken sayısını girin"
+        "tr": "10 AWG iletken sayısını girin",
+        "de": "Anzahl der 10 AWG-Leiter eingeben"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Devices",
         "tr": "Cihaz Sayısı",
-        "de": "Number of Devices",
+        "de": "Anzahl der Geräte",
         "fr": "Number of Devices",
         "es": "Number of Devices",
         "ar": "Number of Devices"
       },
       "businessContext_i18n": {
         "en": "Each device (switch/receptacle) counts as 2 of the largest conductor volume",
-        "tr": "Her cihaz (anahtar/priz) en büyük iletken hacminin 2 katı olarak sayılır"
+        "tr": "Her cihaz (anahtar/priz) en büyük iletken hacminin 2 katı olarak sayılır",
+        "de": "Jedes Gerät (Schalter/Steckdose) zählt als 2 des größten Leitervolumens"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Number of Internal Cable Clamps",
         "tr": "Dahili Kablo Kıskacı Sayısı",
-        "de": "Number of Internal Cable Clamps",
+        "de": "Anzahl der internen Kabelklemmen",
         "fr": "Number of Internal Cable Clamps",
         "es": "Number of Internal Cable Clamps",
         "ar": "Number of Internal Cable Clamps"
       },
       "businessContext_i18n": {
         "en": "Each clamp counts as 1 of the largest conductor volume",
-        "tr": "Her kıskaç en büyük iletken hacminin 1 katı olarak sayılır"
+        "tr": "Her kıskaç en büyük iletken hacminin 1 katı olarak sayılır",
+        "de": "Jede Klemme zählt als 1 des größten Leitervolumens"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Equipment Ground Present",
         "tr": "Ekipman Topraklaması Var",
-        "de": "Equipment Ground Present",
+        "de": "Schutzleiter vorhanden",
         "fr": "Equipment Ground Present",
         "es": "Equipment Ground Present",
         "ar": "Equipment Ground Present"
       },
       "businessContext_i18n": {
         "en": "Set 1 if equipment grounding conductors are present (they count as 1 of the largest volume), else 0",
-        "tr": "Ekipman topraklama iletkenleri varsa 1 (en büyük hacmin 1 katı), yoksa 0 girin"
+        "tr": "Ekipman topraklama iletkenleri varsa 1 (en büyük hacmin 1 katı), yoksa 0 girin",
+        "de": "Setzen Sie 1, wenn Schutzleiter vorhanden sind (sie zählen als 1 des größten Volumens), sonst 0"
       }
     }
   ],

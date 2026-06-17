@@ -13,7 +13,7 @@ describe("q-value-calculator", () => {
     "resistance": 0,
     "frequency": 0,
     "bandwidth": 0
-  } as Q_value_calculatorInput;
+  } as unknown as Q_value_calculatorInput;
     const result = calculateQ_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

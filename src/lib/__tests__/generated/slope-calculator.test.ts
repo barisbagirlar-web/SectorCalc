@@ -12,7 +12,7 @@ describe("slope-calculator", () => {
     "y1": 0,
     "x2": 10,
     "y2": 5
-  } as Slope_calculatorInput;
+  } as unknown as Slope_calculatorInput;
     const result = calculateSlope_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

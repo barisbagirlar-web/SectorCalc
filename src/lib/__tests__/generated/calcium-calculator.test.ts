@@ -11,7 +11,7 @@ describe("calcium-calculator", () => {
     "volume": 1000,
     "caConcentration": 40,
     "hardnessFactor": 2.497
-  } as Calcium_calculatorInput;
+  } as unknown as Calcium_calculatorInput;
     const result = calculateCalcium_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("tons-of-refrigeration-to-kw", () => {
     "tons": 1,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Tons_of_refrigeration_to_kwInput;
+  } as unknown as Tons_of_refrigeration_to_kwInput;
     const result = calculateTons_of_refrigeration_to_kw(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

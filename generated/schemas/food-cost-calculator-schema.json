@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Ingredient Cost",
         "tr": "Toplam Malzeme Maliyeti",
-        "de": "Total Ingredient Cost",
+        "de": "Gesamtkosten der Zutaten",
         "fr": "Total Ingredient Cost",
         "es": "Total Ingredient Cost",
         "ar": "Total Ingredient Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of all ingredients used in recipe",
-        "tr": "Tarifte kullanılan tüm malzemelerin maliyeti"
+        "tr": "Tarifte kullanılan tüm malzemelerin maliyeti",
+        "de": "Kosten aller im Rezept verwendeten Zutaten"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Servings",
         "tr": "Porsiyon Sayısı",
-        "de": "Number of Servings",
+        "de": "Anzahl der Portionen",
         "fr": "Number of Servings",
         "es": "Number of Servings",
         "ar": "Number of Servings"
       },
       "businessContext_i18n": {
         "en": "Total number of servings the recipe yields",
-        "tr": "Tarifin verdiği toplam porsiyon sayısı"
+        "tr": "Tarifin verdiği toplam porsiyon sayısı",
+        "de": "Gesamtzahl der Portionen, die das Rezept ergibt"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Labor Cost per Hour",
         "tr": "Saatlik işçilik maliyeti",
-        "de": "Labor Cost per Hour",
+        "de": "Arbeitskosten pro Stunde",
         "fr": "Labor Cost per Hour",
         "es": "Labor Cost per Hour",
         "ar": "Labor Cost per Hour"
       },
       "businessContext_i18n": {
         "en": "Hourly wage for labor",
-        "tr": "Saatlik işçilik ücreti"
+        "tr": "Saatlik işçilik ücreti",
+        "de": "Stundenlohn für Arbeit"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Preparation Time",
         "tr": "Hazırlık Süresi",
-        "de": "Preparation Time",
+        "de": "Zubereitungszeit",
         "fr": "Preparation Time",
         "es": "Preparation Time",
         "ar": "Preparation Time"
       },
       "businessContext_i18n": {
         "en": "Time taken to prepare the dish",
-        "tr": "Yemeğin hazırlanması için geçen süre"
+        "tr": "Yemeğin hazırlanması için geçen süre",
+        "de": "Zeit für die Zubereitung des Gerichts"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Overhead Percentage",
         "tr": "Genel Gider Yüzdesi",
-        "de": "Overhead Percentage",
+        "de": "Gemeinkostenprozentsatz",
         "fr": "Overhead Percentage",
         "es": "Overhead Percentage",
         "ar": "Overhead Percentage"
       },
       "businessContext_i18n": {
         "en": "Additional overhead costs as percentage of ingredient cost",
-        "tr": "Malzeme maliyetinin yüzdesi olarak ek genel gider maliyetleri"
+        "tr": "Malzeme maliyetinin yüzdesi olarak ek genel gider maliyetleri",
+        "de": "Zusätzliche Gemeinkosten als Prozentsatz der Zutatenkosten"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Desired Profit Margin",
         "tr": "Hedef Kar Marjı",
-        "de": "Desired Profit Margin",
+        "de": "Gewünschte Gewinnspanne",
         "fr": "Desired Profit Margin",
         "es": "Desired Profit Margin",
         "ar": "Desired Profit Margin"
       },
       "businessContext_i18n": {
         "en": "Profit margin to apply as percentage of selling price",
-        "tr": "Satış fiyatının yüzdesi olarak uygulanacak kar marjı"
+        "tr": "Satış fiyatının yüzdesi olarak uygulanacak kar marjı",
+        "de": "Gewinnspanne als Prozentsatz des Verkaufspreises"
       }
     }
   ],

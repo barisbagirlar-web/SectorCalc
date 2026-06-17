@@ -12,7 +12,7 @@ describe("one-percent-rule-calculator", () => {
     "renovationCost": 20000,
     "closingCosts": 5000,
     "monthlyRent": 1200
-  } as One_percent_rule_calculatorInput;
+  } as unknown as One_percent_rule_calculatorInput;
     const result = calculateOne_percent_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

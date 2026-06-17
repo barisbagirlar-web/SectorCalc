@@ -14,7 +14,7 @@ describe("center-of-gravity-calculator", () => {
     "mass2": 0,
     "x2": 0,
     "y2": 0
-  } as Center_of_gravity_calculatorInput;
+  } as unknown as Center_of_gravity_calculatorInput;
     const result = calculateCenter_of_gravity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

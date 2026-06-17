@@ -12,7 +12,7 @@ describe("adjusted-r-squared-calculator", () => {
     "sampleSize": 50,
     "predictors": 3,
     "decimalPlaces": 4
-  } as Adjusted_r_squared_calculatorInput;
+  } as unknown as Adjusted_r_squared_calculatorInput;
     const result = calculateAdjusted_r_squared_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

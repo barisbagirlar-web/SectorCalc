@@ -14,7 +14,7 @@ describe("sewing-calculator", () => {
     "threadConsumptionFactor": 2.5,
     "laborCostPerHour": 15,
     "machineCostPerHour": 5
-  } as Sewing_calculatorInput;
+  } as unknown as Sewing_calculatorInput;
     const result = calculateSewing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

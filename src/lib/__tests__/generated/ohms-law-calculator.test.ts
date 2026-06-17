@@ -14,7 +14,7 @@ describe("ohms-law-calculator", () => {
     "powerFactor": 1,
     "phaseType": "single",
     "temperature": 25
-  } as Ohms_law_calculatorInput;
+  } as unknown as Ohms_law_calculatorInput;
     const result = calculateOhms_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

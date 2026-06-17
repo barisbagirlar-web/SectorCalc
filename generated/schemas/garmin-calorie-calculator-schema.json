@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
-        "de": "Weight",
+        "de": "Gewicht",
         "fr": "Weight",
         "es": "Weight",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "User's body weight in kilograms",
-        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı"
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı",
+        "de": "Körpergewicht des Benutzers in Kilogramm"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "User's age in years",
-        "tr": "Kullanıcının yıl cinsinden yaşı"
+        "tr": "Kullanıcının yıl cinsinden yaşı",
+        "de": "Alter des Benutzers in Jahren"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Heart Rate",
         "tr": "Kalp Atış Hızı",
-        "de": "Heart Rate",
+        "de": "Herzfrequenz",
         "fr": "Heart Rate",
         "es": "Heart Rate",
         "ar": "Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Average heart rate during exercise in beats per minute",
-        "tr": "Egzersiz sırasında dakikadaki atım sayısı cinsinden ortalama kalp atış hızı"
+        "tr": "Egzersiz sırasında dakikadaki atım sayısı cinsinden ortalama kalp atış hızı",
+        "de": "Durchschnittliche Herzfrequenz während des Trainings in Schlägen pro Minute"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Duration",
         "tr": "Süre",
-        "de": "Duration",
+        "de": "Dauer",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
       },
       "businessContext_i18n": {
         "en": "Exercise duration in minutes",
-        "tr": "Dakika cinsinden egzersiz süresi"
+        "tr": "Dakika cinsinden egzersiz süresi",
+        "de": "Trainingsdauer in Minuten"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Gender (1=Male, 0=Female)",
         "tr": "Cinsiyet (1=Erkek, 0=Kadın)",
-        "de": "Gender (1=Male, 0=Female)",
+        "de": "Geschlecht (1=Männlich, 0=Weiblich)",
         "fr": "Gender (1=Male, 0=Female)",
         "es": "Gender (1=Male, 0=Female)",
         "ar": "Gender (1=Male, 0=Female)"
       },
       "businessContext_i18n": {
         "en": "Gender factor: 1 for male, 0 for female",
-        "tr": "Cinsiyet faktörü: erkek için 1, kadın için 0"
+        "tr": "Cinsiyet faktörü: erkek için 1, kadın için 0",
+        "de": "Geschlechtsfaktor: 1 für männlich, 0 für weiblich"
       }
     }
   ],

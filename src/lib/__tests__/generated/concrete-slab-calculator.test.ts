@@ -13,7 +13,7 @@ describe("concrete-slab-calculator", () => {
     "thickness": 0.2,
     "density": 2400,
     "wasteFactor": 5
-  } as Concrete_slab_calculatorInput;
+  } as unknown as Concrete_slab_calculatorInput;
     const result = calculateConcrete_slab_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

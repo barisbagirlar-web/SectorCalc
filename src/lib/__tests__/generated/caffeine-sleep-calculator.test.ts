@@ -12,7 +12,7 @@ describe("caffeine-sleep-calculator", () => {
     "halfLife": 5,
     "hoursBeforeSleep": 8,
     "toleranceFactor": 1
-  } as Caffeine_sleep_calculatorInput;
+  } as unknown as Caffeine_sleep_calculatorInput;
     const result = calculateCaffeine_sleep_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

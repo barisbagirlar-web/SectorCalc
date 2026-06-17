@@ -16,7 +16,7 @@ describe("insulation-r-value-calculator", () => {
     "conductivity3": 0,
     "area": 1,
     "deltaT": 20
-  } as Insulation_r_value_calculatorInput;
+  } as unknown as Insulation_r_value_calculatorInput;
     const result = calculateInsulation_r_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

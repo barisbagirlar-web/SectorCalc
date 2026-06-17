@@ -12,7 +12,7 @@ describe("energy-density-calculator", () => {
     "voltage": 3.7,
     "mass": 0.5,
     "volume": 0.1
-  } as Energy_density_calculatorInput;
+  } as unknown as Energy_density_calculatorInput;
     const result = calculateEnergy_density_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

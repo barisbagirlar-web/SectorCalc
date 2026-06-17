@@ -13,7 +13,7 @@ describe("baud-to-bps-calculator", () => {
     "dataBits": 8,
     "parityBits": 0,
     "stopBits": 1
-  } as Baud_to_bps_calculatorInput;
+  } as unknown as Baud_to_bps_calculatorInput;
     const result = calculateBaud_to_bps_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

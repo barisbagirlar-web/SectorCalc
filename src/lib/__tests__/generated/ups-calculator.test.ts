@@ -15,7 +15,7 @@ describe("ups-calculator", () => {
     "batteryVoltage": 12,
     "depthOfDischarge": 50,
     "numberOfBatteries": 1
-  } as Ups_calculatorInput;
+  } as unknown as Ups_calculatorInput;
     const result = calculateUps_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

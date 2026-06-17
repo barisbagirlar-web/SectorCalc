@@ -13,7 +13,7 @@ describe("nicotine-calculator", () => {
     "baseNicotine": 100,
     "baseVG": 100,
     "desiredVG": 70
-  } as Nicotine_calculatorInput;
+  } as unknown as Nicotine_calculatorInput;
     const result = calculateNicotine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

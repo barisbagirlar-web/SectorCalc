@@ -13,7 +13,7 @@ describe("vacation-savings-calculator", () => {
     "monthlyContribution": 500,
     "annualInterestRate": 2,
     "monthsUntilVacation": 12
-  } as Vacation_savings_calculatorInput;
+  } as unknown as Vacation_savings_calculatorInput;
     const result = calculateVacation_savings_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

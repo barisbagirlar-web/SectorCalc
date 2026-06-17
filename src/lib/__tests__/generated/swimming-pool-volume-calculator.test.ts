@@ -12,7 +12,7 @@ describe("swimming-pool-volume-calculator", () => {
     "poolWidth": 5,
     "shallowDepth": 1,
     "deepDepth": 2
-  } as Swimming_pool_volume_calculatorInput;
+  } as unknown as Swimming_pool_volume_calculatorInput;
     const result = calculateSwimming_pool_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

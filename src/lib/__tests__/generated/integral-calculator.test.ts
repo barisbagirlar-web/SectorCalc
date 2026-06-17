@@ -14,7 +14,7 @@ describe("integral-calculator", () => {
     "d": 0,
     "x1": 0,
     "x2": 1
-  } as Integral_calculatorInput;
+  } as unknown as Integral_calculatorInput;
     const result = calculateIntegral_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

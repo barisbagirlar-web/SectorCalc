@@ -11,7 +11,7 @@ describe("faradays-law-calculator", () => {
     "magnetic_flux_change": 1,
     "time_interval": 1,
     "number_of_turns": 1
-  } as Faradays_law_calculatorInput;
+  } as unknown as Faradays_law_calculatorInput;
     const result = calculateFaradays_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

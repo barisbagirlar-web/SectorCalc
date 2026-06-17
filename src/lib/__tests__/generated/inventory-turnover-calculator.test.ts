@@ -12,7 +12,7 @@ describe("inventory-turnover-calculator", () => {
     "beginInventory": 20000,
     "endInventory": 30000,
     "days": 365
-  } as Inventory_turnover_calculatorInput;
+  } as unknown as Inventory_turnover_calculatorInput;
     const result = calculateInventory_turnover_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

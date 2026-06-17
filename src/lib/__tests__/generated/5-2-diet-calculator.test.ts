@@ -12,7 +12,7 @@ describe("5-2-diet-calculator", () => {
     "fastKcal": 500,
     "weeks": 4,
     "maintenanceKcal": 2500
-  } as _5_2_diet_calculatorInput;
+  } as unknown as _5_2_diet_calculatorInput;
     const result = calculate_5_2_diet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

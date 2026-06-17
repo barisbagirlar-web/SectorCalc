@@ -13,7 +13,7 @@ describe("pressure-altitude-calculator", () => {
     "altimeterSetting": 29.92,
     "qnhHpa": 1013.25,
     "standardPressure": 29.92
-  } as Pressure_altitude_calculatorInput;
+  } as unknown as Pressure_altitude_calculatorInput;
     const result = calculatePressure_altitude_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

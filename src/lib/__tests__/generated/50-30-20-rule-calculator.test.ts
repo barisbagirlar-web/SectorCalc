@@ -12,7 +12,7 @@ describe("50-30-20-rule-calculator", () => {
     "needsPercentage": 50,
     "wantsPercentage": 30,
     "savingsPercentage": 20
-  } as _50_30_20_rule_calculatorInput;
+  } as unknown as _50_30_20_rule_calculatorInput;
     const result = calculate_50_30_20_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

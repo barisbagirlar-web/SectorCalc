@@ -14,7 +14,7 @@ describe("plagiarism-calculator", () => {
     "matchingCitations": 0,
     "totalCitationsA": 0,
     "totalCitationsB": 0
-  } as Plagiarism_calculatorInput;
+  } as unknown as Plagiarism_calculatorInput;
     const result = calculatePlagiarism_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

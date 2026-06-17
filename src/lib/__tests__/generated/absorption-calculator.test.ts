@@ -12,7 +12,7 @@ describe("absorption-calculator", () => {
     "budgetedActivity": 10000,
     "actualActivity": 9500,
     "actualOverhead": 105000
-  } as Absorption_calculatorInput;
+  } as unknown as Absorption_calculatorInput;
     const result = calculateAbsorption_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

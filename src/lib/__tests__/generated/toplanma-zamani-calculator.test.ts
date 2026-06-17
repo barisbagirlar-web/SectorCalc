@@ -11,7 +11,7 @@ describe("toplanma-zamani-calculator", () => {
     "flowLength": 100,
     "slopePercent": 1,
     "auto_input_3": 1
-  } as Toplanma_zamani_calculatorInput;
+  } as unknown as Toplanma_zamani_calculatorInput;
     const result = calculateToplanma_zamani_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

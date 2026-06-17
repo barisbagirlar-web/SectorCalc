@@ -13,7 +13,7 @@ describe("watts-to-hp-calculator", () => {
     "factorMetric": 735.49875,
     "factorElectrical": 746,
     "factorBoiler": 9809.5
-  } as Watts_to_hp_calculatorInput;
+  } as unknown as Watts_to_hp_calculatorInput;
     const result = calculateWatts_to_hp_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

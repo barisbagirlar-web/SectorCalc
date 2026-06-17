@@ -12,7 +12,7 @@ describe("business-days-calculator", () => {
     "saturdays": 0,
     "sundays": 0,
     "holidays": 0
-  } as Business_days_calculatorInput;
+  } as unknown as Business_days_calculatorInput;
     const result = calculateBusiness_days_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("mpg-to-kml-calculator", () => {
     "decimalPlaces": 2,
     "measurementUncertainty": 0,
     "calibrationOffset": 0
-  } as Mpg_to_kml_calculatorInput;
+  } as unknown as Mpg_to_kml_calculatorInput;
     const result = calculateMpg_to_kml_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

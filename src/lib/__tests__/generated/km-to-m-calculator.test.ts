@@ -15,7 +15,7 @@ describe("km-to-m-calculator", () => {
     "minimumValue": 0,
     "maximumValue": 999999,
     "scaleFactor": 1
-  } as Km_to_m_calculatorInput;
+  } as unknown as Km_to_m_calculatorInput;
     const result = calculateKm_to_m_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

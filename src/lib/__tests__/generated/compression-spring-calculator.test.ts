@@ -13,7 +13,7 @@ describe("compression-spring-calculator", () => {
     "n": 10,
     "G": 80000,
     "F": 100
-  } as Compression_spring_calculatorInput;
+  } as unknown as Compression_spring_calculatorInput;
     const result = calculateCompression_spring_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("envelope-size-calculator", () => {
     "flapLength": 30,
     "paperThickness": 0.1,
     "quantity": 1000
-  } as Envelope_size_calculatorInput;
+  } as unknown as Envelope_size_calculatorInput;
     const result = calculateEnvelope_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

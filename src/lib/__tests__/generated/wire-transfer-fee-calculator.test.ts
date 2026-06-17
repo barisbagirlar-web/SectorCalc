@@ -14,7 +14,7 @@ describe("wire-transfer-fee-calculator", () => {
     "flatFeeIntermediary": 0,
     "flatFeeReceiver": 0,
     "isInternational": 0
-  } as Wire_transfer_fee_calculatorInput;
+  } as unknown as Wire_transfer_fee_calculatorInput;
     const result = calculateWire_transfer_fee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

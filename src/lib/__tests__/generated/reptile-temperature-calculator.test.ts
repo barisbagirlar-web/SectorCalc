@@ -14,7 +14,7 @@ describe("reptile-temperature-calculator", () => {
     "ambientTemp": 20,
     "desiredTemp": 35,
     "insulationFactor": 5
-  } as Reptile_temperature_calculatorInput;
+  } as unknown as Reptile_temperature_calculatorInput;
     const result = calculateReptile_temperature_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

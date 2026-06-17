@@ -14,7 +14,7 @@ describe("deload-calculator", () => {
     "deloadDuration": 1,
     "deloadIntensityReduction": 10,
     "deloadVolumeReduction": 30
-  } as Deload_calculatorInput;
+  } as unknown as Deload_calculatorInput;
     const result = calculateDeload_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

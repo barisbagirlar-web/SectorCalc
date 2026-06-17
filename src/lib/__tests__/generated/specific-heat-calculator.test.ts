@@ -12,7 +12,7 @@ describe("specific-heat-calculator", () => {
     "mass": 0,
     "temp_initial": 0,
     "temp_final": 0
-  } as Specific_heat_calculatorInput;
+  } as unknown as Specific_heat_calculatorInput;
     const result = calculateSpecific_heat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

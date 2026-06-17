@@ -13,7 +13,7 @@ describe("cheese-calculator", () => {
     "proteinPercent": 3.2,
     "moistureTarget": 40,
     "yieldFactor": 0.9
-  } as Cheese_calculatorInput;
+  } as unknown as Cheese_calculatorInput;
     const result = calculateCheese_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

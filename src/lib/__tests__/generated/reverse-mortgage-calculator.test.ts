@@ -13,7 +13,7 @@ describe("reverse-mortgage-calculator", () => {
     "interestRate": 5,
     "margin": 2,
     "lifeExpectancy": 100
-  } as Reverse_mortgage_calculatorInput;
+  } as unknown as Reverse_mortgage_calculatorInput;
     const result = calculateReverse_mortgage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("lyft-fare-calculator", () => {
     "costPerMinute": 0.25,
     "bookingFee": 1,
     "surge": 1
-  } as Lyft_fare_calculatorInput;
+  } as unknown as Lyft_fare_calculatorInput;
     const result = calculateLyft_fare_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

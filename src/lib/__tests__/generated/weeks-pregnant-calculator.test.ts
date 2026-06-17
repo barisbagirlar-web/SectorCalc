@@ -15,7 +15,7 @@ describe("weeks-pregnant-calculator", () => {
     "lmpMonth": 1,
     "lmpYear": 2025,
     "cycleLength": 28
-  } as Weeks_pregnant_calculatorInput;
+  } as unknown as Weeks_pregnant_calculatorInput;
     const result = calculateWeeks_pregnant_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

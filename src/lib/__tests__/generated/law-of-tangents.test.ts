@@ -11,7 +11,7 @@ describe("law-of-tangents", () => {
     "side_a": 1,
     "side_b": 1,
     "angle_C": 60
-  } as Law_of_tangentsInput;
+  } as unknown as Law_of_tangentsInput;
     const result = calculateLaw_of_tangents(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Purchase Price",
         "tr": "Satın Alma Fiyatı",
-        "de": "Purchase Price",
+        "de": "Kaufpreis",
         "fr": "Purchase Price",
         "es": "Purchase Price",
         "ar": "Purchase Price"
       },
       "businessContext_i18n": {
         "en": "Initial purchase price of the car",
-        "tr": "Arabanın ilk satın alma fiyatı"
+        "tr": "Arabanın ilk satın alma fiyatı",
+        "de": "Anschaffungspreis des Autos"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Residual Value (%)",
         "tr": "Kalıntı Değer (%)",
-        "de": "Residual Value (%)",
+        "de": "Restwert (%)",
         "fr": "Residual Value (%)",
         "es": "Residual Value (%)",
         "ar": "Residual Value (%)"
       },
       "businessContext_i18n": {
         "en": "Expected residual value as percentage of purchase price at end of life",
-        "tr": "Kullanım ömrü sonunda satın alma fiyatının yüzdesi olarak beklenen kalıntı değer"
+        "tr": "Kullanım ömrü sonunda satın alma fiyatının yüzdesi olarak beklenen kalıntı değer",
+        "de": "Erwarteter Restwert in Prozent des Kaufpreises am Ende der Nutzungsdauer"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Current Age",
         "tr": "Mevcut Yaş",
-        "de": "Current Age",
+        "de": "Aktuelles Alter",
         "fr": "Current Age",
         "es": "Current Age",
         "ar": "Current Age"
       },
       "businessContext_i18n": {
         "en": "Current age of the car in years",
-        "tr": "Arabanın yıl cinsinden mevcut yaşı"
+        "tr": "Arabanın yıl cinsinden mevcut yaşı",
+        "de": "Aktuelles Alter des Autos in Jahren"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Expected Lifespan",
         "tr": "Beklenen Kullanım Ömrü",
-        "de": "Expected Lifespan",
+        "de": "Erwartete Nutzungsdauer",
         "fr": "Expected Lifespan",
         "es": "Expected Lifespan",
         "ar": "Expected Lifespan"
       },
       "businessContext_i18n": {
         "en": "Expected total useful lifespan of the car in years",
-        "tr": "Arabanın yıl cinsinden beklenen toplam faydalı ömrü"
+        "tr": "Arabanın yıl cinsinden beklenen toplam faydalı ömrü",
+        "de": "Erwartete gesamte Nutzungsdauer des Autos in Jahren"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Current Mileage",
         "tr": "Mevcut Kilometre",
-        "de": "Current Mileage",
+        "de": "Aktuelle Laufleistung",
         "fr": "Current Mileage",
         "es": "Current Mileage",
         "ar": "Current Mileage"
       },
       "businessContext_i18n": {
         "en": "Current mileage of the car",
-        "tr": "Arabanın mevcut kilometresi"
+        "tr": "Arabanın mevcut kilometresi",
+        "de": "Aktuelle Laufleistung des Autos"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Expected Mileage Life",
         "tr": "Beklenen Kilometre Ömrü",
-        "de": "Expected Mileage Life",
+        "de": "Erwartete Gesamtlaufleistung",
         "fr": "Expected Mileage Life",
         "es": "Expected Mileage Life",
         "ar": "Expected Mileage Life"
       },
       "businessContext_i18n": {
         "en": "Expected total mileage life of the car",
-        "tr": "Arabanın beklenen toplam kilometre ömrü"
+        "tr": "Arabanın beklenen toplam kilometre ömrü",
+        "de": "Erwartete gesamte Laufleistung des Autos"
       }
     }
   ],

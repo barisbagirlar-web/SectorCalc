@@ -23,11 +23,13 @@
       "businessContext": "Total planned duration of the project from start to finish, as per CPM schedule baseline.",
       "label_i18n": {
         "en": "Planned Duration (Days)",
-        "tr": "Planlanan Süre (Gün)"
+        "tr": "Planlanan Süre (Gün)",
+        "de": "Geplante Dauer (Tage)"
       },
       "businessContext_i18n": {
         "en": "Total planned duration of the project from start to finish, as per CPM schedule baseline.",
-        "tr": "CPM takvimi baz alınarak projenin başlangıcından bitişine kadar planlanan toplam süre."
+        "tr": "CPM takvimi baz alınarak projenin başlangıcından bitişine kadar planlanan toplam süre.",
+        "de": "Gesamte geplante Projektdauer von Anfang bis Ende gemäß CPM-Zeitplanbasis."
       }
     },
     {
@@ -41,11 +43,13 @@
       "businessContext": "Actual elapsed duration from project start to current date or completion.",
       "label_i18n": {
         "en": "Actual Duration (Days)",
-        "tr": "Gerçek Süre (Gün)"
+        "tr": "Gerçek Süre (Gün)",
+        "de": "Tatsächliche Dauer (Tage)"
       },
       "businessContext_i18n": {
         "en": "Actual elapsed duration from project start to current date or completion.",
-        "tr": "Proje başlangıcından bugüne veya tamamlanmaya kadar geçen gerçek süre."
+        "tr": "Proje başlangıcından bugüne veya tamamlanmaya kadar geçen gerçek süre.",
+        "de": "Tatsächliche vergangene Dauer vom Projektstart bis zum aktuellen Datum oder Abschluss."
       }
     },
     {
@@ -59,11 +63,13 @@
       "businessContext": "Contractual liquidated damages or penalty per day of delay beyond the planned duration.",
       "label_i18n": {
         "en": "Daily Penalty Rate (Currency)",
-        "tr": "Günlük Ceza Oranı (Para Birimi)"
+        "tr": "Günlük Ceza Oranı (Para Birimi)",
+        "de": "Tägliche Vertragsstrafe (Währung)"
       },
       "businessContext_i18n": {
         "en": "Contractual liquidated damages or penalty per day of delay beyond the planned duration.",
-        "tr": "Planlanan sürenin ötesindeki her gecikme günü için sözleşmeye bağlı gecikme cezası veya tazminat."
+        "tr": "Planlanan sürenin ötesindeki her gecikme günü için sözleşmeye bağlı gecikme cezası veya tazminat.",
+        "de": "Vertragliche Verzugsschäden oder Strafe pro Tag Verzug über die geplante Dauer hinaus."
       }
     },
     {
@@ -77,11 +83,13 @@
       "businessContext": "Sum of total float for all activities on the critical path. Zero or negative indicates schedule compression.",
       "label_i18n": {
         "en": "Total Float on Critical Path (Days)",
-        "tr": "Kritik Yoldaki Toplam Bollaşma (Gün)"
+        "tr": "Kritik Yoldaki Toplam Bollaşma (Gün)",
+        "de": "Gesamtpuffer auf kritischem Pfad (Tage)"
       },
       "businessContext_i18n": {
         "en": "Sum of total float for all activities on the critical path. Zero or negative indicates schedule compression.",
-        "tr": "Kritik yoldaki tüm faaliyetlerin toplam bollaşma toplamı. Sıfır veya negatif, program sıkışmasını gösterir."
+        "tr": "Kritik yoldaki tüm faaliyetlerin toplam bollaşma toplamı. Sıfır veya negatif, program sıkışmasını gösterir.",
+        "de": "Summe der Gesamtpuffer aller Aktivitäten auf dem kritischen Pfad. Null oder negativ zeigt eine Verdichtung des Zeitplans an."
       }
     },
     {
@@ -95,11 +103,13 @@
       "businessContext": "Lean metric: ratio of actual output to standard output. Values below 0.8 indicate significant waste.",
       "label_i18n": {
         "en": "Productivity Factor (0-1)",
-        "tr": "Verimlilik Faktörü (0-1)"
+        "tr": "Verimlilik Faktörü (0-1)",
+        "de": "Produktivitätsfaktor (0-1)"
       },
       "businessContext_i18n": {
         "en": "Lean metric: ratio of actual output to standard output. Values below 0.8 indicate significant waste.",
-        "tr": "Yalın metrik: gerçek çıktının standart çıktıya oranı. 0,8'in altındaki değerler önemli israfı gösterir."
+        "tr": "Yalın metrik: gerçek çıktının standart çıktıya oranı. 0,8'in altındaki değerler önemli israfı gösterir.",
+        "de": "Lean-Kennzahl: Verhältnis von tatsächlichem Output zu Standard-Output. Werte unter 0,8 deuten auf erhebliche Verschwendung hin."
       }
     },
     {
@@ -113,11 +123,13 @@
       "businessContext": "Percentage of completed work requiring rework, a key Six Sigma quality metric.",
       "label_i18n": {
         "en": "Rework Percentage (%)",
-        "tr": "Yeniden İşleme Yüzdesi (%)"
+        "tr": "Yeniden İşleme Yüzdesi (%)",
+        "de": "Nacharbeitsanteil (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of completed work requiring rework, a key Six Sigma quality metric.",
-        "tr": "Tamamlanan işin yeniden işleme gerektiren yüzdesi, önemli bir Altı Sigma kalite metriği."
+        "tr": "Tamamlanan işin yeniden işleme gerektiren yüzdesi, önemli bir Altı Sigma kalite metriği.",
+        "de": "Prozentsatz der abgeschlossenen Arbeiten, die Nacharbeit erfordern, eine wichtige Six-Sigma-Qualitätskennzahl."
       }
     },
     {
@@ -135,11 +147,13 @@
       "businessContext": "Classification per standard construction delay analysis (AACE, SCL protocols).",
       "label_i18n": {
         "en": "Delay Type",
-        "tr": "Gecikme Türü"
+        "tr": "Gecikme Türü",
+        "de": "Verzögerungstyp"
       },
       "businessContext_i18n": {
         "en": "Classification per standard construction delay analysis (AACE, SCL protocols).",
-        "tr": "Standart inşaat gecikme analizine (AACE, SCL protokolleri) göre sınıflandırma."
+        "tr": "Standart inşaat gecikme analizine (AACE, SCL protokolleri) göre sınıflandırma.",
+        "de": "Klassifizierung gemäß Standard-Bauverzögerungsanalyse (AACE, SCL-Protokolle)."
       }
     },
     {
@@ -151,11 +165,13 @@
       "businessContext": "If true, applies earned schedule (ES) metrics for more accurate delay impact assessment.",
       "label_i18n": {
         "en": "Use Earned Schedule Method",
-        "tr": "Kazanılmış Çizelge Yöntemini Kullan"
+        "tr": "Kazanılmış Çizelge Yöntemini Kullan",
+        "de": "Earned-Schedule-Methode verwenden"
       },
       "businessContext_i18n": {
         "en": "If true, applies earned schedule (ES) metrics for more accurate delay impact assessment.",
-        "tr": "Doğruysa, gecikme etkisi değerlendirmesi için daha doğru kazanılmış çizelge (ES) metriklerini uygular."
+        "tr": "Doğruysa, gecikme etkisi değerlendirmesi için daha doğru kazanılmış çizelge (ES) metriklerini uygular.",
+        "de": "Wenn wahr, werden Earned-Schedule-Kennzahlen (ES) für eine genauere Bewertung der Verzögerungsauswirkungen angewendet."
       }
     }
   ],

@@ -13,7 +13,7 @@ describe("fuel-cost-calculator", () => {
     "fuelPrice": 1.5,
     "trips": 1,
     "extraCost": 0
-  } as Fuel_cost_calculatorInput;
+  } as unknown as Fuel_cost_calculatorInput;
     const result = calculateFuel_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("mttr-calculator", () => {
     "adminDelay": 2,
     "logisticsDelay": 1,
     "numberOfRepairs": 5
-  } as Mttr_calculatorInput;
+  } as unknown as Mttr_calculatorInput;
     const result = calculateMttr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

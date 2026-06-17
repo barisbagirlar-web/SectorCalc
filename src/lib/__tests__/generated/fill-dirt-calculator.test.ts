@@ -12,7 +12,7 @@ describe("fill-dirt-calculator", () => {
     "width": 5,
     "depth": 0.5,
     "compactionFactor": 1.2
-  } as Fill_dirt_calculatorInput;
+  } as unknown as Fill_dirt_calculatorInput;
     const result = calculateFill_dirt_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

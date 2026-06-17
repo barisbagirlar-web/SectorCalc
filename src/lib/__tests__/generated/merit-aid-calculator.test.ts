@@ -12,7 +12,7 @@ describe("merit-aid-calculator", () => {
     "meritCapPercent": 50,
     "otherAid": 0,
     "efc": 20000
-  } as Merit_aid_calculatorInput;
+  } as unknown as Merit_aid_calculatorInput;
     const result = calculateMerit_aid_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

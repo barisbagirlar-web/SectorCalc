@@ -14,7 +14,7 @@ describe("feet-to-yards-calculator", () => {
     "quantity": 1,
     "cost_per_yard": 0,
     "decimal_places": 2
-  } as Feet_to_yards_calculatorInput;
+  } as unknown as Feet_to_yards_calculatorInput;
     const result = calculateFeet_to_yards_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

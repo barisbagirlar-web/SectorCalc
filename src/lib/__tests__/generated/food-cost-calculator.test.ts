@@ -14,7 +14,7 @@ describe("food-cost-calculator", () => {
     "preparationTimeHours": 0,
     "overheadPercentage": 20,
     "profitMarginPercentage": 30
-  } as Food_cost_calculatorInput;
+  } as unknown as Food_cost_calculatorInput;
     const result = calculateFood_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

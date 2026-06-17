@@ -13,7 +13,7 @@ describe("linear-progression-calculator", () => {
     "numberOfTerms": 1,
     "termPosition": 1,
     "decimals": 2
-  } as Linear_progression_calculatorInput;
+  } as unknown as Linear_progression_calculatorInput;
     const result = calculateLinear_progression_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

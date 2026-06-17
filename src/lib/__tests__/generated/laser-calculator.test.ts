@@ -16,7 +16,7 @@ describe("laser-calculator", () => {
     "operatingCost": 50,
     "cutLength": 500,
     "setupTime": 5
-  } as Laser_calculatorInput;
+  } as unknown as Laser_calculatorInput;
     const result = calculateLaser_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

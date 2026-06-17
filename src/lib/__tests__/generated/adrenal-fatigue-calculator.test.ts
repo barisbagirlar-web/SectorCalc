@@ -14,7 +14,7 @@ describe("adrenal-fatigue-calculator", () => {
     "noise_level": 70,
     "temperature": 22,
     "load_factor": 1
-  } as Adrenal_fatigue_calculatorInput;
+  } as unknown as Adrenal_fatigue_calculatorInput;
     const result = calculateAdrenal_fatigue_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

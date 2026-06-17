@@ -12,7 +12,7 @@ describe("rebar-weight-calculator", () => {
     "length": 12,
     "quantity": 1,
     "density": 7850
-  } as Rebar_weight_calculatorInput;
+  } as unknown as Rebar_weight_calculatorInput;
     const result = calculateRebar_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

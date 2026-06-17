@@ -12,7 +12,7 @@ describe("days-to-weeks-calculator", () => {
     "daysPerWeek": 7,
     "precision": 2,
     "showRemainder": 1
-  } as Days_to_weeks_calculatorInput;
+  } as unknown as Days_to_weeks_calculatorInput;
     const result = calculateDays_to_weeks_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

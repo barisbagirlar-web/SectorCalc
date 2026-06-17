@@ -14,7 +14,7 @@ describe("circuit-load-calculator", () => {
     "numberOfDevices": 1,
     "safetyFactor": 1.25,
     "breakerRating": 16
-  } as Circuit_load_calculatorInput;
+  } as unknown as Circuit_load_calculatorInput;
     const result = calculateCircuit_load_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

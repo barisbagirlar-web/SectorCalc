@@ -12,7 +12,7 @@ describe("process-economics-npv-calculator", () => {
     "annualCostSavings": 25000,
     "projectLife": 5,
     "discountRate": 8
-  } as Process_economics_npv_calculatorInput;
+  } as unknown as Process_economics_npv_calculatorInput;
     const result = calculateProcess_economics_npv_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

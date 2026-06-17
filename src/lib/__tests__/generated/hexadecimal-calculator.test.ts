@@ -12,7 +12,7 @@ describe("hexadecimal-calculator", () => {
     "operandB": 0,
     "operation": 1,
     "precision": 0
-  } as Hexadecimal_calculatorInput;
+  } as unknown as Hexadecimal_calculatorInput;
     const result = calculateHexadecimal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

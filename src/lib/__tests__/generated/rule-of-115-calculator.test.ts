@@ -12,7 +12,7 @@ describe("rule-of-115-calculator", () => {
     "taxRate": 0,
     "compoundingFrequency": 1,
     "principal": 1000
-  } as Rule_of_115_calculatorInput;
+  } as unknown as Rule_of_115_calculatorInput;
     const result = calculateRule_of_115_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

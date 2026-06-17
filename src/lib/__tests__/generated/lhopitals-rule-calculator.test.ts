@@ -14,7 +14,7 @@ describe("lhopitals-rule-calculator", () => {
     "denominator_power": 1,
     "limit_point": 0,
     "iterations": 1
-  } as Lhopitals_rule_calculatorInput;
+  } as unknown as Lhopitals_rule_calculatorInput;
     const result = calculateLhopitals_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

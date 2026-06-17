@@ -16,7 +16,7 @@ describe("limit-calculator", () => {
     "denCoeff2": 0,
     "approachPoint": 0,
     "epsilon": 0.0001
-  } as Limit_calculatorInput;
+  } as unknown as Limit_calculatorInput;
     const result = calculateLimit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("failure-rate-calculator", () => {
     "totalTime": 8760,
     "numUnits": 1,
     "dutyCycle": 100
-  } as Failure_rate_calculatorInput;
+  } as unknown as Failure_rate_calculatorInput;
     const result = calculateFailure_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

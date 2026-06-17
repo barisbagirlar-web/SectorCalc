@@ -12,7 +12,7 @@ describe("black-hole-calculator", () => {
     "spin": 0,
     "charge": 0,
     "distance": 10000
-  } as Black_hole_calculatorInput;
+  } as unknown as Black_hole_calculatorInput;
     const result = calculateBlack_hole_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

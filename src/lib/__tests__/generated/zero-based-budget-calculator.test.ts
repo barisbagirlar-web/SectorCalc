@@ -14,7 +14,7 @@ describe("zero-based-budget-calculator", () => {
     "transport": 0,
     "savings": 0,
     "discretionary": 0
-  } as Zero_based_budget_calculatorInput;
+  } as unknown as Zero_based_budget_calculatorInput;
     const result = calculateZero_based_budget_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

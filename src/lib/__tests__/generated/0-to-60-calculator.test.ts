@@ -12,7 +12,7 @@ describe("0-to-60-calculator", () => {
     "power": 200,
     "efficiency": 0.85,
     "speed": 60
-  } as _0_to_60_calculatorInput;
+  } as unknown as _0_to_60_calculatorInput;
     const result = calculate_0_to_60_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

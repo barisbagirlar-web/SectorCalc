@@ -13,7 +13,7 @@ describe("race-equivalent-calculator", () => {
     "knownTimeMinutes": 50,
     "knownTimeSeconds": 0,
     "targetDistance": 42.195
-  } as Race_equivalent_calculatorInput;
+  } as unknown as Race_equivalent_calculatorInput;
     const result = calculateRace_equivalent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

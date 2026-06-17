@@ -14,7 +14,7 @@ describe("state-space-controllability-calculator", () => {
     "a22": -3,
     "b1": 0,
     "b2": 1
-  } as State_space_controllability_calculatorInput;
+  } as unknown as State_space_controllability_calculatorInput;
     const result = calculateState_space_controllability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("decades-to-centuries-calculator", () => {
     "measurementError": 0.01,
     "roundingMethod": 0,
     "ambientTemp": 20
-  } as Decades_to_centuries_calculatorInput;
+  } as unknown as Decades_to_centuries_calculatorInput;
     const result = calculateDecades_to_centuries_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

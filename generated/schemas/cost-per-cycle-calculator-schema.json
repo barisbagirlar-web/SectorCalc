@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Kurulum Maliyeti",
         "tr": "Kurulum Maliyeti",
-        "de": "Kurulum Maliyeti",
+        "de": "Rüstkosten",
         "fr": "Kurulum Maliyeti",
         "es": "Kurulum Maliyeti",
         "ar": "Kurulum Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Üretim başına bir defalık kurulum maliyeti",
-        "tr": "Üretim başına bir defalık kurulum maliyeti"
+        "tr": "Üretim başına bir defalık kurulum maliyeti",
+        "de": "Einmalige Rüstkosten pro Produktion"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Çevrim Sayısı",
         "tr": "Çevrim Sayısı",
-        "de": "Çevrim Sayısı",
+        "de": "Zyklusanzahl",
         "fr": "Çevrim Sayısı",
         "es": "Çevrim Sayısı",
         "ar": "Çevrim Sayısı"
       },
       "businessContext_i18n": {
         "en": "Toplam üretim çevrimi veya parça sayısı",
-        "tr": "Toplam üretim çevrimi veya parça sayısı"
+        "tr": "Toplam üretim çevrimi veya parça sayısı",
+        "de": "Gesamtzahl der Produktionszyklen oder Teile"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Birim Malzeme Maliyeti",
         "tr": "Birim Malzeme Maliyeti",
-        "de": "Birim Malzeme Maliyeti",
+        "de": "Materialkosten pro Einheit",
         "fr": "Birim Malzeme Maliyeti",
         "es": "Birim Malzeme Maliyeti",
         "ar": "Birim Malzeme Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Her çevrim başına malzeme maliyeti",
-        "tr": "Her çevrim başına malzeme maliyeti"
+        "tr": "Her çevrim başına malzeme maliyeti",
+        "de": "Materialkosten pro Zyklus"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Saatlik İşçilik Maliyeti",
         "tr": "Saatlik İşçilik Maliyeti",
-        "de": "Saatlik İşçilik Maliyeti",
+        "de": "Stündliche Arbeitskosten",
         "fr": "Saatlik İşçilik Maliyeti",
         "es": "Saatlik İşçilik Maliyeti",
         "ar": "Saatlik İşçilik Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Bir saatlik işçilik maliyeti",
-        "tr": "Bir saatlik işçilik maliyeti"
+        "tr": "Bir saatlik işçilik maliyeti",
+        "de": "Stündliche Arbeitskosten"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Çevrim Süresi",
         "tr": "Çevrim Süresi",
-        "de": "Çevrim Süresi",
+        "de": "Zykluszeit",
         "fr": "Çevrim Süresi",
         "es": "Çevrim Süresi",
         "ar": "Çevrim Süresi"
       },
       "businessContext_i18n": {
         "en": "Bir çevrimin tamamlanma süresi (saat)",
-        "tr": "Bir çevrimin tamamlanma süresi (saat)"
+        "tr": "Bir çevrimin tamamlanma süresi (saat)",
+        "de": "Zeit für einen vollständigen Zyklus (Stunden)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Genel Gider Oranı",
         "tr": "Genel Gider Oranı",
-        "de": "Genel Gider Oranı",
+        "de": "Gemeinkostensatz",
         "fr": "Genel Gider Oranı",
         "es": "Genel Gider Oranı",
         "ar": "Genel Gider Oranı"
       },
       "businessContext_i18n": {
         "en": "Saatlik genel gider (enerji, amortisman vb.)",
-        "tr": "Saatlik genel gider (enerji, amortisman vb.)"
+        "tr": "Saatlik genel gider (enerji, amortisman vb.)",
+        "de": "Stündliche Gemeinkosten (Energie, Abschreibung usw.)"
       }
     }
   ],

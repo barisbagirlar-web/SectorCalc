@@ -22,11 +22,13 @@
       "businessContext": "Operating pressure of the compressed air system; higher pressure increases leak flow rate.",
       "label_i18n": {
         "en": "System Pressure",
-        "tr": "Sistem Basıncı"
+        "tr": "Sistem Basıncı",
+        "de": "Systemdruck"
       },
       "businessContext_i18n": {
         "en": "Operating pressure of the compressed air system; higher pressure increases leak flow rate.",
-        "tr": "Basınçlı hava sisteminin işletme basıncı; daha yüksek basınç kaçak debisini artırır."
+        "tr": "Basınçlı hava sisteminin işletme basıncı; daha yüksek basınç kaçak debisini artırır.",
+        "de": "Betriebsdruck des Druckluftsystems; höherer Druck erhöht die Leckdurchflussrate."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Diameter of a round orifice representing the average leak size. Common sizes: 1/8\", 1/4\", 1/2\".",
       "label_i18n": {
         "en": "Equivalent Leak Diameter",
-        "tr": "Eşdeğer Kaçak Çapı"
+        "tr": "Eşdeğer Kaçak Çapı",
+        "de": "Äquivalenter Leckdurchmesser"
       },
       "businessContext_i18n": {
         "en": "Diameter of a round orifice representing the average leak size. Common sizes: 1/8\", 1/4\", 1/2\".",
-        "tr": "Ortalama kaçak boyutunu temsil eden yuvarlak bir orifisin çapı. Yaygın boyutlar: 1/8\", 1/4\", 1/2\"."
+        "tr": "Ortalama kaçak boyutunu temsil eden yuvarlak bir orifisin çapı. Yaygın boyutlar: 1/8\", 1/4\", 1/2\".",
+        "de": "Durchmesser einer runden Öffnung, die die durchschnittliche Leckgröße darstellt. Übliche Größen: 1/8\", 1/4\", 1/2\"."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Total number of identified or estimated leaks in the system.",
       "label_i18n": {
         "en": "Number of Leaks",
-        "tr": "Kaçak Sayısı"
+        "tr": "Kaçak Sayısı",
+        "de": "Anzahl der Lecks"
       },
       "businessContext_i18n": {
         "en": "Total number of identified or estimated leaks in the system.",
-        "tr": "Sistemde tespit edilen veya tahmin edilen toplam kaçak sayısı."
+        "tr": "Sistemde tespit edilen veya tahmin edilen toplam kaçak sayısı.",
+        "de": "Gesamtzahl der identifizierten oder geschätzten Lecks im System."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Total hours the compressor runs per year. Continuous operation = 8760 h.",
       "label_i18n": {
         "en": "Annual Operating Hours",
-        "tr": "Yıllık Çalışma Saati"
+        "tr": "Yıllık Çalışma Saati",
+        "de": "Jährliche Betriebsstunden"
       },
       "businessContext_i18n": {
         "en": "Total hours the compressor runs per year. Continuous operation = 8760 h.",
-        "tr": "Kompresörün yılda çalıştığı toplam saat. Sürekli çalışma = 8760 saat."
+        "tr": "Kompresörün yılda çalıştığı toplam saat. Sürekli çalışma = 8760 saat.",
+        "de": "Gesamtbetriebsstunden des Kompressors pro Jahr. Dauerbetrieb = 8760 h."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Average blended cost of electricity per kilowatt-hour.",
       "label_i18n": {
         "en": "Electricity Cost",
-        "tr": "Elektrik Maliyeti"
+        "tr": "Elektrik Maliyeti",
+        "de": "Stromkosten"
       },
       "businessContext_i18n": {
         "en": "Average blended cost of electricity per kilowatt-hour.",
-        "tr": "Kilovat-saat başına harmanlanmış ortalama elektrik maliyeti."
+        "tr": "Kilovat-saat başına harmanlanmış ortalama elektrik maliyeti.",
+        "de": "Durchschnittliche Mischkosten für Strom pro Kilowattstunde."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "Overall efficiency of the compressor system (motor + drive + compressor). Typical range 70-85%.",
       "label_i18n": {
         "en": "Compressor Efficiency",
-        "tr": "Kompresör Verimi"
+        "tr": "Kompresör Verimi",
+        "de": "Kompressorwirkungsgrad"
       },
       "businessContext_i18n": {
         "en": "Overall efficiency of the compressor system (motor + drive + compressor). Typical range 70-85%.",
-        "tr": "Kompresör sisteminin genel verimi (motor + sürücü + kompresör). Tipik aralık %70-85."
+        "tr": "Kompresör sisteminin genel verimi (motor + sürücü + kompresör). Tipik aralık %70-85.",
+        "de": "Gesamtwirkungsgrad des Kompressorsystems (Motor + Antrieb + Kompressor). Typischer Bereich 70-85%."
       }
     },
     {
@@ -132,11 +144,13 @@
       "businessContext": "Geometry of the leak affects discharge coefficient. Round orifice is most common.",
       "label_i18n": {
         "en": "Leak Type",
-        "tr": "Kaçak Tipi"
+        "tr": "Kaçak Tipi",
+        "de": "Lecktyp"
       },
       "businessContext_i18n": {
         "en": "Geometry of the leak affects discharge coefficient. Round orifice is most common.",
-        "tr": "Kaçağın geometrisi boşaltma katsayısını etkiler. Yuvarlak orifis en yaygın olanıdır."
+        "tr": "Kaçağın geometrisi boşaltma katsayısını etkiler. Yuvarlak orifis en yaygın olanıdır.",
+        "de": "Die Geometrie des Lecks beeinflusst den Ausflusskoeffizienten. Runde Öffnung ist am häufigsten."
       },
       "unit": "unit"
     },
@@ -148,11 +162,13 @@
       "businessContext": "If true, adds estimated labor and material cost for leak repair.",
       "label_i18n": {
         "en": "Include Maintenance Cost",
-        "tr": "Bakım Maliyetini Dahil Et"
+        "tr": "Bakım Maliyetini Dahil Et",
+        "de": "Wartungskosten einbeziehen"
       },
       "businessContext_i18n": {
         "en": "If true, adds estimated labor and material cost for leak repair.",
-        "tr": "Doğruysa, sızıntı onarımı için tahmini işçilik ve malzeme maliyeti ekler."
+        "tr": "Doğruysa, sızıntı onarımı için tahmini işçilik ve malzeme maliyeti ekler.",
+        "de": "Wenn wahr, werden geschätzte Arbeits- und Materialkosten für die Leckreparatur hinzugefügt."
       },
       "unit": "unit"
     }

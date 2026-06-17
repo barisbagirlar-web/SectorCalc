@@ -12,7 +12,7 @@ describe("radians-to-gradians-calculator", () => {
     "conversionFactor": 63.66197723675813,
     "precision": 4,
     "offset": 0
-  } as Radians_to_gradians_calculatorInput;
+  } as unknown as Radians_to_gradians_calculatorInput;
     const result = calculateRadians_to_gradians_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

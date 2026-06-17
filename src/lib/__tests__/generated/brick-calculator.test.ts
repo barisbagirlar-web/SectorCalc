@@ -15,7 +15,7 @@ describe("brick-calculator", () => {
     "mortarThickness": 10,
     "openingArea": 2,
     "wastagePercentage": 5
-  } as Brick_calculatorInput;
+  } as unknown as Brick_calculatorInput;
     const result = calculateBrick_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

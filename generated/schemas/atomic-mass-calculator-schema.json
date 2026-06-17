@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Proton Sayısı",
         "tr": "Proton Sayısı",
-        "de": "Proton Sayısı",
+        "de": "Anzahl der Protonen",
         "fr": "Proton Sayısı",
         "es": "Proton Sayısı",
         "ar": "Proton Sayısı"
       },
       "businessContext_i18n": {
         "en": "Atomdaki proton sayısı (atom numarası)",
-        "tr": "Atomdaki proton sayısı (atom numarası)"
+        "tr": "Atomdaki proton sayısı (atom numarası)",
+        "de": "Anzahl der Protonen im Atom (Ordnungszahl)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Nötron Sayısı",
         "tr": "Nötron Sayısı",
-        "de": "Nötron Sayısı",
+        "de": "Anzahl der Neutronen",
         "fr": "Nötron Sayısı",
         "es": "Nötron Sayısı",
         "ar": "Nötron Sayısı"
       },
       "businessContext_i18n": {
         "en": "Atomdaki nötron sayısı",
-        "tr": "Atomdaki nötron sayısı"
+        "tr": "Atomdaki nötron sayısı",
+        "de": "Anzahl der Neutronen im Atom"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Elektron Sayısı",
         "tr": "Elektron Sayısı",
-        "de": "Elektron Sayısı",
+        "de": "Anzahl der Elektronen",
         "fr": "Elektron Sayısı",
         "es": "Elektron Sayısı",
         "ar": "Elektron Sayısı"
       },
       "businessContext_i18n": {
         "en": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)",
-        "tr": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)"
+        "tr": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)",
+        "de": "Anzahl der Elektronen im Atom (bei neutralem Atom gleich der Protonenzahl)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Proton Kütlesi",
         "tr": "Proton Kütlesi",
-        "de": "Proton Kütlesi",
+        "de": "Masse des Protons",
         "fr": "Proton Kütlesi",
         "es": "Proton Kütlesi",
         "ar": "Proton Kütlesi"
       },
       "businessContext_i18n": {
         "en": "Bir protonun atomik kütle birimi cinsinden kütlesi",
-        "tr": "Bir protonun atomik kütle birimi cinsinden kütlesi"
+        "tr": "Bir protonun atomik kütle birimi cinsinden kütlesi",
+        "de": "Masse eines Protons in atomaren Masseneinheiten"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Nötron Kütlesi",
         "tr": "Nötron Kütlesi",
-        "de": "Nötron Kütlesi",
+        "de": "Masse des Neutrons",
         "fr": "Nötron Kütlesi",
         "es": "Nötron Kütlesi",
         "ar": "Nötron Kütlesi"
       },
       "businessContext_i18n": {
         "en": "Bir nötronun atomik kütle birimi cinsinden kütlesi",
-        "tr": "Bir nötronun atomik kütle birimi cinsinden kütlesi"
+        "tr": "Bir nötronun atomik kütle birimi cinsinden kütlesi",
+        "de": "Masse eines Neutrons in atomaren Masseneinheiten"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Elektron Kütlesi",
         "tr": "Elektron Kütlesi",
-        "de": "Elektron Kütlesi",
+        "de": "Elektronenmasse",
         "fr": "Elektron Kütlesi",
         "es": "Elektron Kütlesi",
         "ar": "Elektron Kütlesi"
       },
       "businessContext_i18n": {
         "en": "Bir elektronun atomik kütle birimi cinsinden kütlesi",
-        "tr": "Bir elektronun atomik kütle birimi cinsinden kütlesi"
+        "tr": "Bir elektronun atomik kütle birimi cinsinden kütlesi",
+        "de": "Masse eines Elektrons in atomaren Masseneinheiten"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Bağlanma Enerjisi",
         "tr": "Bağlanma Enerjisi",
-        "de": "Bağlanma Enerjisi",
+        "de": "Bindungsenergie",
         "fr": "Bağlanma Enerjisi",
         "es": "Bağlanma Enerjisi",
         "ar": "Bağlanma Enerjisi"
       },
       "businessContext_i18n": {
         "en": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)",
-        "tr": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)"
+        "tr": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)",
+        "de": "Bindungsenergie des Kerns (optional, für Massenkorrektur falls vorhanden)"
       }
     }
   ],

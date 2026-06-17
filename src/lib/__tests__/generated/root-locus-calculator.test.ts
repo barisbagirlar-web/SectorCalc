@@ -16,7 +16,7 @@ describe("root-locus-calculator", () => {
     "pole2Imag": 0,
     "pole3Real": -3,
     "pole3Imag": 0
-  } as Root_locus_calculatorInput;
+  } as unknown as Root_locus_calculatorInput;
     const result = calculateRoot_locus_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

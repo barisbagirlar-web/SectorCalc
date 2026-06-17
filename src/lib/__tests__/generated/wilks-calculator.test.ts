@@ -11,7 +11,7 @@ describe("wilks-calculator", () => {
     "bodyWeight": 83,
     "liftedWeight": 100,
     "auto_input_3": 1
-  } as Wilks_calculatorInput;
+  } as unknown as Wilks_calculatorInput;
     const result = calculateWilks_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Measurement Value",
         "tr": "Ölçüm Değeri",
-        "de": "Measurement Value",
+        "de": "Messwert",
         "fr": "Measurement Value",
         "es": "Measurement Value",
         "ar": "Measurement Value"
       },
       "businessContext_i18n": {
         "en": "The child's measurement (e.g., weight, length, or head circumference).",
-        "tr": "Çocuğun ölçümü (örn. ağırlık, boy veya baş çevresi)."
+        "tr": "Çocuğun ölçümü (örn. ağırlık, boy veya baş çevresi).",
+        "de": "Die Messung des Kindes (z. B. Gewicht, Länge oder Kopfumfang)."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "L parameter from the LMS growth reference (e.g., WHO/CDC) for the specific age, gender, and measurement type.",
-        "tr": "Belirli yaş, cinsiyet ve ölçüm türü için LMS büyüme referansından (örn. WHO/CDC) L parametresi."
+        "tr": "Belirli yaş, cinsiyet ve ölçüm türü için LMS büyüme referansından (örn. WHO/CDC) L parametresi.",
+        "de": "L-Parameter aus dem LMS-Wachstumsreferenz (z. B. WHO/CDC) für das spezifische Alter, Geschlecht und die Messart."
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "M parameter (median) from the LMS growth reference, in the same unit as the measurement.",
-        "tr": "LMS büyüme referansından M parametresi (medyan), ölçümle aynı birimde."
+        "tr": "LMS büyüme referansından M parametresi (medyan), ölçümle aynı birimde.",
+        "de": "M-Parameter (Median) aus dem LMS-Wachstumsreferenz, in derselben Einheit wie die Messung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "S (Coefficient of Variation)",
         "tr": "S (Değişim Katsayısı)",
-        "de": "S (Coefficient of Variation)",
+        "de": "S (Variationskoeffizient)",
         "fr": "S (Coefficient of Variation)",
         "es": "S (Coefficient of Variation)",
         "ar": "S (Coefficient of Variation)"
       },
       "businessContext_i18n": {
         "en": "S parameter (generalized coefficient of variation) from the LMS growth reference.",
-        "tr": "LMS büyüme referansından S parametresi (genelleştirilmiş değişim katsayısı)."
+        "tr": "LMS büyüme referansından S parametresi (genelleştirilmiş değişim katsayısı).",
+        "de": "S-Parameter (generalisierter Variationskoeffizient) aus dem LMS-Wachstumsreferenz."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Measurement Type",
         "tr": "Ölçüm Türü",
-        "de": "Measurement Type",
+        "de": "Messart",
         "fr": "Measurement Type",
         "es": "Measurement Type",
         "ar": "Measurement Type"
       },
       "businessContext_i18n": {
         "en": "Indicator: 1 = Weight, 2 = Length, 3 = Head circumference. Used only for contextual clarity.",
-        "tr": "Gösterge: 1 = Ağırlık, 2 = Boy, 3 = Baş çevresi. Yalnızca bağlamsal netlik için kullanılır."
+        "tr": "Gösterge: 1 = Ağırlık, 2 = Boy, 3 = Baş çevresi. Yalnızca bağlamsal netlik için kullanılır.",
+        "de": "Indikator: 1 = Gewicht, 2 = Länge, 3 = Kopfumfang. Nur für kontextuelle Klarheit."
       }
     }
   ],

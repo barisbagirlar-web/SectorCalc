@@ -13,7 +13,7 @@ describe("euromillions-calculator", () => {
     "drawsPerWeek": 2,
     "weeks": 1,
     "bulkDiscount": 0
-  } as Euromillions_calculatorInput;
+  } as unknown as Euromillions_calculatorInput;
     const result = calculateEuromillions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

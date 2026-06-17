@@ -13,7 +13,7 @@ describe("cpa-calculator", () => {
     "overheadCost": 2000,
     "otherCost": 0,
     "acquiredCustomers": 100
-  } as Cpa_calculatorInput;
+  } as unknown as Cpa_calculatorInput;
     const result = calculateCpa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

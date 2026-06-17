@@ -16,7 +16,7 @@ describe("cloud-api-overrun-cost-calculator", () => {
     "retry_rate": 10,
     "data_egress_gb": 500,
     "egress_cost_per_gb": 0.09
-  } as Cloud_api_overrun_cost_calculatorInput;
+  } as unknown as Cloud_api_overrun_cost_calculatorInput;
     const result = calculateCloud_api_overrun_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

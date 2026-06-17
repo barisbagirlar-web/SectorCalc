@@ -13,7 +13,7 @@ describe("spinning-calorie-calculator", () => {
     "resistance_level": 5,
     "weight_kg": 70,
     "age_years": 30
-  } as Spinning_calorie_calculatorInput;
+  } as unknown as Spinning_calorie_calculatorInput;
     const result = calculateSpinning_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

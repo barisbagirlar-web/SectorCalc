@@ -12,7 +12,7 @@ describe("rigging-calculator", () => {
     "slingAngle": 60,
     "numberOfLegs": 2,
     "safetyFactor": 5
-  } as Rigging_calculatorInput;
+  } as unknown as Rigging_calculatorInput;
     const result = calculateRigging_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

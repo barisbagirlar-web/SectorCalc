@@ -12,7 +12,7 @@ describe("realtor-fee-calculator", () => {
     "commissionRate": 6,
     "additionalFixedFee": 0,
     "splitRatio": 0.5
-  } as Realtor_fee_calculatorInput;
+  } as unknown as Realtor_fee_calculatorInput;
     const result = calculateRealtor_fee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("angle-calculator", () => {
     "mode": 0,
     "funcCode": 0,
     "precision": 4
-  } as Angle_calculatorInput;
+  } as unknown as Angle_calculatorInput;
     const result = calculateAngle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

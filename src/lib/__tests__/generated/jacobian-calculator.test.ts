@@ -12,7 +12,7 @@ describe("jacobian-calculator", () => {
     "dxdv": 0,
     "dydu": 0,
     "dydv": 1
-  } as Jacobian_calculatorInput;
+  } as unknown as Jacobian_calculatorInput;
     const result = calculateJacobian_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

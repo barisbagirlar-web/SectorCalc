@@ -16,7 +16,7 @@ describe("mandolin-calculator", () => {
     "labor_rate": 25,
     "overhead_percent": 20,
     "profit_margin": 30
-  } as Mandolin_calculatorInput;
+  } as unknown as Mandolin_calculatorInput;
     const result = calculateMandolin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

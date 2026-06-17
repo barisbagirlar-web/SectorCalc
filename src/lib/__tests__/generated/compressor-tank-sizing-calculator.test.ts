@@ -16,7 +16,7 @@ describe("compressor-tank-sizing-calculator", () => {
     "pressureDifferential": 10,
     "compressorControlType": "Load/Unload",
     "ambientTemperature": 80
-  } as Compressor_tank_sizing_calculatorInput;
+  } as unknown as Compressor_tank_sizing_calculatorInput;
     const result = calculateCompressor_tank_sizing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

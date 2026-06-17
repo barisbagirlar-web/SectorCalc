@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Hız (ft/s)",
         "tr": "Hız (ft/s)",
-        "de": "Hız (ft/s)",
+        "de": "Geschwindigkeit (ft/s)",
         "fr": "Hız (ft/s)",
         "es": "Hız (ft/s)",
         "ar": "Hız (ft/s)"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek hız değeri, feet/saniye cinsinden",
-        "tr": "Dönüştürülecek hız değeri, feet/saniye cinsinden"
+        "tr": "Dönüştürülecek hız değeri, feet/saniye cinsinden",
+        "de": "Umzurechnender Geschwindigkeitswert in Fuß/Sekunde"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Ondalık Hassasiyet",
         "tr": "Ondalık Hassasiyet",
-        "de": "Ondalık Hassasiyet",
+        "de": "Dezimalgenauigkeit",
         "fr": "Ondalık Hassasiyet",
         "es": "Ondalık Hassasiyet",
         "ar": "Ondalık Hassasiyet"
       },
       "businessContext_i18n": {
         "en": "Çıktıdaki ondalık basamak sayısı",
-        "tr": "Çıktıdaki ondalık basamak sayısı"
+        "tr": "Çıktıdaki ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen in der Ausgabe"
       }
     },
     {
@@ -58,7 +60,8 @@
       },
       "businessContext_i18n": {
         "en": "Girişe eklenecek sabit ofset (kalibrasyon için)",
-        "tr": "Girişe eklenecek sabit ofset (kalibrasyon için)"
+        "tr": "Girişe eklenecek sabit ofset (kalibrasyon için)",
+        "de": "Girişe eklenecek sabit ofset (kalibrasyon için)"
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "mph'yi başka bir birime dönüştürmek için çarpan; mph için 1",
-        "tr": "mph'yi başka bir birime dönüştürmek için çarpan; mph için 1"
+        "tr": "mph'yi başka bir birime dönüştürmek için çarpan; mph için 1",
+        "de": "mph'yi başka bir birime dönüştürmek için çarpan; mph için 1"
       }
     }
   ],

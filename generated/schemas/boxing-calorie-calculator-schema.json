@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
-        "de": "Body Weight",
+        "de": "Körpergewicht",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "User body weight in kilograms",
-        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı"
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı",
+        "de": "Körpergewicht des Benutzers in Kilogramm"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Duration",
         "tr": "Süre",
-        "de": "Duration",
+        "de": "Dauer",
         "fr": "Duration",
         "es": "Duration",
         "ar": "Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of boxing activity in minutes",
-        "tr": "Boks aktivitesinin dakika cinsinden süresi"
+        "tr": "Boks aktivitesinin dakika cinsinden süresi",
+        "de": "Dauer der Boxaktivität in Minuten"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Activity MET Value",
         "tr": "Aktivite MET Değeri",
-        "de": "Activity MET Value",
+        "de": "MET-Wert der Aktivität",
         "fr": "Activity MET Value",
         "es": "Activity MET Value",
         "ar": "Activity MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task for boxing (e.g., sparring=7.8, bag work=5.5)",
-        "tr": "Boks için metabolik eşdeğer (örneğin, sparring=7.8, kum torbası=5.5)"
+        "tr": "Boks için metabolik eşdeğer (örneğin, sparring=7.8, kum torbası=5.5)",
+        "de": "Metabolisches Äquivalent für Boxen (z. B. Sparring=7,8, Sandsack=5,5)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Intensity",
         "tr": "Yoğunluk",
-        "de": "Intensity",
+        "de": "Intensität",
         "fr": "Intensity",
         "es": "Intensity",
         "ar": "Intensity"
       },
       "businessContext_i18n": {
         "en": "Intensity adjustment percentage (100% = standard effort)",
-        "tr": "Yoğunluk ayarlama yüzdesi (%100 = standart efor)"
+        "tr": "Yoğunluk ayarlama yüzdesi (%100 = standart efor)",
+        "de": "Intensitätsanpassung in Prozent (100 % = Standardanstrengung)"
       }
     }
   ],

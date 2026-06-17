@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Crawl Space Length",
         "tr": "Sürünme Alanı Uzunluğu",
-        "de": "Crawl Space Length",
+        "de": "Kriechkellerlänge",
         "fr": "Crawl Space Length",
         "es": "Crawl Space Length",
         "ar": "Crawl Space Length"
       },
       "businessContext_i18n": {
         "en": "Horizontal dimension (long side) of the crawl space.",
-        "tr": "Sürünme alanının yatay boyutu (uzun kenar)."
+        "tr": "Sürünme alanının yatay boyutu (uzun kenar).",
+        "de": "Horizontale Abmessung (lange Seite) des Kriechkellers."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Crawl Space Width",
         "tr": "Sürünme Alanı Genişliği",
-        "de": "Crawl Space Width",
+        "de": "Kriechkellerbreite",
         "fr": "Crawl Space Width",
         "es": "Crawl Space Width",
         "ar": "Crawl Space Width"
       },
       "businessContext_i18n": {
         "en": "Horizontal dimension (short side) of the crawl space.",
-        "tr": "Sürünme alanının yatay boyutu (kısa kenar)."
+        "tr": "Sürünme alanının yatay boyutu (kısa kenar).",
+        "de": "Horizontale Abmessung (kurze Seite) des Kriechkellers."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Crawl Space Height",
         "tr": "Sürünme Alanı Yüksekliği",
-        "de": "Crawl Space Height",
+        "de": "Kriechkellerhöhe",
         "fr": "Crawl Space Height",
         "es": "Crawl Space Height",
         "ar": "Crawl Space Height"
       },
       "businessContext_i18n": {
         "en": "Vertical distance from dirt floor to bottom of floor joists.",
-        "tr": "Toprak zeminden döşeme kirişlerinin altına kadar olan dikey mesafe."
+        "tr": "Toprak zeminden döşeme kirişlerinin altına kadar olan dikey mesafe.",
+        "de": "Vertikaler Abstand vom Erdboden bis zur Unterseite der Bodenbalken."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Vent Area Ratio",
         "tr": "Havalandırma Alanı Oranı",
-        "de": "Vent Area Ratio",
+        "de": "Lüftungsflächenverhältnis",
         "fr": "Vent Area Ratio",
         "es": "Vent Area Ratio",
         "ar": "Vent Area Ratio"
       },
       "businessContext_i18n": {
         "en": "Ratio of net free vent area to floor area. Building code: 1/150 (no vapor barrier) ≈ 0.00667; 1/1500 (with vapor barrier) ≈ 0.000667.",
-        "tr": "Net serbest havalandırma alanının taban alanına oranı. Bina yönetmeliği: buhar bariyeri yoksa 1/150 ≈ 0.00667; buhar bariyeri varsa 1/1500 ≈ 0.000667."
+        "tr": "Net serbest havalandırma alanının taban alanına oranı. Bina yönetmeliği: buhar bariyeri yoksa 1/150 ≈ 0.00667; buhar bariyeri varsa 1/1500 ≈ 0.000667.",
+        "de": "Verhältnis der Netto-Lüftungsfläche zur Grundfläche. Bauordnung: 1/150 (ohne Dampfsperre) ≈ 0,00667; 1/1500 (mit Dampfsperre) ≈ 0,000667."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("sloan-ratio-calculator", () => {
     "cashFlowOperations": 0,
     "cashFlowInvesting": 0,
     "totalAssets": 0
-  } as Sloan_ratio_calculatorInput;
+  } as unknown as Sloan_ratio_calculatorInput;
     const result = calculateSloan_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

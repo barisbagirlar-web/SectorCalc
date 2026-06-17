@@ -12,7 +12,7 @@ describe("nitrox-calculator", () => {
     "po2_work": 1.4,
     "po2_deco": 1.6,
     "depth": 30
-  } as Nitrox_calculatorInput;
+  } as unknown as Nitrox_calculatorInput;
     const result = calculateNitrox_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

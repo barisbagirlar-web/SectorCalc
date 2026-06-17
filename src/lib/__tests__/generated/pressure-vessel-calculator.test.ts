@@ -13,7 +13,7 @@ describe("pressure-vessel-calculator", () => {
     "allowableStress": 138,
     "jointEfficiency": 0.85,
     "corrosionAllowance": 3
-  } as Pressure_vessel_calculatorInput;
+  } as unknown as Pressure_vessel_calculatorInput;
     const result = calculatePressure_vessel_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

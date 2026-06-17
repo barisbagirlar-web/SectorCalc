@@ -20,11 +20,13 @@
       "businessContext": "Current utilization rate of the primary bottleneck resource, measured over a representative period (e.g., last 4 weeks).",
       "label_i18n": {
         "en": "Bottleneck Utilization (%)",
-        "tr": "Darboğaz Kullanımı (%)"
+        "tr": "Darboğaz Kullanımı (%)",
+        "de": "Engpassauslastung (%)"
       },
       "businessContext_i18n": {
         "en": "Current utilization rate of the primary bottleneck resource, measured over a representative period (e.g., last 4 weeks).",
-        "tr": "Birincil darboğaz kaynağının temsili bir dönem (örneğin son 4 hafta) üzerinden ölçülen mevcut kullanım oranı."
+        "tr": "Birincil darboğaz kaynağının temsili bir dönem (örneğin son 4 hafta) üzerinden ölçülen mevcut kullanım oranı.",
+        "de": "Aktuelle Auslastungsrate der primären Engpassressource, gemessen über einen repräsentativen Zeitraum (z. B. letzte 4 Wochen)."
       }
     },
     {
@@ -38,11 +40,13 @@
       "businessContext": "Average customer demand rate for the product family flowing through the bottleneck.",
       "label_i18n": {
         "en": "Average Demand Rate (units/hour)",
-        "tr": "Ortalama Talep Oranı (birim/saat)"
+        "tr": "Ortalama Talep Oranı (birim/saat)",
+        "de": "Durchschnittliche Nachfragerate (Einheiten/Stunde)"
       },
       "businessContext_i18n": {
         "en": "Average customer demand rate for the product family flowing through the bottleneck.",
-        "tr": "Darboğazdan geçen ürün ailesi için ortalama müşteri talep oranı."
+        "tr": "Darboğazdan geçen ürün ailesi için ortalama müşteri talep oranı.",
+        "de": "Durchschnittliche Kundennachfragerate für die Produktfamilie, die den Engpass durchläuft."
       }
     },
     {
@@ -56,11 +60,13 @@
       "businessContext": "Maximum theoretical output rate of the bottleneck resource under ideal conditions.",
       "label_i18n": {
         "en": "Bottleneck Capacity (units/hour)",
-        "tr": "Darboğaz Kapasitesi (birim/saat)"
+        "tr": "Darboğaz Kapasitesi (birim/saat)",
+        "de": "Engpasskapazität (Einheiten/Stunde)"
       },
       "businessContext_i18n": {
         "en": "Maximum theoretical output rate of the bottleneck resource under ideal conditions.",
-        "tr": "Darboğaz kaynağının ideal koşullar altında maksimum teorik çıktı oranı."
+        "tr": "Darboğaz kaynağının ideal koşullar altında maksimum teorik çıktı oranı.",
+        "de": "Maximale theoretische Ausbringungsrate der Engpassressource unter idealen Bedingungen."
       }
     },
     {
@@ -74,11 +80,13 @@
       "businessContext": "Total capital expenditure required for the bottleneck improvement (e.g., new equipment, tooling, automation).",
       "label_i18n": {
         "en": "Proposed Investment Cost ($)",
-        "tr": "Önerilen Yatırım Maliyeti ($)"
+        "tr": "Önerilen Yatırım Maliyeti ($)",
+        "de": "Vorgeschlagene Investitionskosten ($)"
       },
       "businessContext_i18n": {
         "en": "Total capital expenditure required for the bottleneck improvement (e.g., new equipment, tooling, automation).",
-        "tr": "Darboğaz iyileştirmesi için gereken toplam sermaye harcaması (örneğin yeni ekipman, takım, otomasyon)."
+        "tr": "Darboğaz iyileştirmesi için gereken toplam sermaye harcaması (örneğin yeni ekipman, takım, otomasyon).",
+        "de": "Gesamte Kapitalausgaben für die Engpassverbesserung (z. B. neue Ausrüstung, Werkzeuge, Automatisierung)."
       }
     },
     {
@@ -92,11 +100,13 @@
       "businessContext": "Expected percentage increase in bottleneck capacity after the investment.",
       "label_i18n": {
         "en": "Expected Capacity Increase (%)",
-        "tr": "Beklenen Kapasite Artışı (%)"
+        "tr": "Beklenen Kapasite Artışı (%)",
+        "de": "Erwartete Kapazitätssteigerung (%)"
       },
       "businessContext_i18n": {
         "en": "Expected percentage increase in bottleneck capacity after the investment.",
-        "tr": "Yatırım sonrası darboğaz kapasitesinde beklenen yüzde artış."
+        "tr": "Yatırım sonrası darboğaz kapasitesinde beklenen yüzde artış.",
+        "de": "Erwartete prozentuale Steigerung der Engpasskapazität nach der Investition."
       }
     },
     {
@@ -110,11 +120,13 @@
       "businessContext": "Total planned operating hours of the bottleneck resource per year.",
       "label_i18n": {
         "en": "Operating Hours per Year",
-        "tr": "Yıllık Çalışma Saati"
+        "tr": "Yıllık Çalışma Saati",
+        "de": "Betriebsstunden pro Jahr"
       },
       "businessContext_i18n": {
         "en": "Total planned operating hours of the bottleneck resource per year.",
-        "tr": "Darboğaz kaynağının yıllık toplam planlanan çalışma saati."
+        "tr": "Darboğaz kaynağının yıllık toplam planlanan çalışma saati.",
+        "de": "Geplante jährliche Betriebsstunden der Engpassressource."
       }
     },
     {
@@ -128,11 +140,13 @@
       "businessContext": "Contribution margin (revenue minus variable cost) per unit of product flowing through the bottleneck.",
       "label_i18n": {
         "en": "Profit Margin per Unit ($)",
-        "tr": "Birim Başına Kar Marjı ($)"
+        "tr": "Birim Başına Kar Marjı ($)",
+        "de": "Gewinnspanne pro Einheit ($)"
       },
       "businessContext_i18n": {
         "en": "Contribution margin (revenue minus variable cost) per unit of product flowing through the bottleneck.",
-        "tr": "Darboğazdan geçen ürünün birim başına katkı marjı (gelir eksi değişken maliyet)."
+        "tr": "Darboğazdan geçen ürünün birim başına katkı marjı (gelir eksi değişken maliyet).",
+        "de": "Deckungsbeitrag (Umsatz minus variable Kosten) pro Einheit des Produkts, das den Engpass durchläuft."
       }
     },
     {
@@ -146,11 +160,13 @@
       "businessContext": "First-pass yield (percentage of good units) at the bottleneck operation.",
       "label_i18n": {
         "en": "Quality Yield at Bottleneck (%)",
-        "tr": "Darboğazda Kalite Verimi (%)"
+        "tr": "Darboğazda Kalite Verimi (%)",
+        "de": "Qualitätsausbeute am Engpass (%)"
       },
       "businessContext_i18n": {
         "en": "First-pass yield (percentage of good units) at the bottleneck operation.",
-        "tr": "Darboğaz operasyonunda ilk geçiş verimi (iyi birimlerin yüzdesi)."
+        "tr": "Darboğaz operasyonunda ilk geçiş verimi (iyi birimlerin yüzdesi).",
+        "de": "Erstausbeute (Prozentsatz der guten Einheiten) am Engpassvorgang."
       }
     }
   ],

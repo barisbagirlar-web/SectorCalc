@@ -16,7 +16,7 @@ describe("cleaning-bid-optimizer-calculator", () => {
     "material_cost_per_sqft": 0.02,
     "equipment_cost_per_sqft": 0.01,
     "overhead_percent": 15
-  } as Cleaning_bid_optimizer_calculatorInput;
+  } as unknown as Cleaning_bid_optimizer_calculatorInput;
     const result = calculateCleaning_bid_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("sugar-calculator", () => {
     "sugar_purity": 99.5,
     "sugar_price": 5,
     "batch_size": 1
-  } as Sugar_calculatorInput;
+  } as unknown as Sugar_calculatorInput;
     const result = calculateSugar_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

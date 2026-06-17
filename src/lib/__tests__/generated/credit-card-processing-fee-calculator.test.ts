@@ -13,7 +13,7 @@ describe("credit-card-processing-fee-calculator", () => {
     "perTransactionFee": 0.3,
     "monthlyStatementFee": 10,
     "numberOfTransactions": 100
-  } as Credit_card_processing_fee_calculatorInput;
+  } as unknown as Credit_card_processing_fee_calculatorInput;
     const result = calculateCredit_card_processing_fee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

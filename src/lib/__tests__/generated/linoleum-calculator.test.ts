@@ -13,7 +13,7 @@ describe("linoleum-calculator", () => {
     "rollWidth": 2,
     "wastePercentage": 10,
     "pricePerSqM": 20
-  } as Linoleum_calculatorInput;
+  } as unknown as Linoleum_calculatorInput;
     const result = calculateLinoleum_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

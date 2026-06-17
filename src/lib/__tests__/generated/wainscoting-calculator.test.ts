@@ -14,7 +14,7 @@ describe("wainscoting-calculator", () => {
     "stileWidth": 0.25,
     "sheetLength": 8,
     "sheetWidth": 4
-  } as Wainscoting_calculatorInput;
+  } as unknown as Wainscoting_calculatorInput;
     const result = calculateWainscoting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

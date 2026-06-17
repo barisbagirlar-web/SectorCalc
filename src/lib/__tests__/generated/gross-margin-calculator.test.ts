@@ -13,7 +13,7 @@ describe("gross-margin-calculator", () => {
     "unitsSold": 1000,
     "additionalVariableCostPerUnit": 5,
     "discountPercentage": 10
-  } as Gross_margin_calculatorInput;
+  } as unknown as Gross_margin_calculatorInput;
     const result = calculateGross_margin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

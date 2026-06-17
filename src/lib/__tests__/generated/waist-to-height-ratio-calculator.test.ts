@@ -12,7 +12,7 @@ describe("waist-to-height-ratio-calculator", () => {
     "waistUnit": 0,
     "height": 170,
     "heightUnit": 0
-  } as Waist_to_height_ratio_calculatorInput;
+  } as unknown as Waist_to_height_ratio_calculatorInput;
     const result = calculateWaist_to_height_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("two-way-anova-calculator", () => {
     "dfB": 1,
     "dfAB": 1,
     "dfE": 1
-  } as Two_way_anova_calculatorInput;
+  } as unknown as Two_way_anova_calculatorInput;
     const result = calculateTwo_way_anova_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

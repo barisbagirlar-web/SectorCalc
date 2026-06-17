@@ -12,7 +12,7 @@ describe("hair-strand-calculator", () => {
     "hairDensity": 200,
     "averageHairLength": 30,
     "dailyHairLoss": 80
-  } as Hair_strand_calculatorInput;
+  } as unknown as Hair_strand_calculatorInput;
     const result = calculateHair_strand_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

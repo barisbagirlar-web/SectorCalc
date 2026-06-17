@@ -12,7 +12,7 @@ describe("us-men-suit-size-to-eu-calculator", () => {
     "usWaistSize": 32,
     "usInseam": 34,
     "conversionOffset": 10
-  } as Us_men_suit_size_to_eu_calculatorInput;
+  } as unknown as Us_men_suit_size_to_eu_calculatorInput;
     const result = calculateUs_men_suit_size_to_eu_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

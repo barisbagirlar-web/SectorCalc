@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Alış Fiyatı",
         "tr": "Alış Fiyatı",
-        "de": "Alış Fiyatı",
+        "de": "Kaufpreis",
         "fr": "Alış Fiyatı",
         "es": "Alış Fiyatı",
         "ar": "Alış Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Vadeli işlem sözleşmesinin alış birim fiyatı",
-        "tr": "Vadeli işlem sözleşmesinin alış birim fiyatı"
+        "tr": "Vadeli işlem sözleşmesinin alış birim fiyatı",
+        "de": "Einkaufspreis pro Einheit des Terminkontrakts"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Satış Fiyatı",
         "tr": "Satış Fiyatı",
-        "de": "Satış Fiyatı",
+        "de": "Verkaufspreis",
         "fr": "Satış Fiyatı",
         "es": "Satış Fiyatı",
         "ar": "Satış Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Vadeli işlem sözleşmesinin satış birim fiyatı",
-        "tr": "Vadeli işlem sözleşmesinin satış birim fiyatı"
+        "tr": "Vadeli işlem sözleşmesinin satış birim fiyatı",
+        "de": "Verkaufspreis pro Einheit des Terminkontrakts"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Sözleşme Büyüklüğü",
         "tr": "Sözleşme Büyüklüğü",
-        "de": "Sözleşme Büyüklüğü",
+        "de": "Kontraktgröße",
         "fr": "Sözleşme Büyüklüğü",
         "es": "Sözleşme Büyüklüğü",
         "ar": "Sözleşme Büyüklüğü"
       },
       "businessContext_i18n": {
         "en": "Bir sözleşmenin temsil ettiği dayanak varlık miktarı",
-        "tr": "Bir sözleşmenin temsil ettiği dayanak varlık miktarı"
+        "tr": "Bir sözleşmenin temsil ettiği dayanak varlık miktarı",
+        "de": "Menge des Basiswerts, den ein Kontrakt repräsentiert"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Kontrat Sayısı",
         "tr": "Kontrat Sayısı",
-        "de": "Kontrat Sayısı",
+        "de": "Anzahl der Kontrakte",
         "fr": "Kontrat Sayısı",
         "es": "Kontrat Sayısı",
         "ar": "Kontrat Sayısı"
       },
       "businessContext_i18n": {
         "en": "Alım/satım yapılan vadeli işlem sözleşmesi sayısı",
-        "tr": "Alım/satım yapılan vadeli işlem sözleşmesi sayısı"
+        "tr": "Alım/satım yapılan vadeli işlem sözleşmesi sayısı",
+        "de": "Anzahl der gehandelten Terminkontrakte"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Teminat Oranı",
         "tr": "Teminat Oranı",
-        "de": "Teminat Oranı",
+        "de": "Einschussquote",
         "fr": "Teminat Oranı",
         "es": "Teminat Oranı",
         "ar": "Teminat Oranı"
       },
       "businessContext_i18n": {
         "en": "Sözleşme değerinin teminat olarak yatırılması gereken yüzdesi",
-        "tr": "Sözleşme değerinin teminat olarak yatırılması gereken yüzdesi"
+        "tr": "Sözleşme değerinin teminat olarak yatırılması gereken yüzdesi",
+        "de": "Prozentsatz des Kontraktwerts, der als Sicherheit hinterlegt werden muss"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Komisyon (Sözleşme Başına)",
         "tr": "Komisyon (Sözleşme Başına)",
-        "de": "Komisyon (Sözleşme Başına)",
+        "de": "Provision (pro Kontrakt)",
         "fr": "Komisyon (Sözleşme Başına)",
         "es": "Komisyon (Sözleşme Başına)",
         "ar": "Komisyon (Sözleşme Başına)"
       },
       "businessContext_i18n": {
         "en": "Bir sözleşme için alım veya satımda ödenen işlem komisyonu",
-        "tr": "Bir sözleşme için alım veya satımda ödenen işlem komisyonu"
+        "tr": "Bir sözleşme için alım veya satımda ödenen işlem komisyonu",
+        "de": "Transaktionsprovision für Kauf oder Verkauf eines Kontrakts"
       }
     }
   ],

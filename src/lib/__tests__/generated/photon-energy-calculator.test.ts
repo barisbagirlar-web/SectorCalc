@@ -12,7 +12,7 @@ describe("photon-energy-calculator", () => {
     "wave": 0,
     "h": 6.62607015,
     "c": 2.99792458
-  } as Photon_energy_calculatorInput;
+  } as unknown as Photon_energy_calculatorInput;
     const result = calculatePhoton_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

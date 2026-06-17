@@ -12,7 +12,7 @@ describe("bilgi-orani-calculator", () => {
     "benchmarkGetiri": 0,
     "takipHatasi": 0,
     "yilliklastirmaCarpani": 1
-  } as Bilgi_orani_calculatorInput;
+  } as unknown as Bilgi_orani_calculatorInput;
     const result = calculateBilgi_orani_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

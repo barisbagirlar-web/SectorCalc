@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Eksenel Yük (Axial Load)",
         "tr": "Eksenel Yük",
-        "de": "Eksenel Yük (Axial Load)",
+        "de": "Eksenel Yük (Axiallast)",
         "fr": "Eksenel Yük (Axial Load)",
         "es": "Eksenel Yük (Axial Load)",
         "ar": "Eksenel Yük (Axial Load)"
       },
       "businessContext_i18n": {
         "en": "Kolon üzerine uygulanan eksenel basınç yükü.",
-        "tr": "Kolona uygulanan eksenel basınç yükü."
+        "tr": "Kolona uygulanan eksenel basınç yükü.",
+        "de": "Auf die Stütze wirkende axiale Drucklast."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Etkili Uzunluk (Effective Length)",
         "tr": "Etkili Uzunluk",
-        "de": "Etkili Uzunluk (Effective Length)",
+        "de": "Etkili Uzunluk (Knicklänge)",
         "fr": "Etkili Uzunluk (Effective Length)",
         "es": "Etkili Uzunluk (Effective Length)",
         "ar": "Etkili Uzunluk (Effective Length)"
       },
       "businessContext_i18n": {
         "en": "Kolonun burkulma boyu, uç bağlantı koşullarına bağlıdır.",
-        "tr": "Kolonun burkulma boyu, uç bağlantı koşullarına bağlıdır."
+        "tr": "Kolonun burkulma boyu, uç bağlantı koşullarına bağlıdır.",
+        "de": "Knicklänge der Stütze, abhängig von den Endbedingungen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Elastisite Modülü (Modulus of Elasticity)",
         "tr": "Elastisite Modülü",
-        "de": "Elastisite Modülü (Modulus of Elasticity)",
+        "de": "Elastisite Modülü (Elastizitätsmodul)",
         "fr": "Elastisite Modülü (Modulus of Elasticity)",
         "es": "Elastisite Modülü (Modulus of Elasticity)",
         "ar": "Elastisite Modülü (Modulus of Elasticity)"
       },
       "businessContext_i18n": {
         "en": "Malzemenin elastikiyet modülü; çelik için ~200 GPa.",
-        "tr": "Malzemenin elastikiyet modülü; çelik için ~200 GPa."
+        "tr": "Malzemenin elastikiyet modülü; çelik için ~200 GPa.",
+        "de": "Elastizitätsmodul des Materials; für Stahl ~200 GPa."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Atalet Momenti (Moment of Inertia)",
         "tr": "Atalet Momenti",
-        "de": "Atalet Momenti (Moment of Inertia)",
+        "de": "Flächenträgheitsmoment",
         "fr": "Atalet Momenti (Moment of Inertia)",
         "es": "Atalet Momenti (Moment of Inertia)",
         "ar": "Atalet Momenti (Moment of Inertia)"
       },
       "businessContext_i18n": {
         "en": "Kesitin zayıf eksene göre alan atalet momenti.",
-        "tr": "Kesitin zayıf eksene göre alan atalet momenti."
+        "tr": "Kesitin zayıf eksene göre alan atalet momenti.",
+        "de": "Flächenträgheitsmoment des Querschnitts um die schwache Achse."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Kesit Alanı (Cross-Sectional Area)",
         "tr": "Kesit Alanı",
-        "de": "Kesit Alanı (Cross-Sectional Area)",
+        "de": "Querschnittsfläche",
         "fr": "Kesit Alanı (Cross-Sectional Area)",
         "es": "Kesit Alanı (Cross-Sectional Area)",
         "ar": "Kesit Alanı (Cross-Sectional Area)"
       },
       "businessContext_i18n": {
         "en": "Kolon kesitinin toplam alanı.",
-        "tr": "Kolon kesitinin toplam alanı."
+        "tr": "Kolon kesitinin toplam alanı.",
+        "de": "Gesamtfläche des Stützenquerschnitts."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Akma Dayanımı (Yield Strength)",
         "tr": "Akma Dayanımı",
-        "de": "Akma Dayanımı (Yield Strength)",
+        "de": "Streckgrenze",
         "fr": "Akma Dayanımı (Yield Strength)",
         "es": "Akma Dayanımı (Yield Strength)",
         "ar": "Akma Dayanımı (Yield Strength)"
       },
       "businessContext_i18n": {
         "en": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa.",
-        "tr": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa."
+        "tr": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa.",
+        "de": "Streckgrenze des Materials; für Baustahl typisch 235-355 MPa."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Güvenlik Faktörü (Safety Factor)",
         "tr": "Güvenlik Faktörü",
-        "de": "Güvenlik Faktörü (Safety Factor)",
+        "de": "Sicherheitsfaktor",
         "fr": "Güvenlik Faktörü (Safety Factor)",
         "es": "Güvenlik Faktörü (Safety Factor)",
         "ar": "Güvenlik Faktörü (Safety Factor)"
       },
       "businessContext_i18n": {
         "en": "Tasarımda istenen güvenlik katsayısı.",
-        "tr": "Tasarımda istenen güvenlik katsayısı."
+        "tr": "Tasarımda istenen güvenlik katsayısı.",
+        "de": "Gewünschter Sicherheitsbeiwert für die Auslegung."
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("chocolate-tempering", () => {
     "coolingRate": 2,
     "seedPercent": 5,
     "ambientTempC": 20
-  } as Chocolate_temperingInput;
+  } as unknown as Chocolate_temperingInput;
     const result = calculateChocolate_tempering(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

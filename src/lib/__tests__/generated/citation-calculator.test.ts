@@ -13,7 +13,7 @@ describe("citation-calculator", () => {
     "severityMultiplier": 1,
     "processingFeePerCitation": 50,
     "earlyPaymentDiscount": 10
-  } as Citation_calculatorInput;
+  } as unknown as Citation_calculatorInput;
     const result = calculateCitation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("equestrian-calculator", () => {
     "desired_speed": 1.5,
     "horse_pull_force": 1000,
     "efficiency": 85
-  } as Equestrian_calculatorInput;
+  } as unknown as Equestrian_calculatorInput;
     const result = calculateEquestrian_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

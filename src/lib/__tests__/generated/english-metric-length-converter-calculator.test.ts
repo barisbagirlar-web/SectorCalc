@@ -12,7 +12,7 @@ describe("english-metric-length-converter-calculator", () => {
     "in_feet": 0,
     "in_yard": 0,
     "in_mile": 0
-  } as English_metric_length_converter_calculatorInput;
+  } as unknown as English_metric_length_converter_calculatorInput;
     const result = calculateEnglish_metric_length_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

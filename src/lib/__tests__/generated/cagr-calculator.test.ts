@@ -12,7 +12,7 @@ describe("cagr-calculator", () => {
     "endingValue": 2000,
     "startYear": 2020,
     "endYear": 2025
-  } as Cagr_calculatorInput;
+  } as unknown as Cagr_calculatorInput;
     const result = calculateCagr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("absolute-magnitude-calculator", () => {
     "distanceParsecs": 10,
     "extinction": 0,
     "bolometricCorrection": 0
-  } as Absolute_magnitude_calculatorInput;
+  } as unknown as Absolute_magnitude_calculatorInput;
     const result = calculateAbsolute_magnitude_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

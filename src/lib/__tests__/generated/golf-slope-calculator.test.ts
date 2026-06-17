@@ -12,7 +12,7 @@ describe("golf-slope-calculator", () => {
     "scratchRating": 72,
     "slopeFactor": 5.381,
     "score": 90
-  } as Golf_slope_calculatorInput;
+  } as unknown as Golf_slope_calculatorInput;
     const result = calculateGolf_slope_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

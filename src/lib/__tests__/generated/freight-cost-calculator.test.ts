@@ -16,7 +16,7 @@ describe("freight-cost-calculator", () => {
     "accessorial_charges_usd": 50,
     "density_factor": 100,
     "is_hazardous": false
-  } as Freight_cost_calculatorInput;
+  } as unknown as Freight_cost_calculatorInput;
     const result = calculateFreight_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

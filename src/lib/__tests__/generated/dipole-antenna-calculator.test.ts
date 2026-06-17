@@ -11,7 +11,7 @@ describe("dipole-antenna-calculator", () => {
     "frequency": 145.5,
     "velocityFactor": 0.95,
     "auto_input_3": 1
-  } as Dipole_antenna_calculatorInput;
+  } as unknown as Dipole_antenna_calculatorInput;
     const result = calculateDipole_antenna_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

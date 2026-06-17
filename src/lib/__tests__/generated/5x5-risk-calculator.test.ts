@@ -12,7 +12,7 @@ describe("5x5-risk-calculator", () => {
     "impact": 5,
     "probabilityWeight": 1,
     "impactWeight": 1
-  } as _5x5_risk_calculatorInput;
+  } as unknown as _5x5_risk_calculatorInput;
     const result = calculate_5x5_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

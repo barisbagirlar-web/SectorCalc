@@ -14,7 +14,7 @@ describe("ebay-fee-calculator", () => {
     "fixedFinalValueFee": 0.3,
     "insertionFee": 0.35,
     "listingUpgradeFee": 0
-  } as Ebay_fee_calculatorInput;
+  } as unknown as Ebay_fee_calculatorInput;
     const result = calculateEbay_fee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("acute-chronic-workload-ratio-calculator", () => {
     "chronicLoad": 400,
     "chronicPeriodDays": 28,
     "acwrThreshold": 1.5
-  } as Acute_chronic_workload_ratio_calculatorInput;
+  } as unknown as Acute_chronic_workload_ratio_calculatorInput;
     const result = calculateAcute_chronic_workload_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

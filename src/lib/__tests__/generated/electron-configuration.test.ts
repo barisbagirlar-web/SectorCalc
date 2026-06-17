@@ -13,7 +13,7 @@ describe("electron-configuration", () => {
     "n2": 2,
     "screening": 0,
     "rydberg": 13.6
-  } as Electron_configurationInput;
+  } as unknown as Electron_configurationInput;
     const result = calculateElectron_configuration(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("wiens-displacement-law-calculator", () => {
     "constant_b": 0.002897771955,
     "constant_b_freq": 58789257570,
     "wavelength_scale": 1000000000
-  } as Wiens_displacement_law_calculatorInput;
+  } as unknown as Wiens_displacement_law_calculatorInput;
     const result = calculateWiens_displacement_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

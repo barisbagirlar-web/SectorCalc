@@ -14,7 +14,7 @@ describe("ev-ebitda-calculator", () => {
     "preferred_stock": 0,
     "cash_equivalents": 0,
     "ebitda": 0
-  } as Ev_ebitda_calculatorInput;
+  } as unknown as Ev_ebitda_calculatorInput;
     const result = calculateEv_ebitda_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

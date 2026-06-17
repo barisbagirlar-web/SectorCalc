@@ -12,7 +12,7 @@ describe("parallel-resistor-calculator", () => {
     "resistor2": 2000,
     "resistor3": 3000,
     "resistor4": 4000
-  } as Parallel_resistor_calculatorInput;
+  } as unknown as Parallel_resistor_calculatorInput;
     const result = calculateParallel_resistor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("days-inventory-outstanding-calculator", () => {
     "costOfGoodsSold": 0,
     "periodDays": 365,
     "inventoryTurnover": 0
-  } as Days_inventory_outstanding_calculatorInput;
+  } as unknown as Days_inventory_outstanding_calculatorInput;
     const result = calculateDays_inventory_outstanding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

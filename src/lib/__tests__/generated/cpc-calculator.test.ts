@@ -12,7 +12,7 @@ describe("cpc-calculator", () => {
     "clicks": 500,
     "impressions": 10000,
     "conversions": 50
-  } as Cpc_calculatorInput;
+  } as unknown as Cpc_calculatorInput;
     const result = calculateCpc_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

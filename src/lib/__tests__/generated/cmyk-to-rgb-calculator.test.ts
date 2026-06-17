@@ -12,7 +12,7 @@ describe("cmyk-to-rgb-calculator", () => {
     "magenta": 0,
     "yellow": 0,
     "black": 0
-  } as Cmyk_to_rgb_calculatorInput;
+  } as unknown as Cmyk_to_rgb_calculatorInput;
     const result = calculateCmyk_to_rgb_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

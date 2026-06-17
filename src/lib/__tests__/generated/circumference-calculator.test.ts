@@ -13,7 +13,7 @@ describe("circumference-calculator", () => {
     "area": 0,
     "conversionFactor": 1,
     "decimalPlaces": 2
-  } as Circumference_calculatorInput;
+  } as unknown as Circumference_calculatorInput;
     const result = calculateCircumference_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

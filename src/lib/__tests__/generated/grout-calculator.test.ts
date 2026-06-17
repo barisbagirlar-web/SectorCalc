@@ -15,7 +15,7 @@ describe("grout-calculator", () => {
     "totalArea": 10,
     "wasteFactor": 5,
     "bagYield": 0.012
-  } as Grout_calculatorInput;
+  } as unknown as Grout_calculatorInput;
     const result = calculateGrout_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

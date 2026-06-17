@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "First decimal operand for calculation",
-        "tr": "Hesaplama için ilk ondalık işlenen"
+        "tr": "Hesaplama için ilk ondalık işlenen",
+        "de": "Erster Dezimaloperand für die Berechnung"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Second decimal operand for calculation",
-        "tr": "Hesaplama için ikinci ondalık işlenen"
+        "tr": "Hesaplama için ikinci ondalık işlenen",
+        "de": "Zweiter Dezimaloperand für die Berechnung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Operation Type",
         "tr": "İşlem Türü",
-        "de": "Operation Type",
+        "de": "Operationstyp",
         "fr": "Operation Type",
         "es": "Operation Type",
         "ar": "Operation Type"
       },
       "businessContext_i18n": {
         "en": "Operation code: 1-Add, 2-Subtract, 3-Multiply, 4-Divide",
-        "tr": "İşlem kodu: 1-Toplama, 2-Çıkarma, 3-Çarpma, 4-Bölme"
+        "tr": "İşlem kodu: 1-Toplama, 2-Çıkarma, 3-Çarpma, 4-Bölme",
+        "de": "Operationscode: 1-Addieren, 2-Subtrahieren, 3-Multiplizieren, 4-Dividieren"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
-        "de": "Decimal Precision",
+        "de": "Dezimalgenauigkeit",
         "fr": "Decimal Precision",
         "es": "Decimal Precision",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places in the rounded result",
-        "tr": "Yuvarlanmış sonuçtaki ondalık basamak sayısı"
+        "tr": "Yuvarlanmış sonuçtaki ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen im gerundeten Ergebnis"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Rounding Mode",
         "tr": "Yuvarlama Modu",
-        "de": "Rounding Mode",
+        "de": "Rundungsmodus",
         "fr": "Rounding Mode",
         "es": "Rounding Mode",
         "ar": "Rounding Mode"
       },
       "businessContext_i18n": {
         "en": "Rounding method: 0-standard rounding (half up), 1-floor, 2-ceil, 3-truncate",
-        "tr": "Yuvarlama yöntemi: 0-standart yuvarlama (yarı yukarı), 1-taban, 2-tavan, 3-kes"
+        "tr": "Yuvarlama yöntemi: 0-standart yuvarlama (yarı yukarı), 1-taban, 2-tavan, 3-kes",
+        "de": "Rundungsmethode: 0-Standardrundung (kaufmännisch), 1-Abrunden, 2-Aufrunden, 3-Abschneiden"
       }
     }
   ],

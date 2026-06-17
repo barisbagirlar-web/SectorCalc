@@ -14,7 +14,7 @@ describe("payroll-tax-calculator", () => {
     "taxRate3": 30,
     "bracket1Limit": 20000,
     "bracket2Limit": 50000
-  } as Payroll_tax_calculatorInput;
+  } as unknown as Payroll_tax_calculatorInput;
     const result = calculatePayroll_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

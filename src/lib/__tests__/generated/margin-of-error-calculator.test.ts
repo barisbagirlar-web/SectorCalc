@@ -12,7 +12,7 @@ describe("margin-of-error-calculator", () => {
     "confidence_level": 95,
     "z_score": 1.96,
     "sample_proportion": 0.5
-  } as Margin_of_error_calculatorInput;
+  } as unknown as Margin_of_error_calculatorInput;
     const result = calculateMargin_of_error_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("running-speed-calculator", () => {
     "time_hours": 0,
     "time_minutes": 30,
     "time_seconds": 0
-  } as Running_speed_calculatorInput;
+  } as unknown as Running_speed_calculatorInput;
     const result = calculateRunning_speed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("convertible-note-calculator", () => {
     "interestRate": 5,
     "maturity": 2,
     "preMoneyFullyDilutedShares": 10000000
-  } as Convertible_note_calculatorInput;
+  } as unknown as Convertible_note_calculatorInput;
     const result = calculateConvertible_note_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

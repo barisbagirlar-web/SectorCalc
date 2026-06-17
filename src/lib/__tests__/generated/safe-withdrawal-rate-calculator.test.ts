@@ -12,7 +12,7 @@ describe("safe-withdrawal-rate-calculator", () => {
     "expectedReturnRate": 7,
     "inflationRate": 3,
     "retirementYears": 30
-  } as Safe_withdrawal_rate_calculatorInput;
+  } as unknown as Safe_withdrawal_rate_calculatorInput;
     const result = calculateSafe_withdrawal_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

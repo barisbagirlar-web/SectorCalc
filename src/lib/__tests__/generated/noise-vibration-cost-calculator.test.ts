@@ -16,7 +16,7 @@ describe("noise-vibration-cost-calculator", () => {
     "maintenance_cost_per_machine_per_year": 5000,
     "number_of_machines": 5,
     "avg_worker_annual_salary": 45000
-  } as Noise_vibration_cost_calculatorInput;
+  } as unknown as Noise_vibration_cost_calculatorInput;
     const result = calculateNoise_vibration_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("ai-compute-token-cost-calculator", () => {
     "gpu_hourly_cost": 2.5,
     "overhead_factor": 15,
     "enable_data_confidence": true
-  } as Ai_compute_token_cost_calculatorInput;
+  } as unknown as Ai_compute_token_cost_calculatorInput;
     const result = calculateAi_compute_token_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

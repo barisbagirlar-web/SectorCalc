@@ -12,7 +12,7 @@ describe("soccer-vo2-max-calculator", () => {
     "maxSpeed": 12,
     "age": 25,
     "distance": 2000
-  } as Soccer_vo2_max_calculatorInput;
+  } as unknown as Soccer_vo2_max_calculatorInput;
     const result = calculateSoccer_vo2_max_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

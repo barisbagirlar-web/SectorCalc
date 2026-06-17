@@ -12,7 +12,7 @@ describe("rock-climbing-calculator", () => {
     "ropeLength": 30,
     "fallLength": 5,
     "ropeImpactForceRating": 8.5
-  } as Rock_climbing_calculatorInput;
+  } as unknown as Rock_climbing_calculatorInput;
     const result = calculateRock_climbing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

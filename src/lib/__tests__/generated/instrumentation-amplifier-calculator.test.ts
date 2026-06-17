@@ -13,7 +13,7 @@ describe("instrumentation-amplifier-calculator", () => {
     "vinPlus": 0.01,
     "vinMinus": 0,
     "vref": 0
-  } as Instrumentation_amplifier_calculatorInput;
+  } as unknown as Instrumentation_amplifier_calculatorInput;
     const result = calculateInstrumentation_amplifier_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

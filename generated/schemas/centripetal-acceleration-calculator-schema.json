@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Velocity (m/s)",
         "tr": "Hız (m/s)",
-        "de": "Velocity (m/s)",
+        "de": "Geschwindigkeit (m/s)",
         "fr": "Velocity (m/s)",
         "es": "Velocity (m/s)",
         "ar": "Velocity (m/s)"
       },
       "businessContext_i18n": {
         "en": "Tangential velocity in meters per second",
-        "tr": "Saniyede metre cinsinden teğetsel hız"
+        "tr": "Saniyede metre cinsinden teğetsel hız",
+        "de": "Tangentialgeschwindigkeit in Metern pro Sekunde"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Velocity (km/h)",
         "tr": "Hız (km/sa)",
-        "de": "Velocity (km/h)",
+        "de": "Geschwindigkeit (km/h)",
         "fr": "Velocity (km/h)",
         "es": "Velocity (km/h)",
         "ar": "Velocity (km/h)"
       },
       "businessContext_i18n": {
         "en": "Tangential velocity in kilometers per hour",
-        "tr": "Saatte kilometre cinsinden teğetsel hız"
+        "tr": "Saatte kilometre cinsinden teğetsel hız",
+        "de": "Tangentialgeschwindigkeit in Kilometern pro Stunde"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Velocity (mph)",
         "tr": "Hız (mph)",
-        "de": "Velocity (mph)",
+        "de": "Geschwindigkeit (mph)",
         "fr": "Velocity (mph)",
         "es": "Velocity (mph)",
         "ar": "Velocity (mph)"
       },
       "businessContext_i18n": {
         "en": "Tangential velocity in miles per hour",
-        "tr": "Saatte mil cinsinden teğetsel hız"
+        "tr": "Saatte mil cinsinden teğetsel hız",
+        "de": "Tangentialgeschwindigkeit in Meilen pro Stunde"
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Radius of circular path in meters",
-        "tr": "Dairesel yolun metre cinsinden yarıçapı"
+        "tr": "Dairesel yolun metre cinsinden yarıçapı",
+        "de": "Radius der Kreisbahn in Metern"
       }
     },
     {
@@ -98,7 +102,8 @@
       },
       "businessContext_i18n": {
         "en": "Radius of circular path in centimeters",
-        "tr": "Dairesel yolun santimetre cinsinden yarıçapı"
+        "tr": "Dairesel yolun santimetre cinsinden yarıçapı",
+        "de": "Radius der Kreisbahn in Zentimetern"
       }
     },
     {
@@ -118,7 +123,8 @@
       },
       "businessContext_i18n": {
         "en": "Radius of circular path in kilometers",
-        "tr": "Dairesel yolun kilometre cinsinden yarıçapı"
+        "tr": "Dairesel yolun kilometre cinsinden yarıçapı",
+        "de": "Radius der Kreisbahn in Kilometern"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Mass (kg)",
         "tr": "Kütle (kg)",
-        "de": "Mass (kg)",
+        "de": "Masse (kg)",
         "fr": "Mass (kg)",
         "es": "Mass (kg)",
         "ar": "Mass (kg)"
       },
       "businessContext_i18n": {
         "en": "Optional mass of object to compute centripetal force",
-        "tr": "Merkezcil kuvveti hesaplamak için isteğe bağlı nesne kütlesi"
+        "tr": "Merkezcil kuvveti hesaplamak için isteğe bağlı nesne kütlesi",
+        "de": "Optionale Masse des Objekts zur Berechnung der Zentripetalkraft"
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("gibbs-free-energy-calculator", () => {
     "gasConstant": 0.008314,
     "standardDeltaG": 0,
     "reactionQuotient": 1
-  } as Gibbs_free_energy_calculatorInput;
+  } as unknown as Gibbs_free_energy_calculatorInput;
     const result = calculateGibbs_free_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

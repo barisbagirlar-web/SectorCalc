@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Nominal Bolt Diameter",
         "tr": "Nominal Cıvata Çapı",
-        "de": "Nominal Bolt Diameter",
+        "de": "Nenndurchmesser des Bolzens",
         "fr": "Nominal Bolt Diameter",
         "es": "Nominal Bolt Diameter",
         "ar": "Nominal Bolt Diameter"
       },
       "businessContext_i18n": {
         "en": "The nominal diameter of the bolt's thread.",
-        "tr": "Cıvata dişinin nominal çapı."
+        "tr": "Cıvata dişinin nominal çapı.",
+        "de": "Der Nenndurchmesser des Bolzengewindes."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Thread Pitch",
         "tr": "Diş Adımı",
-        "de": "Thread Pitch",
+        "de": "Gewindesteigung",
         "fr": "Thread Pitch",
         "es": "Thread Pitch",
         "ar": "Thread Pitch"
       },
       "businessContext_i18n": {
         "en": "The distance between adjacent thread crests. For standard coarse threads, refer to ISO 724.",
-        "tr": "Ardışık diş tepeleri arasındaki mesafe. Standart kaba dişler için ISO 724'e bakın."
+        "tr": "Ardışık diş tepeleri arasındaki mesafe. Standart kaba dişler için ISO 724'e bakın.",
+        "de": "Der Abstand zwischen benachbarten Gewindespitzen. Für Standard-Regelgewinde siehe ISO 724."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Material Yield Strength",
         "tr": "Malzeme Akma Dayanımı",
-        "de": "Material Yield Strength",
+        "de": "Streckgrenze des Materials",
         "fr": "Material Yield Strength",
         "es": "Material Yield Strength",
         "ar": "Material Yield Strength"
       },
       "businessContext_i18n": {
         "en": "Yield strength of the bolt material (e.g., 640 MPa for Grade 8.8).",
-        "tr": "Cıvata malzemesinin akma dayanımı (örn. 8.8 kalite için 640 MPa)."
+        "tr": "Cıvata malzemesinin akma dayanımı (örn. 8.8 kalite için 640 MPa).",
+        "de": "Streckgrenze des Bolzenmaterials (z. B. 640 MPa für Güte 8.8)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
-        "de": "Safety Factor",
+        "de": "Sicherheitsfaktor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety factor to ensure the bolt remains below yield under service loads.",
-        "tr": "Cıvatanın servis yükleri altında akma sınırının altında kalmasını sağlayan tasarım güvenlik faktörü."
+        "tr": "Cıvatanın servis yükleri altında akma sınırının altında kalmasını sağlayan tasarım güvenlik faktörü.",
+        "de": "Sicherheitsfaktor, um sicherzustellen, dass der Bolzen unter Betriebslast unterhalb der Streckgrenze bleibt."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Nut Factor (K)",
         "tr": "Somun Faktörü (K)",
-        "de": "Nut Factor (K)",
+        "de": "Mutterfaktor (K)",
         "fr": "Nut Factor (K)",
         "es": "Nut Factor (K)",
         "ar": "Nut Factor (K)"
       },
       "businessContext_i18n": {
         "en": "Empirical factor accounting for thread friction and underhead friction. Typical dry steel: 0.2.",
-        "tr": "Diş sürtünmesi ve baş altı sürtünmesini hesaba katan ampirik faktör. Tipik kuru çelik: 0,2."
+        "tr": "Diş sürtünmesi ve baş altı sürtünmesini hesaba katan ampirik faktör. Tipik kuru çelik: 0,2.",
+        "de": "Empirischer Faktor für Reibung im Gewinde und unter dem Kopf. Typisch für trockenen Stahl: 0,2."
       }
     }
   ],

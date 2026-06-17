@@ -13,7 +13,7 @@ describe("flight-carbon-footprint-calculator", () => {
     "emission_factor_kg_per_liter": 2.52,
     "class_multiplier": 1,
     "radiative_forcing_index": 1.9
-  } as Flight_carbon_footprint_calculatorInput;
+  } as unknown as Flight_carbon_footprint_calculatorInput;
     const result = calculateFlight_carbon_footprint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

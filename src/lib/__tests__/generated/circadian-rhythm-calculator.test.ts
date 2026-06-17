@@ -13,7 +13,7 @@ describe("circadian-rhythm-calculator", () => {
     "sleepDuration": 7.5,
     "circadianAmplitude": 30,
     "baselineAlertness": 70
-  } as Circadian_rhythm_calculatorInput;
+  } as unknown as Circadian_rhythm_calculatorInput;
     const result = calculateCircadian_rhythm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

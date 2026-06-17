@@ -13,7 +13,7 @@ describe("flour-cup-to-grams-calculator", () => {
     "packingFactor": 1,
     "humidityFactor": 1,
     "scaleCalibration": 1
-  } as Flour_cup_to_grams_calculatorInput;
+  } as unknown as Flour_cup_to_grams_calculatorInput;
     const result = calculateFlour_cup_to_grams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

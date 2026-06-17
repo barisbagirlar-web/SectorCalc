@@ -1,18 +1,15 @@
 /**
- * Regeneration baseline — slug lists only (premium-slugs.json).
- * Legacy marketing/calculation specs removed; routes use /tools/generated/[slug].
+ * Revenue registry — legacy 27-sector specs + premium-slugs.json regeneration baseline.
  */
 
 import type { ToolDefinition, ToolResult } from "@/data/tool-schema";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import { FULL_LOOP_CONTRACT_ALIAS } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { getToolHref } from "@/lib/tools/paths";
 import { resolveLegacyPremiumSlug } from "@/lib/tools/legacy-premium-slug-redirects";
-import {
-  hasCanonicalToolCatalog,
-  isCanonicalFreeSlug,
-  isCanonicalPremiumSlug,
-} from "@/lib/tools/canonical-tool-slugs";
+import { additionalRevenueTools } from "@/lib/tools/revenue-tools-additional";
+import { legacyRevenueToolsCore } from "@/lib/tools/legacy-revenue-tools-core";
 import premiumSlugs from "../../../premium-slugs.json";
 
 export type RevenueSector = IndustrySlug;
@@ -131,7 +128,7 @@ function humanizeSlug(slug: string): string {
   return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-function buildPremiumSlugTool(slug: string): RevenueTool {
+function buildRegeneratedPremiumSlugTool(slug: string): RevenueTool {
   const title = humanizeSlug(slug);
   const pending = "Regeneration pending.";
   return {
@@ -161,7 +158,21 @@ function buildPremiumSlugTool(slug: string): RevenueTool {
   };
 }
 
-export const REVENUE_TOOLS: RevenueTool[] = (premiumSlugs as readonly string[]).map(buildPremiumSlugTool);
+const LEGACY_REVENUE_TOOLS: RevenueTool[] = [
+  ...legacyRevenueToolsCore,
+  ...additionalRevenueTools,
+];
+
+const LEGACY_PAID_SLUGS = new Set(LEGACY_REVENUE_TOOLS.map((tool) => tool.paidSlug));
+
+const REGENERATED_REVENUE_TOOLS: RevenueTool[] = (premiumSlugs as readonly string[])
+  .map(buildRegeneratedPremiumSlugTool)
+  .filter((tool) => !LEGACY_PAID_SLUGS.has(tool.freeSlug) && !LEGACY_PAID_SLUGS.has(tool.paidSlug));
+
+export const REVENUE_TOOLS: RevenueTool[] = [
+  ...LEGACY_REVENUE_TOOLS,
+  ...REGENERATED_REVENUE_TOOLS,
+];
 
 export function getRevenueTools(): readonly RevenueTool[] {
   return REVENUE_TOOLS;
@@ -185,54 +196,36 @@ export function getRevenueToolByFreeSlug(slug: string): RevenueTool | null {
 }
 
 export function getRevenueToolByPaidSlug(slug: string): RevenueTool | null {
-  return (
-    REVENUE_TOOLS.find((t) => t.paidSlug === slug || t.freeSlug === slug) ?? null
-  );
+  return REVENUE_TOOLS.find((tool) => tool.paidSlug === slug) ?? null;
 }
 
 export function getRevenueToolByPremiumRouteSlug(slug: string): RevenueTool | null {
-  return getRevenueToolByPaidSlug(slug);
+  const byPaid = getRevenueToolByPaidSlug(slug);
+  if (byPaid) {
+    return byPaid;
+  }
+  if (slug in FULL_LOOP_CONTRACT_ALIAS) {
+    return getRevenueToolByFreeSlug(slug);
+  }
+  return null;
 }
 
 export function getPremiumRevenueRouteSlugs(): readonly string[] {
-  return REVENUE_TOOLS.map((t) => t.paidSlug);
+  const funnelSlugs = Object.keys(FULL_LOOP_CONTRACT_ALIAS);
+  return [
+    ...new Set([
+      ...REVENUE_TOOLS.map((tool) => tool.paidSlug),
+      ...funnelSlugs,
+    ]),
+  ];
 }
 
 export function getRevenueToolByPremiumSlug(slug: string): RevenueTool | null {
   return getRevenueToolByPaidSlug(slug);
 }
 
-const LEGACY_SECTOR_SLUGS: Partial<
-  Record<IndustrySlug, { readonly freeSlug: string; readonly paidSlug: string }>
-> = {
-  "cnc-manufacturing": { freeSlug: "machine-time-calculator", paidSlug: "cnc-quote-risk-analyzer" },
-  construction: { freeSlug: "project-cost-calculator", paidSlug: "change-order-impact-analyzer" },
-  cleaning: { freeSlug: "cleaning-cost-calculator", paidSlug: "office-cleaning-bid-optimizer" },
-  restaurant: { freeSlug: "food-cost-calculator", paidSlug: "menu-profit-leak-detector" },
-  ecommerce: { freeSlug: "product-margin-calculator", paidSlug: "return-profit-erosion-tool" },
-};
-
 export function getRevenueToolBySector(sector: RevenueSector): RevenueTool | null {
-  const legacy = LEGACY_SECTOR_SLUGS[sector];
-  if (!legacy) {
-    return null;
-  }
-
-  const freeSlug = resolveLegacyPremiumSlug(legacy.freeSlug) ?? legacy.freeSlug;
-  const paidSlug = resolveLegacyPremiumSlug(legacy.paidSlug) ?? legacy.paidSlug;
-  const freeTitle = getLocalizedRevenueToolTitle(legacy.freeSlug, "free", "en", humanizeSlug(freeSlug));
-  const paidTitle = getLocalizedRevenueToolTitle(legacy.paidSlug, "paid", "en", humanizeSlug(paidSlug));
-
-  return {
-    ...buildPremiumSlugTool(freeSlug),
-    sector,
-    freeSlug,
-    paidSlug,
-    freeTitle,
-    paidTitle,
-    paidValue: paidTitle,
-    premiumTeaserTitle: paidTitle,
-  };
+  return REVENUE_TOOLS.find((tool) => tool.sector === sector) ?? null;
 }
 
 export function getAllRevenueToolSpecs(): readonly RevenueTool[] {
@@ -254,17 +247,67 @@ export function isProSubscriptionActive(
 }
 
 export function applyRevenueToolDisplay(definition: ToolDefinition): ToolDefinition {
-  return definition;
+  const revenue =
+    definition.tier === "free"
+      ? getRevenueToolByFreeSlug(definition.slug)
+      : getRevenueToolByPremiumSlug(definition.slug);
+
+  if (!revenue) {
+    return definition;
+  }
+
+  const title = definition.tier === "free" ? revenue.freeTitle : revenue.paidTitle;
+
+  return {
+    ...definition,
+    title,
+    shortDescription: definition.tier === "free" ? revenue.freeValue : revenue.paidValue,
+    longDescription: definition.tier === "free" ? revenue.painStatement : revenue.paidValue,
+    premiumTeaser:
+      definition.tier === "free"
+        ? {
+            title: revenue.premiumTeaserTitle,
+            text: revenue.premiumTeaserText,
+            ctaLabel: revenue.premiumCtaLabel,
+            ctaHref: getToolHref("premium", revenue.paidSlug),
+          }
+        : definition.premiumTeaser,
+  };
 }
 
 export function getVisibleInputs(definition: ToolDefinition) {
-  return definition.inputs;
+  if (definition.tier !== "free") {
+    return definition.inputs;
+  }
+
+  const revenue = getRevenueToolByFreeSlug(definition.slug);
+  if (!revenue) {
+    return definition.inputs;
+  }
+
+  const allowed = new Set(revenue.freeCalculatorInputIds);
+  return definition.inputs.filter((input) => allowed.has(input.id));
 }
 
-export function filterFreeResults(_definition: ToolDefinition, results: ToolResult[]) {
-  return results;
+export function filterFreeResults(definition: ToolDefinition, results: ToolResult[]) {
+  if (definition.tier !== "free") {
+    return results;
+  }
+
+  const revenue = getRevenueToolByFreeSlug(definition.slug);
+  if (!revenue) {
+    return results;
+  }
+
+  const allowed = new Set(revenue.freeResultIds);
+  return results.filter((result) => allowed.has(result.id));
 }
 
-export function stripPaidOnlyResults(_definition: ToolDefinition, results: ToolResult[]) {
-  return results;
+export function stripPaidOnlyResults(definition: ToolDefinition, results: ToolResult[]): ToolResult[] {
+  if (definition.tier !== "free") {
+    return results;
+  }
+
+  const blocked = /safe|minimum|verdict|leak|bid risk|do not accept/i;
+  return results.filter((result) => !blocked.test(result.label));
 }

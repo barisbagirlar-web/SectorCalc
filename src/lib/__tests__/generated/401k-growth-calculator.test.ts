@@ -15,7 +15,7 @@ describe("401k-growth-calculator", () => {
     "salary": 100000,
     "employerMatch": 3,
     "annualReturn": 7
-  } as _401k_growth_calculatorInput;
+  } as unknown as _401k_growth_calculatorInput;
     const result = calculate_401k_growth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

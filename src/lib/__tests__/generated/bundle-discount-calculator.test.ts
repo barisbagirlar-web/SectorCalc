@@ -14,7 +14,7 @@ describe("bundle-discount-calculator", () => {
     "bundleDiscountPercent": 10,
     "bulkThreshold": 10,
     "bulkDiscountPercent": 5
-  } as Bundle_discount_calculatorInput;
+  } as unknown as Bundle_discount_calculatorInput;
     const result = calculateBundle_discount_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

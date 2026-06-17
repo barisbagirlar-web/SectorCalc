@@ -12,7 +12,7 @@ describe("basal-metabolic-rate", () => {
     "height": 170,
     "age": 30,
     "gender": 1
-  } as Basal_metabolic_rateInput;
+  } as unknown as Basal_metabolic_rateInput;
     const result = calculateBasal_metabolic_rate(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

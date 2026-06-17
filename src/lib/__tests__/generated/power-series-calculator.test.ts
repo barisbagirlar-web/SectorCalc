@@ -14,7 +14,7 @@ describe("power-series-calculator", () => {
     "a2": 0,
     "a3": 0,
     "a4": 0
-  } as Power_series_calculatorInput;
+  } as unknown as Power_series_calculatorInput;
     const result = calculatePower_series_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

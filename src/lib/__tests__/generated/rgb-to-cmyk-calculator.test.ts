@@ -13,7 +13,7 @@ describe("rgb-to-cmyk-calculator", () => {
     "blue": 0,
     "maxValue": 255,
     "scale": 100
-  } as Rgb_to_cmyk_calculatorInput;
+  } as unknown as Rgb_to_cmyk_calculatorInput;
     const result = calculateRgb_to_cmyk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

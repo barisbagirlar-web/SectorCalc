@@ -16,7 +16,7 @@ describe("iso-50001-energy-baseline-calculator", () => {
     "energy_source_mix": "Electricity only",
     "baseline_type": "Fixed baseline",
     "use_weather_normalization": true
-  } as Iso_50001_energy_baseline_calculatorInput;
+  } as unknown as Iso_50001_energy_baseline_calculatorInput;
     const result = calculateIso_50001_energy_baseline_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

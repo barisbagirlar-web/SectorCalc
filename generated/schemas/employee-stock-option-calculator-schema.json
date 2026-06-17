@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Grant Price (Strike Price)",
         "tr": "Hisse Senedi Kullanım Fiyatı (Kullanım Fiyatı)",
-        "de": "Grant Price (Strike Price)",
+        "de": "Zuteilungspreis (Basispreis)",
         "fr": "Grant Price (Strike Price)",
         "es": "Grant Price (Strike Price)",
         "ar": "Grant Price (Strike Price)"
       },
       "businessContext_i18n": {
         "en": "The price at which the employee can purchase the stock.",
-        "tr": "Çalışanın hisse senedini satın alabileceği fiyat."
+        "tr": "Çalışanın hisse senedini satın alabileceği fiyat.",
+        "de": "Der Preis, zu dem der Mitarbeiter die Aktie kaufen kann."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Current Stock Price",
         "tr": "Mevcut Hisse Senedi Fiyatı",
-        "de": "Current Stock Price",
+        "de": "Aktueller Aktienkurs",
         "fr": "Current Stock Price",
         "es": "Current Stock Price",
         "ar": "Current Stock Price"
       },
       "businessContext_i18n": {
         "en": "Current market price of the company stock.",
-        "tr": "Şirket hissesinin güncel piyasa fiyatı."
+        "tr": "Şirket hissesinin güncel piyasa fiyatı.",
+        "de": "Aktueller Marktpreis der Unternehmensaktie."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Options Granted",
         "tr": "Verilen Opsiyon Sayısı",
-        "de": "Number of Options Granted",
+        "de": "Anzahl der gewährten Optionen",
         "fr": "Number of Options Granted",
         "es": "Number of Options Granted",
         "ar": "Number of Options Granted"
       },
       "businessContext_i18n": {
         "en": "Total number of stock options granted to the employee.",
-        "tr": "Çalışana verilen toplam hisse senedi opsiyonu sayısı."
+        "tr": "Çalışana verilen toplam hisse senedi opsiyonu sayısı.",
+        "de": "Gesamtzahl der dem Mitarbeiter gewährten Aktienoptionen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Vested Options",
         "tr": "Hak Edilen Opsiyonlar",
-        "de": "Vested Options",
+        "de": "Unverfallbare Optionen",
         "fr": "Vested Options",
         "es": "Vested Options",
         "ar": "Vested Options"
       },
       "businessContext_i18n": {
         "en": "Number of options that have vested and are exercisable.",
-        "tr": "Hak edilmiş ve kullanılabilir opsiyon sayısı."
+        "tr": "Hak edilmiş ve kullanılabilir opsiyon sayısı.",
+        "de": "Anzahl der Optionen, die unverfallbar und ausübbar sind."
       }
     }
   ],

@@ -16,7 +16,7 @@ describe("calibration-drift-risk-calculator", () => {
     "criticality_level": "medium",
     "historical_failure_rate": 3,
     "data_confidence_score": 85
-  } as Calibration_drift_risk_calculatorInput;
+  } as unknown as Calibration_drift_risk_calculatorInput;
     const result = calculateCalibration_drift_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

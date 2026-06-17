@@ -12,7 +12,7 @@ describe("henderson-hasselbalch-calculator", () => {
     "conc_acid": 0.1,
     "conc_base": 0.1,
     "temperature": 25
-  } as Henderson_hasselbalch_calculatorInput;
+  } as unknown as Henderson_hasselbalch_calculatorInput;
     const result = calculateHenderson_hasselbalch_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

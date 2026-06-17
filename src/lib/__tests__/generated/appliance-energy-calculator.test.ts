@@ -14,7 +14,7 @@ describe("appliance-energy-calculator", () => {
     "electricityCost": 0.12,
     "applianceCount": 1,
     "standbyPower": 0
-  } as Appliance_energy_calculatorInput;
+  } as unknown as Appliance_energy_calculatorInput;
     const result = calculateAppliance_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

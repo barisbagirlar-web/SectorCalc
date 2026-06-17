@@ -12,7 +12,7 @@ describe("gradian-calculator", () => {
     "deg": 0,
     "rad": 0,
     "multiplier": 1
-  } as Gradian_calculatorInput;
+  } as unknown as Gradian_calculatorInput;
     const result = calculateGradian_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

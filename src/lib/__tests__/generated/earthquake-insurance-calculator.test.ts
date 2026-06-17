@@ -13,7 +13,7 @@ describe("earthquake-insurance-calculator", () => {
     "constructionType": 1,
     "buildingAge": 10,
     "deductible": 2
-  } as Earthquake_insurance_calculatorInput;
+  } as unknown as Earthquake_insurance_calculatorInput;
     const result = calculateEarthquake_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

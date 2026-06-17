@@ -14,7 +14,7 @@ describe("factory-layout-distance-optimizer-calculator", () => {
     "path_efficiency_factor": 0.85,
     "layout_type": "process",
     "use_weighted_distance": true
-  } as Factory_layout_distance_optimizer_calculatorInput;
+  } as unknown as Factory_layout_distance_optimizer_calculatorInput;
     const result = calculateFactory_layout_distance_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

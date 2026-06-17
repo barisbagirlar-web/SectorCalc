@@ -14,7 +14,7 @@ describe("polynomial-calculator", () => {
     "a1": 1,
     "a0": 0,
     "x": 1
-  } as Polynomial_calculatorInput;
+  } as unknown as Polynomial_calculatorInput;
     const result = calculatePolynomial_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

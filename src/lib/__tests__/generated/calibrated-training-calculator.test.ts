@@ -14,7 +14,7 @@ describe("calibrated-training-calculator", () => {
     "hourlyCost": 100,
     "scrapRateBefore": 5,
     "scrapRateAfter": 2
-  } as Calibrated_training_calculatorInput;
+  } as unknown as Calibrated_training_calculatorInput;
     const result = calculateCalibrated_training_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

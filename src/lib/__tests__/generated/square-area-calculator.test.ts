@@ -13,7 +13,7 @@ describe("square-area-calculator", () => {
     "toleranceMinus": 0,
     "unitMultiplier": 1,
     "decimals": 2
-  } as Square_area_calculatorInput;
+  } as unknown as Square_area_calculatorInput;
     const result = calculateSquare_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("grace-score-calculator", () => {
     "environment_severity": 3,
     "last_inspection_score": 80,
     "operator_experience": 5
-  } as Grace_score_calculatorInput;
+  } as unknown as Grace_score_calculatorInput;
     const result = calculateGrace_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

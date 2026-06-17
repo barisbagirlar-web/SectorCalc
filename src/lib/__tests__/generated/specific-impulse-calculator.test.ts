@@ -9,7 +9,7 @@ describe("specific-impulse-calculator", () => {
   it("calculates with schema default inputs", () => {
     const input = {
     "standardGravity": 9.80665
-  } as Specific_impulse_calculatorInput;
+  } as unknown as Specific_impulse_calculatorInput;
     const result = calculateSpecific_impulse_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

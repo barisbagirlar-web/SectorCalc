@@ -14,7 +14,7 @@ describe("sheet-pile-calculator", () => {
     "steelDensity": 7850,
     "unitCost": 1.2,
     "installationCostPerPile": 50
-  } as Sheet_pile_calculatorInput;
+  } as unknown as Sheet_pile_calculatorInput;
     const result = calculateSheet_pile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

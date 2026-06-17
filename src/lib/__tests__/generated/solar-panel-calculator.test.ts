@@ -16,7 +16,7 @@ describe("solar-panel-calculator", () => {
     "azimuthAngle": 0,
     "latitude": 41,
     "annualSunHours": 2000
-  } as Solar_panel_calculatorInput;
+  } as unknown as Solar_panel_calculatorInput;
     const result = calculateSolar_panel_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

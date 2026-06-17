@@ -14,7 +14,7 @@ describe("drink-calculator", () => {
     "mixerCostPerL": 2,
     "otherCost": 0.1,
     "marginPercent": 70
-  } as Drink_calculatorInput;
+  } as unknown as Drink_calculatorInput;
     const result = calculateDrink_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

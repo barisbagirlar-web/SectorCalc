@@ -14,7 +14,7 @@ describe("student-aid-index-calculator", () => {
     "studentAssets": 0,
     "familySize": 4,
     "numberInCollege": 1
-  } as Student_aid_index_calculatorInput;
+  } as unknown as Student_aid_index_calculatorInput;
     const result = calculateStudent_aid_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

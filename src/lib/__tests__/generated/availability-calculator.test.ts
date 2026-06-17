@@ -13,7 +13,7 @@ describe("availability-calculator", () => {
     "plannedDowntime": 20,
     "numberOfFailures": 2,
     "meanTimeToRepair": 15
-  } as Availability_calculatorInput;
+  } as unknown as Availability_calculatorInput;
     const result = calculateAvailability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("dropshipping-profit-calculator", () => {
     "orderVolume": 100,
     "fixedCosts": 200,
     "feePercentage": 3
-  } as Dropshipping_profit_calculatorInput;
+  } as unknown as Dropshipping_profit_calculatorInput;
     const result = calculateDropshipping_profit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

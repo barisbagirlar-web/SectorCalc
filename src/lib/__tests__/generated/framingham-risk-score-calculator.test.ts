@@ -14,7 +14,7 @@ describe("framingham-risk-score-calculator", () => {
     "hdlCholesterol": 50,
     "smokingStatus": 0,
     "bloodPressureTreatment": 0
-  } as Framingham_risk_score_calculatorInput;
+  } as unknown as Framingham_risk_score_calculatorInput;
     const result = calculateFramingham_risk_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

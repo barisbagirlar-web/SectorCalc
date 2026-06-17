@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Pressure (Pt)",
         "tr": "Toplam Basınç (Pt)",
-        "de": "Total Pressure (Pt)",
+        "de": "Gesamtdruck (Pt)",
         "fr": "Total Pressure (Pt)",
         "es": "Total Pressure (Pt)",
         "ar": "Total Pressure (Pt)"
       },
       "businessContext_i18n": {
         "en": "Pitot tube total pressure reading",
-        "tr": "Pitot tüpü toplam basınç okuması"
+        "tr": "Pitot tüpü toplam basınç okuması",
+        "de": "Pitot-Rohr Gesamtdruckmessung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Static Pressure (Ps)",
         "tr": "Statik Basınç (Ps)",
-        "de": "Static Pressure (Ps)",
+        "de": "Statischer Druck (Ps)",
         "fr": "Static Pressure (Ps)",
         "es": "Static Pressure (Ps)",
         "ar": "Static Pressure (Ps)"
       },
       "businessContext_i18n": {
         "en": "Static port pressure reading",
-        "tr": "Statik port basınç okuması"
+        "tr": "Statik port basınç okuması",
+        "de": "Statischer Druckanschluss"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Reference Pressure (P₀)",
         "tr": "Referans Basıncı (P₀)",
-        "de": "Reference Pressure (P₀)",
+        "de": "Referenzdruck (P₀)",
         "fr": "Reference Pressure (P₀)",
         "es": "Reference Pressure (P₀)",
         "ar": "Reference Pressure (P₀)"
       },
       "businessContext_i18n": {
         "en": "Standard sea level pressure (101325 Pa) used for calibration. Adjustable for non-standard conditions.",
-        "tr": "Kalibrasyon için kullanılan standart deniz seviyesi basıncı (101325 Pa). Standart dışı koşullar için ayarlanabilir."
+        "tr": "Kalibrasyon için kullanılan standart deniz seviyesi basıncı (101325 Pa). Standart dışı koşullar için ayarlanabilir.",
+        "de": "Standard-Meeresniveaudruck (101325 Pa) für Kalibrierung. Anpassbar für nicht-standard Bedingungen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Air Density (ρ₀)",
         "tr": "Hava Yoğunluğu (ρ₀)",
-        "de": "Air Density (ρ₀)",
+        "de": "Luftdichte (ρ₀)",
         "fr": "Air Density (ρ₀)",
         "es": "Air Density (ρ₀)",
         "ar": "Air Density (ρ₀)"
       },
       "businessContext_i18n": {
         "en": "Sea level standard air density (1.225 kg/m³). Adjustable for calibration.",
-        "tr": "Deniz seviyesi standart hava yoğunluğu (1,225 kg/m³). Kalibrasyon için ayarlanabilir."
+        "tr": "Deniz seviyesi standart hava yoğunluğu (1,225 kg/m³). Kalibrasyon için ayarlanabilir.",
+        "de": "Standard-Luftdichte auf Meereshöhe (1,225 kg/m³). Anpassbar für Kalibrierung."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Specific Heat Ratio (γ)",
         "tr": "Özgül Isı Oranı (γ)",
-        "de": "Specific Heat Ratio (γ)",
+        "de": "Isentropenexponent (γ)",
         "fr": "Specific Heat Ratio (γ)",
         "es": "Specific Heat Ratio (γ)",
         "ar": "Specific Heat Ratio (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats for air (1.4 standard).",
-        "tr": "Hava için özgül ısı oranı (1,4 standart)."
+        "tr": "Hava için özgül ısı oranı (1,4 standart).",
+        "de": "Isentropenexponent für Luft (1,4 Standard)."
       }
     }
   ],

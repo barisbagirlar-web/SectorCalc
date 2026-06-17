@@ -12,7 +12,7 @@ describe("months-to-years", () => {
     "monthsPerYear": 12,
     "precision": 2,
     "includeRemainder": 1
-  } as Months_to_yearsInput;
+  } as unknown as Months_to_yearsInput;
     const result = calculateMonths_to_years(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

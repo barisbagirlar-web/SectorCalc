@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Annual Income",
         "tr": "Yıllık Gelir",
-        "de": "Annual Income",
+        "de": "Jahreseinkommen",
         "fr": "Annual Income",
         "es": "Annual Income",
         "ar": "Annual Income"
       },
       "businessContext_i18n": {
         "en": "Gross annual income before disability",
-        "tr": "Engellilik öncesi brüt yıllık gelir"
+        "tr": "Engellilik öncesi brüt yıllık gelir",
+        "de": "Bruttojahreseinkommen vor Invalidität"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Income Replacement Ratio",
         "tr": "Gelir Değiştirme Oranı",
-        "de": "Income Replacement Ratio",
+        "de": "Einkommensersatzquote",
         "fr": "Income Replacement Ratio",
         "es": "Income Replacement Ratio",
         "ar": "Income Replacement Ratio"
       },
       "businessContext_i18n": {
         "en": "Percentage of income replaced by disability insurance",
-        "tr": "Engellilik sigortası tarafından değiştirilen gelir yüzdesi"
+        "tr": "Engellilik sigortası tarafından değiştirilen gelir yüzdesi",
+        "de": "Prozentsatz des Einkommens, der durch die Invaliditätsversicherung ersetzt wird"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Benefit Period",
         "tr": "Fayda Süresi",
-        "de": "Benefit Period",
+        "de": "Leistungsdauer",
         "fr": "Benefit Period",
         "es": "Benefit Period",
         "ar": "Benefit Period"
       },
       "businessContext_i18n": {
         "en": "Duration of disability benefit payments",
-        "tr": "Engellilik ödeme süresinin uzunluğu"
+        "tr": "Engellilik ödeme süresinin uzunluğu",
+        "de": "Dauer der Invaliditätsleistungen"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Waiting Period",
         "tr": "Bekleme Süresi",
-        "de": "Waiting Period",
+        "de": "Wartezeit",
         "fr": "Waiting Period",
         "es": "Waiting Period",
         "ar": "Waiting Period"
       },
       "businessContext_i18n": {
         "en": "Time after disability before benefits start",
-        "tr": "Engellilikten sonra faydaların başlamasından önceki süre"
+        "tr": "Engellilikten sonra faydaların başlamasından önceki süre",
+        "de": "Zeit nach Eintritt der Invalidität bis zum Beginn der Leistungen"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Annual Discount Rate",
         "tr": "Yıllık İskonto Oranı",
-        "de": "Annual Discount Rate",
+        "de": "Jährlicher Diskontsatz",
         "fr": "Annual Discount Rate",
         "es": "Annual Discount Rate",
         "ar": "Annual Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Rate used to calculate present value",
-        "tr": "Bugünkü değeri hesaplamak için kullanılan oran"
+        "tr": "Bugünkü değeri hesaplamak için kullanılan oran",
+        "de": "Zinssatz zur Berechnung des Barwerts"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Annual Inflation Rate",
         "tr": "Yıllık Enflasyon Oranı",
-        "de": "Annual Inflation Rate",
+        "de": "Jährliche Inflationsrate",
         "fr": "Annual Inflation Rate",
         "es": "Annual Inflation Rate",
         "ar": "Annual Inflation Rate"
       },
       "businessContext_i18n": {
         "en": "Expected inflation rate for benefit escalation (optional)",
-        "tr": "Fayda artışı için beklenen enflasyon oranı (isteğe bağlı)"
+        "tr": "Fayda artışı için beklenen enflasyon oranı (isteğe bağlı)",
+        "de": "Erwartete Inflationsrate für Leistungssteigerung (optional)"
       }
     }
   ],

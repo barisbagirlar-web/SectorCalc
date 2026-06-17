@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Filter Order (n)",
         "tr": "Filtre Derecesi (n)",
-        "de": "Filter Order (n)",
+        "de": "Filterordnung (n)",
         "fr": "Filter Order (n)",
         "es": "Filter Order (n)",
         "ar": "Filter Order (n)"
       },
       "businessContext_i18n": {
         "en": "Order of the Bessel filter (integer >= 1). Higher order gives steeper roll-off.",
-        "tr": "Bessel filtresinin derecesi (tam sayı >= 1). Yüksek derece daha dik geçiş sağlar."
+        "tr": "Bessel filtresinin derecesi (tam sayı >= 1). Yüksek derece daha dik geçiş sağlar.",
+        "de": "Ordnung des Bessel-Filters (ganze Zahl >= 1). Höhere Ordnung ergibt steileren Abfall."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cutoff Frequency (fc)",
         "tr": "Kesim Frekansı (fc)",
-        "de": "Cutoff Frequency (fc)",
+        "de": "Grenzfrequenz (fc)",
         "fr": "Cutoff Frequency (fc)",
         "es": "Cutoff Frequency (fc)",
         "ar": "Cutoff Frequency (fc)"
       },
       "businessContext_i18n": {
         "en": "The -3 dB cutoff frequency of the filter in Hz.",
-        "tr": "Filtrenin -3 dB kesim frekansı (Hz cinsinden)."
+        "tr": "Filtrenin -3 dB kesim frekansı (Hz cinsinden).",
+        "de": "Die -3-dB-Grenzfrequenz des Filters in Hz."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Sampling Frequency (fs)",
         "tr": "Örnekleme Frekansı (fs)",
-        "de": "Sampling Frequency (fs)",
+        "de": "Abtastfrequenz (fs)",
         "fr": "Sampling Frequency (fs)",
         "es": "Sampling Frequency (fs)",
         "ar": "Sampling Frequency (fs)"
       },
       "businessContext_i18n": {
         "en": "Sampling frequency for digital implementation (must be > 2*fc).",
-        "tr": "Dijital uygulama için örnekleme frekansı (2*fc'den büyük olmalıdır)."
+        "tr": "Dijital uygulama için örnekleme frekansı (2*fc'den büyük olmalıdır).",
+        "de": "Abtastfrequenz für die digitale Implementierung (muss > 2*fc sein)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Frequency Point (f)",
         "tr": "Frekans Noktası (f)",
-        "de": "Frequency Point (f)",
+        "de": "Frequenzpunkt (f)",
         "fr": "Frequency Point (f)",
         "es": "Frequency Point (f)",
         "ar": "Frequency Point (f)"
       },
       "businessContext_i18n": {
         "en": "Frequency at which to evaluate the filter response.",
-        "tr": "Filtre yanıtının değerlendirileceği frekans."
+        "tr": "Filtre yanıtının değerlendirileceği frekans.",
+        "de": "Frequenz, bei der die Filterantwort ausgewertet wird."
       }
     }
   ],

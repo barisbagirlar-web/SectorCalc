@@ -13,7 +13,7 @@ describe("logarithm-calculator", () => {
     "unit_type": "dimensionless",
     "reference_value": 1,
     "enable_threshold_alerts": true
-  } as Logarithm_calculatorInput;
+  } as unknown as Logarithm_calculatorInput;
     const result = calculateLogarithm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

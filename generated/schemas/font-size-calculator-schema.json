@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Viewing Distance",
         "tr": "İzleme Mesafesi",
-        "de": "Viewing Distance",
+        "de": "Betrachtungsabstand",
         "fr": "Viewing Distance",
         "es": "Viewing Distance",
         "ar": "Viewing Distance"
       },
       "businessContext_i18n": {
         "en": "Distance from the viewer to the text or display in meters.",
-        "tr": "İzleyiciden metin veya ekrana olan mesafe (metre cinsinden)"
+        "tr": "İzleyiciden metin veya ekrana olan mesafe (metre cinsinden)",
+        "de": "Abstand vom Betrachter zum Text oder Display in Metern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Visual Acuity",
         "tr": "Görme Keskinliği",
-        "de": "Visual Acuity",
+        "de": "Sehschärfe",
         "fr": "Visual Acuity",
         "es": "Visual Acuity",
         "ar": "Visual Acuity"
       },
       "businessContext_i18n": {
         "en": "Required visual angle for text height, in arcminutes (5 arcmin = 20/20 vision).",
-        "tr": "Metin yüksekliği için gereken görsel açı (yay dakikası cinsinden; 5 yay dakikası = 20/20 görüş)"
+        "tr": "Metin yüksekliği için gereken görsel açı (yay dakikası cinsinden; 5 yay dakikası = 20/20 görüş)",
+        "de": "Erforderlicher Sehwinkel für die Texthöhe in Bogenminuten (5 Bogenminuten = 20/20-Sehvermögen)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
-        "de": "Safety Factor",
+        "de": "Sicherheitsfaktor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplication factor for non-ideal conditions (e.g., lighting, motion).",
-        "tr": "İdeal olmayan koşullar için çarpma faktörü (ör. aydınlatma, hareket)"
+        "tr": "İdeal olmayan koşullar için çarpma faktörü (ör. aydınlatma, hareket)",
+        "de": "Multiplikationsfaktor für nicht ideale Bedingungen (z. B. Beleuchtung, Bewegung)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Point Conversion",
         "tr": "Nokta Dönüşümü",
-        "de": "Point Conversion",
+        "de": "Punktumrechnung",
         "fr": "Point Conversion",
         "es": "Point Conversion",
         "ar": "Point Conversion"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from millimeters to typographic points (1 point = 0.3528 mm).",
-        "tr": "Milimetreden tipografik noktaya dönüşüm faktörü (1 nokta = 0.3528 mm)"
+        "tr": "Milimetreden tipografik noktaya dönüşüm faktörü (1 nokta = 0.3528 mm)",
+        "de": "Umrechnungsfaktor von Millimetern in typografische Punkte (1 Punkt = 0,3528 mm)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Pixel Density",
         "tr": "Piksel Yoğunluğu",
-        "de": "Pixel Density",
+        "de": "Pixel Dichte",
         "fr": "Pixel Density",
         "es": "Pixel Density",
         "ar": "Pixel Density"
       },
       "businessContext_i18n": {
         "en": "Screen resolution in pixels per inch for pixel size estimation.",
-        "tr": "Piksel boyutu tahmini için inç başına piksel cinsinden ekran çözünürlüğü"
+        "tr": "Piksel boyutu tahmini için inç başına piksel cinsinden ekran çözünürlüğü",
+        "de": "Bildschirmauflösung in Pixel pro Zoll für die Schätzung der Pixelgröße."
       }
     }
   ],

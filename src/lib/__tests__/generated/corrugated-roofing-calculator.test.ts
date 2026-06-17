@@ -14,7 +14,7 @@ describe("corrugated-roofing-calculator", () => {
     "sheetLength": 2.5,
     "overlapLength": 0.15,
     "pricePerSheet": 25
-  } as Corrugated_roofing_calculatorInput;
+  } as unknown as Corrugated_roofing_calculatorInput;
     const result = calculateCorrugated_roofing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

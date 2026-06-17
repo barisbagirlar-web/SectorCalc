@@ -13,7 +13,7 @@ describe("dollar-cost-averaging-calculator", () => {
     "years": 10,
     "periodsPerYear": 12,
     "annualReturnRate": 7
-  } as Dollar_cost_averaging_calculatorInput;
+  } as unknown as Dollar_cost_averaging_calculatorInput;
     const result = calculateDollar_cost_averaging_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

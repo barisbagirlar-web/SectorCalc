@@ -12,7 +12,7 @@ describe("arccosine-calculator", () => {
     "hypotenuse": 1,
     "outputUnit": 1,
     "precision": 2
-  } as Arccosine_calculatorInput;
+  } as unknown as Arccosine_calculatorInput;
     const result = calculateArccosine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

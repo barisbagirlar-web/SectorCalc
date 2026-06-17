@@ -14,7 +14,7 @@ describe("hubbles-law-calculator", () => {
     "matterDensity": 0.3,
     "darkEnergyDensity": 0.7,
     "curvatureDensity": 0
-  } as Hubbles_law_calculatorInput;
+  } as unknown as Hubbles_law_calculatorInput;
     const result = calculateHubbles_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

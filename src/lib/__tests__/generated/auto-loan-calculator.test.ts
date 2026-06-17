@@ -14,7 +14,7 @@ describe("auto-loan-calculator", () => {
     "salesTaxRate": 8,
     "interestRate": 5,
     "loanTerm": 60
-  } as Auto_loan_calculatorInput;
+  } as unknown as Auto_loan_calculatorInput;
     const result = calculateAuto_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

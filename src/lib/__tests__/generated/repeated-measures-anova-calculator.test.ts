@@ -12,7 +12,7 @@ describe("repeated-measures-anova-calculator", () => {
     "numberOfSubjects": 10,
     "ssCondition": 100,
     "ssError": 50
-  } as Repeated_measures_anova_calculatorInput;
+  } as unknown as Repeated_measures_anova_calculatorInput;
     const result = calculateRepeated_measures_anova_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("trench-calculator", () => {
     "baseWidth": 1,
     "depth": 2,
     "sideSlope": 0
-  } as Trench_calculatorInput;
+  } as unknown as Trench_calculatorInput;
     const result = calculateTrench_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

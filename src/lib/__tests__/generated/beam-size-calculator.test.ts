@@ -13,7 +13,7 @@ describe("beam-size-calculator", () => {
     "allowableStress": 160,
     "elasticModulus": 200000,
     "deflectionRatio": 360
-  } as Beam_size_calculatorInput;
+  } as unknown as Beam_size_calculatorInput;
     const result = calculateBeam_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

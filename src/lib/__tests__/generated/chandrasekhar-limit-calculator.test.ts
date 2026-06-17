@@ -14,7 +14,7 @@ describe("chandrasekhar-limit-calculator", () => {
     "c": 299792458,
     "G": 6.6743e-11,
     "solar_mass": 1.989e+30
-  } as Chandrasekhar_limit_calculatorInput;
+  } as unknown as Chandrasekhar_limit_calculatorInput;
     const result = calculateChandrasekhar_limit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

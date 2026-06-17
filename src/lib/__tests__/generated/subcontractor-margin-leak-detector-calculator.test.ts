@@ -16,7 +16,7 @@ describe("subcontractor-margin-leak-detector-calculator", () => {
     "quality_rework_cost": 50000,
     "schedule_delay_penalty": 20000,
     "waste_factor": 8
-  } as Subcontractor_margin_leak_detector_calculatorInput;
+  } as unknown as Subcontractor_margin_leak_detector_calculatorInput;
     const result = calculateSubcontractor_margin_leak_detector_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

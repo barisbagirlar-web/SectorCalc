@@ -13,7 +13,7 @@ describe("de-broglie-wavelength-calculator", () => {
     "voltage": 10000,
     "planckConstant": 6.62607015e-34,
     "unitMultiplier": 1
-  } as De_broglie_wavelength_calculatorInput;
+  } as unknown as De_broglie_wavelength_calculatorInput;
     const result = calculateDe_broglie_wavelength_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

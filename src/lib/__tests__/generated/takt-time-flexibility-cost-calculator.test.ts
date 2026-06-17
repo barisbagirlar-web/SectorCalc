@@ -16,7 +16,7 @@ describe("takt-time-flexibility-cost-calculator", () => {
     "labor_cost_per_hour": 25,
     "overhead_rate_percent": 150,
     "demand_variability_coefficient": 0.3
-  } as Takt_time_flexibility_cost_calculatorInput;
+  } as unknown as Takt_time_flexibility_cost_calculatorInput;
     const result = calculateTakt_time_flexibility_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

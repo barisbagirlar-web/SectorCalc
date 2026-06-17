@@ -12,7 +12,7 @@ describe("tip-calculator", () => {
     "tipPercent": 15,
     "numberOfPeople": 2,
     "taxRate": 8
-  } as Tip_calculatorInput;
+  } as unknown as Tip_calculatorInput;
     const result = calculateTip_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

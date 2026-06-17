@@ -12,7 +12,7 @@ describe("heart-rate-calculator", () => {
     "restingHR": 70,
     "intensity": 70,
     "maxHR": 0
-  } as Heart_rate_calculatorInput;
+  } as unknown as Heart_rate_calculatorInput;
     const result = calculateHeart_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

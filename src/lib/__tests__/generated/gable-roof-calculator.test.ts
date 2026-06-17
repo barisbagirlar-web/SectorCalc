@@ -14,7 +14,7 @@ describe("gable-roof-calculator", () => {
     "overhang": 0.5,
     "rafterSpacing": 0.6,
     "wasteFactor": 10
-  } as Gable_roof_calculatorInput;
+  } as unknown as Gable_roof_calculatorInput;
     const result = calculateGable_roof_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

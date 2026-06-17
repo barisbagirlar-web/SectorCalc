@@ -13,7 +13,7 @@ describe("clat-calculator", () => {
     "angularVelocity": 100,
     "area": 0.01,
     "yieldStress": 250000000
-  } as Clat_calculatorInput;
+  } as unknown as Clat_calculatorInput;
     const result = calculateClat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

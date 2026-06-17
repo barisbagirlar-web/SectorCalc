@@ -13,7 +13,7 @@ describe("natural-log-calculator", () => {
     "scaleFactor": 0.434294,
     "offset": 0,
     "expDisplay": 0
-  } as Natural_log_calculatorInput;
+  } as unknown as Natural_log_calculatorInput;
     const result = calculateNatural_log_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

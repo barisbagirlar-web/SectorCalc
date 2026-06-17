@@ -14,7 +14,7 @@ describe("psi-to-bar-converter-calculator", () => {
     "fluid_type": "water",
     "include_temperature_correction": true,
     "include_altitude_correction": false
-  } as Psi_to_bar_converter_calculatorInput;
+  } as unknown as Psi_to_bar_converter_calculatorInput;
     const result = calculatePsi_to_bar_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("quality-cost-paf-calculator", () => {
     "internal_failure_scrap_cost": 60000,
     "internal_failure_downtime_cost": 20000,
     "external_failure_warranty_cost": 80000
-  } as Quality_cost_paf_calculatorInput;
+  } as unknown as Quality_cost_paf_calculatorInput;
     const result = calculateQuality_cost_paf_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

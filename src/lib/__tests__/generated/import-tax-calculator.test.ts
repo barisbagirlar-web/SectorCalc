@@ -13,7 +13,7 @@ describe("import-tax-calculator", () => {
     "vatRate": 0,
     "exchangeRate": 1,
     "additionalTaxRate": 0
-  } as Import_tax_calculatorInput;
+  } as unknown as Import_tax_calculatorInput;
     const result = calculateImport_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

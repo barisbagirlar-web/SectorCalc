@@ -14,7 +14,7 @@ describe("home-equity-loan-calculator", () => {
     "interestRate": 6.5,
     "loanTerm": 10,
     "maxLTV": 80
-  } as Home_equity_loan_calculatorInput;
+  } as unknown as Home_equity_loan_calculatorInput;
     const result = calculateHome_equity_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

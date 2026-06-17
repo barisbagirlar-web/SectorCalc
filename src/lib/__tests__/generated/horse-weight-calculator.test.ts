@@ -12,7 +12,7 @@ describe("horse-weight-calculator", () => {
     "bodyLengthCm": 170,
     "heightCm": 155,
     "ageYears": 7
-  } as Horse_weight_calculatorInput;
+  } as unknown as Horse_weight_calculatorInput;
     const result = calculateHorse_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

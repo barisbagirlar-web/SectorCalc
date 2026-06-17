@@ -13,7 +13,7 @@ describe("growing-zone-calculator", () => {
     "plantSpacing": 30,
     "rowSpacing": 40,
     "edgeOffset": 15
-  } as Growing_zone_calculatorInput;
+  } as unknown as Growing_zone_calculatorInput;
     const result = calculateGrowing_zone_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

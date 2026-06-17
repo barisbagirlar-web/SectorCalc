@@ -12,7 +12,7 @@ describe("clearance-fit-calculator", () => {
     "holeMin": 20,
     "shaftMax": 19.98,
     "shaftMin": 19.95
-  } as Clearance_fit_calculatorInput;
+  } as unknown as Clearance_fit_calculatorInput;
     const result = calculateClearance_fit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

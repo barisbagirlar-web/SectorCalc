@@ -12,7 +12,7 @@ describe("boyles-law-calculator", () => {
     "initialVolume": 1,
     "finalPressure": 2,
     "finalVolume": 0.5
-  } as Boyles_law_calculatorInput;
+  } as unknown as Boyles_law_calculatorInput;
     const result = calculateBoyles_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

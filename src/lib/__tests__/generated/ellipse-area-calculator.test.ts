@@ -12,7 +12,7 @@ describe("ellipse-area-calculator", () => {
     "semiMinorAxis": 1,
     "precision": 2,
     "unitConversionFactor": 1
-  } as Ellipse_area_calculatorInput;
+  } as unknown as Ellipse_area_calculatorInput;
     const result = calculateEllipse_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

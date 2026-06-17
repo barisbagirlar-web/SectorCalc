@@ -12,7 +12,7 @@ describe("focal-length-calculator", () => {
     "R1": 100,
     "R2": -100,
     "d": 5
-  } as Focal_length_calculatorInput;
+  } as unknown as Focal_length_calculatorInput;
     const result = calculateFocal_length_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

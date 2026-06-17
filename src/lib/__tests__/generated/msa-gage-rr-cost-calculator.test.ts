@@ -16,7 +16,7 @@ describe("msa-gage-rr-cost-calculator", () => {
     "reproducibility_variation": 0.1,
     "cost_per_defect": 50,
     "cost_per_escaped_defect": 500
-  } as Msa_gage_rr_cost_calculatorInput;
+  } as unknown as Msa_gage_rr_cost_calculatorInput;
     const result = calculateMsa_gage_rr_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

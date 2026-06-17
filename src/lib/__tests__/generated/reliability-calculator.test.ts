@@ -12,7 +12,7 @@ describe("reliability-calculator", () => {
     "missionTime": 1000,
     "seriesCount": 1,
     "parallelCount": 1
-  } as Reliability_calculatorInput;
+  } as unknown as Reliability_calculatorInput;
     const result = calculateReliability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

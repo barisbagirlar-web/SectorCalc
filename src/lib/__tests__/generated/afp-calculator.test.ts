@@ -15,7 +15,7 @@ describe("afp-calculator", () => {
     "insuranceCost": 2500,
     "taxCost": 1500,
     "otherCost": 1000
-  } as Afp_calculatorInput;
+  } as unknown as Afp_calculatorInput;
     const result = calculateAfp_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

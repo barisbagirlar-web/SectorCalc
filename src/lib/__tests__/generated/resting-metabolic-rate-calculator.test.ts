@@ -12,7 +12,7 @@ describe("resting-metabolic-rate-calculator", () => {
     "age": 30,
     "weight": 70,
     "height": 170
-  } as Resting_metabolic_rate_calculatorInput;
+  } as unknown as Resting_metabolic_rate_calculatorInput;
     const result = calculateResting_metabolic_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

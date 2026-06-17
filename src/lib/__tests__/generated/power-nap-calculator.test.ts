@@ -12,7 +12,7 @@ describe("power-nap-calculator", () => {
     "deadlineTimeMinutes": 720,
     "sleepLatencyMinutes": 10,
     "napQualityGoal": 5
-  } as Power_nap_calculatorInput;
+  } as unknown as Power_nap_calculatorInput;
     const result = calculatePower_nap_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

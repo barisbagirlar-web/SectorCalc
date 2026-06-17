@@ -14,7 +14,7 @@ describe("foundation-calculator", () => {
     "concreteDensity": 2400,
     "rebarRatio": 0.01,
     "steelDensity": 7850
-  } as Foundation_calculatorInput;
+  } as unknown as Foundation_calculatorInput;
     const result = calculateFoundation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

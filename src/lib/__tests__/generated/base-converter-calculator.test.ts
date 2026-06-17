@@ -12,7 +12,7 @@ describe("base-converter-calculator", () => {
     "fromBase": 10,
     "toBase": 2,
     "roundDigits": 4
-  } as Base_converter_calculatorInput;
+  } as unknown as Base_converter_calculatorInput;
     const result = calculateBase_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

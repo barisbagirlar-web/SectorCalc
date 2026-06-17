@@ -13,7 +13,7 @@ describe("body-recomposition-calculator", () => {
     "height": 170,
     "age": 30,
     "activityLevel": 1.55
-  } as Body_recomposition_calculatorInput;
+  } as unknown as Body_recomposition_calculatorInput;
     const result = calculateBody_recomposition_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

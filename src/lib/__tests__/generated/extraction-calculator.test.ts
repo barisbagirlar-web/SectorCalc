@@ -12,7 +12,7 @@ describe("extraction-calculator", () => {
     "concentration": 10,
     "recoveryRate": 90,
     "targetPurity": 95
-  } as Extraction_calculatorInput;
+  } as unknown as Extraction_calculatorInput;
     const result = calculateExtraction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

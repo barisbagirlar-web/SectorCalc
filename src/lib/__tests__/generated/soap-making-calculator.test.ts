@@ -12,7 +12,7 @@ describe("soap-making-calculator", () => {
     "sapValue": 135.5,
     "superfat": 5,
     "waterPercent": 38
-  } as Soap_making_calculatorInput;
+  } as unknown as Soap_making_calculatorInput;
     const result = calculateSoap_making_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

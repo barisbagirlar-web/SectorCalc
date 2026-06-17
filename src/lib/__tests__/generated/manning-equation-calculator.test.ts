@@ -12,7 +12,7 @@ describe("manning-equation-calculator", () => {
     "hydraulicRadius": 1,
     "area": 1,
     "slope": 0.001
-  } as Manning_equation_calculatorInput;
+  } as unknown as Manning_equation_calculatorInput;
     const result = calculateManning_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

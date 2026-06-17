@@ -12,7 +12,7 @@ describe("euclidean-algorithm-calculator", () => {
     "num2": 0,
     "num3": 0,
     "num4": 0
-  } as Euclidean_algorithm_calculatorInput;
+  } as unknown as Euclidean_algorithm_calculatorInput;
     const result = calculateEuclidean_algorithm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("backdoor-roth-ira-calculator", () => {
     "afterTaxBasis": 0,
     "conversionAmount": 6000,
     "marginalTaxRate": 24
-  } as Backdoor_roth_ira_calculatorInput;
+  } as unknown as Backdoor_roth_ira_calculatorInput;
     const result = calculateBackdoor_roth_ira_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

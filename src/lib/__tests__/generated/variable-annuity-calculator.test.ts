@@ -13,7 +13,7 @@ describe("variable-annuity-calculator", () => {
     "years": 20,
     "annualReturn": 7,
     "annualFee": 1
-  } as Variable_annuity_calculatorInput;
+  } as unknown as Variable_annuity_calculatorInput;
     const result = calculateVariable_annuity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

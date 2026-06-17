@@ -12,7 +12,7 @@ describe("svd-calculator", () => {
     "a12": 0,
     "a21": 0,
     "a22": 0
-  } as Svd_calculatorInput;
+  } as unknown as Svd_calculatorInput;
     const result = calculateSvd_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

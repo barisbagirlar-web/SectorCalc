@@ -12,7 +12,7 @@ describe("plateau-calculator", () => {
     "outputAfterPeriod": 20,
     "timePeriod": 8,
     "learningRate": 0.25
-  } as Plateau_calculatorInput;
+  } as unknown as Plateau_calculatorInput;
     const result = calculatePlateau_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

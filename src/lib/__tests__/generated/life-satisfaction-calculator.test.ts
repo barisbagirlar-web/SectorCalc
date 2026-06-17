@@ -13,7 +13,7 @@ describe("life-satisfaction-calculator", () => {
     "workLife": 6,
     "social": 7,
     "purpose": 7
-  } as Life_satisfaction_calculatorInput;
+  } as unknown as Life_satisfaction_calculatorInput;
     const result = calculateLife_satisfaction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

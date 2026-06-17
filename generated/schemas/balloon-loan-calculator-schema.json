@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Loan Amount",
         "tr": "Kredi Tutarı",
-        "de": "Loan Amount",
+        "de": "Darlehensbetrag",
         "fr": "Loan Amount",
         "es": "Loan Amount",
         "ar": "Loan Amount"
       },
       "businessContext_i18n": {
         "en": "Total borrowed amount",
-        "tr": "Toplam borç miktarı"
+        "tr": "Toplam borç miktarı",
+        "de": "Gesamter geliehener Betrag"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
-        "de": "Annual Interest Rate",
+        "de": "Jährlicher Zinssatz",
         "fr": "Annual Interest Rate",
         "es": "Annual Interest Rate",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Nominal annual interest rate",
-        "tr": "Nominal yıllık faiz oranı"
+        "tr": "Nominal yıllık faiz oranı",
+        "de": "Nominaler jährlicher Zinssatz"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Loan Term (Years)",
         "tr": "Kredi Vadesi (Yıl)",
-        "de": "Loan Term (Years)",
+        "de": "Kreditlaufzeit (Jahre)",
         "fr": "Loan Term (Years)",
         "es": "Loan Term (Years)",
         "ar": "Loan Term (Years)"
       },
       "businessContext_i18n": {
         "en": "Duration until balloon payment",
-        "tr": "Balon ödemeye kadar geçen süre"
+        "tr": "Balon ödemeye kadar geçen süre",
+        "de": "Laufzeit bis zur Ballonzahlung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Balloon Payment (%)",
         "tr": "Balon Ödeme (%)",
-        "de": "Balloon Payment (%)",
+        "de": "Ballonzahlung (%)",
         "fr": "Balloon Payment (%)",
         "es": "Balloon Payment (%)",
         "ar": "Balloon Payment (%)"
       },
       "businessContext_i18n": {
         "en": "Balloon payment amount as % of loan",
-        "tr": "Kredinin yüzdesi olarak balon ödeme tutarı"
+        "tr": "Kredinin yüzdesi olarak balon ödeme tutarı",
+        "de": "Ballonzahlungsbetrag als % des Darlehens"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Payments per Year",
         "tr": "Yıllık Ödeme Sayısı",
-        "de": "Payments per Year",
+        "de": "Zahlungen pro Jahr",
         "fr": "Payments per Year",
         "es": "Payments per Year",
         "ar": "Payments per Year"
       },
       "businessContext_i18n": {
         "en": "Compounding frequency",
-        "tr": "Bileşik faiz sıklığı"
+        "tr": "Bileşik faiz sıklığı",
+        "de": "Aufzinsungshäufigkeit"
       }
     }
   ],

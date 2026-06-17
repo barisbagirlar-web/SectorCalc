@@ -14,7 +14,7 @@ describe("filter-calculator", () => {
     "porosity": 0.4,
     "particleDiameter": 0.001,
     "filterArea": 0.5
-  } as Filter_calculatorInput;
+  } as unknown as Filter_calculatorInput;
     const result = calculateFilter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

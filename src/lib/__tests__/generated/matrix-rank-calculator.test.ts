@@ -12,7 +12,7 @@ describe("matrix-rank-calculator", () => {
     "a12": 0,
     "a21": 0,
     "a22": 0
-  } as Matrix_rank_calculatorInput;
+  } as unknown as Matrix_rank_calculatorInput;
     const result = calculateMatrix_rank_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

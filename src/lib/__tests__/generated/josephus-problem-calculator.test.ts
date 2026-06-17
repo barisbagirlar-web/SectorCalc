@@ -11,7 +11,7 @@ describe("josephus-problem-calculator", () => {
     "n": 41,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Josephus_problem_calculatorInput;
+  } as unknown as Josephus_problem_calculatorInput;
     const result = calculateJosephus_problem_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

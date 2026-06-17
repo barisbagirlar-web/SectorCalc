@@ -12,7 +12,7 @@ describe("metal-roofing-calculator", () => {
     "materialCostPerUnit": 15,
     "laborCostPerUnit": 10,
     "wasteFactor": 5
-  } as Metal_roofing_calculatorInput;
+  } as unknown as Metal_roofing_calculatorInput;
     const result = calculateMetal_roofing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("roman-numeral-calculator", () => {
     "numberB": 5,
     "operation": 1,
     "precision": 0
-  } as Roman_numeral_calculatorInput;
+  } as unknown as Roman_numeral_calculatorInput;
     const result = calculateRoman_numeral_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("hess-yasasi-hesaplayici-calculator", () => {
     "step2_dH": 0,
     "step3_dH": 0,
     "step4_dH": 0
-  } as Hess_yasasi_hesaplayici_calculatorInput;
+  } as unknown as Hess_yasasi_hesaplayici_calculatorInput;
     const result = calculateHess_yasasi_hesaplayici_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

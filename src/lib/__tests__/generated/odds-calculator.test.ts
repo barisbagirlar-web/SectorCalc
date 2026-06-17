@@ -12,7 +12,7 @@ describe("odds-calculator", () => {
     "drawProb": 30,
     "awayProb": 30,
     "margin": 5
-  } as Odds_calculatorInput;
+  } as unknown as Odds_calculatorInput;
     const result = calculateOdds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

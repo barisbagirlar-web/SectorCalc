@@ -13,7 +13,7 @@ describe("electron-affinity-calculator", () => {
     "atomizationEnthalpyPerX": 0,
     "ionizationEnergy": 0,
     "latticeEnergy": 0
-  } as Electron_affinity_calculatorInput;
+  } as unknown as Electron_affinity_calculatorInput;
     const result = calculateElectron_affinity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

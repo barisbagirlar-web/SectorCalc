@@ -15,7 +15,7 @@ describe("pizza-cost-calculator", () => {
     "laborCost": 0.75,
     "overheadCost": 0.25,
     "marginPercent": 40
-  } as Pizza_cost_calculatorInput;
+  } as unknown as Pizza_cost_calculatorInput;
     const result = calculatePizza_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

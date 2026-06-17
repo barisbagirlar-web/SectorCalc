@@ -12,7 +12,7 @@ describe("straight-line-depreciation-calculator", () => {
     "salvageValue": 1000,
     "usefulLife": 5,
     "yearsElapsed": 3
-  } as Straight_line_depreciation_calculatorInput;
+  } as unknown as Straight_line_depreciation_calculatorInput;
     const result = calculateStraight_line_depreciation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("car-rental-calculator", () => {
     "fuelPricePerLiter": 1.5,
     "fuelEfficiency": 7,
     "insurancePerDay": 0
-  } as Car_rental_calculatorInput;
+  } as unknown as Car_rental_calculatorInput;
     const result = calculateCar_rental_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

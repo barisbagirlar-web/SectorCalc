@@ -13,7 +13,7 @@ describe("luminosity-calculator", () => {
     "distance": 1,
     "efficiency": 0.9,
     "ambientLight": 0
-  } as Luminosity_calculatorInput;
+  } as unknown as Luminosity_calculatorInput;
     const result = calculateLuminosity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

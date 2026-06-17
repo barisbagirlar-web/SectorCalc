@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Child Gender (0=Boy, 1=Girl)",
         "tr": "Çocuk Cinsiyeti (0=Erkek, 1=Kız)",
-        "de": "Child Gender (0=Boy, 1=Girl)",
+        "de": "Geschlecht des Kindes (0=Junge, 1=Mädchen)",
         "fr": "Child Gender (0=Boy, 1=Girl)",
         "es": "Child Gender (0=Boy, 1=Girl)",
         "ar": "Child Gender (0=Boy, 1=Girl)"
       },
       "businessContext_i18n": {
         "en": "Select 0 for a boy, 1 for a girl. Used to apply correct formula (+13 cm for boys, -13 cm for girls).",
-        "tr": "Erkek için 0, kız için 1 seçin. Doğru formülü uygulamak için kullanılır (erkeklerde +13 cm, kızlarda -13 cm)."
+        "tr": "Erkek için 0, kız için 1 seçin. Doğru formülü uygulamak için kullanılır (erkeklerde +13 cm, kızlarda -13 cm).",
+        "de": "Wählen Sie 0 für einen Jungen, 1 für ein Mädchen. Wird verwendet, um die korrekte Formel anzuwenden (+13 cm für Jungen, -13 cm für Mädchen)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Father's Height (cm)",
         "tr": "Baba Boyu (cm)",
-        "de": "Father's Height (cm)",
+        "de": "Größe des Vaters (cm)",
         "fr": "Father's Height (cm)",
         "es": "Father's Height (cm)",
         "ar": "Father's Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Biological father's adult height in centimeters.",
-        "tr": "Biyolojik babanın santimetre cinsinden yetişkin boyu."
+        "tr": "Biyolojik babanın santimetre cinsinden yetişkin boyu.",
+        "de": "Körpergröße des leiblichen Vaters im Erwachsenenalter in Zentimetern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Mother's Height (cm)",
         "tr": "Anne Boyu (cm)",
-        "de": "Mother's Height (cm)",
+        "de": "Größe der Mutter (cm)",
         "fr": "Mother's Height (cm)",
         "es": "Mother's Height (cm)",
         "ar": "Mother's Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Biological mother's adult height in centimeters.",
-        "tr": "Biyolojik annenin santimetre cinsinden yetişkin boyu."
+        "tr": "Biyolojik annenin santimetre cinsinden yetişkin boyu.",
+        "de": "Körpergröße der leiblichen Mutter im Erwachsenenalter in Zentimetern."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Child's Current Height (cm)",
         "tr": "Çocuğun Mevcut Boyu (cm)",
-        "de": "Child's Current Height (cm)",
+        "de": "Aktuelle Größe des Kindes (cm)",
         "fr": "Child's Current Height (cm)",
         "es": "Child's Current Height (cm)",
         "ar": "Child's Current Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Optional: current measured height of the child. Not used in prediction formula.",
-        "tr": "İsteğe bağlı: çocuğun mevcut ölçülen boyu. Tahmin formülünde kullanılmaz."
+        "tr": "İsteğe bağlı: çocuğun mevcut ölçülen boyu. Tahmin formülünde kullanılmaz.",
+        "de": "Optional: aktuell gemessene Größe des Kindes. Wird nicht in der Vorhersageformel verwendet."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Child's Age (years)",
         "tr": "Çocuğun Yaşı (yıl)",
-        "de": "Child's Age (years)",
+        "de": "Alter des Kindes (Jahre)",
         "fr": "Child's Age (years)",
         "es": "Child's Age (years)",
         "ar": "Child's Age (years)"
       },
       "businessContext_i18n": {
         "en": "Optional: exact age of the child in years. Not used in prediction formula.",
-        "tr": "İsteğe bağlı: çocuğun yıl cinsinden tam yaşı. Tahmin formülünde kullanılmaz."
+        "tr": "İsteğe bağlı: çocuğun yıl cinsinden tam yaşı. Tahmin formülünde kullanılmaz.",
+        "de": "Optional: genaues Alter des Kindes in Jahren. Wird nicht in der Vorhersageformel verwendet."
       }
     }
   ],

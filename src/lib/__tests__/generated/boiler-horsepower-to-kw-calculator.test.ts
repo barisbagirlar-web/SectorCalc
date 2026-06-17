@@ -14,7 +14,7 @@ describe("boiler-horsepower-to-kw-calculator", () => {
     "boilerEfficiency": 80,
     "operatingHours": 8000,
     "conversionFactor": 9.8095
-  } as Boiler_horsepower_to_kw_calculatorInput;
+  } as unknown as Boiler_horsepower_to_kw_calculatorInput;
     const result = calculateBoiler_horsepower_to_kw_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

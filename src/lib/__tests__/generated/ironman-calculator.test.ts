@@ -14,7 +14,7 @@ describe("ironman-calculator", () => {
     "density": 7850,
     "yieldStrength": 250,
     "safetyFactor": 2
-  } as Ironman_calculatorInput;
+  } as unknown as Ironman_calculatorInput;
     const result = calculateIronman_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

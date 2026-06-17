@@ -13,7 +13,7 @@ describe("lactate-threshold-calculator", () => {
     "maxHeartRate": 0,
     "intensityFactor": 0.85,
     "thirtyMinTrialHeartRate": 0
-  } as Lactate_threshold_calculatorInput;
+  } as unknown as Lactate_threshold_calculatorInput;
     const result = calculateLactate_threshold_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

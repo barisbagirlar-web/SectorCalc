@@ -16,7 +16,7 @@ describe("visa-requirements", () => {
     "employmentStatus": 80,
     "purposeOfVisit": 60,
     "applicationCompleteness": 90
-  } as Visa_requirementsInput;
+  } as unknown as Visa_requirementsInput;
     const result = calculateVisa_requirements(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

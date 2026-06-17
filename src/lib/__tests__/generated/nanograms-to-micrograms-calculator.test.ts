@@ -12,7 +12,7 @@ describe("nanograms-to-micrograms-calculator", () => {
     "conversionFactor": 1000,
     "precision": 4,
     "batchSize": 1
-  } as Nanograms_to_micrograms_calculatorInput;
+  } as unknown as Nanograms_to_micrograms_calculatorInput;
     const result = calculateNanograms_to_micrograms_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

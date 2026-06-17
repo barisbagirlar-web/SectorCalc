@@ -12,7 +12,7 @@ describe("non-exercise-activity-thermogenesis-calculator", () => {
     "bmr": 1500,
     "tef": 200,
     "exercise": 150
-  } as Non_exercise_activity_thermogenesis_calculatorInput;
+  } as unknown as Non_exercise_activity_thermogenesis_calculatorInput;
     const result = calculateNon_exercise_activity_thermogenesis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("ridge-vent-calculator", () => {
     "ventRatio": 150,
     "nfaPerFoot": 18,
     "splitFactor": 0.5
-  } as Ridge_vent_calculatorInput;
+  } as unknown as Ridge_vent_calculatorInput;
     const result = calculateRidge_vent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

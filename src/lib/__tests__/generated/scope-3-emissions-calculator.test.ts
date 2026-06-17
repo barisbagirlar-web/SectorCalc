@@ -16,7 +16,7 @@ describe("scope-3-emissions-calculator", () => {
     "emissionFactorCommuting": 0.15,
     "wasteGenerated": 100,
     "emissionFactorWaste": 500
-  } as Scope_3_emissions_calculatorInput;
+  } as unknown as Scope_3_emissions_calculatorInput;
     const result = calculateScope_3_emissions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

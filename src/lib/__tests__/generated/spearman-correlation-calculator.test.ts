@@ -12,7 +12,7 @@ describe("spearman-correlation-calculator", () => {
     "sumSquaredDifferences": 2,
     "tieCorrectionX": 0,
     "tieCorrectionY": 0
-  } as Spearman_correlation_calculatorInput;
+  } as unknown as Spearman_correlation_calculatorInput;
     const result = calculateSpearman_correlation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

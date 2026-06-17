@@ -14,7 +14,7 @@ describe("credit-card-minimum-payment-calculator", () => {
     "fixedMinAmount": 25,
     "pastDueAmount": 0,
     "overLimitAmount": 0
-  } as Credit_card_minimum_payment_calculatorInput;
+  } as unknown as Credit_card_minimum_payment_calculatorInput;
     const result = calculateCredit_card_minimum_payment_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

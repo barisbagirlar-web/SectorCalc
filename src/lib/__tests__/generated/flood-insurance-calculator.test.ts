@@ -14,7 +14,7 @@ describe("flood-insurance-calculator", () => {
     "deductible": 5000,
     "buildingTypeFactor": 1.2,
     "ageOfBuilding": 10
-  } as Flood_insurance_calculatorInput;
+  } as unknown as Flood_insurance_calculatorInput;
     const result = calculateFlood_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

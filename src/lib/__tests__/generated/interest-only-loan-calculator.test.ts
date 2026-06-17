@@ -12,7 +12,7 @@ describe("interest-only-loan-calculator", () => {
     "annualInterestRate": 5,
     "loanTermYears": 30,
     "paymentsPerYear": 12
-  } as Interest_only_loan_calculatorInput;
+  } as unknown as Interest_only_loan_calculatorInput;
     const result = calculateInterest_only_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

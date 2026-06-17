@@ -12,7 +12,7 @@ describe("apa-citation-generator-calculator", () => {
     "publicationYear": 2020,
     "authorCount": 1,
     "citationCount": 10
-  } as Apa_citation_generator_calculatorInput;
+  } as unknown as Apa_citation_generator_calculatorInput;
     const result = calculateApa_citation_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

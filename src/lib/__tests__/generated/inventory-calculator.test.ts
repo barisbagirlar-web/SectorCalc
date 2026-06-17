@@ -13,7 +13,7 @@ describe("inventory-calculator", () => {
     "holdingCost": 2,
     "dailyDemand": 5,
     "leadTimeDays": 5
-  } as Inventory_calculatorInput;
+  } as unknown as Inventory_calculatorInput;
     const result = calculateInventory_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

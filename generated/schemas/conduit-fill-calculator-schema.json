@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Conduit Inner Diameter",
         "tr": "Boru İç Çapı",
-        "de": "Conduit Inner Diameter",
+        "de": "Rohrinnendurchmesser",
         "fr": "Conduit Inner Diameter",
         "es": "Conduit Inner Diameter",
         "ar": "Conduit Inner Diameter"
       },
       "businessContext_i18n": {
         "en": "Internal diameter of the conduit in inches.",
-        "tr": "Boru iç çapı inç cinsinden."
+        "tr": "Boru iç çapı inç cinsinden.",
+        "de": "Innendurchmesser des Rohrs in Zoll."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cable Outer Diameter",
         "tr": "Kablo Dış Çapı",
-        "de": "Cable Outer Diameter",
+        "de": "Kabelaußendurchmesser",
         "fr": "Cable Outer Diameter",
         "es": "Cable Outer Diameter",
         "ar": "Cable Outer Diameter"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of a single conductor cable in inches.",
-        "tr": "Tek iletkenli kablonun dış çapı inç cinsinden."
+        "tr": "Tek iletkenli kablonun dış çapı inç cinsinden.",
+        "de": "Außendurchmesser eines Einzelleiterkabels in Zoll."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Conductors",
         "tr": "İletken Sayısı",
-        "de": "Number of Conductors",
+        "de": "Anzahl der Leiter",
         "fr": "Number of Conductors",
         "es": "Number of Conductors",
         "ar": "Number of Conductors"
       },
       "businessContext_i18n": {
         "en": "Total number of conductors to be pulled, identical size.",
-        "tr": "Çekilecek toplam iletken sayısı, aynı boyutta."
+        "tr": "Çekilecek toplam iletken sayısı, aynı boyutta.",
+        "de": "Gesamtzahl der zu ziehenden Leiter, gleiche Größe."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Custom Fill Limit (%)",
         "tr": "Özel Dolum Limiti (%)",
-        "de": "Custom Fill Limit (%)",
+        "de": "Benutzerdefinierte Füllgrenze (%)",
         "fr": "Custom Fill Limit (%)",
         "es": "Custom Fill Limit (%)",
         "ar": "Custom Fill Limit (%)"
       },
       "businessContext_i18n": {
         "en": "Optionally override NEC fill limit; set to 0 for automatic NEC rule.",
-        "tr": "İsteğe bağlı olarak NEC dolum limitini geçersiz kılar; otomatik NEC kuralı için 0 ayarlayın."
+        "tr": "İsteğe bağlı olarak NEC dolum limitini geçersiz kılar; otomatik NEC kuralı için 0 ayarlayın.",
+        "de": "Optionaler Überschreibung der NEC-Füllgrenze; auf 0 setzen für automatische NEC-Regel."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Safety Margin (%)",
         "tr": "Güvenlik Marjı (%)",
-        "de": "Safety Margin (%)",
+        "de": "Sicherheitsmarge (%)",
         "fr": "Safety Margin (%)",
         "es": "Safety Margin (%)",
         "ar": "Safety Margin (%)"
       },
       "businessContext_i18n": {
         "en": "Additional derating or future growth margin on fill percent.",
-        "tr": "Dolum yüzdesi üzerinde ek düşürme veya gelecekteki büyüme marjı."
+        "tr": "Dolum yüzdesi üzerinde ek düşürme veya gelecekteki büyüme marjı.",
+        "de": "Zusätzliche Marge für Derating oder zukünftiges Wachstum des Füllprozentsatzes."
       }
     }
   ],

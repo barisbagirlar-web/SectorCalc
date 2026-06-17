@@ -12,7 +12,7 @@ describe("email-open-rate-calculator", () => {
     "bounceCount": 50,
     "openCount": 200,
     "clickCount": 80
-  } as Email_open_rate_calculatorInput;
+  } as unknown as Email_open_rate_calculatorInput;
     const result = calculateEmail_open_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("gordon-growth-model-calculator", () => {
     "growthRate": 3,
     "requiredReturn": 10,
     "marketPrice": 50
-  } as Gordon_growth_model_calculatorInput;
+  } as unknown as Gordon_growth_model_calculatorInput;
     const result = calculateGordon_growth_model_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

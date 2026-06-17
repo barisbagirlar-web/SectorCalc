@@ -12,7 +12,7 @@ describe("field-of-view-calculator", () => {
     "sensorHeight": 4.8,
     "focalLength": 4,
     "distance": 1
-  } as Field_of_view_calculatorInput;
+  } as unknown as Field_of_view_calculatorInput;
     const result = calculateField_of_view_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

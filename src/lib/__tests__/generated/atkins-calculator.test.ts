@@ -13,7 +13,7 @@ describe("atkins-calculator", () => {
     "specificHeat": 4.18,
     "deltaTemp": 10,
     "efficiencyFactor": 1
-  } as Atkins_calculatorInput;
+  } as unknown as Atkins_calculatorInput;
     const result = calculateAtkins_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

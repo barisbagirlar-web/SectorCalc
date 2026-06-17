@@ -12,7 +12,7 @@ describe("cooper-test-calculator", () => {
     "age_years": 30,
     "gender": 0,
     "weight_kg": 70
-  } as Cooper_test_calculatorInput;
+  } as unknown as Cooper_test_calculatorInput;
     const result = calculateCooper_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

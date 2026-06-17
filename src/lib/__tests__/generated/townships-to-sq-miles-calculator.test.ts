@@ -13,7 +13,7 @@ describe("townships-to-sq-miles-calculator", () => {
     "township_c": 0,
     "township_d": 0,
     "decimal_places": 2
-  } as Townships_to_sq_miles_calculatorInput;
+  } as unknown as Townships_to_sq_miles_calculatorInput;
     const result = calculateTownships_to_sq_miles_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

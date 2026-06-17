@@ -13,7 +13,7 @@ describe("ionization-energy-calculator", () => {
     "screeningConstant": 0,
     "rydbergEnergy": 13.6,
     "conversionFactor": 96.485
-  } as Ionization_energy_calculatorInput;
+  } as unknown as Ionization_energy_calculatorInput;
     const result = calculateIonization_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

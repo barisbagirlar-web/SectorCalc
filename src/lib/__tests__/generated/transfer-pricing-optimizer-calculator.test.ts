@@ -16,7 +16,7 @@ describe("transfer-pricing-optimizer-calculator", () => {
     "transfer_price_current": 120,
     "compliance_risk_tolerance": "Medium",
     "include_lean_waste_factor": true
-  } as Transfer_pricing_optimizer_calculatorInput;
+  } as unknown as Transfer_pricing_optimizer_calculatorInput;
     const result = calculateTransfer_pricing_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

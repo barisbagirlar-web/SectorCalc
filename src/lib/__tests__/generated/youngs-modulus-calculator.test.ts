@@ -12,7 +12,7 @@ describe("youngs-modulus-calculator", () => {
     "originalLength": 100,
     "diameter": 10,
     "elongation": 0.1
-  } as Youngs_modulus_calculatorInput;
+  } as unknown as Youngs_modulus_calculatorInput;
     const result = calculateYoungs_modulus_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

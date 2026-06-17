@@ -13,7 +13,7 @@ describe("disk-method-calculator", () => {
     "coeffA": 1,
     "coeffB": 0,
     "coeffC": 0
-  } as Disk_method_calculatorInput;
+  } as unknown as Disk_method_calculatorInput;
     const result = calculateDisk_method_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

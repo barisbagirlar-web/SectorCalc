@@ -14,7 +14,7 @@ describe("breeam-embodied-carbon-calculator", () => {
     "glassMass": 0,
     "insulationMass": 0,
     "area": 1
-  } as Breeam_embodied_carbon_calculatorInput;
+  } as unknown as Breeam_embodied_carbon_calculatorInput;
     const result = calculateBreeam_embodied_carbon_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

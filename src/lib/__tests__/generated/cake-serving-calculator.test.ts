@@ -12,7 +12,7 @@ describe("cake-serving-calculator", () => {
     "dim1": 20,
     "dim2": 0,
     "servingArea": 25
-  } as Cake_serving_calculatorInput;
+  } as unknown as Cake_serving_calculatorInput;
     const result = calculateCake_serving_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("ghg-protocol-calculator", () => {
     "naturalGasFactor": 2,
     "fuelLiters": 2000,
     "fuelFactor": 2.3
-  } as Ghg_protocol_calculatorInput;
+  } as unknown as Ghg_protocol_calculatorInput;
     const result = calculateGhg_protocol_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

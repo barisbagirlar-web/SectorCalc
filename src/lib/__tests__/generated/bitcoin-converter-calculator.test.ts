@@ -13,7 +13,7 @@ describe("bitcoin-converter-calculator", () => {
     "btcPrice": 30000,
     "feePercent": 0.5,
     "fixedFee": 0
-  } as Bitcoin_converter_calculatorInput;
+  } as unknown as Bitcoin_converter_calculatorInput;
     const result = calculateBitcoin_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

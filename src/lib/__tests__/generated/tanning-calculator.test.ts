@@ -12,7 +12,7 @@ describe("tanning-calculator", () => {
     "desiredCr2O3Offer": 6,
     "bcsCr2O3Content": 25,
     "floatVolume": 2000
-  } as Tanning_calculatorInput;
+  } as unknown as Tanning_calculatorInput;
     const result = calculateTanning_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

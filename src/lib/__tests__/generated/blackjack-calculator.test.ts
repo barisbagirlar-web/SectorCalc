@@ -12,7 +12,7 @@ describe("blackjack-calculator", () => {
     "lambdaB": 0.015,
     "lotSize": 1000,
     "costPerBlackjack": 500
-  } as Blackjack_calculatorInput;
+  } as unknown as Blackjack_calculatorInput;
     const result = calculateBlackjack_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("drill-depth-diameter-calculator", () => {
     "rotationSpeed": 1000,
     "feedRate": 0.1,
     "materialFactor": 1.5
-  } as Drill_depth_diameter_calculatorInput;
+  } as unknown as Drill_depth_diameter_calculatorInput;
     const result = calculateDrill_depth_diameter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("friction-calculator", () => {
     "coeffKinetic": 0.3,
     "gravity": 9.81,
     "safetyFactor": 1.5
-  } as Friction_calculatorInput;
+  } as unknown as Friction_calculatorInput;
     const result = calculateFriction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

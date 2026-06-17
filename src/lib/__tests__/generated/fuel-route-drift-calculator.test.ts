@@ -16,7 +16,7 @@ describe("fuel-route-drift-calculator", () => {
     "terrain_factor": "flat",
     "traffic_condition": "low",
     "driver_behavior_score": 80
-  } as Fuel_route_drift_calculatorInput;
+  } as unknown as Fuel_route_drift_calculatorInput;
     const result = calculateFuel_route_drift_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

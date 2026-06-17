@@ -14,7 +14,7 @@ describe("bandwidth-calculator", () => {
     "channels": 1,
     "encodingEfficiency": 100,
     "redundancyFactor": 1
-  } as Bandwidth_calculatorInput;
+  } as unknown as Bandwidth_calculatorInput;
     const result = calculateBandwidth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

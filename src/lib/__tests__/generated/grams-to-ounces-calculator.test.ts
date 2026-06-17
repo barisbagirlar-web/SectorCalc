@@ -12,7 +12,7 @@ describe("grams-to-ounces-calculator", () => {
     "conversionFactor": 0.0352739619,
     "batchQuantity": 1,
     "precision": 4
-  } as Grams_to_ounces_calculatorInput;
+  } as unknown as Grams_to_ounces_calculatorInput;
     const result = calculateGrams_to_ounces_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

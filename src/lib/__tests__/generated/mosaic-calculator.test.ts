@@ -13,7 +13,7 @@ describe("mosaic-calculator", () => {
     "tileWidth": 2,
     "wasteFactor": 10,
     "costPerTile": 0.1
-  } as Mosaic_calculatorInput;
+  } as unknown as Mosaic_calculatorInput;
     const result = calculateMosaic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

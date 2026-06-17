@@ -14,7 +14,7 @@ describe("gratitude-calculator", () => {
     "social_shares": 2,
     "journal_entries": 1,
     "baseline_happiness": 5
-  } as Gratitude_calculatorInput;
+  } as unknown as Gratitude_calculatorInput;
     const result = calculateGratitude_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

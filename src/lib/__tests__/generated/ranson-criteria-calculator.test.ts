@@ -13,7 +13,7 @@ describe("ranson-criteria-calculator", () => {
     "glucose": 200,
     "ldh": 350,
     "ast": 250
-  } as Ranson_criteria_calculatorInput;
+  } as unknown as Ranson_criteria_calculatorInput;
     const result = calculateRanson_criteria_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

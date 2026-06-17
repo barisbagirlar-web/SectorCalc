@@ -15,7 +15,7 @@ describe("compression-ratio-calculator", () => {
     "gasketBore": 87,
     "deckClearance": 0.5,
     "pistonDishVolume": 0
-  } as Compression_ratio_calculatorInput;
+  } as unknown as Compression_ratio_calculatorInput;
     const result = calculateCompression_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

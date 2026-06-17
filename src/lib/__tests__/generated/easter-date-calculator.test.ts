@@ -12,7 +12,7 @@ describe("easter-date-calculator", () => {
     "refYear": 2025,
     "refMonth": 1,
     "refDay": 1
-  } as Easter_date_calculatorInput;
+  } as unknown as Easter_date_calculatorInput;
     const result = calculateEaster_date_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

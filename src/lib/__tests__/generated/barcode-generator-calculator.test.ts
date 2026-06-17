@@ -12,7 +12,7 @@ describe("barcode-generator-calculator", () => {
     "moduleWidth": 0.25,
     "quietZoneLeft": 10,
     "quietZoneRight": 10
-  } as Barcode_generator_calculatorInput;
+  } as unknown as Barcode_generator_calculatorInput;
     const result = calculateBarcode_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

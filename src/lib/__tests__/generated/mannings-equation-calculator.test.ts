@@ -12,7 +12,7 @@ describe("mannings-equation-calculator", () => {
     "R": 1,
     "S": 0.001,
     "A": 5
-  } as Mannings_equation_calculatorInput;
+  } as unknown as Mannings_equation_calculatorInput;
     const result = calculateMannings_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

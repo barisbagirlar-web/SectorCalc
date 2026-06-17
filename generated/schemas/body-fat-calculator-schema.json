@@ -27,11 +27,13 @@
       ],
       "label_i18n": {
         "en": "Gender",
-        "tr": "Cinsiyet"
+        "tr": "Cinsiyet",
+        "de": "Geschlecht"
       },
       "businessContext_i18n": {
         "en": "Biological sex used in anthropometric regression models (ISO 7250-1).",
-        "tr": "Antropometrik regresyon modellerinde kullanılan biyolojik cinsiyet (ISO 7250-1)."
+        "tr": "Antropometrik regresyon modellerinde kullanılan biyolojik cinsiyet (ISO 7250-1).",
+        "de": "Biologisches Geschlecht, verwendet in anthropometrischen Regressionsmodellen (ISO 7250-1)."
       }
     },
     {
@@ -45,11 +47,13 @@
       "businessContext": "Age affects body composition and metabolic rate (Six Sigma DMAIC phase: Measure).",
       "label_i18n": {
         "en": "Age",
-        "tr": "Yaş"
+        "tr": "Yaş",
+        "de": "Alter"
       },
       "businessContext_i18n": {
         "en": "Age affects body composition and metabolic rate (Six Sigma DMAIC phase: Measure).",
-        "tr": "Yaş, vücut kompozisyonunu ve metabolizma hızını etkiler (Altı Sigma DMAIC aşaması: Ölç)."
+        "tr": "Yaş, vücut kompozisyonunu ve metabolizma hızını etkiler (Altı Sigma DMAIC aşaması: Ölç).",
+        "de": "Alter beeinflusst Körperzusammensetzung und Stoffwechselrate (Six Sigma DMAIC-Phase: Messen)."
       }
     },
     {
@@ -63,11 +67,13 @@
       "businessContext": "Stature measurement per ISO 7250-1 for normalization.",
       "label_i18n": {
         "en": "Height",
-        "tr": "Boy"
+        "tr": "Boy",
+        "de": "Größe"
       },
       "businessContext_i18n": {
         "en": "Stature measurement per ISO 7250-1 for normalization.",
-        "tr": "Normalizasyon için ISO 7250-1'e göre boy ölçümü."
+        "tr": "Normalizasyon için ISO 7250-1'e göre boy ölçümü.",
+        "de": "Körpergröße gemäß ISO 7250-1 zur Normalisierung."
       }
     },
     {
@@ -81,11 +87,13 @@
       "businessContext": "Body mass for BMI and fat mass calculations.",
       "label_i18n": {
         "en": "Weight",
-        "tr": "Ağırlık"
+        "tr": "Ağırlık",
+        "de": "Gewicht"
       },
       "businessContext_i18n": {
         "en": "Body mass for BMI and fat mass calculations.",
-        "tr": "Vücut kütlesi, BMI ve yağ kütlesi hesaplamaları için."
+        "tr": "Vücut kütlesi, BMI ve yağ kütlesi hesaplamaları için.",
+        "de": "Körpermasse für BMI und Fettmassenberechnungen."
       }
     },
     {
@@ -99,11 +107,13 @@
       "businessContext": "Key input for body density estimation (Navy method, Lean Six Sigma MSA).",
       "label_i18n": {
         "en": "Neck Circumference",
-        "tr": "Boyun Çevresi"
+        "tr": "Boyun Çevresi",
+        "de": "Halsumfang"
       },
       "businessContext_i18n": {
         "en": "Key input for body density estimation (Navy method, Lean Six Sigma MSA).",
-        "tr": "Vücut yoğunluğu tahmini için ana girdi (Navy yöntemi, Yalın Altı Sigma MSA)."
+        "tr": "Vücut yoğunluğu tahmini için ana girdi (Navy yöntemi, Yalın Altı Sigma MSA).",
+        "de": "Schlüsseleingabe für die Schätzung der Körperdichte (Navy-Methode, Lean Six Sigma MSA)."
       }
     },
     {
@@ -117,11 +127,13 @@
       "businessContext": "Abdominal girth for visceral fat risk (WERC ergonomic guidelines).",
       "label_i18n": {
         "en": "Waist Circumference",
-        "tr": "Bel Çevresi"
+        "tr": "Bel Çevresi",
+        "de": "Taillenumfang"
       },
       "businessContext_i18n": {
         "en": "Abdominal girth for visceral fat risk (WERC ergonomic guidelines).",
-        "tr": "Visseral yağ riski için karın çevresi (WERC ergonomi kılavuzu)."
+        "tr": "Visseral yağ riski için karın çevresi (WERC ergonomi kılavuzu).",
+        "de": "Bauchumfang für viszerales Fettrisiko (WERC-ergonomische Richtlinien)."
       }
     },
     {
@@ -135,11 +147,13 @@
       "businessContext": "Required for female body fat calculation (ISO 20685).",
       "label_i18n": {
         "en": "Hip Circumference",
-        "tr": "Kalça Çevresi"
+        "tr": "Kalça Çevresi",
+        "de": "Hüftumfang"
       },
       "businessContext_i18n": {
         "en": "Required for female body fat calculation (ISO 20685).",
-        "tr": "Kadın vücut yağ hesaplaması için gereklidir (ISO 20685)."
+        "tr": "Kadın vücut yağ hesaplaması için gereklidir (ISO 20685).",
+        "de": "Erforderlich für die weibliche Körperfettberechnung (ISO 20685)."
       }
     },
     {
@@ -160,11 +174,13 @@
       ],
       "label_i18n": {
         "en": "Activity Level",
-        "tr": "Aktivite Seviyesi"
+        "tr": "Aktivite Seviyesi",
+        "de": "Aktivitätsniveau"
       },
       "businessContext_i18n": {
         "en": "Physical activity multiplier for energy expenditure (Lean Kaizen continuous improvement).",
-        "tr": "Enerji harcaması için fiziksel aktivite çarpanı (Yalın Kaizen sürekli iyileştirme)."
+        "tr": "Enerji harcaması için fiziksel aktivite çarpanı (Yalın Kaizen sürekli iyileştirme).",
+        "de": "Multiplikator für körperliche Aktivität zur Energieverbrauchsberechnung (Lean Kaizen kontinuierliche Verbesserung)."
       }
     }
   ],

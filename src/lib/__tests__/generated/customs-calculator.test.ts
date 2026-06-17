@@ -13,7 +13,7 @@ describe("customs-calculator", () => {
     "vatRate": 18,
     "exciseRate": 0,
     "fixedFee": 0
-  } as Customs_calculatorInput;
+  } as unknown as Customs_calculatorInput;
     const result = calculateCustoms_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

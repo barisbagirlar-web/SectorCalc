@@ -13,7 +13,7 @@ describe("apgar-score-calculator", () => {
     "grimace": 0,
     "activity": 0,
     "respiration": 0
-  } as Apgar_score_calculatorInput;
+  } as unknown as Apgar_score_calculatorInput;
     const result = calculateApgar_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Assets",
         "tr": "Toplam Varlıklar",
-        "de": "Total Assets",
+        "de": "Gesamtvermögen",
         "fr": "Total Assets",
         "es": "Total Assets",
         "ar": "Total Assets"
       },
       "businessContext_i18n": {
         "en": "The total resources owned by the company, including both current and non-current assets.",
-        "tr": "Şirketin sahip olduğu, dönen ve duran varlıklar dahil toplam kaynaklar."
+        "tr": "Şirketin sahip olduğu, dönen ve duran varlıklar dahil toplam kaynaklar.",
+        "de": "Die gesamten Ressourcen im Besitz des Unternehmens, einschließlich kurzfristiger und langfristiger Vermögenswerte."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Long-Term Debt",
         "tr": "Uzun Vadeli Borç",
-        "de": "Long-Term Debt",
+        "de": "Langfristige Verbindlichkeiten",
         "fr": "Long-Term Debt",
         "es": "Long-Term Debt",
         "ar": "Long-Term Debt"
       },
       "businessContext_i18n": {
         "en": "Borrowings and financial obligations due after one year.",
-        "tr": "Bir yıldan sonra vadesi gelen borçlanmalar ve finansal yükümlülükler."
+        "tr": "Bir yıldan sonra vadesi gelen borçlanmalar ve finansal yükümlülükler.",
+        "de": "Kredite und finanzielle Verpflichtungen mit einer Laufzeit von mehr als einem Jahr."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Current Liabilities",
         "tr": "Kısa Vadeli Yükümlülükler",
-        "de": "Current Liabilities",
+        "de": "Kurzfristige Verbindlichkeiten",
         "fr": "Current Liabilities",
         "es": "Current Liabilities",
         "ar": "Current Liabilities"
       },
       "businessContext_i18n": {
         "en": "Short-term obligations due within one year, such as accounts payable and accruals.",
-        "tr": "Bir yıl içinde vadesi gelen kısa vadeli yükümlülükler (ticari borçlar ve tahakkuklar gibi)."
+        "tr": "Bir yıl içinde vadesi gelen kısa vadeli yükümlülükler (ticari borçlar ve tahakkuklar gibi).",
+        "de": "Kurzfristige Verpflichtungen, die innerhalb eines Jahres fällig sind, wie Verbindlichkeiten aus Lieferungen und Leistungen und Rückstellungen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Other Liabilities",
         "tr": "Diğer Yükümlülükler",
-        "de": "Other Liabilities",
+        "de": "Sonstige Verbindlichkeiten",
         "fr": "Other Liabilities",
         "es": "Other Liabilities",
         "ar": "Other Liabilities"
       },
       "businessContext_i18n": {
         "en": "Any other liabilities not classified as long-term debt or current liabilities, such as provisions or deferred tax liabilities.",
-        "tr": "Uzun vadeli borç veya kısa vadeli yükümlülükler olarak sınıflandırılmayan karşılıklar veya ertelenmiş vergi yükümlülükleri gibi diğer yükümlülükler."
+        "tr": "Uzun vadeli borç veya kısa vadeli yükümlülükler olarak sınıflandırılmayan karşılıklar veya ertelenmiş vergi yükümlülükleri gibi diğer yükümlülükler.",
+        "de": "Alle anderen Verbindlichkeiten, die nicht als langfristige Schulden oder kurzfristige Verbindlichkeiten klassifiziert sind, wie Rückstellungen oder latente Steuerverbindlichkeiten."
       }
     }
   ],

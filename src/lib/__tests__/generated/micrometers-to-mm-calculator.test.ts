@@ -12,7 +12,7 @@ describe("micrometers-to-mm-calculator", () => {
     "calibrationFactor": 0,
     "temperatureCoeff": 0,
     "ambientTemperature": 20
-  } as Micrometers_to_mm_calculatorInput;
+  } as unknown as Micrometers_to_mm_calculatorInput;
     const result = calculateMicrometers_to_mm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

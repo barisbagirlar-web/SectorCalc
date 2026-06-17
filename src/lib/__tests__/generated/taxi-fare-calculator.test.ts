@@ -14,7 +14,7 @@ describe("taxi-fare-calculator", () => {
     "distance": 10,
     "time": 15,
     "surcharge": 0
-  } as Taxi_fare_calculatorInput;
+  } as unknown as Taxi_fare_calculatorInput;
     const result = calculateTaxi_fare_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

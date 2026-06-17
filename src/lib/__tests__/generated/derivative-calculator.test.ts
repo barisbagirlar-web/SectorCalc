@@ -15,7 +15,7 @@ describe("derivative-calculator", () => {
     "m": 0,
     "c": 0,
     "p": 0
-  } as Derivative_calculatorInput;
+  } as unknown as Derivative_calculatorInput;
     const result = calculateDerivative_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

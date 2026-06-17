@@ -15,7 +15,7 @@ describe("mortar-calculator", () => {
     "brickHeight": 90,
     "jointThickness": 10,
     "wasteFactor": 5
-  } as Mortar_calculatorInput;
+  } as unknown as Mortar_calculatorInput;
     const result = calculateMortar_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

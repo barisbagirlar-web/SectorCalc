@@ -15,7 +15,7 @@ describe("house-hacking-calculator", () => {
     "monthlyRentIncome": 2500,
     "monthlyExpenses": 800,
     "vacancyRate": 5
-  } as House_hacking_calculatorInput;
+  } as unknown as House_hacking_calculatorInput;
     const result = calculateHouse_hacking_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("polarization-calculator", () => {
     "incident_angle": 0,
     "polarizer1_angle": 0,
     "polarizer2_angle": 45
-  } as Polarization_calculatorInput;
+  } as unknown as Polarization_calculatorInput;
     const result = calculatePolarization_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

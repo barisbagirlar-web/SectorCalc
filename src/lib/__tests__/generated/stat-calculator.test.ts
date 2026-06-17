@@ -13,7 +13,7 @@ describe("stat-calculator", () => {
     "value3": 0,
     "value4": 0,
     "value5": 0
-  } as Stat_calculatorInput;
+  } as unknown as Stat_calculatorInput;
     const result = calculateStat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

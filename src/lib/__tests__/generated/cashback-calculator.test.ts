@@ -13,7 +13,7 @@ describe("cashback-calculator", () => {
     "minSpend": 0,
     "maxCashback": 0,
     "campaignMultiplier": 1
-  } as Cashback_calculatorInput;
+  } as unknown as Cashback_calculatorInput;
     const result = calculateCashback_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

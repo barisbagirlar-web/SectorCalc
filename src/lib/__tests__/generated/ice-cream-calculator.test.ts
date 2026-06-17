@@ -14,7 +14,7 @@ describe("ice-cream-calculator", () => {
     "packagingCostPerLiter": 0.5,
     "otherCostsPerBatch": 50,
     "desiredProfitMarginPercent": 30
-  } as Ice_cream_calculatorInput;
+  } as unknown as Ice_cream_calculatorInput;
     const result = calculateIce_cream_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

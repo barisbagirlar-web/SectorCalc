@@ -12,7 +12,7 @@ describe("foot-pounds-to-joules-calculator", () => {
     "conversion_factor": 1.3558179483314003,
     "decimal_places": 2,
     "uncertainty_percent": 0
-  } as Foot_pounds_to_joules_calculatorInput;
+  } as unknown as Foot_pounds_to_joules_calculatorInput;
     const result = calculateFoot_pounds_to_joules_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

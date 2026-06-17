@@ -16,7 +16,7 @@ describe("environmental-waste-cost-calculator", () => {
     "labor_hours_per_ton": 2,
     "labor_rate_per_hour": 25,
     "recycling_revenue_per_kg": 0.05
-  } as Environmental_waste_cost_calculatorInput;
+  } as unknown as Environmental_waste_cost_calculatorInput;
     const result = calculateEnvironmental_waste_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

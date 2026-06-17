@@ -12,7 +12,7 @@ describe("tons-to-kg-calculator", () => {
     "shortTons": 0,
     "longTons": 0,
     "knownKilograms": 0
-  } as Tons_to_kg_calculatorInput;
+  } as unknown as Tons_to_kg_calculatorInput;
     const result = calculateTons_to_kg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

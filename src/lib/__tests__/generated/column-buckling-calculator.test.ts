@@ -14,7 +14,7 @@ describe("column-buckling-calculator", () => {
     "length": 3000,
     "effectiveLengthFactor": 1,
     "appliedLoad": 50000
-  } as Column_buckling_calculatorInput;
+  } as unknown as Column_buckling_calculatorInput;
     const result = calculateColumn_buckling_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

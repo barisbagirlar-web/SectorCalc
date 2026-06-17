@@ -13,7 +13,7 @@ describe("quit-smoking-calculator", () => {
     "packSize": 20,
     "yearsSmoked": 10,
     "avgCigLifeLost": 11
-  } as Quit_smoking_calculatorInput;
+  } as unknown as Quit_smoking_calculatorInput;
     const result = calculateQuit_smoking_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

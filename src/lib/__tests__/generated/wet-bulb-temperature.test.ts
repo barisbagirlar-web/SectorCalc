@@ -12,7 +12,7 @@ describe("wet-bulb-temperature", () => {
     "relativeHumidity": 50,
     "atmosphericPressure": 1013.25,
     "altitude": 0
-  } as Wet_bulb_temperatureInput;
+  } as unknown as Wet_bulb_temperatureInput;
     const result = calculateWet_bulb_temperature(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

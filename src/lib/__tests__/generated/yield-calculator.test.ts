@@ -12,7 +12,7 @@ describe("yield-calculator", () => {
     "goodUnitsFirstPass": 850,
     "reworkedUnits": 100,
     "scrapUnits": 50
-  } as Yield_calculatorInput;
+  } as unknown as Yield_calculatorInput;
     const result = calculateYield_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

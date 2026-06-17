@@ -13,7 +13,7 @@ describe("adult-height-predictor-calculator", () => {
     "motherHeightCm": 165,
     "childHeightCm": 120,
     "childAgeYrs": 8
-  } as Adult_height_predictor_calculatorInput;
+  } as unknown as Adult_height_predictor_calculatorInput;
     const result = calculateAdult_height_predictor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

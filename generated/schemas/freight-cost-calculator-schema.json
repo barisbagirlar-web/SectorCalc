@@ -25,11 +25,13 @@
       "businessContext": "Total weight of the shipment, including packaging. Used for rate base and dimensional weight calculations.",
       "label_i18n": {
         "en": "Shipment Weight (kg)",
-        "tr": "Gönderi Ağırlığı (kg)"
+        "tr": "Gönderi Ağırlığı (kg)",
+        "de": "Sendungsgewicht (kg)"
       },
       "businessContext_i18n": {
         "en": "Total weight of the shipment, including packaging. Used for rate base and dimensional weight calculations.",
-        "tr": "Ambalaj dahil gönderinin toplam ağırlığı. Oran tabanı ve hacimsel ağırlık hesaplamaları için kullanılır."
+        "tr": "Ambalaj dahil gönderinin toplam ağırlığı. Oran tabanı ve hacimsel ağırlık hesaplamaları için kullanılır.",
+        "de": "Gesamtgewicht der Sendung inklusive Verpackung. Wird für die Tarifbasis und die Berechnung des Volumengewichts verwendet."
       }
     },
     {
@@ -43,11 +45,13 @@
       "businessContext": "Total cubic meters of the shipment. Used for dimensional weight factor and space utilization analysis.",
       "label_i18n": {
         "en": "Shipment Volume (cbm)",
-        "tr": "Gönderi Hacmi (m³)"
+        "tr": "Gönderi Hacmi (m³)",
+        "de": "Sendungsvolumen (m³)"
       },
       "businessContext_i18n": {
         "en": "Total cubic meters of the shipment. Used for dimensional weight factor and space utilization analysis.",
-        "tr": "Gönderinin toplam metreküpü. Hacimsel ağırlık faktörü ve alan kullanım analizi için kullanılır."
+        "tr": "Gönderinin toplam metreküpü. Hacimsel ağırlık faktörü ve alan kullanım analizi için kullanılır.",
+        "de": "Gesamtvolumen der Sendung in Kubikmetern. Wird für den Volumengewichtsfaktor und die Raumnutzungsanalyse verwendet."
       }
     },
     {
@@ -61,11 +65,13 @@
       "businessContext": "Total transport distance from origin to destination. Influences fuel surcharge and time-based costs.",
       "label_i18n": {
         "en": "Distance (km)",
-        "tr": "Mesafe (km)"
+        "tr": "Mesafe (km)",
+        "de": "Strecke (km)"
       },
       "businessContext_i18n": {
         "en": "Total transport distance from origin to destination. Influences fuel surcharge and time-based costs.",
-        "tr": "Menşeiden varış noktasına toplam taşıma mesafesi. Yakıt ek ücretini ve zamana dayalı maliyetleri etkiler."
+        "tr": "Menşeiden varış noktasına toplam taşıma mesafesi. Yakıt ek ücretini ve zamana dayalı maliyetleri etkiler.",
+        "de": "Gesamttransportdistanz vom Ursprung zum Ziel. Beeinflusst den Treibstoffzuschlag und die zeitbasierten Kosten."
       }
     },
     {
@@ -84,11 +90,13 @@
       "businessContext": "Mode of transport. Each mode has distinct cost structures, risk profiles, and carbon impact.",
       "label_i18n": {
         "en": "Transport Mode",
-        "tr": "Taşıma Modu"
+        "tr": "Taşıma Modu",
+        "de": "Transportart"
       },
       "businessContext_i18n": {
         "en": "Mode of transport. Each mode has distinct cost structures, risk profiles, and carbon impact.",
-        "tr": "Taşıma modu. Her modun farklı maliyet yapıları, risk profilleri ve karbon etkisi vardır."
+        "tr": "Taşıma modu. Her modun farklı maliyet yapıları, risk profilleri ve karbon etkisi vardır.",
+        "de": "Transportart. Jede Art hat unterschiedliche Kostenstrukturen, Risikoprofile und CO₂-Auswirkungen."
       }
     },
     {
@@ -102,11 +110,13 @@
       "businessContext": "Percentage applied to base freight rate to account for fuel price variability. Typically indexed to DOE or IATA.",
       "label_i18n": {
         "en": "Fuel Surcharge (%)",
-        "tr": "Yakıt Ek Ücreti (%)"
+        "tr": "Yakıt Ek Ücreti (%)",
+        "de": "Treibstoffzuschlag (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage applied to base freight rate to account for fuel price variability. Typically indexed to DOE or IATA.",
-        "tr": "Yakıt fiyatı değişkenliğini hesaba katmak için temel navlun oranına uygulanan yüzde. Genellikle DOE veya IATA'ya endekslenir."
+        "tr": "Yakıt fiyatı değişkenliğini hesaba katmak için temel navlun oranına uygulanan yüzde. Genellikle DOE veya IATA'ya endekslenir.",
+        "de": "Prozentsatz, der auf den Basisfrachtsatz angewendet wird, um die Treibstoffpreisschwankungen zu berücksichtigen. Typischerweise an DOE oder IATA indexiert."
       }
     },
     {
@@ -120,11 +130,13 @@
       "businessContext": "Additional fees for liftgate, residential delivery, inside delivery, detention, etc.",
       "label_i18n": {
         "en": "Accessorial Charges (USD)",
-        "tr": "Ek Hizmet Ücretleri (USD)"
+        "tr": "Ek Hizmet Ücretleri (USD)",
+        "de": "Nebengebühren (USD)"
       },
       "businessContext_i18n": {
         "en": "Additional fees for liftgate, residential delivery, inside delivery, detention, etc.",
-        "tr": "Arka kapı asansörü, konut teslimatı, iç teslimat, alıkoyma vb. için ek ücretler."
+        "tr": "Arka kapı asansörü, konut teslimatı, iç teslimat, alıkoyma vb. için ek ücretler.",
+        "de": "Zusätzliche Gebühren für Hebebühne, Zustellung an Wohnadresse, Innenzustellung, Standgeld usw."
       }
     },
     {
@@ -138,11 +150,13 @@
       "businessContext": "Actual density of the shipment. Used to compare against breakpoints for LTL class or airfreight chargeable weight.",
       "label_i18n": {
         "en": "Density Factor (kg/cbm)",
-        "tr": "Yoğunluk Faktörü (kg/m³)"
+        "tr": "Yoğunluk Faktörü (kg/m³)",
+        "de": "Dichtefaktor (kg/m³)"
       },
       "businessContext_i18n": {
         "en": "Actual density of the shipment. Used to compare against breakpoints for LTL class or airfreight chargeable weight.",
-        "tr": "Gönderinin gerçek yoğunluğu. LTL sınıfı veya hava kargo ücrete tabi ağırlığı için kırılma noktalarına karşı karşılaştırmada kullanılır."
+        "tr": "Gönderinin gerçek yoğunluğu. LTL sınıfı veya hava kargo ücrete tabi ağırlığı için kırılma noktalarına karşı karşılaştırmada kullanılır.",
+        "de": "Tatsächliche Dichte der Sendung. Wird verwendet, um mit Grenzwerten für LTL-Klasse oder Luftfracht-berechnungsgewicht zu vergleichen."
       }
     },
     {
@@ -154,11 +168,13 @@
       "businessContext": "Indicates if shipment contains dangerous goods. Triggers additional compliance and handling fees.",
       "label_i18n": {
         "en": "Hazardous Material",
-        "tr": "Tehlikeli Madde"
+        "tr": "Tehlikeli Madde",
+        "de": "Gefahrgut"
       },
       "businessContext_i18n": {
         "en": "Indicates if shipment contains dangerous goods. Triggers additional compliance and handling fees.",
-        "tr": "Gönderinin tehlikeli madde içerdiğini belirtir. Ek uyumluluk ve elleçleme ücretlerini tetikler."
+        "tr": "Gönderinin tehlikeli madde içerdiğini belirtir. Ek uyumluluk ve elleçleme ücretlerini tetikler.",
+        "de": "Gibt an, ob die Sendung gefährliche Güter enthält. Löst zusätzliche Compliance- und Handhabungsgebühren aus."
       }
     }
   ],

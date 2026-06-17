@@ -16,7 +16,7 @@ describe("supplement-stack-calculator", () => {
     "supp2Price": 25,
     "supp2ContainerServings": 60,
     "supp2DailyServings": 1
-  } as Supplement_stack_calculatorInput;
+  } as unknown as Supplement_stack_calculatorInput;
     const result = calculateSupplement_stack_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

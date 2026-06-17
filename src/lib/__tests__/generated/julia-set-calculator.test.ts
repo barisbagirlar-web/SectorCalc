@@ -12,7 +12,7 @@ describe("julia-set-calculator", () => {
     "cy": 0.156,
     "zx": 0,
     "zy": 0
-  } as Julia_set_calculatorInput;
+  } as unknown as Julia_set_calculatorInput;
     const result = calculateJulia_set_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

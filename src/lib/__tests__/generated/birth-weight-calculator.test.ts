@@ -12,7 +12,7 @@ describe("birth-weight-calculator", () => {
     "ac": 33,
     "fl": 7,
     "bpd": 9.5
-  } as Birth_weight_calculatorInput;
+  } as unknown as Birth_weight_calculatorInput;
     const result = calculateBirth_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

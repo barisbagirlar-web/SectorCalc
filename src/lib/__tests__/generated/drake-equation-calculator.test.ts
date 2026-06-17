@@ -15,7 +15,7 @@ describe("drake-equation-calculator", () => {
     "fi": 0.01,
     "fc": 0.01,
     "L": 10000
-  } as Drake_equation_calculatorInput;
+  } as unknown as Drake_equation_calculatorInput;
     const result = calculateDrake_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

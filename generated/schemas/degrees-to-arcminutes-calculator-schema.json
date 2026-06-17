@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Degrees",
         "tr": "Derece",
-        "de": "Degrees",
+        "de": "Grad",
         "fr": "Degrees",
         "es": "Degrees",
         "ar": "Degrees"
       },
       "businessContext_i18n": {
         "en": "Angle component in degrees",
-        "tr": "Derece cinsinden açı bileşeni"
+        "tr": "Derece cinsinden açı bileşeni",
+        "de": "Winkelkomponente in Grad"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Arcminutes",
         "tr": "Dakika",
-        "de": "Arcminutes",
+        "de": "Bogenminuten",
         "fr": "Arcminutes",
         "es": "Arcminutes",
         "ar": "Arcminutes"
       },
       "businessContext_i18n": {
         "en": "Angle component in arcminutes",
-        "tr": "Dakika cinsinden açı bileşeni"
+        "tr": "Dakika cinsinden açı bileşeni",
+        "de": "Winkelkomponente in Bogenminuten"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Arcseconds",
         "tr": "Saniye",
-        "de": "Arcseconds",
+        "de": "Bogensekunden",
         "fr": "Arcseconds",
         "es": "Arcseconds",
         "ar": "Arcseconds"
       },
       "businessContext_i18n": {
         "en": "Angle component in arcseconds",
-        "tr": "Saniye cinsinden açı bileşeni"
+        "tr": "Saniye cinsinden açı bileşeni",
+        "de": "Winkelkomponente in Bogensekunden"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Calibration Factor",
         "tr": "Kalibrasyon Faktörü",
-        "de": "Calibration Factor",
+        "de": "Kalibrierfaktor",
         "fr": "Calibration Factor",
         "es": "Calibration Factor",
         "ar": "Calibration Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplicative calibration factor for conversion (e.g., instrument scale)",
-        "tr": "Dönüşüm için çarpımsal kalibrasyon faktörü (ör. enstrüman ölçeği)"
+        "tr": "Dönüşüm için çarpımsal kalibrasyon faktörü (ör. enstrüman ölçeği)",
+        "de": "Multiplikativer Kalibrierungsfaktor für die Umrechnung (z. B. Instrumentenskala)"
       }
     },
     {
@@ -98,7 +102,8 @@
       },
       "businessContext_i18n": {
         "en": "Additive offset in arcminutes (e.g., zero error)",
-        "tr": "Dakika cinsinden toplamsal ofset (ör. sıfır hatası)"
+        "tr": "Dakika cinsinden toplamsal ofset (ör. sıfır hatası)",
+        "de": "Additiver Offset in Bogenminuten (z. B. Nullpunktfehler)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounded output",
-        "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı"
+        "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die gerundete Ausgabe"
       }
     }
   ],

@@ -16,7 +16,7 @@ describe("water-usage-optimizer-calculator", () => {
     "recycledWater": 1500,
     "leakageLosses": 500,
     "industryType": "general_manufacturing"
-  } as Water_usage_optimizer_calculatorInput;
+  } as unknown as Water_usage_optimizer_calculatorInput;
     const result = calculateWater_usage_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

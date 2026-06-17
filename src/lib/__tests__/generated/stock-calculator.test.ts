@@ -14,7 +14,7 @@ describe("stock-calculator", () => {
     "unitCost": 0,
     "leadTimeDays": 7,
     "workingDaysPerYear": 250
-  } as Stock_calculatorInput;
+  } as unknown as Stock_calculatorInput;
     const result = calculateStock_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

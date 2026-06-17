@@ -13,7 +13,7 @@ describe("stick-of-butter-to-grams-calculator", () => {
     "packagingWeight": 0,
     "butterDensity": 0.911,
     "precision": 2
-  } as Stick_of_butter_to_grams_calculatorInput;
+  } as unknown as Stick_of_butter_to_grams_calculatorInput;
     const result = calculateStick_of_butter_to_grams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

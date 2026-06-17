@@ -12,7 +12,7 @@ describe("swell-factor-calculator", () => {
     "swellFactorPercent": 25,
     "wasteFactorPercent": 5,
     "truckCapacity": 10
-  } as Swell_factor_calculatorInput;
+  } as unknown as Swell_factor_calculatorInput;
     const result = calculateSwell_factor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

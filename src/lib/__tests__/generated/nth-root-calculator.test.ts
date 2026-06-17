@@ -13,7 +13,7 @@ describe("nth-root-calculator", () => {
     "precision": 6,
     "tolerance": 1e-10,
     "initialGuess": 1
-  } as Nth_root_calculatorInput;
+  } as unknown as Nth_root_calculatorInput;
     const result = calculateNth_root_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

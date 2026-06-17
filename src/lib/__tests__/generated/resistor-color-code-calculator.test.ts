@@ -12,7 +12,7 @@ describe("resistor-color-code-calculator", () => {
     "band2": 0,
     "multiplier": 0,
     "tolerance": 5
-  } as Resistor_color_code_calculatorInput;
+  } as unknown as Resistor_color_code_calculatorInput;
     const result = calculateResistor_color_code_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("macro-nutrient-calculator", () => {
     "proteinPer100": 20,
     "carbsPer100": 10,
     "fatPer100": 5
-  } as Macro_nutrient_calculatorInput;
+  } as unknown as Macro_nutrient_calculatorInput;
     const result = calculateMacro_nutrient_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

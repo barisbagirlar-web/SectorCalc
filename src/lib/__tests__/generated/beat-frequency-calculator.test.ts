@@ -12,7 +12,7 @@ describe("beat-frequency-calculator", () => {
     "targetSpeed": 10,
     "angle": 0,
     "speedOfSound": 343
-  } as Beat_frequency_calculatorInput;
+  } as unknown as Beat_frequency_calculatorInput;
     const result = calculateBeat_frequency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

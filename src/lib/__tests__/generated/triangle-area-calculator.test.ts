@@ -14,7 +14,7 @@ describe("triangle-area-calculator", () => {
     "base": 0,
     "height": 0,
     "angle": 0
-  } as Triangle_area_calculatorInput;
+  } as unknown as Triangle_area_calculatorInput;
     const result = calculateTriangle_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

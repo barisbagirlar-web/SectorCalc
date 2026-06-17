@@ -14,7 +14,7 @@ describe("golden-hour-calculator", () => {
     "longitude": -74.006,
     "dateOffset": 172,
     "timezoneOffset": -4
-  } as Golden_hour_calculatorInput;
+  } as unknown as Golden_hour_calculatorInput;
     const result = calculateGolden_hour_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("inhg-to-psi-calculator", () => {
     "decimal_places": 4,
     "altitude_ft": 0,
     "temperature_f": 32
-  } as Inhg_to_psi_calculatorInput;
+  } as unknown as Inhg_to_psi_calculatorInput;
     const result = calculateInhg_to_psi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

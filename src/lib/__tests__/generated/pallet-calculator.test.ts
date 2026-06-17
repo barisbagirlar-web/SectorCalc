@@ -13,7 +13,7 @@ describe("pallet-calculator", () => {
     "layersPerPallet": 5,
     "itemWeight": 10,
     "maxPalletWeight": 500
-  } as Pallet_calculatorInput;
+  } as unknown as Pallet_calculatorInput;
     const result = calculatePallet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

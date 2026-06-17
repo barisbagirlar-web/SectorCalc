@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Formation Enthalpy (ΔH_f)",
         "tr": "Oluşum Entalpisi (ΔH_f)",
-        "de": "Formation Enthalpy (ΔH_f)",
+        "de": "Bildungsenthalpie (ΔH_f)",
         "fr": "Formation Enthalpy (ΔH_f)",
         "es": "Formation Enthalpy (ΔH_f)",
         "ar": "Formation Enthalpy (ΔH_f)"
       },
       "businessContext_i18n": {
         "en": "Standard enthalpy of formation of the ionic compound from its elements.",
-        "tr": "İyonik bileşiğin elementlerinden standart oluşum entalpisi."
+        "tr": "İyonik bileşiğin elementlerinden standart oluşum entalpisi.",
+        "de": "Standard-Bildungsenthalpie der Ionenverbindung aus ihren Elementen."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sublimation Energy (S)",
         "tr": "Süblimleşme Enerjisi (S)",
-        "de": "Sublimation Energy (S)",
+        "de": "Sublimationsenergie (S)",
         "fr": "Sublimation Energy (S)",
         "es": "Sublimation Energy (S)",
         "ar": "Sublimation Energy (S)"
       },
       "businessContext_i18n": {
         "en": "Energy required to vaporize one mole of the metal (cation precursor).",
-        "tr": "Bir mol metalin (katyon öncüsü) buharlaştırılması için gereken enerji."
+        "tr": "Bir mol metalin (katyon öncüsü) buharlaştırılması için gereken enerji.",
+        "de": "Energie, die benötigt wird, um ein Mol des Metalls (Kationenvorstufe) zu verdampfen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Atomization Enthalpy per X atom",
         "tr": "X atomu başına atomizasyon entalpisi",
-        "de": "Atomization Enthalpy per X atom",
+        "de": "Atomisierungsenthalpie pro X-Atom",
         "fr": "Atomization Enthalpy per X atom",
         "es": "Atomization Enthalpy per X atom",
         "ar": "Atomization Enthalpy per X atom"
       },
       "businessContext_i18n": {
         "en": "Energy required to form one mole of isolated gaseous X atoms from the standard state of element X (e.g., ½ bond dissociation energy for diatomic X₂).",
-        "tr": "Element X'in standart halinden bir mol izole gaz halindeki X atomu oluşturmak için gereken enerji (ör. diatomik X₂ için bağ ayrışma enerjisinin yarısı)."
+        "tr": "Element X'in standart halinden bir mol izole gaz halindeki X atomu oluşturmak için gereken enerji (ör. diatomik X₂ için bağ ayrışma enerjisinin yarısı).",
+        "de": "Energie, die benötigt wird, um ein Mol isolierte gasförmige X-Atome aus dem Standardzustand des Elements X zu bilden (z.B. ½ Dissoziationsenergie für zweiatomiges X₂)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Ionization Energy (IP)",
         "tr": "İyonlaşma Enerjisi (IP)",
-        "de": "Ionization Energy (IP)",
+        "de": "Ionisierungsenergie (IP)",
         "fr": "Ionization Energy (IP)",
         "es": "Ionization Energy (IP)",
         "ar": "Ionization Energy (IP)"
       },
       "businessContext_i18n": {
         "en": "Energy required to remove the most loosely held electron from one mole of gaseous metal atoms to form cations.",
-        "tr": "Bir mol gaz halindeki metal atomundan en gevşek bağlı elektronu uzaklaştırmak için gereken enerji."
+        "tr": "Bir mol gaz halindeki metal atomundan en gevşek bağlı elektronu uzaklaştırmak için gereken enerji.",
+        "de": "Energie, die benötigt wird, um das am lockersten gebundene Elektron aus einem Mol gasförmiger Metallatome zu entfernen, um Kationen zu bilden."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Lattice Energy (U)",
         "tr": "Örgü Enerjisi (U)",
-        "de": "Lattice Energy (U)",
+        "de": "Gitterenergie (U)",
         "fr": "Lattice Energy (U)",
         "es": "Lattice Energy (U)",
         "ar": "Lattice Energy (U)"
       },
       "businessContext_i18n": {
         "en": "Energy released when gaseous ions combine to form one mole of the ionic solid (exothermic, input as positive magnitude).",
-        "tr": "Gaz halindeki iyonların bir mol iyonik katı oluşturmak üzere birleşmesiyle açığa çıkan enerji (ekzotermik, pozitif büyüklük olarak girin)."
+        "tr": "Gaz halindeki iyonların bir mol iyonik katı oluşturmak üzere birleşmesiyle açığa çıkan enerji (ekzotermik, pozitif büyüklük olarak girin).",
+        "de": "Energie, die freigesetzt wird, wenn gasförmige Ionen zu einem Mol des ionischen Feststoffs kombinieren (exotherm, als positiver Betrag eingeben)."
       }
     }
   ],

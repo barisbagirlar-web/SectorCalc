@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age of the individual in years.",
-        "tr": "Bireyin yıl cinsinden yaşı."
+        "tr": "Bireyin yıl cinsinden yaşı.",
+        "de": "Alter der Person in Jahren."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Resting Heart Rate",
         "tr": "Dinlenme Kalp Atış Hızı",
-        "de": "Resting Heart Rate",
+        "de": "Ruhepuls",
         "fr": "Resting Heart Rate",
         "es": "Resting Heart Rate",
         "ar": "Resting Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Resting heart rate, typically measured upon waking.",
-        "tr": "Genellikle uyanırken ölçülen dinlenme kalp atış hızı."
+        "tr": "Genellikle uyanırken ölçülen dinlenme kalp atış hızı.",
+        "de": "Ruhepuls, typischerweise nach dem Aufwachen gemessen."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Maximum Heart Rate",
         "tr": "Maksimum Kalp Atış Hızı",
-        "de": "Maximum Heart Rate",
+        "de": "Maximale Herzfrequenz",
         "fr": "Maximum Heart Rate",
         "es": "Maximum Heart Rate",
         "ar": "Maximum Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Maximum heart rate in beats per minute. Enter 0 to estimate from age (220 - age).",
-        "tr": "Dakikadaki atım cinsinden maksimum kalp atış hızı. Yaştan tahmin etmek için 0 girin (220 - yaş)."
+        "tr": "Dakikadaki atım cinsinden maksimum kalp atış hızı. Yaştan tahmin etmek için 0 girin (220 - yaş).",
+        "de": "Maximale Herzfrequenz in Schlägen pro Minute. 0 eingeben, um aus dem Alter zu schätzen (220 - Alter)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Intensity",
         "tr": "Yoğunluk",
-        "de": "Intensity",
+        "de": "Intensität",
         "fr": "Intensity",
         "es": "Intensity",
         "ar": "Intensity"
       },
       "businessContext_i18n": {
         "en": "Percentage of heart rate reserve used for anaerobic threshold (commonly 80-90%).",
-        "tr": "Anaerobik eşik için kullanılan kalp atış hızı rezervinin yüzdesi (genellikle %80-90)."
+        "tr": "Anaerobik eşik için kullanılan kalp atış hızı rezervinin yüzdesi (genellikle %80-90).",
+        "de": "Prozentsatz der Herzfrequenzreserve, der für die anaerobe Schwelle verwendet wird (üblich 80-90%)."
       }
     }
   ],

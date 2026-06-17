@@ -11,7 +11,7 @@ describe("stefan-boltzmann-law", () => {
     "temperature": 300,
     "emissivity": 1,
     "area": 1
-  } as Stefan_boltzmann_lawInput;
+  } as unknown as Stefan_boltzmann_lawInput;
     const result = calculateStefan_boltzmann_law(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

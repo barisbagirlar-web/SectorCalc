@@ -13,7 +13,7 @@ describe("ring-size-calculator", () => {
     "diameter_inches": 0,
     "circumference_inches": 0,
     "calibration_factor": 1
-  } as Ring_size_calculatorInput;
+  } as unknown as Ring_size_calculatorInput;
     const result = calculateRing_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

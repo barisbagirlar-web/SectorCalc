@@ -16,7 +16,7 @@ describe("led-savings-calculator", () => {
     "daysPerYear": 365,
     "currentBulbCost": 1,
     "ledBulbCost": 5
-  } as Led_savings_calculatorInput;
+  } as unknown as Led_savings_calculatorInput;
     const result = calculateLed_savings_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

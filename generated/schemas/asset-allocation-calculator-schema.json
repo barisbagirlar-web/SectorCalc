@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Investment Amount",
         "tr": "Toplam Yatırım Tutarı",
-        "de": "Total Investment Amount",
+        "de": "Gesamtinvestitionsbetrag",
         "fr": "Total Investment Amount",
         "es": "Total Investment Amount",
         "ar": "Total Investment Amount"
       },
       "businessContext_i18n": {
         "en": "Total amount to allocate",
-        "tr": "Tahsis edilecek toplam tutar"
+        "tr": "Tahsis edilecek toplam tutar",
+        "de": "Gesamtbetrag zur Zuteilung"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Stock Allocation (%)",
         "tr": "Hisse Senedi Tahsisi (%)",
-        "de": "Stock Allocation (%)",
+        "de": "Aktienallokation (%)",
         "fr": "Stock Allocation (%)",
         "es": "Stock Allocation (%)",
         "ar": "Stock Allocation (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage allocated to stocks",
-        "tr": "Hisselere tahsis edilen yüzde"
+        "tr": "Hisselere tahsis edilen yüzde",
+        "de": "Prozentsatz, der in Aktien investiert wird"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Bond Allocation (%)",
         "tr": "Tahvil Tahsisi (%)",
-        "de": "Bond Allocation (%)",
+        "de": "Anleihenallokation (%)",
         "fr": "Bond Allocation (%)",
         "es": "Bond Allocation (%)",
         "ar": "Bond Allocation (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage allocated to bonds",
-        "tr": "Tahvillere tahsis edilen yüzde"
+        "tr": "Tahvillere tahsis edilen yüzde",
+        "de": "Prozentsatz, der in Anleihen investiert wird"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Cash Allocation (%)",
         "tr": "Nakit Tahsisi (%)",
-        "de": "Cash Allocation (%)",
+        "de": "Bargeldallokation (%)",
         "fr": "Cash Allocation (%)",
         "es": "Cash Allocation (%)",
         "ar": "Cash Allocation (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage allocated to cash",
-        "tr": "Nakde tahsis edilen yüzde"
+        "tr": "Nakde tahsis edilen yüzde",
+        "de": "Prozentsatz, der in Bargeld gehalten wird"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Expected Stock Return (%)",
         "tr": "Beklenen Hisse Senedi Getirisi (%)",
-        "de": "Expected Stock Return (%)",
+        "de": "Erwartete Aktienrendite (%)",
         "fr": "Expected Stock Return (%)",
         "es": "Expected Stock Return (%)",
         "ar": "Expected Stock Return (%)"
       },
       "businessContext_i18n": {
         "en": "Expected annual return from stocks",
-        "tr": "Hisselerden beklenen yıllık getiri"
+        "tr": "Hisselerden beklenen yıllık getiri",
+        "de": "Erwartete jährliche Rendite aus Aktien"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Expected Bond Return (%)",
         "tr": "Beklenen Tahvil Getirisi (%)",
-        "de": "Expected Bond Return (%)",
+        "de": "Erwartete Anleihenrendite (%)",
         "fr": "Expected Bond Return (%)",
         "es": "Expected Bond Return (%)",
         "ar": "Expected Bond Return (%)"
       },
       "businessContext_i18n": {
         "en": "Expected annual return from bonds",
-        "tr": "Tahvillerden beklenen yıllık getiri"
+        "tr": "Tahvillerden beklenen yıllık getiri",
+        "de": "Erwartete jährliche Rendite aus Anleihen"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Cash Return (%)",
         "tr": "Nakit Getirisi (%)",
-        "de": "Cash Return (%)",
+        "de": "Bargeldrendite (%)",
         "fr": "Cash Return (%)",
         "es": "Cash Return (%)",
         "ar": "Cash Return (%)"
       },
       "businessContext_i18n": {
         "en": "Expected annual return from cash",
-        "tr": "Nakitten beklenen yıllık getiri"
+        "tr": "Nakitten beklenen yıllık getiri",
+        "de": "Erwartete jährliche Rendite aus Bargeld"
       }
     }
   ],

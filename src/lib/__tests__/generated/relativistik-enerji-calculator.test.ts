@@ -12,7 +12,7 @@ describe("relativistik-enerji-calculator", () => {
     "c": 299792458,
     "v": 0,
     "unitFactor": 1
-  } as Relativistik_enerji_calculatorInput;
+  } as unknown as Relativistik_enerji_calculatorInput;
     const result = calculateRelativistik_enerji_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Cat Age (Years)",
         "tr": "Kedi Yaşı (Yıl)",
-        "de": "Cat Age (Years)",
+        "de": "Katzenalter (Jahre)",
         "fr": "Cat Age (Years)",
         "es": "Cat Age (Years)",
         "ar": "Cat Age (Years)"
       },
       "businessContext_i18n": {
         "en": "The whole number of years the cat has lived. Minimum 0.",
-        "tr": "Kedinin yaşadığı tam yıl sayısı. Minimum 0."
+        "tr": "Kedinin yaşadığı tam yıl sayısı. Minimum 0.",
+        "de": "Die gesamte Anzahl der Jahre, die die Katze gelebt hat. Minimum 0."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cat Age (Additional Months)",
         "tr": "Kedi Yaşı (Ek Ay)",
-        "de": "Cat Age (Additional Months)",
+        "de": "Katzenalter (zusätzliche Monate)",
         "fr": "Cat Age (Additional Months)",
         "es": "Cat Age (Additional Months)",
         "ar": "Cat Age (Additional Months)"
       },
       "businessContext_i18n": {
         "en": "Additional months beyond whole years, from 0 to 11. For cats under 1 year, use years=0 and enter months here.",
-        "tr": "Tam yılların ötesindeki ek aylar, 0 ile 11 arasında. 1 yaşından küçük kediler için yıl=0 kullanın ve ayları buraya girin."
+        "tr": "Tam yılların ötesindeki ek aylar, 0 ile 11 arasında. 1 yaşından küçük kediler için yıl=0 kullanın ve ayları buraya girin.",
+        "de": "Zusätzliche Monate über die vollen Jahre hinaus, von 0 bis 11. Für Katzen unter 1 Jahr verwenden Sie Jahre=0 und geben Sie die Monate hier ein."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Lifestyle Factor",
         "tr": "Yaşam Tarzı Faktörü",
-        "de": "Lifestyle Factor",
+        "de": "Lebensstilfaktor",
         "fr": "Lifestyle Factor",
         "es": "Lifestyle Factor",
         "ar": "Lifestyle Factor"
       },
       "businessContext_i18n": {
         "en": "Adjustment for indoor/outdoor lifestyle: Indoor only = 1.0, Outdoor access = 0.9, Feral = 0.8. Lower factor means slower aging in human years.",
-        "tr": "İç/dış mekan yaşam tarzına göre ayarlama: Yalnızca iç mekan = 1.0, Dış mekana erişim = 0.9, Sokak kedisi = 0.8. Düşük faktör, insan yılı cinsinden daha yavaş yaşlanma anlamına gelir."
+        "tr": "İç/dış mekan yaşam tarzına göre ayarlama: Yalnızca iç mekan = 1.0, Dış mekana erişim = 0.9, Sokak kedisi = 0.8. Düşük faktör, insan yılı cinsinden daha yavaş yaşlanma anlamına gelir.",
+        "de": "Anpassung für Innen-/Außenlebensstil: Nur Innenhaltung = 1,0, Zugang nach draußen = 0,9, verwildert = 0,8. Niedrigerer Faktor bedeutet langsamere Alterung in Menschenjahren."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Diet Quality Factor",
         "tr": "Diyet Kalitesi Faktörü",
-        "de": "Diet Quality Factor",
+        "de": "Futterqualitätsfaktor",
         "fr": "Diet Quality Factor",
         "es": "Diet Quality Factor",
         "ar": "Diet Quality Factor"
       },
       "businessContext_i18n": {
         "en": "Adjustment for diet quality: Premium diet = 0.95, Normal diet = 1.0, Poor diet = 1.1. Higher factor means faster aging.",
-        "tr": "Diyet kalitesine göre ayarlama: Premium diyet = 0.95, Normal diyet = 1.0, Kötü diyet = 1.1. Yüksek faktör daha hızlı yaşlanma anlamına gelir."
+        "tr": "Diyet kalitesine göre ayarlama: Premium diyet = 0.95, Normal diyet = 1.0, Kötü diyet = 1.1. Yüksek faktör daha hızlı yaşlanma anlamına gelir.",
+        "de": "Anpassung für Futterqualität: Premium-Futter = 0,95, Normales Futter = 1,0, Schlechtes Futter = 1,1. Höherer Faktor bedeutet schnellere Alterung."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Neutered/Spayed Factor",
         "tr": "Kısırlaştırma Faktörü",
-        "de": "Neutered/Spayed Factor",
+        "de": "Kastrationsfaktor",
         "fr": "Neutered/Spayed Factor",
         "es": "Neutered/Spayed Factor",
         "ar": "Neutered/Spayed Factor"
       },
       "businessContext_i18n": {
         "en": "Adjustment if neutered/spayed: Yes = 1.0, No = 1.05. Intact cats may age slightly faster due to stress.",
-        "tr": "Kısırlaştırılmışsa ayarlama: Evet = 1.0, Hayır = 1.05. Kısırlaştırılmamış kediler stres nedeniyle biraz daha hızlı yaşlanabilir."
+        "tr": "Kısırlaştırılmışsa ayarlama: Evet = 1.0, Hayır = 1.05. Kısırlaştırılmamış kediler stres nedeniyle biraz daha hızlı yaşlanabilir.",
+        "de": "Anpassung bei Kastration/Sterilisation: Ja = 1,0, Nein = 1,05. Nicht kastrierte Katzen können aufgrund von Stress etwas schneller altern."
       }
     }
   ],

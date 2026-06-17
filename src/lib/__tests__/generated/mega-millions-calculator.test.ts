@@ -14,7 +14,7 @@ describe("mega-millions-calculator", () => {
     "stateTax": 5,
     "annuityYears": 30,
     "growthRate": 5
-  } as Mega_millions_calculatorInput;
+  } as unknown as Mega_millions_calculatorInput;
     const result = calculateMega_millions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

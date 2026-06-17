@@ -13,7 +13,7 @@ describe("karnofsky-score-calculator", () => {
     "diseaseSymptoms": 5,
     "nutritionalStatus": 5,
     "mentalStatus": 5
-  } as Karnofsky_score_calculatorInput;
+  } as unknown as Karnofsky_score_calculatorInput;
     const result = calculateKarnofsky_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

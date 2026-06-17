@@ -15,7 +15,7 @@ describe("oee-downtime-calculator", () => {
     "defective_parts": 20,
     "shift_type": "day",
     "include_micro_stops": true
-  } as Oee_downtime_calculatorInput;
+  } as unknown as Oee_downtime_calculatorInput;
     const result = calculateOee_downtime_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("soil-bearing-capacity-calculator", () => {
     "foundationDepth": 1,
     "foundationWidth": 1.5,
     "safetyFactor": 3
-  } as Soil_bearing_capacity_calculatorInput;
+  } as unknown as Soil_bearing_capacity_calculatorInput;
     const result = calculateSoil_bearing_capacity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

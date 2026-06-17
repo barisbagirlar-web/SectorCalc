@@ -13,7 +13,7 @@ describe("standing-seam-calculator", () => {
     "panelCoverage": 16,
     "overhang": 2,
     "clipSpacing": 24
-  } as Standing_seam_calculatorInput;
+  } as unknown as Standing_seam_calculatorInput;
     const result = calculateStanding_seam_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

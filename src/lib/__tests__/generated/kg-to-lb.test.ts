@@ -11,7 +11,7 @@ describe("kg-to-lb", () => {
     "kg": 1,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Kg_to_lbInput;
+  } as unknown as Kg_to_lbInput;
     const result = calculateKg_to_lb(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

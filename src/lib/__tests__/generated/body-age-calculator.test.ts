@@ -14,7 +14,7 @@ describe("body-age-calculator", () => {
     "exerciseDaysPerWeek": 3,
     "systolicBP": 120,
     "diastolicBP": 80
-  } as Body_age_calculatorInput;
+  } as unknown as Body_age_calculatorInput;
     const result = calculateBody_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

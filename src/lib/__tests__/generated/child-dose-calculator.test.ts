@@ -12,7 +12,7 @@ describe("child-dose-calculator", () => {
     "childAge": 5,
     "childWeight": 20,
     "childHeight": 110
-  } as Child_dose_calculatorInput;
+  } as unknown as Child_dose_calculatorInput;
     const result = calculateChild_dose_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

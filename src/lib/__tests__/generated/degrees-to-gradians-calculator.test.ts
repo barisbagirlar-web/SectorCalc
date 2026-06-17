@@ -14,7 +14,7 @@ describe("degrees-to-gradians-calculator", () => {
     "minutes": 0,
     "seconds": 0,
     "precision": 4
-  } as Degrees_to_gradians_calculatorInput;
+  } as unknown as Degrees_to_gradians_calculatorInput;
     const result = calculateDegrees_to_gradians_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

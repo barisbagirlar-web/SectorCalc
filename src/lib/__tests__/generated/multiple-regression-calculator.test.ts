@@ -15,7 +15,7 @@ describe("multiple-regression-calculator", () => {
     "x1": 0,
     "x2": 0,
     "x3": 0
-  } as Multiple_regression_calculatorInput;
+  } as unknown as Multiple_regression_calculatorInput;
     const result = calculateMultiple_regression_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("f-distribution-calculator", () => {
     "dfBetween": 1,
     "ssWithin": 0,
     "dfWithin": 1
-  } as F_distribution_calculatorInput;
+  } as unknown as F_distribution_calculatorInput;
     const result = calculateF_distribution_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

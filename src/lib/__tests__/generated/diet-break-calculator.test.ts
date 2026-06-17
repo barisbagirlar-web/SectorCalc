@@ -13,7 +13,7 @@ describe("diet-break-calculator", () => {
     "breakDays": 2,
     "activityFactor": 1.2,
     "weight": 70
-  } as Diet_break_calculatorInput;
+  } as unknown as Diet_break_calculatorInput;
     const result = calculateDiet_break_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

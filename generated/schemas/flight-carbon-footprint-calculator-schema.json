@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Uçuş Mesafesi",
         "tr": "Uçuş Mesafesi",
-        "de": "Uçuş Mesafesi",
+        "de": "Flugdistanz",
         "fr": "Uçuş Mesafesi",
         "es": "Uçuş Mesafesi",
         "ar": "Uçuş Mesafesi"
       },
       "businessContext_i18n": {
         "en": "Kalkış ve varış noktaları arasındaki büyük daire mesafesi",
-        "tr": "Kalkış ve varış noktaları arasındaki büyük daire mesafesi"
+        "tr": "Kalkış ve varış noktaları arasındaki büyük daire mesafesi",
+        "de": "Großkreisentfernung zwischen Abflug- und Zielort"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Yakıt Tüketimi",
         "tr": "Yakıt Tüketimi",
-        "de": "Yakıt Tüketimi",
+        "de": "Kraftstoffverbrauch",
         "fr": "Yakıt Tüketimi",
         "es": "Yakıt Tüketimi",
         "ar": "Yakıt Tüketimi"
       },
       "businessContext_i18n": {
         "en": "100 yolcu-kilometre başına litre cinsinden ortalama yakıt tüketimi (uçak tipine göre değişir)",
-        "tr": "100 yolcu-kilometre başına litre cinsinden ortalama yakıt tüketimi (uçak tipine göre değişir)"
+        "tr": "100 yolcu-kilometre başına litre cinsinden ortalama yakıt tüketimi (uçak tipine göre değişir)",
+        "de": "Durchschnittlicher Kraftstoffverbrauch in Litern pro 100 Personenkilometer (variiert je nach Flugzeugtyp)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Emisyon Faktörü",
         "tr": "Emisyon Faktörü",
-        "de": "Emisyon Faktörü",
+        "de": "Emissionsfaktor",
         "fr": "Emisyon Faktörü",
         "es": "Emisyon Faktörü",
         "ar": "Emisyon Faktörü"
       },
       "businessContext_i18n": {
         "en": "Jet yakıtının yanması sonucu litre başına salınan CO₂ miktarı",
-        "tr": "Jet yakıtının yanması sonucu litre başına salınan CO₂ miktarı"
+        "tr": "Jet yakıtının yanması sonucu litre başına salınan CO₂ miktarı",
+        "de": "CO₂-Ausstoß pro Liter verbranntem Kerosin"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Sınıf Çarpanı",
         "tr": "Sınıf Çarpanı",
-        "de": "Sınıf Çarpanı",
+        "de": "Klassenmultiplikator",
         "fr": "Sınıf Çarpanı",
         "es": "Sınıf Çarpanı",
         "ar": "Sınıf Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Ekonomi=1, Business=2, First=3 gibi koltuk sınıfının kapladığı alan oranına göre düzeltme faktörü",
-        "tr": "Ekonomi=1, Business=2, First=3 gibi koltuk sınıfının kapladığı alan oranına göre düzeltme faktörü"
+        "tr": "Ekonomi=1, Business=2, First=3 gibi koltuk sınıfının kapladığı alan oranına göre düzeltme faktörü",
+        "de": "Korrekturfaktor für den Platzbedarf der Sitzklasse (Economy=1, Business=2, First=3)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Işınımsal Zorlama İndisi",
         "tr": "Işınımsal Zorlama İndisi",
-        "de": "Işınımsal Zorlama İndisi",
+        "de": "Strahlungsantriebsindex",
         "fr": "Işınımsal Zorlama İndisi",
         "es": "Işınımsal Zorlama İndisi",
         "ar": "Işınımsal Zorlama İndisi"
       },
       "businessContext_i18n": {
         "en": "Yüksek irtifada salınan emisyonların ek iklim etkisini hesaba katan çarpan (IPCC önerisi: 1.9)",
-        "tr": "Yüksek irtifada salınan emisyonların ek iklim etkisini hesaba katan çarpan (IPCC önerisi: 1.9)"
+        "tr": "Yüksek irtifada salınan emisyonların ek iklim etkisini hesaba katan çarpan (IPCC önerisi: 1.9)",
+        "de": "Multiplikator für den zusätzlichen Klimaeffekt von Emissionen in großer Höhe (IPCC-Empfehlung: 1,9)"
       }
     }
   ],

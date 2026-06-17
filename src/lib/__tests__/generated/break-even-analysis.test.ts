@@ -12,7 +12,7 @@ describe("break-even-analysis", () => {
     "variableCostPerUnit": 50,
     "sellingPricePerUnit": 100,
     "expectedSalesVolume": 3000
-  } as Break_even_analysisInput;
+  } as unknown as Break_even_analysisInput;
     const result = calculateBreak_even_analysis(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

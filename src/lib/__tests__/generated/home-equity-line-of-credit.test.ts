@@ -14,7 +14,7 @@ describe("home-equity-line-of-credit", () => {
     "interestRate": 5.5,
     "drawAmount": 50000,
     "loanTerm": 10
-  } as Home_equity_line_of_creditInput;
+  } as unknown as Home_equity_line_of_creditInput;
     const result = calculateHome_equity_line_of_credit(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

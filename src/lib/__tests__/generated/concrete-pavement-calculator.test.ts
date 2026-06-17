@@ -14,7 +14,7 @@ describe("concrete-pavement-calculator", () => {
     "wasteFactor": 5,
     "concreteDensity": 2400,
     "costPerCubicMeter": 100
-  } as Concrete_pavement_calculatorInput;
+  } as unknown as Concrete_pavement_calculatorInput;
     const result = calculateConcrete_pavement_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

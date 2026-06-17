@@ -16,7 +16,7 @@ describe("body-fat-calculator", () => {
     "waistCircumference": 85,
     "hipCircumference": 95,
     "activityLevel": "moderate"
-  } as Body_fat_calculatorInput;
+  } as unknown as Body_fat_calculatorInput;
     const result = calculateBody_fat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

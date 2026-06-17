@@ -14,7 +14,7 @@ describe("meet-preparation-calculator", () => {
     "warmUpStartPercent": 50,
     "warmUpEndPercent": 90,
     "warmUpStepPercent": 10
-  } as Meet_preparation_calculatorInput;
+  } as unknown as Meet_preparation_calculatorInput;
     const result = calculateMeet_preparation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

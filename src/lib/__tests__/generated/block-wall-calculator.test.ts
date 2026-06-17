@@ -15,7 +15,7 @@ describe("block-wall-calculator", () => {
     "mortarJoint": 10,
     "pricePerBlock": 1.5,
     "wasteFactor": 5
-  } as Block_wall_calculatorInput;
+  } as unknown as Block_wall_calculatorInput;
     const result = calculateBlock_wall_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

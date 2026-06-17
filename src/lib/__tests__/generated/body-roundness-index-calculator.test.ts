@@ -12,7 +12,7 @@ describe("body-roundness-index-calculator", () => {
     "height_cm": 170,
     "waist_in": 35.43,
     "height_in": 66.93
-  } as Body_roundness_index_calculatorInput;
+  } as unknown as Body_roundness_index_calculatorInput;
     const result = calculateBody_roundness_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

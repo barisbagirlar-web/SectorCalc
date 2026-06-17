@@ -14,7 +14,7 @@ describe("roofing-calculator", () => {
     "materialCostPerSqm": 50,
     "laborCostPerSqm": 30,
     "wasteFactor": 5
-  } as Roofing_calculatorInput;
+  } as unknown as Roofing_calculatorInput;
     const result = calculateRoofing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

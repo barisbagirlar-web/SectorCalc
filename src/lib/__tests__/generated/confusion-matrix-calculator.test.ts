@@ -12,7 +12,7 @@ describe("confusion-matrix-calculator", () => {
     "false_positives": 10,
     "true_negatives": 100,
     "false_negatives": 5
-  } as Confusion_matrix_calculatorInput;
+  } as unknown as Confusion_matrix_calculatorInput;
     const result = calculateConfusion_matrix_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

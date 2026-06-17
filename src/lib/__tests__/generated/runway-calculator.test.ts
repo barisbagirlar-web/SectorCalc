@@ -12,7 +12,7 @@ describe("runway-calculator", () => {
     "monthly_expenses": 10000,
     "monthly_revenue": 5000,
     "buffer_percent": 0
-  } as Runway_calculatorInput;
+  } as unknown as Runway_calculatorInput;
     const result = calculateRunway_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

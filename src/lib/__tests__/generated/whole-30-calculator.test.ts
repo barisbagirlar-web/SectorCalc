@@ -12,7 +12,7 @@ describe("whole-30-calculator", () => {
     "costPerKg": 2.5,
     "wasteRate": 5,
     "days": 30
-  } as Whole_30_calculatorInput;
+  } as unknown as Whole_30_calculatorInput;
     const result = calculateWhole_30_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

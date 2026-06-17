@@ -13,7 +13,7 @@ describe("shift-work-calculator", () => {
     "shiftMultiplier": 1.2,
     "overtimeHours": 0,
     "overtimeMultiplier": 1.5
-  } as Shift_work_calculatorInput;
+  } as unknown as Shift_work_calculatorInput;
     const result = calculateShift_work_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

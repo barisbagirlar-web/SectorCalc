@@ -12,7 +12,7 @@ describe("gibbs-free-energy-reaction-calculator", () => {
     "deltaH": 0,
     "S_products": 0,
     "S_reactants": 0
-  } as Gibbs_free_energy_reaction_calculatorInput;
+  } as unknown as Gibbs_free_energy_reaction_calculatorInput;
     const result = calculateGibbs_free_energy_reaction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

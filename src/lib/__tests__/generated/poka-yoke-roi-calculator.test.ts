@@ -16,7 +16,7 @@ describe("poka-yoke-roi-calculator", () => {
     "annual_maintenance_cost": 2000,
     "labor_hours_saved_per_year": 500,
     "labor_rate": 35
-  } as Poka_yoke_roi_calculatorInput;
+  } as unknown as Poka_yoke_roi_calculatorInput;
     const result = calculatePoka_yoke_roi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("bias-variance-tradeoff-calculator", () => {
     "trueValue": 0,
     "variance": 1,
     "irreducibleError": 1
-  } as Bias_variance_tradeoff_calculatorInput;
+  } as unknown as Bias_variance_tradeoff_calculatorInput;
     const result = calculateBias_variance_tradeoff_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

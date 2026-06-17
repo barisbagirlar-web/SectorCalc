@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Selling Price per Unit",
         "tr": "Birim Satış Fiyatı",
-        "de": "Selling Price per Unit",
+        "de": "Verkaufspreis pro Einheit",
         "fr": "Selling Price per Unit",
         "es": "Selling Price per Unit",
         "ar": "Selling Price per Unit"
       },
       "businessContext_i18n": {
         "en": "The price at which each unit is sold to customers.",
-        "tr": "Her birimin müşterilere satıldığı fiyat."
+        "tr": "Her birimin müşterilere satıldığı fiyat.",
+        "de": "Der Preis, zu dem jede Einheit an Kunden verkauft wird."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "The cost to produce or purchase each unit.",
-        "tr": "Her birimi üretme veya satın alma maliyeti."
+        "tr": "Her birimi üretme veya satın alma maliyeti.",
+        "de": "Die Kosten zur Herstellung oder zum Kauf jeder Einheit."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Quantity Sold",
         "tr": "Satılan Miktar",
-        "de": "Quantity Sold",
+        "de": "Verkaufte Menge",
         "fr": "Quantity Sold",
         "es": "Quantity Sold",
         "ar": "Quantity Sold"
       },
       "businessContext_i18n": {
         "en": "Total number of units sold.",
-        "tr": "Satılan toplam birim sayısı."
+        "tr": "Satılan toplam birim sayısı.",
+        "de": "Gesamtzahl der verkauften Einheiten."
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Average shipping cost per unit.",
-        "tr": "Birim başına ortalama nakliye maliyeti."
+        "tr": "Birim başına ortalama nakliye maliyeti.",
+        "de": "Durchschnittliche Versandkosten pro Einheit."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Marketing Spend",
         "tr": "Pazarlama Harcaması",
-        "de": "Marketing Spend",
+        "de": "Marketingausgaben",
         "fr": "Marketing Spend",
         "es": "Marketing Spend",
         "ar": "Marketing Spend"
       },
       "businessContext_i18n": {
         "en": "Total amount spent on marketing campaigns.",
-        "tr": "Pazarlama kampanyalarına harcanan toplam tutar."
+        "tr": "Pazarlama kampanyalarına harcanan toplam tutar.",
+        "de": "Gesamtbetrag der Marketingkampagnenausgaben."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
-        "de": "Tax Rate",
+        "de": "Steuersatz",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Tax rate applied to gross profit after expenses.",
-        "tr": "Brüt kârdan sonraki giderlere uygulanan vergi oranı."
+        "tr": "Brüt kârdan sonraki giderlere uygulanan vergi oranı.",
+        "de": "Steuersatz auf den Bruttogewinn nach Abzug der Ausgaben."
       }
     }
   ],

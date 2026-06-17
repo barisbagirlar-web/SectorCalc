@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Electricity Price",
         "tr": "Elektrik Fiyatı",
-        "de": "Electricity Price",
+        "de": "Strompreis",
         "fr": "Electricity Price",
         "es": "Electricity Price",
         "ar": "Electricity Price"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kilowatt-hour.",
-        "tr": "Kilovatsaat başına elektrik maliyeti."
+        "tr": "Kilovatsaat başına elektrik maliyeti.",
+        "de": "Stromkosten pro Kilowattstunde."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Charging Efficiency",
         "tr": "Şarj Verimliliği",
-        "de": "Charging Efficiency",
+        "de": "Ladeeffizienz",
         "fr": "Charging Efficiency",
         "es": "Charging Efficiency",
         "ar": "Charging Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the charging process, as a percentage.",
-        "tr": "Şarj işleminin yüzde olarak verimliliği."
+        "tr": "Şarj işleminin yüzde olarak verimliliği.",
+        "de": "Effizienz des Ladevorgangs in Prozent."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Vehicle Efficiency",
         "tr": "Araç Verimliliği",
-        "de": "Vehicle Efficiency",
+        "de": "Fahrzeugeffizienz",
         "fr": "Vehicle Efficiency",
         "es": "Vehicle Efficiency",
         "ar": "Vehicle Efficiency"
       },
       "businessContext_i18n": {
         "en": "Energy consumption of the vehicle per 100 kilometers.",
-        "tr": "Aracın 100 kilometre başına enerji tüketimi."
+        "tr": "Aracın 100 kilometre başına enerji tüketimi.",
+        "de": "Energieverbrauch des Fahrzeugs pro 100 Kilometer."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Daily Driving Distance",
         "tr": "Günlük Sürüş Mesafesi",
-        "de": "Daily Driving Distance",
+        "de": "Tägliche Fahrstrecke",
         "fr": "Daily Driving Distance",
         "es": "Daily Driving Distance",
         "ar": "Daily Driving Distance"
       },
       "businessContext_i18n": {
         "en": "Average distance driven per day.",
-        "tr": "Günde ortalama sürülen mesafe."
+        "tr": "Günde ortalama sürülen mesafe.",
+        "de": "Durchschnittliche tägliche Fahrstrecke."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Maintenance Cost per km",
         "tr": "Km başına bakım maliyeti",
-        "de": "Maintenance Cost per km",
+        "de": "Wartungskosten pro km",
         "fr": "Maintenance Cost per km",
         "es": "Maintenance Cost per km",
         "ar": "Maintenance Cost per km"
       },
       "businessContext_i18n": {
         "en": "Estimated maintenance and repair cost per kilometer driven.",
-        "tr": "Kilometre başına tahmini bakım ve onarım maliyeti."
+        "tr": "Kilometre başına tahmini bakım ve onarım maliyeti.",
+        "de": "Geschätzte Wartungs- und Reparaturkosten pro gefahrenem Kilometer."
       }
     }
   ],

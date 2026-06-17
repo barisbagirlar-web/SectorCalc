@@ -22,11 +22,13 @@
       "businessContext": "Average demand observed over the past 12 periods (ISO 9001:2015 data collection).",
       "label_i18n": {
         "en": "Historical Demand Mean (units/period)",
-        "tr": "Geçmiş Talep Ortalaması (birim/dönem)"
+        "tr": "Geçmiş Talep Ortalaması (birim/dönem)",
+        "de": "Historischer Bedarfsmittelwert (Einheiten/Periode)"
       },
       "businessContext_i18n": {
         "en": "Average demand observed over the past 12 periods (ISO 9001:2015 data collection).",
-        "tr": "Son 12 dönemde gözlemlenen ortalama talep (ISO 9001:2015 veri toplama)."
+        "tr": "Son 12 dönemde gözlemlenen ortalama talep (ISO 9001:2015 veri toplama).",
+        "de": "Durchschnittlicher Bedarf der letzten 12 Perioden (ISO 9001:2015 Datenerhebung)."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Standard deviation of demand, used for safety stock calculation (Lean Six Sigma DMAIC).",
       "label_i18n": {
         "en": "Demand Standard Deviation (units)",
-        "tr": "Talep Standart Sapması (birim)"
+        "tr": "Talep Standart Sapması (birim)",
+        "de": "Bedarfsstandardabweichung (Einheiten)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of demand, used for safety stock calculation (Lean Six Sigma DMAIC).",
-        "tr": "Talebin standart sapması, emniyet stoğu hesaplaması için kullanılır (Yalın Altı Sigma DMAIC)."
+        "tr": "Talebin standart sapması, emniyet stoğu hesaplaması için kullanılır (Yalın Altı Sigma DMAIC).",
+        "de": "Standardabweichung des Bedarfs, verwendet für Sicherheitsbestand (Lean Six Sigma DMAIC)."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Average replenishment lead time from supplier (WERC DC Metrics).",
       "label_i18n": {
         "en": "Lead Time (days)",
-        "tr": "Teslim Süresi (gün)"
+        "tr": "Teslim Süresi (gün)",
+        "de": "Lieferzeit (Tage)"
       },
       "businessContext_i18n": {
         "en": "Average replenishment lead time from supplier (WERC DC Metrics).",
-        "tr": "Tedarikçiden ortalama yenileme teslim süresi (WERC DC Metrikleri)."
+        "tr": "Tedarikçiden ortalama yenileme teslim süresi (WERC DC Metrikleri).",
+        "de": "Durchschnittliche Wiederbeschaffungszeit vom Lieferanten (WERC DC Metriken)."
       }
     },
     {
@@ -82,11 +88,13 @@
       "businessContext": "Probability of not stocking out during lead time (Six Sigma DPMO target).",
       "label_i18n": {
         "en": "Target Service Level",
-        "tr": "Hedef Hizmet Seviyesi"
+        "tr": "Hedef Hizmet Seviyesi",
+        "de": "Zielservicegrad"
       },
       "businessContext_i18n": {
         "en": "Probability of not stocking out during lead time (Six Sigma DPMO target).",
-        "tr": "Teslim süresi boyunca stokta kalmama olasılığı (Altı Sigma DPMO hedefi)."
+        "tr": "Teslim süresi boyunca stokta kalmama olasılığı (Altı Sigma DPMO hedefi).",
+        "de": "Wahrscheinlichkeit, während der Lieferzeit keinen Fehlbestand zu haben (Six Sigma DPMO-Ziel)."
       }
     },
     {
@@ -100,11 +108,13 @@
       "businessContext": "Purchase cost per unit (ISO 14051 material flow cost accounting).",
       "label_i18n": {
         "en": "Unit Cost ($)",
-        "tr": "Birim Maliyet ($)"
+        "tr": "Birim Maliyet ($)",
+        "de": "Stückkosten ($)"
       },
       "businessContext_i18n": {
         "en": "Purchase cost per unit (ISO 14051 material flow cost accounting).",
-        "tr": "Birim başına satın alma maliyeti (ISO 14051 malzeme akış maliyet muhasebesi)."
+        "tr": "Birim başına satın alma maliyeti (ISO 14051 malzeme akış maliyet muhasebesi).",
+        "de": "Einkaufskosten pro Einheit (ISO 14051 Materialflusskostenrechnung)."
       }
     },
     {
@@ -118,11 +128,13 @@
       "businessContext": "Percentage of unit cost per year (WERC DC Measures, typical 20-30%).",
       "label_i18n": {
         "en": "Annual Holding Cost Rate (%)",
-        "tr": "Yıllık Elde Tutma Maliyeti Oranı (%)"
+        "tr": "Yıllık Elde Tutma Maliyeti Oranı (%)",
+        "de": "Jährlicher Lagerhaltungskostensatz (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of unit cost per year (WERC DC Measures, typical 20-30%).",
-        "tr": "Yıllık birim maliyet yüzdesi (WERC DC Ölçüleri, tipik %20-30)."
+        "tr": "Yıllık birim maliyet yüzdesi (WERC DC Ölçüleri, tipik %20-30).",
+        "de": "Prozentsatz der Stückkosten pro Jahr (WERC DC Kennzahlen, typisch 20-30%)."
       }
     },
     {
@@ -136,11 +148,13 @@
       "businessContext": "Fixed cost per purchase order (Lean transactional cost reduction).",
       "label_i18n": {
         "en": "Ordering Cost ($/order)",
-        "tr": "Sipariş Maliyeti ($/sipariş)"
+        "tr": "Sipariş Maliyeti ($/sipariş)",
+        "de": "Bestellkosten ($/Bestellung)"
       },
       "businessContext_i18n": {
         "en": "Fixed cost per purchase order (Lean transactional cost reduction).",
-        "tr": "Satın alma emri başına sabit maliyet (Yalın işlem maliyeti azaltma)."
+        "tr": "Satın alma emri başına sabit maliyet (Yalın işlem maliyeti azaltma).",
+        "de": "Fixe Kosten pro Bestellung (Lean transaktionale Kostenreduktion)."
       }
     },
     {
@@ -154,11 +168,13 @@
       "businessContext": "Lost profit + penalty per unit of unmet demand (Six Sigma cost of poor quality).",
       "label_i18n": {
         "en": "Stockout Cost per Unit ($)",
-        "tr": "Stokta Olmama Maliyeti Birim Başına ($)"
+        "tr": "Stokta Olmama Maliyeti Birim Başına ($)",
+        "de": "Fehlmengenkosten pro Einheit ($)"
       },
       "businessContext_i18n": {
         "en": "Lost profit + penalty per unit of unmet demand (Six Sigma cost of poor quality).",
-        "tr": "Karşılanamayan talep birimi başına kayıp kâr + ceza (Altı Sigma kalitesizlik maliyeti)."
+        "tr": "Karşılanamayan talep birimi başına kayıp kâr + ceza (Altı Sigma kalitesizlik maliyeti).",
+        "de": "Entgangener Gewinn + Strafe pro Einheit nicht gedeckter Nachfrage (Six Sigma Kosten schlechter Qualität)."
       }
     }
   ],

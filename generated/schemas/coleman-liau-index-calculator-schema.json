@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Total Letters",
         "tr": "Toplam Harf",
-        "de": "Total Letters",
+        "de": "Gesamtbuchstaben",
         "fr": "Total Letters",
         "es": "Total Letters",
         "ar": "Total Letters"
       },
       "businessContext_i18n": {
         "en": "Total number of characters that are letters (A-Z, a-z) in the text",
-        "tr": "Metindeki harf olan toplam karakter sayısı (A-Z, a-z)"
+        "tr": "Metindeki harf olan toplam karakter sayısı (A-Z, a-z)",
+        "de": "Gesamtzahl der Buchstaben (A-Z, a-z) im Text"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Total Words",
         "tr": "Toplam Kelime",
-        "de": "Total Words",
+        "de": "Gesamtwörter",
         "fr": "Total Words",
         "es": "Total Words",
         "ar": "Total Words"
       },
       "businessContext_i18n": {
         "en": "Total number of words in the text",
-        "tr": "Metindeki toplam kelime sayısı"
+        "tr": "Metindeki toplam kelime sayısı",
+        "de": "Gesamtzahl der Wörter im Text"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Total Sentences",
         "tr": "Toplam Cümle",
-        "de": "Total Sentences",
+        "de": "Gesamtsätze",
         "fr": "Total Sentences",
         "es": "Total Sentences",
         "ar": "Total Sentences"
       },
       "businessContext_i18n": {
         "en": "Total number of sentences in the text",
-        "tr": "Metindeki toplam cümle sayısı"
+        "tr": "Metindeki toplam cümle sayısı",
+        "de": "Gesamtzahl der Sätze im Text"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Normalization Word Count",
         "tr": "Normalleştirilmiş Kelime Sayısı",
-        "de": "Normalization Word Count",
+        "de": "Normalisierte Wortanzahl",
         "fr": "Normalization Word Count",
         "es": "Normalization Word Count",
         "ar": "Normalization Word Count"
       },
       "businessContext_i18n": {
         "en": "Number of words to normalize to (typically 100 for Coleman-Liau)",
-        "tr": "Normalleştirilecek kelime sayısı (Coleman-Liau için genellikle 100)"
+        "tr": "Normalleştirilecek kelime sayısı (Coleman-Liau için genellikle 100)",
+        "de": "Anzahl der Wörter zur Normalisierung (typischerweise 100 für Coleman-Liau)"
       }
     }
   ],

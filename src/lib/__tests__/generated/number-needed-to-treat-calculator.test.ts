@@ -12,7 +12,7 @@ describe("number-needed-to-treat-calculator", () => {
     "controlTotal": 100,
     "treatmentEvents": 15,
     "treatmentTotal": 100
-  } as Number_needed_to_treat_calculatorInput;
+  } as unknown as Number_needed_to_treat_calculatorInput;
     const result = calculateNumber_needed_to_treat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

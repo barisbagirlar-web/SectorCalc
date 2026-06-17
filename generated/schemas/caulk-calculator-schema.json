@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Joint Length",
         "tr": "Derz Uzunluğu",
-        "de": "Joint Length",
+        "de": "Fugenlänge",
         "fr": "Joint Length",
         "es": "Joint Length",
         "ar": "Joint Length"
       },
       "businessContext_i18n": {
         "en": "Total length of the joint to be caulked, in meters.",
-        "tr": "Derzlenen derzin toplam uzunluğu, metre cinsinden."
+        "tr": "Derzlenen derzin toplam uzunluğu, metre cinsinden.",
+        "de": "Gesamtlänge der abzudichtenden Fuge in Metern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Joint Width",
         "tr": "Derz Genişliği",
-        "de": "Joint Width",
+        "de": "Fugenbreite",
         "fr": "Joint Width",
         "es": "Joint Width",
         "ar": "Joint Width"
       },
       "businessContext_i18n": {
         "en": "Width of the joint in millimeters.",
-        "tr": "Derz genişliği, milimetre cinsinden."
+        "tr": "Derz genişliği, milimetre cinsinden.",
+        "de": "Breite der Fuge in Millimetern."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Joint Depth",
         "tr": "Derz Derinliği",
-        "de": "Joint Depth",
+        "de": "Fugentiefe",
         "fr": "Joint Depth",
         "es": "Joint Depth",
         "ar": "Joint Depth"
       },
       "businessContext_i18n": {
         "en": "Depth of the joint in millimeters. Typically, depth should be about half the width for proper adhesion.",
-        "tr": "Derz derinliği, milimetre cinsinden. Tipik olarak, uygun yapışma için derinlik genişliğin yaklaşık yarısı kadar olmalıdır."
+        "tr": "Derz derinliği, milimetre cinsinden. Tipik olarak, uygun yapışma için derinlik genişliğin yaklaşık yarısı kadar olmalıdır.",
+        "de": "Tiefe der Fuge in Millimetern. Die Tiefe sollte etwa die Hälfte der Breite betragen, um eine gute Haftung zu gewährleisten."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
-        "de": "Waste Factor",
+        "de": "Abfallfaktor",
         "fr": "Waste Factor",
         "es": "Waste Factor",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Extra material added to account for waste, overfilling, and tooling. Typical range: 5-15%.",
-        "tr": "Atık, aşırı doldurma ve şekillendirme için eklenen fazla malzeme. Tipik aralık: %5-15."
+        "tr": "Atık, aşırı doldurma ve şekillendirme için eklenen fazla malzeme. Tipik aralık: %5-15.",
+        "de": "Zusätzliches Material für Abfall, Überfüllung und Verarbeitung. Typischer Bereich: 5-15%."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Tube Volume",
         "tr": "Tüp Hacmi",
-        "de": "Tube Volume",
+        "de": "Kartuschenvolumen",
         "fr": "Tube Volume",
         "es": "Tube Volume",
         "ar": "Tube Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of a single caulk tube in milliliters. Standard tubes are 310 mL.",
-        "tr": "Tek bir mastik tüpünün mililitre cinsinden hacmi. Standart tüpler 310 mL'dir."
+        "tr": "Tek bir mastik tüpünün mililitre cinsinden hacmi. Standart tüpler 310 mL'dir.",
+        "de": "Volumen einer einzelnen Dichtstoffkartusche in Millilitern. Standardkartuschen haben 310 ml."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Number of Joints",
         "tr": "Derz Sayısı",
-        "de": "Number of Joints",
+        "de": "Anzahl der Fugen",
         "fr": "Number of Joints",
         "es": "Number of Joints",
         "ar": "Number of Joints"
       },
       "businessContext_i18n": {
         "en": "Number of joints of identical dimensions to caulk.",
-        "tr": "Aynı boyutlarda derzlenecek derz sayısı."
+        "tr": "Aynı boyutlarda derzlenecek derz sayısı.",
+        "de": "Anzahl der Fugen mit identischen Abmessungen, die abgedichtet werden sollen."
       }
     }
   ],

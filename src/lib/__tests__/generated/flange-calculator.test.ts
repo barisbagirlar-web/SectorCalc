@@ -14,7 +14,7 @@ describe("flange-calculator", () => {
     "numberOfBolts": 8,
     "boltHoleDiameter": 18,
     "density": 7850
-  } as Flange_calculatorInput;
+  } as unknown as Flange_calculatorInput;
     const result = calculateFlange_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

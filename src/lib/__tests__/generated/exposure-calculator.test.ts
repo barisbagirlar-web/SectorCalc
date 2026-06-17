@@ -13,7 +13,7 @@ describe("exposure-calculator", () => {
     "exchangeRate": 3,
     "criterionLevel": 85,
     "criterionTime": 8
-  } as Exposure_calculatorInput;
+  } as unknown as Exposure_calculatorInput;
     const result = calculateExposure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

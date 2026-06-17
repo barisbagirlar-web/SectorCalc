@@ -13,7 +13,7 @@ describe("viscosity-calculator", () => {
     "diameter": 0.1,
     "length": 10,
     "density": 1000
-  } as Viscosity_calculatorInput;
+  } as unknown as Viscosity_calculatorInput;
     const result = calculateViscosity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("qr-decomposition-calculator", () => {
     "a12": 0,
     "a21": 0,
     "a22": 1
-  } as Qr_decomposition_calculatorInput;
+  } as unknown as Qr_decomposition_calculatorInput;
     const result = calculateQr_decomposition_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

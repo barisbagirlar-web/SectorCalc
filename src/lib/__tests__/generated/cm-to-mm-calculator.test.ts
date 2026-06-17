@@ -15,7 +15,7 @@ describe("cm-to-mm-calculator", () => {
     "tolerance_cm": 0.1,
     "batch_quantity": 1,
     "decimal_places": 2
-  } as Cm_to_mm_calculatorInput;
+  } as unknown as Cm_to_mm_calculatorInput;
     const result = calculateCm_to_mm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

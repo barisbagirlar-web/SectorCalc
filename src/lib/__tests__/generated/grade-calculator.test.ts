@@ -12,7 +12,7 @@ describe("grade-calculator", () => {
     "finalElevation": 105,
     "horizontalDistance": 1000,
     "roundDecimals": 2
-  } as Grade_calculatorInput;
+  } as unknown as Grade_calculatorInput;
     const result = calculateGrade_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("return-of-premium-calculator", () => {
     "claimOccurred": 0,
     "adminFeeRate": 1,
     "returnTaxRate": 5
-  } as Return_of_premium_calculatorInput;
+  } as unknown as Return_of_premium_calculatorInput;
     const result = calculateReturn_of_premium_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

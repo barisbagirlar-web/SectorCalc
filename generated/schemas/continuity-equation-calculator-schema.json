@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Pipe Inner Diameter",
         "tr": "Boru İç Çapı",
-        "de": "Pipe Inner Diameter",
+        "de": "Rohrinnendurchmesser",
         "fr": "Pipe Inner Diameter",
         "es": "Pipe Inner Diameter",
         "ar": "Pipe Inner Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the pipe or duct",
-        "tr": "Boru veya kanalın iç çapı"
+        "tr": "Boru veya kanalın iç çapı",
+        "de": "Innendurchmesser des Rohrs oder Kanals"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Flow Velocity",
         "tr": "Akış Hızı",
-        "de": "Flow Velocity",
+        "de": "Strömungsgeschwindigkeit",
         "fr": "Flow Velocity",
         "es": "Flow Velocity",
         "ar": "Flow Velocity"
       },
       "businessContext_i18n": {
         "en": "Average flow velocity",
-        "tr": "Ortalama akış hızı"
+        "tr": "Ortalama akış hızı",
+        "de": "Mittlere Strömungsgeschwindigkeit"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
-        "de": "Fluid Density",
+        "de": "Flüssigkeitsdichte",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid (e.g., 1000 for water)",
-        "tr": "Akışkanın yoğunluğu (örneğin su için 1000)"
+        "tr": "Akışkanın yoğunluğu (örneğin su için 1000)",
+        "de": "Dichte des Fluids (z. B. 1000 für Wasser)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
-        "de": "Safety Factor",
+        "de": "Sicherheitsfaktor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety factor for flow rate capacity",
-        "tr": "Akış kapasitesi için tasarım güvenlik faktörü"
+        "tr": "Akış kapasitesi için tasarım güvenlik faktörü",
+        "de": "Auslegungssicherheitsfaktor für die Durchflusskapazität"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Output Unit Multiplier",
         "tr": "Çıktı Birim Çarpanı",
-        "de": "Output Unit Multiplier",
+        "de": "Ausgabeeinheiten-Multiplikator",
         "fr": "Output Unit Multiplier",
         "es": "Output Unit Multiplier",
         "ar": "Output Unit Multiplier"
       },
       "businessContext_i18n": {
         "en": "Multiplier to convert m³/s to desired unit (e.g., 1000 for L/s)",
-        "tr": "m³/s'yi istenen birime dönüştürmek için çarpan (örneğin L/s için 1000)"
+        "tr": "m³/s'yi istenen birime dönüştürmek için çarpan (örneğin L/s için 1000)",
+        "de": "Multiplikator zur Umrechnung von m³/s in die gewünschte Einheit (z. B. 1000 für L/s)"
       }
     }
   ],

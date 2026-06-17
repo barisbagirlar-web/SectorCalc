@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Emails Sent",
         "tr": "Gönderilen E-postalar",
-        "de": "Emails Sent",
+        "de": "Gesendete E-Mails",
         "fr": "Emails Sent",
         "es": "Emails Sent",
         "ar": "Emails Sent"
       },
       "businessContext_i18n": {
         "en": "Total number of emails sent in the campaign",
-        "tr": "Kampanyada gönderilen toplam e-posta sayısı"
+        "tr": "Kampanyada gönderilen toplam e-posta sayısı",
+        "de": "Gesamtzahl der in der Kampagne gesendeten E-Mails"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Number of emails that bounced (hard and soft bounces)",
-        "tr": "Geri dönen e-posta sayısı (sert ve yumuşak geri dönmeler)"
+        "tr": "Geri dönen e-posta sayısı (sert ve yumuşak geri dönmeler)",
+        "de": "Anzahl der zurückgewiesenen E-Mails (harte und weiche Bounces)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Opens",
         "tr": "Açılmalar",
-        "de": "Opens",
+        "de": "Öffnungen",
         "fr": "Opens",
         "es": "Opens",
         "ar": "Opens"
       },
       "businessContext_i18n": {
         "en": "Number of emails opened (total opens, not necessarily unique)",
-        "tr": "Açılan e-posta sayısı (toplam açılma, benzersiz olmak zorunda değil)"
+        "tr": "Açılan e-posta sayısı (toplam açılma, benzersiz olmak zorunda değil)",
+        "de": "Anzahl der geöffneten E-Mails (Gesamtöffnungen, nicht unbedingt eindeutig)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Clicks",
         "tr": "Tıklamalar",
-        "de": "Clicks",
+        "de": "Klicks",
         "fr": "Clicks",
         "es": "Clicks",
         "ar": "Clicks"
       },
       "businessContext_i18n": {
         "en": "Number of link clicks received",
-        "tr": "Alınan bağlantı tıklama sayısı"
+        "tr": "Alınan bağlantı tıklama sayısı",
+        "de": "Anzahl der erhaltenen Link-Klicks"
       }
     }
   ],

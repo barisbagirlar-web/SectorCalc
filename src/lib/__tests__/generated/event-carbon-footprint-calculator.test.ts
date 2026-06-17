@@ -15,7 +15,7 @@ describe("event-carbon-footprint-calculator", () => {
     "eventDays": 1,
     "wastePerAttendee": 0.5,
     "accommodationNights": 1
-  } as Event_carbon_footprint_calculatorInput;
+  } as unknown as Event_carbon_footprint_calculatorInput;
     const result = calculateEvent_carbon_footprint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

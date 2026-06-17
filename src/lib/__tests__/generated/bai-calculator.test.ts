@@ -12,7 +12,7 @@ describe("bai-calculator", () => {
     "totalFloorArea": 2000,
     "builtAreaFootprint": 500,
     "maxFar": 2
-  } as Bai_calculatorInput;
+  } as unknown as Bai_calculatorInput;
     const result = calculateBai_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

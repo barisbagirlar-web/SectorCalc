@@ -13,7 +13,7 @@ describe("ecological-footprint-calculator", () => {
     "fuel": 0,
     "water": 0,
     "waste": 0
-  } as Ecological_footprint_calculatorInput;
+  } as unknown as Ecological_footprint_calculatorInput;
     const result = calculateEcological_footprint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

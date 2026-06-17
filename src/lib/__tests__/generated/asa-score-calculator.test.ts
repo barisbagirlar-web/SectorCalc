@@ -12,7 +12,7 @@ describe("asa-score-calculator", () => {
     "materialCost": 1000,
     "batchSize": 100,
     "reworkFactor": 0.1
-  } as Asa_score_calculatorInput;
+  } as unknown as Asa_score_calculatorInput;
     const result = calculateAsa_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

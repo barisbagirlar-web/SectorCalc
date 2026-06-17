@@ -12,7 +12,7 @@ describe("date-subtract-calculator", () => {
     "endDateSerial": 44937,
     "includeEndDay": 1,
     "outputUnitFactor": 1
-  } as Date_subtract_calculatorInput;
+  } as unknown as Date_subtract_calculatorInput;
     const result = calculateDate_subtract_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

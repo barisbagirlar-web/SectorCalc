@@ -14,7 +14,7 @@ describe("pet-insurance-calculator", () => {
     "coverageLimit": 5000,
     "deductible": 200,
     "reimbursement": 80
-  } as Pet_insurance_calculatorInput;
+  } as unknown as Pet_insurance_calculatorInput;
     const result = calculatePet_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

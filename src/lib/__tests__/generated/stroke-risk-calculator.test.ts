@@ -15,7 +15,7 @@ describe("stroke-risk-calculator", () => {
     "atrialFibrillation": 0,
     "leftVentricularHypertrophy": 0,
     "antihypertensiveMed": 0
-  } as Stroke_risk_calculatorInput;
+  } as unknown as Stroke_risk_calculatorInput;
     const result = calculateStroke_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("food-conversion-calculator", () => {
     "numberOfServings": 1,
     "caloriesPerGram": 0.04,
     "cupFactor": 236.588
-  } as Food_conversion_calculatorInput;
+  } as unknown as Food_conversion_calculatorInput;
     const result = calculateFood_conversion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

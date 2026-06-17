@@ -12,7 +12,7 @@ describe("gym-kalori-hesaplayici-calculator", () => {
     "weight": 70,
     "met": 5,
     "intensity": 1
-  } as Gym_kalori_hesaplayici_calculatorInput;
+  } as unknown as Gym_kalori_hesaplayici_calculatorInput;
     const result = calculateGym_kalori_hesaplayici_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("cantilever-retaining-wall", () => {
     "toeLength": 0.8,
     "soilDensity": 18,
     "frictionAngle": 30
-  } as Cantilever_retaining_wallInput;
+  } as unknown as Cantilever_retaining_wallInput;
     const result = calculateCantilever_retaining_wall(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

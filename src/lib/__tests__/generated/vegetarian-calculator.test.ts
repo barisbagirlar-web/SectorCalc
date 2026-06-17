@@ -13,7 +13,7 @@ describe("vegetarian-calculator", () => {
     "beefRatio": 0.3,
     "porkRatio": 0.3,
     "poultryRatio": 0.4
-  } as Vegetarian_calculatorInput;
+  } as unknown as Vegetarian_calculatorInput;
     const result = calculateVegetarian_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

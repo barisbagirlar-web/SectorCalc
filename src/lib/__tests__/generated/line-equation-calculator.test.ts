@@ -13,7 +13,7 @@ describe("line-equation-calculator", () => {
     "x2": 0,
     "y2": 0,
     "x_val": 0
-  } as Line_equation_calculatorInput;
+  } as unknown as Line_equation_calculatorInput;
     const result = calculateLine_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

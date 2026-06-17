@@ -12,7 +12,7 @@ describe("rl-time-constant-calculator", () => {
     "resistanceTolerance": 5,
     "inductance": 0.001,
     "inductanceTolerance": 10
-  } as Rl_time_constant_calculatorInput;
+  } as unknown as Rl_time_constant_calculatorInput;
     const result = calculateRl_time_constant_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

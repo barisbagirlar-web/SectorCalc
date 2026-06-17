@@ -12,7 +12,7 @@ describe("sugar-recovery-calculator", () => {
     "polCane": 14,
     "extractionEfficiency": 95,
     "boilingHouseEfficiency": 90
-  } as Sugar_recovery_calculatorInput;
+  } as unknown as Sugar_recovery_calculatorInput;
     const result = calculateSugar_recovery_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

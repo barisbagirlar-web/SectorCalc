@@ -12,7 +12,7 @@ describe("near-point-calculator", () => {
     "refractiveError": 0,
     "amplitudeMethod": 1,
     "directAmplitude": 2.5
-  } as Near_point_calculatorInput;
+  } as unknown as Near_point_calculatorInput;
     const result = calculateNear_point_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

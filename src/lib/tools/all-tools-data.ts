@@ -120,6 +120,11 @@ function resolveCategoryKey(
   normalized: GeneratedToolSchema | null,
   _categorySlugFromIndex?: string,
 ): string {
+  const categoryId = asString(raw.categoryId) || normalized?.categoryId;
+  if (categoryId && categoryId !== "diger") {
+    return categoryId;
+  }
+
   const schemaCategory = asString(raw.category);
   if (schemaCategory && schemaCategory !== DEFAULT_LABEL) {
     return resolveSchemaCategoryKey(schemaCategory);
@@ -130,7 +135,7 @@ function resolveCategoryKey(
     return categorySlug;
   }
 
-  return "diger";
+  return categoryId || "diger";
 }
 
 function resolveSectorKey(
@@ -138,7 +143,7 @@ function resolveSectorKey(
   raw: RawSchemaRecord,
   normalized: GeneratedToolSchema | null,
 ): string {
-  const schemaSectorId = asString(raw.sectorId);
+  const schemaSectorId = asString(raw.sectorId) || normalized?.sectorId;
   if (schemaSectorId) {
     return schemaSectorId;
   }

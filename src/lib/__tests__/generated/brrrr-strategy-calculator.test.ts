@@ -16,7 +16,7 @@ describe("brrrr-strategy-calculator", () => {
     "refinanceLTV": 75,
     "refinanceRate": 4.5,
     "loanTerm": 30
-  } as Brrrr_strategy_calculatorInput;
+  } as unknown as Brrrr_strategy_calculatorInput;
     const result = calculateBrrrr_strategy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

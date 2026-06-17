@@ -14,7 +14,7 @@ describe("vbac-success-calculator", () => {
     "prevCSIndication": 0,
     "gestationalAge": 39,
     "cervicalDilation": 3
-  } as Vbac_success_calculatorInput;
+  } as unknown as Vbac_success_calculatorInput;
     const result = calculateVbac_success_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

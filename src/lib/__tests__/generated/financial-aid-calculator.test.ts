@@ -12,7 +12,7 @@ describe("financial-aid-calculator", () => {
     "totalAssets": 20000,
     "dependents": 2,
     "costOfAttendance": 30000
-  } as Financial_aid_calculatorInput;
+  } as unknown as Financial_aid_calculatorInput;
     const result = calculateFinancial_aid_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

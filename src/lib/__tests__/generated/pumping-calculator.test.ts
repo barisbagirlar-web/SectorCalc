@@ -14,7 +14,7 @@ describe("pumping-calculator", () => {
     "pumpEfficiency": 75,
     "motorEfficiency": 90,
     "operatingHours": 8
-  } as Pumping_calculatorInput;
+  } as unknown as Pumping_calculatorInput;
     const result = calculatePumping_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

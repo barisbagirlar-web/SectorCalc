@@ -14,7 +14,7 @@ describe("recipe-converter-calculator", () => {
     "ingredientTwoAmount": 100,
     "ingredientThreeAmount": 50,
     "ingredientFourAmount": 25
-  } as Recipe_converter_calculatorInput;
+  } as unknown as Recipe_converter_calculatorInput;
     const result = calculateRecipe_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

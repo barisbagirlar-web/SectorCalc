@@ -14,7 +14,7 @@ describe("stere-to-cubic-meters-calculator", () => {
     "pricePerStere": 0,
     "pricePerCubicMeter": 0,
     "roundingPrecision": 2
-  } as Stere_to_cubic_meters_calculatorInput;
+  } as unknown as Stere_to_cubic_meters_calculatorInput;
     const result = calculateStere_to_cubic_meters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

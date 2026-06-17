@@ -11,7 +11,7 @@ describe("net-carb-calculator", () => {
     "totalCarbs": 30,
     "dietaryFiber": 5,
     "sugarAlcohols": 2
-  } as Net_carb_calculatorInput;
+  } as unknown as Net_carb_calculatorInput;
     const result = calculateNet_carb_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

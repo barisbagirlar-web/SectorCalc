@@ -14,7 +14,7 @@ describe("ebit-calculator", () => {
     "rd": 0,
     "da": 0,
     "otherOpEx": 0
-  } as Ebit_calculatorInput;
+  } as unknown as Ebit_calculatorInput;
     const result = calculateEbit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

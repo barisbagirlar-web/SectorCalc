@@ -14,7 +14,7 @@ describe("sqm-to-sqft-calculator", () => {
     "areaUnitPrice": 0,
     "wasteFactor": 0,
     "measurementTolerance": 0
-  } as Sqm_to_sqft_calculatorInput;
+  } as unknown as Sqm_to_sqft_calculatorInput;
     const result = calculateSqm_to_sqft_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

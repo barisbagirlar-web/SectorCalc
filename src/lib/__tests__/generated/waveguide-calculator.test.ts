@@ -12,7 +12,7 @@ describe("waveguide-calculator", () => {
     "height": 10.16,
     "frequency": 10,
     "permittivity": 1
-  } as Waveguide_calculatorInput;
+  } as unknown as Waveguide_calculatorInput;
     const result = calculateWaveguide_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

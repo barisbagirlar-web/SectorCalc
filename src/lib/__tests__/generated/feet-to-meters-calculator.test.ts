@@ -12,7 +12,7 @@ describe("feet-to-meters-calculator", () => {
     "inches": 0,
     "conversionType": 1,
     "decimalPlaces": 2
-  } as Feet_to_meters_calculatorInput;
+  } as unknown as Feet_to_meters_calculatorInput;
     const result = calculateFeet_to_meters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

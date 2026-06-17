@@ -16,7 +16,7 @@ describe("log-loss-calculator", () => {
     "predicted3": 0.5,
     "actual4": 0,
     "predicted4": 0.5
-  } as Log_loss_calculatorInput;
+  } as unknown as Log_loss_calculatorInput;
     const result = calculateLog_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

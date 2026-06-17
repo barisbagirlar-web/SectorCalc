@@ -15,7 +15,7 @@ describe("pipe-insulation-calculator", () => {
     "inner_temperature": 150,
     "ambient_temperature": 25,
     "convection_coefficient": 10
-  } as Pipe_insulation_calculatorInput;
+  } as unknown as Pipe_insulation_calculatorInput;
     const result = calculatePipe_insulation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

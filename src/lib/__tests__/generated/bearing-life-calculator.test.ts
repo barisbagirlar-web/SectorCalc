@@ -13,7 +13,7 @@ describe("bearing-life-calculator", () => {
     "n": 1500,
     "p": 3,
     "a1": 1
-  } as Bearing_life_calculatorInput;
+  } as unknown as Bearing_life_calculatorInput;
     const result = calculateBearing_life_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

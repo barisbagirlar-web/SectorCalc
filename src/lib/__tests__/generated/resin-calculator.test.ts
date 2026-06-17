@@ -15,7 +15,7 @@ describe("resin-calculator", () => {
     "resinDensity": 1.1,
     "hardenerDensity": 0.95,
     "wasteFactor": 5
-  } as Resin_calculatorInput;
+  } as unknown as Resin_calculatorInput;
     const result = calculateResin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

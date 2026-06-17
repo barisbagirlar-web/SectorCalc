@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Wall Height (m)",
         "tr": "Duvar Yüksekliği (m)",
-        "de": "Wall Height (m)",
+        "de": "Wandhöhe (m)",
         "fr": "Wall Height (m)",
         "es": "Wall Height (m)",
         "ar": "Wall Height (m)"
       },
       "businessContext_i18n": {
         "en": "Total height of the retaining wall from base to top.",
-        "tr": "İstinat duvarının tabandan tepeye toplam yüksekliği."
+        "tr": "İstinat duvarının tabandan tepeye toplam yüksekliği.",
+        "de": "Gesamthöhe der Stützmauer von der Basis bis zur Spitze."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Stem Thickness (m)",
         "tr": "Gövde Kalınlığı (m)",
-        "de": "Stem Thickness (m)",
+        "de": "Schaftdicke (m)",
         "fr": "Stem Thickness (m)",
         "es": "Stem Thickness (m)",
         "ar": "Stem Thickness (m)"
       },
       "businessContext_i18n": {
         "en": "Thickness of the vertical stem at the top.",
-        "tr": "Dikey gövdenin üst kısımdaki kalınlığı."
+        "tr": "Dikey gövdenin üst kısımdaki kalınlığı.",
+        "de": "Dicke des vertikalen Schafts an der Oberseite."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Base Width (m)",
         "tr": "Taban Genişliği (m)",
-        "de": "Base Width (m)",
+        "de": "Basisbreite (m)",
         "fr": "Base Width (m)",
         "es": "Base Width (m)",
         "ar": "Base Width (m)"
       },
       "businessContext_i18n": {
         "en": "Width of the base slab.",
-        "tr": "Taban döşemesinin genişliği."
+        "tr": "Taban döşemesinin genişliği.",
+        "de": "Breite der Basisplatte."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Base Thickness (m)",
         "tr": "Taban Kalınlığı (m)",
-        "de": "Base Thickness (m)",
+        "de": "Basisdicke (m)",
         "fr": "Base Thickness (m)",
         "es": "Base Thickness (m)",
         "ar": "Base Thickness (m)"
       },
       "businessContext_i18n": {
         "en": "Thickness of the base slab.",
-        "tr": "Taban döşemesinin kalınlığı."
+        "tr": "Taban döşemesinin kalınlığı.",
+        "de": "Dicke der Basisplatte."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Heel Length (m)",
         "tr": "Topuk Uzunluğu (m)",
-        "de": "Heel Length (m)",
+        "de": "Fersenlänge (m)",
         "fr": "Heel Length (m)",
         "es": "Heel Length (m)",
         "ar": "Heel Length (m)"
       },
       "businessContext_i18n": {
         "en": "Length of the heel (portion of base behind the stem).",
-        "tr": "Topuğun (gövdenin arkasındaki taban kısmı) uzunluğu."
+        "tr": "Topuğun (gövdenin arkasındaki taban kısmı) uzunluğu.",
+        "de": "Länge der Ferse (Teil der Basis hinter dem Schaft)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Toe Length (m)",
         "tr": "Burun Uzunluğu (m)",
-        "de": "Toe Length (m)",
+        "de": "Zehenlänge (m)",
         "fr": "Toe Length (m)",
         "es": "Toe Length (m)",
         "ar": "Toe Length (m)"
       },
       "businessContext_i18n": {
         "en": "Length of the toe (portion of base in front of the stem).",
-        "tr": "Burnun (gövdenin önündeki taban kısmı) uzunluğu."
+        "tr": "Burnun (gövdenin önündeki taban kısmı) uzunluğu.",
+        "de": "Länge der Zehe (Teil der Basis vor dem Schaft)."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Soil Density (kN/m³)",
         "tr": "Zemin Yoğunluğu (kN/m³)",
-        "de": "Soil Density (kN/m³)",
+        "de": "Bodendichte (kN/m³)",
         "fr": "Soil Density (kN/m³)",
         "es": "Soil Density (kN/m³)",
         "ar": "Soil Density (kN/m³)"
       },
       "businessContext_i18n": {
         "en": "Unit weight of retained soil.",
-        "tr": "Tutulan zeminin birim ağırlığı."
+        "tr": "Tutulan zeminin birim ağırlığı.",
+        "de": "Einheitsgewicht des zurückgehaltenen Bodens."
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Soil Friction Angle (°)",
         "tr": "Zemin Sürtünme Açısı (°)",
-        "de": "Soil Friction Angle (°)",
+        "de": "Bodenreibungswinkel (°)",
         "fr": "Soil Friction Angle (°)",
         "es": "Soil Friction Angle (°)",
         "ar": "Soil Friction Angle (°)"
       },
       "businessContext_i18n": {
         "en": "Angle of internal friction of the soil.",
-        "tr": "Zeminin iç sürtünme açısı."
+        "tr": "Zeminin iç sürtünme açısı.",
+        "de": "Winkel der inneren Reibung des Bodens."
       }
     }
   ],

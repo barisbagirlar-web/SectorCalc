@@ -12,7 +12,7 @@ describe("mortar-type-calculator", () => {
     "exposure_factor": 1.3,
     "reinforced": 0,
     "safety_factor": 1.5
-  } as Mortar_type_calculatorInput;
+  } as unknown as Mortar_type_calculatorInput;
     const result = calculateMortar_type_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

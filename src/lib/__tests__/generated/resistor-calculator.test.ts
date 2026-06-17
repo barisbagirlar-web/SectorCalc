@@ -13,7 +13,7 @@ describe("resistor-calculator", () => {
     "r3": 0,
     "r4": 0,
     "connection": 1
-  } as Resistor_calculatorInput;
+  } as unknown as Resistor_calculatorInput;
     const result = calculateResistor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

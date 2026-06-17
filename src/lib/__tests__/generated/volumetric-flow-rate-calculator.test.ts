@@ -13,7 +13,7 @@ describe("volumetric-flow-rate-calculator", () => {
     "crossSectionArea": 0,
     "fluidDensity": 0,
     "massFlowRate": 0
-  } as Volumetric_flow_rate_calculatorInput;
+  } as unknown as Volumetric_flow_rate_calculatorInput;
     const result = calculateVolumetric_flow_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

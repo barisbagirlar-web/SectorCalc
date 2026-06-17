@@ -15,7 +15,7 @@ describe("makeup-calculator", () => {
     "laborCostPerUnit": 0.2,
     "overheadPercentage": 20,
     "desiredMarginPercentage": 50
-  } as Makeup_calculatorInput;
+  } as unknown as Makeup_calculatorInput;
     const result = calculateMakeup_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

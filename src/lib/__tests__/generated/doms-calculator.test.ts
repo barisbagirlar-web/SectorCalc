@@ -13,7 +13,7 @@ describe("doms-calculator", () => {
     "idealCycleTime": 0.5,
     "totalCount": 800,
     "goodCount": 760
-  } as Doms_calculatorInput;
+  } as unknown as Doms_calculatorInput;
     const result = calculateDoms_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

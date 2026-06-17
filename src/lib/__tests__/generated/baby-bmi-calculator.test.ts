@@ -7,7 +7,7 @@ import {
 
 describe("baby-bmi-calculator", () => {
   it("calculates with schema default inputs", () => {
-    const input = {} as Baby_bmi_calculatorInput;
+    const input = {} as unknown as Baby_bmi_calculatorInput;
     const result = calculateBaby_bmi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Oda Uzunluğu",
         "tr": "Oda Uzunluğu",
-        "de": "Oda Uzunluğu",
+        "de": "Raumlänge",
         "fr": "Oda Uzunluğu",
         "es": "Oda Uzunluğu",
         "ar": "Oda Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Döşeme yapılacak odanın uzunluğu (metre cinsinden).",
-        "tr": "Döşeme yapılacak odanın uzunluğu (metre cinsinden)."
+        "tr": "Döşeme yapılacak odanın uzunluğu (metre cinsinden).",
+        "de": "Länge des Raums, in dem der Bodenbelag verlegt wird (in Metern)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Oda Genişliği",
         "tr": "Oda Genişliği",
-        "de": "Oda Genişliği",
+        "de": "Raumbreite",
         "fr": "Oda Genişliği",
         "es": "Oda Genişliği",
         "ar": "Oda Genişliği"
       },
       "businessContext_i18n": {
         "en": "Döşeme yapılacak odanın genişliği (metre cinsinden).",
-        "tr": "Döşeme yapılacak odanın genişliği (metre cinsinden)."
+        "tr": "Döşeme yapılacak odanın genişliği (metre cinsinden).",
+        "de": "Breite des Raums, in dem der Bodenbelag verlegt wird (in Metern)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Karo Uzunluğu",
         "tr": "Karo Uzunluğu",
-        "de": "Karo Uzunluğu",
+        "de": "Fliesenlänge",
         "fr": "Karo Uzunluğu",
         "es": "Karo Uzunluğu",
         "ar": "Karo Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Bir karonun uzun kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
-        "tr": "Bir karonun uzun kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m."
+        "tr": "Bir karonun uzun kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
+        "de": "Länge einer Fliese (in Metern). Z. B. 30 cm = 0,3 m."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Karo Genişliği",
         "tr": "Karo Genişliği",
-        "de": "Karo Genişliği",
+        "de": "Fliesenbreite",
         "fr": "Karo Genişliği",
         "es": "Karo Genişliği",
         "ar": "Karo Genişliği"
       },
       "businessContext_i18n": {
         "en": "Bir karonun kısa kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
-        "tr": "Bir karonun kısa kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m."
+        "tr": "Bir karonun kısa kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
+        "de": "Breite einer Fliese (in Metern). Z. B. 30 cm = 0,3 m."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Karo Başına Fiyat",
         "tr": "Karo Başına Fiyat",
-        "de": "Karo Başına Fiyat",
+        "de": "Preis pro Fliese",
         "fr": "Karo Başına Fiyat",
         "es": "Karo Başına Fiyat",
         "ar": "Karo Başına Fiyat"
       },
       "businessContext_i18n": {
         "en": "Bir adet karonun satın alma fiyatı (TL cinsinden).",
-        "tr": "Bir adet karonun satın alma fiyatı (TL cinsinden)."
+        "tr": "Bir adet karonun satın alma fiyatı (TL cinsinden).",
+        "de": "Kaufpreis einer einzelnen Fliese (in TL)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Fire Oranı",
         "tr": "Fire Oranı",
-        "de": "Fire Oranı",
+        "de": "Verschnittanteil",
         "fr": "Fire Oranı",
         "es": "Fire Oranı",
         "ar": "Fire Oranı"
       },
       "businessContext_i18n": {
         "en": "Kesim, kırılma gibi kayıplar için eklenecek yüzde oranı. Örn: 10.",
-        "tr": "Kesim, kırılma gibi kayıplar için eklenecek yüzde oranı. Örn: 10."
+        "tr": "Kesim, kırılma gibi kayıplar için eklenecek yüzde oranı. Örn: 10.",
+        "de": "Prozentsatz für Verluste wie Schnitt oder Bruch. Z.B. 10."
       }
     }
   ],

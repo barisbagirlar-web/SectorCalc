@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "True Value",
         "tr": "Gerçek Değer",
-        "de": "True Value",
+        "de": "Wahrer Wert",
         "fr": "True Value",
         "es": "True Value",
         "ar": "True Value"
       },
       "businessContext_i18n": {
         "en": "Reference or standard value for comparison.",
-        "tr": "Karşılaştırma için referans veya standart değer."
+        "tr": "Karşılaştırma için referans veya standart değer.",
+        "de": "Referenz- oder Standardwert für den Vergleich."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Measured Value",
         "tr": "Ölçülen Değer",
-        "de": "Measured Value",
+        "de": "Messwert",
         "fr": "Measured Value",
         "es": "Measured Value",
         "ar": "Measured Value"
       },
       "businessContext_i18n": {
         "en": "Value obtained from the measurement.",
-        "tr": "Ölçümden elde edilen değer."
+        "tr": "Ölçümden elde edilen değer.",
+        "de": "Aus der Messung erhaltener Wert."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Full Scale",
         "tr": "Tam Ölçek",
-        "de": "Full Scale",
+        "de": "Endausschlag",
         "fr": "Full Scale",
         "es": "Full Scale",
         "ar": "Full Scale"
       },
       "businessContext_i18n": {
         "en": "Full scale range of the instrument.",
-        "tr": "Cihazın tam ölçek aralığı."
+        "tr": "Cihazın tam ölçek aralığı.",
+        "de": "Endausschlagsbereich des Instruments."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Tolerance Limit",
         "tr": "Tolerans Limiti",
-        "de": "Tolerance Limit",
+        "de": "Toleranzgrenze",
         "fr": "Tolerance Limit",
         "es": "Tolerance Limit",
         "ar": "Tolerance Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum permissible absolute error for pass/fail.",
-        "tr": "Geçer/kalır için izin verilen maksimum mutlak hata."
+        "tr": "Geçer/kalır için izin verilen maksimum mutlak hata.",
+        "de": "Maximal zulässiger absoluter Fehler für Bestehen/Nichtbestehen."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
-        "de": "Calibration Offset",
+        "de": "Kalibrierungsversatz",
         "fr": "Calibration Offset",
         "es": "Calibration Offset",
         "ar": "Calibration Offset"
       },
       "businessContext_i18n": {
         "en": "Known systematic error to correct the measured value.",
-        "tr": "Ölçülen değeri düzeltmek için bilinen sistematik hata."
+        "tr": "Ölçülen değeri düzeltmek için bilinen sistematik hata.",
+        "de": "Bekannter systematischer Fehler zur Korrektur des Messwerts."
       }
     }
   ],

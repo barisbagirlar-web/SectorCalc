@@ -13,7 +13,7 @@ describe("tip-split-calculator", () => {
     "numberOfPeople": 2,
     "taxAmount": 0,
     "roundUp": 0
-  } as Tip_split_calculatorInput;
+  } as unknown as Tip_split_calculatorInput;
     const result = calculateTip_split_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

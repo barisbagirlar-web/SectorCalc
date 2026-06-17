@@ -15,7 +15,7 @@ describe("fiber-optic-calculator", () => {
     "spliceLoss": 0.05,
     "numConnectors": 2,
     "connectorLoss": 0.5
-  } as Fiber_optic_calculatorInput;
+  } as unknown as Fiber_optic_calculatorInput;
     const result = calculateFiber_optic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

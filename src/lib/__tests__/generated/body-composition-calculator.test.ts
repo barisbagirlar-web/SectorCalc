@@ -15,7 +15,7 @@ describe("body-composition-calculator", () => {
     "waist": 80,
     "hip": 90,
     "neck": 38
-  } as Body_composition_calculatorInput;
+  } as unknown as Body_composition_calculatorInput;
     const result = calculateBody_composition_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

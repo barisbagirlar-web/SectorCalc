@@ -22,11 +22,13 @@
       "businessContext": "Initial investment or loan amount in base currency.",
       "label_i18n": {
         "en": "Principal Amount",
-        "tr": "Anapara Tutarı"
+        "tr": "Anapara Tutarı",
+        "de": "Kapitalbetrag"
       },
       "businessContext_i18n": {
         "en": "Initial investment or loan amount in base currency.",
-        "tr": "Başlangıç yatırımı veya kredi tutarı (temel para birimi cinsinden)."
+        "tr": "Başlangıç yatırımı veya kredi tutarı (temel para birimi cinsinden).",
+        "de": "Anfangsinvestition oder Darlehensbetrag in Basiswährung."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Nominal annual interest rate as a percentage.",
       "label_i18n": {
         "en": "Annual Interest Rate",
-        "tr": "Yıllık Faiz Oranı"
+        "tr": "Yıllık Faiz Oranı",
+        "de": "Jährlicher Zinssatz"
       },
       "businessContext_i18n": {
         "en": "Nominal annual interest rate as a percentage.",
-        "tr": "Nominal yıllık faiz oranı (yüzde olarak)."
+        "tr": "Nominal yıllık faiz oranı (yüzde olarak).",
+        "de": "Nominaler jährlicher Zinssatz in Prozent."
       }
     },
     {
@@ -66,11 +70,13 @@
       ],
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Bileşik Sıklığı"
+        "tr": "Bileşik Sıklığı",
+        "de": "Zinseszinshäufigkeit"
       },
       "businessContext_i18n": {
         "en": "Number of compounding periods per year (e.g., 1=annual, 12=monthly, 365=daily).",
-        "tr": "Yıllık bileşik dönem sayısı (örneğin, 1=yıllık, 12=aylık, 365=günlük)."
+        "tr": "Yıllık bileşik dönem sayısı (örneğin, 1=yıllık, 12=aylık, 365=günlük).",
+        "de": "Anzahl der Zinsperioden pro Jahr (z. B. 1=jährlich, 12=monatlich, 365=täglich)."
       }
     },
     {
@@ -84,11 +90,13 @@
       "businessContext": "Total duration of investment or loan in years.",
       "label_i18n": {
         "en": "Time Period",
-        "tr": "Zaman Periyodu"
+        "tr": "Zaman Periyodu",
+        "de": "Zeitraum"
       },
       "businessContext_i18n": {
         "en": "Total duration of investment or loan in years.",
-        "tr": "Yatırım veya kredinin toplam süresi (yıl olarak)."
+        "tr": "Yatırım veya kredinin toplam süresi (yıl olarak).",
+        "de": "Gesamtdauer der Anlage oder des Darlehens in Jahren."
       }
     },
     {
@@ -102,11 +110,13 @@
       "businessContext": "Fixed amount added at the end of each compounding period.",
       "label_i18n": {
         "en": "Additional Contribution per Period",
-        "tr": "Dönem Başına Ek Katkı"
+        "tr": "Dönem Başına Ek Katkı",
+        "de": "Zusätzlicher Beitrag pro Periode"
       },
       "businessContext_i18n": {
         "en": "Fixed amount added at the end of each compounding period.",
-        "tr": "Her bileşik döneminin sonunda eklenen sabit tutar."
+        "tr": "Her bileşik döneminin sonunda eklenen sabit tutar.",
+        "de": "Fester Betrag, der am Ende jeder Zinsperiode hinzugefügt wird."
       }
     },
     {
@@ -120,11 +130,13 @@
       "businessContext": "Expected annual inflation rate for real value adjustment.",
       "label_i18n": {
         "en": "Inflation Rate",
-        "tr": "Enflasyon Oranı"
+        "tr": "Enflasyon Oranı",
+        "de": "Inflationsrate"
       },
       "businessContext_i18n": {
         "en": "Expected annual inflation rate for real value adjustment.",
-        "tr": "Reel değer ayarlaması için beklenen yıllık enflasyon oranı."
+        "tr": "Reel değer ayarlaması için beklenen yıllık enflasyon oranı.",
+        "de": "Erwartete jährliche Inflationsrate für die reale Wertanpassung."
       }
     },
     {
@@ -138,11 +150,13 @@
       "businessContext": "Percentage of interest earnings taxed annually.",
       "label_i18n": {
         "en": "Tax Rate on Interest",
-        "tr": "Faiz Üzerindeki Vergi Oranı"
+        "tr": "Faiz Üzerindeki Vergi Oranı",
+        "de": "Steuersatz auf Zinsen"
       },
       "businessContext_i18n": {
         "en": "Percentage of interest earnings taxed annually.",
-        "tr": "Yıllık olarak vergilendirilen faiz kazancının yüzdesi."
+        "tr": "Yıllık olarak vergilendirilen faiz kazancının yüzdesi.",
+        "de": "Prozentsatz der Zinserträge, der jährlich besteuert wird."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("power-analysis-calculator", () => {
     "current": 10,
     "resistance": 23,
     "time": 1
-  } as Power_analysis_calculatorInput;
+  } as unknown as Power_analysis_calculatorInput;
     const result = calculatePower_analysis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

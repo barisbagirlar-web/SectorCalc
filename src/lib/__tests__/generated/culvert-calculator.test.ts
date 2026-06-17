@@ -13,7 +13,7 @@ describe("culvert-calculator", () => {
     "H": 2,
     "g": 9.81,
     "n": 1
-  } as Culvert_calculatorInput;
+  } as unknown as Culvert_calculatorInput;
     const result = calculateCulvert_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

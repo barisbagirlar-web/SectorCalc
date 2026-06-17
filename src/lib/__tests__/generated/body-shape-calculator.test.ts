@@ -12,7 +12,7 @@ describe("body-shape-calculator", () => {
     "waist": 70,
     "highHip": 95,
     "hip": 100
-  } as Body_shape_calculatorInput;
+  } as unknown as Body_shape_calculatorInput;
     const result = calculateBody_shape_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

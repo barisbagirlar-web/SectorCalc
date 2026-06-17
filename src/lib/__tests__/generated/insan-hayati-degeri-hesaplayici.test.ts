@@ -14,7 +14,7 @@ describe("insan-hayati-degeri-hesaplayici", () => {
     "retirementAge": 65,
     "discountRate": 5,
     "incomeGrowthRate": 2
-  } as Insan_hayati_degeri_hesaplayiciInput;
+  } as unknown as Insan_hayati_degeri_hesaplayiciInput;
     const result = calculateInsan_hayati_degeri_hesaplayici(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

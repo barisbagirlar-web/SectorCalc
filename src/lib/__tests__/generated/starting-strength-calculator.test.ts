@@ -12,7 +12,7 @@ describe("starting-strength-calculator", () => {
     "reps": 5,
     "startingPercentage": 80,
     "bodyweight": 80
-  } as Starting_strength_calculatorInput;
+  } as unknown as Starting_strength_calculatorInput;
     const result = calculateStarting_strength_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

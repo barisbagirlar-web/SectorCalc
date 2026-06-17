@@ -12,7 +12,7 @@ describe("micrograms-to-mg-converter-calculator", () => {
     "numberOfUnits": 1,
     "purity": 100,
     "safetyFactor": 1
-  } as Micrograms_to_mg_converter_calculatorInput;
+  } as unknown as Micrograms_to_mg_converter_calculatorInput;
     const result = calculateMicrograms_to_mg_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

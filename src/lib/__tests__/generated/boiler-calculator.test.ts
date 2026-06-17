@@ -13,7 +13,7 @@ describe("boiler-calculator", () => {
     "feedWaterTemperature": 105,
     "fuelFlow": 1500,
     "fuelGCV": 25000
-  } as Boiler_calculatorInput;
+  } as unknown as Boiler_calculatorInput;
     const result = calculateBoiler_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

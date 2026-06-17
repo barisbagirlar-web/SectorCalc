@@ -12,7 +12,7 @@ describe("rule-of-114-calculator", () => {
     "initialInvestment": 10000,
     "targetMultiplier": 3,
     "compoundingFrequency": 1
-  } as Rule_of_114_calculatorInput;
+  } as unknown as Rule_of_114_calculatorInput;
     const result = calculateRule_of_114_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

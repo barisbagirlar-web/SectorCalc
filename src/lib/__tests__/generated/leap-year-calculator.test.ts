@@ -12,7 +12,7 @@ describe("leap-year-calculator", () => {
     "divisor4": 4,
     "divisor100": 100,
     "divisor400": 400
-  } as Leap_year_calculatorInput;
+  } as unknown as Leap_year_calculatorInput;
     const result = calculateLeap_year_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

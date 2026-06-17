@@ -12,7 +12,7 @@ describe("weight-loss-goal-calculator", () => {
     "targetWeight": 70,
     "dailyDeficit": 500,
     "caloriePerKg": 7700
-  } as Weight_loss_goal_calculatorInput;
+  } as unknown as Weight_loss_goal_calculatorInput;
     const result = calculateWeight_loss_goal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

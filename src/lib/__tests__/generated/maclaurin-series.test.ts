@@ -12,7 +12,7 @@ describe("maclaurin-series", () => {
     "center": 0,
     "x_value": 0.5,
     "terms": 5
-  } as Maclaurin_seriesInput;
+  } as unknown as Maclaurin_seriesInput;
     const result = calculateMaclaurin_series(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

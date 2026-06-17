@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Concrete Volume",
         "tr": "Beton Hacmi",
-        "de": "Concrete Volume",
+        "de": "Beton Hacmi",
         "fr": "Concrete Volume",
         "es": "Concrete Volume",
         "ar": "Concrete Volume"
       },
       "businessContext_i18n": {
         "en": "Required volume of concrete in cubic meters.",
-        "tr": "Metreküp cinsinden gerekli beton hacmi."
+        "tr": "Metreküp cinsinden gerekli beton hacmi.",
+        "de": "Metreküp cinsinden gerekli beton hacmi."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Cement Ratio",
         "tr": "Çimento Oranı",
-        "de": "Cement Ratio",
+        "de": "Çimento Oranı",
         "fr": "Cement Ratio",
         "es": "Cement Ratio",
         "ar": "Cement Ratio"
       },
       "businessContext_i18n": {
         "en": "Part of cement in the concrete mix ratio (e.g., 1 for 1:2:4).",
-        "tr": "Beton karışım oranındaki çimento payı (örneğin, 1:2:4 için 1)."
+        "tr": "Beton karışım oranındaki çimento payı (örneğin, 1:2:4 için 1).",
+        "de": "Beton karışım oranındaki çimento kısmı (örneğin 1:2:4 için 1)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Sand Ratio",
         "tr": "Kum Oranı",
-        "de": "Sand Ratio",
+        "de": "Kum Oranı",
         "fr": "Sand Ratio",
         "es": "Sand Ratio",
         "ar": "Sand Ratio"
       },
       "businessContext_i18n": {
         "en": "Part of sand in the concrete mix ratio.",
-        "tr": "Karışım oranındaki kum payı."
+        "tr": "Karışım oranındaki kum payı.",
+        "de": "Beton karışım oranındaki kum kısmı."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Aggregate Ratio",
         "tr": "Agrega Oranı",
-        "de": "Aggregate Ratio",
+        "de": "Agrega Oranı",
         "fr": "Aggregate Ratio",
         "es": "Aggregate Ratio",
         "ar": "Aggregate Ratio"
       },
       "businessContext_i18n": {
         "en": "Part of aggregate (coarse aggregate) in the mix ratio.",
-        "tr": "Karışım oranındaki agrega (iri agrega) payı."
+        "tr": "Karışım oranındaki agrega (iri agrega) payı.",
+        "de": "Karışım oranındaki agrega (iri agrega) kısmı."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Water-Cement Ratio",
         "tr": "Su-Çimento Oranı",
-        "de": "Water-Cement Ratio",
+        "de": "Su-Çimento Oranı",
         "fr": "Water-Cement Ratio",
         "es": "Water-Cement Ratio",
         "ar": "Water-Cement Ratio"
       },
       "businessContext_i18n": {
         "en": "Ratio of water to cement by weight for desired workability.",
-        "tr": "İstenen işlenebilirlik için ağırlıkça suyun çimentoya oranı."
+        "tr": "İstenen işlenebilirlik için ağırlıkça suyun çimentoya oranı.",
+        "de": "İstenen işlenebilirlik için ağırlıkça suyun çimentoya oranı."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Dry Volume Factor",
         "tr": "Kuru Hacim Faktörü",
-        "de": "Dry Volume Factor",
+        "de": "Kuru Hacim Faktörü",
         "fr": "Dry Volume Factor",
         "es": "Dry Volume Factor",
         "ar": "Dry Volume Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplication factor to convert wet volume to dry volume, accounting for air voids.",
-        "tr": "Hava boşluklarını hesaba katmak için yaş hacmi kuru hacme dönüştüren çarpma faktörü."
+        "tr": "Hava boşluklarını hesaba katmak için yaş hacmi kuru hacme dönüştüren çarpma faktörü.",
+        "de": "Hava boşluklarını hesaba katmak için yaş hacmi kuru hacme dönüştüren çarpma faktörü."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Wastage %",
         "tr": "Fire %",
-        "de": "Wastage %",
+        "de": "Fire %",
         "fr": "Wastage %",
         "es": "Wastage %",
         "ar": "Wastage %"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra material to account for handling and compaction losses.",
-        "tr": "Taşıma ve sıkıştırma kayıplarını karşılamak için ekstra malzeme yüzdesi."
+        "tr": "Taşıma ve sıkıştırma kayıplarını karşılamak için ekstra malzeme yüzdesi.",
+        "de": "Taşıma ve sıkıştırma kayıplarını karşılamak için ek malzeme yüzdesi."
       }
     }
   ],

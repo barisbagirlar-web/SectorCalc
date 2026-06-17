@@ -14,7 +14,7 @@ describe("trimmed-mean-calculator", () => {
     "value4": 40,
     "value5": 50,
     "trimPercent": 20
-  } as Trimmed_mean_calculatorInput;
+  } as unknown as Trimmed_mean_calculatorInput;
     const result = calculateTrimmed_mean_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

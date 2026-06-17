@@ -14,7 +14,7 @@ describe("qrisk-calculator", () => {
     "hdlCholesterol": 50,
     "smoker": 0,
     "diabetes": 0
-  } as Qrisk_calculatorInput;
+  } as unknown as Qrisk_calculatorInput;
     const result = calculateQrisk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

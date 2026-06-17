@@ -12,7 +12,7 @@ describe("unix-timestamp-calculator", () => {
     "hours": 0,
     "minutes": 0,
     "seconds": 0
-  } as Unix_timestamp_calculatorInput;
+  } as unknown as Unix_timestamp_calculatorInput;
     const result = calculateUnix_timestamp_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

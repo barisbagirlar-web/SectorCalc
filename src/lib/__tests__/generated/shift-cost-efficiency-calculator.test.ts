@@ -16,7 +16,7 @@ describe("shift-cost-efficiency-calculator", () => {
     "number_of_operators": 10,
     "material_cost_per_unit": 2.5,
     "energy_cost_per_shift": 500
-  } as Shift_cost_efficiency_calculatorInput;
+  } as unknown as Shift_cost_efficiency_calculatorInput;
     const result = calculateShift_cost_efficiency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

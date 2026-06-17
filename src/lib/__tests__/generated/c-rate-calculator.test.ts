@@ -12,7 +12,7 @@ describe("c-rate-calculator", () => {
     "current": 50,
     "voltage": 12,
     "efficiency": 90
-  } as C_rate_calculatorInput;
+  } as unknown as C_rate_calculatorInput;
     const result = calculateC_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

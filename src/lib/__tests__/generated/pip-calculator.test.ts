@@ -12,7 +12,7 @@ describe("pip-calculator", () => {
     "tradeLots": 1,
     "pipDecimal": 0.0001,
     "quoteToAccountRate": 1
-  } as Pip_calculatorInput;
+  } as unknown as Pip_calculatorInput;
     const result = calculatePip_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

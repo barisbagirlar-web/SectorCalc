@@ -16,7 +16,7 @@ describe("chatter-surface-quality-loss-calculator", () => {
     "workpiece_material_hardness": "200",
     "machine_spindle_power": 15,
     "machine_damping_ratio": 0.05
-  } as Chatter_surface_quality_loss_calculatorInput;
+  } as unknown as Chatter_surface_quality_loss_calculatorInput;
     const result = calculateChatter_surface_quality_loss_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

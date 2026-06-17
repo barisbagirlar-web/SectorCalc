@@ -16,7 +16,7 @@ describe("cpm-delay-penalty-optimizer-calculator", () => {
     "rework_percentage": 12,
     "delay_type": "excusable_compensable",
     "use_earned_schedule": true
-  } as Cpm_delay_penalty_optimizer_calculatorInput;
+  } as unknown as Cpm_delay_penalty_optimizer_calculatorInput;
     const result = calculateCpm_delay_penalty_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

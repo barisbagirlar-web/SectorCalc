@@ -12,7 +12,7 @@ describe("cpi-calculator", () => {
     "ac": 0,
     "pv": 0,
     "bac": 0
-  } as Cpi_calculatorInput;
+  } as unknown as Cpi_calculatorInput;
     const result = calculateCpi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("geneva-score-calculator", () => {
     "hardnessValue": 60,
     "materialConsistency": 95,
     "visualDefects": 0
-  } as Geneva_score_calculatorInput;
+  } as unknown as Geneva_score_calculatorInput;
     const result = calculateGeneva_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("operating-cash-flow-calculator", () => {
     "operatingExpenses": 600000,
     "taxRate": 25,
     "depreciation": 50000
-  } as Operating_cash_flow_calculatorInput;
+  } as unknown as Operating_cash_flow_calculatorInput;
     const result = calculateOperating_cash_flow_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

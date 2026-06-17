@@ -22,11 +22,13 @@
       "businessContext": "Total authorized budget for the work scope (PMBOK).",
       "label_i18n": {
         "en": "Budget at Completion",
-        "tr": "Bütçe Tamamlanma"
+        "tr": "Bütçe Tamamlanma",
+        "de": "Budget bei Fertigstellung"
       },
       "businessContext_i18n": {
         "en": "Total authorized budget for the work scope (PMBOK).",
-        "tr": "İş kapsamı için toplam yetkilendirilmiş bütçe (PMBOK)."
+        "tr": "İş kapsamı için toplam yetkilendirilmiş bütçe (PMBOK).",
+        "de": "Gesamtes genehmigtes Budget für den Arbeitsumfang (PMBOK)."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Value of work actually performed, measured in budgeted cost.",
       "label_i18n": {
         "en": "Earned Value",
-        "tr": "Kazanılan Değer"
+        "tr": "Kazanılan Değer",
+        "de": "Ertragswert"
       },
       "businessContext_i18n": {
         "en": "Value of work actually performed, measured in budgeted cost.",
-        "tr": "Gerçekleştirilen işin bütçelenmiş maliyet cinsinden değeri."
+        "tr": "Gerçekleştirilen işin bütçelenmiş maliyet cinsinden değeri.",
+        "de": "Wert der tatsächlich geleisteten Arbeit, gemessen in budgetierten Kosten."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Total cost incurred for the work performed.",
       "label_i18n": {
         "en": "Actual Cost",
-        "tr": "Gerçek Maliyet"
+        "tr": "Gerçek Maliyet",
+        "de": "Tatsächliche Kosten"
       },
       "businessContext_i18n": {
         "en": "Total cost incurred for the work performed.",
-        "tr": "Gerçekleştirilen iş için oluşan toplam maliyet."
+        "tr": "Gerçekleştirilen iş için oluşan toplam maliyet.",
+        "de": "Gesamtkosten für die durchgeführte Arbeit."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Authorized budget for the work scheduled to be completed.",
       "label_i18n": {
         "en": "Planned Value",
-        "tr": "Planlanan Değer"
+        "tr": "Planlanan Değer",
+        "de": "Planwert"
       },
       "businessContext_i18n": {
         "en": "Authorized budget for the work scheduled to be completed.",
-        "tr": "Tamamlanması planlanan iş için yetkilendirilmiş bütçe."
+        "tr": "Tamamlanması planlanan iş için yetkilendirilmiş bütçe.",
+        "de": "Genehmigtes Budget für die planmäßig abzuschließende Arbeit."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Objective physical progress estimate (e.g., via earned value rules).",
       "label_i18n": {
         "en": "Percent Complete (physical)",
-        "tr": "Fiziksel Tamamlanma Yüzdesi"
+        "tr": "Fiziksel Tamamlanma Yüzdesi",
+        "de": "Fertigstellungsgrad (physisch)"
       },
       "businessContext_i18n": {
         "en": "Objective physical progress estimate (e.g., via earned value rules).",
-        "tr": "Nesnel fiziksel ilerleme tahmini (örn. kazanılan değer kuralları ile)."
+        "tr": "Nesnel fiziksel ilerleme tahmini (örn. kazanılan değer kuralları ile).",
+        "de": "Objektiver physischer Fortschrittsschätzung (z. B. über Earned-Value-Regeln)."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "If provided, overrides calculated CPI. CPI = EV/AC.",
       "label_i18n": {
         "en": "Cost Performance Index (override)",
-        "tr": "Maliyet Performans Endeksi (geçersiz kılma)"
+        "tr": "Maliyet Performans Endeksi (geçersiz kılma)",
+        "de": "Kostenleistungsindex (Überschreibung)"
       },
       "businessContext_i18n": {
         "en": "If provided, overrides calculated CPI. CPI = EV/AC.",
-        "tr": "Sağlanırsa, hesaplanan MPI'yi geçersiz kılar. MPI = KD/BM."
+        "tr": "Sağlanırsa, hesaplanan MPI'yi geçersiz kılar. MPI = KD/BM.",
+        "de": "Falls angegeben, überschreibt den berechneten CPI. CPI = EV/AC."
       }
     },
     {
@@ -130,11 +142,13 @@
       "businessContext": "If provided, overrides calculated SPI. SPI = EV/PV.",
       "label_i18n": {
         "en": "Schedule Performance Index (override)",
-        "tr": "Program Performans Endeksi (geçersiz kılma)"
+        "tr": "Program Performans Endeksi (geçersiz kılma)",
+        "de": "Terminplan-Leistungsindex (Überschreibung)"
       },
       "businessContext_i18n": {
         "en": "If provided, overrides calculated SPI. SPI = EV/PV.",
-        "tr": "Sağlanırsa, hesaplanan PPE'yi geçersiz kılar. PPE = KD/PD."
+        "tr": "Sağlanırsa, hesaplanan PPE'yi geçersiz kılar. PPE = KD/PD.",
+        "de": "Falls angegeben, überschreibt den berechneten SPI. SPI = EV/PV."
       }
     },
     {
@@ -148,11 +162,13 @@
       "businessContext": "If true, applies 0.8*CPI + 0.2*SPI weighting for EAC (industry practice).",
       "label_i18n": {
         "en": "Use weighted CPI/SPI for EAC",
-        "tr": "TBM için ağırlıklı MPI/PPE kullan"
+        "tr": "TBM için ağırlıklı MPI/PPE kullan",
+        "de": "Gewichteten CPI/SPI für EAC verwenden"
       },
       "businessContext_i18n": {
         "en": "If true, applies 0.8*CPI + 0.2*SPI weighting for EAC (industry practice).",
-        "tr": "Doğruysa, TBM için 0.8*MPI + 0.2*PPE ağırlıklandırması uygular (endüstri uygulaması)."
+        "tr": "Doğruysa, TBM için 0.8*MPI + 0.2*PPE ağırlıklandırması uygular (endüstri uygulaması).",
+        "de": "Wenn wahr, wendet 0,8*CPI + 0,2*SPI-Gewichtung für EAC an (Branchenpraxis)."
       }
     }
   ],

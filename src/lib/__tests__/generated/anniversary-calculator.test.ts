@@ -13,7 +13,7 @@ describe("anniversary-calculator", () => {
     "startDay": 1,
     "yearsToAdd": 0,
     "monthsToAdd": 0
-  } as Anniversary_calculatorInput;
+  } as unknown as Anniversary_calculatorInput;
     const result = calculateAnniversary_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

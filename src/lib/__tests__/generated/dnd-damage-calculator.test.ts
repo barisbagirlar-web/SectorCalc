@@ -15,7 +15,7 @@ describe("dnd-damage-calculator", () => {
     "criticalHitChance": 5,
     "extraDamageDice": 0,
     "damageMultiplier": 1
-  } as Dnd_damage_calculatorInput;
+  } as unknown as Dnd_damage_calculatorInput;
     const result = calculateDnd_damage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

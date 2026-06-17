@@ -13,7 +13,7 @@ describe("baseball-exit-velocity-calculator", () => {
     "pitchSpeed": 90,
     "batSpeed": 70,
     "cor": 0.5
-  } as Baseball_exit_velocity_calculatorInput;
+  } as unknown as Baseball_exit_velocity_calculatorInput;
     const result = calculateBaseball_exit_velocity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

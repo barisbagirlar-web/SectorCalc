@@ -13,7 +13,7 @@ describe("tooth-eruption-calculator", () => {
     "rpm": 1500,
     "materialHardness": 200,
     "initialWearLimit": 5
-  } as Tooth_eruption_calculatorInput;
+  } as unknown as Tooth_eruption_calculatorInput;
     const result = calculateTooth_eruption_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

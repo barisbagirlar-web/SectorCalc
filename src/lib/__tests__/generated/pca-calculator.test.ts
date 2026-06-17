@@ -12,7 +12,7 @@ describe("pca-calculator", () => {
     "varianceY": 1,
     "covarianceXY": 0,
     "scaling": 1
-  } as Pca_calculatorInput;
+  } as unknown as Pca_calculatorInput;
     const result = calculatePca_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

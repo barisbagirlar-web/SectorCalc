@@ -12,7 +12,7 @@ describe("drag-calculator", () => {
     "flow_velocity": 10,
     "drag_coefficient": 0.47,
     "reference_area": 0.1
-  } as Drag_calculatorInput;
+  } as unknown as Drag_calculatorInput;
     const result = calculateDrag_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

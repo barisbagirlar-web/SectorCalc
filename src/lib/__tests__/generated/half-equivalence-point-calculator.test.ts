@@ -12,7 +12,7 @@ describe("half-equivalence-point-calculator", () => {
     "acidVolume": 25,
     "titrantConcentration": 0.1,
     "acidDissociationConstant": 0.000018
-  } as Half_equivalence_point_calculatorInput;
+  } as unknown as Half_equivalence_point_calculatorInput;
     const result = calculateHalf_equivalence_point_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

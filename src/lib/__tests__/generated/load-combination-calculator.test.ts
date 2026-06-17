@@ -12,7 +12,7 @@ describe("load-combination-calculator", () => {
     "liveLoad": 3,
     "windLoad": 1.5,
     "snowLoad": 2
-  } as Load_combination_calculatorInput;
+  } as unknown as Load_combination_calculatorInput;
     const result = calculateLoad_combination_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

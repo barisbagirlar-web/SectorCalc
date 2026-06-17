@@ -16,7 +16,7 @@ describe("machining-strategy-time-optimizer-calculator", () => {
     "tool_change_time": 2,
     "tool_life_minutes": 30,
     "number_of_passes": 1
-  } as Machining_strategy_time_optimizer_calculatorInput;
+  } as unknown as Machining_strategy_time_optimizer_calculatorInput;
     const result = calculateMachining_strategy_time_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

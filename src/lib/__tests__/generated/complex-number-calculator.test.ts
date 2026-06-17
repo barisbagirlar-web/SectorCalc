@@ -13,7 +13,7 @@ describe("complex-number-calculator", () => {
     "real2": 0,
     "imag2": 0,
     "operation": 0
-  } as Complex_number_calculatorInput;
+  } as unknown as Complex_number_calculatorInput;
     const result = calculateComplex_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

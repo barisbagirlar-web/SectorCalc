@@ -12,7 +12,7 @@ describe("rule-of-72-calculator", () => {
     "compoundingFrequency": 1,
     "ruleConstant": 72,
     "initialInvestment": 10000
-  } as Rule_of_72_calculatorInput;
+  } as unknown as Rule_of_72_calculatorInput;
     const result = calculateRule_of_72_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

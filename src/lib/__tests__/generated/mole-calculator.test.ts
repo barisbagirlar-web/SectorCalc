@@ -12,7 +12,7 @@ describe("mole-calculator", () => {
     "molarMass": 18.015,
     "avogadro": 6.02214076e+23,
     "molarVolume": 22.414
-  } as Mole_calculatorInput;
+  } as unknown as Mole_calculatorInput;
     const result = calculateMole_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

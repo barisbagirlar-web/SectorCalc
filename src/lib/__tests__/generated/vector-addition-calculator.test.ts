@@ -14,7 +14,7 @@ describe("vector-addition-calculator", () => {
     "vector2_angle": 90,
     "unit_system": "SI",
     "confidence_level": 95
-  } as Vector_addition_calculatorInput;
+  } as unknown as Vector_addition_calculatorInput;
     const result = calculateVector_addition_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("words-to-numbers-calculator", () => {
     "ones": 0,
     "tenths": 0,
     "hundredths": 0
-  } as Words_to_numbers_calculatorInput;
+  } as unknown as Words_to_numbers_calculatorInput;
     const result = calculateWords_to_numbers_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

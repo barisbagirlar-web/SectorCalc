@@ -16,7 +16,7 @@ describe("route-optimization-analyzer-calculator", () => {
     "driver_hourly_rate": 25,
     "vehicle_type": "van",
     "traffic_condition": "moderate"
-  } as Route_optimization_analyzer_calculatorInput;
+  } as unknown as Route_optimization_analyzer_calculatorInput;
     const result = calculateRoute_optimization_analyzer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("half-life-reaction-calculator", () => {
     "tolerancePercent": 5,
     "halfLife": 10,
     "elapsedTime": 20
-  } as Half_life_reaction_calculatorInput;
+  } as unknown as Half_life_reaction_calculatorInput;
     const result = calculateHalf_life_reaction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

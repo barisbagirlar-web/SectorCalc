@@ -16,7 +16,7 @@ describe("filament-recycling-cost-comparator-calculator", () => {
     "labor_rate": 25,
     "labor_hours_per_kg": 0.05,
     "waste_collection_cost": 0.3
-  } as Filament_recycling_cost_comparator_calculatorInput;
+  } as unknown as Filament_recycling_cost_comparator_calculatorInput;
     const result = calculateFilament_recycling_cost_comparator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

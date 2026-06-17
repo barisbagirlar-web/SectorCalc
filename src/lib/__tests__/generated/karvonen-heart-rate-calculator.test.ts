@@ -13,7 +13,7 @@ describe("karvonen-heart-rate-calculator", () => {
     "maxHR": 190,
     "intensityLow": 60,
     "intensityHigh": 70
-  } as Karvonen_heart_rate_calculatorInput;
+  } as unknown as Karvonen_heart_rate_calculatorInput;
     const result = calculateKarvonen_heart_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

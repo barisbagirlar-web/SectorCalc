@@ -13,7 +13,7 @@ describe("combined-gas-law-calculator", () => {
     "T1": 273.15,
     "V2": 1,
     "T2": 273.15
-  } as Combined_gas_law_calculatorInput;
+  } as unknown as Combined_gas_law_calculatorInput;
     const result = calculateCombined_gas_law_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

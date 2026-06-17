@@ -16,7 +16,7 @@ describe("fence-calculator", () => {
     "numberOfGates": 1,
     "pricePerGate": 200,
     "concreteCostPerPost": 5
-  } as Fence_calculatorInput;
+  } as unknown as Fence_calculatorInput;
     const result = calculateFence_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

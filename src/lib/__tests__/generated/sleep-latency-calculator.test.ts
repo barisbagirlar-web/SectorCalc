@@ -14,7 +14,7 @@ describe("sleep-latency-calculator", () => {
     "screenTime": 60,
     "roomTemperature": 20,
     "stressLevel": 5
-  } as Sleep_latency_calculatorInput;
+  } as unknown as Sleep_latency_calculatorInput;
     const result = calculateSleep_latency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

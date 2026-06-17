@@ -14,7 +14,7 @@ describe("file-size-calculator", () => {
     "compressionRatio": 0.8,
     "overheadPerFileKB": 4,
     "transferSpeedMbps": 100
-  } as File_size_calculatorInput;
+  } as unknown as File_size_calculatorInput;
     const result = calculateFile_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("generator-calculator", () => {
     "fuelConsumptionRate": 0.3,
     "fuelDensity": 0.85,
     "generatorEfficiency": 95
-  } as Generator_calculatorInput;
+  } as unknown as Generator_calculatorInput;
     const result = calculateGenerator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

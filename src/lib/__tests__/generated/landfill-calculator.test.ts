@@ -14,7 +14,7 @@ describe("landfill-calculator", () => {
     "lifespanYears": 20,
     "existingVolume": 500000,
     "availableArea": 200000
-  } as Landfill_calculatorInput;
+  } as unknown as Landfill_calculatorInput;
     const result = calculateLandfill_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

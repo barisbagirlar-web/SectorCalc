@@ -13,7 +13,7 @@ describe("audit-calculator", () => {
     "marginOfError": 5,
     "proportion": 0.5,
     "responseRate": 100
-  } as Audit_calculatorInput;
+  } as unknown as Audit_calculatorInput;
     const result = calculateAudit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

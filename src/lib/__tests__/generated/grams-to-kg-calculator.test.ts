@@ -12,7 +12,7 @@ describe("grams-to-kg-calculator", () => {
     "tareWeightGrams": 0,
     "decimalPlaces": 3,
     "roundingMode": 0
-  } as Grams_to_kg_calculatorInput;
+  } as unknown as Grams_to_kg_calculatorInput;
     const result = calculateGrams_to_kg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("cycling-speed-calculator", () => {
     "timeMinutes": 30,
     "timeSeconds": 0,
     "breakTime": 5
-  } as Cycling_speed_calculatorInput;
+  } as unknown as Cycling_speed_calculatorInput;
     const result = calculateCycling_speed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

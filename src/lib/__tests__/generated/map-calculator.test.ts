@@ -11,7 +11,7 @@ describe("map-calculator", () => {
     "sbp": 120,
     "dbp": 80,
     "auto_input_3": 1
-  } as Map_calculatorInput;
+  } as unknown as Map_calculatorInput;
     const result = calculateMap_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

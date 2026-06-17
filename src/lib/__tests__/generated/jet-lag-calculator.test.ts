@@ -13,7 +13,7 @@ describe("jet-lag-calculator", () => {
     "flightDuration": 8,
     "preTravelRest": 7,
     "age": 35
-  } as Jet_lag_calculatorInput;
+  } as unknown as Jet_lag_calculatorInput;
     const result = calculateJet_lag_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

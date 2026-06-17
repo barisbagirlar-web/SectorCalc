@@ -12,7 +12,7 @@ describe("slope-intercept-form-calculator", () => {
     "yIntercept": 0,
     "xValue": 0,
     "yValue": 0
-  } as Slope_intercept_form_calculatorInput;
+  } as unknown as Slope_intercept_form_calculatorInput;
     const result = calculateSlope_intercept_form_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

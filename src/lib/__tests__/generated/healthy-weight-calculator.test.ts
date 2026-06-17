@@ -13,7 +13,7 @@ describe("healthy-weight-calculator", () => {
     "age": 30,
     "waist": 80,
     "hip": 100
-  } as Healthy_weight_calculatorInput;
+  } as unknown as Healthy_weight_calculatorInput;
     const result = calculateHealthy_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

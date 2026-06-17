@@ -12,7 +12,7 @@ describe("von-mises-stress-calculator", () => {
     "sigma_y": 0,
     "tau_xy": 0,
     "yield_strength": 250
-  } as Von_mises_stress_calculatorInput;
+  } as unknown as Von_mises_stress_calculatorInput;
     const result = calculateVon_mises_stress_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("hundredweight-to-pounds-calculator", () => {
     "conversionFactor": 100,
     "itemCount": 1,
     "decimalPlaces": 2
-  } as Hundredweight_to_pounds_calculatorInput;
+  } as unknown as Hundredweight_to_pounds_calculatorInput;
     const result = calculateHundredweight_to_pounds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

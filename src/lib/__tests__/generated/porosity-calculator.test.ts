@@ -12,7 +12,7 @@ describe("porosity-calculator", () => {
     "particleDensity": 2.65,
     "totalVolume": 100,
     "poreVolume": 30
-  } as Porosity_calculatorInput;
+  } as unknown as Porosity_calculatorInput;
     const result = calculatePorosity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("bits-to-bytes-calculator", () => {
     "megabits": 0,
     "gigabits": 0,
     "terabits": 0
-  } as Bits_to_bytes_calculatorInput;
+  } as unknown as Bits_to_bytes_calculatorInput;
     const result = calculateBits_to_bytes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

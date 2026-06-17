@@ -12,7 +12,7 @@ describe("sand-calculator", () => {
     "width": 4,
     "depth": 5,
     "wasteFactor": 10
-  } as Sand_calculatorInput;
+  } as unknown as Sand_calculatorInput;
     const result = calculateSand_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

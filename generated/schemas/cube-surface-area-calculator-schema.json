@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Edge Length",
         "tr": "Kenar Uzunluğu",
-        "de": "Edge Length",
+        "de": "Kantenlänge",
         "fr": "Edge Length",
         "es": "Edge Length",
         "ar": "Edge Length"
       },
       "businessContext_i18n": {
         "en": "Length of one edge of the cube in meters.",
-        "tr": "Küpün bir kenarının metre cinsinden uzunluğu."
+        "tr": "Küpün bir kenarının metre cinsinden uzunluğu.",
+        "de": "Länge einer Kante des Würfels in Metern."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Number of Cubes",
         "tr": "Küp Sayısı",
-        "de": "Number of Cubes",
+        "de": "Anzahl der Würfel",
         "fr": "Number of Cubes",
         "es": "Number of Cubes",
         "ar": "Number of Cubes"
       },
       "businessContext_i18n": {
         "en": "Number of identical cubes to calculate total surface area for.",
-        "tr": "Toplam yüzey alanını hesaplamak için aynı küplerin sayısı."
+        "tr": "Toplam yüzey alanını hesaplamak için aynı küplerin sayısı.",
+        "de": "Anzahl identischer Würfel zur Berechnung der Gesamtoberfläche."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Exposed Faces per Cube",
         "tr": "Küp Başına Açık Yüzey",
-        "de": "Exposed Faces per Cube",
+        "de": "Freiliegende Flächen pro Würfel",
         "fr": "Exposed Faces per Cube",
         "es": "Exposed Faces per Cube",
         "ar": "Exposed Faces per Cube"
       },
       "businessContext_i18n": {
         "en": "Number of faces exposed per cube (default 6 for full cube; e.g., 5 if one face is on the ground).",
-        "tr": "Küp başına açık yüzey sayısı (varsayılan 6 tam küp; örn. bir yüzü yerdeyse 5)."
+        "tr": "Küp başına açık yüzey sayısı (varsayılan 6 tam küp; örn. bir yüzü yerdeyse 5).",
+        "de": "Anzahl der freiliegenden Flächen pro Würfel (Standard 6 für vollen Würfel; z.B. 5, wenn eine Fläche auf dem Boden liegt)."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Unit Conversion Factor",
         "tr": "Birim Dönüşüm Faktörü",
-        "de": "Unit Conversion Factor",
+        "de": "Einheitenumrechnungsfaktor",
         "fr": "Unit Conversion Factor",
         "es": "Unit Conversion Factor",
         "ar": "Unit Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to convert m² to desired area unit (e.g., 1 for m², 10000 for cm², 10.7639 for ft²).",
-        "tr": "m²'yi istenen alan birimine dönüştürmek için çarpan (örn. m² için 1, cm² için 10000, ft² için 10.7639)."
+        "tr": "m²'yi istenen alan birimine dönüştürmek için çarpan (örn. m² için 1, cm² için 10000, ft² için 10.7639).",
+        "de": "Multiplikator zur Umrechnung von m² in die gewünschte Flächeneinheit (z.B. 1 für m², 10000 für cm², 10,7639 für ft²)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Safety Margin",
         "tr": "Güvenlik Marjı",
-        "de": "Safety Margin",
+        "de": "Sicherheitsmarge",
         "fr": "Safety Margin",
         "es": "Safety Margin",
         "ar": "Safety Margin"
       },
       "businessContext_i18n": {
         "en": "Percentage added to total area to account for waste, errors, or overage.",
-        "tr": "Fire, hata veya fazlalık için toplam alana eklenen yüzde."
+        "tr": "Fire, hata veya fazlalık için toplam alana eklenen yüzde.",
+        "de": "Prozentsatz, der zur Gesamtfläche hinzugefügt wird, um Ausschuss, Fehler oder Überschuss zu berücksichtigen."
       }
     }
   ],

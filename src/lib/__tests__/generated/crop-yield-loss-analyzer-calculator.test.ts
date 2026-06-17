@@ -16,7 +16,7 @@ describe("crop-yield-loss-analyzer-calculator", () => {
     "irrigation_type": "drip",
     "pest_pressure": 3,
     "disease_index": 2
-  } as Crop_yield_loss_analyzer_calculatorInput;
+  } as unknown as Crop_yield_loss_analyzer_calculatorInput;
     const result = calculateCrop_yield_loss_analyzer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

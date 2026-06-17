@@ -15,7 +15,7 @@ describe("drywall-calculator", () => {
     "numberOfWindows": 2,
     "panelArea": 2.88,
     "wasteFactor": 10
-  } as Drywall_calculatorInput;
+  } as unknown as Drywall_calculatorInput;
     const result = calculateDrywall_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("bayes-theorem-calculator", () => {
     "sensitivity": 0.95,
     "specificity": 0.98,
     "testResult": 1
-  } as Bayes_theorem_calculatorInput;
+  } as unknown as Bayes_theorem_calculatorInput;
     const result = calculateBayes_theorem_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

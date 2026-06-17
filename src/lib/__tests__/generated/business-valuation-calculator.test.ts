@@ -14,7 +14,7 @@ describe("business-valuation-calculator", () => {
     "discountRate": 10,
     "assets": 500000,
     "liabilities": 200000
-  } as Business_valuation_calculatorInput;
+  } as unknown as Business_valuation_calculatorInput;
     const result = calculateBusiness_valuation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

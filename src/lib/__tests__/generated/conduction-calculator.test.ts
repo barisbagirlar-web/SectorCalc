@@ -13,7 +13,7 @@ describe("conduction-calculator", () => {
     "hotTemp": 100,
     "coldTemp": 20,
     "thickness": 0.1
-  } as Conduction_calculatorInput;
+  } as unknown as Conduction_calculatorInput;
     const result = calculateConduction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

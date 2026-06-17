@@ -16,7 +16,7 @@ describe("401k-calculator", () => {
     "expectedReturnRate": 7,
     "inflationRate": 2,
     "currentBalance": 0
-  } as _401k_calculatorInput;
+  } as unknown as _401k_calculatorInput;
     const result = calculate_401k_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

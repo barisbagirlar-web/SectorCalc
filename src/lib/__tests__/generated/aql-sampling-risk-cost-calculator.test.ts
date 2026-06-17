@@ -16,7 +16,7 @@ describe("aql-sampling-risk-cost-calculator", () => {
     "defect_cost_per_unit": 50,
     "inspection_cost_per_unit": 2,
     "defect_rate_actual": 2
-  } as Aql_sampling_risk_cost_calculatorInput;
+  } as unknown as Aql_sampling_risk_cost_calculatorInput;
     const result = calculateAql_sampling_risk_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

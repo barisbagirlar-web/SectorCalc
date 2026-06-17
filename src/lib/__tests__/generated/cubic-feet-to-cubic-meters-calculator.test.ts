@@ -12,7 +12,7 @@ describe("cubic-feet-to-cubic-meters-calculator", () => {
     "widthFeet": 1,
     "heightFeet": 1,
     "decimalPlaces": 2
-  } as Cubic_feet_to_cubic_meters_calculatorInput;
+  } as unknown as Cubic_feet_to_cubic_meters_calculatorInput;
     const result = calculateCubic_feet_to_cubic_meters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

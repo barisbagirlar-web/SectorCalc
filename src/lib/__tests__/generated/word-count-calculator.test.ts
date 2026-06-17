@@ -14,7 +14,7 @@ describe("word-count-calculator", () => {
     "readingSpeed": 200,
     "totalPages": 0,
     "wordsPerPage": 275
-  } as Word_count_calculatorInput;
+  } as unknown as Word_count_calculatorInput;
     const result = calculateWord_count_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

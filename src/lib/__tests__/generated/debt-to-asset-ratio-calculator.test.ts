@@ -12,7 +12,7 @@ describe("debt-to-asset-ratio-calculator", () => {
     "longTermLiabilities": 0,
     "currentAssets": 0,
     "nonCurrentAssets": 0
-  } as Debt_to_asset_ratio_calculatorInput;
+  } as unknown as Debt_to_asset_ratio_calculatorInput;
     const result = calculateDebt_to_asset_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

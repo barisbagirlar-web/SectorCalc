@@ -12,7 +12,7 @@ describe("abc-classification-calculator", () => {
     "unitCost": 0,
     "totalAnnualValue": 0,
     "cumulativeBefore": 0
-  } as Abc_classification_calculatorInput;
+  } as unknown as Abc_classification_calculatorInput;
     const result = calculateAbc_classification_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

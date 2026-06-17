@@ -13,7 +13,7 @@ describe("asphalt-calculator", () => {
     "thickness": 5,
     "density": 2.4,
     "compactionFactor": 95
-  } as Asphalt_calculatorInput;
+  } as unknown as Asphalt_calculatorInput;
     const result = calculateAsphalt_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("hiking-time-calculator", () => {
     "elevationGain": 500,
     "pace": 12,
     "terrainFactor": 1
-  } as Hiking_time_calculatorInput;
+  } as unknown as Hiking_time_calculatorInput;
     const result = calculateHiking_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

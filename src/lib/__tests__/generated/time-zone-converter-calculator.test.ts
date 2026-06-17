@@ -14,7 +14,7 @@ describe("time-zone-converter-calculator", () => {
     "sourceOffsetMinutes": 0,
     "targetOffsetHours": 3,
     "targetOffsetMinutes": 0
-  } as Time_zone_converter_calculatorInput;
+  } as unknown as Time_zone_converter_calculatorInput;
     const result = calculateTime_zone_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

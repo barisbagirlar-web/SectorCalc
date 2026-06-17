@@ -15,7 +15,7 @@ describe("exterior-paint-calculator", () => {
     "doorArea": 2,
     "windowArea": 5,
     "otherOpeningsArea": 0
-  } as Exterior_paint_calculatorInput;
+  } as unknown as Exterior_paint_calculatorInput;
     const result = calculateExterior_paint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

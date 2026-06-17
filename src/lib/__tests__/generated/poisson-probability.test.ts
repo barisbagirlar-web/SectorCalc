@@ -11,7 +11,7 @@ describe("poisson-probability", () => {
     "lambda": 5,
     "k": 3,
     "kumulatif": 3
-  } as Poisson_probabilityInput;
+  } as unknown as Poisson_probabilityInput;
     const result = calculatePoisson_probability(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

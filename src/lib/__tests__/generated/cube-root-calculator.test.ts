@@ -12,7 +12,7 @@ describe("cube-root-calculator", () => {
     "tolerance": 0.1,
     "oversize": 0,
     "calibrationOffset": 0
-  } as Cube_root_calculatorInput;
+  } as unknown as Cube_root_calculatorInput;
     const result = calculateCube_root_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

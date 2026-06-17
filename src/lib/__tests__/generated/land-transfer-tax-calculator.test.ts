@@ -13,7 +13,7 @@ describe("land-transfer-tax-calculator", () => {
     "exemptionAmount": 4000,
     "isFirstTimeBuyer": 0,
     "fixedFee": 250
-  } as Land_transfer_tax_calculatorInput;
+  } as unknown as Land_transfer_tax_calculatorInput;
     const result = calculateLand_transfer_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

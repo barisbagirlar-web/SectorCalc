@@ -14,7 +14,7 @@ describe("cut-calculator", () => {
     "toolDiameter": 12,
     "depthOfCut": 5,
     "widthOfCut": 8
-  } as Cut_calculatorInput;
+  } as unknown as Cut_calculatorInput;
     const result = calculateCut_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

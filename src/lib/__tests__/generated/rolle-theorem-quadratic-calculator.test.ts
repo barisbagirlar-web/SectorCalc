@@ -13,7 +13,7 @@ describe("rolle-theorem-quadratic-calculator", () => {
     "cConst": 0,
     "x1": -1,
     "x2": 1
-  } as Rolle_theorem_quadratic_calculatorInput;
+  } as unknown as Rolle_theorem_quadratic_calculatorInput;
     const result = calculateRolle_theorem_quadratic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

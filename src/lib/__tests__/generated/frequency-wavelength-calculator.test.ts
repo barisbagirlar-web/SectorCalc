@@ -12,7 +12,7 @@ describe("frequency-wavelength-calculator", () => {
     "speedVacuum": 299792458,
     "refractiveIndex": 1,
     "planckConstant": 6.62607015e-34
-  } as Frequency_wavelength_calculatorInput;
+  } as unknown as Frequency_wavelength_calculatorInput;
     const result = calculateFrequency_wavelength_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

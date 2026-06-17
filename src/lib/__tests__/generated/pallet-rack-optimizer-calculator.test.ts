@@ -16,7 +16,7 @@ describe("pallet-rack-optimizer-calculator", () => {
     "clearance_vertical_mm": 100,
     "aisle_width_mm": 3000,
     "rack_length_mm": 2700
-  } as Pallet_rack_optimizer_calculatorInput;
+  } as unknown as Pallet_rack_optimizer_calculatorInput;
     const result = calculatePallet_rack_optimizer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

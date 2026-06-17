@@ -12,7 +12,7 @@ describe("upload-time-calculator", () => {
     "uploadSpeed": 10,
     "overheadFactor": 1.1,
     "numConnections": 1
-  } as Upload_time_calculatorInput;
+  } as unknown as Upload_time_calculatorInput;
     const result = calculateUpload_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

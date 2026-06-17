@@ -14,7 +14,7 @@ describe("kruskal-wallis-test-calculator", () => {
     "R1": 100,
     "R2": 150,
     "R3": 200
-  } as Kruskal_wallis_test_calculatorInput;
+  } as unknown as Kruskal_wallis_test_calculatorInput;
     const result = calculateKruskal_wallis_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

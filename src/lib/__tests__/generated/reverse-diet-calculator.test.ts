@@ -12,7 +12,7 @@ describe("reverse-diet-calculator", () => {
     "goalWeight": 65,
     "weeks": 8,
     "activityLevel": 1.2
-  } as Reverse_diet_calculatorInput;
+  } as unknown as Reverse_diet_calculatorInput;
     const result = calculateReverse_diet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

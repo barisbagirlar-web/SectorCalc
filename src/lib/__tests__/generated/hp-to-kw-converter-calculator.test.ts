@@ -15,7 +15,7 @@ describe("hp-to-kw-converter-calculator", () => {
     "power_factor": 0.85,
     "operating_hours_per_year": 8000,
     "electricity_cost_per_kwh": 0.12
-  } as Hp_to_kw_converter_calculatorInput;
+  } as unknown as Hp_to_kw_converter_calculatorInput;
     const result = calculateHp_to_kw_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

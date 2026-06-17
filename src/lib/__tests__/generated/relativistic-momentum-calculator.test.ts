@@ -13,7 +13,7 @@ describe("relativistic-momentum-calculator", () => {
     "vy": 0,
     "vz": 0,
     "c": 299792458
-  } as Relativistic_momentum_calculatorInput;
+  } as unknown as Relativistic_momentum_calculatorInput;
     const result = calculateRelativistic_momentum_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

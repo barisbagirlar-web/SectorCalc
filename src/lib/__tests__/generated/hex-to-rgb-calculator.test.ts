@@ -14,7 +14,7 @@ describe("hex-to-rgb-calculator", () => {
     "gLow": 0,
     "bHigh": 0,
     "bLow": 0
-  } as Hex_to_rgb_calculatorInput;
+  } as unknown as Hex_to_rgb_calculatorInput;
     const result = calculateHex_to_rgb_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

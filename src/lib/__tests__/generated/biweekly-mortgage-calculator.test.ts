@@ -12,7 +12,7 @@ describe("biweekly-mortgage-calculator", () => {
     "annualRate": 6.5,
     "termYears": 30,
     "extraBiweekly": 0
-  } as Biweekly_mortgage_calculatorInput;
+  } as unknown as Biweekly_mortgage_calculatorInput;
     const result = calculateBiweekly_mortgage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

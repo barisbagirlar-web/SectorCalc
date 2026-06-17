@@ -22,11 +22,13 @@
       "businessContext": "Measured at hydrant outlet with no flow. Used to determine available system pressure per NFPA 291.",
       "label_i18n": {
         "en": "Static Pressure",
-        "tr": "Statik basınç"
+        "tr": "Statik basınç",
+        "de": "Statischer Druck"
       },
       "businessContext_i18n": {
         "en": "Measured at hydrant outlet with no flow. Used to determine available system pressure per NFPA 291.",
-        "tr": "Hidrant çıkışında akış yokken ölçülür. NFPA 291'e göre mevcut sistem basıncını belirlemek için kullanılır."
+        "tr": "Hidrant çıkışında akış yokken ölçülür. NFPA 291'e göre mevcut sistem basıncını belirlemek için kullanılır.",
+        "de": "Gemessen am Hydrantenauslass ohne Durchfluss. Wird verwendet, um den verfügbaren Systemdruck gemäß NFPA 291 zu bestimmen."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Pressure measured while hydrant is flowing at test rate. Indicates system capacity under demand.",
       "label_i18n": {
         "en": "Residual Pressure",
-        "tr": "Artık Basınç"
+        "tr": "Artık Basınç",
+        "de": "Restdruck"
       },
       "businessContext_i18n": {
         "en": "Pressure measured while hydrant is flowing at test rate. Indicates system capacity under demand.",
-        "tr": "Hidrant test debisinde akarken ölçülen basınç. Talep altında sistem kapasitesini gösterir."
+        "tr": "Hidrant test debisinde akarken ölçülen basınç. Talep altında sistem kapasitesini gösterir.",
+        "de": "Druck, der am Hydranten gemessen wird, während er mit der Testdurchflussrate fließt. Zeigt die Systemkapazität unter Last an."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Flow rate measured during hydrant flow test using pitot gauge or flow meter.",
       "label_i18n": {
         "en": "Test Flow Rate",
-        "tr": "Test Debisi"
+        "tr": "Test Debisi",
+        "de": "Testdurchflussrate"
       },
       "businessContext_i18n": {
         "en": "Flow rate measured during hydrant flow test using pitot gauge or flow meter.",
-        "tr": "Hidrant akış testi sırasında pitot göstergesi veya debimetre kullanılarak ölçülen debi."
+        "tr": "Hidrant akış testi sırasında pitot göstergesi veya debimetre kullanılarak ölçülen debi.",
+        "de": "Durchflussrate, die während des Hydranten-Durchflusstests mit einem Pitot-Rohr oder Durchflussmesser gemessen wird."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Nominal diameter of the main supply pipe feeding the hydrant. Affects friction loss.",
       "label_i18n": {
         "en": "Supply Pipe Diameter",
-        "tr": "Besleme Borusu Çapı"
+        "tr": "Besleme Borusu Çapı",
+        "de": "Versorgungsrohrdurchmesser"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of the main supply pipe feeding the hydrant. Affects friction loss.",
-        "tr": "Hidrantı besleyen ana besleme borusunun nominal çapı. Sürtünme kaybını etkiler."
+        "tr": "Hidrantı besleyen ana besleme borusunun nominal çapı. Sürtünme kaybını etkiler.",
+        "de": "Nenndurchmesser des Hauptversorgungsrohrs, das den Hydranten speist. Beeinflusst den Reibungsverlust."
       }
     },
     {
@@ -94,11 +102,13 @@
       "businessContext": "Distance from water main to hydrant. Used in friction loss calculations.",
       "label_i18n": {
         "en": "Supply Pipe Length",
-        "tr": "Besleme Borusu Uzunluğu"
+        "tr": "Besleme Borusu Uzunluğu",
+        "de": "Versorgungsrohrlänge"
       },
       "businessContext_i18n": {
         "en": "Distance from water main to hydrant. Used in friction loss calculations.",
-        "tr": "Su kaynağından hidrant mesafesi. Sürtünme kaybı hesaplamalarında kullanılır."
+        "tr": "Su kaynağından hidrant mesafesi. Sürtünme kaybı hesaplamalarında kullanılır.",
+        "de": "Entfernung von der Wasserhauptleitung zum Hydranten. Wird für Reibungsverlustberechnungen verwendet."
       }
     },
     {
@@ -112,11 +122,13 @@
       "businessContext": "Pipe roughness coefficient. 140 for new steel, 100 for old cast iron. Per ISO 10803 and NFPA 13.",
       "label_i18n": {
         "en": "Hazen-Williams C Factor",
-        "tr": "Hazen-Williams C Faktörü"
+        "tr": "Hazen-Williams C Faktörü",
+        "de": "Hazen-Williams C-Faktor"
       },
       "businessContext_i18n": {
         "en": "Pipe roughness coefficient. 140 for new steel, 100 for old cast iron. Per ISO 10803 and NFPA 13.",
-        "tr": "Boru pürüzlülük katsayısı. Yeni çelik için 140, eski dökme demir için 100. ISO 10803 ve NFPA 13'e göre."
+        "tr": "Boru pürüzlülük katsayısı. Yeni çelik için 140, eski dökme demir için 100. ISO 10803 ve NFPA 13'e göre.",
+        "de": "Rohrrauigkeitskoeffizient. 140 für neuen Stahl, 100 für alten Gusseisen. Gemäß ISO 10803 und NFPA 13."
       }
     },
     {
@@ -130,11 +142,13 @@
       "businessContext": "Height difference between water source and hydrant. Positive if hydrant is above source.",
       "label_i18n": {
         "en": "Elevation Difference",
-        "tr": "Yükseklik Farkı"
+        "tr": "Yükseklik Farkı",
+        "de": "Höhenunterschied"
       },
       "businessContext_i18n": {
         "en": "Height difference between water source and hydrant. Positive if hydrant is above source.",
-        "tr": "Su kaynağı ile hidrant arasındaki yükseklik farkı. Hidrant kaynaktan yüksekte ise pozitif."
+        "tr": "Su kaynağı ile hidrant arasındaki yükseklik farkı. Hidrant kaynaktan yüksekte ise pozitif.",
+        "de": "Höhendifferenz zwischen Wasserquelle und Hydrant. Positiv, wenn der Hydrant oberhalb der Quelle liegt."
       }
     },
     {
@@ -148,11 +162,13 @@
       "businessContext": "Number of hydrants flowing simultaneously during test. Affects total demand.",
       "label_i18n": {
         "en": "Number of Hydrants in Test",
-        "tr": "Testteki Hidrant Sayısı"
+        "tr": "Testteki Hidrant Sayısı",
+        "de": "Anzahl der Hydranten im Test"
       },
       "businessContext_i18n": {
         "en": "Number of hydrants flowing simultaneously during test. Affects total demand.",
-        "tr": "Test sırasında aynı anda akan hidrant sayısı. Toplam talebi etkiler."
+        "tr": "Test sırasında aynı anda akan hidrant sayısı. Toplam talebi etkiler.",
+        "de": "Anzahl der gleichzeitig während des Tests fließenden Hydranten. Beeinflusst den Gesamtbedarf."
       }
     }
   ],

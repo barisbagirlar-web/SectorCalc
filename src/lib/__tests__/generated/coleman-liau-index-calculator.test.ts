@@ -12,7 +12,7 @@ describe("coleman-liau-index-calculator", () => {
     "totalWords": 0,
     "totalSentences": 0,
     "normalizationWordCount": 100
-  } as Coleman_liau_index_calculatorInput;
+  } as unknown as Coleman_liau_index_calculatorInput;
     const result = calculateColeman_liau_index_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

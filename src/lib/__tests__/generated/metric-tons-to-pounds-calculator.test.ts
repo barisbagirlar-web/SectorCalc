@@ -13,7 +13,7 @@ describe("metric-tons-to-pounds-calculator", () => {
     "waste_factor": 0,
     "conversion_factor": 2204.62262185,
     "precision": 2
-  } as Metric_tons_to_pounds_calculatorInput;
+  } as unknown as Metric_tons_to_pounds_calculatorInput;
     const result = calculateMetric_tons_to_pounds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

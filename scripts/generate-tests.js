@@ -107,7 +107,7 @@ import {
 
 describe("${slug}", () => {
   it("calculates with schema default inputs", () => {
-    const input = ${defaultInputJson} as ${exportBaseName}Input;
+    const input = ${defaultInputJson} as unknown as ${exportBaseName}Input;
     const result = calculate${exportBaseName}(input);
     expect(result).toBeDefined();
     expect(typeof result.${primaryKey}).toBe("number");

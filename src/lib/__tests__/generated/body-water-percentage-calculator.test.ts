@@ -12,7 +12,7 @@ describe("body-water-percentage-calculator", () => {
     "height": 170,
     "age": 30,
     "gender": 0
-  } as Body_water_percentage_calculatorInput;
+  } as unknown as Body_water_percentage_calculatorInput;
     const result = calculateBody_water_percentage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

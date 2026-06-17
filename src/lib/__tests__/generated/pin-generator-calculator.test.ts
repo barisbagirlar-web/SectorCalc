@@ -12,7 +12,7 @@ describe("pin-generator-calculator", () => {
     "seed": 123456,
     "multiplier": 7919,
     "shiftFactor": 0
-  } as Pin_generator_calculatorInput;
+  } as unknown as Pin_generator_calculatorInput;
     const result = calculatePin_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

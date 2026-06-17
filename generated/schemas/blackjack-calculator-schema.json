@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Defect Rate A (per unit)",
         "tr": "Kusur Oranı A (birim başına)",
-        "de": "Defect Rate A (per unit)",
+        "de": "Fehlerrate A (pro Einheit)",
         "fr": "Defect Rate A (per unit)",
         "es": "Defect Rate A (per unit)",
         "ar": "Defect Rate A (per unit)"
       },
       "businessContext_i18n": {
         "en": "Average number of Type A defects per unit (Poisson rate)",
-        "tr": "Birim başına ortalama Tip A kusur sayısı (Poisson oranı)"
+        "tr": "Birim başına ortalama Tip A kusur sayısı (Poisson oranı)",
+        "de": "Durchschnittliche Anzahl Typ-A-Fehler pro Einheit (Poisson-Rate)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Defect Rate B (per unit)",
         "tr": "Kusur Oranı B (birim başına)",
-        "de": "Defect Rate B (per unit)",
+        "de": "Fehlerrate B (pro Einheit)",
         "fr": "Defect Rate B (per unit)",
         "es": "Defect Rate B (per unit)",
         "ar": "Defect Rate B (per unit)"
       },
       "businessContext_i18n": {
         "en": "Average number of Type B defects per unit (Poisson rate)",
-        "tr": "Birim başına ortalama Tip B kusur sayısı (Poisson oranı)"
+        "tr": "Birim başına ortalama Tip B kusur sayısı (Poisson oranı)",
+        "de": "Durchschnittliche Anzahl Typ-B-Fehler pro Einheit (Poisson-Rate)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Lot Size",
         "tr": "Parti Büyüklüğü",
-        "de": "Lot Size",
+        "de": "Losgröße",
         "fr": "Lot Size",
         "es": "Lot Size",
         "ar": "Lot Size"
       },
       "businessContext_i18n": {
         "en": "Number of units in the production lot",
-        "tr": "Üretim partisindeki birim sayısı"
+        "tr": "Üretim partisindeki birim sayısı",
+        "de": "Anzahl der Einheiten im Produktionslos"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Cost per Blackjack Event",
         "tr": "Blackjack Olayı Başına Maliyet",
-        "de": "Cost per Blackjack Event",
+        "de": "Kosten pro Blackjack-Ereignis",
         "fr": "Cost per Blackjack Event",
         "es": "Cost per Blackjack Event",
         "ar": "Cost per Blackjack Event"
       },
       "businessContext_i18n": {
         "en": "Financial cost incurred when a unit has both defects",
-        "tr": "Bir birimde her iki kusur bulunduğunda oluşan finansal maliyet"
+        "tr": "Bir birimde her iki kusur bulunduğunda oluşan finansal maliyet",
+        "de": "Finanzielle Kosten, wenn eine Einheit beide Fehler aufweist"
       }
     }
   ],

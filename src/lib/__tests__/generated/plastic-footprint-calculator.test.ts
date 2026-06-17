@@ -14,7 +14,7 @@ describe("plastic-footprint-calculator", () => {
     "wasteFactor": 5,
     "carbonFactor": 6,
     "recycledEmissionReduction": 70
-  } as Plastic_footprint_calculatorInput;
+  } as unknown as Plastic_footprint_calculatorInput;
     const result = calculatePlastic_footprint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

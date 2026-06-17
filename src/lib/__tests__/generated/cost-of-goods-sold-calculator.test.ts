@@ -13,7 +13,7 @@ describe("cost-of-goods-sold-calculator", () => {
     "directLabor": 0,
     "overhead": 0,
     "endingInventory": 0
-  } as Cost_of_goods_sold_calculatorInput;
+  } as unknown as Cost_of_goods_sold_calculatorInput;
     const result = calculateCost_of_goods_sold_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

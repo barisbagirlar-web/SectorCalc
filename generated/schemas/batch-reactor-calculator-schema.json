@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Reactor Volume",
         "tr": "Reaktör Hacmi",
-        "de": "Reactor Volume",
+        "de": "Reaktorvolumen",
         "fr": "Reactor Volume",
         "es": "Reactor Volume",
         "ar": "Reactor Volume"
       },
       "businessContext_i18n": {
         "en": "Nominal volume of the batch reactor vessel.",
-        "tr": "Kesikli reaktör kabının nominal hacmi."
+        "tr": "Kesikli reaktör kabının nominal hacmi.",
+        "de": "Nennvolumen des Batch-Reaktors."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Initial Concentration (C_A0)",
         "tr": "Başlangıç Konsantrasyonu (C_A0)",
-        "de": "Initial Concentration (C_A0)",
+        "de": "Anfangskonzentration (C_A0)",
         "fr": "Initial Concentration (C_A0)",
         "es": "Initial Concentration (C_A0)",
         "ar": "Initial Concentration (C_A0)"
       },
       "businessContext_i18n": {
         "en": "Initial concentration of reactant A in the feed.",
-        "tr": "Reaktan A'nın beslemedeki başlangıç konsantrasyonu."
+        "tr": "Reaktan A'nın beslemedeki başlangıç konsantrasyonu.",
+        "de": "Anfangskonzentration des Reaktanten A im Zulauf."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Rate Constant (k)",
         "tr": "Hız Sabiti (k)",
-        "de": "Rate Constant (k)",
+        "de": "Geschwindigkeitskonstante (k)",
         "fr": "Rate Constant (k)",
         "es": "Rate Constant (k)",
         "ar": "Rate Constant (k)"
       },
       "businessContext_i18n": {
         "en": "First-order rate constant for the reaction.",
-        "tr": "Reaksiyon için birinci derece hız sabiti."
+        "tr": "Reaksiyon için birinci derece hız sabiti.",
+        "de": "Geschwindigkeitskonstante erster Ordnung für die Reaktion."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Desired Conversion (X)",
         "tr": "Hedef Dönüşüm (X)",
-        "de": "Desired Conversion (X)",
+        "de": "Gewünschter Umsatz (X)",
         "fr": "Desired Conversion (X)",
         "es": "Desired Conversion (X)",
         "ar": "Desired Conversion (X)"
       },
       "businessContext_i18n": {
         "en": "Target fractional conversion of reactant A (0 to 1).",
-        "tr": "Reaktan A'nın hedef kesirli dönüşümü (0 ile 1 arası)."
+        "tr": "Reaktan A'nın hedef kesirli dönüşümü (0 ile 1 arası).",
+        "de": "Ziel-Umsatz des Reaktanten A (0 bis 1)."
       }
     }
   ],

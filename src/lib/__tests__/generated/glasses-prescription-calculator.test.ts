@@ -12,7 +12,7 @@ describe("glasses-prescription-calculator", () => {
     "cylinder": 0,
     "axis": 0,
     "vertexDistance": 12
-  } as Glasses_prescription_calculatorInput;
+  } as unknown as Glasses_prescription_calculatorInput;
     const result = calculateGlasses_prescription_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

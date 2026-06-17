@@ -12,7 +12,7 @@ describe("rational-method-calculator", () => {
     "i": 50,
     "a": 1,
     "sf": 1
-  } as Rational_method_calculatorInput;
+  } as unknown as Rational_method_calculatorInput;
     const result = calculateRational_method_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

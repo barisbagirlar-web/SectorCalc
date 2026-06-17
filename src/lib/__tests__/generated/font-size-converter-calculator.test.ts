@@ -13,7 +13,7 @@ describe("font-size-converter-calculator", () => {
     "baseFontSizePx": 16,
     "rootFontSizePx": 16,
     "customScale": 1
-  } as Font_size_converter_calculatorInput;
+  } as unknown as Font_size_converter_calculatorInput;
     const result = calculateFont_size_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

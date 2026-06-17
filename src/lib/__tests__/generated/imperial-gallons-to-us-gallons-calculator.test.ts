@@ -12,7 +12,7 @@ describe("imperial-gallons-to-us-gallons-calculator", () => {
     "batchSize": 1,
     "tolerance": 0,
     "temperature": 20
-  } as Imperial_gallons_to_us_gallons_calculatorInput;
+  } as unknown as Imperial_gallons_to_us_gallons_calculatorInput;
     const result = calculateImperial_gallons_to_us_gallons_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

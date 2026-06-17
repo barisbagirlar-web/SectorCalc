@@ -16,7 +16,7 @@ describe("fire-hydrant-flow-calculator", () => {
     "hazen_williams_coefficient": 120,
     "elevation_difference": 0,
     "number_of_hydrants": 1
-  } as Fire_hydrant_flow_calculatorInput;
+  } as unknown as Fire_hydrant_flow_calculatorInput;
     const result = calculateFire_hydrant_flow_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

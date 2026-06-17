@@ -13,7 +13,7 @@ describe("mrs-calculator", () => {
     "scrapRate": 5,
     "machineEfficiency": 95,
     "materialCostPerKg": 12.5
-  } as Mrs_calculatorInput;
+  } as unknown as Mrs_calculatorInput;
     const result = calculateMrs_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

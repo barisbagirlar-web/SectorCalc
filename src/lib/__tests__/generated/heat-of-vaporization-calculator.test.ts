@@ -15,7 +15,7 @@ describe("heat-of-vaporization-calculator", () => {
     "latentHeat": 2260,
     "efficiency": 100,
     "safetyFactor": 1
-  } as Heat_of_vaporization_calculatorInput;
+  } as unknown as Heat_of_vaporization_calculatorInput;
     const result = calculateHeat_of_vaporization_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("chain-drive-calculator", () => {
     "drivenTeeth": 34,
     "pitch": 12.7,
     "centerDistance": 500
-  } as Chain_drive_calculatorInput;
+  } as unknown as Chain_drive_calculatorInput;
     const result = calculateChain_drive_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

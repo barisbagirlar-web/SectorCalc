@@ -13,7 +13,7 @@ describe("child-pugh-score-calculator", () => {
     "inr": 1,
     "ascites": 0,
     "encephalopathy": 0
-  } as Child_pugh_score_calculatorInput;
+  } as unknown as Child_pugh_score_calculatorInput;
     const result = calculateChild_pugh_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

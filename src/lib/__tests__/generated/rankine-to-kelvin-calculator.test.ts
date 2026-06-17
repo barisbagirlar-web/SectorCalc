@@ -12,7 +12,7 @@ describe("rankine-to-kelvin-calculator", () => {
     "uncertaintyRankine": 0.1,
     "confidenceZ": 1.96,
     "decimalPlaces": 2
-  } as Rankine_to_kelvin_calculatorInput;
+  } as unknown as Rankine_to_kelvin_calculatorInput;
     const result = calculateRankine_to_kelvin_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

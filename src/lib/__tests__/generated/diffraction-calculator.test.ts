@@ -12,7 +12,7 @@ describe("diffraction-calculator", () => {
     "slitWidth": 0.1,
     "order": 1,
     "screenDistance": 1
-  } as Diffraction_calculatorInput;
+  } as unknown as Diffraction_calculatorInput;
     const result = calculateDiffraction_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

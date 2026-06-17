@@ -12,7 +12,7 @@ describe("gcf-calculator", () => {
     "number2": 0,
     "number3": 0,
     "number4": 0
-  } as Gcf_calculatorInput;
+  } as unknown as Gcf_calculatorInput;
     const result = calculateGcf_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

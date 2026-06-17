@@ -15,7 +15,7 @@ describe("vacation-budget-calculator", () => {
     "dailyFoodCostPerPerson": 50,
     "activitiesCostPerPerson": 200,
     "miscellaneousCost": 100
-  } as Vacation_budget_calculatorInput;
+  } as unknown as Vacation_budget_calculatorInput;
     const result = calculateVacation_budget_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

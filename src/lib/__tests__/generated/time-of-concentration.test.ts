@@ -14,7 +14,7 @@ describe("time-of-concentration", () => {
     "rainfallIntensity": 50,
     "catchmentArea": 10,
     "percentImpervious": 30
-  } as Time_of_concentrationInput;
+  } as unknown as Time_of_concentrationInput;
     const result = calculateTime_of_concentration(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

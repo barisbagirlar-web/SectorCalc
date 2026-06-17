@@ -13,7 +13,7 @@ describe("subscription-calculator", () => {
     "durationMonths": 12,
     "discountPercent": 0,
     "taxPercent": 18
-  } as Subscription_calculatorInput;
+  } as unknown as Subscription_calculatorInput;
     const result = calculateSubscription_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

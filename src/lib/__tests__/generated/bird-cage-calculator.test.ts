@@ -13,7 +13,7 @@ describe("bird-cage-calculator", () => {
     "height": 50,
     "barSpacing": 1.5,
     "wireDiameter": 0.2
-  } as Bird_cage_calculatorInput;
+  } as unknown as Bird_cage_calculatorInput;
     const result = calculateBird_cage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

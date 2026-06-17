@@ -13,7 +13,7 @@ describe("decompression-calculator", () => {
     "volume": 1000,
     "flowRate": 50,
     "temperature": 25
-  } as Decompression_calculatorInput;
+  } as unknown as Decompression_calculatorInput;
     const result = calculateDecompression_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

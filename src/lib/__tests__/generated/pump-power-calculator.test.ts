@@ -14,7 +14,7 @@ describe("pump-power-calculator", () => {
     "pumpEfficiency": 0.7,
     "motorEfficiency": 0.95,
     "safetyFactor": 1.1
-  } as Pump_power_calculatorInput;
+  } as unknown as Pump_power_calculatorInput;
     const result = calculatePump_power_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("rockport-walk-test-calculator", () => {
     "walkingTime": 15,
     "heartRate": 120,
     "weight": 70
-  } as Rockport_walk_test_calculatorInput;
+  } as unknown as Rockport_walk_test_calculatorInput;
     const result = calculateRockport_walk_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

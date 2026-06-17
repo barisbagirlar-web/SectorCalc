@@ -12,7 +12,7 @@ describe("accruals-ratio-calculator", () => {
     "operatingCashFlow": 0,
     "totalAssetsStart": 0,
     "totalAssetsEnd": 0
-  } as Accruals_ratio_calculatorInput;
+  } as unknown as Accruals_ratio_calculatorInput;
     const result = calculateAccruals_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

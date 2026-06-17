@@ -13,7 +13,7 @@ describe("distance-calculator", () => {
     "x2": 0,
     "y2": 0,
     "scale": 1
-  } as Distance_calculatorInput;
+  } as unknown as Distance_calculatorInput;
     const result = calculateDistance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

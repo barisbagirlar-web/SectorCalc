@@ -12,7 +12,7 @@ describe("viscosity-converter-calculator", () => {
     "fromUnit": 0,
     "toUnit": 1,
     "density": 1000
-  } as Viscosity_converter_calculatorInput;
+  } as unknown as Viscosity_converter_calculatorInput;
     const result = calculateViscosity_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("degrees-to-arcminutes-calculator", () => {
     "coeff": 1,
     "offset": 0,
     "rounding": 2
-  } as Degrees_to_arcminutes_calculatorInput;
+  } as unknown as Degrees_to_arcminutes_calculatorInput;
     const result = calculateDegrees_to_arcminutes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

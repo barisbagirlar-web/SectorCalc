@@ -12,7 +12,7 @@ describe("stair-calculator", () => {
     "numberOfRisers": 15,
     "treadDepth": 28,
     "stairWidth": 100
-  } as Stair_calculatorInput;
+  } as unknown as Stair_calculatorInput;
     const result = calculateStair_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

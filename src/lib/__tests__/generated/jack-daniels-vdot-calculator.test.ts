@@ -12,7 +12,7 @@ describe("jack-daniels-vdot-calculator", () => {
     "raceTimeMinutes": 20,
     "raceTimeSeconds": 0,
     "targetDistance": 10000
-  } as Jack_daniels_vdot_calculatorInput;
+  } as unknown as Jack_daniels_vdot_calculatorInput;
     const result = calculateJack_daniels_vdot_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("geothermal-calculator", () => {
     "efficiency": 15,
     "capacity_factor": 90,
     "operating_hours": 8000
-  } as Geothermal_calculatorInput;
+  } as unknown as Geothermal_calculatorInput;
     const result = calculateGeothermal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

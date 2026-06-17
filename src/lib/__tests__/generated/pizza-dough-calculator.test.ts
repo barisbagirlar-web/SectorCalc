@@ -14,7 +14,7 @@ describe("pizza-dough-calculator", () => {
     "yeastPercent": 1,
     "saltPercent": 2,
     "oilPercent": 2
-  } as Pizza_dough_calculatorInput;
+  } as unknown as Pizza_dough_calculatorInput;
     const result = calculatePizza_dough_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

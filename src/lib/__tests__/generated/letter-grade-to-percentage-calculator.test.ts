@@ -13,7 +13,7 @@ describe("letter-grade-to-percentage-calculator", () => {
     "intercept": 55,
     "clampMin": 0,
     "clampMax": 100
-  } as Letter_grade_to_percentage_calculatorInput;
+  } as unknown as Letter_grade_to_percentage_calculatorInput;
     const result = calculateLetter_grade_to_percentage_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

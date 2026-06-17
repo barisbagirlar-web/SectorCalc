@@ -12,7 +12,7 @@ describe("gamma-function-calculator", () => {
     "tolerance": 1e-10,
     "maxIterations": 100,
     "useStirling": 0
-  } as Gamma_function_calculatorInput;
+  } as unknown as Gamma_function_calculatorInput;
     const result = calculateGamma_function_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("toefl-score-calculator", () => {
     "listening": 0,
     "speaking": 0,
     "writing": 0
-  } as Toefl_score_calculatorInput;
+  } as unknown as Toefl_score_calculatorInput;
     const result = calculateToefl_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

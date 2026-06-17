@@ -12,7 +12,7 @@ describe("momentum-calculator", () => {
     "velocityX": 0,
     "velocityY": 0,
     "velocityZ": 0
-  } as Momentum_calculatorInput;
+  } as unknown as Momentum_calculatorInput;
     const result = calculateMomentum_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

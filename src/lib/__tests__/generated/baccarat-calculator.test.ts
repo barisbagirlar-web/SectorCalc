@@ -15,7 +15,7 @@ describe("baccarat-calculator", () => {
     "additionalCost": 5,
     "overheadRate": 20,
     "profitMargin": 30
-  } as Baccarat_calculatorInput;
+  } as unknown as Baccarat_calculatorInput;
     const result = calculateBaccarat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

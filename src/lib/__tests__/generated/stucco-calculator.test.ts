@@ -13,7 +13,7 @@ describe("stucco-calculator", () => {
     "kgPerSqmPerMm": 1,
     "bagWeight": 25,
     "wasteFactor": 5
-  } as Stucco_calculatorInput;
+  } as unknown as Stucco_calculatorInput;
     const result = calculateStucco_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

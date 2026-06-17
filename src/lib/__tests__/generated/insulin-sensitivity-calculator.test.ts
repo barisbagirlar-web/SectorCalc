@@ -16,7 +16,7 @@ describe("insulin-sensitivity-calculator", () => {
     "sensitivityLabor": 0.2,
     "sensitivityEnergy": 0.1,
     "sensitivityOverhead": 0.15
-  } as Insulin_sensitivity_calculatorInput;
+  } as unknown as Insulin_sensitivity_calculatorInput;
     const result = calculateInsulin_sensitivity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

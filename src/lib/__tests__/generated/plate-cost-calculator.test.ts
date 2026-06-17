@@ -15,7 +15,7 @@ describe("plate-cost-calculator", () => {
     "costPerKg": 2.5,
     "overheadPercent": 20,
     "wastePercent": 5
-  } as Plate_cost_calculatorInput;
+  } as unknown as Plate_cost_calculatorInput;
     const result = calculatePlate_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

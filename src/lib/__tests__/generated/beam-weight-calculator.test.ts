@@ -16,7 +16,7 @@ describe("beam-weight-calculator", () => {
     "web_height": 300,
     "web_thickness": 8,
     "quantity": 1
-  } as Beam_weight_calculatorInput;
+  } as unknown as Beam_weight_calculatorInput;
     const result = calculateBeam_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

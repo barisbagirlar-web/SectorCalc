@@ -12,7 +12,7 @@ describe("latent-heat-calculator", () => {
     "specificLatentHeat": 334,
     "numberOfCycles": 1,
     "efficiency": 100
-  } as Latent_heat_calculatorInput;
+  } as unknown as Latent_heat_calculatorInput;
     const result = calculateLatent_heat_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

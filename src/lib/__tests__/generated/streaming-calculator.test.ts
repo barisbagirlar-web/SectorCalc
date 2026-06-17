@@ -12,7 +12,7 @@ describe("streaming-calculator", () => {
     "fluidVelocity": 2,
     "fluidDensity": 1000,
     "dynamicViscosity": 0.001
-  } as Streaming_calculatorInput;
+  } as unknown as Streaming_calculatorInput;
     const result = calculateStreaming_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

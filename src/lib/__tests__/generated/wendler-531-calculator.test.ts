@@ -14,7 +14,7 @@ describe("wendler-531-calculator", () => {
     "set1Percent": 65,
     "set2Percent": 75,
     "set3Percent": 85
-  } as Wendler_531_calculatorInput;
+  } as unknown as Wendler_531_calculatorInput;
     const result = calculateWendler_531_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

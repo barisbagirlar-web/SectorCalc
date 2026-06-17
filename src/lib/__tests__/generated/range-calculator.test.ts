@@ -12,7 +12,7 @@ describe("range-calculator", () => {
     "maxValue": 100,
     "nominalValue": 50,
     "tolerance": 10
-  } as Range_calculatorInput;
+  } as unknown as Range_calculatorInput;
     const result = calculateRange_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

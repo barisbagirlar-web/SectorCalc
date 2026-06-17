@@ -13,7 +13,7 @@ describe("lottery-calculator", () => {
     "ticketCost": 2,
     "prizeAmount": 10000000,
     "numberOfPrizes": 1
-  } as Lottery_calculatorInput;
+  } as unknown as Lottery_calculatorInput;
     const result = calculateLottery_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

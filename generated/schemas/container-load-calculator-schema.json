@@ -27,11 +27,13 @@
       "businessContext": "Select the container type to define internal volume and dimensional constraints per ISO 668.",
       "label_i18n": {
         "en": "Container Type",
-        "tr": "Konteyner Tipi"
+        "tr": "Konteyner Tipi",
+        "de": "Container-Typ"
       },
       "businessContext_i18n": {
         "en": "Select the container type to define internal volume and dimensional constraints per ISO 668.",
-        "tr": "ISO 668'e göre iç hacim ve boyutsal kısıtlamaları tanımlamak için konteyner tipini seçin."
+        "tr": "ISO 668'e göre iç hacim ve boyutsal kısıtlamaları tanımlamak için konteyner tipini seçin.",
+        "de": "Wählen Sie den Container-Typ, um das Innenvolumen und die Abmessungsbeschränkungen gemäß ISO 668 zu definieren."
       }
     },
     {
@@ -45,11 +47,13 @@
       "businessContext": "Length of the primary cargo unit (pallet or box). Must align with container internal length.",
       "label_i18n": {
         "en": "Cargo Length (cm)",
-        "tr": "Kargo Uzunluğu (cm)"
+        "tr": "Kargo Uzunluğu (cm)",
+        "de": "Ladungslänge (cm)"
       },
       "businessContext_i18n": {
         "en": "Length of the primary cargo unit (pallet or box). Must align with container internal length.",
-        "tr": "Ana kargo biriminin (palet veya kutu) uzunluğu. Konteyner iç uzunluğu ile uyumlu olmalıdır."
+        "tr": "Ana kargo biriminin (palet veya kutu) uzunluğu. Konteyner iç uzunluğu ile uyumlu olmalıdır.",
+        "de": "Länge der primären Ladeeinheit (Palette oder Kiste). Muss mit der inneren Länge des Containers übereinstimmen."
       }
     },
     {
@@ -63,11 +67,13 @@
       "businessContext": "Width of the cargo unit. Affects lateral stacking and aisle space.",
       "label_i18n": {
         "en": "Cargo Width (cm)",
-        "tr": "Kargo Genişliği (cm)"
+        "tr": "Kargo Genişliği (cm)",
+        "de": "Ladungsbreite (cm)"
       },
       "businessContext_i18n": {
         "en": "Width of the cargo unit. Affects lateral stacking and aisle space.",
-        "tr": "Kargo biriminin genişliği. Yanal istifleme ve koridor boşluğunu etkiler."
+        "tr": "Kargo biriminin genişliği. Yanal istifleme ve koridor boşluğunu etkiler.",
+        "de": "Breite der Ladeeinheit. Beeinflusst das seitliche Stapeln und den Gangraum."
       }
     },
     {
@@ -81,11 +87,13 @@
       "businessContext": "Height of the cargo unit. Must respect container door height and internal height.",
       "label_i18n": {
         "en": "Cargo Height (cm)",
-        "tr": "Kargo Yüksekliği (cm)"
+        "tr": "Kargo Yüksekliği (cm)",
+        "de": "Ladungshöhe (cm)"
       },
       "businessContext_i18n": {
         "en": "Height of the cargo unit. Must respect container door height and internal height.",
-        "tr": "Kargo biriminin yüksekliği. Konteyner kapı yüksekliğine ve iç yüksekliğine uygun olmalıdır."
+        "tr": "Kargo biriminin yüksekliği. Konteyner kapı yüksekliğine ve iç yüksekliğine uygun olmalıdır.",
+        "de": "Höhe der Ladeeinheit. Muss die Container-Türhöhe und die Innenhöhe berücksichtigen."
       }
     },
     {
@@ -99,11 +107,13 @@
       "businessContext": "Weight per cargo unit. Critical for gross weight limit and axle load distribution.",
       "label_i18n": {
         "en": "Cargo Weight per Unit (kg)",
-        "tr": "Birim Başına Kargo Ağırlığı (kg)"
+        "tr": "Birim Başına Kargo Ağırlığı (kg)",
+        "de": "Ladungsgewicht pro Einheit (kg)"
       },
       "businessContext_i18n": {
         "en": "Weight per cargo unit. Critical for gross weight limit and axle load distribution.",
-        "tr": "Kargo birimi başına ağırlık. Brüt ağırlık sınırı ve aks yükü dağılımı için kritiktir."
+        "tr": "Kargo birimi başına ağırlık. Brüt ağırlık sınırı ve aks yükü dağılımı için kritiktir.",
+        "de": "Gewicht pro Ladeeinheit. Entscheidend für die Bruttogewichtsgrenze und die Achslastverteilung."
       }
     },
     {
@@ -117,11 +127,13 @@
       "businessContext": "Number of cargo units that can be stacked vertically, considering crush resistance and stability.",
       "label_i18n": {
         "en": "Stacking Factor",
-        "tr": "İstifleme Faktörü"
+        "tr": "İstifleme Faktörü",
+        "de": "Stapelfaktor"
       },
       "businessContext_i18n": {
         "en": "Number of cargo units that can be stacked vertically, considering crush resistance and stability.",
-        "tr": "Ezilme direnci ve stabilite dikkate alınarak dikey olarak istiflenebilecek kargo birimi sayısı."
+        "tr": "Ezilme direnci ve stabilite dikkate alınarak dikey olarak istiflenebilecek kargo birimi sayısı.",
+        "de": "Anzahl der Ladeeinheiten, die vertikal gestapelt werden können, unter Berücksichtigung der Druckfestigkeit und Stabilität."
       }
     },
     {
@@ -138,11 +150,13 @@
       "businessContext": "Method used to secure cargo. Affects usable volume and weight distribution per CTU Code.",
       "label_i18n": {
         "en": "Load Securing Method",
-        "tr": "Yük Sabitleme Yöntemi"
+        "tr": "Yük Sabitleme Yöntemi",
+        "de": "Ladungssicherungsmethode"
       },
       "businessContext_i18n": {
         "en": "Method used to secure cargo. Affects usable volume and weight distribution per CTU Code.",
-        "tr": "Kargoyu sabitlemek için kullanılan yöntem. CTU Koduna göre kullanılabilir hacmi ve ağırlık dağılımını etkiler."
+        "tr": "Kargoyu sabitlemek için kullanılan yöntem. CTU Koduna göre kullanılabilir hacmi ve ağırlık dağılımını etkiler.",
+        "de": "Methode zur Ladungssicherung. Beeinflusst das nutzbare Volumen und die Gewichtsverteilung gemäß CTU-Code."
       }
     },
     {
@@ -154,11 +168,13 @@
       "businessContext": "Indicates if cargo is palletized. Pallet dimensions add to base footprint and reduce usable height.",
       "label_i18n": {
         "en": "Use Pallet",
-        "tr": "Palet Kullan"
+        "tr": "Palet Kullan",
+        "de": "Palette verwenden"
       },
       "businessContext_i18n": {
         "en": "Indicates if cargo is palletized. Pallet dimensions add to base footprint and reduce usable height.",
-        "tr": "Kargonun paletlenmiş olup olmadığını belirtir. Palet boyutları taban alanına eklenir ve kullanılabilir yüksekliği azaltır."
+        "tr": "Kargonun paletlenmiş olup olmadığını belirtir. Palet boyutları taban alanına eklenir ve kullanılabilir yüksekliği azaltır.",
+        "de": "Gibt an, ob die Ladung palettiert ist. Palettenabmessungen vergrößern die Grundfläche und reduzieren die nutzbare Höhe."
       }
     }
   ],

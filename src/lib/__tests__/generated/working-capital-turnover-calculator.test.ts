@@ -13,7 +13,7 @@ describe("working-capital-turnover-calculator", () => {
     "endCurrentAssets": 0,
     "begCurrentLiabilities": 0,
     "endCurrentLiabilities": 0
-  } as Working_capital_turnover_calculatorInput;
+  } as unknown as Working_capital_turnover_calculatorInput;
     const result = calculateWorking_capital_turnover_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

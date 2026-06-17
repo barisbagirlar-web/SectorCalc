@@ -14,7 +14,7 @@ describe("sling-angle-calculator", () => {
     "safetyFactor": 5,
     "dynamicFactor": 1.2,
     "efficiencyFactor": 0.8
-  } as Sling_angle_calculatorInput;
+  } as unknown as Sling_angle_calculatorInput;
     const result = calculateSling_angle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

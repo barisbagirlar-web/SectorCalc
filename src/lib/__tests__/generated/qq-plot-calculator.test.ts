@@ -13,7 +13,7 @@ describe("qq-plot-calculator", () => {
     "sampleValue": 0,
     "referenceMean": 0,
     "referenceStdDev": 1
-  } as Qq_plot_calculatorInput;
+  } as unknown as Qq_plot_calculatorInput;
     const result = calculateQq_plot_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

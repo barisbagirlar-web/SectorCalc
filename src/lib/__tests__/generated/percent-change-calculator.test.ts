@@ -12,7 +12,7 @@ describe("percent-change-calculator", () => {
     "finalValue": 110,
     "decimalPlaces": 2,
     "multiplier": 100
-  } as Percent_change_calculatorInput;
+  } as unknown as Percent_change_calculatorInput;
     const result = calculatePercent_change_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

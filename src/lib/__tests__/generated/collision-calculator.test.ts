@@ -12,7 +12,7 @@ describe("collision-calculator", () => {
     "velocity1": 10,
     "mass2": 1500,
     "velocity2": -5
-  } as Collision_calculatorInput;
+  } as unknown as Collision_calculatorInput;
     const result = calculateCollision_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

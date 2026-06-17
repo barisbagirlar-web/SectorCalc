@@ -12,7 +12,7 @@ describe("crypto-converter-calculator", () => {
     "exchangeRate": 0.000025,
     "feePercent": 1.5,
     "spread": 0.1
-  } as Crypto_converter_calculatorInput;
+  } as unknown as Crypto_converter_calculatorInput;
     const result = calculateCrypto_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

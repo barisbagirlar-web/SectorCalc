@@ -15,7 +15,7 @@ describe("woodworking-calculator", () => {
     "wastePercent": 5,
     "density": 700,
     "costPerM3": 12000
-  } as Woodworking_calculatorInput;
+  } as unknown as Woodworking_calculatorInput;
     const result = calculateWoodworking_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

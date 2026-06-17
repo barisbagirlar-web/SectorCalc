@@ -12,7 +12,7 @@ describe("gigabytes-to-terabytes-calculator", () => {
     "decimalPlaces": 2,
     "useBinary": 1,
     "verificationTB": 0
-  } as Gigabytes_to_terabytes_calculatorInput;
+  } as unknown as Gigabytes_to_terabytes_calculatorInput;
     const result = calculateGigabytes_to_terabytes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

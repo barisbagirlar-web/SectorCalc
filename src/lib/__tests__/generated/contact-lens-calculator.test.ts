@@ -12,7 +12,7 @@ describe("contact-lens-calculator", () => {
     "cylinder": 0,
     "axis": 0,
     "vertexDistance": 12
-  } as Contact_lens_calculatorInput;
+  } as unknown as Contact_lens_calculatorInput;
     const result = calculateContact_lens_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

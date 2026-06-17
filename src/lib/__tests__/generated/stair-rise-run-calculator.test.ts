@@ -14,7 +14,7 @@ describe("stair-rise-run-calculator", () => {
     "minTreadDepth": 250,
     "desiredRise": 175,
     "nosing": 25
-  } as Stair_rise_run_calculatorInput;
+  } as unknown as Stair_rise_run_calculatorInput;
     const result = calculateStair_rise_run_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

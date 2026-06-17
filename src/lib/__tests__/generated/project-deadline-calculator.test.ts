@@ -13,7 +13,7 @@ describe("project-deadline-calculator", () => {
     "teamSize": 3,
     "complexityFactor": 1.2,
     "contingencyPercent": 15
-  } as Project_deadline_calculatorInput;
+  } as unknown as Project_deadline_calculatorInput;
     const result = calculateProject_deadline_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

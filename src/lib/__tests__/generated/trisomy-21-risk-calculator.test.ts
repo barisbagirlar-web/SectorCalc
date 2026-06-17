@@ -14,7 +14,7 @@ describe("trisomy-21-risk-calculator", () => {
     "pappA": 1,
     "freeBetaHCG": 1,
     "previousTrisomy": 0
-  } as Trisomy_21_risk_calculatorInput;
+  } as unknown as Trisomy_21_risk_calculatorInput;
     const result = calculateTrisomy_21_risk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

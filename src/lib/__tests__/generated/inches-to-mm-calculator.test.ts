@@ -14,7 +14,7 @@ describe("inches-to-mm-calculator", () => {
     "tolerance": 0.01,
     "scaleFactor": 1,
     "offset": 0
-  } as Inches_to_mm_calculatorInput;
+  } as unknown as Inches_to_mm_calculatorInput;
     const result = calculateInches_to_mm_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

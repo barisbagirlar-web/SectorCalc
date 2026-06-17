@@ -12,7 +12,7 @@ describe("everyman-sleep-calculator", () => {
     "coreMinutes": 0,
     "napCount": 3,
     "napDuration": 20
-  } as Everyman_sleep_calculatorInput;
+  } as unknown as Everyman_sleep_calculatorInput;
     const result = calculateEveryman_sleep_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

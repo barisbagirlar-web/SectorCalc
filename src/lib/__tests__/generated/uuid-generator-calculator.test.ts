@@ -13,7 +13,7 @@ describe("uuid-generator-calculator", () => {
     "timeHiAndVersion": 4096,
     "clockSeqAndVariant": 32768,
     "node": 0
-  } as Uuid_generator_calculatorInput;
+  } as unknown as Uuid_generator_calculatorInput;
     const result = calculateUuid_generator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

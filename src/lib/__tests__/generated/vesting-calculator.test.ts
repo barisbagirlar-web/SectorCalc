@@ -13,7 +13,7 @@ describe("vesting-calculator", () => {
     "currentMonth": 12,
     "vestingPeriodMonths": 48,
     "cliffPeriodMonths": 12
-  } as Vesting_calculatorInput;
+  } as unknown as Vesting_calculatorInput;
     const result = calculateVesting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

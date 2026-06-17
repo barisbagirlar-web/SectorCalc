@@ -13,7 +13,7 @@ describe("engagement-rate-calculator", () => {
     "shares": 0,
     "totalImpressions": 0,
     "totalFollowers": 0
-  } as Engagement_rate_calculatorInput;
+  } as unknown as Engagement_rate_calculatorInput;
     const result = calculateEngagement_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

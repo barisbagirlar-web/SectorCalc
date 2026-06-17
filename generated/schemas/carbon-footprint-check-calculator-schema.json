@@ -20,11 +20,13 @@
       "businessContext": "Annual electrical energy used by the facility (ISO 50001).",
       "label_i18n": {
         "en": "Total Energy Consumption",
-        "tr": "Toplam Enerji Tüketimi"
+        "tr": "Toplam Enerji Tüketimi",
+        "de": "Gesamtenergieverbrauch"
       },
       "businessContext_i18n": {
         "en": "Annual electrical energy used by the facility (ISO 50001).",
-        "tr": "Tesis tarafından kullanılan yıllık elektrik enerjisi (ISO 50001)."
+        "tr": "Tesis tarafından kullanılan yıllık elektrik enerjisi (ISO 50001).",
+        "de": "Jährlicher elektrischer Energieverbrauch der Anlage (ISO 50001)."
       }
     },
     {
@@ -45,11 +47,13 @@
       ],
       "label_i18n": {
         "en": "Primary Energy Source",
-        "tr": "Birincil Enerji Kaynağı"
+        "tr": "Birincil Enerji Kaynağı",
+        "de": "Primärenergiequelle"
       },
       "businessContext_i18n": {
         "en": "The dominant source of electricity (grid mix, solar, wind, natural gas).",
-        "tr": "Elektriğin baskın kaynağı (şebeke karışımı, güneş, rüzgar, doğal gaz)."
+        "tr": "Elektriğin baskın kaynağı (şebeke karışımı, güneş, rüzgar, doğal gaz).",
+        "de": "Die dominierende Stromquelle (Netz-Mix, Solar, Wind, Erdgas)."
       }
     },
     {
@@ -63,11 +67,13 @@
       "businessContext": "Total diesel, gasoline, or heating oil used annually (Scope 1 emissions).",
       "label_i18n": {
         "en": "Fossil Fuel Consumption (Fleet & Heating)",
-        "tr": "Fosil Yakıt Tüketimi (Filo ve Isıtma)"
+        "tr": "Fosil Yakıt Tüketimi (Filo ve Isıtma)",
+        "de": "Fossiler Brennstoffverbrauch (Fuhrpark & Heizung)"
       },
       "businessContext_i18n": {
         "en": "Total diesel, gasoline, or heating oil used annually (Scope 1 emissions).",
-        "tr": "Yıllık toplam dizel, benzin veya ısıtma yağı kullanımı (Kapsam 1 emisyonları)."
+        "tr": "Yıllık toplam dizel, benzin veya ısıtma yağı kullanımı (Kapsam 1 emisyonları).",
+        "de": "Gesamter jährlicher Verbrauch von Diesel, Benzin oder Heizöl (Scope-1-Emissionen)."
       }
     },
     {
@@ -81,11 +87,13 @@
       "businessContext": "Annual waste sent to landfill or incineration (WERC guidelines).",
       "label_i18n": {
         "en": "Total Waste Generated",
-        "tr": "Toplam Atık Üretimi"
+        "tr": "Toplam Atık Üretimi",
+        "de": "Gesamter Abfallaufkommen"
       },
       "businessContext_i18n": {
         "en": "Annual waste sent to landfill or incineration (WERC guidelines).",
-        "tr": "Yıllık depolama sahasına veya yakma tesisine gönderilen atık (WERC yönergeleri)."
+        "tr": "Yıllık depolama sahasına veya yakma tesisine gönderilen atık (WERC yönergeleri).",
+        "de": "Jährlicher Abfall, der auf Deponien oder in Verbrennungsanlagen landet (WERC-Richtlinien)."
       }
     },
     {
@@ -99,11 +107,13 @@
       "businessContext": "Percentage of waste that is recycled or composted (Lean green metrics).",
       "label_i18n": {
         "en": "Recycling Rate",
-        "tr": "Geri Dönüşüm Oranı"
+        "tr": "Geri Dönüşüm Oranı",
+        "de": "Recyclingquote"
       },
       "businessContext_i18n": {
         "en": "Percentage of waste that is recycled or composted (Lean green metrics).",
-        "tr": "Geri dönüştürülen veya kompostlanan atık yüzdesi (Yalın yeşil metrikler)."
+        "tr": "Geri dönüştürülen veya kompostlanan atık yüzdesi (Yalın yeşil metrikler).",
+        "de": "Prozentsatz des Abfalls, der recycelt oder kompostiert wird (Lean-Green-Kennzahlen)."
       }
     },
     {
@@ -117,11 +127,13 @@
       "businessContext": "Total units produced per year (for intensity-based benchmarking).",
       "label_i18n": {
         "en": "Annual Production Volume",
-        "tr": "Yıllık Üretim Hacmi"
+        "tr": "Yıllık Üretim Hacmi",
+        "de": "Jährliches Produktionsvolumen"
       },
       "businessContext_i18n": {
         "en": "Total units produced per year (for intensity-based benchmarking).",
-        "tr": "Yılda üretilen toplam birim (yoğunluk bazlı kıyaslama için)."
+        "tr": "Yılda üretilen toplam birim (yoğunluk bazlı kıyaslama için).",
+        "de": "Gesamte produzierte Einheiten pro Jahr (für intensitätsbasierte Benchmarks)."
       }
     },
     {
@@ -135,11 +147,13 @@
       "businessContext": "Average distance raw materials or finished goods travel (logistics carbon).",
       "label_i18n": {
         "en": "Average Transport Distance per Unit",
-        "tr": "Birim başına ortalama taşıma mesafesi"
+        "tr": "Birim başına ortalama taşıma mesafesi",
+        "de": "Durchschnittliche Transportdistanz pro Einheit"
       },
       "businessContext_i18n": {
         "en": "Average distance raw materials or finished goods travel (logistics carbon).",
-        "tr": "Hammaddelerin veya bitmiş ürünlerin kat ettiği ortalama mesafe (lojistik karbonu)."
+        "tr": "Hammaddelerin veya bitmiş ürünlerin kat ettiği ortalama mesafe (lojistik karbonu).",
+        "de": "Durchschnittliche Distanz, die Rohstoffe oder Fertigwaren zurücklegen (Logistik-CO₂)."
       }
     },
     {
@@ -153,11 +167,13 @@
       "businessContext": "Indicates if the organization purchases verified carbon credits.",
       "label_i18n": {
         "en": "Active Carbon Offset Program",
-        "tr": "Aktif Karbon Dengeleme Programı"
+        "tr": "Aktif Karbon Dengeleme Programı",
+        "de": "Aktives CO₂-Kompensationsprogramm"
       },
       "businessContext_i18n": {
         "en": "Indicates if the organization purchases verified carbon credits.",
-        "tr": "Kuruluşun doğrulanmış karbon kredisi satın alıp almadığını belirtir."
+        "tr": "Kuruluşun doğrulanmış karbon kredisi satın alıp almadığını belirtir.",
+        "de": "Gibt an, ob die Organisation verifizierte CO₂-Zertifikate kauft."
       }
     }
   ],

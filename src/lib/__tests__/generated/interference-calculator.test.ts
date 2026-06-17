@@ -12,7 +12,7 @@ describe("interference-calculator", () => {
     "amplitude2": 1,
     "wavelength": 1,
     "pathDifference": 0
-  } as Interference_calculatorInput;
+  } as unknown as Interference_calculatorInput;
     const result = calculateInterference_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

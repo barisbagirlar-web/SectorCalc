@@ -15,7 +15,7 @@ describe("mixed-number-calculator", () => {
     "whole2": 2,
     "num2": 3,
     "den2": 4
-  } as Mixed_number_calculatorInput;
+  } as unknown as Mixed_number_calculatorInput;
     const result = calculateMixed_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

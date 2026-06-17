@@ -13,7 +13,7 @@ describe("scholarship-calculator", () => {
     "dependents": 2,
     "extracurricularScore": 50,
     "communityServiceHours": 50
-  } as Scholarship_calculatorInput;
+  } as unknown as Scholarship_calculatorInput;
     const result = calculateScholarship_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

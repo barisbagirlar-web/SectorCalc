@@ -16,7 +16,7 @@ describe("demand-forecast-inventory-cost-calculator", () => {
     "holding_cost_rate": 25,
     "ordering_cost": 150,
     "stockout_cost_per_unit": 200
-  } as Demand_forecast_inventory_cost_calculatorInput;
+  } as unknown as Demand_forecast_inventory_cost_calculatorInput;
     const result = calculateDemand_forecast_inventory_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

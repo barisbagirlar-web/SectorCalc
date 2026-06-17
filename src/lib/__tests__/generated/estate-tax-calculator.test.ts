@@ -14,7 +14,7 @@ describe("estate-tax-calculator", () => {
     "taxRate": 40,
     "surchargeThreshold": 10000000,
     "surchargeRate": 4
-  } as Estate_tax_calculatorInput;
+  } as unknown as Estate_tax_calculatorInput;
     const result = calculateEstate_tax_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
         "tr": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
-        "de": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "de": "Ursprüngliche Form des Werkzeugs (1=Rund, 2=Rechteckig)",
         "fr": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
         "es": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
         "ar": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)"
       },
       "businessContext_i18n": {
         "en": "Orijinal kalıbın şekli; 1 ise yuvarlak (çap kullan), 2 ise dikdörtgen (kenarlar)",
-        "tr": "Orijinal kalıbın şekli; 1 ise yuvarlak (çap kullan), 2 ise dikdörtgen (kenarlar)"
+        "tr": "Orijinal kalıbın şekli; 1 ise yuvarlak (çap kullan), 2 ise dikdörtgen (kenarlar)",
+        "de": "Form des ursprünglichen Werkzeugs; 1 für rund (Durchmesser verwenden), 2 für rechteckig (Seiten)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
         "tr": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
-        "de": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
+        "de": "Werkzeugmaß 1 (Durchmesser bei rund, Länge bei rechteckig)",
         "fr": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
         "es": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
         "ar": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)"
       },
       "businessContext_i18n": {
         "en": "Orijinal kalıbın birinci boyutu",
-        "tr": "Orijinal kalıbın birinci boyutu"
+        "tr": "Orijinal kalıbın birinci boyutu",
+        "de": "Erste Abmessung des ursprünglichen Werkzeugs"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
         "tr": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
-        "de": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
+        "de": "Werkzeugmaß 2 (Breite nur bei rechteckig, bei rund 0 eingeben)",
         "fr": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
         "es": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
         "ar": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)"
       },
       "businessContext_i18n": {
         "en": "Orijinal kalıbın ikinci boyutu; yuvarlak için 0",
-        "tr": "Orijinal kalıbın ikinci boyutu; yuvarlak için 0"
+        "tr": "Orijinal kalıbın ikinci boyutu; yuvarlak için 0",
+        "de": "Zweite Abmessung des ursprünglichen Werkzeugs; bei rund 0"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Orijinal Kalıp Derinliği",
         "tr": "Orijinal Kalıp Derinliği",
-        "de": "Orijinal Kalıp Derinliği",
+        "de": "Ursprüngliche Werkzeugtiefe",
         "fr": "Orijinal Kalıp Derinliği",
         "es": "Orijinal Kalıp Derinliği",
         "ar": "Orijinal Kalıp Derinliği"
       },
       "businessContext_i18n": {
         "en": "Orijinal kalıbın derinliği",
-        "tr": "Orijinal kalıbın derinliği"
+        "tr": "Orijinal kalıbın derinliği",
+        "de": "Tiefe der Originalform"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
         "tr": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
-        "de": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "de": "Zielform (1=Rund, 2=Rechteckig)",
         "fr": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
         "es": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
         "ar": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)"
       },
       "businessContext_i18n": {
         "en": "Hedef kalıbın şekli",
-        "tr": "Hedef kalıbın şekli"
+        "tr": "Hedef kalıbın şekli",
+        "de": "Form der Zielform"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Hedef Kalıp Ölçüsü 1",
         "tr": "Hedef Kalıp Ölçüsü 1",
-        "de": "Hedef Kalıp Ölçüsü 1",
+        "de": "Zielform Maß 1",
         "fr": "Hedef Kalıp Ölçüsü 1",
         "es": "Hedef Kalıp Ölçüsü 1",
         "ar": "Hedef Kalıp Ölçüsü 1"
       },
       "businessContext_i18n": {
         "en": "Hedef kalıbın birinci boyutu",
-        "tr": "Hedef kalıbın birinci boyutu"
+        "tr": "Hedef kalıbın birinci boyutu",
+        "de": "Erste Abmessung der Zielform"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
         "tr": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
-        "de": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
+        "de": "Zielform Maß 2 (Breite bei Rechteck, 0 bei Rund)",
         "fr": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
         "es": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
         "ar": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)"
       },
       "businessContext_i18n": {
         "en": "Hedef kalıbın ikinci boyutu",
-        "tr": "Hedef kalıbın ikinci boyutu"
+        "tr": "Hedef kalıbın ikinci boyutu",
+        "de": "Zweite Abmessung der Zielform"
       }
     },
     {
@@ -151,14 +158,15 @@
       "label_i18n": {
         "en": "Hedef Kalıp Derinliği",
         "tr": "Hedef Kalıp Derinliği",
-        "de": "Hedef Kalıp Derinliği",
+        "de": "Tiefe der Zielform",
         "fr": "Hedef Kalıp Derinliği",
         "es": "Hedef Kalıp Derinliği",
         "ar": "Hedef Kalıp Derinliği"
       },
       "businessContext_i18n": {
         "en": "Hedef kalıbın derinliği",
-        "tr": "Hedef kalıbın derinliği"
+        "tr": "Hedef kalıbın derinliği",
+        "de": "Tiefe der Zielform"
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("bell-number-calculator", () => {
     "power2": 1,
     "envFactor": 1,
     "calibrationOffset": 0
-  } as Bell_number_calculatorInput;
+  } as unknown as Bell_number_calculatorInput;
     const result = calculateBell_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Güç (Watt)",
         "tr": "Güç (Watt)",
-        "de": "Güç (Watt)",
+        "de": "Leistung (Watt)",
         "fr": "Güç (Watt)",
         "es": "Güç (Watt)",
         "ar": "Güç (Watt)"
       },
       "businessContext_i18n": {
         "en": "Cihazın nominal gücü",
-        "tr": "Cihazın nominal gücü"
+        "tr": "Cihazın nominal gücü",
+        "de": "Nennleistung des Geräts"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Günlük Kullanım Saati",
         "tr": "Günlük Kullanım Saati",
-        "de": "Günlük Kullanım Saati",
+        "de": "Tägliche Nutzungsdauer",
         "fr": "Günlük Kullanım Saati",
         "es": "Günlük Kullanım Saati",
         "ar": "Günlük Kullanım Saati"
       },
       "businessContext_i18n": {
         "en": "Cihazın günlük ortalama çalışma süresi",
-        "tr": "Cihazın günlük ortalama çalışma süresi"
+        "tr": "Cihazın günlük ortalama çalışma süresi",
+        "de": "Durchschnittliche tägliche Betriebszeit des Geräts"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Aylık Kullanım Günü",
         "tr": "Aylık Kullanım Günü",
-        "de": "Aylık Kullanım Günü",
+        "de": "Monatliche Nutzungstage",
         "fr": "Aylık Kullanım Günü",
         "es": "Aylık Kullanım Günü",
         "ar": "Aylık Kullanım Günü"
       },
       "businessContext_i18n": {
         "en": "Cihazın ayda kaç gün kullanıldığı",
-        "tr": "Cihazın ayda kaç gün kullanıldığı"
+        "tr": "Cihazın ayda kaç gün kullanıldığı",
+        "de": "Anzahl der Tage pro Monat, an denen das Gerät genutzt wird"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Elektrik Birim Fiyatı",
         "tr": "Elektrik Birim Fiyatı",
-        "de": "Elektrik Birim Fiyatı",
+        "de": "Strompreis pro Einheit",
         "fr": "Elektrik Birim Fiyatı",
         "es": "Elektrik Birim Fiyatı",
         "ar": "Elektrik Birim Fiyatı"
       },
       "businessContext_i18n": {
         "en": "1 kWh elektrik enerjisinin maliyeti",
-        "tr": "1 kWh elektrik enerjisinin maliyeti"
+        "tr": "1 kWh elektrik enerjisinin maliyeti",
+        "de": "Kosten pro 1 kWh elektrischer Energie"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Cihaz Adedi",
         "tr": "Cihaz Adedi",
-        "de": "Cihaz Adedi",
+        "de": "Anzahl der Geräte",
         "fr": "Cihaz Adedi",
         "es": "Cihaz Adedi",
         "ar": "Cihaz Adedi"
       },
       "businessContext_i18n": {
         "en": "Aynı özellikteki cihaz sayısı",
-        "tr": "Aynı özellikteki cihaz sayısı"
+        "tr": "Aynı özellikteki cihaz sayısı",
+        "de": "Anzahl der Geräte mit denselben Eigenschaften"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "StandBy Gücü",
         "tr": "StandBy Gücü",
-        "de": "StandBy Gücü",
+        "de": "Standby-Leistung",
         "fr": "StandBy Gücü",
         "es": "StandBy Gücü",
         "ar": "StandBy Gücü"
       },
       "businessContext_i18n": {
         "en": "Cihazın bekleme modunda tükettiği güç",
-        "tr": "Cihazın bekleme modunda tükettiği güç"
+        "tr": "Cihazın bekleme modunda tükettiği güç",
+        "de": "Leistungsaufnahme des Geräts im Standby-Modus"
       }
     }
   ],

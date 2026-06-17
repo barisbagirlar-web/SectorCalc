@@ -15,7 +15,7 @@ describe("maclaurin-series-polynomial-calculator", () => {
     "a3": 0,
     "a4": 0,
     "a5": 0
-  } as Maclaurin_series_polynomial_calculatorInput;
+  } as unknown as Maclaurin_series_polynomial_calculatorInput;
     const result = calculateMaclaurin_series_polynomial_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

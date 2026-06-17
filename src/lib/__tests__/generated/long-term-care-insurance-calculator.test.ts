@@ -12,7 +12,7 @@ describe("long-term-care-insurance-calculator", () => {
     "benefitPeriodYears": 3,
     "eliminationDays": 90,
     "inflationProtection": 3
-  } as Long_term_care_insurance_calculatorInput;
+  } as unknown as Long_term_care_insurance_calculatorInput;
     const result = calculateLong_term_care_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

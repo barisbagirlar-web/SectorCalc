@@ -12,7 +12,7 @@ describe("inverse-trig-calculator", () => {
     "functionType": 1,
     "outputUnit": 0,
     "precision": 4
-  } as Inverse_trig_calculatorInput;
+  } as unknown as Inverse_trig_calculatorInput;
     const result = calculateInverse_trig_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

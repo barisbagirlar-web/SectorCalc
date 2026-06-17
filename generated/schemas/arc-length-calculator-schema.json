@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Radius of the circle or arc in meters",
-        "tr": "Daire veya yayın metre cinsinden yarıçapı"
+        "tr": "Daire veya yayın metre cinsinden yarıçapı",
+        "de": "Radius des Kreises oder Bogens in Metern"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Start Angle",
         "tr": "Başlangıç Açısı",
-        "de": "Start Angle",
+        "de": "Startwinkel",
         "fr": "Start Angle",
         "es": "Start Angle",
         "ar": "Start Angle"
       },
       "businessContext_i18n": {
         "en": "Starting angle of the arc (degrees if unit=0, radians if unit=1)",
-        "tr": "Yayın başlangıç açısı (birim=0 ise derece, birim=1 ise radyan)"
+        "tr": "Yayın başlangıç açısı (birim=0 ise derece, birim=1 ise radyan)",
+        "de": "Startwinkel des Bogens (Grad wenn Einheit=0, Bogenmaß wenn Einheit=1)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "End Angle",
         "tr": "Bitiş Açısı",
-        "de": "End Angle",
+        "de": "Endwinkel",
         "fr": "End Angle",
         "es": "End Angle",
         "ar": "End Angle"
       },
       "businessContext_i18n": {
         "en": "Ending angle of the arc (degrees if unit=0, radians if unit=1)",
-        "tr": "Yayın bitiş açısı (birim=0 ise derece, birim=1 ise radyan)"
+        "tr": "Yayın bitiş açısı (birim=0 ise derece, birim=1 ise radyan)",
+        "de": "Endwinkel des Bogens (Grad wenn Einheit=0, Bogenmaß wenn Einheit=1)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Angle Unit (0=deg, 1=rad)",
         "tr": "Açı Birimi (0=derece, 1=radyan)",
-        "de": "Angle Unit (0=deg, 1=rad)",
+        "de": "Winkeleinheit (0=Grad, 1=Bogenmaß)",
         "fr": "Angle Unit (0=deg, 1=rad)",
         "es": "Angle Unit (0=deg, 1=rad)",
         "ar": "Angle Unit (0=deg, 1=rad)"
       },
       "businessContext_i18n": {
         "en": "Unit for angles: 0 for degrees, 1 for radians",
-        "tr": "Açılar için birim: 0 derece, 1 radyan"
+        "tr": "Açılar için birim: 0 derece, 1 radyan",
+        "de": "Einheit für Winkel: 0 für Grad, 1 für Bogenmaß"
       }
     }
   ],

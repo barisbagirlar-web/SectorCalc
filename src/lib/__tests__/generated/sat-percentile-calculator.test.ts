@@ -12,7 +12,7 @@ describe("sat-percentile-calculator", () => {
     "readingWritingScore": 530,
     "meanTotal": 1060,
     "stdDev": 210
-  } as Sat_percentile_calculatorInput;
+  } as unknown as Sat_percentile_calculatorInput;
     const result = calculateSat_percentile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

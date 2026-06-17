@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Breathing Rate",
         "tr": "Solunum hızı",
-        "de": "Breathing Rate",
+        "de": "Atemfrequenz",
         "fr": "Breathing Rate",
         "es": "Breathing Rate",
         "ar": "Breathing Rate"
       },
       "businessContext_i18n": {
         "en": "Average respiratory rate for a person at rest",
-        "tr": "Dinlenme halindeki bir kişi için ortalama solunum hızı"
+        "tr": "Dinlenme halindeki bir kişi için ortalama solunum hızı",
+        "de": "Durchschnittliche Atemfrequenz einer Person im Ruhezustand"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Tidal Volume",
         "tr": "Soluk hacmi",
-        "de": "Tidal Volume",
+        "de": "Atemzugvolumen",
         "fr": "Tidal Volume",
         "es": "Tidal Volume",
         "ar": "Tidal Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of air displaced per breath",
-        "tr": "Her nefeste yer değiştiren hava hacmi"
+        "tr": "Her nefeste yer değiştiren hava hacmi",
+        "de": "Luftvolumen, das pro Atemzug bewegt wird"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Cylinder Water Volume",
         "tr": "Tüp su hacmi",
-        "de": "Cylinder Water Volume",
+        "de": "Wasservolumen der Flasche",
         "fr": "Cylinder Water Volume",
         "es": "Cylinder Water Volume",
         "ar": "Cylinder Water Volume"
       },
       "businessContext_i18n": {
         "en": "Internal water volume of the SCBA cylinder",
-        "tr": "SCBA tüpünün iç su hacmi"
+        "tr": "SCBA tüpünün iç su hacmi",
+        "de": "Internes Wasservolumen der SCBA-Flasche"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Cylinder Pressure",
         "tr": "Tüp basıncı",
-        "de": "Cylinder Pressure",
+        "de": "Flaschenfüllstand",
         "fr": "Cylinder Pressure",
         "es": "Cylinder Pressure",
         "ar": "Cylinder Pressure"
       },
       "businessContext_i18n": {
         "en": "Filled pressure of the cylinder",
-        "tr": "Tüpün doldurma basıncı"
+        "tr": "Tüpün doldurma basıncı",
+        "de": "Fülldruck der Flasche"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
-        "de": "Safety Factor",
+        "de": "Sicherheitsfaktor",
         "fr": "Safety Factor",
         "es": "Safety Factor",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Safety margin to ensure sufficient air reserve",
-        "tr": "Yeterli hava rezervini sağlamak için güvenlik marjı"
+        "tr": "Yeterli hava rezervini sağlamak için güvenlik marjı",
+        "de": "Sicherheitsmarge zur Gewährleistung ausreichender Luftreserve"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Ambient Pressure",
         "tr": "Ortam basıncı",
-        "de": "Ambient Pressure",
+        "de": "Umgebungsdruck",
         "fr": "Ambient Pressure",
         "es": "Ambient Pressure",
         "ar": "Ambient Pressure"
       },
       "businessContext_i18n": {
         "en": "Atmospheric pressure at the working location (1 atm at sea level)",
-        "tr": "Çalışma konumundaki atmosfer basıncı (deniz seviyesinde 1 atm)"
+        "tr": "Çalışma konumundaki atmosfer basıncı (deniz seviyesinde 1 atm)",
+        "de": "Atmosphärischer Druck am Arbeitsort (1 atm auf Meereshöhe)"
       }
     }
   ],

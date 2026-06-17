@@ -22,11 +22,13 @@
       "businessContext": "Average daily feed consumption per animal, based on species and growth stage.",
       "label_i18n": {
         "en": "Daily feed intake per animal (kg)",
-        "tr": "Hayvan başına günlük yem alımı (kg)"
+        "tr": "Hayvan başına günlük yem alımı (kg)",
+        "de": "Tägliche Futteraufnahme pro Tier (kg)"
       },
       "businessContext_i18n": {
         "en": "Average daily feed consumption per animal, based on species and growth stage.",
-        "tr": "Tür ve büyüme aşamasına göre hayvan başına ortalama günlük yem tüketimi."
+        "tr": "Tür ve büyüme aşamasına göre hayvan başına ortalama günlük yem tüketimi.",
+        "de": "Durchschnittliche tägliche Futteraufnahme pro Tier, basierend auf Art und Wachstumsstadium."
       }
     },
     {
@@ -40,11 +42,13 @@
       "businessContext": "Cost of primary feed ingredients (corn, soybean meal, etc.) per kilogram.",
       "label_i18n": {
         "en": "Raw material cost per kg",
-        "tr": "Hammadde maliyeti (kg başına)"
+        "tr": "Hammadde maliyeti (kg başına)",
+        "de": "Rohstoffkosten pro kg"
       },
       "businessContext_i18n": {
         "en": "Cost of primary feed ingredients (corn, soybean meal, etc.) per kilogram.",
-        "tr": "Temel yem bileşenlerinin (mısır, soya küspesi vb.) kilogram başına maliyeti."
+        "tr": "Temel yem bileşenlerinin (mısır, soya küspesi vb.) kilogram başına maliyeti.",
+        "de": "Kosten der primären Futterzutaten (Mais, Sojaschrot usw.) pro Kilogramm."
       }
     },
     {
@@ -58,11 +62,13 @@
       "businessContext": "Percentage of raw material lost during milling, mixing, pelleting, or storage.",
       "label_i18n": {
         "en": "Processing loss (%)",
-        "tr": "İşleme kaybı (%)"
+        "tr": "İşleme kaybı (%)",
+        "de": "Verarbeitungsverlust (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of raw material lost during milling, mixing, pelleting, or storage.",
-        "tr": "Öğütme, karıştırma, peletleme veya depolama sırasında kaybedilen hammadde yüzdesi."
+        "tr": "Öğütme, karıştırma, peletleme veya depolama sırasında kaybedilen hammadde yüzdesi.",
+        "de": "Prozentsatz des Rohmaterials, der während des Mahlens, Mischens, Pelletierens oder der Lagerung verloren geht."
       }
     },
     {
@@ -76,11 +82,13 @@
       "businessContext": "Correction factor for moisture content variation in raw materials (1.0 = standard).",
       "label_i18n": {
         "en": "Moisture adjustment factor",
-        "tr": "Nem ayarlama faktörü"
+        "tr": "Nem ayarlama faktörü",
+        "de": "Feuchtigkeitsanpassungsfaktor"
       },
       "businessContext_i18n": {
         "en": "Correction factor for moisture content variation in raw materials (1.0 = standard).",
-        "tr": "Hammaddelerdeki nem içeriği değişimi için düzeltme faktörü (1.0 = standart)."
+        "tr": "Hammaddelerdeki nem içeriği değişimi için düzeltme faktörü (1.0 = standart).",
+        "de": "Korrekturfaktor für Schwankungen des Feuchtigkeitsgehalts in Rohstoffen (1,0 = Standard)."
       }
     },
     {
@@ -99,11 +107,13 @@
       ],
       "label_i18n": {
         "en": "Quality grade",
-        "tr": "Kalite sınıfı"
+        "tr": "Kalite sınıfı",
+        "de": "Qualitätsstufe"
       },
       "businessContext_i18n": {
         "en": "Grade of feed based on nutrient density and consistency (premium, standard, economy).",
-        "tr": "Besin yoğunluğu ve tutarlılığına göre yem sınıfı (premium, standart, ekonomi)."
+        "tr": "Besin yoğunluğu ve tutarlılığına göre yem sınıfı (premium, standart, ekonomi).",
+        "de": "Stufe des Futters basierend auf Nährstoffdichte und Konsistenz (Premium, Standard, Economy)."
       }
     },
     {
@@ -117,11 +127,13 @@
       "businessContext": "If true, adds a fixed transport surcharge per kg of feed.",
       "label_i18n": {
         "en": "Include transport cost?",
-        "tr": "Nakliye maliyeti dahil mi?"
+        "tr": "Nakliye maliyeti dahil mi?",
+        "de": "Transportkosten einbeziehen?"
       },
       "businessContext_i18n": {
         "en": "If true, adds a fixed transport surcharge per kg of feed.",
-        "tr": "Evet ise, kg yem başına sabit bir nakliye ek ücreti ekler."
+        "tr": "Evet ise, kg yem başına sabit bir nakliye ek ücreti ekler.",
+        "de": "Wenn wahr, wird ein fester Transportzuschlag pro kg Futter hinzugefügt."
       }
     }
   ],

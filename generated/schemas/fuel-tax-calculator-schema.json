@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fuel Quantity",
         "tr": "Yakıt Miktarı",
-        "de": "Fuel Quantity",
+        "de": "Kraftstoffmenge",
         "fr": "Fuel Quantity",
         "es": "Fuel Quantity",
         "ar": "Fuel Quantity"
       },
       "businessContext_i18n": {
         "en": "Amount of fuel purchased in liters",
-        "tr": "Litre cinsinden satın alınan yakıt miktarı"
+        "tr": "Litre cinsinden satın alınan yakıt miktarı",
+        "de": "Gekaufte Kraftstoffmenge in Litern"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Price per Liter",
         "tr": "Litre başına fiyat",
-        "de": "Price per Liter",
+        "de": "Preis pro Liter",
         "fr": "Price per Liter",
         "es": "Price per Liter",
         "ar": "Price per Liter"
       },
       "businessContext_i18n": {
         "en": "Base price per liter before taxes",
-        "tr": "Vergiler öncesi litre başına taban fiyat"
+        "tr": "Vergiler öncesi litre başına taban fiyat",
+        "de": "Grundpreis pro Liter vor Steuern"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "VAT Rate",
         "tr": "KDV Oranı",
-        "de": "VAT Rate",
+        "de": "Mehrwertsteuersatz",
         "fr": "VAT Rate",
         "es": "VAT Rate",
         "ar": "VAT Rate"
       },
       "businessContext_i18n": {
         "en": "Value Added Tax percentage",
-        "tr": "Katma Değer Vergisi yüzdesi"
+        "tr": "Katma Değer Vergisi yüzdesi",
+        "de": "Mehrwertsteuerprozentsatz"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Excise Tax per Liter",
         "tr": "Litre başına ÖTV",
-        "de": "Excise Tax per Liter",
+        "de": "Verbrauchsteuer pro Liter",
         "fr": "Excise Tax per Liter",
         "es": "Excise Tax per Liter",
         "ar": "Excise Tax per Liter"
       },
       "businessContext_i18n": {
         "en": "Fixed excise tax per liter",
-        "tr": "Litre başına sabit özel tüketim vergisi"
+        "tr": "Litre başına sabit özel tüketim vergisi",
+        "de": "Feste Verbrauchsteuer pro Liter"
       }
     }
   ],

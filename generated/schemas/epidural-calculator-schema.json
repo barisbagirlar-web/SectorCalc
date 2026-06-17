@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Patient Weight",
         "tr": "Hasta Ağırlığı",
-        "de": "Patient Weight",
+        "de": "Patientengewicht",
         "fr": "Patient Weight",
         "es": "Patient Weight",
         "ar": "Patient Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of the patient in kilograms",
-        "tr": "Hastanın kilogram cinsinden ağırlığı"
+        "tr": "Hastanın kilogram cinsinden ağırlığı",
+        "de": "Gewicht des Patienten in Kilogramm"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Drug Concentration",
         "tr": "İlaç Konsantrasyonu",
-        "de": "Drug Concentration",
+        "de": "Wirkstoffkonzentration",
         "fr": "Drug Concentration",
         "es": "Drug Concentration",
         "ar": "Drug Concentration"
       },
       "businessContext_i18n": {
         "en": "Concentration of anesthetic agent in percentage (g/100mL)",
-        "tr": "Anestezik maddenin yüzde olarak konsantrasyonu (g/100mL)"
+        "tr": "Anestezik maddenin yüzde olarak konsantrasyonu (g/100mL)",
+        "de": "Konzentration des Anästhetikums in Prozent (g/100 ml)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Desired Dose Rate",
         "tr": "İstenen Doz Hızı",
-        "de": "Desired Dose Rate",
+        "de": "Gewünschte Dosisrate",
         "fr": "Desired Dose Rate",
         "es": "Desired Dose Rate",
         "ar": "Desired Dose Rate"
       },
       "businessContext_i18n": {
         "en": "Desired dose of anesthetic per kilogram of body weight",
-        "tr": "Vücut ağırlığının kilogramı başına istenen anestezik dozu"
+        "tr": "Vücut ağırlığının kilogramı başına istenen anestezik dozu",
+        "de": "Gewünschte Dosis des Anästhetikums pro Kilogramm Körpergewicht"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Max Safe Dose Limit",
         "tr": "Maksimum Güvenli Doz Limiti",
-        "de": "Max Safe Dose Limit",
+        "de": "Maximale sichere Dosisgrenze",
         "fr": "Max Safe Dose Limit",
         "es": "Max Safe Dose Limit",
         "ar": "Max Safe Dose Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum safe dose of the anesthetic without epinephrine (e.g., 4 mg/kg for lidocaine)",
-        "tr": "Epinefrinsiz anesteziğin maksimum güvenli dozu (örn. lidokain için 4 mg/kg)"
+        "tr": "Epinefrinsiz anesteziğin maksimum güvenli dozu (örn. lidokain için 4 mg/kg)",
+        "de": "Maximale sichere Dosis des Anästhetikums ohne Epinephrin (z. B. 4 mg/kg für Lidocain)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Epinephrine Added",
         "tr": "Epinefrin Eklendi",
-        "de": "Epinephrine Added",
+        "de": "Epinephrin hinzugefügt",
         "fr": "Epinephrine Added",
         "es": "Epinephrine Added",
         "ar": "Epinephrine Added"
       },
       "businessContext_i18n": {
         "en": "Indicates whether epinephrine is added (1) or not (0). Increases max safe dose by 75%.",
-        "tr": "Epinefrin eklenip eklenmediğini belirtir (1 evet, 0 hayır). Maksimum güvenli dozu %75 artırır."
+        "tr": "Epinefrin eklenip eklenmediğini belirtir (1 evet, 0 hayır). Maksimum güvenli dozu %75 artırır.",
+        "de": "Gibt an, ob Epinephrin hinzugefügt wird (1) oder nicht (0). Erhöht die maximale sichere Dosis um 75%."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Volume On Hand",
         "tr": "Mevcut Hacim",
-        "de": "Volume On Hand",
+        "de": "Vorhandenes Volumen",
         "fr": "Volume On Hand",
         "es": "Volume On Hand",
         "ar": "Volume On Hand"
       },
       "businessContext_i18n": {
         "en": "Total volume of anesthetic solution available in the vial",
-        "tr": "Flakonda bulunan toplam anestezik solüsyon hacmi"
+        "tr": "Flakonda bulunan toplam anestezik solüsyon hacmi",
+        "de": "Gesamtvolumen der verfügbaren Anästhesielösung in der Durchstechflasche"
       }
     }
   ],

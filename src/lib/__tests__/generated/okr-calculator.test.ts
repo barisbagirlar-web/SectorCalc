@@ -16,7 +16,7 @@ describe("okr-calculator", () => {
     "kr3Progress": 0,
     "kr4Weight": 25,
     "kr4Progress": 0
-  } as Okr_calculatorInput;
+  } as unknown as Okr_calculatorInput;
     const result = calculateOkr_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

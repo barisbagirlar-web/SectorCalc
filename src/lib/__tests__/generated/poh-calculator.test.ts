@@ -12,7 +12,7 @@ describe("poh-calculator", () => {
     "temperature": 25,
     "sampleVolume": 1,
     "measurementUncertainty": 0.1
-  } as Poh_calculatorInput;
+  } as unknown as Poh_calculatorInput;
     const result = calculatePoh_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

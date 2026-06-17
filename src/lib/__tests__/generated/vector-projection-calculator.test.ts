@@ -14,7 +14,7 @@ describe("vector-projection-calculator", () => {
     "b_x": 1,
     "b_y": 0,
     "b_z": 0
-  } as Vector_projection_calculatorInput;
+  } as unknown as Vector_projection_calculatorInput;
     const result = calculateVector_projection_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

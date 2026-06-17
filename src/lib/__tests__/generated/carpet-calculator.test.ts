@@ -14,7 +14,7 @@ describe("carpet-calculator", () => {
     "carpetPricePerSqm": 50,
     "wasteFactor": 10,
     "installationCostPerSqm": 20
-  } as Carpet_calculatorInput;
+  } as unknown as Carpet_calculatorInput;
     const result = calculateCarpet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

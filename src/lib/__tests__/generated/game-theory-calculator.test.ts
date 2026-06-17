@@ -12,7 +12,7 @@ describe("game-theory-calculator", () => {
     "payoff12": 0,
     "payoff21": 0,
     "payoff22": 0
-  } as Game_theory_calculatorInput;
+  } as unknown as Game_theory_calculatorInput;
     const result = calculateGame_theory_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Olasılık",
         "tr": "Olasılık",
-        "de": "Olasılık",
+        "de": "Wahrscheinlichkeit",
         "fr": "Olasılık",
         "es": "Olasılık",
         "ar": "Olasılık"
       },
       "businessContext_i18n": {
         "en": "Olayın gerçekleşme olasılığı (1–5)",
-        "tr": "Olayın gerçekleşme olasılığı (1–5)"
+        "tr": "Olayın gerçekleşme olasılığı (1–5)",
+        "de": "Eintrittswahrscheinlichkeit des Ereignisses (1–5)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Etki",
         "tr": "Etki",
-        "de": "Etki",
+        "de": "Auswirkung",
         "fr": "Etki",
         "es": "Etki",
         "ar": "Etki"
       },
       "businessContext_i18n": {
         "en": "Olayın etki derecesi (1–5)",
-        "tr": "Olayın etki derecesi (1–5)"
+        "tr": "Olayın etki derecesi (1–5)",
+        "de": "Auswirkungsgrad des Ereignisses (1–5)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Olasılık Ağırlık",
         "tr": "Olasılık Ağırlık",
-        "de": "Olasılık Ağırlık",
+        "de": "Wahrscheinlichkeitsgewicht",
         "fr": "Olasılık Ağırlık",
         "es": "Olasılık Ağırlık",
         "ar": "Olasılık Ağırlık"
       },
       "businessContext_i18n": {
         "en": "Olasılık çarpanı (ör. düzeltici faktör)",
-        "tr": "Olasılık çarpanı (ör. düzeltici faktör)"
+        "tr": "Olasılık çarpanı (ör. düzeltici faktör)",
+        "de": "Multiplikator für Wahrscheinlichkeit (z. B. Korrekturfaktor)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Etki Ağırlık",
         "tr": "Etki Ağırlık",
-        "de": "Etki Ağırlık",
+        "de": "Auswirkungsgewicht",
         "fr": "Etki Ağırlık",
         "es": "Etki Ağırlık",
         "ar": "Etki Ağırlık"
       },
       "businessContext_i18n": {
         "en": "Etki çarpanı (ör. tolerans faktörü)",
-        "tr": "Etki çarpanı (ör. tolerans faktörü)"
+        "tr": "Etki çarpanı (ör. tolerans faktörü)",
+        "de": "Multiplikator für Auswirkung (z. B. Toleranzfaktor)"
       }
     }
   ],

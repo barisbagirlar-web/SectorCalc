@@ -13,7 +13,7 @@ describe("lens-equation-calculator", () => {
     "radius2": -30,
     "objectDistance": 100,
     "objectHeight": 10
-  } as Lens_equation_calculatorInput;
+  } as unknown as Lens_equation_calculatorInput;
     const result = calculateLens_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

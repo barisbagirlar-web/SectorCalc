@@ -12,7 +12,7 @@ describe("speaking-time-calculator", () => {
     "slowWPM": 120,
     "normalWPM": 150,
     "fastWPM": 180
-  } as Speaking_time_calculatorInput;
+  } as unknown as Speaking_time_calculatorInput;
     const result = calculateSpeaking_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

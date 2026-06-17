@@ -15,7 +15,7 @@ describe("fiber-cement-siding-calculator", () => {
     "waste_factor": 10,
     "labor_rate": 15,
     "material_cost": 25
-  } as Fiber_cement_siding_calculatorInput;
+  } as unknown as Fiber_cement_siding_calculatorInput;
     const result = calculateFiber_cement_siding_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

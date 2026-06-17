@@ -14,7 +14,7 @@ describe("maslach-burnout-inventory-calculator", () => {
     "eeItems": 9,
     "dpItems": 5,
     "paItems": 8
-  } as Maslach_burnout_inventory_calculatorInput;
+  } as unknown as Maslach_burnout_inventory_calculatorInput;
     const result = calculateMaslach_burnout_inventory_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("matrix-determinant-calculator", () => {
     "a12": 0,
     "a21": 0,
     "a22": 0
-  } as Matrix_determinant_calculatorInput;
+  } as unknown as Matrix_determinant_calculatorInput;
     const result = calculateMatrix_determinant_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Number of Authors",
         "tr": "Yazar Sayısı",
-        "de": "Number of Authors",
+        "de": "Anzahl der Autoren",
         "fr": "Number of Authors",
         "es": "Number of Authors",
         "ar": "Number of Authors"
       },
       "businessContext_i18n": {
         "en": "Total number of authors in the cited work",
-        "tr": "Atıf yapılan eserdeki toplam yazar sayısı"
+        "tr": "Atıf yapılan eserdeki toplam yazar sayısı",
+        "de": "Gesamtzahl der Autoren des zitierten Werks"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Publication Year",
         "tr": "Yayın Yılı",
-        "de": "Publication Year",
+        "de": "Veröffentlichungsjahr",
         "fr": "Publication Year",
         "es": "Publication Year",
         "ar": "Publication Year"
       },
       "businessContext_i18n": {
         "en": "Year the work was published",
-        "tr": "Eserin yayımlandığı yıl"
+        "tr": "Eserin yayımlandığı yıl",
+        "de": "Jahr der Veröffentlichung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Page Count",
         "tr": "Sayfa Sayısı",
-        "de": "Page Count",
+        "de": "Seitenanzahl",
         "fr": "Page Count",
         "es": "Page Count",
         "ar": "Page Count"
       },
       "businessContext_i18n": {
         "en": "Total number of pages in the cited work",
-        "tr": "Atıf yapılan eserdeki toplam sayfa sayısı"
+        "tr": "Atıf yapılan eserdeki toplam sayfa sayısı",
+        "de": "Gesamtseitenzahl des zitierten Werks"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Citation Frequency",
         "tr": "Atıf Sıklığı",
-        "de": "Citation Frequency",
+        "de": "Zitationshäufigkeit",
         "fr": "Citation Frequency",
         "es": "Citation Frequency",
         "ar": "Citation Frequency"
       },
       "businessContext_i18n": {
         "en": "Average citations per year for this work",
-        "tr": "Bu eser için yıllık ortalama atıf sayısı"
+        "tr": "Bu eser için yıllık ortalama atıf sayısı",
+        "de": "Durchschnittliche Zitationen pro Jahr für dieses Werk"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Relevance Factor",
         "tr": "İlgi Faktörü",
-        "de": "Relevance Factor",
+        "de": "Relevanzfaktor",
         "fr": "Relevance Factor",
         "es": "Relevance Factor",
         "ar": "Relevance Factor"
       },
       "businessContext_i18n": {
         "en": "Relevance score from 0 to 1",
-        "tr": "0 ile 1 arasında ilgi puanı"
+        "tr": "0 ile 1 arasında ilgi puanı",
+        "de": "Relevanzwert von 0 bis 1"
       }
     }
   ],

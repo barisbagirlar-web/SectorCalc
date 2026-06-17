@@ -13,7 +13,7 @@ describe("liters-to-gallons-converter-calculator", () => {
     "temperatureAdjustment": 1,
     "batchLossFactor": 0.5,
     "includeEvaporation": false
-  } as Liters_to_gallons_converter_calculatorInput;
+  } as unknown as Liters_to_gallons_converter_calculatorInput;
     const result = calculateLiters_to_gallons_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

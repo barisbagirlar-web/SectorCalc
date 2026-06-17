@@ -15,7 +15,7 @@ describe("cervical-mucus-calculator", () => {
     "density": 1000,
     "flowRate": 0.0001,
     "pipeDiameter": 0.05
-  } as Cervical_mucus_calculatorInput;
+  } as unknown as Cervical_mucus_calculatorInput;
     const result = calculateCervical_mucus_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

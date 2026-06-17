@@ -13,7 +13,7 @@ describe("op-amp-calculator", () => {
     "rf": 1000,
     "vcc": 12,
     "vee": 0
-  } as Op_amp_calculatorInput;
+  } as unknown as Op_amp_calculatorInput;
     const result = calculateOp_amp_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

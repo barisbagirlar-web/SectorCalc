@@ -14,7 +14,7 @@ describe("trail-running-calculator", () => {
     "base_pace": 6,
     "ascent_factor": 0.1,
     "descent_factor": 0.05
-  } as Trail_running_calculatorInput;
+  } as unknown as Trail_running_calculatorInput;
     const result = calculateTrail_running_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

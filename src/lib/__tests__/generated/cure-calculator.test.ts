@@ -13,7 +13,7 @@ describe("cure-calculator", () => {
     "datumTemperature": -10,
     "strengthCoefficientA": 20,
     "strengthCoefficientB": 10
-  } as Cure_calculatorInput;
+  } as unknown as Cure_calculatorInput;
     const result = calculateCure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

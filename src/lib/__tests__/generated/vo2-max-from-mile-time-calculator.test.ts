@@ -12,7 +12,7 @@ describe("vo2-max-from-mile-time-calculator", () => {
     "heartRateBpm": 150,
     "weightKg": 70,
     "gender": 1
-  } as Vo2_max_from_mile_time_calculatorInput;
+  } as unknown as Vo2_max_from_mile_time_calculatorInput;
     const result = calculateVo2_max_from_mile_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

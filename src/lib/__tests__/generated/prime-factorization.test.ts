@@ -11,7 +11,7 @@ describe("prime-factorization", () => {
     "number": 60,
     "maxIterations": 10000,
     "auto_input_3": 1
-  } as Prime_factorizationInput;
+  } as unknown as Prime_factorizationInput;
     const result = calculatePrime_factorization(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

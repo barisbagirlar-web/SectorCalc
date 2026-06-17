@@ -14,7 +14,7 @@ describe("sleep-need-calculator", () => {
     "desiredWakeUp": 420,
     "sleepLatency": 15,
     "physicalActivity": 2
-  } as Sleep_need_calculatorInput;
+  } as unknown as Sleep_need_calculatorInput;
     const result = calculateSleep_need_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

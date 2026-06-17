@@ -16,7 +16,7 @@ describe("seconds-to-minutes-calculator", () => {
     "temperatureCelsius": 20,
     "tempCoefficient": 0,
     "humidityPercent": 50
-  } as Seconds_to_minutes_calculatorInput;
+  } as unknown as Seconds_to_minutes_calculatorInput;
     const result = calculateSeconds_to_minutes_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

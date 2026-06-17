@@ -11,7 +11,7 @@ describe("binary-calculator", () => {
     "binary1": 0,
     "binary2": 0,
     "operation": 0
-  } as Binary_calculatorInput;
+  } as unknown as Binary_calculatorInput;
     const result = calculateBinary_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

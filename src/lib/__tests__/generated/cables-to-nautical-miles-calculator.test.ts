@@ -12,7 +12,7 @@ describe("cables-to-nautical-miles-calculator", () => {
     "conversionFactor": 0.1,
     "uncertainty": 0,
     "precision": 2
-  } as Cables_to_nautical_miles_calculatorInput;
+  } as unknown as Cables_to_nautical_miles_calculatorInput;
     const result = calculateCables_to_nautical_miles_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

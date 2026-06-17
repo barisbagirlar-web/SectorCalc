@@ -13,7 +13,7 @@ describe("years-to-decades-calculator", () => {
     "weeks": 0,
     "days": 0,
     "precision": 2
-  } as Years_to_decades_calculatorInput;
+  } as unknown as Years_to_decades_calculatorInput;
     const result = calculateYears_to_decades_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

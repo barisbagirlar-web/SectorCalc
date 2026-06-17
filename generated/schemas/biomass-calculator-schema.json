@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Tree Diameter at Breast Height (DBH)",
         "tr": "Göğüs Yüksekliğindeki Ağaç Çapı (DBH)",
-        "de": "Tree Diameter at Breast Height (DBH)",
+        "de": "Baumdurchmesser in Brusthöhe (DBH)",
         "fr": "Tree Diameter at Breast Height (DBH)",
         "es": "Tree Diameter at Breast Height (DBH)",
         "ar": "Tree Diameter at Breast Height (DBH)"
       },
       "businessContext_i18n": {
         "en": "Measure of tree trunk diameter at 1.3 m above ground; used in allometric equations.",
-        "tr": "Ağaç gövde çapının yerden 1,3 m yükseklikte ölçümü; allometrik denklemlerde kullanılır."
+        "tr": "Ağaç gövde çapının yerden 1,3 m yükseklikte ölçümü; allometrik denklemlerde kullanılır.",
+        "de": "Messung des Stammdurchmessers in 1,3 m Höhe; wird in allometrischen Gleichungen verwendet."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Tree Height",
         "tr": "Ağaç Boyu",
-        "de": "Tree Height",
+        "de": "Baumhöhe",
         "fr": "Tree Height",
         "es": "Tree Height",
         "ar": "Tree Height"
       },
       "businessContext_i18n": {
         "en": "Total tree height; key variable in biomass estimation.",
-        "tr": "Toplam ağaç boyu; biyokütle tahmininde anahtar değişken."
+        "tr": "Toplam ağaç boyu; biyokütle tahmininde anahtar değişken.",
+        "de": "Gesamte Baumhöhe; Schlüsselvariable bei der Biomasse-Schätzung."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Wood Density",
         "tr": "Odun Yoğunluğu",
-        "de": "Wood Density",
+        "de": "Holzdichte",
         "fr": "Wood Density",
         "es": "Wood Density",
         "ar": "Wood Density"
       },
       "businessContext_i18n": {
         "en": "Oven-dry wood density; varies by species; affects biomass calculation.",
-        "tr": "Fırında kuru odun yoğunluğu; türe göre değişir; biyokütle hesaplamasını etkiler."
+        "tr": "Fırında kuru odun yoğunluğu; türe göre değişir; biyokütle hesaplamasını etkiler.",
+        "de": "Ofentrockene Holzdichte; variiert je nach Art; beeinflusst die Biomasseberechnung."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Number of Trees",
         "tr": "Ağaç Sayısı",
-        "de": "Number of Trees",
+        "de": "Anzahl der Bäume",
         "fr": "Number of Trees",
         "es": "Number of Trees",
         "ar": "Number of Trees"
       },
       "businessContext_i18n": {
         "en": "Number of trees in the plot or stand for total biomass.",
-        "tr": "Parsel veya meşceredeki toplam biyokütle için ağaç sayısı."
+        "tr": "Parsel veya meşceredeki toplam biyokütle için ağaç sayısı.",
+        "de": "Anzahl der Bäume in der Parzelle oder im Bestand für die Gesamtbiomasse."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Carbon Fraction of Biomass",
         "tr": "Biyokütlenin Karbon Fraksiyonu",
-        "de": "Carbon Fraction of Biomass",
+        "de": "Kohlenstoffanteil der Biomasse",
         "fr": "Carbon Fraction of Biomass",
         "es": "Carbon Fraction of Biomass",
         "ar": "Carbon Fraction of Biomass"
       },
       "businessContext_i18n": {
         "en": "Default 0.47 from IPCC; fraction of biomass that is carbon.",
-        "tr": "IPCC'den varsayılan 0,47; biyokütlenin karbon olan kısmı."
+        "tr": "IPCC'den varsayılan 0,47; biyokütlenin karbon olan kısmı.",
+        "de": "Standardwert 0,47 vom IPCC; Anteil der Biomasse, der Kohlenstoff ist."
       }
     }
   ],

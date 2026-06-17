@@ -12,7 +12,7 @@ describe("steps-to-calories-calculator", () => {
     "stepLength": 0.762,
     "weight": 70,
     "intensityFactor": 1
-  } as Steps_to_calories_calculatorInput;
+  } as unknown as Steps_to_calories_calculatorInput;
     const result = calculateSteps_to_calories_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

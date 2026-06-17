@@ -11,7 +11,7 @@ describe("equivalent-fractions", () => {
     "numerator": 1,
     "denominator": 2,
     "multiplier": 2
-  } as Equivalent_fractionsInput;
+  } as unknown as Equivalent_fractionsInput;
     const result = calculateEquivalent_fractions(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

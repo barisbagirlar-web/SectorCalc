@@ -13,7 +13,7 @@ describe("reflux-ratio-calculator", () => {
     "distillateFlow": 300,
     "distillateComposition": 0.95,
     "refluxFlow": 600
-  } as Reflux_ratio_calculatorInput;
+  } as unknown as Reflux_ratio_calculatorInput;
     const result = calculateReflux_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("churn-rate-calculator", () => {
     "startingMRR": 10000,
     "lostMRR": 500,
     "periodMonths": 1
-  } as Churn_rate_calculatorInput;
+  } as unknown as Churn_rate_calculatorInput;
     const result = calculateChurn_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

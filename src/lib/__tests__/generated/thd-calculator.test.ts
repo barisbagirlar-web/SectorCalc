@@ -16,7 +16,7 @@ describe("thd-calculator", () => {
     "V6": 0,
     "V7": 0,
     "V8": 0
-  } as Thd_calculatorInput;
+  } as unknown as Thd_calculatorInput;
     const result = calculateThd_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

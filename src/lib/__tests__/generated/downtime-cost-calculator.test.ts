@@ -16,7 +16,7 @@ describe("downtime-cost-calculator", () => {
     "scrap_rate_during_downtime": 5,
     "recovery_time_factor": 0.3,
     "shift_type": "day"
-  } as Downtime_cost_calculatorInput;
+  } as unknown as Downtime_cost_calculatorInput;
     const result = calculateDowntime_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("net-profit-calculator", () => {
     "operatingExpenses": 20000,
     "interestExpense": 5000,
     "taxExpense": 10000
-  } as Net_profit_calculatorInput;
+  } as unknown as Net_profit_calculatorInput;
     const result = calculateNet_profit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("ionic-strength-calculator", () => {
     "charge3": 0,
     "concentration4": 0,
     "charge4": 0
-  } as Ionic_strength_calculatorInput;
+  } as unknown as Ionic_strength_calculatorInput;
     const result = calculateIonic_strength_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("taylor-series-calculator", () => {
     "f1": 1,
     "f2": 1,
     "f3": 1
-  } as Taylor_series_calculatorInput;
+  } as unknown as Taylor_series_calculatorInput;
     const result = calculateTaylor_series_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

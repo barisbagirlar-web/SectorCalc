@@ -12,7 +12,7 @@ describe("operating-lease-calculator", () => {
     "residualValue": 10000,
     "leaseTerm": 36,
     "interestRate": 5
-  } as Operating_lease_calculatorInput;
+  } as unknown as Operating_lease_calculatorInput;
     const result = calculateOperating_lease_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

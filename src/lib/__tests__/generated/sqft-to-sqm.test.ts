@@ -11,7 +11,7 @@ describe("sqft-to-sqm", () => {
     "sqft": 100,
     "auto_input_2": 1,
     "auto_input_3": 1
-  } as Sqft_to_sqmInput;
+  } as unknown as Sqft_to_sqmInput;
     const result = calculateSqft_to_sqm(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

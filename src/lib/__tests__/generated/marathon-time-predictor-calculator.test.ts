@@ -12,7 +12,7 @@ describe("marathon-time-predictor-calculator", () => {
     "recentTime": 100,
     "marathonDistance": 42.195,
     "exponent": 1.06
-  } as Marathon_time_predictor_calculatorInput;
+  } as unknown as Marathon_time_predictor_calculatorInput;
     const result = calculateMarathon_time_predictor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

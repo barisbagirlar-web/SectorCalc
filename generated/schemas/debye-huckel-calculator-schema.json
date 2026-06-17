@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Empirical constant dependent on temperature and solvent. For water at 25°C, use 0.509.",
-        "tr": "Sıcaklık ve çözücüye bağlı ampirik sabit. 25°C'de su için 0.509 kullanın."
+        "tr": "Sıcaklık ve çözücüye bağlı ampirik sabit. 25°C'de su için 0.509 kullanın.",
+        "de": "Empirische Konstante in Abhängigkeit von Temperatur und Lösungsmittel. Für Wasser bei 25 °C verwenden Sie 0,509."
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Empirical constant dependent on temperature and solvent. For water at 25°C, use 0.328.",
-        "tr": "Sıcaklık ve çözücüye bağlı ampirik sabit. 25°C'de su için 0.328 kullanın."
+        "tr": "Sıcaklık ve çözücüye bağlı ampirik sabit. 25°C'de su için 0.328 kullanın.",
+        "de": "Empirische Konstante in Abhängigkeit von Temperatur und Lösungsmittel. Für Wasser bei 25 °C verwenden Sie 0,328."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Ionic Strength",
         "tr": "İyonik Şiddet",
-        "de": "Ionic Strength",
+        "de": "Ionenstärke",
         "fr": "Ionic Strength",
         "es": "Ionic Strength",
         "ar": "Ionic Strength"
       },
       "businessContext_i18n": {
         "en": "Half the sum of concentrations times squared charges of all ions. Range typically 0.001 - 0.5 mol/L.",
-        "tr": "Tüm iyonların konsantrasyonları ile yüklerinin karelerinin çarpımlarının toplamının yarısı. Tipik aralık 0.001 - 0.5 mol/L."
+        "tr": "Tüm iyonların konsantrasyonları ile yüklerinin karelerinin çarpımlarının toplamının yarısı. Tipik aralık 0.001 - 0.5 mol/L.",
+        "de": "Hälfte der Summe der Konzentrationen multipliziert mit den quadrierten Ladungen aller Ionen. Typischer Bereich 0,001 - 0,5 mol/L."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Cation Charge (z+)",
         "tr": "Katyon Yükü (z+)",
-        "de": "Cation Charge (z+)",
+        "de": "Kationenladung (z+)",
         "fr": "Cation Charge (z+)",
         "es": "Cation Charge (z+)",
         "ar": "Cation Charge (z+)"
       },
       "businessContext_i18n": {
         "en": "Absolute charge number of the cation, e.g., 1 for Na+, 2 for Ca2+.",
-        "tr": "Katyonun mutlak yük sayısı, örn. Na+ için 1, Ca2+ için 2."
+        "tr": "Katyonun mutlak yük sayısı, örn. Na+ için 1, Ca2+ için 2.",
+        "de": "Absolute Ladungszahl des Kations, z.B. 1 für Na+, 2 für Ca2+."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Anion Charge (|z-|)",
         "tr": "Anyon Yükü (|z-|)",
-        "de": "Anion Charge (|z-|)",
+        "de": "Anionenladung (|z-|)",
         "fr": "Anion Charge (|z-|)",
         "es": "Anion Charge (|z-|)",
         "ar": "Anion Charge (|z-|)"
       },
       "businessContext_i18n": {
         "en": "Absolute charge number of the anion, e.g., 1 for Cl-, 2 for SO4^2-.",
-        "tr": "Anyonun mutlak yük sayısı, örn. Cl- için 1, SO4^2- için 2."
+        "tr": "Anyonun mutlak yük sayısı, örn. Cl- için 1, SO4^2- için 2.",
+        "de": "Absolute Ladungszahl des Anions, z.B. 1 für Cl-, 2 für SO4^2-."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Ion Size Parameter (a)",
         "tr": "İyon Boyut Parametresi (a)",
-        "de": "Ion Size Parameter (a)",
+        "de": "Ionengrößenparameter (a)",
         "fr": "Ion Size Parameter (a)",
         "es": "Ion Size Parameter (a)",
         "ar": "Ion Size Parameter (a)"
       },
       "businessContext_i18n": {
         "en": "Effective diameter of the hydrated ion. Common values: 3-9 Å. For many simple ions, ~3-4 Å.",
-        "tr": "Hidratlanmış iyonun etkin çapı. Yaygın değerler: 3-9 Å. Basit iyonlar için ~3-4 Å."
+        "tr": "Hidratlanmış iyonun etkin çapı. Yaygın değerler: 3-9 Å. Basit iyonlar için ~3-4 Å.",
+        "de": "Effektiver Durchmesser des hydratisierten Ions. Übliche Werte: 3-9 Å. Für viele einfache Ionen ~3-4 Å."
       }
     }
   ],

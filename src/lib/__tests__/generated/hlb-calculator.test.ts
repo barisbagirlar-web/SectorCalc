@@ -14,7 +14,7 @@ describe("hlb-calculator", () => {
     "oil2_percent": 0,
     "oil3_hlb": 0,
     "oil3_percent": 0
-  } as Hlb_calculatorInput;
+  } as unknown as Hlb_calculatorInput;
     const result = calculateHlb_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

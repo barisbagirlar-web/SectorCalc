@@ -13,7 +13,7 @@ describe("hra-calculator", () => {
     "hraReceived": 0,
     "rentPaid": 0,
     "cityType": 1
-  } as Hra_calculatorInput;
+  } as unknown as Hra_calculatorInput;
     const result = calculateHra_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

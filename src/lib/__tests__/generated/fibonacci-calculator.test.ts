@@ -15,7 +15,7 @@ describe("fibonacci-calculator", () => {
     "multiplierB": 1,
     "termCount": 10,
     "decimalPlaces": 0
-  } as Fibonacci_calculatorInput;
+  } as unknown as Fibonacci_calculatorInput;
     const result = calculateFibonacci_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

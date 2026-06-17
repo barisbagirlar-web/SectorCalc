@@ -12,7 +12,7 @@ describe("word-form-calculator", () => {
     "totalSentences": 10,
     "totalSyllables": 150,
     "complexWords": 20
-  } as Word_form_calculatorInput;
+  } as unknown as Word_form_calculatorInput;
     const result = calculateWord_form_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

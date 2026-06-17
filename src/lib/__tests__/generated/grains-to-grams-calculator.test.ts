@@ -12,7 +12,7 @@ describe("grains-to-grams-calculator", () => {
     "conversionFactor": 0.06479891,
     "precision": 2,
     "batchCount": 1
-  } as Grains_to_grams_calculatorInput;
+  } as unknown as Grains_to_grams_calculatorInput;
     const result = calculateGrains_to_grams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

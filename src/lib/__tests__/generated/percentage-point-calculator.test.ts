@@ -12,7 +12,7 @@ describe("percentage-point-calculator", () => {
     "percentageB": 0,
     "absolute": 1,
     "decimalPlaces": 2
-  } as Percentage_point_calculatorInput;
+  } as unknown as Percentage_point_calculatorInput;
     const result = calculatePercentage_point_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

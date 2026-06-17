@@ -13,7 +13,7 @@ describe("transition-time-calculator", () => {
     "maxVelocity": 3,
     "preDelay": 0.1,
     "postSettling": 0.2
-  } as Transition_time_calculatorInput;
+  } as unknown as Transition_time_calculatorInput;
     const result = calculateTransition_time_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

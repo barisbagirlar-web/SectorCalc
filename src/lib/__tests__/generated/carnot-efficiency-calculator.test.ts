@@ -12,7 +12,7 @@ describe("carnot-efficiency-calculator", () => {
     "coldTemp": 300,
     "heatInput": 1000,
     "workOutput": 400
-  } as Carnot_efficiency_calculatorInput;
+  } as unknown as Carnot_efficiency_calculatorInput;
     const result = calculateCarnot_efficiency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

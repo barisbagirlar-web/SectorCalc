@@ -14,7 +14,7 @@ describe("powerball-calculator", () => {
     "ballFillingFraction": 0.3,
     "ballBulkDensity": 4800,
     "motorEfficiency": 0.95
-  } as Powerball_calculatorInput;
+  } as unknown as Powerball_calculatorInput;
     const result = calculatePowerball_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

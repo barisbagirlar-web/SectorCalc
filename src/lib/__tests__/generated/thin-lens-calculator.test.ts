@@ -12,7 +12,7 @@ describe("thin-lens-calculator", () => {
     "R1": 100,
     "R2": -100,
     "u": 200
-  } as Thin_lens_calculatorInput;
+  } as unknown as Thin_lens_calculatorInput;
     const result = calculateThin_lens_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

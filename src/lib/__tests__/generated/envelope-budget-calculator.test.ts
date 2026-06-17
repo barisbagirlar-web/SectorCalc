@@ -12,7 +12,7 @@ describe("envelope-budget-calculator", () => {
     "needsPct": 50,
     "wantsPct": 30,
     "savingsPct": 20
-  } as Envelope_budget_calculatorInput;
+  } as unknown as Envelope_budget_calculatorInput;
     const result = calculateEnvelope_budget_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

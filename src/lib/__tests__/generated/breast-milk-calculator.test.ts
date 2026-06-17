@@ -12,7 +12,7 @@ describe("breast-milk-calculator", () => {
     "dailyMilkPerKg": 150,
     "feedingsPerDay": 8,
     "milkPerSession": 90
-  } as Breast_milk_calculatorInput;
+  } as unknown as Breast_milk_calculatorInput;
     const result = calculateBreast_milk_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

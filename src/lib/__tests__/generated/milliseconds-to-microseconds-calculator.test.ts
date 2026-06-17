@@ -12,7 +12,7 @@ describe("milliseconds-to-microseconds-calculator", () => {
     "calibrationOffset": 0,
     "safetyFactor": 1,
     "decimalPlaces": 2
-  } as Milliseconds_to_microseconds_calculatorInput;
+  } as unknown as Milliseconds_to_microseconds_calculatorInput;
     const result = calculateMilliseconds_to_microseconds_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("jump-rope-calculator", () => {
     "jumpRate": 100,
     "duration": 30,
     "MET": 11.8
-  } as Jump_rope_calculatorInput;
+  } as unknown as Jump_rope_calculatorInput;
     const result = calculateJump_rope_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

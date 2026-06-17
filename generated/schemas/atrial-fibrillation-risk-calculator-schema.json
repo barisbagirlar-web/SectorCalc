@@ -18,7 +18,8 @@
       },
       "businessContext_i18n": {
         "en": "Presence of congestive heart failure (0=No, 1=Yes)",
-        "tr": "Konjestif kalp yetmezliği varlığı (0=Hayır, 1=Evet)"
+        "tr": "Konjestif kalp yetmezliği varlığı (0=Hayır, 1=Evet)",
+        "de": "Vorhandensein einer kongestiven Herzinsuffizienz (0=Nein, 1=Ja)"
       }
     },
     {
@@ -38,7 +39,8 @@
       },
       "businessContext_i18n": {
         "en": "Diagnosed hypertension (0=No, 1=Yes)",
-        "tr": "Tanı konmuş hipertansiyon (0=Hayır, 1=Evet)"
+        "tr": "Tanı konmuş hipertansiyon (0=Hayır, 1=Evet)",
+        "de": "Diagnostizierte Hypertonie (0=Nein, 1=Ja)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Age",
+        "de": "Alter",
         "fr": "Age",
         "es": "Age",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient age in years",
-        "tr": "Hasta yaşı (yıl)"
+        "tr": "Hasta yaşı (yıl)",
+        "de": "Patientenalter in Jahren"
       }
     },
     {
@@ -78,7 +81,8 @@
       },
       "businessContext_i18n": {
         "en": "Diagnosed diabetes mellitus (0=No, 1=Yes)",
-        "tr": "Tanı konmuş diabetes mellitus (0=Hayır, 1=Evet)"
+        "tr": "Tanı konmuş diabetes mellitus (0=Hayır, 1=Evet)",
+        "de": "Diagnostizierter Diabetes mellitus (0=Nein, 1=Ja)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Prior Stroke or TIA",
         "tr": "Önceki İnme veya TİA",
-        "de": "Prior Stroke or TIA",
+        "de": "Vorheriger Schlaganfall oder TIA",
         "fr": "Prior Stroke or TIA",
         "es": "Prior Stroke or TIA",
         "ar": "Prior Stroke or TIA"
       },
       "businessContext_i18n": {
         "en": "History of stroke or transient ischemic attack (0=No, 1=Yes)",
-        "tr": "İnme veya geçici iskemik atak öyküsü (0=Hayır, 1=Evet)"
+        "tr": "İnme veya geçici iskemik atak öyküsü (0=Hayır, 1=Evet)",
+        "de": "Vorgeschichte von Schlaganfall oder transitorischer ischämischer Attacke (0=Nein, 1=Ja)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Vascular Disease",
         "tr": "Vasküler Hastalık",
-        "de": "Vascular Disease",
+        "de": "Vaskuläre Erkrankung",
         "fr": "Vascular Disease",
         "es": "Vascular Disease",
         "ar": "Vascular Disease"
       },
       "businessContext_i18n": {
         "en": "Presence of vascular disease (0=No, 1=Yes)",
-        "tr": "Vasküler hastalık varlığı (0=Hayır, 1=Evet)"
+        "tr": "Vasküler hastalık varlığı (0=Hayır, 1=Evet)",
+        "de": "Vorhandensein einer vaskulären Erkrankung (0=Nein, 1=Ja)"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Sex (Female=1)",
         "tr": "Cinsiyet (Kadın=1)",
-        "de": "Sex (Female=1)",
+        "de": "Geschlecht (Weiblich=1)",
         "fr": "Sex (Female=1)",
         "es": "Sex (Female=1)",
         "ar": "Sex (Female=1)"
       },
       "businessContext_i18n": {
         "en": "Patient sex (0=Male, 1=Female)",
-        "tr": "Hasta cinsiyeti (0=Erkek, 1=Kadın)"
+        "tr": "Hasta cinsiyeti (0=Erkek, 1=Kadın)",
+        "de": "Patientengeschlecht (0=Männlich, 1=Weiblich)"
       }
     }
   ],

@@ -14,7 +14,7 @@ describe("unit-vector-calculator", () => {
     "endX": 1,
     "endY": 0,
     "endZ": 0
-  } as Unit_vector_calculatorInput;
+  } as unknown as Unit_vector_calculatorInput;
     const result = calculateUnit_vector_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

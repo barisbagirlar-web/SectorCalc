@@ -12,7 +12,7 @@ describe("helmholtz-free-energy-calculator", () => {
     "temperature": 298.15,
     "entropy": 0,
     "moles": 1
-  } as Helmholtz_free_energy_calculatorInput;
+  } as unknown as Helmholtz_free_energy_calculatorInput;
     const result = calculateHelmholtz_free_energy_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

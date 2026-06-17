@@ -16,7 +16,7 @@ describe("irrigation-cost-check-calculator", () => {
     "labor_hours_per_year": 500,
     "labor_rate": 25,
     "maintenance_cost": 2000
-  } as Irrigation_cost_check_calculatorInput;
+  } as unknown as Irrigation_cost_check_calculatorInput;
     const result = calculateIrrigation_cost_check_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

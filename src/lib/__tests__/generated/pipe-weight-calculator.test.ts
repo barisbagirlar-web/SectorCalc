@@ -13,7 +13,7 @@ describe("pipe-weight-calculator", () => {
     "length": 6,
     "density": 7850,
     "quantity": 1
-  } as Pipe_weight_calculatorInput;
+  } as unknown as Pipe_weight_calculatorInput;
     const result = calculatePipe_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

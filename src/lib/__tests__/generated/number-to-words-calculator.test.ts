@@ -12,7 +12,7 @@ describe("number-to-words-calculator", () => {
     "languageCode": 1,
     "decimalPlaces": 2,
     "caseFormat": 0
-  } as Number_to_words_calculatorInput;
+  } as unknown as Number_to_words_calculatorInput;
     const result = calculateNumber_to_words_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

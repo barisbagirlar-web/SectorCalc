@@ -12,7 +12,7 @@ describe("brake-thermal-efficiency-calculator", () => {
     "fuelMassFlow": 20,
     "lhv": 42000,
     "correctionFactor": 1
-  } as Brake_thermal_efficiency_calculatorInput;
+  } as unknown as Brake_thermal_efficiency_calculatorInput;
     const result = calculateBrake_thermal_efficiency_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

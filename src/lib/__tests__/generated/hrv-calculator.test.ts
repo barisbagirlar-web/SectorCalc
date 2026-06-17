@@ -16,7 +16,7 @@ describe("hrv-calculator", () => {
     "airDensity": 1.2,
     "specificHeat": 1.005,
     "operatingHours": 4000
-  } as Hrv_calculatorInput;
+  } as unknown as Hrv_calculatorInput;
     const result = calculateHrv_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

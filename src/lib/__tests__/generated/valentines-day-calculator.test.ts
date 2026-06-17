@@ -14,7 +14,7 @@ describe("valentines-day-calculator", () => {
     "dinnerCost": 150,
     "flowerCost": 50,
     "otherCost": 50
-  } as Valentines_day_calculatorInput;
+  } as unknown as Valentines_day_calculatorInput;
     const result = calculateValentines_day_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

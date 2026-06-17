@@ -16,7 +16,7 @@ describe("spc-signal-delay-cost-calculator", () => {
     "detection_delay_hours": 4,
     "response_delay_hours": 2,
     "shift_hours": 8
-  } as Spc_signal_delay_cost_calculatorInput;
+  } as unknown as Spc_signal_delay_cost_calculatorInput;
     const result = calculateSpc_signal_delay_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

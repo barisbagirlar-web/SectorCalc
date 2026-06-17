@@ -12,7 +12,7 @@ describe("pka-calculator", () => {
     "measuredpH": 3,
     "knownKa": 0,
     "temperature": 25
-  } as Pka_calculatorInput;
+  } as unknown as Pka_calculatorInput;
     const result = calculatePka_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

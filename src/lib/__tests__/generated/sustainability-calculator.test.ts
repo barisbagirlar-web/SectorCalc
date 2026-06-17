@@ -12,7 +12,7 @@ describe("sustainability-calculator", () => {
     "gas": 1200,
     "fuel": 1000,
     "waste": 500
-  } as Sustainability_calculatorInput;
+  } as unknown as Sustainability_calculatorInput;
     const result = calculateSustainability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

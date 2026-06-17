@@ -12,7 +12,7 @@ describe("phq-2-calculator", () => {
     "shift_id": 1,
     "q1": 0,
     "q2": 0
-  } as Phq_2_calculatorInput;
+  } as unknown as Phq_2_calculatorInput;
     const result = calculatePhq_2_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

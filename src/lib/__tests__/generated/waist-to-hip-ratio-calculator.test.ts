@@ -13,7 +13,7 @@ describe("waist-to-hip-ratio-calculator", () => {
     "height": 0,
     "weight": 0,
     "gender": 0
-  } as Waist_to_hip_ratio_calculatorInput;
+  } as unknown as Waist_to_hip_ratio_calculatorInput;
     const result = calculateWaist_to_hip_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

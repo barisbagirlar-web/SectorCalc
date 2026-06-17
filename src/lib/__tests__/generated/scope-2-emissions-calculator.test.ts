@@ -13,7 +13,7 @@ describe("scope-2-emissions-calculator", () => {
     "marketFactor": 0.4,
     "heatMwh": 0,
     "heatFactor": 200
-  } as Scope_2_emissions_calculatorInput;
+  } as unknown as Scope_2_emissions_calculatorInput;
     const result = calculateScope_2_emissions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

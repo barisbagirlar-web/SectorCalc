@@ -12,7 +12,7 @@ describe("us-mpg-to-uk-mpg-calculator", () => {
     "conversionFactor": 1.20095,
     "precision": 2,
     "referenceValue": 30
-  } as Us_mpg_to_uk_mpg_calculatorInput;
+  } as unknown as Us_mpg_to_uk_mpg_calculatorInput;
     const result = calculateUs_mpg_to_uk_mpg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

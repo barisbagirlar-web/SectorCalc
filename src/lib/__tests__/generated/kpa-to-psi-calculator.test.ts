@@ -12,7 +12,7 @@ describe("kpa-to-psi-calculator", () => {
     "conversionFactor": 0.1450377377,
     "precision": 2,
     "offset": 0
-  } as Kpa_to_psi_calculatorInput;
+  } as unknown as Kpa_to_psi_calculatorInput;
     const result = calculateKpa_to_psi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("pilates-calorie-calculator", () => {
     "mainDuration": 30,
     "cooldownDuration": 5,
     "difficultyFactor": 1
-  } as Pilates_calorie_calculatorInput;
+  } as unknown as Pilates_calorie_calculatorInput;
     const result = calculatePilates_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

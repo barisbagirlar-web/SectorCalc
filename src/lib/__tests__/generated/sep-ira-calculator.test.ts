@@ -12,7 +12,7 @@ describe("sep-ira-calculator", () => {
     "contributionRatePercent": 25,
     "isSelfEmployed": 0,
     "contributionLimit": 66000
-  } as Sep_ira_calculatorInput;
+  } as unknown as Sep_ira_calculatorInput;
     const result = calculateSep_ira_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

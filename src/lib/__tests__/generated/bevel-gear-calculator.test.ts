@@ -14,7 +14,7 @@ describe("bevel-gear-calculator", () => {
     "shaftAngle": 90,
     "pressureAngle": 20,
     "faceWidthFactor": 0.3
-  } as Bevel_gear_calculatorInput;
+  } as unknown as Bevel_gear_calculatorInput;
     const result = calculateBevel_gear_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

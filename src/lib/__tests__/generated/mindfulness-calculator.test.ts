@@ -12,7 +12,7 @@ describe("mindfulness-calculator", () => {
     "meditationFrequency": 5,
     "stressLevel": 5,
     "concentrationLevel": 7
-  } as Mindfulness_calculatorInput;
+  } as unknown as Mindfulness_calculatorInput;
     const result = calculateMindfulness_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("julian-year-to-days-calculator", () => {
     "daysPerYear": 365.25,
     "precision": 2,
     "roundingMode": 0
-  } as Julian_year_to_days_calculatorInput;
+  } as unknown as Julian_year_to_days_calculatorInput;
     const result = calculateJulian_year_to_days_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

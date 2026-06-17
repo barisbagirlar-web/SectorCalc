@@ -12,7 +12,7 @@ describe("flow-state-calculator", () => {
     "velocity": 1,
     "diameter": 0.01,
     "dynamicViscosity": 0.001
-  } as Flow_state_calculatorInput;
+  } as unknown as Flow_state_calculatorInput;
     const result = calculateFlow_state_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

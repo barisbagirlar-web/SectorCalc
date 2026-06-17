@@ -12,7 +12,7 @@ describe("exposure-value-calculator", () => {
     "shutterSpeed": 0.008,
     "iso": 100,
     "measuredEV": 12
-  } as Exposure_value_calculatorInput;
+  } as unknown as Exposure_value_calculatorInput;
     const result = calculateExposure_value_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("wine-pairing-calculator", () => {
     "food_acidity": 5,
     "food_sweetness": 5,
     "food_richness": 5
-  } as Wine_pairing_calculatorInput;
+  } as unknown as Wine_pairing_calculatorInput;
     const result = calculateWine_pairing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

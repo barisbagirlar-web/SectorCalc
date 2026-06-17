@@ -14,7 +14,7 @@ describe("drip-irrigation-calculator", () => {
     "lateralSpacing": 1,
     "irrigationDepth": 10,
     "systemEfficiency": 90
-  } as Drip_irrigation_calculatorInput;
+  } as unknown as Drip_irrigation_calculatorInput;
     const result = calculateDrip_irrigation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

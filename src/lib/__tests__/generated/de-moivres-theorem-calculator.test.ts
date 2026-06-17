@@ -13,7 +13,7 @@ describe("de-moivres-theorem-calculator", () => {
     "angleUnit": 0,
     "n": 2,
     "decimals": 4
-  } as De_moivres_theorem_calculatorInput;
+  } as unknown as De_moivres_theorem_calculatorInput;
     const result = calculateDe_moivres_theorem_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

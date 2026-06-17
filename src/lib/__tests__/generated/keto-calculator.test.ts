@@ -13,7 +13,7 @@ describe("keto-calculator", () => {
     "gender": 1,
     "activityLevel": 1.55,
     "deficitPercent": 20
-  } as Keto_calculatorInput;
+  } as unknown as Keto_calculatorInput;
     const result = calculateKeto_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

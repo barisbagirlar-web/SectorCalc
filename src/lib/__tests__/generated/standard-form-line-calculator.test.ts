@@ -12,7 +12,7 @@ describe("standard-form-line-calculator", () => {
     "B": 1,
     "C": 0,
     "x": 0
-  } as Standard_form_line_calculatorInput;
+  } as unknown as Standard_form_line_calculatorInput;
     const result = calculateStandard_form_line_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

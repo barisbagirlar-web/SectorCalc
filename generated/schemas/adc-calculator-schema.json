@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Çözünürlük (bit)",
         "tr": "Çözünürlük (bit)",
-        "de": "Çözünürlük (bit)",
+        "de": "Auflösung (Bit)",
         "fr": "Çözünürlük (bit)",
         "es": "Çözünürlük (bit)",
         "ar": "Çözünürlük (bit)"
       },
       "businessContext_i18n": {
         "en": "ADC'nin bit çözünürlüğü",
-        "tr": "ADC'nin bit çözünürlüğü"
+        "tr": "ADC'nin bit çözünürlüğü",
+        "de": "Bit-Auflösung des ADC"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Referans Gerilimi",
         "tr": "Referans Gerilimi",
-        "de": "Referans Gerilimi",
+        "de": "Referenzspannung",
         "fr": "Referans Gerilimi",
         "es": "Referans Gerilimi",
         "ar": "Referans Gerilimi"
       },
       "businessContext_i18n": {
         "en": "Tam ölçek referans gerilimi",
-        "tr": "Tam ölçek referans gerilimi"
+        "tr": "Tam ölçek referans gerilimi",
+        "de": "Vollausschlags-Referenzspannung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Giriş Gerilimi",
         "tr": "Giriş Gerilimi",
-        "de": "Giriş Gerilimi",
+        "de": "Eingangsspannung",
         "fr": "Giriş Gerilimi",
         "es": "Giriş Gerilimi",
         "ar": "Giriş Gerilimi"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek analog giriş gerilimi",
-        "tr": "Dönüştürülecek analog giriş gerilimi"
+        "tr": "Dönüştürülecek analog giriş gerilimi",
+        "de": "Analoge Eingangsspannung, die umgewandelt werden soll"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Kazanç",
         "tr": "Kazanç",
-        "de": "Kazanç",
+        "de": "Verstärkung",
         "fr": "Kazanç",
         "es": "Kazanç",
         "ar": "Kazanç"
       },
       "businessContext_i18n": {
         "en": "Sinyal kazancı",
-        "tr": "Sinyal kazancı"
+        "tr": "Sinyal kazancı",
+        "de": "Signalverstärkung"
       }
     }
   ],

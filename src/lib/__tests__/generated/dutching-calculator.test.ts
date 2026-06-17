@@ -13,7 +13,7 @@ describe("dutching-calculator", () => {
     "oddsB": 2,
     "oddsC": 2,
     "oddsD": 2
-  } as Dutching_calculatorInput;
+  } as unknown as Dutching_calculatorInput;
     const result = calculateDutching_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

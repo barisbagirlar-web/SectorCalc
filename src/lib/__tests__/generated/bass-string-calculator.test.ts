@@ -11,7 +11,7 @@ describe("bass-string-calculator", () => {
     "scaleLength": 34,
     "unitWeight": 0.00245,
     "frequency": 41.2
-  } as Bass_string_calculatorInput;
+  } as unknown as Bass_string_calculatorInput;
     const result = calculateBass_string_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

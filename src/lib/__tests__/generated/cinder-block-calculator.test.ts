@@ -14,7 +14,7 @@ describe("cinder-block-calculator", () => {
     "blockHeight": 0.2,
     "mortarJointThickness": 10,
     "wasteFactor": 5
-  } as Cinder_block_calculatorInput;
+  } as unknown as Cinder_block_calculatorInput;
     const result = calculateCinder_block_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

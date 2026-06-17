@@ -15,7 +15,7 @@ describe("hedge-calculator", () => {
     "correlation": 0.9,
     "exposureUnits": 10000,
     "contractSize": 5000
-  } as Hedge_calculatorInput;
+  } as unknown as Hedge_calculatorInput;
     const result = calculateHedge_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

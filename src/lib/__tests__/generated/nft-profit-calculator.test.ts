@@ -13,7 +13,7 @@ describe("nft-profit-calculator", () => {
     "listingFee": 0,
     "salePrice": 0,
     "royaltyPercent": 0
-  } as Nft_profit_calculatorInput;
+  } as unknown as Nft_profit_calculatorInput;
     const result = calculateNft_profit_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

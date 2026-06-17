@@ -12,7 +12,7 @@ describe("power-to-weight-ratio-calculator", () => {
     "vehicleMassKg": 1200,
     "drivetrainEfficiencyPercent": 85,
     "payloadKg": 200
-  } as Power_to_weight_ratio_calculatorInput;
+  } as unknown as Power_to_weight_ratio_calculatorInput;
     const result = calculatePower_to_weight_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

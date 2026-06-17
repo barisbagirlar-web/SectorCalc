@@ -13,7 +13,7 @@ describe("fertile-window-calculator", () => {
     "spermLifeSpan": 5,
     "eggLifeSpan": 1,
     "periodLength": 5
-  } as Fertile_window_calculatorInput;
+  } as unknown as Fertile_window_calculatorInput;
     const result = calculateFertile_window_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

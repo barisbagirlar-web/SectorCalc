@@ -15,7 +15,7 @@ describe("retirement-calculator", () => {
     "annualReturn": 7,
     "inflationRate": 2,
     "desiredMonthlyIncome": 2000
-  } as Retirement_calculatorInput;
+  } as unknown as Retirement_calculatorInput;
     const result = calculateRetirement_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

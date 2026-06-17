@@ -13,7 +13,7 @@ describe("college-acceptance-chance-calculator", () => {
     "extracurriculars": 5,
     "essay": 3,
     "interview": 3
-  } as College_acceptance_chance_calculatorInput;
+  } as unknown as College_acceptance_chance_calculatorInput;
     const result = calculateCollege_acceptance_chance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

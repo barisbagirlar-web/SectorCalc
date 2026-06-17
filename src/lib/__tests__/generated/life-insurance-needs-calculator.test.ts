@@ -14,7 +14,7 @@ describe("life-insurance-needs-calculator", () => {
     "outstanding_debts": 150000,
     "education_expenses": 50000,
     "final_expenses": 20000
-  } as Life_insurance_needs_calculatorInput;
+  } as unknown as Life_insurance_needs_calculatorInput;
     const result = calculateLife_insurance_needs_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

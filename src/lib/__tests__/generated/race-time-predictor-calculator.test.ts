@@ -12,7 +12,7 @@ describe("race-time-predictor-calculator", () => {
     "t1": 50,
     "d2": 21.1,
     "fatigue": 1.06
-  } as Race_time_predictor_calculatorInput;
+  } as unknown as Race_time_predictor_calculatorInput;
     const result = calculateRace_time_predictor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

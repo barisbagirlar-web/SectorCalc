@@ -13,7 +13,7 @@ describe("insulin-dose-calculator", () => {
     "targetBG": 100,
     "carbRatio": 15,
     "isf": 50
-  } as Insulin_dose_calculatorInput;
+  } as unknown as Insulin_dose_calculatorInput;
     const result = calculateInsulin_dose_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

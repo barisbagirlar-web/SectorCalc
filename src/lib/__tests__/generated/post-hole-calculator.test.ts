@@ -13,7 +13,7 @@ describe("post-hole-calculator", () => {
     "postSide": 10,
     "numberOfPosts": 1,
     "wasteFactor": 5
-  } as Post_hole_calculatorInput;
+  } as unknown as Post_hole_calculatorInput;
     const result = calculatePost_hole_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,7 +11,7 @@ describe("hands-to-feet-horse-height", () => {
     "hands": 15,
     "inches": 0,
     "auto_input_3": 1
-  } as Hands_to_feet_horse_heightInput;
+  } as unknown as Hands_to_feet_horse_heightInput;
     const result = calculateHands_to_feet_horse_height(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("pecks-to-liters-calculator", () => {
     "uncertaintyMargin": 0,
     "roundingMode": 0,
     "temperature": 20
-  } as Pecks_to_liters_calculatorInput;
+  } as unknown as Pecks_to_liters_calculatorInput;
     const result = calculatePecks_to_liters_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

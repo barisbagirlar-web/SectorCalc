@@ -13,7 +13,7 @@ describe("madrs-calculator", () => {
     "load": 1000,
     "elasticModulus": 210,
     "safetyFactor": 1.5
-  } as Madrs_calculatorInput;
+  } as unknown as Madrs_calculatorInput;
     const result = calculateMadrs_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

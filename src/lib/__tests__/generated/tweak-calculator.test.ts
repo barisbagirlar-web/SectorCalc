@@ -13,7 +13,7 @@ describe("tweak-calculator", () => {
     "efficiency": 85,
     "safetyFactor": 110,
     "tolerance": 5
-  } as Tweak_calculatorInput;
+  } as unknown as Tweak_calculatorInput;
     const result = calculateTweak_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

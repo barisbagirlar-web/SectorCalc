@@ -15,7 +15,7 @@ describe("quintile-calculator", () => {
     "p80": 80,
     "max": 100,
     "value": 50
-  } as Quintile_calculatorInput;
+  } as unknown as Quintile_calculatorInput;
     const result = calculateQuintile_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

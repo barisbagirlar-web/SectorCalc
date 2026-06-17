@@ -14,7 +14,7 @@ describe("ode-solver-calculator", () => {
     "y0": 1,
     "h": 0.1,
     "n": 10
-  } as Ode_solver_calculatorInput;
+  } as unknown as Ode_solver_calculatorInput;
     const result = calculateOde_solver_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

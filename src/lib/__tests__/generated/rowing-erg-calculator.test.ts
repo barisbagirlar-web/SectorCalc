@@ -13,7 +13,7 @@ describe("rowing-erg-calculator", () => {
     "weight": 70,
     "strokeRate": 20,
     "dragFactor": 120
-  } as Rowing_erg_calculatorInput;
+  } as unknown as Rowing_erg_calculatorInput;
     const result = calculateRowing_erg_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

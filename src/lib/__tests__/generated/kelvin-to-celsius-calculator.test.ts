@@ -14,7 +14,7 @@ describe("kelvin-to-celsius-calculator", () => {
     "timestamp": 1700000000000,
     "ambient_c": 20,
     "humidity": 50
-  } as Kelvin_to_celsius_calculatorInput;
+  } as unknown as Kelvin_to_celsius_calculatorInput;
     const result = calculateKelvin_to_celsius_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

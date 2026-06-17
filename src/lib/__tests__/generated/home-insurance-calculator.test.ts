@@ -14,7 +14,7 @@ describe("home-insurance-calculator", () => {
     "locationRisk": 1,
     "homeAge": 5,
     "safetyDiscount": 10
-  } as Home_insurance_calculatorInput;
+  } as unknown as Home_insurance_calculatorInput;
     const result = calculateHome_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

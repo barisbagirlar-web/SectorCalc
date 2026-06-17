@@ -14,7 +14,7 @@ describe("cone-volume-calculator", () => {
     "diameter": 0,
     "precision": 2,
     "calcSurface": 0
-  } as Cone_volume_calculatorInput;
+  } as unknown as Cone_volume_calculatorInput;
     const result = calculateCone_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

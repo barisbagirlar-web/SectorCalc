@@ -16,7 +16,7 @@ describe("interior-paint-calculator", () => {
     "paintCoverage": 10,
     "coats": 2,
     "ceilingIncluded": 1
-  } as Interior_paint_calculatorInput;
+  } as unknown as Interior_paint_calculatorInput;
     const result = calculateInterior_paint_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

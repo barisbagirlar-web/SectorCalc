@@ -13,7 +13,7 @@ describe("ironman-70-3-calculator", () => {
     "run_pace": 5.5,
     "t1": 3,
     "t2": 2
-  } as Ironman_70_3_calculatorInput;
+  } as unknown as Ironman_70_3_calculatorInput;
     const result = calculateIronman_70_3_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("party-planner-calculator", () => {
     "decorationsCost": 200,
     "entertainmentCost": 300,
     "miscCost": 100
-  } as Party_planner_calculatorInput;
+  } as unknown as Party_planner_calculatorInput;
     const result = calculateParty_planner_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

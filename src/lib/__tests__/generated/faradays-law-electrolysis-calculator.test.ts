@@ -13,7 +13,7 @@ describe("faradays-law-electrolysis-calculator", () => {
     "molarMass": 63.5,
     "electrons": 2,
     "efficiency": 100
-  } as Faradays_law_electrolysis_calculatorInput;
+  } as unknown as Faradays_law_electrolysis_calculatorInput;
     const result = calculateFaradays_law_electrolysis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

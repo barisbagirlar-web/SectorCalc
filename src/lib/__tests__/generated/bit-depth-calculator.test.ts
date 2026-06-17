@@ -12,7 +12,7 @@ describe("bit-depth-calculator", () => {
     "sampleRate": 44100,
     "numChannels": 2,
     "duration": 300
-  } as Bit_depth_calculatorInput;
+  } as unknown as Bit_depth_calculatorInput;
     const result = calculateBit_depth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

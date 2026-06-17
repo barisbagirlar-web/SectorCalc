@@ -13,7 +13,7 @@ describe("torsion-calculator", () => {
     "shearModulus": 80000000000,
     "diameter": 0.05,
     "innerDiameter": 0
-  } as Torsion_calculatorInput;
+  } as unknown as Torsion_calculatorInput;
     const result = calculateTorsion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

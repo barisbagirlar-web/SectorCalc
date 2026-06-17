@@ -13,7 +13,7 @@ describe("concrete-strength-calculator", () => {
     "age": 28,
     "constantA": 100,
     "constantB": 16
-  } as Concrete_strength_calculatorInput;
+  } as unknown as Concrete_strength_calculatorInput;
     const result = calculateConcrete_strength_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

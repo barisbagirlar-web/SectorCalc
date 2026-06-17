@@ -12,7 +12,7 @@ describe("discounted-payback-period-calculator", () => {
     "discountRate": 10,
     "annualCashFlow": 3000,
     "maxYears": 50
-  } as Discounted_payback_period_calculatorInput;
+  } as unknown as Discounted_payback_period_calculatorInput;
     const result = calculateDiscounted_payback_period_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

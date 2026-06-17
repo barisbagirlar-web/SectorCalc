@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Land Area",
         "tr": "Arsa Alanı",
-        "de": "Land Area",
+        "de": "Grundstücksfläche",
         "fr": "Land Area",
         "es": "Land Area",
         "ar": "Land Area"
       },
       "businessContext_i18n": {
         "en": "Total land area of the plot",
-        "tr": "Arsanın toplam alanı"
+        "tr": "Arsanın toplam alanı",
+        "de": "Gesamtfläche des Grundstücks"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Total Floor Area",
         "tr": "Toplam Kat Alanı",
-        "de": "Total Floor Area",
+        "de": "Gesamte Geschossfläche",
         "fr": "Total Floor Area",
         "es": "Total Floor Area",
         "ar": "Total Floor Area"
       },
       "businessContext_i18n": {
         "en": "Sum of floor areas of all floors",
-        "tr": "Tüm katların kat alanlarının toplamı"
+        "tr": "Tüm katların kat alanlarının toplamı",
+        "de": "Summe der Geschossflächen aller Etagen"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Built Area Footprint",
         "tr": "İnşaat Alanı Ayak İzi",
-        "de": "Built Area Footprint",
+        "de": "Gebäudegrundfläche",
         "fr": "Built Area Footprint",
         "es": "Built Area Footprint",
         "ar": "Built Area Footprint"
       },
       "businessContext_i18n": {
         "en": "Area covered by building footprint on the ground",
-        "tr": "Binanın zeminde kapladığı alan"
+        "tr": "Binanın zeminde kapladığı alan",
+        "de": "Fläche des Gebäudegrundrisses auf dem Boden"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Maximum Allowed FAR",
         "tr": "İzin Verilen Maksimum TAKS",
-        "de": "Maximum Allowed FAR",
+        "de": "Maximal zulässige GFZ",
         "fr": "Maximum Allowed FAR",
         "es": "Maximum Allowed FAR",
         "ar": "Maximum Allowed FAR"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable Floor Area Ratio per local regulations",
-        "tr": "Yerel yönetmeliklere göre izin verilen maksimum TAKS değeri"
+        "tr": "Yerel yönetmeliklere göre izin verilen maksimum TAKS değeri",
+        "de": "Maximal zulässige Geschossflächenzahl gemäß lokaler Vorschriften"
       }
     }
   ],

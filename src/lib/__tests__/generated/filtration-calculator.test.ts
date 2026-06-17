@@ -13,7 +13,7 @@ describe("filtration-calculator", () => {
     "pressureDrop": 100000,
     "membraneResistance": 10000000000,
     "cakeResistance": 0
-  } as Filtration_calculatorInput;
+  } as unknown as Filtration_calculatorInput;
     const result = calculateFiltration_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

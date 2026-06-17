@@ -22,7 +22,8 @@
       "businessContext": "Total forecasted demand for the SKU over one year. Used to calculate order frequency and cycle stock.",
       "label_i18n": {
         "en": "Annual Demand (units)",
-        "tr": "Yıllık Talep (birim)"
+        "tr": "Yıllık Talep (birim)",
+        "de": "Jahresbedarf (Einheiten)"
       },
       "businessContext_i18n": {
         "en": "Total forecasted demand for the SKU over one year. Used to calculate order frequency and cycle stock.",
@@ -76,7 +77,8 @@
       "businessContext": "Purchase cost per unit from supplier. Used in total cost calculations and MOQ financial impact.",
       "label_i18n": {
         "en": "Unit Cost ($)",
-        "tr": "Birim Maliyet ($)"
+        "tr": "Birim Maliyet ($)",
+        "de": "Stückkosten ($)"
       },
       "businessContext_i18n": {
         "en": "Purchase cost per unit from supplier. Used in total cost calculations and MOQ financial impact.",
@@ -112,7 +114,8 @@
       "businessContext": "Time from order placement to receipt. Used for safety stock calculation and reorder point.",
       "label_i18n": {
         "en": "Lead Time (days)",
-        "tr": "Teslim Süresi (gün)"
+        "tr": "Teslim Süresi (gün)",
+        "de": "Lieferzeit (Tage)"
       },
       "businessContext_i18n": {
         "en": "Time from order placement to receipt. Used for safety stock calculation and reorder point.",

@@ -13,7 +13,7 @@ describe("hydrograph-calculator", () => {
     "A": 100,
     "Ct": 1.5,
     "Cp": 0.6
-  } as Hydrograph_calculatorInput;
+  } as unknown as Hydrograph_calculatorInput;
     const result = calculateHydrograph_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

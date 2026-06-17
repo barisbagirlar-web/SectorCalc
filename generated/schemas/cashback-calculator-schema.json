@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Satın Alma Tutarı",
         "tr": "Satın Alma Tutarı",
-        "de": "Satın Alma Tutarı",
+        "de": "Kaufbetrag",
         "fr": "Satın Alma Tutarı",
         "es": "Satın Alma Tutarı",
         "ar": "Satın Alma Tutarı"
       },
       "businessContext_i18n": {
         "en": "Toplam satış faturası tutarı (TL)",
-        "tr": "Toplam satış faturası tutarı (TL)"
+        "tr": "Toplam satış faturası tutarı (TL)",
+        "de": "Gesamter Rechnungsbetrag (TL)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Nakit İade Oranı",
         "tr": "Nakit İade Oranı",
-        "de": "Nakit İade Oranı",
+        "de": "Barrückzahlungsrate",
         "fr": "Nakit İade Oranı",
         "es": "Nakit İade Oranı",
         "ar": "Nakit İade Oranı"
       },
       "businessContext_i18n": {
         "en": "Nakit iade yüzdesi",
-        "tr": "Nakit iade yüzdesi"
+        "tr": "Nakit iade yüzdesi",
+        "de": "Prozentsatz der Barrückzahlung"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Minimum Harcama",
         "tr": "Minimum Harcama",
-        "de": "Minimum Harcama",
+        "de": "Mindestausgabe",
         "fr": "Minimum Harcama",
         "es": "Minimum Harcama",
         "ar": "Minimum Harcama"
       },
       "businessContext_i18n": {
         "en": "Nakit iade kazanmak için gerekli minimum harcama limiti",
-        "tr": "Nakit iade kazanmak için gerekli minimum harcama limiti"
+        "tr": "Nakit iade kazanmak için gerekli minimum harcama limiti",
+        "de": "Mindestausgabegrenze, um Barrückzahlung zu erhalten"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Maksimum İade Limiti",
         "tr": "Maksimum İade Limiti",
-        "de": "Maksimum İade Limiti",
+        "de": "Maximale Rückzahlungsgrenze",
         "fr": "Maksimum İade Limiti",
         "es": "Maksimum İade Limiti",
         "ar": "Maksimum İade Limiti"
       },
       "businessContext_i18n": {
         "en": "Maksimum nakit iade miktarı (0 = limitsiz)",
-        "tr": "Maksimum nakit iade miktarı (0 = limitsiz)"
+        "tr": "Maksimum nakit iade miktarı (0 = limitsiz)",
+        "de": "Maximale Rückerstattung (0 = unbegrenzt)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Kampanya Çarpanı",
         "tr": "Kampanya Çarpanı",
-        "de": "Kampanya Çarpanı",
+        "de": "Kampagnenmultiplikator",
         "fr": "Kampanya Çarpanı",
         "es": "Kampanya Çarpanı",
         "ar": "Kampanya Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Özel dönem kampanya katsayısı",
-        "tr": "Özel dönem kampanya katsayısı"
+        "tr": "Özel dönem kampanya katsayısı",
+        "de": "Sonderperioden-Kampagnenkoeffizient"
       }
     }
   ],

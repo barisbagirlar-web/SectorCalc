@@ -12,7 +12,7 @@ describe("qualified-charitable-distribution-calculator", () => {
     "distributionAmount": 10000,
     "marginalTaxRate": 24,
     "iraBalance": 500000
-  } as Qualified_charitable_distribution_calculatorInput;
+  } as unknown as Qualified_charitable_distribution_calculatorInput;
     const result = calculateQualified_charitable_distribution_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

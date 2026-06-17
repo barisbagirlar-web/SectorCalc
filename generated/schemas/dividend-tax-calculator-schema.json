@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Gross Dividend",
         "tr": "Brüt Temettü",
-        "de": "Gross Dividend",
+        "de": "Bruttodividende",
         "fr": "Gross Dividend",
         "es": "Gross Dividend",
         "ar": "Gross Dividend"
       },
       "businessContext_i18n": {
         "en": "Total dividend received before any taxes or deductions",
-        "tr": "Vergi veya kesintilerden önce alınan toplam temettü"
+        "tr": "Vergi veya kesintilerden önce alınan toplam temettü",
+        "de": "Gesamte Dividende vor Steuern und Abzügen"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Tax-Free Allowance",
         "tr": "Vergiden Muaf Tutar",
-        "de": "Tax-Free Allowance",
+        "de": "Steuerfreier Freibetrag",
         "fr": "Tax-Free Allowance",
         "es": "Tax-Free Allowance",
         "ar": "Tax-Free Allowance"
       },
       "businessContext_i18n": {
         "en": "Amount of dividend exempt from taxation",
-        "tr": "Vergilendirmeden muaf temettü tutarı"
+        "tr": "Vergilendirmeden muaf temettü tutarı",
+        "de": "Betrag der Dividende, der von der Besteuerung ausgenommen ist"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
-        "de": "Tax Rate",
+        "de": "Steuersatz",
         "fr": "Tax Rate",
         "es": "Tax Rate",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Basic tax rate applied to taxable dividends",
-        "tr": "Vergilendirilebilir temettülere uygulanan temel vergi oranı"
+        "tr": "Vergilendirilebilir temettülere uygulanan temel vergi oranı",
+        "de": "Grundsteuersatz, der auf steuerpflichtige Dividenden angewendet wird"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Surcharge Rate",
         "tr": "Ek Vergi Oranı",
-        "de": "Surcharge Rate",
+        "de": "Zuschlagsteuersatz",
         "fr": "Surcharge Rate",
         "es": "Surcharge Rate",
         "ar": "Surcharge Rate"
       },
       "businessContext_i18n": {
         "en": "Additional surcharge on the basic tax amount",
-        "tr": "Temel vergi tutarına eklenen ek vergi"
+        "tr": "Temel vergi tutarına eklenen ek vergi",
+        "de": "Zusätzlicher Zuschlag auf den Grundsteuerbetrag"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Cess Rate",
         "tr": "Ek Yük Oranı",
-        "de": "Cess Rate",
+        "de": "Zusatzabgabe-Satz",
         "fr": "Cess Rate",
         "es": "Cess Rate",
         "ar": "Cess Rate"
       },
       "businessContext_i18n": {
         "en": "Cess levied on the sum of basic tax and surcharge",
-        "tr": "Temel vergi ve ek vergi toplamına uygulanan ek yük"
+        "tr": "Temel vergi ve ek vergi toplamına uygulanan ek yük",
+        "de": "Zusatzabgabe, die auf die Summe von Grundsteuer und Zuschlag erhoben wird"
       }
     }
   ],

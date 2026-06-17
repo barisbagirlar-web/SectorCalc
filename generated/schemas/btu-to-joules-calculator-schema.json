@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "BTU Value",
         "tr": "BTU Değeri",
-        "de": "BTU Value",
+        "de": "BTU-Wert",
         "fr": "BTU Value",
         "es": "BTU Value",
         "ar": "BTU Value"
       },
       "businessContext_i18n": {
         "en": "Energy quantity in British Thermal Units",
-        "tr": "İngiliz Isı Birimleri cinsinden enerji miktarı"
+        "tr": "İngiliz Isı Birimleri cinsinden enerji miktarı",
+        "de": "Energiemenge in British Thermal Units"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "BTU Standard",
         "tr": "BTU Standardı",
-        "de": "BTU Standard",
+        "de": "BTU-Standard",
         "fr": "BTU Standard",
         "es": "BTU Standard",
         "ar": "BTU Standard"
       },
       "businessContext_i18n": {
         "en": "1: IT (1055.06 J), 2: Thermochemical (1054.35 J), 3: ISO (1055.06 J), 4: Mean (1055.87 J)",
-        "tr": "1: IT (1055,06 J), 2: Termokimyasal (1054,35 J), 3: ISO (1055,06 J), 4: Ortalama (1055,87 J)"
+        "tr": "1: IT (1055,06 J), 2: Termokimyasal (1054,35 J), 3: ISO (1055,06 J), 4: Ortalama (1055,87 J)",
+        "de": "1: IT (1055,06 J), 2: thermochemisch (1054,35 J), 3: ISO (1055,06 J), 4: Mittelwert (1055,87 J)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Precision",
         "tr": "Hassasiyet",
-        "de": "Precision",
+        "de": "Genauigkeit",
         "fr": "Precision",
         "es": "Precision",
         "ar": "Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output",
-        "tr": "Çıktı için ondalık basamak sayısı"
+        "tr": "Çıktı için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die Ausgabe"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Custom Conversion Factor",
         "tr": "Özel Dönüşüm Faktörü",
-        "de": "Custom Conversion Factor",
+        "de": "Benutzerdefinierter Umrechnungsfaktor",
         "fr": "Custom Conversion Factor",
         "es": "Custom Conversion Factor",
         "ar": "Custom Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Override standard factor; 0 to use selected standard",
-        "tr": "Standart faktörü geçersiz kıl; 0 standart kullanmak için"
+        "tr": "Standart faktörü geçersiz kıl; 0 standart kullanmak için",
+        "de": "Standardfaktor überschreiben; 0, um den ausgewählten Standard zu verwenden"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Output Unit",
         "tr": "Çıktı Birimi",
-        "de": "Output Unit",
+        "de": "Ausgabeeinheit",
         "fr": "Output Unit",
         "es": "Output Unit",
         "ar": "Output Unit"
       },
       "businessContext_i18n": {
         "en": "1: Joules, 2: Kilojoules",
-        "tr": "1: Joule, 2: Kilojoule"
+        "tr": "1: Joule, 2: Kilojoule",
+        "de": "1: Joule, 2: Kilojoule"
       }
     }
   ],

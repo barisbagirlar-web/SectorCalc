@@ -12,7 +12,7 @@ describe("partial-derivative-calculator", () => {
     "L": 2,
     "b": 0.1,
     "h": 0.2
-  } as Partial_derivative_calculatorInput;
+  } as unknown as Partial_derivative_calculatorInput;
     const result = calculatePartial_derivative_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

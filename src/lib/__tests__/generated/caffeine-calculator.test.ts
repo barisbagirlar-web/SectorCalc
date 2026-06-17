@@ -12,7 +12,7 @@ describe("caffeine-calculator", () => {
     "numberOfServings": 1,
     "caffeineContentPer100ml": 40,
     "bodyWeight": 70
-  } as Caffeine_calculatorInput;
+  } as unknown as Caffeine_calculatorInput;
     const result = calculateCaffeine_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

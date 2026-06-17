@@ -13,7 +13,7 @@ describe("celsius-to-fahrenheit-converter-calculator", () => {
     "calibration_offset": 0,
     "unit_system": "Fahrenheit",
     "enable_alerts": true
-  } as Celsius_to_fahrenheit_converter_calculatorInput;
+  } as unknown as Celsius_to_fahrenheit_converter_calculatorInput;
     const result = calculateCelsius_to_fahrenheit_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("gold-score-calculator", () => {
     "marketPrice": 50,
     "makingChargePercent": 5,
     "taxRatePercent": 20
-  } as Gold_score_calculatorInput;
+  } as unknown as Gold_score_calculatorInput;
     const result = calculateGold_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

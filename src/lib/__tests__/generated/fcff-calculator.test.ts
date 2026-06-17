@@ -14,7 +14,7 @@ describe("fcff-calculator", () => {
     "taxRate": 0.2,
     "capitalExpenditures": 200000,
     "changeInWorkingCapital": 50000
-  } as Fcff_calculatorInput;
+  } as unknown as Fcff_calculatorInput;
     const result = calculateFcff_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

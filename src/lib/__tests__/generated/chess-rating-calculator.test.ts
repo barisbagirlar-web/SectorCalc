@@ -12,7 +12,7 @@ describe("chess-rating-calculator", () => {
     "opponentRating": 1200,
     "result": 0.5,
     "kFactor": 32
-  } as Chess_rating_calculatorInput;
+  } as unknown as Chess_rating_calculatorInput;
     const result = calculateChess_rating_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

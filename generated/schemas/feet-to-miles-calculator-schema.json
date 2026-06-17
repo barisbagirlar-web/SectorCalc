@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Feet",
         "tr": "Feet",
-        "de": "Feet",
+        "de": "Fuß",
         "fr": "Feet",
         "es": "Feet",
         "ar": "Feet"
       },
       "businessContext_i18n": {
         "en": "Distance in feet to convert to miles.",
-        "tr": "Mil'e dönüştürülecek fit cinsinden mesafe."
+        "tr": "Mil'e dönüştürülecek fit cinsinden mesafe.",
+        "de": "Entfernung in Fuß, die in Meilen umgerechnet werden soll."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Feet per Mile",
         "tr": "Mil Başına Fit",
-        "de": "Feet per Mile",
+        "de": "Fuß pro Meile",
         "fr": "Feet per Mile",
         "es": "Feet per Mile",
         "ar": "Feet per Mile"
       },
       "businessContext_i18n": {
         "en": "Conversion factor: 1 mile = 5280 feet (international foot).",
-        "tr": "Dönüşüm faktörü: 1 mil = 5280 fit (uluslararası fit)."
+        "tr": "Dönüşüm faktörü: 1 mil = 5280 fit (uluslararası fit).",
+        "de": "Umrechnungsfaktor: 1 Meile = 5280 Fuß (internationaler Fuß)."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
-        "de": "Decimal Places",
+        "de": "Dezimalstellen",
         "fr": "Decimal Places",
         "es": "Decimal Places",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the output miles.",
-        "tr": "Çıktı millerini yuvarlamak için ondalık basamak sayısı."
+        "tr": "Çıktı millerini yuvarlamak için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabemeilen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Miles (Reverse)",
         "tr": "Mil (Ters)",
-        "de": "Miles (Reverse)",
+        "de": "Meilen (Rückwärts)",
         "fr": "Miles (Reverse)",
         "es": "Miles (Reverse)",
         "ar": "Miles (Reverse)"
       },
       "businessContext_i18n": {
         "en": "Optional miles value for reverse conversion to feet. If non-zero, the reverse feet will be displayed in breakdown.",
-        "tr": "Ters dönüşüm için isteğe bağlı mil değeri. Sıfırdan farklıysa, ters fit dökümde görüntülenir."
+        "tr": "Ters dönüşüm için isteğe bağlı mil değeri. Sıfırdan farklıysa, ters fit dökümde görüntülenir.",
+        "de": "Optionaler Meilenwert für Rückwärtsumrechnung in Fuß. Wenn ungleich Null, werden die rückwärtigen Fuß in der Aufschlüsselung angezeigt."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("weibull-analysis-calculator", () => {
     "scale": 100,
     "time": 100,
     "location": 0
-  } as Weibull_analysis_calculatorInput;
+  } as unknown as Weibull_analysis_calculatorInput;
     const result = calculateWeibull_analysis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

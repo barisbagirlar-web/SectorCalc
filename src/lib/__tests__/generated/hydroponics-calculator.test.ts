@@ -13,7 +13,7 @@ describe("hydroponics-calculator", () => {
     "waterVolumeForStock": 1,
     "targetPpm": 150,
     "reservoirWaterVolume": 100
-  } as Hydroponics_calculatorInput;
+  } as unknown as Hydroponics_calculatorInput;
     const result = calculateHydroponics_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("perimeter-calculator", () => {
     "side6": 0,
     "side7": 0,
     "side8": 0
-  } as Perimeter_calculatorInput;
+  } as unknown as Perimeter_calculatorInput;
     const result = calculatePerimeter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

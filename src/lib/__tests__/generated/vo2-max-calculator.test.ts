@@ -13,7 +13,7 @@ describe("vo2-max-calculator", () => {
     "gender": 1,
     "time": 15,
     "heartRate": 130
-  } as Vo2_max_calculatorInput;
+  } as unknown as Vo2_max_calculatorInput;
     const result = calculateVo2_max_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

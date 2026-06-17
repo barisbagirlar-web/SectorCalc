@@ -14,7 +14,7 @@ describe("feature-selection-calculator", () => {
     "accuracy_impact": 5,
     "stability": 0.8,
     "compliance_score": 1
-  } as Feature_selection_calculatorInput;
+  } as unknown as Feature_selection_calculatorInput;
     const result = calculateFeature_selection_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

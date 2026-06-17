@@ -13,7 +13,7 @@ describe("vo2-max-by-age-calculator", () => {
     "gender": 1,
     "walkTime": 12,
     "heartRate": 140
-  } as Vo2_max_by_age_calculatorInput;
+  } as unknown as Vo2_max_by_age_calculatorInput;
     const result = calculateVo2_max_by_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

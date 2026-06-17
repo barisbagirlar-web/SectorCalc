@@ -13,7 +13,7 @@ describe("survival-analysis-calculator", () => {
     "targetSurvivalProb": 0.9,
     "observedFailures": 0,
     "totalTestTime": 1000
-  } as Survival_analysis_calculatorInput;
+  } as unknown as Survival_analysis_calculatorInput;
     const result = calculateSurvival_analysis_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

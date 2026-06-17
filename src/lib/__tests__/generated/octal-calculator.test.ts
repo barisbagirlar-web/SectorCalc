@@ -12,7 +12,7 @@ describe("octal-calculator", () => {
     "octalValue2": 0,
     "octalValue3": 0,
     "octalValue4": 0
-  } as Octal_calculatorInput;
+  } as unknown as Octal_calculatorInput;
     const result = calculateOctal_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("heloc-calculator", () => {
     "interestRate": 5,
     "drawAmount": 50000,
     "loanTerm": 10
-  } as Heloc_calculatorInput;
+  } as unknown as Heloc_calculatorInput;
     const result = calculateHeloc_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

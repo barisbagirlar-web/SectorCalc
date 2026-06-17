@@ -14,7 +14,7 @@ describe("mastic-calculator", () => {
     "numberOfJoints": 1,
     "cartridgeVolume": 300,
     "wasteFactor": 5
-  } as Mastic_calculatorInput;
+  } as unknown as Mastic_calculatorInput;
     const result = calculateMastic_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

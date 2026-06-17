@@ -16,7 +16,7 @@ describe("weighted-grade-calculator", () => {
     "weight3": 0,
     "grade4": 0,
     "weight4": 0
-  } as Weighted_grade_calculatorInput;
+  } as unknown as Weighted_grade_calculatorInput;
     const result = calculateWeighted_grade_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

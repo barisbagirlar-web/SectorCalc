@@ -12,7 +12,7 @@ describe("normal-shock-calculator", () => {
     "gamma": 1.4,
     "upstreamPressure": 101325,
     "upstreamTemperature": 300
-  } as Normal_shock_calculatorInput;
+  } as unknown as Normal_shock_calculatorInput;
     const result = calculateNormal_shock_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

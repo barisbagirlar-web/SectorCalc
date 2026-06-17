@@ -12,7 +12,7 @@ describe("business-loan-calculator", () => {
     "annualRate": 7.5,
     "termYears": 5,
     "originationFee": 1
-  } as Business_loan_calculatorInput;
+  } as unknown as Business_loan_calculatorInput;
     const result = calculateBusiness_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("dice-probability-calculator", () => {
     "numSides": 6,
     "modifier": 0,
     "rangeMultiplier": 2
-  } as Dice_probability_calculatorInput;
+  } as unknown as Dice_probability_calculatorInput;
     const result = calculateDice_probability_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("spring-rate-calculator", () => {
     "meanCoilDiameter": 10,
     "activeCoils": 10,
     "shearModulus": 79.3
-  } as Spring_rate_calculatorInput;
+  } as unknown as Spring_rate_calculatorInput;
     const result = calculateSpring_rate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("indefinite-integral-evaluator-calculator", () => {
     "a0": 0,
     "x": 0,
     "C": 0
-  } as Indefinite_integral_evaluator_calculatorInput;
+  } as unknown as Indefinite_integral_evaluator_calculatorInput;
     const result = calculateIndefinite_integral_evaluator_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

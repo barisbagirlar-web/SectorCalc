@@ -13,7 +13,7 @@ describe("20-20-vision-calculator", () => {
     "viewingMeters": 6,
     "letterMeters": 6,
     "targetDecimalAcuity": 0
-  } as _20_20_vision_calculatorInput;
+  } as unknown as _20_20_vision_calculatorInput;
     const result = calculate_20_20_vision_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

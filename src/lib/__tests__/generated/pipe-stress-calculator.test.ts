@@ -12,7 +12,7 @@ describe("pipe-stress-calculator", () => {
     "outerDiameter": 100,
     "wallThickness": 5,
     "yieldStrength": 250
-  } as Pipe_stress_calculatorInput;
+  } as unknown as Pipe_stress_calculatorInput;
     const result = calculatePipe_stress_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

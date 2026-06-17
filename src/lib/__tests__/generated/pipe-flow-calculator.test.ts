@@ -16,7 +16,7 @@ describe("pipe-flow-calculator", () => {
     "roughness": 0.000045,
     "elevation_change": 0,
     "minor_loss_coefficient": 0.5
-  } as Pipe_flow_calculatorInput;
+  } as unknown as Pipe_flow_calculatorInput;
     const result = calculatePipe_flow_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

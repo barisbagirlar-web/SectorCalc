@@ -12,7 +12,7 @@ describe("concept-2-calculator", () => {
     "width": 0.2,
     "height": 0.3,
     "load": 10000
-  } as Concept_2_calculatorInput;
+  } as unknown as Concept_2_calculatorInput;
     const result = calculateConcept_2_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

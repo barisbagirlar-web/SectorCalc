@@ -13,7 +13,7 @@ describe("mean-value-theorem-calculator", () => {
     "C": 0,
     "a": 0,
     "b": 1
-  } as Mean_value_theorem_calculatorInput;
+  } as unknown as Mean_value_theorem_calculatorInput;
     const result = calculateMean_value_theorem_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

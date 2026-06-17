@@ -12,7 +12,7 @@ describe("earth-overshoot-day-calculator", () => {
     "perCapitaBiocapacity": 1.6,
     "perCapitaFootprint": 2.7,
     "year": 2025
-  } as Earth_overshoot_day_calculatorInput;
+  } as unknown as Earth_overshoot_day_calculatorInput;
     const result = calculateEarth_overshoot_day_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

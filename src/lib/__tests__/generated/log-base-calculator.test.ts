@@ -12,7 +12,7 @@ describe("log-base-calculator", () => {
     "base": 10,
     "multiplier": 1,
     "offset": 0
-  } as Log_base_calculatorInput;
+  } as unknown as Log_base_calculatorInput;
     const result = calculateLog_base_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

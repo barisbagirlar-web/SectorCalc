@@ -12,7 +12,7 @@ describe("retention-factor-calculator", () => {
     "permeateConc": 10,
     "feedFlow": 10,
     "permeateFlow": 5
-  } as Retention_factor_calculatorInput;
+  } as unknown as Retention_factor_calculatorInput;
     const result = calculateRetention_factor_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

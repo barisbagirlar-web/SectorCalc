@@ -12,7 +12,7 @@ describe("estimated-fetal-weight-calculator", () => {
     "hc": 33,
     "ac": 34,
     "fl": 7
-  } as Estimated_fetal_weight_calculatorInput;
+  } as unknown as Estimated_fetal_weight_calculatorInput;
     const result = calculateEstimated_fetal_weight_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("cross-validation-calculator", () => {
     "mean_score": 0.85,
     "std_score": 0.05,
     "sample_size": 1000
-  } as Cross_validation_calculatorInput;
+  } as unknown as Cross_validation_calculatorInput;
     const result = calculateCross_validation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

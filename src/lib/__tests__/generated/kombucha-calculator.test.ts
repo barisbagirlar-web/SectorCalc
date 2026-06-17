@@ -12,7 +12,7 @@ describe("kombucha-calculator", () => {
     "sugarMass": 200,
     "teaMass": 20,
     "starterVolume": 0.5
-  } as Kombucha_calculatorInput;
+  } as unknown as Kombucha_calculatorInput;
     const result = calculateKombucha_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

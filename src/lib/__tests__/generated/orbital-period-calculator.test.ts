@@ -12,7 +12,7 @@ describe("orbital-period-calculator", () => {
     "bodyRadius": 6371000,
     "bodyMass": 5.972e+24,
     "gravitationalConstant": 6.6743e-11
-  } as Orbital_period_calculatorInput;
+  } as unknown as Orbital_period_calculatorInput;
     const result = calculateOrbital_period_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

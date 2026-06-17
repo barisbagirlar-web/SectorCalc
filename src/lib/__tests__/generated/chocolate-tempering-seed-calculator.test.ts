@@ -12,7 +12,7 @@ describe("chocolate-tempering-seed-calculator", () => {
     "meltedTemp": 45,
     "targetTemp": 31,
     "seedTemp": 20
-  } as Chocolate_tempering_seed_calculatorInput;
+  } as unknown as Chocolate_tempering_seed_calculatorInput;
     const result = calculateChocolate_tempering_seed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("kp-calculator", () => {
     "deadTime": 1,
     "safetyFactor": 1,
     "controllerType": 2
-  } as Kp_calculatorInput;
+  } as unknown as Kp_calculatorInput;
     const result = calculateKp_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

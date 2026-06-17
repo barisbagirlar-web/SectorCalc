@@ -13,7 +13,7 @@ describe("inverse-z-transform-calculator", () => {
     "b2": 0,
     "a1": 0,
     "a2": 0
-  } as Inverse_z_transform_calculatorInput;
+  } as unknown as Inverse_z_transform_calculatorInput;
     const result = calculateInverse_z_transform_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("interquartile-range-calculator", () => {
     "value4": 0,
     "value5": 0,
     "value6": 0
-  } as Interquartile_range_calculatorInput;
+  } as unknown as Interquartile_range_calculatorInput;
     const result = calculateInterquartile_range_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

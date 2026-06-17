@@ -16,7 +16,7 @@ describe("matchmaking-calculator", () => {
     "criterion3_score_b": 50,
     "criterion4_score_a": 50,
     "criterion4_score_b": 50
-  } as Matchmaking_calculatorInput;
+  } as unknown as Matchmaking_calculatorInput;
     const result = calculateMatchmaking_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("chemical-equation-balancer-calculator", () => {
     "fuelHydrogen": 4,
     "fuelSulfur": 0,
     "fuelOxygen": 0
-  } as Chemical_equation_balancer_calculatorInput;
+  } as unknown as Chemical_equation_balancer_calculatorInput;
     const result = calculateChemical_equation_balancer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("pipe-size-calculator", () => {
     "allowableStress": 137.9,
     "jointEfficiency": 1,
     "corrosionAllowance": 1.5
-  } as Pipe_size_calculatorInput;
+  } as unknown as Pipe_size_calculatorInput;
     const result = calculatePipe_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

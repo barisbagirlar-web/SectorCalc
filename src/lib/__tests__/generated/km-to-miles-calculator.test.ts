@@ -12,7 +12,7 @@ describe("km-to-miles-calculator", () => {
     "conversionFactor": 0.621371,
     "roundingDecimals": 2,
     "scientificNotation": 0
-  } as Km_to_miles_calculatorInput;
+  } as unknown as Km_to_miles_calculatorInput;
     const result = calculateKm_to_miles_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -15,7 +15,7 @@ describe("fiber-calculator", () => {
     "splices": 0,
     "spliceLoss": 0.1,
     "margin": 3
-  } as Fiber_calculatorInput;
+  } as unknown as Fiber_calculatorInput;
     const result = calculateFiber_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

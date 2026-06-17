@@ -12,7 +12,7 @@ describe("retaining-wall-design-calculator", () => {
     "gamma": 18,
     "phi": 30,
     "q": 10
-  } as Retaining_wall_design_calculatorInput;
+  } as unknown as Retaining_wall_design_calculatorInput;
     const result = calculateRetaining_wall_design_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

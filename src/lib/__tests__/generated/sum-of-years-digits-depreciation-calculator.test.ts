@@ -12,7 +12,7 @@ describe("sum-of-years-digits-depreciation-calculator", () => {
     "salvageValue": 1000,
     "usefulLife": 5,
     "year": 1
-  } as Sum_of_years_digits_depreciation_calculatorInput;
+  } as unknown as Sum_of_years_digits_depreciation_calculatorInput;
     const result = calculateSum_of_years_digits_depreciation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

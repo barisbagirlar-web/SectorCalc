@@ -13,7 +13,7 @@ describe("rods-to-feet-calculator", () => {
     "decimalPlaces": 2,
     "safetyFactor": 0,
     "tolerance": 0
-  } as Rods_to_feet_calculatorInput;
+  } as unknown as Rods_to_feet_calculatorInput;
     const result = calculateRods_to_feet_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

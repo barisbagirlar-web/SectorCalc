@@ -12,7 +12,7 @@ describe("guitar-string-gauge-calculator", () => {
     "frequency": 82.41,
     "stringDiameter": 1.17,
     "density": 7850
-  } as Guitar_string_gauge_calculatorInput;
+  } as unknown as Guitar_string_gauge_calculatorInput;
     const result = calculateGuitar_string_gauge_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

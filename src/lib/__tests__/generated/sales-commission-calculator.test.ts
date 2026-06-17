@@ -13,7 +13,7 @@ describe("sales-commission-calculator", () => {
     "targetSales": 10000,
     "bonusRate": 2,
     "baseSalary": 2000
-  } as Sales_commission_calculatorInput;
+  } as unknown as Sales_commission_calculatorInput;
     const result = calculateSales_commission_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

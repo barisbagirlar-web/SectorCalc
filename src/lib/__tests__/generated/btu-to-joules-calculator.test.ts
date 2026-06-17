@@ -13,7 +13,7 @@ describe("btu-to-joules-calculator", () => {
     "precision": 2,
     "factorOverride": 0,
     "outputUnit": 1
-  } as Btu_to_joules_calculatorInput;
+  } as unknown as Btu_to_joules_calculatorInput;
     const result = calculateBtu_to_joules_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

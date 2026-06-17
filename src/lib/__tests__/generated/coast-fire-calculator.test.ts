@@ -12,7 +12,7 @@ describe("coast-fire-calculator", () => {
     "retirementAge": 65,
     "annualReturnRate": 7,
     "fireTarget": 1000000
-  } as Coast_fire_calculatorInput;
+  } as unknown as Coast_fire_calculatorInput;
     const result = calculateCoast_fire_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

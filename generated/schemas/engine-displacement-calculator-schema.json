@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Bore",
         "tr": "Silindir Çapı",
-        "de": "Bore",
+        "de": "Zylinderbohrung",
         "fr": "Bore",
         "es": "Bore",
         "ar": "Bore"
       },
       "businessContext_i18n": {
         "en": "Cylinder bore diameter in millimeters",
-        "tr": "Silindir çapı (mm)"
+        "tr": "Silindir çapı (mm)",
+        "de": "Zylinderbohrungsdurchmesser in Millimetern"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Stroke",
         "tr": "Strok",
-        "de": "Stroke",
+        "de": "Hub",
         "fr": "Stroke",
         "es": "Stroke",
         "ar": "Stroke"
       },
       "businessContext_i18n": {
         "en": "Piston stroke length in millimeters",
-        "tr": "Piston strok uzunluğu (mm)"
+        "tr": "Piston strok uzunluğu (mm)",
+        "de": "Kolbenhublänge in Millimetern"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Cylinders",
         "tr": "Silindir sayısı",
-        "de": "Number of Cylinders",
+        "de": "Anzahl der Zylinder",
         "fr": "Number of Cylinders",
         "es": "Number of Cylinders",
         "ar": "Number of Cylinders"
       },
       "businessContext_i18n": {
         "en": "Total number of engine cylinders",
-        "tr": "Toplam motor silindir sayısı"
+        "tr": "Toplam motor silindir sayısı",
+        "de": "Gesamtzahl der Motorzylinder"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Output Unit",
         "tr": "Çıktı Birimi",
-        "de": "Output Unit",
+        "de": "Ausgabeeinheit",
         "fr": "Output Unit",
         "es": "Output Unit",
         "ar": "Output Unit"
       },
       "businessContext_i18n": {
         "en": "1 for cubic centimeters, 2 for liters, 3 for cubic inches",
-        "tr": "1: cm³, 2: litre, 3: inç³"
+        "tr": "1: cm³, 2: litre, 3: inç³",
+        "de": "1 für Kubikzentimeter, 2 für Liter, 3 für Kubikzoll"
       }
     }
   ],

@@ -13,7 +13,7 @@ describe("distillation-calculator", () => {
     "distillateComposition": 0.95,
     "bottomsComposition": 0.05,
     "relativeVolatility": 2.5
-  } as Distillation_calculatorInput;
+  } as unknown as Distillation_calculatorInput;
     const result = calculateDistillation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

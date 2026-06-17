@@ -12,7 +12,7 @@ describe("mach-number-calculator", () => {
     "temperature": 20,
     "gamma": 1.4,
     "R": 287
-  } as Mach_number_calculatorInput;
+  } as unknown as Mach_number_calculatorInput;
     const result = calculateMach_number_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

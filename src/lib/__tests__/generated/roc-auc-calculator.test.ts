@@ -16,7 +16,7 @@ describe("roc-auc-calculator", () => {
     "tpr3": 0.9,
     "fpr4": 0.8,
     "tpr4": 0.95
-  } as Roc_auc_calculatorInput;
+  } as unknown as Roc_auc_calculatorInput;
     const result = calculateRoc_auc_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

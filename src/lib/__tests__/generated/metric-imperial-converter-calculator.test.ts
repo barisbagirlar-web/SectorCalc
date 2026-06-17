@@ -12,7 +12,7 @@ describe("metric-imperial-converter-calculator", () => {
     "kilograms": 0,
     "liters": 0,
     "celsius": 0
-  } as Metric_imperial_converter_calculatorInput;
+  } as unknown as Metric_imperial_converter_calculatorInput;
     const result = calculateMetric_imperial_converter_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

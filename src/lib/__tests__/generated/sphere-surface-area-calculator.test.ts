@@ -14,7 +14,7 @@ describe("sphere-surface-area-calculator", () => {
     "outputUnit": 0,
     "costPerSquareMeter": 0,
     "wasteFactor": 5
-  } as Sphere_surface_area_calculatorInput;
+  } as unknown as Sphere_surface_area_calculatorInput;
     const result = calculateSphere_surface_area_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

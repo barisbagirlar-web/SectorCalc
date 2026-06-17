@@ -14,7 +14,7 @@ describe("beading-calculator", () => {
     "reinforcementHeight": 1.5,
     "weldLength": 500,
     "materialDensity": 7.85
-  } as Beading_calculatorInput;
+  } as unknown as Beading_calculatorInput;
     const result = calculateBeading_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

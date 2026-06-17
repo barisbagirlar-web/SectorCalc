@@ -15,7 +15,7 @@ describe("column-design-calculator", () => {
     "A": 50,
     "Fy": 250,
     "SF": 2
-  } as Column_design_calculatorInput;
+  } as unknown as Column_design_calculatorInput;
     const result = calculateColumn_design_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

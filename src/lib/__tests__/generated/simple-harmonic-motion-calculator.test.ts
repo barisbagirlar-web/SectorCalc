@@ -13,7 +13,7 @@ describe("simple-harmonic-motion-calculator", () => {
     "phi": 0,
     "t": 0,
     "m": 1
-  } as Simple_harmonic_motion_calculatorInput;
+  } as unknown as Simple_harmonic_motion_calculatorInput;
     const result = calculateSimple_harmonic_motion_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

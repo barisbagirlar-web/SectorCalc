@@ -13,7 +13,7 @@ describe("romer-to-celsius-calculator", () => {
     "calibrationFactor": 0,
     "measurementUncertainty": 0.1,
     "confidenceLevel": 95
-  } as Romer_to_celsius_calculatorInput;
+  } as unknown as Romer_to_celsius_calculatorInput;
     const result = calculateRomer_to_celsius_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("parabola-equation-calculator", () => {
     "k": 0,
     "x1": 1,
     "y1": 1
-  } as Parabola_equation_calculatorInput;
+  } as unknown as Parabola_equation_calculatorInput;
     const result = calculateParabola_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

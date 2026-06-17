@@ -12,7 +12,7 @@ describe("vector-angle-calculator", () => {
     "y1": 0,
     "x2": 0,
     "y2": 1
-  } as Vector_angle_calculatorInput;
+  } as unknown as Vector_angle_calculatorInput;
     const result = calculateVector_angle_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

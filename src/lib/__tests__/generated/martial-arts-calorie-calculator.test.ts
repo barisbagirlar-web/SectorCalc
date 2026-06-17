@@ -12,7 +12,7 @@ describe("martial-arts-calorie-calculator", () => {
     "duration": 60,
     "met": 10,
     "adjustmentFactor": 1
-  } as Martial_arts_calorie_calculatorInput;
+  } as unknown as Martial_arts_calorie_calculatorInput;
     const result = calculateMartial_arts_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

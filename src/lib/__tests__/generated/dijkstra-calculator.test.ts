@@ -14,7 +14,7 @@ describe("dijkstra-calculator", () => {
     "d_BC": 5,
     "d_BD": 10,
     "d_CD": 20
-  } as Dijkstra_calculatorInput;
+  } as unknown as Dijkstra_calculatorInput;
     const result = calculateDijkstra_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

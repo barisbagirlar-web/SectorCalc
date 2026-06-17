@@ -13,7 +13,7 @@ describe("day-length-calculator", () => {
     "month": 6,
     "day": 21,
     "utcOffset": 3
-  } as Day_length_calculatorInput;
+  } as unknown as Day_length_calculatorInput;
     const result = calculateDay_length_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

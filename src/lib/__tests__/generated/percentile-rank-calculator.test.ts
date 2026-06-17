@@ -14,7 +14,7 @@ describe("percentile-rank-calculator", () => {
     "value3": 30,
     "value4": 40,
     "value5": 60
-  } as Percentile_rank_calculatorInput;
+  } as unknown as Percentile_rank_calculatorInput;
     const result = calculatePercentile_rank_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

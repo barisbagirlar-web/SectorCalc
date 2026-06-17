@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
-        "de": "Body Weight",
+        "de": "Körpergewicht",
         "fr": "Body Weight",
         "es": "Body Weight",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Athlete's body weight in kilograms, used to estimate energy expenditure.",
-        "tr": "Sporcunun kilogram cinsinden vücut ağırlığı, enerji harcamasını tahmin etmek için kullanılır."
+        "tr": "Sporcunun kilogram cinsinden vücut ağırlığı, enerji harcamasını tahmin etmek için kullanılır.",
+        "de": "Körpergewicht des Athleten in Kilogramm, zur Schätzung des Energieverbrauchs."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Workout Duration",
         "tr": "Antrenman Süresi",
-        "de": "Workout Duration",
+        "de": "Trainingsdauer",
         "fr": "Workout Duration",
         "es": "Workout Duration",
         "ar": "Workout Duration"
       },
       "businessContext_i18n": {
         "en": "Total duration of the CrossFit workout in minutes.",
-        "tr": "CrossFit antrenmanının dakika cinsinden toplam süresi."
+        "tr": "CrossFit antrenmanının dakika cinsinden toplam süresi.",
+        "de": "Gesamtdauer des CrossFit-Trainings in Minuten."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "MET Value",
         "tr": "MET Değeri",
-        "de": "MET Value",
+        "de": "MET-Wert",
         "fr": "MET Value",
         "es": "MET Value",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task (MET) for the workout intensity. CrossFit typically ranges 6-12 METs.",
-        "tr": "Antrenman yoğunluğu için Metabolik Eşdeğer (MET). CrossFit genellikle 6-12 MET aralığındadır."
+        "tr": "Antrenman yoğunluğu için Metabolik Eşdeğer (MET). CrossFit genellikle 6-12 MET aralığındadır.",
+        "de": "Metabolisches Äquivalent (MET) für die Trainingsintensität. CrossFit liegt typischerweise zwischen 6-12 METs."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Gender Adjustment Factor",
         "tr": "Cinsiyet Düzeltme Faktörü",
-        "de": "Gender Adjustment Factor",
+        "de": "Geschlechtsanpassungsfaktor",
         "fr": "Gender Adjustment Factor",
         "es": "Gender Adjustment Factor",
         "ar": "Gender Adjustment Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust calories for gender differences (commonly 1.0 for males, 0.9 for females).",
-        "tr": "Cinsiyet farklılıklarına göre kaloriyi ayarlamak için çarpan (genellikle erkekler için 1.0, kadınlar için 0.9)."
+        "tr": "Cinsiyet farklılıklarına göre kaloriyi ayarlamak için çarpan (genellikle erkekler için 1.0, kadınlar için 0.9).",
+        "de": "Multiplikator zur Kalorienanpassung für Geschlechtsunterschiede (üblich 1,0 für Männer, 0,9 für Frauen)."
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("age-difference-calculator", () => {
     "person1Months": 0,
     "person2Years": 25,
     "person2Months": 0
-  } as Age_difference_calculatorInput;
+  } as unknown as Age_difference_calculatorInput;
     const result = calculateAge_difference_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

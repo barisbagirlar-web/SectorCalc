@@ -12,7 +12,7 @@ describe("radical-calculator", () => {
     "radicand": 16,
     "index": 2,
     "addend": 0
-  } as Radical_calculatorInput;
+  } as unknown as Radical_calculatorInput;
     const result = calculateRadical_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

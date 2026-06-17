@@ -12,7 +12,7 @@ describe("principal-stress-calculator", () => {
     "sigmaY": 0,
     "tauXY": 0,
     "theta": 0
-  } as Principal_stress_calculatorInput;
+  } as unknown as Principal_stress_calculatorInput;
     const result = calculatePrincipal_stress_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

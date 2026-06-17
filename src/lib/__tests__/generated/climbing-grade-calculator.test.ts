@@ -12,7 +12,7 @@ describe("climbing-grade-calculator", () => {
     "verticalRise": 10,
     "angleInput": 0,
     "slopeLengthInput": 0
-  } as Climbing_grade_calculatorInput;
+  } as unknown as Climbing_grade_calculatorInput;
     const result = calculateClimbing_grade_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

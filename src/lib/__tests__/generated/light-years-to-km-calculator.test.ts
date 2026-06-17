@@ -12,7 +12,7 @@ describe("light-years-to-km-calculator", () => {
     "significantDigits": 6,
     "outputFormat": 0,
     "roundingMode": 0
-  } as Light_years_to_km_calculatorInput;
+  } as unknown as Light_years_to_km_calculatorInput;
     const result = calculateLight_years_to_km_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -13,7 +13,7 @@ describe("bsfc-calculator", () => {
     "fuelDensityRef": 0.84,
     "power": 0,
     "thermalExpansionCoeff": 0.00095
-  } as Bsfc_calculatorInput;
+  } as unknown as Bsfc_calculatorInput;
     const result = calculateBsfc_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Room Length",
         "tr": "Oda Uzunluğu",
-        "de": "Room Length",
+        "de": "Raumlänge",
         "fr": "Room Length",
         "es": "Room Length",
         "ar": "Room Length"
       },
       "businessContext_i18n": {
         "en": "Length of the room to be cooled or heated.",
-        "tr": "Soğutulacak veya ısıtılacak odanın uzunluğu."
+        "tr": "Soğutulacak veya ısıtılacak odanın uzunluğu.",
+        "de": "Länge des zu kühlenden oder zu beheizenden Raums."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Room Width",
         "tr": "Oda Genişliği",
-        "de": "Room Width",
+        "de": "Raumbreite",
         "fr": "Room Width",
         "es": "Room Width",
         "ar": "Room Width"
       },
       "businessContext_i18n": {
         "en": "Width of the room to be cooled or heated.",
-        "tr": "Soğutulacak veya ısıtılacak odanın genişliği."
+        "tr": "Soğutulacak veya ısıtılacak odanın genişliği.",
+        "de": "Breite des zu kühlenden oder zu beheizenden Raums."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Ceiling Height",
         "tr": "Tavan Yüksekliği",
-        "de": "Ceiling Height",
+        "de": "Deckenhöhe",
         "fr": "Ceiling Height",
         "es": "Ceiling Height",
         "ar": "Ceiling Height"
       },
       "businessContext_i18n": {
         "en": "Height of the ceiling from floor.",
-        "tr": "Zeminden tavan yüksekliği."
+        "tr": "Zeminden tavan yüksekliği.",
+        "de": "Höhe der Decke vom Boden."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Insulation Factor",
         "tr": "Yalıtım Faktörü",
-        "de": "Insulation Factor",
+        "de": "Isolationsfaktor",
         "fr": "Insulation Factor",
         "es": "Insulation Factor",
         "ar": "Insulation Factor"
       },
       "businessContext_i18n": {
         "en": "Insulation quality: 0.5 (excellent), 1.0 (average), 1.5 (poor).",
-        "tr": "Yalıtım kalitesi: 0,5 (mükemmel), 1,0 (ortalama), 1,5 (kötü)."
+        "tr": "Yalıtım kalitesi: 0,5 (mükemmel), 1,0 (ortalama), 1,5 (kötü).",
+        "de": "Isolationsqualität: 0,5 (ausgezeichnet), 1,0 (durchschnittlich), 1,5 (schlecht)."
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Sun Exposure",
         "tr": "Güneşe Maruziyet",
-        "de": "Sun Exposure",
+        "de": "Sonneneinstrahlung",
         "fr": "Sun Exposure",
         "es": "Sun Exposure",
         "ar": "Sun Exposure"
       },
       "businessContext_i18n": {
         "en": "Additional BTU per square foot due to sun: 0 (none), 10 (moderate), 20 (high).",
-        "tr": "Güneş nedeniyle metrekare başına ek BTU: 0 (yok), 10 (orta), 20 (yüksek)."
+        "tr": "Güneş nedeniyle metrekare başına ek BTU: 0 (yok), 10 (orta), 20 (yüksek).",
+        "de": "Zusätzliche BTU pro Quadratfuß durch Sonne: 0 (keine), 10 (mäßig), 20 (stark)."
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Number of Occupants",
         "tr": "Kişi Sayısı",
-        "de": "Number of Occupants",
+        "de": "Anzahl der Personen",
         "fr": "Number of Occupants",
         "es": "Number of Occupants",
         "ar": "Number of Occupants"
       },
       "businessContext_i18n": {
         "en": "Typical number of people in the room.",
-        "tr": "Odadaki tipik kişi sayısı."
+        "tr": "Odadaki tipik kişi sayısı.",
+        "de": "Typische Anzahl von Personen im Raum."
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Number of Windows",
         "tr": "Pencere Sayısı",
-        "de": "Number of Windows",
+        "de": "Anzahl der Fenster",
         "fr": "Number of Windows",
         "es": "Number of Windows",
         "ar": "Number of Windows"
       },
       "businessContext_i18n": {
         "en": "Number of windows in the room.",
-        "tr": "Odadaki pencere sayısı."
+        "tr": "Odadaki pencere sayısı.",
+        "de": "Anzahl der Fenster im Raum."
       }
     }
   ],

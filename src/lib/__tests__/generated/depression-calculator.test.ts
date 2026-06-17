@@ -13,7 +13,7 @@ describe("depression-calculator", () => {
     "bottomLength": 1.5,
     "bottomWidth": 0.5,
     "depth": 0.3
-  } as Depression_calculatorInput;
+  } as unknown as Depression_calculatorInput;
     const result = calculateDepression_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

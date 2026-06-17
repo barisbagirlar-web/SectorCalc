@@ -12,7 +12,7 @@ describe("elastic-collision-calculator", () => {
     "m2": 1,
     "v1i": 10,
     "v2i": 0
-  } as Elastic_collision_calculatorInput;
+  } as unknown as Elastic_collision_calculatorInput;
     const result = calculateElastic_collision_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

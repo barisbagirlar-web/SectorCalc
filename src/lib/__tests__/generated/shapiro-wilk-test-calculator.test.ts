@@ -13,7 +13,7 @@ describe("shapiro-wilk-test-calculator", () => {
     "x3": 0,
     "x4": 0,
     "x5": 0
-  } as Shapiro_wilk_test_calculatorInput;
+  } as unknown as Shapiro_wilk_test_calculatorInput;
     const result = calculateShapiro_wilk_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

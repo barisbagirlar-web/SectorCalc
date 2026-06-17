@@ -12,7 +12,7 @@ describe("sharpe-ratio-calculator", () => {
     "riskFreeRate": 2,
     "dailyStdDev": 1.5,
     "tradingDays": 252
-  } as Sharpe_ratio_calculatorInput;
+  } as unknown as Sharpe_ratio_calculatorInput;
     const result = calculateSharpe_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

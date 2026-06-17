@@ -12,7 +12,7 @@ describe("annuity-payout-calculator", () => {
     "annualRate": 5,
     "years": 20,
     "paymentsPerYear": 12
-  } as Annuity_payout_calculatorInput;
+  } as unknown as Annuity_payout_calculatorInput;
     const result = calculateAnnuity_payout_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

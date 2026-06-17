@@ -15,7 +15,7 @@ describe("sphere-volume-calculator", () => {
     "unitMultiplier": 1,
     "density": 1000,
     "wasteFactor": 5
-  } as Sphere_volume_calculatorInput;
+  } as unknown as Sphere_volume_calculatorInput;
     const result = calculateSphere_volume_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

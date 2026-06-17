@@ -12,7 +12,7 @@ describe("coherence-breathing-calculator", () => {
     "ratio": 0.5,
     "duration": 10,
     "restingRate": 12
-  } as Coherence_breathing_calculatorInput;
+  } as unknown as Coherence_breathing_calculatorInput;
     const result = calculateCoherence_breathing_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

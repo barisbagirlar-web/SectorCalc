@@ -13,7 +13,7 @@ describe("overtraining-calculator", () => {
     "recoveryFactor": 7,
     "experience": 2,
     "taskComplexity": 3
-  } as Overtraining_calculatorInput;
+  } as unknown as Overtraining_calculatorInput;
     const result = calculateOvertraining_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

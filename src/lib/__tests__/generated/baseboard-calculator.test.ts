@@ -15,7 +15,7 @@ describe("baseboard-calculator", () => {
     "baseboardLengthPerPiece": 2.4,
     "pricePerPiece": 10,
     "wasteFactor": 5
-  } as Baseboard_calculatorInput;
+  } as unknown as Baseboard_calculatorInput;
     const result = calculateBaseboard_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

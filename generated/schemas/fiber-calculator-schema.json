@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fiber Length",
         "tr": "Fiber Uzunluğu",
-        "de": "Fiber Length",
+        "de": "Faserlänge",
         "fr": "Fiber Length",
         "es": "Fiber Length",
         "ar": "Fiber Length"
       },
       "businessContext_i18n": {
         "en": "Total fiber cable length",
-        "tr": "Toplam fiber kablo uzunluğu"
+        "tr": "Toplam fiber kablo uzunluğu",
+        "de": "Gesamtlänge des Faserkabels"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Attenuation Coefficient",
         "tr": "Zayıflama Katsayısı",
-        "de": "Attenuation Coefficient",
+        "de": "Dämpfungskoeffizient",
         "fr": "Attenuation Coefficient",
         "es": "Attenuation Coefficient",
         "ar": "Attenuation Coefficient"
       },
       "businessContext_i18n": {
         "en": "Typical for single-mode fiber at 1310nm",
-        "tr": "1310nm'de tek modlu fiber için tipik"
+        "tr": "1310nm'de tek modlu fiber için tipik",
+        "de": "Typisch für Singlemode-Faser bei 1310 nm"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Number of Connectors",
         "tr": "Konnektör Sayısı",
-        "de": "Number of Connectors",
+        "de": "Anzahl der Steckverbinder",
         "fr": "Number of Connectors",
         "es": "Number of Connectors",
         "ar": "Number of Connectors"
       },
       "businessContext_i18n": {
         "en": "Connector pairs in the link",
-        "tr": "Bağlantıdaki konnektör çiftleri"
+        "tr": "Bağlantıdaki konnektör çiftleri",
+        "de": "Steckverbinderpaare in der Verbindung"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Connector Loss",
         "tr": "Konnektör Kaybı",
-        "de": "Connector Loss",
+        "de": "Steckverbinderdämpfung",
         "fr": "Connector Loss",
         "es": "Connector Loss",
         "ar": "Connector Loss"
       },
       "businessContext_i18n": {
         "en": "Loss per connector pair",
-        "tr": "Konnektör çifti başına kayıp"
+        "tr": "Konnektör çifti başına kayıp",
+        "de": "Dämpfung pro Steckverbinderpaar"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Number of Splices",
         "tr": "Ek Sayısı",
-        "de": "Number of Splices",
+        "de": "Anzahl der Spleiße",
         "fr": "Number of Splices",
         "es": "Number of Splices",
         "ar": "Number of Splices"
       },
       "businessContext_i18n": {
         "en": "Fusion splices in the link",
-        "tr": "Füzyon eklemeleri"
+        "tr": "Füzyon eklemeleri",
+        "de": "Fusionsspleiße in der Verbindung"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Splice Loss",
         "tr": "Eklem kaybı",
-        "de": "Splice Loss",
+        "de": "Spleißdämpfung",
         "fr": "Splice Loss",
         "es": "Splice Loss",
         "ar": "Splice Loss"
       },
       "businessContext_i18n": {
         "en": "Loss per splice",
-        "tr": "Eklem başına kayıp"
+        "tr": "Eklem başına kayıp",
+        "de": "Dämpfung pro Spleiß"
       }
     },
     {
@@ -131,14 +137,15 @@
       "label_i18n": {
         "en": "Safety Margin",
         "tr": "Güvenlik Marjı",
-        "de": "Safety Margin",
+        "de": "Sicherheitsmarge",
         "fr": "Safety Margin",
         "es": "Safety Margin",
         "ar": "Safety Margin"
       },
       "businessContext_i18n": {
         "en": "System margin for degradation",
-        "tr": "Bozulma için sistem marjı"
+        "tr": "Bozulma için sistem marjı",
+        "de": "Systemreserve für Degradation"
       }
     }
   ],

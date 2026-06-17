@@ -15,7 +15,7 @@ describe("asset-allocation-calculator", () => {
     "stockReturn": 7,
     "bondReturn": 4,
     "cashReturn": 2
-  } as Asset_allocation_calculatorInput;
+  } as unknown as Asset_allocation_calculatorInput;
     const result = calculateAsset_allocation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

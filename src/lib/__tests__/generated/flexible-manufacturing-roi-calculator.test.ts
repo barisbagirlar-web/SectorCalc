@@ -16,7 +16,7 @@ describe("flexible-manufacturing-roi-calculator", () => {
     "changeover_cost_per_hour": 150,
     "inventory_holding_cost_rate": 25,
     "avg_inventory_value": 2000000
-  } as Flexible_manufacturing_roi_calculatorInput;
+  } as unknown as Flexible_manufacturing_roi_calculatorInput;
     const result = calculateFlexible_manufacturing_roi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

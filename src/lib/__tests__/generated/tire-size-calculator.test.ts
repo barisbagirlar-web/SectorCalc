@@ -12,7 +12,7 @@ describe("tire-size-calculator", () => {
     "aspectRatio": 45,
     "rimDiameter": 17,
     "treadLoss": 0
-  } as Tire_size_calculatorInput;
+  } as unknown as Tire_size_calculatorInput;
     const result = calculateTire_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

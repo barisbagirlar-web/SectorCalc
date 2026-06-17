@@ -15,7 +15,7 @@ describe("cleaning-cost-calculator", () => {
     "materialCost": 2,
     "equipmentCost": 100,
     "overheadMargin": 20
-  } as Cleaning_cost_calculatorInput;
+  } as unknown as Cleaning_cost_calculatorInput;
     const result = calculateCleaning_cost_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

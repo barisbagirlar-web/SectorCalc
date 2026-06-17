@@ -12,7 +12,7 @@ describe("cheat-day-calculator", () => {
     "cheatDayOutputPercent": 50,
     "numCheatDays": 1,
     "totalDays": 30
-  } as Cheat_day_calculatorInput;
+  } as unknown as Cheat_day_calculatorInput;
     const result = calculateCheat_day_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

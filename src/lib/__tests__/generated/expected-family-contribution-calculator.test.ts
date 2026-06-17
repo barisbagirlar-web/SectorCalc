@@ -16,7 +16,7 @@ describe("expected-family-contribution-calculator", () => {
     "number_in_college": 1,
     "state_tax_rate": 5,
     "age_older_parent": 45
-  } as Expected_family_contribution_calculatorInput;
+  } as unknown as Expected_family_contribution_calculatorInput;
     const result = calculateExpected_family_contribution_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

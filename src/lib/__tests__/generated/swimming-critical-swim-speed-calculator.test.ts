@@ -12,7 +12,7 @@ describe("swimming-critical-swim-speed-calculator", () => {
     "time1": 150,
     "distance2": 400,
     "time2": 310
-  } as Swimming_critical_swim_speed_calculatorInput;
+  } as unknown as Swimming_critical_swim_speed_calculatorInput;
     const result = calculateSwimming_critical_swim_speed_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

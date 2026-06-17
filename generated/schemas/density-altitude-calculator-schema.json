@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Field Elevation",
         "tr": "Saha Yüksekliği",
-        "de": "Field Elevation",
+        "de": "Flugplatzhöhe",
         "fr": "Field Elevation",
         "es": "Field Elevation",
         "ar": "Field Elevation"
       },
       "businessContext_i18n": {
         "en": "Elevation of the airport or site above mean sea level",
-        "tr": "Havalimanı veya sahanın ortalama deniz seviyesinden yüksekliği"
+        "tr": "Havalimanı veya sahanın ortalama deniz seviyesinden yüksekliği",
+        "de": "Höhe des Flughafens oder Standorts über dem mittleren Meeresspiegel"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Altimeter Setting",
         "tr": "Altimetre Ayarı",
-        "de": "Altimeter Setting",
+        "de": "Höhenmessereinstellung",
         "fr": "Altimeter Setting",
         "es": "Altimeter Setting",
         "ar": "Altimeter Setting"
       },
       "businessContext_i18n": {
         "en": "Current barometric pressure setting from ATIS/AWOS",
-        "tr": "ATIS/AWOS'tan mevcut barometrik basınç ayarı"
+        "tr": "ATIS/AWOS'tan mevcut barometrik basınç ayarı",
+        "de": "Aktuelle Luftdruckeinstellung von ATIS/AWOS"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Outside Air Temperature",
         "tr": "Dış Hava Sıcaklığı",
-        "de": "Outside Air Temperature",
+        "de": "Außenlufttemperatur",
         "fr": "Outside Air Temperature",
         "es": "Outside Air Temperature",
         "ar": "Outside Air Temperature"
       },
       "businessContext_i18n": {
         "en": "Measured outside air temperature",
-        "tr": "Ölçülen dış hava sıcaklığı"
+        "tr": "Ölçülen dış hava sıcaklığı",
+        "de": "Gemessene Außenlufttemperatur"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Dew Point",
         "tr": "Çiğ Noktası",
-        "de": "Dew Point",
+        "de": "Taupunkt",
         "fr": "Dew Point",
         "es": "Dew Point",
         "ar": "Dew Point"
       },
       "businessContext_i18n": {
         "en": "Dew point temperature for humidity correction",
-        "tr": "Nem düzeltmesi için çiğ noktası sıcaklığı"
+        "tr": "Nem düzeltmesi için çiğ noktası sıcaklığı",
+        "de": "Taupunkttemperatur für Feuchtigkeitskorrektur"
       }
     }
   ],

@@ -12,7 +12,7 @@ describe("party-food-calculator", () => {
     "children": 5,
     "hours": 3,
     "veggieRatio": 20
-  } as Party_food_calculatorInput;
+  } as unknown as Party_food_calculatorInput;
     const result = calculateParty_food_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

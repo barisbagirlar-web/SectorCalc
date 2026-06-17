@@ -13,7 +13,7 @@ describe("continuity-equation-calculator", () => {
     "density": 1000,
     "safetyFactor": 1,
     "outputUnitMultiplier": 1
-  } as Continuity_equation_calculatorInput;
+  } as unknown as Continuity_equation_calculatorInput;
     const result = calculateContinuity_equation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

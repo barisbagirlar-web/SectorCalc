@@ -12,7 +12,7 @@ describe("etsy-fee-calculator", () => {
     "shippingPrice": 5,
     "quantity": 1,
     "itemCost": 10
-  } as Etsy_fee_calculatorInput;
+  } as unknown as Etsy_fee_calculatorInput;
     const result = calculateEtsy_fee_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

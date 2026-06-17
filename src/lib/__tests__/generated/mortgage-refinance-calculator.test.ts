@@ -14,7 +14,7 @@ describe("mortgage-refinance-calculator", () => {
     "newRate": 4,
     "newTerm": 180,
     "closingCosts": 3000
-  } as Mortgage_refinance_calculatorInput;
+  } as unknown as Mortgage_refinance_calculatorInput;
     const result = calculateMortgage_refinance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

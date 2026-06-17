@@ -12,7 +12,7 @@ describe("growing-perpetuity-calculator", () => {
     "discountRate": 10,
     "growthRate": 3,
     "timingFlag": 0
-  } as Growing_perpetuity_calculatorInput;
+  } as unknown as Growing_perpetuity_calculatorInput;
     const result = calculateGrowing_perpetuity_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

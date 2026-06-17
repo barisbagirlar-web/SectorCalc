@@ -16,7 +16,7 @@ describe("skewness-calculator", () => {
     "dataPoint6": 6,
     "dataPoint7": 7,
     "dataPoint8": 8
-  } as Skewness_calculatorInput;
+  } as unknown as Skewness_calculatorInput;
     const result = calculateSkewness_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

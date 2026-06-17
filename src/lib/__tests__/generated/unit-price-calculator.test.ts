@@ -13,7 +13,7 @@ describe("unit-price-calculator", () => {
     "additionalCosts": 0,
     "discountPercent": 0,
     "taxRate": 0
-  } as Unit_price_calculatorInput;
+  } as unknown as Unit_price_calculatorInput;
     const result = calculateUnit_price_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

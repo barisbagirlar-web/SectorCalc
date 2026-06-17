@@ -13,7 +13,7 @@ describe("percent-error-calculator", () => {
     "tolerancePercent": 5,
     "measurementUncertainty": 0.1,
     "coverageFactor": 2
-  } as Percent_error_calculatorInput;
+  } as unknown as Percent_error_calculatorInput;
     const result = calculatePercent_error_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

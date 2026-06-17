@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Yıllık Talep",
         "tr": "Yıllık Talep",
-        "de": "Yıllık Talep",
+        "de": "Jährliche Nachfrage",
         "fr": "Yıllık Talep",
         "es": "Yıllık Talep",
         "ar": "Yıllık Talep"
       },
       "businessContext_i18n": {
         "en": "Yıllık satılan veya kullanılan ürün miktarı",
-        "tr": "Yıllık satılan veya kullanılan ürün miktarı"
+        "tr": "Yıllık satılan veya kullanılan ürün miktarı",
+        "de": "Jährlich verkaufte oder verwendete Produktmenge"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Sipariş Maliyeti",
         "tr": "Sipariş Maliyeti",
-        "de": "Sipariş Maliyeti",
+        "de": "Bestellkosten",
         "fr": "Sipariş Maliyeti",
         "es": "Sipariş Maliyeti",
         "ar": "Sipariş Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)",
-        "tr": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)"
+        "tr": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)",
+        "de": "Fixe Kosten pro Bestellung (Transport, Bearbeitung usw.)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Elde Tutma Maliyeti",
         "tr": "Elde Tutma Maliyeti",
-        "de": "Elde Tutma Maliyeti",
+        "de": "Lagerhaltungskosten",
         "fr": "Elde Tutma Maliyeti",
         "es": "Elde Tutma Maliyeti",
         "ar": "Elde Tutma Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti",
-        "tr": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti"
+        "tr": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti",
+        "de": "Jährliche Kosten für Lagerung, Versicherung, Verderb usw. pro Lagereinheit"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Birim Maliyet",
         "tr": "Birim Maliyet",
-        "de": "Birim Maliyet",
+        "de": "Stückkosten",
         "fr": "Birim Maliyet",
         "es": "Birim Maliyet",
         "ar": "Birim Maliyet"
       },
       "businessContext_i18n": {
         "en": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)",
-        "tr": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)"
+        "tr": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)",
+        "de": "Beschaffungskosten pro Einheit (wird zu Gesamtkosten addiert, optional)"
       }
     },
     {
@@ -91,14 +95,15 @@
       "label_i18n": {
         "en": "Tedarik Süresi",
         "tr": "Tedarik Süresi",
-        "de": "Tedarik Süresi",
+        "de": "Lieferzeit",
         "fr": "Tedarik Süresi",
         "es": "Tedarik Süresi",
         "ar": "Tedarik Süresi"
       },
       "businessContext_i18n": {
         "en": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)",
-        "tr": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)"
+        "tr": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)",
+        "de": "Zeit von der Bestellung bis zur Lieferung (für den Meldebestand)"
       }
     },
     {
@@ -111,14 +116,15 @@
       "label_i18n": {
         "en": "Yıllık Çalışma Günü",
         "tr": "Yıllık Çalışma Günü",
-        "de": "Yıllık Çalışma Günü",
+        "de": "Jährliche Arbeitstage",
         "fr": "Yıllık Çalışma Günü",
         "es": "Yıllık Çalışma Günü",
         "ar": "Yıllık Çalışma Günü"
       },
       "businessContext_i18n": {
         "en": "Yıllık çalışma gün sayısı (talebin dağılımı için)",
-        "tr": "Yıllık çalışma gün sayısı (talebin dağılımı için)"
+        "tr": "Yıllık çalışma gün sayısı (talebin dağılımı için)",
+        "de": "Anzahl der Arbeitstage pro Jahr (für die Nachfrageverteilung)"
       }
     }
   ],

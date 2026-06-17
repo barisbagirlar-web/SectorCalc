@@ -12,7 +12,7 @@ describe("student-loan-calculator", () => {
     "annualInterestRate": 4.5,
     "loanTermYears": 10,
     "defermentMonths": 6
-  } as Student_loan_calculatorInput;
+  } as unknown as Student_loan_calculatorInput;
     const result = calculateStudent_loan_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

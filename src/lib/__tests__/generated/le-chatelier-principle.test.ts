@@ -13,7 +13,7 @@ describe("le-chatelier-principle", () => {
     "temperatureChange": 0,
     "pressureChange": 0,
     "concentrationChange": 0
-  } as Le_chatelier_principleInput;
+  } as unknown as Le_chatelier_principleInput;
     const result = calculateLe_chatelier_principle(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

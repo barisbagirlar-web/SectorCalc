@@ -12,7 +12,7 @@ describe("zumba-calorie-calculator", () => {
     "duration": 60,
     "MET": 7.5,
     "intensityFactor": 1
-  } as Zumba_calorie_calculatorInput;
+  } as unknown as Zumba_calorie_calculatorInput;
     const result = calculateZumba_calorie_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

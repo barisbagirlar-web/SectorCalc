@@ -15,7 +15,7 @@ describe("trueskill-calculator", () => {
     "beta": 4.1667,
     "tau": 0.08333,
     "draw_probability": 0.1
-  } as Trueskill_calculatorInput;
+  } as unknown as Trueskill_calculatorInput;
     const result = calculateTrueskill_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

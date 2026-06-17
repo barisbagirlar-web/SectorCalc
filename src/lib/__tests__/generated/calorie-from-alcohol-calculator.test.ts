@@ -13,7 +13,7 @@ describe("calorie-from-alcohol-calculator", () => {
     "numberOfDrinks": 1,
     "density": 0.8,
     "kcalPerGram": 7
-  } as Calorie_from_alcohol_calculatorInput;
+  } as unknown as Calorie_from_alcohol_calculatorInput;
     const result = calculateCalorie_from_alcohol_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

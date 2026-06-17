@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Değer",
         "tr": "Değer",
-        "de": "Değer",
+        "de": "Wert",
         "fr": "Değer",
         "es": "Değer",
         "ar": "Değer"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek sayısal değer",
-        "tr": "Dönüştürülecek sayısal değer"
+        "tr": "Dönüştürülecek sayısal değer",
+        "de": "Umzurechnender Zahlenwert"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Kaynak Birim",
         "tr": "Kaynak Birim",
-        "de": "Kaynak Birim",
+        "de": "Quelleinheit",
         "fr": "Kaynak Birim",
         "es": "Kaynak Birim",
         "ar": "Kaynak Birim"
       },
       "businessContext_i18n": {
         "en": "Kaynak birim kodu (0: metre, 1: feet, 2: inch, 3: cm)",
-        "tr": "Kaynak birim kodu (0: metre, 1: feet, 2: inç, 3: cm)"
+        "tr": "Kaynak birim kodu (0: metre, 1: feet, 2: inç, 3: cm)",
+        "de": "Quelleinheitscode (0: Meter, 1: Fuß, 2: Zoll, 3: cm)"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Hedef Birim",
         "tr": "Hedef Birim",
-        "de": "Hedef Birim",
+        "de": "Zieleinheit",
         "fr": "Hedef Birim",
         "es": "Hedef Birim",
         "ar": "Hedef Birim"
       },
       "businessContext_i18n": {
         "en": "Hedef birim kodu (0: metre, 1: feet, 2: inch, 3: cm)",
-        "tr": "Hedef birim kodu (0: metre, 1: feet, 2: inç, 3: cm)"
+        "tr": "Hedef birim kodu (0: metre, 1: feet, 2: inç, 3: cm)",
+        "de": "Zieleinheitscode (0: Meter, 1: Fuß, 2: Zoll, 3: cm)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Hassasiyet",
         "tr": "Hassasiyet",
-        "de": "Hassasiyet",
+        "de": "Genauigkeit",
         "fr": "Hassasiyet",
         "es": "Hassasiyet",
         "ar": "Hassasiyet"
       },
       "businessContext_i18n": {
         "en": "Ondalık basamak sayısı",
-        "tr": "Ondalık basamak sayısı"
+        "tr": "Ondalık basamak sayısı",
+        "de": "Anzahl Dezimalstellen"
       }
     }
   ],

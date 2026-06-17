@@ -13,7 +13,7 @@ describe("perc-rule-calculator", () => {
     "idealCycleTime": 30,
     "totalUnits": 900,
     "defects": 10
-  } as Perc_rule_calculatorInput;
+  } as unknown as Perc_rule_calculatorInput;
     const result = calculatePerc_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

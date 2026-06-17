@@ -13,7 +13,7 @@ describe("hoa-calculator", () => {
     "initialTemperature": 20,
     "finalTemperature": 100,
     "heatLossFactor": 0
-  } as Hoa_calculatorInput;
+  } as unknown as Hoa_calculatorInput;
     const result = calculateHoa_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

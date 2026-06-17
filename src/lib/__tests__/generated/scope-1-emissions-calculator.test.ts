@@ -16,7 +16,7 @@ describe("scope-1-emissions-calculator", () => {
     "coal_ton": 0,
     "refrigerant_leak": 0,
     "process_emissions": 0
-  } as Scope_1_emissions_calculatorInput;
+  } as unknown as Scope_1_emissions_calculatorInput;
     const result = calculateScope_1_emissions_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

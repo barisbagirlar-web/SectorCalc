@@ -12,7 +12,7 @@ describe("marathon-calculator", () => {
     "hours": 4,
     "minutes": 0,
     "seconds": 0
-  } as Marathon_calculatorInput;
+  } as unknown as Marathon_calculatorInput;
     const result = calculateMarathon_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

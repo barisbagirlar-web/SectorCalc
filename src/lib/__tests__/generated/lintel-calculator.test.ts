@@ -12,7 +12,7 @@ describe("lintel-calculator", () => {
     "designLoad": 10,
     "allowableStress": 165,
     "safetyFactor": 1.5
-  } as Lintel_calculatorInput;
+  } as unknown as Lintel_calculatorInput;
     const result = calculateLintel_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

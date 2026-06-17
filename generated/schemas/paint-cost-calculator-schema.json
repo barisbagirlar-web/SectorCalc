@@ -11,7 +11,7 @@
       "label_i18n": {
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
-        "de": "Surface Area",
+        "de": "Oberfläche",
         "fr": "Surface Area",
         "es": "Surface Area",
         "ar": "Surface Area"
@@ -71,7 +71,7 @@
       "label_i18n": {
         "en": "Number of Coats",
         "tr": "Kat Sayısı",
-        "de": "Number of Coats",
+        "de": "Anzahl der Anstriche",
         "fr": "Number of Coats",
         "es": "Number of Coats",
         "ar": "Number of Coats"
@@ -91,7 +91,7 @@
       "label_i18n": {
         "en": "Labor Hours",
         "tr": "İşçilik Saati",
-        "de": "Labor Hours",
+        "de": "Arbeitsstunden",
         "fr": "Labor Hours",
         "es": "Labor Hours",
         "ar": "Labor Hours"
@@ -111,14 +111,15 @@
       "label_i18n": {
         "en": "Labor Rate",
         "tr": "İşçilik ücreti",
-        "de": "Labor Rate",
+        "de": "Stundensatz",
         "fr": "Labor Rate",
         "es": "Labor Rate",
         "ar": "Labor Rate"
       },
       "businessContext_i18n": {
         "en": "Hourly labor cost",
-        "tr": "Saatlik işçilik maliyeti"
+        "tr": "Saatlik işçilik maliyeti",
+        "de": "Stündliche Arbeitskosten"
       }
     },
     {
@@ -131,7 +132,7 @@
       "label_i18n": {
         "en": "Waste Factor (%)",
         "tr": "Fire Faktörü (%)",
-        "de": "Waste Factor (%)",
+        "de": "Verschnittfaktor (%)",
         "fr": "Waste Factor (%)",
         "es": "Waste Factor (%)",
         "ar": "Waste Factor (%)"

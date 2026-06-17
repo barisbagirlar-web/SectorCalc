@@ -13,7 +13,7 @@ describe("gambrel-roof-calculator", () => {
     "lowerAngle": 60,
     "upperAngle": 30,
     "lowerRun": 2
-  } as Gambrel_roof_calculatorInput;
+  } as unknown as Gambrel_roof_calculatorInput;
     const result = calculateGambrel_roof_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

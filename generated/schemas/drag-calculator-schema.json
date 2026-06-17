@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
-        "de": "Fluid Density",
+        "de": "Flüssigkeitsdichte",
         "fr": "Fluid Density",
         "es": "Fluid Density",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid medium (e.g., air at sea level: 1.225 kg/m³)",
-        "tr": "Akışkan ortamın yoğunluğu (örneğin, deniz seviyesinde hava: 1,225 kg/m³)"
+        "tr": "Akışkan ortamın yoğunluğu (örneğin, deniz seviyesinde hava: 1,225 kg/m³)",
+        "de": "Dichte des fluiden Mediums (z. B. Luft auf Meereshöhe: 1,225 kg/m³)"
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Flow Velocity",
         "tr": "Akış Hızı",
-        "de": "Flow Velocity",
+        "de": "Strömungsgeschwindigkeit",
         "fr": "Flow Velocity",
         "es": "Flow Velocity",
         "ar": "Flow Velocity"
       },
       "businessContext_i18n": {
         "en": "Relative velocity between object and fluid",
-        "tr": "Nesne ile akışkan arasındaki bağıl hız"
+        "tr": "Nesne ile akışkan arasındaki bağıl hız",
+        "de": "Relativgeschwindigkeit zwischen Objekt und Fluid"
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "Drag Coefficient",
         "tr": "Sürükleme Katsayısı",
-        "de": "Drag Coefficient",
+        "de": "Widerstandsbeiwert",
         "fr": "Drag Coefficient",
         "es": "Drag Coefficient",
         "ar": "Drag Coefficient"
       },
       "businessContext_i18n": {
         "en": "Dimensionless drag coefficient (e.g., sphere: 0.47)",
-        "tr": "Boyutsuz sürükleme katsayısı (örneğin, küre: 0,47)"
+        "tr": "Boyutsuz sürükleme katsayısı (örneğin, küre: 0,47)",
+        "de": "Dimensionsloser Widerstandsbeiwert (z. B. Kugel: 0,47)"
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "Reference Area",
         "tr": "Referans Alanı",
-        "de": "Reference Area",
+        "de": "Bezugsfläche",
         "fr": "Reference Area",
         "es": "Reference Area",
         "ar": "Reference Area"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area of the object perpendicular to flow",
-        "tr": "Nesnenin akışa dik kesit alanı"
+        "tr": "Nesnenin akışa dik kesit alanı",
+        "de": "Querschnittsfläche des Objekts senkrecht zur Strömung"
       }
     }
   ],

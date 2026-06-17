@@ -12,7 +12,7 @@ describe("overhead-press-calculator", () => {
     "pressure": 200,
     "efficiency": 95,
     "safetyFactor": 1.5
-  } as Overhead_press_calculatorInput;
+  } as unknown as Overhead_press_calculatorInput;
     const result = calculateOverhead_press_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

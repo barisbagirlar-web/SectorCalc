@@ -14,7 +14,7 @@ describe("consolidation-calculator", () => {
     "newInterestRate": 15,
     "newTermMonths": 48,
     "consolidationFee": 500
-  } as Consolidation_calculatorInput;
+  } as unknown as Consolidation_calculatorInput;
     const result = calculateConsolidation_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -11,14 +11,15 @@
       "label_i18n": {
         "en": "Measured Value",
         "tr": "Ölçülen Değer",
-        "de": "Measured Value",
+        "de": "Messwert",
         "fr": "Measured Value",
         "es": "Measured Value",
         "ar": "Measured Value"
       },
       "businessContext_i18n": {
         "en": "The measured physical quantity (e.g., sound pressure in Pascals).",
-        "tr": "Ölçülen fiziksel büyüklük (örneğin, Pascal cinsinden ses basıncı)."
+        "tr": "Ölçülen fiziksel büyüklük (örneğin, Pascal cinsinden ses basıncı).",
+        "de": "Die gemessene physikalische Größe (z. B. Schalldruck in Pascal)."
       }
     },
     {
@@ -31,14 +32,15 @@
       "label_i18n": {
         "en": "Reference Value",
         "tr": "Referans Değer",
-        "de": "Reference Value",
+        "de": "Referenzwert",
         "fr": "Reference Value",
         "es": "Reference Value",
         "ar": "Reference Value"
       },
       "businessContext_i18n": {
         "en": "The reference quantity for the level calculation. Typical reference for sound pressure is 20 µPa.",
-        "tr": "Seviye hesaplaması için referans büyüklük. Ses basıncı için tipik referans 20 µPa'dır."
+        "tr": "Seviye hesaplaması için referans büyüklük. Ses basıncı için tipik referans 20 µPa'dır.",
+        "de": "Die Referenzgröße für die Pegelberechnung. Typischer Referenzwert für Schalldruck ist 20 µPa."
       }
     },
     {
@@ -51,14 +53,15 @@
       "label_i18n": {
         "en": "dB Multiplier",
         "tr": "dB Çarpanı",
-        "de": "dB Multiplier",
+        "de": "dB-Multiplikator",
         "fr": "dB Multiplier",
         "es": "dB Multiplier",
         "ar": "dB Multiplier"
       },
       "businessContext_i18n": {
         "en": "20 for amplitude quantities (pressure, voltage), 10 for power quantities.",
-        "tr": "Genlik büyüklükleri (basınç, voltaj) için 20, güç büyüklükleri için 10."
+        "tr": "Genlik büyüklükleri (basınç, voltaj) için 20, güç büyüklükleri için 10.",
+        "de": "20 für Amplitudengrößen (Druck, Spannung), 10 für Leistungsgrößen."
       }
     },
     {
@@ -71,14 +74,15 @@
       "label_i18n": {
         "en": "System Gain (dB)",
         "tr": "Sistem Kazancı (dB)",
-        "de": "System Gain (dB)",
+        "de": "Systemverstärkung (dB)",
         "fr": "System Gain (dB)",
         "es": "System Gain (dB)",
         "ar": "System Gain (dB)"
       },
       "businessContext_i18n": {
         "en": "Additional gain or attenuation in the system, in decibels. Positive for amplification, negative for attenuation.",
-        "tr": "Sistemdeki ek kazanç veya zayıflama, desibel cinsinden. Yükseltme için pozitif, zayıflatma için negatif."
+        "tr": "Sistemdeki ek kazanç veya zayıflama, desibel cinsinden. Yükseltme için pozitif, zayıflatma için negatif.",
+        "de": "Zusätzliche Verstärkung oder Dämpfung im System in Dezibel. Positiv für Verstärkung, negativ für Dämpfung."
       }
     }
   ],

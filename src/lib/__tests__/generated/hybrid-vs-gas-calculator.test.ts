@@ -14,7 +14,7 @@ describe("hybrid-vs-gas-calculator", () => {
     "hybridMpg": 50,
     "annualMiles": 12000,
     "fuelPricePerGallon": 3.5
-  } as Hybrid_vs_gas_calculatorInput;
+  } as unknown as Hybrid_vs_gas_calculatorInput;
     const result = calculateHybrid_vs_gas_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

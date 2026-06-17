@@ -12,7 +12,7 @@ describe("harmonic-mean-calculator", () => {
     "value2": 1,
     "value3": 1,
     "value4": 1
-  } as Harmonic_mean_calculatorInput;
+  } as unknown as Harmonic_mean_calculatorInput;
     const result = calculateHarmonic_mean_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

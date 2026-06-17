@@ -16,7 +16,7 @@ describe("machine-economic-life-calculator", () => {
     "discount_rate": 8,
     "annual_production_units": 50000,
     "revenue_per_unit": 5
-  } as Machine_economic_life_calculatorInput;
+  } as unknown as Machine_economic_life_calculatorInput;
     const result = calculateMachine_economic_life_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

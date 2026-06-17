@@ -12,7 +12,7 @@ describe("safe-note-calculator", () => {
     "valuationCap": 5000000,
     "discountRate": 20,
     "preMoneyValuation": 8000000
-  } as Safe_note_calculatorInput;
+  } as unknown as Safe_note_calculatorInput;
     const result = calculateSafe_note_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

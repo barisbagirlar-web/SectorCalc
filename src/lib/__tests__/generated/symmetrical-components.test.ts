@@ -14,7 +14,7 @@ describe("symmetrical-components", () => {
     "angle_a": 0,
     "angle_b": -120,
     "angle_c": 120
-  } as Symmetrical_componentsInput;
+  } as unknown as Symmetrical_componentsInput;
     const result = calculateSymmetrical_components(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

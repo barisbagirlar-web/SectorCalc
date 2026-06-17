@@ -14,7 +14,7 @@ describe("disability-insurance-calculator", () => {
     "waitingPeriodMonths": 3,
     "discountRate": 3,
     "inflationRate": 2
-  } as Disability_insurance_calculatorInput;
+  } as unknown as Disability_insurance_calculatorInput;
     const result = calculateDisability_insurance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

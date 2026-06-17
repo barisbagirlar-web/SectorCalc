@@ -12,7 +12,7 @@ describe("wing-loading-calculator", () => {
     "wingArea": 20,
     "airDensity": 1.225,
     "liftCoefficient": 1.5
-  } as Wing_loading_calculatorInput;
+  } as unknown as Wing_loading_calculatorInput;
     const result = calculateWing_loading_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

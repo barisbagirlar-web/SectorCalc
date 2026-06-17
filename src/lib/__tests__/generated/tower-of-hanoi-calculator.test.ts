@@ -12,7 +12,7 @@ describe("tower-of-hanoi-calculator", () => {
     "manuelSure": 5,
     "otomatikSure": 1,
     "mod": 0
-  } as Tower_of_hanoi_calculatorInput;
+  } as unknown as Tower_of_hanoi_calculatorInput;
     const result = calculateTower_of_hanoi_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

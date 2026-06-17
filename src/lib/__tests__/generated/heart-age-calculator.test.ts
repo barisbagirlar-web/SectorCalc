@@ -15,7 +15,7 @@ describe("heart-age-calculator", () => {
     "smoker": 0,
     "diabetes": 0,
     "treatedBP": 0
-  } as Heart_age_calculatorInput;
+  } as unknown as Heart_age_calculatorInput;
     const result = calculateHeart_age_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

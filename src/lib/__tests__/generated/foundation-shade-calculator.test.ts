@@ -12,7 +12,7 @@ describe("foundation-shade-calculator", () => {
     "skinUndertone": 5,
     "coveragePreference": 5,
     "lightingCondition": 5
-  } as Foundation_shade_calculatorInput;
+  } as unknown as Foundation_shade_calculatorInput;
     const result = calculateFoundation_shade_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

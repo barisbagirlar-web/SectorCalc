@@ -14,7 +14,7 @@ describe("gauss-jordan-elimination-calculator", () => {
     "a22": 0,
     "b1": 0,
     "b2": 0
-  } as Gauss_jordan_elimination_calculatorInput;
+  } as unknown as Gauss_jordan_elimination_calculatorInput;
     const result = calculateGauss_jordan_elimination_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

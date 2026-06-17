@@ -15,7 +15,7 @@ describe("rental-property-calculator", () => {
     "monthlyRent": 1500,
     "annualExpensePercent": 30,
     "vacancyRate": 5
-  } as Rental_property_calculatorInput;
+  } as unknown as Rental_property_calculatorInput;
     const result = calculateRental_property_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

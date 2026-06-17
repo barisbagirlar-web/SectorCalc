@@ -13,7 +13,7 @@ describe("hamilton-depression-rating-calculator", () => {
     "count": 1,
     "sharpness": 1,
     "materialFactor": 1
-  } as Hamilton_depression_rating_calculatorInput;
+  } as unknown as Hamilton_depression_rating_calculatorInput;
     const result = calculateHamilton_depression_rating_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

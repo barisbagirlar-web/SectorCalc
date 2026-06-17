@@ -15,7 +15,7 @@ describe("altman-z-score-calculator", () => {
     "marketValueEquity": 0,
     "totalLiabilities": 0,
     "sales": 0
-  } as Altman_z_score_calculatorInput;
+  } as unknown as Altman_z_score_calculatorInput;
     const result = calculateAltman_z_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

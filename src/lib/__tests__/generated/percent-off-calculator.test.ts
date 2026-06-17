@@ -12,7 +12,7 @@ describe("percent-off-calculator", () => {
     "discount_percent": 0,
     "additional_discount_percent": 0,
     "tax_rate": 0
-  } as Percent_off_calculatorInput;
+  } as unknown as Percent_off_calculatorInput;
     const result = calculatePercent_off_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("lift-calculator", () => {
     "counterweightRatio": 0.5,
     "frictionForce": 200,
     "safetyFactor": 1.5
-  } as Lift_calculatorInput;
+  } as unknown as Lift_calculatorInput;
     const result = calculateLift_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("mixing-ratio-calculator", () => {
     "ratioB": 1,
     "totalQuantity": 1000,
     "wastePercent": 0
-  } as Mixing_ratio_calculatorInput;
+  } as unknown as Mixing_ratio_calculatorInput;
     const result = calculateMixing_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

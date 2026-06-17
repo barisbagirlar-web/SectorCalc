@@ -14,7 +14,7 @@ describe("sewing-line-balancer-calculator", () => {
     "bottleneck_time": 200,
     "line_balance_type": "straight",
     "allow_rebalancing": true
-  } as Sewing_line_balancer_calculatorInput;
+  } as unknown as Sewing_line_balancer_calculatorInput;
     const result = calculateSewing_line_balancer_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

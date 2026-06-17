@@ -12,7 +12,7 @@ describe("one-sample-t-test-calculator", () => {
     "sampleStdDev": 2,
     "sampleSize": 30,
     "hypothesizedMean": 9
-  } as One_sample_t_test_calculatorInput;
+  } as unknown as One_sample_t_test_calculatorInput;
     const result = calculateOne_sample_t_test_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

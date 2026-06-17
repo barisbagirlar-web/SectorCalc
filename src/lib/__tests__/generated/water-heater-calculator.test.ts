@@ -14,7 +14,7 @@ describe("water-heater-calculator", () => {
     "power": 3,
     "efficiency": 95,
     "electricityCost": 0.15
-  } as Water_heater_calculatorInput;
+  } as unknown as Water_heater_calculatorInput;
     const result = calculateWater_heater_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

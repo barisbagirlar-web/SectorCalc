@@ -12,7 +12,7 @@ describe("centor-score-calculator", () => {
     "exudates": 0,
     "lymphadenopathy": 0,
     "cough_absence": 0
-  } as Centor_score_calculatorInput;
+  } as unknown as Centor_score_calculatorInput;
     const result = calculateCentor_score_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

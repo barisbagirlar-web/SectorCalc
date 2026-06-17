@@ -14,7 +14,7 @@ describe("naismiths-rule-calculator", () => {
     "pace": 5,
     "ascentTimePer100m": 10,
     "descentTimePer100m": 5
-  } as Naismiths_rule_calculatorInput;
+  } as unknown as Naismiths_rule_calculatorInput;
     const result = calculateNaismiths_rule_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

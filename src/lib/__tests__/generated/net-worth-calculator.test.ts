@@ -16,7 +16,7 @@ describe("net-worth-calculator", () => {
     "currentDebt": 0,
     "longTermDebt": 0,
     "otherDebt": 0
-  } as Net_worth_calculatorInput;
+  } as unknown as Net_worth_calculatorInput;
     const result = calculateNet_worth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -16,7 +16,7 @@ describe("dnd-calculator", () => {
     "charisma": 10,
     "proficiency_bonus": 2,
     "level": 1
-  } as Dnd_calculatorInput;
+  } as unknown as Dnd_calculatorInput;
     const result = calculateDnd_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

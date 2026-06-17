@@ -12,7 +12,7 @@ describe("metabolic-equivalent-calculator", () => {
     "duration_hours": 0,
     "duration_minutes": 30,
     "met": 5
-  } as Metabolic_equivalent_calculatorInput;
+  } as unknown as Metabolic_equivalent_calculatorInput;
     const result = calculateMetabolic_equivalent_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

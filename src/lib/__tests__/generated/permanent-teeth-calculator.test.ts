@@ -12,7 +12,7 @@ describe("permanent-teeth-calculator", () => {
     "extracted": 0,
     "missing": 0,
     "wisdomOverride": 0
-  } as Permanent_teeth_calculatorInput;
+  } as unknown as Permanent_teeth_calculatorInput;
     const result = calculatePermanent_teeth_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("cash-out-refinance-calculator", () => {
     "interestRate": 5,
     "loanTerm": 30,
     "closingCosts": 5000
-  } as Cash_out_refinance_calculatorInput;
+  } as unknown as Cash_out_refinance_calculatorInput;
     const result = calculateCash_out_refinance_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -12,7 +12,7 @@ describe("at-rest-earth-pressure-calculator", () => {
     "phi": 30,
     "OCR": 1,
     "SF": 1.5
-  } as At_rest_earth_pressure_calculatorInput;
+  } as unknown as At_rest_earth_pressure_calculatorInput;
     const result = calculateAt_rest_earth_pressure_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

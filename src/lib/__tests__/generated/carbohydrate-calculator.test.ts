@@ -14,7 +14,7 @@ describe("carbohydrate-calculator", () => {
     "gender": 1,
     "activityLevel": 1.55,
     "carbPercentage": 50
-  } as Carbohydrate_calculatorInput;
+  } as unknown as Carbohydrate_calculatorInput;
     const result = calculateCarbohydrate_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

@@ -14,7 +14,7 @@ describe("wedding-cake-serving-calculator", () => {
     "tier3Diameter": 0,
     "servingSize": 2,
     "guestCount": 100
-  } as Wedding_cake_serving_calculatorInput;
+  } as unknown as Wedding_cake_serving_calculatorInput;
     const result = calculateWedding_cake_serving_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

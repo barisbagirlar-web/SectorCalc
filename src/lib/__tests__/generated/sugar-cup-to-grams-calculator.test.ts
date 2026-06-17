@@ -12,7 +12,7 @@ describe("sugar-cup-to-grams-calculator", () => {
     "tablespoons": 0,
     "teaspoons": 0,
     "sugarType": 0
-  } as Sugar_cup_to_grams_calculatorInput;
+  } as unknown as Sugar_cup_to_grams_calculatorInput;
     const result = calculateSugar_cup_to_grams_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

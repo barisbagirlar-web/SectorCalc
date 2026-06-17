@@ -13,7 +13,7 @@ describe("box-size-calculator", () => {
     "objectHeight": 3,
     "clearance": 0.5,
     "wallThickness": 0.3
-  } as Box_size_calculatorInput;
+  } as unknown as Box_size_calculatorInput;
     const result = calculateBox_size_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

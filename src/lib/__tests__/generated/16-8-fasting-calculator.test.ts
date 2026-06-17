@@ -12,7 +12,7 @@ describe("16-8-fasting-calculator", () => {
     "fastingStartHour": 20,
     "fastingDuration": 16,
     "eatingDuration": 8
-  } as _16_8_fasting_calculatorInput;
+  } as unknown as _16_8_fasting_calculatorInput;
     const result = calculate_16_8_fasting_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

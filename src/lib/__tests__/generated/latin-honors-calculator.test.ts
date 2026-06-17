@@ -14,7 +14,7 @@ describe("latin-honors-calculator", () => {
     "summaMin": 3.9,
     "totalCredits": 120,
     "creditsRequired": 120
-  } as Latin_honors_calculatorInput;
+  } as unknown as Latin_honors_calculatorInput;
     const result = calculateLatin_honors_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");

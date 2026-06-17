@@ -12,7 +12,7 @@ describe("odds-ratio-calculator", () => {
     "b": 20,
     "c": 5,
     "d": 30
-  } as Odds_ratio_calculatorInput;
+  } as unknown as Odds_ratio_calculatorInput;
     const result = calculateOdds_ratio_calculator(input);
     expect(result).toBeDefined();
     expect(typeof result.totalWasteCost).toBe("number");
