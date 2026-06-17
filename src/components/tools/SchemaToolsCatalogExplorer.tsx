@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
@@ -10,6 +10,7 @@ import type { ToolData } from "@/lib/tools/all-tools-data";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { useToolsPageSearch } from "@/components/tools/tools-page-search-context";
 import type { Tool } from "@/data/tools";
+import { scrollToToolsList } from "@/lib/navigation/scroll-to-tools-list";
 
 type CatalogFilterMode = "category" | "sector";
 
@@ -63,6 +64,17 @@ export function SchemaToolsCatalogExplorer({
   const rawFilter = searchParams?.get(filterParamKey) ?? "";
   const selectedFilter = rawFilter === "all" ? "" : rawFilter;
   const isSearching = searchQuery.trim().length > 0;
+  const didScrollForDeepLink = useRef(false);
+
+  useEffect(() => {
+    if (didScrollForDeepLink.current) {
+      return;
+    }
+    if (selectedFilter) {
+      didScrollForDeepLink.current = true;
+      scrollToToolsList();
+    }
+  }, [selectedFilter]);
 
   const groups = useMemo(() => {
     const counts = new Map<string, { label: string; count: number }>();

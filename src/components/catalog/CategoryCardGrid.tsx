@@ -1,10 +1,11 @@
 "use client";
 
-import { Link, usePathname } from "@/i18n/routing";
+import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "@/i18n/routing";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
 import type { CategoryExplorerVariant } from "@/lib/catalog/catalog-types";
 import { cn } from "@/lib/cn";
-import { buildCatalogFilterHref } from "@/lib/navigation/catalog-filter-href";
+import { scrollToToolsList } from "@/lib/navigation/scroll-to-tools-list";
 
 export type CategoryCardItem = {
   readonly slug: string;
@@ -73,15 +74,6 @@ export function resolveCategoryCardGridVariant(
   return "free";
 }
 
-function scrollToToolsList() {
-  requestAnimationFrame(() => {
-    document.getElementById("tools-list")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  });
-}
-
 export function CategoryCardGrid({
   items,
   onSelect,
@@ -92,8 +84,25 @@ export function CategoryCardGrid({
   variant = "premium",
 }: Props) {
   const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const tone = GRID_VARIANT_STYLES[variant];
   const useLinks = onSelect == null;
+
+  const handleFilterClick = (slug: string, active: boolean) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (slug === allFilterValue) {
+      params.set(filterParamKey, allFilterValue);
+    } else {
+      params.set(filterParamKey, slug);
+    }
+    const query = params.toString();
+    const href = query ? `${pathname}?${query}` : pathname;
+    router.push(href, { scroll: false });
+    if (!active) {
+      scrollToToolsList();
+    }
+  };
 
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -129,22 +138,17 @@ export function CategoryCardGrid({
 
         if (useLinks) {
           return (
-            <Link
+            <button
               key={item.slug}
-              href={buildCatalogFilterHref(pathname, filterParamKey, item.slug, allFilterValue)}
-              scroll={false}
+              type="button"
+              onClick={() => handleFilterClick(item.slug, active)}
               aria-current={active ? "true" : undefined}
               aria-controls="tools-list"
               data-category-icon-name={iconMeta.iconName}
-              onClick={() => {
-                if (!active) {
-                  scrollToToolsList();
-                }
-              }}
               className={className}
             >
               {content}
-            </Link>
+            </button>
           );
         }
 

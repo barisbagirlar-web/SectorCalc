@@ -16,6 +16,7 @@ import {
   filterCatalogSearchEntries,
 } from "@/lib/catalog/catalog-search";
 import { useToolsPageSearch } from "@/components/tools/tools-page-search-context";
+import { scrollToToolsList } from "@/lib/navigation/scroll-to-tools-list";
 
 export type SearchablePremiumTool = {
   readonly slug: string;
@@ -52,15 +53,6 @@ function useDebouncedValue<T>(value: T, delayMs: number): T {
   }, [value, delayMs]);
 
   return debounced;
-}
-
-function scrollToToolsList() {
-  requestAnimationFrame(() => {
-    document.getElementById("tools-list")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  });
 }
 
 function resolveCategoryFromParam(

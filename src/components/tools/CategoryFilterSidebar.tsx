@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
 import { cn } from "@/lib/cn";
+import { scrollToToolsList } from "@/lib/navigation/scroll-to-tools-list";
 
 export type CategoryFilterItem = {
   readonly slug: string;
@@ -40,7 +41,7 @@ export function CategoryFilterSidebar({
   const formatItemCount = (count: number) =>
     formatCount ? formatCount(count) : String(count);
 
-  const handleFilterClick = (value: string) => {
+  const handleFilterClick = (value: string, active: boolean) => {
     const params = new URLSearchParams(searchParams.toString());
     if (value === allFilterValue) {
       params.set(filterParamKey, allFilterValue);
@@ -50,6 +51,9 @@ export function CategoryFilterSidebar({
     const query = params.toString();
     const href = query ? `${pathname}?${query}` : pathname;
     router.push(href, { scroll: false });
+    if (!active) {
+      scrollToToolsList();
+    }
   };
 
   return (
@@ -64,7 +68,7 @@ export function CategoryFilterSidebar({
         <li>
           <button
             type="button"
-            onClick={() => handleFilterClick(allFilterValue)}
+            onClick={() => handleFilterClick(allFilterValue, allIsActive)}
             aria-current={allIsActive ? "true" : undefined}
             className={cn(
               "flex min-h-[44px] w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition",
@@ -86,7 +90,7 @@ export function CategoryFilterSidebar({
             <li key={cat.slug}>
               <button
                 type="button"
-                onClick={() => handleFilterClick(cat.slug)}
+                onClick={() => handleFilterClick(cat.slug, isActive)}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
                   "flex min-h-[44px] w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition",
