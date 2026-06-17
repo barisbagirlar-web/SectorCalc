@@ -40,10 +40,10 @@ const FAMILY_KEEP_SLUGS: Record<PreviewStaticParamFamily, readonly string[]> = {
     "logistics-transport",
   ],
   "free-tools-category": [
-    "manufacturing",
-    "finance",
-    "construction",
-    "logistics",
+    "imalat-uretim",
+    "insaat-yapi",
+    "lojistik-tedarik-zinciri",
+    "maliyet-butceleme",
   ],
   "premium-schema": [
     "cnc-oee-loss",
