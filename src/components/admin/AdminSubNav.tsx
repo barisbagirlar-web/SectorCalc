@@ -4,6 +4,7 @@ import Link from "@/lib/navigation/next-link";
 import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = [
+  { href: "/admin/case-studies", label: "Case Studies" },
   { href: "/admin/leads", label: "Lead Intents" },
   { href: "/admin/kpi", label: "Live KPI Review" },
   { href: "/admin/benchmarks", label: "Benchmark Data" },
