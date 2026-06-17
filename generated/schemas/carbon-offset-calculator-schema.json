@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 10000,
-      "businessContext": "Total electricity consumption in kilowatt-hours per year (indirect emissions from grid)."
+      "businessContext": "Total electricity consumption in kilowatt-hours per year (indirect emissions from grid).",
+      "label_i18n": {
+        "en": "Annual Electricity Usage",
+        "tr": "Annual Electricity Usage",
+        "de": "Annual Electricity Usage",
+        "fr": "Annual Electricity Usage",
+        "es": "Annual Electricity Usage",
+        "ar": "Annual Electricity Usage"
+      }
     },
     {
       "id": "naturalGasUsage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "therms",
       "default": 1000,
-      "businessContext": "Total natural gas usage in therms per year (direct emissions from combustion)."
+      "businessContext": "Total natural gas usage in therms per year (direct emissions from combustion).",
+      "label_i18n": {
+        "en": "Annual Natural Gas Usage",
+        "tr": "Annual Natural Gas Usage",
+        "de": "Annual Natural Gas Usage",
+        "fr": "Annual Natural Gas Usage",
+        "es": "Annual Natural Gas Usage",
+        "ar": "Annual Natural Gas Usage"
+      }
     },
     {
       "id": "vehicleMiles",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "miles",
       "default": 12000,
-      "businessContext": "Total miles driven per year in gasoline-powered vehicles (scope 1 mobile combustion)."
+      "businessContext": "Total miles driven per year in gasoline-powered vehicles (scope 1 mobile combustion).",
+      "label_i18n": {
+        "en": "Annual Vehicle Miles",
+        "tr": "Annual Vehicle Miles",
+        "de": "Annual Vehicle Miles",
+        "fr": "Annual Vehicle Miles",
+        "es": "Annual Vehicle Miles",
+        "ar": "Annual Vehicle Miles"
+      }
     },
     {
       "id": "flightMiles",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "miles",
       "default": 5000,
-      "businessContext": "Total miles flown per year (average short/medium-haul flights, scope 3 upstream)."
+      "businessContext": "Total miles flown per year (average short/medium-haul flights, scope 3 upstream).",
+      "label_i18n": {
+        "en": "Annual Flight Miles",
+        "tr": "Annual Flight Miles",
+        "de": "Annual Flight Miles",
+        "fr": "Annual Flight Miles",
+        "es": "Annual Flight Miles",
+        "ar": "Annual Flight Miles"
+      }
     },
     {
       "id": "wasteGeneration",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "lbs",
       "default": 2000,
-      "businessContext": "Total waste sent to landfill per year in pounds (methane emissions from decomposition)."
+      "businessContext": "Total waste sent to landfill per year in pounds (methane emissions from decomposition).",
+      "label_i18n": {
+        "en": "Annual Waste Generation",
+        "tr": "Annual Waste Generation",
+        "de": "Annual Waste Generation",
+        "fr": "Annual Waste Generation",
+        "es": "Annual Waste Generation",
+        "ar": "Annual Waste Generation"
+      }
     },
     {
       "id": "waterUsage",
@@ -47,29 +87,36 @@
       "type": "number",
       "unit": "gallons",
       "default": 50000,
-      "businessContext": "Total water consumption in gallons per year (energy for treatment and pumping)."
+      "businessContext": "Total water consumption in gallons per year (energy for treatment and pumping).",
+      "label_i18n": {
+        "en": "Annual Water Usage",
+        "tr": "Annual Water Usage",
+        "de": "Annual Water Usage",
+        "fr": "Annual Water Usage",
+        "es": "Annual Water Usage",
+        "ar": "Annual Water Usage"
+      }
     }
   ],
   "formulas": {
-    "FACTOR_ELECTRICITY": 0.000707,
-    "FACTOR_NATURAL_GAS": 0.0053,
-    "FACTOR_VEHICLE": 0.000404,
-    "FACTOR_FLIGHT": 0.0002,
-    "FACTOR_WASTE": 0.0005,
-    "FACTOR_WATER": 0.000002,
-    "emissions": {
-      "electricity": "electricityUsage * FACTOR_ELECTRICITY",
-      "naturalGas": "naturalGasUsage * FACTOR_NATURAL_GAS",
-      "vehicle": "vehicleMiles * FACTOR_VEHICLE",
-      "flights": "flightMiles * FACTOR_FLIGHT",
-      "waste": "wasteGeneration * FACTOR_WASTE",
-      "water": "waterUsage * FACTOR_WATER"
-    },
+    "FACTOR_ELECTRICITY": "0.000707",
+    "FACTOR_NATURAL_GAS": "0.0053",
+    "FACTOR_VEHICLE": "0.000404",
+    "FACTOR_FLIGHT": "0.0002",
+    "FACTOR_WASTE": "0.0005",
+    "FACTOR_WATER": "0.000002",
+    "emissions": "electricityUsage",
     "totalEmissions": "electricity + naturalGas + vehicle + flights + waste + water",
-    "round2": "Math.round(totalEmissions * 100) / 100"
+    "round2": "Math.round(totalEmissions * 100) / 100",
+    "_electricity_toFixed_2___metric_tons": "{electricity.toFixed(2)} metric tons",
+    "_naturalGas_toFixed_2___metric_tons": "{naturalGas.toFixed(2)} metric tons",
+    "_vehicle_toFixed_2___metric_tons": "{vehicle.toFixed(2)} metric tons",
+    "_flights_toFixed_2___metric_tons": "{flights.toFixed(2)} metric tons",
+    "_waste_toFixed_2___metric_tons": "{waste.toFixed(2)} metric tons",
+    "_water_toFixed_2___metric_tons": "{water.toFixed(2)} metric tons"
   },
   "outputs": {
-    "primary": "{round2} metric tons CO₂e",
+    "primary": "FACTOR_ELECTRICITY",
     "breakdown": [
       "Electricity: {electricity.toFixed(2)} metric tons",
       "Natural Gas: {naturalGas.toFixed(2)} metric tons",
@@ -79,7 +126,7 @@
       "Water: {water.toFixed(2)} metric tons"
     ]
   },
-  "category": "Enerji & Karbon",
+  "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "ecology-environment",

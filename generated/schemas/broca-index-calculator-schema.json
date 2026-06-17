@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "User's height in centimeters"
+      "businessContext": "User's height in centimeters",
+      "label_i18n": {
+        "en": "Height (cm)",
+        "tr": "Height (cm)",
+        "de": "Height (cm)",
+        "fr": "Height (cm)",
+        "es": "Height (cm)",
+        "ar": "Height (cm)"
+      }
     },
     {
       "id": "sex",
       "label": "Sex (0=Male, 1=Female)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Biological sex: 0 for male, 1 for female"
+      "businessContext": "Biological sex: 0 for male, 1 for female",
+      "label_i18n": {
+        "en": "Sex (0=Male, 1=Female)",
+        "tr": "Sex (0=Male, 1=Female)",
+        "de": "Sex (0=Male, 1=Female)",
+        "fr": "Sex (0=Male, 1=Female)",
+        "es": "Sex (0=Male, 1=Female)",
+        "ar": "Sex (0=Male, 1=Female)"
+      }
     },
     {
       "id": "frameSize",
       "label": "Frame Size (0=Small, 1=Medium, 2=Large)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Body frame size category"
+      "businessContext": "Body frame size category",
+      "label_i18n": {
+        "en": "Frame Size (0=Small, 1=Medium, 2=Large)",
+        "tr": "Frame Size (0=Small, 1=Medium, 2=Large)",
+        "de": "Frame Size (0=Small, 1=Medium, 2=Large)",
+        "fr": "Frame Size (0=Small, 1=Medium, 2=Large)",
+        "es": "Frame Size (0=Small, 1=Medium, 2=Large)",
+        "ar": "Frame Size (0=Small, 1=Medium, 2=Large)"
+      }
     },
     {
       "id": "currentWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's current weight for comparison"
+      "businessContext": "User's current weight for comparison",
+      "label_i18n": {
+        "en": "Current Weight (kg)",
+        "tr": "Current Weight (kg)",
+        "de": "Current Weight (kg)",
+        "fr": "Current Weight (kg)",
+        "es": "Current Weight (kg)",
+        "ar": "Current Weight (kg)"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "difference"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

@@ -18,6 +18,7 @@ export const Combination_generator_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Combination_generator_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (()=>{let c=(()=>{let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r})(); return decimalPlaces>0? Math.round(c*Math.pow(10,decimalPlaces))/Math.pow(10,decimalPlaces): Math.round(c);})(); results["combinations"] = Number.isFinite(v) ? v : 0; } catch { results["combinations"] = 0; }
+  try { const v = (()=>{let c=(()=>{let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r})(); return decimalPlaces>0? Math.round(c*Math.pow(10,decimalPlaces))/Math.pow(10,decimalPlaces): Math.round(c);})(); results["combinations_copy"] = Number.isFinite(v) ? v : 0; } catch { results["combinations_copy"] = 0; }
   return results;
 }
 

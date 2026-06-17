@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the mother at delivery"
+      "businessContext": "Age of the mother at delivery",
+      "label_i18n": {
+        "en": "Maternal Age",
+        "tr": "Maternal Age",
+        "de": "Maternal Age",
+        "fr": "Maternal Age",
+        "es": "Maternal Age",
+        "ar": "Maternal Age"
+      }
     },
     {
       "id": "bmi",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/m²",
       "default": 25,
-      "businessContext": "Body Mass Index before pregnancy"
+      "businessContext": "Body Mass Index before pregnancy",
+      "label_i18n": {
+        "en": "BMI",
+        "tr": "BMI",
+        "de": "BMI",
+        "fr": "BMI",
+        "es": "BMI",
+        "ar": "BMI"
+      }
     },
     {
       "id": "prevVaginalBirth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "1 if previous vaginal birth, 0 otherwise"
+      "businessContext": "1 if previous vaginal birth, 0 otherwise",
+      "label_i18n": {
+        "en": "Previous Vaginal Birth",
+        "tr": "Previous Vaginal Birth",
+        "de": "Previous Vaginal Birth",
+        "fr": "Previous Vaginal Birth",
+        "es": "Previous Vaginal Birth",
+        "ar": "Previous Vaginal Birth"
+      }
     },
     {
       "id": "prevCSIndication",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "1 if previous cesarean indication is recurrent, 0 otherwise"
+      "businessContext": "1 if previous cesarean indication is recurrent, 0 otherwise",
+      "label_i18n": {
+        "en": "Previous CS Indication Recurrent",
+        "tr": "Previous CS Indication Recurrent",
+        "de": "Previous CS Indication Recurrent",
+        "fr": "Previous CS Indication Recurrent",
+        "es": "Previous CS Indication Recurrent",
+        "ar": "Previous CS Indication Recurrent"
+      }
     },
     {
       "id": "gestationalAge",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 39,
-      "businessContext": "Gestational age at delivery in weeks"
+      "businessContext": "Gestational age at delivery in weeks",
+      "label_i18n": {
+        "en": "Gestational Age",
+        "tr": "Gestational Age",
+        "de": "Gestational Age",
+        "fr": "Gestational Age",
+        "es": "Gestational Age",
+        "ar": "Gestational Age"
+      }
     },
     {
       "id": "cervicalDilation",
@@ -47,23 +87,34 @@
       "type": "number",
       "unit": "cm",
       "default": 3,
-      "businessContext": "Cervical dilation at admission in cm"
+      "businessContext": "Cervical dilation at admission in cm",
+      "label_i18n": {
+        "en": "Cervical Dilation",
+        "tr": "Cervical Dilation",
+        "de": "Cervical Dilation",
+        "fr": "Cervical Dilation",
+        "es": "Cervical Dilation",
+        "ar": "Cervical Dilation"
+      }
     }
   ],
   "formulas": {
-    "primary": "100 / (1 + Math.exp(-(-3.5 + 0.05 * maternalAge + 0.1 * bmi - 1.2 * prevVaginalBirth + 1.5 * prevCSIndication + 0.2 * gestationalAge + 0.3 * cervicalDilation)))"
+    "primary": "100 / (1 + Math.exp(-(-3.5 + 0.05 * maternalAge + 0.1 * bmi - 1.2 * prevVaginalBirth + 1.5 * prevCSIndication + 0.2 * gestationalAge + 0.3 * cervicalDilation)))",
+    "_3_5___0_05___maternalAge___0_1___bmi___": "-3.5 + 0.05 * maternalAge + 0.1 * bmi - 1.2 * prevVaginalBirth + 1.5 * prevCSIndication + 0.2 * gestationalAge + 0.3 * cervicalDilation",
+    "100____1___exp__z__": "100 / (1 + exp(-z))",
+    "result": "VBAC Success Probability (%)"
   },
   "outputs": {
-    "primary": "VBAC Success Probability (%)",
+    "primary": "result",
     "breakdown": [
       "Risk Score (z): -3.5 + 0.05 * maternalAge + 0.1 * bmi - 1.2 * prevVaginalBirth + 1.5 * prevCSIndication + 0.2 * gestationalAge + 0.3 * cervicalDilation",
       "Success Probability: 100 / (1 + exp(-z))"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

@@ -27,13 +27,18 @@ function evaluateAllFormulas(input: Maximum_drawdown_calculatorInput): Record<st
   try { const v = (input.peakValue / input.troughValue - 1) * 100; results["requiredRecoveryGainPercent"] = Number.isFinite(v) ? v : 0; } catch { results["requiredRecoveryGainPercent"] = 0; }
   try { const v = input.recoveryValue > 0 ? ((input.recoveryValue - input.troughValue) / input.troughValue) * 100 : 0; results["actualRecoveryGainPercent"] = Number.isFinite(v) ? v : 0; } catch { results["actualRecoveryGainPercent"] = 0; }
   try { const v = input.recoveryValue >= input.peakValue ? 'Full Recovery' : (input.recoveryValue > 0 ? 'Partial Recovery' : 'Not Recovered'); results["recoveryStatus"] = Number.isFinite(v) ? v : 0; } catch { results["recoveryStatus"] = 0; }
+  results["_absoluteDrawdown__USD"] = 0;
+  results["_lossFromInitialPercent__"] = 0;
+  results["_requiredRecoveryGainPercent__"] = 0;
+  results["_actualRecoveryGainPercent__"] = 0;
+  try { const v = (results["recoveryStatus"] ?? 0); results["_recoveryStatus_"] = Number.isFinite(v) ? v : 0; } catch { results["_recoveryStatus_"] = 0; }
   return results;
 }
 
 
 export function calculateMaximum_drawdown_calculator(input: Maximum_drawdown_calculatorInput): Maximum_drawdown_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Maximum"] ?? 0;
+  const totalWasteCost = values["maxDrawdownPercent"] ?? 0;
   const breakdown = {
     
   };

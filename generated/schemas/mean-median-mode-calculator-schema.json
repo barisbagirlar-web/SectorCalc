@@ -5,82 +5,149 @@
       "id": "value1",
       "label": "Value 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Value 1",
+        "de": "Value 1",
+        "fr": "Value 1",
+        "es": "Value 1",
+        "ar": "Value 1"
+      }
     },
     {
       "id": "value2",
       "label": "Value 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Value 2",
+        "de": "Value 2",
+        "fr": "Value 2",
+        "es": "Value 2",
+        "ar": "Value 2"
+      }
     },
     {
       "id": "value3",
       "label": "Value 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)",
+      "label_i18n": {
+        "en": "Value 3",
+        "tr": "Value 3",
+        "de": "Value 3",
+        "fr": "Value 3",
+        "es": "Value 3",
+        "ar": "Value 3"
+      }
     },
     {
       "id": "value4",
       "label": "Value 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)",
+      "label_i18n": {
+        "en": "Value 4",
+        "tr": "Value 4",
+        "de": "Value 4",
+        "fr": "Value 4",
+        "es": "Value 4",
+        "ar": "Value 4"
+      }
     },
     {
       "id": "value5",
       "label": "Value 5",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)",
+      "label_i18n": {
+        "en": "Value 5",
+        "tr": "Value 5",
+        "de": "Value 5",
+        "fr": "Value 5",
+        "es": "Value 5",
+        "ar": "Value 5"
+      }
     },
     {
       "id": "value6",
       "label": "Value 6",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)",
+      "label_i18n": {
+        "en": "Value 6",
+        "tr": "Value 6",
+        "de": "Value 6",
+        "fr": "Value 6",
+        "es": "Value 6",
+        "ar": "Value 6"
+      }
     },
     {
       "id": "value7",
       "label": "Value 7",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)",
+      "label_i18n": {
+        "en": "Value 7",
+        "tr": "Value 7",
+        "de": "Value 7",
+        "fr": "Value 7",
+        "es": "Value 7",
+        "ar": "Value 7"
+      }
     },
     {
       "id": "value8",
       "label": "Value 8",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)",
+      "label_i18n": {
+        "en": "Value 8",
+        "tr": "Value 8",
+        "de": "Value 8",
+        "fr": "Value 8",
+        "es": "Value 8",
+        "ar": "Value 8"
+      }
     }
   ],
   "formulas": {
     "mean": "(value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8) / 8",
     "median": "(sorted => (sorted[3] + sorted[4]) / 2)([value1, value2, value3, value4, value5, value6, value7, value8].sort((a, b) => a - b))",
-    "mode": "(arr => { let freq = {}, maxFreq = 0, modes = []; arr.forEach(v => { freq[v] = (freq[v] || 0) + 1; if (freq[v] > maxFreq) maxFreq = freq[v]; }); if (maxFreq === 1) return 'No mode'; for (let k in freq) if (freq[k] === maxFreq) modes.push(k); return 'Mode: ' + modes.join(', '); })([value1, value2, value3, value4, value5, value6, value7, value8])"
+    "mode": "(arr => { let freq = {}, maxFreq = 0, modes = []; arr.forEach(v => { freq[v] = (freq[v] || 0) + 1; if (freq[v] > maxFreq) maxFreq = freq[v]; }); if (maxFreq === 1) return 'No mode'; for (let k in freq) if (freq[k] === maxFreq) modes.push(k); return 'Mode: ' + modes.join(', '); })([value1, value2, value3, value4, value5, value6, value7, value8])",
+    "Mean__average__is_the_sum_of_all_values_": "Mean (average) is the sum of all values divided by the count (8).",
+    "for_8_numbers__it_is_the_average_of_the_": "for 8 numbers, it is the average of the 4th and 5th sorted values.",
+    "Mode_is_the_most_frequently_occurring_va": "Mode is the most frequently occurring value(s)."
   },
   "outputs": {
-    "primary": "Mean: ${mean}, Median: ${median}, Mode: ${mode}",
+    "primary": "mean",
     "breakdown": [
       "Mean (average) is the sum of all values divided by the count (8).",
       "Median is the middle value: for 8 numbers, it is the average of the 4th and 5th sorted values.",
       "Mode is the most frequently occurring value(s)."
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "The dog's weight in kilograms, used as the base for calculating resting energy requirement."
+      "businessContext": "The dog's weight in kilograms, used as the base for calculating resting energy requirement.",
+      "label_i18n": {
+        "en": "Dog Weight",
+        "tr": "Dog Weight",
+        "de": "Dog Weight",
+        "fr": "Dog Weight",
+        "es": "Dog Weight",
+        "ar": "Dog Weight"
+      }
     },
     {
       "id": "activityFactor",
       "label": "Activity & Life Stage Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.6,
-      "businessContext": "Multiplier for activity level and life stage. Typical values: 1.6 for neutered adult, 2.0 for active adult, 3.0 for working/pregnant dogs."
+      "businessContext": "Multiplier for activity level and life stage. Typical values: 1.6 for neutered adult, 2.0 for active adult, 3.0 for working/pregnant dogs.",
+      "label_i18n": {
+        "en": "Activity & Life Stage Factor",
+        "tr": "Activity & Life Stage Factor",
+        "de": "Activity & Life Stage Factor",
+        "fr": "Activity & Life Stage Factor",
+        "es": "Activity & Life Stage Factor",
+        "ar": "Activity & Life Stage Factor"
+      }
     },
     {
       "id": "bodyConditionScore",
       "label": "Body Condition Score (1-9)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "1=emaciated, 5=ideal, 9=obese. Used to adjust calories: underweight dogs need more, overweight need less."
+      "businessContext": "1=emaciated, 5=ideal, 9=obese. Used to adjust calories: underweight dogs need more, overweight need less.",
+      "label_i18n": {
+        "en": "Body Condition Score (1-9)",
+        "tr": "Body Condition Score (1-9)",
+        "de": "Body Condition Score (1-9)",
+        "fr": "Body Condition Score (1-9)",
+        "es": "Body Condition Score (1-9)",
+        "ar": "Body Condition Score (1-9)"
+      }
     },
     {
       "id": "desiredWeightChange",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Target weight change per week as a percentage of current weight. Negative for loss, positive for gain. Affects calorie adjustment."
+      "businessContext": "Target weight change per week as a percentage of current weight. Negative for loss, positive for gain. Affects calorie adjustment.",
+      "label_i18n": {
+        "en": "Desired Weekly Weight Change",
+        "tr": "Desired Weekly Weight Change",
+        "de": "Desired Weekly Weight Change",
+        "fr": "Desired Weekly Weight Change",
+        "es": "Desired Weekly Weight Change",
+        "ar": "Desired Weekly Weight Change"
+      }
     }
   ],
   "formulas": {
@@ -51,10 +83,10 @@
       "totalCalories"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

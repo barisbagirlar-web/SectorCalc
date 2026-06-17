@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Beehive tank inner diameter"
+      "businessContext": "Beehive tank inner diameter",
+      "label_i18n": {
+        "en": "Tank Çapı",
+        "tr": "Tank Çapı",
+        "de": "Tank Çapı",
+        "fr": "Tank Çapı",
+        "es": "Tank Çapı",
+        "ar": "Tank Çapı"
+      }
     },
     {
       "id": "heightCylinder",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Height of the cylindrical section"
+      "businessContext": "Height of the cylindrical section",
+      "label_i18n": {
+        "en": "Silindir Yüksekliği",
+        "tr": "Silindir Yüksekliği",
+        "de": "Silindir Yüksekliği",
+        "fr": "Silindir Yüksekliği",
+        "es": "Silindir Yüksekliği",
+        "ar": "Silindir Yüksekliği"
+      }
     },
     {
       "id": "wallThickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Tank wall thickness for material calculation"
+      "businessContext": "Tank wall thickness for material calculation",
+      "label_i18n": {
+        "en": "Et Kalınlığı",
+        "tr": "Et Kalınlığı",
+        "de": "Et Kalınlığı",
+        "fr": "Et Kalınlığı",
+        "es": "Et Kalınlığı",
+        "ar": "Et Kalınlığı"
+      }
     },
     {
       "id": "materialDensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Density of tank material (e.g., steel)"
+      "businessContext": "Density of tank material (e.g., steel)",
+      "label_i18n": {
+        "en": "Malzeme Yoğunluğu",
+        "tr": "Malzeme Yoğunluğu",
+        "de": "Malzeme Yoğunluğu",
+        "fr": "Malzeme Yoğunluğu",
+        "es": "Malzeme Yoğunluğu",
+        "ar": "Malzeme Yoğunluğu"
+      }
     },
     {
       "id": "materialCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TRY/kg",
       "default": 10,
-      "businessContext": "Cost per kg of material"
+      "businessContext": "Cost per kg of material",
+      "label_i18n": {
+        "en": "Birim Malzeme Maliyeti",
+        "tr": "Birim Malzeme Maliyeti",
+        "de": "Birim Malzeme Maliyeti",
+        "fr": "Birim Malzeme Maliyeti",
+        "es": "Birim Malzeme Maliyeti",
+        "ar": "Birim Malzeme Maliyeti"
+      }
     }
   ],
   "formulas": {
@@ -52,10 +92,16 @@
     "totalSurfaceArea": "surfaceAreaCylinder + surfaceAreaHemisphere",
     "materialVolume": "totalSurfaceArea * (wallThickness / 1000)",
     "materialWeight": "materialVolume * materialDensity",
-    "materialCostTotal": "materialWeight * materialCost"
+    "materialCostTotal": "materialWeight * materialCost",
+    "Silindir_Hacmi__m__": "Silindir Hacmi (m³)",
+    "Kubbe_Hacmi__m__": "Kubbe Hacmi (m³)",
+    "Y_zey_Alan___m__": "Yüzey Alanı (m²)",
+    "Malzeme_A__rl_____kg_": "Malzeme Ağırlığı (kg)",
+    "Malzeme_Maliyeti__TRY_": "Malzeme Maliyeti (TRY)",
+    "result": "Toplam Hacim (m³)"
   },
   "outputs": {
-    "primary": "Toplam Hacim (m³)",
+    "primary": "result",
     "breakdown": [
       "Silindir Hacmi (m³)",
       "Kubbe Hacmi (m³)",
@@ -64,10 +110,10 @@
       "Malzeme Maliyeti (TRY)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

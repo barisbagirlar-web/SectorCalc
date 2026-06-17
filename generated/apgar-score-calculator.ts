@@ -20,6 +20,11 @@ export const Apgar_score_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Apgar_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.appearance + input.pulse + input.grimace + input.activity + input.respiration; results["totalScore"] = Number.isFinite(v) ? v : 0; } catch { results["totalScore"] = 0; }
+  try { const v = input.appearance; results["appearance"] = Number.isFinite(v) ? v : 0; } catch { results["appearance"] = 0; }
+  try { const v = input.pulse; results["pulse"] = Number.isFinite(v) ? v : 0; } catch { results["pulse"] = 0; }
+  try { const v = input.grimace; results["grimace"] = Number.isFinite(v) ? v : 0; } catch { results["grimace"] = 0; }
+  try { const v = input.activity; results["activity"] = Number.isFinite(v) ? v : 0; } catch { results["activity"] = 0; }
+  try { const v = input.respiration; results["respiration"] = Number.isFinite(v) ? v : 0; } catch { results["respiration"] = 0; }
   return results;
 }
 

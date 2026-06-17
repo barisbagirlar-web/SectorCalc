@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Dry-bulb air temperature in degrees Celsius"
+      "businessContext": "Dry-bulb air temperature in degrees Celsius",
+      "label_i18n": {
+        "en": "Air Temperature",
+        "tr": "Air Temperature",
+        "de": "Air Temperature",
+        "fr": "Air Temperature",
+        "es": "Air Temperature",
+        "ar": "Air Temperature"
+      }
     },
     {
       "id": "humidity",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Relative humidity of air (0-100%)"
+      "businessContext": "Relative humidity of air (0-100%)",
+      "label_i18n": {
+        "en": "Relative Humidity",
+        "tr": "Relative Humidity",
+        "de": "Relative Humidity",
+        "fr": "Relative Humidity",
+        "es": "Relative Humidity",
+        "ar": "Relative Humidity"
+      }
     },
     {
       "id": "a",
       "label": "Magnus Constant a",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 17.27,
-      "businessContext": "Empirical constant a for Magnus formula (17.27 for water, 21.875 for ice)"
+      "businessContext": "Empirical constant a for Magnus formula (17.27 for water, 21.875 for ice)",
+      "label_i18n": {
+        "en": "Magnus Constant a",
+        "tr": "Magnus Constant a",
+        "de": "Magnus Constant a",
+        "fr": "Magnus Constant a",
+        "es": "Magnus Constant a",
+        "ar": "Magnus Constant a"
+      }
     },
     {
       "id": "b",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 237.7,
-      "businessContext": "Empirical constant b (237.7 °C for water, 265.5 °C for ice)"
+      "businessContext": "Empirical constant b (237.7 °C for water, 265.5 °C for ice)",
+      "label_i18n": {
+        "en": "Magnus Constant b",
+        "tr": "Magnus Constant b",
+        "de": "Magnus Constant b",
+        "fr": "Magnus Constant b",
+        "es": "Magnus Constant b",
+        "ar": "Magnus Constant b"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "alpha"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

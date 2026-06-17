@@ -29,7 +29,7 @@
       "id": "scope_complexity",
       "label": "Scope Complexity",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "medium",
       "min": null,
       "max": null,
@@ -50,7 +50,7 @@
       "id": "material_quality",
       "label": "Material Quality Tier",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "standard",
       "min": null,
       "max": null,
@@ -135,7 +135,7 @@
       "id": "sustainability_target",
       "label": "Sustainability Target",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "none",
       "min": null,
       "max": null,
@@ -157,7 +157,7 @@
       "id": "phased_renovation",
       "label": "Phased Renovation",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -207,144 +207,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "base_material_cost",
-      "description": "Base material cost per sq ft based on quality tier",
-      "expression": "CASE material_quality WHEN 'economy' THEN 25 WHEN 'standard' THEN 50 WHEN 'premium' THEN 90 ELSE 50 END",
-      "unit": "$/sq ft"
-    },
-    {
-      "id": "scope_multiplier",
-      "description": "Complexity multiplier for labor and material",
-      "expression": "CASE scope_complexity WHEN 'low' THEN 1.0 WHEN 'medium' THEN 1.3 WHEN 'high' THEN 1.8 ELSE 1.3 END",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "sustainability_surcharge",
-      "description": "Additional cost factor for certification",
-      "expression": "CASE sustainability_target WHEN 'none' THEN 0 WHEN 'LEED' THEN 0.15 WHEN 'WELL' THEN 0.20 WHEN 'BREEAM' THEN 0.18 ELSE 0 END",
-      "unit": "fraction"
-    },
-    {
-      "id": "phasing_efficiency",
-      "description": "Efficiency gain/loss due to phasing",
-      "expression": "IF phased_renovation THEN 1.05 ELSE 1.0 END",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "material_cost_total",
-      "description": "Total material cost including waste and region adjustment",
-      "expression": "total_area_sqft * base_material_cost * scope_multiplier * (1 + waste_factor_pct/100) * region_cost_index * (1 + sustainability_surcharge) * phasing_efficiency",
-      "unit": "$"
-    },
-    {
-      "id": "labor_cost_total",
-      "description": "Total labor cost based on efficiency and scope",
-      "expression": "total_area_sqft * labor_efficiency_factor * 65 * scope_multiplier * region_cost_index * phasing_efficiency",
-      "unit": "$"
-    },
-    {
-      "id": "contingency_amount",
-      "description": "Contingency reserve",
-      "expression": "(material_cost_total + labor_cost_total) * (contingency_pct/100)",
-      "unit": "$"
-    },
-    {
-      "id": "primaryResult",
-      "description": "Total renovation budget estimate",
-      "expression": "material_cost_total + labor_cost_total + contingency_amount",
-      "unit": "$"
-    }
+    "total_area_sqft",
+    "total_area_sqft",
+    "total_area_sqft",
+    "total_area_sqft",
+    "total_area_sqft",
+    "total_area_sqft",
+    "total_area_sqft",
+    "total_area_sqft"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_budget",
-      "label": "Total Renovation Budget",
-      "unit": "$",
-      "description": "Estimated total cost including materials, labor, and contingency."
-    },
-    "breakdown": {
-      "material_cost": {
-        "id": "material_cost",
-        "label": "Material Cost",
-        "unit": "$",
-        "description": "Total material cost including waste and sustainability surcharge."
-      },
-      "labor_cost": {
-        "id": "labor_cost",
-        "label": "Labor Cost",
-        "unit": "$",
-        "description": "Total labor cost based on efficiency and scope."
-      },
-      "contingency": {
-        "id": "contingency",
-        "label": "Contingency Reserve",
-        "unit": "$",
-        "description": "Budget reserve for unforeseen issues."
-      },
-      "cost_per_sqft": {
-        "id": "cost_per_sqft",
-        "label": "Cost per Square Foot",
-        "unit": "$/sq ft",
-        "description": "Total budget divided by total area."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "waste_inefficiency",
-        "label": "Material Waste Inefficiency",
-        "description": "Excess material cost due to waste factor above 5% baseline.",
-        "value": "((waste_factor_pct - 5) / 100) * material_cost_total"
-      },
-      {
-        "id": "labor_productivity_gap",
-        "label": "Labor Productivity Gap",
-        "description": "Additional labor cost if efficiency factor exceeds industry benchmark of 0.12 hours/sq ft.",
-        "value": "MAX(0, (labor_efficiency_factor - 0.12) * total_area_sqft * 65 * scope_multiplier * region_cost_index)"
-      },
-      {
-        "id": "scope_creep_allowance",
-        "label": "Scope Creep Allowance",
-        "description": "Hidden cost from complexity multiplier above baseline (low complexity = 1.0).",
-        "value": "(scope_multiplier - 1.0) * (material_cost_total + labor_cost_total)"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_waste",
-        "label": "Implement Lean Material Management",
-        "description": "Adopt just-in-time delivery and prefabrication to reduce waste factor below 10%.",
-        "potentialSavings": "0.05 * material_cost_total"
-      },
-      {
-        "id": "improve_labor_efficiency",
-        "label": "Enhance Crew Training & Workflow",
-        "description": "Use time-motion studies and standardized work to lower labor efficiency factor to 0.12.",
-        "potentialSavings": "MAX(0, (labor_efficiency_factor - 0.12) * total_area_sqft * 65 * scope_multiplier * region_cost_index)"
-      },
-      {
-        "id": "value_engineering",
-        "label": "Conduct Value Engineering Review",
-        "description": "Evaluate scope complexity and material quality trade-offs to reduce cost without compromising function.",
-        "potentialSavings": "0.1 * primaryResult"
-      },
-      {
-        "id": "phasing_optimization",
-        "label": "Optimize Phasing Schedule",
-        "description": "If not phased, consider phasing to reduce disruption and potentially lower labor overtime costs.",
-        "potentialSavings": "0.03 * labor_cost_total"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_adjusted_budget",
-      "label": "Confidence-Adjusted Budget",
-      "unit": "$",
-      "description": "Budget adjusted by a confidence factor based on input variability (e.g., 0.9 for medium confidence).",
-      "value": "primaryResult * 0.9"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "renovation-budget-optimizer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon"
 }

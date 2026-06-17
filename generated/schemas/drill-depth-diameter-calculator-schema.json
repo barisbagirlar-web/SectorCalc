@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Diameter of the drill bit"
+      "businessContext": "Diameter of the drill bit",
+      "label_i18n": {
+        "en": "Drill Diameter",
+        "tr": "Drill Diameter",
+        "de": "Drill Diameter",
+        "fr": "Drill Diameter",
+        "es": "Drill Diameter",
+        "ar": "Drill Diameter"
+      }
     },
     {
       "id": "drillDepth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Hole depth to be drilled"
+      "businessContext": "Hole depth to be drilled",
+      "label_i18n": {
+        "en": "Drill Depth",
+        "tr": "Drill Depth",
+        "de": "Drill Depth",
+        "fr": "Drill Depth",
+        "es": "Drill Depth",
+        "ar": "Drill Depth"
+      }
     },
     {
       "id": "rotationSpeed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "RPM",
       "default": 1000,
-      "businessContext": "Spindle rotation speed"
+      "businessContext": "Spindle rotation speed",
+      "label_i18n": {
+        "en": "Rotation Speed",
+        "tr": "Rotation Speed",
+        "de": "Rotation Speed",
+        "fr": "Rotation Speed",
+        "es": "Rotation Speed",
+        "ar": "Rotation Speed"
+      }
     },
     {
       "id": "feedRate",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mm/rev",
       "default": 0.1,
-      "businessContext": "Feed per revolution"
+      "businessContext": "Feed per revolution",
+      "label_i18n": {
+        "en": "Feed Rate",
+        "tr": "Feed Rate",
+        "de": "Feed Rate",
+        "fr": "Feed Rate",
+        "es": "Feed Rate",
+        "ar": "Feed Rate"
+      }
     },
     {
       "id": "materialFactor",
       "label": "Material Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Material-specific power coefficient"
+      "businessContext": "Material-specific power coefficient",
+      "label_i18n": {
+        "en": "Material Factor",
+        "tr": "Material Factor",
+        "de": "Material Factor",
+        "fr": "Material Factor",
+        "es": "Material Factor",
+        "ar": "Material Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "powerRequired"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

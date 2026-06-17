@@ -5,33 +5,65 @@
       "id": "cx",
       "label": "Real part of c",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -0.8,
-      "businessContext": "Real part of the Julia set constant c"
+      "businessContext": "Real part of the Julia set constant c",
+      "label_i18n": {
+        "en": "Real part of c",
+        "tr": "Real part of c",
+        "de": "Real part of c",
+        "fr": "Real part of c",
+        "es": "Real part of c",
+        "ar": "Real part of c"
+      }
     },
     {
       "id": "cy",
       "label": "Imaginary part of c",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.156,
-      "businessContext": "Imaginary part of the Julia set constant c"
+      "businessContext": "Imaginary part of the Julia set constant c",
+      "label_i18n": {
+        "en": "Imaginary part of c",
+        "tr": "Imaginary part of c",
+        "de": "Imaginary part of c",
+        "fr": "Imaginary part of c",
+        "es": "Imaginary part of c",
+        "ar": "Imaginary part of c"
+      }
     },
     {
       "id": "zx",
       "label": "Real part of z",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Real part of the initial complex number z"
+      "businessContext": "Real part of the initial complex number z",
+      "label_i18n": {
+        "en": "Real part of z",
+        "tr": "Real part of z",
+        "de": "Real part of z",
+        "fr": "Real part of z",
+        "es": "Real part of z",
+        "ar": "Real part of z"
+      }
     },
     {
       "id": "zy",
       "label": "Imaginary part of z",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Imaginary part of the initial complex number z"
+      "businessContext": "Imaginary part of the initial complex number z",
+      "label_i18n": {
+        "en": "Imaginary part of z",
+        "tr": "Imaginary part of z",
+        "de": "Imaginary part of z",
+        "fr": "Imaginary part of z",
+        "es": "Imaginary part of z",
+        "ar": "Imaginary part of z"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "nextImag"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

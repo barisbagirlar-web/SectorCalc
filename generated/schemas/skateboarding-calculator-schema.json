@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "in",
       "default": 32,
-      "businessContext": "Length of the skateboard deck in inches"
+      "businessContext": "Length of the skateboard deck in inches",
+      "label_i18n": {
+        "en": "Deck Length",
+        "tr": "Deck Length",
+        "de": "Deck Length",
+        "fr": "Deck Length",
+        "es": "Deck Length",
+        "ar": "Deck Length"
+      }
     },
     {
       "id": "deckWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "in",
       "default": 8,
-      "businessContext": "Width of the skateboard deck in inches"
+      "businessContext": "Width of the skateboard deck in inches",
+      "label_i18n": {
+        "en": "Deck Width",
+        "tr": "Deck Width",
+        "de": "Deck Width",
+        "fr": "Deck Width",
+        "es": "Deck Width",
+        "ar": "Deck Width"
+      }
     },
     {
       "id": "wheelDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 54,
-      "businessContext": "Diameter of the wheels in millimeters"
+      "businessContext": "Diameter of the wheels in millimeters",
+      "label_i18n": {
+        "en": "Wheel Diameter",
+        "tr": "Wheel Diameter",
+        "de": "Wheel Diameter",
+        "fr": "Wheel Diameter",
+        "es": "Wheel Diameter",
+        "ar": "Wheel Diameter"
+      }
     },
     {
       "id": "wheelHardness",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "A",
       "default": 99,
-      "businessContext": "Hardness of the wheels on the Shore A scale"
+      "businessContext": "Hardness of the wheels on the Shore A scale",
+      "label_i18n": {
+        "en": "Wheel Hardness (Durometer A)",
+        "tr": "Wheel Hardness (Durometer A)",
+        "de": "Wheel Hardness (Durometer A)",
+        "fr": "Wheel Hardness (Durometer A)",
+        "es": "Wheel Hardness (Durometer A)",
+        "ar": "Wheel Hardness (Durometer A)"
+      }
     },
     {
       "id": "bearingRating",
       "label": "Bearing Rating (ABEC)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "ABEC rating of the bearings (1,3,5,7,9)"
+      "businessContext": "ABEC rating of the bearings (1,3,5,7,9)",
+      "label_i18n": {
+        "en": "Bearing Rating (ABEC)",
+        "tr": "Bearing Rating (ABEC)",
+        "de": "Bearing Rating (ABEC)",
+        "fr": "Bearing Rating (ABEC)",
+        "es": "Bearing Rating (ABEC)",
+        "ar": "Bearing Rating (ABEC)"
+      }
     },
     {
       "id": "truckWidth",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "in",
       "default": 5.5,
-      "businessContext": "Width of the truck axle in inches"
+      "businessContext": "Width of the truck axle in inches",
+      "label_i18n": {
+        "en": "Truck Width",
+        "tr": "Truck Width",
+        "de": "Truck Width",
+        "fr": "Truck Width",
+        "es": "Truck Width",
+        "ar": "Truck Width"
+      }
     },
     {
       "id": "riderWeight",
@@ -55,15 +103,31 @@
       "type": "number",
       "unit": "lbs",
       "default": 150,
-      "businessContext": "Weight of the rider in pounds"
+      "businessContext": "Weight of the rider in pounds",
+      "label_i18n": {
+        "en": "Rider Weight",
+        "tr": "Rider Weight",
+        "de": "Rider Weight",
+        "fr": "Rider Weight",
+        "es": "Rider Weight",
+        "ar": "Rider Weight"
+      }
     },
     {
       "id": "skateStyle",
       "label": "Skate Style (1=Street, 2=Park, 3=Cruise)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Type of skating: 1 for street, 2 for park, 3 for cruising"
+      "businessContext": "Type of skating: 1 for street, 2 for park, 3 for cruising",
+      "label_i18n": {
+        "en": "Skate Style (1=Street, 2=Park, 3=Cruise)",
+        "tr": "Skate Style (1=Street, 2=Park, 3=Cruise)",
+        "de": "Skate Style (1=Street, 2=Park, 3=Cruise)",
+        "fr": "Skate Style (1=Street, 2=Park, 3=Cruise)",
+        "es": "Skate Style (1=Street, 2=Park, 3=Cruise)",
+        "ar": "Skate Style (1=Street, 2=Park, 3=Cruise)"
+      }
     }
   ],
   "formulas": {
@@ -86,10 +150,10 @@
       "styleMultiplier"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Atölye & Tamir",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "cnc-additive-manufacturing"
 }

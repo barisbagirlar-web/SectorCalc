@@ -27,13 +27,18 @@ function evaluateAllFormulas(input: Gdt_calculatorInput): Record<string, number>
   try { const v = (results["mmc_size"] ?? 0) + (results["total_tolerance"] ?? 0); results["virtual_condition"] = Number.isFinite(v) ? v : 0; } catch { results["virtual_condition"] = 0; }
   try { const v = (results["lmc_size"] ?? 0) - (results["total_tolerance"] ?? 0); results["resultant_condition"] = Number.isFinite(v) ? v : 0; } catch { results["resultant_condition"] = 0; }
   try { const v = (results["total_tolerance"] ?? 0) * Math.sin(input.angle * Math.PI / 180); results["angular_tolerance"] = Number.isFinite(v) ? v : 0; } catch { results["angular_tolerance"] = 0; }
+  results["_mmc_size__mm"] = 0;
+  results["_lmc_size__mm"] = 0;
+  results["_virtual_condition__mm"] = 0;
+  results["_resultant_condition__mm"] = 0;
+  results["_angular_tolerance__mm"] = 0;
   return results;
 }
 
 
 export function calculateGdt_calculator(input: Gdt_calculatorInput): Gdt_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["total_tolerance"] ?? 0;
   const breakdown = {
     
   };

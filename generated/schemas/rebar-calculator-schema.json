@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 12,
-      "businessContext": "Standard rebar diameter in millimeters, used to auto‑calculate weight per meter if custom weight is not provided."
+      "businessContext": "Standard rebar diameter in millimeters, used to auto‑calculate weight per meter if custom weight is not provided.",
+      "label_i18n": {
+        "en": "Rebar Diameter (mm)",
+        "tr": "Rebar Diameter (mm)",
+        "de": "Rebar Diameter (mm)",
+        "fr": "Rebar Diameter (mm)",
+        "es": "Rebar Diameter (mm)",
+        "ar": "Rebar Diameter (mm)"
+      }
     },
     {
       "id": "lengthPerBar",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "m",
       "default": 12,
-      "businessContext": "Typical standard factory bar length before any laps or cuts."
+      "businessContext": "Typical standard factory bar length before any laps or cuts.",
+      "label_i18n": {
+        "en": "Length per Bar (m)",
+        "tr": "Length per Bar (m)",
+        "de": "Length per Bar (m)",
+        "fr": "Length per Bar (m)",
+        "es": "Length per Bar (m)",
+        "ar": "Length per Bar (m)"
+      }
     },
     {
       "id": "numberOfBars",
       "label": "Number of Bars",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Total quantity of bars required for the project."
+      "businessContext": "Total quantity of bars required for the project.",
+      "label_i18n": {
+        "en": "Number of Bars",
+        "tr": "Number of Bars",
+        "de": "Number of Bars",
+        "fr": "Number of Bars",
+        "es": "Number of Bars",
+        "ar": "Number of Bars"
+      }
     },
     {
       "id": "lapLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Additional splicing length added per bar for overlap joints."
+      "businessContext": "Additional splicing length added per bar for overlap joints.",
+      "label_i18n": {
+        "en": "Lap Length (m)",
+        "tr": "Lap Length (m)",
+        "de": "Lap Length (m)",
+        "fr": "Lap Length (m)",
+        "es": "Lap Length (m)",
+        "ar": "Lap Length (m)"
+      }
     },
     {
       "id": "wastagePercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage overage for cutting waste, bending loss and site damage."
+      "businessContext": "Percentage overage for cutting waste, bending loss and site damage.",
+      "label_i18n": {
+        "en": "Wastage (%)",
+        "tr": "Wastage (%)",
+        "de": "Wastage (%)",
+        "fr": "Wastage (%)",
+        "es": "Wastage (%)",
+        "ar": "Wastage (%)"
+      }
     },
     {
       "id": "weightPerMeter",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg/m",
       "default": 0,
-      "businessContext": "Optional override for the theoretical weight; if 0 or blank, weight is calculated from diameter using the formula 0.006165 × d²."
+      "businessContext": "Optional override for the theoretical weight; if 0 or blank, weight is calculated from diameter using the formula 0.006165 × d².",
+      "label_i18n": {
+        "en": "Custom Weight per Meter (kg/m)",
+        "tr": "Custom Weight per Meter (kg/m)",
+        "de": "Custom Weight per Meter (kg/m)",
+        "fr": "Custom Weight per Meter (kg/m)",
+        "es": "Custom Weight per Meter (kg/m)",
+        "ar": "Custom Weight per Meter (kg/m)"
+      }
     }
   ],
   "formulas": {
@@ -66,7 +114,7 @@
       "wastageWeightKg"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

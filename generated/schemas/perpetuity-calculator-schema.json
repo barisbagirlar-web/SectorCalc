@@ -5,9 +5,17 @@
       "id": "type",
       "label": "Perpetuity Type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for constant perpetuity, 1 for growing perpetuity"
+      "businessContext": "0 for constant perpetuity, 1 for growing perpetuity",
+      "label_i18n": {
+        "en": "Perpetuity Type",
+        "tr": "Perpetuity Type",
+        "de": "Perpetuity Type",
+        "fr": "Perpetuity Type",
+        "es": "Perpetuity Type",
+        "ar": "Perpetuity Type"
+      }
     },
     {
       "id": "payment",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "The constant cash flow per period"
+      "businessContext": "The constant cash flow per period",
+      "label_i18n": {
+        "en": "Periodic Payment",
+        "tr": "Periodic Payment",
+        "de": "Periodic Payment",
+        "fr": "Periodic Payment",
+        "es": "Periodic Payment",
+        "ar": "Periodic Payment"
+      }
     },
     {
       "id": "discountRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "The required rate of return per period"
+      "businessContext": "The required rate of return per period",
+      "label_i18n": {
+        "en": "Discount Rate",
+        "tr": "Discount Rate",
+        "de": "Discount Rate",
+        "fr": "Discount Rate",
+        "es": "Discount Rate",
+        "ar": "Discount Rate"
+      }
     },
     {
       "id": "growthRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "The constant growth rate of the payment (only used for growing perpetuity)"
+      "businessContext": "The constant growth rate of the payment (only used for growing perpetuity)",
+      "label_i18n": {
+        "en": "Growth Rate",
+        "tr": "Growth Rate",
+        "de": "Growth Rate",
+        "fr": "Growth Rate",
+        "es": "Growth Rate",
+        "ar": "Growth Rate"
+      }
     }
   ],
   "formulas": {
@@ -50,7 +82,7 @@
       "typeDisplay"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Proje & Yatırım",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

@@ -5,33 +5,65 @@
       "id": "countA",
       "label": "Count of Type A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": null,
-      "businessContext": "Number of items in first category"
+      "businessContext": "Number of items in first category",
+      "label_i18n": {
+        "en": "Count of Type A",
+        "tr": "Count of Type A",
+        "de": "Count of Type A",
+        "fr": "Count of Type A",
+        "es": "Count of Type A",
+        "ar": "Count of Type A"
+      }
     },
     {
       "id": "countB",
       "label": "Count of Type B",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": null,
-      "businessContext": "Number of items in second category"
+      "businessContext": "Number of items in second category",
+      "label_i18n": {
+        "en": "Count of Type B",
+        "tr": "Count of Type B",
+        "de": "Count of Type B",
+        "fr": "Count of Type B",
+        "es": "Count of Type B",
+        "ar": "Count of Type B"
+      }
     },
     {
       "id": "runs",
       "label": "Observed Number of Runs",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": null,
-      "businessContext": "Total number of runs in the sequence"
+      "businessContext": "Total number of runs in the sequence",
+      "label_i18n": {
+        "en": "Observed Number of Runs",
+        "tr": "Observed Number of Runs",
+        "de": "Observed Number of Runs",
+        "fr": "Observed Number of Runs",
+        "es": "Observed Number of Runs",
+        "ar": "Observed Number of Runs"
+      }
     },
     {
       "id": "alpha",
       "label": "Significance Level (α)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.05,
-      "businessContext": "Type I error threshold for hypothesis test conclusion"
+      "businessContext": "Type I error threshold for hypothesis test conclusion",
+      "label_i18n": {
+        "en": "Significance Level (α)",
+        "tr": "Significance Level (α)",
+        "de": "Significance Level (α)",
+        "fr": "Significance Level (α)",
+        "es": "Significance Level (α)",
+        "ar": "Significance Level (α)"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +90,10 @@
       "conclusion"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

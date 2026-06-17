@@ -5,33 +5,65 @@
       "id": "decimalNumber",
       "label": "Decimal Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The decimal integer to convert to hexadecimal. Non-negative, integer."
+      "businessContext": "The decimal integer to convert to hexadecimal. Non-negative, integer.",
+      "label_i18n": {
+        "en": "Decimal Number",
+        "tr": "Decimal Number",
+        "de": "Decimal Number",
+        "fr": "Decimal Number",
+        "es": "Decimal Number",
+        "ar": "Decimal Number"
+      }
     },
     {
       "id": "minLength",
       "label": "Minimum Length",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Minimum number of hexadecimal digits. Pads with leading zeros if result is shorter."
+      "businessContext": "Minimum number of hexadecimal digits. Pads with leading zeros if result is shorter.",
+      "label_i18n": {
+        "en": "Minimum Length",
+        "tr": "Minimum Length",
+        "de": "Minimum Length",
+        "fr": "Minimum Length",
+        "es": "Minimum Length",
+        "ar": "Minimum Length"
+      }
     },
     {
       "id": "uppercase",
       "label": "Uppercase",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Set to 1 to output uppercase letters (A-F), 0 for lowercase (a-f)."
+      "businessContext": "Set to 1 to output uppercase letters (A-F), 0 for lowercase (a-f).",
+      "label_i18n": {
+        "en": "Uppercase",
+        "tr": "Uppercase",
+        "de": "Uppercase",
+        "fr": "Uppercase",
+        "es": "Uppercase",
+        "ar": "Uppercase"
+      }
     },
     {
       "id": "prefix",
       "label": "Prefix",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0: no prefix; 1: prefix '0x'; 2: prefix '0X'."
+      "businessContext": "0: no prefix; 1: prefix '0x'; 2: prefix '0X'.",
+      "label_i18n": {
+        "en": "Prefix",
+        "tr": "Prefix",
+        "de": "Prefix",
+        "fr": "Prefix",
+        "es": "Prefix",
+        "ar": "Prefix"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "cased"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -34,7 +34,7 @@ function evaluateAllFormulas(input: Valedictorian_calculatorInput): Record<strin
 
 export function calculateValedictorian_calculator(input: Valedictorian_calculatorInput): Valedictorian_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["valedictorianScore"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

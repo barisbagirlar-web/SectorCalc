@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 20,
-      "businessContext": "Score from English section of the ACT test"
+      "businessContext": "Score from English section of the ACT test",
+      "label_i18n": {
+        "en": "English Score",
+        "tr": "English Score",
+        "de": "English Score",
+        "fr": "English Score",
+        "es": "English Score",
+        "ar": "English Score"
+      }
     },
     {
       "id": "mathScore",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 20,
-      "businessContext": "Score from Math section"
+      "businessContext": "Score from Math section",
+      "label_i18n": {
+        "en": "Math Score",
+        "tr": "Math Score",
+        "de": "Math Score",
+        "fr": "Math Score",
+        "es": "Math Score",
+        "ar": "Math Score"
+      }
     },
     {
       "id": "readingScore",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 20,
-      "businessContext": "Score from Reading section"
+      "businessContext": "Score from Reading section",
+      "label_i18n": {
+        "en": "Reading Score",
+        "tr": "Reading Score",
+        "de": "Reading Score",
+        "fr": "Reading Score",
+        "es": "Reading Score",
+        "ar": "Reading Score"
+      }
     },
     {
       "id": "scienceScore",
@@ -31,11 +55,20 @@
       "type": "number",
       "unit": "points",
       "default": 20,
-      "businessContext": "Score from Science section"
+      "businessContext": "Score from Science section",
+      "label_i18n": {
+        "en": "Science Score",
+        "tr": "Science Score",
+        "de": "Science Score",
+        "fr": "Science Score",
+        "es": "Science Score",
+        "ar": "Science Score"
+      }
     }
   ],
   "formulas": {
-    "compositeScore": "Math.round((englishScore + mathScore + readingScore + scienceScore) / 4)"
+    "compositeScore": "Math.round((englishScore + mathScore + readingScore + scienceScore) / 4)",
+    "compositeScore_copy": "Math.round((englishScore + mathScore + readingScore + scienceScore) / 4)"
   },
   "outputs": {
     "primary": "compositeScore",
@@ -43,8 +76,8 @@
       "compositeScore"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pt",
       "default": 12,
-      "businessContext": "Font size in points, typically used in print design."
+      "businessContext": "Font size in points, typically used in print design.",
+      "label_i18n": {
+        "en": "Point Size (pt)",
+        "tr": "Point Size (pt)",
+        "de": "Point Size (pt)",
+        "fr": "Point Size (pt)",
+        "es": "Point Size (pt)",
+        "ar": "Point Size (pt)"
+      }
     },
     {
       "id": "ppi",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ppi",
       "default": 96,
-      "businessContext": "Screen resolution; common values: 72 (Mac), 96 (Windows), 300 (print)."
+      "businessContext": "Screen resolution; common values: 72 (Mac), 96 (Windows), 300 (print).",
+      "label_i18n": {
+        "en": "Pixels Per Inch (PPI)",
+        "tr": "Pixels Per Inch (PPI)",
+        "de": "Pixels Per Inch (PPI)",
+        "fr": "Pixels Per Inch (PPI)",
+        "es": "Pixels Per Inch (PPI)",
+        "ar": "Pixels Per Inch (PPI)"
+      }
     },
     {
       "id": "baseFontSize",
@@ -23,21 +39,40 @@
       "type": "number",
       "unit": "px",
       "default": 16,
-      "businessContext": "Reference pixel size for relative conversions (e.g., em/rem)."
+      "businessContext": "Reference pixel size for relative conversions (e.g., em/rem).",
+      "label_i18n": {
+        "en": "Base Font Size (px)",
+        "tr": "Base Font Size (px)",
+        "de": "Base Font Size (px)",
+        "fr": "Base Font Size (px)",
+        "es": "Base Font Size (px)",
+        "ar": "Base Font Size (px)"
+      }
     },
     {
       "id": "scaleFactor",
       "label": "Scale Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for responsive scaling (e.g., 1.25 for major third)."
+      "businessContext": "Multiplier for responsive scaling (e.g., 1.25 for major third).",
+      "label_i18n": {
+        "en": "Scale Factor",
+        "tr": "Scale Factor",
+        "de": "Scale Factor",
+        "fr": "Scale Factor",
+        "es": "Scale Factor",
+        "ar": "Scale Factor"
+      }
     }
   ],
   "formulas": {
     "pxFromPt": "pointSize * ppi / 72",
     "scaledPx": "pxFromPt * scaleFactor",
-    "remValue": "scaledPx / baseFontSize"
+    "remValue": "scaledPx / baseFontSize",
+    "pxFromPt___pointSize___ppi___72": "pxFromPt = pointSize * ppi / 72",
+    "scaledPx___pxFromPt___scaleFactor": "scaledPx = pxFromPt * scaleFactor",
+    "remValue___scaledPx___baseFontSize": "remValue = scaledPx / baseFontSize"
   },
   "outputs": {
     "primary": "scaledPx",
@@ -47,10 +82,10 @@
       "remValue = scaledPx / baseFontSize"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

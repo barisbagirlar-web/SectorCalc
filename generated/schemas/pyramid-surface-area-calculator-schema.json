@@ -43,12 +43,7 @@
     "finalArea": "totalArea * (1 + wasteFactor / 100)"
   },
   "outputs": {
-    "primary": {
-      "id": "finalArea",
-      "label": "Toplam Yüzey Alanı (Fire Dahil)",
-      "unit": "m²",
-      "formula": "finalArea"
-    },
+    "primary": "slantHeightComputed",
     "breakdown": [
       {
         "id": "baseArea",
@@ -72,10 +67,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg"
 }

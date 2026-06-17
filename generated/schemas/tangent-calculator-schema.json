@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "deg or rad",
       "default": 45,
-      "businessContext": "Angle value. If using degrees, unitRadians should be 0; if radians, set unitRadians to 1."
+      "businessContext": "Angle value. If using degrees, unitRadians should be 0; if radians, set unitRadians to 1.",
+      "label_i18n": {
+        "en": "Angle",
+        "tr": "Angle",
+        "de": "Angle",
+        "fr": "Angle",
+        "es": "Angle",
+        "ar": "Angle"
+      }
     },
     {
       "id": "unitRadians",
       "label": "Use Radians",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Set to 1 if the angle is in radians; set to 0 for degrees."
+      "businessContext": "Set to 1 if the angle is in radians; set to 0 for degrees.",
+      "label_i18n": {
+        "en": "Use Radians",
+        "tr": "Use Radians",
+        "de": "Use Radians",
+        "fr": "Use Radians",
+        "es": "Use Radians",
+        "ar": "Use Radians"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for the output tangent."
+      "businessContext": "Number of decimal places for the output tangent.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "computeDouble",
       "label": "Compute tan(2θ)?",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Set to 1 to compute tangent of double the angle (2θ); 0 for tan(θ)."
+      "businessContext": "Set to 1 to compute tangent of double the angle (2θ); 0 for tan(θ).",
+      "label_i18n": {
+        "en": "Compute tan(2θ)?",
+        "tr": "Compute tan(2θ)?",
+        "de": "Compute tan(2θ)?",
+        "fr": "Compute tan(2θ)?",
+        "es": "Compute tan(2θ)?",
+        "ar": "Compute tan(2θ)?"
+      }
     }
   ],
   "formulas": {
@@ -51,10 +83,10 @@
       "tanExact"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Mass of the component for which mass percent is calculated."
+      "businessContext": "Mass of the component for which mass percent is calculated.",
+      "label_i18n": {
+        "en": "Mass of Component",
+        "tr": "Mass of Component",
+        "de": "Mass of Component",
+        "fr": "Mass of Component",
+        "es": "Mass of Component",
+        "ar": "Mass of Component"
+      }
     },
     {
       "id": "otherComponentMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Mass of the other component in the mixture. If total mass is not provided, this is used with component mass to compute total."
+      "businessContext": "Mass of the other component in the mixture. If total mass is not provided, this is used with component mass to compute total.",
+      "label_i18n": {
+        "en": "Mass of Other Component",
+        "tr": "Mass of Other Component",
+        "de": "Mass of Other Component",
+        "fr": "Mass of Other Component",
+        "es": "Mass of Other Component",
+        "ar": "Mass of Other Component"
+      }
     },
     {
       "id": "totalMass",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Total mass of the mixture. If provided, it overrides the sum of component and other component."
+      "businessContext": "Total mass of the mixture. If provided, it overrides the sum of component and other component.",
+      "label_i18n": {
+        "en": "Total Mass of Mixture",
+        "tr": "Total Mass of Mixture",
+        "de": "Total Mass of Mixture",
+        "fr": "Total Mass of Mixture",
+        "es": "Total Mass of Mixture",
+        "ar": "Total Mass of Mixture"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the mass percent output."
+      "businessContext": "Number of decimal places for the mass percent output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "totalMassCalc"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "quality-six-sigma"
 }

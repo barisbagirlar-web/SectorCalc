@@ -285,166 +285,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "labor_savings",
-      "name": "Labor Savings (annual)",
-      "description": "Annual labor cost savings from reduced cycle time.",
-      "formula": "labor_rate * operators_affected * (time_saved_per_operator / 60) * shifts_per_day * operating_days_per_year",
-      "unit": "USD/year"
-    },
-    {
-      "id": "defect_savings",
-      "name": "Defect Savings (annual)",
-      "description": "Annual savings from reduced defect rate.",
-      "formula": "((defect_rate_before - defect_rate_after) / 100) * annual_production_volume * cost_per_defect",
-      "unit": "USD/year"
-    },
-    {
-      "id": "direct_savings",
-      "name": "Direct Savings (annual)",
-      "description": "Sum of all direct savings components before sustainability adjustment.",
-      "formula": "labor_savings + defect_savings + material_cost_savings + energy_cost_savings",
-      "unit": "USD/year"
-    },
-    {
-      "id": "sustainability_adjusted_savings",
-      "name": "Sustainability Adjusted Savings (annual)",
-      "description": "Direct savings adjusted by sustainability factor.",
-      "formula": "direct_savings * sustainability_factor_value",
-      "unit": "USD/year",
-      "notes": "sustainability_factor_value: low=0.7, medium=0.85, high=1.0"
-    },
-    {
-      "id": "return_on_investment",
-      "name": "Return on Investment (ROI)",
-      "description": "First-year ROI of the Kaizen implementation.",
-      "formula": "((sustainability_adjusted_savings - implementation_cost) / implementation_cost) * 100",
-      "unit": "percent"
-    },
-    {
-      "id": "payback_period",
-      "name": "Payback Period",
-      "description": "Time to recover implementation cost (in months).",
-      "formula": "(implementation_cost / (sustainability_adjusted_savings / 12))",
-      "unit": "months",
-      "condition": "sustainability_adjusted_savings > 0"
-    },
-    {
-      "id": "total_annual_savings",
-      "name": "Total Annual Savings (Primary Result)",
-      "description": "Primary output: total annual savings after sustainability and data confidence adjustment.",
-      "formula": "sustainability_adjusted_savings * data_confidence_value",
-      "unit": "USD/year",
-      "notes": "data_confidence_value: low=0.8, medium=0.9, high=1.0"
-    }
+    "labor_rate",
+    "labor_rate",
+    "labor_rate",
+    "labor_rate",
+    "labor_rate",
+    "labor_rate",
+    "labor_rate"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_savings",
-      "label": "Total Annual Savings (Adjusted)",
-      "unit": "USD/year",
-      "description": "Primary result: annual savings after applying sustainability and data confidence adjustments."
-    },
-    "breakdown": {
-      "labor_savings": {
-        "id": "labor_savings",
-        "label": "Labor Savings",
-        "unit": "USD/year"
-      },
-      "defect_savings": {
-        "id": "defect_savings",
-        "label": "Defect Savings",
-        "unit": "USD/year"
-      },
-      "material_cost_savings": {
-        "id": "material_cost_savings",
-        "label": "Material Cost Savings",
-        "unit": "USD/year"
-      },
-      "energy_cost_savings": {
-        "id": "energy_cost_savings",
-        "label": "Energy Cost Savings",
-        "unit": "USD/year"
-      },
-      "implementation_cost": {
-        "id": "implementation_cost",
-        "label": "Implementation Cost",
-        "unit": "USD"
-      },
-      "return_on_investment": {
-        "id": "return_on_investment",
-        "label": "Return on Investment (ROI)",
-        "unit": "percent"
-      },
-      "payback_period": {
-        "id": "payback_period",
-        "label": "Payback Period",
-        "unit": "months"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "unplanned_downtime",
-        "label": "Unplanned Downtime",
-        "description": "Hidden losses from machine breakdowns or material shortages not captured in labor savings. Typical OEE loss category (ISO 22400).",
-        "estimated_impact": "up to 20% of labor savings"
-      },
-      {
-        "id": "rework_loop_time",
-        "label": "Rework Loop Time",
-        "description": "Time spent on rework that is not included in defect cost per unit. Hidden quality loss (Six Sigma).",
-        "estimated_impact": "up to 15% of defect savings"
-      },
-      {
-        "id": "inventory_waste",
-        "label": "Inventory Waste",
-        "description": "Excess WIP and finished goods inventory due to process variability. Lean waste category (Muda).",
-        "estimated_impact": "up to 10% of total savings"
-      },
-      {
-        "id": "motion_waste",
-        "label": "Motion Waste",
-        "description": "Unnecessary operator movements not fully captured in time savings. Lean waste category.",
-        "estimated_impact": "up to 5% of labor savings"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "label": "Standardize Improved Process",
-        "description": "Document the new standard work and train all operators to sustain gains (ISO 9001:2015 clause 7.5, Lean standard work)."
-      },
-      {
-        "id": "action_2",
-        "label": "Implement Visual Management",
-        "description": "Use kanban boards, andon lights, or dashboards to monitor defect rates and labor productivity in real time."
-      },
-      {
-        "id": "action_3",
-        "label": "Conduct Follow-up Time Studies",
-        "description": "Re-measure cycle times after 30 days to validate time savings and adjust sustainability factor."
-      },
-      {
-        "id": "action_4",
-        "label": "Expand Kaizen to Adjacent Processes",
-        "description": "Apply similar improvements to upstream/downstream operations to maximize system-wide savings."
-      },
-      {
-        "id": "action_5",
-        "label": "Review Data Confidence",
-        "description": "If data confidence is low, invest in automated data collection (MES, IoT) to improve accuracy for future Kaizen events."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Savings",
-      "description": "Total annual savings multiplied by data confidence factor (0.8 to 1.0). Reflects risk-adjusted savings.",
-      "unit": "USD/year",
-      "value": "total_annual_savings"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "kaizen-savings-tracker-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "lean-production",
+  "category": "Yalın Üretim",
+  "sector": "Üretim & İmalat"
 }

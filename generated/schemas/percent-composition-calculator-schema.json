@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Mass of the first component in kilograms"
+      "businessContext": "Mass of the first component in kilograms",
+      "label_i18n": {
+        "en": "Component 1 Mass",
+        "tr": "Component 1 Mass",
+        "de": "Component 1 Mass",
+        "fr": "Component 1 Mass",
+        "es": "Component 1 Mass",
+        "ar": "Component 1 Mass"
+      }
     },
     {
       "id": "mass2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Mass of the second component in kilograms"
+      "businessContext": "Mass of the second component in kilograms",
+      "label_i18n": {
+        "en": "Component 2 Mass",
+        "tr": "Component 2 Mass",
+        "de": "Component 2 Mass",
+        "fr": "Component 2 Mass",
+        "es": "Component 2 Mass",
+        "ar": "Component 2 Mass"
+      }
     },
     {
       "id": "mass3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Mass of the third component in kilograms"
+      "businessContext": "Mass of the third component in kilograms",
+      "label_i18n": {
+        "en": "Component 3 Mass (optional)",
+        "tr": "Component 3 Mass (optional)",
+        "de": "Component 3 Mass (optional)",
+        "fr": "Component 3 Mass (optional)",
+        "es": "Component 3 Mass (optional)",
+        "ar": "Component 3 Mass (optional)"
+      }
     },
     {
       "id": "mass4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Mass of the fourth component in kilograms"
+      "businessContext": "Mass of the fourth component in kilograms",
+      "label_i18n": {
+        "en": "Component 4 Mass (optional)",
+        "tr": "Component 4 Mass (optional)",
+        "de": "Component 4 Mass (optional)",
+        "fr": "Component 4 Mass (optional)",
+        "es": "Component 4 Mass (optional)",
+        "ar": "Component 4 Mass (optional)"
+      }
     },
     {
       "id": "mass5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Mass of the fifth component in kilograms"
+      "businessContext": "Mass of the fifth component in kilograms",
+      "label_i18n": {
+        "en": "Component 5 Mass (optional)",
+        "tr": "Component 5 Mass (optional)",
+        "de": "Component 5 Mass (optional)",
+        "fr": "Component 5 Mass (optional)",
+        "es": "Component 5 Mass (optional)",
+        "ar": "Component 5 Mass (optional)"
+      }
     }
   ],
   "formulas": {
@@ -60,10 +100,10 @@
       "pct5"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

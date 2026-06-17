@@ -47,7 +47,7 @@
       "id": "inspection_level",
       "label": "Inspection Level",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "II",
       "min": null,
       "max": null,
@@ -72,7 +72,7 @@
       "id": "sampling_plan_type",
       "label": "Sampling Plan Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "normal",
       "min": null,
       "max": null,
@@ -157,7 +157,7 @@
       "id": "confidence_level",
       "label": "Confidence Level",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "95",
       "min": null,
       "max": null,
@@ -220,192 +220,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "sample_size",
-      "label": "Sample Size (n)",
-      "description": "Determined from ISO 2859-1 master table based on lot size, inspection level, and sampling plan type.",
-      "equation": "n = f(lot_size, inspection_level, sampling_plan_type) [ISO 2859-1 Table]",
-      "dependencies": [
-        "lot_size",
-        "inspection_level",
-        "sampling_plan_type"
-      ]
-    },
-    {
-      "id": "accept_number",
-      "label": "Accept Number (Ac)",
-      "description": "Maximum number of defectives allowed in the sample for lot acceptance.",
-      "equation": "Ac = g(n, aql_percent) [ISO 2859-1 Table]",
-      "dependencies": [
-        "sample_size",
-        "aql_percent"
-      ]
-    },
-    {
-      "id": "probability_acceptance",
-      "label": "Probability of Acceptance (Pa)",
-      "description": "Probability that the lot will be accepted given actual defect rate, using binomial or Poisson distribution.",
-      "equation": "Pa = sum_{d=0}^{Ac} C(n,d) * p^d * (1-p)^(n-d)",
-      "dependencies": [
-        "sample_size",
-        "accept_number",
-        "defect_rate_actual"
-      ]
-    },
-    {
-      "id": "producer_risk",
-      "label": "Producer's Risk (α)",
-      "description": "Probability of rejecting a lot with defect rate equal to AQL (Type I error).",
-      "equation": "α = 1 - Pa(p = AQL)",
-      "dependencies": [
-        "sample_size",
-        "accept_number",
-        "aql_percent"
-      ]
-    },
-    {
-      "id": "consumer_risk",
-      "label": "Consumer's Risk (β)",
-      "description": "Probability of accepting a lot with defect rate equal to LTPD (typically 2x AQL).",
-      "equation": "β = Pa(p = LTPD) where LTPD = 2 * AQL",
-      "dependencies": [
-        "sample_size",
-        "accept_number",
-        "aql_percent"
-      ]
-    },
-    {
-      "id": "expected_defect_cost",
-      "label": "Expected Defect Cost",
-      "description": "Expected cost from defects that pass through inspection (accepted lots) plus cost of rejected lots (scrap/rework).",
-      "equation": "ExpectedDefectCost = (1 - Pa) * lot_size * defect_rate_actual * defect_cost_per_unit + Pa * lot_size * defect_rate_actual * defect_cost_per_unit * (1 - inspection_effectiveness)",
-      "dependencies": [
-        "probability_acceptance",
-        "lot_size",
-        "defect_rate_actual",
-        "defect_cost_per_unit"
-      ]
-    },
-    {
-      "id": "total_risk_cost",
-      "label": "Total Risk Cost (Primary Result)",
-      "description": "Sum of inspection cost, expected defect cost, and sampling risk cost (producer + consumer).",
-      "equation": "TotalRiskCost = (sample_size * inspection_cost_per_unit) + ExpectedDefectCost + (producer_risk * lot_size * unit_cost * 0.1) + (consumer_risk * lot_size * defect_cost_per_unit * 0.2)",
-      "dependencies": [
-        "sample_size",
-        "inspection_cost_per_unit",
-        "expected_defect_cost",
-        "producer_risk",
-        "consumer_risk",
-        "lot_size",
-        "unit_cost",
-        "defect_cost_per_unit"
-      ]
-    }
+    "lot_size",
+    "lot_size",
+    "lot_size",
+    "lot_size",
+    "lot_size",
+    "lot_size",
+    "lot_size"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_risk_cost",
-      "label": "Total Risk Cost",
-      "unit": "$",
-      "description": "Total expected cost combining inspection, defect, and sampling risks."
-    },
-    "breakdown": {
-      "inspection_cost": {
-        "id": "inspection_cost",
-        "label": "Inspection Cost",
-        "unit": "$",
-        "value": null
-      },
-      "expected_defect_cost": {
-        "id": "expected_defect_cost",
-        "label": "Expected Defect Cost",
-        "unit": "$",
-        "value": null
-      },
-      "producer_risk_cost": {
-        "id": "producer_risk_cost",
-        "label": "Producer Risk Cost (α)",
-        "unit": "$",
-        "value": null
-      },
-      "consumer_risk_cost": {
-        "id": "consumer_risk_cost",
-        "label": "Consumer Risk Cost (β)",
-        "unit": "$",
-        "value": null
-      },
-      "sample_size": {
-        "id": "sample_size",
-        "label": "Sample Size (n)",
-        "unit": "units",
-        "value": null
-      },
-      "accept_number": {
-        "id": "accept_number",
-        "label": "Accept Number (Ac)",
-        "unit": "defectives",
-        "value": null
-      },
-      "probability_acceptance": {
-        "id": "probability_acceptance",
-        "label": "Probability of Acceptance (Pa)",
-        "unit": "%",
-        "value": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "high_defect_rate",
-        "label": "High Actual Defect Rate",
-        "description": "Actual defect rate significantly above AQL increases consumer risk and defect cost.",
-        "impact": "high"
-      },
-      {
-        "id": "low_inspection_effectiveness",
-        "label": "Low Inspection Effectiveness",
-        "description": "If inspection does not catch all defects, hidden cost increases.",
-        "impact": "medium"
-      },
-      {
-        "id": "sampling_plan_mismatch",
-        "label": "Sampling Plan Mismatch",
-        "description": "Using normal plan when tightened is needed increases risk.",
-        "impact": "medium"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_defect_rate",
-        "label": "Reduce Actual Defect Rate",
-        "description": "Implement process improvement (Six Sigma DMAIC) to lower p below AQL."
-      },
-      {
-        "id": "switch_to_tightened",
-        "label": "Switch to Tightened Inspection",
-        "description": "If defect rate is consistently above AQL, use tightened plan per ISO 2859-1 switching rules."
-      },
-      {
-        "id": "increase_sample_size",
-        "label": "Increase Sample Size",
-        "description": "Use higher inspection level (e.g., III) to reduce consumer risk."
-      },
-      {
-        "id": "automate_inspection",
-        "label": "Automate Inspection",
-        "description": "Reduce inspection cost per unit via automated vision or sensor systems."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_cost",
-      "label": "Data Confidence Adjusted Total Risk Cost",
-      "unit": "$",
-      "description": "Total risk cost adjusted by a confidence factor based on sample size and historical data reliability.",
-      "value": null
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "aql-sampling-risk-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

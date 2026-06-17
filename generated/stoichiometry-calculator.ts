@@ -20,13 +20,17 @@ export const Stoichiometry_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Stoichiometry_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.knownMass / input.knownMolarMass) * (input.coefficientUnknown / input.coefficientKnown) * input.unknownMolarMass; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.knownMass; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Moles_of_Known_Substance__mol_"] = 0;
+  results["Moles_of_Unknown_Substance__mol_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateStoichiometry_calculator(input: Stoichiometry_calculatorInput): Stoichiometry_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Mass"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

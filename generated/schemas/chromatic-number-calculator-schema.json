@@ -5,25 +5,49 @@
       "id": "n_d",
       "label": "Refractive Index n_d",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.523,
-      "businessContext": "Refractive index at the Fraunhofer D-line (589.3 nm), typically for yellow light."
+      "businessContext": "Refractive index at the Fraunhofer D-line (589.3 nm), typically for yellow light.",
+      "label_i18n": {
+        "en": "Refractive Index n_d",
+        "tr": "Refractive Index n_d",
+        "de": "Refractive Index n_d",
+        "fr": "Refractive Index n_d",
+        "es": "Refractive Index n_d",
+        "ar": "Refractive Index n_d"
+      }
     },
     {
       "id": "n_F",
       "label": "Refractive Index n_F",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.529,
-      "businessContext": "Refractive index at the Fraunhofer F-line (486.1 nm), blue hydrogen line."
+      "businessContext": "Refractive index at the Fraunhofer F-line (486.1 nm), blue hydrogen line.",
+      "label_i18n": {
+        "en": "Refractive Index n_F",
+        "tr": "Refractive Index n_F",
+        "de": "Refractive Index n_F",
+        "fr": "Refractive Index n_F",
+        "es": "Refractive Index n_F",
+        "ar": "Refractive Index n_F"
+      }
     },
     {
       "id": "n_C",
       "label": "Refractive Index n_C",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.52,
-      "businessContext": "Refractive index at the Fraunhofer C-line (656.3 nm), red hydrogen line."
+      "businessContext": "Refractive index at the Fraunhofer C-line (656.3 nm), red hydrogen line.",
+      "label_i18n": {
+        "en": "Refractive Index n_C",
+        "tr": "Refractive Index n_C",
+        "de": "Refractive Index n_C",
+        "fr": "Refractive Index n_C",
+        "es": "Refractive Index n_C",
+        "ar": "Refractive Index n_C"
+      }
     },
     {
       "id": "lambda_d",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "nm",
       "default": 589.3,
-      "businessContext": "Wavelength for n_d measurement, default is 589.3 nm."
+      "businessContext": "Wavelength for n_d measurement, default is 589.3 nm.",
+      "label_i18n": {
+        "en": "Reference Wavelength",
+        "tr": "Reference Wavelength",
+        "de": "Reference Wavelength",
+        "fr": "Reference Wavelength",
+        "es": "Reference Wavelength",
+        "ar": "Reference Wavelength"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "refractivity"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

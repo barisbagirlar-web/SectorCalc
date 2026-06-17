@@ -33,13 +33,17 @@ function evaluateAllFormulas(input: Pathfinder_calculatorInput): Record<string, 
   try { const v = (results["fuelLitres"] ?? 0) * input.fuelCost; results["fuelCostTotal"] = Number.isFinite(v) ? v : 0; } catch { results["fuelCostTotal"] = 0; }
   try { const v = ((results["totalTimeHours"] ?? 0) / 24) * input.driverWage; results["driverCost"] = Number.isFinite(v) ? v : 0; } catch { results["driverCost"] = 0; }
   try { const v = (results["fuelCostTotal"] ?? 0) + input.tollCost + (results["driverCost"] ?? 0); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  results["_fuelCostTotal__TL"] = 0;
+  results["_tollCost__TL"] = 0;
+  results["_driverCost__TL"] = 0;
+  results["_totalTimeHours__saat"] = 0;
   return results;
 }
 
 
 export function calculatePathfinder_calculator(input: Pathfinder_calculatorInput): Pathfinder_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Toplam"] ?? 0;
+  const totalWasteCost = values["travelTimeHours"] ?? 0;
   const breakdown = {
     
   };

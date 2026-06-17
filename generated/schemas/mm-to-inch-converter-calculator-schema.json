@@ -146,161 +146,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "raw_inches",
-      "name": "Raw Inches",
-      "description": "Direct conversion from millimeters to inches using 1 inch = 25.4 mm.",
-      "formula": "value_mm / 25.4",
-      "unit": "in"
-    },
-    {
-      "id": "rounded_inches",
-      "name": "Rounded Inches",
-      "description": "Raw inches rounded to the specified decimal precision.",
-      "formula": "ROUND(raw_inches, precision)",
-      "unit": "in"
-    },
-    {
-      "id": "tolerance_inches",
-      "name": "Tolerance in Inches",
-      "description": "Tolerance converted to inches for quality control.",
-      "formula": "tolerance_mm / 25.4",
-      "unit": "in"
-    },
-    {
-      "id": "upper_spec_limit",
-      "name": "Upper Specification Limit (inches)",
-      "description": "Upper bound of acceptable dimension in inches.",
-      "formula": "rounded_inches + tolerance_inches",
-      "unit": "in"
-    },
-    {
-      "id": "lower_spec_limit",
-      "name": "Lower Specification Limit (inches)",
-      "description": "Lower bound of acceptable dimension in inches.",
-      "formula": "rounded_inches - tolerance_inches",
-      "unit": "in"
-    },
-    {
-      "id": "six_sigma_adjusted",
-      "name": "Six Sigma Adjusted Inches",
-      "description": "Applies a 1.5 sigma shift to the rounded inches if enabled. Shift = 0.001 * value_mm (approximate).",
-      "formula": "IF(apply_six_sigma, rounded_inches + (0.001 * value_mm / 25.4), rounded_inches)",
-      "unit": "in"
-    },
-    {
-      "id": "primary_result",
-      "name": "Primary Result (Final Inches)",
-      "description": "The final converted value, adjusted for precision and optionally Six Sigma.",
-      "formula": "six_sigma_adjusted",
-      "unit": "in"
-    }
+    "value_mm",
+    "value_mm",
+    "value_mm",
+    "value_mm",
+    "value_mm",
+    "value_mm",
+    "value_mm"
   ],
   "outputs": {
-    "primary": {
-      "id": "primary_result",
-      "label": "Converted Value (inches)",
-      "value": null,
-      "unit": "in",
-      "description": "Final inch value after precision rounding and optional Six Sigma adjustment."
-    },
-    "breakdown": {
-      "raw_inches": {
-        "id": "raw_inches",
-        "label": "Raw Inches",
-        "value": null,
-        "unit": "in"
-      },
-      "rounded_inches": {
-        "id": "rounded_inches",
-        "label": "Rounded Inches",
-        "value": null,
-        "unit": "in"
-      },
-      "tolerance_inches": {
-        "id": "tolerance_inches",
-        "label": "Tolerance (inches)",
-        "value": null,
-        "unit": "in"
-      },
-      "upper_spec_limit": {
-        "id": "upper_spec_limit",
-        "label": "Upper Spec Limit",
-        "value": null,
-        "unit": "in"
-      },
-      "lower_spec_limit": {
-        "id": "lower_spec_limit",
-        "label": "Lower Spec Limit",
-        "value": null,
-        "unit": "in"
-      },
-      "six_sigma_adjusted": {
-        "id": "six_sigma_adjusted",
-        "label": "Six Sigma Adjusted",
-        "value": null,
-        "unit": "in"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_rounding",
-        "label": "Rounding Loss",
-        "description": "Loss of precision due to rounding to specified decimal places.",
-        "value": null,
-        "unit": "in",
-        "formula": "ABS(raw_inches - rounded_inches)"
-      },
-      {
-        "id": "loss_tolerance",
-        "label": "Tolerance Bandwidth",
-        "description": "Total tolerance range in inches, representing potential variation.",
-        "value": null,
-        "unit": "in",
-        "formula": "2 * tolerance_inches"
-      },
-      {
-        "id": "loss_six_sigma_shift",
-        "label": "Six Sigma Shift Magnitude",
-        "description": "Magnitude of the shift applied if Six Sigma is enabled.",
-        "value": null,
-        "unit": "in",
-        "formula": "IF(apply_six_sigma, (0.001 * value_mm / 25.4), 0)"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_check_tolerance",
-        "condition": "tolerance_mm > 0.5",
-        "action": "Review tolerance specification. Consider ISO 2768-m or tighter class for precision fits."
-      },
-      {
-        "id": "action_increase_precision",
-        "condition": "precision < 3 && value_mm > 10",
-        "action": "Increase decimal precision to at least 3 for better accuracy in manufacturing drawings."
-      },
-      {
-        "id": "action_six_sigma_review",
-        "condition": "apply_six_sigma == true && value_mm > 100",
-        "action": "Perform a process capability study (Cpk) to validate the Six Sigma shift assumption."
-      },
-      {
-        "id": "action_measurement_resolution",
-        "condition": "value_mm < 1.0 && value_mm > 0",
-        "action": "Use a micrometer with 0.001 mm resolution to ensure measurement accuracy per WERC guidelines."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Value",
-      "description": "Confidence-adjusted inch value considering rounding and tolerance losses. Uses a simple weighted factor: 1 - (loss_rounding + loss_tolerance/2) / raw_inches, clamped to [0.8, 1.0].",
-      "value": null,
-      "unit": "dimensionless",
-      "formula": "MAX(0.8, MIN(1.0, 1 - (ABS(raw_inches - rounded_inches) + tolerance_inches) / raw_inches))"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "mm-to-inch-converter-calculator",
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma"
 }

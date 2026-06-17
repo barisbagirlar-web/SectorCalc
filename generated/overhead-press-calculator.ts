@@ -2,31 +2,32 @@
 import * as z from 'zod';
 
 export interface Overhead_press_calculatorInput {
-  weightLifted: number;
-  repetitions: number;
-  sets: number;
-  bodyWeight: number;
+  boreDiameter: number;
+  pressure: number;
+  efficiency: number;
+  safetyFactor: number;
 }
 
 export const Overhead_press_calculatorInputSchema = z.object({
-  weightLifted: z.number().default(50),
-  repetitions: z.number().default(10),
-  sets: z.number().default(3),
-  bodyWeight: z.number().default(80),
+  boreDiameter: z.number().default(100),
+  pressure: z.number().default(200),
+  efficiency: z.number().default(95),
+  safetyFactor: z.number().default(1.5),
 });
 
 function evaluateAllFormulas(input: Overhead_press_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weightLifted * (1 + input.repetitions / 30); results["estimatedOneRepMax"] = Number.isFinite(v) ? v : 0; } catch { results["estimatedOneRepMax"] = 0; }
-  try { const v = input.weightLifted * input.repetitions * input.sets; results["totalVolume"] = Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = input.weightLifted / input.bodyWeight; results["relativeStrength"] = Number.isFinite(v) ? v : 0; } catch { results["relativeStrength"] = 0; }
+  try { const v = Math.PI * Math.pow(input.boreDiameter/1000, 2) / 4; results["cylinderArea_m2"] = Number.isFinite(v) ? v : 0; } catch { results["cylinderArea_m2"] = 0; }
+  try { const v = input.pressure * 100 * (results["cylinderArea_m2"] ?? 0); results["theoreticalForce_kN"] = Number.isFinite(v) ? v : 0; } catch { results["theoreticalForce_kN"] = 0; }
+  try { const v = (results["theoreticalForce_kN"] ?? 0) * (input.efficiency / 100); results["actualForce_kN"] = Number.isFinite(v) ? v : 0; } catch { results["actualForce_kN"] = 0; }
+  try { const v = (results["actualForce_kN"] ?? 0) / input.safetyFactor; results["safeWorkingForce_kN"] = Number.isFinite(v) ? v : 0; } catch { results["safeWorkingForce_kN"] = 0; }
   return results;
 }
 
 
 export function calculateOverhead_press_calculator(input: Overhead_press_calculatorInput): Overhead_press_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["estimatedOneRepMax"] ?? 0;
+  const totalWasteCost = values["safeWorkingForce_kN"] ?? 0;
   const breakdown = {
     
   };

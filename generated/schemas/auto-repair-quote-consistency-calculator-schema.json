@@ -95,7 +95,7 @@
       "id": "shop_type",
       "label": "Shop Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "independent",
       "min": null,
       "max": null,
@@ -116,7 +116,7 @@
       "id": "repair_category",
       "label": "Repair Category",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "mechanical",
       "min": null,
       "max": null,
@@ -138,7 +138,7 @@
       "id": "use_original_parts",
       "label": "Use Original Equipment Manufacturer (OEM) Parts",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -208,143 +208,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "labor_cost",
-      "label": "Labor Cost",
-      "expression": "labor_rate * labor_hours",
-      "description": "Total labor cost before tax."
-    },
-    {
-      "id": "parts_markup",
-      "label": "Parts Markup Factor",
-      "expression": "use_original_parts ? 1.3 : 1.0",
-      "description": "Markup factor for OEM parts (30% premium) vs aftermarket."
-    },
-    {
-      "id": "adjusted_parts_cost",
-      "label": "Adjusted Parts Cost",
-      "expression": "parts_cost * parts_markup",
-      "description": "Parts cost after markup adjustment."
-    },
-    {
-      "id": "subtotal",
-      "label": "Subtotal",
-      "expression": "labor_cost + adjusted_parts_cost + shop_supplies",
-      "description": "Subtotal before tax."
-    },
-    {
-      "id": "tax_amount",
-      "label": "Tax Amount",
-      "expression": "(adjusted_parts_cost + shop_supplies) * (tax_rate / 100)",
-      "description": "Sales tax on parts and supplies (labor is often tax-exempt)."
-    },
-    {
-      "id": "total_quote",
-      "label": "Total Quote",
-      "expression": "subtotal + tax_amount",
-      "description": "Final quoted amount."
-    },
-    {
-      "id": "consistency_score",
-      "label": "Consistency Score",
-      "expression": "1 - abs((total_quote - benchmark_total) / benchmark_total)",
-      "description": "Score between 0 and 1 comparing quote to industry benchmark. Benchmark derived from shop type and repair category."
-    }
+    "labor_rate",
+    "labor_rate",
+    "labor_rate",
+    "labor_rate",
+    "labor_rate",
+    "labor_rate",
+    "labor_rate"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_quote",
-      "label": "Total Quote",
-      "unit": "USD",
-      "description": "Final calculated total quote."
-    },
-    "breakdown": {
-      "labor_cost": {
-        "id": "labor_cost",
-        "label": "Labor Cost",
-        "unit": "USD",
-        "value": null
-      },
-      "adjusted_parts_cost": {
-        "id": "adjusted_parts_cost",
-        "label": "Adjusted Parts Cost",
-        "unit": "USD",
-        "value": null
-      },
-      "shop_supplies": {
-        "id": "shop_supplies",
-        "label": "Shop Supplies Fee",
-        "unit": "USD",
-        "value": null
-      },
-      "tax_amount": {
-        "id": "tax_amount",
-        "label": "Tax Amount",
-        "unit": "USD",
-        "value": null
-      },
-      "subtotal": {
-        "id": "subtotal",
-        "label": "Subtotal",
-        "unit": "USD",
-        "value": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "labor_rate_premium",
-        "label": "Labor Rate Premium",
-        "description": "Difference between quoted labor rate and benchmark rate for shop type.",
-        "unit": "USD/hour",
-        "value": null
-      },
-      {
-        "id": "parts_markup_excess",
-        "label": "Parts Markup Excess",
-        "description": "Extra cost due to OEM vs aftermarket parts beyond typical markup.",
-        "unit": "USD",
-        "value": null
-      },
-      {
-        "id": "shop_supplies_inflation",
-        "label": "Shop Supplies Inflation",
-        "description": "Shop supplies fee above industry average (e.g., >3% of subtotal).",
-        "unit": "USD",
-        "value": null
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_compare_rates",
-        "label": "Compare Labor Rates",
-        "description": "Request quotes from other shops to verify labor rate competitiveness."
-      },
-      {
-        "id": "action_negotiate_parts",
-        "label": "Negotiate Parts Cost",
-        "description": "Ask for aftermarket alternatives or price match on OEM parts."
-      },
-      {
-        "id": "action_review_supplies",
-        "label": "Review Shop Supplies",
-        "description": "Request itemization of shop supplies fee; typical range is 2-5% of subtotal."
-      },
-      {
-        "id": "action_second_opinion",
-        "label": "Get Second Opinion",
-        "description": "If consistency score is below 0.6, obtain a second quote."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Total",
-      "unit": "USD",
-      "description": "Total quote adjusted by a confidence factor based on input completeness and consistency score.",
-      "value": null
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "auto-repair-quote-consistency-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "maintenance-reliability",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat"
 }

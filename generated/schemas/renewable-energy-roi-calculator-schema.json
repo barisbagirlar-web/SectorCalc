@@ -193,7 +193,7 @@
       "id": "energy_source",
       "label": "Energy Source Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "solar",
       "options": [
         "solar",
@@ -214,7 +214,7 @@
       "id": "include_carbon_benefits",
       "label": "Include Carbon Benefits in ROI?",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "businessContext": "Toggle to include or exclude carbon credit revenue in financial calculations",
       "label_i18n": {
@@ -274,184 +274,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "annual_energy_degraded",
-      "name": "Annual Energy Output with Degradation",
-      "description": "Calculates the energy output for each year accounting for degradation, then sums over lifetime.",
-      "formula": "SUM_{y=1}^{system_lifetime_years} (annual_energy_output_kwh * (1 - degradation_rate_percent/100)^(y-1))",
-      "unit": "kWh"
-    },
-    {
-      "id": "annual_savings",
-      "name": "Annual Electricity Savings",
-      "description": "Annual savings from avoided grid electricity purchases, adjusted for inflation.",
-      "formula": "annual_energy_output_kwh * electricity_price_usd_per_kwh * (1 + inflation_rate_percent/100)^(year-1)",
-      "unit": "USD/year"
-    },
-    {
-      "id": "carbon_revenue",
-      "name": "Carbon Credit Revenue",
-      "description": "Annual revenue from carbon credits based on avoided CO2 emissions (assumed 0.7 tons/MWh).",
-      "formula": "IF include_carbon_benefits THEN (annual_energy_output_kwh / 1000) * 0.7 * carbon_credit_usd_per_ton ELSE 0",
-      "unit": "USD/year"
-    },
-    {
-      "id": "net_cash_flow",
-      "name": "Net Annual Cash Flow",
-      "description": "Annual net cash flow after operating costs and including savings and carbon revenue.",
-      "formula": "annual_savings + carbon_revenue - annual_operating_cost_usd",
-      "unit": "USD/year"
-    },
-    {
-      "id": "net_present_value",
-      "name": "Net Present Value (NPV)",
-      "description": "Sum of discounted net cash flows over lifetime minus initial capital cost after incentives.",
-      "formula": "- (capital_cost_usd * (1 - incentive_tax_credit_percent/100)) + SUM_{y=1}^{system_lifetime_years} (net_cash_flow / (1 + discount_rate_percent/100)^y)",
-      "unit": "USD"
-    },
-    {
-      "id": "internal_rate_of_return",
-      "name": "Internal Rate of Return (IRR)",
-      "description": "Discount rate that makes NPV equal to zero, calculated via iterative method.",
-      "formula": "IRR(cash_flow_array) where cash_flow_array[0] = -capital_cost_after_incentive, cash_flow_array[y] = net_cash_flow for y=1..lifetime",
-      "unit": "%"
-    },
-    {
-      "id": "payback_period",
-      "name": "Simple Payback Period",
-      "description": "Time required to recover initial investment from net cash flows.",
-      "formula": "capital_cost_after_incentive / average_annual_net_cash_flow",
-      "unit": "years"
-    }
+    "system_capacity_kw",
+    "system_capacity_kw",
+    "system_capacity_kw",
+    "system_capacity_kw",
+    "system_capacity_kw",
+    "system_capacity_kw",
+    "system_capacity_kw"
   ],
   "outputs": {
-    "primary": {
-      "id": "net_present_value",
-      "label": "Net Present Value (NPV)",
-      "unit": "USD",
-      "description": "Primary financial metric indicating total project value in today's dollars."
-    },
-    "breakdown": {
-      "total_energy_output_lifetime_kwh": {
-        "id": "total_energy_output_lifetime_kwh",
-        "label": "Total Lifetime Energy Output",
-        "unit": "kWh",
-        "value": null
-      },
-      "total_savings_lifetime_usd": {
-        "id": "total_savings_lifetime_usd",
-        "label": "Total Lifetime Electricity Savings",
-        "unit": "USD",
-        "value": null
-      },
-      "total_carbon_revenue_lifetime_usd": {
-        "id": "total_carbon_revenue_lifetime_usd",
-        "label": "Total Lifetime Carbon Revenue",
-        "unit": "USD",
-        "value": null
-      },
-      "total_operating_cost_lifetime_usd": {
-        "id": "total_operating_cost_lifetime_usd",
-        "label": "Total Lifetime O&M Costs",
-        "unit": "USD",
-        "value": null
-      },
-      "capital_cost_after_incentive_usd": {
-        "id": "capital_cost_after_incentive_usd",
-        "label": "Net Capital Cost (after incentives)",
-        "unit": "USD",
-        "value": null
-      },
-      "internal_rate_of_return_percent": {
-        "id": "internal_rate_of_return_percent",
-        "label": "Internal Rate of Return (IRR)",
-        "unit": "%",
-        "value": null
-      },
-      "payback_period_years": {
-        "id": "payback_period_years",
-        "label": "Simple Payback Period",
-        "unit": "years",
-        "value": null
-      },
-      "levelized_cost_of_energy_usd_per_kwh": {
-        "id": "levelized_cost_of_energy_usd_per_kwh",
-        "label": "Levelized Cost of Energy (LCOE)",
-        "unit": "USD/kWh",
-        "value": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "degradation_loss",
-        "label": "Degradation Loss",
-        "description": "Energy loss due to annual degradation over system lifetime.",
-        "value": null,
-        "unit": "kWh"
-      },
-      {
-        "id": "inflation_erosion",
-        "label": "Inflation Erosion",
-        "description": "Reduction in real value of future savings due to inflation.",
-        "value": null,
-        "unit": "USD"
-      },
-      {
-        "id": "discounting_impact",
-        "label": "Discounting Impact",
-        "description": "Reduction in present value of future cash flows due to discount rate.",
-        "value": null,
-        "unit": "USD"
-      },
-      {
-        "id": "operating_cost_escalation",
-        "label": "Operating Cost Escalation",
-        "description": "Additional O&M costs due to inflation and aging equipment.",
-        "value": null,
-        "unit": "USD"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_improve_capacity_factor",
-        "label": "Improve Capacity Factor",
-        "description": "Consider optimizing tilt, tracking, or location to increase annual energy output.",
-        "impact": "high"
-      },
-      {
-        "id": "action_reduce_degradation",
-        "label": "Reduce Degradation Rate",
-        "description": "Select higher quality panels or components with lower degradation warranty.",
-        "impact": "medium"
-      },
-      {
-        "id": "action_seek_incentives",
-        "label": "Explore Additional Incentives",
-        "description": "Research state or local grants, rebates, or performance-based incentives.",
-        "impact": "high"
-      },
-      {
-        "id": "action_negotiate_oem",
-        "label": "Negotiate O&M Contract",
-        "description": "Lock in fixed O&M rates to reduce cost escalation risk.",
-        "impact": "medium"
-      },
-      {
-        "id": "action_carbon_credits",
-        "label": "Register for Carbon Credits",
-        "description": "If not already, register project with carbon credit registry to monetize avoided emissions.",
-        "impact": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_npv",
-      "label": "Data Confidence Adjusted NPV",
-      "unit": "USD",
-      "description": "NPV adjusted by a confidence factor based on input variability and data quality (ISO 50015).",
-      "value": null
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
+  "toolName": "renewable-energy-roi-calculator"
 }

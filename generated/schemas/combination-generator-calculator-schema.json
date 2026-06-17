@@ -5,46 +5,79 @@
       "id": "n",
       "label": "Total Items",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Total number of items in the set"
+      "businessContext": "Total number of items in the set",
+      "label_i18n": {
+        "en": "Total Items",
+        "tr": "Total Items",
+        "de": "Total Items",
+        "fr": "Total Items",
+        "es": "Total Items",
+        "ar": "Total Items"
+      }
     },
     {
       "id": "k",
       "label": "Items to Choose",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of items selected without regard to order"
+      "businessContext": "Number of items selected without regard to order",
+      "label_i18n": {
+        "en": "Items to Choose",
+        "tr": "Items to Choose",
+        "de": "Items to Choose",
+        "fr": "Items to Choose",
+        "es": "Items to Choose",
+        "ar": "Items to Choose"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of decimal places for rounding the result"
+      "businessContext": "Number of decimal places for rounding the result",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "outputStyle",
       "label": "Output Style",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0: integer, 1: decimal (reserved for future use)"
+      "businessContext": "0: integer, 1: decimal (reserved for future use)",
+      "label_i18n": {
+        "en": "Output Style",
+        "tr": "Output Style",
+        "de": "Output Style",
+        "fr": "Output Style",
+        "es": "Output Style",
+        "ar": "Output Style"
+      }
     }
   ],
   "formulas": {
-    "combinations": "(()=>{let c=(()=>{let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r})(); return decimalPlaces>0? Math.round(c*Math.pow(10,decimalPlaces))/Math.pow(10,decimalPlaces): Math.round(c);})()"
+    "combinations": "(()=>{let c=(()=>{let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r})(); return decimalPlaces>0? Math.round(c*Math.pow(10,decimalPlaces))/Math.pow(10,decimalPlaces): Math.round(c);})()",
+    "combinations_copy": "(()=>{let c=(()=>{let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r})(); return decimalPlaces>0? Math.round(c*Math.pow(10,decimalPlaces))/Math.pow(10,decimalPlaces): Math.round(c);})()"
   },
   "outputs": {
     "primary": "combinations",
     "breakdown": []
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

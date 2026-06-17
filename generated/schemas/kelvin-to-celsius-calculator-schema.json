@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "K",
       "default": 273.15,
-      "businessContext": "Raw temperature reading in Kelvin from sensor or process."
+      "businessContext": "Raw temperature reading in Kelvin from sensor or process.",
+      "label_i18n": {
+        "en": "Temperature (K)",
+        "tr": "Temperature (K)",
+        "de": "Temperature (K)",
+        "fr": "Temperature (K)",
+        "es": "Temperature (K)",
+        "ar": "Temperature (K)"
+      }
     },
     {
       "id": "offset",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "K",
       "default": 0,
-      "businessContext": "Systematic error correction in Kelvin, added to the input before conversion."
+      "businessContext": "Systematic error correction in Kelvin, added to the input before conversion.",
+      "label_i18n": {
+        "en": "Calibration Offset (K)",
+        "tr": "Calibration Offset (K)",
+        "de": "Calibration Offset (K)",
+        "fr": "Calibration Offset (K)",
+        "es": "Calibration Offset (K)",
+        "ar": "Calibration Offset (K)"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for output rounding, as per quality control requirements."
+      "businessContext": "Number of decimal places for output rounding, as per quality control requirements.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "timestamp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ms",
       "default": 1700000000000,
-      "businessContext": "Timestamp of the measurement for traceability (ISO 9001 7.5.2)."
+      "businessContext": "Timestamp of the measurement for traceability (ISO 9001 7.5.2).",
+      "label_i18n": {
+        "en": "Measurement Time (Unix ms)",
+        "tr": "Measurement Time (Unix ms)",
+        "de": "Measurement Time (Unix ms)",
+        "fr": "Measurement Time (Unix ms)",
+        "es": "Measurement Time (Unix ms)",
+        "ar": "Measurement Time (Unix ms)"
+      }
     },
     {
       "id": "ambient_c",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "For reference, not used in primary conversion but logged."
+      "businessContext": "For reference, not used in primary conversion but logged.",
+      "label_i18n": {
+        "en": "Ambient Temperature (°C)",
+        "tr": "Ambient Temperature (°C)",
+        "de": "Ambient Temperature (°C)",
+        "fr": "Ambient Temperature (°C)",
+        "es": "Ambient Temperature (°C)",
+        "ar": "Ambient Temperature (°C)"
+      }
     },
     {
       "id": "humidity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Environmental condition for calibration context (not used in conversion)."
+      "businessContext": "Environmental condition for calibration context (not used in conversion).",
+      "label_i18n": {
+        "en": "Relative Humidity (%)",
+        "tr": "Relative Humidity (%)",
+        "de": "Relative Humidity (%)",
+        "fr": "Relative Humidity (%)",
+        "es": "Relative Humidity (%)",
+        "ar": "Relative Humidity (%)"
+      }
     }
   ],
   "formulas": {
@@ -63,10 +111,10 @@
       "roundedCelsius"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

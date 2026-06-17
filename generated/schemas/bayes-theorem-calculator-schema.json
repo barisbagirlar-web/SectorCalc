@@ -5,33 +5,65 @@
       "id": "prior",
       "label": "P(A) - Prior Probability",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.01,
-      "businessContext": "Base rate or prevalence of the condition (between 0 and 1)"
+      "businessContext": "Base rate or prevalence of the condition (between 0 and 1)",
+      "label_i18n": {
+        "en": "P(A) - Prior Probability",
+        "tr": "P(A) - Prior Probability",
+        "de": "P(A) - Prior Probability",
+        "fr": "P(A) - Prior Probability",
+        "es": "P(A) - Prior Probability",
+        "ar": "P(A) - Prior Probability"
+      }
     },
     {
       "id": "sensitivity",
       "label": "P(B|A) - Sensitivity",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.95,
-      "businessContext": "True positive rate: probability of a positive test given condition present (between 0 and 1)"
+      "businessContext": "True positive rate: probability of a positive test given condition present (between 0 and 1)",
+      "label_i18n": {
+        "en": "P(B|A) - Sensitivity",
+        "tr": "P(B|A) - Sensitivity",
+        "de": "P(B|A) - Sensitivity",
+        "fr": "P(B|A) - Sensitivity",
+        "es": "P(B|A) - Sensitivity",
+        "ar": "P(B|A) - Sensitivity"
+      }
     },
     {
       "id": "specificity",
       "label": "P(¬B|¬A) - Specificity",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.98,
-      "businessContext": "True negative rate: probability of a negative test given condition absent (between 0 and 1)"
+      "businessContext": "True negative rate: probability of a negative test given condition absent (between 0 and 1)",
+      "label_i18n": {
+        "en": "P(¬B|¬A) - Specificity",
+        "tr": "P(¬B|¬A) - Specificity",
+        "de": "P(¬B|¬A) - Specificity",
+        "fr": "P(¬B|¬A) - Specificity",
+        "es": "P(¬B|¬A) - Specificity",
+        "ar": "P(¬B|¬A) - Specificity"
+      }
     },
     {
       "id": "testResult",
       "label": "Test Result (1=Positive, 0=Negative)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Indicate whether the observed test result is positive (1) or negative (0)."
+      "businessContext": "Indicate whether the observed test result is positive (1) or negative (0).",
+      "label_i18n": {
+        "en": "Test Result (1=Positive, 0=Negative)",
+        "tr": "Test Result (1=Positive, 0=Negative)",
+        "de": "Test Result (1=Positive, 0=Negative)",
+        "fr": "Test Result (1=Positive, 0=Negative)",
+        "es": "Test Result (1=Positive, 0=Negative)",
+        "ar": "Test Result (1=Positive, 0=Negative)"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "falseNegativeRate"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "px",
       "default": 1920,
-      "businessContext": "Görüntülenen yatay piksel sayısı"
+      "businessContext": "Görüntülenen yatay piksel sayısı",
+      "label_i18n": {
+        "en": "Screen Width (pixels)",
+        "tr": "Screen Width (pixels)",
+        "de": "Screen Width (pixels)",
+        "fr": "Screen Width (pixels)",
+        "es": "Screen Width (pixels)",
+        "ar": "Screen Width (pixels)"
+      }
     },
     {
       "id": "screenHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "px",
       "default": 1080,
-      "businessContext": "Görüntülenen dikey piksel sayısı"
+      "businessContext": "Görüntülenen dikey piksel sayısı",
+      "label_i18n": {
+        "en": "Screen Height (pixels)",
+        "tr": "Screen Height (pixels)",
+        "de": "Screen Height (pixels)",
+        "fr": "Screen Height (pixels)",
+        "es": "Screen Height (pixels)",
+        "ar": "Screen Height (pixels)"
+      }
     },
     {
       "id": "screenDiagonal",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "in",
       "default": 24,
-      "businessContext": "Ekran köşegen uzunluğu (inç)"
+      "businessContext": "Ekran köşegen uzunluğu (inç)",
+      "label_i18n": {
+        "en": "Screen Diagonal",
+        "tr": "Screen Diagonal",
+        "de": "Screen Diagonal",
+        "fr": "Screen Diagonal",
+        "es": "Screen Diagonal",
+        "ar": "Screen Diagonal"
+      }
     },
     {
       "id": "aspectRatioX",
       "label": "Aspect Ratio Width",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 16,
-      "businessContext": "Özel en-boy oranı genişliği (varsayılan: 16:9 için 16)"
+      "businessContext": "Özel en-boy oranı genişliği (varsayılan: 16:9 için 16)",
+      "label_i18n": {
+        "en": "Aspect Ratio Width",
+        "tr": "Aspect Ratio Width",
+        "de": "Aspect Ratio Width",
+        "fr": "Aspect Ratio Width",
+        "es": "Aspect Ratio Width",
+        "ar": "Aspect Ratio Width"
+      }
     },
     {
       "id": "aspectRatioY",
       "label": "Aspect Ratio Height",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 9,
-      "businessContext": "Özel en-boy oranı yüksekliği (varsayılan: 16:9 için 9)"
+      "businessContext": "Özel en-boy oranı yüksekliği (varsayılan: 16:9 için 9)",
+      "label_i18n": {
+        "en": "Aspect Ratio Height",
+        "tr": "Aspect Ratio Height",
+        "de": "Aspect Ratio Height",
+        "fr": "Aspect Ratio Height",
+        "es": "Aspect Ratio Height",
+        "ar": "Aspect Ratio Height"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +90,16 @@
     "ppi": "diagonalPixels / screenDiagonal",
     "screenWidthInches": "screenWidth / ppi",
     "screenHeightInches": "screenHeight / ppi",
-    "pixelPitch": "(screenDiagonal / diagonalPixels) * 25.4"
+    "pixelPitch": "(screenDiagonal / diagonalPixels) * 25.4",
+    "_screenWidth__x__screenHeight_": "{screenWidth} x {screenHeight}",
+    "_aspectDecimal___Custom___aspectRatioX__": "{aspectDecimal} (Custom: {aspectRatioX}:{aspectRatioY})",
+    "_totalPixels_____totalPixelsMP__MP_": "{totalPixels} (~{totalPixelsMP} MP)",
+    "_screenWidthInches__in": "{screenWidthInches} in",
+    "_screenHeightInches__in": "{screenHeightInches} in",
+    "_pixelPitch__mm": "{pixelPitch} mm"
   },
   "outputs": {
-    "primary": "PPI: {ppi}",
+    "primary": "totalPixels",
     "breakdown": [
       "Resolution: {screenWidth} x {screenHeight}",
       "Aspect Ratio: {aspectDecimal} (Custom: {aspectRatioX}:{aspectRatioY})",
@@ -63,10 +109,10 @@
       "Pixel Pitch: {pixelPitch} mm"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

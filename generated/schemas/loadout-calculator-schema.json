@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Total weight of cargo to be loaded (excluding pallets)"
+      "businessContext": "Total weight of cargo to be loaded (excluding pallets)",
+      "label_i18n": {
+        "en": "Cargo Weight",
+        "tr": "Cargo Weight",
+        "de": "Cargo Weight",
+        "fr": "Cargo Weight",
+        "es": "Cargo Weight",
+        "ar": "Cargo Weight"
+      }
     },
     {
       "id": "vehicleCapacity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10000,
-      "businessContext": "Maximum payload capacity of the vehicle"
+      "businessContext": "Maximum payload capacity of the vehicle",
+      "label_i18n": {
+        "en": "Vehicle Capacity",
+        "tr": "Vehicle Capacity",
+        "de": "Vehicle Capacity",
+        "fr": "Vehicle Capacity",
+        "es": "Vehicle Capacity",
+        "ar": "Vehicle Capacity"
+      }
     },
     {
       "id": "palletCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 0,
-      "businessContext": "Total count of pallets in the load"
+      "businessContext": "Total count of pallets in the load",
+      "label_i18n": {
+        "en": "Number of Pallets",
+        "tr": "Number of Pallets",
+        "de": "Number of Pallets",
+        "fr": "Number of Pallets",
+        "es": "Number of Pallets",
+        "ar": "Number of Pallets"
+      }
     },
     {
       "id": "palletWeight",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "kg",
       "default": 20,
-      "businessContext": "Average weight of an empty pallet"
+      "businessContext": "Average weight of an empty pallet",
+      "label_i18n": {
+        "en": "Weight per Pallet",
+        "tr": "Weight per Pallet",
+        "de": "Weight per Pallet",
+        "fr": "Weight per Pallet",
+        "es": "Weight per Pallet",
+        "ar": "Weight per Pallet"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.1,
-      "businessContext": "Multiplier applied to total load for safety margin"
+      "businessContext": "Multiplier applied to total load for safety margin",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "axleLimit",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "kg",
       "default": 5000,
-      "businessContext": "Maximum permissible load per axle"
+      "businessContext": "Maximum permissible load per axle",
+      "label_i18n": {
+        "en": "Axle Load Limit",
+        "tr": "Axle Load Limit",
+        "de": "Axle Load Limit",
+        "fr": "Axle Load Limit",
+        "es": "Axle Load Limit",
+        "ar": "Axle Load Limit"
+      }
     },
     {
       "id": "numberOfAxles",
       "label": "Number of Axles",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Total number of axles on the vehicle"
+      "businessContext": "Total number of axles on the vehicle",
+      "label_i18n": {
+        "en": "Number of Axles",
+        "tr": "Number of Axles",
+        "de": "Number of Axles",
+        "fr": "Number of Axles",
+        "es": "Number of Axles",
+        "ar": "Number of Axles"
+      }
     }
   ],
   "formulas": {
@@ -72,10 +128,10 @@
       "axleLoadPerAxle"
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

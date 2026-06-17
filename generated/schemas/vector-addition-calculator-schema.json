@@ -79,7 +79,7 @@
       "id": "unit_system",
       "label": "Unit System",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "SI",
       "min": null,
       "max": null,
@@ -154,146 +154,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "vector1_components",
-      "description": "Resolve Vector 1 into x and y components",
-      "equation": "v1x = vector1_magnitude * cos(vector1_angle * π / 180); v1y = vector1_magnitude * sin(vector1_angle * π / 180)"
-    },
-    {
-      "id": "vector2_components",
-      "description": "Resolve Vector 2 into x and y components",
-      "equation": "v2x = vector2_magnitude * cos(vector2_angle * π / 180); v2y = vector2_magnitude * sin(vector2_angle * π / 180)"
-    },
-    {
-      "id": "resultant_components",
-      "description": "Sum of x and y components",
-      "equation": "rx = v1x + v2x; ry = v1y + v2y"
-    },
-    {
-      "id": "resultant_magnitude",
-      "description": "Magnitude of the resultant vector",
-      "equation": "resultant_magnitude = sqrt(rx^2 + ry^2)"
-    },
-    {
-      "id": "resultant_angle",
-      "description": "Direction of the resultant vector (degrees)",
-      "equation": "resultant_angle = atan2(ry, rx) * 180 / π; if resultant_angle < 0 then resultant_angle += 360"
-    },
-    {
-      "id": "unit_conversion",
-      "description": "Convert to Imperial if selected",
-      "equation": "if unit_system == 'Imperial' then resultant_magnitude = resultant_magnitude * 0.224809 (N to lbf); else keep SI"
-    },
-    {
-      "id": "data_confidence_adjustment",
-      "description": "Adjust resultant magnitude based on confidence level (Six Sigma risk factor)",
-      "equation": "dataConfidenceAdjusted = resultant_magnitude * (confidence_level / 100)"
-    }
+    "vector1_magnitude",
+    "vector1_magnitude",
+    "vector1_magnitude",
+    "vector1_magnitude",
+    "vector1_magnitude",
+    "vector1_magnitude",
+    "vector1_magnitude"
   ],
   "outputs": {
-    "primary": {
-      "id": "resultant_vector",
-      "label": "Resultant Vector",
-      "type": "object",
-      "properties": {
-        "magnitude": {
-          "type": "number",
-          "unit": "N or lbf",
-          "description": "Magnitude of the resultant vector"
-        },
-        "angle": {
-          "type": "number",
-          "unit": "degrees",
-          "description": "Direction of the resultant vector (0°–360°)"
-        }
-      }
-    },
-    "breakdown": {
-      "id": "component_breakdown",
-      "label": "Component Breakdown",
-      "type": "object",
-      "properties": {
-        "vector1_x": {
-          "type": "number",
-          "unit": "N or lbf",
-          "description": "X-component of Vector 1"
-        },
-        "vector1_y": {
-          "type": "number",
-          "unit": "N or lbf",
-          "description": "Y-component of Vector 1"
-        },
-        "vector2_x": {
-          "type": "number",
-          "unit": "N or lbf",
-          "description": "X-component of Vector 2"
-        },
-        "vector2_y": {
-          "type": "number",
-          "unit": "N or lbf",
-          "description": "Y-component of Vector 2"
-        },
-        "resultant_x": {
-          "type": "number",
-          "unit": "N or lbf",
-          "description": "X-component of resultant"
-        },
-        "resultant_y": {
-          "type": "number",
-          "unit": "N or lbf",
-          "description": "Y-component of resultant"
-        }
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "measurement_error",
-        "label": "Measurement Error",
-        "description": "Potential error from sensor drift or misalignment. Typical ±2% per ISO 5725.",
-        "impact": "medium"
-      },
-      {
-        "id": "angle_quantization",
-        "label": "Angle Quantization Error",
-        "description": "Rounding of angles to nearest degree can cause up to 0.5° error in resultant direction.",
-        "impact": "low"
-      },
-      {
-        "id": "unit_conversion_rounding",
-        "label": "Unit Conversion Rounding",
-        "description": "Conversion between SI and Imperial may introduce ±0.1% error.",
-        "impact": "low"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "label": "Verify sensor calibration",
-        "description": "If confidence < 80%, recalibrate force/torque sensors per ISO 10012."
-      },
-      {
-        "id": "action_2",
-        "label": "Check vector alignment",
-        "description": "If angle difference < 10°, consider using a single resultant for simplified analysis."
-      },
-      {
-        "id": "action_3",
-        "label": "Apply safety factor",
-        "description": "For resultant > 80% of structural limit, apply safety factor of 1.5 per ISO 13849."
-      },
-      {
-        "id": "action_4",
-        "label": "Document in FMEA",
-        "description": "Record resultant and hidden loss drivers in Failure Mode and Effects Analysis (AIAG-VDA)."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "type": "number",
-      "unit": "N or lbf",
-      "description": "Resultant magnitude adjusted by confidence level for risk-informed decision making."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "vector-addition-calculator"
 }

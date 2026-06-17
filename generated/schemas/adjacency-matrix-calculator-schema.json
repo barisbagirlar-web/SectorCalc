@@ -5,33 +5,65 @@
       "id": "a11",
       "label": "A[1,1] (self-loop)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Self-loop on node 1"
+      "businessContext": "Self-loop on node 1",
+      "label_i18n": {
+        "en": "A[1,1] (self-loop)",
+        "tr": "A[1,1] (self-loop)",
+        "de": "A[1,1] (self-loop)",
+        "fr": "A[1,1] (self-loop)",
+        "es": "A[1,1] (self-loop)",
+        "ar": "A[1,1] (self-loop)"
+      }
     },
     {
       "id": "a12",
       "label": "A[1,2] (edge 1->2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Edge from node 1 to node 2"
+      "businessContext": "Edge from node 1 to node 2",
+      "label_i18n": {
+        "en": "A[1,2] (edge 1->2)",
+        "tr": "A[1,2] (edge 1->2)",
+        "de": "A[1,2] (edge 1->2)",
+        "fr": "A[1,2] (edge 1->2)",
+        "es": "A[1,2] (edge 1->2)",
+        "ar": "A[1,2] (edge 1->2)"
+      }
     },
     {
       "id": "a21",
       "label": "A[2,1] (edge 2->1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Edge from node 2 to node 1"
+      "businessContext": "Edge from node 2 to node 1",
+      "label_i18n": {
+        "en": "A[2,1] (edge 2->1)",
+        "tr": "A[2,1] (edge 2->1)",
+        "de": "A[2,1] (edge 2->1)",
+        "fr": "A[2,1] (edge 2->1)",
+        "es": "A[2,1] (edge 2->1)",
+        "ar": "A[2,1] (edge 2->1)"
+      }
     },
     {
       "id": "a22",
       "label": "A[2,2] (self-loop)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Self-loop on node 2"
+      "businessContext": "Self-loop on node 2",
+      "label_i18n": {
+        "en": "A[2,2] (self-loop)",
+        "tr": "A[2,2] (self-loop)",
+        "de": "A[2,2] (self-loop)",
+        "fr": "A[2,2] (self-loop)",
+        "es": "A[2,2] (self-loop)",
+        "ar": "A[2,2] (self-loop)"
+      }
     }
   ],
   "formulas": {
@@ -51,10 +83,10 @@
       "determinant"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

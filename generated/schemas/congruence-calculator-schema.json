@@ -5,51 +5,84 @@
       "id": "a",
       "label": "First Number (a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The first integer to compare."
+      "businessContext": "The first integer to compare.",
+      "label_i18n": {
+        "en": "First Number (a)",
+        "tr": "First Number (a)",
+        "de": "First Number (a)",
+        "fr": "First Number (a)",
+        "es": "First Number (a)",
+        "ar": "First Number (a)"
+      }
     },
     {
       "id": "b",
       "label": "Second Number (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The second integer to compare."
+      "businessContext": "The second integer to compare.",
+      "label_i18n": {
+        "en": "Second Number (b)",
+        "tr": "Second Number (b)",
+        "de": "Second Number (b)",
+        "fr": "Second Number (b)",
+        "es": "Second Number (b)",
+        "ar": "Second Number (b)"
+      }
     },
     {
       "id": "modulus",
       "label": "Modulus",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Modulus for the congruence relation."
+      "businessContext": "Modulus for the congruence relation.",
+      "label_i18n": {
+        "en": "Modulus",
+        "tr": "Modulus",
+        "de": "Modulus",
+        "fr": "Modulus",
+        "es": "Modulus",
+        "ar": "Modulus"
+      }
     },
     {
       "id": "shift",
       "label": "Shift",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Value added to a before checking congruence."
+      "businessContext": "Value added to a before checking congruence.",
+      "label_i18n": {
+        "en": "Shift",
+        "tr": "Shift",
+        "de": "Shift",
+        "fr": "Shift",
+        "es": "Shift",
+        "ar": "Shift"
+      }
     }
   ],
   "formulas": {
     "primary": "((((a + shift) % modulus) + modulus) % modulus) === (((b % modulus) + modulus) % modulus) ? 'Congruent' : 'Not Congruent'",
     "breakdown[0]": "'Remainder of ('+a+' + '+shift+') mod '+modulus+' = ' + (((a + shift) % modulus + modulus) % modulus)",
-    "breakdown[1]": "'Remainder of '+b+' mod '+modulus+' = ' + ((b % modulus + modulus) % modulus)"
+    "breakdown[1]": "'Remainder of '+b+' mod '+modulus+' = ' + ((b % modulus + modulus) % modulus)",
+    "___": "..."
   },
   "outputs": {
-    "primary": "...",
+    "primary": "primary",
     "breakdown": [
       "...",
       "..."
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "workforce-hr"
 }

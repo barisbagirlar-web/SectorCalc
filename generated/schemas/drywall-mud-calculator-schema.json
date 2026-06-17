@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "sq ft",
       "default": 500,
-      "businessContext": "Total square footage of drywall to be finished"
+      "businessContext": "Total square footage of drywall to be finished",
+      "label_i18n": {
+        "en": "Drywall Area",
+        "tr": "Drywall Area",
+        "de": "Drywall Area",
+        "fr": "Drywall Area",
+        "es": "Drywall Area",
+        "ar": "Drywall Area"
+      }
     },
     {
       "id": "coats",
       "label": "Number of Coats",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of coats of joint compound applied (e.g., tape, fill, finish)"
+      "businessContext": "Number of coats of joint compound applied (e.g., tape, fill, finish)",
+      "label_i18n": {
+        "en": "Number of Coats",
+        "tr": "Number of Coats",
+        "de": "Number of Coats",
+        "fr": "Number of Coats",
+        "es": "Number of Coats",
+        "ar": "Number of Coats"
+      }
     },
     {
       "id": "coverage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "sq ft per gallon",
       "default": 150,
-      "businessContext": "Estimated coverage per gallon of ready-mix joint compound"
+      "businessContext": "Estimated coverage per gallon of ready-mix joint compound",
+      "label_i18n": {
+        "en": "Coverage Rate",
+        "tr": "Coverage Rate",
+        "de": "Coverage Rate",
+        "fr": "Coverage Rate",
+        "es": "Coverage Rate",
+        "ar": "Coverage Rate"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional percentage to account for spillage, over-application, and joint waste"
+      "businessContext": "Additional percentage to account for spillage, over-application, and joint waste",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "buckets"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "sustainability-resource-esg"
 }

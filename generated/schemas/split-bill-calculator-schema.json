@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "$",
       "default": 100,
-      "businessContext": "The total bill amount before tax and tip."
+      "businessContext": "The total bill amount before tax and tip.",
+      "label_i18n": {
+        "en": "Total Bill",
+        "tr": "Total Bill",
+        "de": "Total Bill",
+        "fr": "Total Bill",
+        "es": "Total Bill",
+        "ar": "Total Bill"
+      }
     },
     {
       "id": "numberOfPeople",
       "label": "Number of People",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of individuals sharing the bill."
+      "businessContext": "Number of individuals sharing the bill.",
+      "label_i18n": {
+        "en": "Number of People",
+        "tr": "Number of People",
+        "de": "Number of People",
+        "fr": "Number of People",
+        "es": "Number of People",
+        "ar": "Number of People"
+      }
     },
     {
       "id": "taxPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Tax rate applied to the bill."
+      "businessContext": "Tax rate applied to the bill.",
+      "label_i18n": {
+        "en": "Tax Percentage",
+        "tr": "Tax Percentage",
+        "de": "Tax Percentage",
+        "fr": "Tax Percentage",
+        "es": "Tax Percentage",
+        "ar": "Tax Percentage"
+      }
     },
     {
       "id": "tipPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Tip percentage on the bill."
+      "businessContext": "Tip percentage on the bill.",
+      "label_i18n": {
+        "en": "Tip Percentage",
+        "tr": "Tip Percentage",
+        "de": "Tip Percentage",
+        "fr": "Tip Percentage",
+        "es": "Tip Percentage",
+        "ar": "Tip Percentage"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "totalWithTip"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Perakende & Gıda",
+  "category": "Vergi & Finansal Raporlama",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

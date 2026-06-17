@@ -33,7 +33,7 @@ function evaluateAllFormulas(input: Video_bitrate_calculatorInput): Record<strin
 
 export function calculateVideo_bitrate_calculator(input: Video_bitrate_calculatorInput): Video_bitrate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["compressedBitrateMbps"] ?? 0;
+  const totalWasteCost = values["uncompressedBitrateBps"] ?? 0;
   const breakdown = {
     
   };

@@ -5,33 +5,65 @@
       "id": "a",
       "label": "Observed A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Observed frequency for cell (1,1)"
+      "businessContext": "Observed frequency for cell (1,1)",
+      "label_i18n": {
+        "en": "Observed A",
+        "tr": "Observed A",
+        "de": "Observed A",
+        "fr": "Observed A",
+        "es": "Observed A",
+        "ar": "Observed A"
+      }
     },
     {
       "id": "b",
       "label": "Observed B",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Observed frequency for cell (1,2)"
+      "businessContext": "Observed frequency for cell (1,2)",
+      "label_i18n": {
+        "en": "Observed B",
+        "tr": "Observed B",
+        "de": "Observed B",
+        "fr": "Observed B",
+        "es": "Observed B",
+        "ar": "Observed B"
+      }
     },
     {
       "id": "c",
       "label": "Observed C",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Observed frequency for cell (2,1)"
+      "businessContext": "Observed frequency for cell (2,1)",
+      "label_i18n": {
+        "en": "Observed C",
+        "tr": "Observed C",
+        "de": "Observed C",
+        "fr": "Observed C",
+        "es": "Observed C",
+        "ar": "Observed C"
+      }
     },
     {
       "id": "d",
       "label": "Observed D",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Observed frequency for cell (2,2)"
+      "businessContext": "Observed frequency for cell (2,2)",
+      "label_i18n": {
+        "en": "Observed D",
+        "tr": "Observed D",
+        "de": "Observed D",
+        "fr": "Observed D",
+        "es": "Observed D",
+        "ar": "Observed D"
+      }
     }
   ],
   "formulas": {
@@ -51,10 +83,10 @@
       "expectedD"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

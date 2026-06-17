@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "mph",
       "default": 60,
-      "businessContext": "The speed to convert from miles per hour."
+      "businessContext": "The speed to convert from miles per hour.",
+      "label_i18n": {
+        "en": "Speed in mph",
+        "tr": "Speed in mph",
+        "de": "Speed in mph",
+        "fr": "Speed in mph",
+        "es": "Speed in mph",
+        "ar": "Speed in mph"
+      }
     },
     {
       "id": "conversionFactor",
       "label": "Conversion Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.868976,
-      "businessContext": "The factor to multiply mph by to get knots. 1 mph = 0.868976 knots (standard). Editable for calibration."
+      "businessContext": "The factor to multiply mph by to get knots. 1 mph = 0.868976 knots (standard). Editable for calibration.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimals",
       "label": "Decimal places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of decimal places to round the output knots."
+      "businessContext": "Number of decimal places to round the output knots.",
+      "label_i18n": {
+        "en": "Decimal places",
+        "tr": "Decimal places",
+        "de": "Decimal places",
+        "fr": "Decimal places",
+        "es": "Decimal places",
+        "ar": "Decimal places"
+      }
     },
     {
       "id": "knownKnots",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "knots",
       "default": 0,
-      "businessContext": "Optional known value in knots to validate conversion accuracy."
+      "businessContext": "Optional known value in knots to validate conversion accuracy.",
+      "label_i18n": {
+        "en": "Known knots (for QC)",
+        "tr": "Known knots (for QC)",
+        "de": "Known knots (for QC)",
+        "fr": "Known knots (for QC)",
+        "es": "Known knots (for QC)",
+        "ar": "Known knots (for QC)"
+      }
     },
     {
       "id": "tolerance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "knots",
       "default": 0.01,
-      "businessContext": "Maximum allowed deviation between computed and known knots for quality check."
+      "businessContext": "Maximum allowed deviation between computed and known knots for quality check.",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "withinTolerance"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

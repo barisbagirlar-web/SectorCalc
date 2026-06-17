@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 6,
-      "businessContext": "Yatırımın yıllık getiri oranı"
+      "businessContext": "Yatırımın yıllık getiri oranı",
+      "label_i18n": {
+        "en": "Yıllık Faiz Oranı (%)",
+        "tr": "Yıllık Faiz Oranı (%)",
+        "de": "Yıllık Faiz Oranı (%)",
+        "fr": "Yıllık Faiz Oranı (%)",
+        "es": "Yıllık Faiz Oranı (%)",
+        "ar": "Yıllık Faiz Oranı (%)"
+      }
     },
     {
       "id": "initialInvestment",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "TL",
       "default": 10000,
-      "businessContext": "Yatırımın başlangıç değeri"
+      "businessContext": "Yatırımın başlangıç değeri",
+      "label_i18n": {
+        "en": "Başlangıç Yatırımı",
+        "tr": "Başlangıç Yatırımı",
+        "de": "Başlangıç Yatırımı",
+        "fr": "Başlangıç Yatırımı",
+        "es": "Başlangıç Yatırımı",
+        "ar": "Başlangıç Yatırımı"
+      }
     },
     {
       "id": "targetMultiplier",
       "label": "Hedef Katlama",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Kaç katına çıkma hedefi (genelde 3)"
+      "businessContext": "Kaç katına çıkma hedefi (genelde 3)",
+      "label_i18n": {
+        "en": "Hedef Katlama",
+        "tr": "Hedef Katlama",
+        "de": "Hedef Katlama",
+        "fr": "Hedef Katlama",
+        "es": "Hedef Katlama",
+        "ar": "Hedef Katlama"
+      }
     },
     {
       "id": "compoundingFrequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kez/yıl",
       "default": 1,
-      "businessContext": "Faizin yılda kaç kez bileşiklendiği"
+      "businessContext": "Faizin yılda kaç kez bileşiklendiği",
+      "label_i18n": {
+        "en": "Yıllık Bileşik Faiz Sıklığı",
+        "tr": "Yıllık Bileşik Faiz Sıklığı",
+        "de": "Yıllık Bileşik Faiz Sıklığı",
+        "fr": "Yıllık Bileşik Faiz Sıklığı",
+        "es": "Yıllık Bileşik Faiz Sıklığı",
+        "ar": "Yıllık Bileşik Faiz Sıklığı"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,7 @@
       "futureValue"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Proje & Yatırım",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

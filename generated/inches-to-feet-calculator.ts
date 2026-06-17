@@ -20,13 +20,19 @@ export const Inches_to_feet_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Inches_to_feet_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = Math.round((input.inch1 / 12) * 10 ** input.precision) / 10 ** input.precision; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.inch1; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = Math.round((input.inch1 / 12) * 10 ** input.precision) / 10 ** input.precision; results["Math_round__inch1___12____10____precisio"] = Number.isFinite(v) ? v : 0; } catch { results["Math_round__inch1___12____10____precisio"] = 0; }
+  try { const v = Math.round((input.inch2 / 12) * 10 ** input.precision) / 10 ** input.precision; results["Math_round__inch2___12____10____precisio"] = Number.isFinite(v) ? v : 0; } catch { results["Math_round__inch2___12____10____precisio"] = 0; }
+  try { const v = Math.round((input.inch3 / 12) * 10 ** input.precision) / 10 ** input.precision; results["Math_round__inch3___12____10____precisio"] = Number.isFinite(v) ? v : 0; } catch { results["Math_round__inch3___12____10____precisio"] = 0; }
+  try { const v = Math.round((input.inch4 / 12) * 10 ** input.precision) / 10 ** input.precision; results["Math_round__inch4___12____10____precisio"] = Number.isFinite(v) ? v : 0; } catch { results["Math_round__inch4___12____10____precisio"] = 0; }
+  try { const v = Math.round((input.inch1 / 12) * 10 ** input.precision) / 10 ** input.precision; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateInches_to_feet_calculator(input: Inches_to_feet_calculatorInput): Inches_to_feet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Math"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

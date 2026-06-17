@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "The Gregorian calendar year for which the Hebrew calendar year is calculated."
+      "businessContext": "The Gregorian calendar year for which the Hebrew calendar year is calculated.",
+      "label_i18n": {
+        "en": "Gregorian Year",
+        "tr": "Gregorian Year",
+        "de": "Gregorian Year",
+        "fr": "Gregorian Year",
+        "es": "Gregorian Year",
+        "ar": "Gregorian Year"
+      }
     },
     {
       "id": "gregorianMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "The Gregorian month (1-12) for conversion."
+      "businessContext": "The Gregorian month (1-12) for conversion.",
+      "label_i18n": {
+        "en": "Gregorian Month",
+        "tr": "Gregorian Month",
+        "de": "Gregorian Month",
+        "fr": "Gregorian Month",
+        "es": "Gregorian Month",
+        "ar": "Gregorian Month"
+      }
     },
     {
       "id": "gregorianDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "The Gregorian day of the month."
+      "businessContext": "The Gregorian day of the month.",
+      "label_i18n": {
+        "en": "Gregorian Day",
+        "tr": "Gregorian Day",
+        "de": "Gregorian Day",
+        "fr": "Gregorian Day",
+        "es": "Gregorian Day",
+        "ar": "Gregorian Day"
+      }
     },
     {
       "id": "hebrewYear",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "year",
       "default": 5785,
-      "businessContext": "The Hebrew calendar year for conversion to Gregorian."
+      "businessContext": "The Hebrew calendar year for conversion to Gregorian.",
+      "label_i18n": {
+        "en": "Hebrew Year",
+        "tr": "Hebrew Year",
+        "de": "Hebrew Year",
+        "fr": "Hebrew Year",
+        "es": "Hebrew Year",
+        "ar": "Hebrew Year"
+      }
     },
     {
       "id": "hebrewMonth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "The Hebrew month (1=Tishrei, 2=Cheshvan, etc.)"
+      "businessContext": "The Hebrew month (1=Tishrei, 2=Cheshvan, etc.)",
+      "label_i18n": {
+        "en": "Hebrew Month",
+        "tr": "Hebrew Month",
+        "de": "Hebrew Month",
+        "fr": "Hebrew Month",
+        "es": "Hebrew Month",
+        "ar": "Hebrew Month"
+      }
     },
     {
       "id": "hebrewDay",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "The Hebrew day of the month."
+      "businessContext": "The Hebrew day of the month.",
+      "label_i18n": {
+        "en": "Hebrew Day",
+        "tr": "Hebrew Day",
+        "de": "Hebrew Day",
+        "fr": "Hebrew Day",
+        "es": "Hebrew Day",
+        "ar": "Hebrew Day"
+      }
     }
   ],
   "formulas": {
@@ -55,10 +103,14 @@
     "gregorianYearFromHebrew": "hebrewYear - 3761",
     "daysInHebrewYear": "hebrewYear % 19 < 7 ? 354 : 384",
     "isLeapYear": "hebrewYear % 19 === 0 || hebrewYear % 19 === 3 || hebrewYear % 19 === 6 || hebrewYear % 19 === 8 || hebrewYear % 19 === 11 || hebrewYear % 19 === 14 || hebrewYear % 19 === 17 ? 1 : 0",
-    "monthName": "['Tishrei','Cheshvan','Kislev','Tevet','Shevat','Adar','Nisan','Iyar','Sivan','Tammuz','Av','Elul'][hebrewMonth-1] || 'Invalid'"
+    "monthName": "['Tishrei','Cheshvan','Kislev','Tevet','Shevat','Adar','Nisan','Iyar','Sivan','Tammuz','Av','Elul'][hebrewMonth-1] || 'Invalid'",
+    "_gregorianYearFromHebrew_": "{gregorianYearFromHebrew}",
+    "_daysInHebrewYear_": "{daysInHebrewYear}",
+    "_isLeapYear_": "{isLeapYear}",
+    "_monthName_": "{monthName}"
   },
   "outputs": {
-    "primary": "Hebrew year: {hebrewYearFromGregorian}",
+    "primary": "hebrewYearFromGregorian",
     "breakdown": [
       "Gregorian year from Hebrew: {gregorianYearFromHebrew}",
       "Days in Hebrew year: {daysInHebrewYear}",
@@ -66,8 +118,8 @@
       "Month name: {monthName}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

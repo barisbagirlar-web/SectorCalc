@@ -3,15 +3,20 @@ import * as z from 'zod';
 
 export interface Atomic_mass_units_to_kgInput {
   amu: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Atomic_mass_units_to_kgInputSchema = z.object({
   amu: z.number().default(1),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Atomic_mass_units_to_kgInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.amu * 1.66053906660e-27; results["kg"] = Number.isFinite(v) ? v : 0; } catch { results["kg"] = 0; }
+  try { const v = input.amu * 1.66053906660e-27; results["kg_copy"] = Number.isFinite(v) ? v : 0; } catch { results["kg_copy"] = 0; }
   return results;
 }
 

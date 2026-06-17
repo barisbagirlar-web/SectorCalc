@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Horizontal distance of the climbing route"
+      "businessContext": "Horizontal distance of the climbing route",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "elevationGain",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 800,
-      "businessContext": "Total vertical ascent of the route"
+      "businessContext": "Total vertical ascent of the route",
+      "label_i18n": {
+        "en": "Elevation Gain",
+        "tr": "Elevation Gain",
+        "de": "Elevation Gain",
+        "fr": "Elevation Gain",
+        "es": "Elevation Gain",
+        "ar": "Elevation Gain"
+      }
     },
     {
       "id": "flatSpeed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 5,
-      "businessContext": "Average horizontal speed on flat terrain"
+      "businessContext": "Average horizontal speed on flat terrain",
+      "label_i18n": {
+        "en": "Flat Walking Speed",
+        "tr": "Flat Walking Speed",
+        "de": "Flat Walking Speed",
+        "fr": "Flat Walking Speed",
+        "es": "Flat Walking Speed",
+        "ar": "Flat Walking Speed"
+      }
     },
     {
       "id": "ascentPace",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "m/h",
       "default": 600,
-      "businessContext": "Vertical ascent speed in meters per hour"
+      "businessContext": "Vertical ascent speed in meters per hour",
+      "label_i18n": {
+        "en": "Ascent Pace",
+        "tr": "Ascent Pace",
+        "de": "Ascent Pace",
+        "fr": "Ascent Pace",
+        "es": "Ascent Pace",
+        "ar": "Ascent Pace"
+      }
     },
     {
       "id": "difficultyMultiplier",
       "label": "Difficulty Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Terrain difficulty factor (e.g. 1.0 for easy, 1.5 for rough)"
+      "businessContext": "Terrain difficulty factor (e.g. 1.0 for easy, 1.5 for rough)",
+      "label_i18n": {
+        "en": "Difficulty Multiplier",
+        "tr": "Difficulty Multiplier",
+        "de": "Difficulty Multiplier",
+        "fr": "Difficulty Multiplier",
+        "es": "Difficulty Multiplier",
+        "ar": "Difficulty Multiplier"
+      }
     },
     {
       "id": "safetyMarginPercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional time percentage for rests and contingencies"
+      "businessContext": "Additional time percentage for rests and contingencies",
+      "label_i18n": {
+        "en": "Safety Margin",
+        "tr": "Safety Margin",
+        "de": "Safety Margin",
+        "fr": "Safety Margin",
+        "es": "Safety Margin",
+        "ar": "Safety Margin"
+      }
     }
   ],
   "formulas": {
@@ -63,10 +111,10 @@
       "ascentTime"
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

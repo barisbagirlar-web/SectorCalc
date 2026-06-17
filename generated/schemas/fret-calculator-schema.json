@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "mm",
       "default": 648,
-      "businessContext": "The distance from the nut to the bridge saddle, typically measured in millimeters."
+      "businessContext": "The distance from the nut to the bridge saddle, typically measured in millimeters.",
+      "label_i18n": {
+        "en": "Scale Length",
+        "tr": "Scale Length",
+        "de": "Scale Length",
+        "fr": "Scale Length",
+        "es": "Scale Length",
+        "ar": "Scale Length"
+      }
     },
     {
       "id": "fretNumber",
       "label": "Fret Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The fret position to calculate (1-indexed)."
+      "businessContext": "The fret position to calculate (1-indexed).",
+      "label_i18n": {
+        "en": "Fret Number",
+        "tr": "Fret Number",
+        "de": "Fret Number",
+        "fr": "Fret Number",
+        "es": "Fret Number",
+        "ar": "Fret Number"
+      }
     },
     {
       "id": "totalFrets",
       "label": "Total Frets",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 24,
-      "businessContext": "The total number of frets on the instrument fingerboard."
+      "businessContext": "The total number of frets on the instrument fingerboard.",
+      "label_i18n": {
+        "en": "Total Frets",
+        "tr": "Total Frets",
+        "de": "Total Frets",
+        "fr": "Total Frets",
+        "es": "Total Frets",
+        "ar": "Total Frets"
+      }
     },
     {
       "id": "compensation",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Additional length added to the scale length for intonation compensation at the bridge."
+      "businessContext": "Additional length added to the scale length for intonation compensation at the bridge.",
+      "label_i18n": {
+        "en": "Compensation",
+        "tr": "Compensation",
+        "de": "Compensation",
+        "fr": "Compensation",
+        "es": "Compensation",
+        "ar": "Compensation"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "fretSpacing"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Atölye & Tamir",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

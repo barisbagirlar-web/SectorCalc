@@ -20,6 +20,11 @@ export const Ampacity_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Ampacity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (function(materialFactor, area, insulationTemp, ambientTemp, bundlingFactor) { const baseAmpacity = 15 * Math.pow(area, 0.6); const tempFactor = Math.sqrt((insulationTemp - ambientTemp) / (insulationTemp - 30)); const finalAmpacity = materialFactor * baseAmpacity * tempFactor * bundlingFactor; return { primary: finalAmpacity.toFixed(2) + ' A', breakdown: ['Base Ampacity: ' + baseAmpacity.toFixed(2) + ' A', 'Temperature Derating Factor: ' + tempFactor.toFixed(4), 'Bundling Factor: ' + bundlingFactor.toFixed(4), 'Material Factor: ' + materialFactor.toFixed(4), 'Final Ampacity: ' + finalAmpacity.toFixed(2) + ' A'] }; })(input.materialFactor, input.area, input.insulationTemp, input.ambientTemp, input.bundlingFactor); results["calculate"] = Number.isFinite(v) ? v : 0; } catch { results["calculate"] = 0; }
+  try { const v = baseAmpacity; results["baseAmpacity"] = Number.isFinite(v) ? v : 0; } catch { results["baseAmpacity"] = 0; }
+  try { const v = tempFactor; results["tempFactor"] = Number.isFinite(v) ? v : 0; } catch { results["tempFactor"] = 0; }
+  try { const v = input.bundlingFactor; results["bundlingFactor"] = Number.isFinite(v) ? v : 0; } catch { results["bundlingFactor"] = 0; }
+  try { const v = input.materialFactor; results["materialFactor"] = Number.isFinite(v) ? v : 0; } catch { results["materialFactor"] = 0; }
+  try { const v = finalAmpacity; results["finalAmpacity"] = Number.isFinite(v) ? v : 0; } catch { results["finalAmpacity"] = 0; }
   return results;
 }
 

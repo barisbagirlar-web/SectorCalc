@@ -21,13 +21,16 @@ function evaluateAllFormulas(input: Stem_and_leaf_plotInput): Record<string, num
   try { const v = Math.floor((input.data % input.stemUnit) / input.leafUnit); results["leaf"] = Number.isFinite(v) ? v : 0; } catch { results["leaf"] = 0; }
   try { const v = leaves.sort((a,b) => input.sortOrder * (a - b)); results["sortedLeaves"] = Number.isFinite(v) ? v : 0; } catch { results["sortedLeaves"] = 0; }
   results["plot"] = 0;
+  results["list_of_unique_stems"] = 0;
+  results["sorted_leaves_per_stem"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateStem_and_leaf_plot(input: Stem_and_leaf_plotInput): Stem_and_leaf_plotOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Stem"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

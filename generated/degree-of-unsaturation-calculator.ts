@@ -20,6 +20,9 @@ function evaluateAllFormulas(input: Degree_of_unsaturation_calculatorInput): Rec
   try { const v = 2 * input.carbonCount + 2 + input.nitrogenCount; results["sumC2N"] = Number.isFinite(v) ? v : 0; } catch { results["sumC2N"] = 0; }
   try { const v = input.hydrogenCount + input.halogenCount; results["sumHX"] = Number.isFinite(v) ? v : 0; } catch { results["sumHX"] = 0; }
   try { const v = (2 * input.carbonCount + 2 + input.nitrogenCount - input.hydrogenCount - input.halogenCount) / 2; results["du"] = Number.isFinite(v) ? v : 0; } catch { results["du"] = 0; }
+  results["2C___2___N___2__carbonCount____2____nitr"] = 0;
+  results["H___X____hydrogenCount_____halogenCount_"] = 0;
+  results["DU____2C___2___N____H___X_____2_____sumC"] = 0;
   return results;
 }
 

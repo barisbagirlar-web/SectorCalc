@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "months",
       "default": 6,
-      "businessContext": "Baby's age in months, used for length estimation based on standard growth curves."
+      "businessContext": "Baby's age in months, used for length estimation based on standard growth curves.",
+      "label_i18n": {
+        "en": "Age (months)",
+        "tr": "Age (months)",
+        "de": "Age (months)",
+        "fr": "Age (months)",
+        "es": "Age (months)",
+        "ar": "Age (months)"
+      }
     },
     {
       "id": "weightKg",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "kg",
       "default": 7.5,
-      "businessContext": "Baby's weight in kilograms, a supplementary predictor for length."
+      "businessContext": "Baby's weight in kilograms, a supplementary predictor for length.",
+      "label_i18n": {
+        "en": "Weight (kg)",
+        "tr": "Weight (kg)",
+        "de": "Weight (kg)",
+        "fr": "Weight (kg)",
+        "es": "Weight (kg)",
+        "ar": "Weight (kg)"
+      }
     },
     {
       "id": "genderCode",
       "label": "Gender (0=girl, 1=boy)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Gender code (0 for female, 1 for male) to apply length offset."
+      "businessContext": "Gender code (0 for female, 1 for male) to apply length offset.",
+      "label_i18n": {
+        "en": "Gender (0=girl, 1=boy)",
+        "tr": "Gender (0=girl, 1=boy)",
+        "de": "Gender (0=girl, 1=boy)",
+        "fr": "Gender (0=girl, 1=boy)",
+        "es": "Gender (0=girl, 1=boy)",
+        "ar": "Gender (0=girl, 1=boy)"
+      }
     },
     {
       "id": "prematureWeeks",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 0,
-      "businessContext": "Number of weeks born early; used to correct age for prematurity adjustment."
+      "businessContext": "Number of weeks born early; used to correct age for prematurity adjustment.",
+      "label_i18n": {
+        "en": "Premature (weeks)",
+        "tr": "Premature (weeks)",
+        "de": "Premature (weeks)",
+        "fr": "Premature (weeks)",
+        "es": "Premature (weeks)",
+        "ar": "Premature (weeks)"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "genderComponent"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

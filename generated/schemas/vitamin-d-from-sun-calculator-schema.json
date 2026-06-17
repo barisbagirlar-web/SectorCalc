@@ -5,9 +5,17 @@
       "id": "uv_index",
       "label": "UV Index",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "UV Index at the location (0-11+, typically from weather service)"
+      "businessContext": "UV Index at the location (0-11+, typically from weather service)",
+      "label_i18n": {
+        "en": "UV Index",
+        "tr": "UV Index",
+        "de": "UV Index",
+        "fr": "UV Index",
+        "es": "UV Index",
+        "ar": "UV Index"
+      }
     },
     {
       "id": "exposure_time_minutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 15,
-      "businessContext": "Duration of sun exposure in minutes"
+      "businessContext": "Duration of sun exposure in minutes",
+      "label_i18n": {
+        "en": "Exposure Time",
+        "tr": "Exposure Time",
+        "de": "Exposure Time",
+        "fr": "Exposure Time",
+        "es": "Exposure Time",
+        "ar": "Exposure Time"
+      }
     },
     {
       "id": "body_area_percent",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of body surface area exposed (e.g., face and hands ~10%, full body ~100%)"
+      "businessContext": "Percentage of body surface area exposed (e.g., face and hands ~10%, full body ~100%)",
+      "label_i18n": {
+        "en": "Body Area Exposed",
+        "tr": "Body Area Exposed",
+        "de": "Body Area Exposed",
+        "fr": "Body Area Exposed",
+        "es": "Body Area Exposed",
+        "ar": "Body Area Exposed"
+      }
     },
     {
       "id": "skin_type",
       "label": "Skin Type (Fitzpatrick)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Fitzpatrick skin type (1=very fair, 6=very dark)"
+      "businessContext": "Fitzpatrick skin type (1=very fair, 6=very dark)",
+      "label_i18n": {
+        "en": "Skin Type (Fitzpatrick)",
+        "tr": "Skin Type (Fitzpatrick)",
+        "de": "Skin Type (Fitzpatrick)",
+        "fr": "Skin Type (Fitzpatrick)",
+        "es": "Skin Type (Fitzpatrick)",
+        "ar": "Skin Type (Fitzpatrick)"
+      }
     },
     {
       "id": "cloud_cover_percent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage of sky covered by clouds (0=clear, 100=overcast)"
+      "businessContext": "Percentage of sky covered by clouds (0=clear, 100=overcast)",
+      "label_i18n": {
+        "en": "Cloud Cover",
+        "tr": "Cloud Cover",
+        "de": "Cloud Cover",
+        "fr": "Cloud Cover",
+        "es": "Cloud Cover",
+        "ar": "Cloud Cover"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "effective_uv_index"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

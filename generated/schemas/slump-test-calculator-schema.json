@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 300,
-      "businessContext": "Standard slump cone height (300 mm per ASTM C143)"
+      "businessContext": "Standard slump cone height (300 mm per ASTM C143)",
+      "label_i18n": {
+        "en": "Mold Height",
+        "tr": "Mold Height",
+        "de": "Mold Height",
+        "fr": "Mold Height",
+        "es": "Mold Height",
+        "ar": "Mold Height"
+      }
     },
     {
       "id": "topDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Top diameter of slump cone (100 mm)"
+      "businessContext": "Top diameter of slump cone (100 mm)",
+      "label_i18n": {
+        "en": "Top Diameter",
+        "tr": "Top Diameter",
+        "de": "Top Diameter",
+        "fr": "Top Diameter",
+        "es": "Top Diameter",
+        "ar": "Top Diameter"
+      }
     },
     {
       "id": "bottomDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Bottom diameter of slump cone (200 mm)"
+      "businessContext": "Bottom diameter of slump cone (200 mm)",
+      "label_i18n": {
+        "en": "Bottom Diameter",
+        "tr": "Bottom Diameter",
+        "de": "Bottom Diameter",
+        "fr": "Bottom Diameter",
+        "es": "Bottom Diameter",
+        "ar": "Bottom Diameter"
+      }
     },
     {
       "id": "measuredHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 150,
-      "businessContext": "Height of the slumped concrete after cone removal (average if asymmetrical)"
+      "businessContext": "Height of the slumped concrete after cone removal (average if asymmetrical)",
+      "label_i18n": {
+        "en": "Measured Slump Height",
+        "tr": "Measured Slump Height",
+        "de": "Measured Slump Height",
+        "fr": "Measured Slump Height",
+        "es": "Measured Slump Height",
+        "ar": "Measured Slump Height"
+      }
     },
     {
       "id": "specMin",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Minimum allowable slump per project specification"
+      "businessContext": "Minimum allowable slump per project specification",
+      "label_i18n": {
+        "en": "Specified Minimum Slump",
+        "tr": "Specified Minimum Slump",
+        "de": "Specified Minimum Slump",
+        "fr": "Specified Minimum Slump",
+        "es": "Specified Minimum Slump",
+        "ar": "Specified Minimum Slump"
+      }
     },
     {
       "id": "specMax",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Maximum allowable slump per project specification"
+      "businessContext": "Maximum allowable slump per project specification",
+      "label_i18n": {
+        "en": "Specified Maximum Slump",
+        "tr": "Specified Maximum Slump",
+        "de": "Specified Maximum Slump",
+        "fr": "Specified Maximum Slump",
+        "es": "Specified Maximum Slump",
+        "ar": "Specified Maximum Slump"
+      }
     }
   ],
   "formulas": {
@@ -56,19 +104,22 @@
     "coneVolume": "(Math.PI / 3) * moldHeight * (Math.pow(bottomRadius, 2) + Math.pow(topRadius, 2) + bottomRadius * topRadius)",
     "coneVolumeLiters": "coneVolume / 1000000",
     "slump": "moldHeight - measuredHeight",
-    "passFail": "slump >= specMin && slump <= specMax ? 'Pass' : 'Fail'"
+    "passFail": "slump >= specMin && slump <= specMax ? 'Pass' : 'Fail'",
+    "_coneVolumeLiters__liters": "{coneVolumeLiters} liters",
+    "_specMin_____specMax__mm": "{specMin} - {specMax} mm",
+    "result": "Slump: {slump} mm - {passFail}"
   },
   "outputs": {
-    "primary": "Slump: {slump} mm - {passFail}",
+    "primary": "result",
     "breakdown": [
       "Cone Volume: {coneVolumeLiters} liters",
       "Specified Range: {specMin} - {specMax} mm"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "quality-six-sigma"
 }

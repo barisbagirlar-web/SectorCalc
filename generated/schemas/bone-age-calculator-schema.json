@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Patient's chronological age in years"
+      "businessContext": "Patient's chronological age in years",
+      "label_i18n": {
+        "en": "Chronological Age (years)",
+        "tr": "Chronological Age (years)",
+        "de": "Chronological Age (years)",
+        "fr": "Chronological Age (years)",
+        "es": "Chronological Age (years)",
+        "ar": "Chronological Age (years)"
+      }
     },
     {
       "id": "sex",
       "label": "Sex (0=Male, 1=Female)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Biological sex code for bone age estimation"
+      "businessContext": "Biological sex code for bone age estimation",
+      "label_i18n": {
+        "en": "Sex (0=Male, 1=Female)",
+        "tr": "Sex (0=Male, 1=Female)",
+        "de": "Sex (0=Male, 1=Female)",
+        "fr": "Sex (0=Male, 1=Female)",
+        "es": "Sex (0=Male, 1=Female)",
+        "ar": "Sex (0=Male, 1=Female)"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 140,
-      "businessContext": "Patient's height in centimeters"
+      "businessContext": "Patient's height in centimeters",
+      "label_i18n": {
+        "en": "Height (cm)",
+        "tr": "Height (cm)",
+        "de": "Height (cm)",
+        "fr": "Height (cm)",
+        "es": "Height (cm)",
+        "ar": "Height (cm)"
+      }
     },
     {
       "id": "weight",
@@ -31,11 +55,21 @@
       "type": "number",
       "unit": "kg",
       "default": 35,
-      "businessContext": "Patient's weight in kilograms"
+      "businessContext": "Patient's weight in kilograms",
+      "label_i18n": {
+        "en": "Weight (kg)",
+        "tr": "Weight (kg)",
+        "de": "Weight (kg)",
+        "fr": "Weight (kg)",
+        "es": "Weight (kg)",
+        "ar": "Weight (kg)"
+      }
     }
   ],
   "formulas": {
-    "boneAge": "0.85 * chronologicalAge + 0.03 * height + 0.15 * weight - 1.2 * sex + 1.5"
+    "boneAge": "0.85 * chronologicalAge + 0.03 * height + 0.15 * weight - 1.2 * sex + 1.5",
+    "Bone_age_estimated_using_linear_regressi": "Bone age estimated using linear regression model",
+    "Based_on_chronological_age__sex__height_": "Based on chronological age, sex, height, and weight."
   },
   "outputs": {
     "primary": "boneAge",
@@ -44,10 +78,10 @@
       "Based on chronological age, sex, height, and weight."
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -22,6 +22,8 @@ export const Triangle_area_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Triangle_area_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   results["area"] = 0;
+  try { const v = method; results["method"] = Number.isFinite(v) ? v : 0; } catch { results["method"] = 0; }
+  try { const v = steps; results["steps"] = Number.isFinite(v) ? v : 0; } catch { results["steps"] = 0; }
   return results;
 }
 

@@ -31,7 +31,7 @@ function evaluateAllFormulas(input: Powerball_calculatorInput): Record<string, n
 
 export function calculatePowerball_calculator(input: Powerball_calculatorInput): Powerball_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["motorInputPowerKW"] ?? 0;
+  const totalWasteCost = values["criticalSpeedRPM"] ?? 0;
   const breakdown = {
     
   };

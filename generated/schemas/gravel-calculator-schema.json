@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 10,
-      "businessContext": "Length of the area to cover with gravel (feet)"
+      "businessContext": "Length of the area to cover with gravel (feet)",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 10,
-      "businessContext": "Width of the area to cover with gravel (feet)"
+      "businessContext": "Width of the area to cover with gravel (feet)",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "depth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 2,
-      "businessContext": "Desired depth of gravel layer (inches)"
+      "businessContext": "Desired depth of gravel layer (inches)",
+      "label_i18n": {
+        "en": "Depth",
+        "tr": "Depth",
+        "de": "Depth",
+        "fr": "Depth",
+        "es": "Depth",
+        "ar": "Depth"
+      }
     },
     {
       "id": "compactionFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of volume increase to account for compaction after installation"
+      "businessContext": "Percentage of volume increase to account for compaction after installation",
+      "label_i18n": {
+        "en": "Compaction Factor",
+        "tr": "Compaction Factor",
+        "de": "Compaction Factor",
+        "fr": "Compaction Factor",
+        "es": "Compaction Factor",
+        "ar": "Compaction Factor"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of extra material to account for waste, spillage, and uneven ground"
+      "businessContext": "Percentage of extra material to account for waste, spillage, and uneven ground",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "density",
@@ -47,17 +87,29 @@
       "type": "number",
       "unit": "lb/ft³",
       "default": 120,
-      "businessContext": "Bulk density of the gravel (typical gravel ~120 lb/ft³)"
+      "businessContext": "Bulk density of the gravel (typical gravel ~120 lb/ft³)",
+      "label_i18n": {
+        "en": "Gravel Density",
+        "tr": "Gravel Density",
+        "de": "Gravel Density",
+        "fr": "Gravel Density",
+        "es": "Gravel Density",
+        "ar": "Gravel Density"
+      }
     }
   ],
   "formulas": {
     "volume": "length * width * (depth / 12)",
     "adjustedVolume": "volume * (1 + compactionFactor / 100) * (1 + wasteFactor / 100)",
     "primary": "adjustedVolume * density / 2000",
-    "cubicYards": "adjustedVolume / 27"
+    "cubicYards": "adjustedVolume / 27",
+    "_volume__ft_": "{volume} ft³",
+    "_adjustedVolume__ft_": "{adjustedVolume} ft³",
+    "_primary__tons": "{primary} tons",
+    "_cubicYards__cubic_yards": "{cubicYards} cubic yards"
   },
   "outputs": {
-    "primary": "{primary} tons",
+    "primary": "volume",
     "breakdown": [
       "Volume: {volume} ft³",
       "Adjusted volume (with compaction & waste): {adjustedVolume} ft³",
@@ -65,10 +117,10 @@
       "Equivalent: {cubicYards} cubic yards"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "metal-plastics-forming"
 }

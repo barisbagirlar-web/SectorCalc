@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Angle between the incident ray and the surface normal, measured in degrees. This is the primary variable determining the reflectivity via Fresnel equations."
+      "businessContext": "Angle between the incident ray and the surface normal, measured in degrees. This is the primary variable determining the reflectivity via Fresnel equations.",
+      "label_i18n": {
+        "en": "Incident Angle",
+        "tr": "Incident Angle",
+        "de": "Incident Angle",
+        "fr": "Incident Angle",
+        "es": "Incident Angle",
+        "ar": "Incident Angle"
+      }
     },
     {
       "id": "n1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Refractive index of the incident medium (e.g., air = 1.0). Governs the speed of light and the angle of refraction."
+      "businessContext": "Refractive index of the incident medium (e.g., air = 1.0). Governs the speed of light and the angle of refraction.",
+      "label_i18n": {
+        "en": "Refractive Index (n₁)",
+        "tr": "Refractive Index (n₁)",
+        "de": "Refractive Index (n₁)",
+        "fr": "Refractive Index (n₁)",
+        "es": "Refractive Index (n₁)",
+        "ar": "Refractive Index (n₁)"
+      }
     },
     {
       "id": "n2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.5,
-      "businessContext": "Refractive index of the transmitting medium (e.g., glass ≈ 1.5). Influences the reflectivity and critical angle for total internal reflection."
+      "businessContext": "Refractive index of the transmitting medium (e.g., glass ≈ 1.5). Influences the reflectivity and critical angle for total internal reflection.",
+      "label_i18n": {
+        "en": "Refractive Index (n₂)",
+        "tr": "Refractive Index (n₂)",
+        "de": "Refractive Index (n₂)",
+        "fr": "Refractive Index (n₂)",
+        "es": "Refractive Index (n₂)",
+        "ar": "Refractive Index (n₂)"
+      }
     },
     {
       "id": "wavelength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "nm",
       "default": 550,
-      "businessContext": "Wavelength of light in vacuum (nominal). For documentation and dispersion reference only; not used in this calculation."
+      "businessContext": "Wavelength of light in vacuum (nominal). For documentation and dispersion reference only; not used in this calculation.",
+      "label_i18n": {
+        "en": "Wavelength",
+        "tr": "Wavelength",
+        "de": "Wavelength",
+        "fr": "Wavelength",
+        "es": "Wavelength",
+        "ar": "Wavelength"
+      }
     }
   ],
   "formulas": {
@@ -40,17 +72,19 @@
     "theta2": "(sinTheta2 <= 1 && sinTheta2 >= -1) ? Math.asin(sinTheta2) : null",
     "rs": "(theta2 !== null) ? Math.round(Math.pow((n1*Math.cos(theta1) - n2*Math.cos(theta2))/(n1*Math.cos(theta1) + n2*Math.cos(theta2)), 2) * 10000) / 100 : 100",
     "rp": "(theta2 !== null) ? Math.round(Math.pow((n1*Math.cos(theta2) - n2*Math.cos(theta1))/(n1*Math.cos(theta2) + n2*Math.cos(theta1)), 2) * 10000) / 100 : 100",
-    "averageReflectance": "(theta2 !== null) ? Math.round(((rs + rp) / 2) * 100) / 100 : 100"
+    "averageReflectance": "(theta2 !== null) ? Math.round(((rs + rp) / 2) * 100) / 100 : 100",
+    "_rs__": "{rs}%",
+    "_rp__": "{rp}%"
   },
   "outputs": {
-    "primary": "Average Reflectance: {averageReflectance}%",
+    "primary": "theta1",
     "breakdown": [
       "s-Polarization Reflectance: {rs}%",
       "p-Polarization Reflectance: {rp}%"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

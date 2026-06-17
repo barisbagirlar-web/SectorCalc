@@ -22,13 +22,17 @@ export const Decimal_to_fraction_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Decimal_to_fraction_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = decimalToFraction(input.decimalValue, input.maxDenom, input.simplify, input.format, input.rounding, input.tolerance).display; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.decimalValue; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = Pay; results["Pay"] = Number.isFinite(v) ? v : 0; } catch { results["Pay"] = 0; }
+  try { const v = Payda; results["Payda"] = Number.isFinite(v) ? v : 0; } catch { results["Payda"] = 0; }
+  results["Tam_K_s_m"] = 0;
   return results;
 }
 
 
 export function calculateDecimal_to_fraction_calculator(input: Decimal_to_fraction_calculatorInput): Decimal_to_fraction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Kesir"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

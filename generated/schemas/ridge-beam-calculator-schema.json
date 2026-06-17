@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Clear span between supports of the ridge beam."
+      "businessContext": "Clear span between supports of the ridge beam.",
+      "label_i18n": {
+        "en": "Span",
+        "tr": "Span",
+        "de": "Span",
+        "fr": "Span",
+        "es": "Span",
+        "ar": "Span"
+      }
     },
     {
       "id": "load_per_meter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN/m",
       "default": 5,
-      "businessContext": "Total uniform load (dead + live) acting on the ridge beam per meter length."
+      "businessContext": "Total uniform load (dead + live) acting on the ridge beam per meter length.",
+      "label_i18n": {
+        "en": "Uniform Load",
+        "tr": "Uniform Load",
+        "de": "Uniform Load",
+        "fr": "Uniform Load",
+        "es": "Uniform Load",
+        "ar": "Uniform Load"
+      }
     },
     {
       "id": "fb",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 10,
-      "businessContext": "Allowable bending stress for the selected wood species, adjusted for conditions."
+      "businessContext": "Allowable bending stress for the selected wood species, adjusted for conditions.",
+      "label_i18n": {
+        "en": "Allowable Bending Stress",
+        "tr": "Allowable Bending Stress",
+        "de": "Allowable Bending Stress",
+        "fr": "Allowable Bending Stress",
+        "es": "Allowable Bending Stress",
+        "ar": "Allowable Bending Stress"
+      }
     },
     {
       "id": "beam_width",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Nominal width of the ridge beam cross-section."
+      "businessContext": "Nominal width of the ridge beam cross-section.",
+      "label_i18n": {
+        "en": "Beam Width",
+        "tr": "Beam Width",
+        "de": "Beam Width",
+        "fr": "Beam Width",
+        "es": "Beam Width",
+        "ar": "Beam Width"
+      }
     },
     {
       "id": "beam_depth",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Nominal depth of the ridge beam cross-section."
+      "businessContext": "Nominal depth of the ridge beam cross-section.",
+      "label_i18n": {
+        "en": "Beam Depth",
+        "tr": "Beam Depth",
+        "de": "Beam Depth",
+        "fr": "Beam Depth",
+        "es": "Beam Depth",
+        "ar": "Beam Depth"
+      }
     },
     {
       "id": "safety_factor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Additional safety factor to account for uncertainties (≥1.0)."
+      "businessContext": "Additional safety factor to account for uncertainties (≥1.0).",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -66,10 +114,10 @@
       "utilization_ratio"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "cnc-additive-manufacturing"
 }

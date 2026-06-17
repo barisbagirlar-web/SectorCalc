@@ -62,12 +62,7 @@
     "finalCost": "undiscountedCost - discountAmount"
   },
   "outputs": {
-    "primary": {
-      "formula": "finalCost",
-      "label": "Toplam Maliyet",
-      "unit": "TL",
-      "description": "Tüm indirimler uygulandıktan sonra ödenecek net tutar"
-    },
+    "primary": "totalItems",
     "breakdown": [
       {
         "formula": "totalItems",
@@ -107,10 +102,10 @@
       }
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

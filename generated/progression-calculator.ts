@@ -4,30 +4,29 @@ import * as z from 'zod';
 export interface Progression_calculatorInput {
   firstTerm: number;
   commonDifference: number;
-  commonRatio: number;
-  numberOfTerms: number;
-  progressionType: number;
+  startIndex: number;
+  endIndex: number;
 }
 
 export const Progression_calculatorInputSchema = z.object({
   firstTerm: z.number().default(1),
-  commonDifference: z.number().default(0),
-  commonRatio: z.number().default(1),
-  numberOfTerms: z.number().default(5),
-  progressionType: z.number().default(1),
+  commonDifference: z.number().default(1),
+  startIndex: z.number().default(1),
+  endIndex: z.number().default(10),
 });
 
 function evaluateAllFormulas(input: Progression_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.progressionType === 1 ? input.firstTerm + (input.numberOfTerms - 1) * input.commonDifference : input.firstTerm * (input.commonRatio ** (input.numberOfTerms - 1)); results["nthTerm"] = Number.isFinite(v) ? v : 0; } catch { results["nthTerm"] = 0; }
-  try { const v = input.progressionType === 1 ? (input.numberOfTerms/2) * (2*input.firstTerm + (input.numberOfTerms-1)*input.commonDifference) : (input.commonRatio === 1 ? input.firstTerm * input.numberOfTerms : input.firstTerm * (1 - input.commonRatio ** input.numberOfTerms) / (1 - input.commonRatio)); results["sum"] = Number.isFinite(v) ? v : 0; } catch { results["sum"] = 0; }
+  try { const v = ((input.endIndex - input.startIndex + 1) * (2 * input.firstTerm + input.commonDifference * (input.startIndex + input.endIndex - 2))) / 2; results["sum"] = Number.isFinite(v) ? v : 0; } catch { results["sum"] = 0; }
+  try { const v = input.firstTerm + input.commonDifference * (input.startIndex - 1); results["startValue"] = Number.isFinite(v) ? v : 0; } catch { results["startValue"] = 0; }
+  try { const v = input.firstTerm + input.commonDifference * (input.endIndex - 1); results["endValue"] = Number.isFinite(v) ? v : 0; } catch { results["endValue"] = 0; }
   return results;
 }
 
 
 export function calculateProgression_calculator(input: Progression_calculatorInput): Progression_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["nthTerm"] ?? 0;
+  const totalWasteCost = values["sum"] ?? 0;
   const breakdown = {
     
   };

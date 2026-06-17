@@ -22,13 +22,17 @@ function evaluateAllFormulas(input: Proportion_calculatorInput): Record<string, 
   try { const v = (results["totalWeight"] ?? 0) > 0 ? (input.comp2 / (results["totalWeight"] ?? 0)) * 100 : 0; results["prop2"] = Number.isFinite(v) ? v : 0; } catch { results["prop2"] = 0; }
   try { const v = (results["totalWeight"] ?? 0) > 0 ? (input.comp3 / (results["totalWeight"] ?? 0)) * 100 : 0; results["prop3"] = Number.isFinite(v) ? v : 0; } catch { results["prop3"] = 0; }
   try { const v = (results["totalWeight"] ?? 0) > 0 ? (input.comp4 / (results["totalWeight"] ?? 0)) * 100 : 0; results["prop4"] = Number.isFinite(v) ? v : 0; } catch { results["prop4"] = 0; }
+  results["_prop1__"] = 0;
+  results["_prop2__"] = 0;
+  results["_prop3__"] = 0;
+  results["_prop4__"] = 0;
   return results;
 }
 
 
 export function calculateProportion_calculator(input: Proportion_calculatorInput): Proportion_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Mixture"] ?? 0;
+  const totalWasteCost = values["totalWeight"] ?? 0;
   const breakdown = {
     
   };

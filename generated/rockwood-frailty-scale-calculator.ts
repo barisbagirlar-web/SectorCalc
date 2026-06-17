@@ -23,13 +23,16 @@ function evaluateAllFormulas(input: Rockwood_frailty_scale_calculatorInput): Rec
   const results: Record<string, number> = {};
   try { const v = Math.min(9, 1 + (input.age > 75 ? 1 : 0) + (input.walking_speed < 0.8 ? 1 : 0) + (input.grip_strength < 20 ? 1 : 0) + (input.comorbidities >= 3 ? 1 : 0) + input.exhaustion + (input.weight_loss > 5 ? 1 : 0)); results["score"] = Number.isFinite(v) ? v : 0; } catch { results["score"] = 0; }
   try { const v = (results["score"] ?? 0) === 9 ? 'Terminally Ill' : (results["score"] ?? 0) >= 8 ? 'Very Severely Frail' : (results["score"] ?? 0) >= 7 ? 'Severely Frail' : (results["score"] ?? 0) >= 6 ? 'Moderately Frail' : (results["score"] ?? 0) >= 5 ? 'Mildly Frail' : (results["score"] ?? 0) >= 4 ? 'Vulnerable' : 'Well or Managing Well'; results["classification"] = Number.isFinite(v) ? v : 0; } catch { results["classification"] = 0; }
+  results["__score__"] = 0;
+  results["__classification__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateRockwood_frailty_scale_calculator(input: Rockwood_frailty_scale_calculatorInput): Rockwood_frailty_scale_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Rockwood"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

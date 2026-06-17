@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Sabit katsayı"
+      "businessContext": "Sabit katsayı",
+      "label_i18n": {
+        "en": "a₀",
+        "tr": "a₀",
+        "de": "a₀",
+        "fr": "a₀",
+        "es": "a₀",
+        "ar": "a₀"
+      }
     },
     {
       "id": "a1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Birinci derece katsayı"
+      "businessContext": "Birinci derece katsayı",
+      "label_i18n": {
+        "en": "a₁",
+        "tr": "a₁",
+        "de": "a₁",
+        "fr": "a₁",
+        "es": "a₁",
+        "ar": "a₁"
+      }
     },
     {
       "id": "a2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "İkinci derece katsayı"
+      "businessContext": "İkinci derece katsayı",
+      "label_i18n": {
+        "en": "a₂",
+        "tr": "a₂",
+        "de": "a₂",
+        "fr": "a₂",
+        "es": "a₂",
+        "ar": "a₂"
+      }
     },
     {
       "id": "a3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Üçüncü derece katsayı"
+      "businessContext": "Üçüncü derece katsayı",
+      "label_i18n": {
+        "en": "a₃",
+        "tr": "a₃",
+        "de": "a₃",
+        "fr": "a₃",
+        "es": "a₃",
+        "ar": "a₃"
+      }
     },
     {
       "id": "a4",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Dördüncü derece katsayı"
+      "businessContext": "Dördüncü derece katsayı",
+      "label_i18n": {
+        "en": "a₄",
+        "tr": "a₄",
+        "de": "a₄",
+        "fr": "a₄",
+        "es": "a₄",
+        "ar": "a₄"
+      }
     },
     {
       "id": "x",
       "label": "x",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Üretim fonksiyonu değişkeni"
+      "businessContext": "Üretim fonksiyonu değişkeni",
+      "label_i18n": {
+        "en": "x",
+        "tr": "x",
+        "de": "x",
+        "fr": "x",
+        "es": "x",
+        "ar": "x"
+      }
     }
   ],
   "formulas": {
@@ -68,10 +116,10 @@
       "term4"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

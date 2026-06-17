@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Sevk edilecek toplam birim sayısı"
+      "businessContext": "Sevk edilecek toplam birim sayısı",
+      "label_i18n": {
+        "en": "Toplam Adet",
+        "tr": "Toplam Adet",
+        "de": "Toplam Adet",
+        "fr": "Toplam Adet",
+        "es": "Toplam Adet",
+        "ar": "Toplam Adet"
+      }
     },
     {
       "id": "itemsPerPallet",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet/palet",
       "default": 50,
-      "businessContext": "Bir palete sığan birim sayısı"
+      "businessContext": "Bir palete sığan birim sayısı",
+      "label_i18n": {
+        "en": "Palet Başına Adet",
+        "tr": "Palet Başına Adet",
+        "de": "Palet Başına Adet",
+        "fr": "Palet Başına Adet",
+        "es": "Palet Başına Adet",
+        "ar": "Palet Başına Adet"
+      }
     },
     {
       "id": "palletsPerContainer",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "palet/konteyner",
       "default": 20,
-      "businessContext": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)"
+      "businessContext": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)",
+      "label_i18n": {
+        "en": "Konteyner Başına Palet",
+        "tr": "Konteyner Başına Palet",
+        "de": "Konteyner Başına Palet",
+        "fr": "Konteyner Başına Palet",
+        "es": "Konteyner Başına Palet",
+        "ar": "Konteyner Başına Palet"
+      }
     },
     {
       "id": "reservePercent",
@@ -31,26 +55,37 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Hasar, kayıp vb. için ek yedek yüzdesi"
+      "businessContext": "Hasar, kayıp vb. için ek yedek yüzdesi",
+      "label_i18n": {
+        "en": "Yedek Oranı (%)",
+        "tr": "Yedek Oranı (%)",
+        "de": "Yedek Oranı (%)",
+        "fr": "Yedek Oranı (%)",
+        "es": "Yedek Oranı (%)",
+        "ar": "Yedek Oranı (%)"
+      }
     }
   ],
   "formulas": {
     "palletsNeeded": "Math.ceil(totalQuantity / itemsPerPallet)",
     "containersWithoutReserve": "Math.ceil(palletsNeeded / palletsPerContainer)",
-    "containersWithReserve": "Math.ceil(containersWithoutReserve * (1 + reservePercent / 100))"
+    "containersWithReserve": "Math.ceil(containersWithoutReserve * (1 + reservePercent / 100))",
+    "__palletsNeeded_": "${palletsNeeded}",
+    "__containersWithoutReserve_": "${containersWithoutReserve}",
+    "__containersWithReserve_": "${containersWithReserve}"
   },
   "outputs": {
-    "primary": "Gerekli Konteyner Sayısı: ${containersWithReserve}",
+    "primary": "palletsNeeded",
     "breakdown": [
       "İhtiyaç Duyulan Palet: ${palletsNeeded}",
       "Yedeksiz Konteyner: ${containersWithoutReserve}",
       "Yedekli Konteyner: ${containersWithReserve}"
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

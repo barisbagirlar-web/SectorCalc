@@ -112,7 +112,7 @@
       "id": "process_stage",
       "label": "Process Stage",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "final_assembly",
       "min": null,
       "max": null,
@@ -135,7 +135,7 @@
       "id": "defect_type",
       "label": "Primary Defect Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "dimensional",
       "min": null,
       "max": null,
@@ -159,7 +159,7 @@
       "id": "include_rework_in_scrap",
       "label": "Include Rework in Scrap Calculation",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -212,158 +212,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "scrap_rate",
-      "name": "Scrap Rate",
-      "description": "Primary scrap rate as a fraction of total production.",
-      "formula": "defective_units / total_units_produced",
-      "unit": "ratio"
-    },
-    {
-      "id": "rework_rate",
-      "name": "Rework Rate",
-      "description": "Rework units as a fraction of total production.",
-      "formula": "rework_units / total_units_produced",
-      "unit": "ratio"
-    },
-    {
-      "id": "total_defect_rate",
-      "name": "Total Defect Rate (including rework)",
-      "description": "Combined scrap and rework rate.",
-      "formula": "(defective_units + rework_units) / total_units_produced",
-      "unit": "ratio"
-    },
-    {
-      "id": "unit_cost",
-      "name": "Unit Cost",
-      "description": "Total cost per unit (material + labor + overhead).",
-      "formula": "material_cost_per_unit + labor_cost_per_unit + overhead_cost_per_unit",
-      "unit": "USD"
-    },
-    {
-      "id": "total_scrap_cost",
-      "name": "Total Scrap Cost",
-      "description": "Total cost of scrap units (including rework if selected).",
-      "formula": "IF(include_rework_in_scrap, (defective_units + rework_units) * unit_cost, defective_units * unit_cost)",
-      "unit": "USD"
-    },
-    {
-      "id": "scrap_cost_percentage",
-      "name": "Scrap Cost as Percentage of Total Production Cost",
-      "description": "Scrap cost relative to total production cost.",
-      "formula": "total_scrap_cost / (total_units_produced * unit_cost) * 100",
-      "unit": "percent"
-    },
-    {
-      "id": "yield_rate",
-      "name": "First Pass Yield (FPY)",
-      "description": "Percentage of units produced without any defect or rework.",
-      "formula": "(total_units_produced - defective_units - rework_units) / total_units_produced * 100",
-      "unit": "percent"
-    }
+    "total_units_produced",
+    "total_units_produced",
+    "total_units_produced",
+    "total_units_produced",
+    "total_units_produced",
+    "total_units_produced",
+    "total_units_produced"
   ],
   "outputs": {
-    "primary": {
-      "id": "scrap_rate",
-      "label": "Scrap Rate",
-      "value": null,
-      "unit": "ratio",
-      "description": "Primary scrap rate (defective units / total units)."
-    },
-    "breakdown": {
-      "scrap_rate_percent": {
-        "id": "scrap_rate_percent",
-        "label": "Scrap Rate (%)",
-        "value": null,
-        "unit": "percent"
-      },
-      "rework_rate_percent": {
-        "id": "rework_rate_percent",
-        "label": "Rework Rate (%)",
-        "value": null,
-        "unit": "percent"
-      },
-      "total_defect_rate_percent": {
-        "id": "total_defect_rate_percent",
-        "label": "Total Defect Rate (%)",
-        "value": null,
-        "unit": "percent"
-      },
-      "unit_cost": {
-        "id": "unit_cost",
-        "label": "Unit Cost",
-        "value": null,
-        "unit": "USD"
-      },
-      "total_scrap_cost": {
-        "id": "total_scrap_cost",
-        "label": "Total Scrap Cost",
-        "value": null,
-        "unit": "USD"
-      },
-      "scrap_cost_percentage": {
-        "id": "scrap_cost_percentage",
-        "label": "Scrap Cost % of Total Production Cost",
-        "value": null,
-        "unit": "percent"
-      },
-      "yield_rate": {
-        "id": "yield_rate",
-        "label": "First Pass Yield (FPY)",
-        "value": null,
-        "unit": "percent"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "driver_1",
-        "label": "High Defect Rate in Machining Stage",
-        "description": "Scrap rate in machining stage is 3x higher than assembly stage.",
-        "impact": "0.04",
-        "unit": "ratio"
-      },
-      {
-        "id": "driver_2",
-        "label": "Rework Cost Amplification",
-        "description": "Rework units consume additional labor and overhead, increasing effective cost per unit by 40%.",
-        "impact": "0.40",
-        "unit": "percent"
-      },
-      {
-        "id": "driver_3",
-        "label": "Material Waste from Dimensional Defects",
-        "description": "Dimensional defects account for 60% of all scrap material cost.",
-        "impact": "0.60",
-        "unit": "percent"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": "high",
-        "description": "Implement SPC (Statistical Process Control) on machining parameters to reduce dimensional defects.",
-        "expectedImprovement": "0.03",
-        "unit": "ratio"
-      },
-      {
-        "id": "action_2",
-        "priority": "medium",
-        "description": "Conduct root cause analysis on rework drivers; consider design for manufacturability (DFM) changes.",
-        "expectedImprovement": "0.02",
-        "unit": "ratio"
-      },
-      {
-        "id": "action_3",
-        "priority": "low",
-        "description": "Train operators on visual inspection criteria to catch defects earlier in the process.",
-        "expectedImprovement": "0.01",
-        "unit": "ratio"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "scrap-rate-optimizer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing",
+  "category": "İmalat & Üretim",
+  "sector": "Üretim & İmalat"
 }

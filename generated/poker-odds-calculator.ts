@@ -31,7 +31,7 @@ function evaluateAllFormulas(input: Poker_odds_calculatorInput): Record<string, 
 
 export function calculatePoker_odds_calculator(input: Poker_odds_calculatorInput): Poker_odds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["unseenCards"] ?? 0;
   const breakdown = {
     
   };

@@ -5,33 +5,65 @@
       "id": "minValue",
       "label": "Minimum Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The minimum value of the range to partition into deciles."
+      "businessContext": "The minimum value of the range to partition into deciles.",
+      "label_i18n": {
+        "en": "Minimum Value",
+        "tr": "Minimum Value",
+        "de": "Minimum Value",
+        "fr": "Minimum Value",
+        "es": "Minimum Value",
+        "ar": "Minimum Value"
+      }
     },
     {
       "id": "maxValue",
       "label": "Maximum Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "The maximum value of the range to partition into deciles."
+      "businessContext": "The maximum value of the range to partition into deciles.",
+      "label_i18n": {
+        "en": "Maximum Value",
+        "tr": "Maximum Value",
+        "de": "Maximum Value",
+        "fr": "Maximum Value",
+        "es": "Maximum Value",
+        "ar": "Maximum Value"
+      }
     },
     {
       "id": "inputValue",
       "label": "Input Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 50,
-      "businessContext": "The value for which to determine the decile."
+      "businessContext": "The value for which to determine the decile.",
+      "label_i18n": {
+        "en": "Input Value",
+        "tr": "Input Value",
+        "de": "Input Value",
+        "fr": "Input Value",
+        "es": "Input Value",
+        "ar": "Input Value"
+      }
     },
     {
       "id": "totalDeciles",
       "label": "Number of Deciles",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Total number of decile groups (standard is 10)."
+      "businessContext": "Total number of decile groups (standard is 10).",
+      "label_i18n": {
+        "en": "Number of Deciles",
+        "tr": "Number of Deciles",
+        "de": "Number of Deciles",
+        "fr": "Number of Deciles",
+        "es": "Number of Deciles",
+        "ar": "Number of Deciles"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "upperBound"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

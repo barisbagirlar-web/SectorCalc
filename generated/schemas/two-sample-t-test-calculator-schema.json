@@ -5,57 +5,113 @@
       "id": "sample1Mean",
       "label": "Sample 1 Mean",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Mean of first sample"
+      "businessContext": "Mean of first sample",
+      "label_i18n": {
+        "en": "Sample 1 Mean",
+        "tr": "Sample 1 Mean",
+        "de": "Sample 1 Mean",
+        "fr": "Sample 1 Mean",
+        "es": "Sample 1 Mean",
+        "ar": "Sample 1 Mean"
+      }
     },
     {
       "id": "sample1StdDev",
       "label": "Sample 1 Standard Deviation",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Standard deviation of first sample"
+      "businessContext": "Standard deviation of first sample",
+      "label_i18n": {
+        "en": "Sample 1 Standard Deviation",
+        "tr": "Sample 1 Standard Deviation",
+        "de": "Sample 1 Standard Deviation",
+        "fr": "Sample 1 Standard Deviation",
+        "es": "Sample 1 Standard Deviation",
+        "ar": "Sample 1 Standard Deviation"
+      }
     },
     {
       "id": "sample1Size",
       "label": "Sample 1 Size",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Number of observations in first sample"
+      "businessContext": "Number of observations in first sample",
+      "label_i18n": {
+        "en": "Sample 1 Size",
+        "tr": "Sample 1 Size",
+        "de": "Sample 1 Size",
+        "fr": "Sample 1 Size",
+        "es": "Sample 1 Size",
+        "ar": "Sample 1 Size"
+      }
     },
     {
       "id": "sample2Mean",
       "label": "Sample 2 Mean",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Mean of second sample"
+      "businessContext": "Mean of second sample",
+      "label_i18n": {
+        "en": "Sample 2 Mean",
+        "tr": "Sample 2 Mean",
+        "de": "Sample 2 Mean",
+        "fr": "Sample 2 Mean",
+        "es": "Sample 2 Mean",
+        "ar": "Sample 2 Mean"
+      }
     },
     {
       "id": "sample2StdDev",
       "label": "Sample 2 Standard Deviation",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Standard deviation of second sample"
+      "businessContext": "Standard deviation of second sample",
+      "label_i18n": {
+        "en": "Sample 2 Standard Deviation",
+        "tr": "Sample 2 Standard Deviation",
+        "de": "Sample 2 Standard Deviation",
+        "fr": "Sample 2 Standard Deviation",
+        "es": "Sample 2 Standard Deviation",
+        "ar": "Sample 2 Standard Deviation"
+      }
     },
     {
       "id": "sample2Size",
       "label": "Sample 2 Size",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Number of observations in second sample"
+      "businessContext": "Number of observations in second sample",
+      "label_i18n": {
+        "en": "Sample 2 Size",
+        "tr": "Sample 2 Size",
+        "de": "Sample 2 Size",
+        "fr": "Sample 2 Size",
+        "es": "Sample 2 Size",
+        "ar": "Sample 2 Size"
+      }
     },
     {
       "id": "alpha",
       "label": "Significance Level (α)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.05,
-      "businessContext": "Probability of Type I error"
+      "businessContext": "Probability of Type I error",
+      "label_i18n": {
+        "en": "Significance Level (α)",
+        "tr": "Significance Level (α)",
+        "de": "Significance Level (α)",
+        "fr": "Significance Level (α)",
+        "es": "Significance Level (α)",
+        "ar": "Significance Level (α)"
+      }
     }
   ],
   "formulas": {
@@ -70,10 +126,10 @@
       "degreesOfFreedom"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

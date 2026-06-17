@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "US size",
       "default": 0,
-      "businessContext": "The US shoe size to convert (e.g., 5-14 for men, 5-12 for women, 1-7 for children). Set to 0 to use foot length instead."
+      "businessContext": "The US shoe size to convert (e.g., 5-14 for men, 5-12 for women, 1-7 for children). Set to 0 to use foot length instead.",
+      "label_i18n": {
+        "en": "US Shoe Size",
+        "tr": "US Shoe Size",
+        "de": "US Shoe Size",
+        "fr": "US Shoe Size",
+        "es": "US Shoe Size",
+        "ar": "US Shoe Size"
+      }
     },
     {
       "id": "footLengthCm",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Foot length in centimeters. Used only when US size is 0. Conversion formula: EU = 1.5 × (footLengthCm + 1.5)."
+      "businessContext": "Foot length in centimeters. Used only when US size is 0. Conversion formula: EU = 1.5 × (footLengthCm + 1.5).",
+      "label_i18n": {
+        "en": "Foot Length (cm)",
+        "tr": "Foot Length (cm)",
+        "de": "Foot Length (cm)",
+        "fr": "Foot Length (cm)",
+        "es": "Foot Length (cm)",
+        "ar": "Foot Length (cm)"
+      }
     },
     {
       "id": "gender",
       "label": "Gender/Age Group",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0: Men (EU ≈ US + 33), 1: Women (EU ≈ US + 31), 2: Children (EU ≈ US + 16). Used only when US size > 0."
+      "businessContext": "0: Men (EU ≈ US + 33), 1: Women (EU ≈ US + 31), 2: Children (EU ≈ US + 16). Used only when US size > 0.",
+      "label_i18n": {
+        "en": "Gender/Age Group",
+        "tr": "Gender/Age Group",
+        "de": "Gender/Age Group",
+        "fr": "Gender/Age Group",
+        "es": "Gender/Age Group",
+        "ar": "Gender/Age Group"
+      }
     },
     {
       "id": "userAdjustment",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "EU size",
       "default": 0,
-      "businessContext": "Optional manual adjustment to the final EU size to account for brand variation or personal fit (e.g., +0.5 for a wider fit)."
+      "businessContext": "Optional manual adjustment to the final EU size to account for brand variation or personal fit (e.g., +0.5 for a wider fit).",
+      "label_i18n": {
+        "en": "User Adjustment",
+        "tr": "User Adjustment",
+        "de": "User Adjustment",
+        "fr": "User Adjustment",
+        "es": "User Adjustment",
+        "ar": "User Adjustment"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "adjustment"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

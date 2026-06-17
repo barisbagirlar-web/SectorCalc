@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Diameter of the driving pulley, typically between 50 and 500 mm. Influences belt speed and tension."
+      "businessContext": "Diameter of the driving pulley, typically between 50 and 500 mm. Influences belt speed and tension.",
+      "label_i18n": {
+        "en": "Driver Pulley Diameter",
+        "tr": "Driver Pulley Diameter",
+        "de": "Driver Pulley Diameter",
+        "fr": "Driver Pulley Diameter",
+        "es": "Driver Pulley Diameter",
+        "ar": "Driver Pulley Diameter"
+      }
     },
     {
       "id": "drivenDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Diameter of the driven pulley, which determines the speed reduction or increase ratio relative to the driver."
+      "businessContext": "Diameter of the driven pulley, which determines the speed reduction or increase ratio relative to the driver.",
+      "label_i18n": {
+        "en": "Driven Pulley Diameter",
+        "tr": "Driven Pulley Diameter",
+        "de": "Driven Pulley Diameter",
+        "fr": "Driven Pulley Diameter",
+        "es": "Driven Pulley Diameter",
+        "ar": "Driven Pulley Diameter"
+      }
     },
     {
       "id": "centerDistance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "Distance between the centers of the two pulleys. Affects belt length and wrap angle."
+      "businessContext": "Distance between the centers of the two pulleys. Affects belt length and wrap angle.",
+      "label_i18n": {
+        "en": "Center Distance",
+        "tr": "Center Distance",
+        "de": "Center Distance",
+        "fr": "Center Distance",
+        "es": "Center Distance",
+        "ar": "Center Distance"
+      }
     },
     {
       "id": "driverRPM",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "RPM",
       "default": 1500,
-      "businessContext": "Rotational speed of the driving pulley in revolutions per minute. Standard motor speeds are 1500 or 1800 RPM."
+      "businessContext": "Rotational speed of the driving pulley in revolutions per minute. Standard motor speeds are 1500 or 1800 RPM.",
+      "label_i18n": {
+        "en": "Driver RPM",
+        "tr": "Driver RPM",
+        "de": "Driver RPM",
+        "fr": "Driver RPM",
+        "es": "Driver RPM",
+        "ar": "Driver RPM"
+      }
     }
   ],
   "formulas": {
     "speedRatio": "driverDiameter / drivenDiameter",
     "drivenRPM": "driverRPM * speedRatio",
-    "beltLength": "2 * centerDistance + 1.5708 * (driverDiameter + drivenDiameter) + ((drivenDiameter - driverDiameter) ** 2) / (4 * centerDistance)"
+    "beltLength": "2 * centerDistance + 1.5708 * (driverDiameter + drivenDiameter) + ((drivenDiameter - driverDiameter) ** 2) / (4 * centerDistance)",
+    "_drivenRPM_toFixed_0___RPM": "{drivenRPM.toFixed(0)} RPM",
+    "driven____speedRatio_toFixed_2__": "driven): {speedRatio.toFixed(2)}",
+    "result": "Required belt length: {beltLength.toFixed(2)} mm"
   },
   "outputs": {
-    "primary": "Required belt length: {beltLength.toFixed(2)} mm",
+    "primary": "result",
     "breakdown": [
       "Driven pulley speed: {drivenRPM.toFixed(0)} RPM",
       "Speed ratio (driver:driven): {speedRatio.toFixed(2)}"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

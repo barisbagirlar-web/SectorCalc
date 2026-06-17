@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 55,
-      "businessContext": "Patient age"
+      "businessContext": "Patient age",
+      "label_i18n": {
+        "en": "Age (years)",
+        "tr": "Age (years)",
+        "de": "Age (years)",
+        "fr": "Age (years)",
+        "es": "Age (years)",
+        "ar": "Age (years)"
+      }
     },
     {
       "id": "systolicBP",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Treated or untreated systolic BP"
+      "businessContext": "Treated or untreated systolic BP",
+      "label_i18n": {
+        "en": "Systolic Blood Pressure",
+        "tr": "Systolic Blood Pressure",
+        "de": "Systolic Blood Pressure",
+        "fr": "Systolic Blood Pressure",
+        "es": "Systolic Blood Pressure",
+        "ar": "Systolic Blood Pressure"
+      }
     },
     {
       "id": "totalCholesterol",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Fasting total cholesterol"
+      "businessContext": "Fasting total cholesterol",
+      "label_i18n": {
+        "en": "Total Cholesterol",
+        "tr": "Total Cholesterol",
+        "de": "Total Cholesterol",
+        "fr": "Total Cholesterol",
+        "es": "Total Cholesterol",
+        "ar": "Total Cholesterol"
+      }
     },
     {
       "id": "hdl",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "Fasting HDL cholesterol"
+      "businessContext": "Fasting HDL cholesterol",
+      "label_i18n": {
+        "en": "HDL Cholesterol",
+        "tr": "HDL Cholesterol",
+        "de": "HDL Cholesterol",
+        "fr": "HDL Cholesterol",
+        "es": "HDL Cholesterol",
+        "ar": "HDL Cholesterol"
+      }
     },
     {
       "id": "smoker",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "0/1",
       "default": 0,
-      "businessContext": "Current smoker (1) or not (0)"
+      "businessContext": "Current smoker (1) or not (0)",
+      "label_i18n": {
+        "en": "Smoker",
+        "tr": "Smoker",
+        "de": "Smoker",
+        "fr": "Smoker",
+        "es": "Smoker",
+        "ar": "Smoker"
+      }
     },
     {
       "id": "diabetic",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "0/1",
       "default": 0,
-      "businessContext": "Diabetes diagnosis (1) or not (0)"
+      "businessContext": "Diabetes diagnosis (1) or not (0)",
+      "label_i18n": {
+        "en": "Diabetic",
+        "tr": "Diabetic",
+        "de": "Diabetic",
+        "fr": "Diabetic",
+        "es": "Diabetic",
+        "ar": "Diabetic"
+      }
     },
     {
       "id": "gender",
@@ -55,20 +103,29 @@
       "type": "number",
       "unit": "0/1",
       "default": 0,
-      "businessContext": "0 = male, 1 = female"
+      "businessContext": "0 = male, 1 = female",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     }
   ],
   "formulas": {
-    "riskPercent": "(() => { let lp = (age - 55) * 0.05 + (systolicBP - 120) * 0.01 + (totalCholesterol - 200) * 0.005 + (hdl - 50) * (-0.02) + smoker * 0.5 + diabetic * 0.3; let base = gender === 0 ? 0.9965 : 0.9984; return (1 - Math.pow(base, Math.exp(lp))) * 100; })()"
+    "riskPercent": "(() => { let lp = (age - 55) * 0.05 + (systolicBP - 120) * 0.01 + (totalCholesterol - 200) * 0.005 + (hdl - 50) * (-0.02) + smoker * 0.5 + diabetic * 0.3; let base = gender === 0 ? 0.9965 : 0.9984; return (1 - Math.pow(base, Math.exp(lp))) * 100; })()",
+    "riskPercent_copy": "(() => { let lp = (age - 55) * 0.05 + (systolicBP - 120) * 0.01 + (totalCholesterol - 200) * 0.005 + (hdl - 50) * (-0.02) + smoker * 0.5 + diabetic * 0.3; let base = gender === 0 ? 0.9965 : 0.9984; return (1 - Math.pow(base, Math.exp(lp))) * 100; })()"
   },
   "outputs": {
     "primary": "riskPercent",
     "breakdown": []
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "process-chemical"
 }

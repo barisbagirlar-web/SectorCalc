@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Ridge_vent_calculatorInput): Record<string, 
 
 export function calculateRidge_vent_calculator(input: Ridge_vent_calculatorInput): Ridge_vent_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["requiredLength"] ?? 0;
+  const totalWasteCost = values["totalNFA"] ?? 0;
   const breakdown = {
     
   };

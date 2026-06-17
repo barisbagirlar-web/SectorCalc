@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Oz_to_ml_calculatorInput): Record<string, nu
 
 export function calculateOz_to_ml_calculator(input: Oz_to_ml_calculatorInput): Oz_to_ml_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["milliliters"] ?? 0;
+  const totalWasteCost = values["conversionFactor"] ?? 0;
   const breakdown = {
     
   };

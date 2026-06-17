@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "ay",
       "default": 12,
-      "businessContext": "Bebeğin güncel yaşı (ay olarak)."
+      "businessContext": "Bebeğin güncel yaşı (ay olarak).",
+      "label_i18n": {
+        "en": "Bebeğin Ayı",
+        "tr": "Bebeğin Ayı",
+        "de": "Bebeğin Ayı",
+        "fr": "Bebeğin Ayı",
+        "es": "Bebeğin Ayı",
+        "ar": "Bebeğin Ayı"
+      }
     },
     {
       "id": "geneticFactor",
       "label": "Genetik Faktör",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Aile geçmişine göre diş çıkarma hızı katsayısı (1.0 = ortalama)."
+      "businessContext": "Aile geçmişine göre diş çıkarma hızı katsayısı (1.0 = ortalama).",
+      "label_i18n": {
+        "en": "Genetik Faktör",
+        "tr": "Genetik Faktör",
+        "de": "Genetik Faktör",
+        "fr": "Genetik Faktör",
+        "es": "Genetik Faktör",
+        "ar": "Genetik Faktör"
+      }
     },
     {
       "id": "calciumIntake",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg",
       "default": 500,
-      "businessContext": "Bebeğin günlük ortalama kalsiyum alımı."
+      "businessContext": "Bebeğin günlük ortalama kalsiyum alımı.",
+      "label_i18n": {
+        "en": "Günlük Kalsiyum Alımı",
+        "tr": "Günlük Kalsiyum Alımı",
+        "de": "Günlük Kalsiyum Alımı",
+        "fr": "Günlük Kalsiyum Alımı",
+        "es": "Günlük Kalsiyum Alımı",
+        "ar": "Günlük Kalsiyum Alımı"
+      }
     },
     {
       "id": "breastfeedingDuration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ay",
       "default": 6,
-      "businessContext": "Sadece anne sütüyle beslenme süresi."
+      "businessContext": "Sadece anne sütüyle beslenme süresi.",
+      "label_i18n": {
+        "en": "Emzirme Süresi",
+        "tr": "Emzirme Süresi",
+        "de": "Emzirme Süresi",
+        "fr": "Emzirme Süresi",
+        "es": "Emzirme Süresi",
+        "ar": "Emzirme Süresi"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +90,10 @@
       "breakdownTotal"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

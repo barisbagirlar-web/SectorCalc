@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg",
       "default": 200,
-      "businessContext": "Amount of caffeine consumed, e.g., an espresso shot ~63 mg, a cup of coffee ~95 mg, energy drink ~80 mg. Typical range: 50-500 mg."
+      "businessContext": "Amount of caffeine consumed, e.g., an espresso shot ~63 mg, a cup of coffee ~95 mg, energy drink ~80 mg. Typical range: 50-500 mg.",
+      "label_i18n": {
+        "en": "Initial Caffeine Dose",
+        "tr": "Initial Caffeine Dose",
+        "de": "Initial Caffeine Dose",
+        "fr": "Initial Caffeine Dose",
+        "es": "Initial Caffeine Dose",
+        "ar": "Initial Caffeine Dose"
+      }
     },
     {
       "id": "halfLife",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 5,
-      "businessContext": "Average half-life of caffeine in healthy adults: 3-7 hours, 5 hours typical. Smokers may have a half-life of 3 hours, pregnant women up to 15 hours."
+      "businessContext": "Average half-life of caffeine in healthy adults: 3-7 hours, 5 hours typical. Smokers may have a half-life of 3 hours, pregnant women up to 15 hours.",
+      "label_i18n": {
+        "en": "Caffeine Half-Life",
+        "tr": "Caffeine Half-Life",
+        "de": "Caffeine Half-Life",
+        "fr": "Caffeine Half-Life",
+        "es": "Caffeine Half-Life",
+        "ar": "Caffeine Half-Life"
+      }
     },
     {
       "id": "elapsedTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 4,
-      "businessContext": "Hours since caffeine intake. For bedtime planning, consider elapsed time until sleep."
+      "businessContext": "Hours since caffeine intake. For bedtime planning, consider elapsed time until sleep.",
+      "label_i18n": {
+        "en": "Time Elapsed",
+        "tr": "Time Elapsed",
+        "de": "Time Elapsed",
+        "fr": "Time Elapsed",
+        "es": "Time Elapsed",
+        "ar": "Time Elapsed"
+      }
     },
     {
       "id": "bodyWeight",
@@ -31,27 +55,34 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight helps in assessing dose per kg, which relates to sensitivity. Average adult: 60-80 kg."
+      "businessContext": "Body weight helps in assessing dose per kg, which relates to sensitivity. Average adult: 60-80 kg.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     }
   ],
   "formulas": {
     "primary": "initialDose * Math.pow(0.5, elapsedTime / halfLife)",
-    "breakdown": [
-      "primary / bodyWeight",
-      "elapsedTime / halfLife"
-    ]
+    "breakdown": "initialDose",
+    "remainingCaffeine_mg_per_kg": "remainingCaffeine_mg_per_kg",
+    "halfLivesElapsed": "halfLivesElapsed"
   },
   "outputs": {
-    "primary": "remainingCaffeine_mg",
+    "primary": "primary",
     "breakdown": [
       "remainingCaffeine_mg_per_kg",
       "halfLivesElapsed"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

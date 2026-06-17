@@ -5,17 +5,33 @@
       "id": "realPart",
       "label": "Real Part (a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Real component of the complex number"
+      "businessContext": "Real component of the complex number",
+      "label_i18n": {
+        "en": "Real Part (a)",
+        "tr": "Real Part (a)",
+        "de": "Real Part (a)",
+        "fr": "Real Part (a)",
+        "es": "Real Part (a)",
+        "ar": "Real Part (a)"
+      }
     },
     {
       "id": "imagPart",
       "label": "Imaginary Part (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Imaginary component of the complex number"
+      "businessContext": "Imaginary component of the complex number",
+      "label_i18n": {
+        "en": "Imaginary Part (b)",
+        "tr": "Imaginary Part (b)",
+        "de": "Imaginary Part (b)",
+        "fr": "Imaginary Part (b)",
+        "es": "Imaginary Part (b)",
+        "ar": "Imaginary Part (b)"
+      }
     },
     {
       "id": "angleDeg",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "°",
       "default": 90,
-      "businessContext": "Angle in degrees for Euler's formula"
+      "businessContext": "Angle in degrees for Euler's formula",
+      "label_i18n": {
+        "en": "Angle (degrees)",
+        "tr": "Angle (degrees)",
+        "de": "Angle (degrees)",
+        "fr": "Angle (degrees)",
+        "es": "Angle (degrees)",
+        "ar": "Angle (degrees)"
+      }
     },
     {
       "id": "modulus",
       "label": "Modulus (r)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Magnitude of the complex number"
+      "businessContext": "Magnitude of the complex number",
+      "label_i18n": {
+        "en": "Modulus (r)",
+        "tr": "Modulus (r)",
+        "de": "Modulus (r)",
+        "fr": "Modulus (r)",
+        "es": "Modulus (r)",
+        "ar": "Modulus (r)"
+      }
     }
   ],
   "formulas": {
@@ -39,10 +71,11 @@
     "realFromPolar": "modulus * Math.cos(angleDeg * Math.PI / 180)",
     "imagFromPolar": "modulus * Math.sin(angleDeg * Math.PI / 180)",
     "modulusFromRect": "Math.sqrt(realPart * realPart + imagPart * imagPart)",
-    "angleFromRect": "Math.atan2(imagPart, realPart) * 180 / Math.PI"
+    "angleFromRect": "Math.atan2(imagPart, realPart) * 180 / Math.PI",
+    "result": "e^(iθ) = cos(θ) + i sin(θ)"
   },
   "outputs": {
-    "primary": "e^(iθ) = cos(θ) + i sin(θ)",
+    "primary": "result",
     "breakdown": [
       "Real part: realFromPolar",
       "Imaginary part: imagFromPolar",
@@ -50,10 +83,10 @@
       "Angle (deg): angleFromRect"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

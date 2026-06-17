@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Athlete's age in years for normative reference (optional)"
+      "businessContext": "Athlete's age in years for normative reference (optional)",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "0 for female, 1 for male. Used for normative classification if implemented."
+      "businessContext": "0 for female, 1 for male. Used for normative classification if implemented.",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "distance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "meters",
       "default": 2000,
-      "businessContext": "Total distance covered during a 12-minute run (Cooper test)."
+      "businessContext": "Total distance covered during a 12-minute run (Cooper test).",
+      "label_i18n": {
+        "en": "Distance in 12 minutes",
+        "tr": "Distance in 12 minutes",
+        "de": "Distance in 12 minutes",
+        "fr": "Distance in 12 minutes",
+        "es": "Distance in 12 minutes",
+        "ar": "Distance in 12 minutes"
+      }
     },
     {
       "id": "bodyWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Athlete's body weight in kilograms, used to compute absolute VO2 max."
+      "businessContext": "Athlete's body weight in kilograms, used to compute absolute VO2 max.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "speed"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

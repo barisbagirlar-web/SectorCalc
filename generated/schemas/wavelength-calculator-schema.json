@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000000000,
-      "businessContext": "Frequency of the wave in hertz."
+      "businessContext": "Frequency of the wave in hertz.",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
     },
     {
       "id": "waveSpeed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 299792458,
-      "businessContext": "Speed of the wave in the medium. Defaults to speed of light in vacuum."
+      "businessContext": "Speed of the wave in the medium. Defaults to speed of light in vacuum.",
+      "label_i18n": {
+        "en": "Propagation Speed",
+        "tr": "Propagation Speed",
+        "de": "Propagation Speed",
+        "fr": "Propagation Speed",
+        "es": "Propagation Speed",
+        "ar": "Propagation Speed"
+      }
     },
     {
       "id": "energy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "J",
       "default": 4e-19,
-      "businessContext": "Energy of a single photon, if applicable. For electromagnetic waves only."
+      "businessContext": "Energy of a single photon, if applicable. For electromagnetic waves only.",
+      "label_i18n": {
+        "en": "Photon Energy",
+        "tr": "Photon Energy",
+        "de": "Photon Energy",
+        "fr": "Photon Energy",
+        "es": "Photon Energy",
+        "ar": "Photon Energy"
+      }
     },
     {
       "id": "planckConstant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "J·s",
       "default": 6.62607015e-34,
-      "businessContext": "Planck constant (h). Used to relate photon energy to frequency."
+      "businessContext": "Planck constant (h). Used to relate photon energy to frequency.",
+      "label_i18n": {
+        "en": "Planck Constant",
+        "tr": "Planck Constant",
+        "de": "Planck Constant",
+        "fr": "Planck Constant",
+        "es": "Planck Constant",
+        "ar": "Planck Constant"
+      }
     },
     {
       "id": "refractiveIndex",
@@ -39,27 +71,36 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Refractive index of the medium. 1 for vacuum or air approximation."
+      "businessContext": "Refractive index of the medium. 1 for vacuum or air approximation.",
+      "label_i18n": {
+        "en": "Refractive Index",
+        "tr": "Refractive Index",
+        "de": "Refractive Index",
+        "fr": "Refractive Index",
+        "es": "Refractive Index",
+        "ar": "Refractive Index"
+      }
     }
   ],
   "formulas": {
     "primary": "waveSpeed / frequency",
     "period": "1 / frequency",
     "wavelength_energy": "(planckConstant * waveSpeed) / energy",
-    "wavelength_medium": "(waveSpeed / frequency) / refractiveIndex"
+    "wavelength_medium": "(waveSpeed / frequency) / refractiveIndex",
+    "result": "Wavelength (vacuum)"
   },
   "outputs": {
-    "primary": "Wavelength (vacuum)",
+    "primary": "result",
     "breakdown": [
       "period",
       "wavelength_energy",
       "wavelength_medium"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "sustainability-resource-esg"
 }

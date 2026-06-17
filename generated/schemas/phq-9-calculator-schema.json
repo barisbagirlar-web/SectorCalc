@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 100000,
-      "businessContext": "System operating pressure in Pascals"
+      "businessContext": "System operating pressure in Pascals",
+      "label_i18n": {
+        "en": "Operating Pressure",
+        "tr": "Operating Pressure",
+        "de": "Operating Pressure",
+        "fr": "Operating Pressure",
+        "es": "Operating Pressure",
+        "ar": "Operating Pressure"
+      }
     },
     {
       "id": "fluid_density",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of the pumped fluid"
+      "businessContext": "Density of the pumped fluid",
+      "label_i18n": {
+        "en": "Fluid Density",
+        "tr": "Fluid Density",
+        "de": "Fluid Density",
+        "fr": "Fluid Density",
+        "es": "Fluid Density",
+        "ar": "Fluid Density"
+      }
     },
     {
       "id": "flow_rate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0.01,
-      "businessContext": "Volumetric flow rate through the pipe"
+      "businessContext": "Volumetric flow rate through the pipe",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "pipe_diameter",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Inner diameter of the pipe"
+      "businessContext": "Inner diameter of the pipe",
+      "label_i18n": {
+        "en": "Pipe Diameter",
+        "tr": "Pipe Diameter",
+        "de": "Pipe Diameter",
+        "fr": "Pipe Diameter",
+        "es": "Pipe Diameter",
+        "ar": "Pipe Diameter"
+      }
     },
     {
       "id": "efficiency_factor",
       "label": "Efficiency Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Overall efficiency factor (0-1)"
+      "businessContext": "Overall efficiency factor (0-1)",
+      "label_i18n": {
+        "en": "Efficiency Factor",
+        "tr": "Efficiency Factor",
+        "de": "Efficiency Factor",
+        "fr": "Efficiency Factor",
+        "es": "Efficiency Factor",
+        "ar": "Efficiency Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "velocity_head"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "process-chemical"
 }

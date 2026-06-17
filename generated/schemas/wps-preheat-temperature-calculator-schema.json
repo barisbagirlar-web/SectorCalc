@@ -91,7 +91,7 @@
       "id": "joint_restraint",
       "label": "Joint Restraint Factor",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "moderate",
       "options": [
         {
@@ -119,7 +119,7 @@
       "id": "preheat_method",
       "label": "Preheat Method",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "electric",
       "options": [
         {
@@ -171,135 +171,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "carbon_equivalent_factor",
-      "description": "Base factor from carbon equivalent",
-      "expression": "if carbon_equivalent <= 0.35 then 0 else if carbon_equivalent <= 0.55 then (carbon_equivalent - 0.35) * 200 else (carbon_equivalent - 0.35) * 250",
-      "unit": "°C"
-    },
-    {
-      "id": "thickness_factor",
-      "description": "Thickness contribution to preheat",
-      "expression": "if material_thickness <= 25 then material_thickness * 1.5 else 25 * 1.5 + (material_thickness - 25) * 1.2",
-      "unit": "°C"
-    },
-    {
-      "id": "hydrogen_factor",
-      "description": "Penalty for hydrogen level",
-      "expression": "case hydrogen_level when 'low' then 0 when 'medium' then 30 when 'high' then 70",
-      "unit": "°C"
-    },
-    {
-      "id": "heat_input_factor",
-      "description": "Adjustment for heat input (lower heat input requires higher preheat)",
-      "expression": "if heat_input < 1.0 then (1.0 - heat_input) * 80 else if heat_input <= 2.5 then 0 else (heat_input - 2.5) * -20",
-      "unit": "°C"
-    },
-    {
-      "id": "restraint_factor",
-      "description": "Penalty for joint restraint",
-      "expression": "case joint_restraint when 'low' then 0 when 'moderate' then 20 when 'high' then 50",
-      "unit": "°C"
-    },
-    {
-      "id": "preheat_temperature_raw",
-      "description": "Raw preheat temperature before method adjustment",
-      "expression": "carbon_equivalent_factor + thickness_factor + hydrogen_factor + heat_input_factor + restraint_factor",
-      "unit": "°C"
-    },
-    {
-      "id": "primaryResult",
-      "description": "Final recommended preheat temperature rounded to nearest 5°C, with method efficiency correction",
-      "expression": "round(preheat_temperature_raw * (case preheat_method when 'electric' then 1.0 when 'gas' then 1.1 when 'induction' then 0.95) / 5) * 5",
-      "unit": "°C"
-    }
+    "material_thickness",
+    "material_thickness",
+    "material_thickness",
+    "material_thickness",
+    "material_thickness",
+    "material_thickness",
+    "material_thickness"
   ],
   "outputs": {
-    "primary": {
-      "id": "preheat_temperature",
-      "label": "Recommended Preheat Temperature",
-      "value": null,
-      "unit": "°C",
-      "description": "Minimum preheat temperature to be applied before welding."
-    },
-    "breakdown": {
-      "carbon_equivalent_factor": {
-        "label": "Carbon Equivalent Contribution",
-        "value": null,
-        "unit": "°C"
-      },
-      "thickness_factor": {
-        "label": "Thickness Contribution",
-        "value": null,
-        "unit": "°C"
-      },
-      "hydrogen_factor": {
-        "label": "Hydrogen Level Penalty",
-        "value": null,
-        "unit": "°C"
-      },
-      "heat_input_factor": {
-        "label": "Heat Input Adjustment",
-        "value": null,
-        "unit": "°C"
-      },
-      "restraint_factor": {
-        "label": "Restraint Penalty",
-        "value": null,
-        "unit": "°C"
-      },
-      "method_efficiency": {
-        "label": "Method Efficiency Factor",
-        "value": null,
-        "unit": ""
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "moisture_risk",
-        "label": "Moisture Risk",
-        "description": "If preheat < 50°C, moisture may not be fully removed, increasing hydrogen cracking risk.",
-        "severity": "medium"
-      },
-      {
-        "id": "thermal_stress",
-        "label": "Thermal Stress",
-        "description": "High preheat (>250°C) may cause excessive thermal stress and distortion in thin sections.",
-        "severity": "low"
-      },
-      {
-        "id": "energy_cost",
-        "label": "Energy Cost Impact",
-        "description": "Higher preheat temperatures increase energy consumption and cycle time.",
-        "severity": "medium"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_verify_ce",
-        "label": "Verify Carbon Equivalent",
-        "description": "Confirm actual material composition and recalculate CE using IIW formula."
-      },
-      {
-        "id": "action_check_hydrogen",
-        "label": "Check Consumable Hydrogen",
-        "description": "Use low-hydrogen electrodes or flux to reduce preheat requirement."
-      },
-      {
-        "id": "action_optimize_heat",
-        "label": "Optimize Heat Input",
-        "description": "Increase travel speed or voltage to raise heat input and lower needed preheat."
-      },
-      {
-        "id": "action_monitor_temperature",
-        "label": "Monitor Preheat Uniformity",
-        "description": "Use temperature-indicating crayons or infrared sensors to ensure uniform heating."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "wps-preheat-temperature-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik"
 }

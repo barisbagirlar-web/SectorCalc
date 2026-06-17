@@ -22,13 +22,17 @@ function evaluateAllFormulas(input: Mohrs_circle_calculatorInput): Record<string
   try { const v = (results["R"] ?? 0); results["tau_max"] = Number.isFinite(v) ? v : 0; } catch { results["tau_max"] = 0; }
   try { const v = 0.5 * Math.atan2(input.tau_xy, (input.sigma_x - input.sigma_y) / 2) * 180 / Math.PI; results["theta_p"] = Number.isFinite(v) ? v : 0; } catch { results["theta_p"] = 0; }
   try { const v = (results["theta_p"] ?? 0) + 45; results["theta_s"] = Number.isFinite(v) ? v : 0; } catch { results["theta_s"] = 0; }
+  results["Average_Stress___avg____sigma_avg__MPa"] = 0;
+  results["Radius_R____R__MPa"] = 0;
+  results["Principal_Angle___p____theta_p__"] = 0;
+  results["Shear_Angle___s____theta_s__"] = 0;
   return results;
 }
 
 
 export function calculateMohrs_circle_calculator(input: Mohrs_circle_calculatorInput): Mohrs_circle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["σ₁ = {sigma_1} MPa, σ₂ = {sigma_2} MPa, τ_max = {tau_max} MPa"] ?? 0;
+  const totalWasteCost = values["sigma_avg"] ?? 0;
   const breakdown = {
     
   };

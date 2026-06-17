@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "persons",
       "default": 100,
-      "businessContext": "Total number of attendees expected at the wedding, essential for scaling all calculations."
+      "businessContext": "Total number of attendees expected at the wedding, essential for scaling all calculations.",
+      "label_i18n": {
+        "en": "Number of Guests",
+        "tr": "Number of Guests",
+        "de": "Number of Guests",
+        "fr": "Number of Guests",
+        "es": "Number of Guests",
+        "ar": "Number of Guests"
+      }
     },
     {
       "id": "alcoholPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Estimated percentage of guests who will consume alcoholic beverages; critical for adjusting quantities."
+      "businessContext": "Estimated percentage of guests who will consume alcoholic beverages; critical for adjusting quantities.",
+      "label_i18n": {
+        "en": "% of Guests Drinking Alcohol",
+        "tr": "% of Guests Drinking Alcohol",
+        "de": "% of Guests Drinking Alcohol",
+        "fr": "% of Guests Drinking Alcohol",
+        "es": "% of Guests Drinking Alcohol",
+        "ar": "% of Guests Drinking Alcohol"
+      }
     },
     {
       "id": "durationHours",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 5,
-      "businessContext": "Duration of the event in hours from start to end of alcohol service; impacts total consumption time."
+      "businessContext": "Duration of the event in hours from start to end of alcohol service; impacts total consumption time.",
+      "label_i18n": {
+        "en": "Duration of Event",
+        "tr": "Duration of Event",
+        "de": "Duration of Event",
+        "fr": "Duration of Event",
+        "es": "Duration of Event",
+        "ar": "Duration of Event"
+      }
     },
     {
       "id": "drinksPerHour",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "drinks/person/hour",
       "default": 1.5,
-      "businessContext": "Average number of drinks each drinking guest is expected to consume per hour; based on event type and crowd."
+      "businessContext": "Average number of drinks each drinking guest is expected to consume per hour; based on event type and crowd.",
+      "label_i18n": {
+        "en": "Drinks per Hour per Person",
+        "tr": "Drinks per Hour per Person",
+        "de": "Drinks per Hour per Person",
+        "fr": "Drinks per Hour per Person",
+        "es": "Drinks per Hour per Person",
+        "ar": "Drinks per Hour per Person"
+      }
     },
     {
       "id": "beerRatio",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.4,
-      "businessContext": "Fraction of total drinks expected to be beer; guides purchase of beer quantities."
+      "businessContext": "Fraction of total drinks expected to be beer; guides purchase of beer quantities.",
+      "label_i18n": {
+        "en": "Beer Ratio",
+        "tr": "Beer Ratio",
+        "de": "Beer Ratio",
+        "fr": "Beer Ratio",
+        "es": "Beer Ratio",
+        "ar": "Beer Ratio"
+      }
     },
     {
       "id": "wineRatio",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.4,
-      "businessContext": "Fraction of total drinks expected to be wine; guides purchase of wine quantities."
+      "businessContext": "Fraction of total drinks expected to be wine; guides purchase of wine quantities.",
+      "label_i18n": {
+        "en": "Wine Ratio",
+        "tr": "Wine Ratio",
+        "de": "Wine Ratio",
+        "fr": "Wine Ratio",
+        "es": "Wine Ratio",
+        "ar": "Wine Ratio"
+      }
     },
     {
       "id": "spiritsRatio",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.2,
-      "businessContext": "Fraction of total drinks expected to be spirits (liquor); guides purchase of spirits quantities."
+      "businessContext": "Fraction of total drinks expected to be spirits (liquor); guides purchase of spirits quantities.",
+      "label_i18n": {
+        "en": "Spirits Ratio",
+        "tr": "Spirits Ratio",
+        "de": "Spirits Ratio",
+        "fr": "Spirits Ratio",
+        "es": "Spirits Ratio",
+        "ar": "Spirits Ratio"
+      }
     }
   ],
   "formulas": {
@@ -63,20 +119,24 @@
     "totalDrinks": "drinkingGuests * durationHours * drinksPerHour",
     "beerDrinks": "totalDrinks * beerRatio",
     "wineDrinks": "totalDrinks * wineRatio",
-    "spiritsDrinks": "totalDrinks * spiritsRatio"
+    "spiritsDrinks": "totalDrinks * spiritsRatio",
+    "____Math_round_beerDrinks______drinks_": "' + Math.round(beerDrinks) + ' drinks'",
+    "____Math_round_wineDrinks______drinks_": "' + Math.round(wineDrinks) + ' drinks'",
+    "____Math_round_spiritsDrinks______drinks": "' + Math.round(spiritsDrinks) + ' drinks'",
+    "result": "Math.round(totalDrinks) + ' drinks'"
   },
   "outputs": {
-    "primary": "Math.round(totalDrinks) + ' drinks'",
+    "primary": "result",
     "breakdown": [
       "'Beer: ' + Math.round(beerDrinks) + ' drinks'",
       "'Wine: ' + Math.round(wineDrinks) + ' drinks'",
       "'Spirits: ' + Math.round(spiritsDrinks) + ' drinks'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

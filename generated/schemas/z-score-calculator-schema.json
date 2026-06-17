@@ -173,204 +173,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "sample_mean",
-      "name": "Sample Mean (x̄)",
-      "description": "Arithmetic mean of the input data points.",
-      "formula": "x̄ = (Σ xi) / n",
-      "dependencies": [
-        "data_points"
-      ]
-    },
-    {
-      "id": "sample_stddev",
-      "name": "Sample Standard Deviation (s)",
-      "description": "Unbiased estimate of population standard deviation using Bessel's correction.",
-      "formula": "s = sqrt( Σ (xi - x̄)^2 / (n - 1) )",
-      "dependencies": [
-        "data_points",
-        "sample_mean"
-      ]
-    },
-    {
-      "id": "effective_stddev",
-      "name": "Effective Standard Deviation",
-      "description": "Standard deviation used in Z-score calculation: population σ if provided, else sample s.",
-      "formula": "σ_eff = IF(population_stddev != null, population_stddev, sample_stddev)",
-      "dependencies": [
-        "population_stddev",
-        "sample_stddev"
-      ]
-    },
-    {
-      "id": "effective_mean",
-      "name": "Effective Mean",
-      "description": "Mean used in Z-score calculation: population μ if provided, else sample mean.",
-      "formula": "μ_eff = IF(population_mean != null, population_mean, sample_mean)",
-      "dependencies": [
-        "population_mean",
-        "sample_mean"
-      ]
-    },
-    {
-      "id": "z_score",
-      "name": "Z-Score (Primary Result)",
-      "description": "Standardized score indicating how many standard deviations a data point (or sample mean) is from the population mean.",
-      "formula": "Z = (x̄ - μ_eff) / (σ_eff / sqrt(n))",
-      "dependencies": [
-        "sample_mean",
-        "effective_mean",
-        "effective_stddev",
-        "data_points"
-      ]
-    },
-    {
-      "id": "p_value",
-      "name": "P-Value",
-      "description": "Probability of observing a Z-score as extreme as the calculated value under the null hypothesis.",
-      "formula": "p = 2 * (1 - Φ(|Z|)) for two-tailed; p = 1 - Φ(Z) for upper-tailed; p = Φ(Z) for lower-tailed",
-      "dependencies": [
-        "z_score",
-        "tail_type"
-      ]
-    },
-    {
-      "id": "confidence_interval",
-      "name": "Confidence Interval for the Mean",
-      "description": "Range within which the true population mean is expected to lie with the specified confidence level.",
-      "formula": "CI = x̄ ± Z_crit * (σ_eff / sqrt(n))",
-      "dependencies": [
-        "sample_mean",
-        "effective_stddev",
-        "data_points",
-        "confidence_level"
-      ]
-    }
+    "data_points",
+    "data_points",
+    "data_points",
+    "data_points",
+    "data_points",
+    "data_points",
+    "data_points"
   ],
   "outputs": {
-    "primary": {
-      "id": "z_score",
-      "label": "Z-Score",
-      "value": null,
-      "unit": "standard deviations"
-    },
-    "breakdown": {
-      "sample_size": {
-        "id": "sample_size",
-        "label": "Sample Size (n)",
-        "value": null,
-        "unit": "count"
-      },
-      "sample_mean": {
-        "id": "sample_mean",
-        "label": "Sample Mean (x̄)",
-        "value": null,
-        "unit": "same as data"
-      },
-      "sample_stddev": {
-        "id": "sample_stddev",
-        "label": "Sample Standard Deviation (s)",
-        "value": null,
-        "unit": "same as data"
-      },
-      "effective_mean": {
-        "id": "effective_mean",
-        "label": "Effective Mean (μ_eff)",
-        "value": null,
-        "unit": "same as data"
-      },
-      "effective_stddev": {
-        "id": "effective_stddev",
-        "label": "Effective Standard Deviation (σ_eff)",
-        "value": null,
-        "unit": "same as data"
-      },
-      "p_value": {
-        "id": "p_value",
-        "label": "P-Value",
-        "value": null,
-        "unit": "probability"
-      },
-      "confidence_interval_lower": {
-        "id": "confidence_interval_lower",
-        "label": "CI Lower Bound",
-        "value": null,
-        "unit": "same as data"
-      },
-      "confidence_interval_upper": {
-        "id": "confidence_interval_upper",
-        "label": "CI Upper Bound",
-        "value": null,
-        "unit": "same as data"
-      },
-      "confidence_level_used": {
-        "id": "confidence_level_used",
-        "label": "Confidence Level Used",
-        "value": null,
-        "unit": "percentage"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "small_sample_size",
-        "label": "Small Sample Size",
-        "description": "n < 30 reduces reliability of Z-test; consider using t-distribution.",
-        "condition": "sample_size < 30"
-      },
-      {
-        "id": "high_variability",
-        "label": "High Variability",
-        "description": "Coefficient of variation > 0.5 indicates excessive process spread.",
-        "condition": "effective_stddev / abs(effective_mean) > 0.5"
-      },
-      {
-        "id": "non_normal_data",
-        "label": "Non-Normal Data",
-        "description": "Z-test assumes normality; skewness or kurtosis may bias results.",
-        "condition": "sample_size < 30 || (skewness > 1 || kurtosis > 3)"
-      },
-      {
-        "id": "outlier_presence",
-        "label": "Outlier Presence",
-        "description": "Data points with |Z| > 3 may distort mean and standard deviation.",
-        "condition": "any(|z_i| > 3 for data points)"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_sample",
-        "label": "Increase Sample Size",
-        "description": "Collect more data to improve estimate precision and reduce confidence interval width.",
-        "priority": "high"
-      },
-      {
-        "id": "check_process_stability",
-        "label": "Check Process Stability",
-        "description": "Use control charts (e.g., X-bar-R) to verify process is in statistical control.",
-        "priority": "high"
-      },
-      {
-        "id": "transform_data",
-        "label": "Transform Data",
-        "description": "If data is non-normal, apply Box-Cox or Johnson transformation before Z-test.",
-        "priority": "medium"
-      },
-      {
-        "id": "use_t_test",
-        "label": "Use t-Test Instead",
-        "description": "For small samples (n < 30) with unknown σ, switch to one-sample t-test.",
-        "priority": "medium"
-      },
-      {
-        "id": "investigate_outliers",
-        "label": "Investigate Outliers",
-        "description": "Review data points with |Z| > 3 for assignable causes and consider removal if justified.",
-        "priority": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": null
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "z-score-calculator"
 }

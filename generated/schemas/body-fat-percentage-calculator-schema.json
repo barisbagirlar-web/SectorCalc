@@ -5,9 +5,17 @@
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for Male, 1 for Female"
+      "businessContext": "0 for Male, 1 for Female",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Body height in centimeters"
+      "businessContext": "Body height in centimeters",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms"
+      "businessContext": "Body weight in kilograms",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "neck",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 38,
-      "businessContext": "Neck circumference measured just below the larynx"
+      "businessContext": "Neck circumference measured just below the larynx",
+      "label_i18n": {
+        "en": "Neck Circumference",
+        "tr": "Neck Circumference",
+        "de": "Neck Circumference",
+        "fr": "Neck Circumference",
+        "es": "Neck Circumference",
+        "ar": "Neck Circumference"
+      }
     },
     {
       "id": "waist",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 85,
-      "businessContext": "Waist circumference measured at the level of the navel"
+      "businessContext": "Waist circumference measured at the level of the navel",
+      "label_i18n": {
+        "en": "Waist Circumference",
+        "tr": "Waist Circumference",
+        "de": "Waist Circumference",
+        "fr": "Waist Circumference",
+        "es": "Waist Circumference",
+        "ar": "Waist Circumference"
+      }
     },
     {
       "id": "hip",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "cm",
       "default": 90,
-      "businessContext": "Hip circumference at the widest point (only for females, set 0 for males)"
+      "businessContext": "Hip circumference at the widest point (only for females, set 0 for males)",
+      "label_i18n": {
+        "en": "Hip Circumference",
+        "tr": "Hip Circumference",
+        "de": "Hip Circumference",
+        "fr": "Hip Circumference",
+        "es": "Hip Circumference",
+        "ar": "Hip Circumference"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "fatMass"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

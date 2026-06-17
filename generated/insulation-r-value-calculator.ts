@@ -36,7 +36,7 @@ function evaluateAllFormulas(input: Insulation_r_value_calculatorInput): Record<
 
 export function calculateInsulation_r_value_calculator(input: Insulation_r_value_calculatorInput): Insulation_r_value_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["r1"] ?? 0;
   const breakdown = {
     
   };

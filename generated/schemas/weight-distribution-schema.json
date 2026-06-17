@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Total weight of the load or vehicle"
+      "businessContext": "Total weight of the load or vehicle",
+      "label_i18n": {
+        "en": "Total Weight (kg)",
+        "tr": "Total Weight (kg)",
+        "de": "Total Weight (kg)",
+        "fr": "Total Weight (kg)",
+        "es": "Total Weight (kg)",
+        "ar": "Total Weight (kg)"
+      }
     },
     {
       "id": "frontAxleDist",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Horizontal distance from front axle to center of gravity"
+      "businessContext": "Horizontal distance from front axle to center of gravity",
+      "label_i18n": {
+        "en": "Distance from Front Axle to COG (m)",
+        "tr": "Distance from Front Axle to COG (m)",
+        "de": "Distance from Front Axle to COG (m)",
+        "fr": "Distance from Front Axle to COG (m)",
+        "es": "Distance from Front Axle to COG (m)",
+        "ar": "Distance from Front Axle to COG (m)"
+      }
     },
     {
       "id": "rearAxleDist",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.5,
-      "businessContext": "Horizontal distance from rear axle to center of gravity"
+      "businessContext": "Horizontal distance from rear axle to center of gravity",
+      "label_i18n": {
+        "en": "Distance from Rear Axle to COG (m)",
+        "tr": "Distance from Rear Axle to COG (m)",
+        "de": "Distance from Rear Axle to COG (m)",
+        "fr": "Distance from Rear Axle to COG (m)",
+        "es": "Distance from Rear Axle to COG (m)",
+        "ar": "Distance from Rear Axle to COG (m)"
+      }
     },
     {
       "id": "wheelbase",
@@ -31,26 +55,36 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Distance between front and rear axles"
+      "businessContext": "Distance between front and rear axles",
+      "label_i18n": {
+        "en": "Wheelbase (m)",
+        "tr": "Wheelbase (m)",
+        "de": "Wheelbase (m)",
+        "fr": "Wheelbase (m)",
+        "es": "Wheelbase (m)",
+        "ar": "Wheelbase (m)"
+      }
     }
   ],
   "formulas": {
     "frontAxleLoad": "totalWeight * (rearAxleDist / wheelbase)",
     "rearAxleLoad": "totalWeight * (frontAxleDist / wheelbase)",
     "frontAxlePercent": "(frontAxleLoad / totalWeight) * 100",
-    "rearAxlePercent": "(rearAxleLoad / totalWeight) * 100"
+    "rearAxlePercent": "(rearAxleLoad / totalWeight) * 100",
+    "_frontAxleLoad__kg___frontAxlePercent___": "{frontAxleLoad} kg ({frontAxlePercent}%)",
+    "_rearAxleLoad__kg___rearAxlePercent___": "{rearAxleLoad} kg ({rearAxlePercent}%)"
   },
   "outputs": {
-    "primary": "Front Axle Load: {frontAxleLoad} kg, Rear Axle Load: {rearAxleLoad} kg",
+    "primary": "frontAxleLoad",
     "breakdown": [
       "Front Axle Load: {frontAxleLoad} kg ({frontAxlePercent}%)",
       "Rear Axle Load: {rearAxleLoad} kg ({rearAxlePercent}%)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

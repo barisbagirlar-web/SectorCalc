@@ -22,13 +22,20 @@ export const Hess_law_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Hess_law_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.deltaH1 + input.deltaH2 + input.deltaH3 + input.deltaH4 + input.deltaH5 + input.deltaH6; results["totalDeltaH"] = Number.isFinite(v) ? v : 0; } catch { results["totalDeltaH"] = 0; }
+  results["_H____deltaH1_kJ_mol"] = 0;
+  results["_H____deltaH2_kJ_mol"] = 0;
+  results["_H____deltaH3_kJ_mol"] = 0;
+  results["_H____deltaH4_kJ_mol"] = 0;
+  results["_H____deltaH5_kJ_mol"] = 0;
+  results["_H____deltaH6_kJ_mol"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateHess_law_calculator(input: Hess_law_calculatorInput): Hess_law_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

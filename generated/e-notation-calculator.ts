@@ -19,6 +19,8 @@ function evaluateAllFormulas(input: E_notation_calculatorInput): Record<string, 
   const results: Record<string, number> = {};
   try { const v = input.coeff1 * input.coeff2 * Math.pow(10, input.exp1 + input.exp2); results["decimalValue"] = Number.isFinite(v) ? v : 0; } catch { results["decimalValue"] = 0; }
   try { const v = (results["decimalValue"] ?? 0).toExponential(4); results["eNotation"] = Number.isFinite(v) ? v : 0; } catch { results["eNotation"] = 0; }
+  results["__decimalValue__"] = 0;
+  results["__eNotation__"] = 0;
   return results;
 }
 

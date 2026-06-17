@@ -19,6 +19,8 @@ function evaluateAllFormulas(input: Prime_number_calculatorInput): Record<string
   const results: Record<string, number> = {};
   try { const v = (input.upperBound / Math.log(input.upperBound)) - (input.lowerBound / Math.log(input.lowerBound)); results["estimatedPrimes"] = Number.isFinite(v) ? v : 0; } catch { results["estimatedPrimes"] = 0; }
   try { const v = (input.tolerance / 100) * ((input.upperBound / Math.log(input.upperBound)) - (input.lowerBound / Math.log(input.lowerBound))); results["errorMargin"] = Number.isFinite(v) ? v : 0; } catch { results["errorMargin"] = 0; }
+  try { const v = (input.upperBound / Math.log(input.upperBound)) - (input.lowerBound / Math.log(input.lowerBound)); results["estimatedPrimes____upperBound___Math_log"] = Number.isFinite(v) ? v : 0; } catch { results["estimatedPrimes____upperBound___Math_log"] = 0; }
+  results["errorMargin___tolerance__of_the_estimate"] = 0;
   return results;
 }
 

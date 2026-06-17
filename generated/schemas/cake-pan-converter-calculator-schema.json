@@ -5,9 +5,17 @@
       "id": "originalShape",
       "label": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Orijinal kalıbın şekli; 1 ise yuvarlak (çap kullan), 2 ise dikdörtgen (kenarlar)"
+      "businessContext": "Orijinal kalıbın şekli; 1 ise yuvarlak (çap kullan), 2 ise dikdörtgen (kenarlar)",
+      "label_i18n": {
+        "en": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "tr": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "de": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "fr": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "es": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "ar": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)"
+      }
     },
     {
       "id": "originalDim1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Orijinal kalıbın birinci boyutu"
+      "businessContext": "Orijinal kalıbın birinci boyutu",
+      "label_i18n": {
+        "en": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
+        "tr": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
+        "de": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
+        "fr": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
+        "es": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
+        "ar": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)"
+      }
     },
     {
       "id": "originalDim2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Orijinal kalıbın ikinci boyutu; yuvarlak için 0"
+      "businessContext": "Orijinal kalıbın ikinci boyutu; yuvarlak için 0",
+      "label_i18n": {
+        "en": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
+        "tr": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
+        "de": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
+        "fr": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
+        "es": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
+        "ar": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)"
+      }
     },
     {
       "id": "originalDepth",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "cm",
       "default": 5,
-      "businessContext": "Orijinal kalıbın derinliği"
+      "businessContext": "Orijinal kalıbın derinliği",
+      "label_i18n": {
+        "en": "Orijinal Kalıp Derinliği",
+        "tr": "Orijinal Kalıp Derinliği",
+        "de": "Orijinal Kalıp Derinliği",
+        "fr": "Orijinal Kalıp Derinliği",
+        "es": "Orijinal Kalıp Derinliği",
+        "ar": "Orijinal Kalıp Derinliği"
+      }
     },
     {
       "id": "targetShape",
       "label": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Hedef kalıbın şekli"
+      "businessContext": "Hedef kalıbın şekli",
+      "label_i18n": {
+        "en": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "tr": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "de": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "fr": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "es": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "ar": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)"
+      }
     },
     {
       "id": "targetDim1",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "cm",
       "default": 24,
-      "businessContext": "Hedef kalıbın birinci boyutu"
+      "businessContext": "Hedef kalıbın birinci boyutu",
+      "label_i18n": {
+        "en": "Hedef Kalıp Ölçüsü 1",
+        "tr": "Hedef Kalıp Ölçüsü 1",
+        "de": "Hedef Kalıp Ölçüsü 1",
+        "fr": "Hedef Kalıp Ölçüsü 1",
+        "es": "Hedef Kalıp Ölçüsü 1",
+        "ar": "Hedef Kalıp Ölçüsü 1"
+      }
     },
     {
       "id": "targetDim2",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Hedef kalıbın ikinci boyutu"
+      "businessContext": "Hedef kalıbın ikinci boyutu",
+      "label_i18n": {
+        "en": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
+        "tr": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
+        "de": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
+        "fr": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
+        "es": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
+        "ar": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)"
+      }
     },
     {
       "id": "targetDepth",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "cm",
       "default": 5,
-      "businessContext": "Hedef kalıbın derinliği"
+      "businessContext": "Hedef kalıbın derinliği",
+      "label_i18n": {
+        "en": "Hedef Kalıp Derinliği",
+        "tr": "Hedef Kalıp Derinliği",
+        "de": "Hedef Kalıp Derinliği",
+        "fr": "Hedef Kalıp Derinliği",
+        "es": "Hedef Kalıp Derinliği",
+        "ar": "Hedef Kalıp Derinliği"
+      }
     }
   ],
   "formulas": {
@@ -78,10 +142,10 @@
       "targetVolume"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

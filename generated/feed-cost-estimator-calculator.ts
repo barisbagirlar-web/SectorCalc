@@ -19,32 +19,19 @@ export const Feed_cost_estimator_calculatorInputSchema = z.object({
   include_transport_cost: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Feed_cost_estimator_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.raw_material_cost_per_kg * input.moisture_adjustment_factor / (1 - input.processing_loss_percent / 100); results["effective_raw_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["effective_raw_material_cost"] = 0; }
-  try { const v = input.include_transport_cost ? 0.02 : 0; results["transport_surcharge"] = Number.isFinite(v) ? v : 0; } catch { results["transport_surcharge"] = 0; }
-  try { const v = input.quality_grade == 'premium' ? 1.15 : (input.quality_grade == 'economy' ? 0.90 : 1.0); results["quality_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["quality_multiplier"] = 0; }
-  try { const v = ((results["effective_raw_material_cost"] ?? 0) + (results["transport_surcharge"] ?? 0)) * (results["quality_multiplier"] ?? 0); results["adjusted_feed_cost_per_kg"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_feed_cost_per_kg"] = 0; }
-  try { const v = (results["adjusted_feed_cost_per_kg"] ?? 0) * input.feed_intake_kg; results["total_feed_cost_per_animal_per_day"] = Number.isFinite(v) ? v : 0; } catch { results["total_feed_cost_per_animal_per_day"] = 0; }
-  try { const v = (results["total_feed_cost_per_animal_per_day"] ?? 0) * 365; results["annual_feed_cost_per_animal"] = Number.isFinite(v) ? v : 0; } catch { results["annual_feed_cost_per_animal"] = 0; }
-  try { const v = (results["adjusted_feed_cost_per_kg"] ?? 0) * 2.5; results["cost_per_kg_gain"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_kg_gain"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Feed_cost_estimator_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateFeed_cost_estimator_calculator(input: Feed_cost_estimator_calculatorInput): Feed_cost_estimator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_feed_cost_per_animal_per_day"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    raw_material_base_cost: values["raw_material_base_cost"] ?? 0,
-    moisture_adjusted_cost: values["moisture_adjusted_cost"] ?? 0,
-    processing_loss_cost: values["processing_loss_cost"] ?? 0,
-    transport_cost: values["transport_cost"] ?? 0,
-    quality_adjustment: values["quality_adjustment"] ?? 0,
-    daily_feed_cost: values["daily_feed_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excessive processing loss","Moisture variation","Quality grade mismatch"];
-  const suggestedActions: string[] = ["Implement preventive maintenance on mills and pellet mills to reduce processing loss below 3%.","Negotiate with suppliers for consistent moisture content or install on-line moisture sensors.","Evaluate if standard grade feed meets animal performance targets before using premium.","Consolidate raw material purchases to achieve volume discounts."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -63,7 +50,7 @@ export function calculateFeed_cost_estimator_calculator(input: Feed_cost_estimat
 
 export interface Feed_cost_estimator_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { raw_material_base_cost: number; moisture_adjusted_cost: number; processing_loss_cost: number; transport_cost: number; quality_adjustment: number; daily_feed_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

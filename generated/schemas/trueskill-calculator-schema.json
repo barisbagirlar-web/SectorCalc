@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "skill units",
       "default": 25,
-      "businessContext": "Initial skill estimate of the winning player/team"
+      "businessContext": "Initial skill estimate of the winning player/team",
+      "label_i18n": {
+        "en": "Winner Mean (μ)",
+        "tr": "Winner Mean (μ)",
+        "de": "Winner Mean (μ)",
+        "fr": "Winner Mean (μ)",
+        "es": "Winner Mean (μ)",
+        "ar": "Winner Mean (μ)"
+      }
     },
     {
       "id": "sigma_winner",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "skill units",
       "default": 8.333,
-      "businessContext": "Uncertainty in winner's skill"
+      "businessContext": "Uncertainty in winner's skill",
+      "label_i18n": {
+        "en": "Winner Std Dev (σ)",
+        "tr": "Winner Std Dev (σ)",
+        "de": "Winner Std Dev (σ)",
+        "fr": "Winner Std Dev (σ)",
+        "es": "Winner Std Dev (σ)",
+        "ar": "Winner Std Dev (σ)"
+      }
     },
     {
       "id": "mu_loser",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "skill units",
       "default": 25,
-      "businessContext": "Initial skill estimate of the losing player/team"
+      "businessContext": "Initial skill estimate of the losing player/team",
+      "label_i18n": {
+        "en": "Loser Mean (μ)",
+        "tr": "Loser Mean (μ)",
+        "de": "Loser Mean (μ)",
+        "fr": "Loser Mean (μ)",
+        "es": "Loser Mean (μ)",
+        "ar": "Loser Mean (μ)"
+      }
     },
     {
       "id": "sigma_loser",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "skill units",
       "default": 8.333,
-      "businessContext": "Uncertainty in loser's skill"
+      "businessContext": "Uncertainty in loser's skill",
+      "label_i18n": {
+        "en": "Loser Std Dev (σ)",
+        "tr": "Loser Std Dev (σ)",
+        "de": "Loser Std Dev (σ)",
+        "fr": "Loser Std Dev (σ)",
+        "es": "Loser Std Dev (σ)",
+        "ar": "Loser Std Dev (σ)"
+      }
     },
     {
       "id": "beta",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "skill units",
       "default": 4.1667,
-      "businessContext": "Amount of randomness in the game; typical value is σ/2"
+      "businessContext": "Amount of randomness in the game; typical value is σ/2",
+      "label_i18n": {
+        "en": "Beta (game randomness)",
+        "tr": "Beta (game randomness)",
+        "de": "Beta (game randomness)",
+        "fr": "Beta (game randomness)",
+        "es": "Beta (game randomness)",
+        "ar": "Beta (game randomness)"
+      }
     },
     {
       "id": "tau",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "skill units",
       "default": 0.08333,
-      "businessContext": "Factor to increase uncertainty over time; typical value is σ/100"
+      "businessContext": "Factor to increase uncertainty over time; typical value is σ/100",
+      "label_i18n": {
+        "en": "Tau (dynamics factor)",
+        "tr": "Tau (dynamics factor)",
+        "de": "Tau (dynamics factor)",
+        "fr": "Tau (dynamics factor)",
+        "es": "Tau (dynamics factor)",
+        "ar": "Tau (dynamics factor)"
+      }
     },
     {
       "id": "draw_probability",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "probability (0-1)",
       "default": 0.1,
-      "businessContext": "Assumed probability of a draw outcome"
+      "businessContext": "Assumed probability of a draw outcome",
+      "label_i18n": {
+        "en": "Draw Probability",
+        "tr": "Draw Probability",
+        "de": "Draw Probability",
+        "fr": "Draw Probability",
+        "es": "Draw Probability",
+        "ar": "Draw Probability"
+      }
     }
   ],
   "formulas": {
@@ -67,20 +123,24 @@
     "mu_winner_new_with_dynamics": "mu_winner_new + tau * tau",
     "sigma_winner_new_with_dynamics": "Math.sqrt(sigma_winner_new * sigma_winner_new + tau * tau)",
     "mu_loser_new_with_dynamics": "mu_loser_new + tau * tau",
-    "sigma_loser_new_with_dynamics": "Math.sqrt(sigma_loser_new * sigma_loser_new + tau * tau)"
+    "sigma_loser_new_with_dynamics": "Math.sqrt(sigma_loser_new * sigma_loser_new + tau * tau)",
+    "_sigma_winner_new_with_dynamics_": "{sigma_winner_new_with_dynamics}",
+    "_mu_loser_new_with_dynamics_": "{mu_loser_new_with_dynamics}",
+    "_sigma_loser_new_with_dynamics_": "{sigma_loser_new_with_dynamics}",
+    "result": "Updated Winner Mean (μ): {mu_winner_new_with_dynamics}"
   },
   "outputs": {
-    "primary": "Updated Winner Mean (μ): {mu_winner_new_with_dynamics}",
+    "primary": "result",
     "breakdown": [
       "Updated Winner Std Dev (σ): {sigma_winner_new_with_dynamics}",
       "Updated Loser Mean (μ): {mu_loser_new_with_dynamics}",
       "Updated Loser Std Dev (σ): {sigma_loser_new_with_dynamics}"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

@@ -21,13 +21,14 @@ function evaluateAllFormulas(input: Km_to_miles_and_feet_calculatorInput): Recor
   try { const v = input.km_value * input.miles_factor * input.feet_per_mile; results["feet"] = Number.isFinite(v) ? v : 0; } catch { results["feet"] = 0; }
   try { const v = Math.round((results["miles"] ?? 0) * Math.pow(10, input.decimal_places)) / Math.pow(10, input.decimal_places); results["miles_rounded"] = Number.isFinite(v) ? v : 0; } catch { results["miles_rounded"] = 0; }
   try { const v = Math.round((results["feet"] ?? 0) * Math.pow(10, input.decimal_places)) / Math.pow(10, input.decimal_places); results["feet_rounded"] = Number.isFinite(v) ? v : 0; } catch { results["feet_rounded"] = 0; }
+  try { const v = (results["miles_rounded"] ?? 0) + ' mi, ' + (results["feet_rounded"] ?? 0) + ' ft'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateKm_to_miles_and_feet_calculator(input: Km_to_miles_and_feet_calculatorInput): Km_to_miles_and_feet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["miles_rounded"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -2,35 +2,33 @@
 import * as z from 'zod';
 
 export interface Recomp_calculatorInput {
-  initialPressure: number;
-  finalPressure: number;
-  flowRate: number;
-  efficiency: number;
-  adiabaticIndex: number;
-  electricityCost: number;
+  baseAmount: number;
+  rate: number;
+  time: number;
+  expenses: number;
+  adjustmentFactor: number;
 }
 
 export const Recomp_calculatorInputSchema = z.object({
-  initialPressure: z.number().default(1),
-  finalPressure: z.number().default(10),
-  flowRate: z.number().default(1000),
-  efficiency: z.number().default(75),
-  adiabaticIndex: z.number().default(1.4),
-  electricityCost: z.number().default(0.1),
+  baseAmount: z.number().default(1000),
+  rate: z.number().default(5),
+  time: z.number().default(12),
+  expenses: z.number().default(0),
+  adjustmentFactor: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Recomp_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.adiabaticIndex / (input.adiabaticIndex - 1)) * (input.initialPressure * 100) * (input.flowRate / 3600) * (Math.pow(input.finalPressure / input.initialPressure, (input.adiabaticIndex - 1) / input.adiabaticIndex) - 1)) / (input.efficiency / 100); results["powerKW"] = Number.isFinite(v) ? v : 0; } catch { results["powerKW"] = 0; }
-  try { const v = ((input.adiabaticIndex / (input.adiabaticIndex - 1)) * (input.initialPressure * 100) * (input.flowRate / 3600) * (Math.pow(input.finalPressure / input.initialPressure, (input.adiabaticIndex - 1) / input.adiabaticIndex) - 1)) / (input.efficiency / 100); results["energyKWhPerHour"] = Number.isFinite(v) ? v : 0; } catch { results["energyKWhPerHour"] = 0; }
-  try { const v = (((input.adiabaticIndex / (input.adiabaticIndex - 1)) * (input.initialPressure * 100) * (input.flowRate / 3600) * (Math.pow(input.finalPressure / input.initialPressure, (input.adiabaticIndex - 1) / input.adiabaticIndex) - 1)) / (input.efficiency / 100)) * input.electricityCost; results["costPerHour"] = Number.isFinite(v) ? v : 0; } catch { results["costPerHour"] = 0; }
+  try { const v = input.baseAmount * (input.rate / 100) * (input.time / 12); results["interestAmount"] = Number.isFinite(v) ? v : 0; } catch { results["interestAmount"] = 0; }
+  try { const v = input.baseAmount + (results["interestAmount"] ?? 0) + input.expenses; results["totalBeforeAdjustment"] = Number.isFinite(v) ? v : 0; } catch { results["totalBeforeAdjustment"] = 0; }
+  try { const v = (results["totalBeforeAdjustment"] ?? 0) * input.adjustmentFactor; results["totalCompensation"] = Number.isFinite(v) ? v : 0; } catch { results["totalCompensation"] = 0; }
   return results;
 }
 
 
 export function calculateRecomp_calculator(input: Recomp_calculatorInput): Recomp_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["powerKW"] ?? 0;
+  const totalWasteCost = values["totalCompensation"] ?? 0;
   const breakdown = {
     
   };

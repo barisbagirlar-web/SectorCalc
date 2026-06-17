@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 230,
-      "businessContext": "Supply voltage in volts"
+      "businessContext": "Supply voltage in volts",
+      "label_i18n": {
+        "en": "Voltage",
+        "tr": "Voltage",
+        "de": "Voltage",
+        "fr": "Voltage",
+        "es": "Voltage",
+        "ar": "Voltage"
+      }
     },
     {
       "id": "current",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "Current draw in amperes"
+      "businessContext": "Current draw in amperes",
+      "label_i18n": {
+        "en": "Current",
+        "tr": "Current",
+        "de": "Current",
+        "fr": "Current",
+        "es": "Current",
+        "ar": "Current"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Power Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Power factor (0-1), enter 1 for DC or resistive loads"
+      "businessContext": "Power factor (0-1), enter 1 for DC or resistive loads",
+      "label_i18n": {
+        "en": "Power Factor",
+        "tr": "Power Factor",
+        "de": "Power Factor",
+        "fr": "Power Factor",
+        "es": "Power Factor",
+        "ar": "Power Factor"
+      }
     },
     {
       "id": "time",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "h",
       "default": 1,
-      "businessContext": "Operating time in hours"
+      "businessContext": "Operating time in hours",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     },
     {
       "id": "efficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "System efficiency as a percentage (0-100)"
+      "businessContext": "System efficiency as a percentage (0-100)",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "energyKwh"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "electrical-power-systems"
 }

@@ -5,65 +5,129 @@
       "id": "dsri",
       "label": "Days Sales in Receivables Index (DSRI)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Ratio of days sales in receivables in year t to year t-1"
+      "businessContext": "Ratio of days sales in receivables in year t to year t-1",
+      "label_i18n": {
+        "en": "Days Sales in Receivables Index (DSRI)",
+        "tr": "Days Sales in Receivables Index (DSRI)",
+        "de": "Days Sales in Receivables Index (DSRI)",
+        "fr": "Days Sales in Receivables Index (DSRI)",
+        "es": "Days Sales in Receivables Index (DSRI)",
+        "ar": "Days Sales in Receivables Index (DSRI)"
+      }
     },
     {
       "id": "gmi",
       "label": "Gross Margin Index (GMI)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Ratio of gross margin in year t-1 to year t"
+      "businessContext": "Ratio of gross margin in year t-1 to year t",
+      "label_i18n": {
+        "en": "Gross Margin Index (GMI)",
+        "tr": "Gross Margin Index (GMI)",
+        "de": "Gross Margin Index (GMI)",
+        "fr": "Gross Margin Index (GMI)",
+        "es": "Gross Margin Index (GMI)",
+        "ar": "Gross Margin Index (GMI)"
+      }
     },
     {
       "id": "aqi",
       "label": "Asset Quality Index (AQI)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Ratio of non-current assets (other than property, plant & equipment) to total assets in year t vs year t-1"
+      "businessContext": "Ratio of non-current assets (other than property, plant & equipment) to total assets in year t vs year t-1",
+      "label_i18n": {
+        "en": "Asset Quality Index (AQI)",
+        "tr": "Asset Quality Index (AQI)",
+        "de": "Asset Quality Index (AQI)",
+        "fr": "Asset Quality Index (AQI)",
+        "es": "Asset Quality Index (AQI)",
+        "ar": "Asset Quality Index (AQI)"
+      }
     },
     {
       "id": "sgi",
       "label": "Sales Growth Index (SGI)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Ratio of sales in year t to sales in year t-1"
+      "businessContext": "Ratio of sales in year t to sales in year t-1",
+      "label_i18n": {
+        "en": "Sales Growth Index (SGI)",
+        "tr": "Sales Growth Index (SGI)",
+        "de": "Sales Growth Index (SGI)",
+        "fr": "Sales Growth Index (SGI)",
+        "es": "Sales Growth Index (SGI)",
+        "ar": "Sales Growth Index (SGI)"
+      }
     },
     {
       "id": "depi",
       "label": "Depreciation Index (DEPI)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Ratio of depreciation rate in year t-1 to depreciation rate in year t"
+      "businessContext": "Ratio of depreciation rate in year t-1 to depreciation rate in year t",
+      "label_i18n": {
+        "en": "Depreciation Index (DEPI)",
+        "tr": "Depreciation Index (DEPI)",
+        "de": "Depreciation Index (DEPI)",
+        "fr": "Depreciation Index (DEPI)",
+        "es": "Depreciation Index (DEPI)",
+        "ar": "Depreciation Index (DEPI)"
+      }
     },
     {
       "id": "sgai",
       "label": "Sales, General and Administrative Expenses Index (SGAI)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Ratio of SGA expenses to sales in year t vs year t-1"
+      "businessContext": "Ratio of SGA expenses to sales in year t vs year t-1",
+      "label_i18n": {
+        "en": "Sales, General and Administrative Expenses Index (SGAI)",
+        "tr": "Sales, General and Administrative Expenses Index (SGAI)",
+        "de": "Sales, General and Administrative Expenses Index (SGAI)",
+        "fr": "Sales, General and Administrative Expenses Index (SGAI)",
+        "es": "Sales, General and Administrative Expenses Index (SGAI)",
+        "ar": "Sales, General and Administrative Expenses Index (SGAI)"
+      }
     },
     {
       "id": "lvgi",
       "label": "Leverage Index (LVGI)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Ratio of total debt to total assets in year t vs year t-1"
+      "businessContext": "Ratio of total debt to total assets in year t vs year t-1",
+      "label_i18n": {
+        "en": "Leverage Index (LVGI)",
+        "tr": "Leverage Index (LVGI)",
+        "de": "Leverage Index (LVGI)",
+        "fr": "Leverage Index (LVGI)",
+        "es": "Leverage Index (LVGI)",
+        "ar": "Leverage Index (LVGI)"
+      }
     },
     {
       "id": "tata",
       "label": "Total Accruals to Total Assets (TATA)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Change in working capital accounts other than cash less depreciation, divided by total assets"
+      "businessContext": "Change in working capital accounts other than cash less depreciation, divided by total assets",
+      "label_i18n": {
+        "en": "Total Accruals to Total Assets (TATA)",
+        "tr": "Total Accruals to Total Assets (TATA)",
+        "de": "Total Accruals to Total Assets (TATA)",
+        "fr": "Total Accruals to Total Assets (TATA)",
+        "es": "Total Accruals to Total Assets (TATA)",
+        "ar": "Total Accruals to Total Assets (TATA)"
+      }
     }
   ],
   "formulas": {
@@ -78,10 +142,10 @@
       "manipulationIndicator"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

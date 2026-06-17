@@ -21,13 +21,18 @@ function evaluateAllFormulas(input: Number_base_converter_calculatorInput): Reco
   const results: Record<string, number> = {};
   try { const v = input.decimalValue + ' (base 10) = ' + (input.decimalValue).toString(input.targetBase1).toUpperCase() + ' (base ' + input.targetBase1 + ')'; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   results["breakdown"] = 0;
+  results["Result_in_Base_1"] = 0;
+  results["Result_in_Base_2"] = 0;
+  results["Result_in_Base_3"] = 0;
+  results["Result_in_Base_4"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateNumber_base_converter_calculator(input: Number_base_converter_calculatorInput): Number_base_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Conversion"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kN",
       "default": 80,
-      "businessContext": "Standard axle load for design vehicle"
+      "businessContext": "Standard axle load for design vehicle",
+      "label_i18n": {
+        "en": "Axle Load",
+        "tr": "Axle Load",
+        "de": "Axle Load",
+        "fr": "Axle Load",
+        "es": "Axle Load",
+        "ar": "Axle Load"
+      }
     },
     {
       "id": "standardLoad",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN",
       "default": 80,
-      "businessContext": "Reference standard axle load (commonly 80 kN)"
+      "businessContext": "Reference standard axle load (commonly 80 kN)",
+      "label_i18n": {
+        "en": "Standard Axle Load",
+        "tr": "Standard Axle Load",
+        "de": "Standard Axle Load",
+        "fr": "Standard Axle Load",
+        "es": "Standard Axle Load",
+        "ar": "Standard Axle Load"
+      }
     },
     {
       "id": "trafficCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "vehicles/day",
       "default": 500,
-      "businessContext": "Number of heavy vehicles per day in design lane"
+      "businessContext": "Number of heavy vehicles per day in design lane",
+      "label_i18n": {
+        "en": "Daily Commercial Vehicles",
+        "tr": "Daily Commercial Vehicles",
+        "de": "Daily Commercial Vehicles",
+        "fr": "Daily Commercial Vehicles",
+        "es": "Daily Commercial Vehicles",
+        "ar": "Daily Commercial Vehicles"
+      }
     },
     {
       "id": "designLife",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Pavement design period in years"
+      "businessContext": "Pavement design period in years",
+      "label_i18n": {
+        "en": "Design Life",
+        "tr": "Design Life",
+        "de": "Design Life",
+        "fr": "Design Life",
+        "es": "Design Life",
+        "ar": "Design Life"
+      }
     },
     {
       "id": "subgradeCBR",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "California Bearing Ratio of subgrade soil"
+      "businessContext": "California Bearing Ratio of subgrade soil",
+      "label_i18n": {
+        "en": "Subgrade CBR",
+        "tr": "Subgrade CBR",
+        "de": "Subgrade CBR",
+        "fr": "Subgrade CBR",
+        "es": "Subgrade CBR",
+        "ar": "Subgrade CBR"
+      }
     },
     {
       "id": "reliabilityFactor",
       "label": "Reliability Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Factor to adjust for desired reliability (>1 for higher reliability)"
+      "businessContext": "Factor to adjust for desired reliability (>1 for higher reliability)",
+      "label_i18n": {
+        "en": "Reliability Factor",
+        "tr": "Reliability Factor",
+        "de": "Reliability Factor",
+        "fr": "Reliability Factor",
+        "es": "Reliability Factor",
+        "ar": "Reliability Factor"
+      }
     }
   ],
   "formulas": {
@@ -67,10 +115,10 @@
       "subbaseThickness"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Bakım & Güvenilirlik",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "maintenance-reliability"
 }

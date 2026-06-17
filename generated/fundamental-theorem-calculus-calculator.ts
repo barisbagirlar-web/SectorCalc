@@ -24,6 +24,9 @@ function evaluateAllFormulas(input: Fundamental_theorem_calculus_calculatorInput
   try { const v = input.c0*input.b + input.c1*(input.b**2)/2 + input.c2*(input.b**3)/3 + input.c3*(input.b**4)/4; results["Fb"] = Number.isFinite(v) ? v : 0; } catch { results["Fb"] = 0; }
   try { const v = input.c0*input.a + input.c1*(input.a**2)/2 + input.c2*(input.a**3)/3 + input.c3*(input.a**4)/4; results["Fa"] = Number.isFinite(v) ? v : 0; } catch { results["Fa"] = 0; }
   try { const v = (results["Fb"] ?? 0) - (results["Fa"] ?? 0); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  results["F_b____c_b___c_b__2___c_b__3___c_b__4___"] = 0;
+  results["F_a____c_a___c_a__2___c_a__3___c_a__4___"] = 0;
+  results["__a_b_f_x__dx___F_b____F_a______primary_"] = 0;
   return results;
 }
 

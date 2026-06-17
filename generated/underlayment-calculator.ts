@@ -23,13 +23,18 @@ function evaluateAllFormulas(input: Underlayment_calculatorInput): Record<string
   try { const v = input.area * (1 + input.wasteFactor / 100); results["neededArea"] = Number.isFinite(v) ? v : 0; } catch { results["neededArea"] = 0; }
   try { const v = (results["neededArea"] ?? 0) / (results["rollArea"] ?? 0); results["exactRolls"] = Number.isFinite(v) ? v : 0; } catch { results["exactRolls"] = 0; }
   try { const v = (results["exactRolls"] ?? 0) * input.pricePerRoll; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  results["One_roll_covers___rollArea__sq_ft____rol"] = 0;
+  results["__neededArea__sq_ft_"] = 0;
+  results["__exactRolls__"] = 0;
+  results["___totalCost___round_up_for_purchase__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateUnderlayment_calculator(input: Underlayment_calculatorInput): Underlayment_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["You"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

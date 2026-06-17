@@ -7,35 +7,71 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Gözlemci ile tabela/etiket arasındaki mesafe"
+      "businessContext": "Gözlemci ile tabela/etiket arasındaki mesafe",
+      "label_i18n": {
+        "en": "Görüş Mesafesi",
+        "tr": "Görüş Mesafesi",
+        "de": "Görüş Mesafesi",
+        "fr": "Görüş Mesafesi",
+        "es": "Görüş Mesafesi",
+        "ar": "Görüş Mesafesi"
+      }
     },
     {
       "id": "ageFactor",
       "label": "Yaş Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Kullanıcı yaş grubuna göre düzeltme (20-40:1, 40-55:1.2, 55+:1.4)"
+      "businessContext": "Kullanıcı yaş grubuna göre düzeltme (20-40:1, 40-55:1.2, 55+:1.4)",
+      "label_i18n": {
+        "en": "Yaş Faktörü",
+        "tr": "Yaş Faktörü",
+        "de": "Yaş Faktörü",
+        "fr": "Yaş Faktörü",
+        "es": "Yaş Faktörü",
+        "ar": "Yaş Faktörü"
+      }
     },
     {
       "id": "lightingFactor",
       "label": "Aydınlatma Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Ortam aydınlatma koşullarına göre düzeltme (parlak:1, loş:1.5)"
+      "businessContext": "Ortam aydınlatma koşullarına göre düzeltme (parlak:1, loş:1.5)",
+      "label_i18n": {
+        "en": "Aydınlatma Faktörü",
+        "tr": "Aydınlatma Faktörü",
+        "de": "Aydınlatma Faktörü",
+        "fr": "Aydınlatma Faktörü",
+        "es": "Aydınlatma Faktörü",
+        "ar": "Aydınlatma Faktörü"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Güvenlik Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Kritiklik seviyesine göre düzeltme (bilgi:1, uyarı:1.5, tehlike:2)"
+      "businessContext": "Kritiklik seviyesine göre düzeltme (bilgi:1, uyarı:1.5, tehlike:2)",
+      "label_i18n": {
+        "en": "Güvenlik Faktörü",
+        "tr": "Güvenlik Faktörü",
+        "de": "Güvenlik Faktörü",
+        "fr": "Güvenlik Faktörü",
+        "es": "Güvenlik Faktörü",
+        "ar": "Güvenlik Faktörü"
+      }
     }
   ],
   "formulas": {
-    "recommendedFontHeight": "viewingDistance * 2.5 * ageFactor * lightingFactor * safetyFactor"
+    "recommendedFontHeight": "viewingDistance * 2.5 * ageFactor * lightingFactor * safetyFactor",
+    "Temel_y_kseklik___G_r___mesafesi___2_5_m": "Temel yükseklik = Görüş mesafesi × 2.5 mm/m",
+    "__ageFactor": "× ageFactor",
+    "__lightingFactor": "× lightingFactor",
+    "__safetyFactor": "× safetyFactor"
   },
   "outputs": {
     "primary": "recommendedFontHeight",
@@ -46,10 +82,10 @@
       "Güvenlik düzeltmesi: × safetyFactor"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

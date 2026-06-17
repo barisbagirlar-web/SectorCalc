@@ -33,32 +33,19 @@ export const Dye_recipe_cost_optimizer_calculatorInputSchema = z.object({
   use_lean_optimization: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Dye_recipe_cost_optimizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.dye_volume_l * input.dye_concentration_gpl) / 1000; results["dye_mass_kg"] = Number.isFinite(v) ? v : 0; } catch { results["dye_mass_kg"] = 0; }
-  try { const v = (results["dye_mass_kg"] ?? 0) * input.dye_price_per_kg; results["dye_cost"] = Number.isFinite(v) ? v : 0; } catch { results["dye_cost"] = 0; }
-  try { const v = input.dye_volume_l * input.chemicals_per_liter; results["chemical_cost"] = Number.isFinite(v) ? v : 0; } catch { results["chemical_cost"] = 0; }
-  try { const v = input.labor_cost_per_hour * input.batch_time_hours; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
-  try { const v = (input.water_usage_l_per_kg * input.fabric_weight_kg / 1000) * input.water_cost_per_m3; results["water_cost"] = Number.isFinite(v) ? v : 0; } catch { results["water_cost"] = 0; }
-  try { const v = ((results["dye_cost"] ?? 0) + (results["chemical_cost"] ?? 0) + input.energy_cost_per_batch + (results["labor_cost"] ?? 0) + (results["water_cost"] ?? 0)) * (input.waste_percentage / 100); results["waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["waste_cost"] = 0; }
-  try { const v = (results["dye_cost"] ?? 0) + (results["chemical_cost"] ?? 0) + input.energy_cost_per_batch + (results["labor_cost"] ?? 0) + (results["water_cost"] ?? 0) + (results["waste_cost"] ?? 0); results["total_cost_per_batch"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_batch"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Dye_recipe_cost_optimizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateDye_recipe_cost_optimizer_calculator(input: Dye_recipe_cost_optimizer_calculatorInput): Dye_recipe_cost_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_cost_per_batch"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    dye_cost: values["dye_cost"] ?? 0,
-    chemical_cost: values["chemical_cost"] ?? 0,
-    energy_cost: values["energy_cost"] ?? 0,
-    labor_cost: values["labor_cost"] ?? 0,
-    water_cost: values["water_cost"] ?? 0,
-    waste_cost: values["waste_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Dye fixation loss","Water heating inefficiency","Setup / changeover time"];
-  const suggestedActions: string[] = ["Reduce waste using Six Sigma DMAIC","Optimize dye concentration","Reduce water usage via lean methods","Improve energy efficiency"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -77,7 +64,7 @@ export function calculateDye_recipe_cost_optimizer_calculator(input: Dye_recipe_
 
 export interface Dye_recipe_cost_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { dye_cost: number; chemical_cost: number; energy_cost: number; labor_cost: number; water_cost: number; waste_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

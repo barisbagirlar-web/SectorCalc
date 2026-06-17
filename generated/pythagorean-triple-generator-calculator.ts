@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Pythagorean_triple_generator_calculatorInput {
   m: number;
   n: number;
+  auto_input_3: number;
 }
 
 export const Pythagorean_triple_generator_calculatorInputSchema = z.object({
   m: z.number().default(2),
   n: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Pythagorean_triple_generator_calculatorInput): Record<string, number> {

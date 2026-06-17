@@ -2,31 +2,30 @@
 import * as z from 'zod';
 
 export interface Strength_standard_calculatorInput {
-  weight: number;
+  weightLifted: number;
   reps: number;
   bodyWeight: number;
-  gender: number;
+  age: number;
 }
 
 export const Strength_standard_calculatorInputSchema = z.object({
-  weight: z.number().default(100),
+  weightLifted: z.number().default(100),
   reps: z.number().default(5),
   bodyWeight: z.number().default(80),
-  gender: z.number().default(0),
+  age: z.number().default(30),
 });
 
 function evaluateAllFormulas(input: Strength_standard_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.weight * (1 + input.reps/30); results["oneRepMax"] = Number.isFinite(v) ? v : 0; } catch { results["oneRepMax"] = 0; }
-  try { const v = (results["oneRepMax"] ?? 0) / input.bodyWeight; results["strengthRatio"] = Number.isFinite(v) ? v : 0; } catch { results["strengthRatio"] = 0; }
-  try { const v = (input.gender == 0) ? ((results["strengthRatio"] ?? 0) < 1.0 ? 0 : (results["strengthRatio"] ?? 0) < 1.5 ? 1 : (results["strengthRatio"] ?? 0) < 2.0 ? 2 : (results["strengthRatio"] ?? 0) < 2.5 ? 3 : 4) : ((results["strengthRatio"] ?? 0) < 0.8 ? 0 : (results["strengthRatio"] ?? 0) < 1.2 ? 1 : (results["strengthRatio"] ?? 0) < 1.6 ? 2 : (results["strengthRatio"] ?? 0) < 2.0 ? 3 : 4); results["strengthLevel"] = Number.isFinite(v) ? v : 0; } catch { results["strengthLevel"] = 0; }
+  try { const v = input.weightLifted * (1 + input.reps / 30); results["estimatedOneRM"] = Number.isFinite(v) ? v : 0; } catch { results["estimatedOneRM"] = 0; }
+  try { const v = (results["estimatedOneRM"] ?? 0) / input.bodyWeight; results["strengthRatio"] = Number.isFinite(v) ? v : 0; } catch { results["strengthRatio"] = 0; }
   return results;
 }
 
 
 export function calculateStrength_standard_calculator(input: Strength_standard_calculatorInput): Strength_standard_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["oneRepMax"] ?? 0;
+  const totalWasteCost = values["estimatedOneRM"] ?? 0;
   const breakdown = {
     
   };

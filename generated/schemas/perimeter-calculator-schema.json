@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Enter the length of the first side in meters."
+      "businessContext": "Enter the length of the first side in meters.",
+      "label_i18n": {
+        "en": "Side 1 Length",
+        "tr": "Side 1 Length",
+        "de": "Side 1 Length",
+        "fr": "Side 1 Length",
+        "es": "Side 1 Length",
+        "ar": "Side 1 Length"
+      }
     },
     {
       "id": "side2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Enter the length of the second side in meters."
+      "businessContext": "Enter the length of the second side in meters.",
+      "label_i18n": {
+        "en": "Side 2 Length",
+        "tr": "Side 2 Length",
+        "de": "Side 2 Length",
+        "fr": "Side 2 Length",
+        "es": "Side 2 Length",
+        "ar": "Side 2 Length"
+      }
     },
     {
       "id": "side3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Enter the length of the third side in meters."
+      "businessContext": "Enter the length of the third side in meters.",
+      "label_i18n": {
+        "en": "Side 3 Length",
+        "tr": "Side 3 Length",
+        "de": "Side 3 Length",
+        "fr": "Side 3 Length",
+        "es": "Side 3 Length",
+        "ar": "Side 3 Length"
+      }
     },
     {
       "id": "side4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Enter the length of the fourth side in meters."
+      "businessContext": "Enter the length of the fourth side in meters.",
+      "label_i18n": {
+        "en": "Side 4 Length",
+        "tr": "Side 4 Length",
+        "de": "Side 4 Length",
+        "fr": "Side 4 Length",
+        "es": "Side 4 Length",
+        "ar": "Side 4 Length"
+      }
     },
     {
       "id": "side5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Enter the length of the fifth side in meters."
+      "businessContext": "Enter the length of the fifth side in meters.",
+      "label_i18n": {
+        "en": "Side 5 Length",
+        "tr": "Side 5 Length",
+        "de": "Side 5 Length",
+        "fr": "Side 5 Length",
+        "es": "Side 5 Length",
+        "ar": "Side 5 Length"
+      }
     },
     {
       "id": "side6",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Enter the length of the sixth side in meters."
+      "businessContext": "Enter the length of the sixth side in meters.",
+      "label_i18n": {
+        "en": "Side 6 Length",
+        "tr": "Side 6 Length",
+        "de": "Side 6 Length",
+        "fr": "Side 6 Length",
+        "es": "Side 6 Length",
+        "ar": "Side 6 Length"
+      }
     },
     {
       "id": "side7",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Enter the length of the seventh side in meters."
+      "businessContext": "Enter the length of the seventh side in meters.",
+      "label_i18n": {
+        "en": "Side 7 Length",
+        "tr": "Side 7 Length",
+        "de": "Side 7 Length",
+        "fr": "Side 7 Length",
+        "es": "Side 7 Length",
+        "ar": "Side 7 Length"
+      }
     },
     {
       "id": "side8",
@@ -63,11 +119,20 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Enter the length of the eighth side in meters."
+      "businessContext": "Enter the length of the eighth side in meters.",
+      "label_i18n": {
+        "en": "Side 8 Length",
+        "tr": "Side 8 Length",
+        "de": "Side 8 Length",
+        "fr": "Side 8 Length",
+        "es": "Side 8 Length",
+        "ar": "Side 8 Length"
+      }
     }
   ],
   "formulas": {
-    "perimeter": "side1 + side2 + side3 + side4 + side5 + side6 + side7 + side8"
+    "perimeter": "side1 + side2 + side3 + side4 + side5 + side6 + side7 + side8",
+    "perimeter___side1___side2___side3___side": "perimeter = side1 + side2 + side3 + side4 + side5 + side6 + side7 + side8"
   },
   "outputs": {
     "primary": "perimeter",
@@ -75,8 +140,8 @@
       "perimeter = side1 + side2 + side3 + side4 + side5 + side6 + side7 + side8"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

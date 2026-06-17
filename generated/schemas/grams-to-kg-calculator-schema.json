@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Total measured weight including container or packaging"
+      "businessContext": "Total measured weight including container or packaging",
+      "label_i18n": {
+        "en": "Gross Weight (g)",
+        "tr": "Gross Weight (g)",
+        "de": "Gross Weight (g)",
+        "fr": "Gross Weight (g)",
+        "es": "Gross Weight (g)",
+        "ar": "Gross Weight (g)"
+      }
     },
     {
       "id": "tareWeightGrams",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Weight of empty container or packaging"
+      "businessContext": "Weight of empty container or packaging",
+      "label_i18n": {
+        "en": "Tare Weight (g)",
+        "tr": "Tare Weight (g)",
+        "de": "Tare Weight (g)",
+        "fr": "Tare Weight (g)",
+        "es": "Tare Weight (g)",
+        "ar": "Tare Weight (g)"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of decimal places for the final net weight output"
+      "businessContext": "Number of decimal places for the final net weight output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "roundingMode",
       "label": "Rounding Mode",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = standard rounding, 1 = floor, 2 = ceil"
+      "businessContext": "0 = standard rounding, 1 = floor, 2 = ceil",
+      "label_i18n": {
+        "en": "Rounding Mode",
+        "tr": "Rounding Mode",
+        "de": "Rounding Mode",
+        "fr": "Rounding Mode",
+        "es": "Rounding Mode",
+        "ar": "Rounding Mode"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "grossWeightKg"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

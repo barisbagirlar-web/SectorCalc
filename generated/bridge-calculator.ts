@@ -25,13 +25,14 @@ function evaluateAllFormulas(input: Bridge_calculatorInput): Record<string, numb
   try { const v = (results["total_load"] ?? 0) * input.span_length / 8; results["max_moment"] = Number.isFinite(v) ? v : 0; } catch { results["max_moment"] = 0; }
   try { const v = (results["max_moment"] ?? 0) * 1000 / (input.steel_yield_strength / input.safety_factor); results["section_modulus_required"] = Number.isFinite(v) ? v : 0; } catch { results["section_modulus_required"] = 0; }
   try { const v = (results["section_modulus_required"] ?? 0) * 6 / (input.beam_depth ** 2) / 1000; results["beam_width_estimate"] = Number.isFinite(v) ? v : 0; } catch { results["beam_width_estimate"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateBridge_calculator(input: Bridge_calculatorInput): Bridge_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Required"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

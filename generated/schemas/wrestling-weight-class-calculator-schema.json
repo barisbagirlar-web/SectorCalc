@@ -5,9 +5,17 @@
       "id": "gender",
       "label": "Gender (0=Female, 1=Male)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Cinsiyet seçimi"
+      "businessContext": "Cinsiyet seçimi",
+      "label_i18n": {
+        "en": "Gender (0=Female, 1=Male)",
+        "tr": "Gender (0=Female, 1=Male)",
+        "de": "Gender (0=Female, 1=Male)",
+        "fr": "Gender (0=Female, 1=Male)",
+        "es": "Gender (0=Female, 1=Male)",
+        "ar": "Gender (0=Female, 1=Male)"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Vücut ağırlığı"
+      "businessContext": "Vücut ağırlığı",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Boy uzunluğu"
+      "businessContext": "Boy uzunluğu",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 25,
-      "businessContext": "Yaş"
+      "businessContext": "Yaş",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "bodyFat",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Vücut yağ oranı"
+      "businessContext": "Vücut yağ oranı",
+      "label_i18n": {
+        "en": "Body Fat Percentage",
+        "tr": "Body Fat Percentage",
+        "de": "Body Fat Percentage",
+        "fr": "Body Fat Percentage",
+        "es": "Body Fat Percentage",
+        "ar": "Body Fat Percentage"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "leanBodyMass"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

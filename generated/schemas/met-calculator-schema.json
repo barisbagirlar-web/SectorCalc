@@ -5,9 +5,17 @@
       "id": "metValue",
       "label": "MET Değeri",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Gerçekleştirilen aktivitenin MET değeri"
+      "businessContext": "Gerçekleştirilen aktivitenin MET değeri",
+      "label_i18n": {
+        "en": "MET Değeri",
+        "tr": "MET Değeri",
+        "de": "MET Değeri",
+        "fr": "MET Değeri",
+        "es": "MET Değeri",
+        "ar": "MET Değeri"
+      }
     },
     {
       "id": "weightKg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı"
+      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı",
+      "label_i18n": {
+        "en": "Vücut Ağırlığı",
+        "tr": "Vücut Ağırlığı",
+        "de": "Vücut Ağırlığı",
+        "fr": "Vücut Ağırlığı",
+        "es": "Vücut Ağırlığı",
+        "ar": "Vücut Ağırlığı"
+      }
     },
     {
       "id": "durationMin",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "dk",
       "default": 30,
-      "businessContext": "Aktivitenin dakika cinsinden süresi"
+      "businessContext": "Aktivitenin dakika cinsinden süresi",
+      "label_i18n": {
+        "en": "Süre",
+        "tr": "Süre",
+        "de": "Süre",
+        "fr": "Süre",
+        "es": "Süre",
+        "ar": "Süre"
+      }
     },
     {
       "id": "adjustmentFactor",
       "label": "Düzeltme Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Bireysel metabolizma farklılıkları için ayar katsayısı (varsayılan 1)"
+      "businessContext": "Bireysel metabolizma farklılıkları için ayar katsayısı (varsayılan 1)",
+      "label_i18n": {
+        "en": "Düzeltme Faktörü",
+        "tr": "Düzeltme Faktörü",
+        "de": "Düzeltme Faktörü",
+        "fr": "Düzeltme Faktörü",
+        "es": "Düzeltme Faktörü",
+        "ar": "Düzeltme Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "metHours"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

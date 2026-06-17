@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000000,
-      "businessContext": "The projected annual revenue of the startup at the time of exit (e.g., 5 years from now)."
+      "businessContext": "The projected annual revenue of the startup at the time of exit (e.g., 5 years from now).",
+      "label_i18n": {
+        "en": "Projected Revenue at Exit",
+        "tr": "Projected Revenue at Exit",
+        "de": "Projected Revenue at Exit",
+        "fr": "Projected Revenue at Exit",
+        "es": "Projected Revenue at Exit",
+        "ar": "Projected Revenue at Exit"
+      }
     },
     {
       "id": "netProfitMargin",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Expected net profit margin at exit, expressed as a percentage."
+      "businessContext": "Expected net profit margin at exit, expressed as a percentage.",
+      "label_i18n": {
+        "en": "Net Profit Margin",
+        "tr": "Net Profit Margin",
+        "de": "Net Profit Margin",
+        "fr": "Net Profit Margin",
+        "es": "Net Profit Margin",
+        "ar": "Net Profit Margin"
+      }
     },
     {
       "id": "peRatio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "x",
       "default": 20,
-      "businessContext": "Price-to-earnings ratio typical for comparable public companies in the sector."
+      "businessContext": "Price-to-earnings ratio typical for comparable public companies in the sector.",
+      "label_i18n": {
+        "en": "P/E Ratio",
+        "tr": "P/E Ratio",
+        "de": "P/E Ratio",
+        "fr": "P/E Ratio",
+        "es": "P/E Ratio",
+        "ar": "P/E Ratio"
+      }
     },
     {
       "id": "requiredROI",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "x",
       "default": 3,
-      "businessContext": "Target return multiple for the investor (e.g., 3x means the investor aims to triple their investment)."
+      "businessContext": "Target return multiple for the investor (e.g., 3x means the investor aims to triple their investment).",
+      "label_i18n": {
+        "en": "Required ROI",
+        "tr": "Required ROI",
+        "de": "Required ROI",
+        "fr": "Required ROI",
+        "es": "Required ROI",
+        "ar": "Required ROI"
+      }
     },
     {
       "id": "investmentAmount",
@@ -39,24 +71,36 @@
       "type": "number",
       "unit": "USD",
       "default": 1000000,
-      "businessContext": "The amount of capital being invested in the startup."
+      "businessContext": "The amount of capital being invested in the startup.",
+      "label_i18n": {
+        "en": "Investment Amount",
+        "tr": "Investment Amount",
+        "de": "Investment Amount",
+        "fr": "Investment Amount",
+        "es": "Investment Amount",
+        "ar": "Investment Amount"
+      }
     }
   ],
   "formulas": {
     "exitValue": "projectedRevenue * (netProfitMargin / 100) * peRatio",
     "postMoney": "exitValue / requiredROI",
     "preMoney": "postMoney - investmentAmount",
-    "ownershipPercent": "(investmentAmount / postMoney) * 100"
+    "ownershipPercent": "(investmentAmount / postMoney) * 100",
+    "Pre_Money_Valuation": "Pre-Money Valuation",
+    "Exit_Value": "Exit Value",
+    "Investor_Ownership__": "Investor Ownership %",
+    "result": "Post-Money Valuation"
   },
   "outputs": {
-    "primary": "Post-Money Valuation",
+    "primary": "result",
     "breakdown": [
       "Pre-Money Valuation",
       "Exit Value",
       "Investor Ownership %"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Proje & Yatırım",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

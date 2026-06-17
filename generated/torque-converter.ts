@@ -3,22 +3,29 @@ import * as z from 'zod';
 
 export interface Torque_converterInput {
   torqueNm: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Torque_converterInputSchema = z.object({
   torqueNm: z.number().default(100),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Torque_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.torqueNm * 0.7375621492772655; results["torqueFtLb"] = Number.isFinite(v) ? v : 0; } catch { results["torqueFtLb"] = 0; }
+  results["1_Nm___0_7375621492772655_ft_lb"] = 0;
+  results["_torqueNm__Nm___0_7375621492772655____to"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateTorque_converter(input: Torque_converterInput): Torque_converterOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Torque"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

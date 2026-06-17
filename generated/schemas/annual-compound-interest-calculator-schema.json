@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "The initial amount of money invested or saved."
+      "businessContext": "The initial amount of money invested or saved.",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "annualRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "The yearly nominal interest rate."
+      "businessContext": "The yearly nominal interest rate.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "years",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "The investment duration in years."
+      "businessContext": "The investment duration in years.",
+      "label_i18n": {
+        "en": "Number of Years",
+        "tr": "Number of Years",
+        "de": "Number of Years",
+        "fr": "Number of Years",
+        "es": "Number of Years",
+        "ar": "Number of Years"
+      }
     },
     {
       "id": "compoundFreq",
@@ -31,19 +55,21 @@
       "type": "number",
       "unit": "times/year",
       "default": 1,
-      "businessContext": "Number of times interest is compounded per year. e.g., 1 for annual, 12 for monthly."
+      "businessContext": "Number of times interest is compounded per year. e.g., 1 for annual, 12 for monthly.",
+      "label_i18n": {
+        "en": "Compounding Frequency",
+        "tr": "Compounding Frequency",
+        "de": "Compounding Frequency",
+        "fr": "Compounding Frequency",
+        "es": "Compounding Frequency",
+        "ar": "Compounding Frequency"
+      }
     }
   ],
   "formulas": {
-    "finalAmount": {
-      "formula": "principal * ((1 + (annualRate / 100) / compoundFreq) ** (years * compoundFreq))"
-    },
-    "totalInterest": {
-      "formula": "finalAmount - principal"
-    },
-    "effectiveAnnualRate": {
-      "formula": "(((1 + (annualRate / 100) / compoundFreq) ** compoundFreq) - 1) * 100"
-    }
+    "finalAmount": "principal",
+    "totalInterest": "principal",
+    "effectiveAnnualRate": "principal"
   },
   "outputs": {
     "primary": "finalAmount",
@@ -52,7 +78,7 @@
       "effectiveAnnualRate"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

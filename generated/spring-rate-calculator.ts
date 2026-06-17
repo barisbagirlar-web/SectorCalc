@@ -18,6 +18,10 @@ export const Spring_rate_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Spring_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.shearModulus * 1000 * input.wireDiameter**4) / (8 * input.meanCoilDiameter**3 * input.activeCoils); results["springRate"] = Number.isFinite(v) ? v : 0; } catch { results["springRate"] = 0; }
+  try { const v = (G * d**4) / (8 * D**3 * N); results["k____G___d_4_____8___D_3___N_"] = Number.isFinite(v) ? v : 0; } catch { results["k____G___d_4_____8___D_3___N_"] = 0; }
+  try { const v = input.shearModulus * 1000; results["shearModulus___1000"] = Number.isFinite(v) ? v : 0; } catch { results["shearModulus___1000"] = 0; }
+  try { const v = (G_MPa * d**4) / (8 * D**3 * N); results["k____G_MPa___d_4_____8___D_3___N_"] = Number.isFinite(v) ? v : 0; } catch { results["k____G_MPa___d_4_____8___D_3___N_"] = 0; }
+  results["springRate_N_mm"] = 0;
   return results;
 }
 

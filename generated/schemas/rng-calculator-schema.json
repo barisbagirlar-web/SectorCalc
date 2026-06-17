@@ -5,50 +5,84 @@
       "id": "min",
       "label": "Minimum Değer",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Rastgele sayı aralığının alt sınırı"
+      "businessContext": "Rastgele sayı aralığının alt sınırı",
+      "label_i18n": {
+        "en": "Minimum Değer",
+        "tr": "Minimum Değer",
+        "de": "Minimum Değer",
+        "fr": "Minimum Değer",
+        "es": "Minimum Değer",
+        "ar": "Minimum Değer"
+      }
     },
     {
       "id": "max",
       "label": "Maksimum Değer",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Rastgele sayı aralığının üst sınırı"
+      "businessContext": "Rastgele sayı aralığının üst sınırı",
+      "label_i18n": {
+        "en": "Maksimum Değer",
+        "tr": "Maksimum Değer",
+        "de": "Maksimum Değer",
+        "fr": "Maksimum Değer",
+        "es": "Maksimum Değer",
+        "ar": "Maksimum Değer"
+      }
     },
     {
       "id": "count",
       "label": "Adet",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Üretilecek rastgele sayı adedi"
+      "businessContext": "Üretilecek rastgele sayı adedi",
+      "label_i18n": {
+        "en": "Adet",
+        "tr": "Adet",
+        "de": "Adet",
+        "fr": "Adet",
+        "es": "Adet",
+        "ar": "Adet"
+      }
     },
     {
       "id": "seed",
       "label": "Tohum (Seed)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 42,
-      "businessContext": "Rastgele sayı üretimi için başlangıç değeri"
+      "businessContext": "Rastgele sayı üretimi için başlangıç değeri",
+      "label_i18n": {
+        "en": "Tohum (Seed)",
+        "tr": "Tohum (Seed)",
+        "de": "Tohum (Seed)",
+        "fr": "Tohum (Seed)",
+        "es": "Tohum (Seed)",
+        "ar": "Tohum (Seed)"
+      }
     }
   ],
   "formulas": {
     "generate": "const x = Math.sin(seed + 1) * 10000; const r = x - Math.floor(x); const scaled = min + r * (max - min); return Math.round(scaled * 100) / 100;",
-    "generateMultiple": "const results = []; for (let i = 0; i < count; i++) { const x = Math.sin(seed + i + 1) * 10000; const r = x - Math.floor(x); const scaled = min + r * (max - min); results.push(Math.round(scaled * 100) / 100); } return results;"
+    "generateMultiple": "const results = []; for (let i = 0; i < count; i++) { const x = Math.sin(seed + i + 1) * 10000; const r = x - Math.floor(x); const scaled = min + r * (max - min); results.push(Math.round(scaled * 100) / 100); } return results;",
+    "_retilen_rastgele_say_": "Üretilen rastgele sayı",
+    "T_m_say_lar_n_listesi": "Tüm sayıların listesi"
   },
   "outputs": {
-    "primary": "Rastgele Sayı",
+    "primary": "generate",
     "breakdown": [
       "Üretilen rastgele sayı",
       "Tüm sayıların listesi"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

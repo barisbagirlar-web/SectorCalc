@@ -22,13 +22,17 @@ export const Wine_pairing_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Wine_pairing_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = Math.max(0, Math.min(100, 100 - (Math.abs(input.wine_acidity - input.food_acidity) * 8 + Math.abs(input.wine_sweetness - input.food_sweetness) * 8 + Math.abs(input.wine_body - input.food_richness) * 6))); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.wine_acidity; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Flavor_Balance____"] = 0;
+  results["Weight_Compatibility____"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateWine_pairing_calculator(input: Wine_pairing_calculatorInput): Wine_pairing_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Pairing"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

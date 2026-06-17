@@ -7,20 +7,60 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "Enter your total annual taxable income."
+      "businessContext": "Enter your total annual taxable income.",
+      "label_i18n": {
+        "en": "Annual Income",
+        "tr": "Annual Income",
+        "de": "Annual Income",
+        "fr": "Annual Income",
+        "es": "Annual Income",
+        "ar": "Annual Income"
+      }
     },
     {
       "id": "filingStatus",
       "label": "Filing Status",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for Single, 1 for Married Filing Jointly."
+      "businessContext": "0 for Single, 1 for Married Filing Jointly.",
+      "label_i18n": {
+        "en": "Filing Status",
+        "tr": "Filing Status",
+        "de": "Filing Status",
+        "fr": "Filing Status",
+        "es": "Filing Status",
+        "ar": "Filing Status"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
-    "baseRate": 0.0145,
-    "additionalRate": 0.009,
+    "baseRate": "0.0145",
+    "additionalRate": "0.009",
     "threshold": "(filingStatus === 0 ? 200000 : 250000)",
     "baseTax": "annualIncome * baseRate",
     "additionalTax": "Math.max(0, annualIncome - threshold) * additionalRate",
@@ -33,10 +73,10 @@
       "additionalTax"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "The horizontal length of the wall in meters."
+      "businessContext": "The horizontal length of the wall in meters.",
+      "label_i18n": {
+        "en": "Wall Length",
+        "tr": "Wall Length",
+        "de": "Wall Length",
+        "fr": "Wall Length",
+        "es": "Wall Length",
+        "ar": "Wall Length"
+      }
     },
     {
       "id": "wallHeight",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "The height of the wall from base to top in meters."
+      "businessContext": "The height of the wall from base to top in meters.",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "leafCount",
       "label": "Number of Leaves",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The thickness of the wall in terms of brick leaves (1 for half-brick, 2 for full brick, etc.)."
+      "businessContext": "The thickness of the wall in terms of brick leaves (1 for half-brick, 2 for full brick, etc.).",
+      "label_i18n": {
+        "en": "Number of Leaves",
+        "tr": "Number of Leaves",
+        "de": "Number of Leaves",
+        "fr": "Number of Leaves",
+        "es": "Number of Leaves",
+        "ar": "Number of Leaves"
+      }
     },
     {
       "id": "brickLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 215,
-      "businessContext": "Standard brick length (e.g., 215mm for UK format)."
+      "businessContext": "Standard brick length (e.g., 215mm for UK format).",
+      "label_i18n": {
+        "en": "Brick Length",
+        "tr": "Brick Length",
+        "de": "Brick Length",
+        "fr": "Brick Length",
+        "es": "Brick Length",
+        "ar": "Brick Length"
+      }
     },
     {
       "id": "brickHeight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 65,
-      "businessContext": "Standard brick height (e.g., 65mm for UK format)."
+      "businessContext": "Standard brick height (e.g., 65mm for UK format).",
+      "label_i18n": {
+        "en": "Brick Height",
+        "tr": "Brick Height",
+        "de": "Brick Height",
+        "fr": "Brick Height",
+        "es": "Brick Height",
+        "ar": "Brick Height"
+      }
     },
     {
       "id": "mortarThickness",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Typical mortar joint thickness between bricks (e.g., 10mm)."
+      "businessContext": "Typical mortar joint thickness between bricks (e.g., 10mm).",
+      "label_i18n": {
+        "en": "Mortar Joint Thickness",
+        "tr": "Mortar Joint Thickness",
+        "de": "Mortar Joint Thickness",
+        "fr": "Mortar Joint Thickness",
+        "es": "Mortar Joint Thickness",
+        "ar": "Mortar Joint Thickness"
+      }
     },
     {
       "id": "wastagePercent",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Allowance for cutting and breakage as a percentage (e.g., 5% => extra 5%)."
+      "businessContext": "Allowance for cutting and breakage as a percentage (e.g., 5% => extra 5%).",
+      "label_i18n": {
+        "en": "Wastage Percentage",
+        "tr": "Wastage Percentage",
+        "de": "Wastage Percentage",
+        "fr": "Wastage Percentage",
+        "es": "Wastage Percentage",
+        "ar": "Wastage Percentage"
+      }
     }
   ],
   "formulas": {
@@ -72,10 +128,10 @@
       "baseBricks"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "project-construction-management"
 }

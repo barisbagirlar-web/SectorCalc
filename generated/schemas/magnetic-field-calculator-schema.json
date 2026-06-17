@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "A",
       "default": 1,
-      "businessContext": "Elektrik akımı (Amper)"
+      "businessContext": "Elektrik akımı (Amper)",
+      "label_i18n": {
+        "en": "Current (I)",
+        "tr": "Current (I)",
+        "de": "Current (I)",
+        "fr": "Current (I)",
+        "es": "Current (I)",
+        "ar": "Current (I)"
+      }
     },
     {
       "id": "turns",
       "label": "Number of Turns (N)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Bobindeki sarım sayısı"
+      "businessContext": "Bobindeki sarım sayısı",
+      "label_i18n": {
+        "en": "Number of Turns (N)",
+        "tr": "Number of Turns (N)",
+        "de": "Number of Turns (N)",
+        "fr": "Number of Turns (N)",
+        "es": "Number of Turns (N)",
+        "ar": "Number of Turns (N)"
+      }
     },
     {
       "id": "length",
@@ -23,31 +39,50 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Bobin uzunluğu (metre)"
+      "businessContext": "Bobin uzunluğu (metre)",
+      "label_i18n": {
+        "en": "Length (L)",
+        "tr": "Length (L)",
+        "de": "Length (L)",
+        "fr": "Length (L)",
+        "es": "Length (L)",
+        "ar": "Length (L)"
+      }
     },
     {
       "id": "permeability",
       "label": "Relative Permeability (μᵣ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Çekirdek malzemenin bağıl manyetik geçirgenliği"
+      "businessContext": "Çekirdek malzemenin bağıl manyetik geçirgenliği",
+      "label_i18n": {
+        "en": "Relative Permeability (μᵣ)",
+        "tr": "Relative Permeability (μᵣ)",
+        "de": "Relative Permeability (μᵣ)",
+        "fr": "Relative Permeability (μᵣ)",
+        "es": "Relative Permeability (μᵣ)",
+        "ar": "Relative Permeability (μᵣ)"
+      }
     }
   ],
   "formulas": {
-    "B": "1.2566370614359172e-6 * permeability * (turns / length) * current"
+    "B": "1.2566370614359172e-6 * permeability * (turns / length) * current",
+    "B______________N___L____I": "B = μ₀ * μᵣ * (N / L) * I",
+    "_____4____10___T_m_A___1_256637061435917": "μ₀ = 4π × 10⁻⁷ T·m/A ≈ 1.2566370614359172e-6",
+    "result": "Magnetic Field (B) in Tesla"
   },
   "outputs": {
-    "primary": "Magnetic Field (B) in Tesla",
+    "primary": "result",
     "breakdown": [
       "B = μ₀ * μᵣ * (N / L) * I",
       "μ₀ = 4π × 10⁻⁷ T·m/A ≈ 1.2566370614359172e-6"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "electrical-power-systems"
 }

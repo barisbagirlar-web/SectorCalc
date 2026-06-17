@@ -30,13 +30,18 @@ function evaluateAllFormulas(input: Matchmaking_calculatorInput): Record<string,
   try { const v = 1 - Math.abs(input.criterion3_score_a - input.criterion3_score_b) / 100; results["match3"] = Number.isFinite(v) ? v : 0; } catch { results["match3"] = 0; }
   try { const v = 1 - Math.abs(input.criterion4_score_a - input.criterion4_score_b) / 100; results["match4"] = Number.isFinite(v) ? v : 0; } catch { results["match4"] = 0; }
   try { const v = ((results["match1"] ?? 0) + (results["match2"] ?? 0) + (results["match3"] ?? 0) + (results["match4"] ?? 0)) / 4 * 100; results["totalMatchScore"] = Number.isFinite(v) ? v : 0; } catch { results["totalMatchScore"] = 0; }
+  results["_____match1___100__toFixed_1_______"] = 0;
+  results["_____match2___100__toFixed_1_______"] = 0;
+  results["_____match3___100__toFixed_1_______"] = 0;
+  results["_____match4___100__toFixed_1_______"] = 0;
+  try { const v = (results["totalMatchScore"] ?? 0) + '%'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateMatchmaking_calculator(input: Matchmaking_calculatorInput): Matchmaking_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalMatchScore"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

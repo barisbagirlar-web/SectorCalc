@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Yaş, gebe kalma olasılığını etkileyen temel faktörlerden biridir."
+      "businessContext": "Yaş, gebe kalma olasılığını etkileyen temel faktörlerden biridir.",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "cycleLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 28,
-      "businessContext": "Ortalama adet döngüsü uzunluğu, ovulasyon gününü belirlemede kullanılır."
+      "businessContext": "Ortalama adet döngüsü uzunluğu, ovulasyon gününü belirlemede kullanılır.",
+      "label_i18n": {
+        "en": "Adet Döngüsü Uzunluğu",
+        "tr": "Adet Döngüsü Uzunluğu",
+        "de": "Adet Döngüsü Uzunluğu",
+        "fr": "Adet Döngüsü Uzunluğu",
+        "es": "Adet Döngüsü Uzunluğu",
+        "ar": "Adet Döngüsü Uzunluğu"
+      }
     },
     {
       "id": "lutealPhase",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 14,
-      "businessContext": "Ovulasyon sonrası luteal fazın uzunluğu, doğurganlık penceresini hesaplamak için gereklidir."
+      "businessContext": "Ovulasyon sonrası luteal fazın uzunluğu, doğurganlık penceresini hesaplamak için gereklidir.",
+      "label_i18n": {
+        "en": "Luteal Faz Süresi",
+        "tr": "Luteal Faz Süresi",
+        "de": "Luteal Faz Süresi",
+        "fr": "Luteal Faz Süresi",
+        "es": "Luteal Faz Süresi",
+        "ar": "Luteal Faz Süresi"
+      }
     },
     {
       "id": "monthsTrying",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Aktif olarak gebe kalmaya çalışılan ay sayısı, kümülatif olasılığı hesaplamak için kullanılır."
+      "businessContext": "Aktif olarak gebe kalmaya çalışılan ay sayısı, kümülatif olasılığı hesaplamak için kullanılır.",
+      "label_i18n": {
+        "en": "Deneme Süresi",
+        "tr": "Deneme Süresi",
+        "de": "Deneme Süresi",
+        "fr": "Deneme Süresi",
+        "es": "Deneme Süresi",
+        "ar": "Deneme Süresi"
+      }
     }
   ],
   "formulas": {
@@ -40,12 +72,14 @@
     "fertileEndDay": "ovulationDay + 1",
     "ageFactor": "age <= 30 ? 1 : Math.max(0.1, 1 - (age - 30) * 0.02)",
     "cycleFactor": "(cycleLength >= 26 && cycleLength <= 32) ? 1 : 0.8",
-    "baseProb": 0.2,
+    "baseProb": "0.2",
     "probabilityPerCycle": "baseProb * ageFactor * cycleFactor",
-    "cumulativeProbability": "1 - Math.pow(1 - probabilityPerCycle, monthsTrying)"
+    "cumulativeProbability": "1 - Math.pow(1 - probabilityPerCycle, monthsTrying)",
+    "cumulativeProbability___100": "cumulativeProbability * 100",
+    "result": "probabilityPerCycle * 100"
   },
   "outputs": {
-    "primary": "probabilityPerCycle * 100",
+    "primary": "result",
     "breakdown": [
       "ovulationDay",
       "fertileStartDay",
@@ -53,10 +87,10 @@
       "cumulativeProbability * 100"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

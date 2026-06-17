@@ -32,7 +32,7 @@ function evaluateAllFormulas(input: Pasta_calculatorInput): Record<string, numbe
 
 export function calculatePasta_calculator(input: Pasta_calculatorInput): Pasta_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCookedPasta"] ?? 0;
+  const totalWasteCost = values["totalDryWeight"] ?? 0;
   const breakdown = {
     
   };

@@ -5,17 +5,33 @@
       "id": "compressionRatio",
       "label": "Compression Ratio (r)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 8,
-      "businessContext": "Ratio of cylinder volume before compression (BDC) to volume after compression (TDC)"
+      "businessContext": "Ratio of cylinder volume before compression (BDC) to volume after compression (TDC)",
+      "label_i18n": {
+        "en": "Compression Ratio (r)",
+        "tr": "Compression Ratio (r)",
+        "de": "Compression Ratio (r)",
+        "fr": "Compression Ratio (r)",
+        "es": "Compression Ratio (r)",
+        "ar": "Compression Ratio (r)"
+      }
     },
     {
       "id": "specificHeatRatio",
       "label": "Specific Heat Ratio (k)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.4,
-      "businessContext": "Adiabatic index (cp/cv) of the working fluid, typically 1.4 for air"
+      "businessContext": "Adiabatic index (cp/cv) of the working fluid, typically 1.4 for air",
+      "label_i18n": {
+        "en": "Specific Heat Ratio (k)",
+        "tr": "Specific Heat Ratio (k)",
+        "de": "Specific Heat Ratio (k)",
+        "fr": "Specific Heat Ratio (k)",
+        "es": "Specific Heat Ratio (k)",
+        "ar": "Specific Heat Ratio (k)"
+      }
     },
     {
       "id": "initialTemperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Temperature at the start of compression stroke"
+      "businessContext": "Temperature at the start of compression stroke",
+      "label_i18n": {
+        "en": "Initial Temperature (T1)",
+        "tr": "Initial Temperature (T1)",
+        "de": "Initial Temperature (T1)",
+        "fr": "Initial Temperature (T1)",
+        "es": "Initial Temperature (T1)",
+        "ar": "Initial Temperature (T1)"
+      }
     },
     {
       "id": "initialPressure",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 100,
-      "businessContext": "Pressure at the start of compression stroke (intake pressure)"
+      "businessContext": "Pressure at the start of compression stroke (intake pressure)",
+      "label_i18n": {
+        "en": "Initial Pressure (P1)",
+        "tr": "Initial Pressure (P1)",
+        "de": "Initial Pressure (P1)",
+        "fr": "Initial Pressure (P1)",
+        "es": "Initial Pressure (P1)",
+        "ar": "Initial Pressure (P1)"
+      }
     },
     {
       "id": "maxTemperature",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "K",
       "default": 2000,
-      "businessContext": "Temperature after constant volume heat addition (combustion)"
+      "businessContext": "Temperature after constant volume heat addition (combustion)",
+      "label_i18n": {
+        "en": "Maximum Temperature (T3)",
+        "tr": "Maximum Temperature (T3)",
+        "de": "Maximum Temperature (T3)",
+        "fr": "Maximum Temperature (T3)",
+        "es": "Maximum Temperature (T3)",
+        "ar": "Maximum Temperature (T3)"
+      }
     },
     {
       "id": "specificHeatCv",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kJ/(kg·K)",
       "default": 0.718,
-      "businessContext": "Specific heat at constant volume of the working fluid (air ≈ 0.718 kJ/kg·K)"
+      "businessContext": "Specific heat at constant volume of the working fluid (air ≈ 0.718 kJ/kg·K)",
+      "label_i18n": {
+        "en": "Specific Heat (Cv)",
+        "tr": "Specific Heat (Cv)",
+        "de": "Specific Heat (Cv)",
+        "fr": "Specific Heat (Cv)",
+        "es": "Specific Heat (Cv)",
+        "ar": "Specific Heat (Cv)"
+      }
     }
   ],
   "formulas": {
@@ -66,10 +114,10 @@
       "netWorkPerMass"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "process-chemical"
 }

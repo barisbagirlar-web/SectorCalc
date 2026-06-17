@@ -27,13 +27,16 @@ function evaluateAllFormulas(input: Calendar_converterInput): Record<string, num
   try { const v = Math.floor(((results["julianDay"] ?? 0) - 347997.5) / 365.2468); results["hebrewYear"] = Number.isFinite(v) ? v : 0; } catch { results["hebrewYear"] = 0; }
   try { const v = Math.floor((((results["julianDay"] ?? 0) - 347997.5) - Math.floor(365.2468 * (results["hebrewYear"] ?? 0))) / 29.53059) + 1; results["hebrewMonth"] = Number.isFinite(v) ? v : 0; } catch { results["hebrewMonth"] = 0; }
   try { const v = Math.floor(((results["julianDay"] ?? 0) - 347997.5) - Math.floor(365.2468 * (results["hebrewYear"] ?? 0)) - Math.floor(29.53059 * ((results["hebrewMonth"] ?? 0) - 1))) + 1; results["hebrewDay"] = Number.isFinite(v) ? v : 0; } catch { results["hebrewDay"] = 0; }
+  try { const v = (results["julianYear"] ?? 0)-(results["julianMonth"] ?? 0)-(results["julianDayOfMonth"] ?? 0); results["_julianYear___julianMonth___julianDayOfM"] = Number.isFinite(v) ? v : 0; } catch { results["_julianYear___julianMonth___julianDayOfM"] = 0; }
+  try { const v = (results["islamicYear"] ?? 0)-(results["islamicMonth"] ?? 0)-(results["islamicDay"] ?? 0); results["_islamicYear___islamicMonth___islamicDay"] = Number.isFinite(v) ? v : 0; } catch { results["_islamicYear___islamicMonth___islamicDay"] = 0; }
+  try { const v = (results["hebrewYear"] ?? 0)-(results["hebrewMonth"] ?? 0)-(results["hebrewDay"] ?? 0); results["_hebrewYear___hebrewMonth___hebrewDay_"] = Number.isFinite(v) ? v : 0; } catch { results["_hebrewYear___hebrewMonth___hebrewDay_"] = 0; }
   return results;
 }
 
 
 export function calculateCalendar_converter(input: Calendar_converterInput): Calendar_converterOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Converted"] ?? 0;
+  const totalWasteCost = values["julianDay"] ?? 0;
   const breakdown = {
     
   };

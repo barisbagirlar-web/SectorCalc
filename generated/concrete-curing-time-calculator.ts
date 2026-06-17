@@ -21,6 +21,7 @@ function evaluateAllFormulas(input: Concrete_curing_time_calculatorInput): Recor
   try { const v = 100/input.humidity; results["humidityFactor"] = Number.isFinite(v) ? v : 0; } catch { results["humidityFactor"] = 0; }
   try { const v = input.cementType; results["cementAdjust"] = Number.isFinite(v) ? v : 0; } catch { results["cementAdjust"] = 0; }
   try { const v = input.baseDays * (results["tempFactor"] ?? 0) * (results["humidityFactor"] ?? 0) * (results["cementAdjust"] ?? 0); results["curingTime"] = Number.isFinite(v) ? v : 0; } catch { results["curingTime"] = 0; }
+  try { const v = input.baseDays; results["baseDays"] = Number.isFinite(v) ? v : 0; } catch { results["baseDays"] = 0; }
   return results;
 }
 

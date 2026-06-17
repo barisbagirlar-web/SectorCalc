@@ -23,13 +23,20 @@ function evaluateAllFormulas(input: Fascia_calculatorInput): Record<string, numb
   try { const v = Math.ceil(input.totalRoofLength / (results["effectiveLength"] ?? 0)); results["boardsNeeded"] = Number.isFinite(v) ? v : 0; } catch { results["boardsNeeded"] = 0; }
   try { const v = Math.ceil((results["boardsNeeded"] ?? 0) * (1 + input.wasteFactor / 100)); results["totalBoards"] = Number.isFinite(v) ? v : 0; } catch { results["totalBoards"] = 0; }
   try { const v = (results["totalBoards"] ?? 0) * input.pricePerBoard; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  results["__fasciaBoardLength__m"] = 0;
+  results["__effectiveLength__m"] = 0;
+  try { const v = $(results["boardsNeeded"] ?? 0); results["__boardsNeeded_"] = Number.isFinite(v) ? v : 0; } catch { results["__boardsNeeded_"] = 0; }
+  results["__wasteFactor__"] = 0;
+  try { const v = $(results["totalBoards"] ?? 0); results["__totalBoards_"] = Number.isFinite(v) ? v : 0; } catch { results["__totalBoards_"] = 0; }
+  try { const v = $$input.pricePerBoard; results["___pricePerBoard_"] = Number.isFinite(v) ? v : 0; } catch { results["___pricePerBoard_"] = 0; }
+  try { const v = $$(results["totalCost"] ?? 0); results["___totalCost_"] = Number.isFinite(v) ? v : 0; } catch { results["___totalCost_"] = 0; }
   return results;
 }
 
 
 export function calculateFascia_calculator(input: Fascia_calculatorInput): Fascia_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["effectiveLength"] ?? 0;
   const breakdown = {
     
   };

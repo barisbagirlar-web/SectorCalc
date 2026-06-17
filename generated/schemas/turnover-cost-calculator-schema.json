@@ -239,7 +239,7 @@
       "id": "include_indirect_costs",
       "label": "Include Indirect Costs",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -302,159 +302,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "num_leavers",
-      "description": "Number of employees leaving per year",
-      "expression": "num_employees * (annual_turnover_rate / 100)",
-      "unit": "employees"
-    },
-    {
-      "id": "direct_costs",
-      "description": "Sum of direct costs per leaver multiplied by number of leavers",
-      "expression": "num_leavers * (recruitment_cost_per_hire + onboarding_cost_per_hire + training_cost_per_hire + severance_cost_per_leaver + exit_interview_cost_per_leaver + overtime_cover_cost_per_leaver)",
-      "unit": "currency"
-    },
-    {
-      "id": "lost_productivity_cost",
-      "description": "Cost of lost productivity during ramp-up period",
-      "expression": "num_leavers * (avg_salary / 12) * lost_productivity_months * (1 - (productivity_factor / 100))",
-      "unit": "currency"
-    },
-    {
-      "id": "indirect_costs",
-      "description": "Indirect costs (quality, customer, knowledge) if included",
-      "expression": "include_indirect_costs ? num_leavers * (quality_defect_cost_per_leaver + customer_impact_cost_per_leaver + knowledge_loss_cost_per_leaver) : 0",
-      "unit": "currency"
-    },
-    {
-      "id": "total_turnover_cost",
-      "description": "Primary result – total cost of turnover",
-      "expression": "direct_costs + lost_productivity_cost + indirect_costs",
-      "unit": "currency"
-    },
-    {
-      "id": "cost_per_leaver",
-      "description": "Average cost per leaver",
-      "expression": "num_leavers > 0 ? total_turnover_cost / num_leavers : 0",
-      "unit": "currency"
-    },
-    {
-      "id": "turnover_cost_percentage_of_payroll",
-      "description": "Turnover cost as percentage of total payroll",
-      "expression": "(total_turnover_cost / (num_employees * avg_salary)) * 100",
-      "unit": "%"
-    }
+    "num_employees",
+    "num_employees",
+    "num_employees",
+    "num_employees",
+    "num_employees",
+    "num_employees",
+    "num_employees"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_turnover_cost",
-      "label": "Total Turnover Cost",
-      "unit": "currency",
-      "description": "Annual total cost of employee turnover"
-    },
-    "breakdown": {
-      "direct_costs": {
-        "id": "direct_costs",
-        "label": "Direct Costs",
-        "unit": "currency",
-        "description": "Recruitment, onboarding, training, severance, exit interviews, overtime cover"
-      },
-      "lost_productivity_cost": {
-        "id": "lost_productivity_cost",
-        "label": "Lost Productivity Cost",
-        "unit": "currency",
-        "description": "Cost of reduced output during ramp-up"
-      },
-      "indirect_costs": {
-        "id": "indirect_costs",
-        "label": "Indirect Costs",
-        "unit": "currency",
-        "description": "Quality defects, customer impact, knowledge loss"
-      },
-      "cost_per_leaver": {
-        "id": "cost_per_leaver",
-        "label": "Cost per Leaver",
-        "unit": "currency",
-        "description": "Average cost per departing employee"
-      },
-      "turnover_cost_percentage_of_payroll": {
-        "id": "turnover_cost_percentage_of_payroll",
-        "label": "Turnover Cost as % of Payroll",
-        "unit": "%",
-        "description": "Percentage of total payroll consumed by turnover"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "hidden_loss_recruitment_efficiency",
-        "label": "Recruitment Efficiency Gap",
-        "description": "If recruitment cost per hire > 10% of avg salary, consider optimizing sourcing channels.",
-        "condition": "recruitment_cost_per_hire > 0.1 * avg_salary"
-      },
-      {
-        "id": "hidden_loss_onboarding_duration",
-        "label": "Extended Onboarding Duration",
-        "description": "If lost productivity months > 3, onboarding process may be inefficient.",
-        "condition": "lost_productivity_months > 3"
-      },
-      {
-        "id": "hidden_loss_training_effectiveness",
-        "label": "Low Training Effectiveness",
-        "description": "If productivity factor < 60%, training programs may need improvement.",
-        "condition": "productivity_factor < 60"
-      },
-      {
-        "id": "hidden_loss_knowledge_retention",
-        "label": "Knowledge Retention Risk",
-        "description": "If knowledge loss cost per leaver > 10% of avg salary, implement knowledge management systems.",
-        "condition": "knowledge_loss_cost_per_leaver > 0.1 * avg_salary"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_retention_program",
-        "label": "Implement Retention Program",
-        "description": "Target high-turnover departments with engagement surveys and career development plans.",
-        "priority": "high"
-      },
-      {
-        "id": "action_onboarding_improvement",
-        "label": "Improve Onboarding Process",
-        "description": "Reduce ramp-up time by structured mentoring and standardized training.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_recruitment_optimization",
-        "label": "Optimize Recruitment Channels",
-        "description": "Use data analytics to identify most cost-effective sourcing methods.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_knowledge_management",
-        "label": "Deploy Knowledge Management System",
-        "description": "Capture critical knowledge from departing employees via exit interviews and documentation.",
-        "priority": "high"
-      },
-      {
-        "id": "action_quality_improvement",
-        "label": "Strengthen Quality Training",
-        "description": "Reduce defect costs by Six Sigma or Lean training for new hires.",
-        "priority": "medium"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_cost",
-      "label": "Data Confidence Adjusted Cost",
-      "unit": "currency",
-      "description": "Total turnover cost adjusted for data confidence (e.g., ±20% uncertainty)",
-      "value": null,
-      "confidenceInterval": {
-        "lowerBound": null,
-        "upperBound": null
-      }
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "workforce-hr",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
+  "toolName": "turnover-cost-calculator"
 }

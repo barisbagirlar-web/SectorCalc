@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "rad",
       "default": 0,
-      "businessContext": "Dönüştürülecek açının radyan cinsinden değeri"
+      "businessContext": "Dönüştürülecek açının radyan cinsinden değeri",
+      "label_i18n": {
+        "en": "Radyan Değeri",
+        "tr": "Radyan Değeri",
+        "de": "Radyan Değeri",
+        "fr": "Radyan Değeri",
+        "es": "Radyan Değeri",
+        "ar": "Radyan Değeri"
+      }
     },
     {
       "id": "conversionFactor",
       "label": "Dönüşüm Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 57.29577951308232,
-      "businessContext": "Radyandan dereceye dönüşüm sabiti (180/π)"
+      "businessContext": "Radyandan dereceye dönüşüm sabiti (180/π)",
+      "label_i18n": {
+        "en": "Dönüşüm Faktörü",
+        "tr": "Dönüşüm Faktörü",
+        "de": "Dönüşüm Faktörü",
+        "fr": "Dönüşüm Faktörü",
+        "es": "Dönüşüm Faktörü",
+        "ar": "Dönüşüm Faktörü"
+      }
     },
     {
       "id": "degreeOffset",
@@ -23,20 +39,40 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Dönüşüm sonucuna eklenecek ek derece miktarı"
+      "businessContext": "Dönüşüm sonucuna eklenecek ek derece miktarı",
+      "label_i18n": {
+        "en": "Derece Ofseti",
+        "tr": "Derece Ofseti",
+        "de": "Derece Ofseti",
+        "fr": "Derece Ofseti",
+        "es": "Derece Ofseti",
+        "ar": "Derece Ofseti"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Ondalık Basamak",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı"
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
     "rawDegree": "radian * conversionFactor + degreeOffset",
-    "primary": "Math.round(rawDegree * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "primary": "Math.round(rawDegree * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "radian": "radian",
+    "conversionFactor": "conversionFactor",
+    "degreeOffset": "degreeOffset",
+    "decimalPlaces": "decimalPlaces"
   },
   "outputs": {
     "primary": "primary",
@@ -48,10 +84,10 @@
       "decimalPlaces"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

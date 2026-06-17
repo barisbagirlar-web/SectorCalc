@@ -21,13 +21,15 @@ function evaluateAllFormulas(input: Continuous_compound_interest_calculatorInput
   try { const v = (results["futureValue"] ?? 0) - input.principal; results["interestEarned"] = Number.isFinite(v) ? v : 0; } catch { results["interestEarned"] = 0; }
   try { const v = Math.round((results["futureValue"] ?? 0) * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces); results["roundedFutureValue"] = Number.isFinite(v) ? v : 0; } catch { results["roundedFutureValue"] = 0; }
   try { const v = Math.round((results["interestEarned"] ?? 0) * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces); results["roundedInterestEarned"] = Number.isFinite(v) ? v : 0; } catch { results["roundedInterestEarned"] = 0; }
+  try { const v = $$input.principal; results["___principal_"] = Number.isFinite(v) ? v : 0; } catch { results["___principal_"] = 0; }
+  try { const v = $$(results["roundedInterestEarned"] ?? 0); results["___roundedInterestEarned_"] = Number.isFinite(v) ? v : 0; } catch { results["___roundedInterestEarned_"] = 0; }
   return results;
 }
 
 
 export function calculateContinuous_compound_interest_calculator(input: Continuous_compound_interest_calculatorInput): Continuous_compound_interest_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["After"] ?? 0;
+  const totalWasteCost = values["futureValue"] ?? 0;
   const breakdown = {
     
   };

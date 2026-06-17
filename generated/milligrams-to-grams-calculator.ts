@@ -21,6 +21,9 @@ function evaluateAllFormulas(input: Milligrams_to_grams_calculatorInput): Record
   const results: Record<string, number> = {};
   try { const v = input.inputMilligrams * input.conversionFactor * input.batchMultiplier; results["rawGrams"] = Number.isFinite(v) ? v : 0; } catch { results["rawGrams"] = 0; }
   try { const v = input.roundingMode == 0 ? Math.round((results["rawGrams"] ?? 0) * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces) : input.roundingMode == 1 ? Math.floor((results["rawGrams"] ?? 0) * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces) : Math.ceil((results["rawGrams"] ?? 0) * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces); results["grams"] = Number.isFinite(v) ? v : 0; } catch { results["grams"] = 0; }
+  try { const v = input.inputMilligrams; results["inputMilligrams"] = Number.isFinite(v) ? v : 0; } catch { results["inputMilligrams"] = 0; }
+  try { const v = input.conversionFactor; results["conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
+  try { const v = input.batchMultiplier; results["batchMultiplier"] = Number.isFinite(v) ? v : 0; } catch { results["batchMultiplier"] = 0; }
   return results;
 }
 

@@ -21,13 +21,17 @@ function evaluateAllFormulas(input: Octal_to_decimal_calculatorInput): Record<st
   try { const v = parseInt(String(input.octalInput2), 8); results["decimal2"] = Number.isFinite(v) ? v : 0; } catch { results["decimal2"] = 0; }
   try { const v = parseInt(String(input.octalInput3), 8); results["decimal3"] = Number.isFinite(v) ? v : 0; } catch { results["decimal3"] = 0; }
   try { const v = parseInt(String(input.octalInput4), 8); results["decimal4"] = Number.isFinite(v) ? v : 0; } catch { results["decimal4"] = 0; }
+  results["__octalInput1_____Decimal____decimal1_"] = 0;
+  results["__octalInput2_____Decimal____decimal2_"] = 0;
+  results["__octalInput3_____Decimal____decimal3_"] = 0;
+  results["__octalInput4_____Decimal____decimal4_"] = 0;
   return results;
 }
 
 
 export function calculateOctal_to_decimal_calculator(input: Octal_to_decimal_calculatorInput): Octal_to_decimal_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Conversions"] ?? 0;
+  const totalWasteCost = values["decimal1"] ?? 0;
   const breakdown = {
     
   };

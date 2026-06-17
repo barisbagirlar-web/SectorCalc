@@ -36,7 +36,7 @@ function evaluateAllFormulas(input: Bundle_discount_calculatorInput): Record<str
 
 export function calculateBundle_discount_calculator(input: Bundle_discount_calculatorInput): Bundle_discount_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["totalItems"] ?? 0;
   const breakdown = {
     
   };

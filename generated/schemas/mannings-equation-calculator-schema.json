@@ -5,9 +5,17 @@
       "id": "n",
       "label": "Manning's Roughness Coefficient (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.013,
-      "businessContext": "Boyutsuz pürüzlülük katsayısı. Beton, toprak kanal veya doğal akarsu tipine göre seçilir."
+      "businessContext": "Boyutsuz pürüzlülük katsayısı. Beton, toprak kanal veya doğal akarsu tipine göre seçilir.",
+      "label_i18n": {
+        "en": "Manning's Roughness Coefficient (n)",
+        "tr": "Manning's Roughness Coefficient (n)",
+        "de": "Manning's Roughness Coefficient (n)",
+        "fr": "Manning's Roughness Coefficient (n)",
+        "es": "Manning's Roughness Coefficient (n)",
+        "ar": "Manning's Roughness Coefficient (n)"
+      }
     },
     {
       "id": "R",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Akış kesit alanının ıslak çevreye oranı (A/P)."
+      "businessContext": "Akış kesit alanının ıslak çevreye oranı (A/P).",
+      "label_i18n": {
+        "en": "Hydraulic Radius (R)",
+        "tr": "Hydraulic Radius (R)",
+        "de": "Hydraulic Radius (R)",
+        "fr": "Hydraulic Radius (R)",
+        "es": "Hydraulic Radius (R)",
+        "ar": "Hydraulic Radius (R)"
+      }
     },
     {
       "id": "S",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/m",
       "default": 0.001,
-      "businessContext": "Kanal taban eğimi (düşey/yatay)."
+      "businessContext": "Kanal taban eğimi (düşey/yatay).",
+      "label_i18n": {
+        "en": "Channel Slope (S)",
+        "tr": "Channel Slope (S)",
+        "de": "Channel Slope (S)",
+        "fr": "Channel Slope (S)",
+        "es": "Channel Slope (S)",
+        "ar": "Channel Slope (S)"
+      }
     },
     {
       "id": "A",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m²",
       "default": 5,
-      "businessContext": "Akışın dolu kesit alanı."
+      "businessContext": "Akışın dolu kesit alanı.",
+      "label_i18n": {
+        "en": "Cross-sectional Flow Area (A)",
+        "tr": "Cross-sectional Flow Area (A)",
+        "de": "Cross-sectional Flow Area (A)",
+        "fr": "Cross-sectional Flow Area (A)",
+        "es": "Cross-sectional Flow Area (A)",
+        "ar": "Cross-sectional Flow Area (A)"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "Q"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

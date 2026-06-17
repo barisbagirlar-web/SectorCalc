@@ -7,39 +7,79 @@
       "type": "number",
       "unit": "mcg/dL",
       "default": 10,
-      "businessContext": "The measured cortisol level from a laboratory test in micrograms per deciliter."
+      "businessContext": "The measured cortisol level from a laboratory test in micrograms per deciliter.",
+      "label_i18n": {
+        "en": "Raw Cortisol Level",
+        "tr": "Raw Cortisol Level",
+        "de": "Raw Cortisol Level",
+        "fr": "Raw Cortisol Level",
+        "es": "Raw Cortisol Level",
+        "ar": "Raw Cortisol Level"
+      }
     },
     {
       "id": "unit_conversion",
       "label": "Unit Conversion Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 27.59,
-      "businessContext": "Conversion factor from mcg/dL to nmol/L (1 mcg/dL = 27.59 nmol/L). Set to 1 if no conversion needed."
+      "businessContext": "Conversion factor from mcg/dL to nmol/L (1 mcg/dL = 27.59 nmol/L). Set to 1 if no conversion needed.",
+      "label_i18n": {
+        "en": "Unit Conversion Factor",
+        "tr": "Unit Conversion Factor",
+        "de": "Unit Conversion Factor",
+        "fr": "Unit Conversion Factor",
+        "es": "Unit Conversion Factor",
+        "ar": "Unit Conversion Factor"
+      }
     },
     {
       "id": "time_factor",
       "label": "Time-of-Day Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Diurnal variation multiplier (e.g., morning peak ≈ 1.0, evening trough ≈ 0.4). Default 1 for standard morning measurement."
+      "businessContext": "Diurnal variation multiplier (e.g., morning peak ≈ 1.0, evening trough ≈ 0.4). Default 1 for standard morning measurement.",
+      "label_i18n": {
+        "en": "Time-of-Day Factor",
+        "tr": "Time-of-Day Factor",
+        "de": "Time-of-Day Factor",
+        "fr": "Time-of-Day Factor",
+        "es": "Time-of-Day Factor",
+        "ar": "Time-of-Day Factor"
+      }
     },
     {
       "id": "stress_multiplier",
       "label": "Acute Stress Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Adjustment for acute physiological or psychological stress (normal = 1, elevated stress > 1)."
+      "businessContext": "Adjustment for acute physiological or psychological stress (normal = 1, elevated stress > 1).",
+      "label_i18n": {
+        "en": "Acute Stress Multiplier",
+        "tr": "Acute Stress Multiplier",
+        "de": "Acute Stress Multiplier",
+        "fr": "Acute Stress Multiplier",
+        "es": "Acute Stress Multiplier",
+        "ar": "Acute Stress Multiplier"
+      }
     },
     {
       "id": "age_factor",
       "label": "Age Correction Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for age-related cortisol changes (e.g., elderly may have lower baseline). Default 1 for standard adult."
+      "businessContext": "Multiplier for age-related cortisol changes (e.g., elderly may have lower baseline). Default 1 for standard adult.",
+      "label_i18n": {
+        "en": "Age Correction Factor",
+        "tr": "Age Correction Factor",
+        "de": "Age Correction Factor",
+        "fr": "Age Correction Factor",
+        "es": "Age Correction Factor",
+        "ar": "Age Correction Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "time_stress_adjusted"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

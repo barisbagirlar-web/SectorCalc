@@ -25,6 +25,10 @@ function evaluateAllFormulas(input: Short_tons_to_kg_calculatorInput): Record<st
   try { const v = input.item4_tons * 907.18474; results["item4_kg"] = Number.isFinite(v) ? v : 0; } catch { results["item4_kg"] = 0; }
   try { const v = (results["item1_kg"] ?? 0) + (results["item2_kg"] ?? 0) + (results["item3_kg"] ?? 0) + (results["item4_kg"] ?? 0); results["total_kg"] = Number.isFinite(v) ? v : 0; } catch { results["total_kg"] = 0; }
   try { const v = Math.round((results["total_kg"] ?? 0) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["rounded_total"] = Number.isFinite(v) ? v : 0; } catch { results["rounded_total"] = 0; }
+  results["____item1_kg_toFixed_precision______kg_"] = 0;
+  results["____item2_kg_toFixed_precision______kg_"] = 0;
+  results["____item3_kg_toFixed_precision______kg_"] = 0;
+  results["____item4_kg_toFixed_precision______kg_"] = 0;
   return results;
 }
 

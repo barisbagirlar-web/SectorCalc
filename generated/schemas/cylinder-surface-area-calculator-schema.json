@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Outer radius of the cylinder (pipe/tank)"
+      "businessContext": "Outer radius of the cylinder (pipe/tank)",
+      "label_i18n": {
+        "en": "Outer Radius",
+        "tr": "Outer Radius",
+        "de": "Outer Radius",
+        "fr": "Outer Radius",
+        "es": "Outer Radius",
+        "ar": "Outer Radius"
+      }
     },
     {
       "id": "innerRadius",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Inner radius of the cylinder (set to 0 for solid cylinder)"
+      "businessContext": "Inner radius of the cylinder (set to 0 for solid cylinder)",
+      "label_i18n": {
+        "en": "Inner Radius",
+        "tr": "Inner Radius",
+        "de": "Inner Radius",
+        "fr": "Inner Radius",
+        "es": "Inner Radius",
+        "ar": "Inner Radius"
+      }
     },
     {
       "id": "height",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Height or length of the cylinder"
+      "businessContext": "Height or length of the cylinder",
+      "label_i18n": {
+        "en": "Height / Length",
+        "tr": "Height / Length",
+        "de": "Height / Length",
+        "fr": "Height / Length",
+        "es": "Height / Length",
+        "ar": "Height / Length"
+      }
     },
     {
       "id": "includeEnds",
       "label": "Include Annular Ends",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 = include surface area of both annular end faces, 0 = exclude (e.g., open pipe)"
+      "businessContext": "1 = include surface area of both annular end faces, 0 = exclude (e.g., open pipe)",
+      "label_i18n": {
+        "en": "Include Annular Ends",
+        "tr": "Include Annular Ends",
+        "de": "Include Annular Ends",
+        "fr": "Include Annular Ends",
+        "es": "Include Annular Ends",
+        "ar": "Include Annular Ends"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "endAreas"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

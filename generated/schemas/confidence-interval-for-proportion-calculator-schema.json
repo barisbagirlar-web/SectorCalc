@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Number of observations or trials in the sample"
+      "businessContext": "Number of observations or trials in the sample",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "successes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 50,
-      "businessContext": "Count of successful outcomes in the sample"
+      "businessContext": "Count of successful outcomes in the sample",
+      "label_i18n": {
+        "en": "Number of Successes (x)",
+        "tr": "Number of Successes (x)",
+        "de": "Number of Successes (x)",
+        "fr": "Number of Successes (x)",
+        "es": "Number of Successes (x)",
+        "ar": "Number of Successes (x)"
+      }
     },
     {
       "id": "zValue",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "z-score",
       "default": 1.96,
-      "businessContext": "Critical z-value for the desired confidence level (e.g., 1.96 for 95% CI)"
+      "businessContext": "Critical z-value for the desired confidence level (e.g., 1.96 for 95% CI)",
+      "label_i18n": {
+        "en": "Z-value",
+        "tr": "Z-value",
+        "de": "Z-value",
+        "fr": "Z-value",
+        "es": "Z-value",
+        "ar": "Z-value"
+      }
     },
     {
       "id": "confidenceLevel",
       "label": "Confidence Level",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.95,
-      "businessContext": "Reference confidence level corresponding to the z-value (e.g., 0.95 for 95%)"
+      "businessContext": "Reference confidence level corresponding to the z-value (e.g., 0.95 for 95%)",
+      "label_i18n": {
+        "en": "Confidence Level",
+        "tr": "Confidence Level",
+        "de": "Confidence Level",
+        "fr": "Confidence Level",
+        "es": "Confidence Level",
+        "ar": "Confidence Level"
+      }
     }
   ],
   "formulas": {
@@ -53,10 +85,10 @@
       "bd3"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

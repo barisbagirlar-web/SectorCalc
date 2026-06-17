@@ -5,76 +5,134 @@
       "id": "o1",
       "label": "Observed Frequency 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The observed count for category 1."
+      "businessContext": "The observed count for category 1.",
+      "label_i18n": {
+        "en": "Observed Frequency 1",
+        "tr": "Observed Frequency 1",
+        "de": "Observed Frequency 1",
+        "fr": "Observed Frequency 1",
+        "es": "Observed Frequency 1",
+        "ar": "Observed Frequency 1"
+      }
     },
     {
       "id": "e1",
       "label": "Expected Frequency 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The expected count for category 1 under the null hypothesis."
+      "businessContext": "The expected count for category 1 under the null hypothesis.",
+      "label_i18n": {
+        "en": "Expected Frequency 1",
+        "tr": "Expected Frequency 1",
+        "de": "Expected Frequency 1",
+        "fr": "Expected Frequency 1",
+        "es": "Expected Frequency 1",
+        "ar": "Expected Frequency 1"
+      }
     },
     {
       "id": "o2",
       "label": "Observed Frequency 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The observed count for category 2."
+      "businessContext": "The observed count for category 2.",
+      "label_i18n": {
+        "en": "Observed Frequency 2",
+        "tr": "Observed Frequency 2",
+        "de": "Observed Frequency 2",
+        "fr": "Observed Frequency 2",
+        "es": "Observed Frequency 2",
+        "ar": "Observed Frequency 2"
+      }
     },
     {
       "id": "e2",
       "label": "Expected Frequency 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The expected count for category 2 under the null hypothesis."
+      "businessContext": "The expected count for category 2 under the null hypothesis.",
+      "label_i18n": {
+        "en": "Expected Frequency 2",
+        "tr": "Expected Frequency 2",
+        "de": "Expected Frequency 2",
+        "fr": "Expected Frequency 2",
+        "es": "Expected Frequency 2",
+        "ar": "Expected Frequency 2"
+      }
     },
     {
       "id": "o3",
       "label": "Observed Frequency 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The observed count for category 3."
+      "businessContext": "The observed count for category 3.",
+      "label_i18n": {
+        "en": "Observed Frequency 3",
+        "tr": "Observed Frequency 3",
+        "de": "Observed Frequency 3",
+        "fr": "Observed Frequency 3",
+        "es": "Observed Frequency 3",
+        "ar": "Observed Frequency 3"
+      }
     },
     {
       "id": "e3",
       "label": "Expected Frequency 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The expected count for category 3 under the null hypothesis."
+      "businessContext": "The expected count for category 3 under the null hypothesis.",
+      "label_i18n": {
+        "en": "Expected Frequency 3",
+        "tr": "Expected Frequency 3",
+        "de": "Expected Frequency 3",
+        "fr": "Expected Frequency 3",
+        "es": "Expected Frequency 3",
+        "ar": "Expected Frequency 3"
+      }
     },
     {
       "id": "o4",
       "label": "Observed Frequency 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The observed count for category 4."
+      "businessContext": "The observed count for category 4.",
+      "label_i18n": {
+        "en": "Observed Frequency 4",
+        "tr": "Observed Frequency 4",
+        "de": "Observed Frequency 4",
+        "fr": "Observed Frequency 4",
+        "es": "Observed Frequency 4",
+        "ar": "Observed Frequency 4"
+      }
     },
     {
       "id": "e4",
       "label": "Expected Frequency 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The expected count for category 4 under the null hypothesis."
+      "businessContext": "The expected count for category 4 under the null hypothesis.",
+      "label_i18n": {
+        "en": "Expected Frequency 4",
+        "tr": "Expected Frequency 4",
+        "de": "Expected Frequency 4",
+        "fr": "Expected Frequency 4",
+        "es": "Expected Frequency 4",
+        "ar": "Expected Frequency 4"
+      }
     }
   ],
   "formulas": {
-    "chiSq": {
-      "formula": "((o1-e1)**2)/e1 + ((o2-e2)**2)/e2 + ((o3-e3)**2)/e3 + ((o4-e4)**2)/e4",
-      "unit": ""
-    },
-    "df": {
-      "formula": "3",
-      "unit": ""
-    }
+    "chiSq": "o1",
+    "df": "o1"
   },
   "outputs": {
     "primary": "chiSq",
@@ -82,10 +140,10 @@
       "df"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

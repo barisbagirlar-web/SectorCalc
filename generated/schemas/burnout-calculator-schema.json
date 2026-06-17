@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 10,
-      "businessContext": "Nominal power of the motor at full load"
+      "businessContext": "Nominal power of the motor at full load",
+      "label_i18n": {
+        "en": "Motor Rated Power",
+        "tr": "Motor Rated Power",
+        "de": "Motor Rated Power",
+        "fr": "Motor Rated Power",
+        "es": "Motor Rated Power",
+        "ar": "Motor Rated Power"
+      }
     },
     {
       "id": "actualLoad",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kW",
       "default": 12,
-      "businessContext": "Actual mechanical power drawn by the driven equipment"
+      "businessContext": "Actual mechanical power drawn by the driven equipment",
+      "label_i18n": {
+        "en": "Actual Load",
+        "tr": "Actual Load",
+        "de": "Actual Load",
+        "fr": "Actual Load",
+        "es": "Actual Load",
+        "ar": "Actual Load"
+      }
     },
     {
       "id": "ambientTemperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Temperature of the surrounding environment"
+      "businessContext": "Temperature of the surrounding environment",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "maxInsulationTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 130,
-      "businessContext": "Maximum allowable winding temperature (insulation class limit)"
+      "businessContext": "Maximum allowable winding temperature (insulation class limit)",
+      "label_i18n": {
+        "en": "Insulation Max Temperature",
+        "tr": "Insulation Max Temperature",
+        "de": "Insulation Max Temperature",
+        "fr": "Insulation Max Temperature",
+        "es": "Insulation Max Temperature",
+        "ar": "Insulation Max Temperature"
+      }
     },
     {
       "id": "ratedAmbient",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 40,
-      "businessContext": "Standard ambient temperature for motor design (typically 40°C)"
+      "businessContext": "Standard ambient temperature for motor design (typically 40°C)",
+      "label_i18n": {
+        "en": "Rated Ambient Temperature",
+        "tr": "Rated Ambient Temperature",
+        "de": "Rated Ambient Temperature",
+        "fr": "Rated Ambient Temperature",
+        "es": "Rated Ambient Temperature",
+        "ar": "Rated Ambient Temperature"
+      }
     },
     {
       "id": "thermalTimeConstant",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "minutes",
       "default": 30,
-      "businessContext": "Time for the motor temperature to reach 63.2% of its steady-state rise"
+      "businessContext": "Time for the motor temperature to reach 63.2% of its steady-state rise",
+      "label_i18n": {
+        "en": "Thermal Time Constant",
+        "tr": "Thermal Time Constant",
+        "de": "Thermal Time Constant",
+        "fr": "Thermal Time Constant",
+        "es": "Thermal Time Constant",
+        "ar": "Thermal Time Constant"
+      }
     },
     {
       "id": "dutyCycle",
       "label": "Duty Cycle",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Fraction of time motor runs under load (0-1, 1 = continuous)"
+      "businessContext": "Fraction of time motor runs under load (0-1, 1 = continuous)",
+      "label_i18n": {
+        "en": "Duty Cycle",
+        "tr": "Duty Cycle",
+        "de": "Duty Cycle",
+        "fr": "Duty Cycle",
+        "es": "Duty Cycle",
+        "ar": "Duty Cycle"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +120,15 @@
     "ultimateTempRise": "deltaTRated * Math.pow(loadFactor, 2) * dutyCycle",
     "motorTemperature": "ambientTemperature + ultimateTempRise",
     "temperatureMargin": "maxInsulationTemp - motorTemperature",
-    "timeToBurnout": "motorTemperature > maxInsulationTemp ? 0 : (ultimateTempRise > (maxInsulationTemp - ambientTemperature) ? -thermalTimeConstant * Math.log(1 - (maxInsulationTemp - ambientTemperature) / ultimateTempRise) : Infinity)"
+    "timeToBurnout": "motorTemperature > maxInsulationTemp ? 0 : (ultimateTempRise > (maxInsulationTemp - ambientTemperature) ? -thermalTimeConstant * Math.log(1 - (maxInsulationTemp - ambientTemperature) / ultimateTempRise) : Infinity)",
+    "loadFactor_toFixed_3_": "loadFactor.toFixed(3)",
+    "ultimateTempRise_toFixed_1_______C_": "ultimateTempRise.toFixed(1) + ' °C'",
+    "motorTemperature_toFixed_1_______C_": "motorTemperature.toFixed(1) + ' °C'",
+    "temperatureMargin_toFixed_1_______C_": "temperatureMargin.toFixed(1) + ' °C'",
+    "result": "timeToBurnout === Infinity ? 'Motor Safe' : timeToBurnout.toFixed(1) + ' minutes'"
   },
   "outputs": {
-    "primary": "timeToBurnout === Infinity ? 'Motor Safe' : timeToBurnout.toFixed(1) + ' minutes'",
+    "primary": "result",
     "breakdown": [
       "loadFactor.toFixed(3)",
       "ultimateTempRise.toFixed(1) + ' °C'",
@@ -75,10 +136,10 @@
       "temperatureMargin.toFixed(1) + ' °C'"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

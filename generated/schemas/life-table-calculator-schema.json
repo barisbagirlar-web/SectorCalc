@@ -5,9 +5,17 @@
       "id": "l0",
       "label": "Initial Number of Lives",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100000,
-      "businessContext": "The radix or starting population for the life table, typically a large round number such as 100,000."
+      "businessContext": "The radix or starting population for the life table, typically a large round number such as 100,000.",
+      "label_i18n": {
+        "en": "Initial Number of Lives",
+        "tr": "Initial Number of Lives",
+        "de": "Initial Number of Lives",
+        "fr": "Initial Number of Lives",
+        "es": "Initial Number of Lives",
+        "ar": "Initial Number of Lives"
+      }
     },
     {
       "id": "B",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "per year",
       "default": 0.0001,
-      "businessContext": "Scale parameter of the Gompertz mortality law, representing the mortality rate at very young ages (if c is close to 1)."
+      "businessContext": "Scale parameter of the Gompertz mortality law, representing the mortality rate at very young ages (if c is close to 1).",
+      "label_i18n": {
+        "en": "Gompertz Parameter B",
+        "tr": "Gompertz Parameter B",
+        "de": "Gompertz Parameter B",
+        "fr": "Gompertz Parameter B",
+        "es": "Gompertz Parameter B",
+        "ar": "Gompertz Parameter B"
+      }
     },
     {
       "id": "c",
       "label": "Gompertz Parameter c",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.1,
-      "businessContext": "Exponential growth factor of mortality with age; must be greater than 1 for mortality to increase with age."
+      "businessContext": "Exponential growth factor of mortality with age; must be greater than 1 for mortality to increase with age.",
+      "label_i18n": {
+        "en": "Gompertz Parameter c",
+        "tr": "Gompertz Parameter c",
+        "de": "Gompertz Parameter c",
+        "fr": "Gompertz Parameter c",
+        "es": "Gompertz Parameter c",
+        "ar": "Gompertz Parameter c"
+      }
     },
     {
       "id": "age",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Exact age at which to evaluate the life table functions."
+      "businessContext": "Exact age at which to evaluate the life table functions.",
+      "label_i18n": {
+        "en": "Age (x)",
+        "tr": "Age (x)",
+        "de": "Age (x)",
+        "fr": "Age (x)",
+        "es": "Age (x)",
+        "ar": "Age (x)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "dx"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

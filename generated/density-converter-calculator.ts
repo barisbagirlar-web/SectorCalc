@@ -22,6 +22,8 @@ function evaluateAllFormulas(input: Density_converter_calculatorInput): Record<s
   try { const v = Math.round((results["rawOutput"] ?? 0) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["finalOutput"] = Number.isFinite(v) ? v : 0; } catch { results["finalOutput"] = 0; }
   try { const v = (results["finalOutput"] ?? 0) + ' ' + (input.toUnit == 1 ? 'kg/m³' : input.toUnit == 2 ? 'g/cm³' : input.toUnit == 3 ? 'lb/ft³' : 'lb/in³'); results["outputWithUnit"] = Number.isFinite(v) ? v : 0; } catch { results["outputWithUnit"] = 0; }
   try { const v = input.inputValue * [1, 1000, 16.01846337396, 27679.9047102]; results["inputInKgM3"] = Number.isFinite(v) ? v : 0; } catch { results["inputInKgM3"] = 0; }
+  results["____inputInKgM3"] = 0;
+  results["____conversionFactor"] = 0;
   return results;
 }
 

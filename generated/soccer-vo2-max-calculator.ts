@@ -18,6 +18,8 @@ export const Soccer_vo2_max_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Soccer_vo2_max_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.testType === 0 ? (31.025 + 3.238 * input.maxSpeed - 3.248 * input.age + 0.1536 * input.maxSpeed * input.age) : (input.distance * 0.0084 + 36.4); results["vo2max"] = Number.isFinite(v) ? v : 0; } catch { results["vo2max"] = 0; }
+  try { const v = 31.025 + 3.238 * input.maxSpeed - 3.248 * input.age + 0.1536 * input.maxSpeed * input.age; results["VO2max___31_025___3_238___maxSpeed___3_2"] = Number.isFinite(v) ? v : 0; } catch { results["VO2max___31_025___3_238___maxSpeed___3_2"] = 0; }
+  try { const v = input.distance * 0.0084 + 36.4; results["VO2max___distance___0_0084___36_4"] = Number.isFinite(v) ? v : 0; } catch { results["VO2max___distance___0_0084___36_4"] = 0; }
   return results;
 }
 

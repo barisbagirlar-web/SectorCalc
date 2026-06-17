@@ -4,16 +4,19 @@ import * as z from 'zod';
 export interface Youngs_rule_calculatorInput {
   age: number;
   adultDose: number;
+  auto_input_3: number;
 }
 
 export const Youngs_rule_calculatorInputSchema = z.object({
   age: z.number().default(2),
   adultDose: z.number().default(500),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Youngs_rule_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.adultDose * input.age / (input.age + 12); results["childDose"] = Number.isFinite(v) ? v : 0; } catch { results["childDose"] = 0; }
+  try { const v = input.adultDose * input.age / (input.age + 12); results["childDose___adultDose___age____age___12_"] = Number.isFinite(v) ? v : 0; } catch { results["childDose___adultDose___age____age___12_"] = 0; }
   return results;
 }
 

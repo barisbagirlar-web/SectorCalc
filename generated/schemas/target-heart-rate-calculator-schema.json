@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User's age in years"
+      "businessContext": "User's age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "restingHeartRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 70,
-      "businessContext": "User's resting heart rate in beats per minute"
+      "businessContext": "User's resting heart rate in beats per minute",
+      "label_i18n": {
+        "en": "Resting Heart Rate",
+        "tr": "Resting Heart Rate",
+        "de": "Resting Heart Rate",
+        "fr": "Resting Heart Rate",
+        "es": "Resting Heart Rate",
+        "ar": "Resting Heart Rate"
+      }
     },
     {
       "id": "intensityMin",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Lower bound of desired training intensity as a percentage"
+      "businessContext": "Lower bound of desired training intensity as a percentage",
+      "label_i18n": {
+        "en": "Minimum Intensity",
+        "tr": "Minimum Intensity",
+        "de": "Minimum Intensity",
+        "fr": "Minimum Intensity",
+        "es": "Minimum Intensity",
+        "ar": "Minimum Intensity"
+      }
     },
     {
       "id": "intensityMax",
@@ -31,24 +55,34 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Upper bound of desired training intensity as a percentage"
+      "businessContext": "Upper bound of desired training intensity as a percentage",
+      "label_i18n": {
+        "en": "Maximum Intensity",
+        "tr": "Maximum Intensity",
+        "de": "Maximum Intensity",
+        "fr": "Maximum Intensity",
+        "es": "Maximum Intensity",
+        "ar": "Maximum Intensity"
+      }
     }
   ],
   "formulas": {
     "maxHeartRate": "220 - age",
     "heartRateReserve": "maxHeartRate - restingHeartRate",
     "targetMin": "heartRateReserve * (intensityMin / 100) + restingHeartRate",
-    "targetMax": "heartRateReserve * (intensityMax / 100) + restingHeartRate"
+    "targetMax": "heartRateReserve * (intensityMax / 100) + restingHeartRate",
+    "_maxHeartRate__bpm": "{maxHeartRate} bpm",
+    "_heartRateReserve__bpm": "{heartRateReserve} bpm"
   },
   "outputs": {
-    "primary": "Your target heart rate zone is {targetMin} – {targetMax} bpm",
+    "primary": "maxHeartRate",
     "breakdown": [
       "Maximum Heart Rate: {maxHeartRate} bpm",
       "Heart Rate Reserve: {heartRateReserve} bpm"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

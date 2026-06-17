@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "The day component of the start date for calculating working days."
+      "businessContext": "The day component of the start date for calculating working days.",
+      "label_i18n": {
+        "en": "Start Day",
+        "tr": "Start Day",
+        "de": "Start Day",
+        "fr": "Start Day",
+        "es": "Start Day",
+        "ar": "Start Day"
+      }
     },
     {
       "id": "startMonth",
       "label": "Start Month",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The month component (1-12) of the start date."
+      "businessContext": "The month component (1-12) of the start date.",
+      "label_i18n": {
+        "en": "Start Month",
+        "tr": "Start Month",
+        "de": "Start Month",
+        "fr": "Start Month",
+        "es": "Start Month",
+        "ar": "Start Month"
+      }
     },
     {
       "id": "startYear",
       "label": "Start Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2025,
-      "businessContext": "The year component of the start date."
+      "businessContext": "The year component of the start date.",
+      "label_i18n": {
+        "en": "Start Year",
+        "tr": "Start Year",
+        "de": "Start Year",
+        "fr": "Start Year",
+        "es": "Start Year",
+        "ar": "Start Year"
+      }
     },
     {
       "id": "endDay",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "day",
       "default": 31,
-      "businessContext": "The day component of the end date."
+      "businessContext": "The day component of the end date.",
+      "label_i18n": {
+        "en": "End Day",
+        "tr": "End Day",
+        "de": "End Day",
+        "fr": "End Day",
+        "es": "End Day",
+        "ar": "End Day"
+      }
     },
     {
       "id": "endMonth",
       "label": "End Month",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12,
-      "businessContext": "The month component (1-12) of the end date."
+      "businessContext": "The month component (1-12) of the end date.",
+      "label_i18n": {
+        "en": "End Month",
+        "tr": "End Month",
+        "de": "End Month",
+        "fr": "End Month",
+        "es": "End Month",
+        "ar": "End Month"
+      }
     },
     {
       "id": "endYear",
       "label": "End Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2025,
-      "businessContext": "The year component of the end date."
+      "businessContext": "The year component of the end date.",
+      "label_i18n": {
+        "en": "End Year",
+        "tr": "End Year",
+        "de": "End Year",
+        "fr": "End Year",
+        "es": "End Year",
+        "ar": "End Year"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "weekendDays"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

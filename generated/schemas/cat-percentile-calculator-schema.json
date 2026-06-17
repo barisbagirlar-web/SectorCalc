@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "(1-N)",
       "default": 1,
-      "businessContext": "Candidate's All India Rank"
+      "businessContext": "Candidate's All India Rank",
+      "label_i18n": {
+        "en": "Overall Rank",
+        "tr": "Overall Rank",
+        "de": "Overall Rank",
+        "fr": "Overall Rank",
+        "es": "Overall Rank",
+        "ar": "Overall Rank"
+      }
     },
     {
       "id": "total_candidates",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 200000,
-      "businessContext": "Total number of test-takers"
+      "businessContext": "Total number of test-takers",
+      "label_i18n": {
+        "en": "Total Candidates",
+        "tr": "Total Candidates",
+        "de": "Total Candidates",
+        "fr": "Total Candidates",
+        "es": "Total Candidates",
+        "ar": "Total Candidates"
+      }
     },
     {
       "id": "qa_rank",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "(1-N)",
       "default": 1,
-      "businessContext": "Rank in Quantitative Aptitude section"
+      "businessContext": "Rank in Quantitative Aptitude section",
+      "label_i18n": {
+        "en": "QA Section Rank",
+        "tr": "QA Section Rank",
+        "de": "QA Section Rank",
+        "fr": "QA Section Rank",
+        "es": "QA Section Rank",
+        "ar": "QA Section Rank"
+      }
     },
     {
       "id": "qa_total",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 200000,
-      "businessContext": "Total candidates who appeared for QA"
+      "businessContext": "Total candidates who appeared for QA",
+      "label_i18n": {
+        "en": "QA Total Candidates",
+        "tr": "QA Total Candidates",
+        "de": "QA Total Candidates",
+        "fr": "QA Total Candidates",
+        "es": "QA Total Candidates",
+        "ar": "QA Total Candidates"
+      }
     },
     {
       "id": "varc_rank",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "(1-N)",
       "default": 1,
-      "businessContext": "Rank in Verbal Ability and Reading Comprehension"
+      "businessContext": "Rank in Verbal Ability and Reading Comprehension",
+      "label_i18n": {
+        "en": "VARC Section Rank",
+        "tr": "VARC Section Rank",
+        "de": "VARC Section Rank",
+        "fr": "VARC Section Rank",
+        "es": "VARC Section Rank",
+        "ar": "VARC Section Rank"
+      }
     },
     {
       "id": "varc_total",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "count",
       "default": 200000,
-      "businessContext": "Total candidates for VARC"
+      "businessContext": "Total candidates for VARC",
+      "label_i18n": {
+        "en": "VARC Total Candidates",
+        "tr": "VARC Total Candidates",
+        "de": "VARC Total Candidates",
+        "fr": "VARC Total Candidates",
+        "es": "VARC Total Candidates",
+        "ar": "VARC Total Candidates"
+      }
     },
     {
       "id": "lrdi_rank",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "(1-N)",
       "default": 1,
-      "businessContext": "Rank in Data Interpretation & Logical Reasoning"
+      "businessContext": "Rank in Data Interpretation & Logical Reasoning",
+      "label_i18n": {
+        "en": "LRDI Section Rank",
+        "tr": "LRDI Section Rank",
+        "de": "LRDI Section Rank",
+        "fr": "LRDI Section Rank",
+        "es": "LRDI Section Rank",
+        "ar": "LRDI Section Rank"
+      }
     },
     {
       "id": "lrdi_total",
@@ -63,27 +119,39 @@
       "type": "number",
       "unit": "count",
       "default": 200000,
-      "businessContext": "Total candidates for LRDI"
+      "businessContext": "Total candidates for LRDI",
+      "label_i18n": {
+        "en": "LRDI Total Candidates",
+        "tr": "LRDI Total Candidates",
+        "de": "LRDI Total Candidates",
+        "fr": "LRDI Total Candidates",
+        "es": "LRDI Total Candidates",
+        "ar": "LRDI Total Candidates"
+      }
     }
   ],
   "formulas": {
     "overall_percentile": "(1 - (overall_rank / total_candidates)) * 100",
     "qa_percentile": "(1 - (qa_rank / qa_total)) * 100",
     "varc_percentile": "(1 - (varc_rank / varc_total)) * 100",
-    "lrdi_percentile": "(1 - (lrdi_rank / lrdi_total)) * 100"
+    "lrdi_percentile": "(1 - (lrdi_rank / lrdi_total)) * 100",
+    "____qa_percentile_toFixed_2_____": "<%= qa_percentile.toFixed(2) %>%",
+    "____varc_percentile_toFixed_2_____": "<%= varc_percentile.toFixed(2) %>%",
+    "____lrdi_percentile_toFixed_2_____": "<%= lrdi_percentile.toFixed(2) %>%",
+    "result": "Overall Percentile: <%= overall_percentile.toFixed(2) %>%"
   },
   "outputs": {
-    "primary": "Overall Percentile: <%= overall_percentile.toFixed(2) %>%",
+    "primary": "result",
     "breakdown": [
       "QA Percentile: <%= qa_percentile.toFixed(2) %>%",
       "VARC Percentile: <%= varc_percentile.toFixed(2) %>%",
       "LRDI Percentile: <%= lrdi_percentile.toFixed(2) %>%"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

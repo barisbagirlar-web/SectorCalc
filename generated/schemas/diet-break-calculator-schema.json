@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 2000,
-      "businessContext": "Çalışanın günlük enerji ihtiyacı"
+      "businessContext": "Çalışanın günlük enerji ihtiyacı",
+      "label_i18n": {
+        "en": "Günlük Kalori Hedefi",
+        "tr": "Günlük Kalori Hedefi",
+        "de": "Günlük Kalori Hedefi",
+        "fr": "Günlük Kalori Hedefi",
+        "es": "Günlük Kalori Hedefi",
+        "ar": "Günlük Kalori Hedefi"
+      }
     },
     {
       "id": "dietDays",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Diyet uygulanacak gün sayısı"
+      "businessContext": "Diyet uygulanacak gün sayısı",
+      "label_i18n": {
+        "en": "Diyet Gün Sayısı",
+        "tr": "Diyet Gün Sayısı",
+        "de": "Diyet Gün Sayısı",
+        "fr": "Diyet Gün Sayısı",
+        "es": "Diyet Gün Sayısı",
+        "ar": "Diyet Gün Sayısı"
+      }
     },
     {
       "id": "breakDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 2,
-      "businessContext": "Diyete ara verilecek gün sayısı"
+      "businessContext": "Diyete ara verilecek gün sayısı",
+      "label_i18n": {
+        "en": "Diyet Arası Gün Sayısı",
+        "tr": "Diyet Arası Gün Sayısı",
+        "de": "Diyet Arası Gün Sayısı",
+        "fr": "Diyet Arası Gün Sayısı",
+        "es": "Diyet Arası Gün Sayısı",
+        "ar": "Diyet Arası Gün Sayısı"
+      }
     },
     {
       "id": "activityFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.2,
-      "businessContext": "Sedanter (1.2), Hafif Aktif (1.375), Orta Aktif (1.55), Çok Aktif (1.725)"
+      "businessContext": "Sedanter (1.2), Hafif Aktif (1.375), Orta Aktif (1.55), Çok Aktif (1.725)",
+      "label_i18n": {
+        "en": "Aktivite Faktörü",
+        "tr": "Aktivite Faktörü",
+        "de": "Aktivite Faktörü",
+        "fr": "Aktivite Faktörü",
+        "es": "Aktivite Faktörü",
+        "ar": "Aktivite Faktörü"
+      }
     },
     {
       "id": "weight",
@@ -39,24 +71,38 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Çalışanın vücut ağırlığı"
+      "businessContext": "Çalışanın vücut ağırlığı",
+      "label_i18n": {
+        "en": "Vücut Ağırlığı",
+        "tr": "Vücut Ağırlığı",
+        "de": "Vücut Ağırlığı",
+        "fr": "Vücut Ağırlığı",
+        "es": "Vücut Ağırlığı",
+        "ar": "Vücut Ağırlığı"
+      }
     }
   ],
   "formulas": {
     "totalWeeklyCalories": "dailyCalories * dietDays + (dailyCalories * activityFactor) * breakDays",
     "averageDailyCalories": "(dailyCalories * dietDays + (dailyCalories * activityFactor) * breakDays) / (dietDays + breakDays)",
     "breakDayCalories": "dailyCalories * activityFactor",
-    "calorieDifference": "(dailyCalories * dietDays + (dailyCalories * activityFactor) * breakDays) / (dietDays + breakDays) - dailyCalories"
+    "calorieDifference": "(dailyCalories * dietDays + (dailyCalories * activityFactor) * breakDays) / (dietDays + breakDays) - dailyCalories",
+    "Diyet_Aras__G_n_Kalorisi": "Diyet Arası Gün Kalorisi",
+    "Toplam_Haftal_k_Kalori": "Toplam Haftalık Kalori",
+    "Kalori_A_____Fazlas_": "Kalori Açığı/Fazlası"
   },
   "outputs": {
-    "primary": "Ortalama Günlük Kalori",
+    "primary": "totalWeeklyCalories",
     "breakdown": [
       "Diyet Arası Gün Kalorisi",
       "Toplam Haftalık Kalori",
       "Kalori Açığı/Fazlası"
     ]
   },
-  "category": "Finans & İK",
-  "sector": "Perakende & Gıda",
-  "premiumRequired": false
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
+  "premiumRequired": false,
+  "categorySlug": "hse-ergonomics",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

@@ -2,31 +2,31 @@
 import * as z from 'zod';
 
 export interface Circuit_training_calculatorInput {
-  sourceVoltage: number;
-  resistor1: number;
-  resistor2: number;
-  connectionType: number;
+  voltage: number;
+  resistance1: number;
+  resistance2: number;
 }
 
 export const Circuit_training_calculatorInputSchema = z.object({
-  sourceVoltage: z.number().default(12),
-  resistor1: z.number().default(100),
-  resistor2: z.number().default(200),
-  connectionType: z.number().default(1),
+  voltage: z.number().default(12),
+  resistance1: z.number().default(1000),
+  resistance2: z.number().default(2200),
 });
 
 function evaluateAllFormulas(input: Circuit_training_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.connectionType === 1 ? input.resistor1 + input.resistor2 : 1 / (1 / input.resistor1 + 1 / input.resistor2); results["totalResistance"] = Number.isFinite(v) ? v : 0; } catch { results["totalResistance"] = 0; }
-  try { const v = input.sourceVoltage / (results["totalResistance"] ?? 0); results["totalCurrent"] = Number.isFinite(v) ? v : 0; } catch { results["totalCurrent"] = 0; }
-  try { const v = input.sourceVoltage * (results["totalCurrent"] ?? 0); results["totalPower"] = Number.isFinite(v) ? v : 0; } catch { results["totalPower"] = 0; }
+  try { const v = input.resistance1 + input.resistance2; results["totalResistance"] = Number.isFinite(v) ? v : 0; } catch { results["totalResistance"] = 0; }
+  try { const v = input.voltage / (results["totalResistance"] ?? 0); results["current"] = Number.isFinite(v) ? v : 0; } catch { results["current"] = 0; }
+  try { const v = input.voltage * (results["current"] ?? 0); results["powerTotal"] = Number.isFinite(v) ? v : 0; } catch { results["powerTotal"] = 0; }
+  try { const v = (results["current"] ?? 0) * (results["current"] ?? 0) * input.resistance1; results["powerR1"] = Number.isFinite(v) ? v : 0; } catch { results["powerR1"] = 0; }
+  try { const v = (results["current"] ?? 0) * (results["current"] ?? 0) * input.resistance2; results["powerR2"] = Number.isFinite(v) ? v : 0; } catch { results["powerR2"] = 0; }
   return results;
 }
 
 
 export function calculateCircuit_training_calculator(input: Circuit_training_calculatorInput): Circuit_training_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["current"] ?? 0;
   const breakdown = {
     
   };

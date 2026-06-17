@@ -5,33 +5,65 @@
       "id": "pAB",
       "label": "Transition Probability A → B",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.2,
-      "businessContext": "Probability of transitioning from state A to state B in one step."
+      "businessContext": "Probability of transitioning from state A to state B in one step.",
+      "label_i18n": {
+        "en": "Transition Probability A → B",
+        "tr": "Transition Probability A → B",
+        "de": "Transition Probability A → B",
+        "fr": "Transition Probability A → B",
+        "es": "Transition Probability A → B",
+        "ar": "Transition Probability A → B"
+      }
     },
     {
       "id": "pBA",
       "label": "Transition Probability B → A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.3,
-      "businessContext": "Probability of transitioning from state B to state A in one step."
+      "businessContext": "Probability of transitioning from state B to state A in one step.",
+      "label_i18n": {
+        "en": "Transition Probability B → A",
+        "tr": "Transition Probability B → A",
+        "de": "Transition Probability B → A",
+        "fr": "Transition Probability B → A",
+        "es": "Transition Probability B → A",
+        "ar": "Transition Probability B → A"
+      }
     },
     {
       "id": "initA",
       "label": "Initial Probability of State A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Initial probability of being in state A (1 means definitely in state A)."
+      "businessContext": "Initial probability of being in state A (1 means definitely in state A).",
+      "label_i18n": {
+        "en": "Initial Probability of State A",
+        "tr": "Initial Probability of State A",
+        "de": "Initial Probability of State A",
+        "fr": "Initial Probability of State A",
+        "es": "Initial Probability of State A",
+        "ar": "Initial Probability of State A"
+      }
     },
     {
       "id": "steps",
       "label": "Number of Steps",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of transitions to perform."
+      "businessContext": "Number of transitions to perform.",
+      "label_i18n": {
+        "en": "Number of Steps",
+        "tr": "Number of Steps",
+        "de": "Number of Steps",
+        "fr": "Number of Steps",
+        "es": "Number of Steps",
+        "ar": "Number of Steps"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "steadyStateB"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

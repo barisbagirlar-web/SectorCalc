@@ -93,7 +93,7 @@
       "id": "cutting_method",
       "label": "Cutting Method",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "single_ply",
       "min": null,
       "max": null,
@@ -162,7 +162,7 @@
       "id": "use_nesting",
       "label": "Enable Nesting Optimization",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -224,211 +224,27 @@
     ]
   },
   "formulas": [
-    {
-      "id": "pattern_area",
-      "description": "Area of one pattern piece in m²",
-      "expression": "(pattern_length * pattern_width) / 10000",
-      "unit": "m²"
-    },
-    {
-      "id": "total_pattern_area",
-      "description": "Total area required for all pieces without allowance",
-      "expression": "pattern_area * quantity",
-      "unit": "m²"
-    },
-    {
-      "id": "fabric_area",
-      "description": "Total fabric area available",
-      "expression": "(fabric_width * fabric_length) / 10000",
-      "unit": "m²"
-    },
-    {
-      "id": "allowance_factor",
-      "description": "Factor to include allowance",
-      "expression": "1 + (allowance_percentage / 100)",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "adjusted_pattern_area",
-      "description": "Total pattern area including allowance",
-      "expression": "total_pattern_area * allowance_factor",
-      "unit": "m²"
-    },
-    {
-      "id": "fabric_utilization",
-      "description": "Percentage of fabric used (primary efficiency metric)",
-      "expression": "(adjusted_pattern_area / fabric_area) * 100",
-      "unit": "%"
-    },
-    {
-      "id": "waste_percentage",
-      "description": "Percentage of fabric wasted",
-      "expression": "100 - fabric_utilization",
-      "unit": "%"
-    },
-    {
-      "id": "total_material_cost",
-      "description": "Total cost of fabric used",
-      "expression": "fabric_area * material_cost_per_m2",
-      "unit": "currency"
-    },
-    {
-      "id": "labor_hours",
-      "description": "Estimated labor hours based on cutting method",
-      "expression": "cutting_method == 'single_ply' ? quantity * 0.02 : (cutting_method == 'multi_ply' ? quantity * 0.005 : quantity * 0.003)",
-      "unit": "hours"
-    },
-    {
-      "id": "labor_cost",
-      "description": "Total labor cost",
-      "expression": "labor_hours * labor_rate_per_hour",
-      "unit": "currency"
-    },
-    {
-      "id": "total_cost",
-      "description": "Total cost (material + labor)",
-      "expression": "total_material_cost + labor_cost",
-      "unit": "currency"
-    },
-    {
-      "id": "cost_per_piece",
-      "description": "Cost per cut piece",
-      "expression": "total_cost / quantity",
-      "unit": "currency/piece"
-    }
+    "fabric_width",
+    "fabric_width",
+    "fabric_width",
+    "fabric_width",
+    "fabric_width",
+    "fabric_width",
+    "fabric_width",
+    "fabric_width",
+    "fabric_width",
+    "fabric_width",
+    "fabric_width",
+    "fabric_width"
   ],
   "outputs": {
-    "primary": {
-      "id": "fabric_utilization",
-      "label": "Fabric Utilization (%)",
-      "value": null,
-      "unit": "%",
-      "description": "Primary efficiency metric – percentage of fabric area used for cut pieces."
-    },
-    "breakdown": {
-      "pattern_area": {
-        "id": "pattern_area",
-        "label": "Pattern Area",
-        "value": null,
-        "unit": "m²"
-      },
-      "total_pattern_area": {
-        "id": "total_pattern_area",
-        "label": "Total Pattern Area",
-        "value": null,
-        "unit": "m²"
-      },
-      "fabric_area": {
-        "id": "fabric_area",
-        "label": "Fabric Area",
-        "value": null,
-        "unit": "m²"
-      },
-      "adjusted_pattern_area": {
-        "id": "adjusted_pattern_area",
-        "label": "Adjusted Pattern Area (with allowance)",
-        "value": null,
-        "unit": "m²"
-      },
-      "waste_percentage": {
-        "id": "waste_percentage",
-        "label": "Waste Percentage",
-        "value": null,
-        "unit": "%"
-      },
-      "total_material_cost": {
-        "id": "total_material_cost",
-        "label": "Total Material Cost",
-        "value": null,
-        "unit": "currency"
-      },
-      "labor_hours": {
-        "id": "labor_hours",
-        "label": "Labor Hours",
-        "value": null,
-        "unit": "hours"
-      },
-      "labor_cost": {
-        "id": "labor_cost",
-        "label": "Labor Cost",
-        "value": null,
-        "unit": "currency"
-      },
-      "total_cost": {
-        "id": "total_cost",
-        "label": "Total Cost",
-        "value": null,
-        "unit": "currency"
-      },
-      "cost_per_piece": {
-        "id": "cost_per_piece",
-        "label": "Cost per Piece",
-        "value": null,
-        "unit": "currency/piece"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_allowance",
-        "label": "Excess Allowance",
-        "description": "Allowance percentage above 3% adds hidden material waste.",
-        "impact": "high"
-      },
-      {
-        "id": "poor_nesting",
-        "label": "Poor Nesting Efficiency",
-        "description": "Without nesting, utilization drops by 5-15%.",
-        "impact": "high"
-      },
-      {
-        "id": "cutting_method_inefficiency",
-        "label": "Cutting Method Inefficiency",
-        "description": "Single-ply cutting increases labor hours and cost per piece.",
-        "impact": "medium"
-      },
-      {
-        "id": "pattern_orientation_loss",
-        "label": "Pattern Orientation Loss",
-        "description": "Non-optimal orientation of patterns on fabric width increases waste.",
-        "impact": "medium"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_allowance",
-        "label": "Reduce Allowance",
-        "description": "If allowance > 3%, consider tightening tolerances to reduce waste.",
-        "condition": "allowance_percentage > 3"
-      },
-      {
-        "id": "enable_nesting",
-        "label": "Enable Nesting Optimization",
-        "description": "Turn on nesting to improve fabric utilization by 5-15%.",
-        "condition": "use_nesting == false"
-      },
-      {
-        "id": "switch_to_multi_ply",
-        "label": "Switch to Multi-Ply Cutting",
-        "description": "For quantities > 10, multi-ply reduces labor cost and improves consistency.",
-        "condition": "cutting_method == 'single_ply' && quantity >= 10"
-      },
-      {
-        "id": "widen_fabric",
-        "label": "Use Wider Fabric",
-        "description": "If pattern width is less than 70% of fabric width, consider a narrower fabric to reduce waste.",
-        "condition": "pattern_width / fabric_width < 0.7"
-      },
-      {
-        "id": "review_layout",
-        "label": "Review Pattern Layout",
-        "description": "If waste > 15%, manually review pattern arrangement for improvement.",
-        "condition": "waste_percentage > 15"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "fabric-cutting-optimizer-calculator",
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "cnc-additive-manufacturing",
+  "category": "İmalat & Üretim",
+  "sector": "Üretim & İmalat"
 }

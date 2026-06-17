@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 20000,
-      "businessContext": "The current market value of the insured vehicle."
+      "businessContext": "The current market value of the insured vehicle.",
+      "label_i18n": {
+        "en": "Car Value",
+        "tr": "Car Value",
+        "de": "Car Value",
+        "fr": "Car Value",
+        "es": "Car Value",
+        "ar": "Car Value"
+      }
     },
     {
       "id": "driverAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 35,
-      "businessContext": "Age of the primary driver; younger drivers often have higher risk."
+      "businessContext": "Age of the primary driver; younger drivers often have higher risk.",
+      "label_i18n": {
+        "en": "Driver Age",
+        "tr": "Driver Age",
+        "de": "Driver Age",
+        "fr": "Driver Age",
+        "es": "Driver Age",
+        "ar": "Driver Age"
+      }
     },
     {
       "id": "drivingExperience",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Number of years the driver has held a valid driving license."
+      "businessContext": "Number of years the driver has held a valid driving license.",
+      "label_i18n": {
+        "en": "Driving Experience",
+        "tr": "Driving Experience",
+        "de": "Driving Experience",
+        "fr": "Driving Experience",
+        "es": "Driving Experience",
+        "ar": "Driving Experience"
+      }
     },
     {
       "id": "noClaimsYears",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Consecutive claim-free years; affects no-claims discount."
+      "businessContext": "Consecutive claim-free years; affects no-claims discount.",
+      "label_i18n": {
+        "en": "No-Claims Years",
+        "tr": "No-Claims Years",
+        "de": "No-Claims Years",
+        "fr": "No-Claims Years",
+        "es": "No-Claims Years",
+        "ar": "No-Claims Years"
+      }
     },
     {
       "id": "annualMileage",
@@ -39,23 +71,47 @@
       "type": "number",
       "unit": "km",
       "default": 15000,
-      "businessContext": "Estimated annual distance driven; higher mileage increases risk."
+      "businessContext": "Estimated annual distance driven; higher mileage increases risk.",
+      "label_i18n": {
+        "en": "Annual Mileage",
+        "tr": "Annual Mileage",
+        "de": "Annual Mileage",
+        "fr": "Annual Mileage",
+        "es": "Annual Mileage",
+        "ar": "Annual Mileage"
+      }
     },
     {
       "id": "coverageLevel",
       "label": "Coverage Level",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Coverage type: 1=Third party, 2=Third party fire & theft, 3=Comprehensive."
+      "businessContext": "Coverage type: 1=Third party, 2=Third party fire & theft, 3=Comprehensive.",
+      "label_i18n": {
+        "en": "Coverage Level",
+        "tr": "Coverage Level",
+        "de": "Coverage Level",
+        "fr": "Coverage Level",
+        "es": "Coverage Level",
+        "ar": "Coverage Level"
+      }
     },
     {
       "id": "regionRisk",
       "label": "Region Risk Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Regional risk factor based on crime and accident statistics (1=lowest, 10=highest)."
+      "businessContext": "Regional risk factor based on crime and accident statistics (1=lowest, 10=highest).",
+      "label_i18n": {
+        "en": "Region Risk Factor",
+        "tr": "Region Risk Factor",
+        "de": "Region Risk Factor",
+        "fr": "Region Risk Factor",
+        "es": "Region Risk Factor",
+        "ar": "Region Risk Factor"
+      }
     },
     {
       "id": "vehicleAge",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "years",
       "default": 3,
-      "businessContext": "Age of the vehicle; older cars may have different risk profiles."
+      "businessContext": "Age of the vehicle; older cars may have different risk profiles.",
+      "label_i18n": {
+        "en": "Vehicle Age",
+        "tr": "Vehicle Age",
+        "de": "Vehicle Age",
+        "fr": "Vehicle Age",
+        "es": "Vehicle Age",
+        "ar": "Vehicle Age"
+      }
     }
   ],
   "formulas": {
@@ -90,10 +154,10 @@
       "vehicleAgeFactor"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "maintenance-reliability"
 }

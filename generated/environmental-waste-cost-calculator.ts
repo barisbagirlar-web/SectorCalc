@@ -33,32 +33,19 @@ export const Environmental_waste_cost_calculatorInputSchema = z.object({
   waste_volume_limit_kg: z.number().min(0).max(1000000).default(5000),
 });
 
-function evaluateAllFormulas(input: Environmental_waste_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.waste_volume_kg * input.disposal_cost_per_kg; results["disposal_cost"] = Number.isFinite(v) ? v : 0; } catch { results["disposal_cost"] = 0; }
-  try { const v = input.transport_distance_km * input.transport_cost_per_km * (input.waste_volume_kg / 1000); results["transport_cost"] = Number.isFinite(v) ? v : 0; } catch { results["transport_cost"] = 0; }
-  try { const v = (input.waste_volume_kg / 1000) * input.labor_hours_per_ton * input.labor_rate_per_hour; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
-  try { const v = input.waste_volume_kg * (input.recycling_rate / 100) * input.recycling_revenue_per_kg; results["recycling_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["recycling_revenue"] = 0; }
-  try { const v = input.waste_volume_kg * input.emission_factor_kg_co2_per_kg_waste * input.carbon_cost_per_kg_co2; results["carbon_cost"] = Number.isFinite(v) ? v : 0; } catch { results["carbon_cost"] = 0; }
-  try { const v = Math.max(0, (input.waste_volume_kg - input.waste_volume_limit_kg)) * input.compliance_penalty_per_kg; results["compliance_penalty"] = Number.isFinite(v) ? v : 0; } catch { results["compliance_penalty"] = 0; }
-  try { const v = (results["disposal_cost"] ?? 0) + (results["transport_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["carbon_cost"] ?? 0) + (results["compliance_penalty"] ?? 0) - (results["recycling_revenue"] ?? 0); results["total_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_waste_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Environmental_waste_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateEnvironmental_waste_cost_calculator(input: Environmental_waste_cost_calculatorInput): Environmental_waste_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_waste_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    disposal_cost: values["disposal_cost"] ?? 0,
-    transport_cost: values["transport_cost"] ?? 0,
-    labor_cost: values["labor_cost"] ?? 0,
-    recycling_revenue: values["recycling_revenue"] ?? 0,
-    carbon_cost: values["carbon_cost"] ?? 0,
-    compliance_penalty: values["compliance_penalty"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Inefficient Sorting","Excessive Transport Distance","High Emission Factor"];
-  const suggestedActions: string[] = ["Increase Recycling Rate","Optimize Transport Routes","Reduce Waste Volume","Audit Compliance Limits"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -77,7 +64,7 @@ export function calculateEnvironmental_waste_cost_calculator(input: Environmenta
 
 export interface Environmental_waste_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { disposal_cost: number; transport_cost: number; labor_cost: number; recycling_revenue: number; carbon_cost: number; compliance_penalty: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

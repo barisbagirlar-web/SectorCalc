@@ -125,7 +125,7 @@
       "id": "complexity_type",
       "label": "Complexity Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "mixed",
       "min": null,
       "max": null,
@@ -146,7 +146,7 @@
       "id": "use_lean_metrics",
       "label": "Use Lean Metrics (SMED, OEE)",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -190,144 +190,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "setup_cost_per_sku",
-      "label": "Setup Cost per SKU",
-      "description": "Annual setup cost per SKU based on changeover time and labor rate.",
-      "expression": "(setup_time_minutes / 60) * labor_rate * (num_sku / (avg_volume_per_sku / 1000))",
-      "unit": "$/SKU"
-    },
-    {
-      "id": "inventory_holding_cost",
-      "label": "Inventory Holding Cost",
-      "description": "Cost of holding component inventory due to complexity (WIP and safety stock).",
-      "expression": "num_components * avg_bom_levels * 0.02 * (avg_volume_per_sku * 0.5) * 0.25",
-      "unit": "$/year"
-    },
-    {
-      "id": "quality_loss_cost",
-      "label": "Quality Loss Cost",
-      "description": "Cost of defects and rework driven by complexity (Six Sigma defect rate assumption).",
-      "expression": "num_sku * avg_volume_per_sku * 0.005 * (labor_rate * 0.5 + 10)",
-      "unit": "$/year"
-    },
-    {
-      "id": "overhead_complexity_penalty",
-      "label": "Overhead Complexity Penalty",
-      "description": "Additional overhead due to increased planning, scheduling, and material handling.",
-      "expression": "(num_sku * 0.1 + num_components * 0.05) * overhead_rate * 100",
-      "unit": "$/year"
-    },
-    {
-      "id": "lean_adjustment_factor",
-      "label": "Lean Adjustment Factor",
-      "description": "If use_lean_metrics is true, applies SMED reduction (30% setup time) and OEE improvement (15% quality loss).",
-      "expression": "use_lean_metrics ? 0.7 : 1.0",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "hidden_cost_per_unit",
-      "label": "Hidden Cost per Unit",
-      "description": "Total hidden cost per unit produced, adjusted for lean metrics.",
-      "expression": "(setup_cost_per_sku * lean_adjustment_factor + inventory_holding_cost + quality_loss_cost * lean_adjustment_factor + overhead_complexity_penalty) / (num_sku * avg_volume_per_sku)",
-      "unit": "$/unit"
-    },
-    {
-      "id": "total_hidden_cost",
-      "label": "Total Hidden Cost",
-      "description": "Primary result: total annual hidden cost due to product complexity.",
-      "expression": "hidden_cost_per_unit * num_sku * avg_volume_per_sku",
-      "unit": "$/year"
-    }
+    "num_sku",
+    "num_sku",
+    "num_sku",
+    "num_sku",
+    "num_sku",
+    "num_sku",
+    "num_sku"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_hidden_cost",
-      "label": "Total Hidden Cost",
-      "value": null,
-      "unit": "$/year",
-      "description": "Annual hidden cost driven by product and process complexity."
-    },
-    "breakdown": {
-      "setup_cost": {
-        "id": "setup_cost_per_sku",
-        "label": "Setup Cost per SKU",
-        "value": null,
-        "unit": "$/SKU"
-      },
-      "inventory_holding_cost": {
-        "id": "inventory_holding_cost",
-        "label": "Inventory Holding Cost",
-        "value": null,
-        "unit": "$/year"
-      },
-      "quality_loss_cost": {
-        "id": "quality_loss_cost",
-        "label": "Quality Loss Cost",
-        "value": null,
-        "unit": "$/year"
-      },
-      "overhead_complexity_penalty": {
-        "id": "overhead_complexity_penalty",
-        "label": "Overhead Complexity Penalty",
-        "value": null,
-        "unit": "$/year"
-      },
-      "hidden_cost_per_unit": {
-        "id": "hidden_cost_per_unit",
-        "label": "Hidden Cost per Unit",
-        "value": null,
-        "unit": "$/unit"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "driver": "Excessive SKU count",
-        "impact": "Increases setup frequency and inventory complexity.",
-        "recommended_action": "Rationalize product portfolio using ABC analysis."
-      },
-      {
-        "driver": "High component variety",
-        "impact": "Drives inventory holding cost and overhead.",
-        "recommended_action": "Implement component commonality and modular design."
-      },
-      {
-        "driver": "Long setup times",
-        "impact": "Reduces OEE and increases changeover cost.",
-        "recommended_action": "Apply SMED techniques to reduce setup time by 50%."
-      },
-      {
-        "driver": "Deep BOM levels",
-        "impact": "Amplifies WIP inventory and quality risk.",
-        "recommended_action": "Flatten BOM through design for assembly (DFA)."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "action": "Conduct SKU rationalization workshop",
-        "expected_savings": "15-25% reduction in total hidden cost",
-        "timeline": "3 months"
-      },
-      {
-        "action": "Implement component commonality program",
-        "expected_savings": "10-20% reduction in inventory holding cost",
-        "timeline": "6 months"
-      },
-      {
-        "action": "Deploy SMED for top 20% of changeovers",
-        "expected_savings": "30-50% reduction in setup cost",
-        "timeline": "4 months"
-      },
-      {
-        "action": "Adopt Lean Six Sigma to reduce defect rate by 50%",
-        "expected_savings": "Significant quality loss reduction",
-        "timeline": "12 months"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "product-complexity-hidden-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "lean-production",
+  "category": "Yalın Üretim",
+  "sector": "Üretim & İmalat"
 }

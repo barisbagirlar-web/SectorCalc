@@ -93,7 +93,8 @@
       },
       "businessContext_i18n": {
         "en": "Type of steam trap influences discharge coefficient and failure mode."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "failure_mode",
@@ -111,7 +112,8 @@
       },
       "businessContext_i18n": {
         "en": "Failure mode determines effective orifice area and discharge coefficient."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "condensate_recovery",
@@ -124,7 +126,8 @@
       },
       "businessContext_i18n": {
         "en": "Whether condensate is recovered; affects net energy loss calculation."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -158,149 +161,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "effective_orifice_area",
-      "label": "Effective Orifice Area",
-      "description": "Cross-sectional area of the orifice based on diameter and failure mode factor.",
-      "formula": "A = (π * (orifice_diameter/1000)^2 / 4) * F_mode",
-      "variables": {
-        "F_mode": {
-          "Blow-through (fully open)": 1,
-          "Leaking (partially open)": 0.3
-        }
-      },
-      "unit": "m²"
-    },
-    {
-      "id": "steam_flow_rate",
-      "label": "Steam Flow Rate",
-      "description": "Mass flow rate of steam through the failed trap using Napier's formula for saturated steam.",
-      "formula": "m_dot = 0.525 * A * (P_abs + 1.013) / sqrt(273 + 170)",
-      "variables": {
-        "P_abs": "steam_pressure + 1.013"
-      },
-      "unit": "kg/s"
-    },
-    {
-      "id": "annual_steam_loss_mass",
-      "label": "Annual Steam Loss (Mass)",
-      "description": "Total mass of steam lost per year.",
-      "formula": "M_annual = m_dot * operating_hours_per_year * 3600",
-      "unit": "kg/yr"
-    },
-    {
-      "id": "energy_loss_kwh",
-      "label": "Energy Loss (kWh)",
-      "description": "Thermal energy lost in the steam, using enthalpy of vaporization at given pressure.",
-      "formula": "E_loss = M_annual * h_fg / 3600",
-      "variables": {
-        "h_fg": "enthalpy of vaporization at steam_pressure (kJ/kg) – interpolated from steam tables"
-      },
-      "unit": "kWh/yr"
-    },
-    {
-      "id": "condensate_adjustment",
-      "label": "Condensate Recovery Adjustment",
-      "description": "If condensate is recovered, 20% of energy is recovered; otherwise 0%.",
-      "formula": "E_net = E_loss * (1 - 0.2 * condensate_recovery)",
-      "unit": "kWh/yr"
-    },
-    {
-      "id": "cost_loss",
-      "label": "Annual Cost Loss",
-      "description": "Monetary value of lost steam energy.",
-      "formula": "C_loss = (M_annual / 1000) * steam_cost",
-      "unit": "USD/yr"
-    },
-    {
-      "id": "co2_emissions",
-      "label": "CO2 Emissions",
-      "description": "Indirect CO2 emissions from wasted steam (assuming natural gas boiler, 0.2 kg CO2/kWh).",
-      "formula": "CO2 = E_net * 0.2",
-      "unit": "kg CO2/yr"
-    }
+    "orifice_diameter",
+    "orifice_diameter",
+    "orifice_diameter",
+    "orifice_diameter",
+    "orifice_diameter",
+    "orifice_diameter",
+    "orifice_diameter"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_cost_loss",
-      "label": "Total Annual Cost Loss",
-      "unit": "USD/yr",
-      "description": "Primary result: total monetary loss due to failed steam trap."
-    },
-    "breakdown": {
-      "energy_loss_kwh": {
-        "id": "energy_loss_kwh",
-        "label": "Energy Loss",
-        "unit": "kWh/yr"
-      },
-      "steam_loss_tonnes": {
-        "id": "steam_loss_tonnes",
-        "label": "Steam Loss",
-        "unit": "tonnes/yr"
-      },
-      "cost_loss": {
-        "id": "cost_loss",
-        "label": "Cost Loss",
-        "unit": "USD/yr"
-      },
-      "co2_emissions": {
-        "id": "co2_emissions",
-        "label": "CO2 Emissions",
-        "unit": "kg CO2/yr"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "orifice_diameter",
-        "label": "Orifice Diameter",
-        "impact": "Quadratic effect on area and flow"
-      },
-      {
-        "id": "steam_pressure",
-        "label": "Steam Pressure",
-        "impact": "Linear effect on flow rate"
-      },
-      {
-        "id": "operating_hours",
-        "label": "Operating Hours",
-        "impact": "Linear effect on annual totals"
-      },
-      {
-        "id": "failure_mode",
-        "label": "Failure Mode",
-        "impact": "Factor of 1.0 vs 0.3 on effective area"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "replace_trap",
-        "label": "Replace failed trap immediately",
-        "priority": "high",
-        "expectedSavings": "100% of calculated loss"
-      },
-      {
-        "id": "inspect_system",
-        "label": "Conduct system-wide steam trap survey",
-        "priority": "medium",
-        "expectedSavings": "Variable, typically 10-20% of total steam loss"
-      },
-      {
-        "id": "implement_monitoring",
-        "label": "Install continuous monitoring on critical traps",
-        "priority": "medium",
-        "expectedSavings": "Reduction in failure detection time by 80%"
-      },
-      {
-        "id": "optimize_condensate_recovery",
-        "label": "Improve condensate recovery system",
-        "priority": "low",
-        "expectedSavings": "Up to 20% of energy loss recovered"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "steam-trap-energy-loss-calculator",
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",
-  "categorySlug": "sustainability-resource-esg"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

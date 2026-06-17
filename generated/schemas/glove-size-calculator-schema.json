@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "El ayasının en geniş yerinden ölçülen çevre uzunluğu"
+      "businessContext": "El ayasının en geniş yerinden ölçülen çevre uzunluğu",
+      "label_i18n": {
+        "en": "El Çevresi (cm)",
+        "tr": "El Çevresi (cm)",
+        "de": "El Çevresi (cm)",
+        "fr": "El Çevresi (cm)",
+        "es": "El Çevresi (cm)",
+        "ar": "El Çevresi (cm)"
+      }
     },
     {
       "id": "handLengthCm",
@@ -15,7 +23,39 @@
       "type": "number",
       "unit": "cm",
       "default": 18.5,
-      "businessContext": "Orta parmak ucundan bilek kıvrımına kadar olan mesafe"
+      "businessContext": "Orta parmak ucundan bilek kıvrımına kadar olan mesafe",
+      "label_i18n": {
+        "en": "El Uzunluğu (cm)",
+        "tr": "El Uzunluğu (cm)",
+        "de": "El Uzunluğu (cm)",
+        "fr": "El Uzunluğu (cm)",
+        "es": "El Uzunluğu (cm)",
+        "ar": "El Uzunluğu (cm)"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
@@ -25,10 +65,7 @@
     "roundedSize": "Math.round(averageInch * 2) / 2"
   },
   "outputs": {
-    "primary": {
-      "label": "Eldiven Numarası",
-      "value": "roundedSize"
-    },
+    "primary": "circumferenceInch",
     "breakdown": [
       {
         "label": "El Çevresi (inç)",
@@ -40,8 +77,8 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

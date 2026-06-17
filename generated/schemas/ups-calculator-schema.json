@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "W",
       "default": 500,
-      "businessContext": "Total active power consumption of connected equipment (Watts)"
+      "businessContext": "Total active power consumption of connected equipment (Watts)",
+      "label_i18n": {
+        "en": "Total Load",
+        "tr": "Total Load",
+        "de": "Total Load",
+        "fr": "Total Load",
+        "es": "Total Load",
+        "ar": "Total Load"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Power Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Power factor of the load (typically 0.7-0.9), ≤1"
+      "businessContext": "Power factor of the load (typically 0.7-0.9), ≤1",
+      "label_i18n": {
+        "en": "Power Factor",
+        "tr": "Power Factor",
+        "de": "Power Factor",
+        "fr": "Power Factor",
+        "es": "Power Factor",
+        "ar": "Power Factor"
+      }
     },
     {
       "id": "requiredRuntime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Required backup time in minutes during power outage"
+      "businessContext": "Required backup time in minutes during power outage",
+      "label_i18n": {
+        "en": "Required Runtime",
+        "tr": "Required Runtime",
+        "de": "Required Runtime",
+        "fr": "Required Runtime",
+        "es": "Required Runtime",
+        "ar": "Required Runtime"
+      }
     },
     {
       "id": "inverterEfficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Efficiency of the UPS inverter in converting DC to AC, typically 85-95%"
+      "businessContext": "Efficiency of the UPS inverter in converting DC to AC, typically 85-95%",
+      "label_i18n": {
+        "en": "Inverter Efficiency",
+        "tr": "Inverter Efficiency",
+        "de": "Inverter Efficiency",
+        "fr": "Inverter Efficiency",
+        "es": "Inverter Efficiency",
+        "ar": "Inverter Efficiency"
+      }
     },
     {
       "id": "batteryVoltage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "V",
       "default": 12,
-      "businessContext": "DC system voltage of the battery bank (e.g., 12V, 24V, 48V)"
+      "businessContext": "DC system voltage of the battery bank (e.g., 12V, 24V, 48V)",
+      "label_i18n": {
+        "en": "Battery Voltage",
+        "tr": "Battery Voltage",
+        "de": "Battery Voltage",
+        "fr": "Battery Voltage",
+        "es": "Battery Voltage",
+        "ar": "Battery Voltage"
+      }
     },
     {
       "id": "depthOfDischarge",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Maximum depth of discharge for battery, to prolong life (e.g., 50% for lead-acid)"
+      "businessContext": "Maximum depth of discharge for battery, to prolong life (e.g., 50% for lead-acid)",
+      "label_i18n": {
+        "en": "Depth of Discharge",
+        "tr": "Depth of Discharge",
+        "de": "Depth of Discharge",
+        "fr": "Depth of Discharge",
+        "es": "Depth of Discharge",
+        "ar": "Depth of Discharge"
+      }
     },
     {
       "id": "numberOfBatteries",
       "label": "Number of Batteries in Parallel",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of identical batteries connected in parallel to share load"
+      "businessContext": "Number of identical batteries connected in parallel to share load",
+      "label_i18n": {
+        "en": "Number of Batteries in Parallel",
+        "tr": "Number of Batteries in Parallel",
+        "de": "Number of Batteries in Parallel",
+        "fr": "Number of Batteries in Parallel",
+        "es": "Number of Batteries in Parallel",
+        "ar": "Number of Batteries in Parallel"
+      }
     }
   ],
   "formulas": {
@@ -76,10 +132,10 @@
       "adjustedWattHours"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "electrical-power-systems"
 }

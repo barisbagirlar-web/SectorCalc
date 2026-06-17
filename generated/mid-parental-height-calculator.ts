@@ -27,13 +27,19 @@ function evaluateAllFormulas(input: Mid_parental_height_calculatorInput): Record
   try { const v = 'Formül: (baba + anne ' + (input.childSex === 1 ? '+ 13' : '- 13') + ') / 2'; results["breakdownStep4"] = Number.isFinite(v) ? v : 0; } catch { results["breakdownStep4"] = 0; }
   try { const v = 'Hesaplanan: ' + (results["midHeightCm"] ?? 0).toFixed(1) + ' cm'; results["breakdownStep5"] = Number.isFinite(v) ? v : 0; } catch { results["breakdownStep5"] = 0; }
   try { const v = input.resultUnit === 1 ? 'İnçe çevrildi: ' + (results["outputHeight"] ?? 0).toFixed(1) + ' inç' : ''; results["breakdownStep6"] = Number.isFinite(v) ? v : 0; } catch { results["breakdownStep6"] = 0; }
+  try { const v = (results["breakdownStep1"] ?? 0); results["_breakdownStep1_"] = Number.isFinite(v) ? v : 0; } catch { results["_breakdownStep1_"] = 0; }
+  try { const v = (results["breakdownStep2"] ?? 0); results["_breakdownStep2_"] = Number.isFinite(v) ? v : 0; } catch { results["_breakdownStep2_"] = 0; }
+  try { const v = (results["breakdownStep3"] ?? 0); results["_breakdownStep3_"] = Number.isFinite(v) ? v : 0; } catch { results["_breakdownStep3_"] = 0; }
+  try { const v = (results["breakdownStep4"] ?? 0); results["_breakdownStep4_"] = Number.isFinite(v) ? v : 0; } catch { results["_breakdownStep4_"] = 0; }
+  try { const v = (results["breakdownStep5"] ?? 0); results["_breakdownStep5_"] = Number.isFinite(v) ? v : 0; } catch { results["_breakdownStep5_"] = 0; }
+  try { const v = (results["breakdownStep6"] ?? 0); results["_breakdownStep6_"] = Number.isFinite(v) ? v : 0; } catch { results["_breakdownStep6_"] = 0; }
   return results;
 }
 
 
 export function calculateMid_parental_height_calculator(input: Mid_parental_height_calculatorInput): Mid_parental_height_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["{primaryText}"] ?? 0;
+  const totalWasteCost = values["midHeightCm"] ?? 0;
   const breakdown = {
     
   };

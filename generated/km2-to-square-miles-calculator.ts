@@ -22,13 +22,15 @@ function evaluateAllFormulas(input: Km2_to_square_miles_calculatorInput): Record
   try { const v = input.areaKm2 * input.factor * input.multiplier; results["raw_sqmi"] = Number.isFinite(v) ? v : 0; } catch { results["raw_sqmi"] = 0; }
   try { const v = Math.round((results["raw_sqmi"] ?? 0) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["rounded_sqmi"] = Number.isFinite(v) ? v : 0; } catch { results["rounded_sqmi"] = 0; }
   try { const v = input.areaKm2 >= input.threshold; results["valid_input"] = Number.isFinite(v) ? v : 0; } catch { results["valid_input"] = 0; }
+  try { const v = input.factor; results["factor"] = Number.isFinite(v) ? v : 0; } catch { results["factor"] = 0; }
+  try { const v = (results["valid_input"] ?? 0) ? (results["rounded_sqmi"] ?? 0) : 0; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateKm2_to_square_miles_calculator(input: Km2_to_square_miles_calculatorInput): Km2_to_square_miles_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["valid_input"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

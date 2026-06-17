@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3000,
-      "businessContext": "Clear distance between supports for a simply supported beam."
+      "businessContext": "Clear distance between supports for a simply supported beam.",
+      "label_i18n": {
+        "en": "Beam Span (L)",
+        "tr": "Beam Span (L)",
+        "de": "Beam Span (L)",
+        "fr": "Beam Span (L)",
+        "es": "Beam Span (L)",
+        "ar": "Beam Span (L)"
+      }
     },
     {
       "id": "udl",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "N/mm",
       "default": 10,
-      "businessContext": "Load applied evenly along the full length of the beam."
+      "businessContext": "Load applied evenly along the full length of the beam.",
+      "label_i18n": {
+        "en": "Uniformly Distributed Load (w)",
+        "tr": "Uniformly Distributed Load (w)",
+        "de": "Uniformly Distributed Load (w)",
+        "fr": "Uniformly Distributed Load (w)",
+        "es": "Uniformly Distributed Load (w)",
+        "ar": "Uniformly Distributed Load (w)"
+      }
     },
     {
       "id": "allowableStress",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 160,
-      "businessContext": "Maximum permissible stress for the beam material under bending."
+      "businessContext": "Maximum permissible stress for the beam material under bending.",
+      "label_i18n": {
+        "en": "Allowable Bending Stress (σ_allow)",
+        "tr": "Allowable Bending Stress (σ_allow)",
+        "de": "Allowable Bending Stress (σ_allow)",
+        "fr": "Allowable Bending Stress (σ_allow)",
+        "es": "Allowable Bending Stress (σ_allow)",
+        "ar": "Allowable Bending Stress (σ_allow)"
+      }
     },
     {
       "id": "elasticModulus",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 200000,
-      "businessContext": "Young's modulus of the beam material."
+      "businessContext": "Young's modulus of the beam material.",
+      "label_i18n": {
+        "en": "Modulus of Elasticity (E)",
+        "tr": "Modulus of Elasticity (E)",
+        "de": "Modulus of Elasticity (E)",
+        "fr": "Modulus of Elasticity (E)",
+        "es": "Modulus of Elasticity (E)",
+        "ar": "Modulus of Elasticity (E)"
+      }
     },
     {
       "id": "deflectionRatio",
       "label": "Deflection Limit Ratio (L/δ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 360,
-      "businessContext": "Allowable deflection expressed as span divided by this ratio (e.g., 360 means L/360)."
+      "businessContext": "Allowable deflection expressed as span divided by this ratio (e.g., 360 means L/360).",
+      "label_i18n": {
+        "en": "Deflection Limit Ratio (L/δ)",
+        "tr": "Deflection Limit Ratio (L/δ)",
+        "de": "Deflection Limit Ratio (L/δ)",
+        "fr": "Deflection Limit Ratio (L/δ)",
+        "es": "Deflection Limit Ratio (L/δ)",
+        "ar": "Deflection Limit Ratio (L/δ)"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "delta_allow_mm"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "cnc-additive-manufacturing"
 }

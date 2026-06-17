@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 500000,
-      "businessContext": "The total purchase price or assessed value of the property."
+      "businessContext": "The total purchase price or assessed value of the property.",
+      "label_i18n": {
+        "en": "Property Value",
+        "tr": "Property Value",
+        "de": "Property Value",
+        "fr": "Property Value",
+        "es": "Property Value",
+        "ar": "Property Value"
+      }
     },
     {
       "id": "taxRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 2.5,
-      "businessContext": "The applicable land transfer tax rate as a percentage (e.g., 2.5 for 2.5%)."
+      "businessContext": "The applicable land transfer tax rate as a percentage (e.g., 2.5 for 2.5%).",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "exemptionAmount",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "$",
       "default": 4000,
-      "businessContext": "Maximum exemption amount available for first-time home buyers. Set to 0 if not applicable."
+      "businessContext": "Maximum exemption amount available for first-time home buyers. Set to 0 if not applicable.",
+      "label_i18n": {
+        "en": "First-Time Buyer Exemption",
+        "tr": "First-Time Buyer Exemption",
+        "de": "First-Time Buyer Exemption",
+        "fr": "First-Time Buyer Exemption",
+        "es": "First-Time Buyer Exemption",
+        "ar": "First-Time Buyer Exemption"
+      }
     },
     {
       "id": "isFirstTimeBuyer",
       "label": "First-Time Buyer?",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "1 if buyer qualifies as a first-time buyer, else 0."
+      "businessContext": "1 if buyer qualifies as a first-time buyer, else 0.",
+      "label_i18n": {
+        "en": "First-Time Buyer?",
+        "tr": "First-Time Buyer?",
+        "de": "First-Time Buyer?",
+        "fr": "First-Time Buyer?",
+        "es": "First-Time Buyer?",
+        "ar": "First-Time Buyer?"
+      }
     },
     {
       "id": "fixedFee",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 250,
-      "businessContext": "Government administrative or registration fee, if any."
+      "businessContext": "Government administrative or registration fee, if any.",
+      "label_i18n": {
+        "en": "Administrative Fee",
+        "tr": "Administrative Fee",
+        "de": "Administrative Fee",
+        "fr": "Administrative Fee",
+        "es": "Administrative Fee",
+        "ar": "Administrative Fee"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,7 @@
       "netTax"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

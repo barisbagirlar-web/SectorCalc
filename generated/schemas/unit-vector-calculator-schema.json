@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of the vector start point"
+      "businessContext": "X-coordinate of the vector start point",
+      "label_i18n": {
+        "en": "Start X",
+        "tr": "Start X",
+        "de": "Start X",
+        "fr": "Start X",
+        "es": "Start X",
+        "ar": "Start X"
+      }
     },
     {
       "id": "startY",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of the vector start point"
+      "businessContext": "Y-coordinate of the vector start point",
+      "label_i18n": {
+        "en": "Start Y",
+        "tr": "Start Y",
+        "de": "Start Y",
+        "fr": "Start Y",
+        "es": "Start Y",
+        "ar": "Start Y"
+      }
     },
     {
       "id": "startZ",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Z-coordinate of the vector start point"
+      "businessContext": "Z-coordinate of the vector start point",
+      "label_i18n": {
+        "en": "Start Z",
+        "tr": "Start Z",
+        "de": "Start Z",
+        "fr": "Start Z",
+        "es": "Start Z",
+        "ar": "Start Z"
+      }
     },
     {
       "id": "endX",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "X-coordinate of the vector end point"
+      "businessContext": "X-coordinate of the vector end point",
+      "label_i18n": {
+        "en": "End X",
+        "tr": "End X",
+        "de": "End X",
+        "fr": "End X",
+        "es": "End X",
+        "ar": "End X"
+      }
     },
     {
       "id": "endY",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of the vector end point"
+      "businessContext": "Y-coordinate of the vector end point",
+      "label_i18n": {
+        "en": "End Y",
+        "tr": "End Y",
+        "de": "End Y",
+        "fr": "End Y",
+        "es": "End Y",
+        "ar": "End Y"
+      }
     },
     {
       "id": "endZ",
@@ -47,17 +87,30 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Z-coordinate of the vector end point"
+      "businessContext": "Z-coordinate of the vector end point",
+      "label_i18n": {
+        "en": "End Z",
+        "tr": "End Z",
+        "de": "End Z",
+        "fr": "End Z",
+        "es": "End Z",
+        "ar": "End Z"
+      }
     }
   ],
   "formulas": {
     "deltaX": "endX - startX",
     "deltaY": "endY - startY",
     "deltaZ": "endZ - startZ",
-    "magnitude": "Math.sqrt(deltaX**2 + deltaY**2 + deltaZ**2)"
+    "magnitude": "Math.sqrt(deltaX**2 + deltaY**2 + deltaZ**2)",
+    "_deltaX___magnitude__toFixed_4_": "(deltaX / magnitude).toFixed(4)",
+    "_deltaY___magnitude__toFixed_4_": "(deltaY / magnitude).toFixed(4)",
+    "_deltaZ___magnitude__toFixed_4_": "(deltaZ / magnitude).toFixed(4)",
+    "magnitude_toFixed_4_": "magnitude.toFixed(4)",
+    "result": "magnitude === 0 ? 'Undefined (zero vector)' : '(' + (deltaX/magnitude).toFixed(4) + ', ' + (deltaY/magnitude).toFixed(4) + ', ' + (deltaZ/magnitude).toFixed(4) + ')'"
   },
   "outputs": {
-    "primary": "magnitude === 0 ? 'Undefined (zero vector)' : '(' + (deltaX/magnitude).toFixed(4) + ', ' + (deltaY/magnitude).toFixed(4) + ', ' + (deltaZ/magnitude).toFixed(4) + ')'",
+    "primary": "result",
     "breakdown": [
       "magnitude === 0 ? 'N/A' : (deltaX / magnitude).toFixed(4)",
       "magnitude === 0 ? 'N/A' : (deltaY / magnitude).toFixed(4)",
@@ -65,10 +118,10 @@
       "magnitude === 0 ? '0' : magnitude.toFixed(4)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

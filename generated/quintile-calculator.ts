@@ -26,13 +26,14 @@ function evaluateAllFormulas(input: Quintile_calculatorInput): Record<string, nu
   try { const v = input.value <= input.p20 ? 1 : input.value <= input.p40 ? 2 : input.value <= input.p60 ? 3 : input.value <= input.p80 ? 4 : 5; results["q"] = Number.isFinite(v) ? v : 0; } catch { results["q"] = 0; }
   try { const v = (results["q"] ?? 0) === 1 ? (input.value - input.min) / (input.p20 - input.min) : (results["q"] ?? 0) === 2 ? (input.value - input.p20) / (input.p40 - input.p20) : (results["q"] ?? 0) === 3 ? (input.value - input.p40) / (input.p60 - input.p40) : (results["q"] ?? 0) === 4 ? (input.value - input.p60) / (input.p80 - input.p60) : (input.value - input.p80) / (input.max - input.p80); results["within"] = Number.isFinite(v) ? v : 0; } catch { results["within"] = 0; }
   try { const v = `Quintile ${(results["q"] ?? 0)} (${Math.round((results["within"] ?? 0)*100)}% (results["within"] ?? 0))`; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateQuintile_calculator(input: Quintile_calculatorInput): Quintile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Quintile"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -5,41 +5,81 @@
       "id": "lowerBound",
       "label": "Alt Sınır (a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Entegrasyon başlangıcı"
+      "businessContext": "Entegrasyon başlangıcı",
+      "label_i18n": {
+        "en": "Alt Sınır (a)",
+        "tr": "Alt Sınır (a)",
+        "de": "Alt Sınır (a)",
+        "fr": "Alt Sınır (a)",
+        "es": "Alt Sınır (a)",
+        "ar": "Alt Sınır (a)"
+      }
     },
     {
       "id": "upperBound",
       "label": "Üst Sınır (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Entegrasyon bitişi"
+      "businessContext": "Entegrasyon bitişi",
+      "label_i18n": {
+        "en": "Üst Sınır (b)",
+        "tr": "Üst Sınır (b)",
+        "de": "Üst Sınır (b)",
+        "fr": "Üst Sınır (b)",
+        "es": "Üst Sınır (b)",
+        "ar": "Üst Sınır (b)"
+      }
     },
     {
       "id": "coeffA",
       "label": "Katsayı A (ax²)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "İkinci dereceden katsayı"
+      "businessContext": "İkinci dereceden katsayı",
+      "label_i18n": {
+        "en": "Katsayı A (ax²)",
+        "tr": "Katsayı A (ax²)",
+        "de": "Katsayı A (ax²)",
+        "fr": "Katsayı A (ax²)",
+        "es": "Katsayı A (ax²)",
+        "ar": "Katsayı A (ax²)"
+      }
     },
     {
       "id": "coeffB",
       "label": "Katsayı B (bx)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Birinci dereceden katsayı"
+      "businessContext": "Birinci dereceden katsayı",
+      "label_i18n": {
+        "en": "Katsayı B (bx)",
+        "tr": "Katsayı B (bx)",
+        "de": "Katsayı B (bx)",
+        "fr": "Katsayı B (bx)",
+        "es": "Katsayı B (bx)",
+        "ar": "Katsayı B (bx)"
+      }
     },
     {
       "id": "coeffC",
       "label": "Katsayı C (c)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sabit terim"
+      "businessContext": "Sabit terim",
+      "label_i18n": {
+        "en": "Katsayı C (c)",
+        "tr": "Katsayı C (c)",
+        "de": "Katsayı C (c)",
+        "fr": "Katsayı C (c)",
+        "es": "Katsayı C (c)",
+        "ar": "Katsayı C (c)"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "midRadius"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "m/s",
       "default": 2.5,
-      "businessContext": "The speed of the kayak relative to water."
+      "businessContext": "The speed of the kayak relative to water.",
+      "label_i18n": {
+        "en": "Kayak Speed",
+        "tr": "Kayak Speed",
+        "de": "Kayak Speed",
+        "fr": "Kayak Speed",
+        "es": "Kayak Speed",
+        "ar": "Kayak Speed"
+      }
     },
     {
       "id": "dragCoefficient",
       "label": "Drag Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Typical drag coefficient for the kayak hull shape."
+      "businessContext": "Typical drag coefficient for the kayak hull shape.",
+      "label_i18n": {
+        "en": "Drag Coefficient",
+        "tr": "Drag Coefficient",
+        "de": "Drag Coefficient",
+        "fr": "Drag Coefficient",
+        "es": "Drag Coefficient",
+        "ar": "Drag Coefficient"
+      }
     },
     {
       "id": "crossSectionalArea",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.3,
-      "businessContext": "Frontal area of the kayak and paddler."
+      "businessContext": "Frontal area of the kayak and paddler.",
+      "label_i18n": {
+        "en": "Cross-sectional Area",
+        "tr": "Cross-sectional Area",
+        "de": "Cross-sectional Area",
+        "fr": "Cross-sectional Area",
+        "es": "Cross-sectional Area",
+        "ar": "Cross-sectional Area"
+      }
     },
     {
       "id": "waterDensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of water (fresh water ~1000, salt water ~1025)."
+      "businessContext": "Density of water (fresh water ~1000, salt water ~1025).",
+      "label_i18n": {
+        "en": "Water Density",
+        "tr": "Water Density",
+        "de": "Water Density",
+        "fr": "Water Density",
+        "es": "Water Density",
+        "ar": "Water Density"
+      }
     },
     {
       "id": "paddlingEfficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Mechanical efficiency of converting human power to propulsion."
+      "businessContext": "Mechanical efficiency of converting human power to propulsion.",
+      "label_i18n": {
+        "en": "Paddling Efficiency",
+        "tr": "Paddling Efficiency",
+        "de": "Paddling Efficiency",
+        "fr": "Paddling Efficiency",
+        "es": "Paddling Efficiency",
+        "ar": "Paddling Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "effectivePower"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

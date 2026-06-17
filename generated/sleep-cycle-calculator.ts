@@ -19,31 +19,19 @@ export const Sleep_cycle_calculatorInputSchema = z.object({
   shift_worker: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Sleep_cycle_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.wake_time - ((results["total_sleep_minutes"] ?? 0) / 60); results["actual_sleep_start"] = Number.isFinite(v) ? v : 0; } catch { results["actual_sleep_start"] = 0; }
-  try { const v = Math.max(5 * input.cycle_length_minutes, (5 * input.cycle_length_minutes) + (input.sleep_debt_hours * 60 / input.recovery_efficiency)); results["total_sleep_minutes"] = Number.isFinite(v) ? v : 0; } catch { results["total_sleep_minutes"] = 0; }
-  try { const v = input.wake_time - ((results["total_sleep_minutes"] ?? 0) / 60) - (input.fall_asleep_minutes / 60); results["optimal_bedtime"] = Number.isFinite(v) ? v : 0; } catch { results["optimal_bedtime"] = 0; }
-  try { const v = input.shift_worker ? 0.5 : 0.0; results["circadian_penalty"] = Number.isFinite(v) ? v : 0; } catch { results["circadian_penalty"] = 0; }
-  try { const v = input.sleep_debt_hours + (results["circadian_penalty"] ?? 0); results["adjusted_sleep_debt"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_sleep_debt"] = 0; }
-  try { const v = Math.floor((results["total_sleep_minutes"] ?? 0) / input.cycle_length_minutes); results["cycle_count"] = Number.isFinite(v) ? v : 0; } catch { results["cycle_count"] = 0; }
-  try { const v = Math.min(100, Math.max(0, ((results["cycle_count"] ?? 0) / 6) * 50 + (1 - ((results["adjusted_sleep_debt"] ?? 0) / 8)) * 30 + (input.recovery_efficiency - 0.5) * 40)); results["sleep_quality_index"] = Number.isFinite(v) ? v : 0; } catch { results["sleep_quality_index"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Sleep_cycle_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateSleep_cycle_calculator(input: Sleep_cycle_calculatorInput): Sleep_cycle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["optimal_bedtime"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    total_sleep_minutes: values["total_sleep_minutes"] ?? 0,
-    cycle_count: values["cycle_count"] ?? 0,
-    adjusted_sleep_debt: values["adjusted_sleep_debt"] ?? 0,
-    sleep_quality_index: values["sleep_quality_index"] ?? 0,
-    actual_sleep_start: values["actual_sleep_start"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Caffeine consumed within 6h of bedtime can increase sleep onset latency by 30–60 min, not modeled here.","Blue light suppresses melatonin; can reduce recovery efficiency by up to 20%.","Undiagnosed sleep apnea can reduce recovery efficiency by 40% or more."];
-  const suggestedActions: string[] = ["Maintain same wake time every day (including weekends) to stabilize circadian rhythm.","If adjusted sleep debt > 2h, add one extra sleep cycle (90 min) for 2–3 nights.","Begin wind-down 30 min before optimal bedtime: dim lights, no screens, cool room (18–20°C).","Use blackout curtains and scheduled naps (20 min) to offset circadian penalty."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -62,7 +50,7 @@ export function calculateSleep_cycle_calculator(input: Sleep_cycle_calculatorInp
 
 export interface Sleep_cycle_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { total_sleep_minutes: number; cycle_count: number; adjusted_sleep_debt: number; sleep_quality_index: number; actual_sleep_start: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

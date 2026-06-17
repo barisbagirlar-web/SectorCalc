@@ -191,7 +191,7 @@
       "id": "region",
       "label": "Cloud Region",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "us-east-1",
       "min": null,
       "max": null,
@@ -213,7 +213,7 @@
       "id": "include_hidden_costs",
       "label": "Include Hidden Costs (e.g., opportunity loss)",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -283,157 +283,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "overrun_call_volume",
-      "label": "Overrun Call Volume",
-      "description": "Number of API calls that exceed the SLA threshold.",
-      "expression": "api_call_volume * (overrun_rate / 100)",
-      "unit": "calls"
-    },
-    {
-      "id": "direct_overrun_cost",
-      "label": "Direct Overrun Cost",
-      "description": "Direct cost of overrun calls at standard rate.",
-      "expression": "overrun_call_volume * cost_per_call",
-      "unit": "USD"
-    },
-    {
-      "id": "retry_cost",
-      "label": "Retry Cost",
-      "description": "Additional cost from retries triggered by overrun calls.",
-      "expression": "overrun_call_volume * (retry_rate / 100) * retry_cost_per_call",
-      "unit": "USD"
-    },
-    {
-      "id": "egress_overrun_cost",
-      "label": "Egress Overrun Cost",
-      "description": "Extra egress cost due to retries and larger payloads from overrun calls.",
-      "expression": "data_egress_gb * egress_cost_per_gb * (overrun_rate / 100) * 0.5",
-      "unit": "USD",
-      "note": "Assumes 50% of egress is attributable to overrun events."
-    },
-    {
-      "id": "sla_penalty_cost",
-      "label": "SLA Penalty Cost",
-      "description": "Penalty incurred if overrun rate exceeds SLA threshold.",
-      "expression": "IF(overrun_rate > 0, monthly_service_fee * (sla_penalty_percentage / 100), 0)",
-      "unit": "USD"
-    },
-    {
-      "id": "hidden_loss_drivers",
-      "label": "Hidden Loss Drivers",
-      "description": "Estimated hidden costs (customer churn, brand impact) if enabled.",
-      "expression": "IF(include_hidden_costs = true, (direct_overrun_cost + retry_cost) * 0.3, 0)",
-      "unit": "USD",
-      "note": "30% uplift based on industry studies (Lean Six Sigma)."
-    },
-    {
-      "id": "total_overrun_cost",
-      "label": "Total Overrun Cost",
-      "description": "Primary result: total monthly cost impact of API overruns.",
-      "expression": "direct_overrun_cost + retry_cost + egress_overrun_cost + sla_penalty_cost + hidden_loss_drivers",
-      "unit": "USD"
-    }
+    "api_call_volume",
+    "api_call_volume",
+    "api_call_volume",
+    "api_call_volume",
+    "api_call_volume",
+    "api_call_volume",
+    "api_call_volume"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_overrun_cost",
-      "label": "Total Overrun Cost",
-      "unit": "USD",
-      "description": "Aggregate monthly cost from API overruns including direct, retry, egress, SLA penalties, and hidden losses."
-    },
-    "breakdown": {
-      "direct_overrun_cost": {
-        "id": "direct_overrun_cost",
-        "label": "Direct Overrun Cost",
-        "unit": "USD"
-      },
-      "retry_cost": {
-        "id": "retry_cost",
-        "label": "Retry Cost",
-        "unit": "USD"
-      },
-      "egress_overrun_cost": {
-        "id": "egress_overrun_cost",
-        "label": "Egress Overrun Cost",
-        "unit": "USD"
-      },
-      "sla_penalty_cost": {
-        "id": "sla_penalty_cost",
-        "label": "SLA Penalty Cost",
-        "unit": "USD"
-      },
-      "hidden_loss_drivers": {
-        "id": "hidden_loss_drivers",
-        "label": "Hidden Loss Drivers",
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "customer_churn_impact",
-        "label": "Customer Churn Impact",
-        "description": "Estimated revenue loss from customers leaving due to poor API performance.",
-        "unit": "USD",
-        "value": null
-      },
-      {
-        "id": "brand_reputation_cost",
-        "label": "Brand Reputation Cost",
-        "description": "Long-term cost of negative brand perception from frequent overruns.",
-        "unit": "USD",
-        "value": null
-      },
-      {
-        "id": "operational_overhead",
-        "label": "Operational Overhead",
-        "description": "Extra engineering time spent debugging and mitigating overruns.",
-        "unit": "USD",
-        "value": null
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "optimize_api_endpoints",
-        "label": "Optimize API Endpoints",
-        "description": "Review and refactor slow endpoints to reduce overrun rate.",
-        "expectedImpact": "Reduces overrun_rate by 20-40%."
-      },
-      {
-        "id": "implement_caching",
-        "label": "Implement Caching",
-        "description": "Use CDN or in-memory cache to reduce call volume and latency.",
-        "expectedImpact": "Reduces api_call_volume by 15-30%."
-      },
-      {
-        "id": "adjust_retry_policy",
-        "label": "Adjust Retry Policy",
-        "description": "Use exponential backoff and limit retries to reduce retry_cost.",
-        "expectedImpact": "Reduces retry_rate by 50-70%."
-      },
-      {
-        "id": "negotiate_sla",
-        "label": "Negotiate SLA Terms",
-        "description": "Work with provider to adjust penalty thresholds or reduce fees.",
-        "expectedImpact": "Reduces sla_penalty_cost by 10-30%."
-      },
-      {
-        "id": "monitor_egress",
-        "label": "Monitor Data Egress",
-        "description": "Analyze egress patterns and compress data to lower egress_overrun_cost.",
-        "expectedImpact": "Reduces egress_cost_per_gb by 10-20%."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Total",
-      "unit": "USD",
-      "description": "Total overrun cost adjusted for data quality and confidence level (e.g., ±15% uncertainty).",
-      "value": null
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "cloud-api-overrun-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Effective length of the pendulum from pivot to center of mass."
+      "businessContext": "Effective length of the pendulum from pivot to center of mass.",
+      "label_i18n": {
+        "en": "Length (m)",
+        "tr": "Length (m)",
+        "de": "Length (m)",
+        "fr": "Length (m)",
+        "es": "Length (m)",
+        "ar": "Length (m)"
+      }
     },
     {
       "id": "gravity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Acceleration due to gravity (standard Earth gravity is 9.81 m/s²)."
+      "businessContext": "Acceleration due to gravity (standard Earth gravity is 9.81 m/s²).",
+      "label_i18n": {
+        "en": "Gravity (m/s²)",
+        "tr": "Gravity (m/s²)",
+        "de": "Gravity (m/s²)",
+        "fr": "Gravity (m/s²)",
+        "es": "Gravity (m/s²)",
+        "ar": "Gravity (m/s²)"
+      }
     },
     {
       "id": "initialAngle",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "deg",
       "default": 5,
-      "businessContext": "Initial release angle from vertical in degrees. Keep small for accurate simple harmonic approximation."
+      "businessContext": "Initial release angle from vertical in degrees. Keep small for accurate simple harmonic approximation.",
+      "label_i18n": {
+        "en": "Initial Angle (deg)",
+        "tr": "Initial Angle (deg)",
+        "de": "Initial Angle (deg)",
+        "fr": "Initial Angle (deg)",
+        "es": "Initial Angle (deg)",
+        "ar": "Initial Angle (deg)"
+      }
     },
     {
       "id": "numberOfOscillations",
       "label": "Number of Oscillations",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of full oscillations for total time calculation."
+      "businessContext": "Number of full oscillations for total time calculation.",
+      "label_i18n": {
+        "en": "Number of Oscillations",
+        "tr": "Number of Oscillations",
+        "de": "Number of Oscillations",
+        "fr": "Number of Oscillations",
+        "es": "Number of Oscillations",
+        "ar": "Number of Oscillations"
+      }
     }
   ],
   "formulas": {
@@ -53,8 +85,8 @@
       "maxHeight"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

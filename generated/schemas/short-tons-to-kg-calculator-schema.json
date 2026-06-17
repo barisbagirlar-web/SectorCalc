@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "short tons",
       "default": 0,
-      "businessContext": "Weight of first item in short tons"
+      "businessContext": "Weight of first item in short tons",
+      "label_i18n": {
+        "en": "Item 1 Weight",
+        "tr": "Item 1 Weight",
+        "de": "Item 1 Weight",
+        "fr": "Item 1 Weight",
+        "es": "Item 1 Weight",
+        "ar": "Item 1 Weight"
+      }
     },
     {
       "id": "item2_tons",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "short tons",
       "default": 0,
-      "businessContext": "Weight of second item in short tons"
+      "businessContext": "Weight of second item in short tons",
+      "label_i18n": {
+        "en": "Item 2 Weight",
+        "tr": "Item 2 Weight",
+        "de": "Item 2 Weight",
+        "fr": "Item 2 Weight",
+        "es": "Item 2 Weight",
+        "ar": "Item 2 Weight"
+      }
     },
     {
       "id": "item3_tons",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "short tons",
       "default": 0,
-      "businessContext": "Weight of third item in short tons"
+      "businessContext": "Weight of third item in short tons",
+      "label_i18n": {
+        "en": "Item 3 Weight",
+        "tr": "Item 3 Weight",
+        "de": "Item 3 Weight",
+        "fr": "Item 3 Weight",
+        "es": "Item 3 Weight",
+        "ar": "Item 3 Weight"
+      }
     },
     {
       "id": "item4_tons",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "short tons",
       "default": 0,
-      "businessContext": "Weight of fourth item in short tons"
+      "businessContext": "Weight of fourth item in short tons",
+      "label_i18n": {
+        "en": "Item 4 Weight",
+        "tr": "Item 4 Weight",
+        "de": "Item 4 Weight",
+        "fr": "Item 4 Weight",
+        "es": "Item 4 Weight",
+        "ar": "Item 4 Weight"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for output rounding"
+      "businessContext": "Number of decimal places for output rounding",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +88,11 @@
     "item3_kg": "item3_tons * 907.18474",
     "item4_kg": "item4_tons * 907.18474",
     "total_kg": "item1_kg + item2_kg + item3_kg + item4_kg",
-    "rounded_total": "Math.round(total_kg * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "rounded_total": "Math.round(total_kg * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "____item1_kg_toFixed_precision______kg_": "' + item1_kg.toFixed(precision) + ' kg'",
+    "____item2_kg_toFixed_precision______kg_": "' + item2_kg.toFixed(precision) + ' kg'",
+    "____item3_kg_toFixed_precision______kg_": "' + item3_kg.toFixed(precision) + ' kg'",
+    "____item4_kg_toFixed_precision______kg_": "' + item4_kg.toFixed(precision) + ' kg'"
   },
   "outputs": {
     "primary": "rounded_total",
@@ -59,10 +103,10 @@
       "'Item 4: ' + item4_kg.toFixed(precision) + ' kg'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -5,17 +5,33 @@
       "id": "originalServings",
       "label": "Original Servings",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of servings the original recipe is designed for."
+      "businessContext": "Number of servings the original recipe is designed for.",
+      "label_i18n": {
+        "en": "Original Servings",
+        "tr": "Original Servings",
+        "de": "Original Servings",
+        "fr": "Original Servings",
+        "es": "Original Servings",
+        "ar": "Original Servings"
+      }
     },
     {
       "id": "desiredServings",
       "label": "Desired Servings",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 8,
-      "businessContext": "Number of servings you want to scale the recipe to."
+      "businessContext": "Number of servings you want to scale the recipe to.",
+      "label_i18n": {
+        "en": "Desired Servings",
+        "tr": "Desired Servings",
+        "de": "Desired Servings",
+        "fr": "Desired Servings",
+        "es": "Desired Servings",
+        "ar": "Desired Servings"
+      }
     },
     {
       "id": "ingredient1Amount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 200,
-      "businessContext": "Original amount of ingredient 1 in the recipe."
+      "businessContext": "Original amount of ingredient 1 in the recipe.",
+      "label_i18n": {
+        "en": "Ingredient 1 Amount",
+        "tr": "Ingredient 1 Amount",
+        "de": "Ingredient 1 Amount",
+        "fr": "Ingredient 1 Amount",
+        "es": "Ingredient 1 Amount",
+        "ar": "Ingredient 1 Amount"
+      }
     },
     {
       "id": "ingredient2Amount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 150,
-      "businessContext": "Original amount of ingredient 2 in the recipe."
+      "businessContext": "Original amount of ingredient 2 in the recipe.",
+      "label_i18n": {
+        "en": "Ingredient 2 Amount",
+        "tr": "Ingredient 2 Amount",
+        "de": "Ingredient 2 Amount",
+        "fr": "Ingredient 2 Amount",
+        "es": "Ingredient 2 Amount",
+        "ar": "Ingredient 2 Amount"
+      }
     },
     {
       "id": "ingredient3Amount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Original amount of ingredient 3 in the recipe."
+      "businessContext": "Original amount of ingredient 3 in the recipe.",
+      "label_i18n": {
+        "en": "Ingredient 3 Amount",
+        "tr": "Ingredient 3 Amount",
+        "de": "Ingredient 3 Amount",
+        "fr": "Ingredient 3 Amount",
+        "es": "Ingredient 3 Amount",
+        "ar": "Ingredient 3 Amount"
+      }
     },
     {
       "id": "ingredient4Amount",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "g",
       "default": 50,
-      "businessContext": "Original amount of ingredient 4 in the recipe."
+      "businessContext": "Original amount of ingredient 4 in the recipe.",
+      "label_i18n": {
+        "en": "Ingredient 4 Amount",
+        "tr": "Ingredient 4 Amount",
+        "de": "Ingredient 4 Amount",
+        "fr": "Ingredient 4 Amount",
+        "es": "Ingredient 4 Amount",
+        "ar": "Ingredient 4 Amount"
+      }
     },
     {
       "id": "ingredient5Amount",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "g",
       "default": 25,
-      "businessContext": "Original amount of ingredient 5 in the recipe."
+      "businessContext": "Original amount of ingredient 5 in the recipe.",
+      "label_i18n": {
+        "en": "Ingredient 5 Amount",
+        "tr": "Ingredient 5 Amount",
+        "de": "Ingredient 5 Amount",
+        "fr": "Ingredient 5 Amount",
+        "es": "Ingredient 5 Amount",
+        "ar": "Ingredient 5 Amount"
+      }
     },
     {
       "id": "ingredient6Amount",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "g",
       "default": 10,
-      "businessContext": "Original amount of ingredient 6 in the recipe."
+      "businessContext": "Original amount of ingredient 6 in the recipe.",
+      "label_i18n": {
+        "en": "Ingredient 6 Amount",
+        "tr": "Ingredient 6 Amount",
+        "de": "Ingredient 6 Amount",
+        "fr": "Ingredient 6 Amount",
+        "es": "Ingredient 6 Amount",
+        "ar": "Ingredient 6 Amount"
+      }
     }
   ],
   "formulas": {
@@ -86,10 +150,10 @@
       "scaledIngredient6"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "food-cold-chain-hygiene"
 }

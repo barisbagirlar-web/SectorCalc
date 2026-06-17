@@ -24,13 +24,19 @@ function evaluateAllFormulas(input: C1v1_c2v2_calculatorInput): Record<string, n
   try { const v = input.c1 * input.v1 / input.c2; results["v2FromC1V1C2"] = Number.isFinite(v) ? v : 0; } catch { results["v2FromC1V1C2"] = 0; }
   try { const v = input.c2 * input.v2 / input.v1; results["c1FromC2V2V1"] = Number.isFinite(v) ? v : 0; } catch { results["c1FromC2V2V1"] = 0; }
   try { const v = input.c1 * input.v1 / input.v2; results["c2FromC1V1V2"] = Number.isFinite(v) ? v : 0; } catch { results["c2FromC1V1V2"] = 0; }
+  try { const v = (results["c1v1"] ?? 0); results["C1V1____c1v1_"] = Number.isFinite(v) ? v : 0; } catch { results["C1V1____c1v1_"] = 0; }
+  try { const v = (results["c2v2"] ?? 0); results["C2V2____c2v2_"] = Number.isFinite(v) ? v : 0; } catch { results["C2V2____c2v2_"] = 0; }
+  try { const v = (results["v1FromC1C2V2"] ?? 0); results["V1____v1FromC1C2V2_"] = Number.isFinite(v) ? v : 0; } catch { results["V1____v1FromC1C2V2_"] = 0; }
+  try { const v = (results["v2FromC1V1C2"] ?? 0); results["V2____v2FromC1V1C2_"] = Number.isFinite(v) ? v : 0; } catch { results["V2____v2FromC1V1C2_"] = 0; }
+  try { const v = (results["c1FromC2V2V1"] ?? 0); results["C1____c1FromC2V2V1_"] = Number.isFinite(v) ? v : 0; } catch { results["C1____c1FromC2V2V1_"] = 0; }
+  try { const v = (results["c2FromC1V1V2"] ?? 0); results["C2____c2FromC1V1V2_"] = Number.isFinite(v) ? v : 0; } catch { results["C2____c2FromC1V1V2_"] = 0; }
   return results;
 }
 
 
 export function calculateC1v1_c2v2_calculator(input: C1v1_c2v2_calculatorInput): C1v1_c2v2_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["C1V1"] ?? 0;
+  const totalWasteCost = values["c1v1"] ?? 0;
   const breakdown = {
     
   };

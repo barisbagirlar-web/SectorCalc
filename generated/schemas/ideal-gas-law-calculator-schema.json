@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L",
       "default": 22.4,
-      "businessContext": "The volume of the gas in liters."
+      "businessContext": "The volume of the gas in liters.",
+      "label_i18n": {
+        "en": "Volume (V)",
+        "tr": "Volume (V)",
+        "de": "Volume (V)",
+        "fr": "Volume (V)",
+        "es": "Volume (V)",
+        "ar": "Volume (V)"
+      }
     },
     {
       "id": "moles",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol",
       "default": 1,
-      "businessContext": "Amount of substance in moles."
+      "businessContext": "Amount of substance in moles.",
+      "label_i18n": {
+        "en": "Moles (n)",
+        "tr": "Moles (n)",
+        "de": "Moles (n)",
+        "fr": "Moles (n)",
+        "es": "Moles (n)",
+        "ar": "Moles (n)"
+      }
     },
     {
       "id": "temperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 273.15,
-      "businessContext": "Absolute temperature in Kelvin."
+      "businessContext": "Absolute temperature in Kelvin.",
+      "label_i18n": {
+        "en": "Temperature (T)",
+        "tr": "Temperature (T)",
+        "de": "Temperature (T)",
+        "fr": "Temperature (T)",
+        "es": "Temperature (T)",
+        "ar": "Temperature (T)"
+      }
     },
     {
       "id": "gasConstant",
@@ -31,11 +55,21 @@
       "type": "number",
       "unit": "L·atm/(mol·K)",
       "default": 0.082057,
-      "businessContext": "Ideal gas constant. Adjust based on pressure/volume units."
+      "businessContext": "Ideal gas constant. Adjust based on pressure/volume units.",
+      "label_i18n": {
+        "en": "Gas Constant (R)",
+        "tr": "Gas Constant (R)",
+        "de": "Gas Constant (R)",
+        "fr": "Gas Constant (R)",
+        "es": "Gas Constant (R)",
+        "ar": "Gas Constant (R)"
+      }
     }
   ],
   "formulas": {
-    "pressure": "(moles * gasConstant * temperature) / volume"
+    "pressure": "(moles * gasConstant * temperature) / volume",
+    "P___nRT_V": "P = nRT/V",
+    "PV___nRT": "PV = nRT"
   },
   "outputs": {
     "primary": "pressure",
@@ -44,8 +78,8 @@
       "PV = nRT"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

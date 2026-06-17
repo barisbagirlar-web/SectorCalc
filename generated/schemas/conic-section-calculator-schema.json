@@ -5,49 +5,97 @@
       "id": "A",
       "label": "x² Katsayısı (A)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0"
+      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0",
+      "label_i18n": {
+        "en": "x² Katsayısı (A)",
+        "tr": "x² Katsayısı (A)",
+        "de": "x² Katsayısı (A)",
+        "fr": "x² Katsayısı (A)",
+        "es": "x² Katsayısı (A)",
+        "ar": "x² Katsayısı (A)"
+      }
     },
     {
       "id": "B",
       "label": "xy Katsayısı (B)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0"
+      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0",
+      "label_i18n": {
+        "en": "xy Katsayısı (B)",
+        "tr": "xy Katsayısı (B)",
+        "de": "xy Katsayısı (B)",
+        "fr": "xy Katsayısı (B)",
+        "es": "xy Katsayısı (B)",
+        "ar": "xy Katsayısı (B)"
+      }
     },
     {
       "id": "C",
       "label": "y² Katsayısı (C)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0"
+      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0",
+      "label_i18n": {
+        "en": "y² Katsayısı (C)",
+        "tr": "y² Katsayısı (C)",
+        "de": "y² Katsayısı (C)",
+        "fr": "y² Katsayısı (C)",
+        "es": "y² Katsayısı (C)",
+        "ar": "y² Katsayısı (C)"
+      }
     },
     {
       "id": "D",
       "label": "x Katsayısı (D)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0"
+      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0",
+      "label_i18n": {
+        "en": "x Katsayısı (D)",
+        "tr": "x Katsayısı (D)",
+        "de": "x Katsayısı (D)",
+        "fr": "x Katsayısı (D)",
+        "es": "x Katsayısı (D)",
+        "ar": "x Katsayısı (D)"
+      }
     },
     {
       "id": "E",
       "label": "y Katsayısı (E)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0"
+      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0",
+      "label_i18n": {
+        "en": "y Katsayısı (E)",
+        "tr": "y Katsayısı (E)",
+        "de": "y Katsayısı (E)",
+        "fr": "y Katsayısı (E)",
+        "es": "y Katsayısı (E)",
+        "ar": "y Katsayısı (E)"
+      }
     },
     {
       "id": "F",
       "label": "Sabit Terim (F)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0"
+      "businessContext": "Ax² + Bxy + Cy² + Dx + Ey + F = 0",
+      "label_i18n": {
+        "en": "Sabit Terim (F)",
+        "tr": "Sabit Terim (F)",
+        "de": "Sabit Terim (F)",
+        "fr": "Sabit Terim (F)",
+        "es": "Sabit Terim (F)",
+        "ar": "Sabit Terim (F)"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +108,8 @@
       "discriminant"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

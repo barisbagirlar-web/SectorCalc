@@ -5,17 +5,33 @@
       "id": "p",
       "label": "Winning Probability (p)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Probability that the bet wins (between 0 and 1)."
+      "businessContext": "Probability that the bet wins (between 0 and 1).",
+      "label_i18n": {
+        "en": "Winning Probability (p)",
+        "tr": "Winning Probability (p)",
+        "de": "Winning Probability (p)",
+        "fr": "Winning Probability (p)",
+        "es": "Winning Probability (p)",
+        "ar": "Winning Probability (p)"
+      }
     },
     {
       "id": "b",
       "label": "Net Odds (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Net odds received per unit bet; if you bet 1 and win, you get back your stake plus b (i.e., total return = 1 + b)."
+      "businessContext": "Net odds received per unit bet; if you bet 1 and win, you get back your stake plus b (i.e., total return = 1 + b).",
+      "label_i18n": {
+        "en": "Net Odds (b)",
+        "tr": "Net Odds (b)",
+        "de": "Net Odds (b)",
+        "fr": "Net Odds (b)",
+        "es": "Net Odds (b)",
+        "ar": "Net Odds (b)"
+      }
     },
     {
       "id": "bankroll",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "Total capital available for betting."
+      "businessContext": "Total capital available for betting.",
+      "label_i18n": {
+        "en": "Total Bankroll",
+        "tr": "Total Bankroll",
+        "de": "Total Bankroll",
+        "fr": "Total Bankroll",
+        "es": "Total Bankroll",
+        "ar": "Total Bankroll"
+      }
     },
     {
       "id": "fraction",
       "label": "Kelly Fraction",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier on the full Kelly bet size (1 = full Kelly, 0.5 = half Kelly, etc.)."
+      "businessContext": "Multiplier on the full Kelly bet size (1 = full Kelly, 0.5 = half Kelly, etc.).",
+      "label_i18n": {
+        "en": "Kelly Fraction",
+        "tr": "Kelly Fraction",
+        "de": "Kelly Fraction",
+        "fr": "Kelly Fraction",
+        "es": "Kelly Fraction",
+        "ar": "Kelly Fraction"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "expected_growth"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 8,
-      "businessContext": "Clear span of the opening in feet"
+      "businessContext": "Clear span of the opening in feet",
+      "label_i18n": {
+        "en": "Span",
+        "tr": "Span",
+        "de": "Span",
+        "fr": "Span",
+        "es": "Span",
+        "ar": "Span"
+      }
     },
     {
       "id": "load",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "plf",
       "default": 500,
-      "businessContext": "Sum of live and dead loads per linear foot on the header"
+      "businessContext": "Sum of live and dead loads per linear foot on the header",
+      "label_i18n": {
+        "en": "Total Uniform Load",
+        "tr": "Total Uniform Load",
+        "de": "Total Uniform Load",
+        "fr": "Total Uniform Load",
+        "es": "Total Uniform Load",
+        "ar": "Total Uniform Load"
+      }
     },
     {
       "id": "fb",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "psi",
       "default": 1000,
-      "businessContext": "Design bending stress (Fb) of the header material"
+      "businessContext": "Design bending stress (Fb) of the header material",
+      "label_i18n": {
+        "en": "Allowable Bending Stress",
+        "tr": "Allowable Bending Stress",
+        "de": "Allowable Bending Stress",
+        "fr": "Allowable Bending Stress",
+        "es": "Allowable Bending Stress",
+        "ar": "Allowable Bending Stress"
+      }
     },
     {
       "id": "plies",
       "label": "Number of Plies",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of laminated 2x members (e.g., 2 for double 2x)"
+      "businessContext": "Number of laminated 2x members (e.g., 2 for double 2x)",
+      "label_i18n": {
+        "en": "Number of Plies",
+        "tr": "Number of Plies",
+        "de": "Number of Plies",
+        "fr": "Number of Plies",
+        "es": "Number of Plies",
+        "ar": "Number of Plies"
+      }
     }
   ],
   "formulas": {
@@ -49,10 +81,10 @@
       "d_required"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "cnc-additive-manufacturing"
 }

@@ -5,17 +5,33 @@
       "id": "numerator",
       "label": "Numerator (a in a/b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The first number in fractional odds (e.g., 5 in 5/1)."
+      "businessContext": "The first number in fractional odds (e.g., 5 in 5/1).",
+      "label_i18n": {
+        "en": "Numerator (a in a/b)",
+        "tr": "Numerator (a in a/b)",
+        "de": "Numerator (a in a/b)",
+        "fr": "Numerator (a in a/b)",
+        "es": "Numerator (a in a/b)",
+        "ar": "Numerator (a in a/b)"
+      }
     },
     {
       "id": "denominator",
       "label": "Denominator (b in a/b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The second number in fractional odds (e.g., 1 in 5/1)."
+      "businessContext": "The second number in fractional odds (e.g., 1 in 5/1).",
+      "label_i18n": {
+        "en": "Denominator (b in a/b)",
+        "tr": "Denominator (b in a/b)",
+        "de": "Denominator (b in a/b)",
+        "fr": "Denominator (b in a/b)",
+        "es": "Denominator (b in a/b)",
+        "ar": "Denominator (b in a/b)"
+      }
     },
     {
       "id": "stake",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10,
-      "businessContext": "The amount wagered."
+      "businessContext": "The amount wagered.",
+      "label_i18n": {
+        "en": "Stake Amount",
+        "tr": "Stake Amount",
+        "de": "Stake Amount",
+        "fr": "Stake Amount",
+        "es": "Stake Amount",
+        "ar": "Stake Amount"
+      }
     },
     {
       "id": "taxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Applicable tax percentage on net profit (0 for no tax)."
+      "businessContext": "Applicable tax percentage on net profit (0 for no tax).",
+      "label_i18n": {
+        "en": "Tax Rate on Winnings",
+        "tr": "Tax Rate on Winnings",
+        "de": "Tax Rate on Winnings",
+        "fr": "Tax Rate on Winnings",
+        "es": "Tax Rate on Winnings",
+        "ar": "Tax Rate on Winnings"
+      }
     }
   ],
   "formulas": {
@@ -52,10 +84,10 @@
       "netTotalPayoutAfterTax"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

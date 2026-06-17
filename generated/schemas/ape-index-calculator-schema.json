@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 5,
-      "businessContext": "The feet portion of the person's height."
+      "businessContext": "The feet portion of the person's height.",
+      "label_i18n": {
+        "en": "Height (feet)",
+        "tr": "Height (feet)",
+        "de": "Height (feet)",
+        "fr": "Height (feet)",
+        "es": "Height (feet)",
+        "ar": "Height (feet)"
+      }
     },
     {
       "id": "heightIn",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "in",
       "default": 9,
-      "businessContext": "The remaining inches portion of the person's height."
+      "businessContext": "The remaining inches portion of the person's height.",
+      "label_i18n": {
+        "en": "Height (inches)",
+        "tr": "Height (inches)",
+        "de": "Height (inches)",
+        "fr": "Height (inches)",
+        "es": "Height (inches)",
+        "ar": "Height (inches)"
+      }
     },
     {
       "id": "armspanFt",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 5,
-      "businessContext": "The feet portion of the person's arm span."
+      "businessContext": "The feet portion of the person's arm span.",
+      "label_i18n": {
+        "en": "Arm Span (feet)",
+        "tr": "Arm Span (feet)",
+        "de": "Arm Span (feet)",
+        "fr": "Arm Span (feet)",
+        "es": "Arm Span (feet)",
+        "ar": "Arm Span (feet)"
+      }
     },
     {
       "id": "armspanIn",
@@ -31,26 +55,36 @@
       "type": "number",
       "unit": "in",
       "default": 9,
-      "businessContext": "The remaining inches portion of the person's arm span."
+      "businessContext": "The remaining inches portion of the person's arm span.",
+      "label_i18n": {
+        "en": "Arm Span (inches)",
+        "tr": "Arm Span (inches)",
+        "de": "Arm Span (inches)",
+        "fr": "Arm Span (inches)",
+        "es": "Arm Span (inches)",
+        "ar": "Arm Span (inches)"
+      }
     }
   ],
   "formulas": {
     "totalHeightInches": "heightFt * 12 + heightIn",
     "totalArmspanInches": "armspanFt * 12 + armspanIn",
     "apeIndexRatio": "totalArmspanInches / totalHeightInches",
-    "apeIndexDiff": "totalArmspanInches - totalHeightInches"
+    "apeIndexDiff": "totalArmspanInches - totalHeightInches",
+    "__totalHeightInches___inches": "{{totalHeightInches}} inches",
+    "__totalArmspanInches___inches": "{{totalArmspanInches}} inches"
   },
   "outputs": {
-    "primary": "Your Ape Index ratio is {{apeIndexRatio}}, meaning your arm span is {{apeIndexDiff}} inches longer than your height if positive, or shorter if negative.",
+    "primary": "totalHeightInches",
     "breakdown": [
       "Total Height: {{totalHeightInches}} inches",
       "Total Arm Span: {{totalArmspanInches}} inches"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

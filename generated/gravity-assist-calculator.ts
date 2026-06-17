@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Gravity_assist_calculatorInput): Record<stri
 
 export function calculateGravity_assist_calculator(input: Gravity_assist_calculatorInput): Gravity_assist_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["v_out"] ?? 0;
+  const totalWasteCost = values["delta"] ?? 0;
   const breakdown = {
     
   };

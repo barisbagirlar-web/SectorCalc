@@ -23,34 +23,19 @@ export const Project_cost_estimator_calculatorInputSchema = z.object({
   use_lean_standardization: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Project_cost_estimator_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.labor_hours * input.labor_rate; results["direct_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.material_cost * (1 - ((input.use_lean_standardization) ? (0.05) : (0))); results["direct_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_material_cost"] = 0; }
-  try { const v = input.equipment_cost; results["direct_equipment_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_equipment_cost"] = 0; }
-  try { const v = (results["direct_labor_cost"] ?? 0) + (results["direct_material_cost"] ?? 0) + (results["direct_equipment_cost"] ?? 0); results["total_direct_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_direct_cost"] = 0; }
-  try { const v = (results["total_direct_cost"] ?? 0) * (input.overhead_percentage / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
-  try { const v = (input.complexity_factor === 'low' ? 1.0 : (input.complexity_factor === 'medium' ? 1.15 : (input.complexity_factor === 'high' ? 1.35 : 0))); results["complexity_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["complexity_multiplier"] = 0; }
-  try { const v = (input.quality_level === '3' ? 1.0 : (input.quality_level === '4' ? 0.95 : (input.quality_level === '5' ? 0.90 : (input.quality_level === '6' ? 0.85 : 0)))); results["quality_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["quality_adjustment"] = 0; }
-  try { const v = ((results["total_direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0)) * (results["complexity_multiplier"] ?? 0) * (results["quality_adjustment"] ?? 0); results["primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["primaryResult"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Project_cost_estimator_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateProject_cost_estimator_calculator(input: Project_cost_estimator_calculatorInput): Project_cost_estimator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["primaryResult"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    directLaborCost: values["directLaborCost"] ?? 0,
-    directMaterialCost: values["directMaterialCost"] ?? 0,
-    directEquipmentCost: values["directEquipmentCost"] ?? 0,
-    totalDirectCost: values["totalDirectCost"] ?? 0,
-    overheadCost: values["overheadCost"] ?? 0,
-    complexityMultiplier: values["complexityMultiplier"] ?? 0,
-    qualityAdjustment: values["qualityAdjustment"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Rework Cost Estimate","Lean Waste Factor","Schedule Risk Premium"];
-  const suggestedActions: string[] = ["Consider applying Lean standardization to reduce labor and material costs by up to 5%.","Improve quality level to 5 or 6 Sigma to reduce rework and hidden costs.","Break down project into smaller phases to reduce complexity multiplier.","Review overhead allocation; consider activity-based costing for more accuracy."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -69,7 +54,7 @@ export function calculateProject_cost_estimator_calculator(input: Project_cost_e
 
 export interface Project_cost_estimator_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { directLaborCost: number; directMaterialCost: number; directEquipmentCost: number; totalDirectCost: number; overheadCost: number; complexityMultiplier: number; qualityAdjustment: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

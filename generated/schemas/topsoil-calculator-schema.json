@@ -48,10 +48,7 @@
     "cost": "volume * costPerUnit"
   },
   "outputs": {
-    "primary": {
-      "label": "Topsoil Volume Required",
-      "value": "volume"
-    },
+    "primary": "volume",
     "breakdown": [
       {
         "label": "Weight",
@@ -63,10 +60,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "metal-plastics-forming"
 }

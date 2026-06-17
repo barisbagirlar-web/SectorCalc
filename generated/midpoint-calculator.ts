@@ -20,13 +20,17 @@ function evaluateAllFormulas(input: Midpoint_calculatorInput): Record<string, nu
   try { const v = (input.x1 + input.x2) / 2; results["midX"] = Number.isFinite(v) ? v : 0; } catch { results["midX"] = 0; }
   try { const v = (input.y1 + input.y2) / 2; results["midY"] = Number.isFinite(v) ? v : 0; } catch { results["midY"] = 0; }
   try { const v = Math.sqrt(Math.pow(input.x2 - input.x1, 2) + Math.pow(input.y2 - input.y1, 2)); results["dist"] = Number.isFinite(v) ? v : 0; } catch { results["dist"] = 0; }
+  results["__dist__m"] = 0;
+  results["__midX__m"] = 0;
+  results["__midY__m"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateMidpoint_calculator(input: Midpoint_calculatorInput): Midpoint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Midpoint"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

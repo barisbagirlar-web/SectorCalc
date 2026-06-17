@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 3,
-      "businessContext": "Probability of risk event occurring, rated 1-5"
+      "businessContext": "Probability of risk event occurring, rated 1-5",
+      "label_i18n": {
+        "en": "Likelihood Rating",
+        "tr": "Likelihood Rating",
+        "de": "Likelihood Rating",
+        "fr": "Likelihood Rating",
+        "es": "Likelihood Rating",
+        "ar": "Likelihood Rating"
+      }
     },
     {
       "id": "impact",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 3,
-      "businessContext": "Severity of consequences if risk occurs, rated 1-5"
+      "businessContext": "Severity of consequences if risk occurs, rated 1-5",
+      "label_i18n": {
+        "en": "Impact Rating",
+        "tr": "Impact Rating",
+        "de": "Impact Rating",
+        "fr": "Impact Rating",
+        "es": "Impact Rating",
+        "ar": "Impact Rating"
+      }
     },
     {
       "id": "controlEffectiveness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "How effectively existing controls reduce risk, 0-100%"
+      "businessContext": "How effectively existing controls reduce risk, 0-100%",
+      "label_i18n": {
+        "en": "Control Effectiveness",
+        "tr": "Control Effectiveness",
+        "de": "Control Effectiveness",
+        "fr": "Control Effectiveness",
+        "es": "Control Effectiveness",
+        "ar": "Control Effectiveness"
+      }
     },
     {
       "id": "residualLikelihood",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 2,
-      "businessContext": "Probability after controls, rated 1-5"
+      "businessContext": "Probability after controls, rated 1-5",
+      "label_i18n": {
+        "en": "Residual Likelihood",
+        "tr": "Residual Likelihood",
+        "de": "Residual Likelihood",
+        "fr": "Residual Likelihood",
+        "es": "Residual Likelihood",
+        "ar": "Residual Likelihood"
+      }
     },
     {
       "id": "residualImpact",
@@ -39,23 +71,47 @@
       "type": "number",
       "unit": "points",
       "default": 2,
-      "businessContext": "Severity after controls, rated 1-5"
+      "businessContext": "Severity after controls, rated 1-5",
+      "label_i18n": {
+        "en": "Residual Impact",
+        "tr": "Residual Impact",
+        "de": "Residual Impact",
+        "fr": "Residual Impact",
+        "es": "Residual Impact",
+        "ar": "Residual Impact"
+      }
     },
     {
       "id": "inherentWeight",
       "label": "Inherent Weight",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Weight of inherent risk in overall score, 0-1"
+      "businessContext": "Weight of inherent risk in overall score, 0-1",
+      "label_i18n": {
+        "en": "Inherent Weight",
+        "tr": "Inherent Weight",
+        "de": "Inherent Weight",
+        "fr": "Inherent Weight",
+        "es": "Inherent Weight",
+        "ar": "Inherent Weight"
+      }
     },
     {
       "id": "residualWeight",
       "label": "Residual Weight",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Weight of residual risk in overall score, 0-1"
+      "businessContext": "Weight of residual risk in overall score, 0-1",
+      "label_i18n": {
+        "en": "Residual Weight",
+        "tr": "Residual Weight",
+        "de": "Residual Weight",
+        "fr": "Residual Weight",
+        "es": "Residual Weight",
+        "ar": "Residual Weight"
+      }
     }
   ],
   "formulas": {
@@ -70,10 +126,10 @@
       "residualScore"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "process-chemical"
 }

@@ -25,13 +25,20 @@ function evaluateAllFormulas(input: Post_hole_calculatorInput): Record<string, n
   try { const v = (results["concretePerHole"] ?? 0) * input.numberOfPosts; results["totalConcrete"] = Number.isFinite(v) ? v : 0; } catch { results["totalConcrete"] = 0; }
   try { const v = (results["totalConcrete"] ?? 0) * (1 + input.wasteFactor / 100); results["totalWithWaste"] = Number.isFinite(v) ? v : 0; } catch { results["totalWithWaste"] = 0; }
   try { const v = (results["totalWithWaste"] ?? 0) / 1000000; results["totalCubicMeters"] = Number.isFinite(v) ? v : 0; } catch { results["totalCubicMeters"] = 0; }
+  try { const v = (results["holeVolume"] ?? 0).toFixed(0) + ' cm³'; results["holeVolume_toFixed_0______cm__"] = Number.isFinite(v) ? v : 0; } catch { results["holeVolume_toFixed_0______cm__"] = 0; }
+  try { const v = (results["postVolume"] ?? 0).toFixed(0) + ' cm³'; results["postVolume_toFixed_0______cm__"] = Number.isFinite(v) ? v : 0; } catch { results["postVolume_toFixed_0______cm__"] = 0; }
+  try { const v = (results["concretePerHole"] ?? 0).toFixed(0) + ' cm³ per hole'; results["concretePerHole_toFixed_0______cm__per_h"] = Number.isFinite(v) ? v : 0; } catch { results["concretePerHole_toFixed_0______cm__per_h"] = 0; }
+  try { const v = (results["totalConcrete"] ?? 0).toFixed(0) + ' cm³'; results["totalConcrete_toFixed_0______cm__"] = Number.isFinite(v) ? v : 0; } catch { results["totalConcrete_toFixed_0______cm__"] = 0; }
+  try { const v = (results["totalWithWaste"] ?? 0).toFixed(0) + ' cm³ (with waste)'; results["totalWithWaste_toFixed_0______cm___with_"] = Number.isFinite(v) ? v : 0; } catch { results["totalWithWaste_toFixed_0______cm___with_"] = 0; }
+  try { const v = (results["totalCubicMeters"] ?? 0).toFixed(4) + ' m³'; results["totalCubicMeters_toFixed_4______m__"] = Number.isFinite(v) ? v : 0; } catch { results["totalCubicMeters_toFixed_4______m__"] = 0; }
+  try { const v = (results["totalCubicMeters"] ?? 0).toFixed(2) + ' m³'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculatePost_hole_calculator(input: Post_hole_calculatorInput): Post_hole_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCubicMeters"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

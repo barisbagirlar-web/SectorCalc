@@ -5,33 +5,65 @@
       "id": "value",
       "label": "Specific Heat Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The specific heat capacity value in the unit selected by 'fromUnit'"
+      "businessContext": "The specific heat capacity value in the unit selected by 'fromUnit'",
+      "label_i18n": {
+        "en": "Specific Heat Value",
+        "tr": "Specific Heat Value",
+        "de": "Specific Heat Value",
+        "fr": "Specific Heat Value",
+        "es": "Specific Heat Value",
+        "ar": "Specific Heat Value"
+      }
     },
     {
       "id": "fromUnit",
       "label": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Numeric code representing the input unit of specific heat capacity"
+      "businessContext": "Numeric code representing the input unit of specific heat capacity",
+      "label_i18n": {
+        "en": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "tr": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "de": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "fr": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "es": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "ar": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)"
+      }
     },
     {
       "id": "toUnit",
       "label": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Numeric code representing the desired output unit of specific heat capacity"
+      "businessContext": "Numeric code representing the desired output unit of specific heat capacity",
+      "label_i18n": {
+        "en": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "tr": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "de": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "fr": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "es": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "ar": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places to round the converted result"
+      "businessContext": "Number of decimal places to round the converted result",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "allConversions"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "process-chemical"
 }

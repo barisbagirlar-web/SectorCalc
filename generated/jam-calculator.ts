@@ -22,13 +22,16 @@ function evaluateAllFormulas(input: Jam_calculatorInput): Record<string, number>
   try { const v = Math.max(0, input.fruitWeight * (input.targetBrix - input.fruitBrix) / (100 - input.targetBrix) - input.pectinWeight * (input.pectinSugarContent / 100)); results["sugarToAdd"] = Number.isFinite(v) ? v : 0; } catch { results["sugarToAdd"] = 0; }
   try { const v = input.fruitWeight + (results["sugarToAdd"] ?? 0) + input.pectinWeight; results["totalWeight"] = Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
   try { const v = ((input.fruitWeight * input.fruitBrix / 100) + (results["sugarToAdd"] ?? 0) + input.pectinWeight * (input.pectinSugarContent / 100)) / (results["totalWeight"] ?? 0) * 100; results["finalBrix"] = Number.isFinite(v) ? v : 0; } catch { results["finalBrix"] = 0; }
+  results["Total_Jam_Weight__kg_"] = 0;
+  results["Final_Brix____"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateJam_calculator(input: Jam_calculatorInput): Jam_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Sugar"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

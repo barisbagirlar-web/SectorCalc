@@ -25,33 +25,19 @@ export const Clv_cac_calculatorInputSchema = z.object({
   include_churn_adjustment: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Clv_cac_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.avg_order_value * input.purchase_frequency; results["annual_revenue_per_customer"] = Number.isFinite(v) ? v : 0; } catch { results["annual_revenue_per_customer"] = 0; }
-  try { const v = 1 - (input.retention_rate / 100); results["churn_rate"] = Number.isFinite(v) ? v : 0; } catch { results["churn_rate"] = 0; }
-  try { const v = ((input.include_churn_adjustment) ? (1 / ((results["churn_rate"] ?? 0) / 100)) : (input.customer_lifetime_years)); results["adjusted_lifetime_years"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_lifetime_years"] = 0; }
-  try { const v = (results["annual_revenue_per_customer"] ?? 0) * (results["adjusted_lifetime_years"] ?? 0); results["clv_gross"] = Number.isFinite(v) ? v : 0; } catch { results["clv_gross"] = 0; }
-  try { const v = (results["clv_gross"] ?? 0) * (input.gross_margin_pct / 100) * (1 - Math.pow(1 + input.discount_rate/100, -(results["adjusted_lifetime_years"] ?? 0))) / (input.discount_rate/100); results["clv_net"] = Number.isFinite(v) ? v : 0; } catch { results["clv_net"] = 0; }
-  try { const v = (results["clv_net"] ?? 0) / input.cac_total; results["clv_cac_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["clv_cac_ratio"] = 0; }
-  try { const v = (input.cac_total / ((results["annual_revenue_per_customer"] ?? 0) * (input.gross_margin_pct/100))) * 12; results["payback_months"] = Number.isFinite(v) ? v : 0; } catch { results["payback_months"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Clv_cac_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateClv_cac_calculator(input: Clv_cac_calculatorInput): Clv_cac_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["clv_cac_ratio"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    annual_revenue_per_customer: values["annual_revenue_per_customer"] ?? 0,
-    churn_rate_pct: values["churn_rate_pct"] ?? 0,
-    adjusted_lifetime_years: values["adjusted_lifetime_years"] ?? 0,
-    clv_gross: values["clv_gross"] ?? 0,
-    clv_net: values["clv_net"] ?? 0,
-    cac_total: values["cac_total"] ?? 0,
-    payback_months: values["payback_months"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["High Churn Rate","Low Gross Margin","Long Payback Period","High Discount Rate"];
-  const suggestedActions: string[] = ["Improve Retention Rate","Reduce Customer Acquisition Cost","Increase Average Order Value","Improve Gross Margin"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -70,7 +56,7 @@ export function calculateClv_cac_calculator(input: Clv_cac_calculatorInput): Clv
 
 export interface Clv_cac_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { annual_revenue_per_customer: number; churn_rate_pct: number; adjusted_lifetime_years: number; clv_gross: number; clv_net: number; cac_total: number; payback_months: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

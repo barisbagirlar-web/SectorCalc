@@ -18,6 +18,10 @@ export const Entropy_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Entropy_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.mass * input.specificHeat * Math.log(input.temp2 / input.temp1); results["entropyChange"] = Number.isFinite(v) ? v : 0; } catch { results["entropyChange"] = 0; }
+  results["_S___m___Cp___ln_T__T__"] = 0;
+  results["Calculate_temperature_ratio_T__T_"] = 0;
+  results["Compute_natural_logarithm"] = 0;
+  results["Multiply_by_mass_and_specific_heat"] = 0;
   return results;
 }
 

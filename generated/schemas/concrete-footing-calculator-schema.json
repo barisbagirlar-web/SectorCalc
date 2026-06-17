@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "The length of a single footing in meters."
+      "businessContext": "The length of a single footing in meters.",
+      "label_i18n": {
+        "en": "Footing Length",
+        "tr": "Footing Length",
+        "de": "Footing Length",
+        "fr": "Footing Length",
+        "es": "Footing Length",
+        "ar": "Footing Length"
+      }
     },
     {
       "id": "FootingWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "The width of a single footing in meters."
+      "businessContext": "The width of a single footing in meters.",
+      "label_i18n": {
+        "en": "Footing Width",
+        "tr": "Footing Width",
+        "de": "Footing Width",
+        "fr": "Footing Width",
+        "es": "Footing Width",
+        "ar": "Footing Width"
+      }
     },
     {
       "id": "FootingDepth",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "The depth or thickness of the footing in meters."
+      "businessContext": "The depth or thickness of the footing in meters.",
+      "label_i18n": {
+        "en": "Footing Depth",
+        "tr": "Footing Depth",
+        "de": "Footing Depth",
+        "fr": "Footing Depth",
+        "es": "Footing Depth",
+        "ar": "Footing Depth"
+      }
     },
     {
       "id": "NumberOfFootings",
       "label": "Number of Footings",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Total number of identical footings to be poured."
+      "businessContext": "Total number of identical footings to be poured.",
+      "label_i18n": {
+        "en": "Number of Footings",
+        "tr": "Number of Footings",
+        "de": "Number of Footings",
+        "fr": "Number of Footings",
+        "es": "Number of Footings",
+        "ar": "Number of Footings"
+      }
     },
     {
       "id": "WasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of extra concrete added to account for spillage, over‑excavation, and formwork irregularities."
+      "businessContext": "Percentage of extra concrete added to account for spillage, over‑excavation, and formwork irregularities.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,7 @@
       "wasteAddition"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

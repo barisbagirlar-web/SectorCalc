@@ -31,30 +31,19 @@ export const Msa_gage_rr_cost_calculatorInputSchema = z.object({
   include_hidden_losses: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Msa_gage_rr_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = Math.sqrt(input.repeatability_variation**2 + input.reproducibility_variation**2); results["grr_variation"] = Number.isFinite(v) ? v : 0; } catch { results["grr_variation"] = 0; }
-  try { const v = ((results["grr_variation"] ?? 0) / input.total_variation) * 100; results["pct_grr"] = Number.isFinite(v) ? v : 0; } catch { results["pct_grr"] = 0; }
-  try { const v = Math.floor((input.total_variation / (results["grr_variation"] ?? 0)) * Math.sqrt(2)); results["ndc"] = Number.isFinite(v) ? v : 0; } catch { results["ndc"] = 0; }
-  try { const v = input.defect_rate * ((results["pct_grr"] ?? 0) / 100) * 0.5; results["misclassification_rate"] = Number.isFinite(v) ? v : 0; } catch { results["misclassification_rate"] = 0; }
-  try { const v = (input.defect_rate / 1e6) * input.annual_production_volume * input.cost_per_defect; results["annual_internal_failure_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_internal_failure_cost"] = 0; }
-  try { const v = (input.defect_rate / 1e6) * input.annual_production_volume * input.cost_per_escaped_defect * 0.1; results["annual_external_failure_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_external_failure_cost"] = 0; }
-  try { const v = ((results["misclassification_rate"] ?? 0) / 1e6) * input.annual_production_volume * (input.cost_per_defect + input.cost_per_escaped_defect) * 0.5; results["annual_hidden_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_hidden_loss_cost"] = 0; }
-  try { const v = (results["annual_internal_failure_cost"] ?? 0) + (results["annual_external_failure_cost"] ?? 0) + (input.include_hidden_losses ? (results["annual_hidden_loss_cost"] ?? 0) : 0); results["total_annual_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Msa_gage_rr_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateMsa_gage_rr_cost_calculator(input: Msa_gage_rr_cost_calculatorInput): Msa_gage_rr_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_annual_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    id: values["id"] ?? 0,
-    label: values["label"] ?? 0,
-    components: values["components"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["%GRR","Number of Distinct Categories","Misclassification Rate"];
-  const suggestedActions: string[] = ["Improve Gage Repeatability","Standardize Measurement Procedure","Increase Number of Distinct Categories","Review Tolerances and Specifications"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -73,7 +62,7 @@ export function calculateMsa_gage_rr_cost_calculator(input: Msa_gage_rr_cost_cal
 
 export interface Msa_gage_rr_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { id: number; label: number; components: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

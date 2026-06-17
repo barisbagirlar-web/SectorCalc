@@ -20,13 +20,16 @@ function evaluateAllFormulas(input: Base_converter_calculatorInput): Record<stri
   try { const v = Math.round((Math.log(input.inputNumber) / Math.log(input.toBase)) * Math.pow(10, input.roundDigits)) / Math.pow(10, input.roundDigits); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   try { const v = Math.round((Math.log(input.inputNumber) / Math.log(input.fromBase)) * Math.pow(10, input.roundDigits)) / Math.pow(10, input.roundDigits); results["logFromBase"] = Number.isFinite(v) ? v : 0; } catch { results["logFromBase"] = 0; }
   try { const v = Math.round(Math.log(input.inputNumber) * Math.pow(10, input.roundDigits)) / Math.pow(10, input.roundDigits); results["naturalLog"] = Number.isFinite(v) ? v : 0; } catch { results["naturalLog"] = 0; }
+  try { const v = log_input.fromBase(input.inputNumber); results["log__fromBase__inputNumber_"] = Number.isFinite(v) ? v : 0; } catch { results["log__fromBase__inputNumber_"] = 0; }
+  try { const v = Math.log(input.inputNumber); results["ln_inputNumber_"] = Number.isFinite(v) ? v : 0; } catch { results["ln_inputNumber_"] = 0; }
+  try { const v = log_input.toBase(input.inputNumber); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateBase_converter_calculator(input: Base_converter_calculatorInput): Base_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["log_"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

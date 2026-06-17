@@ -5,49 +5,97 @@
       "id": "ax",
       "label": "Vector A - X component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "X-component of first vector in Cartesian coordinate system"
+      "businessContext": "X-component of first vector in Cartesian coordinate system",
+      "label_i18n": {
+        "en": "Vector A - X component",
+        "tr": "Vector A - X component",
+        "de": "Vector A - X component",
+        "fr": "Vector A - X component",
+        "es": "Vector A - X component",
+        "ar": "Vector A - X component"
+      }
     },
     {
       "id": "ay",
       "label": "Vector A - Y component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Y-component of first vector"
+      "businessContext": "Y-component of first vector",
+      "label_i18n": {
+        "en": "Vector A - Y component",
+        "tr": "Vector A - Y component",
+        "de": "Vector A - Y component",
+        "fr": "Vector A - Y component",
+        "es": "Vector A - Y component",
+        "ar": "Vector A - Y component"
+      }
     },
     {
       "id": "az",
       "label": "Vector A - Z component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Z-component of first vector"
+      "businessContext": "Z-component of first vector",
+      "label_i18n": {
+        "en": "Vector A - Z component",
+        "tr": "Vector A - Z component",
+        "de": "Vector A - Z component",
+        "fr": "Vector A - Z component",
+        "es": "Vector A - Z component",
+        "ar": "Vector A - Z component"
+      }
     },
     {
       "id": "bx",
       "label": "Vector B - X component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "X-component of second vector"
+      "businessContext": "X-component of second vector",
+      "label_i18n": {
+        "en": "Vector B - X component",
+        "tr": "Vector B - X component",
+        "de": "Vector B - X component",
+        "fr": "Vector B - X component",
+        "es": "Vector B - X component",
+        "ar": "Vector B - X component"
+      }
     },
     {
       "id": "by",
       "label": "Vector B - Y component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Y-component of second vector"
+      "businessContext": "Y-component of second vector",
+      "label_i18n": {
+        "en": "Vector B - Y component",
+        "tr": "Vector B - Y component",
+        "de": "Vector B - Y component",
+        "fr": "Vector B - Y component",
+        "es": "Vector B - Y component",
+        "ar": "Vector B - Y component"
+      }
     },
     {
       "id": "bz",
       "label": "Vector B - Z component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Z-component of second vector"
+      "businessContext": "Z-component of second vector",
+      "label_i18n": {
+        "en": "Vector B - Z component",
+        "tr": "Vector B - Z component",
+        "de": "Vector B - Z component",
+        "fr": "Vector B - Z component",
+        "es": "Vector B - Z component",
+        "ar": "Vector B - Z component"
+      }
     }
   ],
   "formulas": {
@@ -68,10 +116,10 @@
       "angleBetween"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

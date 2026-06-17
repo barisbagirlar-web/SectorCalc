@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "USD",
       "default": 75000,
-      "businessContext": "Total annual income before any deductions"
+      "businessContext": "Total annual income before any deductions",
+      "label_i18n": {
+        "en": "Annual Gross Income ($)",
+        "tr": "Annual Gross Income ($)",
+        "de": "Annual Gross Income ($)",
+        "fr": "Annual Gross Income ($)",
+        "es": "Annual Gross Income ($)",
+        "ar": "Annual Gross Income ($)"
+      }
     },
     {
       "id": "filing_status",
       "label": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Tax filing status affects tax brackets and standard deduction"
+      "businessContext": "Tax filing status affects tax brackets and standard deduction",
+      "label_i18n": {
+        "en": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
+        "tr": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
+        "de": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
+        "fr": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
+        "es": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
+        "ar": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)"
+      }
     },
     {
       "id": "pre_tax_deductions",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "401(k), HSA, FSA, etc. subtracted from gross income"
+      "businessContext": "401(k), HSA, FSA, etc. subtracted from gross income",
+      "label_i18n": {
+        "en": "Pre-tax Deductions ($)",
+        "tr": "Pre-tax Deductions ($)",
+        "de": "Pre-tax Deductions ($)",
+        "fr": "Pre-tax Deductions ($)",
+        "es": "Pre-tax Deductions ($)",
+        "ar": "Pre-tax Deductions ($)"
+      }
     },
     {
       "id": "standard_deduction",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 13850,
-      "businessContext": "Standard deduction amount for 2023 (single: 13850, married joint: 27700, head of household: 20800)"
+      "businessContext": "Standard deduction amount for 2023 (single: 13850, married joint: 27700, head of household: 20800)",
+      "label_i18n": {
+        "en": "Standard Deduction ($)",
+        "tr": "Standard Deduction ($)",
+        "de": "Standard Deduction ($)",
+        "fr": "Standard Deduction ($)",
+        "es": "Standard Deduction ($)",
+        "ar": "Standard Deduction ($)"
+      }
     },
     {
       "id": "additional_income",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Interest, dividends, capital gains, etc."
+      "businessContext": "Interest, dividends, capital gains, etc.",
+      "label_i18n": {
+        "en": "Additional Taxable Income ($)",
+        "tr": "Additional Taxable Income ($)",
+        "de": "Additional Taxable Income ($)",
+        "fr": "Additional Taxable Income ($)",
+        "es": "Additional Taxable Income ($)",
+        "ar": "Additional Taxable Income ($)"
+      }
     },
     {
       "id": "tax_credits",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Child tax credit, education credits, etc."
+      "businessContext": "Child tax credit, education credits, etc.",
+      "label_i18n": {
+        "en": "Non-refundable Tax Credits ($)",
+        "tr": "Non-refundable Tax Credits ($)",
+        "de": "Non-refundable Tax Credits ($)",
+        "fr": "Non-refundable Tax Credits ($)",
+        "es": "Non-refundable Tax Credits ($)",
+        "ar": "Non-refundable Tax Credits ($)"
+      }
     }
   ],
   "formulas": {
@@ -66,7 +114,7 @@
       "effective_tax_rate"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

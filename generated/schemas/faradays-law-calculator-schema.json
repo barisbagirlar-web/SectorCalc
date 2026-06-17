@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Wb",
       "default": 1,
-      "businessContext": "Change in magnetic flux through the coil"
+      "businessContext": "Change in magnetic flux through the coil",
+      "label_i18n": {
+        "en": "Magnetic Flux Change",
+        "tr": "Magnetic Flux Change",
+        "de": "Magnetic Flux Change",
+        "fr": "Magnetic Flux Change",
+        "es": "Magnetic Flux Change",
+        "ar": "Magnetic Flux Change"
+      }
     },
     {
       "id": "time_interval",
@@ -15,19 +23,37 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Time over which the flux change occurs"
+      "businessContext": "Time over which the flux change occurs",
+      "label_i18n": {
+        "en": "Time Interval",
+        "tr": "Time Interval",
+        "de": "Time Interval",
+        "fr": "Time Interval",
+        "es": "Time Interval",
+        "ar": "Time Interval"
+      }
     },
     {
       "id": "number_of_turns",
       "label": "Number of Turns",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of turns in the coil"
+      "businessContext": "Number of turns in the coil",
+      "label_i18n": {
+        "en": "Number of Turns",
+        "tr": "Number of Turns",
+        "de": "Number of Turns",
+        "fr": "Number of Turns",
+        "es": "Number of Turns",
+        "ar": "Number of Turns"
+      }
     }
   ],
   "formulas": {
-    "induced_emf": "-number_of_turns * (magnetic_flux_change / time_interval)"
+    "induced_emf": "-number_of_turns * (magnetic_flux_change / time_interval)",
+    "Induced_EMF____N__________t_": "Induced EMF = -N * (ΔΦ / Δt)",
+    "_____magnetic_flux_change___t___time_int": "ΔΦ = magnetic_flux_change, Δt = time_interval, N = number_of_turns"
   },
   "outputs": {
     "primary": "induced_emf",
@@ -36,10 +62,10 @@
       "ΔΦ = magnetic_flux_change, Δt = time_interval, N = number_of_turns"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -5,9 +5,17 @@
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for Male, 0 for Female"
+      "businessContext": "1 for Male, 0 for Female",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "heightFeet",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 5,
-      "businessContext": "Feet component of height"
+      "businessContext": "Feet component of height",
+      "label_i18n": {
+        "en": "Height (ft)",
+        "tr": "Height (ft)",
+        "de": "Height (ft)",
+        "fr": "Height (ft)",
+        "es": "Height (ft)",
+        "ar": "Height (ft)"
+      }
     },
     {
       "id": "heightInches",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "in",
       "default": 8,
-      "businessContext": "Inches component of height"
+      "businessContext": "Inches component of height",
+      "label_i18n": {
+        "en": "Height (in)",
+        "tr": "Height (in)",
+        "de": "Height (in)",
+        "fr": "Height (in)",
+        "es": "Height (in)",
+        "ar": "Height (in)"
+      }
     },
     {
       "id": "outputUnit",
       "label": "Output Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for lbs, 1 for kg"
+      "businessContext": "0 for lbs, 1 for kg",
+      "label_i18n": {
+        "en": "Output Unit",
+        "tr": "Output Unit",
+        "de": "Output Unit",
+        "fr": "Output Unit",
+        "es": "Output Unit",
+        "ar": "Output Unit"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "idealWeightKg"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

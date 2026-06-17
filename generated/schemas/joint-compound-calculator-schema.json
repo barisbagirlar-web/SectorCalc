@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Total number of drywall sheets to be taped and finished."
+      "businessContext": "Total number of drywall sheets to be taped and finished.",
+      "label_i18n": {
+        "en": "Number of Drywall Sheets",
+        "tr": "Number of Drywall Sheets",
+        "de": "Number of Drywall Sheets",
+        "fr": "Number of Drywall Sheets",
+        "es": "Number of Drywall Sheets",
+        "ar": "Number of Drywall Sheets"
+      }
     },
     {
       "id": "jointLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3.6,
-      "businessContext": "Average linear length of joints per sheet (including butt and tapered joints)."
+      "businessContext": "Average linear length of joints per sheet (including butt and tapered joints).",
+      "label_i18n": {
+        "en": "Average Joint Length per Sheet",
+        "tr": "Average Joint Length per Sheet",
+        "de": "Average Joint Length per Sheet",
+        "fr": "Average Joint Length per Sheet",
+        "es": "Average Joint Length per Sheet",
+        "ar": "Average Joint Length per Sheet"
+      }
     },
     {
       "id": "jointWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 150,
-      "businessContext": "Width of the joint compound application area across the joint."
+      "businessContext": "Width of the joint compound application area across the joint.",
+      "label_i18n": {
+        "en": "Joint Width",
+        "tr": "Joint Width",
+        "de": "Joint Width",
+        "fr": "Joint Width",
+        "es": "Joint Width",
+        "ar": "Joint Width"
+      }
     },
     {
       "id": "thickness",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mm",
       "default": 1.5,
-      "businessContext": "Applied wet thickness of joint compound per coat."
+      "businessContext": "Applied wet thickness of joint compound per coat.",
+      "label_i18n": {
+        "en": "Compound Thickness per Coat",
+        "tr": "Compound Thickness per Coat",
+        "de": "Compound Thickness per Coat",
+        "fr": "Compound Thickness per Coat",
+        "es": "Compound Thickness per Coat",
+        "ar": "Compound Thickness per Coat"
+      }
     },
     {
       "id": "numCoats",
       "label": "Number of Coats",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of coats applied (e.g., tape coat, fill coat, finish coat)."
+      "businessContext": "Number of coats applied (e.g., tape coat, fill coat, finish coat).",
+      "label_i18n": {
+        "en": "Number of Coats",
+        "tr": "Number of Coats",
+        "de": "Number of Coats",
+        "fr": "Number of Coats",
+        "es": "Number of Coats",
+        "ar": "Number of Coats"
+      }
     },
     {
       "id": "coverageFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m²·mm/kg",
       "default": 1.2,
-      "businessContext": "Manufacturer-specified coverage rate per mm thickness per kg of compound."
+      "businessContext": "Manufacturer-specified coverage rate per mm thickness per kg of compound.",
+      "label_i18n": {
+        "en": "Coverage Factor",
+        "tr": "Coverage Factor",
+        "de": "Coverage Factor",
+        "fr": "Coverage Factor",
+        "es": "Coverage Factor",
+        "ar": "Coverage Factor"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "totalThickness"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Proje & Yatırım",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "finance-sales-working-capital"
 }

@@ -53,11 +53,7 @@
     "totalSavings": "deferralSavings + stepUpSavings + exclusionSavings"
   },
   "outputs": {
-    "primary": {
-      "id": "totalSavings",
-      "label": "Total Tax Savings",
-      "unit": "$"
-    },
+    "primary": "combinedTaxRate",
     "breakdown": [
       {
         "id": "deferralSavings",
@@ -76,7 +72,7 @@
       }
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

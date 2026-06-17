@@ -25,6 +25,10 @@ function evaluateAllFormulas(input: Intermediate_value_theoremInput): Record<str
   try { const v = ((input.fa - input.k) * (input.fb - input.k) <= 0) ? (input.a + input.b) / 2 : null; results["c"] = Number.isFinite(v) ? v : 0; } catch { results["c"] = 0; }
   try { const v = ((input.fa - input.k) * (input.fb - input.k) <= 0) ? ((input.fb - input.fa) / (input.b - input.a)) * ((results["c"] ?? 0) - input.a) + input.fa : null; results["fc"] = Number.isFinite(v) ? v : 0; } catch { results["fc"] = 0; }
   try { const v = ((input.fa - input.k) * (input.fb - input.k) <= 0) ? Math.ceil(Math.log((input.b - input.a) / input.tolerance) / Math.log(2)) : 0; results["iterations"] = Number.isFinite(v) ? v : 0; } catch { results["iterations"] = 0; }
+  results["1_if_a_solution_exists__0_otherwise"] = 0;
+  results["approximate_root__midpoint__if_exists__e"] = 0;
+  results["approximate_function_value_at_c"] = 0;
+  results["number_of_bisection_steps_needed"] = 0;
   return results;
 }
 

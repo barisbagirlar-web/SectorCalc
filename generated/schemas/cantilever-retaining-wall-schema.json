@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Total height of the retaining wall from base to top."
+      "businessContext": "Total height of the retaining wall from base to top.",
+      "label_i18n": {
+        "en": "Wall Height (m)",
+        "tr": "Wall Height (m)",
+        "de": "Wall Height (m)",
+        "fr": "Wall Height (m)",
+        "es": "Wall Height (m)",
+        "ar": "Wall Height (m)"
+      }
     },
     {
       "id": "stemThickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Thickness of the vertical stem at the top."
+      "businessContext": "Thickness of the vertical stem at the top.",
+      "label_i18n": {
+        "en": "Stem Thickness (m)",
+        "tr": "Stem Thickness (m)",
+        "de": "Stem Thickness (m)",
+        "fr": "Stem Thickness (m)",
+        "es": "Stem Thickness (m)",
+        "ar": "Stem Thickness (m)"
+      }
     },
     {
       "id": "baseWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Width of the base slab."
+      "businessContext": "Width of the base slab.",
+      "label_i18n": {
+        "en": "Base Width (m)",
+        "tr": "Base Width (m)",
+        "de": "Base Width (m)",
+        "fr": "Base Width (m)",
+        "es": "Base Width (m)",
+        "ar": "Base Width (m)"
+      }
     },
     {
       "id": "baseThickness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.4,
-      "businessContext": "Thickness of the base slab."
+      "businessContext": "Thickness of the base slab.",
+      "label_i18n": {
+        "en": "Base Thickness (m)",
+        "tr": "Base Thickness (m)",
+        "de": "Base Thickness (m)",
+        "fr": "Base Thickness (m)",
+        "es": "Base Thickness (m)",
+        "ar": "Base Thickness (m)"
+      }
     },
     {
       "id": "heelLength",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.2,
-      "businessContext": "Length of the heel (portion of base behind the stem)."
+      "businessContext": "Length of the heel (portion of base behind the stem).",
+      "label_i18n": {
+        "en": "Heel Length (m)",
+        "tr": "Heel Length (m)",
+        "de": "Heel Length (m)",
+        "fr": "Heel Length (m)",
+        "es": "Heel Length (m)",
+        "ar": "Heel Length (m)"
+      }
     },
     {
       "id": "toeLength",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.8,
-      "businessContext": "Length of the toe (portion of base in front of the stem)."
+      "businessContext": "Length of the toe (portion of base in front of the stem).",
+      "label_i18n": {
+        "en": "Toe Length (m)",
+        "tr": "Toe Length (m)",
+        "de": "Toe Length (m)",
+        "fr": "Toe Length (m)",
+        "es": "Toe Length (m)",
+        "ar": "Toe Length (m)"
+      }
     },
     {
       "id": "soilDensity",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kN/m³",
       "default": 18,
-      "businessContext": "Unit weight of retained soil."
+      "businessContext": "Unit weight of retained soil.",
+      "label_i18n": {
+        "en": "Soil Density (kN/m³)",
+        "tr": "Soil Density (kN/m³)",
+        "de": "Soil Density (kN/m³)",
+        "fr": "Soil Density (kN/m³)",
+        "es": "Soil Density (kN/m³)",
+        "ar": "Soil Density (kN/m³)"
+      }
     },
     {
       "id": "frictionAngle",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Angle of internal friction of the soil."
+      "businessContext": "Angle of internal friction of the soil.",
+      "label_i18n": {
+        "en": "Soil Friction Angle (°)",
+        "tr": "Soil Friction Angle (°)",
+        "de": "Soil Friction Angle (°)",
+        "fr": "Soil Friction Angle (°)",
+        "es": "Soil Friction Angle (°)",
+        "ar": "Soil Friction Angle (°)"
+      }
     }
   ],
   "formulas": {
@@ -78,10 +142,17 @@
     "resistingMoment": "totalWeight * baseWidth / 2",
     "factorOfSafetyOverturning": "resistingMoment / overturningMoment",
     "slidingResistance": "totalWeight * Math.tan(frictionAngle * Math.PI / 180)",
-    "factorOfSafetySliding": "slidingResistance / totalActiveForce"
+    "factorOfSafetySliding": "slidingResistance / totalActiveForce",
+    "_activePressureCoefficient_toFixed_4__": "{activePressureCoefficient.toFixed(4)}",
+    "_totalActiveForce_toFixed_2__": "{totalActiveForce.toFixed(2)}",
+    "_overturningMoment_toFixed_2__": "{overturningMoment.toFixed(2)}",
+    "_totalWeight_toFixed_2__": "{totalWeight.toFixed(2)}",
+    "_resistingMoment_toFixed_2__": "{resistingMoment.toFixed(2)}",
+    "_factorOfSafetySliding_toFixed_2__": "{factorOfSafetySliding.toFixed(2)}",
+    "result": "Factor of Safety against Overturning: {factorOfSafetyOverturning.toFixed(2)}"
   },
   "outputs": {
-    "primary": "Factor of Safety against Overturning: {factorOfSafetyOverturning.toFixed(2)}",
+    "primary": "result",
     "breakdown": [
       "Active Earth Pressure Coefficient (Ka): {activePressureCoefficient.toFixed(4)}",
       "Total Active Force (kN): {totalActiveForce.toFixed(2)}",
@@ -91,8 +162,8 @@
       "Factor of Safety against Sliding: {factorOfSafetySliding.toFixed(2)}"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

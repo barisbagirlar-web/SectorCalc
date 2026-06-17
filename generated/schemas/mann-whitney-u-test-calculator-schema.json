@@ -5,49 +5,97 @@
       "id": "g1v1",
       "label": "Grup 1 Gözlem 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Birinci grubun ilk gözlem değeri"
+      "businessContext": "Birinci grubun ilk gözlem değeri",
+      "label_i18n": {
+        "en": "Grup 1 Gözlem 1",
+        "tr": "Grup 1 Gözlem 1",
+        "de": "Grup 1 Gözlem 1",
+        "fr": "Grup 1 Gözlem 1",
+        "es": "Grup 1 Gözlem 1",
+        "ar": "Grup 1 Gözlem 1"
+      }
     },
     {
       "id": "g1v2",
       "label": "Grup 1 Gözlem 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Birinci grubun ikinci gözlem değeri"
+      "businessContext": "Birinci grubun ikinci gözlem değeri",
+      "label_i18n": {
+        "en": "Grup 1 Gözlem 2",
+        "tr": "Grup 1 Gözlem 2",
+        "de": "Grup 1 Gözlem 2",
+        "fr": "Grup 1 Gözlem 2",
+        "es": "Grup 1 Gözlem 2",
+        "ar": "Grup 1 Gözlem 2"
+      }
     },
     {
       "id": "g1v3",
       "label": "Grup 1 Gözlem 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Birinci grubun üçüncü gözlem değeri"
+      "businessContext": "Birinci grubun üçüncü gözlem değeri",
+      "label_i18n": {
+        "en": "Grup 1 Gözlem 3",
+        "tr": "Grup 1 Gözlem 3",
+        "de": "Grup 1 Gözlem 3",
+        "fr": "Grup 1 Gözlem 3",
+        "es": "Grup 1 Gözlem 3",
+        "ar": "Grup 1 Gözlem 3"
+      }
     },
     {
       "id": "g2v1",
       "label": "Grup 2 Gözlem 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "İkinci grubun ilk gözlem değeri"
+      "businessContext": "İkinci grubun ilk gözlem değeri",
+      "label_i18n": {
+        "en": "Grup 2 Gözlem 1",
+        "tr": "Grup 2 Gözlem 1",
+        "de": "Grup 2 Gözlem 1",
+        "fr": "Grup 2 Gözlem 1",
+        "es": "Grup 2 Gözlem 1",
+        "ar": "Grup 2 Gözlem 1"
+      }
     },
     {
       "id": "g2v2",
       "label": "Grup 2 Gözlem 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "İkinci grubun ikinci gözlem değeri"
+      "businessContext": "İkinci grubun ikinci gözlem değeri",
+      "label_i18n": {
+        "en": "Grup 2 Gözlem 2",
+        "tr": "Grup 2 Gözlem 2",
+        "de": "Grup 2 Gözlem 2",
+        "fr": "Grup 2 Gözlem 2",
+        "es": "Grup 2 Gözlem 2",
+        "ar": "Grup 2 Gözlem 2"
+      }
     },
     {
       "id": "g2v3",
       "label": "Grup 2 Gözlem 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "İkinci grubun üçüncü gözlem değeri"
+      "businessContext": "İkinci grubun üçüncü gözlem değeri",
+      "label_i18n": {
+        "en": "Grup 2 Gözlem 3",
+        "tr": "Grup 2 Gözlem 3",
+        "de": "Grup 2 Gözlem 3",
+        "fr": "Grup 2 Gözlem 3",
+        "es": "Grup 2 Gözlem 3",
+        "ar": "Grup 2 Gözlem 3"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "U2"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

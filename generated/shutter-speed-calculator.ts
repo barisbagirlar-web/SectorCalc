@@ -17,8 +17,12 @@ export const Shutter_speed_calculatorInputSchema = z.object({
   allowableBlur: z.number().default(1),
 });
 
-function evaluateAllFormulas(_input: Shutter_speed_calculatorInput): Record<string, number> {
-  return {};
+function evaluateAllFormulas(input: Shutter_speed_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.objectSpeed; results["shutterSpeed"] = Number.isFinite(v) ? v : 0; } catch { results["shutterSpeed"] = 0; }
+  try { const v = input.objectSpeed; results["shutterSpeed_ms"] = Number.isFinite(v) ? v : 0; } catch { results["shutterSpeed_ms"] = 0; }
+  try { const v = input.objectSpeed; results["shutterSpeed_us"] = Number.isFinite(v) ? v : 0; } catch { results["shutterSpeed_us"] = 0; }
+  return results;
 }
 
 

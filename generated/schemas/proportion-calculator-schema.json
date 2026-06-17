@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Weight of first component in the mixture"
+      "businessContext": "Weight of first component in the mixture",
+      "label_i18n": {
+        "en": "Component 1 Weight",
+        "tr": "Component 1 Weight",
+        "de": "Component 1 Weight",
+        "fr": "Component 1 Weight",
+        "es": "Component 1 Weight",
+        "ar": "Component 1 Weight"
+      }
     },
     {
       "id": "comp2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Weight of second component in the mixture"
+      "businessContext": "Weight of second component in the mixture",
+      "label_i18n": {
+        "en": "Component 2 Weight",
+        "tr": "Component 2 Weight",
+        "de": "Component 2 Weight",
+        "fr": "Component 2 Weight",
+        "es": "Component 2 Weight",
+        "ar": "Component 2 Weight"
+      }
     },
     {
       "id": "comp3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Weight of third component in the mixture"
+      "businessContext": "Weight of third component in the mixture",
+      "label_i18n": {
+        "en": "Component 3 Weight",
+        "tr": "Component 3 Weight",
+        "de": "Component 3 Weight",
+        "fr": "Component 3 Weight",
+        "es": "Component 3 Weight",
+        "ar": "Component 3 Weight"
+      }
     },
     {
       "id": "comp4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Weight of fourth component in the mixture"
+      "businessContext": "Weight of fourth component in the mixture",
+      "label_i18n": {
+        "en": "Component 4 Weight",
+        "tr": "Component 4 Weight",
+        "de": "Component 4 Weight",
+        "fr": "Component 4 Weight",
+        "es": "Component 4 Weight",
+        "ar": "Component 4 Weight"
+      }
     }
   ],
   "formulas": {
@@ -39,10 +71,14 @@
     "prop1": "totalWeight > 0 ? (comp1 / totalWeight) * 100 : 0",
     "prop2": "totalWeight > 0 ? (comp2 / totalWeight) * 100 : 0",
     "prop3": "totalWeight > 0 ? (comp3 / totalWeight) * 100 : 0",
-    "prop4": "totalWeight > 0 ? (comp4 / totalWeight) * 100 : 0"
+    "prop4": "totalWeight > 0 ? (comp4 / totalWeight) * 100 : 0",
+    "_prop1__": "{prop1}%",
+    "_prop2__": "{prop2}%",
+    "_prop3__": "{prop3}%",
+    "_prop4__": "{prop4}%"
   },
   "outputs": {
-    "primary": "Mixture proportions calculated. Total weight: {totalWeight} kg.",
+    "primary": "totalWeight",
     "breakdown": [
       "Component 1: {prop1}%",
       "Component 2: {prop2}%",
@@ -50,7 +86,7 @@
       "Component 4: {prop4}%"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",

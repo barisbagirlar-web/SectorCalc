@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "yıl",
       "default": 50,
-      "businessContext": "Hastanın yaşı (yıl)"
+      "businessContext": "Hastanın yaşı (yıl)",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "gender",
       "label": "Cinsiyet (Erkek:1, Kadın:0)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Cinsiyet (1: Erkek, 0: Kadın)"
+      "businessContext": "Cinsiyet (1: Erkek, 0: Kadın)",
+      "label_i18n": {
+        "en": "Cinsiyet (Erkek:1, Kadın:0)",
+        "tr": "Cinsiyet (Erkek:1, Kadın:0)",
+        "de": "Cinsiyet (Erkek:1, Kadın:0)",
+        "fr": "Cinsiyet (Erkek:1, Kadın:0)",
+        "es": "Cinsiyet (Erkek:1, Kadın:0)",
+        "ar": "Cinsiyet (Erkek:1, Kadın:0)"
+      }
     },
     {
       "id": "totalCholesterol",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Total kolesterol seviyesi (mg/dL)"
+      "businessContext": "Total kolesterol seviyesi (mg/dL)",
+      "label_i18n": {
+        "en": "Total Kolesterol",
+        "tr": "Total Kolesterol",
+        "de": "Total Kolesterol",
+        "fr": "Total Kolesterol",
+        "es": "Total Kolesterol",
+        "ar": "Total Kolesterol"
+      }
     },
     {
       "id": "hdl",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "HDL kolesterol seviyesi (mg/dL)"
+      "businessContext": "HDL kolesterol seviyesi (mg/dL)",
+      "label_i18n": {
+        "en": "HDL Kolesterol",
+        "tr": "HDL Kolesterol",
+        "de": "HDL Kolesterol",
+        "fr": "HDL Kolesterol",
+        "es": "HDL Kolesterol",
+        "ar": "HDL Kolesterol"
+      }
     },
     {
       "id": "systolicBP",
@@ -39,23 +71,47 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Sistolik kan basıncı (mmHg)"
+      "businessContext": "Sistolik kan basıncı (mmHg)",
+      "label_i18n": {
+        "en": "Sistolik Kan Basıncı",
+        "tr": "Sistolik Kan Basıncı",
+        "de": "Sistolik Kan Basıncı",
+        "fr": "Sistolik Kan Basıncı",
+        "es": "Sistolik Kan Basıncı",
+        "ar": "Sistolik Kan Basıncı"
+      }
     },
     {
       "id": "smoking",
       "label": "Sigara (Evet:1, Hayır:0)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sigara içme durumu (1: Evet, 0: Hayır)"
+      "businessContext": "Sigara içme durumu (1: Evet, 0: Hayır)",
+      "label_i18n": {
+        "en": "Sigara (Evet:1, Hayır:0)",
+        "tr": "Sigara (Evet:1, Hayır:0)",
+        "de": "Sigara (Evet:1, Hayır:0)",
+        "fr": "Sigara (Evet:1, Hayır:0)",
+        "es": "Sigara (Evet:1, Hayır:0)",
+        "ar": "Sigara (Evet:1, Hayır:0)"
+      }
     },
     {
       "id": "diabetes",
       "label": "Diyabet (Var:1, Yok:0)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Diyabet varlığı (1: Var, 0: Yok)"
+      "businessContext": "Diyabet varlığı (1: Var, 0: Yok)",
+      "label_i18n": {
+        "en": "Diyabet (Var:1, Yok:0)",
+        "tr": "Diyabet (Var:1, Yok:0)",
+        "de": "Diyabet (Var:1, Yok:0)",
+        "fr": "Diyabet (Var:1, Yok:0)",
+        "es": "Diyabet (Var:1, Yok:0)",
+        "ar": "Diyabet (Var:1, Yok:0)"
+      }
     }
   ],
   "formulas": {
@@ -70,10 +126,10 @@
       "riskCategory"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

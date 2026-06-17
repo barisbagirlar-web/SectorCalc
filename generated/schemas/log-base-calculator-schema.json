@@ -5,43 +5,79 @@
       "id": "argument",
       "label": "Argument (x)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The value for which the logarithm is calculated. Must be > 0."
+      "businessContext": "The value for which the logarithm is calculated. Must be > 0.",
+      "label_i18n": {
+        "en": "Argument (x)",
+        "tr": "Argument (x)",
+        "de": "Argument (x)",
+        "fr": "Argument (x)",
+        "es": "Argument (x)",
+        "ar": "Argument (x)"
+      }
     },
     {
       "id": "base",
       "label": "Log Base (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "The base of the logarithm. Common bases: 10, e (Math.E), 2. Must be > 0 and ≠ 1."
+      "businessContext": "The base of the logarithm. Common bases: 10, e (Math.E), 2. Must be > 0 and ≠ 1.",
+      "label_i18n": {
+        "en": "Log Base (b)",
+        "tr": "Log Base (b)",
+        "de": "Log Base (b)",
+        "fr": "Log Base (b)",
+        "es": "Log Base (b)",
+        "ar": "Log Base (b)"
+      }
     },
     {
       "id": "multiplier",
       "label": "Multiplier (m)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Scaling factor applied after taking the logarithm, e.g., 20 for dB conversion."
+      "businessContext": "Scaling factor applied after taking the logarithm, e.g., 20 for dB conversion.",
+      "label_i18n": {
+        "en": "Multiplier (m)",
+        "tr": "Multiplier (m)",
+        "de": "Multiplier (m)",
+        "fr": "Multiplier (m)",
+        "es": "Multiplier (m)",
+        "ar": "Multiplier (m)"
+      }
     },
     {
       "id": "offset",
       "label": "Offset (c)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant added after multiplication, used in linear calibration or zero adjustment."
+      "businessContext": "Constant added after multiplication, used in linear calibration or zero adjustment.",
+      "label_i18n": {
+        "en": "Offset (c)",
+        "tr": "Offset (c)",
+        "de": "Offset (c)",
+        "fr": "Offset (c)",
+        "es": "Offset (c)",
+        "ar": "Offset (c)"
+      }
     }
   ],
   "formulas": {
     "naturalLogArgument": "Math.log(argument)",
     "naturalLogBase": "Math.log(base)",
     "logValue": "naturalLogArgument / naturalLogBase",
-    "result": "multiplier * logValue + offset"
+    "result": "multiplier * logValue + offset",
+    "__naturalLogArgument_": "${naturalLogArgument}",
+    "__naturalLogBase_": "${naturalLogBase}",
+    "__logValue_": "${logValue}",
+    "__multiplier______logValue______offset__": "${multiplier} × ${logValue} + ${offset} = ${result}"
   },
   "outputs": {
-    "primary": "${result}",
+    "primary": "naturalLogArgument",
     "breakdown": [
       "Natural log of argument: ${naturalLogArgument}",
       "Natural log of base: ${naturalLogBase}",
@@ -49,8 +85,8 @@
       "Final result: ${multiplier} × ${logValue} + ${offset} = ${result}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

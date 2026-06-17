@@ -5,9 +5,17 @@
       "id": "sex",
       "label": "Sex",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "0 for female, 1 for male"
+      "businessContext": "0 for female, 1 for male",
+      "label_i18n": {
+        "en": "Sex",
+        "tr": "Sex",
+        "de": "Sex",
+        "fr": "Sex",
+        "es": "Sex",
+        "ar": "Sex"
+      }
     },
     {
       "id": "age",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 25,
-      "businessContext": "Age in years (typically 20–65)"
+      "businessContext": "Age in years (typically 20–65)",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms"
+      "businessContext": "Body weight in kilograms",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "workRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "W",
       "default": 100,
-      "businessContext": "Work rate in watts during steady-state cycling at 50 rpm"
+      "businessContext": "Work rate in watts during steady-state cycling at 50 rpm",
+      "label_i18n": {
+        "en": "Work Rate",
+        "tr": "Work Rate",
+        "de": "Work Rate",
+        "fr": "Work Rate",
+        "es": "Work Rate",
+        "ar": "Work Rate"
+      }
     },
     {
       "id": "heartRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 140,
-      "businessContext": "Average heart rate during the last minute of the 6-minute test (range 125–170 bpm)"
+      "businessContext": "Average heart rate during the last minute of the 6-minute test (range 125–170 bpm)",
+      "label_i18n": {
+        "en": "Steady-State Heart Rate",
+        "tr": "Steady-State Heart Rate",
+        "de": "Steady-State Heart Rate",
+        "fr": "Steady-State Heart Rate",
+        "es": "Steady-State Heart Rate",
+        "ar": "Steady-State Heart Rate"
+      }
     }
   ],
   "formulas": {
@@ -57,10 +97,10 @@
       "relativeVO2"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

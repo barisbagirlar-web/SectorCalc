@@ -20,6 +20,9 @@ function evaluateAllFormulas(input: Flash_guide_number_calculatorInput): Record<
   try { const v = input.distance * input.aperture; results["effectiveGN"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveGN"] = 0; }
   try { const v = (results["effectiveGN"] ?? 0) / Math.sqrt(input.flashPower); results["fullPowerGN"] = Number.isFinite(v) ? v : 0; } catch { results["fullPowerGN"] = 0; }
   try { const v = (results["fullPowerGN"] ?? 0) / Math.sqrt(input.iso / 100); results["requiredGuideNumberISO100"] = Number.isFinite(v) ? v : 0; } catch { results["requiredGuideNumberISO100"] = 0; }
+  results["distance___aperture_____effectiveGN_"] = 0;
+  results["__effectiveGN____sqrt___flashPower______"] = 0;
+  results["__fullPowerGN____sqrt___iso__100______re"] = 0;
   return results;
 }
 

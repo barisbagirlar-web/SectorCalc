@@ -158,131 +158,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "active_utilization_rate",
-      "description": "Percentage of licenses actively used (Six Sigma metric for process efficiency).",
-      "expression": "(active_users / total_licenses) * 100",
-      "unit": "%"
-    },
-    {
-      "id": "shelfware_licenses",
-      "description": "Number of licenses considered waste (shelfware) based on utilization threshold.",
-      "expression": "MAX(0, total_licenses - (active_users * (100 / utilization_threshold)))",
-      "unit": "licenses"
-    },
-    {
-      "id": "monthly_shelfware_cost",
-      "description": "Recurring monthly cost of unused licenses (Lean waste cost).",
-      "expression": "shelfware_licenses * license_cost_per_month",
-      "unit": "USD/month"
-    },
-    {
-      "id": "total_waste_cost",
-      "description": "Total waste cost over remaining contract period including implementation amortization.",
-      "expression": "(monthly_shelfware_cost * contract_months_remaining) + (implementation_cost * (shelfware_licenses / total_licenses))",
-      "unit": "USD"
-    },
-    {
-      "id": "waste_percentage_of_total",
-      "description": "Percentage of total SaaS spend that is waste (WERC benchmark metric).",
-      "expression": "(total_waste_cost / ((total_licenses * license_cost_per_month * contract_months_remaining) + implementation_cost + (monthly_support_cost * contract_months_remaining))) * 100",
-      "unit": "%"
-    },
-    {
-      "id": "shelfware_ratio",
-      "description": "Ratio of shelfware licenses to total licenses (ISO 22400 waste indicator).",
-      "expression": "shelfware_licenses / total_licenses",
-      "unit": "ratio"
-    },
-    {
-      "id": "data_confidence_adjusted_waste",
-      "description": "Waste cost adjusted for data confidence (Monte Carlo simulation proxy using 90% confidence factor).",
-      "expression": "total_waste_cost * 0.9",
-      "unit": "USD"
-    }
+    "total_licenses",
+    "total_licenses",
+    "total_licenses",
+    "total_licenses",
+    "total_licenses",
+    "total_licenses",
+    "total_licenses"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_waste_cost",
-      "label": "Total Shelfware Waste Cost",
-      "unit": "USD",
-      "description": "Primary result: total financial waste from unused SaaS licenses over the contract period."
-    },
-    "breakdown": {
-      "active_utilization_rate": {
-        "id": "active_utilization_rate",
-        "label": "Active Utilization Rate",
-        "unit": "%"
-      },
-      "shelfware_licenses": {
-        "id": "shelfware_licenses",
-        "label": "Shelfware Licenses",
-        "unit": "licenses"
-      },
-      "monthly_shelfware_cost": {
-        "id": "monthly_shelfware_cost",
-        "label": "Monthly Shelfware Cost",
-        "unit": "USD/month"
-      },
-      "waste_percentage_of_total": {
-        "id": "waste_percentage_of_total",
-        "label": "Waste Percentage of Total Spend",
-        "unit": "%"
-      },
-      "shelfware_ratio": {
-        "id": "shelfware_ratio",
-        "label": "Shelfware Ratio",
-        "unit": "ratio"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "underutilized_enterprise_plans",
-        "label": "Underutilized Enterprise Plans",
-        "description": "Enterprise-tier licenses with low usage often have higher per-seat cost, amplifying waste."
-      },
-      {
-        "id": "auto_renewal_inertia",
-        "label": "Auto-Renewal Inertia",
-        "description": "Contracts set to auto-renew without usage review lead to prolonged waste."
-      },
-      {
-        "id": "shadow_it_duplication",
-        "label": "Shadow IT Duplication",
-        "description": "Multiple similar tools purchased by different departments without consolidation."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "renegotiate_contract",
-        "label": "Renegotiate Contract",
-        "description": "Use waste data to negotiate a reduction in license count or switch to usage-based pricing."
-      },
-      {
-        "id": "implement_usage_monitoring",
-        "label": "Implement Usage Monitoring",
-        "description": "Deploy automated tracking (e.g., SAM tools) to identify inactive users monthly."
-      },
-      {
-        "id": "consolidate_tools",
-        "label": "Consolidate Redundant Tools",
-        "description": "Eliminate overlapping SaaS products to reduce total license count."
-      },
-      {
-        "id": "train_users",
-        "label": "Increase User Adoption",
-        "description": "Provide targeted training to underutilized departments to improve active usage."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_waste",
-      "label": "Data Confidence Adjusted Waste",
-      "unit": "USD",
-      "description": "Waste cost adjusted by 90% confidence factor to account for data uncertainty."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "saas-shelfware-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

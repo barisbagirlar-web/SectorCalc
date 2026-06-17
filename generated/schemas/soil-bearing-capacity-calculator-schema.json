@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 0,
-      "businessContext": "Soil cohesion intercept, typically from 0 for sands to 150 kPa for hard clay."
+      "businessContext": "Soil cohesion intercept, typically from 0 for sands to 150 kPa for hard clay.",
+      "label_i18n": {
+        "en": "Cohesion (c)",
+        "tr": "Cohesion (c)",
+        "de": "Cohesion (c)",
+        "fr": "Cohesion (c)",
+        "es": "Cohesion (c)",
+        "ar": "Cohesion (c)"
+      }
     },
     {
       "id": "frictionAngle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Effective friction angle of soil. Common range 20-45°."
+      "businessContext": "Effective friction angle of soil. Common range 20-45°.",
+      "label_i18n": {
+        "en": "Angle of Internal Friction (φ)",
+        "tr": "Angle of Internal Friction (φ)",
+        "de": "Angle of Internal Friction (φ)",
+        "fr": "Angle of Internal Friction (φ)",
+        "es": "Angle of Internal Friction (φ)",
+        "ar": "Angle of Internal Friction (φ)"
+      }
     },
     {
       "id": "unitWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kN/m³",
       "default": 18,
-      "businessContext": "From 14 kN/m³ for soft clays to 22 kN/m³ for dense sand/gravel."
+      "businessContext": "From 14 kN/m³ for soft clays to 22 kN/m³ for dense sand/gravel.",
+      "label_i18n": {
+        "en": "Unit Weight of Soil (γ)",
+        "tr": "Unit Weight of Soil (γ)",
+        "de": "Unit Weight of Soil (γ)",
+        "fr": "Unit Weight of Soil (γ)",
+        "es": "Unit Weight of Soil (γ)",
+        "ar": "Unit Weight of Soil (γ)"
+      }
     },
     {
       "id": "foundationDepth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Depth of footing base below ground surface."
+      "businessContext": "Depth of footing base below ground surface.",
+      "label_i18n": {
+        "en": "Depth of Foundation (Df)",
+        "tr": "Depth of Foundation (Df)",
+        "de": "Depth of Foundation (Df)",
+        "fr": "Depth of Foundation (Df)",
+        "es": "Depth of Foundation (Df)",
+        "ar": "Depth of Foundation (Df)"
+      }
     },
     {
       "id": "foundationWidth",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "m",
       "default": 1.5,
-      "businessContext": "Width of continuous strip footing, or equivalent diameter of circular footing."
+      "businessContext": "Width of continuous strip footing, or equivalent diameter of circular footing.",
+      "label_i18n": {
+        "en": "Width of Foundation (B)",
+        "tr": "Width of Foundation (B)",
+        "de": "Width of Foundation (B)",
+        "fr": "Width of Foundation (B)",
+        "es": "Width of Foundation (B)",
+        "ar": "Width of Foundation (B)"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor (FS)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Factor of safety typically 2.5–4 for permanent structures."
+      "businessContext": "Factor of safety typically 2.5–4 for permanent structures.",
+      "label_i18n": {
+        "en": "Safety Factor (FS)",
+        "tr": "Safety Factor (FS)",
+        "de": "Safety Factor (FS)",
+        "fr": "Safety Factor (FS)",
+        "es": "Safety Factor (FS)",
+        "ar": "Safety Factor (FS)"
+      }
     }
   ],
   "formulas": {
@@ -70,10 +118,10 @@
       "selfWeightTerm"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

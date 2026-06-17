@@ -21,13 +21,14 @@ function evaluateAllFormulas(input: Bessel_filterInput): Record<string, number> 
   try { const v = input.order === 1 ? 1 + (results["normalizedFrequency"] ?? 0) : input.order === 2 ? 3 + 3*(results["normalizedFrequency"] ?? 0) + (results["normalizedFrequency"] ?? 0)**2 : input.order === 3 ? 15 + 15*(results["normalizedFrequency"] ?? 0) + 6*(results["normalizedFrequency"] ?? 0)**2 + (results["normalizedFrequency"] ?? 0)**3 : 105 + 105*(results["normalizedFrequency"] ?? 0) + 45*(results["normalizedFrequency"] ?? 0)**2 + 10*(results["normalizedFrequency"] ?? 0)**3 + (results["normalizedFrequency"] ?? 0)**4; results["besselPolynomial"] = Number.isFinite(v) ? v : 0; } catch { results["besselPolynomial"] = 0; }
   try { const v = 1 / Math.sqrt((results["besselPolynomial"] ?? 0) * (results["besselPolynomial"] ?? 0).conjugate ? (results["besselPolynomial"] ?? 0) * (results["besselPolynomial"] ?? 0).conjugate : (results["besselPolynomial"] ?? 0) * (results["besselPolynomial"] ?? 0)); results["magnitudeResponse"] = Number.isFinite(v) ? v : 0; } catch { results["magnitudeResponse"] = 0; }
   try { const v = -Math.atan2((results["normalizedFrequency"] ?? 0), 1) * input.order; results["phaseResponse"] = Number.isFinite(v) ? v : 0; } catch { results["phaseResponse"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateBessel_filter(input: Bessel_filterInput): Bessel_filterOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Magnitude"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

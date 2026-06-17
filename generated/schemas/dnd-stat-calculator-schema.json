@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "score",
       "default": 10,
-      "businessContext": "Raw Strength score (3-18 typical)"
+      "businessContext": "Raw Strength score (3-18 typical)",
+      "label_i18n": {
+        "en": "Strength",
+        "tr": "Strength",
+        "de": "Strength",
+        "fr": "Strength",
+        "es": "Strength",
+        "ar": "Strength"
+      }
     },
     {
       "id": "dexterity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "score",
       "default": 10,
-      "businessContext": "Raw Dexterity score (3-18 typical)"
+      "businessContext": "Raw Dexterity score (3-18 typical)",
+      "label_i18n": {
+        "en": "Dexterity",
+        "tr": "Dexterity",
+        "de": "Dexterity",
+        "fr": "Dexterity",
+        "es": "Dexterity",
+        "ar": "Dexterity"
+      }
     },
     {
       "id": "constitution",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "score",
       "default": 10,
-      "businessContext": "Raw Constitution score (3-18 typical)"
+      "businessContext": "Raw Constitution score (3-18 typical)",
+      "label_i18n": {
+        "en": "Constitution",
+        "tr": "Constitution",
+        "de": "Constitution",
+        "fr": "Constitution",
+        "es": "Constitution",
+        "ar": "Constitution"
+      }
     },
     {
       "id": "intelligence",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "score",
       "default": 10,
-      "businessContext": "Raw Intelligence score (3-18 typical)"
+      "businessContext": "Raw Intelligence score (3-18 typical)",
+      "label_i18n": {
+        "en": "Intelligence",
+        "tr": "Intelligence",
+        "de": "Intelligence",
+        "fr": "Intelligence",
+        "es": "Intelligence",
+        "ar": "Intelligence"
+      }
     },
     {
       "id": "wisdom",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "score",
       "default": 10,
-      "businessContext": "Raw Wisdom score (3-18 typical)"
+      "businessContext": "Raw Wisdom score (3-18 typical)",
+      "label_i18n": {
+        "en": "Wisdom",
+        "tr": "Wisdom",
+        "de": "Wisdom",
+        "fr": "Wisdom",
+        "es": "Wisdom",
+        "ar": "Wisdom"
+      }
     },
     {
       "id": "charisma",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "score",
       "default": 10,
-      "businessContext": "Raw Charisma score (3-18 typical)"
+      "businessContext": "Raw Charisma score (3-18 typical)",
+      "label_i18n": {
+        "en": "Charisma",
+        "tr": "Charisma",
+        "de": "Charisma",
+        "fr": "Charisma",
+        "es": "Charisma",
+        "ar": "Charisma"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +106,17 @@
     "intelligenceMod": "Math.floor((intelligence - 10) / 2)",
     "wisdomMod": "Math.floor((wisdom - 10) / 2)",
     "charismaMod": "Math.floor((charisma - 10) / 2)",
-    "pointBuyCost": "strength + dexterity + constitution + intelligence + wisdom + charisma - 60"
+    "pointBuyCost": "strength + dexterity + constitution + intelligence + wisdom + charisma - 60",
+    "_strengthMod_": "{strengthMod}",
+    "_dexterityMod_": "{dexterityMod}",
+    "_constitutionMod_": "{constitutionMod}",
+    "_intelligenceMod_": "{intelligenceMod}",
+    "_wisdomMod_": "{wisdomMod}",
+    "_charismaMod_": "{charismaMod}",
+    "_pointBuyCost_": "{pointBuyCost}"
   },
   "outputs": {
-    "primary": "Strength Modifier: {strengthMod}",
+    "primary": "modifier",
     "breakdown": [
       "Strength Modifier: {strengthMod}",
       "Dexterity Modifier: {dexterityMod}",
@@ -72,10 +127,10 @@
       "Point Buy Cost (above 60): {pointBuyCost}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

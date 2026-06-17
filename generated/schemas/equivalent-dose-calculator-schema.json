@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Gy",
       "default": 0,
-      "businessContext": "Absorbed dose from beta particles or gamma rays."
+      "businessContext": "Absorbed dose from beta particles or gamma rays.",
+      "label_i18n": {
+        "en": "Beta/Gamma Dose",
+        "tr": "Beta/Gamma Dose",
+        "de": "Beta/Gamma Dose",
+        "fr": "Beta/Gamma Dose",
+        "es": "Beta/Gamma Dose",
+        "ar": "Beta/Gamma Dose"
+      }
     },
     {
       "id": "alphaDose",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Gy",
       "default": 0,
-      "businessContext": "Absorbed dose from alpha particles."
+      "businessContext": "Absorbed dose from alpha particles.",
+      "label_i18n": {
+        "en": "Alpha Dose",
+        "tr": "Alpha Dose",
+        "de": "Alpha Dose",
+        "fr": "Alpha Dose",
+        "es": "Alpha Dose",
+        "ar": "Alpha Dose"
+      }
     },
     {
       "id": "neutronDose",
@@ -23,38 +39,73 @@
       "type": "number",
       "unit": "Gy",
       "default": 0,
-      "businessContext": "Absorbed dose from neutrons."
+      "businessContext": "Absorbed dose from neutrons.",
+      "label_i18n": {
+        "en": "Neutron Dose",
+        "tr": "Neutron Dose",
+        "de": "Neutron Dose",
+        "fr": "Neutron Dose",
+        "es": "Neutron Dose",
+        "ar": "Neutron Dose"
+      }
     },
     {
       "id": "wR_betaGamma",
       "label": "Beta/Gamma Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Radiation weighting factor for beta/gamma radiation (typically 1)."
+      "businessContext": "Radiation weighting factor for beta/gamma radiation (typically 1).",
+      "label_i18n": {
+        "en": "Beta/Gamma Factor",
+        "tr": "Beta/Gamma Factor",
+        "de": "Beta/Gamma Factor",
+        "fr": "Beta/Gamma Factor",
+        "es": "Beta/Gamma Factor",
+        "ar": "Beta/Gamma Factor"
+      }
     },
     {
       "id": "wR_alpha",
       "label": "Alpha Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 20,
-      "businessContext": "Radiation weighting factor for alpha particles (typically 20)."
+      "businessContext": "Radiation weighting factor for alpha particles (typically 20).",
+      "label_i18n": {
+        "en": "Alpha Factor",
+        "tr": "Alpha Factor",
+        "de": "Alpha Factor",
+        "fr": "Alpha Factor",
+        "es": "Alpha Factor",
+        "ar": "Alpha Factor"
+      }
     },
     {
       "id": "wR_neutron",
       "label": "Neutron Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Radiation weighting factor for neutrons (simplified, typically 5-20 depending on energy)."
+      "businessContext": "Radiation weighting factor for neutrons (simplified, typically 5-20 depending on energy).",
+      "label_i18n": {
+        "en": "Neutron Factor",
+        "tr": "Neutron Factor",
+        "de": "Neutron Factor",
+        "fr": "Neutron Factor",
+        "es": "Neutron Factor",
+        "ar": "Neutron Factor"
+      }
     }
   ],
   "formulas": {
     "totalH": "betaGammaDose * wR_betaGamma + alphaDose * wR_alpha + neutronDose * wR_neutron",
     "betaGammaContrib": "betaGammaDose * wR_betaGamma",
     "alphaContrib": "alphaDose * wR_alpha",
-    "neutronContrib": "neutronDose * wR_neutron"
+    "neutronContrib": "neutronDose * wR_neutron",
+    "_betaGammaContrib__Sv": "{betaGammaContrib} Sv",
+    "_alphaContrib__Sv": "{alphaContrib} Sv",
+    "_neutronContrib__Sv": "{neutronContrib} Sv"
   },
   "outputs": {
     "primary": "totalH",
@@ -64,10 +115,10 @@
       "Neutron: {neutronContrib} Sv"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

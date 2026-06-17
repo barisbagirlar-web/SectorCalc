@@ -5,65 +5,129 @@
       "id": "num1",
       "label": "Pay 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Birinci kesrin payı"
+      "businessContext": "Birinci kesrin payı",
+      "label_i18n": {
+        "en": "Pay 1",
+        "tr": "Pay 1",
+        "de": "Pay 1",
+        "fr": "Pay 1",
+        "es": "Pay 1",
+        "ar": "Pay 1"
+      }
     },
     {
       "id": "den1",
       "label": "Payda 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Birinci kesrin paydası"
+      "businessContext": "Birinci kesrin paydası",
+      "label_i18n": {
+        "en": "Payda 1",
+        "tr": "Payda 1",
+        "de": "Payda 1",
+        "fr": "Payda 1",
+        "es": "Payda 1",
+        "ar": "Payda 1"
+      }
     },
     {
       "id": "num2",
       "label": "Pay 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "İkinci kesrin payı"
+      "businessContext": "İkinci kesrin payı",
+      "label_i18n": {
+        "en": "Pay 2",
+        "tr": "Pay 2",
+        "de": "Pay 2",
+        "fr": "Pay 2",
+        "es": "Pay 2",
+        "ar": "Pay 2"
+      }
     },
     {
       "id": "den2",
       "label": "Payda 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "İkinci kesrin paydası"
+      "businessContext": "İkinci kesrin paydası",
+      "label_i18n": {
+        "en": "Payda 2",
+        "tr": "Payda 2",
+        "de": "Payda 2",
+        "fr": "Payda 2",
+        "es": "Payda 2",
+        "ar": "Payda 2"
+      }
     },
     {
       "id": "num3",
       "label": "Pay 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Üçüncü kesrin payı"
+      "businessContext": "Üçüncü kesrin payı",
+      "label_i18n": {
+        "en": "Pay 3",
+        "tr": "Pay 3",
+        "de": "Pay 3",
+        "fr": "Pay 3",
+        "es": "Pay 3",
+        "ar": "Pay 3"
+      }
     },
     {
       "id": "den3",
       "label": "Payda 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Üçüncü kesrin paydası"
+      "businessContext": "Üçüncü kesrin paydası",
+      "label_i18n": {
+        "en": "Payda 3",
+        "tr": "Payda 3",
+        "de": "Payda 3",
+        "fr": "Payda 3",
+        "es": "Payda 3",
+        "ar": "Payda 3"
+      }
     },
     {
       "id": "num4",
       "label": "Pay 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Dördüncü kesrin payı"
+      "businessContext": "Dördüncü kesrin payı",
+      "label_i18n": {
+        "en": "Pay 4",
+        "tr": "Pay 4",
+        "de": "Pay 4",
+        "fr": "Pay 4",
+        "es": "Pay 4",
+        "ar": "Pay 4"
+      }
     },
     {
       "id": "den4",
       "label": "Payda 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Dördüncü kesrin paydası"
+      "businessContext": "Dördüncü kesrin paydası",
+      "label_i18n": {
+        "en": "Payda 4",
+        "tr": "Payda 4",
+        "de": "Payda 4",
+        "fr": "Payda 4",
+        "es": "Payda 4",
+        "ar": "Payda 4"
+      }
     }
   ],
   "formulas": {
@@ -82,10 +146,10 @@
       "fraction4"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

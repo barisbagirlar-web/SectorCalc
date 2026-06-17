@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı. Daha yüksek ağırlık, daha fazla kalori yakımına yol açar."
+      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı. Daha yüksek ağırlık, daha fazla kalori yakımına yol açar.",
+      "label_i18n": {
+        "en": "Kullanıcı Ağırlığı",
+        "tr": "Kullanıcı Ağırlığı",
+        "de": "Kullanıcı Ağırlığı",
+        "fr": "Kullanıcı Ağırlığı",
+        "es": "Kullanıcı Ağırlığı",
+        "ar": "Kullanıcı Ağırlığı"
+      }
     },
     {
       "id": "jumpRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "zıplama/dk",
       "default": 100,
-      "businessContext": "Dakika başına ortalama ip atlama sayısı. Daha yüksek hız, egzersiz yoğunluğunu artırır."
+      "businessContext": "Dakika başına ortalama ip atlama sayısı. Daha yüksek hız, egzersiz yoğunluğunu artırır.",
+      "label_i18n": {
+        "en": "Zıplama Hızı",
+        "tr": "Zıplama Hızı",
+        "de": "Zıplama Hızı",
+        "fr": "Zıplama Hızı",
+        "es": "Zıplama Hızı",
+        "ar": "Zıplama Hızı"
+      }
     },
     {
       "id": "duration",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "dk",
       "default": 30,
-      "businessContext": "Toplam ip atlama egzersizi süresi (dakika). Süre arttıkça toplam kalori ve zıplama sayısı artar."
+      "businessContext": "Toplam ip atlama egzersizi süresi (dakika). Süre arttıkça toplam kalori ve zıplama sayısı artar.",
+      "label_i18n": {
+        "en": "Egzersiz Süresi",
+        "tr": "Egzersiz Süresi",
+        "de": "Egzersiz Süresi",
+        "fr": "Egzersiz Süresi",
+        "es": "Egzersiz Süresi",
+        "ar": "Egzersiz Süresi"
+      }
     },
     {
       "id": "MET",
       "label": "MET Değeri",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 11.8,
-      "businessContext": "Egzersizin metabolik eşdeğeri. İp atlama için tipik değer 11.8'dir. Yoğunluğa bağlı olarak değişebilir."
+      "businessContext": "Egzersizin metabolik eşdeğeri. İp atlama için tipik değer 11.8'dir. Yoğunluğa bağlı olarak değişebilir.",
+      "label_i18n": {
+        "en": "MET Değeri",
+        "tr": "MET Değeri",
+        "de": "MET Değeri",
+        "fr": "MET Değeri",
+        "es": "MET Değeri",
+        "ar": "MET Değeri"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "caloriesPerMinute"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

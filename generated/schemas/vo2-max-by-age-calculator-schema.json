@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Client age in years"
+      "businessContext": "Client age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Client body weight in kilograms"
+      "businessContext": "Client body weight in kilograms",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "gender",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "0-1",
       "default": 1,
-      "businessContext": "Client gender (0 = Female, 1 = Male)"
+      "businessContext": "Client gender (0 = Female, 1 = Male)",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "walkTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 12,
-      "businessContext": "Time to walk 1 mile (1609 meters) on a flat track, in minutes"
+      "businessContext": "Time to walk 1 mile (1609 meters) on a flat track, in minutes",
+      "label_i18n": {
+        "en": "Walk Time",
+        "tr": "Walk Time",
+        "de": "Walk Time",
+        "fr": "Walk Time",
+        "es": "Walk Time",
+        "ar": "Walk Time"
+      }
     },
     {
       "id": "heartRate",
@@ -39,23 +71,34 @@
       "type": "number",
       "unit": "bpm",
       "default": 140,
-      "businessContext": "Heart rate immediately after the 1-mile walk, in beats per minute"
+      "businessContext": "Heart rate immediately after the 1-mile walk, in beats per minute",
+      "label_i18n": {
+        "en": "Heart Rate",
+        "tr": "Heart Rate",
+        "de": "Heart Rate",
+        "fr": "Heart Rate",
+        "es": "Heart Rate",
+        "ar": "Heart Rate"
+      }
     }
   ],
   "formulas": {
-    "vo2max": "132.853 - 0.0769 * weight - 0.3877 * age + 6.315 * gender - 3.2649 * walkTime - 0.1565 * heartRate"
+    "vo2max": "132.853 - 0.0769 * weight - 0.3877 * age + 6.315 * gender - 3.2649 * walkTime - 0.1565 * heartRate",
+    "132_853___0_0769___weight___0_3877___age": "132.853 - 0.0769 * weight - 0.3877 * age + 6.315 * gender - 3.2649 * walkTime - 0.1565 * heartRate",
+    "Compare_result_with_normative_values_bas": "Compare result with normative values based on age and gender to assess cardiovascular fitness.",
+    "result": "VO2max (ml/kg/min)"
   },
   "outputs": {
-    "primary": "VO2max (ml/kg/min)",
+    "primary": "result",
     "breakdown": [
       "Rockport Walking Test formula: 132.853 - 0.0769 * weight - 0.3877 * age + 6.315 * gender - 3.2649 * walkTime - 0.1565 * heartRate",
       "Compare result with normative values based on age and gender to assess cardiovascular fitness."
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

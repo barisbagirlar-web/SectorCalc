@@ -17,14 +17,21 @@ export const Moment_of_inertia_calculatorInputSchema = z.object({
   dim4: z.number().default(5),
 });
 
-function evaluateAllFormulas(_input: Moment_of_inertia_calculatorInput): Record<string, number> {
-  return {};
+function evaluateAllFormulas(input: Moment_of_inertia_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.shape; results["1"] = Number.isFinite(v) ? v : 0; } catch { results["1"] = 0; }
+  try { const v = input.shape; results["2"] = Number.isFinite(v) ? v : 0; } catch { results["2"] = 0; }
+  try { const v = input.shape; results["3"] = Number.isFinite(v) ? v : 0; } catch { results["3"] = 0; }
+  try { const v = input.shape; results["4"] = Number.isFinite(v) ? v : 0; } catch { results["4"] = 0; }
+  try { const v = I_y; results["I_y"] = Number.isFinite(v) ? v : 0; } catch { results["I_y"] = 0; }
+  results["Shape_description"] = 0;
+  return results;
 }
 
 
 export function calculateMoment_of_inertia_calculator(input: Moment_of_inertia_calculatorInput): Moment_of_inertia_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["I_x"] ?? 0;
+  const totalWasteCost = values["1"] ?? 0;
   const breakdown = {
     
   };

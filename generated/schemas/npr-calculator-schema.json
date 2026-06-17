@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "items",
       "default": 10,
-      "businessContext": "Total number of distinct items available for arrangement."
+      "businessContext": "Total number of distinct items available for arrangement.",
+      "label_i18n": {
+        "en": "Total Items (n)",
+        "tr": "Total Items (n)",
+        "de": "Total Items (n)",
+        "fr": "Total Items (n)",
+        "es": "Total Items (n)",
+        "ar": "Total Items (n)"
+      }
     },
     {
       "id": "r",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "items",
       "default": 3,
-      "businessContext": "Number of items selected and arranged in a specific order."
+      "businessContext": "Number of items selected and arranged in a specific order.",
+      "label_i18n": {
+        "en": "Items to Arrange (r)",
+        "tr": "Items to Arrange (r)",
+        "de": "Items to Arrange (r)",
+        "fr": "Items to Arrange (r)",
+        "es": "Items to Arrange (r)",
+        "ar": "Items to Arrange (r)"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "places",
       "default": 0,
-      "businessContext": "Number of decimal places for the result (use 0 for exact integer)."
+      "businessContext": "Number of decimal places for the result (use 0 for exact integer).",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "maxResultCap",
@@ -31,32 +55,23 @@
       "type": "number",
       "unit": "arrangements",
       "default": 1000000000000000,
-      "businessContext": "Upper limit for the result to prevent computational overflow; if exceeded, an error is indicated."
+      "businessContext": "Upper limit for the result to prevent computational overflow; if exceeded, an error is indicated.",
+      "label_i18n": {
+        "en": "Maximum Result Cap",
+        "tr": "Maximum Result Cap",
+        "de": "Maximum Result Cap",
+        "fr": "Maximum Result Cap",
+        "es": "Maximum Result Cap",
+        "ar": "Maximum Result Cap"
+      }
     }
   ],
   "formulas": {
-    "primary": {
-      "id": "permutations",
-      "expression": "function(n, r, decimalPlaces, maxResultCap) { if (n < 0 || r < 0 || r > n || !Number.isInteger(n) || !Number.isInteger(r)) return NaN; let result = 1; for (let i = n; i > n - r; i--) { result *= i; if (result > maxResultCap) return NaN; } return +result.toFixed(decimalPlaces); }"
-    },
-    "breakdown": [
-      {
-        "id": "nFactorial",
-        "expression": "function(n) { if (n < 0 || !Number.isInteger(n)) return NaN; let fact = 1; for (let i = 2; i <= n; i++) fact *= i; return fact; }"
-      },
-      {
-        "id": "nMinusRFactorial",
-        "expression": "function(n, r) { let m = n - r; if (m < 0 || !Number.isInteger(m)) return NaN; let fact = 1; for (let i = 2; i <= m; i++) fact *= i; return fact; }"
-      }
-    ]
+    "primary": "n",
+    "breakdown": "n"
   },
   "outputs": {
-    "primary": {
-      "id": "permutations",
-      "label": "Permutations (nPr)",
-      "unit": "arrangements",
-      "description": "The total number of ways to arrange r items from a set of n distinct items."
-    },
+    "primary": "primary",
     "breakdown": [
       {
         "id": "nFactorial",
@@ -72,8 +87,8 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

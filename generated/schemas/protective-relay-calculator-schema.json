@@ -5,9 +5,17 @@
       "id": "ct_ratio",
       "label": "CT Ratio",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 40,
-      "businessContext": "Current transformer ratio (primary to secondary)"
+      "businessContext": "Current transformer ratio (primary to secondary)",
+      "label_i18n": {
+        "en": "CT Ratio",
+        "tr": "CT Ratio",
+        "de": "CT Ratio",
+        "fr": "CT Ratio",
+        "es": "CT Ratio",
+        "ar": "CT Ratio"
+      }
     },
     {
       "id": "relay_pickup",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "A",
       "default": 5,
-      "businessContext": "Relay pickup setting in Amps at secondary side"
+      "businessContext": "Relay pickup setting in Amps at secondary side",
+      "label_i18n": {
+        "en": "Relay Pickup Current",
+        "tr": "Relay Pickup Current",
+        "de": "Relay Pickup Current",
+        "fr": "Relay Pickup Current",
+        "es": "Relay Pickup Current",
+        "ar": "Relay Pickup Current"
+      }
     },
     {
       "id": "fault_current_primary",
@@ -23,39 +39,79 @@
       "type": "number",
       "unit": "A",
       "default": 1000,
-      "businessContext": "Fault current in the primary circuit"
+      "businessContext": "Fault current in the primary circuit",
+      "label_i18n": {
+        "en": "Primary Fault Current",
+        "tr": "Primary Fault Current",
+        "de": "Primary Fault Current",
+        "fr": "Primary Fault Current",
+        "es": "Primary Fault Current",
+        "ar": "Primary Fault Current"
+      }
     },
     {
       "id": "tms",
       "label": "Time Multiplier Setting (TMS)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.1,
-      "businessContext": "Time multiplier setting of the relay"
+      "businessContext": "Time multiplier setting of the relay",
+      "label_i18n": {
+        "en": "Time Multiplier Setting (TMS)",
+        "tr": "Time Multiplier Setting (TMS)",
+        "de": "Time Multiplier Setting (TMS)",
+        "fr": "Time Multiplier Setting (TMS)",
+        "es": "Time Multiplier Setting (TMS)",
+        "ar": "Time Multiplier Setting (TMS)"
+      }
     },
     {
       "id": "curve_constant_k",
       "label": "Curve Constant k",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.14,
-      "businessContext": "k factor for the IEC inverse-time curve equation"
+      "businessContext": "k factor for the IEC inverse-time curve equation",
+      "label_i18n": {
+        "en": "Curve Constant k",
+        "tr": "Curve Constant k",
+        "de": "Curve Constant k",
+        "fr": "Curve Constant k",
+        "es": "Curve Constant k",
+        "ar": "Curve Constant k"
+      }
     },
     {
       "id": "curve_constant_alpha",
       "label": "Curve Constant α",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.02,
-      "businessContext": "α exponent for the IEC inverse-time curve equation"
+      "businessContext": "α exponent for the IEC inverse-time curve equation",
+      "label_i18n": {
+        "en": "Curve Constant α",
+        "tr": "Curve Constant α",
+        "de": "Curve Constant α",
+        "fr": "Curve Constant α",
+        "es": "Curve Constant α",
+        "ar": "Curve Constant α"
+      }
     },
     {
       "id": "curve_constant_c",
       "label": "Curve Constant c",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "c additive constant for the IEC inverse-time curve equation"
+      "businessContext": "c additive constant for the IEC inverse-time curve equation",
+      "label_i18n": {
+        "en": "Curve Constant c",
+        "tr": "Curve Constant c",
+        "de": "Curve Constant c",
+        "fr": "Curve Constant c",
+        "es": "Curve Constant c",
+        "ar": "Curve Constant c"
+      }
     }
   ],
   "formulas": {
@@ -70,10 +126,10 @@
       "plug_setting_multiple"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Enerji & Karbon",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

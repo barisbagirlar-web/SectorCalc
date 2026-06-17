@@ -5,41 +5,81 @@
       "id": "n",
       "label": "Terim indeksi (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Hesaplanacak terimin sıra numarası (0'dan başlar)."
+      "businessContext": "Hesaplanacak terimin sıra numarası (0'dan başlar).",
+      "label_i18n": {
+        "en": "Terim indeksi (n)",
+        "tr": "Terim indeksi (n)",
+        "de": "Terim indeksi (n)",
+        "fr": "Terim indeksi (n)",
+        "es": "Terim indeksi (n)",
+        "ar": "Terim indeksi (n)"
+      }
     },
     {
       "id": "a0",
       "label": "Başlangıç değeri a0",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "n=0 için dizi değeri."
+      "businessContext": "n=0 için dizi değeri.",
+      "label_i18n": {
+        "en": "Başlangıç değeri a0",
+        "tr": "Başlangıç değeri a0",
+        "de": "Başlangıç değeri a0",
+        "fr": "Başlangıç değeri a0",
+        "es": "Başlangıç değeri a0",
+        "ar": "Başlangıç değeri a0"
+      }
     },
     {
       "id": "a1",
       "label": "Başlangıç değeri a1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "n=1 için dizi değeri."
+      "businessContext": "n=1 için dizi değeri.",
+      "label_i18n": {
+        "en": "Başlangıç değeri a1",
+        "tr": "Başlangıç değeri a1",
+        "de": "Başlangıç değeri a1",
+        "fr": "Başlangıç değeri a1",
+        "es": "Başlangıç değeri a1",
+        "ar": "Başlangıç değeri a1"
+      }
     },
     {
       "id": "c1",
       "label": "Katsayı c1 (önceki terimin çarpanı)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "a_{n-1} teriminin katsayısı."
+      "businessContext": "a_{n-1} teriminin katsayısı.",
+      "label_i18n": {
+        "en": "Katsayı c1 (önceki terimin çarpanı)",
+        "tr": "Katsayı c1 (önceki terimin çarpanı)",
+        "de": "Katsayı c1 (önceki terimin çarpanı)",
+        "fr": "Katsayı c1 (önceki terimin çarpanı)",
+        "es": "Katsayı c1 (önceki terimin çarpanı)",
+        "ar": "Katsayı c1 (önceki terimin çarpanı)"
+      }
     },
     {
       "id": "c2",
       "label": "Katsayı c2 (iki önceki terimin çarpanı)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "a_{n-2} teriminin katsayısı."
+      "businessContext": "a_{n-2} teriminin katsayısı.",
+      "label_i18n": {
+        "en": "Katsayı c2 (iki önceki terimin çarpanı)",
+        "tr": "Katsayı c2 (iki önceki terimin çarpanı)",
+        "de": "Katsayı c2 (iki önceki terimin çarpanı)",
+        "fr": "Katsayı c2 (iki önceki terimin çarpanı)",
+        "es": "Katsayı c2 (iki önceki terimin çarpanı)",
+        "ar": "Katsayı c2 (iki önceki terimin çarpanı)"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "a1_out"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

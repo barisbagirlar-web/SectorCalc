@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "The total shear force applied to the cross-section."
+      "businessContext": "The total shear force applied to the cross-section.",
+      "label_i18n": {
+        "en": "Shear Force (F)",
+        "tr": "Shear Force (F)",
+        "de": "Shear Force (F)",
+        "fr": "Shear Force (F)",
+        "es": "Shear Force (F)",
+        "ar": "Shear Force (F)"
+      }
     },
     {
       "id": "area",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "mm²",
       "default": 100,
-      "businessContext": "The effective area resisting the shear force."
+      "businessContext": "The effective area resisting the shear force.",
+      "label_i18n": {
+        "en": "Cross-Sectional Area (A)",
+        "tr": "Cross-Sectional Area (A)",
+        "de": "Cross-Sectional Area (A)",
+        "fr": "Cross-Sectional Area (A)",
+        "es": "Cross-Sectional Area (A)",
+        "ar": "Cross-Sectional Area (A)"
+      }
     },
     {
       "id": "planes",
       "label": "Number of Shear Planes",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for single shear, 2 for double shear (e.g., bolted connections)."
+      "businessContext": "1 for single shear, 2 for double shear (e.g., bolted connections).",
+      "label_i18n": {
+        "en": "Number of Shear Planes",
+        "tr": "Number of Shear Planes",
+        "de": "Number of Shear Planes",
+        "fr": "Number of Shear Planes",
+        "es": "Number of Shear Planes",
+        "ar": "Number of Shear Planes"
+      }
     },
     {
       "id": "allowStress",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "The material's maximum permissible shear stress as per design codes."
+      "businessContext": "The material's maximum permissible shear stress as per design codes.",
+      "label_i18n": {
+        "en": "Allowable Shear Stress (τ_allow)",
+        "tr": "Allowable Shear Stress (τ_allow)",
+        "de": "Allowable Shear Stress (τ_allow)",
+        "fr": "Allowable Shear Stress (τ_allow)",
+        "es": "Allowable Shear Stress (τ_allow)",
+        "ar": "Allowable Shear Stress (τ_allow)"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor (SF)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Design safety factor to account for uncertainties in load and material properties."
+      "businessContext": "Design safety factor to account for uncertainties in load and material properties.",
+      "label_i18n": {
+        "en": "Safety Factor (SF)",
+        "tr": "Safety Factor (SF)",
+        "de": "Safety Factor (SF)",
+        "fr": "Safety Factor (SF)",
+        "es": "Safety Factor (SF)",
+        "ar": "Safety Factor (SF)"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,7 @@
       "utilization"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

@@ -5,9 +5,17 @@
       "id": "sample_size",
       "label": "Sample Size (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Total number of observations or respondents in the sample."
+      "businessContext": "Total number of observations or respondents in the sample.",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "confidence_level",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Desired confidence level as a percentage (e.g., 95, 99). Note: The corresponding Z-score must be entered manually."
+      "businessContext": "Desired confidence level as a percentage (e.g., 95, 99). Note: The corresponding Z-score must be entered manually.",
+      "label_i18n": {
+        "en": "Confidence Level (%)",
+        "tr": "Confidence Level (%)",
+        "de": "Confidence Level (%)",
+        "fr": "Confidence Level (%)",
+        "es": "Confidence Level (%)",
+        "ar": "Confidence Level (%)"
+      }
     },
     {
       "id": "z_score",
       "label": "Z-Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.96,
-      "businessContext": "Critical value from the standard normal distribution corresponding to the confidence level (e.g., 1.96 for 95%, 2.576 for 99%)."
+      "businessContext": "Critical value from the standard normal distribution corresponding to the confidence level (e.g., 1.96 for 95%, 2.576 for 99%).",
+      "label_i18n": {
+        "en": "Z-Score",
+        "tr": "Z-Score",
+        "de": "Z-Score",
+        "fr": "Z-Score",
+        "es": "Z-Score",
+        "ar": "Z-Score"
+      }
     },
     {
       "id": "sample_proportion",
       "label": "Sample Proportion (p)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Proportion of the sample with the characteristic of interest; use 0.5 for maximum margin of error."
+      "businessContext": "Proportion of the sample with the characteristic of interest; use 0.5 for maximum margin of error.",
+      "label_i18n": {
+        "en": "Sample Proportion (p)",
+        "tr": "Sample Proportion (p)",
+        "de": "Sample Proportion (p)",
+        "fr": "Sample Proportion (p)",
+        "es": "Sample Proportion (p)",
+        "ar": "Sample Proportion (p)"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "margin_of_error_percent"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "finance-sales-working-capital"
 }

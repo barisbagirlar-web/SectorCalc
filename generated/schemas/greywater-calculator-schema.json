@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "people",
       "default": 4,
-      "businessContext": "Number of occupants in the building"
+      "businessContext": "Number of occupants in the building",
+      "label_i18n": {
+        "en": "Number of People",
+        "tr": "Number of People",
+        "de": "Number of People",
+        "fr": "Number of People",
+        "es": "Number of People",
+        "ar": "Number of People"
+      }
     },
     {
       "id": "dailyWaterUsagePerPerson",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "L/person/day",
       "default": 100,
-      "businessContext": "Average daily water consumption per person"
+      "businessContext": "Average daily water consumption per person",
+      "label_i18n": {
+        "en": "Daily Water Usage per Person",
+        "tr": "Daily Water Usage per Person",
+        "de": "Daily Water Usage per Person",
+        "fr": "Daily Water Usage per Person",
+        "es": "Daily Water Usage per Person",
+        "ar": "Daily Water Usage per Person"
+      }
     },
     {
       "id": "greywaterFraction",
       "label": "Greywater Fraction",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.65,
-      "businessContext": "Proportion of fresh water that becomes greywater"
+      "businessContext": "Proportion of fresh water that becomes greywater",
+      "label_i18n": {
+        "en": "Greywater Fraction",
+        "tr": "Greywater Fraction",
+        "de": "Greywater Fraction",
+        "fr": "Greywater Fraction",
+        "es": "Greywater Fraction",
+        "ar": "Greywater Fraction"
+      }
     },
     {
       "id": "systemEfficiency",
       "label": "System Efficiency",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Efficiency of the greywater recycling system"
+      "businessContext": "Efficiency of the greywater recycling system",
+      "label_i18n": {
+        "en": "System Efficiency",
+        "tr": "System Efficiency",
+        "de": "System Efficiency",
+        "fr": "System Efficiency",
+        "es": "System Efficiency",
+        "ar": "System Efficiency"
+      }
     },
     {
       "id": "waterCostPerCubicMeter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€/m³",
       "default": 3.5,
-      "businessContext": "Local cost of water supply per cubic meter"
+      "businessContext": "Local cost of water supply per cubic meter",
+      "label_i18n": {
+        "en": "Water Cost per Cubic Meter",
+        "tr": "Water Cost per Cubic Meter",
+        "de": "Water Cost per Cubic Meter",
+        "fr": "Water Cost per Cubic Meter",
+        "es": "Water Cost per Cubic Meter",
+        "ar": "Water Cost per Cubic Meter"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "annualCostSaved"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "ecology-environment",
   "sectorSlug": "energy-carbon",

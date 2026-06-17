@@ -25,6 +25,7 @@ function evaluateAllFormulas(input: Renters_insurance_calculatorInput): Record<s
   try { const v = (results["riskAdjustedPremium"] ?? 0) - (results["discountAmount"] ?? 0); results["finalAnnualPremium"] = Number.isFinite(v) ? v : 0; } catch { results["finalAnnualPremium"] = 0; }
   try { const v = (results["finalAnnualPremium"] ?? 0) / 12; results["monthlyPremium"] = Number.isFinite(v) ? v : 0; } catch { results["monthlyPremium"] = 0; }
   try { const v = input.personalPropertyValue + input.liabilityCoverage; results["totalCoverage"] = Number.isFinite(v) ? v : 0; } catch { results["totalCoverage"] = 0; }
+  try { const v = input.deductible; results["deductible"] = Number.isFinite(v) ? v : 0; } catch { results["deductible"] = 0; }
   return results;
 }
 

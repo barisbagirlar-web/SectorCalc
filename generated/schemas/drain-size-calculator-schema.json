@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "l/s",
       "default": 10,
-      "businessContext": "Design flow rate for the drain"
+      "businessContext": "Design flow rate for the drain",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "slope",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "m/m",
       "default": 0.01,
-      "businessContext": "Slope of the drainage pipe"
+      "businessContext": "Slope of the drainage pipe",
+      "label_i18n": {
+        "en": "Pipe Slope",
+        "tr": "Pipe Slope",
+        "de": "Pipe Slope",
+        "fr": "Pipe Slope",
+        "es": "Pipe Slope",
+        "ar": "Pipe Slope"
+      }
     },
     {
       "id": "manningN",
       "label": "Manning's Roughness (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.013,
-      "businessContext": "Manning's roughness coefficient for pipe material"
+      "businessContext": "Manning's roughness coefficient for pipe material",
+      "label_i18n": {
+        "en": "Manning's Roughness (n)",
+        "tr": "Manning's Roughness (n)",
+        "de": "Manning's Roughness (n)",
+        "fr": "Manning's Roughness (n)",
+        "es": "Manning's Roughness (n)",
+        "ar": "Manning's Roughness (n)"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Factor applied to flow rate for safety"
+      "businessContext": "Factor applied to flow rate for safety",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "area"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "process-chemical"
 }

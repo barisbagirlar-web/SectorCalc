@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.4,
-      "businessContext": "Diameter of the resistance wire used in the coil."
+      "businessContext": "Diameter of the resistance wire used in the coil.",
+      "label_i18n": {
+        "en": "Wire Diameter",
+        "tr": "Wire Diameter",
+        "de": "Wire Diameter",
+        "fr": "Wire Diameter",
+        "es": "Wire Diameter",
+        "ar": "Wire Diameter"
+      }
     },
     {
       "id": "innerDiameter",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "mm",
       "default": 3,
-      "businessContext": "Inner diameter of the coil, typically the jig or drill bit size."
+      "businessContext": "Inner diameter of the coil, typically the jig or drill bit size.",
+      "label_i18n": {
+        "en": "Inner Coil Diameter",
+        "tr": "Inner Coil Diameter",
+        "de": "Inner Coil Diameter",
+        "fr": "Inner Coil Diameter",
+        "es": "Inner Coil Diameter",
+        "ar": "Inner Coil Diameter"
+      }
     },
     {
       "id": "numberOfWraps",
       "label": "Number of Wraps",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "Full wraps of the coil."
+      "businessContext": "Full wraps of the coil.",
+      "label_i18n": {
+        "en": "Number of Wraps",
+        "tr": "Number of Wraps",
+        "de": "Number of Wraps",
+        "fr": "Number of Wraps",
+        "es": "Number of Wraps",
+        "ar": "Number of Wraps"
+      }
     },
     {
       "id": "legLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Length of each leg from coil to attachment post."
+      "businessContext": "Length of each leg from coil to attachment post.",
+      "label_i18n": {
+        "en": "Leg Length (per leg)",
+        "tr": "Leg Length (per leg)",
+        "de": "Leg Length (per leg)",
+        "fr": "Leg Length (per leg)",
+        "es": "Leg Length (per leg)",
+        "ar": "Leg Length (per leg)"
+      }
     },
     {
       "id": "resistivity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "Ω·m",
       "default": 0.00000145,
-      "businessContext": "Electrical resistivity of the wire material (e.g., Kanthal A1: 1.45×10⁻⁶ Ω·m)."
+      "businessContext": "Electrical resistivity of the wire material (e.g., Kanthal A1: 1.45×10⁻⁶ Ω·m).",
+      "label_i18n": {
+        "en": "Resistivity",
+        "tr": "Resistivity",
+        "de": "Resistivity",
+        "fr": "Resistivity",
+        "es": "Resistivity",
+        "ar": "Resistivity"
+      }
     },
     {
       "id": "voltage",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "V",
       "default": 4.2,
-      "businessContext": "Output voltage of the battery or regulated mod."
+      "businessContext": "Output voltage of the battery or regulated mod.",
+      "label_i18n": {
+        "en": "Applied Voltage",
+        "tr": "Applied Voltage",
+        "de": "Applied Voltage",
+        "fr": "Applied Voltage",
+        "es": "Applied Voltage",
+        "ar": "Applied Voltage"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "power"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

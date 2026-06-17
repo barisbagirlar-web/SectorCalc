@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W",
       "default": 60,
-      "businessContext": "Power consumption of existing bulb"
+      "businessContext": "Power consumption of existing bulb",
+      "label_i18n": {
+        "en": "Current Bulb Wattage",
+        "tr": "Current Bulb Wattage",
+        "de": "Current Bulb Wattage",
+        "fr": "Current Bulb Wattage",
+        "es": "Current Bulb Wattage",
+        "ar": "Current Bulb Wattage"
+      }
     },
     {
       "id": "ledBulbWattage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "W",
       "default": 10,
-      "businessContext": "Power consumption of LED replacement"
+      "businessContext": "Power consumption of LED replacement",
+      "label_i18n": {
+        "en": "LED Bulb Wattage",
+        "tr": "LED Bulb Wattage",
+        "de": "LED Bulb Wattage",
+        "fr": "LED Bulb Wattage",
+        "es": "LED Bulb Wattage",
+        "ar": "LED Bulb Wattage"
+      }
     },
     {
       "id": "numberOfBulbs",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 10,
-      "businessContext": "Total count of bulbs to replace"
+      "businessContext": "Total count of bulbs to replace",
+      "label_i18n": {
+        "en": "Number of Bulbs",
+        "tr": "Number of Bulbs",
+        "de": "Number of Bulbs",
+        "fr": "Number of Bulbs",
+        "es": "Number of Bulbs",
+        "ar": "Number of Bulbs"
+      }
     },
     {
       "id": "dailyUsageHours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "h/day",
       "default": 8,
-      "businessContext": "Average hours per day bulbs are on"
+      "businessContext": "Average hours per day bulbs are on",
+      "label_i18n": {
+        "en": "Daily Usage Hours",
+        "tr": "Daily Usage Hours",
+        "de": "Daily Usage Hours",
+        "fr": "Daily Usage Hours",
+        "es": "Daily Usage Hours",
+        "ar": "Daily Usage Hours"
+      }
     },
     {
       "id": "electricityRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.12,
-      "businessContext": "Cost of electricity per kilowatt-hour"
+      "businessContext": "Cost of electricity per kilowatt-hour",
+      "label_i18n": {
+        "en": "Electricity Rate",
+        "tr": "Electricity Rate",
+        "de": "Electricity Rate",
+        "fr": "Electricity Rate",
+        "es": "Electricity Rate",
+        "ar": "Electricity Rate"
+      }
     },
     {
       "id": "daysPerYear",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "Number of days bulbs are used annually"
+      "businessContext": "Number of days bulbs are used annually",
+      "label_i18n": {
+        "en": "Days of Operation per Year",
+        "tr": "Days of Operation per Year",
+        "de": "Days of Operation per Year",
+        "fr": "Days of Operation per Year",
+        "es": "Days of Operation per Year",
+        "ar": "Days of Operation per Year"
+      }
     },
     {
       "id": "currentBulbCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1,
-      "businessContext": "Cost of one existing bulb"
+      "businessContext": "Cost of one existing bulb",
+      "label_i18n": {
+        "en": "Current Bulb Cost",
+        "tr": "Current Bulb Cost",
+        "de": "Current Bulb Cost",
+        "fr": "Current Bulb Cost",
+        "es": "Current Bulb Cost",
+        "ar": "Current Bulb Cost"
+      }
     },
     {
       "id": "ledBulbCost",
@@ -63,22 +119,33 @@
       "type": "number",
       "unit": "currency",
       "default": 5,
-      "businessContext": "Cost of one LED bulb"
+      "businessContext": "Cost of one LED bulb",
+      "label_i18n": {
+        "en": "LED Bulb Cost",
+        "tr": "LED Bulb Cost",
+        "de": "LED Bulb Cost",
+        "fr": "LED Bulb Cost",
+        "es": "LED Bulb Cost",
+        "ar": "LED Bulb Cost"
+      }
     }
   ],
   "formulas": {
     "annualEnergySavings": "(currentBulbWattage - ledBulbWattage) * numberOfBulbs * dailyUsageHours * daysPerYear / 1000",
     "annualCostSavings": "annualEnergySavings * electricityRate",
-    "paybackPeriod": "annualCostSavings > 0 ? (ledBulbCost - currentBulbCost) * numberOfBulbs / annualCostSavings : null"
+    "paybackPeriod": "annualCostSavings > 0 ? (ledBulbCost - currentBulbCost) * numberOfBulbs / annualCostSavings : null",
+    "__annualEnergySavings_toFixed_2___kWh_ye": "${annualEnergySavings.toFixed(2)} kWh/year",
+    "__paybackPeriod_____null___paybackPeriod": "${paybackPeriod !== null ? paybackPeriod.toFixed(2) + ' years' : 'N/A'}",
+    "result": "Annual Savings: ${annualCostSavings.toFixed(2)} currency"
   },
   "outputs": {
-    "primary": "Annual Savings: ${annualCostSavings.toFixed(2)} currency",
+    "primary": "result",
     "breakdown": [
       "Energy Savings: ${annualEnergySavings.toFixed(2)} kWh/year",
       "Payback Period: ${paybackPeriod !== null ? paybackPeriod.toFixed(2) + ' years' : 'N/A'}"
     ]
   },
-  "category": "Enerji & Karbon",
+  "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "ecology-environment",

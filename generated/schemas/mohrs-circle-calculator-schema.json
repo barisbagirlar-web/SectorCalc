@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Normal stress in x-direction"
+      "businessContext": "Normal stress in x-direction",
+      "label_i18n": {
+        "en": "Normal Stress σx",
+        "tr": "Normal Stress σx",
+        "de": "Normal Stress σx",
+        "fr": "Normal Stress σx",
+        "es": "Normal Stress σx",
+        "ar": "Normal Stress σx"
+      }
     },
     {
       "id": "sigma_y",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Normal stress in y-direction"
+      "businessContext": "Normal stress in y-direction",
+      "label_i18n": {
+        "en": "Normal Stress σy",
+        "tr": "Normal Stress σy",
+        "de": "Normal Stress σy",
+        "fr": "Normal Stress σy",
+        "es": "Normal Stress σy",
+        "ar": "Normal Stress σy"
+      }
     },
     {
       "id": "tau_xy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Shear stress on x-face in y-direction"
+      "businessContext": "Shear stress on x-face in y-direction",
+      "label_i18n": {
+        "en": "Shear Stress τxy",
+        "tr": "Shear Stress τxy",
+        "de": "Shear Stress τxy",
+        "fr": "Shear Stress τxy",
+        "es": "Shear Stress τxy",
+        "ar": "Shear Stress τxy"
+      }
     }
   ],
   "formulas": {
@@ -33,10 +57,14 @@
     "sigma_2": "sigma_avg - R",
     "tau_max": "R",
     "theta_p": "0.5 * Math.atan2(tau_xy, (sigma_x - sigma_y) / 2) * 180 / Math.PI",
-    "theta_s": "theta_p + 45"
+    "theta_s": "theta_p + 45",
+    "Average_Stress___avg____sigma_avg__MPa": "Average Stress σ_avg = {sigma_avg} MPa",
+    "Radius_R____R__MPa": "Radius R = {R} MPa",
+    "Principal_Angle___p____theta_p__": "Principal Angle θ_p = {theta_p}°",
+    "Shear_Angle___s____theta_s__": "Shear Angle θ_s = {theta_s}°"
   },
   "outputs": {
-    "primary": "σ₁ = {sigma_1} MPa, σ₂ = {sigma_2} MPa, τ_max = {tau_max} MPa",
+    "primary": "sigma_avg",
     "breakdown": [
       "Average Stress σ_avg = {sigma_avg} MPa",
       "Radius R = {R} MPa",
@@ -44,10 +72,10 @@
       "Shear Angle θ_s = {theta_s}°"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

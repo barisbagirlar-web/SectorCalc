@@ -4,17 +4,21 @@ import * as z from 'zod';
 export interface Celsius_to_fahrenheitInput {
   celsius: number;
   precision: number;
+  auto_input_3: number;
 }
 
 export const Celsius_to_fahrenheitInputSchema = z.object({
   celsius: z.number().default(0),
   precision: z.number().default(2),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Celsius_to_fahrenheitInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.celsius * 9 / 5 + 32; results["fahrenheit"] = Number.isFinite(v) ? v : 0; } catch { results["fahrenheit"] = 0; }
   try { const v = Math.round((results["fahrenheit"] ?? 0) * 10 ** input.precision) / 10 ** input.precision; results["roundedFahrenheit"] = Number.isFinite(v) ? v : 0; } catch { results["roundedFahrenheit"] = 0; }
+  try { const v = input.celsius * 9 / 5 + 32; results["fahrenheit___celsius___9___5___32"] = Number.isFinite(v) ? v : 0; } catch { results["fahrenheit___celsius___9___5___32"] = 0; }
+  try { const v = Math.round((results["fahrenheit"] ?? 0) * 10 ** input.precision) / 10 ** input.precision; results["roundedFahrenheit___Math_round_fahrenhei"] = Number.isFinite(v) ? v : 0; } catch { results["roundedFahrenheit___Math_round_fahrenhei"] = 0; }
   return results;
 }
 

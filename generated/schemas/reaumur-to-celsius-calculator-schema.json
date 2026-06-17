@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "°Ré",
       "default": 0,
-      "businessContext": "The temperature value measured in degrees Réaumur to be converted to Celsius."
+      "businessContext": "The temperature value measured in degrees Réaumur to be converted to Celsius.",
+      "label_i18n": {
+        "en": "Réaumur Temperature",
+        "tr": "Réaumur Temperature",
+        "de": "Réaumur Temperature",
+        "fr": "Réaumur Temperature",
+        "es": "Réaumur Temperature",
+        "ar": "Réaumur Temperature"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output result. Ensures compliance with reporting precision requirements."
+      "businessContext": "Number of decimal places for the output result. Ensures compliance with reporting precision requirements.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "measurementUncertainty",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°Ré",
       "default": 0,
-      "businessContext": "The estimated uncertainty of the Réaumur measurement, for quality assurance documentation."
+      "businessContext": "The estimated uncertainty of the Réaumur measurement, for quality assurance documentation.",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (±)",
+        "tr": "Measurement Uncertainty (±)",
+        "de": "Measurement Uncertainty (±)",
+        "fr": "Measurement Uncertainty (±)",
+        "es": "Measurement Uncertainty (±)",
+        "ar": "Measurement Uncertainty (±)"
+      }
     },
     {
       "id": "calibrationOffset",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°Ré",
       "default": 0,
-      "businessContext": "Optional offset to correct for systematic error in the measurement device, as per calibration certificate."
+      "businessContext": "Optional offset to correct for systematic error in the measurement device, as per calibration certificate.",
+      "label_i18n": {
+        "en": "Calibration Offset",
+        "tr": "Calibration Offset",
+        "de": "Calibration Offset",
+        "fr": "Calibration Offset",
+        "es": "Calibration Offset",
+        "ar": "Calibration Offset"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "uncertaintyCelsius"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

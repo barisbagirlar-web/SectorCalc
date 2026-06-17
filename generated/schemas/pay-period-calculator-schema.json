@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "EUR",
       "default": 30000,
-      "businessContext": "Gross annual salary"
+      "businessContext": "Gross annual salary",
+      "label_i18n": {
+        "en": "Annual Salary",
+        "tr": "Annual Salary",
+        "de": "Annual Salary",
+        "fr": "Annual Salary",
+        "es": "Annual Salary",
+        "ar": "Annual Salary"
+      }
     },
     {
       "id": "payPeriodsPerYear",
       "label": "Number of Pay Periods per Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12,
-      "businessContext": "Frequency of pay checks, e.g., 12 for monthly, 26 for bi-weekly, 52 for weekly"
+      "businessContext": "Frequency of pay checks, e.g., 12 for monthly, 26 for bi-weekly, 52 for weekly",
+      "label_i18n": {
+        "en": "Number of Pay Periods per Year",
+        "tr": "Number of Pay Periods per Year",
+        "de": "Number of Pay Periods per Year",
+        "fr": "Number of Pay Periods per Year",
+        "es": "Number of Pay Periods per Year",
+        "ar": "Number of Pay Periods per Year"
+      }
     },
     {
       "id": "overtimeHours",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Total overtime hours worked in the pay period"
+      "businessContext": "Total overtime hours worked in the pay period",
+      "label_i18n": {
+        "en": "Overtime Hours",
+        "tr": "Overtime Hours",
+        "de": "Overtime Hours",
+        "fr": "Overtime Hours",
+        "es": "Overtime Hours",
+        "ar": "Overtime Hours"
+      }
     },
     {
       "id": "overtimeRateMultiplier",
       "label": "Overtime Rate Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Multiplier for overtime pay relative to regular hourly rate"
+      "businessContext": "Multiplier for overtime pay relative to regular hourly rate",
+      "label_i18n": {
+        "en": "Overtime Rate Multiplier",
+        "tr": "Overtime Rate Multiplier",
+        "de": "Overtime Rate Multiplier",
+        "fr": "Overtime Rate Multiplier",
+        "es": "Overtime Rate Multiplier",
+        "ar": "Overtime Rate Multiplier"
+      }
     },
     {
       "id": "hoursPerPeriod",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "h",
       "default": 160,
-      "businessContext": "Standard working hours in one pay period"
+      "businessContext": "Standard working hours in one pay period",
+      "label_i18n": {
+        "en": "Hours per Pay Period",
+        "tr": "Hours per Pay Period",
+        "de": "Hours per Pay Period",
+        "fr": "Hours per Pay Period",
+        "es": "Hours per Pay Period",
+        "ar": "Hours per Pay Period"
+      }
     },
     {
       "id": "deductions",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Total pre-tax deductions per period"
+      "businessContext": "Total pre-tax deductions per period",
+      "label_i18n": {
+        "en": "Deductions",
+        "tr": "Deductions",
+        "de": "Deductions",
+        "fr": "Deductions",
+        "es": "Deductions",
+        "ar": "Deductions"
+      }
     },
     {
       "id": "taxRate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Income tax rate applied after deductions"
+      "businessContext": "Income tax rate applied after deductions",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "otherWithholdings",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Additional withholdings like insurance, union dues"
+      "businessContext": "Additional withholdings like insurance, union dues",
+      "label_i18n": {
+        "en": "Other Withholdings",
+        "tr": "Other Withholdings",
+        "de": "Other Withholdings",
+        "fr": "Other Withholdings",
+        "es": "Other Withholdings",
+        "ar": "Other Withholdings"
+      }
     }
   ],
   "formulas": {
@@ -84,10 +148,10 @@
       "taxAmount"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "İK & Personel",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "workforce-hr"
 }

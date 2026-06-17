@@ -20,13 +20,14 @@ function evaluateAllFormulas(input: Divide_fractions_calculatorInput): Record<st
   try { const v = input.numerator1 * input.denominator2; results["resultNumerator"] = Number.isFinite(v) ? v : 0; } catch { results["resultNumerator"] = 0; }
   try { const v = input.denominator1 * input.numerator2; results["resultDenominator"] = Number.isFinite(v) ? v : 0; } catch { results["resultDenominator"] = 0; }
   try { const v = (results["resultNumerator"] ?? 0) / (results["resultDenominator"] ?? 0); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (results["resultNumerator"] ?? 0) / (results["resultDenominator"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateDivide_fractions_calculator(input: Divide_fractions_calculatorInput): Divide_fractions_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["resultNumerator"] ?? 0;
+  const totalWasteCost = values["primary_result"] ?? 0;
   const breakdown = {
     
   };

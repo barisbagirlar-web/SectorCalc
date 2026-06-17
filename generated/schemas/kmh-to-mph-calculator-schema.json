@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 0,
-      "businessContext": "Enter the speed in kilometers per hour"
+      "businessContext": "Enter the speed in kilometers per hour",
+      "label_i18n": {
+        "en": "Speed (km/h)",
+        "tr": "Speed (km/h)",
+        "de": "Speed (km/h)",
+        "fr": "Speed (km/h)",
+        "es": "Speed (km/h)",
+        "ar": "Speed (km/h)"
+      }
     },
     {
       "id": "conversion_factor",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "km/mi",
       "default": 1.609344,
-      "businessContext": "Number of kilometers in one mile. Standard is 1.609344."
+      "businessContext": "Number of kilometers in one mile. Standard is 1.609344.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimal_places",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the result"
+      "businessContext": "Number of decimal places for the result",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "known_mph",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mph",
       "default": 0,
-      "businessContext": "If you know the correct mph, enter here for error calculation."
+      "businessContext": "If you know the correct mph, enter here for error calculation.",
+      "label_i18n": {
+        "en": "Known mph (for verification)",
+        "tr": "Known mph (for verification)",
+        "de": "Known mph (for verification)",
+        "fr": "Known mph (for verification)",
+        "es": "Known mph (for verification)",
+        "ar": "Known mph (for verification)"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "verification_difference"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -18,6 +18,8 @@ export const Pediatric_bmi_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Pediatric_bmi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.weight / Math.pow(input.height/100, 2); results["bmi"] = Number.isFinite(v) ? v : 0; } catch { results["bmi"] = 0; }
+  try { const v = input.weight; results["weight"] = Number.isFinite(v) ? v : 0; } catch { results["weight"] = 0; }
+  try { const v = input.height; results["height"] = Number.isFinite(v) ? v : 0; } catch { results["height"] = 0; }
   return results;
 }
 

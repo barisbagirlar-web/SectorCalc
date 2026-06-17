@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TSS",
       "default": 50,
-      "businessContext": "Current Chronic Training Load value"
+      "businessContext": "Current Chronic Training Load value",
+      "label_i18n": {
+        "en": "Current CTL",
+        "tr": "Current CTL",
+        "de": "Current CTL",
+        "fr": "Current CTL",
+        "es": "Current CTL",
+        "ar": "Current CTL"
+      }
     },
     {
       "id": "dailyTSS",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TSS",
       "default": 70,
-      "businessContext": "Training Stress Score per day for the forecast period"
+      "businessContext": "Training Stress Score per day for the forecast period",
+      "label_i18n": {
+        "en": "Daily TSS",
+        "tr": "Daily TSS",
+        "de": "Daily TSS",
+        "fr": "Daily TSS",
+        "es": "Daily TSS",
+        "ar": "Daily TSS"
+      }
     },
     {
       "id": "timeConstant",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 42,
-      "businessContext": "Decay time constant for CTL (typically 42 days)"
+      "businessContext": "Decay time constant for CTL (typically 42 days)",
+      "label_i18n": {
+        "en": "Time Constant",
+        "tr": "Time Constant",
+        "de": "Time Constant",
+        "fr": "Time Constant",
+        "es": "Time Constant",
+        "ar": "Time Constant"
+      }
     },
     {
       "id": "numDays",
@@ -31,25 +55,36 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Number of consecutive days with the given Daily TSS"
+      "businessContext": "Number of consecutive days with the given Daily TSS",
+      "label_i18n": {
+        "en": "Number of Days",
+        "tr": "Number of Days",
+        "de": "Number of Days",
+        "fr": "Number of Days",
+        "es": "Number of Days",
+        "ar": "Number of Days"
+      }
     }
   ],
   "formulas": {
     "steadyStateCTL": "dailyTSS",
     "decayFactor": "Math.exp(-numDays / timeConstant)",
-    "finalCTL": "dailyTSS + (startCTL - dailyTSS) * decayFactor"
+    "finalCTL": "dailyTSS + (startCTL - dailyTSS) * decayFactor",
+    "__steadyStateCTL__TSS_": "${steadyStateCTL} TSS`",
+    "__decayFactor_toFixed_3___": "${decayFactor.toFixed(3)}`",
+    "result": "`Projected CTL after ${numDays} days: ${finalCTL.toFixed(1)} TSS`"
   },
   "outputs": {
-    "primary": "`Projected CTL after ${numDays} days: ${finalCTL.toFixed(1)} TSS`",
+    "primary": "result",
     "breakdown": [
       "`Steady-state CTL: ${steadyStateCTL} TSS`",
       "`Decay factor: ${decayFactor.toFixed(3)}`"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

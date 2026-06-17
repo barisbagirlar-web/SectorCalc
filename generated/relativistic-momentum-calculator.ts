@@ -29,7 +29,7 @@ function evaluateAllFormulas(input: Relativistic_momentum_calculatorInput): Reco
 
 export function calculateRelativistic_momentum_calculator(input: Relativistic_momentum_calculatorInput): Relativistic_momentum_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["p"] ?? 0;
+  const totalWasteCost = values["v_sq"] ?? 0;
   const breakdown = {
     
   };

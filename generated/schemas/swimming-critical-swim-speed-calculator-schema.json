@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 200,
-      "businessContext": "Shorter distance used in test (e.g., 200m)"
+      "businessContext": "Shorter distance used in test (e.g., 200m)",
+      "label_i18n": {
+        "en": "Short Distance (m)",
+        "tr": "Short Distance (m)",
+        "de": "Short Distance (m)",
+        "fr": "Short Distance (m)",
+        "es": "Short Distance (m)",
+        "ar": "Short Distance (m)"
+      }
     },
     {
       "id": "time1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 150,
-      "businessContext": "Time to swim the short distance (seconds)"
+      "businessContext": "Time to swim the short distance (seconds)",
+      "label_i18n": {
+        "en": "Time for Short Distance (s)",
+        "tr": "Time for Short Distance (s)",
+        "de": "Time for Short Distance (s)",
+        "fr": "Time for Short Distance (s)",
+        "es": "Time for Short Distance (s)",
+        "ar": "Time for Short Distance (s)"
+      }
     },
     {
       "id": "distance2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 400,
-      "businessContext": "Longer distance used in test (e.g., 400m)"
+      "businessContext": "Longer distance used in test (e.g., 400m)",
+      "label_i18n": {
+        "en": "Long Distance (m)",
+        "tr": "Long Distance (m)",
+        "de": "Long Distance (m)",
+        "fr": "Long Distance (m)",
+        "es": "Long Distance (m)",
+        "ar": "Long Distance (m)"
+      }
     },
     {
       "id": "time2",
@@ -31,23 +55,33 @@
       "type": "number",
       "unit": "s",
       "default": 310,
-      "businessContext": "Time to swim the long distance (seconds)"
+      "businessContext": "Time to swim the long distance (seconds)",
+      "label_i18n": {
+        "en": "Time for Long Distance (s)",
+        "tr": "Time for Long Distance (s)",
+        "de": "Time for Long Distance (s)",
+        "fr": "Time for Long Distance (s)",
+        "es": "Time for Long Distance (s)",
+        "ar": "Time for Long Distance (s)"
+      }
     }
   ],
   "formulas": {
     "css_mps": "(distance2 - distance1) / (time2 - time1)",
-    "pace_100m_s": "100 / css_mps"
+    "pace_100m_s": "100 / css_mps",
+    "Pace_per_100m__s_100m_": "Pace per 100m (s/100m)",
+    "result": "Critical Swim Speed (m/s)"
   },
   "outputs": {
-    "primary": "Critical Swim Speed (m/s)",
+    "primary": "result",
     "breakdown": [
       "Pace per 100m (s/100m)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

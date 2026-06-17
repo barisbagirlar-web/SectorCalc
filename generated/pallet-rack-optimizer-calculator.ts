@@ -39,29 +39,19 @@ export const Pallet_rack_optimizer_calculatorInputSchema = z.object({
   include_beam_deflection_check: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Pallet_rack_optimizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.rack_height_mm / input.num_levels - input.beam_thickness_mm; results["usable_height_per_level"] = Number.isFinite(v) ? v : 0; } catch { results["usable_height_per_level"] = 0; }
-  try { const v = Math.floor(input.rack_length_mm / input.pallet_width_mm) * input.num_levels; results["max_pallets_per_bay"] = Number.isFinite(v) ? v : 0; } catch { results["max_pallets_per_bay"] = 0; }
-  try { const v = (results["max_pallets_per_bay"] ?? 0) * input.num_bays; results["total_pallet_positions"] = Number.isFinite(v) ? v : 0; } catch { results["total_pallet_positions"] = 0; }
-  try { const v = (results["total_pallet_positions"] ?? 0) * (input.utilization_rate / 100); results["occupied_positions"] = Number.isFinite(v) ? v : 0; } catch { results["occupied_positions"] = 0; }
-  try { const v = (results["occupied_positions"] ?? 0) * input.pallet_weight_kg; results["total_stored_weight_kg"] = Number.isFinite(v) ? v : 0; } catch { results["total_stored_weight_kg"] = 0; }
-  try { const v = ((results["total_pallet_positions"] ?? 0) * input.pallet_depth_mm * input.pallet_width_mm) / (input.rack_length_mm * input.num_bays * (rack_depth_mm + input.aisle_width_mm)); results["floor_space_utilization"] = Number.isFinite(v) ? v : 0; } catch { results["floor_space_utilization"] = 0; }
-  results["throughput_index"] = 0;
-  return results;
+function evaluateAllFormulas(_input: Pallet_rack_optimizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculatePallet_rack_optimizer_calculator(input: Pallet_rack_optimizer_calculatorInput): Pallet_rack_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["overall_efficiency_score"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    space_efficiency: values["space_efficiency"] ?? 0,
-    throughput_efficiency: values["throughput_efficiency"] ?? 0,
-    structural_safety_margin: values["structural_safety_margin"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Vertical Air Gap Loss","Aisle Inefficiency Loss","Beam Deflection Risk"];
-  const suggestedActions: string[] = ["Reduce Vertical Clearance","Optimize Aisle Width","Rebalance Utilization","Upgrade Beam Sections"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -80,7 +70,7 @@ export function calculatePallet_rack_optimizer_calculator(input: Pallet_rack_opt
 
 export interface Pallet_rack_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { space_efficiency: number; throughput_efficiency: number; structural_safety_margin: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

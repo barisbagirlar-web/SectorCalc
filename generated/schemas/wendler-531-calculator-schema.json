@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Maksimum tek tekrar kaldırabileceğiniz ağırlık"
+      "businessContext": "Maksimum tek tekrar kaldırabileceğiniz ağırlık",
+      "label_i18n": {
+        "en": "1RM (kg)",
+        "tr": "1RM (kg)",
+        "de": "1RM (kg)",
+        "fr": "1RM (kg)",
+        "es": "1RM (kg)",
+        "ar": "1RM (kg)"
+      }
     },
     {
       "id": "trainingMaxPercent",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Genellikle %90 kullanılır"
+      "businessContext": "Genellikle %90 kullanılır",
+      "label_i18n": {
+        "en": "Training Max Yüzdesi (%)",
+        "tr": "Training Max Yüzdesi (%)",
+        "de": "Training Max Yüzdesi (%)",
+        "fr": "Training Max Yüzdesi (%)",
+        "es": "Training Max Yüzdesi (%)",
+        "ar": "Training Max Yüzdesi (%)"
+      }
     },
     {
       "id": "week",
       "label": "Hafta (1-4)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: 65/75/85, 2: 70/80/90, 3: 75/85/95, 4: 40/50/60"
+      "businessContext": "1: 65/75/85, 2: 70/80/90, 3: 75/85/95, 4: 40/50/60",
+      "label_i18n": {
+        "en": "Hafta (1-4)",
+        "tr": "Hafta (1-4)",
+        "de": "Hafta (1-4)",
+        "fr": "Hafta (1-4)",
+        "es": "Hafta (1-4)",
+        "ar": "Hafta (1-4)"
+      }
     },
     {
       "id": "set1Percent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 65,
-      "businessContext": "İlk çalışma setinin training max'e göre yüzdesi"
+      "businessContext": "İlk çalışma setinin training max'e göre yüzdesi",
+      "label_i18n": {
+        "en": "1. Set Yüzdesi (%)",
+        "tr": "1. Set Yüzdesi (%)",
+        "de": "1. Set Yüzdesi (%)",
+        "fr": "1. Set Yüzdesi (%)",
+        "es": "1. Set Yüzdesi (%)",
+        "ar": "1. Set Yüzdesi (%)"
+      }
     },
     {
       "id": "set2Percent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 75,
-      "businessContext": "İkinci çalışma setinin yüzdesi"
+      "businessContext": "İkinci çalışma setinin yüzdesi",
+      "label_i18n": {
+        "en": "2. Set Yüzdesi (%)",
+        "tr": "2. Set Yüzdesi (%)",
+        "de": "2. Set Yüzdesi (%)",
+        "fr": "2. Set Yüzdesi (%)",
+        "es": "2. Set Yüzdesi (%)",
+        "ar": "2. Set Yüzdesi (%)"
+      }
     },
     {
       "id": "set3Percent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Son çalışma setinin yüzdesi"
+      "businessContext": "Son çalışma setinin yüzdesi",
+      "label_i18n": {
+        "en": "3. Set Yüzdesi (%)",
+        "tr": "3. Set Yüzdesi (%)",
+        "de": "3. Set Yüzdesi (%)",
+        "fr": "3. Set Yüzdesi (%)",
+        "es": "3. Set Yüzdesi (%)",
+        "ar": "3. Set Yüzdesi (%)"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "set2Weight"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

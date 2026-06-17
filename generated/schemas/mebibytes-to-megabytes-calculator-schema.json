@@ -40,21 +40,17 @@
     "roundedMegabytes": "Math.round(megabytes * Math.pow(10, precision)) / Math.pow(10, precision)"
   },
   "outputs": {
-    "primary": {
-      "value": "roundedMegabytes",
-      "unit": "MB",
-      "label": "Megabytes"
-    },
+    "primary": "factor",
     "breakdown": [
       "Conversion factor: 2^{binaryBase} / 10^{metricBase} = {factor}",
       "Raw value: {mebibytes} MiB × {factor} = {megabytes} MB",
       "Rounded to {precision} decimal places: {roundedMegabytes} MB"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

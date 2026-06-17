@@ -31,32 +31,19 @@ export const Crop_yield_loss_analyzer_calculatorInputSchema = z.object({
   equipment_reliability: z.number().min(0).max(100).default(85),
 });
 
-function evaluateAllFormulas(input: Crop_yield_loss_analyzer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.expected_yield - input.actual_yield; results["gross_loss"] = Number.isFinite(v) ? v : 0; } catch { results["gross_loss"] = 0; }
-  try { const v = input.actual_yield * (input.harvest_loss_pct / 100); results["harvest_loss_kg"] = Number.isFinite(v) ? v : 0; } catch { results["harvest_loss_kg"] = 0; }
-  try { const v = input.actual_yield * (input.post_harvest_loss_pct / 100); results["post_harvest_loss_kg"] = Number.isFinite(v) ? v : 0; } catch { results["post_harvest_loss_kg"] = 0; }
-  try { const v = (input.field_condition === 'excellent' ? 0.95 : (input.field_condition === 'good' ? 1.00 : (input.field_condition === 'fair' ? 1.10 : (input.field_condition === 'poor' ? 1.25 : 0)))); results["field_condition_factor"] = Number.isFinite(v) ? v : 0; } catch { results["field_condition_factor"] = 0; }
-  try { const v = (input.irrigation_type === 'drip' ? 0.90 : (input.irrigation_type === 'sprinkler' ? 1.00 : (input.irrigation_type === 'flood' ? 1.15 : (input.irrigation_type === 'rainfed' ? 1.20 : 0)))); results["irrigation_efficiency_factor"] = Number.isFinite(v) ? v : 0; } catch { results["irrigation_efficiency_factor"] = 0; }
-  try { const v = (input.pest_pressure * 0.4 + input.disease_index * 0.4 + (input.weed_cover_pct / 10) * 0.2) / 10; results["biotic_loss_index"] = Number.isFinite(v) ? v : 0; } catch { results["biotic_loss_index"] = 0; }
-  try { const v = (input.labor_efficiency * 0.5 + input.equipment_reliability * 0.5) / 100; results["operational_efficiency_score"] = Number.isFinite(v) ? v : 0; } catch { results["operational_efficiency_score"] = 0; }
-  try { const v = (((results["gross_loss"] ?? 0) / input.expected_yield) * 100) * (results["field_condition_factor"] ?? 0) * (results["irrigation_efficiency_factor"] ?? 0) * (1 + (results["biotic_loss_index"] ?? 0)) * (1 + (1 - (results["operational_efficiency_score"] ?? 0))); results["total_yield_loss_pct"] = Number.isFinite(v) ? v : 0; } catch { results["total_yield_loss_pct"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Crop_yield_loss_analyzer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateCrop_yield_loss_analyzer_calculator(input: Crop_yield_loss_analyzer_calculatorInput): Crop_yield_loss_analyzer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_yield_loss_pct"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    gross_loss_kg: values["gross_loss_kg"] ?? 0,
-    harvest_loss_kg: values["harvest_loss_kg"] ?? 0,
-    post_harvest_loss_kg: values["post_harvest_loss_kg"] ?? 0,
-    biotic_loss_index: values["biotic_loss_index"] ?? 0,
-    operational_efficiency_score: values["operational_efficiency_score"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Microclimate Variation","Nutrient Imbalance","Timing Delays","Genetic Variability"];
-  const suggestedActions: string[] = ["Optimize Harvest Settings","Implement Integrated Pest Management","Soil Health Improvement","Irrigation System Audit","Operator Training","Preventive Maintenance Schedule"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -75,7 +62,7 @@ export function calculateCrop_yield_loss_analyzer_calculator(input: Crop_yield_l
 
 export interface Crop_yield_loss_analyzer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { gross_loss_kg: number; harvest_loss_kg: number; post_harvest_loss_kg: number; biotic_loss_index: number; operational_efficiency_score: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

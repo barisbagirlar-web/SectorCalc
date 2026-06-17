@@ -5,41 +5,81 @@
       "id": "A",
       "label": "Coefficient A (x²)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Quadratic function coefficient A"
+      "businessContext": "Quadratic function coefficient A",
+      "label_i18n": {
+        "en": "Coefficient A (x²)",
+        "tr": "Coefficient A (x²)",
+        "de": "Coefficient A (x²)",
+        "fr": "Coefficient A (x²)",
+        "es": "Coefficient A (x²)",
+        "ar": "Coefficient A (x²)"
+      }
     },
     {
       "id": "B",
       "label": "Coefficient B (x)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Quadratic function coefficient B"
+      "businessContext": "Quadratic function coefficient B",
+      "label_i18n": {
+        "en": "Coefficient B (x)",
+        "tr": "Coefficient B (x)",
+        "de": "Coefficient B (x)",
+        "fr": "Coefficient B (x)",
+        "es": "Coefficient B (x)",
+        "ar": "Coefficient B (x)"
+      }
     },
     {
       "id": "C",
       "label": "Coefficient C (constant)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Quadratic function constant C"
+      "businessContext": "Quadratic function constant C",
+      "label_i18n": {
+        "en": "Coefficient C (constant)",
+        "tr": "Coefficient C (constant)",
+        "de": "Coefficient C (constant)",
+        "fr": "Coefficient C (constant)",
+        "es": "Coefficient C (constant)",
+        "ar": "Coefficient C (constant)"
+      }
     },
     {
       "id": "a",
       "label": "Interval start (a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Left endpoint of interval [a, b]"
+      "businessContext": "Left endpoint of interval [a, b]",
+      "label_i18n": {
+        "en": "Interval start (a)",
+        "tr": "Interval start (a)",
+        "de": "Interval start (a)",
+        "fr": "Interval start (a)",
+        "es": "Interval start (a)",
+        "ar": "Interval start (a)"
+      }
     },
     {
       "id": "b",
       "label": "Interval end (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Right endpoint of interval [a, b]"
+      "businessContext": "Right endpoint of interval [a, b]",
+      "label_i18n": {
+        "en": "Interval end (b)",
+        "tr": "Interval end (b)",
+        "de": "Interval end (b)",
+        "fr": "Interval end (b)",
+        "es": "Interval end (b)",
+        "ar": "Interval end (b)"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "f_prime_c"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

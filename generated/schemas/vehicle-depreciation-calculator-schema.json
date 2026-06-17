@@ -77,7 +77,7 @@
       "id": "depreciation_method",
       "label": "Depreciation Method",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "straight_line",
       "min": null,
       "max": null,
@@ -178,7 +178,7 @@
       "id": "vehicle_type",
       "label": "Vehicle Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "sedan",
       "min": null,
       "max": null,
@@ -253,162 +253,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "annual_depreciation_straight_line",
-      "name": "Annual Depreciation (Straight Line)",
-      "description": "Equal annual depreciation over holding period.",
-      "formula": "(purchase_price - residual_value) / holding_period_years",
-      "unit": "USD/year"
-    },
-    {
-      "id": "annual_depreciation_declining_balance",
-      "name": "Annual Depreciation (Declining Balance)",
-      "description": "Accelerated depreciation using double declining balance method.",
-      "formula": "2 * (book_value / holding_period_years)",
-      "unit": "USD/year",
-      "note": "Book value is updated each year; simplified as average for total."
-    },
-    {
-      "id": "annual_depreciation_sum_of_years",
-      "name": "Annual Depreciation (Sum of Years Digits)",
-      "description": "Depreciation based on remaining life fraction.",
-      "formula": "(remaining_years / sum_of_years) * (purchase_price - residual_value)",
-      "unit": "USD/year",
-      "note": "Sum of years = holding_period_years * (holding_period_years + 1) / 2"
-    },
-    {
-      "id": "annual_fuel_cost",
-      "name": "Annual Fuel Cost",
-      "description": "Yearly expenditure on fuel based on mileage and efficiency.",
-      "formula": "(annual_mileage / fuel_efficiency_mpg) * fuel_price_per_gallon",
-      "unit": "USD/year"
-    },
-    {
-      "id": "total_operating_cost",
-      "name": "Total Operating Cost",
-      "description": "Sum of all annual operating expenses over holding period.",
-      "formula": "(maintenance_cost_per_year + insurance_cost_per_year + annual_fuel_cost) * holding_period_years",
-      "unit": "USD"
-    },
-    {
-      "id": "net_present_value_operating",
-      "name": "Net Present Value of Operating Costs",
-      "description": "Discounted sum of annual operating costs using discount rate.",
-      "formula": "SUM_{t=1}^{holding_period_years} (annual_operating_cost / (1 + discount_rate/100)^t)",
-      "unit": "USD"
-    },
-    {
-      "id": "total_cost_of_ownership",
-      "name": "Total Cost of Ownership (TCO)",
-      "description": "Comprehensive cost including purchase, depreciation, and operating costs (NPV).",
-      "formula": "purchase_price - residual_value + net_present_value_operating",
-      "unit": "USD"
-    }
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price"
   ],
   "outputs": {
-    "primary": {
-      "id": "annual_depreciation_rate",
-      "label": "Annual Depreciation Rate",
-      "value": null,
-      "unit": "%",
-      "description": "Effective annual depreciation as a percentage of purchase price."
-    },
-    "breakdown": {
-      "annual_depreciation_amount": {
-        "id": "annual_depreciation_amount",
-        "label": "Annual Depreciation Amount",
-        "value": null,
-        "unit": "USD/year",
-        "description": "Depreciation expense per year based on selected method."
-      },
-      "total_depreciation": {
-        "id": "total_depreciation",
-        "label": "Total Depreciation over Holding Period",
-        "value": null,
-        "unit": "USD",
-        "description": "Total loss in value from purchase to residual."
-      },
-      "annual_fuel_cost": {
-        "id": "annual_fuel_cost",
-        "label": "Annual Fuel Cost",
-        "value": null,
-        "unit": "USD/year"
-      },
-      "total_operating_cost": {
-        "id": "total_operating_cost",
-        "label": "Total Operating Cost (undiscounted)",
-        "value": null,
-        "unit": "USD"
-      },
-      "net_present_value_operating": {
-        "id": "net_present_value_operating",
-        "label": "NPV of Operating Costs",
-        "value": null,
-        "unit": "USD"
-      },
-      "total_cost_of_ownership": {
-        "id": "total_cost_of_ownership",
-        "label": "Total Cost of Ownership (TCO)",
-        "value": null,
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_mileage_penalty",
-        "label": "Excess Mileage Penalty",
-        "description": "Above-average mileage accelerates depreciation beyond standard curves.",
-        "impact": "high"
-      },
-      {
-        "id": "maintenance_deferred",
-        "label": "Deferred Maintenance",
-        "description": "Skipping scheduled maintenance reduces residual value and increases long-term costs.",
-        "impact": "medium"
-      },
-      {
-        "id": "market_volatility",
-        "label": "Market Volatility (Resale Value Risk)",
-        "description": "Unexpected shifts in demand for vehicle type can lower residual value.",
-        "impact": "medium"
-      },
-      {
-        "id": "fuel_price_spikes",
-        "label": "Fuel Price Spikes",
-        "description": "Sudden increases in fuel cost disproportionately affect low-MPG vehicles.",
-        "impact": "low"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_optimize_holding",
-        "label": "Optimize Holding Period",
-        "description": "Consider a shorter holding period to avoid steep depreciation after year 3-5."
-      },
-      {
-        "id": "action_reduce_mileage",
-        "label": "Reduce Annual Mileage",
-        "description": "Lower mileage preserves resale value and reduces fuel/maintenance costs."
-      },
-      {
-        "id": "action_improve_maintenance",
-        "label": "Implement Preventive Maintenance Schedule",
-        "description": "Regular servicing improves reliability and residual value."
-      },
-      {
-        "id": "action_choose_fuel_efficient",
-        "label": "Select Higher MPG Vehicle",
-        "description": "Better fuel efficiency reduces operating cost and exposure to fuel price volatility."
-      },
-      {
-        "id": "action_negotiate_residual",
-        "label": "Negotiate Higher Residual Value Guarantee",
-        "description": "If leasing, secure a higher residual to lower depreciation cost."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "maintenance-reliability",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat",
+  "toolName": "vehicle-depreciation-calculator"
 }

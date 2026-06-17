@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 100,
-      "businessContext": "Desired target value for the controlled variable."
+      "businessContext": "Desired target value for the controlled variable.",
+      "label_i18n": {
+        "en": "Setpoint (SP)",
+        "tr": "Setpoint (SP)",
+        "de": "Setpoint (SP)",
+        "fr": "Setpoint (SP)",
+        "es": "Setpoint (SP)",
+        "ar": "Setpoint (SP)"
+      }
     },
     {
       "id": "processVariable",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 90,
-      "businessContext": "Current measured value of the controlled variable."
+      "businessContext": "Current measured value of the controlled variable.",
+      "label_i18n": {
+        "en": "Process Variable (PV)",
+        "tr": "Process Variable (PV)",
+        "de": "Process Variable (PV)",
+        "fr": "Process Variable (PV)",
+        "es": "Process Variable (PV)",
+        "ar": "Process Variable (PV)"
+      }
     },
     {
       "id": "Kp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Proportional tuning parameter; higher Kp increases control action proportional to error."
+      "businessContext": "Proportional tuning parameter; higher Kp increases control action proportional to error.",
+      "label_i18n": {
+        "en": "Proportional Gain (Kp)",
+        "tr": "Proportional Gain (Kp)",
+        "de": "Proportional Gain (Kp)",
+        "fr": "Proportional Gain (Kp)",
+        "es": "Proportional Gain (Kp)",
+        "ar": "Proportional Gain (Kp)"
+      }
     },
     {
       "id": "Ki",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "1/s",
       "default": 0.1,
-      "businessContext": "Integral tuning parameter; corrects steady‑state error by accumulating past errors."
+      "businessContext": "Integral tuning parameter; corrects steady‑state error by accumulating past errors.",
+      "label_i18n": {
+        "en": "Integral Gain (Ki)",
+        "tr": "Integral Gain (Ki)",
+        "de": "Integral Gain (Ki)",
+        "fr": "Integral Gain (Ki)",
+        "es": "Integral Gain (Ki)",
+        "ar": "Integral Gain (Ki)"
+      }
     },
     {
       "id": "Kd",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "s",
       "default": 0.05,
-      "businessContext": "Derivative tuning parameter; anticipates future error based on rate of change."
+      "businessContext": "Derivative tuning parameter; anticipates future error based on rate of change.",
+      "label_i18n": {
+        "en": "Derivative Gain (Kd)",
+        "tr": "Derivative Gain (Kd)",
+        "de": "Derivative Gain (Kd)",
+        "fr": "Derivative Gain (Kd)",
+        "es": "Derivative Gain (Kd)",
+        "ar": "Derivative Gain (Kd)"
+      }
     },
     {
       "id": "dt",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "s",
       "default": 0.1,
-      "businessContext": "Sampling interval or control loop period."
+      "businessContext": "Sampling interval or control loop period.",
+      "label_i18n": {
+        "en": "Time Step (Δt)",
+        "tr": "Time Step (Δt)",
+        "de": "Time Step (Δt)",
+        "fr": "Time Step (Δt)",
+        "es": "Time Step (Δt)",
+        "ar": "Time Step (Δt)"
+      }
     },
     {
       "id": "previousError",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 10,
-      "businessContext": "Error from the previous sampling instant (e(k-1))."
+      "businessContext": "Error from the previous sampling instant (e(k-1)).",
+      "label_i18n": {
+        "en": "Previous Error",
+        "tr": "Previous Error",
+        "de": "Previous Error",
+        "fr": "Previous Error",
+        "es": "Previous Error",
+        "ar": "Previous Error"
+      }
     },
     {
       "id": "integral",
@@ -63,29 +119,37 @@
       "type": "number",
       "unit": "dimensionless·s",
       "default": 5,
-      "businessContext": "Accumulated integral term up to the previous step (Σ e·Δt)."
+      "businessContext": "Accumulated integral term up to the previous step (Σ e·Δt).",
+      "label_i18n": {
+        "en": "Integral Accumulator",
+        "tr": "Integral Accumulator",
+        "de": "Integral Accumulator",
+        "fr": "Integral Accumulator",
+        "es": "Integral Accumulator",
+        "ar": "Integral Accumulator"
+      }
     }
   ],
   "formulas": {
     "primary": "Kp*(setpoint - processVariable) + Ki*(integral + (setpoint - processVariable)*dt) + Kd*((setpoint - processVariable) - previousError)/dt",
-    "breakdown": [
-      "Kp*(setpoint - processVariable)",
-      "Ki*(integral + (setpoint - processVariable)*dt)",
-      "Kd*((setpoint - processVariable) - previousError)/dt"
-    ]
+    "breakdown": "setpoint",
+    "Proportional_Term__P_": "Proportional Term (P)",
+    "Integral_Term__I_": "Integral Term (I)",
+    "Derivative_Term__D_": "Derivative Term (D)",
+    "result": "Controller Output (u)"
   },
   "outputs": {
-    "primary": "Controller Output (u)",
+    "primary": "result",
     "breakdown": [
       "Proportional Term (P)",
       "Integral Term (I)",
       "Derivative Term (D)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

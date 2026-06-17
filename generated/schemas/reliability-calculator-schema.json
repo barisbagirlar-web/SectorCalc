@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "failures/hour",
       "default": 0.0001,
-      "businessContext": "The constant failure rate per component (λ) assuming exponential distribution."
+      "businessContext": "The constant failure rate per component (λ) assuming exponential distribution.",
+      "label_i18n": {
+        "en": "Component Failure Rate",
+        "tr": "Component Failure Rate",
+        "de": "Component Failure Rate",
+        "fr": "Component Failure Rate",
+        "es": "Component Failure Rate",
+        "ar": "Component Failure Rate"
+      }
     },
     {
       "id": "missionTime",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "hours",
       "default": 1000,
-      "businessContext": "The duration for which the system must operate without failure."
+      "businessContext": "The duration for which the system must operate without failure.",
+      "label_i18n": {
+        "en": "Mission Time",
+        "tr": "Mission Time",
+        "de": "Mission Time",
+        "fr": "Mission Time",
+        "es": "Mission Time",
+        "ar": "Mission Time"
+      }
     },
     {
       "id": "seriesCount",
       "label": "Number of Components in Series",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of identical components connected in series within each string."
+      "businessContext": "Number of identical components connected in series within each string.",
+      "label_i18n": {
+        "en": "Number of Components in Series",
+        "tr": "Number of Components in Series",
+        "de": "Number of Components in Series",
+        "fr": "Number of Components in Series",
+        "es": "Number of Components in Series",
+        "ar": "Number of Components in Series"
+      }
     },
     {
       "id": "parallelCount",
       "label": "Number of Parallel Strings",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of identical series strings operating in parallel (active redundancy)."
+      "businessContext": "Number of identical series strings operating in parallel (active redundancy).",
+      "label_i18n": {
+        "en": "Number of Parallel Strings",
+        "tr": "Number of Parallel Strings",
+        "de": "Number of Parallel Strings",
+        "fr": "Number of Parallel Strings",
+        "es": "Number of Parallel Strings",
+        "ar": "Number of Parallel Strings"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "seriesStringReliability"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Bakım & Güvenilirlik",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "maintenance-reliability"
 }

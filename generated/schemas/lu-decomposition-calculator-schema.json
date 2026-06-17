@@ -5,33 +5,65 @@
       "id": "a11",
       "label": "a11 (Satır 1, Sütun 1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Matrisin 1. satır, 1. sütun elemanı"
+      "businessContext": "Matrisin 1. satır, 1. sütun elemanı",
+      "label_i18n": {
+        "en": "a11 (Satır 1, Sütun 1)",
+        "tr": "a11 (Satır 1, Sütun 1)",
+        "de": "a11 (Satır 1, Sütun 1)",
+        "fr": "a11 (Satır 1, Sütun 1)",
+        "es": "a11 (Satır 1, Sütun 1)",
+        "ar": "a11 (Satır 1, Sütun 1)"
+      }
     },
     {
       "id": "a12",
       "label": "a12 (Satır 1, Sütun 2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Matrisin 1. satır, 2. sütun elemanı"
+      "businessContext": "Matrisin 1. satır, 2. sütun elemanı",
+      "label_i18n": {
+        "en": "a12 (Satır 1, Sütun 2)",
+        "tr": "a12 (Satır 1, Sütun 2)",
+        "de": "a12 (Satır 1, Sütun 2)",
+        "fr": "a12 (Satır 1, Sütun 2)",
+        "es": "a12 (Satır 1, Sütun 2)",
+        "ar": "a12 (Satır 1, Sütun 2)"
+      }
     },
     {
       "id": "a21",
       "label": "a21 (Satır 2, Sütun 1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Matrisin 2. satır, 1. sütun elemanı"
+      "businessContext": "Matrisin 2. satır, 1. sütun elemanı",
+      "label_i18n": {
+        "en": "a21 (Satır 2, Sütun 1)",
+        "tr": "a21 (Satır 2, Sütun 1)",
+        "de": "a21 (Satır 2, Sütun 1)",
+        "fr": "a21 (Satır 2, Sütun 1)",
+        "es": "a21 (Satır 2, Sütun 1)",
+        "ar": "a21 (Satır 2, Sütun 1)"
+      }
     },
     {
       "id": "a22",
       "label": "a22 (Satır 2, Sütun 2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Matrisin 2. satır, 2. sütun elemanı"
+      "businessContext": "Matrisin 2. satır, 2. sütun elemanı",
+      "label_i18n": {
+        "en": "a22 (Satır 2, Sütun 2)",
+        "tr": "a22 (Satır 2, Sütun 2)",
+        "de": "a22 (Satır 2, Sütun 2)",
+        "fr": "a22 (Satır 2, Sütun 2)",
+        "es": "a22 (Satır 2, Sütun 2)",
+        "ar": "a22 (Satır 2, Sütun 2)"
+      }
     }
   ],
   "formulas": {
@@ -51,10 +83,10 @@
       "uMatrix"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

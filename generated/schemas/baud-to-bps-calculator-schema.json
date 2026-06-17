@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "Bd",
       "default": 9600,
-      "businessContext": "Number of signal changes per second"
+      "businessContext": "Number of signal changes per second",
+      "label_i18n": {
+        "en": "Baud Rate",
+        "tr": "Baud Rate",
+        "de": "Baud Rate",
+        "fr": "Baud Rate",
+        "es": "Baud Rate",
+        "ar": "Baud Rate"
+      }
     },
     {
       "id": "startBits",
       "label": "Start Bits",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of start bits per frame (usually 1)"
+      "businessContext": "Number of start bits per frame (usually 1)",
+      "label_i18n": {
+        "en": "Start Bits",
+        "tr": "Start Bits",
+        "de": "Start Bits",
+        "fr": "Start Bits",
+        "es": "Start Bits",
+        "ar": "Start Bits"
+      }
     },
     {
       "id": "dataBits",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bits",
       "default": 8,
-      "businessContext": "Number of data bits per frame"
+      "businessContext": "Number of data bits per frame",
+      "label_i18n": {
+        "en": "Data Bits",
+        "tr": "Data Bits",
+        "de": "Data Bits",
+        "fr": "Data Bits",
+        "es": "Data Bits",
+        "ar": "Data Bits"
+      }
     },
     {
       "id": "parityBits",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "bits",
       "default": 0,
-      "businessContext": "Number of parity bits (0 for none, 1 for even/odd)"
+      "businessContext": "Number of parity bits (0 for none, 1 for even/odd)",
+      "label_i18n": {
+        "en": "Parity Bits",
+        "tr": "Parity Bits",
+        "de": "Parity Bits",
+        "fr": "Parity Bits",
+        "es": "Parity Bits",
+        "ar": "Parity Bits"
+      }
     },
     {
       "id": "stopBits",
       "label": "Stop Bits",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of stop bits per frame"
+      "businessContext": "Number of stop bits per frame",
+      "label_i18n": {
+        "en": "Stop Bits",
+        "tr": "Stop Bits",
+        "de": "Stop Bits",
+        "fr": "Stop Bits",
+        "es": "Stop Bits",
+        "ar": "Stop Bits"
+      }
     }
   ],
   "formulas": {
@@ -55,10 +95,10 @@
       "bps"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "teeth",
       "default": 20,
-      "businessContext": "Number of teeth on the driving (input) gear."
+      "businessContext": "Number of teeth on the driving (input) gear.",
+      "label_i18n": {
+        "en": "Driving Gear Teeth",
+        "tr": "Driving Gear Teeth",
+        "de": "Driving Gear Teeth",
+        "fr": "Driving Gear Teeth",
+        "es": "Driving Gear Teeth",
+        "ar": "Driving Gear Teeth"
+      }
     },
     {
       "id": "drivenTeeth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "teeth",
       "default": 40,
-      "businessContext": "Number of teeth on the driven (output) gear."
+      "businessContext": "Number of teeth on the driven (output) gear.",
+      "label_i18n": {
+        "en": "Driven Gear Teeth",
+        "tr": "Driven Gear Teeth",
+        "de": "Driven Gear Teeth",
+        "fr": "Driven Gear Teeth",
+        "es": "Driven Gear Teeth",
+        "ar": "Driven Gear Teeth"
+      }
     },
     {
       "id": "inputSpeed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 1000,
-      "businessContext": "Rotational speed of the driving gear in revolutions per minute."
+      "businessContext": "Rotational speed of the driving gear in revolutions per minute.",
+      "label_i18n": {
+        "en": "Input Speed",
+        "tr": "Input Speed",
+        "de": "Input Speed",
+        "fr": "Input Speed",
+        "es": "Input Speed",
+        "ar": "Input Speed"
+      }
     },
     {
       "id": "inputTorque",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Nm",
       "default": 50,
-      "businessContext": "Torque applied to the driving gear in Newton-meters."
+      "businessContext": "Torque applied to the driving gear in Newton-meters.",
+      "label_i18n": {
+        "en": "Input Torque",
+        "tr": "Input Torque",
+        "de": "Input Torque",
+        "fr": "Input Torque",
+        "es": "Input Torque",
+        "ar": "Input Torque"
+      }
     },
     {
       "id": "efficiency",
@@ -39,26 +71,37 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Efficiency of the gear pair in percentage (0-100). If not provided, assumes 100% (ideal)."
+      "businessContext": "Efficiency of the gear pair in percentage (0-100). If not provided, assumes 100% (ideal).",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     }
   ],
   "formulas": {
     "ratio": "drivenTeeth / drivingTeeth",
     "outputSpeed": "inputSpeed / (drivenTeeth / drivingTeeth)",
-    "outputTorque": "inputTorque * (drivenTeeth / drivingTeeth) * (Math.min(Math.max(efficiency, 0), 100) / 100)"
+    "outputTorque": "inputTorque * (drivenTeeth / drivingTeeth) * (Math.min(Math.max(efficiency, 0), 100) / 100)",
+    "__outputSpeed__RPM": "${outputSpeed} RPM",
+    "__outputTorque__Nm": "${outputTorque} Nm",
+    "__ratio__1": "${ratio}:1"
   },
   "outputs": {
-    "primary": "Gear Ratio: ${ratio}:1",
+    "primary": "ratio",
     "breakdown": [
       "Output Speed: ${outputSpeed} RPM",
       "Output Torque: ${outputTorque} Nm",
       "Mechanical Advantage: ${ratio}:1"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

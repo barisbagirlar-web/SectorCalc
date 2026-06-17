@@ -5,33 +5,65 @@
       "id": "value1",
       "label": "Value 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First data value for mean calculation"
+      "businessContext": "First data value for mean calculation",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Value 1",
+        "de": "Value 1",
+        "fr": "Value 1",
+        "es": "Value 1",
+        "ar": "Value 1"
+      }
     },
     {
       "id": "value2",
       "label": "Value 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second data value for mean calculation"
+      "businessContext": "Second data value for mean calculation",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Value 2",
+        "de": "Value 2",
+        "fr": "Value 2",
+        "es": "Value 2",
+        "ar": "Value 2"
+      }
     },
     {
       "id": "value3",
       "label": "Value 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third data value for mean calculation"
+      "businessContext": "Third data value for mean calculation",
+      "label_i18n": {
+        "en": "Value 3",
+        "tr": "Value 3",
+        "de": "Value 3",
+        "fr": "Value 3",
+        "es": "Value 3",
+        "ar": "Value 3"
+      }
     },
     {
       "id": "value4",
       "label": "Value 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth data value for mean calculation"
+      "businessContext": "Fourth data value for mean calculation",
+      "label_i18n": {
+        "en": "Value 4",
+        "tr": "Value 4",
+        "de": "Value 4",
+        "fr": "Value 4",
+        "es": "Value 4",
+        "ar": "Value 4"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "count"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

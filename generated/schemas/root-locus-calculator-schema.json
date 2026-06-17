@@ -5,85 +5,148 @@
       "id": "zeroReal",
       "label": "Zero Real Part",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Real axis location of the open-loop zero"
+      "businessContext": "Real axis location of the open-loop zero",
+      "label_i18n": {
+        "en": "Zero Real Part",
+        "tr": "Zero Real Part",
+        "de": "Zero Real Part",
+        "fr": "Zero Real Part",
+        "es": "Zero Real Part",
+        "ar": "Zero Real Part"
+      }
     },
     {
       "id": "zeroImag",
       "label": "Zero Imag Part",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Imaginary axis location of the open-loop zero"
+      "businessContext": "Imaginary axis location of the open-loop zero",
+      "label_i18n": {
+        "en": "Zero Imag Part",
+        "tr": "Zero Imag Part",
+        "de": "Zero Imag Part",
+        "fr": "Zero Imag Part",
+        "es": "Zero Imag Part",
+        "ar": "Zero Imag Part"
+      }
     },
     {
       "id": "pole1Real",
       "label": "Pole 1 Real Part",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -1,
-      "businessContext": "Real axis location of the first open-loop pole"
+      "businessContext": "Real axis location of the first open-loop pole",
+      "label_i18n": {
+        "en": "Pole 1 Real Part",
+        "tr": "Pole 1 Real Part",
+        "de": "Pole 1 Real Part",
+        "fr": "Pole 1 Real Part",
+        "es": "Pole 1 Real Part",
+        "ar": "Pole 1 Real Part"
+      }
     },
     {
       "id": "pole1Imag",
       "label": "Pole 1 Imag Part",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Imaginary axis location of the first open-loop pole"
+      "businessContext": "Imaginary axis location of the first open-loop pole",
+      "label_i18n": {
+        "en": "Pole 1 Imag Part",
+        "tr": "Pole 1 Imag Part",
+        "de": "Pole 1 Imag Part",
+        "fr": "Pole 1 Imag Part",
+        "es": "Pole 1 Imag Part",
+        "ar": "Pole 1 Imag Part"
+      }
     },
     {
       "id": "pole2Real",
       "label": "Pole 2 Real Part",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -2,
-      "businessContext": "Real axis location of the second open-loop pole"
+      "businessContext": "Real axis location of the second open-loop pole",
+      "label_i18n": {
+        "en": "Pole 2 Real Part",
+        "tr": "Pole 2 Real Part",
+        "de": "Pole 2 Real Part",
+        "fr": "Pole 2 Real Part",
+        "es": "Pole 2 Real Part",
+        "ar": "Pole 2 Real Part"
+      }
     },
     {
       "id": "pole2Imag",
       "label": "Pole 2 Imag Part",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Imaginary axis location of the second open-loop pole"
+      "businessContext": "Imaginary axis location of the second open-loop pole",
+      "label_i18n": {
+        "en": "Pole 2 Imag Part",
+        "tr": "Pole 2 Imag Part",
+        "de": "Pole 2 Imag Part",
+        "fr": "Pole 2 Imag Part",
+        "es": "Pole 2 Imag Part",
+        "ar": "Pole 2 Imag Part"
+      }
     },
     {
       "id": "pole3Real",
       "label": "Pole 3 Real Part",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -3,
-      "businessContext": "Real axis location of the third open-loop pole"
+      "businessContext": "Real axis location of the third open-loop pole",
+      "label_i18n": {
+        "en": "Pole 3 Real Part",
+        "tr": "Pole 3 Real Part",
+        "de": "Pole 3 Real Part",
+        "fr": "Pole 3 Real Part",
+        "es": "Pole 3 Real Part",
+        "ar": "Pole 3 Real Part"
+      }
     },
     {
       "id": "pole3Imag",
       "label": "Pole 3 Imag Part",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Imaginary axis location of the third open-loop pole"
+      "businessContext": "Imaginary axis location of the third open-loop pole",
+      "label_i18n": {
+        "en": "Pole 3 Imag Part",
+        "tr": "Pole 3 Imag Part",
+        "de": "Pole 3 Imag Part",
+        "fr": "Pole 3 Imag Part",
+        "es": "Pole 3 Imag Part",
+        "ar": "Pole 3 Imag Part"
+      }
     }
   ],
   "formulas": {
     "primary": "`Centroid at ${((pole1Real + pole2Real + pole3Real) - zeroReal) / 2}`",
-    "breakdown": [
-      "`Number of asymptotes: 2`",
-      "`Asymptote angles: 90°, -90°`"
-    ]
+    "breakdown": "zeroReal",
+    "Total_number_of_asymptotes": "Total number of asymptotes",
+    "Angle_directions_of_asymptotes": "Angle directions of asymptotes"
   },
   "outputs": {
-    "primary": "Centroid location",
+    "primary": "primary",
     "breakdown": [
       "Total number of asymptotes",
       "Angle directions of asymptotes"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

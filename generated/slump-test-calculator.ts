@@ -27,13 +27,16 @@ function evaluateAllFormulas(input: Slump_test_calculatorInput): Record<string, 
   try { const v = (results["coneVolume"] ?? 0) / 1000000; results["coneVolumeLiters"] = Number.isFinite(v) ? v : 0; } catch { results["coneVolumeLiters"] = 0; }
   try { const v = input.moldHeight - input.measuredHeight; results["slump"] = Number.isFinite(v) ? v : 0; } catch { results["slump"] = 0; }
   try { const v = (results["slump"] ?? 0) >= input.specMin && (results["slump"] ?? 0) <= input.specMax ? 'Pass' : 'Fail'; results["passFail"] = Number.isFinite(v) ? v : 0; } catch { results["passFail"] = 0; }
+  results["_coneVolumeLiters__liters"] = 0;
+  results["_specMin_____specMax__mm"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateSlump_test_calculator(input: Slump_test_calculatorInput): Slump_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Slump"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

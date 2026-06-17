@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 1,
-      "businessContext": "Speed of the conveyor belt"
+      "businessContext": "Speed of the conveyor belt",
+      "label_i18n": {
+        "en": "Conveyor Speed",
+        "tr": "Conveyor Speed",
+        "de": "Conveyor Speed",
+        "fr": "Conveyor Speed",
+        "es": "Conveyor Speed",
+        "ar": "Conveyor Speed"
+      }
     },
     {
       "id": "pieceSpacing",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Distance between consecutive pieces on the conveyor"
+      "businessContext": "Distance between consecutive pieces on the conveyor",
+      "label_i18n": {
+        "en": "Piece Spacing",
+        "tr": "Piece Spacing",
+        "de": "Piece Spacing",
+        "fr": "Piece Spacing",
+        "es": "Piece Spacing",
+        "ar": "Piece Spacing"
+      }
     },
     {
       "id": "numLanes",
       "label": "Number of Lanes",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of parallel lanes on the conveyor"
+      "businessContext": "Number of parallel lanes on the conveyor",
+      "label_i18n": {
+        "en": "Number of Lanes",
+        "tr": "Number of Lanes",
+        "de": "Number of Lanes",
+        "fr": "Number of Lanes",
+        "es": "Number of Lanes",
+        "ar": "Number of Lanes"
+      }
     },
     {
       "id": "efficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Overall line efficiency factor"
+      "businessContext": "Overall line efficiency factor",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     },
     {
       "id": "shiftDuration",
@@ -39,31 +71,38 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Duration of a standard production shift"
+      "businessContext": "Duration of a standard production shift",
+      "label_i18n": {
+        "en": "Shift Duration",
+        "tr": "Shift Duration",
+        "de": "Shift Duration",
+        "fr": "Shift Duration",
+        "es": "Shift Duration",
+        "ar": "Shift Duration"
+      }
     }
   ],
   "formulas": {
     "productionRate_pps": "(conveyorSpeed / pieceSpacing) * numLanes * (efficiency / 100)",
     "productionRate_pcsPerMinute": "productionRate_pps * 60",
     "productionRate_pcsPerHour": "productionRate_pps * 3600",
-    "productionRate_pcsPerShift": "productionRate_pps * 3600 * shiftDuration"
+    "productionRate_pcsPerShift": "productionRate_pps * 3600 * shiftDuration",
+    "productionRate_pcsPerMinute_pieces_minut": "productionRate_pcsPerMinute pieces/minute",
+    "productionRate_pcsPerHour_pieces_hour": "productionRate_pcsPerHour pieces/hour",
+    "productionRate_pcsPerShift_pieces_shift_": "productionRate_pcsPerShift pieces/shift (assuming ${shiftDuration}h shift)"
   },
   "outputs": {
-    "primary": {
-      "label": "Production Rate (PPS)",
-      "value": "productionRate_pps",
-      "unit": "pieces/second"
-    },
+    "primary": "productionRate_pps",
     "breakdown": [
       "Production Rate (pieces/minute): productionRate_pcsPerMinute pieces/minute",
       "Production Rate (pieces/hour): productionRate_pcsPerHour pieces/hour",
       "Production Rate (pieces/shift): productionRate_pcsPerShift pieces/shift (assuming ${shiftDuration}h shift)"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "Üretim & İmalat",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "sustainability-resource-esg"
 }

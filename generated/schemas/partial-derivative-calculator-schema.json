@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "Uygulanan kuvvet"
+      "businessContext": "Uygulanan kuvvet",
+      "label_i18n": {
+        "en": "Kuvvet (F)",
+        "tr": "Kuvvet (F)",
+        "de": "Kuvvet (F)",
+        "fr": "Kuvvet (F)",
+        "es": "Kuvvet (F)",
+        "ar": "Kuvvet (F)"
+      }
     },
     {
       "id": "L",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Kiriş uzunluğu"
+      "businessContext": "Kiriş uzunluğu",
+      "label_i18n": {
+        "en": "Uzunluk (L)",
+        "tr": "Uzunluk (L)",
+        "de": "Uzunluk (L)",
+        "fr": "Uzunluk (L)",
+        "es": "Uzunluk (L)",
+        "ar": "Uzunluk (L)"
+      }
     },
     {
       "id": "b",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Kesit genişliği"
+      "businessContext": "Kesit genişliği",
+      "label_i18n": {
+        "en": "Genişlik (b)",
+        "tr": "Genişlik (b)",
+        "de": "Genişlik (b)",
+        "fr": "Genişlik (b)",
+        "es": "Genişlik (b)",
+        "ar": "Genişlik (b)"
+      }
     },
     {
       "id": "h",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "Kesit yüksekliği"
+      "businessContext": "Kesit yüksekliği",
+      "label_i18n": {
+        "en": "Yükseklik (h)",
+        "tr": "Yükseklik (h)",
+        "de": "Yükseklik (h)",
+        "fr": "Yükseklik (h)",
+        "es": "Yükseklik (h)",
+        "ar": "Yükseklik (h)"
+      }
     }
   ],
   "formulas": {
@@ -39,10 +71,15 @@
     "breakdown0": "6 * L / (b * h**2)",
     "breakdown1": "6 * F / (b * h**2)",
     "breakdown2": "-6 * F * L / (b**2 * h**2)",
-    "breakdown3": "-12 * F * L / (b * h**3)"
+    "breakdown3": "-12 * F * L / (b * h**3)",
+    "____F__Pa_N_": "∂σ/∂F (Pa/N)",
+    "____L__Pa_m_": "∂σ/∂L (Pa/m)",
+    "____b__Pa_m_": "∂σ/∂b (Pa/m)",
+    "____h__Pa_m_": "∂σ/∂h (Pa/m)",
+    "result": "Eğilme Gerilmesi σ (Pa)"
   },
   "outputs": {
-    "primary": "Eğilme Gerilmesi σ (Pa)",
+    "primary": "result",
     "breakdown": [
       "∂σ/∂F (Pa/N)",
       "∂σ/∂L (Pa/m)",
@@ -50,10 +87,10 @@
       "∂σ/∂h (Pa/m)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

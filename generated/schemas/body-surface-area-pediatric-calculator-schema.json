@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Patient weight in kilograms"
+      "businessContext": "Patient weight in kilograms",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "height",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Patient height in centimeters"
+      "businessContext": "Patient height in centimeters",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "formula",
       "label": "Formula Selection",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George"
+      "businessContext": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George",
+      "label_i18n": {
+        "en": "Formula Selection",
+        "tr": "Formula Selection",
+        "de": "Formula Selection",
+        "fr": "Formula Selection",
+        "es": "Formula Selection",
+        "ar": "Formula Selection"
+      }
     },
     {
       "id": "adjustment",
       "label": "Adjustment Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplicative clinical adjustment (e.g., 1 for standard, 0.85 for reduced dose)"
+      "businessContext": "Multiplicative clinical adjustment (e.g., 1 for standard, 0.85 for reduced dose)",
+      "label_i18n": {
+        "en": "Adjustment Factor",
+        "tr": "Adjustment Factor",
+        "de": "Adjustment Factor",
+        "fr": "Adjustment Factor",
+        "es": "Adjustment Factor",
+        "ar": "Adjustment Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +86,10 @@
       "breakdown4"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

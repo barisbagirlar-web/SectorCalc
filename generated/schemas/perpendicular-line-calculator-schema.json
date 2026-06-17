@@ -5,65 +5,115 @@
       "id": "x1",
       "label": "Point 1 X",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First point of the original line (x-coordinate)"
+      "businessContext": "First point of the original line (x-coordinate)",
+      "label_i18n": {
+        "en": "Point 1 X",
+        "tr": "Point 1 X",
+        "de": "Point 1 X",
+        "fr": "Point 1 X",
+        "es": "Point 1 X",
+        "ar": "Point 1 X"
+      }
     },
     {
       "id": "y1",
       "label": "Point 1 Y",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First point of the original line (y-coordinate)"
+      "businessContext": "First point of the original line (y-coordinate)",
+      "label_i18n": {
+        "en": "Point 1 Y",
+        "tr": "Point 1 Y",
+        "de": "Point 1 Y",
+        "fr": "Point 1 Y",
+        "es": "Point 1 Y",
+        "ar": "Point 1 Y"
+      }
     },
     {
       "id": "x2",
       "label": "Point 2 X",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Second point of the original line (x-coordinate)"
+      "businessContext": "Second point of the original line (x-coordinate)",
+      "label_i18n": {
+        "en": "Point 2 X",
+        "tr": "Point 2 X",
+        "de": "Point 2 X",
+        "fr": "Point 2 X",
+        "es": "Point 2 X",
+        "ar": "Point 2 X"
+      }
     },
     {
       "id": "y2",
       "label": "Point 2 Y",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Second point of the original line (y-coordinate)"
+      "businessContext": "Second point of the original line (y-coordinate)",
+      "label_i18n": {
+        "en": "Point 2 Y",
+        "tr": "Point 2 Y",
+        "de": "Point 2 Y",
+        "fr": "Point 2 Y",
+        "es": "Point 2 Y",
+        "ar": "Point 2 Y"
+      }
     },
     {
       "id": "x3",
       "label": "Perpendicular Point X",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "X-coordinate of point for perpendicular line"
+      "businessContext": "X-coordinate of point for perpendicular line",
+      "label_i18n": {
+        "en": "Perpendicular Point X",
+        "tr": "Perpendicular Point X",
+        "de": "Perpendicular Point X",
+        "fr": "Perpendicular Point X",
+        "es": "Perpendicular Point X",
+        "ar": "Perpendicular Point X"
+      }
     },
     {
       "id": "y3",
       "label": "Perpendicular Point Y",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Y-coordinate of point for perpendicular line"
+      "businessContext": "Y-coordinate of point for perpendicular line",
+      "label_i18n": {
+        "en": "Perpendicular Point Y",
+        "tr": "Perpendicular Point Y",
+        "de": "Perpendicular Point Y",
+        "fr": "Perpendicular Point Y",
+        "es": "Perpendicular Point Y",
+        "ar": "Perpendicular Point Y"
+      }
     }
   ],
   "formulas": {
     "primary": "(function() { let m_orig = (x2 == x1) ? null : (y2 - y1) / (x2 - x1); if (x2 == x1) { return 'y = ' + y3; } else if (y2 == y1) { return 'x = ' + x3; } else { let m_perp = -1 / m_orig; let b_perp = y3 - m_perp * x3; return 'y = ' + m_perp + 'x + ' + b_perp; } })()",
     "breakdown[0]": "(function() { let m_orig = (x2 == x1) ? null : (y2 - y1) / (x2 - x1); if (x2 == x1) { return 'Slope: 0 (horizontal)'; } else if (y2 == y1) { return 'Slope: undefined (vertical)'; } else { let m_perp = -1 / m_orig; return 'Slope: ' + m_perp; } })()",
-    "breakdown[1]": "(function() { let m_orig = (x2 == x1) ? null : (y2 - y1) / (x2 - x1); if (x2 == x1) { return 'Y-Intercept: ' + y3; } else if (y2 == y1) { return 'Y-Intercept: undefined (vertical line)'; } else { let m_perp = -1 / m_orig; let b_perp = y3 - m_perp * x3; return 'Y-Intercept: ' + b_perp; } })()"
+    "breakdown[1]": "(function() { let m_orig = (x2 == x1) ? null : (y2 - y1) / (x2 - x1); if (x2 == x1) { return 'Y-Intercept: ' + y3; } else if (y2 == y1) { return 'Y-Intercept: undefined (vertical line)'; } else { let m_perp = -1 / m_orig; let b_perp = y3 - m_perp * x3; return 'Y-Intercept: ' + b_perp; } })()",
+    "Slope_of_perpendicular_line": "Slope of perpendicular line",
+    "Y_intercept_of_perpendicular_line": "Y-intercept of perpendicular line"
   },
   "outputs": {
-    "primary": "Perpendicular line equation",
+    "primary": "primary",
     "breakdown": [
       "Slope of perpendicular line",
       "Y-intercept of perpendicular line"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

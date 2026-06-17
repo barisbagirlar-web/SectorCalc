@@ -57,12 +57,7 @@
     "magnitude": "Math.sqrt(Math.pow(Ey * Hz - Ez * Hy, 2) + Math.pow(Ez * Hx - Ex * Hz, 2) + Math.pow(Ex * Hy - Ey * Hx, 2))"
   },
   "outputs": {
-    "primary": {
-      "id": "magnitude",
-      "label": "Poynting Vector Magnitude (|S|)",
-      "unit": "W/m²",
-      "valueFormula": "magnitude"
-    },
+    "primary": "Sx",
     "breakdown": [
       {
         "id": "Sx",
@@ -84,10 +79,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -5,9 +5,17 @@
       "id": "mode",
       "label": "Conversion Mode (0: Δ→Y, 1: Y→Δ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for Delta to Star, 1 for Star to Delta"
+      "businessContext": "0 for Delta to Star, 1 for Star to Delta",
+      "label_i18n": {
+        "en": "Conversion Mode (0: Δ→Y, 1: Y→Δ)",
+        "tr": "Conversion Mode (0: Δ→Y, 1: Y→Δ)",
+        "de": "Conversion Mode (0: Δ→Y, 1: Y→Δ)",
+        "fr": "Conversion Mode (0: Δ→Y, 1: Y→Δ)",
+        "es": "Conversion Mode (0: Δ→Y, 1: Y→Δ)",
+        "ar": "Conversion Mode (0: Δ→Y, 1: Y→Δ)"
+      }
     },
     {
       "id": "R1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 10,
-      "businessContext": "In Delta mode, this is R12; in Star mode, this is R1"
+      "businessContext": "In Delta mode, this is R12; in Star mode, this is R1",
+      "label_i18n": {
+        "en": "Resistance 1 (Ω) - R12 if Delta, R1 if Star",
+        "tr": "Resistance 1 (Ω) - R12 if Delta, R1 if Star",
+        "de": "Resistance 1 (Ω) - R12 if Delta, R1 if Star",
+        "fr": "Resistance 1 (Ω) - R12 if Delta, R1 if Star",
+        "es": "Resistance 1 (Ω) - R12 if Delta, R1 if Star",
+        "ar": "Resistance 1 (Ω) - R12 if Delta, R1 if Star"
+      }
     },
     {
       "id": "R2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 20,
-      "businessContext": "In Delta mode, this is R23; in Star mode, this is R2"
+      "businessContext": "In Delta mode, this is R23; in Star mode, this is R2",
+      "label_i18n": {
+        "en": "Resistance 2 (Ω) - R23 if Delta, R2 if Star",
+        "tr": "Resistance 2 (Ω) - R23 if Delta, R2 if Star",
+        "de": "Resistance 2 (Ω) - R23 if Delta, R2 if Star",
+        "fr": "Resistance 2 (Ω) - R23 if Delta, R2 if Star",
+        "es": "Resistance 2 (Ω) - R23 if Delta, R2 if Star",
+        "ar": "Resistance 2 (Ω) - R23 if Delta, R2 if Star"
+      }
     },
     {
       "id": "R3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 30,
-      "businessContext": "In Delta mode, this is R31; in Star mode, this is R3"
+      "businessContext": "In Delta mode, this is R31; in Star mode, this is R3",
+      "label_i18n": {
+        "en": "Resistance 3 (Ω) - R31 if Delta, R3 if Star",
+        "tr": "Resistance 3 (Ω) - R31 if Delta, R3 if Star",
+        "de": "Resistance 3 (Ω) - R31 if Delta, R3 if Star",
+        "fr": "Resistance 3 (Ω) - R31 if Delta, R3 if Star",
+        "es": "Resistance 3 (Ω) - R31 if Delta, R3 if Star",
+        "ar": "Resistance 3 (Ω) - R31 if Delta, R3 if Star"
+      }
     }
   ],
   "formulas": {
@@ -41,11 +73,7 @@
     "R_eq3": "mode === 0 ? (R2 * R3) / (R1 + R2 + R3) : (R3 + R1 + (R3 * R1) / R2)"
   },
   "outputs": {
-    "primary": {
-      "id": "equivalentSummary",
-      "label": "Equivalent Resistances",
-      "unit": ""
-    },
+    "primary": "equivalentSummary",
     "breakdown": [
       {
         "id": "R_eq1",
@@ -64,10 +92,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "electrical-power-systems"
 }

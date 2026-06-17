@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Reaksiyona giren A maddesinin başlangıçtaki molar derişimi"
+      "businessContext": "Reaksiyona giren A maddesinin başlangıçtaki molar derişimi",
+      "label_i18n": {
+        "en": "Başlangıç A Derişimi",
+        "tr": "Başlangıç A Derişimi",
+        "de": "Başlangıç A Derişimi",
+        "fr": "Başlangıç A Derişimi",
+        "es": "Başlangıç A Derişimi",
+        "ar": "Başlangıç A Derişimi"
+      }
     },
     {
       "id": "initB",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0,
-      "businessContext": "Reaksiyon ürünü B maddesinin başlangıçtaki molar derişimi"
+      "businessContext": "Reaksiyon ürünü B maddesinin başlangıçtaki molar derişimi",
+      "label_i18n": {
+        "en": "Başlangıç B Derişimi",
+        "tr": "Başlangıç B Derişimi",
+        "de": "Başlangıç B Derişimi",
+        "fr": "Başlangıç B Derişimi",
+        "es": "Başlangıç B Derişimi",
+        "ar": "Başlangıç B Derişimi"
+      }
     },
     {
       "id": "Kc",
       "label": "Denge Sabiti (Kc)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "A ⇌ B reaksiyonunun derişim cinsinden denge sabiti"
+      "businessContext": "A ⇌ B reaksiyonunun derişim cinsinden denge sabiti",
+      "label_i18n": {
+        "en": "Denge Sabiti (Kc)",
+        "tr": "Denge Sabiti (Kc)",
+        "de": "Denge Sabiti (Kc)",
+        "fr": "Denge Sabiti (Kc)",
+        "es": "Denge Sabiti (Kc)",
+        "ar": "Denge Sabiti (Kc)"
+      }
     },
     {
       "id": "deltaA",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.5,
-      "businessContext": "Sisteme sonradan eklenen A maddesinin molar derişim değişimi (pozitif ekleme, negatif çıkarma)"
+      "businessContext": "Sisteme sonradan eklenen A maddesinin molar derişim değişimi (pozitif ekleme, negatif çıkarma)",
+      "label_i18n": {
+        "en": "Eklenen A Miktarı",
+        "tr": "Eklenen A Miktarı",
+        "de": "Eklenen A Miktarı",
+        "fr": "Eklenen A Miktarı",
+        "es": "Eklenen A Miktarı",
+        "ar": "Eklenen A Miktarı"
+      }
     }
   ],
   "formulas": {
@@ -40,12 +72,7 @@
     "newB": "initB + x"
   },
   "outputs": {
-    "primary": {
-      "label": "Denge Kayması (x)",
-      "value": "x",
-      "unit": "mol/L",
-      "description": "Le Chatelier prensibine göre dengenin kayma miktarı (pozitif: ürünler yönüne, negatif: reaktanlar yönüne)"
-    },
+    "primary": "x",
     "breakdown": [
       {
         "label": "Yeni [A]",
@@ -59,10 +86,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

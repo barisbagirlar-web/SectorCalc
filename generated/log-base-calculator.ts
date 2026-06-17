@@ -21,13 +21,17 @@ function evaluateAllFormulas(input: Log_base_calculatorInput): Record<string, nu
   try { const v = Math.log(input.base); results["naturalLogBase"] = Number.isFinite(v) ? v : 0; } catch { results["naturalLogBase"] = 0; }
   try { const v = (results["naturalLogArgument"] ?? 0) / (results["naturalLogBase"] ?? 0); results["logValue"] = Number.isFinite(v) ? v : 0; } catch { results["logValue"] = 0; }
   try { const v = input.multiplier * (results["logValue"] ?? 0) + input.offset; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = $(results["naturalLogArgument"] ?? 0); results["__naturalLogArgument_"] = Number.isFinite(v) ? v : 0; } catch { results["__naturalLogArgument_"] = 0; }
+  try { const v = $(results["naturalLogBase"] ?? 0); results["__naturalLogBase_"] = Number.isFinite(v) ? v : 0; } catch { results["__naturalLogBase_"] = 0; }
+  try { const v = $(results["logValue"] ?? 0); results["__logValue_"] = Number.isFinite(v) ? v : 0; } catch { results["__logValue_"] = 0; }
+  results["__multiplier______logValue______offset__"] = 0;
   return results;
 }
 
 
 export function calculateLog_base_calculator(input: Log_base_calculatorInput): Log_base_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["${result}"] ?? 0;
+  const totalWasteCost = values["naturalLogArgument"] ?? 0;
   const breakdown = {
     
   };

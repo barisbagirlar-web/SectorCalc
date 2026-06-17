@@ -5,52 +5,87 @@
       "id": "data",
       "label": "Data Values (comma-separated)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Raw numerical data points for constructing the stem-and-leaf plot."
+      "businessContext": "Raw numerical data points for constructing the stem-and-leaf plot.",
+      "label_i18n": {
+        "en": "Data Values (comma-separated)",
+        "tr": "Data Values (comma-separated)",
+        "de": "Data Values (comma-separated)",
+        "fr": "Data Values (comma-separated)",
+        "es": "Data Values (comma-separated)",
+        "ar": "Data Values (comma-separated)"
+      }
     },
     {
       "id": "leafUnit",
       "label": "Leaf Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The unit of the leaf digit (e.g., 1 for ones, 0.1 for tenths)."
+      "businessContext": "The unit of the leaf digit (e.g., 1 for ones, 0.1 for tenths).",
+      "label_i18n": {
+        "en": "Leaf Unit",
+        "tr": "Leaf Unit",
+        "de": "Leaf Unit",
+        "fr": "Leaf Unit",
+        "es": "Leaf Unit",
+        "ar": "Leaf Unit"
+      }
     },
     {
       "id": "stemUnit",
       "label": "Stem Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "The unit of the stem (e.g., 10 for tens, 100 for hundreds)."
+      "businessContext": "The unit of the stem (e.g., 10 for tens, 100 for hundreds).",
+      "label_i18n": {
+        "en": "Stem Unit",
+        "tr": "Stem Unit",
+        "de": "Stem Unit",
+        "fr": "Stem Unit",
+        "es": "Stem Unit",
+        "ar": "Stem Unit"
+      }
     },
     {
       "id": "sortOrder",
       "label": "Sort Order (1=ascending, -1=descending)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Order to sort the leaves within each stem."
+      "businessContext": "Order to sort the leaves within each stem.",
+      "label_i18n": {
+        "en": "Sort Order (1=ascending, -1=descending)",
+        "tr": "Sort Order (1=ascending, -1=descending)",
+        "de": "Sort Order (1=ascending, -1=descending)",
+        "fr": "Sort Order (1=ascending, -1=descending)",
+        "es": "Sort Order (1=ascending, -1=descending)",
+        "ar": "Sort Order (1=ascending, -1=descending)"
+      }
     }
   ],
   "formulas": {
     "stem": "Math.floor(data / stemUnit)",
     "leaf": "Math.floor((data % stemUnit) / leafUnit)",
     "sortedLeaves": "leaves.sort((a,b) => sortOrder * (a - b))",
-    "plot": "stems.map((stem, i) => stem + ' | ' + sortedLeaves[i].join(' ')).join('\\n')"
+    "plot": "stems.map((stem, i) => stem + ' | ' + sortedLeaves[i].join(' ')).join('\\n')",
+    "list_of_unique_stems": "list of unique stems",
+    "sorted_leaves_per_stem": "sorted leaves per stem",
+    "result": "Stem-and-Leaf Plot"
   },
   "outputs": {
-    "primary": "Stem-and-Leaf Plot",
+    "primary": "result",
     "breakdown": [
       "Stems: list of unique stems",
       "Leaves: sorted leaves per stem"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

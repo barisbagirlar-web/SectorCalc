@@ -21,13 +21,17 @@ function evaluateAllFormulas(input: Walking_distance_calculatorInput): Record<st
   try { const v = input.stepCount * input.stepLength * input.incline / 10000; results["elevationGain"] = Number.isFinite(v) ? v : 0; } catch { results["elevationGain"] = 0; }
   try { const v = input.stepCount * input.stepLength / 100000 / Math.cos(Math.atan(input.incline/100)); results["pathDistance"] = Number.isFinite(v) ? v : 0; } catch { results["pathDistance"] = 0; }
   try { const v = input.stepCount * input.stepLength / 100000 / Math.cos(Math.atan(input.incline/100)) * input.terrainFactor; results["totalDistance"] = Number.isFinite(v) ? v : 0; } catch { results["totalDistance"] = 0; }
+  results["Horizontal_Distance__km_"] = 0;
+  results["Elevation_Gain__m_"] = 0;
+  results["Path_Distance_on_Slope__km_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateWalking_distance_calculator(input: Walking_distance_calculatorInput): Walking_distance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

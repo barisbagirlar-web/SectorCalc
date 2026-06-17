@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 20,
-      "businessContext": "Total number of aligners in the treatment plan."
+      "businessContext": "Total number of aligners in the treatment plan.",
+      "label_i18n": {
+        "en": "Number of Aligners",
+        "tr": "Number of Aligners",
+        "de": "Number of Aligners",
+        "fr": "Number of Aligners",
+        "es": "Number of Aligners",
+        "ar": "Number of Aligners"
+      }
     },
     {
       "id": "materialCostPerAligner",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "Cost of raw material for one aligner."
+      "businessContext": "Cost of raw material for one aligner.",
+      "label_i18n": {
+        "en": "Material Cost per Aligner",
+        "tr": "Material Cost per Aligner",
+        "de": "Material Cost per Aligner",
+        "fr": "Material Cost per Aligner",
+        "es": "Material Cost per Aligner",
+        "ar": "Material Cost per Aligner"
+      }
     },
     {
       "id": "laborCostPerAligner",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 30,
-      "businessContext": "Direct labor cost to produce one aligner."
+      "businessContext": "Direct labor cost to produce one aligner.",
+      "label_i18n": {
+        "en": "Labor Cost per Aligner",
+        "tr": "Labor Cost per Aligner",
+        "de": "Labor Cost per Aligner",
+        "fr": "Labor Cost per Aligner",
+        "es": "Labor Cost per Aligner",
+        "ar": "Labor Cost per Aligner"
+      }
     },
     {
       "id": "overheadRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Overhead percentage applied to direct costs (e.g., utilities, admin)."
+      "businessContext": "Overhead percentage applied to direct costs (e.g., utilities, admin).",
+      "label_i18n": {
+        "en": "Overhead Rate",
+        "tr": "Overhead Rate",
+        "de": "Overhead Rate",
+        "fr": "Overhead Rate",
+        "es": "Overhead Rate",
+        "ar": "Overhead Rate"
+      }
     },
     {
       "id": "sellingPricePerAligner",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 150,
-      "businessContext": "Price charged to the customer per aligner."
+      "businessContext": "Price charged to the customer per aligner.",
+      "label_i18n": {
+        "en": "Selling Price per Aligner",
+        "tr": "Selling Price per Aligner",
+        "de": "Selling Price per Aligner",
+        "fr": "Selling Price per Aligner",
+        "es": "Selling Price per Aligner",
+        "ar": "Selling Price per Aligner"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +88,15 @@
     "totalCost": "totalDirectCost + totalOverhead",
     "totalRevenue": "sellingPricePerAligner * numberOfAligners",
     "profit": "totalRevenue - totalCost",
-    "marginPercentage": "(profit / totalRevenue) * 100"
+    "marginPercentage": "(profit / totalRevenue) * 100",
+    "___totalCost_": "$${totalCost}",
+    "___totalRevenue_": "$${totalRevenue}",
+    "___profit_": "$${profit}",
+    "__marginPercentage__": "${marginPercentage}%",
+    "result": "Net Profit: $${profit} (Margin: ${marginPercentage}%)"
   },
   "outputs": {
-    "primary": "Net Profit: $${profit} (Margin: ${marginPercentage}%)",
+    "primary": "result",
     "breakdown": [
       "Total Cost: $${totalCost}",
       "Total Revenue: $${totalRevenue}",
@@ -59,10 +104,10 @@
       "Margin: ${marginPercentage}%"
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Üretim & İmalat",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "finance-sales-working-capital"
 }

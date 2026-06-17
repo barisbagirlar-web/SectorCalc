@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 230,
-      "businessContext": "Nominal line voltage"
+      "businessContext": "Nominal line voltage",
+      "label_i18n": {
+        "en": "Voltage",
+        "tr": "Voltage",
+        "de": "Voltage",
+        "fr": "Voltage",
+        "es": "Voltage",
+        "ar": "Voltage"
+      }
     },
     {
       "id": "current",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "Operating current"
+      "businessContext": "Operating current",
+      "label_i18n": {
+        "en": "Current",
+        "tr": "Current",
+        "de": "Current",
+        "fr": "Current",
+        "es": "Current",
+        "ar": "Current"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Power Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Power factor (cos φ)"
+      "businessContext": "Power factor (cos φ)",
+      "label_i18n": {
+        "en": "Power Factor",
+        "tr": "Power Factor",
+        "de": "Power Factor",
+        "fr": "Power Factor",
+        "es": "Power Factor",
+        "ar": "Power Factor"
+      }
     }
   ],
   "formulas": {
@@ -38,10 +62,10 @@
       "reactivePower"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "electrical-power-systems"
 }

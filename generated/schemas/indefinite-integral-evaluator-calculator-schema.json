@@ -5,65 +5,129 @@
       "id": "a5",
       "label": "a₅ (x⁵ coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of the x⁵ term in the polynomial"
+      "businessContext": "Coefficient of the x⁵ term in the polynomial",
+      "label_i18n": {
+        "en": "a₅ (x⁵ coefficient)",
+        "tr": "a₅ (x⁵ coefficient)",
+        "de": "a₅ (x⁵ coefficient)",
+        "fr": "a₅ (x⁵ coefficient)",
+        "es": "a₅ (x⁵ coefficient)",
+        "ar": "a₅ (x⁵ coefficient)"
+      }
     },
     {
       "id": "a4",
       "label": "a₄ (x⁴ coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of the x⁴ term"
+      "businessContext": "Coefficient of the x⁴ term",
+      "label_i18n": {
+        "en": "a₄ (x⁴ coefficient)",
+        "tr": "a₄ (x⁴ coefficient)",
+        "de": "a₄ (x⁴ coefficient)",
+        "fr": "a₄ (x⁴ coefficient)",
+        "es": "a₄ (x⁴ coefficient)",
+        "ar": "a₄ (x⁴ coefficient)"
+      }
     },
     {
       "id": "a3",
       "label": "a₃ (x³ coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of the x³ term"
+      "businessContext": "Coefficient of the x³ term",
+      "label_i18n": {
+        "en": "a₃ (x³ coefficient)",
+        "tr": "a₃ (x³ coefficient)",
+        "de": "a₃ (x³ coefficient)",
+        "fr": "a₃ (x³ coefficient)",
+        "es": "a₃ (x³ coefficient)",
+        "ar": "a₃ (x³ coefficient)"
+      }
     },
     {
       "id": "a2",
       "label": "a₂ (x² coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of the x² term"
+      "businessContext": "Coefficient of the x² term",
+      "label_i18n": {
+        "en": "a₂ (x² coefficient)",
+        "tr": "a₂ (x² coefficient)",
+        "de": "a₂ (x² coefficient)",
+        "fr": "a₂ (x² coefficient)",
+        "es": "a₂ (x² coefficient)",
+        "ar": "a₂ (x² coefficient)"
+      }
     },
     {
       "id": "a1",
       "label": "a₁ (x coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of the x term"
+      "businessContext": "Coefficient of the x term",
+      "label_i18n": {
+        "en": "a₁ (x coefficient)",
+        "tr": "a₁ (x coefficient)",
+        "de": "a₁ (x coefficient)",
+        "fr": "a₁ (x coefficient)",
+        "es": "a₁ (x coefficient)",
+        "ar": "a₁ (x coefficient)"
+      }
     },
     {
       "id": "a0",
       "label": "a₀ (constant term)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term of the polynomial"
+      "businessContext": "Constant term of the polynomial",
+      "label_i18n": {
+        "en": "a₀ (constant term)",
+        "tr": "a₀ (constant term)",
+        "de": "a₀ (constant term)",
+        "fr": "a₀ (constant term)",
+        "es": "a₀ (constant term)",
+        "ar": "a₀ (constant term)"
+      }
     },
     {
       "id": "x",
       "label": "x (evaluation point)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Point at which the antiderivative is evaluated"
+      "businessContext": "Point at which the antiderivative is evaluated",
+      "label_i18n": {
+        "en": "x (evaluation point)",
+        "tr": "x (evaluation point)",
+        "de": "x (evaluation point)",
+        "fr": "x (evaluation point)",
+        "es": "x (evaluation point)",
+        "ar": "x (evaluation point)"
+      }
     },
     {
       "id": "C",
       "label": "C (integration constant)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Arbitrary constant of integration"
+      "businessContext": "Arbitrary constant of integration",
+      "label_i18n": {
+        "en": "C (integration constant)",
+        "tr": "C (integration constant)",
+        "de": "C (integration constant)",
+        "fr": "C (integration constant)",
+        "es": "C (integration constant)",
+        "ar": "C (integration constant)"
+      }
     }
   ],
   "formulas": {
@@ -89,10 +153,10 @@
       "Total antiderivative value: total"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

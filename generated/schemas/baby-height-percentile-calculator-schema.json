@@ -5,9 +5,17 @@
       "id": "sex",
       "label": "Sex (0=Male, 1=Female)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Enter 0 for male, 1 for female"
+      "businessContext": "Enter 0 for male, 1 for female",
+      "label_i18n": {
+        "en": "Sex (0=Male, 1=Female)",
+        "tr": "Sex (0=Male, 1=Female)",
+        "de": "Sex (0=Male, 1=Female)",
+        "fr": "Sex (0=Male, 1=Female)",
+        "es": "Sex (0=Male, 1=Female)",
+        "ar": "Sex (0=Male, 1=Female)"
+      }
     },
     {
       "id": "ageMonths",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Age in completed months"
+      "businessContext": "Age in completed months",
+      "label_i18n": {
+        "en": "Age (months)",
+        "tr": "Age (months)",
+        "de": "Age (months)",
+        "fr": "Age (months)",
+        "es": "Age (months)",
+        "ar": "Age (months)"
+      }
     },
     {
       "id": "heightCm",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "cm",
       "default": 76,
-      "businessContext": "Recumbent length for infants under 2 years"
+      "businessContext": "Recumbent length for infants under 2 years",
+      "label_i18n": {
+        "en": "Height (Length)",
+        "tr": "Height (Length)",
+        "de": "Height (Length)",
+        "fr": "Height (Length)",
+        "es": "Height (Length)",
+        "ar": "Height (Length)"
+      }
     },
     {
       "id": "L",
       "label": "L (Box-Cox power)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Skewness parameter from WHO growth standards for given age and sex"
+      "businessContext": "Skewness parameter from WHO growth standards for given age and sex",
+      "label_i18n": {
+        "en": "L (Box-Cox power)",
+        "tr": "L (Box-Cox power)",
+        "de": "L (Box-Cox power)",
+        "fr": "L (Box-Cox power)",
+        "es": "L (Box-Cox power)",
+        "ar": "L (Box-Cox power)"
+      }
     },
     {
       "id": "M",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "cm",
       "default": 76,
-      "businessContext": "Median height for given age and sex from reference growth chart"
+      "businessContext": "Median height for given age and sex from reference growth chart",
+      "label_i18n": {
+        "en": "M (Median)",
+        "tr": "M (Median)",
+        "de": "M (Median)",
+        "fr": "M (Median)",
+        "es": "M (Median)",
+        "ar": "M (Median)"
+      }
     },
     {
       "id": "S",
       "label": "S (Coefficient of variation)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.04,
-      "businessContext": "Coefficient of variation from WHO growth standards"
+      "businessContext": "Coefficient of variation from WHO growth standards",
+      "label_i18n": {
+        "en": "S (Coefficient of variation)",
+        "tr": "S (Coefficient of variation)",
+        "de": "S (Coefficient of variation)",
+        "fr": "S (Coefficient of variation)",
+        "es": "S (Coefficient of variation)",
+        "ar": "S (Coefficient of variation)"
+      }
     }
   ],
   "formulas": {
@@ -61,10 +109,10 @@
       "zScore"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

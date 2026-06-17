@@ -4,16 +4,19 @@ import * as z from 'zod';
 export interface Pints_to_litersInput {
   pints: number;
   pintType: number;
+  auto_input_3: number;
 }
 
 export const Pints_to_litersInputSchema = z.object({
   pints: z.number().default(1),
   pintType: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Pints_to_litersInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.pintType === 1 ? input.pints * 0.473176473 : input.pintType === 2 ? input.pints * 0.550610471 : input.pints * 0.56826125; results["liters"] = Number.isFinite(v) ? v : 0; } catch { results["liters"] = 0; }
+  try { const v = input.pints * conversionFactor; results["pints___conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["pints___conversionFactor"] = 0; }
   return results;
 }
 

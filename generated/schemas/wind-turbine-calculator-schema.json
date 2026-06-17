@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "The overall diameter of the rotor swept area, a primary design parameter affecting power capture."
+      "businessContext": "The overall diameter of the rotor swept area, a primary design parameter affecting power capture.",
+      "label_i18n": {
+        "en": "Rotor Diameter",
+        "tr": "Rotor Diameter",
+        "de": "Rotor Diameter",
+        "fr": "Rotor Diameter",
+        "es": "Rotor Diameter",
+        "ar": "Rotor Diameter"
+      }
     },
     {
       "id": "airDensity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Standard sea-level air density; can vary with altitude and temperature."
+      "businessContext": "Standard sea-level air density; can vary with altitude and temperature.",
+      "label_i18n": {
+        "en": "Air Density",
+        "tr": "Air Density",
+        "de": "Air Density",
+        "fr": "Air Density",
+        "es": "Air Density",
+        "ar": "Air Density"
+      }
     },
     {
       "id": "windSpeed",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "m/s",
       "default": 12,
-      "businessContext": "Mean wind speed at hub height; typically the rated wind speed of the turbine."
+      "businessContext": "Mean wind speed at hub height; typically the rated wind speed of the turbine.",
+      "label_i18n": {
+        "en": "Wind Speed",
+        "tr": "Wind Speed",
+        "de": "Wind Speed",
+        "fr": "Wind Speed",
+        "es": "Wind Speed",
+        "ar": "Wind Speed"
+      }
     },
     {
       "id": "cp",
       "label": "Power Coefficient (Cp)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.45,
-      "businessContext": "Turbine power coefficient, limited by the Betz limit (~0.593); accounts for aerodynamic losses."
+      "businessContext": "Turbine power coefficient, limited by the Betz limit (~0.593); accounts for aerodynamic losses.",
+      "label_i18n": {
+        "en": "Power Coefficient (Cp)",
+        "tr": "Power Coefficient (Cp)",
+        "de": "Power Coefficient (Cp)",
+        "fr": "Power Coefficient (Cp)",
+        "es": "Power Coefficient (Cp)",
+        "ar": "Power Coefficient (Cp)"
+      }
     },
     {
       "id": "efficiency",
       "label": "Drive‑Train Efficiency",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.95,
-      "businessContext": "Combined mechanical and electrical efficiency of the gearbox and generator."
+      "businessContext": "Combined mechanical and electrical efficiency of the gearbox and generator.",
+      "label_i18n": {
+        "en": "Drive‑Train Efficiency",
+        "tr": "Drive‑Train Efficiency",
+        "de": "Drive‑Train Efficiency",
+        "fr": "Drive‑Train Efficiency",
+        "es": "Drive‑Train Efficiency",
+        "ar": "Drive‑Train Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "rawWindPower"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "ecology-environment",
   "sectorSlug": "energy-carbon",
-  "categorySlug": "sustainability-resource-esg"
+  "categorySlug": "electrical-power-systems"
 }

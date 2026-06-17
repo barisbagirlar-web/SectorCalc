@@ -5,57 +5,113 @@
       "id": "expansionPoint",
       "label": "Expansion Point (a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The point about which the Taylor series is expanded."
+      "businessContext": "The point about which the Taylor series is expanded.",
+      "label_i18n": {
+        "en": "Expansion Point (a)",
+        "tr": "Expansion Point (a)",
+        "de": "Expansion Point (a)",
+        "fr": "Expansion Point (a)",
+        "es": "Expansion Point (a)",
+        "ar": "Expansion Point (a)"
+      }
     },
     {
       "id": "evaluationPoint",
       "label": "Evaluation Point (x)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The point at which the function is approximated."
+      "businessContext": "The point at which the function is approximated.",
+      "label_i18n": {
+        "en": "Evaluation Point (x)",
+        "tr": "Evaluation Point (x)",
+        "de": "Evaluation Point (x)",
+        "fr": "Evaluation Point (x)",
+        "es": "Evaluation Point (x)",
+        "ar": "Evaluation Point (x)"
+      }
     },
     {
       "id": "degree",
       "label": "Polynomial Degree",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Highest order of the Taylor polynomial (0–3)."
+      "businessContext": "Highest order of the Taylor polynomial (0–3).",
+      "label_i18n": {
+        "en": "Polynomial Degree",
+        "tr": "Polynomial Degree",
+        "de": "Polynomial Degree",
+        "fr": "Polynomial Degree",
+        "es": "Polynomial Degree",
+        "ar": "Polynomial Degree"
+      }
     },
     {
       "id": "f0",
       "label": "f(a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Function value at the expansion point."
+      "businessContext": "Function value at the expansion point.",
+      "label_i18n": {
+        "en": "f(a)",
+        "tr": "f(a)",
+        "de": "f(a)",
+        "fr": "f(a)",
+        "es": "f(a)",
+        "ar": "f(a)"
+      }
     },
     {
       "id": "f1",
       "label": "f'(a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "First derivative at the expansion point."
+      "businessContext": "First derivative at the expansion point.",
+      "label_i18n": {
+        "en": "f'(a)",
+        "tr": "f'(a)",
+        "de": "f'(a)",
+        "fr": "f'(a)",
+        "es": "f'(a)",
+        "ar": "f'(a)"
+      }
     },
     {
       "id": "f2",
       "label": "f''(a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Second derivative at the expansion point."
+      "businessContext": "Second derivative at the expansion point.",
+      "label_i18n": {
+        "en": "f''(a)",
+        "tr": "f''(a)",
+        "de": "f''(a)",
+        "fr": "f''(a)",
+        "es": "f''(a)",
+        "ar": "f''(a)"
+      }
     },
     {
       "id": "f3",
       "label": "f'''(a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Third derivative at the expansion point."
+      "businessContext": "Third derivative at the expansion point.",
+      "label_i18n": {
+        "en": "f'''(a)",
+        "tr": "f'''(a)",
+        "de": "f'''(a)",
+        "fr": "f'''(a)",
+        "es": "f'''(a)",
+        "ar": "f'''(a)"
+      }
     }
   ],
   "formulas": {
@@ -74,8 +130,8 @@
       "cubicTerm"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

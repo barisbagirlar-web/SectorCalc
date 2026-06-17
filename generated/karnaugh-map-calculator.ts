@@ -20,6 +20,9 @@ function evaluateAllFormulas(input: Karnaugh_map_calculatorInput): Record<string
   try { const v = input.f00*1 + input.f01*2 + input.f10*4 + input.f11*8; results["functionID"] = Number.isFinite(v) ? v : 0; } catch { results["functionID"] = 0; }
   try { const v = input.f00 + input.f01 + input.f10 + input.f11; results["mintermsCount"] = Number.isFinite(v) ? v : 0; } catch { results["mintermsCount"] = 0; }
   try { const v = 4 - (input.f00 + input.f01 + input.f10 + input.f11); results["maxtermsCount"] = Number.isFinite(v) ? v : 0; } catch { results["maxtermsCount"] = 0; }
+  try { const v = $(results["functionID"] ?? 0); results["__functionID_"] = Number.isFinite(v) ? v : 0; } catch { results["__functionID_"] = 0; }
+  try { const v = $(results["mintermsCount"] ?? 0); results["__mintermsCount_"] = Number.isFinite(v) ? v : 0; } catch { results["__mintermsCount_"] = 0; }
+  try { const v = $(results["maxtermsCount"] ?? 0); results["__maxtermsCount_"] = Number.isFinite(v) ? v : 0; } catch { results["__maxtermsCount_"] = 0; }
   return results;
 }
 

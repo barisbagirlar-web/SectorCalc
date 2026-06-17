@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kN",
       "default": 50,
-      "businessContext": "Bearing dynamic load rating from manufacturer catalog"
+      "businessContext": "Bearing dynamic load rating from manufacturer catalog",
+      "label_i18n": {
+        "en": "Basic Dynamic Load Rating (C)",
+        "tr": "Basic Dynamic Load Rating (C)",
+        "de": "Basic Dynamic Load Rating (C)",
+        "fr": "Basic Dynamic Load Rating (C)",
+        "es": "Basic Dynamic Load Rating (C)",
+        "ar": "Basic Dynamic Load Rating (C)"
+      }
     },
     {
       "id": "equivalentLoad",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "kN",
       "default": 10,
-      "businessContext": "Calculated equivalent radial/axial load on bearing"
+      "businessContext": "Calculated equivalent radial/axial load on bearing",
+      "label_i18n": {
+        "en": "Equivalent Dynamic Load (P)",
+        "tr": "Equivalent Dynamic Load (P)",
+        "de": "Equivalent Dynamic Load (P)",
+        "fr": "Equivalent Dynamic Load (P)",
+        "es": "Equivalent Dynamic Load (P)",
+        "ar": "Equivalent Dynamic Load (P)"
+      }
     },
     {
       "id": "exponent",
       "label": "Life Exponent",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "p=3 for ball bearings, p=10/3 (≈3.333) for roller bearings"
+      "businessContext": "p=3 for ball bearings, p=10/3 (≈3.333) for roller bearings",
+      "label_i18n": {
+        "en": "Life Exponent",
+        "tr": "Life Exponent",
+        "de": "Life Exponent",
+        "fr": "Life Exponent",
+        "es": "Life Exponent",
+        "ar": "Life Exponent"
+      }
     },
     {
       "id": "reliabilityFactor",
       "label": "Reliability Factor (a₁)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for 90% reliability; e.g., 0.62 for 95%, 0.53 for 96% per ISO 281"
+      "businessContext": "1 for 90% reliability; e.g., 0.62 for 95%, 0.53 for 96% per ISO 281",
+      "label_i18n": {
+        "en": "Reliability Factor (a₁)",
+        "tr": "Reliability Factor (a₁)",
+        "de": "Reliability Factor (a₁)",
+        "fr": "Reliability Factor (a₁)",
+        "es": "Reliability Factor (a₁)",
+        "ar": "Reliability Factor (a₁)"
+      }
     },
     {
       "id": "speed",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 1500,
-      "businessContext": "Shaft speed; used to convert revolutions to hours"
+      "businessContext": "Shaft speed; used to convert revolutions to hours",
+      "label_i18n": {
+        "en": "Rotational Speed",
+        "tr": "Rotational Speed",
+        "de": "Rotational Speed",
+        "fr": "Rotational Speed",
+        "es": "Rotational Speed",
+        "ar": "Rotational Speed"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,7 @@
       "L10_hours"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

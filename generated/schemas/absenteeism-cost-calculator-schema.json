@@ -125,7 +125,7 @@
       "id": "industry_type",
       "label": "Industry Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "Manufacturing",
       "min": null,
       "max": null,
@@ -149,7 +149,7 @@
       "id": "include_overtime_penalty",
       "label": "Include Overtime Penalty",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -217,159 +217,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "total_scheduled_hours",
-      "label": "Total Scheduled Hours per Year",
-      "description": "Total hours all employees are scheduled to work per year.",
-      "expression": "total_employees * avg_hours_per_day * working_days_per_year",
-      "unit": "hours"
-    },
-    {
-      "id": "absent_hours",
-      "label": "Absent Hours per Year",
-      "description": "Total hours lost due to absenteeism.",
-      "expression": "total_scheduled_hours * (absenteeism_rate / 100)",
-      "unit": "hours"
-    },
-    {
-      "id": "direct_labor_cost",
-      "label": "Direct Labor Cost of Absenteeism",
-      "description": "Cost of wages paid to absent employees (including benefits).",
-      "expression": "absent_hours * avg_hourly_wage",
-      "unit": "USD"
-    },
-    {
-      "id": "replacement_cost",
-      "label": "Replacement Cost",
-      "description": "Cost to cover absent employees (overtime, temp staff, etc.).",
-      "expression": "absent_hours * replacement_cost_per_hour * (include_overtime_penalty ? 1.5 : 1.0)",
-      "unit": "USD"
-    },
-    {
-      "id": "overhead_cost",
-      "label": "Overhead Cost",
-      "description": "Indirect costs allocated to absenteeism (supervision, facilities, HR).",
-      "expression": "direct_labor_cost * (overhead_multiplier - 1)",
-      "unit": "USD"
-    },
-    {
-      "id": "total_annual_cost",
-      "label": "Total Annual Absenteeism Cost",
-      "description": "Primary result – total cost of absenteeism per year.",
-      "expression": "direct_labor_cost + replacement_cost + overhead_cost",
-      "unit": "USD"
-    },
-    {
-      "id": "cost_per_absent_hour",
-      "label": "Cost per Absent Hour",
-      "description": "Average cost per hour of absence.",
-      "expression": "total_annual_cost / absent_hours",
-      "unit": "USD/hour"
-    }
+    "total_employees",
+    "total_employees",
+    "total_employees",
+    "total_employees",
+    "total_employees",
+    "total_employees",
+    "total_employees"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_cost",
-      "label": "Total Annual Absenteeism Cost",
-      "value": null,
-      "unit": "USD",
-      "description": "The comprehensive annual cost of absenteeism including direct, replacement, and overhead costs."
-    },
-    "breakdown": {
-      "direct_labor_cost": {
-        "id": "direct_labor_cost",
-        "label": "Direct Labor Cost",
-        "value": null,
-        "unit": "USD",
-        "description": "Wages paid to absent employees."
-      },
-      "replacement_cost": {
-        "id": "replacement_cost",
-        "label": "Replacement Cost",
-        "value": null,
-        "unit": "USD",
-        "description": "Cost of overtime, temporary staff, or cross-training."
-      },
-      "overhead_cost": {
-        "id": "overhead_cost",
-        "label": "Overhead Cost",
-        "value": null,
-        "unit": "USD",
-        "description": "Indirect costs allocated to absenteeism."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "lost_productivity",
-        "label": "Lost Productivity (Quality & Rework)",
-        "description": "Estimated cost of defects and rework due to understaffing or inexperienced replacements.",
-        "estimated_value": null,
-        "unit": "USD",
-        "source": "Six Sigma DMAIC – Defects per Million Opportunities (DPMO) analysis"
-      },
-      {
-        "id": "morale_turnover",
-        "label": "Morale & Turnover Impact",
-        "description": "Cost of increased voluntary turnover due to burnout from covering absences.",
-        "estimated_value": null,
-        "unit": "USD",
-        "source": "WERC – Workforce turnover cost models"
-      },
-      {
-        "id": "customer_impact",
-        "label": "Customer Service Impact",
-        "description": "Lost revenue from delayed orders or reduced service levels.",
-        "estimated_value": null,
-        "unit": "USD",
-        "source": "Lean – Value stream mapping of customer lead time"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": "high",
-        "action": "Implement predictive attendance analytics to identify high-risk employees.",
-        "expected_reduction": "15-25% reduction in absenteeism rate",
-        "reference": "ISO 30414 – Human capital reporting"
-      },
-      {
-        "id": "action_2",
-        "priority": "high",
-        "action": "Introduce cross-training program to reduce replacement cost.",
-        "expected_reduction": "10-20% reduction in replacement cost",
-        "reference": "Lean – Standardized work and multi-skilling"
-      },
-      {
-        "id": "action_3",
-        "priority": "medium",
-        "action": "Conduct root cause analysis using Six Sigma (DMAIC) for departments with >5% absenteeism.",
-        "expected_reduction": "20-30% reduction in absenteeism in targeted areas",
-        "reference": "Six Sigma – DMAIC methodology"
-      },
-      {
-        "id": "action_4",
-        "priority": "medium",
-        "action": "Review and adjust overtime policies to minimize penalty costs.",
-        "expected_reduction": "5-10% reduction in replacement cost",
-        "reference": "WERC – Labor cost optimization"
-      },
-      {
-        "id": "action_5",
-        "priority": "low",
-        "action": "Enhance employee wellness programs to improve overall attendance.",
-        "expected_reduction": "5-15% reduction in absenteeism rate",
-        "reference": "ISO 45001 – Occupational health and safety"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Score",
-      "value": null,
-      "unit": "ratio (0-1)",
-      "description": "Weighted confidence based on input data completeness and reliability. Default 0.8 if all inputs provided."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
+  "toolName": "absenteeism-cost-calculator"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "st",
       "default": 1,
-      "businessContext": "The volume of wood in steres to convert"
+      "businessContext": "The volume of wood in steres to convert",
+      "label_i18n": {
+        "en": "Volume (Stere)",
+        "tr": "Volume (Stere)",
+        "de": "Volume (Stere)",
+        "fr": "Volume (Stere)",
+        "es": "Volume (Stere)",
+        "ar": "Volume (Stere)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "m³/st",
       "default": 1,
-      "businessContext": "Conversion factor, typically 1 stere = 1 m³. Adjust for specific stacking variants."
+      "businessContext": "Conversion factor, typically 1 stere = 1 m³. Adjust for specific stacking variants.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "stackingFactor",
       "label": "Stacking Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1.0 for standard stacked steres. Use 0.7–0.8 for loose chainsaw chips."
+      "businessContext": "1.0 for standard stacked steres. Use 0.7–0.8 for loose chainsaw chips.",
+      "label_i18n": {
+        "en": "Stacking Factor",
+        "tr": "Stacking Factor",
+        "de": "Stacking Factor",
+        "fr": "Stacking Factor",
+        "es": "Stacking Factor",
+        "ar": "Stacking Factor"
+      }
     },
     {
       "id": "pricePerStere",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "€/st",
       "default": 0,
-      "businessContext": "Optional: price per stere for cost calculations"
+      "businessContext": "Optional: price per stere for cost calculations",
+      "label_i18n": {
+        "en": "Price per Stere",
+        "tr": "Price per Stere",
+        "de": "Price per Stere",
+        "fr": "Price per Stere",
+        "es": "Price per Stere",
+        "ar": "Price per Stere"
+      }
     },
     {
       "id": "pricePerCubicMeter",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "€/m³",
       "default": 0,
-      "businessContext": "Optional: price per cubic meter for cost comparison"
+      "businessContext": "Optional: price per cubic meter for cost comparison",
+      "label_i18n": {
+        "en": "Price per Cubic Meter",
+        "tr": "Price per Cubic Meter",
+        "de": "Price per Cubic Meter",
+        "fr": "Price per Cubic Meter",
+        "es": "Price per Cubic Meter",
+        "ar": "Price per Cubic Meter"
+      }
     },
     {
       "id": "roundingPrecision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for final result"
+      "businessContext": "Number of decimal places for final result",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "totalCostCubicMeter"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Enerji & Karbon",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

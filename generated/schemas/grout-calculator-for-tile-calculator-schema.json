@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 300,
-      "businessContext": "Nominal tile length in mm"
+      "businessContext": "Nominal tile length in mm",
+      "label_i18n": {
+        "en": "Tile Length",
+        "tr": "Tile Length",
+        "de": "Tile Length",
+        "fr": "Tile Length",
+        "es": "Tile Length",
+        "ar": "Tile Length"
+      }
     },
     {
       "id": "tileWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 300,
-      "businessContext": "Nominal tile width in mm"
+      "businessContext": "Nominal tile width in mm",
+      "label_i18n": {
+        "en": "Tile Width",
+        "tr": "Tile Width",
+        "de": "Tile Width",
+        "fr": "Tile Width",
+        "es": "Tile Width",
+        "ar": "Tile Width"
+      }
     },
     {
       "id": "jointWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3,
-      "businessContext": "Grout joint width in mm"
+      "businessContext": "Grout joint width in mm",
+      "label_i18n": {
+        "en": "Joint Width",
+        "tr": "Joint Width",
+        "de": "Joint Width",
+        "fr": "Joint Width",
+        "es": "Joint Width",
+        "ar": "Joint Width"
+      }
     },
     {
       "id": "tileThickness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Tile thickness in mm"
+      "businessContext": "Tile thickness in mm",
+      "label_i18n": {
+        "en": "Tile Thickness",
+        "tr": "Tile Thickness",
+        "de": "Tile Thickness",
+        "fr": "Tile Thickness",
+        "es": "Tile Thickness",
+        "ar": "Tile Thickness"
+      }
     },
     {
       "id": "area",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "m²",
       "default": 10,
-      "businessContext": "Total floor/wall area to be tiled"
+      "businessContext": "Total floor/wall area to be tiled",
+      "label_i18n": {
+        "en": "Area to Tile",
+        "tr": "Area to Tile",
+        "de": "Area to Tile",
+        "fr": "Area to Tile",
+        "es": "Area to Tile",
+        "ar": "Area to Tile"
+      }
     },
     {
       "id": "wasteFactor",
       "label": "Waste Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Multiplier for cuts, breakage (e.g., 20% = 1.2)"
+      "businessContext": "Multiplier for cuts, breakage (e.g., 20% = 1.2)",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "groutDensity",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kg/L",
       "default": 1.8,
-      "businessContext": "Density of grout mix (typically 1.6 - 2.0 kg/L)"
+      "businessContext": "Density of grout mix (typically 1.6 - 2.0 kg/L)",
+      "label_i18n": {
+        "en": "Grout Density",
+        "tr": "Grout Density",
+        "de": "Grout Density",
+        "fr": "Grout Density",
+        "es": "Grout Density",
+        "ar": "Grout Density"
+      }
     }
   ],
   "formulas": {
@@ -66,20 +122,24 @@
     "volumePerM2": "((L_m + W_m) / (L_m * W_m)) * J_m * D_m * wasteFactor * 1000",
     "totalVolume": "volumePerM2 * area",
     "totalWeight": "totalVolume * groutDensity",
-    "tilesNeeded": "Math.ceil(area / ((tileLength/1000) * (tileWidth/1000)))"
+    "tilesNeeded": "Math.ceil(area / ((tileLength/1000) * (tileWidth/1000)))",
+    "__volumePerM2_toFixed_2___L_m_": "${volumePerM2.toFixed(2)} L/m²",
+    "__totalVolume_toFixed_2___L": "${totalVolume.toFixed(2)} L",
+    "__tilesNeeded__pieces": "${tilesNeeded} pieces",
+    "result": "Total Grout Weight: ${totalWeight.toFixed(2)} kg"
   },
   "outputs": {
-    "primary": "Total Grout Weight: ${totalWeight.toFixed(2)} kg",
+    "primary": "result",
     "breakdown": [
       "Grout Volume per m²: ${volumePerM2.toFixed(2)} L/m²",
       "Total Grout Volume: ${totalVolume.toFixed(2)} L",
       "Tiles Needed: ${tilesNeeded} pieces"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

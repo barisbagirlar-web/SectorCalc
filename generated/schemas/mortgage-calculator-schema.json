@@ -168,7 +168,7 @@
       "id": "payment_frequency",
       "label": "Payment Frequency",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "monthly",
       "min": null,
       "max": null,
@@ -223,165 +223,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "property_value",
-      "label": "Property Value",
-      "description": "Derived from loan amount and down payment percentage.",
-      "expression": "loan_amount / (1 - down_payment_percent / 100)",
-      "unit": "USD"
-    },
-    {
-      "id": "monthly_interest_rate",
-      "label": "Monthly Interest Rate",
-      "description": "Annual rate converted to monthly compounding.",
-      "expression": "annual_interest_rate / 100 / 12",
-      "unit": "decimal"
-    },
-    {
-      "id": "number_of_payments",
-      "label": "Number of Payments",
-      "description": "Total payments over loan term adjusted for frequency.",
-      "expression": "loan_term_years * 12 * (payment_frequency == 'biweekly' ? 26/12 : payment_frequency == 'accelerated_biweekly' ? 26/12 : 1)",
-      "unit": "count"
-    },
-    {
-      "id": "monthly_principal_interest",
-      "label": "Monthly Principal & Interest",
-      "description": "Standard amortization formula (PMT).",
-      "expression": "loan_amount * (monthly_interest_rate * (1 + monthly_interest_rate)^number_of_payments) / ((1 + monthly_interest_rate)^number_of_payments - 1)",
-      "unit": "USD"
-    },
-    {
-      "id": "monthly_taxes_insurance",
-      "label": "Monthly Taxes & Insurance",
-      "description": "Annual property tax and insurance divided by 12.",
-      "expression": "(property_value * (property_tax_rate / 100) + property_value * (insurance_rate / 100)) / 12",
-      "unit": "USD"
-    },
-    {
-      "id": "monthly_payment",
-      "label": "Total Monthly Payment",
-      "description": "Full monthly housing cost including P&I, taxes, insurance, HOA.",
-      "expression": "monthly_principal_interest + monthly_taxes_insurance + monthly_hoa",
-      "unit": "USD"
-    },
-    {
-      "id": "total_interest",
-      "label": "Total Interest Paid",
-      "description": "Sum of all interest payments over full loan term.",
-      "expression": "monthly_principal_interest * number_of_payments - loan_amount",
-      "unit": "USD"
-    }
+    "loan_amount",
+    "loan_amount",
+    "loan_amount",
+    "loan_amount",
+    "loan_amount",
+    "loan_amount",
+    "loan_amount"
   ],
   "outputs": {
-    "primary": {
-      "id": "monthly_payment",
-      "label": "Total Monthly Payment",
-      "value": null,
-      "unit": "USD",
-      "description": "Primary result: total monthly mortgage payment."
-    },
-    "breakdown": {
-      "principal_and_interest": {
-        "id": "monthly_principal_interest",
-        "label": "Principal & Interest",
-        "value": null,
-        "unit": "USD"
-      },
-      "taxes_and_insurance": {
-        "id": "monthly_taxes_insurance",
-        "label": "Taxes & Insurance",
-        "value": null,
-        "unit": "USD"
-      },
-      "hoa": {
-        "id": "monthly_hoa",
-        "label": "HOA Fee",
-        "value": null,
-        "unit": "USD"
-      },
-      "total_interest": {
-        "id": "total_interest",
-        "label": "Total Interest Over Term",
-        "value": null,
-        "unit": "USD"
-      },
-      "property_value": {
-        "id": "property_value",
-        "label": "Estimated Property Value",
-        "value": null,
-        "unit": "USD"
-      },
-      "debt_to_income_ratio": {
-        "id": "dti_ratio",
-        "label": "Debt-to-Income Ratio",
-        "value": null,
-        "unit": "%",
-        "description": "Total monthly debt (including mortgage) divided by gross monthly income."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "pmi_cost",
-        "label": "Private Mortgage Insurance (PMI)",
-        "description": "If down payment < 20%, PMI adds 0.5-1% of loan amount annually.",
-        "estimated_impact": "monthly_payment * 0.01",
-        "unit": "USD"
-      },
-      {
-        "id": "opportunity_cost_down_payment",
-        "label": "Opportunity Cost of Down Payment",
-        "description": "Capital tied up in down payment could have earned 5-8% in market.",
-        "estimated_impact": "down_payment_percent/100 * loan_amount * 0.06",
-        "unit": "USD/year"
-      },
-      {
-        "id": "inflation_erosion",
-        "label": "Inflation Erosion of Fixed Payment",
-        "description": "Real value of fixed payment decreases over time; impacts long-term affordability.",
-        "estimated_impact": "monthly_payment * (1 - 1/(1.03^loan_term_years))",
-        "unit": "USD"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_down_payment",
-        "label": "Increase Down Payment to 20%",
-        "description": "Eliminates PMI and reduces monthly payment by ~$150-300.",
-        "impact": "Reduces monthly_payment by 5-10%",
-        "priority": "high"
-      },
-      {
-        "id": "shorten_term",
-        "label": "Consider 15-Year Term",
-        "description": "Higher monthly payment but saves 60%+ in total interest.",
-        "impact": "Total interest reduced by 60-70%",
-        "priority": "medium"
-      },
-      {
-        "id": "shop_rates",
-        "label": "Shop for Lower Interest Rate",
-        "description": "Reducing rate by 0.5% saves ~$100/month on $300k loan.",
-        "impact": "Monthly payment reduced by 3-5%",
-        "priority": "medium"
-      },
-      {
-        "id": "reduce_debt",
-        "label": "Pay Down Existing Debt",
-        "description": "Lowers DTI ratio, improves loan approval odds and rate.",
-        "impact": "DTI reduction by 5-10%",
-        "priority": "high"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_score",
-      "label": "Data Confidence Score",
-      "value": 0.85,
-      "unit": "decimal",
-      "description": "Adjusted confidence based on input variability and market volatility. Scale 0-1."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Vergi & Finansal Raporlama",
+  "sector": "Finans & İK",
+  "toolName": "mortgage-calculator",
+  "premiumRequired": false
 }

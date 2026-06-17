@@ -3,28 +3,30 @@ import * as z from 'zod';
 
 export interface Heart_rate_calculatorInput {
   age: number;
-  restingHeartRate: number;
+  restingHR: number;
   intensity: number;
+  maxHR: number;
 }
 
 export const Heart_rate_calculatorInputSchema = z.object({
   age: z.number().default(30),
-  restingHeartRate: z.number().default(70),
+  restingHR: z.number().default(70),
   intensity: z.number().default(70),
+  maxHR: z.number().default(0),
 });
 
 function evaluateAllFormulas(input: Heart_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 220 - input.age; results["maxHeartRate"] = Number.isFinite(v) ? v : 0; } catch { results["maxHeartRate"] = 0; }
-  try { const v = (results["maxHeartRate"] ?? 0) - input.restingHeartRate; results["heartRateReserve"] = Number.isFinite(v) ? v : 0; } catch { results["heartRateReserve"] = 0; }
-  try { const v = ((results["heartRateReserve"] ?? 0) * (input.intensity / 100)) + input.restingHeartRate; results["targetHeartRate"] = Number.isFinite(v) ? v : 0; } catch { results["targetHeartRate"] = 0; }
+  try { const v = input.maxHR > 0 ? input.maxHR : 208 - 0.7 * input.age; results["maxHeartRate"] = Number.isFinite(v) ? v : 0; } catch { results["maxHeartRate"] = 0; }
+  try { const v = (input.maxHR > 0 ? input.maxHR : 208 - 0.7 * input.age) - input.restingHR; results["heartRateReserve"] = Number.isFinite(v) ? v : 0; } catch { results["heartRateReserve"] = 0; }
+  try { const v = ((input.maxHR > 0 ? input.maxHR : 208 - 0.7 * input.age) - input.restingHR) * (input.intensity / 100) + input.restingHR; results["targetHR"] = Number.isFinite(v) ? v : 0; } catch { results["targetHR"] = 0; }
   return results;
 }
 
 
 export function calculateHeart_rate_calculator(input: Heart_rate_calculatorInput): Heart_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["targetHeartRate"] ?? 0;
+  const totalWasteCost = values["targetHR"] ?? 0;
   const breakdown = {
     
   };

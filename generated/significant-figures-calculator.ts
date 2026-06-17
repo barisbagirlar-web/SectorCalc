@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Significant_figures_calculatorInput {
   value: number;
   sigFigs: number;
+  auto_input_3: number;
 }
 
 export const Significant_figures_calculatorInputSchema = z.object({
   value: z.number().default(0),
   sigFigs: z.number().default(3),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Significant_figures_calculatorInput): Record<string, number> {

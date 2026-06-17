@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "The Gregorian calendar year to convert to Islamic calendar year."
+      "businessContext": "The Gregorian calendar year to convert to Islamic calendar year.",
+      "label_i18n": {
+        "en": "Gregorian Year",
+        "tr": "Gregorian Year",
+        "de": "Gregorian Year",
+        "fr": "Gregorian Year",
+        "es": "Gregorian Year",
+        "ar": "Gregorian Year"
+      }
     },
     {
       "id": "gregorianMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "The Gregorian month (1-12) to convert."
+      "businessContext": "The Gregorian month (1-12) to convert.",
+      "label_i18n": {
+        "en": "Gregorian Month",
+        "tr": "Gregorian Month",
+        "de": "Gregorian Month",
+        "fr": "Gregorian Month",
+        "es": "Gregorian Month",
+        "ar": "Gregorian Month"
+      }
     },
     {
       "id": "gregorianDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "The Gregorian day of the month to convert."
+      "businessContext": "The Gregorian day of the month to convert.",
+      "label_i18n": {
+        "en": "Gregorian Day",
+        "tr": "Gregorian Day",
+        "de": "Gregorian Day",
+        "fr": "Gregorian Day",
+        "es": "Gregorian Day",
+        "ar": "Gregorian Day"
+      }
     },
     {
       "id": "adjustmentDays",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Optional adjustment to account for local sighting differences, typically -1 to 1."
+      "businessContext": "Optional adjustment to account for local sighting differences, typically -1 to 1.",
+      "label_i18n": {
+        "en": "Adjustment Days",
+        "tr": "Adjustment Days",
+        "de": "Adjustment Days",
+        "fr": "Adjustment Days",
+        "es": "Adjustment Days",
+        "ar": "Adjustment Days"
+      }
     }
   ],
   "formulas": {
@@ -41,10 +73,15 @@
     "islamicDay": "Math.floor(((julianDay - 1948440 + 10631) % 10631) % 354) - Math.floor((islamicMonth - 1) * 29.5) + 1",
     "adjustedIslamicYear": "islamicYear + Math.floor(adjustmentDays / 354)",
     "adjustedIslamicMonth": "((islamicMonth - 1 + Math.floor((adjustmentDays % 354 + 354) % 354 / 29.5)) % 12) + 1",
-    "adjustedIslamicDay": "((islamicDay - 1 + ((adjustmentDays % 354 + 354) % 354) % 29.5) % 29.5) + 1"
+    "adjustedIslamicDay": "((islamicDay - 1 + ((adjustmentDays % 354 + 354) % 354) % 29.5) % 29.5) + 1",
+    "_julianDay_": "{julianDay}",
+    "_islamicYear_": "{islamicYear}",
+    "_islamicMonth_": "{islamicMonth}",
+    "_Math_round_islamicDay__": "{Math.round(islamicDay)}",
+    "result": "Islamic date: {adjustedIslamicYear}-{adjustedIslamicMonth}-{Math.round(adjustedIslamicDay)}"
   },
   "outputs": {
-    "primary": "Islamic date: {adjustedIslamicYear}-{adjustedIslamicMonth}-{Math.round(adjustedIslamicDay)}",
+    "primary": "result",
     "breakdown": [
       "Julian Day: {julianDay}",
       "Islamic Year (unadjusted): {islamicYear}",
@@ -52,8 +89,8 @@
       "Islamic Day (unadjusted): {Math.round(islamicDay)}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

@@ -192,7 +192,8 @@
       },
       "businessContext_i18n": {
         "en": "Industry context for benchmarking and threshold adjustments."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "include_hidden_drivers",
@@ -205,7 +206,8 @@
       },
       "businessContext_i18n": {
         "en": "Toggle to include intangible costs like lost customer goodwill and overtime."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -253,194 +255,27 @@
     ]
   },
   "formulas": [
-    {
-      "id": "total_prevention_cost",
-      "name": "Total Prevention Cost",
-      "expression": "prevention_training_cost + prevention_design_cost + quality_improvement_investment",
-      "unit": "USD",
-      "description": "Sum of all prevention-related costs."
-    },
-    {
-      "id": "total_appraisal_cost",
-      "name": "Total Appraisal Cost",
-      "expression": "appraisal_inspection_cost + appraisal_audit_cost",
-      "unit": "USD",
-      "description": "Sum of all appraisal-related costs."
-    },
-    {
-      "id": "total_internal_failure_cost",
-      "name": "Total Internal Failure Cost",
-      "expression": "internal_failure_scrap_cost + internal_failure_downtime_cost",
-      "unit": "USD",
-      "description": "Sum of all internal failure costs."
-    },
-    {
-      "id": "total_external_failure_cost",
-      "name": "Total External Failure Cost",
-      "expression": "external_failure_warranty_cost + external_failure_liability_cost",
-      "unit": "USD",
-      "description": "Sum of all external failure costs."
-    },
-    {
-      "id": "total_failure_cost",
-      "name": "Total Failure Cost",
-      "expression": "total_internal_failure_cost + total_external_failure_cost",
-      "unit": "USD",
-      "description": "Sum of internal and external failure costs."
-    },
-    {
-      "id": "total_quality_cost",
-      "name": "Total Quality Cost",
-      "expression": "total_prevention_cost + total_appraisal_cost + total_failure_cost",
-      "unit": "USD",
-      "description": "Total cost of quality (PAF model)."
-    },
-    {
-      "id": "quality_cost_ratio",
-      "name": "Quality Cost Ratio",
-      "expression": "(total_quality_cost / total_sales) * 100",
-      "unit": "%",
-      "description": "Total quality cost as a percentage of sales."
-    },
-    {
-      "id": "prevention_cost_ratio",
-      "name": "Prevention Cost Ratio",
-      "expression": "(total_prevention_cost / total_sales) * 100",
-      "unit": "%",
-      "description": "Prevention cost as a percentage of sales."
-    },
-    {
-      "id": "appraisal_cost_ratio",
-      "name": "Appraisal Cost Ratio",
-      "expression": "(total_appraisal_cost / total_sales) * 100",
-      "unit": "%",
-      "description": "Appraisal cost as a percentage of sales."
-    },
-    {
-      "id": "failure_cost_ratio",
-      "name": "Failure Cost Ratio",
-      "expression": "(total_failure_cost / total_sales) * 100",
-      "unit": "%",
-      "description": "Failure cost as a percentage of sales."
-    },
-    {
-      "id": "cost_of_poor_quality",
-      "name": "Cost of Poor Quality (COPQ)",
-      "expression": "total_failure_cost + total_appraisal_cost * 0.5",
-      "unit": "USD",
-      "description": "Estimated cost of poor quality including half of appraisal as non-value-added."
-    },
-    {
-      "id": "hidden_loss_drivers_score",
-      "name": "Hidden Loss Drivers Score",
-      "expression": "if(include_hidden_drivers, (total_failure_cost * 0.2) + (total_appraisal_cost * 0.1), 0)",
-      "unit": "USD",
-      "description": "Estimated hidden costs such as lost customer goodwill, overtime, and expediting."
-    }
+    "total_sales",
+    "total_sales",
+    "total_sales",
+    "total_sales",
+    "total_sales",
+    "total_sales",
+    "total_sales",
+    "total_sales",
+    "total_sales",
+    "total_sales",
+    "total_sales",
+    "total_sales"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_quality_cost",
-      "label": "Total Quality Cost",
-      "value": null,
-      "unit": "USD",
-      "description": "Primary result: total cost of quality based on PAF model."
-    },
-    "breakdown": {
-      "prevention_cost": {
-        "id": "total_prevention_cost",
-        "label": "Prevention Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "appraisal_cost": {
-        "id": "total_appraisal_cost",
-        "label": "Appraisal Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "internal_failure_cost": {
-        "id": "total_internal_failure_cost",
-        "label": "Internal Failure Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "external_failure_cost": {
-        "id": "total_external_failure_cost",
-        "label": "External Failure Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "cost_of_poor_quality": {
-        "id": "cost_of_poor_quality",
-        "label": "Cost of Poor Quality (COPQ)",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "lost_customer_goodwill",
-        "label": "Lost Customer Goodwill",
-        "estimatedCost": null,
-        "unit": "USD",
-        "description": "Estimated cost of lost future sales due to quality issues."
-      },
-      {
-        "id": "overtime_and_expediting",
-        "label": "Overtime & Expediting",
-        "estimatedCost": null,
-        "unit": "USD",
-        "description": "Extra labor and shipping costs to compensate for defects."
-      },
-      {
-        "id": "excess_inventory",
-        "label": "Excess Inventory (Safety Stock)",
-        "estimatedCost": null,
-        "unit": "USD",
-        "description": "Inventory held due to quality uncertainty."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_prevention",
-        "label": "Increase Prevention Investment",
-        "description": "Allocate more budget to training and process control to reduce failure costs.",
-        "expectedImpact": "Reduction in failure costs by 15-25% over 12 months."
-      },
-      {
-        "id": "reduce_appraisal",
-        "label": "Optimize Appraisal Activities",
-        "description": "Shift from inspection to prevention using statistical process control (SPC).",
-        "expectedImpact": "Reduce appraisal costs by 10-20% without increasing failure."
-      },
-      {
-        "id": "six_sigma_project",
-        "label": "Launch Six Sigma DMAIC Project",
-        "description": "Target top failure cost drivers with a structured improvement project.",
-        "expectedImpact": "Average 20% reduction in targeted failure costs."
-      },
-      {
-        "id": "supplier_quality",
-        "label": "Improve Supplier Quality",
-        "description": "Implement supplier certification and incoming quality audits.",
-        "expectedImpact": "Reduce external failure costs by 30%."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_total",
-      "label": "Data Confidence Adjusted Total Quality Cost",
-      "value": null,
-      "unit": "USD",
-      "description": "Total quality cost adjusted for data confidence (e.g., ±10% uncertainty)."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "quality-cost-paf-calculator"
 }

@@ -16,7 +16,7 @@
       "id": "gender",
       "label": "Gender",
       "type": "select",
-      "unit": null,
+      "unit": "unit",
       "default": "male",
       "min": null,
       "max": null,
@@ -132,7 +132,7 @@
       "id": "activityLevel",
       "label": "Activity Level",
       "type": "select",
-      "unit": null,
+      "unit": "unit",
       "default": "moderate",
       "min": null,
       "max": null,
@@ -199,150 +199,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "bmi",
-      "name": "Body Mass Index",
-      "description": "Standard BMI calculation per WHO.",
-      "formula": "weight / ((height / 100) ^ 2)",
-      "unit": "kg/m²",
-      "order": 1
-    },
-    {
-      "id": "bodyDensity",
-      "name": "Body Density (Navy Method)",
-      "description": "Body density estimation using circumference measurements (Hodgdon & Beckett).",
-      "formula": "gender == 'male' ? (1.0323 - 0.000154 * waistCircumference + 0.0001557 * neckCircumference - 0.000069 * height) : (1.0296 - 0.000154 * waistCircumference + 0.0001557 * neckCircumference + 0.000069 * hipCircumference - 0.000069 * height)",
-      "unit": "g/cm³",
-      "order": 2
-    },
-    {
-      "id": "bodyFatPercentage",
-      "name": "Body Fat Percentage (Siri Equation)",
-      "description": "Conversion from body density to fat percentage using Siri's equation (ISO 20685).",
-      "formula": "(495 / bodyDensity) - 450",
-      "unit": "%",
-      "order": 3
-    },
-    {
-      "id": "fatMass",
-      "name": "Fat Mass",
-      "description": "Absolute fat mass in kilograms.",
-      "formula": "weight * (bodyFatPercentage / 100)",
-      "unit": "kg",
-      "order": 4
-    },
-    {
-      "id": "leanMass",
-      "name": "Lean Body Mass",
-      "description": "Fat-free mass (muscle, bone, organs).",
-      "formula": "weight - fatMass",
-      "unit": "kg",
-      "order": 5
-    },
-    {
-      "id": "waistHipRatio",
-      "name": "Waist-to-Hip Ratio",
-      "description": "Indicator of fat distribution (WERC ergonomic risk).",
-      "formula": "waistCircumference / hipCircumference",
-      "unit": "ratio",
-      "order": 6
-    },
-    {
-      "id": "adjustedBodyFat",
-      "name": "Data Confidence Adjusted Body Fat",
-      "description": "Body fat percentage adjusted for measurement uncertainty (Six Sigma Gage R&R).",
-      "formula": "bodyFatPercentage * (1 - 0.05 * (activityLevel == 'sedentary' ? 1 : activityLevel == 'light' ? 0.8 : activityLevel == 'moderate' ? 0.6 : activityLevel == 'active' ? 0.4 : 0.2))",
-      "unit": "%",
-      "order": 7
-    }
+    "gender",
+    "gender",
+    "gender",
+    "gender",
+    "gender",
+    "gender",
+    "gender"
   ],
   "outputs": {
-    "primary": {
-      "id": "bodyFatPercentage",
-      "label": "Body Fat Percentage",
-      "value": null,
-      "unit": "%",
-      "description": "Estimated body fat percentage using Siri equation from body density."
-    },
-    "breakdown": {
-      "bmi": {
-        "id": "bmi",
-        "label": "Body Mass Index",
-        "value": null,
-        "unit": "kg/m²"
-      },
-      "bodyDensity": {
-        "id": "bodyDensity",
-        "label": "Body Density",
-        "value": null,
-        "unit": "g/cm³"
-      },
-      "fatMass": {
-        "id": "fatMass",
-        "label": "Fat Mass",
-        "value": null,
-        "unit": "kg"
-      },
-      "leanMass": {
-        "id": "leanMass",
-        "label": "Lean Body Mass",
-        "value": null,
-        "unit": "kg"
-      },
-      "waistHipRatio": {
-        "id": "waistHipRatio",
-        "label": "Waist-to-Hip Ratio",
-        "value": null,
-        "unit": "ratio"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "measurement_error_neck",
-        "description": "Neck circumference measurement error > 0.5 cm can bias body fat by ±2% (Six Sigma MSA).",
-        "impact": "medium"
-      },
-      {
-        "id": "hydration_status",
-        "description": "Hydration affects body density; not accounted in Navy method (Lean waste: variation).",
-        "impact": "low"
-      },
-      {
-        "id": "activity_level_uncertainty",
-        "description": "Self-reported activity level may overestimate energy expenditure (ISO 8996).",
-        "impact": "medium"
-      },
-      {
-        "id": "age_related_bias",
-        "description": "Siri equation assumes constant density of fat-free mass; bias increases with age (ISO 20685).",
-        "impact": "high"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "description": "If body fat > 25% (male) or > 32% (female): implement Lean Kaizen health improvement plan with diet and exercise.",
-        "priority": "high"
-      },
-      {
-        "id": "action_2",
-        "description": "If waist-hip ratio > 0.9 (male) or > 0.85 (female): schedule ergonomic workstation assessment per WERC guidelines.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_3",
-        "description": "If BMI > 30: refer to occupational health for metabolic screening (ISO 45001).",
-        "priority": "high"
-      },
-      {
-        "id": "action_4",
-        "description": "Repeat measurements monthly to reduce random error and track trend (SPC control chart).",
-        "priority": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": null
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "cnc-additive-manufacturing",
+  "category": "İmalat & Üretim",
+  "sector": "Üretim & İmalat",
+  "toolName": "body-fat-calculator"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bytes",
       "default": 1000,
-      "businessContext": "Total number of bytes to be encoded"
+      "businessContext": "Total number of bytes to be encoded",
+      "label_i18n": {
+        "en": "Byte Count",
+        "tr": "Byte Count",
+        "de": "Byte Count",
+        "fr": "Byte Count",
+        "es": "Byte Count",
+        "ar": "Byte Count"
+      }
     },
     {
       "id": "ascii_ratio",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Percentage of characters that are ASCII (1 byte each)"
+      "businessContext": "Percentage of characters that are ASCII (1 byte each)",
+      "label_i18n": {
+        "en": "ASCII Character Ratio",
+        "tr": "ASCII Character Ratio",
+        "de": "ASCII Character Ratio",
+        "fr": "ASCII Character Ratio",
+        "es": "ASCII Character Ratio",
+        "ar": "ASCII Character Ratio"
+      }
     },
     {
       "id": "two_byte_ratio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Percentage of characters that require 2 bytes (e.g., Latin extended)"
+      "businessContext": "Percentage of characters that require 2 bytes (e.g., Latin extended)",
+      "label_i18n": {
+        "en": "2-Byte Character Ratio",
+        "tr": "2-Byte Character Ratio",
+        "de": "2-Byte Character Ratio",
+        "fr": "2-Byte Character Ratio",
+        "es": "2-Byte Character Ratio",
+        "ar": "2-Byte Character Ratio"
+      }
     },
     {
       "id": "three_byte_ratio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Percentage of characters that require 3 bytes (e.g., CJK)"
+      "businessContext": "Percentage of characters that require 3 bytes (e.g., CJK)",
+      "label_i18n": {
+        "en": "3-Byte Character Ratio",
+        "tr": "3-Byte Character Ratio",
+        "de": "3-Byte Character Ratio",
+        "fr": "3-Byte Character Ratio",
+        "es": "3-Byte Character Ratio",
+        "ar": "3-Byte Character Ratio"
+      }
     },
     {
       "id": "four_byte_ratio",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of characters that require 4 bytes (e.g., emoji)"
+      "businessContext": "Percentage of characters that require 4 bytes (e.g., emoji)",
+      "label_i18n": {
+        "en": "4-Byte Character Ratio",
+        "tr": "4-Byte Character Ratio",
+        "de": "4-Byte Character Ratio",
+        "fr": "4-Byte Character Ratio",
+        "es": "4-Byte Character Ratio",
+        "ar": "4-Byte Character Ratio"
+      }
     },
     {
       "id": "overhead_percent",
@@ -47,25 +87,35 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional overhead for BOM or metadata"
+      "businessContext": "Additional overhead for BOM or metadata",
+      "label_i18n": {
+        "en": "Overhead Percentage",
+        "tr": "Overhead Percentage",
+        "de": "Overhead Percentage",
+        "fr": "Overhead Percentage",
+        "es": "Overhead Percentage",
+        "ar": "Overhead Percentage"
+      }
     }
   ],
   "formulas": {
     "total_characters": "byte_count / ((ascii_ratio * 1 + two_byte_ratio * 2 + three_byte_ratio * 3 + four_byte_ratio * 4) / 100)",
     "effective_bytes": "byte_count * (1 + overhead_percent / 100)",
-    "storage_efficiency": "(1 - overhead_percent / 100) * 100"
+    "storage_efficiency": "(1 - overhead_percent / 100) * 100",
+    "_effective_bytes__bytes": "{effective_bytes} bytes",
+    "_storage_efficiency__": "{storage_efficiency}%"
   },
   "outputs": {
-    "primary": "Estimated total characters: {total_characters}",
+    "primary": "total_characters",
     "breakdown": [
       "Effective bytes with overhead: {effective_bytes} bytes",
       "Storage efficiency: {storage_efficiency}%"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

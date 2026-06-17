@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Lens focal length in millimeters"
+      "businessContext": "Lens focal length in millimeters",
+      "label_i18n": {
+        "en": "Focal Length",
+        "tr": "Focal Length",
+        "de": "Focal Length",
+        "fr": "Focal Length",
+        "es": "Focal Length",
+        "ar": "Focal Length"
+      }
     },
     {
       "id": "aperture",
       "label": "Aperture (f-number)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 8,
-      "businessContext": "Aperture f-number (e.g., 2.8, 5.6, 8)"
+      "businessContext": "Aperture f-number (e.g., 2.8, 5.6, 8)",
+      "label_i18n": {
+        "en": "Aperture (f-number)",
+        "tr": "Aperture (f-number)",
+        "de": "Aperture (f-number)",
+        "fr": "Aperture (f-number)",
+        "es": "Aperture (f-number)",
+        "ar": "Aperture (f-number)"
+      }
     },
     {
       "id": "subjectDistance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Distance from camera to subject in meters"
+      "businessContext": "Distance from camera to subject in meters",
+      "label_i18n": {
+        "en": "Subject Distance",
+        "tr": "Subject Distance",
+        "de": "Subject Distance",
+        "fr": "Subject Distance",
+        "es": "Subject Distance",
+        "ar": "Subject Distance"
+      }
     },
     {
       "id": "circleOfConfusion",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.03,
-      "businessContext": "Circle of confusion in mm (0.03 for full-frame 35mm)"
+      "businessContext": "Circle of confusion in mm (0.03 for full-frame 35mm)",
+      "label_i18n": {
+        "en": "Circle of Confusion",
+        "tr": "Circle of Confusion",
+        "de": "Circle of Confusion",
+        "fr": "Circle of Confusion",
+        "es": "Circle of Confusion",
+        "ar": "Circle of Confusion"
+      }
     }
   ],
   "formulas": {
@@ -42,20 +74,24 @@
     "totalDoFMM": "farLimitMM - nearLimitMM",
     "nearLimit": "nearLimitMM / 1000",
     "farLimit": "farLimitMM / 1000",
-    "totalDoF": "totalDoFMM / 1000"
+    "totalDoF": "totalDoFMM / 1000",
+    "Near_Focus_Limit__m_": "Near Focus Limit (m)",
+    "Far_Focus_Limit__m_": "Far Focus Limit (m)",
+    "Hyperfocal_Distance__m_": "Hyperfocal Distance (m)",
+    "result": "Total Depth of Field (m)"
   },
   "outputs": {
-    "primary": "Total Depth of Field (m)",
+    "primary": "result",
     "breakdown": [
       "Near Focus Limit (m)",
       "Far Focus Limit (m)",
       "Hyperfocal Distance (m)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

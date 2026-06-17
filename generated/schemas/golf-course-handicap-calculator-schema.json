@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "strokes",
       "default": 85,
-      "businessContext": "Player's adjusted gross score for the round (actual strokes taken after any adjustments)."
+      "businessContext": "Player's adjusted gross score for the round (actual strokes taken after any adjustments).",
+      "label_i18n": {
+        "en": "Adjusted Gross Score",
+        "tr": "Adjusted Gross Score",
+        "de": "Adjusted Gross Score",
+        "fr": "Adjusted Gross Score",
+        "es": "Adjusted Gross Score",
+        "ar": "Adjusted Gross Score"
+      }
     },
     {
       "id": "courseRating",
       "label": "Course Rating",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 72,
-      "businessContext": "Course rating from scorecard, representing difficulty for a scratch golfer."
+      "businessContext": "Course rating from scorecard, representing difficulty for a scratch golfer.",
+      "label_i18n": {
+        "en": "Course Rating",
+        "tr": "Course Rating",
+        "de": "Course Rating",
+        "fr": "Course Rating",
+        "es": "Course Rating",
+        "ar": "Course Rating"
+      }
     },
     {
       "id": "slopeRating",
       "label": "Slope Rating",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 130,
-      "businessContext": "Slope rating from scorecard (typically 55-155), indicating relative difficulty for bogey golfers."
+      "businessContext": "Slope rating from scorecard (typically 55-155), indicating relative difficulty for bogey golfers.",
+      "label_i18n": {
+        "en": "Slope Rating",
+        "tr": "Slope Rating",
+        "de": "Slope Rating",
+        "fr": "Slope Rating",
+        "es": "Slope Rating",
+        "ar": "Slope Rating"
+      }
     },
     {
       "id": "par",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "strokes",
       "default": 72,
-      "businessContext": "Par for the course, used in course handicap calculation."
+      "businessContext": "Par for the course, used in course handicap calculation.",
+      "label_i18n": {
+        "en": "Par",
+        "tr": "Par",
+        "de": "Par",
+        "fr": "Par",
+        "es": "Par",
+        "ar": "Par"
+      }
     },
     {
       "id": "handicapIndex",
       "label": "Handicap Index",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Player's current Handicap Index (for course handicap calculation; set to 0 if unknown)."
+      "businessContext": "Player's current Handicap Index (for course handicap calculation; set to 0 if unknown).",
+      "label_i18n": {
+        "en": "Handicap Index",
+        "tr": "Handicap Index",
+        "de": "Handicap Index",
+        "fr": "Handicap Index",
+        "es": "Handicap Index",
+        "ar": "Handicap Index"
+      }
     }
   ],
   "formulas": {
@@ -53,10 +93,10 @@
       "courseHandicap"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

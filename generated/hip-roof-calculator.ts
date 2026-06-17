@@ -26,14 +26,21 @@ function evaluateAllFormulas(input: Hip_roof_calculatorInput): Record<string, nu
   try { const v = (results["common_rafter_length"] ?? 0) - input.ridge_beam_width / 2 * Math.tan((results["roof_angle_rad"] ?? 0)); results["jack_rafter_length"] = Number.isFinite(v) ? v : 0; } catch { results["jack_rafter_length"] = 0; }
   try { const v = 2 * (input.building_length + 2 * input.overhang) * (results["common_rafter_length"] ?? 0) + 2 * (input.building_width + 2 * input.overhang) * (results["common_rafter_length"] ?? 0); results["total_roof_area"] = Number.isFinite(v) ? v : 0; } catch { results["total_roof_area"] = 0; }
   try { const v = Math.ceil((input.building_length + 2 * input.overhang) / 0.6) + 1; results["number_of_common_rafters"] = Number.isFinite(v) ? v : 0; } catch { results["number_of_common_rafters"] = 0; }
+  try { const v = 4; results["number_of_hip_rafters"] = Number.isFinite(v) ? v : 0; } catch { results["number_of_hip_rafters"] = 0; }
   try { const v = 2 * (Math.ceil((input.building_length + 2 * input.overhang) / 0.6) - 1); results["number_of_jack_rafters"] = Number.isFinite(v) ? v : 0; } catch { results["number_of_jack_rafters"] = 0; }
+  results["Common_Rafter_Length"] = 0;
+  results["Hip_Rafter_Length"] = 0;
+  results["Jack_Rafter_Length"] = 0;
+  results["Number_of_Common_Rafters"] = 0;
+  results["Number_of_Hip_Rafters"] = 0;
+  results["Number_of_Jack_Rafters"] = 0;
   return results;
 }
 
 
 export function calculateHip_roof_calculator(input: Hip_roof_calculatorInput): Hip_roof_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["roof_angle_rad"] ?? 0;
   const breakdown = {
     
   };

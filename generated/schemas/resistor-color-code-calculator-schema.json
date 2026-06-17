@@ -5,25 +5,49 @@
       "id": "band1",
       "label": "1. Bant (Rakam)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Direnç değerinin ilk anlamlı basamağı (0-9, standartlarda genellikle 1-9)."
+      "businessContext": "Direnç değerinin ilk anlamlı basamağı (0-9, standartlarda genellikle 1-9).",
+      "label_i18n": {
+        "en": "1. Bant (Rakam)",
+        "tr": "1. Bant (Rakam)",
+        "de": "1. Bant (Rakam)",
+        "fr": "1. Bant (Rakam)",
+        "es": "1. Bant (Rakam)",
+        "ar": "1. Bant (Rakam)"
+      }
     },
     {
       "id": "band2",
       "label": "2. Bant (Rakam)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Direnç değerinin ikinci anlamlı basamağı (0-9)."
+      "businessContext": "Direnç değerinin ikinci anlamlı basamağı (0-9).",
+      "label_i18n": {
+        "en": "2. Bant (Rakam)",
+        "tr": "2. Bant (Rakam)",
+        "de": "2. Bant (Rakam)",
+        "fr": "2. Bant (Rakam)",
+        "es": "2. Bant (Rakam)",
+        "ar": "2. Bant (Rakam)"
+      }
     },
     {
       "id": "multiplier",
       "label": "Çarpan (10ˣ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Çarpan olarak 10ʼun üssü (0: ×1, 1: ×10, 2: ×100, …)."
+      "businessContext": "Çarpan olarak 10ʼun üssü (0: ×1, 1: ×10, 2: ×100, …).",
+      "label_i18n": {
+        "en": "Çarpan (10ˣ)",
+        "tr": "Çarpan (10ˣ)",
+        "de": "Çarpan (10ˣ)",
+        "fr": "Çarpan (10ˣ)",
+        "es": "Çarpan (10ˣ)",
+        "ar": "Çarpan (10ˣ)"
+      }
     },
     {
       "id": "tolerance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Yüzde cinsinden tolerans (örn. 5 → ±%5, 10 → ±%10, 20 → ±%20)."
+      "businessContext": "Yüzde cinsinden tolerans (örn. 5 → ±%5, 10 → ±%10, 20 → ±%20).",
+      "label_i18n": {
+        "en": "Tolerans (%)",
+        "tr": "Tolerans (%)",
+        "de": "Tolerans (%)",
+        "fr": "Tolerans (%)",
+        "es": "Tolerans (%)",
+        "ar": "Tolerans (%)"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "toleranceInfo"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

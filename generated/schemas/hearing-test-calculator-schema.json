@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dB HL",
       "default": 0,
-      "businessContext": "Hearing threshold level in decibels Hearing Level (dB HL) at 500 Hz frequency."
+      "businessContext": "Hearing threshold level in decibels Hearing Level (dB HL) at 500 Hz frequency.",
+      "label_i18n": {
+        "en": "Threshold at 500 Hz",
+        "tr": "Threshold at 500 Hz",
+        "de": "Threshold at 500 Hz",
+        "fr": "Threshold at 500 Hz",
+        "es": "Threshold at 500 Hz",
+        "ar": "Threshold at 500 Hz"
+      }
     },
     {
       "id": "threshold1000",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dB HL",
       "default": 0,
-      "businessContext": "Hearing threshold level in dB HL at 1000 Hz frequency."
+      "businessContext": "Hearing threshold level in dB HL at 1000 Hz frequency.",
+      "label_i18n": {
+        "en": "Threshold at 1000 Hz",
+        "tr": "Threshold at 1000 Hz",
+        "de": "Threshold at 1000 Hz",
+        "fr": "Threshold at 1000 Hz",
+        "es": "Threshold at 1000 Hz",
+        "ar": "Threshold at 1000 Hz"
+      }
     },
     {
       "id": "threshold2000",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dB HL",
       "default": 0,
-      "businessContext": "Hearing threshold level in dB HL at 2000 Hz frequency."
+      "businessContext": "Hearing threshold level in dB HL at 2000 Hz frequency.",
+      "label_i18n": {
+        "en": "Threshold at 2000 Hz",
+        "tr": "Threshold at 2000 Hz",
+        "de": "Threshold at 2000 Hz",
+        "fr": "Threshold at 2000 Hz",
+        "es": "Threshold at 2000 Hz",
+        "ar": "Threshold at 2000 Hz"
+      }
     },
     {
       "id": "threshold4000",
@@ -31,11 +55,21 @@
       "type": "number",
       "unit": "dB HL",
       "default": 0,
-      "businessContext": "Hearing threshold level in dB HL at 4000 Hz frequency."
+      "businessContext": "Hearing threshold level in dB HL at 4000 Hz frequency.",
+      "label_i18n": {
+        "en": "Threshold at 4000 Hz",
+        "tr": "Threshold at 4000 Hz",
+        "de": "Threshold at 4000 Hz",
+        "fr": "Threshold at 4000 Hz",
+        "es": "Threshold at 4000 Hz",
+        "ar": "Threshold at 4000 Hz"
+      }
     }
   ],
   "formulas": {
-    "pureToneAverage": "(threshold500 + threshold1000 + threshold2000 + threshold4000) / 4"
+    "pureToneAverage": "(threshold500 + threshold1000 + threshold2000 + threshold4000) / 4",
+    "Pure_Tone_Average__PTA__is_the_arithmeti": "Pure Tone Average (PTA) is the arithmetic mean of hearing thresholds at 500, 1000, 2000, and 4000 Hz.",
+    "PTA_is_commonly_used_to_classify_the_deg": "PTA is commonly used to classify the degree of hearing loss according to WHO or ASHA guidelines."
   },
   "outputs": {
     "primary": "pureToneAverage",
@@ -44,10 +78,10 @@
       "PTA is commonly used to classify the degree of hearing loss according to WHO or ASHA guidelines."
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

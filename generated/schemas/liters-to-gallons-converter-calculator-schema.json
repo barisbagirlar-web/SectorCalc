@@ -29,7 +29,7 @@
       "id": "conversionStandard",
       "label": "Conversion Standard",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "US",
       "min": null,
       "max": null,
@@ -87,7 +87,7 @@
       "id": "includeEvaporation",
       "label": "Include Evaporation Loss",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -145,137 +145,21 @@
     ]
   },
   "formulas": [
-    {
-      "id": "baseGallons",
-      "label": "Base Gallons (Standard Conversion)",
-      "description": "Converts liters to gallons using the selected standard.",
-      "formula": "liters / conversionFactor",
-      "variables": {
-        "conversionFactor": {
-          "US": 3.78541,
-          "UK": 4.54609
-        }
-      },
-      "unit": "gal"
-    },
-    {
-      "id": "temperatureCorrectedGallons",
-      "label": "Temperature Corrected Gallons",
-      "description": "Applies temperature adjustment factor to base gallons.",
-      "formula": "baseGallons * temperatureAdjustment",
-      "unit": "gal"
-    },
-    {
-      "id": "batchLossGallons",
-      "label": "Batch Loss in Gallons",
-      "description": "Calculates volume lost due to batch processing losses.",
-      "formula": "temperatureCorrectedGallons * (batchLossFactor / 100)",
-      "unit": "gal"
-    },
-    {
-      "id": "evaporationLossGallons",
-      "label": "Evaporation Loss in Gallons",
-      "description": "If evaporation is included, applies a standard evaporation rate of 0.2% per day (assumed 1 day exposure).",
-      "formula": "includeEvaporation ? (temperatureCorrectedGallons * 0.002) : 0",
-      "unit": "gal"
-    },
-    {
-      "id": "netGallons",
-      "label": "Net Usable Gallons",
-      "description": "Final volume after deducting all losses.",
-      "formula": "temperatureCorrectedGallons - batchLossGallons - evaporationLossGallons",
-      "unit": "gal"
-    },
-    {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Gallons",
-      "description": "Applies a confidence factor (0.98) to account for measurement uncertainty per ISO/IEC 17025.",
-      "formula": "netGallons * 0.98",
-      "unit": "gal"
-    }
+    "liters",
+    "liters",
+    "liters",
+    "liters",
+    "liters",
+    "liters"
   ],
   "outputs": {
-    "primary": {
-      "id": "primaryResult",
-      "label": "Converted Volume (Net Usable Gallons)",
-      "value": "netGallons",
-      "unit": "gal"
-    },
-    "breakdown": {
-      "baseGallons": {
-        "label": "Base Gallons (Standard Conversion)",
-        "value": "baseGallons",
-        "unit": "gal"
-      },
-      "temperatureCorrectedGallons": {
-        "label": "Temperature Corrected Gallons",
-        "value": "temperatureCorrectedGallons",
-        "unit": "gal"
-      },
-      "batchLossGallons": {
-        "label": "Batch Loss Gallons",
-        "value": "batchLossGallons",
-        "unit": "gal"
-      },
-      "evaporationLossGallons": {
-        "label": "Evaporation Loss Gallons",
-        "value": "evaporationLossGallons",
-        "unit": "gal"
-      },
-      "netGallons": {
-        "label": "Net Usable Gallons",
-        "value": "netGallons",
-        "unit": "gal"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "conversionStandardMismatch",
-        "label": "Conversion Standard Mismatch",
-        "description": "Using US vs UK gallon can cause up to 20% discrepancy. Verify trade requirements."
-      },
-      {
-        "id": "temperatureVariation",
-        "label": "Temperature Variation",
-        "description": "Thermal expansion/contraction not fully captured by linear factor. Consider real-time density measurement."
-      },
-      {
-        "id": "batchLossUncertainty",
-        "label": "Batch Loss Uncertainty",
-        "description": "Loss factor based on historical data; actual losses may vary per batch."
-      },
-      {
-        "id": "evaporationRateAssumption",
-        "label": "Evaporation Rate Assumption",
-        "description": "Standard 0.2%/day may not reflect actual conditions (humidity, temperature, tank design)."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "calibrateInstruments",
-        "label": "Calibrate Flow Meters",
-        "description": "Ensure flow meters and tank gauges are calibrated per ISO 9001 to reduce measurement uncertainty."
-      },
-      {
-        "id": "reduceBatchLoss",
-        "label": "Reduce Batch Loss",
-        "description": "Implement Lean Six Sigma DMAIC to identify root causes of batch loss and target reduction to below 2%."
-      },
-      {
-        "id": "monitorTemperature",
-        "label": "Monitor Temperature Continuously",
-        "description": "Install real-time temperature sensors to improve adjustment accuracy and reduce variability."
-      },
-      {
-        "id": "useStandardConversion",
-        "label": "Verify Conversion Standard",
-        "description": "Confirm with supply chain whether US or UK gallon is required to avoid costly errors."
-      }
-    ],
-    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "liters-to-gallons-converter-calculator",
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma"
 }

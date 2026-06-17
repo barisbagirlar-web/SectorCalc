@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 100,
-      "businessContext": "Desired process target value (e.g., temperature)"
+      "businessContext": "Desired process target value (e.g., temperature)",
+      "label_i18n": {
+        "en": "Target Value",
+        "tr": "Target Value",
+        "de": "Target Value",
+        "fr": "Target Value",
+        "es": "Target Value",
+        "ar": "Target Value"
+      }
     },
     {
       "id": "processValue",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "°C",
       "default": 90,
-      "businessContext": "Measured actual process value"
+      "businessContext": "Measured actual process value",
+      "label_i18n": {
+        "en": "Current Process Value",
+        "tr": "Current Process Value",
+        "de": "Current Process Value",
+        "fr": "Current Process Value",
+        "es": "Current Process Value",
+        "ar": "Current Process Value"
+      }
     },
     {
       "id": "gain",
       "label": "Controller Gain",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Proportional gain factor for control"
+      "businessContext": "Proportional gain factor for control",
+      "label_i18n": {
+        "en": "Controller Gain",
+        "tr": "Controller Gain",
+        "de": "Controller Gain",
+        "fr": "Controller Gain",
+        "es": "Controller Gain",
+        "ar": "Controller Gain"
+      }
     },
     {
       "id": "baseSetPoint",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 0,
-      "businessContext": "Initial or bias set point value"
+      "businessContext": "Initial or bias set point value",
+      "label_i18n": {
+        "en": "Base Set Point",
+        "tr": "Base Set Point",
+        "de": "Base Set Point",
+        "fr": "Base Set Point",
+        "es": "Base Set Point",
+        "ar": "Base Set Point"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "correction"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

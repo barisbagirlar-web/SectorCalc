@@ -5,41 +5,81 @@
       "id": "a",
       "label": "Coefficient a",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Leading coefficient of quadratic function f(x)=ax^2+bx+c"
+      "businessContext": "Leading coefficient of quadratic function f(x)=ax^2+bx+c",
+      "label_i18n": {
+        "en": "Coefficient a",
+        "tr": "Coefficient a",
+        "de": "Coefficient a",
+        "fr": "Coefficient a",
+        "es": "Coefficient a",
+        "ar": "Coefficient a"
+      }
     },
     {
       "id": "bCoef",
       "label": "Coefficient b",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Linear coefficient"
+      "businessContext": "Linear coefficient",
+      "label_i18n": {
+        "en": "Coefficient b",
+        "tr": "Coefficient b",
+        "de": "Coefficient b",
+        "fr": "Coefficient b",
+        "es": "Coefficient b",
+        "ar": "Coefficient b"
+      }
     },
     {
       "id": "cConst",
       "label": "Coefficient c",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term"
+      "businessContext": "Constant term",
+      "label_i18n": {
+        "en": "Coefficient c",
+        "tr": "Coefficient c",
+        "de": "Coefficient c",
+        "fr": "Coefficient c",
+        "es": "Coefficient c",
+        "ar": "Coefficient c"
+      }
     },
     {
       "id": "x1",
       "label": "x1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -1,
-      "businessContext": "Left endpoint of interval"
+      "businessContext": "Left endpoint of interval",
+      "label_i18n": {
+        "en": "x1",
+        "tr": "x1",
+        "de": "x1",
+        "fr": "x1",
+        "es": "x1",
+        "ar": "x1"
+      }
     },
     {
       "id": "x2",
       "label": "x2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Right endpoint of interval"
+      "businessContext": "Right endpoint of interval",
+      "label_i18n": {
+        "en": "x2",
+        "tr": "x2",
+        "de": "x2",
+        "fr": "x2",
+        "es": "x2",
+        "ar": "x2"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "conditionMet"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -25,13 +25,19 @@ function evaluateAllFormulas(input: Carbon_footprint_calculatorInput): Record<st
   try { const v = input.fuel_liters * 2.3; results["fuelCO2"] = Number.isFinite(v) ? v : 0; } catch { results["fuelCO2"] = 0; }
   try { const v = input.waste_kg * 0.5; results["wasteCO2"] = Number.isFinite(v) ? v : 0; } catch { results["wasteCO2"] = 0; }
   try { const v = input.water_m3 * 0.3; results["waterCO2"] = Number.isFinite(v) ? v : 0; } catch { results["waterCO2"] = 0; }
+  results["__electricityCO2___kg_CO2_year"] = 0;
+  results["__naturalGasCO2___kg_CO2_year"] = 0;
+  results["__fuelCO2___kg_CO2_year"] = 0;
+  results["__wasteCO2___kg_CO2_year"] = 0;
+  results["__waterCO2___kg_CO2_year"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateCarbon_footprint_calculator(input: Carbon_footprint_calculatorInput): Carbon_footprint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

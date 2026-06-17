@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "px",
       "default": 1920,
-      "businessContext": "The width of the screen, image, or element in pixels. Used to determine the horizontal dimension for aspect ratio calculation."
+      "businessContext": "The width of the screen, image, or element in pixels. Used to determine the horizontal dimension for aspect ratio calculation.",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "height",
@@ -15,29 +23,55 @@
       "type": "number",
       "unit": "px",
       "default": 1080,
-      "businessContext": "The height of the screen, image, or element in pixels. Used to determine the vertical dimension for aspect ratio calculation."
+      "businessContext": "The height of the screen, image, or element in pixels. Used to determine the vertical dimension for aspect ratio calculation.",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "targetRatioW",
       "label": "Target Ratio Width",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 16,
-      "businessContext": "The width component of a target aspect ratio (e.g., 16 for 16:9). Used to compare how close the current aspect ratio is to a standard."
+      "businessContext": "The width component of a target aspect ratio (e.g., 16 for 16:9). Used to compare how close the current aspect ratio is to a standard.",
+      "label_i18n": {
+        "en": "Target Ratio Width",
+        "tr": "Target Ratio Width",
+        "de": "Target Ratio Width",
+        "fr": "Target Ratio Width",
+        "es": "Target Ratio Width",
+        "ar": "Target Ratio Width"
+      }
     },
     {
       "id": "targetRatioH",
       "label": "Target Ratio Height",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 9,
-      "businessContext": "The height component of a target aspect ratio (e.g., 9 for 16:9). Used to compare how close the current aspect ratio is to a standard."
+      "businessContext": "The height component of a target aspect ratio (e.g., 9 for 16:9). Used to compare how close the current aspect ratio is to a standard.",
+      "label_i18n": {
+        "en": "Target Ratio Height",
+        "tr": "Target Ratio Height",
+        "de": "Target Ratio Height",
+        "fr": "Target Ratio Height",
+        "es": "Target Ratio Height",
+        "ar": "Target Ratio Height"
+      }
     }
   ],
   "formulas": {
     "aspectDecimal": "width / height",
     "targetDecimal": "targetRatioW / targetRatioH",
-    "deviationPercent": "Math.sqrt((aspectDecimal - targetDecimal)**2) / targetDecimal * 100"
+    "deviationPercent": "Math.sqrt((aspectDecimal - targetDecimal)**2) / targetDecimal * 100",
+    "width": "width",
+    "height": "height"
   },
   "outputs": {
     "primary": "aspectDecimal",
@@ -49,10 +83,10 @@
       "height"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

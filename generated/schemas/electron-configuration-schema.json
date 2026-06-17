@@ -5,33 +5,65 @@
       "id": "atomicNumber",
       "label": "Atomic Number (Z)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 26,
-      "businessContext": "Number of protons in the nucleus"
+      "businessContext": "Number of protons in the nucleus",
+      "label_i18n": {
+        "en": "Atomic Number (Z)",
+        "tr": "Atomic Number (Z)",
+        "de": "Atomic Number (Z)",
+        "fr": "Atomic Number (Z)",
+        "es": "Atomic Number (Z)",
+        "ar": "Atomic Number (Z)"
+      }
     },
     {
       "id": "n1",
       "label": "Lower Energy Level (n1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Principal quantum number of lower orbit"
+      "businessContext": "Principal quantum number of lower orbit",
+      "label_i18n": {
+        "en": "Lower Energy Level (n1)",
+        "tr": "Lower Energy Level (n1)",
+        "de": "Lower Energy Level (n1)",
+        "fr": "Lower Energy Level (n1)",
+        "es": "Lower Energy Level (n1)",
+        "ar": "Lower Energy Level (n1)"
+      }
     },
     {
       "id": "n2",
       "label": "Upper Energy Level (n2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Principal quantum number of upper orbit"
+      "businessContext": "Principal quantum number of upper orbit",
+      "label_i18n": {
+        "en": "Upper Energy Level (n2)",
+        "tr": "Upper Energy Level (n2)",
+        "de": "Upper Energy Level (n2)",
+        "fr": "Upper Energy Level (n2)",
+        "es": "Upper Energy Level (n2)",
+        "ar": "Upper Energy Level (n2)"
+      }
     },
     {
       "id": "screening",
       "label": "Screening Constant (σ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Shielding effect from inner electrons"
+      "businessContext": "Shielding effect from inner electrons",
+      "label_i18n": {
+        "en": "Screening Constant (σ)",
+        "tr": "Screening Constant (σ)",
+        "de": "Screening Constant (σ)",
+        "fr": "Screening Constant (σ)",
+        "es": "Screening Constant (σ)",
+        "ar": "Screening Constant (σ)"
+      }
     },
     {
       "id": "rydberg",
@@ -39,25 +71,35 @@
       "type": "number",
       "unit": "eV",
       "default": 13.6,
-      "businessContext": "Ionization energy of hydrogen"
+      "businessContext": "Ionization energy of hydrogen",
+      "label_i18n": {
+        "en": "Rydberg Energy (R)",
+        "tr": "Rydberg Energy (R)",
+        "de": "Rydberg Energy (R)",
+        "fr": "Rydberg Energy (R)",
+        "es": "Rydberg Energy (R)",
+        "ar": "Rydberg Energy (R)"
+      }
     }
   ],
   "formulas": {
     "z_eff": "atomicNumber - screening",
     "invDiff": "1 / n1**2 - 1 / n2**2",
-    "energy": "rydberg * z_eff**2 * invDiff"
+    "energy": "rydberg * z_eff**2 * invDiff",
+    "Effective_Nuclear_Charge__Z_eff_": "Effective Nuclear Charge (Z_eff)",
+    "Energy_Difference_Term__1_n1_2___1_n2_2_": "Energy Difference Term (1/n1^2 - 1/n2^2)"
   },
   "outputs": {
-    "primary": "Transition Energy",
+    "primary": "z_eff",
     "breakdown": [
       "Effective Nuclear Charge (Z_eff)",
       "Energy Difference Term (1/n1^2 - 1/n2^2)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "quality-six-sigma"
 }

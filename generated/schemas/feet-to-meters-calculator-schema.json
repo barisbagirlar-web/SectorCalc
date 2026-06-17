@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Whole feet part of the length measurement."
+      "businessContext": "Whole feet part of the length measurement.",
+      "label_i18n": {
+        "en": "Feet",
+        "tr": "Feet",
+        "de": "Feet",
+        "fr": "Feet",
+        "es": "Feet",
+        "ar": "Feet"
+      }
     },
     {
       "id": "inches",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Inches part of the length measurement (0-11)."
+      "businessContext": "Inches part of the length measurement (0-11).",
+      "label_i18n": {
+        "en": "Inches",
+        "tr": "Inches",
+        "de": "Inches",
+        "fr": "Inches",
+        "es": "Inches",
+        "ar": "Inches"
+      }
     },
     {
       "id": "conversionType",
       "label": "Conversion Standard",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: International foot (0.3048 m), 2: U.S. survey foot (0.3048006096012192 m)."
+      "businessContext": "1: International foot (0.3048 m), 2: U.S. survey foot (0.3048006096012192 m).",
+      "label_i18n": {
+        "en": "Conversion Standard",
+        "tr": "Conversion Standard",
+        "de": "Conversion Standard",
+        "fr": "Conversion Standard",
+        "es": "Conversion Standard",
+        "ar": "Conversion Standard"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output in meters."
+      "businessContext": "Number of decimal places for the output in meters.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -49,10 +81,10 @@
       "metersRounded"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

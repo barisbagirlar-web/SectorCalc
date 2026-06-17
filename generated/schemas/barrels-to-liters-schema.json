@@ -7,15 +7,55 @@
       "type": "number",
       "unit": "bbl",
       "default": 1,
-      "businessContext": "Number of US oil barrels to convert"
+      "businessContext": "Number of US oil barrels to convert",
+      "label_i18n": {
+        "en": "Barrels (US oil)",
+        "tr": "Barrels (US oil)",
+        "de": "Barrels (US oil)",
+        "fr": "Barrels (US oil)",
+        "es": "Barrels (US oil)",
+        "ar": "Barrels (US oil)"
+      }
     },
     {
       "id": "barrelType",
       "label": "Barrel type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1=US oil (42 gal), 2=US liquid (31.5 gal), 3=UK imperial (36 gal)"
+      "businessContext": "1=US oil (42 gal), 2=US liquid (31.5 gal), 3=UK imperial (36 gal)",
+      "label_i18n": {
+        "en": "Barrel type",
+        "tr": "Barrel type",
+        "de": "Barrel type",
+        "fr": "Barrel type",
+        "es": "Barrel type",
+        "ar": "Barrel type"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
@@ -30,8 +70,8 @@
       "cubicMeters"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

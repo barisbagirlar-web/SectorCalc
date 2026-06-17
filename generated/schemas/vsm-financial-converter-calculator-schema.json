@@ -301,200 +301,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "f1_laborCostPerUnit",
-      "description": "Direct labor cost per unit based on cycle time and labor rate.",
-      "expression": "(totalCycleTime / 60) * laborCostPerHour",
-      "unit": "currency/unit"
-    },
-    {
-      "id": "f2_overheadCostPerUnit",
-      "description": "Overhead cost per unit allocated as percentage of direct labor.",
-      "expression": "f1_laborCostPerUnit * (overheadRate / 100)",
-      "unit": "currency/unit"
-    },
-    {
-      "id": "f3_qualityCostPerUnit",
-      "description": "Cost of poor quality per unit (defect rate * rework cost).",
-      "expression": "(defectRate / 100) * reworkCostPerUnit",
-      "unit": "currency/unit"
-    },
-    {
-      "id": "f4_inventoryCostPerUnit",
-      "description": "Inventory holding cost per unit based on average inventory and demand.",
-      "expression": "(averageInventoryValue * (inventoryHoldingCostPercent / 100)) / annualDemand",
-      "unit": "currency/unit"
-    },
-    {
-      "id": "f5_totalCostPerUnit",
-      "description": "Total manufacturing cost per unit (material + labor + overhead + quality + inventory).",
-      "expression": "materialCostPerUnit + f1_laborCostPerUnit + f2_overheadCostPerUnit + f3_qualityCostPerUnit + f4_inventoryCostPerUnit",
-      "unit": "currency/unit"
-    },
-    {
-      "id": "f6_profitPerUnit",
-      "description": "Profit per unit before waste reduction.",
-      "expression": "sellingPrice - f5_totalCostPerUnit",
-      "unit": "currency/unit"
-    },
-    {
-      "id": "f7_annualWasteLoss",
-      "description": "Annual financial loss due to non-value-added time (waste).",
-      "expression": "((totalCycleTime - totalValueAddedTime) / totalCycleTime) * f5_totalCostPerUnit * annualDemand",
-      "unit": "currency/year"
-    },
-    {
-      "id": "f8_primaryResult",
-      "description": "Primary result: Annual profit after accounting for waste loss and improvement potential.",
-      "expression": "(f6_profitPerUnit * annualDemand) - f7_annualWasteLoss",
-      "unit": "currency/year"
-    }
+    "annualDemand",
+    "annualDemand",
+    "annualDemand",
+    "annualDemand",
+    "annualDemand",
+    "annualDemand",
+    "annualDemand",
+    "annualDemand"
   ],
   "outputs": {
-    "primary": {
-      "id": "annualProfitAfterWaste",
-      "label": "Annual Profit After Waste Loss",
-      "value": null,
-      "unit": "currency/year",
-      "formulaRef": "f8_primaryResult"
-    },
-    "breakdown": {
-      "totalRevenue": {
-        "id": "totalRevenue",
-        "label": "Total Revenue",
-        "value": null,
-        "unit": "currency/year",
-        "formula": "annualDemand * sellingPrice"
-      },
-      "totalMaterialCost": {
-        "id": "totalMaterialCost",
-        "label": "Total Material Cost",
-        "value": null,
-        "unit": "currency/year",
-        "formula": "annualDemand * materialCostPerUnit"
-      },
-      "totalLaborCost": {
-        "id": "totalLaborCost",
-        "label": "Total Direct Labor Cost",
-        "value": null,
-        "unit": "currency/year",
-        "formula": "annualDemand * f1_laborCostPerUnit"
-      },
-      "totalOverheadCost": {
-        "id": "totalOverheadCost",
-        "label": "Total Overhead Cost",
-        "value": null,
-        "unit": "currency/year",
-        "formula": "annualDemand * f2_overheadCostPerUnit"
-      },
-      "totalQualityCost": {
-        "id": "totalQualityCost",
-        "label": "Total Cost of Poor Quality",
-        "value": null,
-        "unit": "currency/year",
-        "formula": "annualDemand * f3_qualityCostPerUnit"
-      },
-      "totalInventoryCost": {
-        "id": "totalInventoryCost",
-        "label": "Total Inventory Holding Cost",
-        "value": null,
-        "unit": "currency/year",
-        "formula": "annualDemand * f4_inventoryCostPerUnit"
-      },
-      "totalWasteLoss": {
-        "id": "totalWasteLoss",
-        "label": "Total Waste Loss (NVA Time)",
-        "value": null,
-        "unit": "currency/year",
-        "formulaRef": "f7_annualWasteLoss"
-      },
-      "potentialSavings": {
-        "id": "potentialSavings",
-        "label": "Potential Savings from Waste Reduction",
-        "value": null,
-        "unit": "currency/year",
-        "formula": "f7_annualWasteLoss * (wasteReductionTarget / 100)"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "hld1",
-        "label": "Excessive Non-Value-Added Time",
-        "description": "The ratio of NVA time to total cycle time is high, indicating process inefficiencies.",
-        "metric": "NVA Ratio",
-        "value": null,
-        "unit": "%",
-        "formula": "((totalCycleTime - totalValueAddedTime) / totalCycleTime) * 100"
-      },
-      {
-        "id": "hld2",
-        "label": "Quality Defect Rework",
-        "description": "Defects consume resources without adding value, increasing cost per unit.",
-        "metric": "Defect Cost per Unit",
-        "value": null,
-        "unit": "currency/unit",
-        "formulaRef": "f3_qualityCostPerUnit"
-      },
-      {
-        "id": "hld3",
-        "label": "Inventory Carrying Cost",
-        "description": "Excess inventory ties up capital and incurs holding costs.",
-        "metric": "Inventory Cost per Unit",
-        "value": null,
-        "unit": "currency/unit",
-        "formulaRef": "f4_inventoryCostPerUnit"
-      },
-      {
-        "id": "hld4",
-        "label": "Overhead Allocation",
-        "description": "High overhead rate relative to direct labor may indicate indirect waste.",
-        "metric": "Overhead per Unit",
-        "value": null,
-        "unit": "currency/unit",
-        "formulaRef": "f2_overheadCostPerUnit"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "act1",
-        "label": "Implement Kaizen on bottleneck processes",
-        "description": "Focus on reducing cycle time of the highest NVA process step to improve throughput.",
-        "expectedImpact": "Reduction in total cycle time by 10-20%",
-        "linkedLossDriver": "hld1"
-      },
-      {
-        "id": "act2",
-        "label": "Deploy Six Sigma DMAIC for defect reduction",
-        "description": "Identify root causes of defects and implement controls to reduce defect rate.",
-        "expectedImpact": "Defect rate reduction by 50% or more",
-        "linkedLossDriver": "hld2"
-      },
-      {
-        "id": "act3",
-        "label": "Introduce Kanban system to reduce WIP inventory",
-        "description": "Pull-based inventory control to lower average inventory value.",
-        "expectedImpact": "Inventory reduction by 20-30%",
-        "linkedLossDriver": "hld3"
-      },
-      {
-        "id": "act4",
-        "label": "Review overhead allocation and eliminate non-value-adding activities",
-        "description": "Lean office and indirect process improvement to reduce overhead rate.",
-        "expectedImpact": "Overhead rate reduction by 10-15%",
-        "linkedLossDriver": "hld4"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Profit",
-      "value": null,
-      "unit": "currency/year",
-      "description": "Primary result adjusted by a confidence factor (0.8 to 1.0) based on input data completeness and reliability.",
-      "formula": "f8_primaryResult * 0.9"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "vsm-financial-converter-calculator",
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma"
 }

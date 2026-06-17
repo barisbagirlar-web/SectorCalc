@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "roods",
       "default": 1,
-      "businessContext": "The whole roods value"
+      "businessContext": "The whole roods value",
+      "label_i18n": {
+        "en": "Roods",
+        "tr": "Roods",
+        "de": "Roods",
+        "fr": "Roods",
+        "es": "Roods",
+        "ar": "Roods"
+      }
     },
     {
       "id": "perches",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "perches",
       "default": 0,
-      "businessContext": "Additional perches (1 rood = 40 perches)"
+      "businessContext": "Additional perches (1 rood = 40 perches)",
+      "label_i18n": {
+        "en": "Perches",
+        "tr": "Perches",
+        "de": "Perches",
+        "fr": "Perches",
+        "es": "Perches",
+        "ar": "Perches"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for output display (0–10)"
+      "businessContext": "Number of decimal places for output display (0–10)",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "roundingMode",
       "label": "Rounding Mode",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = nearest, 1 = up (ceiling), 2 = down (floor), 3 = truncate"
+      "businessContext": "0 = nearest, 1 = up (ceiling), 2 = down (floor), 3 = truncate",
+      "label_i18n": {
+        "en": "Rounding Mode",
+        "tr": "Rounding Mode",
+        "de": "Rounding Mode",
+        "fr": "Rounding Mode",
+        "es": "Rounding Mode",
+        "ar": "Rounding Mode"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "totalRoods"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

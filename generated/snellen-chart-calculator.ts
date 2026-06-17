@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Snellen_chart_calculatorInput {
   testDistance: number;
   optotypeHeight: number;
+  auto_input_3: number;
 }
 
 export const Snellen_chart_calculatorInputSchema = z.object({
   testDistance: z.number().default(6),
   optotypeHeight: z.number().default(8.73),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Snellen_chart_calculatorInput): Record<string, number> {

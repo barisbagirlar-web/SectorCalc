@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "px",
       "default": 1920,
-      "businessContext": "Horizontal pixel count of the digital image or screen, used to calculate physical width."
+      "businessContext": "Horizontal pixel count of the digital image or screen, used to calculate physical width.",
+      "label_i18n": {
+        "en": "Width in Pixels",
+        "tr": "Width in Pixels",
+        "de": "Width in Pixels",
+        "fr": "Width in Pixels",
+        "es": "Width in Pixels",
+        "ar": "Width in Pixels"
+      }
     },
     {
       "id": "heightPixels",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "px",
       "default": 1080,
-      "businessContext": "Vertical pixel count of the digital image or screen, used to calculate physical height."
+      "businessContext": "Vertical pixel count of the digital image or screen, used to calculate physical height.",
+      "label_i18n": {
+        "en": "Height in Pixels",
+        "tr": "Height in Pixels",
+        "de": "Height in Pixels",
+        "fr": "Height in Pixels",
+        "es": "Height in Pixels",
+        "ar": "Height in Pixels"
+      }
     },
     {
       "id": "ppi",
@@ -23,34 +39,54 @@
       "type": "number",
       "unit": "ppi",
       "default": 96,
-      "businessContext": "The image resolution, typically the screen's pixel density, determining the inches per pixel."
+      "businessContext": "The image resolution, typically the screen's pixel density, determining the inches per pixel.",
+      "label_i18n": {
+        "en": "Pixels Per Inch (PPI)",
+        "tr": "Pixels Per Inch (PPI)",
+        "de": "Pixels Per Inch (PPI)",
+        "fr": "Pixels Per Inch (PPI)",
+        "es": "Pixels Per Inch (PPI)",
+        "ar": "Pixels Per Inch (PPI)"
+      }
     },
     {
       "id": "decimals",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output dimensions, ensuring manufacturing or design tolerances."
+      "businessContext": "Number of decimal places for the output dimensions, ensuring manufacturing or design tolerances.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "widthInches": "widthPixels / ppi",
     "heightInches": "heightPixels / ppi",
-    "diagonalInches": "Math.sqrt(Math.pow(widthPixels / ppi, 2) + Math.pow(heightPixels / ppi, 2))"
+    "diagonalInches": "Math.sqrt(Math.pow(widthPixels / ppi, 2) + Math.pow(heightPixels / ppi, 2))",
+    "____widthInches_toFixed_decimals______in": "\" + widthInches.toFixed(decimals) + \" inches\"",
+    "____heightInches_toFixed_decimals______i": "\" + heightInches.toFixed(decimals) + \" inches\"",
+    "____diagonalInches_toFixed_decimals_____": "\" + diagonalInches.toFixed(decimals) + \" inches\"",
+    "result": "\"Width: \" + widthInches.toFixed(decimals) + \" in, Height: \" + heightInches.toFixed(decimals) + \" in\""
   },
   "outputs": {
-    "primary": "\"Width: \" + widthInches.toFixed(decimals) + \" in, Height: \" + heightInches.toFixed(decimals) + \" in\"",
+    "primary": "result",
     "breakdown": [
       "\"Width: \" + widthInches.toFixed(decimals) + \" inches\"",
       "\"Height: \" + heightInches.toFixed(decimals) + \" inches\"",
       "\"Diagonal: \" + diagonalInches.toFixed(decimals) + \" inches\""
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

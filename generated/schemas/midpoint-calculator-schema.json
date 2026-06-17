@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Starting point X coordinate"
+      "businessContext": "Starting point X coordinate",
+      "label_i18n": {
+        "en": "X1 Coordinate",
+        "tr": "X1 Coordinate",
+        "de": "X1 Coordinate",
+        "fr": "X1 Coordinate",
+        "es": "X1 Coordinate",
+        "ar": "X1 Coordinate"
+      }
     },
     {
       "id": "y1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Starting point Y coordinate"
+      "businessContext": "Starting point Y coordinate",
+      "label_i18n": {
+        "en": "Y1 Coordinate",
+        "tr": "Y1 Coordinate",
+        "de": "Y1 Coordinate",
+        "fr": "Y1 Coordinate",
+        "es": "Y1 Coordinate",
+        "ar": "Y1 Coordinate"
+      }
     },
     {
       "id": "x2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Ending point X coordinate"
+      "businessContext": "Ending point X coordinate",
+      "label_i18n": {
+        "en": "X2 Coordinate",
+        "tr": "X2 Coordinate",
+        "de": "X2 Coordinate",
+        "fr": "X2 Coordinate",
+        "es": "X2 Coordinate",
+        "ar": "X2 Coordinate"
+      }
     },
     {
       "id": "y2",
@@ -31,24 +55,36 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Ending point Y coordinate"
+      "businessContext": "Ending point Y coordinate",
+      "label_i18n": {
+        "en": "Y2 Coordinate",
+        "tr": "Y2 Coordinate",
+        "de": "Y2 Coordinate",
+        "fr": "Y2 Coordinate",
+        "es": "Y2 Coordinate",
+        "ar": "Y2 Coordinate"
+      }
     }
   ],
   "formulas": {
     "midX": "(x1 + x2) / 2",
     "midY": "(y1 + y2) / 2",
-    "dist": "Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))"
+    "dist": "Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))",
+    "__dist__m": "${dist} m",
+    "__midX__m": "${midX} m",
+    "__midY__m": "${midY} m",
+    "result": "Midpoint: (${midX} m, ${midY} m)"
   },
   "outputs": {
-    "primary": "Midpoint: (${midX} m, ${midY} m)",
+    "primary": "result",
     "breakdown": [
       "Distance between points: ${dist} m",
       "Midpoint X: ${midX} m",
       "Midpoint Y: ${midY} m"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

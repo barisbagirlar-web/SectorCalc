@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 100,
-      "businessContext": "Desired process value"
+      "businessContext": "Desired process value",
+      "label_i18n": {
+        "en": "Setpoint (SP)",
+        "tr": "Setpoint (SP)",
+        "de": "Setpoint (SP)",
+        "fr": "Setpoint (SP)",
+        "es": "Setpoint (SP)",
+        "ar": "Setpoint (SP)"
+      }
     },
     {
       "id": "processVariable",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "°C",
       "default": 95,
-      "businessContext": "Measured process value"
+      "businessContext": "Measured process value",
+      "label_i18n": {
+        "en": "Process Variable (PV)",
+        "tr": "Process Variable (PV)",
+        "de": "Process Variable (PV)",
+        "fr": "Process Variable (PV)",
+        "es": "Process Variable (PV)",
+        "ar": "Process Variable (PV)"
+      }
     },
     {
       "id": "proportionalGain",
       "label": "Proportional Gain (Kp)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Proportional controller gain"
+      "businessContext": "Proportional controller gain",
+      "label_i18n": {
+        "en": "Proportional Gain (Kp)",
+        "tr": "Proportional Gain (Kp)",
+        "de": "Proportional Gain (Kp)",
+        "fr": "Proportional Gain (Kp)",
+        "es": "Proportional Gain (Kp)",
+        "ar": "Proportional Gain (Kp)"
+      }
     },
     {
       "id": "integralTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 5,
-      "businessContext": "Integral time constant"
+      "businessContext": "Integral time constant",
+      "label_i18n": {
+        "en": "Integral Time (Ti)",
+        "tr": "Integral Time (Ti)",
+        "de": "Integral Time (Ti)",
+        "fr": "Integral Time (Ti)",
+        "es": "Integral Time (Ti)",
+        "ar": "Integral Time (Ti)"
+      }
     },
     {
       "id": "derivativeTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "s",
       "default": 0.5,
-      "businessContext": "Derivative time constant"
+      "businessContext": "Derivative time constant",
+      "label_i18n": {
+        "en": "Derivative Time (Td)",
+        "tr": "Derivative Time (Td)",
+        "de": "Derivative Time (Td)",
+        "fr": "Derivative Time (Td)",
+        "es": "Derivative Time (Td)",
+        "ar": "Derivative Time (Td)"
+      }
     },
     {
       "id": "sampleTime",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "s",
       "default": 0.1,
-      "businessContext": "Controller sample interval"
+      "businessContext": "Controller sample interval",
+      "label_i18n": {
+        "en": "Sample Time (Ts)",
+        "tr": "Sample Time (Ts)",
+        "de": "Sample Time (Ts)",
+        "fr": "Sample Time (Ts)",
+        "es": "Sample Time (Ts)",
+        "ar": "Sample Time (Ts)"
+      }
     },
     {
       "id": "previousError",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "°C",
       "default": 0,
-      "businessContext": "Error from previous sample"
+      "businessContext": "Error from previous sample",
+      "label_i18n": {
+        "en": "Previous Error (e_prev)",
+        "tr": "Previous Error (e_prev)",
+        "de": "Previous Error (e_prev)",
+        "fr": "Previous Error (e_prev)",
+        "es": "Previous Error (e_prev)",
+        "ar": "Previous Error (e_prev)"
+      }
     },
     {
       "id": "integralSum",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "°C·s",
       "default": 0,
-      "businessContext": "Accumulated integral error"
+      "businessContext": "Accumulated integral error",
+      "label_i18n": {
+        "en": "Integral Sum (sum_e)",
+        "tr": "Integral Sum (sum_e)",
+        "de": "Integral Sum (sum_e)",
+        "fr": "Integral Sum (sum_e)",
+        "es": "Integral Sum (sum_e)",
+        "ar": "Integral Sum (sum_e)"
+      }
     }
   ],
   "formulas": {
@@ -82,10 +146,10 @@
       "derivativeOutput"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

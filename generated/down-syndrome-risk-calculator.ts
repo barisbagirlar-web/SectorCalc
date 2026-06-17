@@ -23,13 +23,17 @@ function evaluateAllFormulas(input: Down_syndrome_risk_calculatorInput): Record<
   try { const v = Math.exp(0.5 * (input.hcg - 1)); results["lrHCG"] = Number.isFinite(v) ? v : 0; } catch { results["lrHCG"] = 0; }
   try { const v = (results["ageRisk"] ?? 0) * (results["lrNT"] ?? 0) * (results["lrPAPPA"] ?? 0) * (results["lrHCG"] ?? 0); results["combinedRisk"] = Number.isFinite(v) ? v : 0; } catch { results["combinedRisk"] = 0; }
   try { const v = 1 / (results["combinedRisk"] ?? 0); results["riskOneIn"] = Number.isFinite(v) ? v : 0; } catch { results["riskOneIn"] = 0; }
+  results["1_in___Math_round_1_ageRisk__"] = 0;
+  results["1_in___Math_round_1__ageRisk___lrNT___"] = 0;
+  results["1_in___Math_round_1_combinedRisk__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateDown_syndrome_risk_calculator(input: Down_syndrome_risk_calculatorInput): Down_syndrome_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["1"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ml",
       "default": 500,
-      "businessContext": "The volume of the alcoholic beverage consumed in milliliters."
+      "businessContext": "The volume of the alcoholic beverage consumed in milliliters.",
+      "label_i18n": {
+        "en": "Volume (ml)",
+        "tr": "Volume (ml)",
+        "de": "Volume (ml)",
+        "fr": "Volume (ml)",
+        "es": "Volume (ml)",
+        "ar": "Volume (ml)"
+      }
     },
     {
       "id": "abv",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "The alcohol by volume percentage of the beverage."
+      "businessContext": "The alcohol by volume percentage of the beverage.",
+      "label_i18n": {
+        "en": "Alcohol by Volume (ABV %)",
+        "tr": "Alcohol by Volume (ABV %)",
+        "de": "Alcohol by Volume (ABV %)",
+        "fr": "Alcohol by Volume (ABV %)",
+        "es": "Alcohol by Volume (ABV %)",
+        "ar": "Alcohol by Volume (ABV %)"
+      }
     },
     {
       "id": "carbs",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Grams of carbohydrates in the consumed beverage."
+      "businessContext": "Grams of carbohydrates in the consumed beverage.",
+      "label_i18n": {
+        "en": "Carbohydrates (g)",
+        "tr": "Carbohydrates (g)",
+        "de": "Carbohydrates (g)",
+        "fr": "Carbohydrates (g)",
+        "es": "Carbohydrates (g)",
+        "ar": "Carbohydrates (g)"
+      }
     },
     {
       "id": "protein",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Grams of protein in the consumed beverage."
+      "businessContext": "Grams of protein in the consumed beverage.",
+      "label_i18n": {
+        "en": "Protein (g)",
+        "tr": "Protein (g)",
+        "de": "Protein (g)",
+        "fr": "Protein (g)",
+        "es": "Protein (g)",
+        "ar": "Protein (g)"
+      }
     },
     {
       "id": "fat",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Grams of fat in the consumed beverage."
+      "businessContext": "Grams of fat in the consumed beverage.",
+      "label_i18n": {
+        "en": "Fat (g)",
+        "tr": "Fat (g)",
+        "de": "Fat (g)",
+        "fr": "Fat (g)",
+        "es": "Fat (g)",
+        "ar": "Fat (g)"
+      }
     },
     {
       "id": "quantity",
       "label": "Number of Drinks",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The number of drinks consumed."
+      "businessContext": "The number of drinks consumed.",
+      "label_i18n": {
+        "en": "Number of Drinks",
+        "tr": "Number of Drinks",
+        "de": "Number of Drinks",
+        "fr": "Number of Drinks",
+        "es": "Number of Drinks",
+        "ar": "Number of Drinks"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "otherCalories"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "The amount initially invested, used to calculate loss from the start."
+      "businessContext": "The amount initially invested, used to calculate loss from the start.",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "peakValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 15000,
-      "businessContext": "The highest portfolio value reached before the drawdown begins."
+      "businessContext": "The highest portfolio value reached before the drawdown begins.",
+      "label_i18n": {
+        "en": "Peak Portfolio Value",
+        "tr": "Peak Portfolio Value",
+        "de": "Peak Portfolio Value",
+        "fr": "Peak Portfolio Value",
+        "es": "Peak Portfolio Value",
+        "ar": "Peak Portfolio Value"
+      }
     },
     {
       "id": "troughValue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 8000,
-      "businessContext": "The lowest value after the peak, marking the maximum drawdown."
+      "businessContext": "The lowest value after the peak, marking the maximum drawdown.",
+      "label_i18n": {
+        "en": "Trough Portfolio Value",
+        "tr": "Trough Portfolio Value",
+        "de": "Trough Portfolio Value",
+        "fr": "Trough Portfolio Value",
+        "es": "Trough Portfolio Value",
+        "ar": "Trough Portfolio Value"
+      }
     },
     {
       "id": "timeToTrough",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "months",
       "default": 6,
-      "businessContext": "Number of months taken from the peak to the trough, indicating drawdown speed."
+      "businessContext": "Number of months taken from the peak to the trough, indicating drawdown speed.",
+      "label_i18n": {
+        "en": "Time to Trough",
+        "tr": "Time to Trough",
+        "de": "Time to Trough",
+        "fr": "Time to Trough",
+        "es": "Time to Trough",
+        "ar": "Time to Trough"
+      }
     },
     {
       "id": "recoveryValue",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 15000,
-      "businessContext": "Portfolio value at eventual recovery; set to peak if fully recovered, 0 if not."
+      "businessContext": "Portfolio value at eventual recovery; set to peak if fully recovered, 0 if not.",
+      "label_i18n": {
+        "en": "Recovery Value (if any)",
+        "tr": "Recovery Value (if any)",
+        "de": "Recovery Value (if any)",
+        "fr": "Recovery Value (if any)",
+        "es": "Recovery Value (if any)",
+        "ar": "Recovery Value (if any)"
+      }
     },
     {
       "id": "recoveryTime",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Months from trough to recovery; 0 if recovery not yet achieved."
+      "businessContext": "Months from trough to recovery; 0 if recovery not yet achieved.",
+      "label_i18n": {
+        "en": "Recovery Time",
+        "tr": "Recovery Time",
+        "de": "Recovery Time",
+        "fr": "Recovery Time",
+        "es": "Recovery Time",
+        "ar": "Recovery Time"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +104,15 @@
     "lossFromInitialPercent": "((initialInvestment - troughValue) / initialInvestment) * 100",
     "requiredRecoveryGainPercent": "(peakValue / troughValue - 1) * 100",
     "actualRecoveryGainPercent": "recoveryValue > 0 ? ((recoveryValue - troughValue) / troughValue) * 100 : 0",
-    "recoveryStatus": "recoveryValue >= peakValue ? 'Full Recovery' : (recoveryValue > 0 ? 'Partial Recovery' : 'Not Recovered')"
+    "recoveryStatus": "recoveryValue >= peakValue ? 'Full Recovery' : (recoveryValue > 0 ? 'Partial Recovery' : 'Not Recovered')",
+    "_absoluteDrawdown__USD": "{absoluteDrawdown} USD",
+    "_lossFromInitialPercent__": "{lossFromInitialPercent}%",
+    "_requiredRecoveryGainPercent__": "{requiredRecoveryGainPercent}%",
+    "_actualRecoveryGainPercent__": "{actualRecoveryGainPercent}%",
+    "_recoveryStatus_": "{recoveryStatus}"
   },
   "outputs": {
-    "primary": "Maximum Drawdown: {maxDrawdownPercent}%",
+    "primary": "maxDrawdownPercent",
     "breakdown": [
       "Absolute Drawdown: {absoluteDrawdown} USD",
       "Loss from Initial: {lossFromInitialPercent}%",
@@ -68,7 +121,7 @@
       "Recovery Status: {recoveryStatus}"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Proje & Yatırım",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

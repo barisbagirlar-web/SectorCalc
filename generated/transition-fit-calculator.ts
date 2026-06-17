@@ -25,13 +25,14 @@ function evaluateAllFormulas(input: Transition_fit_calculatorInput): Record<stri
   try { const v = input.basic_size + input.shaft_lower_dev; results["shaftMin"] = Number.isFinite(v) ? v : 0; } catch { results["shaftMin"] = 0; }
   try { const v = (results["holeMax"] ?? 0) - (results["shaftMin"] ?? 0); results["maxClearance"] = Number.isFinite(v) ? v : 0; } catch { results["maxClearance"] = 0; }
   try { const v = (results["holeMin"] ?? 0) - (results["shaftMax"] ?? 0); results["minClearance"] = Number.isFinite(v) ? v : 0; } catch { results["minClearance"] = 0; }
+  try { const v = ((results["maxClearance"] ?? 0) > 0 && (results["minClearance"] ?? 0) > 0) ? 'Clearance' : ((results["maxClearance"] ?? 0) < 0 && (results["minClearance"] ?? 0) < 0) ? 'Interference' : 'Transition'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateTransition_fit_calculator(input: Transition_fit_calculatorInput): Transition_fit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["(maxClearance > 0 && minClearance > 0) ? 'Clearance' : (maxClearance < 0 && minClearance < 0) ? 'Interference' : 'Transition'"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

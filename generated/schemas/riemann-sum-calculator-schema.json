@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "enum: 0=sin(x), 1=cos(x), 2=x², 3=eˣ, 4=ln(x)",
       "default": 0,
-      "businessContext": "Select the integrand function for Riemann approximation."
+      "businessContext": "Select the integrand function for Riemann approximation.",
+      "label_i18n": {
+        "en": "Function",
+        "tr": "Function",
+        "de": "Function",
+        "fr": "Function",
+        "es": "Function",
+        "ar": "Function"
+      }
     },
     {
       "id": "lowerBound",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Start of integration interval."
+      "businessContext": "Start of integration interval.",
+      "label_i18n": {
+        "en": "Lower Bound",
+        "tr": "Lower Bound",
+        "de": "Lower Bound",
+        "fr": "Lower Bound",
+        "es": "Lower Bound",
+        "ar": "Lower Bound"
+      }
     },
     {
       "id": "upperBound",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "End of integration interval."
+      "businessContext": "End of integration interval.",
+      "label_i18n": {
+        "en": "Upper Bound",
+        "tr": "Upper Bound",
+        "de": "Upper Bound",
+        "fr": "Upper Bound",
+        "es": "Upper Bound",
+        "ar": "Upper Bound"
+      }
     },
     {
       "id": "numIntervals",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "positive integer",
       "default": 10,
-      "businessContext": "Number of subintervals for Riemann sum (higher gives better accuracy)."
+      "businessContext": "Number of subintervals for Riemann sum (higher gives better accuracy).",
+      "label_i18n": {
+        "en": "Number of Intervals",
+        "tr": "Number of Intervals",
+        "de": "Number of Intervals",
+        "fr": "Number of Intervals",
+        "es": "Number of Intervals",
+        "ar": "Number of Intervals"
+      }
     },
     {
       "id": "method",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "enum: 0=Left, 1=Right, 2=Midpoint, 3=Trapezoidal",
       "default": 0,
-      "businessContext": "Riemann sum approximation method."
+      "businessContext": "Riemann sum approximation method.",
+      "label_i18n": {
+        "en": "Method",
+        "tr": "Method",
+        "de": "Method",
+        "fr": "Method",
+        "es": "Method",
+        "ar": "Method"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "methodDescription"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

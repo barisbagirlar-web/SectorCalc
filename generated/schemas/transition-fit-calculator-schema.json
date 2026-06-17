@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Nominal diameter of the cylindrical parts"
+      "businessContext": "Nominal diameter of the cylindrical parts",
+      "label_i18n": {
+        "en": "Nominal Size",
+        "tr": "Nominal Size",
+        "de": "Nominal Size",
+        "fr": "Nominal Size",
+        "es": "Nominal Size",
+        "ar": "Nominal Size"
+      }
     },
     {
       "id": "hole-upper-dev",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.025,
-      "businessContext": "Upper deviation of the hole from nominal size (positive for larger hole)"
+      "businessContext": "Upper deviation of the hole from nominal size (positive for larger hole)",
+      "label_i18n": {
+        "en": "Hole Upper Deviation",
+        "tr": "Hole Upper Deviation",
+        "de": "Hole Upper Deviation",
+        "fr": "Hole Upper Deviation",
+        "es": "Hole Upper Deviation",
+        "ar": "Hole Upper Deviation"
+      }
     },
     {
       "id": "hole-lower-dev",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Lower deviation of the hole from nominal size (negative for smaller hole)"
+      "businessContext": "Lower deviation of the hole from nominal size (negative for smaller hole)",
+      "label_i18n": {
+        "en": "Hole Lower Deviation",
+        "tr": "Hole Lower Deviation",
+        "de": "Hole Lower Deviation",
+        "fr": "Hole Lower Deviation",
+        "es": "Hole Lower Deviation",
+        "ar": "Hole Lower Deviation"
+      }
     },
     {
       "id": "shaft-upper-dev",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.018,
-      "businessContext": "Upper deviation of the shaft from nominal size (positive for larger shaft)"
+      "businessContext": "Upper deviation of the shaft from nominal size (positive for larger shaft)",
+      "label_i18n": {
+        "en": "Shaft Upper Deviation",
+        "tr": "Shaft Upper Deviation",
+        "de": "Shaft Upper Deviation",
+        "fr": "Shaft Upper Deviation",
+        "es": "Shaft Upper Deviation",
+        "ar": "Shaft Upper Deviation"
+      }
     },
     {
       "id": "shaft-lower-dev",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.002,
-      "businessContext": "Lower deviation of the shaft from nominal size (negative for smaller shaft)"
+      "businessContext": "Lower deviation of the shaft from nominal size (negative for smaller shaft)",
+      "label_i18n": {
+        "en": "Shaft Lower Deviation",
+        "tr": "Shaft Lower Deviation",
+        "de": "Shaft Lower Deviation",
+        "fr": "Shaft Lower Deviation",
+        "es": "Shaft Lower Deviation",
+        "ar": "Shaft Lower Deviation"
+      }
     }
   ],
   "formulas": {
@@ -48,19 +88,20 @@
     "shaftMax": "basic-size + shaft-upper-dev",
     "shaftMin": "basic-size + shaft-lower-dev",
     "maxClearance": "holeMax - shaftMin",
-    "minClearance": "holeMin - shaftMax"
+    "minClearance": "holeMin - shaftMax",
+    "result": "(maxClearance > 0 && minClearance > 0) ? 'Clearance' : (maxClearance < 0 && minClearance < 0) ? 'Interference' : 'Transition'"
   },
   "outputs": {
-    "primary": "(maxClearance > 0 && minClearance > 0) ? 'Clearance' : (maxClearance < 0 && minClearance < 0) ? 'Interference' : 'Transition'",
+    "primary": "result",
     "breakdown": [
       "maxClearance",
       "minClearance"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

@@ -24,13 +24,18 @@ function evaluateAllFormulas(input: Hess_yasasi_hesaplayici_calculatorInput): Re
   try { const v = input.step3_dH * (input.number_of_steps >= 3 ? 1 : 0); results["step3_eff"] = Number.isFinite(v) ? v : 0; } catch { results["step3_eff"] = 0; }
   try { const v = input.step4_dH * (input.number_of_steps >= 4 ? 1 : 0); results["step4_eff"] = Number.isFinite(v) ? v : 0; } catch { results["step4_eff"] = 0; }
   try { const v = (results["step1_eff"] ?? 0) + (results["step2_eff"] ?? 0) + (results["step3_eff"] ?? 0) + (results["step4_eff"] ?? 0); results["total"] = Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
+  results["_step1_eff__kJ_mol"] = 0;
+  results["_step2_eff__kJ_mol"] = 0;
+  results["_step3_eff__kJ_mol"] = 0;
+  results["_step4_eff__kJ_mol"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateHess_yasasi_hesaplayici_calculator(input: Hess_yasasi_hesaplayici_calculatorInput): Hess_yasasi_hesaplayici_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Toplam"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -27,32 +27,19 @@ export const Poka_yoke_roi_calculatorInputSchema = z.object({
   project_life_years: z.number().min(1).max(20).default(5),
 });
 
-function evaluateAllFormulas(input: Poka_yoke_roi_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.annual_units * (input.current_defect_rate / 1000000) * (input.poka_yoke_effectiveness / 100); results["defects_prevented_per_year"] = Number.isFinite(v) ? v : 0; } catch { results["defects_prevented_per_year"] = 0; }
-  try { const v = (results["defects_prevented_per_year"] ?? 0) * input.defect_cost_per_unit; results["annual_defect_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_defect_cost_savings"] = 0; }
-  try { const v = input.labor_hours_saved_per_year * input.labor_rate; results["annual_labor_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_labor_savings"] = 0; }
-  try { const v = (results["annual_defect_cost_savings"] ?? 0) + (results["annual_labor_savings"] ?? 0); results["total_annual_benefit"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_benefit"] = 0; }
-  try { const v = (results["total_annual_benefit"] ?? 0) - input.annual_maintenance_cost; results["net_annual_cash_flow"] = Number.isFinite(v) ? v : 0; } catch { results["net_annual_cash_flow"] = 0; }
-  try { const v = -input.implementation_cost + ((results["net_annual_cash_flow"] ?? 0) * ((1 - (1 + input.discount_rate/100)^(-input.project_life_years)) / (input.discount_rate/100))); results["npv"] = Number.isFinite(v) ? v : 0; } catch { results["npv"] = 0; }
-  try { const v = ((results["npv"] ?? 0) / input.implementation_cost) * 100; results["roi"] = Number.isFinite(v) ? v : 0; } catch { results["roi"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Poka_yoke_roi_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculatePoka_yoke_roi_calculator(input: Poka_yoke_roi_calculatorInput): Poka_yoke_roi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["roi"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    defects_prevented_per_year: values["defects_prevented_per_year"] ?? 0,
-    annual_defect_cost_savings: values["annual_defect_cost_savings"] ?? 0,
-    annual_labor_savings: values["annual_labor_savings"] ?? 0,
-    total_annual_benefit: values["total_annual_benefit"] ?? 0,
-    net_annual_cash_flow: values["net_annual_cash_flow"] ?? 0,
-    npv: values["npv"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Hidden Defect Escalation Cost","Hidden Quality Administration Overhead","Hidden Opportunity Cost of Downtime"];
-  const suggestedActions: string[] = ["Implement poka-yoke with highest effectiveness (99%) to maximize defect reduction.","Conduct a detailed cost-of-quality study to refine defect_cost_per_unit and capture hidden costs.","Integrate poka-yoke with real-time monitoring and SPC to sustain gains and detect drift.","Train operators on poka-yoke principles to foster continuous improvement culture."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -71,7 +58,7 @@ export function calculatePoka_yoke_roi_calculator(input: Poka_yoke_roi_calculato
 
 export interface Poka_yoke_roi_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { defects_prevented_per_year: number; annual_defect_cost_savings: number; annual_labor_savings: number; total_annual_benefit: number; net_annual_cash_flow: number; npv: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

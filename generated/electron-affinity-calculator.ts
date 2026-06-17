@@ -20,6 +20,11 @@ export const Electron_affinity_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Electron_affinity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.sublimationEnergy + input.atomizationEnthalpyPerX + input.ionizationEnergy + input.latticeEnergy - input.formationEnthalpy; results["electronAffinity"] = Number.isFinite(v) ? v : 0; } catch { results["electronAffinity"] = 0; }
+  try { const v = input.formationEnthalpy; results["formationEnthalpy"] = Number.isFinite(v) ? v : 0; } catch { results["formationEnthalpy"] = 0; }
+  try { const v = input.sublimationEnergy; results["sublimationEnergy"] = Number.isFinite(v) ? v : 0; } catch { results["sublimationEnergy"] = 0; }
+  try { const v = input.atomizationEnthalpyPerX; results["atomizationEnthalpyPerX"] = Number.isFinite(v) ? v : 0; } catch { results["atomizationEnthalpyPerX"] = 0; }
+  try { const v = input.ionizationEnergy; results["ionizationEnergy"] = Number.isFinite(v) ? v : 0; } catch { results["ionizationEnergy"] = 0; }
+  try { const v = input.latticeEnergy; results["latticeEnergy"] = Number.isFinite(v) ? v : 0; } catch { results["latticeEnergy"] = 0; }
   return results;
 }
 

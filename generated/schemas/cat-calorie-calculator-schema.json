@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "kg",
       "default": 4,
-      "businessContext": "The cat's weight in kilograms."
+      "businessContext": "The cat's weight in kilograms.",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "activityLevel",
       "label": "Activity Level",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Activity level from 1 (sedentary) to 5 (highly active)."
+      "businessContext": "Activity level from 1 (sedentary) to 5 (highly active).",
+      "label_i18n": {
+        "en": "Activity Level",
+        "tr": "Activity Level",
+        "de": "Activity Level",
+        "fr": "Activity Level",
+        "es": "Activity Level",
+        "ar": "Activity Level"
+      }
     },
     {
       "id": "lifeStage",
       "label": "Life Stage",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Life stage: 1 for kitten, 2 for adult, 3 for senior."
+      "businessContext": "Life stage: 1 for kitten, 2 for adult, 3 for senior.",
+      "label_i18n": {
+        "en": "Life Stage",
+        "tr": "Life Stage",
+        "de": "Life Stage",
+        "fr": "Life Stage",
+        "es": "Life Stage",
+        "ar": "Life Stage"
+      }
     },
     {
       "id": "neutered",
       "label": "Neutered Status",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Neutered status: 0 for intact, 1 for neutered/spayed."
+      "businessContext": "Neutered status: 0 for intact, 1 for neutered/spayed.",
+      "label_i18n": {
+        "en": "Neutered Status",
+        "tr": "Neutered Status",
+        "de": "Neutered Status",
+        "fr": "Neutered Status",
+        "es": "Neutered Status",
+        "ar": "Neutered Status"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "factor"
     ]
   },
-  "category": "Perakende & Gıda",
-  "sector": "Perakende & Gıda",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

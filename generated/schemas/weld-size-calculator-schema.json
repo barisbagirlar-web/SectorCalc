@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kN",
       "default": 50,
-      "businessContext": "Design force acting on the welded joint."
+      "businessContext": "Design force acting on the welded joint.",
+      "label_i18n": {
+        "en": "Applied Force",
+        "tr": "Applied Force",
+        "de": "Applied Force",
+        "fr": "Applied Force",
+        "es": "Applied Force",
+        "ar": "Applied Force"
+      }
     },
     {
       "id": "allowableStress",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 100,
-      "businessContext": "Allowable shear stress for the weld material, as per applicable welding code (e.g., AWS D1.1, EN 1993-1-8)."
+      "businessContext": "Allowable shear stress for the weld material, as per applicable welding code (e.g., AWS D1.1, EN 1993-1-8).",
+      "label_i18n": {
+        "en": "Allowable Shear Stress",
+        "tr": "Allowable Shear Stress",
+        "de": "Allowable Shear Stress",
+        "fr": "Allowable Shear Stress",
+        "es": "Allowable Shear Stress",
+        "ar": "Allowable Shear Stress"
+      }
     },
     {
       "id": "numWelds",
       "label": "Number of Welds",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of fillet welds sharing the load."
+      "businessContext": "Number of fillet welds sharing the load.",
+      "label_i18n": {
+        "en": "Number of Welds",
+        "tr": "Number of Welds",
+        "de": "Number of Welds",
+        "fr": "Number of Welds",
+        "es": "Number of Welds",
+        "ar": "Number of Welds"
+      }
     },
     {
       "id": "weldLengthPer",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Effective length of each individual fillet weld."
+      "businessContext": "Effective length of each individual fillet weld.",
+      "label_i18n": {
+        "en": "Length per Weld",
+        "tr": "Length per Weld",
+        "de": "Length per Weld",
+        "fr": "Length per Weld",
+        "es": "Length per Weld",
+        "ar": "Length per Weld"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Design safety factor to account for uncertainties."
+      "businessContext": "Design safety factor to account for uncertainties.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -57,8 +97,8 @@
       "legRequired"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

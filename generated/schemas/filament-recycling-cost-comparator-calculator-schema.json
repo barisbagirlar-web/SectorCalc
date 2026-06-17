@@ -220,7 +220,8 @@
       },
       "businessContext_i18n": {
         "en": "Type of plastic waste being recycled; affects processing parameters and yield."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "include_carbon_cost",
@@ -233,7 +234,8 @@
       },
       "businessContext_i18n": {
         "en": "If true, adds a carbon penalty cost based on estimated emissions."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "carbon_price",
@@ -284,185 +286,24 @@
     ]
   },
   "formulas": [
-    {
-      "id": "annual_depreciation",
-      "label": "Annual Depreciation (Straight Line)",
-      "expression": "recycling_machine_cost / machine_life_years",
-      "unit": "USD/year",
-      "description": "Capital cost spread over machine life."
-    },
-    {
-      "id": "annual_energy_cost",
-      "label": "Annual Energy Cost",
-      "expression": "annual_production_volume * recycling_energy_consumption * electricity_price",
-      "unit": "USD/year",
-      "description": "Total electricity cost for recycling process."
-    },
-    {
-      "id": "annual_labor_cost",
-      "label": "Annual Labor Cost",
-      "expression": "annual_production_volume * labor_hours_per_kg * labor_rate",
-      "unit": "USD/year",
-      "description": "Direct labor cost for operation."
-    },
-    {
-      "id": "annual_waste_collection",
-      "label": "Annual Waste Collection Cost",
-      "expression": "annual_production_volume * waste_collection_cost / (recycling_yield / 100)",
-      "unit": "USD/year",
-      "description": "Cost to collect waste, adjusted for yield losses."
-    },
-    {
-      "id": "annual_carbon_cost",
-      "label": "Annual Carbon Cost",
-      "expression": "include_carbon_cost ? (annual_production_volume * 0.5 * carbon_price / 1000) : 0",
-      "unit": "USD/year",
-      "description": "Estimated carbon cost (0.5 kg CO2e per kg recycled filament)."
-    },
-    {
-      "id": "total_annual_recycling_cost",
-      "label": "Total Annual Recycling Cost",
-      "expression": "annual_depreciation + annual_maintenance_cost + annual_energy_cost + annual_labor_cost + annual_waste_collection + annual_carbon_cost",
-      "unit": "USD/year",
-      "description": "Sum of all annual costs."
-    },
-    {
-      "id": "cost_per_kg_recycled",
-      "label": "Cost per kg Recycled Filament",
-      "expression": "total_annual_recycling_cost / annual_production_volume",
-      "unit": "USD/kg",
-      "description": "Unit cost of recycled filament."
-    },
-    {
-      "id": "quality_adjusted_cost",
-      "label": "Quality-Adjusted Cost per kg",
-      "expression": "cost_per_kg_recycled / (quality_factor / 100)",
-      "unit": "USD/kg",
-      "description": "Cost adjusted for quality deficit; reflects equivalent virgin performance."
-    },
-    {
-      "id": "savings_per_kg",
-      "label": "Savings per kg vs Virgin",
-      "expression": "virgin_filament_price - quality_adjusted_cost",
-      "unit": "USD/kg",
-      "description": "Net savings (or loss) per kg when using recycled filament."
-    }
+    "recycling_machine_cost",
+    "recycling_machine_cost",
+    "recycling_machine_cost",
+    "recycling_machine_cost",
+    "recycling_machine_cost",
+    "recycling_machine_cost",
+    "recycling_machine_cost",
+    "recycling_machine_cost",
+    "recycling_machine_cost"
   ],
   "outputs": {
-    "primary": {
-      "id": "primaryResult",
-      "label": "Quality-Adjusted Cost per kg (Recycled)",
-      "value": null,
-      "unit": "USD/kg",
-      "description": "Primary result: cost per kg of recycled filament adjusted for quality, compared to virgin price."
-    },
-    "breakdown": {
-      "depreciation_per_kg": {
-        "id": "depreciation_per_kg",
-        "label": "Depreciation per kg",
-        "unit": "USD/kg",
-        "description": "Capital cost per kg."
-      },
-      "maintenance_per_kg": {
-        "id": "maintenance_per_kg",
-        "label": "Maintenance per kg",
-        "unit": "USD/kg",
-        "description": "Maintenance cost per kg."
-      },
-      "energy_per_kg": {
-        "id": "energy_per_kg",
-        "label": "Energy per kg",
-        "unit": "USD/kg",
-        "description": "Energy cost per kg."
-      },
-      "labor_per_kg": {
-        "id": "labor_per_kg",
-        "label": "Labor per kg",
-        "unit": "USD/kg",
-        "description": "Labor cost per kg."
-      },
-      "waste_collection_per_kg": {
-        "id": "waste_collection_per_kg",
-        "label": "Waste Collection per kg",
-        "unit": "USD/kg",
-        "description": "Collection cost per kg of output."
-      },
-      "carbon_per_kg": {
-        "id": "carbon_per_kg",
-        "label": "Carbon Cost per kg",
-        "unit": "USD/kg",
-        "description": "Carbon penalty per kg."
-      },
-      "quality_adjustment_factor": {
-        "id": "quality_adjustment_factor",
-        "label": "Quality Adjustment Factor",
-        "unit": "dimensionless",
-        "description": "1 / (quality_factor/100) used to scale cost."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "yield_loss_cost",
-        "label": "Yield Loss Cost",
-        "description": "Additional cost due to material lost in recycling process (waste input not converted to filament).",
-        "value": null,
-        "unit": "USD/kg"
-      },
-      {
-        "id": "quality_degradation_cost",
-        "label": "Quality Degradation Cost",
-        "description": "Implicit cost of using lower-quality material (more material needed for same function).",
-        "value": null,
-        "unit": "USD/kg"
-      },
-      {
-        "id": "energy_inefficiency_penalty",
-        "label": "Energy Inefficiency Penalty",
-        "description": "Excess energy cost if consumption > 2.5 kWh/kg benchmark.",
-        "value": null,
-        "unit": "USD/kg"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "improve_yield",
-        "label": "Improve Recycling Yield",
-        "description": "Invest in better sorting/cleaning to increase yield above 85%.",
-        "potential_savings": null,
-        "unit": "USD/kg"
-      },
-      {
-        "id": "reduce_energy",
-        "label": "Reduce Energy Consumption",
-        "description": "Upgrade to energy-efficient extruder or optimize process parameters.",
-        "potential_savings": null,
-        "unit": "USD/kg"
-      },
-      {
-        "id": "increase_volume",
-        "label": "Increase Production Volume",
-        "description": "Scale up to spread fixed costs over more kg.",
-        "potential_savings": null,
-        "unit": "USD/kg"
-      },
-      {
-        "id": "negotiate_waste_collection",
-        "label": "Negotiate Waste Collection Rates",
-        "description": "Seek lower collection costs through partnerships or bulk agreements.",
-        "potential_savings": null,
-        "unit": "USD/kg"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Cost",
-      "value": null,
-      "unit": "USD/kg",
-      "description": "Primary result adjusted by a confidence factor (0.9) to account for input uncertainty."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "filament-recycling-cost-comparator-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

@@ -18,13 +18,15 @@ export const Days_to_weeks_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Days_to_weeks_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (() => { const totalDays = input.totalDays; let daysPerWeek = input.daysPerWeek; if (input.daysPerWeek <= 0) input.daysPerWeek = 7; const precision = input.precision; const showRemainder = input.showRemainder; const weeks = input.totalDays / input.daysPerWeek; const roundedWeeks = Math.round(weeks * Math.pow(10, input.precision)) / Math.pow(10, input.precision); const fullWeeks = Math.floor(input.totalDays / input.daysPerWeek); let remainderDays = input.totalDays - fullWeeks * input.daysPerWeek; remainderDays = Math.round(remainderDays * 1e6) / 1e6; return { primary: roundedWeeks, breakdown: input.showRemainder === 1 ? [fullWeeks, remainderDays] : [] }; })(); results["compute"] = Number.isFinite(v) ? v : 0; } catch { results["compute"] = 0; }
+  try { const v = fullWeeks; results["fullWeeks"] = Number.isFinite(v) ? v : 0; } catch { results["fullWeeks"] = 0; }
+  try { const v = remainderDays; results["remainderDays"] = Number.isFinite(v) ? v : 0; } catch { results["remainderDays"] = 0; }
   return results;
 }
 
 
 export function calculateDays_to_weeks_calculator(input: Days_to_weeks_calculatorInput): Days_to_weeks_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["weeks"] ?? 0;
+  const totalWasteCost = values["compute"] ?? 0;
   const breakdown = {
     
   };

@@ -188,7 +188,8 @@
       },
       "businessContext_i18n": {
         "en": "Type of maintenance program in place, affecting downtime and cost patterns."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "utilization_rate",
@@ -281,191 +282,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "annual_operating_cost_year_n",
-      "name": "Annual Operating Cost for Year n",
-      "description": "Calculates operating cost for a given year n, accounting for escalation.",
-      "formula": "annual_operating_cost * (1 + operating_cost_escalation_rate / 100) ^ (n - 1)",
-      "variables": [
-        "annual_operating_cost",
-        "operating_cost_escalation_rate",
-        "n"
-      ]
-    },
-    {
-      "id": "annual_defect_cost",
-      "name": "Annual Defect Cost",
-      "description": "Cost of defects including rework, scrap, and lost revenue.",
-      "formula": "annual_production_units * (quality_defect_rate + defect_rate_annual_increase * (n - 1)) / 100 * (revenue_per_unit * 0.5)",
-      "variables": [
-        "annual_production_units",
-        "quality_defect_rate",
-        "defect_rate_annual_increase",
-        "n",
-        "revenue_per_unit"
-      ]
-    },
-    {
-      "id": "annual_energy_cost",
-      "name": "Annual Energy Cost",
-      "description": "Energy cost based on power consumption, utilization, and hours.",
-      "formula": "power_consumption_kw * 24 * 365 * (utilization_rate / 100) * energy_cost_per_kwh",
-      "variables": [
-        "power_consumption_kw",
-        "utilization_rate",
-        "energy_cost_per_kwh"
-      ]
-    },
-    {
-      "id": "total_annual_cost_year_n",
-      "name": "Total Annual Cost for Year n",
-      "description": "Sum of operating, defect, and energy costs for year n.",
-      "formula": "annual_operating_cost_year_n + annual_defect_cost + annual_energy_cost",
-      "variables": [
-        "annual_operating_cost_year_n",
-        "annual_defect_cost",
-        "annual_energy_cost"
-      ]
-    },
-    {
-      "id": "npv_of_costs",
-      "name": "Net Present Value of Total Costs",
-      "description": "Discounted sum of all annual costs over the useful life.",
-      "formula": "SUM_{n=1}^{useful_life_years} total_annual_cost_year_n / (1 + discount_rate / 100) ^ n",
-      "variables": [
-        "total_annual_cost_year_n",
-        "discount_rate",
-        "useful_life_years"
-      ]
-    },
-    {
-      "id": "economic_life",
-      "name": "Optimal Economic Life",
-      "description": "Year where the equivalent annual cost (EAC) is minimized, considering capital recovery.",
-      "formula": "MIN_{t=1}^{useful_life_years} ( (purchase_price - salvage_value / (1 + discount_rate/100)^t) * (discount_rate/100 * (1+discount_rate/100)^t) / ((1+discount_rate/100)^t - 1) + (npv_of_costs_t / t) )",
-      "variables": [
-        "purchase_price",
-        "salvage_value",
-        "discount_rate",
-        "npv_of_costs"
-      ]
-    },
-    {
-      "id": "primary_result",
-      "name": "Machine Economic Life (Years)",
-      "description": "The year at which the machine should be replaced to minimize total lifecycle cost.",
-      "formula": "economic_life",
-      "variables": [
-        "economic_life"
-      ]
-    }
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price"
   ],
   "outputs": {
-    "primary": {
-      "id": "optimal_economic_life",
-      "label": "Optimal Economic Life",
-      "value": null,
-      "unit": "years",
-      "description": "The recommended replacement year based on cost minimization."
-    },
-    "breakdown": {
-      "id": "cost_breakdown",
-      "label": "Cost Breakdown at Optimal Life",
-      "components": {
-        "capital_recovery_cost": {
-          "label": "Capital Recovery Cost",
-          "value": null,
-          "unit": "USD/year",
-          "description": "Annualized cost of initial investment minus salvage."
-        },
-        "average_annual_operating_cost": {
-          "label": "Average Annual Operating Cost",
-          "value": null,
-          "unit": "USD/year",
-          "description": "Mean operating cost over the economic life."
-        },
-        "average_annual_defect_cost": {
-          "label": "Average Annual Defect Cost",
-          "value": null,
-          "unit": "USD/year",
-          "description": "Mean defect-related cost over the economic life."
-        },
-        "average_annual_energy_cost": {
-          "label": "Average Annual Energy Cost",
-          "value": null,
-          "unit": "USD/year",
-          "description": "Mean energy cost over the economic life."
-        },
-        "total_equivalent_annual_cost": {
-          "label": "Total Equivalent Annual Cost",
-          "value": null,
-          "unit": "USD/year",
-          "description": "Sum of all annualized costs at the optimal life."
-        }
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "quality_degradation",
-        "label": "Quality Degradation",
-        "description": "Increasing defect rate over time leads to hidden rework and scrap costs.",
-        "impact": "high"
-      },
-      {
-        "id": "energy_inefficiency",
-        "label": "Energy Inefficiency",
-        "description": "Aging machines often consume more energy per unit produced.",
-        "impact": "medium"
-      },
-      {
-        "id": "maintenance_cost_escalation",
-        "label": "Maintenance Cost Escalation",
-        "description": "Reactive maintenance strategies cause exponential cost increases.",
-        "impact": "high"
-      },
-      {
-        "id": "opportunity_cost_of_downtime",
-        "label": "Opportunity Cost of Downtime",
-        "description": "Unplanned downtime reduces effective utilization and revenue.",
-        "impact": "medium"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "description": "Implement predictive maintenance using IoT sensors to reduce unplanned downtime.",
-        "priority": "high"
-      },
-      {
-        "id": "action_2",
-        "description": "Conduct a Six Sigma DMAIC project to reduce defect rate by 50%.",
-        "priority": "high"
-      },
-      {
-        "id": "action_3",
-        "description": "Evaluate energy-efficient upgrades or replacement if energy cost exceeds 20% of total cost.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_4",
-        "description": "Perform a sensitivity analysis on discount rate and escalation rate to validate economic life.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_5",
-        "description": "Benchmark machine OEE against industry standards (WERC/ISO 22400).",
-        "priority": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_score",
-      "label": "Data Confidence Score",
-      "value": null,
-      "unit": "%",
-      "description": "Adjusted confidence based on input variability and data quality (0-100%)."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "machine-economic-life-calculator"
 }

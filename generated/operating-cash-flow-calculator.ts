@@ -21,13 +21,17 @@ function evaluateAllFormulas(input: Operating_cash_flow_calculatorInput): Record
   try { const v = input.revenue - input.operatingExpenses; results["ebit"] = Number.isFinite(v) ? v : 0; } catch { results["ebit"] = 0; }
   try { const v = (input.revenue - input.operatingExpenses) * input.taxRate / 100; results["taxAmount"] = Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
   try { const v = (input.revenue - input.operatingExpenses) * (1 - input.taxRate / 100); results["afterTaxEBIT"] = Number.isFinite(v) ? v : 0; } catch { results["afterTaxEBIT"] = 0; }
+  try { const v = EBIT; results["EBIT"] = Number.isFinite(v) ? v : 0; } catch { results["EBIT"] = 0; }
+  results["Tax_Amount"] = 0;
+  try { const v = After-Tax (results["EBIT"] ?? 0); results["After_Tax_EBIT"] = Number.isFinite(v) ? v : 0; } catch { results["After_Tax_EBIT"] = 0; }
+  results["Depreciation_Add_back"] = 0;
   return results;
 }
 
 
 export function calculateOperating_cash_flow_calculator(input: Operating_cash_flow_calculatorInput): Operating_cash_flow_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Operating"] ?? 0;
+  const totalWasteCost = values["operatingCashFlow"] ?? 0;
   const breakdown = {
     
   };

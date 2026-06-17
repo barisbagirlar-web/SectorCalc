@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "First binary number input"
+      "businessContext": "First binary number input",
+      "label_i18n": {
+        "en": "Binary Number 1",
+        "tr": "Binary Number 1",
+        "de": "Binary Number 1",
+        "fr": "Binary Number 1",
+        "es": "Binary Number 1",
+        "ar": "Binary Number 1"
+      }
     },
     {
       "id": "binary2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Second binary number input"
+      "businessContext": "Second binary number input",
+      "label_i18n": {
+        "en": "Binary Number 2",
+        "tr": "Binary Number 2",
+        "de": "Binary Number 2",
+        "fr": "Binary Number 2",
+        "es": "Binary Number 2",
+        "ar": "Binary Number 2"
+      }
     },
     {
       "id": "operation",
@@ -23,27 +39,35 @@
       "type": "number",
       "unit": "code",
       "default": 0,
-      "businessContext": "0: AND, 1: OR, 2: XOR, 3: ADD, 4: SUB"
+      "businessContext": "0: AND, 1: OR, 2: XOR, 3: ADD, 4: SUB",
+      "label_i18n": {
+        "en": "Operation",
+        "tr": "Operation",
+        "de": "Operation",
+        "fr": "Operation",
+        "es": "Operation",
+        "ar": "Operation"
+      }
     }
   ],
   "formulas": {
     "primary": "(() => { const a = binary1; const b = binary2; const op = operation; const decA = parseInt(a.toString(), 2); const decB = parseInt(b.toString(), 2); let result; switch(op) { case 0: result = decA & decB; break; case 1: result = decA | decB; break; case 2: result = decA ^ decB; break; case 3: result = decA + decB; break; case 4: result = decA - decB; break; default: result = 0; } return result.toString(2); })()",
-    "breakdown": [
-      "(() => { const a = binary1; const b = binary2; const op = operation; const decA = parseInt(a.toString(), 2); const decB = parseInt(b.toString(), 2); let result; switch(op) { case 0: result = decA & decB; break; case 1: result = decA | decB; break; case 2: result = decA ^ decB; break; case 3: result = decA + decB; break; case 4: result = decA - decB; break; default: result = 0; } return `Decimal: ${decA} ${['&','|','^','+','-'][op]} ${decB} = ${result}`; })()",
-      "(() => { const a = binary1; const b = binary2; const op = operation; const decA = parseInt(a.toString(), 2); const decB = parseInt(b.toString(), 2); let result; switch(op) { case 0: result = decA & decB; break; case 1: result = decA | decB; break; case 2: result = decA ^ decB; break; case 3: result = decA + decB; break; case 4: result = decA - decB; break; default: result = 0; } return `Binary: ${a} ${['&','|','^','+','-'][op]} ${b} = ${result.toString(2)}`; })()"
-    ]
+    "breakdown": "binary1",
+    "Decimal_operation": "Decimal operation",
+    "Binary_operation": "Binary operation",
+    "result": "Result (binary)"
   },
   "outputs": {
-    "primary": "Result (binary)",
+    "primary": "result",
     "breakdown": [
       "Decimal operation",
       "Binary operation"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

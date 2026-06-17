@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre."
+      "businessContext": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre.",
+      "label_i18n": {
+        "en": "Motor Gücü",
+        "tr": "Motor Gücü",
+        "de": "Motor Gücü",
+        "fr": "Motor Gücü",
+        "es": "Motor Gücü",
+        "ar": "Motor Gücü"
+      }
     },
     {
       "id": "dragCoefficient",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.3,
-      "businessContext": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır."
+      "businessContext": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır.",
+      "label_i18n": {
+        "en": "Sürtünme Katsayısı (Cd)",
+        "tr": "Sürtünme Katsayısı (Cd)",
+        "de": "Sürtünme Katsayısı (Cd)",
+        "fr": "Sürtünme Katsayısı (Cd)",
+        "es": "Sürtünme Katsayısı (Cd)",
+        "ar": "Sürtünme Katsayısı (Cd)"
+      }
     },
     {
       "id": "frontalArea",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²",
       "default": 2.2,
-      "businessContext": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir."
+      "businessContext": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir.",
+      "label_i18n": {
+        "en": "Ön Kesit Alanı",
+        "tr": "Ön Kesit Alanı",
+        "de": "Ön Kesit Alanı",
+        "fr": "Ön Kesit Alanı",
+        "es": "Ön Kesit Alanı",
+        "ar": "Ön Kesit Alanı"
+      }
     },
     {
       "id": "vehicleMass",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1500,
-      "businessContext": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır."
+      "businessContext": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır.",
+      "label_i18n": {
+        "en": "Araç Kütlesi",
+        "tr": "Araç Kütlesi",
+        "de": "Araç Kütlesi",
+        "fr": "Araç Kütlesi",
+        "es": "Araç Kütlesi",
+        "ar": "Araç Kütlesi"
+      }
     },
     {
       "id": "rollingResistanceCoefficient",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.015,
-      "businessContext": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir."
+      "businessContext": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
+      "label_i18n": {
+        "en": "Yuvarlanma Direnci Katsayısı",
+        "tr": "Yuvarlanma Direnci Katsayısı",
+        "de": "Yuvarlanma Direnci Katsayısı",
+        "fr": "Yuvarlanma Direnci Katsayısı",
+        "es": "Yuvarlanma Direnci Katsayısı",
+        "ar": "Yuvarlanma Direnci Katsayısı"
+      }
     },
     {
       "id": "airDensity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir."
+      "businessContext": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",
+      "label_i18n": {
+        "en": "Hava Yoğunluğu",
+        "tr": "Hava Yoğunluğu",
+        "de": "Hava Yoğunluğu",
+        "fr": "Hava Yoğunluğu",
+        "es": "Hava Yoğunluğu",
+        "ar": "Hava Yoğunluğu"
+      }
     },
     {
       "id": "drivetrainEfficiency",
@@ -55,11 +103,19 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır."
+      "businessContext": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
+      "label_i18n": {
+        "en": "Aktarma Organı Verimi",
+        "tr": "Aktarma Organı Verimi",
+        "de": "Aktarma Organı Verimi",
+        "fr": "Aktarma Organı Verimi",
+        "es": "Aktarma Organı Verimi",
+        "ar": "Aktarma Organı Verimi"
+      }
     }
   ],
   "formulas": {
-    "gravitationalAcceleration": 9.81,
+    "gravitationalAcceleration": "9.81",
     "a": "0.5 * airDensity * dragCoefficient * frontalArea",
     "b": "rollingResistanceCoefficient * vehicleMass * gravitationalAcceleration",
     "availablePower": "enginePower * (drivetrainEfficiency / 100)",
@@ -78,10 +134,10 @@
       "availablePower"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

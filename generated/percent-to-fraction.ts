@@ -24,13 +24,18 @@ function evaluateAllFormulas(input: Percent_to_fractionInput): Record<string, nu
   try { const v = input.mixedNumber ? Math.floor((results["numeratorRaw"] ?? 0) / (results["denominatorRaw"] ?? 0)) : 0; results["whole"] = Number.isFinite(v) ? v : 0; } catch { results["whole"] = 0; }
   try { const v = input.mixedNumber ? ((results["numeratorRaw"] ?? 0) - (results["whole"] ?? 0) * (results["denominatorRaw"] ?? 0)) : (results["numeratorRaw"] ?? 0); results["numeratorFrac"] = Number.isFinite(v) ? v : 0; } catch { results["numeratorFrac"] = 0; }
   try { const v = (results["denominatorRaw"] ?? 0); results["denominatorFrac"] = Number.isFinite(v) ? v : 0; } catch { results["denominatorFrac"] = 0; }
+  try { const v = $(results["decimal"] ?? 0); results["__decimal_"] = Number.isFinite(v) ? v : 0; } catch { results["__decimal_"] = 0; }
+  try { const v = $(results["numeratorRaw"] ?? 0)/$(results["denominatorRaw"] ?? 0); results["__numeratorRaw____denominatorRaw_"] = Number.isFinite(v) ? v : 0; } catch { results["__numeratorRaw____denominatorRaw_"] = 0; }
+  results["bu_s_r_mde_otomatik_sadele_tirme_yap_lma"] = 0;
+  results["__mixedNumber____whole___0______whole__t"] = 0;
+  try { const v = input.mixedNumber && (results["whole"] ?? 0) > 0 ? `${(results["whole"] ?? 0)} ${(results["numeratorFrac"] ?? 0)}/${(results["denominatorFrac"] ?? 0)}` : `${(results["numeratorFrac"] ?? 0)}/${(results["denominatorFrac"] ?? 0)}`; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculatePercent_to_fraction(input: Percent_to_fractionInput): Percent_to_fractionOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["mixedNumber"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

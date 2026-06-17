@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Dönüştürülecek ölçüm değeri"
+      "businessContext": "Dönüştürülecek ölçüm değeri",
+      "label_i18n": {
+        "en": "Milimetre Değeri",
+        "tr": "Milimetre Değeri",
+        "de": "Milimetre Değeri",
+        "fr": "Milimetre Değeri",
+        "es": "Milimetre Değeri",
+        "ar": "Milimetre Değeri"
+      }
     },
     {
       "id": "calibration",
       "label": "Kalibrasyon Düzeltme Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Ölçüm cihazı kalibrasyon katsayısı"
+      "businessContext": "Ölçüm cihazı kalibrasyon katsayısı",
+      "label_i18n": {
+        "en": "Kalibrasyon Düzeltme Faktörü",
+        "tr": "Kalibrasyon Düzeltme Faktörü",
+        "de": "Kalibrasyon Düzeltme Faktörü",
+        "fr": "Kalibrasyon Düzeltme Faktörü",
+        "es": "Kalibrasyon Düzeltme Faktörü",
+        "ar": "Kalibrasyon Düzeltme Faktörü"
+      }
     },
     {
       "id": "scaleFactor",
       "label": "Ölçek Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Çizim/plan ölçek katsayısı"
+      "businessContext": "Çizim/plan ölçek katsayısı",
+      "label_i18n": {
+        "en": "Ölçek Faktörü",
+        "tr": "Ölçek Faktörü",
+        "de": "Ölçek Faktörü",
+        "fr": "Ölçek Faktörü",
+        "es": "Ölçek Faktörü",
+        "ar": "Ölçek Faktörü"
+      }
     },
     {
       "id": "uncertaintyMm",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mm",
       "default": 0.001,
-      "businessContext": "Standart belirsizlik (k=1)"
+      "businessContext": "Standart belirsizlik (k=1)",
+      "label_i18n": {
+        "en": "Ölçüm Belirsizliği (mm)",
+        "tr": "Ölçüm Belirsizliği (mm)",
+        "de": "Ölçüm Belirsizliği (mm)",
+        "fr": "Ölçüm Belirsizliği (mm)",
+        "es": "Ölçüm Belirsizliği (mm)",
+        "ar": "Ölçüm Belirsizliği (mm)"
+      }
     },
     {
       "id": "coverageFactor",
       "label": "Genişletme Faktörü (k)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Belirsizlik genişletme katsayısı (genelde 2)"
+      "businessContext": "Belirsizlik genişletme katsayısı (genelde 2)",
+      "label_i18n": {
+        "en": "Genişletme Faktörü (k)",
+        "tr": "Genişletme Faktörü (k)",
+        "de": "Genişletme Faktörü (k)",
+        "fr": "Genişletme Faktörü (k)",
+        "es": "Genişletme Faktörü (k)",
+        "ar": "Genişletme Faktörü (k)"
+      }
     }
   ],
   "formulas": {
@@ -53,10 +93,10 @@
       "expandedUncertainty"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

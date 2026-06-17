@@ -27,7 +27,7 @@ function evaluateAllFormulas(input: Confidence_interval_for_meanInput): Record<s
 
 export function calculateConfidence_interval_for_mean(input: Confidence_interval_for_meanInput): Confidence_interval_for_meanOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Confidence"] ?? 0;
+  const totalWasteCost = values["zScore"] ?? 0;
   const breakdown = {
     
   };

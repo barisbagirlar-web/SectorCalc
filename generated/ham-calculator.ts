@@ -29,13 +29,16 @@ function evaluateAllFormulas(input: Ham_calculatorInput): Record<string, number>
   try { const v = (results["total_direct_cost"] ?? 0) / (input.yield_percentage / 100); results["adjusted_cost_for_yield"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_cost_for_yield"] = 0; }
   try { const v = (results["adjusted_cost_for_yield"] ?? 0) * (input.overhead_percentage / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
   try { const v = (results["adjusted_cost_for_yield"] ?? 0) + (results["overhead_cost"] ?? 0); results["total_cost_per_kg"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_kg"] = 0; }
+  results["Total_Direct_Cost_per_kg__before_yield_a"] = 0;
+  results["Adjusted_Cost_per_kg__accounting_for_yie"] = 0;
+  results["Overhead_Cost_per_kg"] = 0;
   return results;
 }
 
 
 export function calculateHam_calculator(input: Ham_calculatorInput): Ham_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["total_direct_cost"] ?? 0;
   const breakdown = {
     
   };

@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Tesisteki toplam gerçek güç tüketimi"
+      "businessContext": "Tesisteki toplam gerçek güç tüketimi",
+      "label_i18n": {
+        "en": "Aktif Güç (kW)",
+        "tr": "Aktif Güç (kW)",
+        "de": "Aktif Güç (kW)",
+        "fr": "Aktif Güç (kW)",
+        "es": "Aktif Güç (kW)",
+        "ar": "Aktif Güç (kW)"
+      }
     },
     {
       "id": "existingPowerFactor",
       "label": "Mevcut Güç Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Düzeltme öncesi mevcut cos φ değeri"
+      "businessContext": "Düzeltme öncesi mevcut cos φ değeri",
+      "label_i18n": {
+        "en": "Mevcut Güç Faktörü",
+        "tr": "Mevcut Güç Faktörü",
+        "de": "Mevcut Güç Faktörü",
+        "fr": "Mevcut Güç Faktörü",
+        "es": "Mevcut Güç Faktörü",
+        "ar": "Mevcut Güç Faktörü"
+      }
     },
     {
       "id": "targetPowerFactor",
       "label": "Hedef Güç Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.95,
-      "businessContext": "Ulaşılmak istenen cos φ değeri"
+      "businessContext": "Ulaşılmak istenen cos φ değeri",
+      "label_i18n": {
+        "en": "Hedef Güç Faktörü",
+        "tr": "Hedef Güç Faktörü",
+        "de": "Hedef Güç Faktörü",
+        "fr": "Hedef Güç Faktörü",
+        "es": "Hedef Güç Faktörü",
+        "ar": "Hedef Güç Faktörü"
+      }
     },
     {
       "id": "tariff",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/kWh",
       "default": 0.8,
-      "businessContext": "Reaktif enerji ceza bedelini hesaplamak için"
+      "businessContext": "Reaktif enerji ceza bedelini hesaplamak için",
+      "label_i18n": {
+        "en": "Elektrik Tarifesi",
+        "tr": "Elektrik Tarifesi",
+        "de": "Elektrik Tarifesi",
+        "fr": "Elektrik Tarifesi",
+        "es": "Elektrik Tarifesi",
+        "ar": "Elektrik Tarifesi"
+      }
     },
     {
       "id": "hoursPerDay",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "saat/gün",
       "default": 24,
-      "businessContext": "Yıllık kullanım süresini belirlemek için"
+      "businessContext": "Yıllık kullanım süresini belirlemek için",
+      "label_i18n": {
+        "en": "Günlük Çalışma Saati",
+        "tr": "Günlük Çalışma Saati",
+        "de": "Günlük Çalışma Saati",
+        "fr": "Günlük Çalışma Saati",
+        "es": "Günlük Çalışma Saati",
+        "ar": "Günlük Çalışma Saati"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "apparentPowerReduction"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

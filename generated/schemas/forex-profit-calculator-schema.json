@@ -5,9 +5,17 @@
       "id": "direction",
       "label": "Direction (1=Buy, -1=Sell)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Indicates trade direction: 1 for long (buy), -1 for short (sell)."
+      "businessContext": "Indicates trade direction: 1 for long (buy), -1 for short (sell).",
+      "label_i18n": {
+        "en": "Direction (1=Buy, -1=Sell)",
+        "tr": "Direction (1=Buy, -1=Sell)",
+        "de": "Direction (1=Buy, -1=Sell)",
+        "fr": "Direction (1=Buy, -1=Sell)",
+        "es": "Direction (1=Buy, -1=Sell)",
+        "ar": "Direction (1=Buy, -1=Sell)"
+      }
     },
     {
       "id": "entryPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "quote currency per base",
       "default": 1.1,
-      "businessContext": "The exchange rate at which the position was entered."
+      "businessContext": "The exchange rate at which the position was entered.",
+      "label_i18n": {
+        "en": "Entry Price",
+        "tr": "Entry Price",
+        "de": "Entry Price",
+        "fr": "Entry Price",
+        "es": "Entry Price",
+        "ar": "Entry Price"
+      }
     },
     {
       "id": "exitPrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "quote currency per base",
       "default": 1.105,
-      "businessContext": "The exchange rate at which the position was closed."
+      "businessContext": "The exchange rate at which the position was closed.",
+      "label_i18n": {
+        "en": "Exit Price",
+        "tr": "Exit Price",
+        "de": "Exit Price",
+        "fr": "Exit Price",
+        "es": "Exit Price",
+        "ar": "Exit Price"
+      }
     },
     {
       "id": "lotSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "lots",
       "default": 1,
-      "businessContext": "Number of standard lots traded (1 lot = 100,000 units typically)."
+      "businessContext": "Number of standard lots traded (1 lot = 100,000 units typically).",
+      "label_i18n": {
+        "en": "Lot Size",
+        "tr": "Lot Size",
+        "de": "Lot Size",
+        "fr": "Lot Size",
+        "es": "Lot Size",
+        "ar": "Lot Size"
+      }
     },
     {
       "id": "pipValue",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "account currency per pip per lot",
       "default": 10,
-      "businessContext": "Monetary value of one pip movement for one standard lot in account currency."
+      "businessContext": "Monetary value of one pip movement for one standard lot in account currency.",
+      "label_i18n": {
+        "en": "Pip Value per Lot",
+        "tr": "Pip Value per Lot",
+        "de": "Pip Value per Lot",
+        "fr": "Pip Value per Lot",
+        "es": "Pip Value per Lot",
+        "ar": "Pip Value per Lot"
+      }
     },
     {
       "id": "pipSize",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "price change per pip",
       "default": 0.0001,
-      "businessContext": "Smallest incremental price movement, typically 0.0001 except for JPY pairs (0.01)."
+      "businessContext": "Smallest incremental price movement, typically 0.0001 except for JPY pairs (0.01).",
+      "label_i18n": {
+        "en": "Pip Size",
+        "tr": "Pip Size",
+        "de": "Pip Size",
+        "fr": "Pip Size",
+        "es": "Pip Size",
+        "ar": "Pip Size"
+      }
     }
   ],
   "formulas": {
@@ -61,7 +109,7 @@
       "profitLoss"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

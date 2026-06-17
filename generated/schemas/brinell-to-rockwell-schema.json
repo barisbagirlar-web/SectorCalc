@@ -7,33 +7,72 @@
       "type": "number",
       "unit": "HBW",
       "default": 200,
-      "businessContext": "Measured Brinell hardness value from indentation test"
+      "businessContext": "Measured Brinell hardness value from indentation test",
+      "label_i18n": {
+        "en": "Brinell Hardness (HBW)",
+        "tr": "Brinell Hardness (HBW)",
+        "de": "Brinell Hardness (HBW)",
+        "fr": "Brinell Hardness (HBW)",
+        "es": "Brinell Hardness (HBW)",
+        "ar": "Brinell Hardness (HBW)"
+      }
     },
     {
       "id": "scale",
       "label": "Rockwell Scale",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for HRA, 2 for HRB, 3 for HRC"
+      "businessContext": "1 for HRA, 2 for HRB, 3 for HRC",
+      "label_i18n": {
+        "en": "Rockwell Scale",
+        "tr": "Rockwell Scale",
+        "de": "Rockwell Scale",
+        "fr": "Rockwell Scale",
+        "es": "Rockwell Scale",
+        "ar": "Rockwell Scale"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
     "primary": "scale === 1 ? (100 * hbw) / (hbw + 100) : scale === 2 ? (130 - 30 * Math.sqrt(hbw)) : (100 * hbw) / (hbw + 100) - 10",
-    "breakdown": [
-      "scale === 1 ? (100 * hbw) / (hbw + 100) : scale === 2 ? (130 - 30 * Math.sqrt(hbw)) : (100 * hbw) / (hbw + 100) - 10"
-    ]
+    "breakdown": "hbw",
+    "Converted_hardness_value_on_selected_Roc": "Converted hardness value on selected Rockwell scale"
   },
   "outputs": {
-    "primary": "Rockwell Hardness",
+    "primary": "primary",
     "breakdown": [
       "Converted hardness value on selected Rockwell scale"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "metal-plastics-forming"
 }

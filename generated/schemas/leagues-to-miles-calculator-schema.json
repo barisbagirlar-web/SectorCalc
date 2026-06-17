@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "lg",
       "default": 1,
-      "businessContext": "Distance in leagues to convert"
+      "businessContext": "Distance in leagues to convert",
+      "label_i18n": {
+        "en": "Leagues",
+        "tr": "Leagues",
+        "de": "Leagues",
+        "fr": "Leagues",
+        "es": "Leagues",
+        "ar": "Leagues"
+      }
     },
     {
       "id": "leagueType",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "type",
       "default": 0,
-      "businessContext": "0: Statute (3 mi/lg), 1: Nautical (3.452 mi/lg), 2: Metric (2.485 mi/lg)"
+      "businessContext": "0: Statute (3 mi/lg), 1: Nautical (3.452 mi/lg), 2: Metric (2.485 mi/lg)",
+      "label_i18n": {
+        "en": "League Type",
+        "tr": "League Type",
+        "de": "League Type",
+        "fr": "League Type",
+        "es": "League Type",
+        "ar": "League Type"
+      }
     },
     {
       "id": "decimals",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dp",
       "default": 2,
-      "businessContext": "Number of decimal places for rounded output"
+      "businessContext": "Number of decimal places for rounded output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "conversionFactorOverride",
@@ -31,26 +55,37 @@
       "type": "number",
       "unit": "mi/lg",
       "default": 0,
-      "businessContext": "Override miles per league; if zero, uses league type default"
+      "businessContext": "Override miles per league; if zero, uses league type default",
+      "label_i18n": {
+        "en": "Custom Factor (0=use type)",
+        "tr": "Custom Factor (0=use type)",
+        "de": "Custom Factor (0=use type)",
+        "fr": "Custom Factor (0=use type)",
+        "es": "Custom Factor (0=use type)",
+        "ar": "Custom Factor (0=use type)"
+      }
     }
   ],
   "formulas": {
     "factor": "conversionFactorOverride > 0 ? conversionFactorOverride : [3, 3.452, 2.485][leagueType]",
     "miles": "leagues * factor",
-    "roundedMiles": "Math.round(miles * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+    "roundedMiles": "Math.round(miles * Math.pow(10, decimals)) / Math.pow(10, decimals)",
+    "__factor___mi_lg": "{{factor}} mi/lg",
+    "__miles___mi": "{{miles}} mi",
+    "Rounded_to___decimals___decimal_places": "Rounded to {{decimals}} decimal places"
   },
   "outputs": {
-    "primary": "{{roundedMiles}} mi",
+    "primary": "factor",
     "breakdown": [
       "Factor used: {{factor}} mi/lg",
       "Raw value: {{miles}} mi",
       "Rounded to {{decimals}} decimal places"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

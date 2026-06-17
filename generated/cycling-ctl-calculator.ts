@@ -20,13 +20,16 @@ function evaluateAllFormulas(input: Cycling_ctl_calculatorInput): Record<string,
   try { const v = input.dailyTSS; results["steadyStateCTL"] = Number.isFinite(v) ? v : 0; } catch { results["steadyStateCTL"] = 0; }
   try { const v = Math.exp(-input.numDays / input.timeConstant); results["decayFactor"] = Number.isFinite(v) ? v : 0; } catch { results["decayFactor"] = 0; }
   try { const v = input.dailyTSS + (input.startCTL - input.dailyTSS) * (results["decayFactor"] ?? 0); results["finalCTL"] = Number.isFinite(v) ? v : 0; } catch { results["finalCTL"] = 0; }
+  results["__steadyStateCTL__TSS_"] = 0;
+  results["__decayFactor_toFixed_3___"] = 0;
+  try { const v = `Projected CTL after ${input.numDays} days: ${(results["finalCTL"] ?? 0).toFixed(1)} TSS`; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateCycling_ctl_calculator(input: Cycling_ctl_calculatorInput): Cycling_ctl_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["`Projected CTL after ${numDays} days: ${finalCTL.toFixed(1)} TSS`"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

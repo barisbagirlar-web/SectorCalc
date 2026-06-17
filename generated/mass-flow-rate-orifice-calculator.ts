@@ -18,6 +18,7 @@ export const Mass_flow_rate_orifice_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Mass_flow_rate_orifice_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.dischargeCoefficient * input.orificeArea * Math.sqrt(2 * input.fluidDensity * input.pressureDifference); results["massFlowRate"] = Number.isFinite(v) ? v : 0; } catch { results["massFlowRate"] = 0; }
+  try { const v = input.dischargeCoefficient * input.orificeArea * Math.sqrt(2 * input.fluidDensity * input.pressureDifference); results["massFlowRate_copy"] = Number.isFinite(v) ? v : 0; } catch { results["massFlowRate_copy"] = 0; }
   return results;
 }
 

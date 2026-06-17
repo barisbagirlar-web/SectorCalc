@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms."
+      "businessContext": "User's body weight in kilograms.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "User's height in centimeters."
+      "businessContext": "User's height in centimeters.",
+      "label_i18n": {
+        "en": "Body Height",
+        "tr": "Body Height",
+        "de": "Body Height",
+        "fr": "Body Height",
+        "es": "Body Height",
+        "ar": "Body Height"
+      }
     },
     {
       "id": "age",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User's age in years."
+      "businessContext": "User's age in years.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
       "label": "Gender (0=Male, 1=Female)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Biological gender for BMR calculation: 0 for male, 1 for female."
+      "businessContext": "Biological gender for BMR calculation: 0 for male, 1 for female.",
+      "label_i18n": {
+        "en": "Gender (0=Male, 1=Female)",
+        "tr": "Gender (0=Male, 1=Female)",
+        "de": "Gender (0=Male, 1=Female)",
+        "fr": "Gender (0=Male, 1=Female)",
+        "es": "Gender (0=Male, 1=Female)",
+        "ar": "Gender (0=Male, 1=Female)"
+      }
     },
     {
       "id": "duration",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "min",
       "default": 60,
-      "businessContext": "Duration of the yoga session in minutes."
+      "businessContext": "Duration of the yoga session in minutes.",
+      "label_i18n": {
+        "en": "Yoga Duration",
+        "tr": "Yoga Duration",
+        "de": "Yoga Duration",
+        "fr": "Yoga Duration",
+        "es": "Yoga Duration",
+        "ar": "Yoga Duration"
+      }
     },
     {
       "id": "met",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "MET",
       "default": 3,
-      "businessContext": "Metabolic Equivalent of Task for the specific yoga style (e.g., Hatha=2.5, Power=4.0)."
+      "businessContext": "Metabolic Equivalent of Task for the specific yoga style (e.g., Hatha=2.5, Power=4.0).",
+      "label_i18n": {
+        "en": "MET Value",
+        "tr": "MET Value",
+        "de": "MET Value",
+        "fr": "MET Value",
+        "es": "MET Value",
+        "ar": "MET Value"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "bmr"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

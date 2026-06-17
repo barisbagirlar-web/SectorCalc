@@ -5,37 +5,72 @@
       "id": "kb",
       "label": "Base Dissociation Constant (Kb)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.00001,
-      "businessContext": "Equilibrium constant for the base dissociation reaction."
+      "businessContext": "Equilibrium constant for the base dissociation reaction.",
+      "label_i18n": {
+        "en": "Base Dissociation Constant (Kb)",
+        "tr": "Base Dissociation Constant (Kb)",
+        "de": "Base Dissociation Constant (Kb)",
+        "fr": "Base Dissociation Constant (Kb)",
+        "es": "Base Dissociation Constant (Kb)",
+        "ar": "Base Dissociation Constant (Kb)"
+      }
     },
     {
       "id": "ka",
       "label": "Acid Dissociation Constant (Ka)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1e-9,
-      "businessContext": "Equilibrium constant for the conjugate acid. Used if Kb is not provided."
+      "businessContext": "Equilibrium constant for the conjugate acid. Used if Kb is not provided.",
+      "label_i18n": {
+        "en": "Acid Dissociation Constant (Ka)",
+        "tr": "Acid Dissociation Constant (Ka)",
+        "de": "Acid Dissociation Constant (Ka)",
+        "fr": "Acid Dissociation Constant (Ka)",
+        "es": "Acid Dissociation Constant (Ka)",
+        "ar": "Acid Dissociation Constant (Ka)"
+      }
     },
     {
       "id": "pka",
       "label": "pKa",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 9,
-      "businessContext": "Negative base-10 logarithm of Ka. Used if Kb and Ka are not provided."
+      "businessContext": "Negative base-10 logarithm of Ka. Used if Kb and Ka are not provided.",
+      "label_i18n": {
+        "en": "pKa",
+        "tr": "pKa",
+        "de": "pKa",
+        "fr": "pKa",
+        "es": "pKa",
+        "ar": "pKa"
+      }
     },
     {
       "id": "kw",
       "label": "Ion Product of Water (Kw)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1e-14,
-      "businessContext": "Self-ionization constant of water at 25°C. Used when deriving Kb from Ka."
+      "businessContext": "Self-ionization constant of water at 25°C. Used when deriving Kb from Ka.",
+      "label_i18n": {
+        "en": "Ion Product of Water (Kw)",
+        "tr": "Ion Product of Water (Kw)",
+        "de": "Ion Product of Water (Kw)",
+        "fr": "Ion Product of Water (Kw)",
+        "es": "Ion Product of Water (Kw)",
+        "ar": "Ion Product of Water (Kw)"
+      }
     }
   ],
   "formulas": {
-    "pKb": "inputs.kb > 0 ? -Math.log10(inputs.kb) : (inputs.ka > 0 ? -Math.log10(inputs.kw / inputs.ka) : (inputs.pka !== undefined ? 14 - inputs.pka : null))"
+    "pKb": "inputs.kb > 0 ? -Math.log10(inputs.kb) : (inputs.ka > 0 ? -Math.log10(inputs.kw / inputs.ka) : (inputs.pka !== undefined ? 14 - inputs.pka : null))",
+    "inputs_kb_____inputs_kw___inputs_ka_": "inputs.kb || (inputs.kw / inputs.ka)",
+    "pKb____log10_Kb_": "pKb = -log10(Kb)",
+    "Computed_pKb_value": "Computed pKb value"
   },
   "outputs": {
     "primary": "pKb",
@@ -45,10 +80,10 @@
       "Computed pKb value"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "sustainability-resource-esg"
 }

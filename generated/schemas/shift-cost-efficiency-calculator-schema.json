@@ -175,7 +175,7 @@
       "id": "shift_type",
       "label": "Shift Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "day",
       "min": null,
       "max": null,
@@ -196,7 +196,7 @@
       "id": "overtime_applied",
       "label": "Overtime Applied",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -249,154 +249,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "total_labor_cost",
-      "label": "Total Labor Cost",
-      "description": "Total labor cost for the shift including overtime premium if applicable.",
-      "formula": "labor_cost_per_hour * number_of_operators * shift_duration_hours * (1 + (overtime_applied ? 0.5 : 0))",
-      "unit": "currency"
-    },
-    {
-      "id": "total_material_cost",
-      "label": "Total Material Cost",
-      "description": "Total material cost for all units produced (including defective and rework).",
-      "formula": "material_cost_per_unit * total_units_produced",
-      "unit": "currency"
-    },
-    {
-      "id": "total_energy_cost",
-      "label": "Total Energy Cost",
-      "description": "Energy cost adjusted for shift type (night/weekend surcharge).",
-      "formula": "energy_cost_per_shift * (shift_type == 'night' ? 1.15 : (shift_type == 'weekend' ? 1.25 : 1.0))",
-      "unit": "currency"
-    },
-    {
-      "id": "total_downtime_cost",
-      "label": "Total Downtime Cost",
-      "description": "Cost of lost production due to downtime, based on labor and overhead.",
-      "formula": "(planned_downtime_minutes + unplanned_downtime_minutes) / 60 * labor_cost_per_hour * number_of_operators * 0.8",
-      "unit": "currency"
-    },
-    {
-      "id": "quality_cost",
-      "label": "Quality Cost",
-      "description": "Cost of defects and rework including material and labor.",
-      "formula": "(defective_units + rework_units) * material_cost_per_unit * 1.2",
-      "unit": "currency"
-    },
-    {
-      "id": "total_shift_cost",
-      "label": "Total Shift Cost",
-      "description": "Sum of all direct and indirect costs for the shift.",
-      "formula": "total_labor_cost + total_material_cost + total_energy_cost + total_downtime_cost + quality_cost",
-      "unit": "currency"
-    },
-    {
-      "id": "shift_cost_efficiency",
-      "label": "Shift Cost Efficiency",
-      "description": "Primary result: ratio of value-added output to total cost. Higher is better.",
-      "formula": "(total_units_produced - defective_units) * material_cost_per_unit / total_shift_cost",
-      "unit": "ratio (0-1)"
-    }
+    "shift_duration_hours",
+    "shift_duration_hours",
+    "shift_duration_hours",
+    "shift_duration_hours",
+    "shift_duration_hours",
+    "shift_duration_hours",
+    "shift_duration_hours"
   ],
   "outputs": {
-    "primary": {
-      "id": "shift_cost_efficiency",
-      "label": "Shift Cost Efficiency",
-      "value": null,
-      "unit": "ratio",
-      "description": "Primary KPI indicating how efficiently resources are converted into good output."
-    },
-    "breakdown": {
-      "total_labor_cost": {
-        "label": "Total Labor Cost",
-        "value": null,
-        "unit": "currency",
-        "percentageOfTotal": null
-      },
-      "total_material_cost": {
-        "label": "Total Material Cost",
-        "value": null,
-        "unit": "currency",
-        "percentageOfTotal": null
-      },
-      "total_energy_cost": {
-        "label": "Total Energy Cost",
-        "value": null,
-        "unit": "currency",
-        "percentageOfTotal": null
-      },
-      "total_downtime_cost": {
-        "label": "Total Downtime Cost",
-        "value": null,
-        "unit": "currency",
-        "percentageOfTotal": null
-      },
-      "quality_cost": {
-        "label": "Quality Cost",
-        "value": null,
-        "unit": "currency",
-        "percentageOfTotal": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_material_waste",
-        "label": "Excess Material Waste",
-        "description": "Material cost of defective and rework units beyond standard allowance.",
-        "value": null,
-        "unit": "currency"
-      },
-      {
-        "id": "unplanned_downtime_impact",
-        "label": "Unplanned Downtime Impact",
-        "description": "Cost specifically from unplanned downtime events.",
-        "value": null,
-        "unit": "currency"
-      },
-      {
-        "id": "labor_efficiency_gap",
-        "label": "Labor Efficiency Gap",
-        "description": "Difference between actual labor cost and ideal labor cost for good units.",
-        "value": null,
-        "unit": "currency"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_defects",
-        "priority": "high",
-        "action": "Implement SPC and root cause analysis to reduce defect rate below 5%.",
-        "expectedImpact": "Reduction in quality cost by up to 30%."
-      },
-      {
-        "id": "optimize_changeovers",
-        "priority": "medium",
-        "action": "Apply SMED methodology to reduce planned downtime by 20%.",
-        "expectedImpact": "Decrease downtime cost and increase available production time."
-      },
-      {
-        "id": "energy_audit",
-        "priority": "medium",
-        "action": "Conduct energy audit to identify peak usage and shift loads to off-peak.",
-        "expectedImpact": "Reduce energy cost by 10-15%."
-      },
-      {
-        "id": "cross_training",
-        "priority": "low",
-        "action": "Cross-train operators to reduce labor idle time during unplanned downtime.",
-        "expectedImpact": "Improve labor utilization and reduce overtime needs."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Score",
-      "value": null,
-      "unit": "percentage",
-      "description": "Adjusted efficiency score based on data completeness and accuracy flags."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "workforce-hr",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
+  "toolName": "shift-cost-efficiency-calculator"
 }

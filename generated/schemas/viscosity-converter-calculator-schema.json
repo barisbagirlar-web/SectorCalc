@@ -5,25 +5,49 @@
       "id": "inputValue",
       "label": "Değer",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Dönüştürülecek viskozite değeri"
+      "businessContext": "Dönüştürülecek viskozite değeri",
+      "label_i18n": {
+        "en": "Değer",
+        "tr": "Değer",
+        "de": "Değer",
+        "fr": "Değer",
+        "es": "Değer",
+        "ar": "Değer"
+      }
     },
     {
       "id": "fromUnit",
       "label": "Birimden",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Kaynak viskozite birimi (0: Pa·s, 1: cP, 2: P, 3: mPa·s, 4: St, 5: cSt, 6: m²/s)"
+      "businessContext": "Kaynak viskozite birimi (0: Pa·s, 1: cP, 2: P, 3: mPa·s, 4: St, 5: cSt, 6: m²/s)",
+      "label_i18n": {
+        "en": "Birimden",
+        "tr": "Birimden",
+        "de": "Birimden",
+        "fr": "Birimden",
+        "es": "Birimden",
+        "ar": "Birimden"
+      }
     },
     {
       "id": "toUnit",
       "label": "Birime",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Hedef viskozite birimi (0: Pa·s, 1: cP, 2: P, 3: mPa·s, 4: St, 5: cSt, 6: m²/s)"
+      "businessContext": "Hedef viskozite birimi (0: Pa·s, 1: cP, 2: P, 3: mPa·s, 4: St, 5: cSt, 6: m²/s)",
+      "label_i18n": {
+        "en": "Birime",
+        "tr": "Birime",
+        "de": "Birime",
+        "fr": "Birime",
+        "es": "Birime",
+        "ar": "Birime"
+      }
     },
     {
       "id": "density",
@@ -31,22 +55,31 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Sıvının yoğunluğu, sadece dinamik ve kinematik viskozite arasında dönüşüm yaparken kullanılır."
+      "businessContext": "Sıvının yoğunluğu, sadece dinamik ve kinematik viskozite arasında dönüşüm yaparken kullanılır.",
+      "label_i18n": {
+        "en": "Yoğunluk",
+        "tr": "Yoğunluk",
+        "de": "Yoğunluk",
+        "fr": "Yoğunluk",
+        "es": "Yoğunluk",
+        "ar": "Yoğunluk"
+      }
     }
   ],
   "formulas": {
-    "convert": "function(value, from, to, dens) {\n  const dynamicUnits = [0,1,2,3];\n  const kinematicUnits = [4,5,6];\n  const dynamicFactors = [1, 0.001, 0.1, 0.001]; // to Pa·s\n  const kinematicFactors = [0.0001, 0.000001, 1]; // to m²/s\n  const unitNames = ['Pa·s','cP','P','mPa·s','St','cSt','m²/s'];\n  const steps = [];\n  let baseDynamic, baseKinematic;\n  let result;\n  steps.push(`Giriş: ${value} ${unitNames[from]}`);\n\n  if (dynamicUnits.includes(from) && dynamicUnits.includes(to)) {\n    baseDynamic = value * dynamicFactors[from]; // Pa·s\n    result = baseDynamic / dynamicFactors[to];\n    steps.push(`Dönüşüm (dinamik): ${value} ${unitNames[from]} = ${baseDynamic} Pa·s = ${result} ${unitNames[to]}`);\n  }\n  else if (kinematicUnits.includes(from) && kinematicUnits.includes(to)) {\n    baseKinematic = value * kinematicFactors[from - 4]; // m²/s\n    result = baseKinematic / kinematicFactors[to - 4];\n    steps.push(`Dönüşüm (kinematik): ${value} ${unitNames[from]} = ${baseKinematic} m²/s = ${result} ${unitNames[to]}`);\n  }\n  else if (dynamicUnits.includes(from) && kinematicUnits.includes(to)) {\n    if (dens <= 0) throw new Error('Yoğunluk pozitif olmalıdır');\n    baseDynamic = value * dynamicFactors[from]; // Pa·s\n    baseKinematic = baseDynamic / dens;          // m²/s\n    result = baseKinematic / kinematicFactors[to - 4];\n    steps.push(`Dinamikten kinematiğe: ${value} ${unitNames[from]} = ${baseDynamic} Pa·s ⇒ ${baseKinematic} m²/s (yoğunluk: ${dens} kg/m³) = ${result} ${unitNames[to]}`);\n  }\n  else if (kinematicUnits.includes(from) && dynamicUnits.includes(to)) {\n    if (dens <= 0) throw new Error('Yoğunluk pozitif olmalıdır');\n    baseKinematic = value * kinematicFactors[from - 4]; // m²/s\n    baseDynamic = baseKinematic * dens;                 // Pa·s\n    result = baseDynamic / dynamicFactors[to];\n    steps.push(`Kinematikten dinamiğe: ${value} ${unitNames[from]} = ${baseKinematic} m²/s ⇒ ${baseDynamic} Pa·s (yoğunluk: ${dens} kg/m³) = ${result} ${unitNames[to]}`);\n  }\n  else {\n    throw new Error('Geçersiz birim seçimi');\n  }\n  steps.push(`Sonuç: ${result} ${unitNames[to]}`);\n  return { primary: result, breakdown: steps };\n}"
+    "convert": "function(value, from, to, dens) {\n  const dynamicUnits = [0,1,2,3];\n  const kinematicUnits = [4,5,6];\n  const dynamicFactors = [1, 0.001, 0.1, 0.001]; // to Pa·s\n  const kinematicFactors = [0.0001, 0.000001, 1]; // to m²/s\n  const unitNames = ['Pa·s','cP','P','mPa·s','St','cSt','m²/s'];\n  const steps = [];\n  let baseDynamic, baseKinematic;\n  let result;\n  steps.push(`Giriş: ${value} ${unitNames[from]}`);\n\n  if (dynamicUnits.includes(from) && dynamicUnits.includes(to)) {\n    baseDynamic = value * dynamicFactors[from]; // Pa·s\n    result = baseDynamic / dynamicFactors[to];\n    steps.push(`Dönüşüm (dinamik): ${value} ${unitNames[from]} = ${baseDynamic} Pa·s = ${result} ${unitNames[to]}`);\n  }\n  else if (kinematicUnits.includes(from) && kinematicUnits.includes(to)) {\n    baseKinematic = value * kinematicFactors[from - 4]; // m²/s\n    result = baseKinematic / kinematicFactors[to - 4];\n    steps.push(`Dönüşüm (kinematik): ${value} ${unitNames[from]} = ${baseKinematic} m²/s = ${result} ${unitNames[to]}`);\n  }\n  else if (dynamicUnits.includes(from) && kinematicUnits.includes(to)) {\n    if (dens <= 0) throw new Error('Yoğunluk pozitif olmalıdır');\n    baseDynamic = value * dynamicFactors[from]; // Pa·s\n    baseKinematic = baseDynamic / dens;          // m²/s\n    result = baseKinematic / kinematicFactors[to - 4];\n    steps.push(`Dinamikten kinematiğe: ${value} ${unitNames[from]} = ${baseDynamic} Pa·s ⇒ ${baseKinematic} m²/s (yoğunluk: ${dens} kg/m³) = ${result} ${unitNames[to]}`);\n  }\n  else if (kinematicUnits.includes(from) && dynamicUnits.includes(to)) {\n    if (dens <= 0) throw new Error('Yoğunluk pozitif olmalıdır');\n    baseKinematic = value * kinematicFactors[from - 4]; // m²/s\n    baseDynamic = baseKinematic * dens;                 // Pa·s\n    result = baseDynamic / dynamicFactors[to];\n    steps.push(`Kinematikten dinamiğe: ${value} ${unitNames[from]} = ${baseKinematic} m²/s ⇒ ${baseDynamic} Pa·s (yoğunluk: ${dens} kg/m³) = ${result} ${unitNames[to]}`);\n  }\n  else {\n    throw new Error('Geçersiz birim seçimi');\n  }\n  steps.push(`Sonuç: ${result} ${unitNames[to]}`);\n  return { primary: result, breakdown: steps };\n}",
+    "conversionSteps": "conversionSteps"
   },
   "outputs": {
-    "primary": "convertedValue",
+    "primary": "convert",
     "breakdown": [
       "conversionSteps"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

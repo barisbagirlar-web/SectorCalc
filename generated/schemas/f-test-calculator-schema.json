@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "unit²",
       "default": 0,
-      "businessContext": "Sum of squared deviations for group 1"
+      "businessContext": "Sum of squared deviations for group 1",
+      "label_i18n": {
+        "en": "Sum of Squares (Group 1)",
+        "tr": "Sum of Squares (Group 1)",
+        "de": "Sum of Squares (Group 1)",
+        "fr": "Sum of Squares (Group 1)",
+        "es": "Sum of Squares (Group 1)",
+        "ar": "Sum of Squares (Group 1)"
+      }
     },
     {
       "id": "df1",
       "label": "Degrees of Freedom (Group 1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Degrees of freedom for group 1"
+      "businessContext": "Degrees of freedom for group 1",
+      "label_i18n": {
+        "en": "Degrees of Freedom (Group 1)",
+        "tr": "Degrees of Freedom (Group 1)",
+        "de": "Degrees of Freedom (Group 1)",
+        "fr": "Degrees of Freedom (Group 1)",
+        "es": "Degrees of Freedom (Group 1)",
+        "ar": "Degrees of Freedom (Group 1)"
+      }
     },
     {
       "id": "ss2",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "unit²",
       "default": 0,
-      "businessContext": "Sum of squared deviations for group 2"
+      "businessContext": "Sum of squared deviations for group 2",
+      "label_i18n": {
+        "en": "Sum of Squares (Group 2)",
+        "tr": "Sum of Squares (Group 2)",
+        "de": "Sum of Squares (Group 2)",
+        "fr": "Sum of Squares (Group 2)",
+        "es": "Sum of Squares (Group 2)",
+        "ar": "Sum of Squares (Group 2)"
+      }
     },
     {
       "id": "df2",
       "label": "Degrees of Freedom (Group 2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Degrees of freedom for group 2"
+      "businessContext": "Degrees of freedom for group 2",
+      "label_i18n": {
+        "en": "Degrees of Freedom (Group 2)",
+        "tr": "Degrees of Freedom (Group 2)",
+        "de": "Degrees of Freedom (Group 2)",
+        "fr": "Degrees of Freedom (Group 2)",
+        "es": "Degrees of Freedom (Group 2)",
+        "ar": "Degrees of Freedom (Group 2)"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "f_statistic"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

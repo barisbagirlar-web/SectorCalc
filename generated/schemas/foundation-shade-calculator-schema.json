@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "scale",
       "default": 5,
-      "businessContext": "Fair to deep scale 0-10"
+      "businessContext": "Fair to deep scale 0-10",
+      "label_i18n": {
+        "en": "Skin Depth",
+        "tr": "Skin Depth",
+        "de": "Skin Depth",
+        "fr": "Skin Depth",
+        "es": "Skin Depth",
+        "ar": "Skin Depth"
+      }
     },
     {
       "id": "skinUndertone",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "scale",
       "default": 5,
-      "businessContext": "Cool to warm scale 0-10"
+      "businessContext": "Cool to warm scale 0-10",
+      "label_i18n": {
+        "en": "Skin Undertone",
+        "tr": "Skin Undertone",
+        "de": "Skin Undertone",
+        "fr": "Skin Undertone",
+        "es": "Skin Undertone",
+        "ar": "Skin Undertone"
+      }
     },
     {
       "id": "coveragePreference",
       "label": "Coverage Preference",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Sheer to full coverage 0-10"
+      "businessContext": "Sheer to full coverage 0-10",
+      "label_i18n": {
+        "en": "Coverage Preference",
+        "tr": "Coverage Preference",
+        "de": "Coverage Preference",
+        "fr": "Coverage Preference",
+        "es": "Coverage Preference",
+        "ar": "Coverage Preference"
+      }
     },
     {
       "id": "lightingCondition",
       "label": "Lighting Condition",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Indoor dim to outdoor bright 0-10"
+      "businessContext": "Indoor dim to outdoor bright 0-10",
+      "label_i18n": {
+        "en": "Lighting Condition",
+        "tr": "Lighting Condition",
+        "de": "Lighting Condition",
+        "fr": "Lighting Condition",
+        "es": "Lighting Condition",
+        "ar": "Lighting Condition"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "lightingAdjustment"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "İnşaat & Yapı",
+  "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "project-construction-management"
 }

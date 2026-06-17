@@ -26,13 +26,14 @@ function evaluateAllFormulas(input: Ramadan_calculatorInput): Record<string, num
   try { const v = input.ramadanDailyHours * input.workingDaysRamadan * input.energyConsumptionRate; results["Ramadan Energy Consumption (kWh)"] = Number.isFinite(v) ? v : 0; } catch { results["Ramadan Energy Consumption (kWh)"] = 0; }
   try { const v = (input.normalDailyHours - input.ramadanDailyHours) * input.workingDaysRamadan * input.energyConsumptionRate; results["Total Energy Saved (kWh)"] = Number.isFinite(v) ? v : 0; } catch { results["Total Energy Saved (kWh)"] = 0; }
   try { const v = (input.normalDailyHours - input.ramadanDailyHours) * input.workingDaysRamadan * input.energyConsumptionRate * input.co2EmissionFactor; results["CO₂ Emission Reduction (kg)"] = Number.isFinite(v) ? v : 0; } catch { results["CO₂ Emission Reduction (kg)"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateRamadan_calculator(input: Ramadan_calculatorInput): Ramadan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

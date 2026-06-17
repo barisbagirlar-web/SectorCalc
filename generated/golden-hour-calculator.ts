@@ -29,13 +29,19 @@ function evaluateAllFormulas(input: Golden_hour_calculatorInput): Record<string,
   try { const v = (results["solarNoon"] ?? 0) - (results["hourAngle"] ?? 0) / 15 + 0.5; results["goldenHourMorningEnd"] = Number.isFinite(v) ? v : 0; } catch { results["goldenHourMorningEnd"] = 0; }
   try { const v = (results["solarNoon"] ?? 0) + (results["hourAngle"] ?? 0) / 15 - 0.5; results["goldenHourEveningStart"] = Number.isFinite(v) ? v : 0; } catch { results["goldenHourEveningStart"] = 0; }
   try { const v = (results["solarNoon"] ?? 0) + (results["hourAngle"] ?? 0) / 15 + 0.5; results["goldenHourEveningEnd"] = Number.isFinite(v) ? v : 0; } catch { results["goldenHourEveningEnd"] = 0; }
+  results["_goldenHourMorningStart__hours"] = 0;
+  results["_goldenHourMorningEnd__hours"] = 0;
+  results["_goldenHourEveningStart__hours"] = 0;
+  results["_goldenHourEveningEnd__hours"] = 0;
+  results["_dayLength__hours"] = 0;
+  results["_solarNoon__hours"] = 0;
   return results;
 }
 
 
 export function calculateGolden_hour_calculator(input: Golden_hour_calculatorInput): Golden_hour_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Golden"] ?? 0;
+  const totalWasteCost = values["dayLength"] ?? 0;
   const breakdown = {
     
   };

@@ -28,13 +28,16 @@ function evaluateAllFormulas(input: Somatotype_calculatorInput): Record<string, 
   try { const v = -0.7182 + 0.1451 * (input.skinfold_triceps + input.skinfold_subscapular + input.skinfold_suprailiac) - 0.00068 * ((input.skinfold_triceps + input.skinfold_subscapular + input.skinfold_suprailiac) ** 2) + 0.0000014 * ((input.skinfold_triceps + input.skinfold_subscapular + input.skinfold_suprailiac) ** 3); results["endomorphy"] = Number.isFinite(v) ? v : 0; } catch { results["endomorphy"] = 0; }
   try { const v = 0.858 * input.humerus_breadth + 0.601 * input.femur_breadth + 0.188 * (input.skinfold_triceps + input.skinfold_calf) + 0.161 * (input.skinfold_subscapular + input.skinfold_suprailiac) - 0.131 * input.height + 4.5; results["mesomorphy"] = Number.isFinite(v) ? v : 0; } catch { results["mesomorphy"] = 0; }
   results["ectomorphy"] = 0;
+  try { const v = (results["endomorphy"] ?? 0); results["_endomorphy_"] = Number.isFinite(v) ? v : 0; } catch { results["_endomorphy_"] = 0; }
+  try { const v = (results["mesomorphy"] ?? 0); results["_mesomorphy_"] = Number.isFinite(v) ? v : 0; } catch { results["_mesomorphy_"] = 0; }
+  try { const v = (results["ectomorphy"] ?? 0); results["_ectomorphy_"] = Number.isFinite(v) ? v : 0; } catch { results["_ectomorphy_"] = 0; }
   return results;
 }
 
 
 export function calculateSomatotype_calculator(input: Somatotype_calculatorInput): Somatotype_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Somatotype"] ?? 0;
+  const totalWasteCost = values["endomorphy"] ?? 0;
   const breakdown = {
     
   };

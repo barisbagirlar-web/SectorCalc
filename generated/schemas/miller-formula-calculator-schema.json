@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Diameter of the tree at breast height (1.3 m above ground)"
+      "businessContext": "Diameter of the tree at breast height (1.3 m above ground)",
+      "label_i18n": {
+        "en": "DBH (cm)",
+        "tr": "DBH (cm)",
+        "de": "DBH (cm)",
+        "fr": "DBH (cm)",
+        "es": "DBH (cm)",
+        "ar": "DBH (cm)"
+      }
     },
     {
       "id": "heightM",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Total vertical height of the tree"
+      "businessContext": "Total vertical height of the tree",
+      "label_i18n": {
+        "en": "Tree Height (m)",
+        "tr": "Tree Height (m)",
+        "de": "Tree Height (m)",
+        "fr": "Tree Height (m)",
+        "es": "Tree Height (m)",
+        "ar": "Tree Height (m)"
+      }
     },
     {
       "id": "formFactor",
       "label": "Miller Form Factor (k)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.42,
-      "businessContext": "Empirical constant for volume estimation (typically 0.42 for conifers)"
+      "businessContext": "Empirical constant for volume estimation (typically 0.42 for conifers)",
+      "label_i18n": {
+        "en": "Miller Form Factor (k)",
+        "tr": "Miller Form Factor (k)",
+        "de": "Miller Form Factor (k)",
+        "fr": "Miller Form Factor (k)",
+        "es": "Miller Form Factor (k)",
+        "ar": "Miller Form Factor (k)"
+      }
     },
     {
       "id": "adjustmentFactor",
       "label": "Safety/Adjustment Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for calibration or safety (1.0 = standard estimate)"
+      "businessContext": "Multiplier for calibration or safety (1.0 = standard estimate)",
+      "label_i18n": {
+        "en": "Safety/Adjustment Factor",
+        "tr": "Safety/Adjustment Factor",
+        "de": "Safety/Adjustment Factor",
+        "fr": "Safety/Adjustment Factor",
+        "es": "Safety/Adjustment Factor",
+        "ar": "Safety/Adjustment Factor"
+      }
     }
   ],
   "formulas": {
@@ -40,12 +72,7 @@
     "totalVolume": "baseVolume * adjustmentFactor"
   },
   "outputs": {
-    "primary": {
-      "id": "totalVolume",
-      "label": "Estimated Tree Volume (m³)",
-      "formula": "totalVolume",
-      "unit": "m³"
-    },
+    "primary": "diameterM",
     "breakdown": [
       {
         "id": "diameterM",
@@ -61,10 +88,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

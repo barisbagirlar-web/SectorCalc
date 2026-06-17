@@ -5,9 +5,17 @@
       "id": "genderCode",
       "label": "Cinsiyet (Erkek: 1, Kadın: 0)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Cinsiyet kodu: 1 erkek, 0 kadın"
+      "businessContext": "Cinsiyet kodu: 1 erkek, 0 kadın",
+      "label_i18n": {
+        "en": "Cinsiyet (Erkek: 1, Kadın: 0)",
+        "tr": "Cinsiyet (Erkek: 1, Kadın: 0)",
+        "de": "Cinsiyet (Erkek: 1, Kadın: 0)",
+        "fr": "Cinsiyet (Erkek: 1, Kadın: 0)",
+        "es": "Cinsiyet (Erkek: 1, Kadın: 0)",
+        "ar": "Cinsiyet (Erkek: 1, Kadın: 0)"
+      }
     },
     {
       "id": "age",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kişinin yaşı"
+      "businessContext": "Kişinin yaşı",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Vücut ağırlığı"
+      "businessContext": "Vücut ağırlığı",
+      "label_i18n": {
+        "en": "Ağırlık",
+        "tr": "Ağırlık",
+        "de": "Ağırlık",
+        "fr": "Ağırlık",
+        "es": "Ağırlık",
+        "ar": "Ağırlık"
+      }
     },
     {
       "id": "height",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Boy uzunluğu"
+      "businessContext": "Boy uzunluğu",
+      "label_i18n": {
+        "en": "Boy",
+        "tr": "Boy",
+        "de": "Boy",
+        "fr": "Boy",
+        "es": "Boy",
+        "ar": "Boy"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "genderOffset"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

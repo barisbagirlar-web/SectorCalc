@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.6,
-      "businessContext": "Width of a single sheet pile"
+      "businessContext": "Width of a single sheet pile",
+      "label_i18n": {
+        "en": "Pile Width",
+        "tr": "Pile Width",
+        "de": "Pile Width",
+        "fr": "Pile Width",
+        "es": "Pile Width",
+        "ar": "Pile Width"
+      }
     },
     {
       "id": "pileLength",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "m",
       "default": 12,
-      "businessContext": "Length of each pile"
+      "businessContext": "Length of each pile",
+      "label_i18n": {
+        "en": "Pile Length",
+        "tr": "Pile Length",
+        "de": "Pile Length",
+        "fr": "Pile Length",
+        "es": "Pile Length",
+        "ar": "Pile Length"
+      }
     },
     {
       "id": "numberOfPiles",
       "label": "Number of Piles",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Total number of piles"
+      "businessContext": "Total number of piles",
+      "label_i18n": {
+        "en": "Number of Piles",
+        "tr": "Number of Piles",
+        "de": "Number of Piles",
+        "fr": "Number of Piles",
+        "es": "Number of Piles",
+        "ar": "Number of Piles"
+      }
     },
     {
       "id": "weightPerArea",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m²",
       "default": 120,
-      "businessContext": "Mass of sheet pile per square meter (e.g., from manufacturer)"
+      "businessContext": "Mass of sheet pile per square meter (e.g., from manufacturer)",
+      "label_i18n": {
+        "en": "Unit Weight",
+        "tr": "Unit Weight",
+        "de": "Unit Weight",
+        "fr": "Unit Weight",
+        "es": "Unit Weight",
+        "ar": "Unit Weight"
+      }
     },
     {
       "id": "costPerTon",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/ton",
       "default": 900,
-      "businessContext": "Cost of steel per metric ton"
+      "businessContext": "Cost of steel per metric ton",
+      "label_i18n": {
+        "en": "Cost per Ton",
+        "tr": "Cost per Ton",
+        "de": "Cost per Ton",
+        "fr": "Cost per Ton",
+        "es": "Cost per Ton",
+        "ar": "Cost per Ton"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Waste factor for cutting and damage"
+      "businessContext": "Waste factor for cutting and damage",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "totalWeightTons"
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "İnşaat & Saha",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

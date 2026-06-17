@@ -29,33 +29,19 @@ export const Taguchi_quality_loss_function_calculatorInputSchema = z.object({
   include_hidden_factory: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Taguchi_quality_loss_function_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  results["loss_coefficient_k"] = 0;
-  results["mean_squared_deviation_msd"] = 0;
-  try { const v = k * MSD; results["loss_per_unit_lpu"] = Number.isFinite(v) ? v : 0; } catch { results["loss_per_unit_lpu"] = 0; }
-  try { const v = L * N; results["total_loss_basic"] = Number.isFinite(v) ? v : 0; } catch { results["total_loss_basic"] = 0; }
-  try { const v = (1 - input.inspection_rate/100) * TotalBasicLoss * 0.15 + (Cpk < 1.33 ? TotalBasicLoss * 0.10 : 0); results["hidden_factory_loss"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_factory_loss"] = 0; }
-  results["process_capability_cpk"] = 0;
-  try { const v = TotalBasicLoss + (input.include_hidden_factory ? HiddenLoss : 0); results["total_loss_adjusted"] = Number.isFinite(v) ? v : 0; } catch { results["total_loss_adjusted"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Taguchi_quality_loss_function_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateTaguchi_quality_loss_function_calculator(input: Taguchi_quality_loss_function_calculatorInput): Taguchi_quality_loss_function_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_adjusted_loss"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    loss_coefficient_k: values["loss_coefficient_k"] ?? 0,
-    mean_squared_deviation_msd: values["mean_squared_deviation_msd"] ?? 0,
-    loss_per_unit_lpu: values["loss_per_unit_lpu"] ?? 0,
-    total_basic_loss: values["total_basic_loss"] ?? 0,
-    hidden_factory_loss: values["hidden_factory_loss"] ?? 0,
-    process_capability_cpk: values["process_capability_cpk"] ?? 0,
-    process_sigma_level: values["process_sigma_level"] ?? 0
+    
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Center the process mean to target value","Reduce process standard deviation by 20%","Increase inspection rate to 100%","Conduct Design of Experiments (DOE) to identify key factors"];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -74,7 +60,7 @@ export function calculateTaguchi_quality_loss_function_calculator(input: Taguchi
 
 export interface Taguchi_quality_loss_function_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { loss_coefficient_k: number; mean_squared_deviation_msd: number; loss_per_unit_lpu: number; total_basic_loss: number; hidden_factory_loss: number; process_capability_cpk: number; process_sigma_level: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -157,7 +157,7 @@
       "id": "use_lean_standardization",
       "label": "Apply Lean Standardization",
       "type": "boolean",
-      "unit": null,
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -222,155 +222,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "direct_labor_cost",
-      "description": "Total direct labor cost",
-      "formula": "labor_hours * labor_rate",
-      "unit": "USD"
-    },
-    {
-      "id": "direct_material_cost",
-      "description": "Total direct material cost (with lean adjustment if applicable)",
-      "formula": "material_cost * (1 - IF(use_lean_standardization, 0.05, 0))",
-      "unit": "USD"
-    },
-    {
-      "id": "direct_equipment_cost",
-      "description": "Total equipment and tooling cost",
-      "formula": "equipment_cost",
-      "unit": "USD"
-    },
-    {
-      "id": "total_direct_cost",
-      "description": "Sum of all direct costs",
-      "formula": "direct_labor_cost + direct_material_cost + direct_equipment_cost",
-      "unit": "USD"
-    },
-    {
-      "id": "overhead_cost",
-      "description": "Overhead applied to direct costs",
-      "formula": "total_direct_cost * (overhead_percentage / 100)",
-      "unit": "USD"
-    },
-    {
-      "id": "complexity_multiplier",
-      "description": "Multiplier based on project complexity (low=1.0, medium=1.15, high=1.35)",
-      "formula": "CASE complexity_factor WHEN 'low' THEN 1.0 WHEN 'medium' THEN 1.15 WHEN 'high' THEN 1.35 END",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "quality_adjustment",
-      "description": "Quality cost factor based on sigma level (3=1.0, 4=0.95, 5=0.90, 6=0.85)",
-      "formula": "CASE quality_level WHEN '3' THEN 1.0 WHEN '4' THEN 0.95 WHEN '5' THEN 0.90 WHEN '6' THEN 0.85 END",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "primaryResult",
-      "description": "Final estimated project cost (primary output)",
-      "formula": "(total_direct_cost + overhead_cost) * complexity_multiplier * quality_adjustment",
-      "unit": "USD"
-    }
+    "labor_hours",
+    "labor_hours",
+    "labor_hours",
+    "labor_hours",
+    "labor_hours",
+    "labor_hours",
+    "labor_hours",
+    "labor_hours"
   ],
   "outputs": {
-    "primary": {
-      "id": "primaryResult",
-      "label": "Estimated Project Cost",
-      "unit": "USD",
-      "description": "Final cost estimate after applying all adjustments."
-    },
-    "breakdown": {
-      "directLaborCost": {
-        "id": "direct_labor_cost",
-        "label": "Direct Labor Cost",
-        "unit": "USD"
-      },
-      "directMaterialCost": {
-        "id": "direct_material_cost",
-        "label": "Direct Material Cost",
-        "unit": "USD"
-      },
-      "directEquipmentCost": {
-        "id": "direct_equipment_cost",
-        "label": "Equipment & Tooling Cost",
-        "unit": "USD"
-      },
-      "totalDirectCost": {
-        "id": "total_direct_cost",
-        "label": "Total Direct Cost",
-        "unit": "USD"
-      },
-      "overheadCost": {
-        "id": "overhead_cost",
-        "label": "Overhead Cost",
-        "unit": "USD"
-      },
-      "complexityMultiplier": {
-        "id": "complexity_multiplier",
-        "label": "Complexity Multiplier",
-        "unit": "dimensionless"
-      },
-      "qualityAdjustment": {
-        "id": "quality_adjustment",
-        "label": "Quality Adjustment Factor",
-        "unit": "dimensionless"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "rework_cost_estimate",
-        "label": "Rework Cost Estimate",
-        "description": "Estimated cost of rework based on sigma level and direct costs. Lower sigma increases rework.",
-        "formula": "total_direct_cost * (1 - (CASE quality_level WHEN '3' THEN 0.933 WHEN '4' THEN 0.9938 WHEN '5' THEN 0.99977 WHEN '6' THEN 0.9999966 END)) * 2.5",
-        "unit": "USD"
-      },
-      {
-        "id": "waste_factor",
-        "label": "Lean Waste Factor",
-        "description": "Potential waste in labor and material if lean not applied (5% of direct labor + material).",
-        "formula": "IF(use_lean_standardization, 0, (direct_labor_cost + direct_material_cost) * 0.05)",
-        "unit": "USD"
-      },
-      {
-        "id": "schedule_risk_premium",
-        "label": "Schedule Risk Premium",
-        "description": "Additional cost due to schedule uncertainty for high complexity projects.",
-        "formula": "IF(complexity_factor = 'high', primaryResult * 0.1, 0)",
-        "unit": "USD"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_lean",
-        "condition": "use_lean_standardization == false",
-        "action": "Consider applying Lean standardization to reduce labor and material costs by up to 5%."
-      },
-      {
-        "id": "action_sigma",
-        "condition": "quality_level IN ['3','4']",
-        "action": "Improve quality level to 5 or 6 Sigma to reduce rework and hidden costs."
-      },
-      {
-        "id": "action_complexity",
-        "condition": "complexity_factor == 'high'",
-        "action": "Break down project into smaller phases to reduce complexity multiplier."
-      },
-      {
-        "id": "action_overhead",
-        "condition": "overhead_percentage > 20",
-        "action": "Review overhead allocation; consider activity-based costing for more accuracy."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Cost",
-      "description": "Cost adjusted for data confidence (e.g., ±10% for medium confidence). Based on input completeness and variability.",
-      "formula": "primaryResult * (1 + (0.1 * (1 - confidence_score)))",
-      "unit": "USD",
-      "confidence_score": 0.85
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "project-cost-estimator-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK"
 }

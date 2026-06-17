@@ -3,10 +3,14 @@ import * as z from 'zod';
 
 export interface Integer_partition_calculatorInput {
   n: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Integer_partition_calculatorInputSchema = z.object({
   n: z.number().default(10),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Integer_partition_calculatorInput): Record<string, number> {

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı"
+      "businessContext": "Kullanıcının yaşı",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Boy uzunluğu"
+      "businessContext": "Boy uzunluğu",
+      "label_i18n": {
+        "en": "Boy",
+        "tr": "Boy",
+        "de": "Boy",
+        "fr": "Boy",
+        "es": "Boy",
+        "ar": "Boy"
+      }
     },
     {
       "id": "weight",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Vücut ağırlığı"
+      "businessContext": "Vücut ağırlığı",
+      "label_i18n": {
+        "en": "Kilo",
+        "tr": "Kilo",
+        "de": "Kilo",
+        "fr": "Kilo",
+        "es": "Kilo",
+        "ar": "Kilo"
+      }
     },
     {
       "id": "gender",
       "label": "Cinsiyet (0: Erkek, 1: Kadın)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 erkek, 1 kadın"
+      "businessContext": "0 erkek, 1 kadın",
+      "label_i18n": {
+        "en": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "tr": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "de": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "fr": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "es": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "ar": "Cinsiyet (0: Erkek, 1: Kadın)"
+      }
     },
     {
       "id": "activityLevel",
       "label": "Aktivite Seviyesi",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "1.2: sedanter, 1.375: hafif aktif, 1.55: orta, 1.725: yüksek, 1.9: çok yüksek"
+      "businessContext": "1.2: sedanter, 1.375: hafif aktif, 1.55: orta, 1.725: yüksek, 1.9: çok yüksek",
+      "label_i18n": {
+        "en": "Aktivite Seviyesi",
+        "tr": "Aktivite Seviyesi",
+        "de": "Aktivite Seviyesi",
+        "fr": "Aktivite Seviyesi",
+        "es": "Aktivite Seviyesi",
+        "ar": "Aktivite Seviyesi"
+      }
     },
     {
       "id": "weightGoal",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg/hafta",
       "default": -0.5,
-      "businessContext": "Negatif: kilo verme, pozitif: kilo alma"
+      "businessContext": "Negatif: kilo verme, pozitif: kilo alma",
+      "label_i18n": {
+        "en": "Hedef Kilo Değişimi (haftada kg)",
+        "tr": "Hedef Kilo Değişimi (haftada kg)",
+        "de": "Hedef Kilo Değişimi (haftada kg)",
+        "fr": "Hedef Kilo Değişimi (haftada kg)",
+        "es": "Hedef Kilo Değişimi (haftada kg)",
+        "ar": "Hedef Kilo Değişimi (haftada kg)"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,10 @@
       "dailyAdjustment"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
-  "premiumRequired": false
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "categorySlug": "technology-ai-cloud-cyber",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

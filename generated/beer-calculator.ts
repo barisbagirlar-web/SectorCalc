@@ -36,7 +36,7 @@ function evaluateAllFormulas(input: Beer_calculatorInput): Record<string, number
 
 export function calculateBeer_calculator(input: Beer_calculatorInput): Beer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["costPerLiter"] ?? 0;
+  const totalWasteCost = values["materialCost"] ?? 0;
   const breakdown = {
     
   };

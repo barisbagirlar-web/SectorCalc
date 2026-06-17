@@ -31,32 +31,19 @@ export const Recipe_cost_check_calculatorInputSchema = z.object({
   include_environmental_cost: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Recipe_cost_check_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.material_cost_per_kg * input.batch_size_kg; results["material_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["material_cost_total"] = 0; }
-  try { const v = input.labor_rate_per_hour * (input.processing_time_minutes / 60); results["labor_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost_total"] = 0; }
-  try { const v = input.energy_cost_per_kwh * input.energy_consumption_kwh; results["energy_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["energy_cost_total"] = 0; }
-  try { const v = input.waste_disposal_cost_per_kg * (input.batch_size_kg * (1 - input.recipe_yield_percent / 100)); results["waste_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["waste_cost_total"] = 0; }
-  try { const v = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0)) * (input.quality_rework_rate / 100); results["rework_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["rework_cost_total"] = 0; }
-  try { const v = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + (results["energy_cost_total"] ?? 0)) * (input.overhead_rate_percent / 100); results["overhead_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost_total"] = 0; }
-  try { const v = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + (results["energy_cost_total"] ?? 0) + (results["waste_cost_total"] ?? 0) + (results["rework_cost_total"] ?? 0) + (results["overhead_cost_total"] ?? 0)) / (input.batch_size_kg * (input.recipe_yield_percent / 100)); results["total_cost_per_kg"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_kg"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Recipe_cost_check_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateRecipe_cost_check_calculator(input: Recipe_cost_check_calculatorInput): Recipe_cost_check_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_cost_per_kg"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    material_cost_per_kg: values["material_cost_per_kg"] ?? 0,
-    labor_cost_per_kg: values["labor_cost_per_kg"] ?? 0,
-    energy_cost_per_kg: values["energy_cost_per_kg"] ?? 0,
-    waste_cost_per_kg: values["waste_cost_per_kg"] ?? 0,
-    rework_cost_per_kg: values["rework_cost_per_kg"] ?? 0,
-    overhead_cost_per_kg: values["overhead_cost_per_kg"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Yield Loss","Rework Loss","Energy Inefficiency"];
-  const suggestedActions: string[] = ["Improve Recipe Yield","Reduce Quality Rework","Conduct Energy Audit"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -75,7 +62,7 @@ export function calculateRecipe_cost_check_calculator(input: Recipe_cost_check_c
 
 export interface Recipe_cost_check_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { material_cost_per_kg: number; labor_cost_per_kg: number; energy_cost_per_kg: number; waste_cost_per_kg: number; rework_cost_per_kg: number; overhead_cost_per_kg: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

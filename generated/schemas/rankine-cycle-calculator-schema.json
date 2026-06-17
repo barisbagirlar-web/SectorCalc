@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kJ/kg",
       "default": 2800,
-      "businessContext": "Specific enthalpy of steam at turbine inlet (superheated conditions)"
+      "businessContext": "Specific enthalpy of steam at turbine inlet (superheated conditions)",
+      "label_i18n": {
+        "en": "Turbine Inlet Enthalpy (h₁)",
+        "tr": "Turbine Inlet Enthalpy (h₁)",
+        "de": "Turbine Inlet Enthalpy (h₁)",
+        "fr": "Turbine Inlet Enthalpy (h₁)",
+        "es": "Turbine Inlet Enthalpy (h₁)",
+        "ar": "Turbine Inlet Enthalpy (h₁)"
+      }
     },
     {
       "id": "turbineExitIsentropicEnthalpy",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kJ/kg",
       "default": 2000,
-      "businessContext": "Specific enthalpy at turbine exit assuming isentropic expansion"
+      "businessContext": "Specific enthalpy at turbine exit assuming isentropic expansion",
+      "label_i18n": {
+        "en": "Isentropic Turbine Exit Enthalpy (h₂ₛ)",
+        "tr": "Isentropic Turbine Exit Enthalpy (h₂ₛ)",
+        "de": "Isentropic Turbine Exit Enthalpy (h₂ₛ)",
+        "fr": "Isentropic Turbine Exit Enthalpy (h₂ₛ)",
+        "es": "Isentropic Turbine Exit Enthalpy (h₂ₛ)",
+        "ar": "Isentropic Turbine Exit Enthalpy (h₂ₛ)"
+      }
     },
     {
       "id": "condenserOutletEnthalpy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kJ/kg",
       "default": 200,
-      "businessContext": "Specific enthalpy of saturated liquid leaving the condenser"
+      "businessContext": "Specific enthalpy of saturated liquid leaving the condenser",
+      "label_i18n": {
+        "en": "Condenser Outlet Enthalpy (h₃)",
+        "tr": "Condenser Outlet Enthalpy (h₃)",
+        "de": "Condenser Outlet Enthalpy (h₃)",
+        "fr": "Condenser Outlet Enthalpy (h₃)",
+        "es": "Condenser Outlet Enthalpy (h₃)",
+        "ar": "Condenser Outlet Enthalpy (h₃)"
+      }
     },
     {
       "id": "pumpExitIsentropicEnthalpy",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "kJ/kg",
       "default": 210,
-      "businessContext": "Specific enthalpy at pump exit assuming isentropic compression"
+      "businessContext": "Specific enthalpy at pump exit assuming isentropic compression",
+      "label_i18n": {
+        "en": "Isentropic Pump Exit Enthalpy (h₄ₛ)",
+        "tr": "Isentropic Pump Exit Enthalpy (h₄ₛ)",
+        "de": "Isentropic Pump Exit Enthalpy (h₄ₛ)",
+        "fr": "Isentropic Pump Exit Enthalpy (h₄ₛ)",
+        "es": "Isentropic Pump Exit Enthalpy (h₄ₛ)",
+        "ar": "Isentropic Pump Exit Enthalpy (h₄ₛ)"
+      }
     },
     {
       "id": "turbineEfficiency",
       "label": "Turbine Isentropic Efficiency (ηₜ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "Ratio of actual turbine work to isentropic work (0–1)"
+      "businessContext": "Ratio of actual turbine work to isentropic work (0–1)",
+      "label_i18n": {
+        "en": "Turbine Isentropic Efficiency (ηₜ)",
+        "tr": "Turbine Isentropic Efficiency (ηₜ)",
+        "de": "Turbine Isentropic Efficiency (ηₜ)",
+        "fr": "Turbine Isentropic Efficiency (ηₜ)",
+        "es": "Turbine Isentropic Efficiency (ηₜ)",
+        "ar": "Turbine Isentropic Efficiency (ηₜ)"
+      }
     },
     {
       "id": "pumpEfficiency",
       "label": "Pump Isentropic Efficiency (ηₚ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
-      "businessContext": "Ratio of isentropic pump work to actual pump work (0–1)"
+      "businessContext": "Ratio of isentropic pump work to actual pump work (0–1)",
+      "label_i18n": {
+        "en": "Pump Isentropic Efficiency (ηₚ)",
+        "tr": "Pump Isentropic Efficiency (ηₚ)",
+        "de": "Pump Isentropic Efficiency (ηₚ)",
+        "fr": "Pump Isentropic Efficiency (ηₚ)",
+        "es": "Pump Isentropic Efficiency (ηₚ)",
+        "ar": "Pump Isentropic Efficiency (ηₚ)"
+      }
     }
   ],
   "formulas": {
@@ -66,10 +114,10 @@
       "heatAdded"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "process-chemical"
 }

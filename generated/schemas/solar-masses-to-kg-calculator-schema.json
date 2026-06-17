@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "M☉",
       "default": 1,
-      "businessContext": "The mass in solar masses to convert."
+      "businessContext": "The mass in solar masses to convert.",
+      "label_i18n": {
+        "en": "Solar Masses",
+        "tr": "Solar Masses",
+        "de": "Solar Masses",
+        "fr": "Solar Masses",
+        "es": "Solar Masses",
+        "ar": "Solar Masses"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "kg/M☉",
       "default": 1.989e+30,
-      "businessContext": "The number of kilograms in one solar mass (default is 1.989 × 10³⁰ kg)."
+      "businessContext": "The number of kilograms in one solar mass (default is 1.989 × 10³⁰ kg).",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of decimal places for the output."
+      "businessContext": "Number of decimal places for the output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "uncertaintyPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage uncertainty for the conversion, used to compute lower and upper bounds."
+      "businessContext": "Percentage uncertainty for the conversion, used to compute lower and upper bounds.",
+      "label_i18n": {
+        "en": "Uncertainty (±%)",
+        "tr": "Uncertainty (±%)",
+        "de": "Uncertainty (±%)",
+        "fr": "Uncertainty (±%)",
+        "es": "Uncertainty (±%)",
+        "ar": "Uncertainty (±%)"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "uncertaintyRange"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg"
 }

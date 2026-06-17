@@ -5,24 +5,82 @@
       "id": "n",
       "label": "n (non-negative integer)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Index of the Catalan number to compute"
+      "businessContext": "Index of the Catalan number to compute",
+      "label_i18n": {
+        "en": "n (non-negative integer)",
+        "tr": "n (non-negative integer)",
+        "de": "n (non-negative integer)",
+        "fr": "n (non-negative integer)",
+        "es": "n (non-negative integer)",
+        "ar": "n (non-negative integer)"
+      }
+    },
+    {
+      "id": "auto_input_2",
+      "label": "auto_input_2",
+      "label_i18n": {
+        "en": "auto_input_2",
+        "tr": "auto_input_2",
+        "de": "auto_input_2",
+        "fr": "auto_input_2",
+        "es": "auto_input_2",
+        "ar": "auto_input_2"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 2.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 2.",
+        "tr": "Auto-generated input 2.",
+        "de": "Auto-generated input 2.",
+        "fr": "Auto-generated input 2.",
+        "es": "Auto-generated input 2.",
+        "ar": "Auto-generated input 2."
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
     "catalanNumber": "Math.round(Math.exp(2 * n * Math.log(2) - (n + 0.5) * Math.log(n + 1) - (n + 0.5) * Math.log(n + 2) + 0.5 * Math.log(2 * Math.PI)))",
-    "catalanExact": "n === 0 ? 1 : Math.round(Math.exp(2 * n * Math.log(2) - (n + 0.5) * Math.log(n + 1) - (n + 0.5) * Math.log(n + 2) + 0.5 * Math.log(2 * Math.PI)))"
+    "catalanExact": "n === 0 ? 1 : Math.round(Math.exp(2 * n * Math.log(2) - (n + 0.5) * Math.log(n + 1) - (n + 0.5) * Math.log(n + 2) + 0.5 * Math.log(2 * Math.PI)))",
+    "C_n____2n______n_____n_1___": "C_n = (2n)! / (n! * (n+1)!)",
+    "Approximation_using_Stirling_s_formula": "Approximation using Stirling's formula"
   },
   "outputs": {
-    "primary": "Catalan number C_n",
+    "primary": "catalanNumber",
     "breakdown": [
       "C_n = (2n)! / (n! * (n+1)!)",
       "Approximation using Stirling's formula"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

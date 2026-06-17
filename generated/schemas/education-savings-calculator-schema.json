@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Age of the child to plan savings for education"
+      "businessContext": "Age of the child to plan savings for education",
+      "label_i18n": {
+        "en": "Current Age of Child",
+        "tr": "Current Age of Child",
+        "de": "Current Age of Child",
+        "fr": "Current Age of Child",
+        "es": "Current Age of Child",
+        "ar": "Current Age of Child"
+      }
     },
     {
       "id": "yearsUntilCollege",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 13,
-      "businessContext": "Number of years remaining before the child begins college"
+      "businessContext": "Number of years remaining before the child begins college",
+      "label_i18n": {
+        "en": "Years Until College Starts",
+        "tr": "Years Until College Starts",
+        "de": "Years Until College Starts",
+        "fr": "Years Until College Starts",
+        "es": "Years Until College Starts",
+        "ar": "Years Until College Starts"
+      }
     },
     {
       "id": "annualCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 30000,
-      "businessContext": "Today's annual tuition and related expenses"
+      "businessContext": "Today's annual tuition and related expenses",
+      "label_i18n": {
+        "en": "Current Annual Cost of Education",
+        "tr": "Current Annual Cost of Education",
+        "de": "Current Annual Cost of Education",
+        "fr": "Current Annual Cost of Education",
+        "es": "Current Annual Cost of Education",
+        "ar": "Current Annual Cost of Education"
+      }
     },
     {
       "id": "inflationRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected annual increase in education costs"
+      "businessContext": "Expected annual increase in education costs",
+      "label_i18n": {
+        "en": "Education Inflation Rate",
+        "tr": "Education Inflation Rate",
+        "de": "Education Inflation Rate",
+        "fr": "Education Inflation Rate",
+        "es": "Education Inflation Rate",
+        "ar": "Education Inflation Rate"
+      }
     },
     {
       "id": "returnRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Annual rate of return on savings investments"
+      "businessContext": "Annual rate of return on savings investments",
+      "label_i18n": {
+        "en": "Expected Investment Return Rate",
+        "tr": "Expected Investment Return Rate",
+        "de": "Expected Investment Return Rate",
+        "fr": "Expected Investment Return Rate",
+        "es": "Expected Investment Return Rate",
+        "ar": "Expected Investment Return Rate"
+      }
     },
     {
       "id": "currentSavings",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Existing savings earmarked for education"
+      "businessContext": "Existing savings earmarked for education",
+      "label_i18n": {
+        "en": "Current Savings Balance",
+        "tr": "Current Savings Balance",
+        "de": "Current Savings Balance",
+        "fr": "Current Savings Balance",
+        "es": "Current Savings Balance",
+        "ar": "Current Savings Balance"
+      }
     },
     {
       "id": "monthlyContribution",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200,
-      "businessContext": "Regular monthly savings contribution until college begins"
+      "businessContext": "Regular monthly savings contribution until college begins",
+      "label_i18n": {
+        "en": "Monthly Contribution Amount",
+        "tr": "Monthly Contribution Amount",
+        "de": "Monthly Contribution Amount",
+        "fr": "Monthly Contribution Amount",
+        "es": "Monthly Contribution Amount",
+        "ar": "Monthly Contribution Amount"
+      }
     },
     {
       "id": "durationOfStudy",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "years",
       "default": 4,
-      "businessContext": "Expected number of years the child will attend college"
+      "businessContext": "Expected number of years the child will attend college",
+      "label_i18n": {
+        "en": "Duration of Study",
+        "tr": "Duration of Study",
+        "de": "Duration of Study",
+        "fr": "Duration of Study",
+        "es": "Duration of Study",
+        "ar": "Duration of Study"
+      }
     }
   ],
   "formulas": {
@@ -71,22 +135,21 @@
     "totalSavings": "currentSavings * Math.pow(1 + returnRate/100, yearsUntilCollege) + (monthlyContribution * 12) * ((Math.pow(1 + returnRate/100, yearsUntilCollege) - 1) / (returnRate/100))",
     "shortfall": "totalCost - totalSavings",
     "primary": "`${shortfall > 0 ? 'Shortfall' : 'Surplus'}: $${Math.abs(shortfall).toFixed(2)}`",
-    "breakdown": [
-      "`Total future cost: $${totalCost.toFixed(2)}`",
-      "`Total savings: $${totalSavings.toFixed(2)}`"
-    ]
+    "breakdown": "childAge",
+    "__breakdown_0__": "${breakdown[0]}",
+    "__breakdown_1__": "${breakdown[1]}"
   },
   "outputs": {
-    "primary": "${primary}",
+    "primary": "totalCost",
     "breakdown": [
       "${breakdown[0]}",
       "${breakdown[1]}"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "electrical-power-systems"
 }

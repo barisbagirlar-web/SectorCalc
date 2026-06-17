@@ -5,33 +5,65 @@
       "id": "q1",
       "label": "First Quartile (Q1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Lower quartile of the dataset"
+      "businessContext": "Lower quartile of the dataset",
+      "label_i18n": {
+        "en": "First Quartile (Q1)",
+        "tr": "First Quartile (Q1)",
+        "de": "First Quartile (Q1)",
+        "fr": "First Quartile (Q1)",
+        "es": "First Quartile (Q1)",
+        "ar": "First Quartile (Q1)"
+      }
     },
     {
       "id": "q3",
       "label": "Third Quartile (Q3)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Upper quartile of the dataset"
+      "businessContext": "Upper quartile of the dataset",
+      "label_i18n": {
+        "en": "Third Quartile (Q3)",
+        "tr": "Third Quartile (Q3)",
+        "de": "Third Quartile (Q3)",
+        "fr": "Third Quartile (Q3)",
+        "es": "Third Quartile (Q3)",
+        "ar": "Third Quartile (Q3)"
+      }
     },
     {
       "id": "value",
       "label": "Test Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Value to check for outlier status"
+      "businessContext": "Value to check for outlier status",
+      "label_i18n": {
+        "en": "Test Value",
+        "tr": "Test Value",
+        "de": "Test Value",
+        "fr": "Test Value",
+        "es": "Test Value",
+        "ar": "Test Value"
+      }
     },
     {
       "id": "multiplier",
       "label": "IQR Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Typically 1.5 for mild outliers, 3 for extreme"
+      "businessContext": "Typically 1.5 for mild outliers, 3 for extreme",
+      "label_i18n": {
+        "en": "IQR Multiplier",
+        "tr": "IQR Multiplier",
+        "de": "IQR Multiplier",
+        "fr": "IQR Multiplier",
+        "es": "IQR Multiplier",
+        "ar": "IQR Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "upperBound"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

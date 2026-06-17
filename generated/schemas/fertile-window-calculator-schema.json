@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 28,
-      "businessContext": "The average number of days between the first day of one period and the first day of the next."
+      "businessContext": "The average number of days between the first day of one period and the first day of the next.",
+      "label_i18n": {
+        "en": "Average Cycle Length",
+        "tr": "Average Cycle Length",
+        "de": "Average Cycle Length",
+        "fr": "Average Cycle Length",
+        "es": "Average Cycle Length",
+        "ar": "Average Cycle Length"
+      }
     },
     {
       "id": "lutealPhaseLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 14,
-      "businessContext": "The number of days between ovulation and the start of the next period, typically constant for an individual."
+      "businessContext": "The number of days between ovulation and the start of the next period, typically constant for an individual.",
+      "label_i18n": {
+        "en": "Luteal Phase Length",
+        "tr": "Luteal Phase Length",
+        "de": "Luteal Phase Length",
+        "fr": "Luteal Phase Length",
+        "es": "Luteal Phase Length",
+        "ar": "Luteal Phase Length"
+      }
     },
     {
       "id": "spermLifeSpan",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Maximum number of days sperm can survive in the female reproductive tract."
+      "businessContext": "Maximum number of days sperm can survive in the female reproductive tract.",
+      "label_i18n": {
+        "en": "Sperm Lifespan",
+        "tr": "Sperm Lifespan",
+        "de": "Sperm Lifespan",
+        "fr": "Sperm Lifespan",
+        "es": "Sperm Lifespan",
+        "ar": "Sperm Lifespan"
+      }
     },
     {
       "id": "eggLifeSpan",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 1,
-      "businessContext": "Number of days the egg is viable after ovulation."
+      "businessContext": "Number of days the egg is viable after ovulation.",
+      "label_i18n": {
+        "en": "Egg Lifespan",
+        "tr": "Egg Lifespan",
+        "de": "Egg Lifespan",
+        "fr": "Egg Lifespan",
+        "es": "Egg Lifespan",
+        "ar": "Egg Lifespan"
+      }
     },
     {
       "id": "periodLength",
@@ -39,26 +71,38 @@
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Typical duration of menstrual bleeding."
+      "businessContext": "Typical duration of menstrual bleeding.",
+      "label_i18n": {
+        "en": "Menstrual Period Length",
+        "tr": "Menstrual Period Length",
+        "de": "Menstrual Period Length",
+        "fr": "Menstrual Period Length",
+        "es": "Menstrual Period Length",
+        "ar": "Menstrual Period Length"
+      }
     }
   ],
   "formulas": {
     "ovulationDay": "cycleLength - lutealPhaseLength",
     "fertileStart": "ovulationDay - spermLifeSpan",
-    "fertileEnd": "ovulationDay + eggLifeSpan"
+    "fertileEnd": "ovulationDay + eggLifeSpan",
+    "__ovulationDay_": "${ovulationDay}",
+    "__fertileStart___based_on_sperm_lifespan": "${fertileStart} (based on sperm lifespan of ${spermLifeSpan} days)",
+    "__fertileEnd___based_on_egg_lifespan_of_": "${fertileEnd} (based on egg lifespan of ${eggLifeSpan} day(s))",
+    "result": "Fertile window: days ${fertileStart} to ${fertileEnd} of the cycle (assuming cycle start is day 1)."
   },
   "outputs": {
-    "primary": "Fertile window: days ${fertileStart} to ${fertileEnd} of the cycle (assuming cycle start is day 1).",
+    "primary": "result",
     "breakdown": [
       "Estimated ovulation day: ${ovulationDay}",
       "Fertile window start: ${fertileStart} (based on sperm lifespan of ${spermLifeSpan} days)",
       "Fertile window end: ${fertileEnd} (based on egg lifespan of ${eggLifeSpan} day(s))"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

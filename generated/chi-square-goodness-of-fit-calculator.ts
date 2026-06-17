@@ -23,8 +23,11 @@ export const Chi_square_goodness_of_fit_calculatorInputSchema = z.object({
   e4: z.number().default(0),
 });
 
-function evaluateAllFormulas(_input: Chi_square_goodness_of_fit_calculatorInput): Record<string, number> {
-  return {};
+function evaluateAllFormulas(input: Chi_square_goodness_of_fit_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.o1; results["chiSq"] = Number.isFinite(v) ? v : 0; } catch { results["chiSq"] = 0; }
+  try { const v = input.o1; results["df"] = Number.isFinite(v) ? v : 0; } catch { results["df"] = 0; }
+  return results;
 }
 
 

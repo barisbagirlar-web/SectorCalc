@@ -172,7 +172,8 @@
       },
       "businessContext_i18n": {
         "en": "Qualitative assessment of supplier quality management system (ISO 9001)."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "use_eco_cost",
@@ -185,7 +186,8 @@
       },
       "businessContext_i18n": {
         "en": "Toggle to include estimated carbon and waste disposal costs (ISO 14040)."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "co2_per_unit",
@@ -260,151 +262,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "quality_cost",
-      "label": "Quality Cost per Unit",
-      "description": "Cost of defects including inspection and rework (Six Sigma COPQ).",
-      "expression": "inspection_cost_per_unit + (defect_rate / 1000000) * (purchase_price * 0.5)",
-      "unit": "USD"
-    },
-    {
-      "id": "logistics_cost",
-      "label": "Logistics Cost per Unit",
-      "description": "Freight and inventory carrying cost based on lead time.",
-      "expression": "freight_cost_per_unit + (purchase_price * carrying_cost_rate / 100) * (lead_time_days / 365)",
-      "unit": "USD"
-    },
-    {
-      "id": "warranty_cost",
-      "label": "Warranty Cost per Unit",
-      "description": "Expected warranty liability per unit.",
-      "expression": "(warranty_claim_rate / 100) * average_claim_cost",
-      "unit": "USD"
-    },
-    {
-      "id": "environmental_cost",
-      "label": "Environmental Cost per Unit",
-      "description": "Carbon tax and waste disposal cost (ISO 14040).",
-      "expression": "use_eco_cost ? (co2_per_unit * carbon_tax_rate) : 0",
-      "unit": "USD"
-    },
-    {
-      "id": "tco_per_unit",
-      "label": "Total Cost of Ownership per Unit",
-      "description": "Primary TCO metric combining all cost drivers.",
-      "expression": "purchase_price + quality_cost + logistics_cost + warranty_cost + environmental_cost",
-      "unit": "USD"
-    },
-    {
-      "id": "annual_tco",
-      "label": "Annual Total Cost of Ownership",
-      "description": "Total annual cost based on quantity.",
-      "expression": "tco_per_unit * annual_quantity",
-      "unit": "USD"
-    },
-    {
-      "id": "tco_index",
-      "label": "TCO Performance Index",
-      "description": "Normalized index comparing TCO to purchase price (1.0 = baseline).",
-      "expression": "tco_per_unit / purchase_price",
-      "unit": "ratio"
-    }
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price",
+    "purchase_price"
   ],
   "outputs": {
-    "primary": {
-      "id": "annual_tco",
-      "label": "Annual Total Cost of Ownership",
-      "unit": "USD",
-      "description": "Primary result: total annual cost including all hidden drivers."
-    },
-    "breakdown": {
-      "purchaseCost": {
-        "id": "purchase_cost",
-        "label": "Purchase Cost",
-        "value": null,
-        "unit": "USD",
-        "description": "Annual purchase price cost."
-      },
-      "qualityCost": {
-        "id": "quality_cost",
-        "label": "Quality Cost",
-        "value": null,
-        "unit": "USD",
-        "description": "Annual cost of defects and inspection."
-      },
-      "logisticsCost": {
-        "id": "logistics_cost",
-        "label": "Logistics Cost",
-        "value": null,
-        "unit": "USD",
-        "description": "Annual freight and inventory carrying cost."
-      },
-      "warrantyCost": {
-        "id": "warranty_cost",
-        "label": "Warranty Cost",
-        "value": null,
-        "unit": "USD",
-        "description": "Annual warranty liability."
-      },
-      "environmentalCost": {
-        "id": "environmental_cost",
-        "label": "Environmental Cost",
-        "value": null,
-        "unit": "USD",
-        "description": "Annual carbon and waste cost (if included)."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "defect_hidden_loss",
-        "label": "Defect Rework & Scrap",
-        "description": "Unaccounted cost of internal rework and scrap due to defects.",
-        "estimatedImpact": "0.5 * defect_rate/1000000 * purchase_price * annual_quantity"
-      },
-      {
-        "id": "expediting_cost",
-        "label": "Expedited Shipping Cost",
-        "description": "Premium freight due to lead time variability.",
-        "estimatedImpact": "0.1 * freight_cost_per_unit * annual_quantity"
-      },
-      {
-        "id": "admin_overhead",
-        "label": "Supplier Management Overhead",
-        "description": "Cost of procurement and quality audits per supplier.",
-        "estimatedImpact": "0.02 * annual_tco"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_defects",
-        "label": "Implement Six Sigma DMAIC",
-        "description": "Target defect rate reduction to <500 ppm to lower quality cost.",
-        "expectedSavings": "0.3 * quality_cost * annual_quantity"
-      },
-      {
-        "id": "optimize_lead_time",
-        "label": "Lean JIT Inventory Reduction",
-        "description": "Negotiate lead time reduction to 15 days to cut carrying cost.",
-        "expectedSavings": "0.2 * logistics_cost * annual_quantity"
-      },
-      {
-        "id": "warranty_improvement",
-        "label": "Root Cause Analysis (RCA)",
-        "description": "Reduce warranty claims by 50% through design and process improvements.",
-        "expectedSavings": "0.5 * warranty_cost * annual_quantity"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "tco_confidence_adjusted",
-      "label": "TCO with Confidence Adjustment",
-      "description": "TCO adjusted for data uncertainty using a confidence factor (0.8-1.0).",
-      "value": null,
-      "unit": "USD",
-      "confidenceFactor": 0.9
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "supplier-performance-tco-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

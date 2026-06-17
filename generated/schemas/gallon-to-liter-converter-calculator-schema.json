@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Konteyner sayısı"
+      "businessContext": "Konteyner sayısı",
+      "label_i18n": {
+        "en": "Konteyner Sayısı",
+        "tr": "Konteyner Sayısı",
+        "de": "Konteyner Sayısı",
+        "fr": "Konteyner Sayısı",
+        "es": "Konteyner Sayısı",
+        "ar": "Konteyner Sayısı"
+      }
     },
     {
       "id": "gallonsPerContainer",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "gal",
       "default": 0,
-      "businessContext": "Konteyner başına galon"
+      "businessContext": "Konteyner başına galon",
+      "label_i18n": {
+        "en": "Konteyner Başına Galon",
+        "tr": "Konteyner Başına Galon",
+        "de": "Konteyner Başına Galon",
+        "fr": "Konteyner Başına Galon",
+        "es": "Konteyner Başına Galon",
+        "ar": "Konteyner Başına Galon"
+      }
     },
     {
       "id": "unitType",
       "label": "Galon Tipi",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0: ABD galonu, 1: İngiliz galonu"
+      "businessContext": "0: ABD galonu, 1: İngiliz galonu",
+      "label_i18n": {
+        "en": "Galon Tipi",
+        "tr": "Galon Tipi",
+        "de": "Galon Tipi",
+        "fr": "Galon Tipi",
+        "es": "Galon Tipi",
+        "ar": "Galon Tipi"
+      }
     },
     {
       "id": "customFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L/gal",
       "default": 0,
-      "businessContext": "0 ise birim tipine göre standart faktör kullanılır"
+      "businessContext": "0 ise birim tipine göre standart faktör kullanılır",
+      "label_i18n": {
+        "en": "Özel Dönüşüm Faktörü",
+        "tr": "Özel Dönüşüm Faktörü",
+        "de": "Özel Dönüşüm Faktörü",
+        "fr": "Özel Dönüşüm Faktörü",
+        "es": "Özel Dönüşüm Faktörü",
+        "ar": "Özel Dönüşüm Faktörü"
+      }
     },
     {
       "id": "wastePercentage",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Proses firesini yüzde olarak girin (ör. 5)"
+      "businessContext": "Proses firesini yüzde olarak girin (ör. 5)",
+      "label_i18n": {
+        "en": "Fire Yüzdesi",
+        "tr": "Fire Yüzdesi",
+        "de": "Fire Yüzdesi",
+        "fr": "Fire Yüzdesi",
+        "es": "Fire Yüzdesi",
+        "ar": "Fire Yüzdesi"
+      }
     },
     {
       "id": "outputDecimals",
       "label": "Ondalık Basamak Sayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı"
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Ondalık Basamak Sayısı",
+        "tr": "Ondalık Basamak Sayısı",
+        "de": "Ondalık Basamak Sayısı",
+        "fr": "Ondalık Basamak Sayısı",
+        "es": "Ondalık Basamak Sayısı",
+        "ar": "Ondalık Basamak Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -65,10 +113,10 @@
       "totalLiters"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

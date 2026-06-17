@@ -22,13 +22,16 @@ function evaluateAllFormulas(input: Fafsa_calculatorInput): Record<string, numbe
   try { const v = input.parentIncome * 0.22 + input.parentAssets * 0.12; results["parentContribution"] = Number.isFinite(v) ? v : 0; } catch { results["parentContribution"] = 0; }
   try { const v = input.studentIncome * 0.50 + input.studentAssets * 0.20; results["studentContribution"] = Number.isFinite(v) ? v : 0; } catch { results["studentContribution"] = 0; }
   try { const v = (input.parentIncome * 0.22 + input.parentAssets * 0.12 + input.studentIncome * 0.50 + input.studentAssets * 0.20) / input.numberInCollege; results["totalEFC"] = Number.isFinite(v) ? v : 0; } catch { results["totalEFC"] = 0; }
+  try { const v = input.parentIncome * 0.22 + input.parentAssets * 0.12; results["parentIncome___0_22___parentAssets___0_1"] = Number.isFinite(v) ? v : 0; } catch { results["parentIncome___0_22___parentAssets___0_1"] = 0; }
+  try { const v = input.studentIncome * 0.50 + input.studentAssets * 0.20; results["studentIncome___0_50___studentAssets___0"] = Number.isFinite(v) ? v : 0; } catch { results["studentIncome___0_50___studentAssets___0"] = 0; }
+  try { const v = (input.parentIncome * 0.22 + input.parentAssets * 0.12 + input.studentIncome * 0.50 + input.studentAssets * 0.20) / input.numberInCollege; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateFafsa_calculator(input: Fafsa_calculatorInput): Fafsa_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["(parentIncome * 0.22 + parentAssets * 0.12 + studentIncome * 0.50 + studentAssets * 0.20) / numberInCollege"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -20,13 +20,15 @@ function evaluateAllFormulas(input: Pool_volume_calculatorInput): Record<string,
   try { const v = (input.shallowDepth + input.deepDepth) / 2; results["averageDepth"] = Number.isFinite(v) ? v : 0; } catch { results["averageDepth"] = 0; }
   try { const v = input.length * input.width; results["area"] = Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
   try { const v = input.length * input.width * (input.shallowDepth + input.deepDepth) / 2; results["volume"] = Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
+  results["__averageDepth__m"] = 0;
+  results["__area__m_"] = 0;
   return results;
 }
 
 
 export function calculatePool_volume_calculator(input: Pool_volume_calculatorInput): Pool_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Pool"] ?? 0;
+  const totalWasteCost = values["averageDepth"] ?? 0;
   const breakdown = {
     
   };

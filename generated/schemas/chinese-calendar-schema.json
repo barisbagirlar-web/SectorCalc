@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "The Gregorian calendar year to convert."
+      "businessContext": "The Gregorian calendar year to convert.",
+      "label_i18n": {
+        "en": "Gregorian Year",
+        "tr": "Gregorian Year",
+        "de": "Gregorian Year",
+        "fr": "Gregorian Year",
+        "es": "Gregorian Year",
+        "ar": "Gregorian Year"
+      }
     },
     {
       "id": "month",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "The Gregorian calendar month (1-12)."
+      "businessContext": "The Gregorian calendar month (1-12).",
+      "label_i18n": {
+        "en": "Gregorian Month",
+        "tr": "Gregorian Month",
+        "de": "Gregorian Month",
+        "fr": "Gregorian Month",
+        "es": "Gregorian Month",
+        "ar": "Gregorian Month"
+      }
     },
     {
       "id": "day",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "The Gregorian calendar day (1-31)."
+      "businessContext": "The Gregorian calendar day (1-31).",
+      "label_i18n": {
+        "en": "Gregorian Day",
+        "tr": "Gregorian Day",
+        "de": "Gregorian Day",
+        "fr": "Gregorian Day",
+        "es": "Gregorian Day",
+        "ar": "Gregorian Day"
+      }
     },
     {
       "id": "leapMonth",
@@ -31,25 +55,36 @@
       "type": "number",
       "unit": "boolean",
       "default": 0,
-      "businessContext": "Set to 1 if the month is a leap month in Chinese calendar, else 0."
+      "businessContext": "Set to 1 if the month is a leap month in Chinese calendar, else 0.",
+      "label_i18n": {
+        "en": "Leap Month Flag",
+        "tr": "Leap Month Flag",
+        "de": "Leap Month Flag",
+        "fr": "Leap Month Flag",
+        "es": "Leap Month Flag",
+        "ar": "Leap Month Flag"
+      }
     }
   ],
   "formulas": {
     "chineseYear": "year - 2697",
     "chineseMonth": "((month + 9) % 12) + 1",
     "chineseDay": "day",
-    "isLeapMonth": "leapMonth === 1 ? 'Yes' : 'No'"
+    "isLeapMonth": "leapMonth === 1 ? 'Yes' : 'No'",
+    "_chineseMonth_": "{chineseMonth}",
+    "_chineseDay_": "{chineseDay}",
+    "_isLeapMonth_": "{isLeapMonth}"
   },
   "outputs": {
-    "primary": "Chinese Year: {chineseYear}",
+    "primary": "chineseYear",
     "breakdown": [
       "Chinese Month: {chineseMonth}",
       "Chinese Day: {chineseDay}",
       "Leap Month: {isLeapMonth}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

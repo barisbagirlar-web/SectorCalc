@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "BTU",
       "default": 0,
-      "businessContext": "Energy quantity in British Thermal Units"
+      "businessContext": "Energy quantity in British Thermal Units",
+      "label_i18n": {
+        "en": "BTU Value",
+        "tr": "BTU Value",
+        "de": "BTU Value",
+        "fr": "BTU Value",
+        "es": "BTU Value",
+        "ar": "BTU Value"
+      }
     },
     {
       "id": "btuStandard",
       "label": "BTU Standard",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: IT (1055.06 J), 2: Thermochemical (1054.35 J), 3: ISO (1055.06 J), 4: Mean (1055.87 J)"
+      "businessContext": "1: IT (1055.06 J), 2: Thermochemical (1054.35 J), 3: ISO (1055.06 J), 4: Mean (1055.87 J)",
+      "label_i18n": {
+        "en": "BTU Standard",
+        "tr": "BTU Standard",
+        "de": "BTU Standard",
+        "fr": "BTU Standard",
+        "es": "BTU Standard",
+        "ar": "BTU Standard"
+      }
     },
     {
       "id": "precision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal places",
       "default": 2,
-      "businessContext": "Number of decimal places for the output"
+      "businessContext": "Number of decimal places for the output",
+      "label_i18n": {
+        "en": "Precision",
+        "tr": "Precision",
+        "de": "Precision",
+        "fr": "Precision",
+        "es": "Precision",
+        "ar": "Precision"
+      }
     },
     {
       "id": "factorOverride",
@@ -31,22 +55,42 @@
       "type": "number",
       "unit": "J/BTU",
       "default": 0,
-      "businessContext": "Override standard factor; 0 to use selected standard"
+      "businessContext": "Override standard factor; 0 to use selected standard",
+      "label_i18n": {
+        "en": "Custom Conversion Factor",
+        "tr": "Custom Conversion Factor",
+        "de": "Custom Conversion Factor",
+        "fr": "Custom Conversion Factor",
+        "es": "Custom Conversion Factor",
+        "ar": "Custom Conversion Factor"
+      }
     },
     {
       "id": "outputUnit",
       "label": "Output Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: Joules, 2: Kilojoules"
+      "businessContext": "1: Joules, 2: Kilojoules",
+      "label_i18n": {
+        "en": "Output Unit",
+        "tr": "Output Unit",
+        "de": "Output Unit",
+        "fr": "Output Unit",
+        "es": "Output Unit",
+        "ar": "Output Unit"
+      }
     }
   ],
   "formulas": {
     "conversionFactor": "factorOverride !== 0 ? factorOverride : (btuStandard === 1 ? 1055.05585262 : (btuStandard === 2 ? 1054.350 : (btuStandard === 3 ? 1055.056 : (btuStandard === 4 ? 1055.87 : 1055.05585262))))",
     "rawJoules": "btuValue * conversionFactor",
     "joules": "outputUnit === 2 ? rawJoules / 1000 : rawJoules",
-    "roundedJoules": "Math.round(joules * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "roundedJoules": "Math.round(joules * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "__conversionFactor__J_BTU_": "${conversionFactor} J/BTU`",
+    "__rawJoules____outputUnit_____2____kJ___": "${rawJoules} ${outputUnit === 2 ? 'kJ' : 'J'}`",
+    "__btuStandard_____1____IT____btuStandard": "${btuStandard === 1 ? 'IT' : btuStandard === 2 ? 'Thermochemical' : btuStandard === 3 ? 'ISO' : btuStandard === 4 ? 'Mean' : 'Unknown'}`",
+    "__precision__decimal_places_": "${precision} decimal places`"
   },
   "outputs": {
     "primary": "roundedJoules",
@@ -57,10 +101,10 @@
       "`Precision: ${precision} decimal places`"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Enerji & Karbon",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

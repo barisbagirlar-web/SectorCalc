@@ -16,7 +16,7 @@
       "id": "beam_type",
       "label": "Beam Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "I-beam",
       "options": [
         "I-beam",
@@ -181,7 +181,7 @@
       "id": "surface_condition",
       "label": "Surface Condition",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "clean",
       "options": [
         "clean",
@@ -201,7 +201,7 @@
       "id": "include_coating_weight",
       "label": "Include Coating Weight",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "businessContext": "Adds estimated paint/galvanizing weight.",
       "label_i18n": {
@@ -254,145 +254,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "cross_sectional_area",
-      "label": "Cross-Sectional Area",
-      "formula": "2 * (flange_width * flange_thickness) + (web_height * web_thickness)",
-      "unit": "mm²",
-      "description": "Total cross-sectional area of the beam profile (simplified for I/H-beam)."
-    },
-    {
-      "id": "volume_per_beam",
-      "label": "Volume per Beam",
-      "formula": "cross_sectional_area * length * 1e-6",
-      "unit": "m³",
-      "description": "Volume of one beam in cubic meters (conversion from mm²·m to m³)."
-    },
-    {
-      "id": "weight_per_beam",
-      "label": "Weight per Beam",
-      "formula": "volume_per_beam * material_density",
-      "unit": "kg",
-      "description": "Theoretical weight of one beam without coating."
-    },
-    {
-      "id": "coating_weight_per_beam",
-      "label": "Coating Weight per Beam",
-      "formula": "if(include_coating_weight, (2 * (flange_width + web_height) * length * 1e-6 * 0.2 * material_density), 0)",
-      "unit": "kg",
-      "description": "Estimated coating weight (0.2 mm equivalent thickness on exposed surfaces)."
-    },
-    {
-      "id": "total_weight_per_beam",
-      "label": "Total Weight per Beam",
-      "formula": "weight_per_beam + coating_weight_per_beam",
-      "unit": "kg",
-      "description": "Weight including coating if selected."
-    },
-    {
-      "id": "total_weight",
-      "label": "Total Weight (All Beams)",
-      "formula": "total_weight_per_beam * quantity",
-      "unit": "kg",
-      "description": "Aggregate weight for the order quantity."
-    },
-    {
-      "id": "total_material_cost",
-      "label": "Total Material Cost",
-      "formula": "total_weight * material_cost_per_kg * (1 + cutting_loss_factor / 100)",
-      "unit": "USD",
-      "description": "Cost including cutting loss allowance."
-    }
+    "beam_type",
+    "beam_type",
+    "beam_type",
+    "beam_type",
+    "beam_type",
+    "beam_type",
+    "beam_type"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_weight",
-      "label": "Total Weight",
-      "value": null,
-      "unit": "kg",
-      "description": "Primary result: total weight of all beams including coating and cutting loss."
-    },
-    "breakdown": {
-      "cross_sectional_area": {
-        "id": "cross_sectional_area",
-        "label": "Cross-Sectional Area",
-        "value": null,
-        "unit": "mm²"
-      },
-      "volume_per_beam": {
-        "id": "volume_per_beam",
-        "label": "Volume per Beam",
-        "value": null,
-        "unit": "m³"
-      },
-      "weight_per_beam": {
-        "id": "weight_per_beam",
-        "label": "Weight per Beam (no coating)",
-        "value": null,
-        "unit": "kg"
-      },
-      "coating_weight_per_beam": {
-        "id": "coating_weight_per_beam",
-        "label": "Coating Weight per Beam",
-        "value": null,
-        "unit": "kg"
-      },
-      "total_weight_per_beam": {
-        "id": "total_weight_per_beam",
-        "label": "Total Weight per Beam",
-        "value": null,
-        "unit": "kg"
-      },
-      "total_material_cost": {
-        "id": "total_material_cost",
-        "label": "Total Material Cost",
-        "value": null,
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "cutting_loss",
-        "label": "Cutting Loss",
-        "value": null,
-        "unit": "kg",
-        "description": "Material lost due to cutting (kerf, scrap)."
-      },
-      {
-        "id": "coating_overhead",
-        "label": "Coating Overhead",
-        "value": null,
-        "unit": "kg",
-        "description": "Additional weight from coating if included."
-      },
-      {
-        "id": "dimensional_tolerance",
-        "label": "Dimensional Tolerance Loss",
-        "value": null,
-        "unit": "kg",
-        "description": "Estimated weight variation due to rolling tolerances (ISO 9001: ±2% typical)."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_cutting_loss",
-        "action": "Optimize nesting and use CNC saw to reduce cutting loss below 3%.",
-        "expected_impact": "Save up to 2% material cost."
-      },
-      {
-        "id": "check_web_slenderness",
-        "action": "If web slenderness > 100, consider stiffeners or thicker web to meet AISC 360.",
-        "expected_impact": "Improve structural integrity and reduce buckling risk."
-      },
-      {
-        "id": "bulk_discount",
-        "action": "For total weight > 5000 kg, negotiate bulk material discount (typically 5-10%).",
-        "expected_impact": "Reduce total cost by up to 10%."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "metal-plastics-forming",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
+  "toolName": "beam-weight-calculator"
 }

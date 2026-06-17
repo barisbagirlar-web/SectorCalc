@@ -4,17 +4,21 @@ import * as z from 'zod';
 export interface Pounds_to_ouncesInput {
   pounds: number;
   decimalPlaces: number;
+  auto_input_3: number;
 }
 
 export const Pounds_to_ouncesInputSchema = z.object({
   pounds: z.number().default(1),
   decimalPlaces: z.number().default(2),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Pounds_to_ouncesInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.pounds * 16; results["ounces"] = Number.isFinite(v) ? v : 0; } catch { results["ounces"] = 0; }
   try { const v = Math.round((results["ounces"] ?? 0) * 10 ** input.decimalPlaces) / 10 ** input.decimalPlaces; results["roundedOunces"] = Number.isFinite(v) ? v : 0; } catch { results["roundedOunces"] = 0; }
+  try { const v = input.pounds * 16; results["ounces___pounds___16"] = Number.isFinite(v) ? v : 0; } catch { results["ounces___pounds___16"] = 0; }
+  try { const v = Math.round((results["ounces"] ?? 0) * 10 ** input.decimalPlaces) / 10 ** input.decimalPlaces; results["roundedOunces___Math_round_ounces___10__"] = Number.isFinite(v) ? v : 0; } catch { results["roundedOunces___Math_round_ounces___10__"] = 0; }
   return results;
 }
 

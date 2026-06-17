@@ -5,49 +5,97 @@
       "id": "value1",
       "label": "Değer 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Veri setindeki 1. değer"
+      "businessContext": "Veri setindeki 1. değer",
+      "label_i18n": {
+        "en": "Değer 1",
+        "tr": "Değer 1",
+        "de": "Değer 1",
+        "fr": "Değer 1",
+        "es": "Değer 1",
+        "ar": "Değer 1"
+      }
     },
     {
       "id": "value2",
       "label": "Değer 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Veri setindeki 2. değer"
+      "businessContext": "Veri setindeki 2. değer",
+      "label_i18n": {
+        "en": "Değer 2",
+        "tr": "Değer 2",
+        "de": "Değer 2",
+        "fr": "Değer 2",
+        "es": "Değer 2",
+        "ar": "Değer 2"
+      }
     },
     {
       "id": "value3",
       "label": "Değer 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Veri setindeki 3. değer"
+      "businessContext": "Veri setindeki 3. değer",
+      "label_i18n": {
+        "en": "Değer 3",
+        "tr": "Değer 3",
+        "de": "Değer 3",
+        "fr": "Değer 3",
+        "es": "Değer 3",
+        "ar": "Değer 3"
+      }
     },
     {
       "id": "value4",
       "label": "Değer 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Veri setindeki 4. değer"
+      "businessContext": "Veri setindeki 4. değer",
+      "label_i18n": {
+        "en": "Değer 4",
+        "tr": "Değer 4",
+        "de": "Değer 4",
+        "fr": "Değer 4",
+        "es": "Değer 4",
+        "ar": "Değer 4"
+      }
     },
     {
       "id": "value5",
       "label": "Değer 5",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Veri setindeki 5. değer"
+      "businessContext": "Veri setindeki 5. değer",
+      "label_i18n": {
+        "en": "Değer 5",
+        "tr": "Değer 5",
+        "de": "Değer 5",
+        "fr": "Değer 5",
+        "es": "Değer 5",
+        "ar": "Değer 5"
+      }
     },
     {
       "id": "value6",
       "label": "Değer 6",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Veri setindeki 6. değer"
+      "businessContext": "Veri setindeki 6. değer",
+      "label_i18n": {
+        "en": "Değer 6",
+        "tr": "Değer 6",
+        "de": "Değer 6",
+        "fr": "Değer 6",
+        "es": "Değer 6",
+        "ar": "Değer 6"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "q3"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

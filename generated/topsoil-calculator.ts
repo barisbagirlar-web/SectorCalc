@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Topsoil_calculatorInput): Record<string, num
 
 export function calculateTopsoil_calculator(input: Topsoil_calculatorInput): Topsoil_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["volume"] ?? 0;
   const breakdown = {
     
   };

@@ -193,7 +193,7 @@
       "id": "currency",
       "label": "Currency",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "USD",
       "min": null,
       "max": null,
@@ -216,7 +216,7 @@
       "id": "include_hidden_costs",
       "label": "Include Hidden Cost Drivers",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -263,144 +263,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "direct_compensation",
-      "label": "Direct Compensation",
-      "formula": "base_salary * (1 + bonus_percent / 100)",
-      "description": "Base salary plus target bonus."
-    },
-    {
-      "id": "benefits_and_taxes",
-      "label": "Benefits and Payroll Taxes",
-      "formula": "base_salary * ((benefits_percent + payroll_tax_percent) / 100)",
-      "description": "Total benefits and employer payroll taxes."
-    },
-    {
-      "id": "overhead_cost",
-      "label": "Overhead Allocation",
-      "formula": "(direct_compensation + benefits_and_taxes) * (overhead_percent / 100)",
-      "description": "Allocated overhead based on direct cost."
-    },
-    {
-      "id": "overtime_cost",
-      "label": "Overtime Cost",
-      "formula": "(base_salary / 2080) * overtime_hours_per_week * 52 * overtime_premium",
-      "description": "Annual overtime cost based on hourly rate (2080 hours/year)."
-    },
-    {
-      "id": "turnover_cost",
-      "label": "Turnover Cost",
-      "formula": "base_salary * (turnover_rate / 100) * (replacement_cost_percent / 100)",
-      "description": "Annualized cost of employee turnover."
-    },
-    {
-      "id": "hidden_loss_drivers",
-      "label": "Hidden Loss Drivers",
-      "formula": "if(include_hidden_costs, (direct_compensation + benefits_and_taxes) * 0.05, 0)",
-      "description": "Estimated cost of absenteeism, disengagement, and quality defects (5% of direct cost)."
-    },
-    {
-      "id": "total_employee_cost",
-      "label": "Total Employee Cost (Primary Result)",
-      "formula": "direct_compensation + benefits_and_taxes + overhead_cost + training_cost + overtime_cost + turnover_cost + hidden_loss_drivers",
-      "description": "Fully loaded annual cost per employee."
-    }
+    "base_salary",
+    "base_salary",
+    "base_salary",
+    "base_salary",
+    "base_salary",
+    "base_salary",
+    "base_salary"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_employee_cost",
-      "label": "Total Employee Cost",
-      "unit": "USD",
-      "description": "Fully loaded annual cost per employee."
-    },
-    "breakdown": {
-      "direct_compensation": {
-        "label": "Direct Compensation",
-        "unit": "USD",
-        "description": "Base salary plus bonus."
-      },
-      "benefits_and_taxes": {
-        "label": "Benefits & Payroll Taxes",
-        "unit": "USD",
-        "description": "Benefits and employer taxes."
-      },
-      "overhead_cost": {
-        "label": "Overhead Allocation",
-        "unit": "USD",
-        "description": "Allocated overhead."
-      },
-      "training_cost": {
-        "label": "Training Cost",
-        "unit": "USD",
-        "description": "Annual training investment."
-      },
-      "overtime_cost": {
-        "label": "Overtime Cost",
-        "unit": "USD",
-        "description": "Annual overtime expense."
-      },
-      "turnover_cost": {
-        "label": "Turnover Cost",
-        "unit": "USD",
-        "description": "Annualized replacement cost."
-      },
-      "hidden_loss_drivers": {
-        "label": "Hidden Loss Drivers",
-        "unit": "USD",
-        "description": "Costs from absenteeism, disengagement, quality."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "absenteeism",
-        "label": "Absenteeism Cost",
-        "description": "Cost of unplanned absences beyond paid leave.",
-        "estimated_value": "base_salary * 0.02"
-      },
-      {
-        "id": "disengagement",
-        "label": "Disengagement Cost",
-        "description": "Productivity loss due to low engagement.",
-        "estimated_value": "base_salary * 0.02"
-      },
-      {
-        "id": "quality_defects",
-        "label": "Quality Defect Cost",
-        "description": "Rework and scrap costs attributable to employee.",
-        "estimated_value": "base_salary * 0.01"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "label": "Reduce Overtime",
-        "description": "If overtime cost > 5% of total cost, consider hiring additional staff or process improvement."
-      },
-      {
-        "id": "action_2",
-        "label": "Improve Retention",
-        "description": "If turnover cost > 10% of total cost, implement retention programs and exit interviews."
-      },
-      {
-        "id": "action_3",
-        "label": "Optimize Benefits",
-        "description": "Benchmark benefits against industry to ensure cost-effectiveness."
-      },
-      {
-        "id": "action_4",
-        "label": "Lean Productivity Improvement",
-        "description": "If productivity factor < 0.8, conduct value stream mapping to reduce waste."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_cost",
-      "label": "Data Confidence Adjusted Cost",
-      "unit": "USD",
-      "description": "Total cost adjusted for data quality confidence (e.g., ±10% uncertainty).",
-      "formula": "total_employee_cost * (1 + (1 - productivity_factor) * 0.1)"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "workforce-hr",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
+  "toolName": "total-employee-cost-calculator"
 }

@@ -28,13 +28,17 @@ function evaluateAllFormulas(input: World_clock_calculatorInput): Record<string,
   try { const v = (results["targetHour"] ?? 0).toString().padStart(2,'0') + ':' + (results["targetMinute"] ?? 0).toString().padStart(2,'0'); results["targetTimeString"] = Number.isFinite(v) ? v : 0; } catch { results["targetTimeString"] = 0; }
   try { const v = input.localHour.toString().padStart(2,'0') + ':' + input.localMinute.toString().padStart(2,'0') + ' (UTC' + (input.sourceUTCOffset >= 0 ? '+' + input.sourceUTCOffset : input.sourceUTCOffset) + ')'; results["sourceString"] = Number.isFinite(v) ? v : 0; } catch { results["sourceString"] = 0; }
   try { const v = (results["targetTimeString"] ?? 0) + ' (UTC' + (input.targetUTCOffset >= 0 ? '+' + input.targetUTCOffset : input.targetUTCOffset) + ')'; results["targetString"] = Number.isFinite(v) ? v : 0; } catch { results["targetString"] = 0; }
+  results["____sourceString"] = 0;
+  results["____targetString"] = 0;
+  results["____dayChange"] = 0;
+  try { const v = (results["targetTimeString"] ?? 0) + ' (' + (results["dayChange"] ?? 0) + ')'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateWorld_clock_calculator(input: World_clock_calculatorInput): World_clock_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["targetTimeString"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

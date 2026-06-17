@@ -20,6 +20,11 @@ export const Delay_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Delay_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.setupDelay + input.queueDelay + input.processDelay + input.transportDelay + input.unplannedDelay; results["totalDelay"] = Number.isFinite(v) ? v : 0; } catch { results["totalDelay"] = 0; }
+  try { const v = input.setupDelay; results["setupDelay"] = Number.isFinite(v) ? v : 0; } catch { results["setupDelay"] = 0; }
+  try { const v = input.queueDelay; results["queueDelay"] = Number.isFinite(v) ? v : 0; } catch { results["queueDelay"] = 0; }
+  try { const v = input.processDelay; results["processDelay"] = Number.isFinite(v) ? v : 0; } catch { results["processDelay"] = 0; }
+  try { const v = input.transportDelay; results["transportDelay"] = Number.isFinite(v) ? v : 0; } catch { results["transportDelay"] = 0; }
+  try { const v = input.unplannedDelay; results["unplannedDelay"] = Number.isFinite(v) ? v : 0; } catch { results["unplannedDelay"] = 0; }
   return results;
 }
 

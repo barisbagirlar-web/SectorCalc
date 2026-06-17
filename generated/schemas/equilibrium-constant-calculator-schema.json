@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Equilibrium concentration of reactant A"
+      "businessContext": "Equilibrium concentration of reactant A",
+      "label_i18n": {
+        "en": "Concentration of A",
+        "tr": "Concentration of A",
+        "de": "Concentration of A",
+        "fr": "Concentration of A",
+        "es": "Concentration of A",
+        "ar": "Concentration of A"
+      }
     },
     {
       "id": "c_B",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Equilibrium concentration of reactant B"
+      "businessContext": "Equilibrium concentration of reactant B",
+      "label_i18n": {
+        "en": "Concentration of B",
+        "tr": "Concentration of B",
+        "de": "Concentration of B",
+        "fr": "Concentration of B",
+        "es": "Concentration of B",
+        "ar": "Concentration of B"
+      }
     },
     {
       "id": "c_C",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Equilibrium concentration of product C"
+      "businessContext": "Equilibrium concentration of product C",
+      "label_i18n": {
+        "en": "Concentration of C",
+        "tr": "Concentration of C",
+        "de": "Concentration of C",
+        "fr": "Concentration of C",
+        "es": "Concentration of C",
+        "ar": "Concentration of C"
+      }
     },
     {
       "id": "c_D",
@@ -31,39 +55,79 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Equilibrium concentration of product D"
+      "businessContext": "Equilibrium concentration of product D",
+      "label_i18n": {
+        "en": "Concentration of D",
+        "tr": "Concentration of D",
+        "de": "Concentration of D",
+        "fr": "Concentration of D",
+        "es": "Concentration of D",
+        "ar": "Concentration of D"
+      }
     },
     {
       "id": "a",
       "label": "Coefficient a",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Stoichiometric coefficient of A"
+      "businessContext": "Stoichiometric coefficient of A",
+      "label_i18n": {
+        "en": "Coefficient a",
+        "tr": "Coefficient a",
+        "de": "Coefficient a",
+        "fr": "Coefficient a",
+        "es": "Coefficient a",
+        "ar": "Coefficient a"
+      }
     },
     {
       "id": "b",
       "label": "Coefficient b",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Stoichiometric coefficient of B"
+      "businessContext": "Stoichiometric coefficient of B",
+      "label_i18n": {
+        "en": "Coefficient b",
+        "tr": "Coefficient b",
+        "de": "Coefficient b",
+        "fr": "Coefficient b",
+        "es": "Coefficient b",
+        "ar": "Coefficient b"
+      }
     },
     {
       "id": "c",
       "label": "Coefficient c",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Stoichiometric coefficient of C"
+      "businessContext": "Stoichiometric coefficient of C",
+      "label_i18n": {
+        "en": "Coefficient c",
+        "tr": "Coefficient c",
+        "de": "Coefficient c",
+        "fr": "Coefficient c",
+        "es": "Coefficient c",
+        "ar": "Coefficient c"
+      }
     },
     {
       "id": "d",
       "label": "Coefficient d",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Stoichiometric coefficient of D"
+      "businessContext": "Stoichiometric coefficient of D",
+      "label_i18n": {
+        "en": "Coefficient d",
+        "tr": "Coefficient d",
+        "de": "Coefficient d",
+        "fr": "Coefficient d",
+        "es": "Coefficient d",
+        "ar": "Coefficient d"
+      }
     }
   ],
   "formulas": {
@@ -78,10 +142,10 @@
       "denominator"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

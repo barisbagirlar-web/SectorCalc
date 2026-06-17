@@ -18,13 +18,16 @@ export const Magnetic_field_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Magnetic_field_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 1.2566370614359172e-6 * input.permeability * (input.turns / input.length) * input.current; results["B"] = Number.isFinite(v) ? v : 0; } catch { results["B"] = 0; }
+  results["B______________N___L____I"] = 0;
+  results["_____4____10___T_m_A___1_256637061435917"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateMagnetic_field_calculator(input: Magnetic_field_calculatorInput): Magnetic_field_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Magnetic"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

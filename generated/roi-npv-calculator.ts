@@ -35,29 +35,19 @@ export const Roi_npv_calculatorInputSchema = z.object({
   energy_cost_per_unit: z.number().min(0).max(100).default(0.05),
 });
 
-function evaluateAllFormulas(input: Roi_npv_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.annual_cash_inflow - input.annual_cash_outflow + input.lean_six_sigma_savings) * (1 - input.tax_rate / 100) + ((results["depreciation_expense"] ?? 0) * (input.tax_rate / 100)); results["annual_net_cash_flow"] = Number.isFinite(v) ? v : 0; } catch { results["annual_net_cash_flow"] = 0; }
-  results["depreciation_expense"] = 0;
-  results["npv"] = 0;
-  try { const v = ((results["npv"] ?? 0) / input.initial_investment) * 100; results["roi"] = Number.isFinite(v) ? v : 0; } catch { results["roi"] = 0; }
-  try { const v = input.initial_investment / (results["annual_net_cash_flow"] ?? 0); results["payback_period"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period"] = 0; }
-  try { const v = irr_approximation(input.initial_investment, (results["annual_net_cash_flow"] ?? 0), input.project_life_years, input.salvage_value); results["irr"] = Number.isFinite(v) ? v : 0; } catch { results["irr"] = 0; }
-  try { const v = input.quality_defect_rate * 10000; results["six_sigma_dpmo"] = Number.isFinite(v) ? v : 0; } catch { results["six_sigma_dpmo"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Roi_npv_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateRoi_npv_calculator(input: Roi_npv_calculatorInput): Roi_npv_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["npv"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    id: values["id"] ?? 0,
-    label: values["label"] ?? 0,
-    components: values["components"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Quality Defect Cost","Energy Waste","Lean Waste (Muda)"];
-  const suggestedActions: string[] = ["Reduce Defect Rate","Improve Energy Efficiency","Implement Lean Practices","Review Discount Rate"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -76,7 +66,7 @@ export function calculateRoi_npv_calculator(input: Roi_npv_calculatorInput): Roi
 
 export interface Roi_npv_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { id: number; label: number; components: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

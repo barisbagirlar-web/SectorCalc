@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Length of the fish tank in meters."
+      "businessContext": "Length of the fish tank in meters.",
+      "label_i18n": {
+        "en": "Tank Length",
+        "tr": "Tank Length",
+        "de": "Tank Length",
+        "fr": "Tank Length",
+        "es": "Tank Length",
+        "ar": "Tank Length"
+      }
     },
     {
       "id": "tankWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Width of the fish tank in meters."
+      "businessContext": "Width of the fish tank in meters.",
+      "label_i18n": {
+        "en": "Tank Width",
+        "tr": "Tank Width",
+        "de": "Tank Width",
+        "fr": "Tank Width",
+        "es": "Tank Width",
+        "ar": "Tank Width"
+      }
     },
     {
       "id": "waterDepth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.8,
-      "businessContext": "Depth of water in the tank in meters."
+      "businessContext": "Depth of water in the tank in meters.",
+      "label_i18n": {
+        "en": "Water Depth",
+        "tr": "Water Depth",
+        "de": "Water Depth",
+        "fr": "Water Depth",
+        "es": "Water Depth",
+        "ar": "Water Depth"
+      }
     },
     {
       "id": "fishLength",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Average length of fish in centimeters."
+      "businessContext": "Average length of fish in centimeters.",
+      "label_i18n": {
+        "en": "Average Fish Length",
+        "tr": "Average Fish Length",
+        "de": "Average Fish Length",
+        "fr": "Average Fish Length",
+        "es": "Average Fish Length",
+        "ar": "Average Fish Length"
+      }
     },
     {
       "id": "conditionFactor",
       "label": "Condition Factor (K)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.02,
-      "businessContext": "Condition factor for weight-length relationship. Typical range 0.01-0.03."
+      "businessContext": "Condition factor for weight-length relationship. Typical range 0.01-0.03.",
+      "label_i18n": {
+        "en": "Condition Factor (K)",
+        "tr": "Condition Factor (K)",
+        "de": "Condition Factor (K)",
+        "fr": "Condition Factor (K)",
+        "es": "Condition Factor (K)",
+        "ar": "Condition Factor (K)"
+      }
     },
     {
       "id": "stockingDensity",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 10,
-      "businessContext": "Desired stocking density in kg per cubic meter."
+      "businessContext": "Desired stocking density in kg per cubic meter.",
+      "label_i18n": {
+        "en": "Stocking Density",
+        "tr": "Stocking Density",
+        "de": "Stocking Density",
+        "fr": "Stocking Density",
+        "es": "Stocking Density",
+        "ar": "Stocking Density"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Safety factor to reduce stocking from theoretical maximum (0-1)."
+      "businessContext": "Safety factor to reduce stocking from theoretical maximum (0-1).",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -74,10 +130,10 @@
       "maxBiomass"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

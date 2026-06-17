@@ -5,65 +5,129 @@
       "id": "x1",
       "label": "X Value 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First observation for variable X"
+      "businessContext": "First observation for variable X",
+      "label_i18n": {
+        "en": "X Value 1",
+        "tr": "X Value 1",
+        "de": "X Value 1",
+        "fr": "X Value 1",
+        "es": "X Value 1",
+        "ar": "X Value 1"
+      }
     },
     {
       "id": "y1",
       "label": "Y Value 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First observation for variable Y"
+      "businessContext": "First observation for variable Y",
+      "label_i18n": {
+        "en": "Y Value 1",
+        "tr": "Y Value 1",
+        "de": "Y Value 1",
+        "fr": "Y Value 1",
+        "es": "Y Value 1",
+        "ar": "Y Value 1"
+      }
     },
     {
       "id": "x2",
       "label": "X Value 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second observation for variable X"
+      "businessContext": "Second observation for variable X",
+      "label_i18n": {
+        "en": "X Value 2",
+        "tr": "X Value 2",
+        "de": "X Value 2",
+        "fr": "X Value 2",
+        "es": "X Value 2",
+        "ar": "X Value 2"
+      }
     },
     {
       "id": "y2",
       "label": "Y Value 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second observation for variable Y"
+      "businessContext": "Second observation for variable Y",
+      "label_i18n": {
+        "en": "Y Value 2",
+        "tr": "Y Value 2",
+        "de": "Y Value 2",
+        "fr": "Y Value 2",
+        "es": "Y Value 2",
+        "ar": "Y Value 2"
+      }
     },
     {
       "id": "x3",
       "label": "X Value 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third observation for variable X"
+      "businessContext": "Third observation for variable X",
+      "label_i18n": {
+        "en": "X Value 3",
+        "tr": "X Value 3",
+        "de": "X Value 3",
+        "fr": "X Value 3",
+        "es": "X Value 3",
+        "ar": "X Value 3"
+      }
     },
     {
       "id": "y3",
       "label": "Y Value 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third observation for variable Y"
+      "businessContext": "Third observation for variable Y",
+      "label_i18n": {
+        "en": "Y Value 3",
+        "tr": "Y Value 3",
+        "de": "Y Value 3",
+        "fr": "Y Value 3",
+        "es": "Y Value 3",
+        "ar": "Y Value 3"
+      }
     },
     {
       "id": "x4",
       "label": "X Value 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth observation for variable X"
+      "businessContext": "Fourth observation for variable X",
+      "label_i18n": {
+        "en": "X Value 4",
+        "tr": "X Value 4",
+        "de": "X Value 4",
+        "fr": "X Value 4",
+        "es": "X Value 4",
+        "ar": "X Value 4"
+      }
     },
     {
       "id": "y4",
       "label": "Y Value 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth observation for variable Y"
+      "businessContext": "Fourth observation for variable Y",
+      "label_i18n": {
+        "en": "Y Value 4",
+        "tr": "Y Value 4",
+        "de": "Y Value 4",
+        "fr": "Y Value 4",
+        "es": "Y Value 4",
+        "ar": "Y Value 4"
+      }
     }
   ],
   "formulas": {
@@ -84,8 +148,8 @@
       "sum_diff_prod"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

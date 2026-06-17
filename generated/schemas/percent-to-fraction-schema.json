@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Yüzde olarak girilen değer"
+      "businessContext": "Yüzde olarak girilen değer",
+      "label_i18n": {
+        "en": "Yüzde Değeri",
+        "tr": "Yüzde Değeri",
+        "de": "Yüzde Değeri",
+        "fr": "Yüzde Değeri",
+        "es": "Yüzde Değeri",
+        "ar": "Yüzde Değeri"
+      }
     },
     {
       "id": "simplify",
       "label": "Sadeleştir",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Kesiri sadeleştirme seçeneği (1: Evet, 0: Hayır) – not: bu sürümde sadeleştirme uygulanmamaktadır"
+      "businessContext": "Kesiri sadeleştirme seçeneği (1: Evet, 0: Hayır) – not: bu sürümde sadeleştirme uygulanmamaktadır",
+      "label_i18n": {
+        "en": "Sadeleştir",
+        "tr": "Sadeleştir",
+        "de": "Sadeleştir",
+        "fr": "Sadeleştir",
+        "es": "Sadeleştir",
+        "ar": "Sadeleştir"
+      }
     },
     {
       "id": "mixedNumber",
       "label": "Tam Sayılı Kesir",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Kesir tam sayılı olarak gösterilsin mi? (1: Evet, 0: Hayır)"
+      "businessContext": "Kesir tam sayılı olarak gösterilsin mi? (1: Evet, 0: Hayır)",
+      "label_i18n": {
+        "en": "Tam Sayılı Kesir",
+        "tr": "Tam Sayılı Kesir",
+        "de": "Tam Sayılı Kesir",
+        "fr": "Tam Sayılı Kesir",
+        "es": "Tam Sayılı Kesir",
+        "ar": "Tam Sayılı Kesir"
+      }
     },
     {
       "id": "precision",
       "label": "Ondalık Basamak",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Yüzde değerinin ondalık basamak sayısı"
+      "businessContext": "Yüzde değerinin ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
@@ -41,10 +73,15 @@
     "denominatorRaw": "100 * pow10",
     "whole": "mixedNumber ? Math.floor(numeratorRaw / denominatorRaw) : 0",
     "numeratorFrac": "mixedNumber ? (numeratorRaw - whole * denominatorRaw) : numeratorRaw",
-    "denominatorFrac": "denominatorRaw"
+    "denominatorFrac": "denominatorRaw",
+    "__decimal_": "${decimal}",
+    "__numeratorRaw____denominatorRaw_": "${numeratorRaw}/${denominatorRaw}",
+    "bu_s_r_mde_otomatik_sadele_tirme_yap_lma": "bu sürümde otomatik sadeleştirme yapılmadı",
+    "__mixedNumber____whole___0______whole__t": "${mixedNumber ? (whole > 0 ? `${whole} tam ${numeratorFrac}/${denominatorFrac}` : `${numeratorFrac}/${denominatorFrac}`) : 'kapalı'}",
+    "result": "mixedNumber && whole > 0 ? `${whole} ${numeratorFrac}/${denominatorFrac}` : `${numeratorFrac}/${denominatorFrac}`"
   },
   "outputs": {
-    "primary": "mixedNumber && whole > 0 ? `${whole} ${numeratorFrac}/${denominatorFrac}` : `${numeratorFrac}/${denominatorFrac}`",
+    "primary": "result",
     "breakdown": [
       "Yüzde değeri ondalık sayıya çevrildi: ${decimal}",
       "Kesir olarak yazıldı (${precision} ondalık basamak ile): ${numeratorRaw}/${denominatorRaw}",
@@ -52,10 +89,10 @@
       "Tam sayılı kesir gösterimi: ${mixedNumber ? (whole > 0 ? `${whole} tam ${numeratorFrac}/${denominatorFrac}` : `${numeratorFrac}/${denominatorFrac}`) : 'kapalı'}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

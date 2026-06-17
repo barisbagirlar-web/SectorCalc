@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units/day",
       "default": 100,
-      "businessContext": "The steady-state average daily usage rate derived from historical demand data."
+      "businessContext": "The steady-state average daily usage rate derived from historical demand data.",
+      "label_i18n": {
+        "en": "Average Daily Demand",
+        "tr": "Average Daily Demand",
+        "de": "Average Daily Demand",
+        "fr": "Average Daily Demand",
+        "es": "Average Daily Demand",
+        "ar": "Average Daily Demand"
+      }
     },
     {
       "id": "demand_standard_deviation",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units/day",
       "default": 20,
-      "businessContext": "Variability of daily demand, measured as standard deviation, reflecting forecast error."
+      "businessContext": "Variability of daily demand, measured as standard deviation, reflecting forecast error.",
+      "label_i18n": {
+        "en": "Demand Standard Deviation",
+        "tr": "Demand Standard Deviation",
+        "de": "Demand Standard Deviation",
+        "fr": "Demand Standard Deviation",
+        "es": "Demand Standard Deviation",
+        "ar": "Demand Standard Deviation"
+      }
     },
     {
       "id": "average_lead_time_days",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Mean replenishment lead time from supplier, in days."
+      "businessContext": "Mean replenishment lead time from supplier, in days.",
+      "label_i18n": {
+        "en": "Average Lead Time",
+        "tr": "Average Lead Time",
+        "de": "Average Lead Time",
+        "fr": "Average Lead Time",
+        "es": "Average Lead Time",
+        "ar": "Average Lead Time"
+      }
     },
     {
       "id": "lead_time_standard_deviation",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 1,
-      "businessContext": "Variability of lead time, measured as standard deviation, reflecting supply uncertainty."
+      "businessContext": "Variability of lead time, measured as standard deviation, reflecting supply uncertainty.",
+      "label_i18n": {
+        "en": "Lead Time Standard Deviation",
+        "tr": "Lead Time Standard Deviation",
+        "de": "Lead Time Standard Deviation",
+        "fr": "Lead Time Standard Deviation",
+        "es": "Lead Time Standard Deviation",
+        "ar": "Lead Time Standard Deviation"
+      }
     },
     {
       "id": "service_level_z",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.65,
-      "businessContext": "Z-score corresponding to desired service level (e.g., 1.65 for 95% fill rate). Must be positive."
+      "businessContext": "Z-score corresponding to desired service level (e.g., 1.65 for 95% fill rate). Must be positive.",
+      "label_i18n": {
+        "en": "Service Level (Z-score)",
+        "tr": "Service Level (Z-score)",
+        "de": "Service Level (Z-score)",
+        "fr": "Service Level (Z-score)",
+        "es": "Service Level (Z-score)",
+        "ar": "Service Level (Z-score)"
+      }
     }
   ],
   "formulas": {
@@ -48,16 +88,16 @@
     "leadTimeVariabilityComponent": "service_level_z * average_daily_demand * lead_time_standard_deviation"
   },
   "outputs": {
-    "primary": "bufferStock",
+    "primary": "primary",
     "breakdown": [
       "demandVariabilityComponent",
       "leadTimeVariabilityComponent"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "Üretim & İmalat",
+  "category": "Lojistik & Tedarik Zinciri",
+  "sector": "Lojistik & Sevkiyat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "procurement-supply-chain"
 }

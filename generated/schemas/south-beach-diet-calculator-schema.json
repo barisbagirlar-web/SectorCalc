@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı"
+      "businessContext": "Kullanıcının yaşı",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının ağırlığı (kg)"
+      "businessContext": "Kullanıcının ağırlığı (kg)",
+      "label_i18n": {
+        "en": "Ağırlık",
+        "tr": "Ağırlık",
+        "de": "Ağırlık",
+        "fr": "Ağırlık",
+        "es": "Ağırlık",
+        "ar": "Ağırlık"
+      }
     },
     {
       "id": "height",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kullanıcının boyu (cm)"
+      "businessContext": "Kullanıcının boyu (cm)",
+      "label_i18n": {
+        "en": "Boy",
+        "tr": "Boy",
+        "de": "Boy",
+        "fr": "Boy",
+        "es": "Boy",
+        "ar": "Boy"
+      }
     },
     {
       "id": "gender",
       "label": "Cinsiyet",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0: Kadın, 1: Erkek"
+      "businessContext": "0: Kadın, 1: Erkek",
+      "label_i18n": {
+        "en": "Cinsiyet",
+        "tr": "Cinsiyet",
+        "de": "Cinsiyet",
+        "fr": "Cinsiyet",
+        "es": "Cinsiyet",
+        "ar": "Cinsiyet"
+      }
     },
     {
       "id": "activityFactor",
       "label": "Aktivite Çarpanı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Sedanter=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9"
+      "businessContext": "Sedanter=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9",
+      "label_i18n": {
+        "en": "Aktivite Çarpanı",
+        "tr": "Aktivite Çarpanı",
+        "de": "Aktivite Çarpanı",
+        "fr": "Aktivite Çarpanı",
+        "es": "Aktivite Çarpanı",
+        "ar": "Aktivite Çarpanı"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "fatCals"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

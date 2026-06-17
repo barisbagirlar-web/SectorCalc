@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Total mass of the sodium-containing compound"
+      "businessContext": "Total mass of the sodium-containing compound",
+      "label_i18n": {
+        "en": "Compound Mass",
+        "tr": "Compound Mass",
+        "de": "Compound Mass",
+        "fr": "Compound Mass",
+        "es": "Compound Mass",
+        "ar": "Compound Mass"
+      }
     },
     {
       "id": "purity",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Purity percentage of the compound (0-100)"
+      "businessContext": "Purity percentage of the compound (0-100)",
+      "label_i18n": {
+        "en": "Purity",
+        "tr": "Purity",
+        "de": "Purity",
+        "fr": "Purity",
+        "es": "Purity",
+        "ar": "Purity"
+      }
     },
     {
       "id": "sodiumAtomsPerMolecule",
       "label": "Sodium Atoms per Molecule",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of sodium atoms in one molecule of the compound"
+      "businessContext": "Number of sodium atoms in one molecule of the compound",
+      "label_i18n": {
+        "en": "Sodium Atoms per Molecule",
+        "tr": "Sodium Atoms per Molecule",
+        "de": "Sodium Atoms per Molecule",
+        "fr": "Sodium Atoms per Molecule",
+        "es": "Sodium Atoms per Molecule",
+        "ar": "Sodium Atoms per Molecule"
+      }
     },
     {
       "id": "molarMassCompound",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 58.44,
-      "businessContext": "Molar mass of the compound (e.g., NaCl: 58.44 g/mol)"
+      "businessContext": "Molar mass of the compound (e.g., NaCl: 58.44 g/mol)",
+      "label_i18n": {
+        "en": "Molar Mass of Compound",
+        "tr": "Molar Mass of Compound",
+        "de": "Molar Mass of Compound",
+        "fr": "Molar Mass of Compound",
+        "es": "Molar Mass of Compound",
+        "ar": "Molar Mass of Compound"
+      }
     },
     {
       "id": "sodiumMolarMass",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 22.99,
-      "businessContext": "Standard atomic mass of sodium (22.99 g/mol)"
+      "businessContext": "Standard atomic mass of sodium (22.99 g/mol)",
+      "label_i18n": {
+        "en": "Molar Mass of Sodium",
+        "tr": "Molar Mass of Sodium",
+        "de": "Molar Mass of Sodium",
+        "fr": "Molar Mass of Sodium",
+        "es": "Molar Mass of Sodium",
+        "ar": "Molar Mass of Sodium"
+      }
     }
   ],
   "formulas": {
@@ -52,10 +92,10 @@
       "percentageSodium"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

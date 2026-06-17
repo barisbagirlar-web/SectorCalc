@@ -26,13 +26,22 @@ export const Cha2ds2_vasc_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Cha2ds2_vasc_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.chf + input.hypertension + input.age75 * 2 + input.diabetes + input.stroke * 2 + input.vascular + input.age65to74 + input.sexFemale; results["score"] = Number.isFinite(v) ? v : 0; } catch { results["score"] = 0; }
+  results["__chf___point_s_"] = 0;
+  results["__hypertension___point_s_"] = 0;
+  results["__age75___2___point_s_"] = 0;
+  results["__diabetes___point_s_"] = 0;
+  results["__stroke___2___point_s_"] = 0;
+  results["__vascular___point_s_"] = 0;
+  results["__age65to74___point_s_"] = 0;
+  results["__sexFemale___point_s_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateCha2ds2_vasc_calculator(input: Cha2ds2_vasc_calculatorInput): Cha2ds2_vasc_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["CHA2DS2"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

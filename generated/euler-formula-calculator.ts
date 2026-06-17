@@ -22,13 +22,14 @@ function evaluateAllFormulas(input: Euler_formula_calculatorInput): Record<strin
   try { const v = input.modulus * Math.sin(input.angleDeg * Math.PI / 180); results["imagFromPolar"] = Number.isFinite(v) ? v : 0; } catch { results["imagFromPolar"] = 0; }
   try { const v = Math.sqrt(input.realPart * input.realPart + input.imagPart * input.imagPart); results["modulusFromRect"] = Number.isFinite(v) ? v : 0; } catch { results["modulusFromRect"] = 0; }
   try { const v = Math.atan2(input.imagPart, input.realPart) * 180 / Math.PI; results["angleFromRect"] = Number.isFinite(v) ? v : 0; } catch { results["angleFromRect"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateEuler_formula_calculator(input: Euler_formula_calculatorInput): Euler_formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["e"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

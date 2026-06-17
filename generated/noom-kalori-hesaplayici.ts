@@ -27,7 +27,7 @@ function evaluateAllFormulas(input: Noom_kalori_hesaplayiciInput): Record<string
 
 export function calculateNoom_kalori_hesaplayici(input: Noom_kalori_hesaplayiciInput): Noom_kalori_hesaplayiciOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["TDEE"] ?? 0;
+  const totalWasteCost = values["BMR"] ?? 0;
   const breakdown = {
     
   };

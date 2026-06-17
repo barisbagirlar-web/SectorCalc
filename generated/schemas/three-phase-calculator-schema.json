@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 400,
-      "businessContext": "Enter the phase-to-phase voltage if Voltage Type is 1, or phase-to-neutral if 0."
+      "businessContext": "Enter the phase-to-phase voltage if Voltage Type is 1, or phase-to-neutral if 0.",
+      "label_i18n": {
+        "en": "Voltage (V)",
+        "tr": "Voltage (V)",
+        "de": "Voltage (V)",
+        "fr": "Voltage (V)",
+        "es": "Voltage (V)",
+        "ar": "Voltage (V)"
+      }
     },
     {
       "id": "current",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "Line current in amperes."
+      "businessContext": "Line current in amperes.",
+      "label_i18n": {
+        "en": "Current (A)",
+        "tr": "Current (A)",
+        "de": "Current (A)",
+        "fr": "Current (A)",
+        "es": "Current (A)",
+        "ar": "Current (A)"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Power Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
-      "businessContext": "Power factor (0 to 1)."
+      "businessContext": "Power factor (0 to 1).",
+      "label_i18n": {
+        "en": "Power Factor",
+        "tr": "Power Factor",
+        "de": "Power Factor",
+        "fr": "Power Factor",
+        "es": "Power Factor",
+        "ar": "Power Factor"
+      }
     },
     {
       "id": "voltageType",
       "label": "Voltage Type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for line-to-line, 0 for line-to-neutral."
+      "businessContext": "1 for line-to-line, 0 for line-to-neutral.",
+      "label_i18n": {
+        "en": "Voltage Type",
+        "tr": "Voltage Type",
+        "de": "Voltage Type",
+        "fr": "Voltage Type",
+        "es": "Voltage Type",
+        "ar": "Voltage Type"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "reactivePower"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Üretim & İmalat",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "electrical-power-systems"
 }

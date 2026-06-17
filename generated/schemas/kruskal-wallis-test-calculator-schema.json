@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Birinci grubun örneklem büyüklüğü (n1)"
+      "businessContext": "Birinci grubun örneklem büyüklüğü (n1)",
+      "label_i18n": {
+        "en": "Grup 1 Örneklem Büyüklüğü",
+        "tr": "Grup 1 Örneklem Büyüklüğü",
+        "de": "Grup 1 Örneklem Büyüklüğü",
+        "fr": "Grup 1 Örneklem Büyüklüğü",
+        "es": "Grup 1 Örneklem Büyüklüğü",
+        "ar": "Grup 1 Örneklem Büyüklüğü"
+      }
     },
     {
       "id": "n2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "İkinci grubun örneklem büyüklüğü (n2)"
+      "businessContext": "İkinci grubun örneklem büyüklüğü (n2)",
+      "label_i18n": {
+        "en": "Grup 2 Örneklem Büyüklüğü",
+        "tr": "Grup 2 Örneklem Büyüklüğü",
+        "de": "Grup 2 Örneklem Büyüklüğü",
+        "fr": "Grup 2 Örneklem Büyüklüğü",
+        "es": "Grup 2 Örneklem Büyüklüğü",
+        "ar": "Grup 2 Örneklem Büyüklüğü"
+      }
     },
     {
       "id": "n3",
@@ -23,31 +39,63 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Üçüncü grubun örneklem büyüklüğü (n3)"
+      "businessContext": "Üçüncü grubun örneklem büyüklüğü (n3)",
+      "label_i18n": {
+        "en": "Grup 3 Örneklem Büyüklüğü",
+        "tr": "Grup 3 Örneklem Büyüklüğü",
+        "de": "Grup 3 Örneklem Büyüklüğü",
+        "fr": "Grup 3 Örneklem Büyüklüğü",
+        "es": "Grup 3 Örneklem Büyüklüğü",
+        "ar": "Grup 3 Örneklem Büyüklüğü"
+      }
     },
     {
       "id": "R1",
       "label": "Grup 1 Sıra Toplamı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Birinci grubun sıra toplamı (R1)"
+      "businessContext": "Birinci grubun sıra toplamı (R1)",
+      "label_i18n": {
+        "en": "Grup 1 Sıra Toplamı",
+        "tr": "Grup 1 Sıra Toplamı",
+        "de": "Grup 1 Sıra Toplamı",
+        "fr": "Grup 1 Sıra Toplamı",
+        "es": "Grup 1 Sıra Toplamı",
+        "ar": "Grup 1 Sıra Toplamı"
+      }
     },
     {
       "id": "R2",
       "label": "Grup 2 Sıra Toplamı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 150,
-      "businessContext": "İkinci grubun sıra toplamı (R2)"
+      "businessContext": "İkinci grubun sıra toplamı (R2)",
+      "label_i18n": {
+        "en": "Grup 2 Sıra Toplamı",
+        "tr": "Grup 2 Sıra Toplamı",
+        "de": "Grup 2 Sıra Toplamı",
+        "fr": "Grup 2 Sıra Toplamı",
+        "es": "Grup 2 Sıra Toplamı",
+        "ar": "Grup 2 Sıra Toplamı"
+      }
     },
     {
       "id": "R3",
       "label": "Grup 3 Sıra Toplamı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 200,
-      "businessContext": "Üçüncü grubun sıra toplamı (R3)"
+      "businessContext": "Üçüncü grubun sıra toplamı (R3)",
+      "label_i18n": {
+        "en": "Grup 3 Sıra Toplamı",
+        "tr": "Grup 3 Sıra Toplamı",
+        "de": "Grup 3 Sıra Toplamı",
+        "fr": "Grup 3 Sıra Toplamı",
+        "es": "Grup 3 Sıra Toplamı",
+        "ar": "Grup 3 Sıra Toplamı"
+      }
     }
   ],
   "formulas": {
@@ -65,10 +113,10 @@
       "df"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

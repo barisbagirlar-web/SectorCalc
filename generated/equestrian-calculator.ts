@@ -27,13 +27,17 @@ function evaluateAllFormulas(input: Equestrian_calculatorInput): Record<string, 
   try { const v = (results["effective_force"] ?? 0) * input.desired_speed; results["required_power"] = Number.isFinite(v) ? v : 0; } catch { results["required_power"] = 0; }
   try { const v = (results["required_power"] ?? 0) / 745.7; results["total_horsepower"] = Number.isFinite(v) ? v : 0; } catch { results["total_horsepower"] = 0; }
   try { const v = Math.ceil((results["effective_force"] ?? 0) / input.horse_pull_force); results["number_of_horses"] = Number.isFinite(v) ? v : 0; } catch { results["number_of_horses"] = 0; }
+  results["_tractive_force_toFixed_2___N"] = 0;
+  results["_effective_force_toFixed_2___N"] = 0;
+  results["_required_power_toFixed_2___W"] = 0;
+  results["_total_horsepower_toFixed_2___hp"] = 0;
   return results;
 }
 
 
 export function calculateEquestrian_calculator(input: Equestrian_calculatorInput): Equestrian_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Gereken"] ?? 0;
+  const totalWasteCost = values["angle_rad"] ?? 0;
   const breakdown = {
     
   };

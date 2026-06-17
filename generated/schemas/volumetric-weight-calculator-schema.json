@@ -115,7 +115,7 @@
       "id": "package_type",
       "label": "Package Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "box",
       "min": null,
       "max": null,
@@ -149,7 +149,7 @@
       "id": "is_stackable",
       "label": "Stackable",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -165,7 +165,7 @@
       "id": "hazardous_material",
       "label": "Hazardous Material",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -239,186 +239,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "volume_cm3",
-      "name": "Package Volume (cm³)",
-      "description": "Calculates the geometric volume of the package based on type.",
-      "formula": "CASE WHEN package_type = 'cylinder' THEN PI() * (width_cm/2)^2 * length_cm ELSE length_cm * width_cm * height_cm END",
-      "unit": "cm³",
-      "order": 1
-    },
-    {
-      "id": "volume_m3",
-      "name": "Package Volume (m³)",
-      "description": "Converts volume to cubic meters for freight billing.",
-      "formula": "volume_cm3 / 1000000",
-      "unit": "m³",
-      "order": 2
-    },
-    {
-      "id": "volumetric_weight_kg",
-      "name": "Volumetric Weight (kg)",
-      "description": "Dimensional weight based on carrier DIM factor. ISO 80000-4 compliant.",
-      "formula": "volume_cm3 / carrier_factor",
-      "unit": "kg",
-      "order": 3
-    },
-    {
-      "id": "chargeable_weight_kg",
-      "name": "Chargeable Weight (kg)",
-      "description": "The greater of actual weight and volumetric weight. Standard industry practice.",
-      "formula": "MAX(actual_weight_kg, volumetric_weight_kg)",
-      "unit": "kg",
-      "order": 4
-    },
-    {
-      "id": "dim_weight_ratio",
-      "name": "DIM Weight Ratio",
-      "description": "Ratio of volumetric weight to actual weight. Key Lean metric for packaging efficiency.",
-      "formula": "volumetric_weight_kg / NULLIF(actual_weight_kg, 0)",
-      "unit": "ratio",
-      "order": 5
-    },
-    {
-      "id": "density_kg_m3",
-      "name": "Package Density (kg/m³)",
-      "description": "Actual weight per cubic meter. Used for freight classification.",
-      "formula": "actual_weight_kg / NULLIF(volume_m3, 0)",
-      "unit": "kg/m³",
-      "order": 6
-    },
-    {
-      "id": "cost_estimate_usd",
-      "name": "Estimated Shipping Cost (USD)",
-      "description": "Base cost estimate using chargeable weight and a standard rate. Premium feature for real rates.",
-      "formula": "chargeable_weight_kg * 2.50 + (CASE WHEN hazardous_material THEN 50 ELSE 0 END) + (CASE WHEN is_stackable = false THEN 15 ELSE 0 END)",
-      "unit": "USD",
-      "order": 7
-    }
+    "length_cm",
+    "length_cm",
+    "length_cm",
+    "length_cm",
+    "length_cm",
+    "length_cm",
+    "length_cm"
   ],
   "outputs": {
-    "primary": {
-      "id": "chargeable_weight_kg",
-      "label": "Chargeable Weight (kg)",
-      "value": null,
-      "unit": "kg",
-      "description": "Final weight used for billing. Equals max(actual weight, volumetric weight)."
-    },
-    "breakdown": {
-      "volume_cm3": {
-        "label": "Package Volume (cm³)",
-        "value": null,
-        "unit": "cm³"
-      },
-      "volume_m3": {
-        "label": "Package Volume (m³)",
-        "value": null,
-        "unit": "m³"
-      },
-      "actual_weight_kg": {
-        "label": "Actual Weight (kg)",
-        "value": null,
-        "unit": "kg"
-      },
-      "volumetric_weight_kg": {
-        "label": "Volumetric Weight (kg)",
-        "value": null,
-        "unit": "kg"
-      },
-      "dim_weight_ratio": {
-        "label": "DIM Weight Ratio",
-        "value": null,
-        "unit": "ratio"
-      },
-      "density_kg_m3": {
-        "label": "Package Density (kg/m³)",
-        "value": null,
-        "unit": "kg/m³"
-      },
-      "cost_estimate_usd": {
-        "label": "Estimated Shipping Cost (USD)",
-        "value": null,
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_void_fill",
-        "label": "Excess Void Fill",
-        "description": "Ratio of empty space in packaging. High void fill increases DIM weight without adding value.",
-        "metric": "void_fill_percentage",
-        "threshold": 0.3,
-        "currentValue": null,
-        "impact": "increases volumetric weight"
-      },
-      {
-        "id": "non_standard_packaging",
-        "label": "Non-Standard Packaging",
-        "description": "Use of non-standard box sizes leads to inefficient cube utilization.",
-        "metric": "cube_utilization",
-        "threshold": 0.75,
-        "currentValue": null,
-        "impact": "increases shipping cost per unit"
-      },
-      {
-        "id": "overpackaging",
-        "label": "Overpackaging",
-        "description": "Excessive packaging material adds weight and volume without protection benefit.",
-        "metric": "tare_weight_ratio",
-        "threshold": 0.15,
-        "currentValue": null,
-        "impact": "increases actual and volumetric weight"
-      },
-      {
-        "id": "carrier_mismatch",
-        "label": "Carrier DIM Factor Mismatch",
-        "description": "Using a carrier with a lower DIM factor than optimal for the package density.",
-        "metric": "dim_factor_efficiency",
-        "threshold": 0.9,
-        "currentValue": null,
-        "impact": "increases chargeable weight"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "repack_optimization",
-        "priority": "high",
-        "action": "Reduce package dimensions by 10% to lower volumetric weight. Consider custom box sizes.",
-        "expectedImprovement": "Up to 15% reduction in shipping cost",
-        "leanPrinciple": "Muda (waste) elimination"
-      },
-      {
-        "id": "carrier_review",
-        "priority": "medium",
-        "action": "Evaluate alternative carriers with higher DIM factors (e.g., 6000 vs 5000) for dense packages.",
-        "expectedImprovement": "Up to 20% reduction in chargeable weight",
-        "leanPrinciple": "Kaizen (continuous improvement)"
-      },
-      {
-        "id": "stackability_improvement",
-        "priority": "medium",
-        "action": "Redesign packaging to be stackable. Use uniform box sizes and reinforced corners.",
-        "expectedImprovement": "Reduced storage cost and handling surcharges",
-        "leanPrinciple": "Standardized work"
-      },
-      {
-        "id": "void_fill_reduction",
-        "priority": "high",
-        "action": "Use adjustable packaging or void fill audit to reduce empty space below 20%.",
-        "expectedImprovement": "10-25% reduction in volumetric weight",
-        "leanPrinciple": "Just-in-time packaging"
-      },
-      {
-        "id": "density_improvement",
-        "priority": "low",
-        "action": "Consolidate multiple items into one package to improve density and reduce per-unit cost.",
-        "expectedImprovement": "Up to 30% cost reduction per shipment",
-        "leanPrinciple": "Value stream mapping"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "volumetric-weight-calculator"
 }

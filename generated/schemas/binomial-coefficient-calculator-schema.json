@@ -5,33 +5,65 @@
       "id": "n",
       "label": "n",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Total number of items, n >= 0"
+      "businessContext": "Total number of items, n >= 0",
+      "label_i18n": {
+        "en": "n",
+        "tr": "n",
+        "de": "n",
+        "fr": "n",
+        "es": "n",
+        "ar": "n"
+      }
     },
     {
       "id": "k",
       "label": "k",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of items to choose, 0 <= k <= n"
+      "businessContext": "Number of items to choose, 0 <= k <= n",
+      "label_i18n": {
+        "en": "k",
+        "tr": "k",
+        "de": "k",
+        "fr": "k",
+        "es": "k",
+        "ar": "k"
+      }
     },
     {
       "id": "useSymmetry",
       "label": "Use Symmetry",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Set to 1 to use C(n,k)=C(n,n-k) when k > n/2 for efficiency"
+      "businessContext": "Set to 1 to use C(n,k)=C(n,n-k) when k > n/2 for efficiency",
+      "label_i18n": {
+        "en": "Use Symmetry",
+        "tr": "Use Symmetry",
+        "de": "Use Symmetry",
+        "fr": "Use Symmetry",
+        "es": "Use Symmetry",
+        "ar": "Use Symmetry"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of decimal places to round the result. Default 0 for integer coefficient."
+      "businessContext": "Number of decimal places to round the result. Default 0 for integer coefficient.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "breakdownResult"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

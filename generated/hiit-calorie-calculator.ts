@@ -2,23 +2,32 @@
 import * as z from 'zod';
 
 export interface Hiit_calorie_calculatorInput {
-  weight_kg: number;
-  work_duration_min: number;
-  rest_duration_min: number;
-  MET_high: number;
-  MET_rest: number;
+  weight: number;
+  height: number;
+  age: number;
+  gender: number;
+  duration: number;
+  met: number;
 }
 
 export const Hiit_calorie_calculatorInputSchema = z.object({
-  weight_kg: z.number().default(70),
-  work_duration_min: z.number().default(20),
-  rest_duration_min: z.number().default(10),
-  MET_high: z.number().default(12),
-  MET_rest: z.number().default(6),
+  weight: z.number().default(70),
+  height: z.number().default(170),
+  age: z.number().default(30),
+  gender: z.number().default(1),
+  duration: z.number().default(30),
+  met: z.number().default(8),
 });
 
-function evaluateAllFormulas(_input: Hiit_calorie_calculatorInput): Record<string, number> {
-  return {};
+function evaluateAllFormulas(input: Hiit_calorie_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 88.362 + (13.397 * input.weight) + (4.799 * input.height) - (5.677 * input.age); results["bmr_male"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_male"] = 0; }
+  try { const v = 447.593 + (9.247 * input.weight) + (3.098 * input.height) - (4.330 * input.age); results["bmr_female"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_female"] = 0; }
+  try { const v = input.gender === 1 ? (results["bmr_male"] ?? 0) : (results["bmr_female"] ?? 0); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
+  try { const v = (results["bmr"] ?? 0) / 24; results["hourlyBmr"] = Number.isFinite(v) ? v : 0; } catch { results["hourlyBmr"] = 0; }
+  try { const v = (results["hourlyBmr"] ?? 0) * input.met * (input.duration / 60); results["calories"] = Number.isFinite(v) ? v : 0; } catch { results["calories"] = 0; }
+  try { const v = (results["calories"] ?? 0) / input.duration; results["caloriesPerMinute"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesPerMinute"] = 0; }
+  return results;
 }
 
 

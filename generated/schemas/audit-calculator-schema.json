@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "items",
       "default": 1000,
-      "businessContext": "Total number of items in the population to be audited."
+      "businessContext": "Total number of items in the population to be audited.",
+      "label_i18n": {
+        "en": "Population Size",
+        "tr": "Population Size",
+        "de": "Population Size",
+        "fr": "Population Size",
+        "es": "Population Size",
+        "ar": "Population Size"
+      }
     },
     {
       "id": "zScore",
       "label": "Z-Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.96,
-      "businessContext": "Z-score corresponding to the desired confidence level (e.g., 1.96 for 95%)."
+      "businessContext": "Z-score corresponding to the desired confidence level (e.g., 1.96 for 95%).",
+      "label_i18n": {
+        "en": "Z-Score",
+        "tr": "Z-Score",
+        "de": "Z-Score",
+        "fr": "Z-Score",
+        "es": "Z-Score",
+        "ar": "Z-Score"
+      }
     },
     {
       "id": "marginOfError",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Acceptable margin of error as a percentage (e.g., 5 for ±5%)."
+      "businessContext": "Acceptable margin of error as a percentage (e.g., 5 for ±5%).",
+      "label_i18n": {
+        "en": "Margin of Error",
+        "tr": "Margin of Error",
+        "de": "Margin of Error",
+        "fr": "Margin of Error",
+        "es": "Margin of Error",
+        "ar": "Margin of Error"
+      }
     },
     {
       "id": "proportion",
       "label": "Estimated Proportion",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Estimated proportion of an attribute present in the population (0 to 1). Use 0.5 for maximum variability."
+      "businessContext": "Estimated proportion of an attribute present in the population (0 to 1). Use 0.5 for maximum variability.",
+      "label_i18n": {
+        "en": "Estimated Proportion",
+        "tr": "Estimated Proportion",
+        "de": "Estimated Proportion",
+        "fr": "Estimated Proportion",
+        "es": "Estimated Proportion",
+        "ar": "Estimated Proportion"
+      }
     },
     {
       "id": "responseRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Expected response rate to adjust sample size for non-response (e.g., 80 for 80%)."
+      "businessContext": "Expected response rate to adjust sample size for non-response (e.g., 80 for 80%).",
+      "label_i18n": {
+        "en": "Expected Response Rate",
+        "tr": "Expected Response Rate",
+        "de": "Expected Response Rate",
+        "fr": "Expected Response Rate",
+        "es": "Expected Response Rate",
+        "ar": "Expected Response Rate"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "adjustedSampleSize"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "finance-sales-working-capital"
 }

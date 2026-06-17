@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Enter the mass of the first reactant in grams"
+      "businessContext": "Enter the mass of the first reactant in grams",
+      "label_i18n": {
+        "en": "Mass of Reactant 1",
+        "tr": "Mass of Reactant 1",
+        "de": "Mass of Reactant 1",
+        "fr": "Mass of Reactant 1",
+        "es": "Mass of Reactant 1",
+        "ar": "Mass of Reactant 1"
+      }
     },
     {
       "id": "reactant1MolarMass",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Enter the molar mass of the first reactant in g/mol"
+      "businessContext": "Enter the molar mass of the first reactant in g/mol",
+      "label_i18n": {
+        "en": "Molar Mass of Reactant 1",
+        "tr": "Molar Mass of Reactant 1",
+        "de": "Molar Mass of Reactant 1",
+        "fr": "Molar Mass of Reactant 1",
+        "es": "Molar Mass of Reactant 1",
+        "ar": "Molar Mass of Reactant 1"
+      }
     },
     {
       "id": "reactant1Coefficient",
       "label": "Coefficient of Reactant 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Enter the stoichiometric coefficient of the first reactant"
+      "businessContext": "Enter the stoichiometric coefficient of the first reactant",
+      "label_i18n": {
+        "en": "Coefficient of Reactant 1",
+        "tr": "Coefficient of Reactant 1",
+        "de": "Coefficient of Reactant 1",
+        "fr": "Coefficient of Reactant 1",
+        "es": "Coefficient of Reactant 1",
+        "ar": "Coefficient of Reactant 1"
+      }
     },
     {
       "id": "reactant2Mass",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Enter the mass of the second reactant in grams"
+      "businessContext": "Enter the mass of the second reactant in grams",
+      "label_i18n": {
+        "en": "Mass of Reactant 2",
+        "tr": "Mass of Reactant 2",
+        "de": "Mass of Reactant 2",
+        "fr": "Mass of Reactant 2",
+        "es": "Mass of Reactant 2",
+        "ar": "Mass of Reactant 2"
+      }
     },
     {
       "id": "reactant2MolarMass",
@@ -39,23 +71,47 @@
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Enter the molar mass of the second reactant in g/mol"
+      "businessContext": "Enter the molar mass of the second reactant in g/mol",
+      "label_i18n": {
+        "en": "Molar Mass of Reactant 2",
+        "tr": "Molar Mass of Reactant 2",
+        "de": "Molar Mass of Reactant 2",
+        "fr": "Molar Mass of Reactant 2",
+        "es": "Molar Mass of Reactant 2",
+        "ar": "Molar Mass of Reactant 2"
+      }
     },
     {
       "id": "reactant2Coefficient",
       "label": "Coefficient of Reactant 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Enter the stoichiometric coefficient of the second reactant"
+      "businessContext": "Enter the stoichiometric coefficient of the second reactant",
+      "label_i18n": {
+        "en": "Coefficient of Reactant 2",
+        "tr": "Coefficient of Reactant 2",
+        "de": "Coefficient of Reactant 2",
+        "fr": "Coefficient of Reactant 2",
+        "es": "Coefficient of Reactant 2",
+        "ar": "Coefficient of Reactant 2"
+      }
     },
     {
       "id": "productCoefficient",
       "label": "Coefficient of Product",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Enter the stoichiometric coefficient of the desired product"
+      "businessContext": "Enter the stoichiometric coefficient of the desired product",
+      "label_i18n": {
+        "en": "Coefficient of Product",
+        "tr": "Coefficient of Product",
+        "de": "Coefficient of Product",
+        "fr": "Coefficient of Product",
+        "es": "Coefficient of Product",
+        "ar": "Coefficient of Product"
+      }
     },
     {
       "id": "productMolarMass",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Enter the molar mass of the desired product in g/mol"
+      "businessContext": "Enter the molar mass of the desired product in g/mol",
+      "label_i18n": {
+        "en": "Molar Mass of Product",
+        "tr": "Molar Mass of Product",
+        "de": "Molar Mass of Product",
+        "fr": "Molar Mass of Product",
+        "es": "Molar Mass of Product",
+        "ar": "Molar Mass of Product"
+      }
     }
   ],
   "formulas": {
@@ -82,10 +146,10 @@
       "theoreticalYield"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

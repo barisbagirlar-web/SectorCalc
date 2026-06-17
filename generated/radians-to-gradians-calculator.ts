@@ -18,13 +18,16 @@ export const Radians_to_gradians_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Radians_to_gradians_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = Math.round((input.angleRadians * input.conversionFactor + input.offset) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["converted"] = Number.isFinite(v) ? v : 0; } catch { results["converted"] = 0; }
+  try { const v = input.angleRadians * input.conversionFactor; results["angleRadians___conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["angleRadians___conversionFactor"] = 0; }
+  try { const v = result + input.offset; results["result___offset"] = Number.isFinite(v) ? v : 0; } catch { results["result___offset"] = 0; }
+  try { const v = Math.round(value * 10^input.precision) / 10^input.precision; results["Math_round_value___10_precision____10_pr"] = Number.isFinite(v) ? v : 0; } catch { results["Math_round_value___10_precision____10_pr"] = 0; }
   return results;
 }
 
 
 export function calculateRadians_to_gradians_calculator(input: Radians_to_gradians_calculatorInput): Radians_to_gradians_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["convertedGradians"] ?? 0;
+  const totalWasteCost = values["converted"] ?? 0;
   const breakdown = {
     
   };

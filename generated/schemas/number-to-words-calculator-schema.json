@@ -5,39 +5,72 @@
       "id": "inputNumber",
       "label": "Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The number to convert to words"
+      "businessContext": "The number to convert to words",
+      "label_i18n": {
+        "en": "Number",
+        "tr": "Number",
+        "de": "Number",
+        "fr": "Number",
+        "es": "Number",
+        "ar": "Number"
+      }
     },
     {
       "id": "languageCode",
       "label": "Language Code",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Numeric language code (1=English, 2=Turkish, etc.)"
+      "businessContext": "Numeric language code (1=English, 2=Turkish, etc.)",
+      "label_i18n": {
+        "en": "Language Code",
+        "tr": "Language Code",
+        "de": "Language Code",
+        "fr": "Language Code",
+        "es": "Language Code",
+        "ar": "Language Code"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places to spell out"
+      "businessContext": "Number of decimal places to spell out",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "caseFormat",
       "label": "Case Format",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0=lowercase, 1=Title Case, 2=UPPERCASE"
+      "businessContext": "0=lowercase, 1=Title Case, 2=UPPERCASE",
+      "label_i18n": {
+        "en": "Case Format",
+        "tr": "Case Format",
+        "de": "Case Format",
+        "fr": "Case Format",
+        "es": "Case Format",
+        "ar": "Case Format"
+      }
     }
   ],
   "formulas": {
     "result": "inputNumber",
     "decimalInfo": "decimalPlaces",
-    "languageInfo": "languageCode"
+    "languageInfo": "languageCode",
+    "inputNumber": "inputNumber"
   },
   "outputs": {
     "primary": "result",
@@ -47,10 +80,10 @@
       "languageInfo"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

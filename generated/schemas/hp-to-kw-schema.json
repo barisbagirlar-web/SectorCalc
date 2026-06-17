@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hp",
       "default": 1,
-      "businessContext": "Motor gücü beygir gücü cinsinden"
+      "businessContext": "Motor gücü beygir gücü cinsinden",
+      "label_i18n": {
+        "en": "Horsepower (HP)",
+        "tr": "Horsepower (HP)",
+        "de": "Horsepower (HP)",
+        "fr": "Horsepower (HP)",
+        "es": "Horsepower (HP)",
+        "ar": "Horsepower (HP)"
+      }
     },
     {
       "id": "efficiency",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Motor verimliliği yüzde olarak"
+      "businessContext": "Motor verimliliği yüzde olarak",
+      "label_i18n": {
+        "en": "Motor Efficiency (%)",
+        "tr": "Motor Efficiency (%)",
+        "de": "Motor Efficiency (%)",
+        "fr": "Motor Efficiency (%)",
+        "es": "Motor Efficiency (%)",
+        "ar": "Motor Efficiency (%)"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Power Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
-      "businessContext": "Güç faktörü (0-1 arası)"
+      "businessContext": "Güç faktörü (0-1 arası)",
+      "label_i18n": {
+        "en": "Power Factor",
+        "tr": "Power Factor",
+        "de": "Power Factor",
+        "fr": "Power Factor",
+        "es": "Power Factor",
+        "ar": "Power Factor"
+      }
     },
     {
       "id": "voltage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "V",
       "default": 400,
-      "businessContext": "Motor besleme gerilimi"
+      "businessContext": "Motor besleme gerilimi",
+      "label_i18n": {
+        "en": "Voltage (V)",
+        "tr": "Voltage (V)",
+        "de": "Voltage (V)",
+        "fr": "Voltage (V)",
+        "es": "Voltage (V)",
+        "ar": "Voltage (V)"
+      }
     },
     {
       "id": "current",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "Motor akımı"
+      "businessContext": "Motor akımı",
+      "label_i18n": {
+        "en": "Current (A)",
+        "tr": "Current (A)",
+        "de": "Current (A)",
+        "fr": "Current (A)",
+        "es": "Current (A)",
+        "ar": "Current (A)"
+      }
     },
     {
       "id": "phases",
       "label": "Number of Phases",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Faz sayısı (1 veya 3)"
+      "businessContext": "Faz sayısı (1 veya 3)",
+      "label_i18n": {
+        "en": "Number of Phases",
+        "tr": "Number of Phases",
+        "de": "Number of Phases",
+        "fr": "Number of Phases",
+        "es": "Number of Phases",
+        "ar": "Number of Phases"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "lossesKW"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "electrical-power-systems"
 }

@@ -5,33 +5,65 @@
       "id": "dec1",
       "label": "Decimal 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First decimal value to sum, e.g., cost item 1"
+      "businessContext": "First decimal value to sum, e.g., cost item 1",
+      "label_i18n": {
+        "en": "Decimal 1",
+        "tr": "Decimal 1",
+        "de": "Decimal 1",
+        "fr": "Decimal 1",
+        "es": "Decimal 1",
+        "ar": "Decimal 1"
+      }
     },
     {
       "id": "dec2",
       "label": "Decimal 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second decimal value to sum"
+      "businessContext": "Second decimal value to sum",
+      "label_i18n": {
+        "en": "Decimal 2",
+        "tr": "Decimal 2",
+        "de": "Decimal 2",
+        "fr": "Decimal 2",
+        "es": "Decimal 2",
+        "ar": "Decimal 2"
+      }
     },
     {
       "id": "dec3",
       "label": "Decimal 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third decimal value to sum"
+      "businessContext": "Third decimal value to sum",
+      "label_i18n": {
+        "en": "Decimal 3",
+        "tr": "Decimal 3",
+        "de": "Decimal 3",
+        "fr": "Decimal 3",
+        "es": "Decimal 3",
+        "ar": "Decimal 3"
+      }
     },
     {
       "id": "dec4",
       "label": "Decimal 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth decimal value to sum"
+      "businessContext": "Fourth decimal value to sum",
+      "label_i18n": {
+        "en": "Decimal 4",
+        "tr": "Decimal 4",
+        "de": "Decimal 4",
+        "fr": "Decimal 4",
+        "es": "Decimal 4",
+        "ar": "Decimal 4"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "sum123"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

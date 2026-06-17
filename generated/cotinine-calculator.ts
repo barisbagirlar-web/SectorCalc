@@ -22,13 +22,15 @@ function evaluateAllFormulas(input: Cotinine_calculatorInput): Record<string, nu
   try { const v = Math.max(0, (input.cotininePlasma - input.intercept) / input.slope); results["estimatedCigarettesPerDay"] = Number.isFinite(v) ? v : 0; } catch { results["estimatedCigarettesPerDay"] = 0; }
   try { const v = Math.max(0, (input.cotininePlasma - input.intercept) / input.slope) * input.nicotinePerCig; results["nicotineIntakeMg"] = Number.isFinite(v) ? v : 0; } catch { results["nicotineIntakeMg"] = 0; }
   try { const v = Math.max(0, (input.cotininePlasma - input.intercept) / input.slope) * input.nicotinePerCig / input.bodyWeight; results["nicotineIntakeMgPerKg"] = Number.isFinite(v) ? v : 0; } catch { results["nicotineIntakeMgPerKg"] = 0; }
+  results["Nicotine_Intake__mg_day_"] = 0;
+  results["Nicotine_Intake__mg_kg_day_"] = 0;
   return results;
 }
 
 
 export function calculateCotinine_calculator(input: Cotinine_calculatorInput): Cotinine_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Estimated"] ?? 0;
+  const totalWasteCost = values["estimatedCigarettesPerDay"] ?? 0;
   const breakdown = {
     
   };

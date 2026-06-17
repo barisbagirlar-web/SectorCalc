@@ -107,7 +107,8 @@
       },
       "businessContext_i18n": {
         "en": "Method of discount application: percentage off list or fixed dollar amount per unit."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "apply_to_all_units",
@@ -120,7 +121,8 @@
       },
       "businessContext_i18n": {
         "en": "If true, discount applies to entire quantity; if false, only to incremental units (tiered pricing)."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -166,147 +168,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "discount_amount_per_unit",
-      "label": "Discount Amount per Unit",
-      "description": "Calculated discount per unit based on type and list price.",
-      "formula": "IF(discount_type='percentage', list_price * discount_percent/100, IF(discount_type='fixed_amount', discount_percent, 0))",
-      "unit": "USD"
-    },
-    {
-      "id": "discounted_price_per_unit",
-      "label": "Discounted Price per Unit",
-      "description": "Net price after discount per unit.",
-      "formula": "list_price - discount_amount_per_unit",
-      "unit": "USD"
-    },
-    {
-      "id": "total_revenue",
-      "label": "Total Revenue",
-      "description": "Total revenue from the order after discount.",
-      "formula": "discounted_price_per_unit * quantity",
-      "unit": "USD"
-    },
-    {
-      "id": "total_variable_cost",
-      "label": "Total Variable Cost",
-      "description": "Total variable cost for the order quantity.",
-      "formula": "variable_cost_per_unit * quantity",
-      "unit": "USD"
-    },
-    {
-      "id": "total_cost",
-      "label": "Total Cost",
-      "description": "Sum of variable and fixed costs for the order.",
-      "formula": "total_variable_cost + fixed_cost_allocation",
-      "unit": "USD"
-    },
-    {
-      "id": "net_margin",
-      "label": "Net Margin",
-      "description": "Profit after all costs (primary result).",
-      "formula": "total_revenue - total_cost",
-      "unit": "USD"
-    },
-    {
-      "id": "net_margin_percent",
-      "label": "Net Margin Percentage",
-      "description": "Profit margin as a percentage of total revenue.",
-      "formula": "IF(total_revenue > 0, (net_margin / total_revenue) * 100, 0)",
-      "unit": "%"
-    }
+    "list_price",
+    "list_price",
+    "list_price",
+    "list_price",
+    "list_price",
+    "list_price",
+    "list_price"
   ],
   "outputs": {
-    "primary": {
-      "id": "net_margin",
-      "label": "Net Margin",
-      "description": "Primary financial outcome: profit after discount and all costs.",
-      "unit": "USD"
-    },
-    "breakdown": {
-      "discount_amount_per_unit": {
-        "id": "discount_amount_per_unit",
-        "label": "Discount Amount per Unit",
-        "unit": "USD"
-      },
-      "discounted_price_per_unit": {
-        "id": "discounted_price_per_unit",
-        "label": "Discounted Price per Unit",
-        "unit": "USD"
-      },
-      "total_revenue": {
-        "id": "total_revenue",
-        "label": "Total Revenue",
-        "unit": "USD"
-      },
-      "total_variable_cost": {
-        "id": "total_variable_cost",
-        "label": "Total Variable Cost",
-        "unit": "USD"
-      },
-      "total_cost": {
-        "id": "total_cost",
-        "label": "Total Cost",
-        "unit": "USD"
-      },
-      "net_margin_percent": {
-        "id": "net_margin_percent",
-        "label": "Net Margin Percentage",
-        "unit": "%"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_discount_leakage",
-        "description": "Discounts exceeding the break-even threshold erode profit. Compare discount_amount_per_unit to (list_price - variable_cost_per_unit).",
-        "metric": "discount_amount_per_unit / (list_price - variable_cost_per_unit)",
-        "threshold": "> 0.8"
-      },
-      {
-        "id": "fixed_cost_absorption_gap",
-        "description": "If fixed cost allocation is not fully absorbed by the discounted revenue, hidden loss occurs.",
-        "metric": "fixed_cost_allocation / total_revenue",
-        "threshold": "> 0.3"
-      },
-      {
-        "id": "volume_margin_tradeoff",
-        "description": "High discount may require disproportionate volume increase to maintain same net margin (Lean throughput accounting).",
-        "metric": "quantity * (list_price - variable_cost_per_unit - discount_amount_per_unit)",
-        "threshold": "< 0"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "description": "If net_margin_percent < 10, consider reducing discount or negotiating lower variable costs with suppliers (Lean sourcing).",
-        "condition": "net_margin_percent < 10"
-      },
-      {
-        "id": "action_2",
-        "description": "If fixed_cost_allocation > 0.3 * total_revenue, review fixed cost drivers using activity-based costing (ABC).",
-        "condition": "fixed_cost_allocation > 0.3 * total_revenue"
-      },
-      {
-        "id": "action_3",
-        "description": "If discount_percent > 20, evaluate if the discount is tied to a strategic volume increase or market share gain (Six Sigma project charter).",
-        "condition": "discount_percent > 20"
-      },
-      {
-        "id": "action_4",
-        "description": "If net_margin < 0, immediately halt discount and perform root cause analysis (DMAIC).",
-        "condition": "net_margin < 0"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Adjusted Net Margin",
-      "description": "Net margin adjusted for data quality and input variability (Monte Carlo simulation readiness).",
-      "value": 0.85,
-      "unit": "index (0-1)",
-      "methodology": "Based on completeness of input fields, historical accuracy of cost data, and adherence to ISO 9001 data governance."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
+  "toolName": "discount-calculator"
 }

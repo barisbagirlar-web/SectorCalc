@@ -24,13 +24,14 @@ function evaluateAllFormulas(input: Black_scholes_calculatorInput): Record<strin
   try { const v = (results["d1"] ?? 0) - (input.sigma / 100) * Math.sqrt(input.T); results["d2"] = Number.isFinite(v) ? v : 0; } catch { results["d2"] = 0; }
   try { const v = input.S * (results["normcdf"] ?? 0)((results["d1"] ?? 0)) - input.K * Math.exp(-(input.r / 100) * input.T) * (results["normcdf"] ?? 0)((results["d2"] ?? 0)); results["call"] = Number.isFinite(v) ? v : 0; } catch { results["call"] = 0; }
   try { const v = input.K * Math.exp(-(input.r / 100) * input.T) * (results["normcdf"] ?? 0)(-(results["d2"] ?? 0)) - input.S * (results["normcdf"] ?? 0)(-(results["d1"] ?? 0)); results["put"] = Number.isFinite(v) ? v : 0; } catch { results["put"] = 0; }
+  try { const v = putPrice; results["putPrice"] = Number.isFinite(v) ? v : 0; } catch { results["putPrice"] = 0; }
   return results;
 }
 
 
 export function calculateBlack_scholes_calculator(input: Black_scholes_calculatorInput): Black_scholes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["callPrice"] ?? 0;
+  const totalWasteCost = values["normcdf"] ?? 0;
   const breakdown = {
     
   };

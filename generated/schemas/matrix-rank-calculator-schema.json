@@ -5,33 +5,65 @@
       "id": "a11",
       "label": "a₁₁",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Top-left element of the 2x2 matrix"
+      "businessContext": "Top-left element of the 2x2 matrix",
+      "label_i18n": {
+        "en": "a₁₁",
+        "tr": "a₁₁",
+        "de": "a₁₁",
+        "fr": "a₁₁",
+        "es": "a₁₁",
+        "ar": "a₁₁"
+      }
     },
     {
       "id": "a12",
       "label": "a₁₂",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Top-right element of the 2x2 matrix"
+      "businessContext": "Top-right element of the 2x2 matrix",
+      "label_i18n": {
+        "en": "a₁₂",
+        "tr": "a₁₂",
+        "de": "a₁₂",
+        "fr": "a₁₂",
+        "es": "a₁₂",
+        "ar": "a₁₂"
+      }
     },
     {
       "id": "a21",
       "label": "a₂₁",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Bottom-left element of the 2x2 matrix"
+      "businessContext": "Bottom-left element of the 2x2 matrix",
+      "label_i18n": {
+        "en": "a₂₁",
+        "tr": "a₂₁",
+        "de": "a₂₁",
+        "fr": "a₂₁",
+        "es": "a₂₁",
+        "ar": "a₂₁"
+      }
     },
     {
       "id": "a22",
       "label": "a₂₂",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Bottom-right element of the 2x2 matrix"
+      "businessContext": "Bottom-right element of the 2x2 matrix",
+      "label_i18n": {
+        "en": "a₂₂",
+        "tr": "a₂₂",
+        "de": "a₂₂",
+        "fr": "a₂₂",
+        "es": "a₂₂",
+        "ar": "a₂₂"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "isFullRank"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

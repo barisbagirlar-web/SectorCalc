@@ -20,13 +20,15 @@ function evaluateAllFormulas(input: Weight_loss_goal_calculatorInput): Record<st
   try { const v = (input.currentWeight - input.targetWeight) * input.caloriePerKg; results["totalDeficit"] = Number.isFinite(v) ? v : 0; } catch { results["totalDeficit"] = 0; }
   try { const v = (results["totalDeficit"] ?? 0) / input.dailyDeficit; results["daysToTarget"] = Number.isFinite(v) ? v : 0; } catch { results["daysToTarget"] = 0; }
   try { const v = (input.dailyDeficit * 7) / input.caloriePerKg; results["weeklyLoss"] = Number.isFinite(v) ? v : 0; } catch { results["weeklyLoss"] = 0; }
+  results["__weeklyLoss___kg"] = 0;
+  results["__totalDeficit___kcal"] = 0;
   return results;
 }
 
 
 export function calculateWeight_loss_goal_calculator(input: Weight_loss_goal_calculatorInput): Weight_loss_goal_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Estimated"] ?? 0;
+  const totalWasteCost = values["totalDeficit"] ?? 0;
   const breakdown = {
     
   };

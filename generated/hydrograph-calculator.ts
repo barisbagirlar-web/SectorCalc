@@ -22,13 +22,16 @@ function evaluateAllFormulas(input: Hydrograph_calculatorInput): Record<string, 
   try { const v = input.Ct * Math.pow(input.L * input.Lca, 0.3); results["tp"] = Number.isFinite(v) ? v : 0; } catch { results["tp"] = 0; }
   try { const v = 2.78 * input.Cp * input.A / (results["tp"] ?? 0); results["qp"] = Number.isFinite(v) ? v : 0; } catch { results["qp"] = 0; }
   try { const v = 5 * (results["tp"] ?? 0) / 24; results["Tb"] = Number.isFinite(v) ? v : 0; } catch { results["Tb"] = 0; }
+  results["Time_to_Peak__tp_"] = 0;
+  results["Base_Time__Tb_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateHydrograph_calculator(input: Hydrograph_calculatorInput): Hydrograph_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Peak"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

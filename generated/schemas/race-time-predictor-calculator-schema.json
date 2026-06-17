@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Distance of a previous race in kilometers"
+      "businessContext": "Distance of a previous race in kilometers",
+      "label_i18n": {
+        "en": "Known Distance",
+        "tr": "Known Distance",
+        "de": "Known Distance",
+        "fr": "Known Distance",
+        "es": "Known Distance",
+        "ar": "Known Distance"
+      }
     },
     {
       "id": "t1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "min",
       "default": 50,
-      "businessContext": "Finishing time for the known distance in minutes"
+      "businessContext": "Finishing time for the known distance in minutes",
+      "label_i18n": {
+        "en": "Known Time",
+        "tr": "Known Time",
+        "de": "Known Time",
+        "fr": "Known Time",
+        "es": "Known Time",
+        "ar": "Known Time"
+      }
     },
     {
       "id": "d2",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "km",
       "default": 21.1,
-      "businessContext": "Distance of the race to predict in kilometers"
+      "businessContext": "Distance of the race to predict in kilometers",
+      "label_i18n": {
+        "en": "Target Distance",
+        "tr": "Target Distance",
+        "de": "Target Distance",
+        "fr": "Target Distance",
+        "es": "Target Distance",
+        "ar": "Target Distance"
+      }
     },
     {
       "id": "fatigue",
       "label": "Fatigue Exponent",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.06,
-      "businessContext": "Fatigue factor per Riegel formula (default 1.06)"
+      "businessContext": "Fatigue factor per Riegel formula (default 1.06)",
+      "label_i18n": {
+        "en": "Fatigue Exponent",
+        "tr": "Fatigue Exponent",
+        "de": "Fatigue Exponent",
+        "fr": "Fatigue Exponent",
+        "es": "Fatigue Exponent",
+        "ar": "Fatigue Exponent"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "pace_formatted"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

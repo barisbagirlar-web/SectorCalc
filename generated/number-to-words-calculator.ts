@@ -20,6 +20,7 @@ function evaluateAllFormulas(input: Number_to_words_calculatorInput): Record<str
   try { const v = input.inputNumber; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   try { const v = input.decimalPlaces; results["decimalInfo"] = Number.isFinite(v) ? v : 0; } catch { results["decimalInfo"] = 0; }
   try { const v = input.languageCode; results["languageInfo"] = Number.isFinite(v) ? v : 0; } catch { results["languageInfo"] = 0; }
+  try { const v = input.inputNumber; results["inputNumber"] = Number.isFinite(v) ? v : 0; } catch { results["inputNumber"] = 0; }
   return results;
 }
 

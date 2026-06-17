@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 7.87,
-      "businessContext": "The density of the material in grams per cubic centimeter."
+      "businessContext": "The density of the material in grams per cubic centimeter.",
+      "label_i18n": {
+        "en": "Density",
+        "tr": "Density",
+        "de": "Density",
+        "fr": "Density",
+        "es": "Density",
+        "ar": "Density"
+      }
     },
     {
       "id": "molarMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 55.845,
-      "businessContext": "The molar mass of the element in grams per mole."
+      "businessContext": "The molar mass of the element in grams per mole.",
+      "label_i18n": {
+        "en": "Molar Mass",
+        "tr": "Molar Mass",
+        "de": "Molar Mass",
+        "fr": "Molar Mass",
+        "es": "Molar Mass",
+        "ar": "Molar Mass"
+      }
     },
     {
       "id": "structureType",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "index",
       "default": 2,
-      "businessContext": "Crystal structure index: 0=Custom packing factor, 1=Simple Cubic, 2=BCC, 3=FCC, 4=HCP."
+      "businessContext": "Crystal structure index: 0=Custom packing factor, 1=Simple Cubic, 2=BCC, 3=FCC, 4=HCP.",
+      "label_i18n": {
+        "en": "Crystal Structure",
+        "tr": "Crystal Structure",
+        "de": "Crystal Structure",
+        "fr": "Crystal Structure",
+        "es": "Crystal Structure",
+        "ar": "Crystal Structure"
+      }
     },
     {
       "id": "manualPackingFactor",
@@ -31,11 +55,19 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.74,
-      "businessContext": "Used only if structure type is 0. Typical values: 0.52 (SC), 0.68 (BCC), 0.74 (FCC/HCP)."
+      "businessContext": "Used only if structure type is 0. Typical values: 0.52 (SC), 0.68 (BCC), 0.74 (FCC/HCP).",
+      "label_i18n": {
+        "en": "Custom Packing Factor",
+        "tr": "Custom Packing Factor",
+        "de": "Custom Packing Factor",
+        "fr": "Custom Packing Factor",
+        "es": "Custom Packing Factor",
+        "ar": "Custom Packing Factor"
+      }
     }
   ],
   "formulas": {
-    "avogadro": 6.02214076e+23,
+    "avogadro": "6.02214076e+23",
     "volumePerAtom": "molarMass / (density * avogadro)",
     "packingFactorUsed": "structureType == 0 ? manualPackingFactor : (structureType == 1 ? 0.52 : structureType == 2 ? 0.68 : structureType == 3 ? 0.74 : 0.74)",
     "atomicVolume": "packingFactorUsed * volumePerAtom",
@@ -50,10 +82,10 @@
       "packingFactorUsed"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

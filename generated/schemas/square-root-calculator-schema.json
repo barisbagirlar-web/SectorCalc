@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "-",
       "default": 4,
-      "businessContext": "The number for which the square root is computed."
+      "businessContext": "The number for which the square root is computed.",
+      "label_i18n": {
+        "en": "Radicand",
+        "tr": "Radicand",
+        "de": "Radicand",
+        "fr": "Radicand",
+        "es": "Radicand",
+        "ar": "Radicand"
+      }
     },
     {
       "id": "precision",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "digits",
       "default": 2,
-      "businessContext": "Number of decimal places to round the result."
+      "businessContext": "Number of decimal places to round the result.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "initialGuess",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Optional starting value for iterative methods (if applicable)."
+      "businessContext": "Optional starting value for iterative methods (if applicable).",
+      "label_i18n": {
+        "en": "Initial Guess",
+        "tr": "Initial Guess",
+        "de": "Initial Guess",
+        "fr": "Initial Guess",
+        "es": "Initial Guess",
+        "ar": "Initial Guess"
+      }
     },
     {
       "id": "tolerance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "-",
       "default": 0.000001,
-      "businessContext": "Convergence tolerance for iterative methods."
+      "businessContext": "Convergence tolerance for iterative methods.",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     },
     {
       "id": "maxIterations",
@@ -39,23 +71,33 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Maximum number of iterations allowed for iterative methods."
+      "businessContext": "Maximum number of iterations allowed for iterative methods.",
+      "label_i18n": {
+        "en": "Max Iterations",
+        "tr": "Max Iterations",
+        "de": "Max Iterations",
+        "fr": "Max Iterations",
+        "es": "Max Iterations",
+        "ar": "Max Iterations"
+      }
     }
   ],
   "formulas": {
-    "primary": "Math.round(Math.sqrt(radicand) * 10**precision) / 10**precision"
+    "primary": "Math.round(Math.sqrt(radicand) * 10**precision) / 10**precision",
+    "__primary__": "{{primary}}",
+    "Direct_calculation_using_Math_sqrt_funct": "Direct calculation using Math.sqrt function."
   },
   "outputs": {
-    "primary": "{{primary}}",
+    "primary": "primary",
     "breakdown": [
       "Square root of {{radicand}} rounded to {{precision}} decimal places: {{primary}}",
       "Direct calculation using Math.sqrt function."
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

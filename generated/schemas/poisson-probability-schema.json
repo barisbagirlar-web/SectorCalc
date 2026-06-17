@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Belirli bir zaman aralığında beklenen ortalama olay sayısı"
+      "businessContext": "Belirli bir zaman aralığında beklenen ortalama olay sayısı",
+      "label_i18n": {
+        "en": "Ortalama Olay Sayısı (λ)",
+        "tr": "Ortalama Olay Sayısı (λ)",
+        "de": "Ortalama Olay Sayısı (λ)",
+        "fr": "Ortalama Olay Sayısı (λ)",
+        "es": "Ortalama Olay Sayısı (λ)",
+        "ar": "Ortalama Olay Sayısı (λ)"
+      }
     },
     {
       "id": "k",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Olasılığı hesaplanacak tam olay sayısı"
+      "businessContext": "Olasılığı hesaplanacak tam olay sayısı",
+      "label_i18n": {
+        "en": "Hedef Olay Sayısı (k)",
+        "tr": "Hedef Olay Sayısı (k)",
+        "de": "Hedef Olay Sayısı (k)",
+        "fr": "Hedef Olay Sayısı (k)",
+        "es": "Hedef Olay Sayısı (k)",
+        "ar": "Hedef Olay Sayısı (k)"
+      }
     },
     {
       "id": "kumulatif",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Kümülatif olasılık için üst sınır (k dahil)"
+      "businessContext": "Kümülatif olasılık için üst sınır (k dahil)",
+      "label_i18n": {
+        "en": "Kümülatif (k veya daha az)",
+        "tr": "Kümülatif (k veya daha az)",
+        "de": "Kümülatif (k veya daha az)",
+        "fr": "Kümülatif (k veya daha az)",
+        "es": "Kümülatif (k veya daha az)",
+        "ar": "Kümülatif (k veya daha az)"
+      }
     }
   ],
   "formulas": {
@@ -31,16 +55,15 @@
     "kumulatifOlasilik": "(() => { let sum = 0; for (let i = 0; i <= kumulatif; i++) { sum += Math.exp(-lambda) * Math.pow(lambda, i) / (i === 0 ? 1 : (() => { let f = 1; for (let j = 2; j <= i; j++) f *= j; return f; })()); } return sum; })()"
   },
   "outputs": {
-    "primary": "P(X = k) = {tamOlasilik}",
+    "primary": "tamOlasilik",
     "breakdown": [
-      "P(X ≤ k) = {kumulatifOlasilik}",
-      "λ = {lambda}, k = {k}"
+      "kumulatifOlasilik"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

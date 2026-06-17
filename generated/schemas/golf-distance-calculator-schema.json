@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "mph",
       "default": 100,
-      "businessContext": "Club head speed at impact, typically 70-130 mph for amateur golfers"
+      "businessContext": "Club head speed at impact, typically 70-130 mph for amateur golfers",
+      "label_i18n": {
+        "en": "Club Speed",
+        "tr": "Club Speed",
+        "de": "Club Speed",
+        "fr": "Club Speed",
+        "es": "Club Speed",
+        "ar": "Club Speed"
+      }
     },
     {
       "id": "smashFactor",
       "label": "Smash Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.48,
-      "businessContext": "Ball speed divided by club speed, typically 1.35-1.5 for drivers"
+      "businessContext": "Ball speed divided by club speed, typically 1.35-1.5 for drivers",
+      "label_i18n": {
+        "en": "Smash Factor",
+        "tr": "Smash Factor",
+        "de": "Smash Factor",
+        "fr": "Smash Factor",
+        "es": "Smash Factor",
+        "ar": "Smash Factor"
+      }
     },
     {
       "id": "launchAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "degrees",
       "default": 12,
-      "businessContext": "Initial vertical angle of ball flight, optimal around 10-15 degrees"
+      "businessContext": "Initial vertical angle of ball flight, optimal around 10-15 degrees",
+      "label_i18n": {
+        "en": "Launch Angle",
+        "tr": "Launch Angle",
+        "de": "Launch Angle",
+        "fr": "Launch Angle",
+        "es": "Launch Angle",
+        "ar": "Launch Angle"
+      }
     },
     {
       "id": "spinRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 2500,
-      "businessContext": "Backspin rate, typical driver spin 2000-3000 rpm"
+      "businessContext": "Backspin rate, typical driver spin 2000-3000 rpm",
+      "label_i18n": {
+        "en": "Spin Rate",
+        "tr": "Spin Rate",
+        "de": "Spin Rate",
+        "fr": "Spin Rate",
+        "es": "Spin Rate",
+        "ar": "Spin Rate"
+      }
     },
     {
       "id": "windSpeed",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mph",
       "default": 0,
-      "businessContext": "Positive for tailwind, negative for headwind"
+      "businessContext": "Positive for tailwind, negative for headwind",
+      "label_i18n": {
+        "en": "Wind Speed",
+        "tr": "Wind Speed",
+        "de": "Wind Speed",
+        "fr": "Wind Speed",
+        "es": "Wind Speed",
+        "ar": "Wind Speed"
+      }
     },
     {
       "id": "altitude",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "feet",
       "default": 0,
-      "businessContext": "Elevation above sea level, higher altitude reduces air density"
+      "businessContext": "Elevation above sea level, higher altitude reduces air density",
+      "label_i18n": {
+        "en": "Altitude",
+        "tr": "Altitude",
+        "de": "Altitude",
+        "fr": "Altitude",
+        "es": "Altitude",
+        "ar": "Altitude"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "carryDistance"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

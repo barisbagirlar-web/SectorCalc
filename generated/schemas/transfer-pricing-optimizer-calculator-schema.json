@@ -111,7 +111,7 @@
       "id": "compliance_risk_tolerance",
       "label": "Compliance Risk Tolerance (Low/Medium/High)",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "Medium",
       "min": null,
       "max": null,
@@ -132,7 +132,7 @@
       "id": "include_lean_waste_factor",
       "label": "Include Lean Waste Factor",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -200,157 +200,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "adjusted_production_cost",
-      "label": "Adjusted Production Cost (Lean)",
-      "description": "Production cost reduced by a lean waste factor (10% if Six Sigma process sigma < 3, else 0).",
-      "formula": "IF(include_lean_waste_factor, production_cost_per_unit * 0.9, production_cost_per_unit)",
-      "unit": "USD"
-    },
-    {
-      "id": "arm_length_range_lower",
-      "label": "Arm's Length Range Lower Bound",
-      "description": "Lower bound of acceptable transfer price based on cost-plus method (cost + 5% markup).",
-      "formula": "adjusted_production_cost * 1.05",
-      "unit": "USD"
-    },
-    {
-      "id": "arm_length_range_upper",
-      "label": "Arm's Length Range Upper Bound",
-      "description": "Upper bound based on resale price method (market price minus 10% distributor margin).",
-      "formula": "market_price_per_unit * 0.90",
-      "unit": "USD"
-    },
-    {
-      "id": "optimal_transfer_price",
-      "label": "Optimal Transfer Price",
-      "description": "Weighted average of cost-plus and resale price, adjusted for tax differential and risk tolerance.",
-      "formula": "CASE compliance_risk_tolerance WHEN 'Low' THEN (arm_length_range_lower + arm_length_range_upper)/2 WHEN 'Medium' THEN (arm_length_range_lower * 0.4 + arm_length_range_upper * 0.6) WHEN 'High' THEN (arm_length_range_lower * 0.3 + arm_length_range_upper * 0.7) END",
-      "unit": "USD"
-    },
-    {
-      "id": "total_tax_savings",
-      "label": "Total Tax Savings",
-      "description": "Tax savings from shifting profit to lower-tax entity using optimal transfer price vs. current.",
-      "formula": "(transfer_price_current - optimal_transfer_price) * volume_units * (tax_rate_distributor - tax_rate_producer) / 100",
-      "unit": "USD"
-    },
-    {
-      "id": "net_profit_shift",
-      "label": "Net Profit Shift",
-      "description": "Profit shifted from distributor to producer (positive = shift to producer).",
-      "formula": "(optimal_transfer_price - transfer_price_current) * volume_units",
-      "unit": "USD"
-    },
-    {
-      "id": "primary_result",
-      "label": "Adjusted Net Benefit (Primary Result)",
-      "description": "Total benefit after tax savings minus compliance risk penalty (5% of profit shift if risk tolerance is Low).",
-      "formula": "total_tax_savings - (CASE compliance_risk_tolerance WHEN 'Low' THEN ABS(net_profit_shift)*0.05 ELSE 0 END)",
-      "unit": "USD"
-    }
+    "production_cost_per_unit",
+    "production_cost_per_unit",
+    "production_cost_per_unit",
+    "production_cost_per_unit",
+    "production_cost_per_unit",
+    "production_cost_per_unit",
+    "production_cost_per_unit"
   ],
   "outputs": {
-    "primary": {
-      "id": "adjusted_net_benefit",
-      "label": "Adjusted Net Benefit",
-      "value": null,
-      "unit": "USD",
-      "description": "Primary result: total tax savings minus compliance risk penalty."
-    },
-    "breakdown": {
-      "id": "breakdown",
-      "label": "Breakdown",
-      "type": "object",
-      "properties": {
-        "adjusted_production_cost": {
-          "label": "Adjusted Production Cost",
-          "unit": "USD",
-          "description": "Production cost after lean waste adjustment."
-        },
-        "arm_length_range_lower": {
-          "label": "Arm's Length Lower Bound",
-          "unit": "USD",
-          "description": "Lower bound of acceptable transfer price."
-        },
-        "arm_length_range_upper": {
-          "label": "Arm's Length Upper Bound",
-          "unit": "USD",
-          "description": "Upper bound of acceptable transfer price."
-        },
-        "optimal_transfer_price": {
-          "label": "Optimal Transfer Price",
-          "unit": "USD",
-          "description": "Recommended transfer price."
-        },
-        "total_tax_savings": {
-          "label": "Total Tax Savings",
-          "unit": "USD",
-          "description": "Tax savings from optimal price."
-        },
-        "net_profit_shift": {
-          "label": "Net Profit Shift",
-          "unit": "USD",
-          "description": "Profit shifted between entities."
-        }
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_driver_1",
-        "label": "Excessive Waste in Production",
-        "description": "If include_lean_waste_factor is true and production cost > 20% above industry benchmark, hidden loss from inefficiency.",
-        "condition": "include_lean_waste_factor == true AND production_cost_per_unit > market_price_per_unit * 0.8"
-      },
-      {
-        "id": "loss_driver_2",
-        "label": "Tax Rate Disparity Underutilized",
-        "description": "If tax rate difference > 10% but optimal transfer price is not at extreme of arm's length range, potential savings missed.",
-        "condition": "ABS(tax_rate_producer - tax_rate_distributor) > 10 AND optimal_transfer_price NOT IN (arm_length_range_lower, arm_length_range_upper)"
-      },
-      {
-        "id": "loss_driver_3",
-        "label": "Compliance Risk Penalty Eroding Benefit",
-        "description": "If compliance_risk_tolerance is Low and net_profit_shift > 0, penalty reduces net benefit.",
-        "condition": "compliance_risk_tolerance == 'Low' AND net_profit_shift > 0"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "label": "Implement Lean Six Sigma to reduce production cost",
-        "description": "Target a 10% reduction in production cost through waste elimination to widen arm's length range.",
-        "priority": "high"
-      },
-      {
-        "id": "action_2",
-        "label": "Adjust transfer price to optimal level",
-        "description": "Move from current transfer price to optimal transfer price to maximize tax savings.",
-        "priority": "high"
-      },
-      {
-        "id": "action_3",
-        "label": "Review compliance risk tolerance policy",
-        "description": "If tax savings are significant, consider increasing risk tolerance to avoid penalty.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_4",
-        "label": "Document arm's length analysis thoroughly",
-        "description": "Prepare OECD-compliant documentation to support transfer price adjustment.",
-        "priority": "medium"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted",
-      "label": "Data Confidence Adjusted Net Benefit",
-      "value": null,
-      "unit": "USD",
-      "description": "Primary result multiplied by a confidence factor (0.85) to account for estimation uncertainty."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "transfer-pricing-optimizer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK"
 }

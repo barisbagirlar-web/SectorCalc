@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "SOFA respiratory component score (0-4 based on PaO2/FiO2 ratio)"
+      "businessContext": "SOFA respiratory component score (0-4 based on PaO2/FiO2 ratio)",
+      "label_i18n": {
+        "en": "Respiratory Score",
+        "tr": "Respiratory Score",
+        "de": "Respiratory Score",
+        "fr": "Respiratory Score",
+        "es": "Respiratory Score",
+        "ar": "Respiratory Score"
+      }
     },
     {
       "id": "coagScore",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "SOFA coagulation component score (0-4 based on platelet count)"
+      "businessContext": "SOFA coagulation component score (0-4 based on platelet count)",
+      "label_i18n": {
+        "en": "Coagulation Score",
+        "tr": "Coagulation Score",
+        "de": "Coagulation Score",
+        "fr": "Coagulation Score",
+        "es": "Coagulation Score",
+        "ar": "Coagulation Score"
+      }
     },
     {
       "id": "liverScore",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "SOFA liver component score (0-4 based on bilirubin level)"
+      "businessContext": "SOFA liver component score (0-4 based on bilirubin level)",
+      "label_i18n": {
+        "en": "Liver Score",
+        "tr": "Liver Score",
+        "de": "Liver Score",
+        "fr": "Liver Score",
+        "es": "Liver Score",
+        "ar": "Liver Score"
+      }
     },
     {
       "id": "cvScore",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "SOFA cardiovascular component score (0-4 based on mean arterial pressure and vasopressor dosage)"
+      "businessContext": "SOFA cardiovascular component score (0-4 based on mean arterial pressure and vasopressor dosage)",
+      "label_i18n": {
+        "en": "Cardiovascular Score",
+        "tr": "Cardiovascular Score",
+        "de": "Cardiovascular Score",
+        "fr": "Cardiovascular Score",
+        "es": "Cardiovascular Score",
+        "ar": "Cardiovascular Score"
+      }
     },
     {
       "id": "cnsScore",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "SOFA central nervous system score (0-4 based on Glasgow Coma Scale)"
+      "businessContext": "SOFA central nervous system score (0-4 based on Glasgow Coma Scale)",
+      "label_i18n": {
+        "en": "CNS Score",
+        "tr": "CNS Score",
+        "de": "CNS Score",
+        "fr": "CNS Score",
+        "es": "CNS Score",
+        "ar": "CNS Score"
+      }
     },
     {
       "id": "renalScore",
@@ -47,11 +87,25 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "SOFA renal component score (0-4 based on creatinine level or urine output)"
+      "businessContext": "SOFA renal component score (0-4 based on creatinine level or urine output)",
+      "label_i18n": {
+        "en": "Renal Score",
+        "tr": "Renal Score",
+        "de": "Renal Score",
+        "fr": "Renal Score",
+        "es": "Renal Score",
+        "ar": "Renal Score"
+      }
     }
   ],
   "formulas": {
-    "totalSOFA": "respScore + coagScore + liverScore + cvScore + cnsScore + renalScore"
+    "totalSOFA": "respScore + coagScore + liverScore + cvScore + cnsScore + renalScore",
+    "respScore": "respScore",
+    "coagScore": "coagScore",
+    "liverScore": "liverScore",
+    "cvScore": "cvScore",
+    "cnsScore": "cnsScore",
+    "renalScore": "renalScore"
   },
   "outputs": {
     "primary": "totalSOFA",
@@ -64,10 +118,10 @@
       "renalScore"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

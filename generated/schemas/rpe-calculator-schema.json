@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 1000000,
-      "businessContext": "Your company's total annual revenue"
+      "businessContext": "Your company's total annual revenue",
+      "label_i18n": {
+        "en": "Your Annual Revenue",
+        "tr": "Your Annual Revenue",
+        "de": "Your Annual Revenue",
+        "fr": "Your Annual Revenue",
+        "es": "Your Annual Revenue",
+        "ar": "Your Annual Revenue"
+      }
     },
     {
       "id": "coEmp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "employees",
       "default": 50,
-      "businessContext": "Average number of employees in your company"
+      "businessContext": "Average number of employees in your company",
+      "label_i18n": {
+        "en": "Your Number of Employees",
+        "tr": "Your Number of Employees",
+        "de": "Your Number of Employees",
+        "fr": "Your Number of Employees",
+        "es": "Your Number of Employees",
+        "ar": "Your Number of Employees"
+      }
     },
     {
       "id": "indRev",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 5000000,
-      "businessContext": "Average industry annual revenue for similar companies"
+      "businessContext": "Average industry annual revenue for similar companies",
+      "label_i18n": {
+        "en": "Industry Annual Revenue",
+        "tr": "Industry Annual Revenue",
+        "de": "Industry Annual Revenue",
+        "fr": "Industry Annual Revenue",
+        "es": "Industry Annual Revenue",
+        "ar": "Industry Annual Revenue"
+      }
     },
     {
       "id": "indEmp",
@@ -31,29 +55,37 @@
       "type": "number",
       "unit": "employees",
       "default": 100,
-      "businessContext": "Average industry number of employees"
+      "businessContext": "Average industry number of employees",
+      "label_i18n": {
+        "en": "Industry Employees",
+        "tr": "Industry Employees",
+        "de": "Industry Employees",
+        "fr": "Industry Employees",
+        "es": "Industry Employees",
+        "ar": "Industry Employees"
+      }
     }
   ],
   "formulas": {
     "primary": "coRev / coEmp",
-    "breakdown": [
-      "indRev / indEmp",
-      "(coRev / coEmp) - (indRev / indEmp)",
-      "(coRev / coEmp) / (indRev / indEmp)"
-    ]
+    "breakdown": "coRev",
+    "Industry_Revenue_Per_Employee": "Industry Revenue Per Employee",
+    "RPE_Difference__Your___Industry_": "RPE Difference (Your - Industry)",
+    "RPE_Ratio__Your___Industry_": "RPE Ratio (Your / Industry)",
+    "result": "Your Revenue Per Employee (RPE)"
   },
   "outputs": {
-    "primary": "Your Revenue Per Employee (RPE)",
+    "primary": "result",
     "breakdown": [
       "Industry Revenue Per Employee",
       "RPE Difference (Your - Industry)",
       "RPE Ratio (Your / Industry)"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "İK & Personel",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "workforce-hr"
 }

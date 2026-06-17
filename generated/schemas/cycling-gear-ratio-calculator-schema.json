@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "teeth",
       "default": 50,
-      "businessContext": "Number of teeth on the front chainring."
+      "businessContext": "Number of teeth on the front chainring.",
+      "label_i18n": {
+        "en": "Chainring Teeth",
+        "tr": "Chainring Teeth",
+        "de": "Chainring Teeth",
+        "fr": "Chainring Teeth",
+        "es": "Chainring Teeth",
+        "ar": "Chainring Teeth"
+      }
     },
     {
       "id": "cassetteTeeth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "teeth",
       "default": 12,
-      "businessContext": "Number of teeth on the selected rear sprocket."
+      "businessContext": "Number of teeth on the selected rear sprocket.",
+      "label_i18n": {
+        "en": "Cassette Teeth",
+        "tr": "Cassette Teeth",
+        "de": "Cassette Teeth",
+        "fr": "Cassette Teeth",
+        "es": "Cassette Teeth",
+        "ar": "Cassette Teeth"
+      }
     },
     {
       "id": "wheelDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 700,
-      "businessContext": "Outer diameter of the wheel including tire, in millimeters. Typical 700c road bike is ~700mm."
+      "businessContext": "Outer diameter of the wheel including tire, in millimeters. Typical 700c road bike is ~700mm.",
+      "label_i18n": {
+        "en": "Wheel Diameter (with tire)",
+        "tr": "Wheel Diameter (with tire)",
+        "de": "Wheel Diameter (with tire)",
+        "fr": "Wheel Diameter (with tire)",
+        "es": "Wheel Diameter (with tire)",
+        "ar": "Wheel Diameter (with tire)"
+      }
     },
     {
       "id": "cadence",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 90,
-      "businessContext": "Pedaling cadence in revolutions per minute."
+      "businessContext": "Pedaling cadence in revolutions per minute.",
+      "label_i18n": {
+        "en": "Cadence",
+        "tr": "Cadence",
+        "de": "Cadence",
+        "fr": "Cadence",
+        "es": "Cadence",
+        "ar": "Cadence"
+      }
     }
   ],
   "formulas": {
@@ -39,10 +71,15 @@
     "gearInches": "(chainringTeeth / cassetteTeeth) * (wheelDiameter / 25.4)",
     "development": "(Math.PI * wheelDiameter / 1000) * (chainringTeeth / cassetteTeeth)",
     "speedKmh": "(Math.PI * wheelDiameter * chainringTeeth * cadence * 60) / (cassetteTeeth * 1000000)",
-    "speedMph": "(chainringTeeth / cassetteTeeth) * (wheelDiameter / 25.4) * Math.PI * cadence * 60 / 63360"
+    "speedMph": "(chainringTeeth / cassetteTeeth) * (wheelDiameter / 25.4) * Math.PI * cadence * 60 / 63360",
+    "Gear_Ratio": "Gear Ratio",
+    "Gear_Inches": "Gear Inches",
+    "Development__m_": "Development (m)",
+    "Speed__mph_": "Speed (mph)",
+    "result": "Speed (km/h)"
   },
   "outputs": {
-    "primary": "Speed (km/h)",
+    "primary": "result",
     "breakdown": [
       "Gear Ratio",
       "Gear Inches",
@@ -50,10 +87,10 @@
       "Speed (mph)"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "cnc-additive-manufacturing"
 }

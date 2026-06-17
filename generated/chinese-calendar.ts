@@ -21,13 +21,16 @@ function evaluateAllFormulas(input: Chinese_calendarInput): Record<string, numbe
   try { const v = ((input.month + 9) % 12) + 1; results["chineseMonth"] = Number.isFinite(v) ? v : 0; } catch { results["chineseMonth"] = 0; }
   try { const v = input.day; results["chineseDay"] = Number.isFinite(v) ? v : 0; } catch { results["chineseDay"] = 0; }
   try { const v = input.leapMonth === 1 ? 'Yes' : 'No'; results["isLeapMonth"] = Number.isFinite(v) ? v : 0; } catch { results["isLeapMonth"] = 0; }
+  try { const v = (results["chineseMonth"] ?? 0); results["_chineseMonth_"] = Number.isFinite(v) ? v : 0; } catch { results["_chineseMonth_"] = 0; }
+  try { const v = (results["chineseDay"] ?? 0); results["_chineseDay_"] = Number.isFinite(v) ? v : 0; } catch { results["_chineseDay_"] = 0; }
+  try { const v = (results["isLeapMonth"] ?? 0); results["_isLeapMonth_"] = Number.isFinite(v) ? v : 0; } catch { results["_isLeapMonth_"] = 0; }
   return results;
 }
 
 
 export function calculateChinese_calendar(input: Chinese_calendarInput): Chinese_calendarOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Chinese"] ?? 0;
+  const totalWasteCost = values["chineseYear"] ?? 0;
   const breakdown = {
     
   };

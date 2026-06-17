@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Mebibytes_to_megabytes_calculatorInput): Rec
 
 export function calculateMebibytes_to_megabytes_calculator(input: Mebibytes_to_megabytes_calculatorInput): Mebibytes_to_megabytes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["factor"] ?? 0;
   const breakdown = {
     
   };

@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Ach_fee_calculatorInput): Record<string, num
 
 export function calculateAch_fee_calculator(input: Ach_fee_calculatorInput): Ach_fee_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalFee"] ?? 0;
+  const totalWasteCost = values["flatFeeTotal"] ?? 0;
   const breakdown = {
     
   };

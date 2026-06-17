@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Tolerance of component 1 in the tolerance stack"
+      "businessContext": "Tolerance of component 1 in the tolerance stack",
+      "label_i18n": {
+        "en": "Tolerance 1",
+        "tr": "Tolerance 1",
+        "de": "Tolerance 1",
+        "fr": "Tolerance 1",
+        "es": "Tolerance 1",
+        "ar": "Tolerance 1"
+      }
     },
     {
       "id": "t2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Tolerance of component 2 in the tolerance stack"
+      "businessContext": "Tolerance of component 2 in the tolerance stack",
+      "label_i18n": {
+        "en": "Tolerance 2",
+        "tr": "Tolerance 2",
+        "de": "Tolerance 2",
+        "fr": "Tolerance 2",
+        "es": "Tolerance 2",
+        "ar": "Tolerance 2"
+      }
     },
     {
       "id": "t3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Tolerance of component 3 in the tolerance stack"
+      "businessContext": "Tolerance of component 3 in the tolerance stack",
+      "label_i18n": {
+        "en": "Tolerance 3",
+        "tr": "Tolerance 3",
+        "de": "Tolerance 3",
+        "fr": "Tolerance 3",
+        "es": "Tolerance 3",
+        "ar": "Tolerance 3"
+      }
     },
     {
       "id": "t4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Tolerance of component 4 in the tolerance stack"
+      "businessContext": "Tolerance of component 4 in the tolerance stack",
+      "label_i18n": {
+        "en": "Tolerance 4",
+        "tr": "Tolerance 4",
+        "de": "Tolerance 4",
+        "fr": "Tolerance 4",
+        "es": "Tolerance 4",
+        "ar": "Tolerance 4"
+      }
     },
     {
       "id": "nominal",
@@ -39,25 +71,36 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Nominal dimension of the assembly for reference"
+      "businessContext": "Nominal dimension of the assembly for reference",
+      "label_i18n": {
+        "en": "Nominal Dimension",
+        "tr": "Nominal Dimension",
+        "de": "Nominal Dimension",
+        "fr": "Nominal Dimension",
+        "es": "Nominal Dimension",
+        "ar": "Nominal Dimension"
+      }
     }
   ],
   "formulas": {
     "atl": "t1 + t2 + t3 + t4",
     "ctl": "Math.sqrt(Math.pow(t1,2) + Math.pow(t2,2) + Math.pow(t3,2) + Math.pow(t4,2))",
-    "tsb": "(t1 + t2 + t3 + t4) / Math.sqrt(Math.pow(t1,2) + Math.pow(t2,2) + Math.pow(t3,2) + Math.pow(t4,2))"
+    "tsb": "(t1 + t2 + t3 + t4) / Math.sqrt(Math.pow(t1,2) + Math.pow(t2,2) + Math.pow(t3,2) + Math.pow(t4,2))",
+    "__atl_toFixed_3___mm_": "${atl.toFixed(3)} mm`",
+    "__tsb_toFixed_2___": "${tsb.toFixed(2)}`",
+    "result": "`Statistical Tolerance (CTL): ${ctl.toFixed(3)} mm`"
   },
   "outputs": {
-    "primary": "`Statistical Tolerance (CTL): ${ctl.toFixed(3)} mm`",
+    "primary": "result",
     "breakdown": [
       "`Worst-Case Tolerance (ATL): ${atl.toFixed(3)} mm`",
       "`Safety Factor (TSB): ${tsb.toFixed(2)}`"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

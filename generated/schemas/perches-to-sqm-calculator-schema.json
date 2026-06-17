@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "perch",
       "default": 0,
-      "businessContext": "Land area measurement in perches (1 perch = 25.29285264 m²)"
+      "businessContext": "Land area measurement in perches (1 perch = 25.29285264 m²)",
+      "label_i18n": {
+        "en": "Area in perches",
+        "tr": "Area in perches",
+        "de": "Area in perches",
+        "fr": "Area in perches",
+        "es": "Area in perches",
+        "ar": "Area in perches"
+      }
     },
     {
       "id": "factor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²/perch",
       "default": 25.29285264,
-      "businessContext": "Standard conversion factor; can be overridden for historical variants"
+      "businessContext": "Standard conversion factor; can be overridden for historical variants",
+      "label_i18n": {
+        "en": "Conversion factor (sqm per perch)",
+        "tr": "Conversion factor (sqm per perch)",
+        "de": "Conversion factor (sqm per perch)",
+        "fr": "Conversion factor (sqm per perch)",
+        "es": "Conversion factor (sqm per perch)",
+        "ar": "Conversion factor (sqm per perch)"
+      }
     },
     {
       "id": "knownSqm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0,
-      "businessContext": "Optional input to compute equivalent perches for validation"
+      "businessContext": "Optional input to compute equivalent perches for validation",
+      "label_i18n": {
+        "en": "Verify reverse: known area in sqm",
+        "tr": "Verify reverse: known area in sqm",
+        "de": "Verify reverse: known area in sqm",
+        "fr": "Verify reverse: known area in sqm",
+        "es": "Verify reverse: known area in sqm",
+        "ar": "Verify reverse: known area in sqm"
+      }
     },
     {
       "id": "offset",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0,
-      "businessContext": "Calibration offset added to the result"
+      "businessContext": "Calibration offset added to the result",
+      "label_i18n": {
+        "en": "Offset adjustment (sqm)",
+        "tr": "Offset adjustment (sqm)",
+        "de": "Offset adjustment (sqm)",
+        "fr": "Offset adjustment (sqm)",
+        "es": "Offset adjustment (sqm)",
+        "ar": "Offset adjustment (sqm)"
+      }
     },
     {
       "id": "precision",
@@ -39,20 +71,23 @@
       "type": "number",
       "unit": "decimals",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding display (not used in raw calculation)"
+      "businessContext": "Number of decimal places for rounding display (not used in raw calculation)",
+      "label_i18n": {
+        "en": "Decimal precision for display",
+        "tr": "Decimal precision for display",
+        "de": "Decimal precision for display",
+        "fr": "Decimal precision for display",
+        "es": "Decimal precision for display",
+        "ar": "Decimal precision for display"
+      }
     }
   ],
   "formulas": {
     "primary": "perches * factor + offset",
-    "breakdown": [
-      "knownSqm / factor"
-    ]
+    "breakdown": "perches"
   },
   "outputs": {
-    "primary": {
-      "label": "Result in m²",
-      "unit": "m²"
-    },
+    "primary": "primary",
     "breakdown": [
       {
         "label": "Reverse: perches from known sqm",
@@ -60,10 +95,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

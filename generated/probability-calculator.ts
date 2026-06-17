@@ -19,33 +19,19 @@ export const Probability_calculatorInputSchema = z.object({
   use_historical_bias: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Probability_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.defect_count / input.sample_size; results["defect_rate"] = Number.isFinite(v) ? v : 0; } catch { results["defect_rate"] = 0; }
-  try { const v = Math.sqrt( ((results["defect_rate"] ?? 0) * (1 - (results["defect_rate"] ?? 0))) / input.sample_size ); results["standard_error"] = Number.isFinite(v) ? v : 0; } catch { results["standard_error"] = 0; }
-  try { const v = ((input.confidence_level == '90') ? (1.645) : (((input.confidence_level == '95') ? (1.96) : (2.576)))); results["z_score"] = Number.isFinite(v) ? v : 0; } catch { results["z_score"] = 0; }
-  try { const v = (results["defect_rate"] ?? 0) + (results["z_score"] ?? 0) * (results["standard_error"] ?? 0); results["confidence_interval"] = Number.isFinite(v) ? v : 0; } catch { results["confidence_interval"] = 0; }
-  try { const v = (results["defect_rate"] ?? 0) * 1000000; results["dpm"] = Number.isFinite(v) ? v : 0; } catch { results["dpm"] = 0; }
-  try { const v = normsinv(1 - (results["defect_rate"] ?? 0)) + input.sigma_shift; results["sigma_level"] = Number.isFinite(v) ? v : 0; } catch { results["sigma_level"] = 0; }
-  try { const v = Math.min( ((results["sigma_level"] ?? 0) - input.sigma_shift) / 3, ((results["sigma_level"] ?? 0) + input.sigma_shift) / 3 ); results["cpk"] = Number.isFinite(v) ? v : 0; } catch { results["cpk"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Probability_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateProbability_calculator(input: Probability_calculatorInput): Probability_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["failure_probability"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    defect_rate: values["defect_rate"] ?? 0,
-    standard_error: values["standard_error"] ?? 0,
-    confidence_interval_lower: values["confidence_interval_lower"] ?? 0,
-    confidence_interval_upper: values["confidence_interval_upper"] ?? 0,
-    dpm: values["dpm"] ?? 0,
-    sigma_level: values["sigma_level"] ?? 0,
-    cpk: values["cpk"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Sampling Error Contribution","Distribution Mismatch Risk","Historical Bias Effect"];
-  const suggestedActions: string[] = ["Increase sample size to reduce standard error below 0.05.","Initiate root cause analysis and implement corrective actions to lower defect rate.","Apply DMAIC methodology to improve process capability to Cpk >= 1.33.","Re-evaluate distribution assumption; consider non-parametric methods for small samples."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -64,7 +50,7 @@ export function calculateProbability_calculator(input: Probability_calculatorInp
 
 export interface Probability_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { defect_rate: number; standard_error: number; confidence_interval_lower: number; confidence_interval_upper: number; dpm: number; sigma_level: number; cpk: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

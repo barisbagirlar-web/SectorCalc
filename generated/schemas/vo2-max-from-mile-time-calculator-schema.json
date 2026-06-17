@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "min",
       "default": 8.5,
-      "businessContext": "Time to run/jog one mile in decimal minutes (e.g., 8.5 for 8 minutes 30 seconds)."
+      "businessContext": "Time to run/jog one mile in decimal minutes (e.g., 8.5 for 8 minutes 30 seconds).",
+      "label_i18n": {
+        "en": "Mile Time (min)",
+        "tr": "Mile Time (min)",
+        "de": "Mile Time (min)",
+        "fr": "Mile Time (min)",
+        "es": "Mile Time (min)",
+        "ar": "Mile Time (min)"
+      }
     },
     {
       "id": "heartRateBpm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 150,
-      "businessContext": "Heart rate at the end of the mile (beats per minute)."
+      "businessContext": "Heart rate at the end of the mile (beats per minute).",
+      "label_i18n": {
+        "en": "Heart Rate (bpm)",
+        "tr": "Heart Rate (bpm)",
+        "de": "Heart Rate (bpm)",
+        "fr": "Heart Rate (bpm)",
+        "es": "Heart Rate (bpm)",
+        "ar": "Heart Rate (bpm)"
+      }
     },
     {
       "id": "weightKg",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms."
+      "businessContext": "Body weight in kilograms.",
+      "label_i18n": {
+        "en": "Body Weight (kg)",
+        "tr": "Body Weight (kg)",
+        "de": "Body Weight (kg)",
+        "fr": "Body Weight (kg)",
+        "es": "Body Weight (kg)",
+        "ar": "Body Weight (kg)"
+      }
     },
     {
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Gender: 0 for female, 1 for male."
+      "businessContext": "Gender: 0 for female, 1 for male.",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     }
   ],
   "formulas": {
@@ -52,10 +84,10 @@
       "genderComponent"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

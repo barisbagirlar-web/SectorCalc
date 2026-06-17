@@ -18,13 +18,17 @@ export const Jacobian_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Jacobian_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.dxdu * input.dydv - input.dxdv * input.dydu; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.dxdu; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Product__x__u____y__v"] = 0;
+  results["Product__x__v____y__u"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateJacobian_calculator(input: Jacobian_calculatorInput): Jacobian_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Jacobian"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -41,31 +41,19 @@ export const Noise_vibration_cost_calculatorInputSchema = z.object({
   iso_standard_compliance: z.enum(['None', 'ISO 2631-1 (Whole-body)', 'ISO 2631-2 (Building)', 'ISO 5349 (Hand-arm)', 'ISO 9612 (Noise)']).default('None'),
 });
 
-function evaluateAllFormulas(input: Noise_vibration_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.num_workers_exposed * input.avg_worker_annual_salary * (Math.max(0, (input.noise_level_dba - 80) * 0.005) + Math.max(0, (input.vibration_level_ms2 - 0.3) * 10 * 0.01)); results["productivity_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["productivity_loss_cost"] = 0; }
-  try { const v = input.num_workers_exposed * input.hearing_protection_cost_per_worker_per_year + (input.num_workers_exposed * 50 * (input.vibration_level_ms2 > 0.5 ? 1 : 0)); results["health_and_ppe_cost"] = Number.isFinite(v) ? v : 0; } catch { results["health_and_ppe_cost"] = 0; }
-  try { const v = input.annual_production_volume * (input.quality_defect_rate_percent / 100) * input.cost_per_defect; results["quality_defect_cost"] = Number.isFinite(v) ? v : 0; } catch { results["quality_defect_cost"] = 0; }
-  try { const v = input.number_of_machines * input.machine_power_kw * input.machine_runtime_hours_per_day * 365 * input.energy_cost_per_kwh * (0.05 * Math.max(0, input.vibration_level_ms2 - 0.5)); results["excess_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["excess_energy_cost"] = 0; }
-  try { const v = input.number_of_machines * input.maintenance_cost_per_machine_per_year * (0.10 * Math.max(0, input.vibration_level_ms2 - 0.3)); results["excess_maintenance_cost"] = Number.isFinite(v) ? v : 0; } catch { results["excess_maintenance_cost"] = 0; }
-  try { const v = (results["productivity_loss_cost"] ?? 0) + (results["health_and_ppe_cost"] ?? 0) + (results["quality_defect_cost"] ?? 0) + (results["excess_energy_cost"] ?? 0) + (results["excess_maintenance_cost"] ?? 0); results["total_annual_loss"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_loss"] = 0; }
-  try { const v = ((results["total_annual_loss"] ?? 0) * 0.5 * 5) - (input.noise_reduction_investment + input.vibration_reduction_investment); results["roi_improvement"] = Number.isFinite(v) ? v : 0; } catch { results["roi_improvement"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Noise_vibration_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateNoise_vibration_cost_calculator(input: Noise_vibration_cost_calculatorInput): Noise_vibration_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_annual_loss"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    productivityLossCost: values["productivityLossCost"] ?? 0,
-    healthAndPpeCost: values["healthAndPpeCost"] ?? 0,
-    qualityDefectCost: values["qualityDefectCost"] ?? 0,
-    excessEnergyCost: values["excessEnergyCost"] ?? 0,
-    excessMaintenanceCost: values["excessMaintenanceCost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Absenteeism due to noise/vibration","Regulatory non-compliance fines","Increased turnover costs","Brand reputation damage"];
-  const suggestedActions: string[] = ["Implement engineering controls for vibration (isolators, dampers) on machines exceeding 1.15 m/s².","Install acoustic enclosures or barriers for noise sources above 85 dB(A).","Initiate a Six Sigma DMAIC project to reduce vibration-induced defects by 50%.","Establish a predictive maintenance program using vibration monitoring.","Rotate workers to reduce daily exposure hours below 8 hours."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -84,7 +72,7 @@ export function calculateNoise_vibration_cost_calculator(input: Noise_vibration_
 
 export interface Noise_vibration_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { productivityLossCost: number; healthAndPpeCost: number; qualityDefectCost: number; excessEnergyCost: number; excessMaintenanceCost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

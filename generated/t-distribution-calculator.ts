@@ -18,13 +18,15 @@ function evaluateAllFormulas(input: T_distribution_calculatorInput): Record<stri
   try { const v = (function(t, df) { var x = df / (df + t*t); var a = df / 2; var b = 0.5; var betaInc = betainc(x, a, b); return 1 - 0.5 * betaInc; })(t, df); results["cdf"] = Number.isFinite(v) ? v : 0; } catch { results["cdf"] = 0; }
   try { const v = (function(t, df, tails) { var p = 1 - cdf(Math.abs(t), df); return tails === 2 ? 2 * p : p; })(t, df, input.tails); results["p_value"] = Number.isFinite(v) ? v : 0; } catch { results["p_value"] = 0; }
   results["critical_value"] = 0;
+  try { const v = (results["p_value"] ?? 0); results["_p_value_"] = Number.isFinite(v) ? v : 0; } catch { results["_p_value_"] = 0; }
+  try { const v = (results["critical_value"] ?? 0); results["_critical_value_"] = Number.isFinite(v) ? v : 0; } catch { results["_critical_value_"] = 0; }
   return results;
 }
 
 
 export function calculateT_distribution_calculator(input: T_distribution_calculatorInput): T_distribution_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["p_de"] ?? 0;
+  const totalWasteCost = values["cdf"] ?? 0;
   const breakdown = {
     
   };

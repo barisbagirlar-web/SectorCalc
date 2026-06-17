@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mil",
       "default": 1,
-      "businessContext": "Thickness in mils (1 mil = 0.001 inch)"
+      "businessContext": "Thickness in mils (1 mil = 0.001 inch)",
+      "label_i18n": {
+        "en": "Mils",
+        "tr": "Mils",
+        "de": "Mils",
+        "fr": "Mils",
+        "es": "Mils",
+        "ar": "Mils"
+      }
     },
     {
       "id": "precision",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "decimal places",
       "default": 4,
-      "businessContext": "Number of decimal places for output display"
+      "businessContext": "Number of decimal places for output display",
+      "label_i18n": {
+        "en": "Precision",
+        "tr": "Precision",
+        "de": "Precision",
+        "fr": "Precision",
+        "es": "Precision",
+        "ar": "Precision"
+      }
     },
     {
       "id": "scaleFactor",
       "label": "Scale Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for mils value (use for calibration)"
+      "businessContext": "Multiplier for mils value (use for calibration)",
+      "label_i18n": {
+        "en": "Scale Factor",
+        "tr": "Scale Factor",
+        "de": "Scale Factor",
+        "fr": "Scale Factor",
+        "es": "Scale Factor",
+        "ar": "Scale Factor"
+      }
     },
     {
       "id": "baseInches",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Additional base thickness in inches to add"
+      "businessContext": "Additional base thickness in inches to add",
+      "label_i18n": {
+        "en": "Base Inches",
+        "tr": "Base Inches",
+        "de": "Base Inches",
+        "fr": "Base Inches",
+        "es": "Base Inches",
+        "ar": "Base Inches"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "convertedInches"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

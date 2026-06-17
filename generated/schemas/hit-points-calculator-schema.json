@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hp",
       "default": 100,
-      "businessContext": "The total life capacity of the equipment or component when new."
+      "businessContext": "The total life capacity of the equipment or component when new.",
+      "label_i18n": {
+        "en": "Initial Hit Points",
+        "tr": "Initial Hit Points",
+        "de": "Initial Hit Points",
+        "fr": "Initial Hit Points",
+        "es": "Initial Hit Points",
+        "ar": "Initial Hit Points"
+      }
     },
     {
       "id": "damagePerCycle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hp/cycle",
       "default": 1,
-      "businessContext": "The average damage incurred per operation cycle."
+      "businessContext": "The average damage incurred per operation cycle.",
+      "label_i18n": {
+        "en": "Damage per Cycle",
+        "tr": "Damage per Cycle",
+        "de": "Damage per Cycle",
+        "fr": "Damage per Cycle",
+        "es": "Damage per Cycle",
+        "ar": "Damage per Cycle"
+      }
     },
     {
       "id": "cycles",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "cycles",
       "default": 10,
-      "businessContext": "Number of operation cycles performed."
+      "businessContext": "Number of operation cycles performed.",
+      "label_i18n": {
+        "en": "Number of Cycles",
+        "tr": "Number of Cycles",
+        "de": "Number of Cycles",
+        "fr": "Number of Cycles",
+        "es": "Number of Cycles",
+        "ar": "Number of Cycles"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Multiplier to account for variability and ensure conservative estimates."
+      "businessContext": "Multiplier to account for variability and ensure conservative estimates.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "repairHP",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hp",
       "default": 0,
-      "businessContext": "Hit points regained after maintenance, if any."
+      "businessContext": "Hit points regained after maintenance, if any.",
+      "label_i18n": {
+        "en": "Repair HP Gain",
+        "tr": "Repair HP Gain",
+        "de": "Repair HP Gain",
+        "fr": "Repair HP Gain",
+        "es": "Repair HP Gain",
+        "ar": "Repair HP Gain"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "netHP"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Atölye & Tamir",
+  "category": "Bakım & Güvenilirlik",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "maintenance-reliability"
 }

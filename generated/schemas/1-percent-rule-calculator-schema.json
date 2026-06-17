@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 200000,
-      "businessContext": "Total acquisition cost of the property"
+      "businessContext": "Total acquisition cost of the property",
+      "label_i18n": {
+        "en": "Purchase Price",
+        "tr": "Purchase Price",
+        "de": "Purchase Price",
+        "fr": "Purchase Price",
+        "es": "Purchase Price",
+        "ar": "Purchase Price"
+      }
     },
     {
       "id": "monthlyRent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 2000,
-      "businessContext": "Expected monthly rental income"
+      "businessContext": "Expected monthly rental income",
+      "label_i18n": {
+        "en": "Monthly Rent",
+        "tr": "Monthly Rent",
+        "de": "Monthly Rent",
+        "fr": "Monthly Rent",
+        "es": "Monthly Rent",
+        "ar": "Monthly Rent"
+      }
     },
     {
       "id": "closingCosts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5000,
-      "businessContext": "One-time fees at purchase (e.g., legal, inspection)"
+      "businessContext": "One-time fees at purchase (e.g., legal, inspection)",
+      "label_i18n": {
+        "en": "Closing Costs",
+        "tr": "Closing Costs",
+        "de": "Closing Costs",
+        "fr": "Closing Costs",
+        "es": "Closing Costs",
+        "ar": "Closing Costs"
+      }
     },
     {
       "id": "repairCosts",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "Initial repairs or renovations needed"
+      "businessContext": "Initial repairs or renovations needed",
+      "label_i18n": {
+        "en": "Repair Costs",
+        "tr": "Repair Costs",
+        "de": "Repair Costs",
+        "fr": "Repair Costs",
+        "es": "Repair Costs",
+        "ar": "Repair Costs"
+      }
     },
     {
       "id": "monthlyExpenses",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 500,
-      "businessContext": "Recurring costs (taxes, insurance, HOA, maintenance)"
+      "businessContext": "Recurring costs (taxes, insurance, HOA, maintenance)",
+      "label_i18n": {
+        "en": "Monthly Expenses",
+        "tr": "Monthly Expenses",
+        "de": "Monthly Expenses",
+        "fr": "Monthly Expenses",
+        "es": "Monthly Expenses",
+        "ar": "Monthly Expenses"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +87,11 @@
     "monthlyNetIncome": "monthlyRent - monthlyExpenses",
     "onePercentThreshold": "totalInvestment * 0.01",
     "meetsRule": "monthlyRent >= onePercentThreshold ? 1 : 0",
-    "annualReturn": "(monthlyNetIncome * 12 / totalInvestment) * 100"
+    "annualReturn": "(monthlyNetIncome * 12 / totalInvestment) * 100",
+    "result": "monthlyRent >= onePercentThreshold ? 'Passes 1% Rule' : 'Fails 1% Rule'"
   },
   "outputs": {
-    "primary": "monthlyRent >= onePercentThreshold ? 'Passes 1% Rule' : 'Fails 1% Rule'",
+    "primary": "result",
     "breakdown": [
       "Total Investment: totalInvestment",
       "1% Threshold: onePercentThreshold",
@@ -58,10 +99,10 @@
       "Annual Return (%): annualReturn"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "finance-sales-working-capital"
 }

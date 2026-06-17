@@ -19,6 +19,10 @@ function evaluateAllFormulas(input: Bytes_to_kilobytes_calculatorInput): Record<
   const results: Record<string, number> = {};
   try { const v = input.bytes / input.convention; results["exact"] = Number.isFinite(v) ? v : 0; } catch { results["exact"] = 0; }
   try { const v = (() => { const e = exact; const m = Math.pow(10, precision); const rm = roundMode; if (rm === 0) return e; if (rm === 1) return Math.round(e * m) / m; if (rm === 2) return Math.ceil(e * m) / m; return Math.floor(e * m) / m; })(); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  results["__bytes___bytes"] = 0;
+  results["__convention___bytes_per_kilobyte"] = 0;
+  results["__exact___KB"] = 0;
+  results["__result___KB"] = 0;
   return results;
 }
 

@@ -29,7 +29,7 @@
       "id": "hp_type",
       "label": "Horsepower Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "mechanical",
       "options": [
         {
@@ -89,7 +89,7 @@
       "id": "power_factor",
       "label": "Power Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
       "min": 0.5,
       "max": 1,
@@ -179,150 +179,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "conversion_factor",
-      "description": "Determine conversion factor based on HP type",
-      "formula": "CASE hp_type WHEN 'mechanical' THEN 0.7457 WHEN 'metric' THEN 0.7355 WHEN 'electrical' THEN 0.746 END",
-      "unit": "kW/hp"
-    },
-    {
-      "id": "input_power_kw",
-      "description": "Convert horsepower to input kilowatts (shaft power)",
-      "formula": "horsepower * conversion_factor",
-      "unit": "kW"
-    },
-    {
-      "id": "electrical_input_power",
-      "description": "Calculate electrical power drawn from supply considering efficiency and load factor",
-      "formula": "(input_power_kw / (motor_efficiency / 100)) * (load_factor / 100)",
-      "unit": "kW"
-    },
-    {
-      "id": "apparent_power_kva",
-      "description": "Calculate apparent power (kVA) from real power and power factor",
-      "formula": "electrical_input_power / power_factor",
-      "unit": "kVA"
-    },
-    {
-      "id": "annual_energy_consumption",
-      "description": "Total energy consumed per year",
-      "formula": "electrical_input_power * operating_hours_per_year",
-      "unit": "kWh/year"
-    },
-    {
-      "id": "annual_energy_cost",
-      "description": "Total annual electricity cost",
-      "formula": "annual_energy_consumption * electricity_cost_per_kwh",
-      "unit": "$/year"
-    },
-    {
-      "id": "primary_result",
-      "description": "Primary result: equivalent kilowatt rating (shaft power) adjusted for load factor",
-      "formula": "input_power_kw * (load_factor / 100)",
-      "unit": "kW"
-    }
+    "horsepower",
+    "horsepower",
+    "horsepower",
+    "horsepower",
+    "horsepower",
+    "horsepower",
+    "horsepower"
   ],
   "outputs": {
-    "primary": {
-      "id": "equivalent_kw",
-      "label": "Equivalent Kilowatts (Shaft Power)",
-      "value": null,
-      "unit": "kW",
-      "description": "Mechanical output power in kilowatts at given load factor."
-    },
-    "breakdown": {
-      "input_hp": {
-        "label": "Input Horsepower",
-        "value": null,
-        "unit": "hp"
-      },
-      "conversion_factor_used": {
-        "label": "Conversion Factor",
-        "value": null,
-        "unit": "kW/hp"
-      },
-      "shaft_power_kw": {
-        "label": "Shaft Power (100% load)",
-        "value": null,
-        "unit": "kW"
-      },
-      "electrical_input_power": {
-        "label": "Electrical Input Power",
-        "value": null,
-        "unit": "kW"
-      },
-      "apparent_power": {
-        "label": "Apparent Power",
-        "value": null,
-        "unit": "kVA"
-      },
-      "annual_energy_consumption": {
-        "label": "Annual Energy Consumption",
-        "value": null,
-        "unit": "kWh"
-      },
-      "annual_energy_cost": {
-        "label": "Annual Energy Cost",
-        "value": null,
-        "unit": "$"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "motor_winding_losses",
-        "description": "I²R losses in stator and rotor windings",
-        "estimated_percentage": "20–40% of total losses",
-        "impact": "Increases with load and temperature"
-      },
-      {
-        "id": "core_losses",
-        "description": "Hysteresis and eddy current losses in iron core",
-        "estimated_percentage": "15–25% of total losses",
-        "impact": "Constant with load, depends on voltage and frequency"
-      },
-      {
-        "id": "friction_and_windage",
-        "description": "Bearing friction and air resistance",
-        "estimated_percentage": "5–15% of total losses",
-        "impact": "Increases with speed"
-      },
-      {
-        "id": "stray_load_losses",
-        "description": "Leakage flux and harmonic losses",
-        "estimated_percentage": "5–10% of total losses",
-        "impact": "Varies with design and load"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_upsize_motor",
-        "condition": "load_factor < 50",
-        "description": "Consider replacing motor with a smaller, more efficient unit to match actual load.",
-        "expected_savings": "Up to 15% reduction in energy losses"
-      },
-      {
-        "id": "action_power_factor_correction",
-        "condition": "power_factor < 0.8",
-        "description": "Install power factor correction capacitors to reduce reactive power and avoid utility penalties.",
-        "expected_savings": "Reduction in kVA demand charges"
-      },
-      {
-        "id": "action_upgrade_efficiency",
-        "condition": "motor_efficiency < 90",
-        "description": "Replace motor with IE4 (Super Premium Efficiency) class motor.",
-        "expected_savings": "5–10% reduction in energy consumption"
-      },
-      {
-        "id": "action_vfd_installation",
-        "condition": "load_factor < 80 AND operating_hours_per_year > 4000",
-        "description": "Install variable frequency drive to match motor speed to load requirements.",
-        "expected_savings": "20–50% energy savings for variable torque loads"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "hp-to-kw-converter-calculator",
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",
-  "categorySlug": "sustainability-resource-esg"
+  "categorySlug": "electrical-power-systems",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik"
 }

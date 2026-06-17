@@ -23,13 +23,14 @@ function evaluateAllFormulas(input: Wavelength_calculatorInput): Record<string, 
   try { const v = 1 / input.frequency; results["period"] = Number.isFinite(v) ? v : 0; } catch { results["period"] = 0; }
   try { const v = (input.planckConstant * input.waveSpeed) / input.energy; results["wavelength_energy"] = Number.isFinite(v) ? v : 0; } catch { results["wavelength_energy"] = 0; }
   try { const v = (input.waveSpeed / input.frequency) / input.refractiveIndex; results["wavelength_medium"] = Number.isFinite(v) ? v : 0; } catch { results["wavelength_medium"] = 0; }
+  try { const v = Wavelength (vacuum); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateWavelength_calculator(input: Wavelength_calculatorInput): Wavelength_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Wavelength"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

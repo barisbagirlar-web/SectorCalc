@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of the object in meters"
+      "businessContext": "Length of the object in meters",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Width of the object in meters"
+      "businessContext": "Width of the object in meters",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "height",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Height of the object in meters"
+      "businessContext": "Height of the object in meters",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "shape",
       "label": "Shape Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for rectangular, 0.5236 for spherical (4/3*pi/8), etc."
+      "businessContext": "1 for rectangular, 0.5236 for spherical (4/3*pi/8), etc.",
+      "label_i18n": {
+        "en": "Shape Factor",
+        "tr": "Shape Factor",
+        "de": "Shape Factor",
+        "fr": "Shape Factor",
+        "es": "Shape Factor",
+        "ar": "Shape Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,7 @@
       "mass"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",

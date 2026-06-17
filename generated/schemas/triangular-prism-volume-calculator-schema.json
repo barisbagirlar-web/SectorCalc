@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Length of the first side of the triangular base"
+      "businessContext": "Length of the first side of the triangular base",
+      "label_i18n": {
+        "en": "Side A",
+        "tr": "Side A",
+        "de": "Side A",
+        "fr": "Side A",
+        "es": "Side A",
+        "ar": "Side A"
+      }
     },
     {
       "id": "sideB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Length of the second side of the triangular base"
+      "businessContext": "Length of the second side of the triangular base",
+      "label_i18n": {
+        "en": "Side B",
+        "tr": "Side B",
+        "de": "Side B",
+        "fr": "Side B",
+        "es": "Side B",
+        "ar": "Side B"
+      }
     },
     {
       "id": "sideC",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Length of the third side of the triangular base"
+      "businessContext": "Length of the third side of the triangular base",
+      "label_i18n": {
+        "en": "Side C",
+        "tr": "Side C",
+        "de": "Side C",
+        "fr": "Side C",
+        "es": "Side C",
+        "ar": "Side C"
+      }
     },
     {
       "id": "prismHeight",
@@ -31,26 +55,37 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Height of the triangular prism"
+      "businessContext": "Height of the triangular prism",
+      "label_i18n": {
+        "en": "Prism Height",
+        "tr": "Prism Height",
+        "de": "Prism Height",
+        "fr": "Prism Height",
+        "es": "Prism Height",
+        "ar": "Prism Height"
+      }
     }
   ],
   "formulas": {
     "s": "(sideA + sideB + sideC) / 2",
     "area": "Math.sqrt(s * (s - sideA) * (s - sideB) * (s - sideC))",
-    "volume": "area * prismHeight"
+    "volume": "area * prismHeight",
+    "__s__m": "${s} m",
+    "__area__m_": "${area} m²",
+    "__volume__m_": "${volume} m³"
   },
   "outputs": {
-    "primary": "Volume: ${volume} m³",
+    "primary": "s",
     "breakdown": [
       "Semi-perimeter: ${s} m",
       "Base area: ${area} m²",
       "Volume: ${volume} m³"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

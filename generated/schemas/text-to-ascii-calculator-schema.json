@@ -5,82 +5,145 @@
       "id": "ascii1",
       "label": "ASCII Code 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First character's ASCII code (0–127)."
+      "businessContext": "First character's ASCII code (0–127).",
+      "label_i18n": {
+        "en": "ASCII Code 1",
+        "tr": "ASCII Code 1",
+        "de": "ASCII Code 1",
+        "fr": "ASCII Code 1",
+        "es": "ASCII Code 1",
+        "ar": "ASCII Code 1"
+      }
     },
     {
       "id": "ascii2",
       "label": "ASCII Code 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second character's ASCII code."
+      "businessContext": "Second character's ASCII code.",
+      "label_i18n": {
+        "en": "ASCII Code 2",
+        "tr": "ASCII Code 2",
+        "de": "ASCII Code 2",
+        "fr": "ASCII Code 2",
+        "es": "ASCII Code 2",
+        "ar": "ASCII Code 2"
+      }
     },
     {
       "id": "ascii3",
       "label": "ASCII Code 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third character's ASCII code."
+      "businessContext": "Third character's ASCII code.",
+      "label_i18n": {
+        "en": "ASCII Code 3",
+        "tr": "ASCII Code 3",
+        "de": "ASCII Code 3",
+        "fr": "ASCII Code 3",
+        "es": "ASCII Code 3",
+        "ar": "ASCII Code 3"
+      }
     },
     {
       "id": "ascii4",
       "label": "ASCII Code 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth character's ASCII code."
+      "businessContext": "Fourth character's ASCII code.",
+      "label_i18n": {
+        "en": "ASCII Code 4",
+        "tr": "ASCII Code 4",
+        "de": "ASCII Code 4",
+        "fr": "ASCII Code 4",
+        "es": "ASCII Code 4",
+        "ar": "ASCII Code 4"
+      }
     },
     {
       "id": "ascii5",
       "label": "ASCII Code 5",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fifth character's ASCII code."
+      "businessContext": "Fifth character's ASCII code.",
+      "label_i18n": {
+        "en": "ASCII Code 5",
+        "tr": "ASCII Code 5",
+        "de": "ASCII Code 5",
+        "fr": "ASCII Code 5",
+        "es": "ASCII Code 5",
+        "ar": "ASCII Code 5"
+      }
     },
     {
       "id": "ascii6",
       "label": "ASCII Code 6",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sixth character's ASCII code."
+      "businessContext": "Sixth character's ASCII code.",
+      "label_i18n": {
+        "en": "ASCII Code 6",
+        "tr": "ASCII Code 6",
+        "de": "ASCII Code 6",
+        "fr": "ASCII Code 6",
+        "es": "ASCII Code 6",
+        "ar": "ASCII Code 6"
+      }
     },
     {
       "id": "ascii7",
       "label": "ASCII Code 7",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Seventh character's ASCII code."
+      "businessContext": "Seventh character's ASCII code.",
+      "label_i18n": {
+        "en": "ASCII Code 7",
+        "tr": "ASCII Code 7",
+        "de": "ASCII Code 7",
+        "fr": "ASCII Code 7",
+        "es": "ASCII Code 7",
+        "ar": "ASCII Code 7"
+      }
     },
     {
       "id": "ascii8",
       "label": "ASCII Code 8",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Eighth character's ASCII code."
+      "businessContext": "Eighth character's ASCII code.",
+      "label_i18n": {
+        "en": "ASCII Code 8",
+        "tr": "ASCII Code 8",
+        "de": "ASCII Code 8",
+        "fr": "ASCII Code 8",
+        "es": "ASCII Code 8",
+        "ar": "ASCII Code 8"
+      }
     }
   ],
   "formulas": {
     "outputPrimary": "ascii1 + ascii2 + ascii3 + ascii4 + ascii5 + ascii6 + ascii7 + ascii8",
-    "outputBreakdown": [
-      "ascii1",
-      "ascii2",
-      "ascii3",
-      "ascii4",
-      "ascii5",
-      "ascii6",
-      "ascii7",
-      "ascii8"
-    ]
+    "outputBreakdown": "ascii1",
+    "ASCII_Code_1": "ASCII Code 1",
+    "ASCII_Code_2": "ASCII Code 2",
+    "ASCII_Code_3": "ASCII Code 3",
+    "ASCII_Code_4": "ASCII Code 4",
+    "ASCII_Code_5": "ASCII Code 5",
+    "ASCII_Code_6": "ASCII Code 6",
+    "ASCII_Code_7": "ASCII Code 7",
+    "ASCII_Code_8": "ASCII Code 8"
   },
   "outputs": {
-    "primary": "Total ASCII Sum",
+    "primary": "outputPrimary",
     "breakdown": [
       "ASCII Code 1",
       "ASCII Code 2",
@@ -92,10 +155,10 @@
       "ASCII Code 8"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

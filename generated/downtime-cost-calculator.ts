@@ -25,31 +25,19 @@ export const Downtime_cost_calculatorInputSchema = z.object({
   include_quality_loss: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Downtime_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.planned_production_rate * input.downtime_duration; results["lost_production_units"] = Number.isFinite(v) ? v : 0; } catch { results["lost_production_units"] = 0; }
-  try { const v = (results["lost_production_units"] ?? 0) * input.revenue_per_unit; results["lost_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["lost_revenue"] = 0; }
-  try { const v = input.direct_labor_cost_per_hour * input.downtime_duration * ((input.shift_type === 'night' ? 1.15 : (input.shift_type === 'weekend' ? 1.5 : 1.0))); results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
-  try { const v = input.energy_cost_per_hour * input.downtime_duration; results["energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["energy_cost"] = 0; }
-  try { const v = ((input.include_quality_loss = true) ? ((lost_production_units * (input.scrap_rate_during_downtime / 100) * input.revenue_per_unit * 0.5)) : (0)); results["quality_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["quality_loss_cost"] = 0; }
-  try { const v = (results["lost_revenue"] ?? 0) * input.recovery_time_factor; results["recovery_cost"] = Number.isFinite(v) ? v : 0; } catch { results["recovery_cost"] = 0; }
-  try { const v = (results["lost_revenue"] ?? 0) + (results["labor_cost"] ?? 0) + (results["energy_cost"] ?? 0) + (results["quality_loss_cost"] ?? 0) + (results["recovery_cost"] ?? 0); results["total_downtime_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_downtime_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Downtime_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateDowntime_cost_calculator(input: Downtime_cost_calculatorInput): Downtime_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_downtime_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    lost_revenue: values["lost_revenue"] ?? 0,
-    labor_cost: values["labor_cost"] ?? 0,
-    energy_cost: values["energy_cost"] ?? 0,
-    quality_loss_cost: values["quality_loss_cost"] ?? 0,
-    recovery_cost: values["recovery_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Lost Throughput Ratio","Cost per Downtime Hour","Opportunity Cost (Lost Profit)"];
-  const suggestedActions: string[] = ["Implement TPM (Total Productive Maintenance)","Standardize Restart Procedures","Install Real-Time Monitoring","Cross-Train Operators"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -68,7 +56,7 @@ export function calculateDowntime_cost_calculator(input: Downtime_cost_calculato
 
 export interface Downtime_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { lost_revenue: number; labor_cost: number; energy_cost: number; quality_loss_cost: number; recovery_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

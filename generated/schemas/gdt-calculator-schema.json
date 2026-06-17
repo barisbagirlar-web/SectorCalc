@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Basic size of the feature per drawing"
+      "businessContext": "Basic size of the feature per drawing",
+      "label_i18n": {
+        "en": "Nominal Size (mm)",
+        "tr": "Nominal Size (mm)",
+        "de": "Nominal Size (mm)",
+        "fr": "Nominal Size (mm)",
+        "es": "Nominal Size (mm)",
+        "ar": "Nominal Size (mm)"
+      }
     },
     {
       "id": "tolerance_value",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Specified tolerance from GD&T callout"
+      "businessContext": "Specified tolerance from GD&T callout",
+      "label_i18n": {
+        "en": "Tolerance Value (mm)",
+        "tr": "Tolerance Value (mm)",
+        "de": "Tolerance Value (mm)",
+        "fr": "Tolerance Value (mm)",
+        "es": "Tolerance Value (mm)",
+        "ar": "Tolerance Value (mm)"
+      }
     },
     {
       "id": "feature_tolerance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.05,
-      "businessContext": "Tolerance for the feature of size"
+      "businessContext": "Tolerance for the feature of size",
+      "label_i18n": {
+        "en": "Feature Tolerance (mm)",
+        "tr": "Feature Tolerance (mm)",
+        "de": "Feature Tolerance (mm)",
+        "fr": "Feature Tolerance (mm)",
+        "es": "Feature Tolerance (mm)",
+        "ar": "Feature Tolerance (mm)"
+      }
     },
     {
       "id": "datum_shift",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Shift allowed due to datum feature size"
+      "businessContext": "Shift allowed due to datum feature size",
+      "label_i18n": {
+        "en": "Datum Shift (mm)",
+        "tr": "Datum Shift (mm)",
+        "de": "Datum Shift (mm)",
+        "fr": "Datum Shift (mm)",
+        "es": "Datum Shift (mm)",
+        "ar": "Datum Shift (mm)"
+      }
     },
     {
       "id": "bonus_tolerance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Additional tolerance from MMC/LMC"
+      "businessContext": "Additional tolerance from MMC/LMC",
+      "label_i18n": {
+        "en": "Bonus Tolerance (mm)",
+        "tr": "Bonus Tolerance (mm)",
+        "de": "Bonus Tolerance (mm)",
+        "fr": "Bonus Tolerance (mm)",
+        "es": "Bonus Tolerance (mm)",
+        "ar": "Bonus Tolerance (mm)"
+      }
     },
     {
       "id": "angle",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "deg",
       "default": 90,
-      "businessContext": "Angle for angularity or orientation"
+      "businessContext": "Angle for angularity or orientation",
+      "label_i18n": {
+        "en": "Angle (degrees)",
+        "tr": "Angle (degrees)",
+        "de": "Angle (degrees)",
+        "fr": "Angle (degrees)",
+        "es": "Angle (degrees)",
+        "ar": "Angle (degrees)"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +104,15 @@
     "lmc_size": "nominal_size - feature_tolerance",
     "virtual_condition": "mmc_size + total_tolerance",
     "resultant_condition": "lmc_size - total_tolerance",
-    "angular_tolerance": "total_tolerance * Math.sin(angle * Math.PI / 180)"
+    "angular_tolerance": "total_tolerance * Math.sin(angle * Math.PI / 180)",
+    "_mmc_size__mm": "{mmc_size} mm",
+    "_lmc_size__mm": "{lmc_size} mm",
+    "_virtual_condition__mm": "{virtual_condition} mm",
+    "_resultant_condition__mm": "{resultant_condition} mm",
+    "_angular_tolerance__mm": "{angular_tolerance} mm"
   },
   "outputs": {
-    "primary": "Total Tolerance: {total_tolerance} mm",
+    "primary": "total_tolerance",
     "breakdown": [
       "MMC Size: {mmc_size} mm",
       "LMC Size: {lmc_size} mm",
@@ -68,10 +121,10 @@
       "Angular Tolerance: {angular_tolerance} mm"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "workforce-hr"
 }

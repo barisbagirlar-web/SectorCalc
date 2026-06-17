@@ -22,13 +22,18 @@ function evaluateAllFormulas(input: Failure_rate_calculatorInput): Record<string
   try { const v = (results["effectiveOperatingHours"] ?? 0) / input.numFailures; results["mtbfHours"] = Number.isFinite(v) ? v : 0; } catch { results["mtbfHours"] = 0; }
   try { const v = (results["failureRatePerHour"] ?? 0) * 1000000; results["failureRateFPMH"] = Number.isFinite(v) ? v : 0; } catch { results["failureRateFPMH"] = 0; }
   try { const v = (results["failureRatePerHour"] ?? 0) * 1000000000; results["failureRateFIT"] = Number.isFinite(v) ? v : 0; } catch { results["failureRateFIT"] = 0; }
+  results["__effectiveOperatingHours_toFixed_2___ho"] = 0;
+  results["__failureRatePerHour_toExponential_4___p"] = 0;
+  results["__mtbfHours_toFixed_2___hours"] = 0;
+  results["__failureRateFIT_toFixed_2___failures_pe"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateFailure_rate_calculator(input: Failure_rate_calculatorInput): Failure_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Failure"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

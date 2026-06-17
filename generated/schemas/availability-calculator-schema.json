@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "min",
       "default": 480,
-      "businessContext": "Total planned production time for the period"
+      "businessContext": "Total planned production time for the period",
+      "label_i18n": {
+        "en": "Planned Available Time",
+        "tr": "Planned Available Time",
+        "de": "Planned Available Time",
+        "fr": "Planned Available Time",
+        "es": "Planned Available Time",
+        "ar": "Planned Available Time"
+      }
     },
     {
       "id": "unplannedDowntime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Downtime due to unplanned failures"
+      "businessContext": "Downtime due to unplanned failures",
+      "label_i18n": {
+        "en": "Unplanned Downtime",
+        "tr": "Unplanned Downtime",
+        "de": "Unplanned Downtime",
+        "fr": "Unplanned Downtime",
+        "es": "Unplanned Downtime",
+        "ar": "Unplanned Downtime"
+      }
     },
     {
       "id": "plannedDowntime",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "min",
       "default": 20,
-      "businessContext": "Downtime for planned maintenance or setups"
+      "businessContext": "Downtime for planned maintenance or setups",
+      "label_i18n": {
+        "en": "Planned Downtime",
+        "tr": "Planned Downtime",
+        "de": "Planned Downtime",
+        "fr": "Planned Downtime",
+        "es": "Planned Downtime",
+        "ar": "Planned Downtime"
+      }
     },
     {
       "id": "numberOfFailures",
       "label": "Number of Failures",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of failure events during the period"
+      "businessContext": "Number of failure events during the period",
+      "label_i18n": {
+        "en": "Number of Failures",
+        "tr": "Number of Failures",
+        "de": "Number of Failures",
+        "fr": "Number of Failures",
+        "es": "Number of Failures",
+        "ar": "Number of Failures"
+      }
     },
     {
       "id": "meanTimeToRepair",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "min",
       "default": 15,
-      "businessContext": "Average repair time per failure"
+      "businessContext": "Average repair time per failure",
+      "label_i18n": {
+        "en": "Mean Time To Repair (MTTR)",
+        "tr": "Mean Time To Repair (MTTR)",
+        "de": "Mean Time To Repair (MTTR)",
+        "fr": "Mean Time To Repair (MTTR)",
+        "es": "Mean Time To Repair (MTTR)",
+        "ar": "Mean Time To Repair (MTTR)"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "mttr"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
+  "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "maintenance-reliability"
 }

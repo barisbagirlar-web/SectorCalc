@@ -5,41 +5,81 @@
       "id": "x1",
       "label": "X₁",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First point x-coordinate"
+      "businessContext": "First point x-coordinate",
+      "label_i18n": {
+        "en": "X₁",
+        "tr": "X₁",
+        "de": "X₁",
+        "fr": "X₁",
+        "es": "X₁",
+        "ar": "X₁"
+      }
     },
     {
       "id": "y1",
       "label": "Y₁",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First point y-coordinate"
+      "businessContext": "First point y-coordinate",
+      "label_i18n": {
+        "en": "Y₁",
+        "tr": "Y₁",
+        "de": "Y₁",
+        "fr": "Y₁",
+        "es": "Y₁",
+        "ar": "Y₁"
+      }
     },
     {
       "id": "x2",
       "label": "X₂",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second point x-coordinate"
+      "businessContext": "Second point x-coordinate",
+      "label_i18n": {
+        "en": "X₂",
+        "tr": "X₂",
+        "de": "X₂",
+        "fr": "X₂",
+        "es": "X₂",
+        "ar": "X₂"
+      }
     },
     {
       "id": "y2",
       "label": "Y₂",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second point y-coordinate"
+      "businessContext": "Second point y-coordinate",
+      "label_i18n": {
+        "en": "Y₂",
+        "tr": "Y₂",
+        "de": "Y₂",
+        "fr": "Y₂",
+        "es": "Y₂",
+        "ar": "Y₂"
+      }
     },
     {
       "id": "x_val",
       "label": "X Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Evaluate line at this x"
+      "businessContext": "Evaluate line at this x",
+      "label_i18n": {
+        "en": "X Value",
+        "tr": "X Value",
+        "de": "X Value",
+        "fr": "X Value",
+        "es": "X Value",
+        "ar": "X Value"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "y_at_x"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

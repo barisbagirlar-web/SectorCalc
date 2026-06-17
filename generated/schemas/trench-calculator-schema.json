@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Total length of the trench to be excavated"
+      "businessContext": "Total length of the trench to be excavated",
+      "label_i18n": {
+        "en": "Trench Length",
+        "tr": "Trench Length",
+        "de": "Trench Length",
+        "fr": "Trench Length",
+        "es": "Trench Length",
+        "ar": "Trench Length"
+      }
     },
     {
       "id": "baseWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Width of the trench at the bottom"
+      "businessContext": "Width of the trench at the bottom",
+      "label_i18n": {
+        "en": "Base Width",
+        "tr": "Base Width",
+        "de": "Base Width",
+        "fr": "Base Width",
+        "es": "Base Width",
+        "ar": "Base Width"
+      }
     },
     {
       "id": "depth",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Vertical depth of excavation"
+      "businessContext": "Vertical depth of excavation",
+      "label_i18n": {
+        "en": "Depth",
+        "tr": "Depth",
+        "de": "Depth",
+        "fr": "Depth",
+        "es": "Depth",
+        "ar": "Depth"
+      }
     },
     {
       "id": "sideSlope",
       "label": "Side Slope (H:V)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Horizontal distance per unit vertical (0 for vertical walls)"
+      "businessContext": "Horizontal distance per unit vertical (0 for vertical walls)",
+      "label_i18n": {
+        "en": "Side Slope (H:V)",
+        "tr": "Side Slope (H:V)",
+        "de": "Side Slope (H:V)",
+        "fr": "Side Slope (H:V)",
+        "es": "Side Slope (H:V)",
+        "ar": "Side Slope (H:V)"
+      }
     }
   ],
   "formulas": {
@@ -40,11 +72,7 @@
     "topWidth": "baseWidth + 2 * sideSlope * depth"
   },
   "outputs": {
-    "primary": {
-      "id": "trenchVolume",
-      "label": "Trench Volume",
-      "unit": "m³"
-    },
+    "primary": "trenchVolume",
     "breakdown": [
       {
         "id": "crossSectionArea",
@@ -58,10 +86,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

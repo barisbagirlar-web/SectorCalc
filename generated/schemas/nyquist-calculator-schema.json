@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 500,
-      "businessContext": "The highest frequency component expected in the signal to be sampled or analyzed."
+      "businessContext": "The highest frequency component expected in the signal to be sampled or analyzed.",
+      "label_i18n": {
+        "en": "Maximum Signal Frequency",
+        "tr": "Maximum Signal Frequency",
+        "de": "Maximum Signal Frequency",
+        "fr": "Maximum Signal Frequency",
+        "es": "Maximum Signal Frequency",
+        "ar": "Maximum Signal Frequency"
+      }
     },
     {
       "id": "samplingFrequency",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "Hz",
       "default": 2000,
-      "businessContext": "The rate at which the data acquisition system samples the signal."
+      "businessContext": "The rate at which the data acquisition system samples the signal.",
+      "label_i18n": {
+        "en": "Sampling Frequency",
+        "tr": "Sampling Frequency",
+        "de": "Sampling Frequency",
+        "fr": "Sampling Frequency",
+        "es": "Sampling Frequency",
+        "ar": "Sampling Frequency"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Margin Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Engineering safety factor to provide a margin against aliasing; typically 1.2 to 2.0."
+      "businessContext": "Engineering safety factor to provide a margin against aliasing; typically 1.2 to 2.0.",
+      "label_i18n": {
+        "en": "Safety Margin Factor",
+        "tr": "Safety Margin Factor",
+        "de": "Safety Margin Factor",
+        "fr": "Safety Margin Factor",
+        "es": "Safety Margin Factor",
+        "ar": "Safety Margin Factor"
+      }
     },
     {
       "id": "desiredUtilization",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "The target percentage of the Nyquist frequency that the maximum signal frequency should occupy for optimal setup."
+      "businessContext": "The target percentage of the Nyquist frequency that the maximum signal frequency should occupy for optimal setup.",
+      "label_i18n": {
+        "en": "Desired Nyquist Utilization",
+        "tr": "Desired Nyquist Utilization",
+        "de": "Desired Nyquist Utilization",
+        "fr": "Desired Nyquist Utilization",
+        "es": "Desired Nyquist Utilization",
+        "ar": "Desired Nyquist Utilization"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "isAdequate"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "finance-sales-working-capital"
 }

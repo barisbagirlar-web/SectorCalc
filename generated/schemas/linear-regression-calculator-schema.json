@@ -7,47 +7,95 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "X ve Y değişkenleri için eşleştirilmiş veri noktası sayısı"
+      "businessContext": "X ve Y değişkenleri için eşleştirilmiş veri noktası sayısı",
+      "label_i18n": {
+        "en": "Veri Sayısı (n)",
+        "tr": "Veri Sayısı (n)",
+        "de": "Veri Sayısı (n)",
+        "fr": "Veri Sayısı (n)",
+        "es": "Veri Sayısı (n)",
+        "ar": "Veri Sayısı (n)"
+      }
     },
     {
       "id": "sumX",
       "label": "ΣX",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Tüm X değerlerinin toplamı"
+      "businessContext": "Tüm X değerlerinin toplamı",
+      "label_i18n": {
+        "en": "ΣX",
+        "tr": "ΣX",
+        "de": "ΣX",
+        "fr": "ΣX",
+        "es": "ΣX",
+        "ar": "ΣX"
+      }
     },
     {
       "id": "sumY",
       "label": "ΣY",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Tüm Y değerlerinin toplamı"
+      "businessContext": "Tüm Y değerlerinin toplamı",
+      "label_i18n": {
+        "en": "ΣY",
+        "tr": "ΣY",
+        "de": "ΣY",
+        "fr": "ΣY",
+        "es": "ΣY",
+        "ar": "ΣY"
+      }
     },
     {
       "id": "sumX2",
       "label": "ΣX²",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Tüm X² değerlerinin toplamı"
+      "businessContext": "Tüm X² değerlerinin toplamı",
+      "label_i18n": {
+        "en": "ΣX²",
+        "tr": "ΣX²",
+        "de": "ΣX²",
+        "fr": "ΣX²",
+        "es": "ΣX²",
+        "ar": "ΣX²"
+      }
     },
     {
       "id": "sumXY",
       "label": "ΣXY",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Tüm X·Y çarpımlarının toplamı"
+      "businessContext": "Tüm X·Y çarpımlarının toplamı",
+      "label_i18n": {
+        "en": "ΣXY",
+        "tr": "ΣXY",
+        "de": "ΣXY",
+        "fr": "ΣXY",
+        "es": "ΣXY",
+        "ar": "ΣXY"
+      }
     },
     {
       "id": "sumY2",
       "label": "ΣY²",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Tüm Y² değerlerinin toplamı"
+      "businessContext": "Tüm Y² değerlerinin toplamı",
+      "label_i18n": {
+        "en": "ΣY²",
+        "tr": "ΣY²",
+        "de": "ΣY²",
+        "fr": "ΣY²",
+        "es": "ΣY²",
+        "ar": "ΣY²"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "rSquared"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

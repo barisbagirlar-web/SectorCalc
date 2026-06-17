@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mL",
       "default": 25,
-      "businessContext": "Volume of the solution being titrated."
+      "businessContext": "Volume of the solution being titrated.",
+      "label_i18n": {
+        "en": "Volume of Analyte",
+        "tr": "Volume of Analyte",
+        "de": "Volume of Analyte",
+        "fr": "Volume of Analyte",
+        "es": "Volume of Analyte",
+        "ar": "Volume of Analyte"
+      }
     },
     {
       "id": "c_analyte",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Molarity of the analyte solution."
+      "businessContext": "Molarity of the analyte solution.",
+      "label_i18n": {
+        "en": "Concentration of Analyte",
+        "tr": "Concentration of Analyte",
+        "de": "Concentration of Analyte",
+        "fr": "Concentration of Analyte",
+        "es": "Concentration of Analyte",
+        "ar": "Concentration of Analyte"
+      }
     },
     {
       "id": "c_titrant",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Molarity of the titrant solution."
+      "businessContext": "Molarity of the titrant solution.",
+      "label_i18n": {
+        "en": "Concentration of Titrant",
+        "tr": "Concentration of Titrant",
+        "de": "Concentration of Titrant",
+        "fr": "Concentration of Titrant",
+        "es": "Concentration of Titrant",
+        "ar": "Concentration of Titrant"
+      }
     },
     {
       "id": "mole_ratio_analyte",
       "label": "Mole Ratio (Analyte Coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Stoichiometric coefficient of analyte in balanced reaction."
+      "businessContext": "Stoichiometric coefficient of analyte in balanced reaction.",
+      "label_i18n": {
+        "en": "Mole Ratio (Analyte Coefficient)",
+        "tr": "Mole Ratio (Analyte Coefficient)",
+        "de": "Mole Ratio (Analyte Coefficient)",
+        "fr": "Mole Ratio (Analyte Coefficient)",
+        "es": "Mole Ratio (Analyte Coefficient)",
+        "ar": "Mole Ratio (Analyte Coefficient)"
+      }
     },
     {
       "id": "mole_ratio_titrant",
       "label": "Mole Ratio (Titrant Coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Stoichiometric coefficient of titrant in balanced reaction."
+      "businessContext": "Stoichiometric coefficient of titrant in balanced reaction.",
+      "label_i18n": {
+        "en": "Mole Ratio (Titrant Coefficient)",
+        "tr": "Mole Ratio (Titrant Coefficient)",
+        "de": "Mole Ratio (Titrant Coefficient)",
+        "fr": "Mole Ratio (Titrant Coefficient)",
+        "es": "Mole Ratio (Titrant Coefficient)",
+        "ar": "Mole Ratio (Titrant Coefficient)"
+      }
     }
   ],
   "formulas": {
@@ -48,11 +88,7 @@
     "moles_titrant": "(c_analyte * v_analyte / 1000) * (mole_ratio_titrant / mole_ratio_analyte)"
   },
   "outputs": {
-    "primary": {
-      "id": "v_titrant",
-      "label": "Volume of Titrant at Equivalence Point",
-      "unit": "mL"
-    },
+    "primary": "v_titrant",
     "breakdown": [
       {
         "id": "moles_analyte",
@@ -66,10 +102,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

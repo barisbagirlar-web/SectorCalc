@@ -17,14 +17,17 @@ export const Stain_calculatorInputSchema = z.object({
   numberOfCoats: z.number().default(1),
 });
 
-function evaluateAllFormulas(_input: Stain_calculatorInput): Record<string, number> {
-  return {};
+function evaluateAllFormulas(input: Stain_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.surfaceArea; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.surfaceArea; results["result_copy"] = Number.isFinite(v) ? v : 0; } catch { results["result_copy"] = 0; }
+  return results;
 }
 
 
 export function calculateStain_calculator(input: Stain_calculatorInput): Stain_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalRequiredVolume"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

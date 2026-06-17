@@ -21,13 +21,17 @@ function evaluateAllFormulas(input: Refrigerator_energy_calculatorInput): Record
   try { const v = (results["annualEnergyKwh"] ?? 0) * input.costPerKwh; results["annualCost"] = Number.isFinite(v) ? v : 0; } catch { results["annualCost"] = 0; }
   try { const v = (results["annualCost"] ?? 0) / 12; results["monthlyCost"] = Number.isFinite(v) ? v : 0; } catch { results["monthlyCost"] = 0; }
   try { const v = (results["annualCost"] ?? 0) / input.daysPerYear; results["dailyCost"] = Number.isFinite(v) ? v : 0; } catch { results["dailyCost"] = 0; }
+  results["__annualCost_toFixed_2__"] = 0;
+  results["__monthlyCost_toFixed_2__"] = 0;
+  results["__dailyCost_toFixed_4__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateRefrigerator_energy_calculator(input: Refrigerator_energy_calculatorInput): Refrigerator_energy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Annual"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

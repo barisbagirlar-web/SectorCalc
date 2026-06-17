@@ -22,13 +22,16 @@ export const Function_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Function_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.a * Math.sin(input.b * input.x) + input.c * Math.cos(input.d * input.x) + input.e * Math.exp(input.x); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.a * Math.sin(input.b * input.x); results["term_sin"] = Number.isFinite(v) ? v : 0; } catch { results["term_sin"] = 0; }
+  try { const v = input.c * Math.cos(input.d * input.x); results["term_cos"] = Number.isFinite(v) ? v : 0; } catch { results["term_cos"] = 0; }
+  try { const v = input.e * Math.exp(input.x); results["term_exp"] = Number.isFinite(v) ? v : 0; } catch { results["term_exp"] = 0; }
   return results;
 }
 
 
 export function calculateFunction_calculator(input: Function_calculatorInput): Function_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Sonu"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

@@ -21,13 +21,14 @@ function evaluateAllFormulas(input: Karvonen_heart_rate_calculatorInput): Record
   const results: Record<string, number> = {};
   try { const v = ((input.maxHR - input.restingHR) * (input.intensityLow / 100)) + input.restingHR; results["targetHeartRateLow"] = Number.isFinite(v) ? v : 0; } catch { results["targetHeartRateLow"] = 0; }
   try { const v = ((input.maxHR - input.restingHR) * (input.intensityHigh / 100)) + input.restingHR; results["targetHeartRateHigh"] = Number.isFinite(v) ? v : 0; } catch { results["targetHeartRateHigh"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateKarvonen_heart_rate_calculator(input: Karvonen_heart_rate_calculatorInput): Karvonen_heart_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Target"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

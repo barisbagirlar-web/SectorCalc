@@ -157,7 +157,8 @@
       },
       "businessContext_i18n": {
         "en": "Number of shifts per day the cobot will operate (manual labor typically single shift)."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "include_training_cost",
@@ -170,7 +171,8 @@
       },
       "businessContext_i18n": {
         "en": "Whether to include initial training and integration costs."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "training_cost",
@@ -229,138 +231,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "annual_manual_cost_total",
-      "label": "Total Annual Manual Labor Cost",
-      "description": "Total cost of manual labor for the replaced workers, adjusted for productivity.",
-      "formula": "annual_manual_labor_cost * number_of_workers * labor_productivity_factor",
-      "unit": "USD/year"
-    },
-    {
-      "id": "annual_cobot_operating_cost",
-      "label": "Annual Cobot Operating Cost",
-      "description": "Annual cost to operate the cobot including maintenance and energy (energy estimated at 5% of maintenance).",
-      "formula": "cobot_annual_maintenance + (cobot_annual_maintenance * 0.05)",
-      "unit": "USD/year"
-    },
-    {
-      "id": "annual_savings",
-      "label": "Annual Net Savings",
-      "description": "Annual savings from replacing manual labor with cobot, accounting for shift multiplier.",
-      "formula": "(annual_manual_cost_total * (shift_type == 'Single' ? 1 : (shift_type == 'Double' ? 2 : 3))) - annual_cobot_operating_cost",
-      "unit": "USD/year"
-    },
-    {
-      "id": "initial_investment",
-      "label": "Total Initial Investment",
-      "description": "One-time capital and integration costs.",
-      "formula": "cobot_purchase_price + (include_training_cost ? training_cost : 0)",
-      "unit": "USD"
-    },
-    {
-      "id": "net_present_value",
-      "label": "Net Present Value (NPV)",
-      "description": "NPV of the investment over cobot lifespan using discount rate.",
-      "formula": "-initial_investment + sum_{t=1}^{cobot_lifespan_years} (annual_savings / (1 + discount_rate/100)^t)",
-      "unit": "USD"
-    },
-    {
-      "id": "payback_years",
-      "label": "Simple Payback Period",
-      "description": "Time to recover initial investment from annual savings.",
-      "formula": "initial_investment / annual_savings",
-      "unit": "years"
-    },
-    {
-      "id": "return_on_investment",
-      "label": "Return on Investment (ROI)",
-      "description": "Total return over lifespan as percentage of initial investment.",
-      "formula": "((annual_savings * cobot_lifespan_years - initial_investment) / initial_investment) * 100",
-      "unit": "%"
-    }
+    "annual_manual_labor_cost",
+    "annual_manual_labor_cost",
+    "annual_manual_labor_cost",
+    "annual_manual_labor_cost",
+    "annual_manual_labor_cost",
+    "annual_manual_labor_cost",
+    "annual_manual_labor_cost"
   ],
   "outputs": {
-    "primary": {
-      "id": "net_present_value",
-      "label": "Net Present Value (NPV)",
-      "unit": "USD",
-      "description": "Primary financial metric for investment decision."
-    },
-    "breakdown": {
-      "annual_manual_cost_total": {
-        "label": "Total Annual Manual Labor Cost",
-        "unit": "USD/year"
-      },
-      "annual_cobot_operating_cost": {
-        "label": "Annual Cobot Operating Cost",
-        "unit": "USD/year"
-      },
-      "annual_savings": {
-        "label": "Annual Net Savings",
-        "unit": "USD/year"
-      },
-      "initial_investment": {
-        "label": "Total Initial Investment",
-        "unit": "USD"
-      },
-      "payback_years": {
-        "label": "Simple Payback Period",
-        "unit": "years"
-      },
-      "return_on_investment": {
-        "label": "Return on Investment",
-        "unit": "%"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "labor_productivity_loss",
-        "label": "Manual Labor Productivity Loss",
-        "value": "1 - labor_productivity_factor",
-        "unit": "ratio",
-        "description": "Hidden cost of manual inefficiency (breaks, errors, fatigue)."
-      },
-      {
-        "id": "cobot_downtime_cost",
-        "label": "Cobot Downtime Cost",
-        "value": "(1 - cobot_uptime_percent/100) * annual_savings",
-        "unit": "USD/year",
-        "description": "Lost savings due to cobot unplanned downtime."
-      },
-      {
-        "id": "shift_utilization_gap",
-        "label": "Shift Utilization Gap",
-        "value": "shift_type == 'Single' ? 0.5 : (shift_type == 'Double' ? 0.25 : 0)",
-        "unit": "ratio",
-        "description": "Underutilization if cobot runs fewer shifts than possible."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_lean_before_automation",
-        "label": "Apply Lean before Automating",
-        "description": "Reduce waste in manual process first to maximize cobot ROI (ISO 18404)."
-      },
-      {
-        "id": "action_consider_cobot_sharing",
-        "label": "Consider Cobot Sharing",
-        "description": "If payback > 3 years, explore multi-station cobot deployment."
-      },
-      {
-        "id": "action_six_sigma_dmaic",
-        "label": "Run Six Sigma DMAIC",
-        "description": "Use DMAIC to validate process stability before cobot integration."
-      },
-      {
-        "id": "action_ergonomic_assessment",
-        "label": "Ergonomic Risk Assessment",
-        "description": "Evaluate manual tasks for ergonomic risks (ISO 11228) to justify cobot for safety."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "cobot-vs-manual-labor-comparator-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

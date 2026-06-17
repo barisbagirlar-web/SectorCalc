@@ -117,7 +117,8 @@
       },
       "businessContext_i18n": {
         "en": "Terrain classification affecting fuel efficiency (WERC guidelines)."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "traffic_condition",
@@ -144,7 +145,8 @@
       },
       "businessContext_i18n": {
         "en": "Traffic density impact on fuel consumption and route drift."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "driver_behavior_score",
@@ -189,7 +191,8 @@
       },
       "businessContext_i18n": {
         "en": "Toggle to include secondary loss factors like tire pressure, engine wear, etc."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -232,152 +235,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "drift_distance",
-      "name": "Drift Distance",
-      "description": "Absolute difference between actual and planned distance.",
-      "formula": "actual_distance_km - planned_distance_km",
-      "unit": "km"
-    },
-    {
-      "id": "drift_percentage",
-      "name": "Drift Percentage",
-      "description": "Relative drift as a percentage of planned distance.",
-      "formula": "(drift_distance / planned_distance_km) * 100",
-      "unit": "%"
-    },
-    {
-      "id": "adjusted_fuel_rate",
-      "name": "Adjusted Fuel Consumption Rate",
-      "description": "Fuel rate adjusted for terrain, traffic, load, driver behavior, and vehicle age.",
-      "formula": "fuel_consumption_rate * terrain_factor * traffic_condition * (1 + (load_weight_tonnes * 0.005)) * (1 - (driver_behavior_score * 0.002)) * (1 + (vehicle_age_years * 0.02))",
-      "unit": "L/100km"
-    },
-    {
-      "id": "planned_fuel_consumption",
-      "name": "Planned Fuel Consumption",
-      "description": "Expected fuel consumption on planned route.",
-      "formula": "(planned_distance_km / 100) * adjusted_fuel_rate",
-      "unit": "L"
-    },
-    {
-      "id": "actual_fuel_consumption",
-      "name": "Actual Fuel Consumption",
-      "description": "Actual fuel consumption on driven route.",
-      "formula": "(actual_distance_km / 100) * adjusted_fuel_rate",
-      "unit": "L"
-    },
-    {
-      "id": "excess_fuel_consumption",
-      "name": "Excess Fuel Consumption",
-      "description": "Extra fuel used due to route drift.",
-      "formula": "actual_fuel_consumption - planned_fuel_consumption",
-      "unit": "L"
-    },
-    {
-      "id": "excess_fuel_cost",
-      "name": "Excess Fuel Cost",
-      "description": "Monetary value of excess fuel consumption.",
-      "formula": "excess_fuel_consumption * fuel_price_per_liter",
-      "unit": "USD"
-    }
+    "planned_distance_km",
+    "planned_distance_km",
+    "planned_distance_km",
+    "planned_distance_km",
+    "planned_distance_km",
+    "planned_distance_km",
+    "planned_distance_km"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_excess_fuel_cost",
-      "label": "Total Excess Fuel Cost",
-      "value": null,
-      "unit": "USD",
-      "description": "Primary result: total cost of fuel wasted due to route drift."
-    },
-    "breakdown": {
-      "drift_distance_km": {
-        "label": "Drift Distance",
-        "value": null,
-        "unit": "km"
-      },
-      "drift_percentage": {
-        "label": "Drift Percentage",
-        "value": null,
-        "unit": "%"
-      },
-      "adjusted_fuel_rate": {
-        "label": "Adjusted Fuel Rate",
-        "value": null,
-        "unit": "L/100km"
-      },
-      "planned_fuel_consumption": {
-        "label": "Planned Fuel Consumption",
-        "value": null,
-        "unit": "L"
-      },
-      "actual_fuel_consumption": {
-        "label": "Actual Fuel Consumption",
-        "value": null,
-        "unit": "L"
-      },
-      "excess_fuel_consumption": {
-        "label": "Excess Fuel Consumption",
-        "value": null,
-        "unit": "L"
-      },
-      "excess_fuel_cost": {
-        "label": "Excess Fuel Cost",
-        "value": null,
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "tire_pressure_loss",
-        "label": "Tire Pressure Loss",
-        "impact_factor": 0.03,
-        "description": "Under-inflated tires increase fuel consumption by up to 3%."
-      },
-      {
-        "id": "engine_wear",
-        "label": "Engine Wear",
-        "impact_factor": 0.02,
-        "description": "Older engines lose efficiency, adding 2% per 5 years."
-      },
-      {
-        "id": "aerodynamic_drag",
-        "label": "Aerodynamic Drag",
-        "impact_factor": 0.015,
-        "description": "Roof loads or open windows increase drag by 1.5%."
-      },
-      {
-        "id": "idling_time",
-        "label": "Idling Time",
-        "impact_factor": 0.025,
-        "description": "Excessive idling adds 2.5% to total fuel use."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "description": "Re-route planning: Use GPS historical data to avoid congestion and reduce drift."
-      },
-      {
-        "id": "action_2",
-        "description": "Driver training: Improve eco-driving score through Lean Six Sigma coaching."
-      },
-      {
-        "id": "action_3",
-        "description": "Vehicle maintenance: Schedule tire pressure checks and engine tune-ups."
-      },
-      {
-        "id": "action_4",
-        "description": "Load optimization: Reduce unnecessary weight to lower fuel consumption."
-      },
-      {
-        "id": "action_5",
-        "description": "Implement telematics: Real-time monitoring to detect and correct drift immediately."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "procurement-supply-chain",
+  "category": "Lojistik & Tedarik Zinciri",
+  "sector": "Lojistik & Sevkiyat",
+  "toolName": "fuel-route-drift-calculator"
 }

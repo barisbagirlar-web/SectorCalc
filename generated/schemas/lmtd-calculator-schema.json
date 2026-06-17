@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 90,
-      "businessContext": "Temperature of hot fluid entering the heat exchanger."
+      "businessContext": "Temperature of hot fluid entering the heat exchanger.",
+      "label_i18n": {
+        "en": "Hot Inlet Temperature",
+        "tr": "Hot Inlet Temperature",
+        "de": "Hot Inlet Temperature",
+        "fr": "Hot Inlet Temperature",
+        "es": "Hot Inlet Temperature",
+        "ar": "Hot Inlet Temperature"
+      }
     },
     {
       "id": "thOut",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 70,
-      "businessContext": "Temperature of hot fluid leaving the heat exchanger."
+      "businessContext": "Temperature of hot fluid leaving the heat exchanger.",
+      "label_i18n": {
+        "en": "Hot Outlet Temperature",
+        "tr": "Hot Outlet Temperature",
+        "de": "Hot Outlet Temperature",
+        "fr": "Hot Outlet Temperature",
+        "es": "Hot Outlet Temperature",
+        "ar": "Hot Outlet Temperature"
+      }
     },
     {
       "id": "tcIn",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 30,
-      "businessContext": "Temperature of cold fluid entering the heat exchanger."
+      "businessContext": "Temperature of cold fluid entering the heat exchanger.",
+      "label_i18n": {
+        "en": "Cold Inlet Temperature",
+        "tr": "Cold Inlet Temperature",
+        "de": "Cold Inlet Temperature",
+        "fr": "Cold Inlet Temperature",
+        "es": "Cold Inlet Temperature",
+        "ar": "Cold Inlet Temperature"
+      }
     },
     {
       "id": "tcOut",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "°C",
       "default": 50,
-      "businessContext": "Temperature of cold fluid leaving the heat exchanger."
+      "businessContext": "Temperature of cold fluid leaving the heat exchanger.",
+      "label_i18n": {
+        "en": "Cold Outlet Temperature",
+        "tr": "Cold Outlet Temperature",
+        "de": "Cold Outlet Temperature",
+        "fr": "Cold Outlet Temperature",
+        "es": "Cold Outlet Temperature",
+        "ar": "Cold Outlet Temperature"
+      }
     },
     {
       "id": "flowType",
       "label": "Flow Arrangement (1=Counterflow, 2=Parallel)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Heat exchanger flow configuration. Use 1 for counterflow, 2 for parallel flow."
+      "businessContext": "Heat exchanger flow configuration. Use 1 for counterflow, 2 for parallel flow.",
+      "label_i18n": {
+        "en": "Flow Arrangement (1=Counterflow, 2=Parallel)",
+        "tr": "Flow Arrangement (1=Counterflow, 2=Parallel)",
+        "de": "Flow Arrangement (1=Counterflow, 2=Parallel)",
+        "fr": "Flow Arrangement (1=Counterflow, 2=Parallel)",
+        "es": "Flow Arrangement (1=Counterflow, 2=Parallel)",
+        "ar": "Flow Arrangement (1=Counterflow, 2=Parallel)"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "deltaT2"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "process-chemical"
 }

@@ -5,33 +5,65 @@
       "id": "component1",
       "label": "Component 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First component of the vector (e.g., x-component)."
+      "businessContext": "First component of the vector (e.g., x-component).",
+      "label_i18n": {
+        "en": "Component 1",
+        "tr": "Component 1",
+        "de": "Component 1",
+        "fr": "Component 1",
+        "es": "Component 1",
+        "ar": "Component 1"
+      }
     },
     {
       "id": "component2",
       "label": "Component 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second component of the vector (e.g., y-component)."
+      "businessContext": "Second component of the vector (e.g., y-component).",
+      "label_i18n": {
+        "en": "Component 2",
+        "tr": "Component 2",
+        "de": "Component 2",
+        "fr": "Component 2",
+        "es": "Component 2",
+        "ar": "Component 2"
+      }
     },
     {
       "id": "component3",
       "label": "Component 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third component of the vector (e.g., z-component)."
+      "businessContext": "Third component of the vector (e.g., z-component).",
+      "label_i18n": {
+        "en": "Component 3",
+        "tr": "Component 3",
+        "de": "Component 3",
+        "fr": "Component 3",
+        "es": "Component 3",
+        "ar": "Component 3"
+      }
     },
     {
       "id": "component4",
       "label": "Component 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth component of the vector (e.g., w-component for 4D vectors)."
+      "businessContext": "Fourth component of the vector (e.g., w-component for 4D vectors).",
+      "label_i18n": {
+        "en": "Component 4",
+        "tr": "Component 4",
+        "de": "Component 4",
+        "fr": "Component 4",
+        "es": "Component 4",
+        "ar": "Component 4"
+      }
     }
   ],
   "formulas": {
@@ -52,10 +84,10 @@
       "sumOfSquares"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

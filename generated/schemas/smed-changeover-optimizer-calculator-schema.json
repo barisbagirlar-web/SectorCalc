@@ -63,7 +63,7 @@
       "id": "parallel_work_possible",
       "label": "Parallel Work Possible",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -79,7 +79,7 @@
       "id": "standardization_level",
       "label": "Standardization Level",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "medium",
       "min": null,
       "max": null,
@@ -150,137 +150,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "external_operations_percentage",
-      "name": "External Operations Percentage",
-      "formula": "100 - internal_operations_percentage",
-      "unit": "%",
-      "description": "Percentage of changeover time that can be performed while machine is running."
-    },
-    {
-      "id": "theoretical_minimum_changeover",
-      "name": "Theoretical Minimum Changeover Time",
-      "formula": "current_changeover_time * (external_operations_percentage / 100) + (current_changeover_time * (internal_operations_percentage / 100) / (parallel_work_possible ? setup_team_size : 1))",
-      "unit": "minutes",
-      "description": "Best-case changeover time assuming all internal tasks are optimized and parallelized."
-    },
-    {
-      "id": "standardization_factor",
-      "name": "Standardization Factor",
-      "formula": "CASE standardization_level WHEN 'low' THEN 1.3 WHEN 'medium' THEN 1.0 WHEN 'high' THEN 0.8 END",
-      "unit": "dimensionless",
-      "description": "Multiplier reflecting the impact of standardization on achievable reduction."
-    },
-    {
-      "id": "waste_motion_factor",
-      "name": "Waste Motion Factor",
-      "formula": "1 + (waste_motion_score - 1) * 0.05",
-      "unit": "dimensionless",
-      "description": "Penalty factor for non-value-added motion. Score 1 gives factor 1.0, score 10 gives factor 1.45."
-    },
-    {
-      "id": "achievable_changeover_time",
-      "name": "Achievable Changeover Time",
-      "formula": "theoretical_minimum_changeover * standardization_factor * waste_motion_factor",
-      "unit": "minutes",
-      "description": "Realistic target changeover time after applying SMED improvements."
-    },
-    {
-      "id": "reduction_potential",
-      "name": "Reduction Potential",
-      "formula": "current_changeover_time - achievable_changeover_time",
-      "unit": "minutes",
-      "description": "Absolute time savings possible."
-    },
-    {
-      "id": "reduction_percentage",
-      "name": "Reduction Percentage",
-      "formula": "(reduction_potential / current_changeover_time) * 100",
-      "unit": "%",
-      "description": "Relative improvement over current state."
-    }
+    "current_changeover_time",
+    "current_changeover_time",
+    "current_changeover_time",
+    "current_changeover_time",
+    "current_changeover_time",
+    "current_changeover_time",
+    "current_changeover_time"
   ],
   "outputs": {
-    "primary": {
-      "id": "smed_score",
-      "label": "SMED Efficiency Score",
-      "value": null,
-      "unit": "score (0-100)",
-      "description": "Composite score reflecting changeover maturity. Higher is better."
-    },
-    "breakdown": {
-      "current_changeover_time": null,
-      "internal_operations_percentage": null,
-      "external_operations_percentage": null,
-      "theoretical_minimum_changeover": null,
-      "achievable_changeover_time": null,
-      "reduction_potential": null,
-      "reduction_percentage": null,
-      "standardization_factor": null,
-      "waste_motion_factor": null
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "unnecessary_movement",
-        "label": "Unnecessary Movement",
-        "description": "Operators walking or searching for tools/dies. Addressed by 5S and tool shadow boards.",
-        "impact": "high"
-      },
-      {
-        "id": "lack_of_standardization",
-        "label": "Lack of Standardization",
-        "description": "Non-standard die heights, bolt sizes, or adjustment procedures increase time.",
-        "impact": "medium"
-      },
-      {
-        "id": "waiting_for_decisions",
-        "label": "Waiting for Decisions",
-        "description": "Operators waiting for supervisor or engineer to approve next step.",
-        "impact": "medium"
-      },
-      {
-        "id": "poor_parallelization",
-        "label": "Poor Parallelization",
-        "description": "Tasks performed sequentially when they could be done simultaneously.",
-        "impact": "high"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "convert_internal_to_external",
-        "label": "Convert Internal to External",
-        "description": "Identify tasks currently done while machine is stopped that can be done beforehand (e.g., preheating dies, staging tools).",
-        "priority": 1
-      },
-      {
-        "id": "implement_5s",
-        "label": "Implement 5S in Work Area",
-        "description": "Sort, Set in Order, Shine, Standardize, Sustain to reduce waste motion and search time.",
-        "priority": 2
-      },
-      {
-        "id": "standardize_die_design",
-        "label": "Standardize Die and Tooling Design",
-        "description": "Reduce adjustments by using common bolt sizes, locating pins, and quick-release mechanisms.",
-        "priority": 3
-      },
-      {
-        "id": "parallel_task_training",
-        "label": "Train Operators in Parallel Task Execution",
-        "description": "Cross-train team to perform independent tasks simultaneously without interference.",
-        "priority": 4
-      },
-      {
-        "id": "create_visual_work_instructions",
-        "label": "Create Visual Work Instructions",
-        "description": "Develop one-point lessons and video standards for each changeover step.",
-        "priority": 5
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "smed-changeover-optimizer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "lean-production",
+  "category": "Yalın Üretim",
+  "sector": "Üretim & İmalat"
 }

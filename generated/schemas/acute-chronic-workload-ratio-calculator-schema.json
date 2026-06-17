@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "makine saati",
       "default": 100,
-      "businessContext": "Kısa dönemde (ör. 7 gün) oluşan toplam iş yükü"
+      "businessContext": "Kısa dönemde (ör. 7 gün) oluşan toplam iş yükü",
+      "label_i18n": {
+        "en": "Akut Yük (Toplam)",
+        "tr": "Akut Yük (Toplam)",
+        "de": "Akut Yük (Toplam)",
+        "fr": "Akut Yük (Toplam)",
+        "es": "Akut Yük (Toplam)",
+        "ar": "Akut Yük (Toplam)"
+      }
     },
     {
       "id": "acutePeriodDays",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "gün",
       "default": 7,
-      "businessContext": "Akut yükün ölçüldüğü gün sayısı"
+      "businessContext": "Akut yükün ölçüldüğü gün sayısı",
+      "label_i18n": {
+        "en": "Akut Dönem (Gün)",
+        "tr": "Akut Dönem (Gün)",
+        "de": "Akut Dönem (Gün)",
+        "fr": "Akut Dönem (Gün)",
+        "es": "Akut Dönem (Gün)",
+        "ar": "Akut Dönem (Gün)"
+      }
     },
     {
       "id": "chronicLoad",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "makine saati",
       "default": 400,
-      "businessContext": "Uzun dönemde (ör. 28 gün) oluşan toplam iş yükü"
+      "businessContext": "Uzun dönemde (ör. 28 gün) oluşan toplam iş yükü",
+      "label_i18n": {
+        "en": "Kronik Yük (Toplam)",
+        "tr": "Kronik Yük (Toplam)",
+        "de": "Kronik Yük (Toplam)",
+        "fr": "Kronik Yük (Toplam)",
+        "es": "Kronik Yük (Toplam)",
+        "ar": "Kronik Yük (Toplam)"
+      }
     },
     {
       "id": "chronicPeriodDays",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "gün",
       "default": 28,
-      "businessContext": "Kronik yükün ölçüldüğü gün sayısı"
+      "businessContext": "Kronik yükün ölçüldüğü gün sayısı",
+      "label_i18n": {
+        "en": "Kronik Dönem (Gün)",
+        "tr": "Kronik Dönem (Gün)",
+        "de": "Kronik Dönem (Gün)",
+        "fr": "Kronik Dönem (Gün)",
+        "es": "Kronik Dönem (Gün)",
+        "ar": "Kronik Dönem (Gün)"
+      }
     },
     {
       "id": "acwrThreshold",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "oran",
       "default": 1.5,
-      "businessContext": "Riskli kabul edilen ACWR eşik değeri (genelde 1.5)"
+      "businessContext": "Riskli kabul edilen ACWR eşik değeri (genelde 1.5)",
+      "label_i18n": {
+        "en": "Eşik Değer",
+        "tr": "Eşik Değer",
+        "de": "Eşik Değer",
+        "fr": "Eşik Değer",
+        "es": "Eşik Değer",
+        "ar": "Eşik Değer"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +87,14 @@
     "chronicDailyLoad": "chronicLoad / chronicPeriodDays",
     "acwr": "acuteDailyLoad / chronicDailyLoad",
     "isOverThreshold": "acwr > acwrThreshold",
-    "status": "isOverThreshold ? 'YÜKSEK RİSK' : 'DÜŞÜK RİSK'"
+    "status": "isOverThreshold ? 'YÜKSEK RİSK' : 'DÜŞÜK RİSK'",
+    "Akut_G_nl_k_Ortalama": "Akut Günlük Ortalama",
+    "Kronik_G_nl_k_Ortalama": "Kronik Günlük Ortalama",
+    "ACWR_De_eri": "ACWR Değeri",
+    "Risk_Durumu": "Risk Durumu"
   },
   "outputs": {
-    "primary": "Acute Chronic Workload Ratio",
+    "primary": "acuteDailyLoad",
     "breakdown": [
       "Akut Günlük Ortalama",
       "Kronik Günlük Ortalama",
@@ -58,10 +102,10 @@
       "Risk Durumu"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

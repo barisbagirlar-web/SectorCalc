@@ -30,7 +30,7 @@ function evaluateAllFormulas(input: Reactor_design_calculatorInput): Record<stri
 
 export function calculateReactor_design_calculator(input: Reactor_design_calculatorInput): Reactor_design_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["reactorVolume"] ?? 0;
   const breakdown = {
     
   };

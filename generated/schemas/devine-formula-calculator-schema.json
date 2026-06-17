@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kişinin santimetre cinsinden boy uzunluğu"
+      "businessContext": "Kişinin santimetre cinsinden boy uzunluğu",
+      "label_i18n": {
+        "en": "Boy (cm)",
+        "tr": "Boy (cm)",
+        "de": "Boy (cm)",
+        "fr": "Boy (cm)",
+        "es": "Boy (cm)",
+        "ar": "Boy (cm)"
+      }
     },
     {
       "id": "sex",
       "label": "Cinsiyet (0:Kadın, 1:Erkek)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 kadın, 1 erkek olarak cinsiyet seçimi"
+      "businessContext": "0 kadın, 1 erkek olarak cinsiyet seçimi",
+      "label_i18n": {
+        "en": "Cinsiyet (0:Kadın, 1:Erkek)",
+        "tr": "Cinsiyet (0:Kadın, 1:Erkek)",
+        "de": "Cinsiyet (0:Kadın, 1:Erkek)",
+        "fr": "Cinsiyet (0:Kadın, 1:Erkek)",
+        "es": "Cinsiyet (0:Kadın, 1:Erkek)",
+        "ar": "Cinsiyet (0:Kadın, 1:Erkek)"
+      }
     },
     {
       "id": "age",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kişinin yaşı (referans amaçlı)"
+      "businessContext": "Kişinin yaşı (referans amaçlı)",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "currentWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kişinin mevcut ağırlığı (karşılaştırma için)"
+      "businessContext": "Kişinin mevcut ağırlığı (karşılaştırma için)",
+      "label_i18n": {
+        "en": "Mevcut Ağırlık",
+        "tr": "Mevcut Ağırlık",
+        "de": "Mevcut Ağırlık",
+        "fr": "Mevcut Ağırlık",
+        "es": "Mevcut Ağırlık",
+        "ar": "Mevcut Ağırlık"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "addition"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

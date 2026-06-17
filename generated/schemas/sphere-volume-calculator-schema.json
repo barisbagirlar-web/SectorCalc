@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Primary sphere radius in base units (if multiplier=1)"
+      "businessContext": "Primary sphere radius in base units (if multiplier=1)",
+      "label_i18n": {
+        "en": "Sphere 1 Radius",
+        "tr": "Sphere 1 Radius",
+        "de": "Sphere 1 Radius",
+        "fr": "Sphere 1 Radius",
+        "es": "Sphere 1 Radius",
+        "ar": "Sphere 1 Radius"
+      }
     },
     {
       "id": "radius2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Optional secondary sphere radius"
+      "businessContext": "Optional secondary sphere radius",
+      "label_i18n": {
+        "en": "Sphere 2 Radius",
+        "tr": "Sphere 2 Radius",
+        "de": "Sphere 2 Radius",
+        "fr": "Sphere 2 Radius",
+        "es": "Sphere 2 Radius",
+        "ar": "Sphere 2 Radius"
+      }
     },
     {
       "id": "radius3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Optional tertiary sphere radius"
+      "businessContext": "Optional tertiary sphere radius",
+      "label_i18n": {
+        "en": "Sphere 3 Radius",
+        "tr": "Sphere 3 Radius",
+        "de": "Sphere 3 Radius",
+        "fr": "Sphere 3 Radius",
+        "es": "Sphere 3 Radius",
+        "ar": "Sphere 3 Radius"
+      }
     },
     {
       "id": "radius4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Optional quaternary sphere radius"
+      "businessContext": "Optional quaternary sphere radius",
+      "label_i18n": {
+        "en": "Sphere 4 Radius",
+        "tr": "Sphere 4 Radius",
+        "de": "Sphere 4 Radius",
+        "fr": "Sphere 4 Radius",
+        "es": "Sphere 4 Radius",
+        "ar": "Sphere 4 Radius"
+      }
     },
     {
       "id": "unitMultiplier",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Conversion factor to convert input radii to meters (e.g., cm=0.01, mm=0.001)"
+      "businessContext": "Conversion factor to convert input radii to meters (e.g., cm=0.01, mm=0.001)",
+      "label_i18n": {
+        "en": "Radius Unit Conversion to m",
+        "tr": "Radius Unit Conversion to m",
+        "de": "Radius Unit Conversion to m",
+        "fr": "Radius Unit Conversion to m",
+        "es": "Radius Unit Conversion to m",
+        "ar": "Radius Unit Conversion to m"
+      }
     },
     {
       "id": "density",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of the material for weight calculation"
+      "businessContext": "Density of the material for weight calculation",
+      "label_i18n": {
+        "en": "Material Density",
+        "tr": "Material Density",
+        "de": "Material Density",
+        "fr": "Material Density",
+        "es": "Material Density",
+        "ar": "Material Density"
+      }
     },
     {
       "id": "wasteFactor",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of material waste considered for procurement"
+      "businessContext": "Percentage of material waste considered for procurement",
+      "label_i18n": {
+        "en": "Material Waste Factor",
+        "tr": "Material Waste Factor",
+        "de": "Material Waste Factor",
+        "fr": "Material Waste Factor",
+        "es": "Material Waste Factor",
+        "ar": "Material Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -69,10 +125,16 @@
     "V4": "(4/3) * Math.PI * Math.pow(convertedRadius4, 3)",
     "totalVolume": "V1 + V2 + V3 + V4",
     "totalMass": "totalVolume * density",
-    "totalMassWithWaste": "totalMass * (1 + wasteFactor/100)"
+    "totalMassWithWaste": "totalMass * (1 + wasteFactor/100)",
+    "_V1__m_": "{V1} m³",
+    "_V2__m_": "{V2} m³",
+    "_V3__m_": "{V3} m³",
+    "_V4__m_": "{V4} m³",
+    "_totalMass__kg": "{totalMass} kg",
+    "_totalMassWithWaste__kg": "{totalMassWithWaste} kg"
   },
   "outputs": {
-    "primary": "Total Volume: {totalVolume} m³",
+    "primary": "convertedRadius1",
     "breakdown": [
       "Sphere 1 Volume: {V1} m³",
       "Sphere 2 Volume: {V2} m³",
@@ -82,10 +144,10 @@
       "Total Mass (with {wasteFactor}% waste): {totalMassWithWaste} kg"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "metal-plastics-forming"
 }

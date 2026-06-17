@@ -20,6 +20,8 @@ function evaluateAllFormulas(input: Aspect_ratio_calculatorInput): Record<string
   try { const v = input.width / input.height; results["aspectDecimal"] = Number.isFinite(v) ? v : 0; } catch { results["aspectDecimal"] = 0; }
   try { const v = input.targetRatioW / input.targetRatioH; results["targetDecimal"] = Number.isFinite(v) ? v : 0; } catch { results["targetDecimal"] = 0; }
   try { const v = Math.sqrt(((results["aspectDecimal"] ?? 0) - (results["targetDecimal"] ?? 0))**2) / (results["targetDecimal"] ?? 0) * 100; results["deviationPercent"] = Number.isFinite(v) ? v : 0; } catch { results["deviationPercent"] = 0; }
+  try { const v = input.width; results["width"] = Number.isFinite(v) ? v : 0; } catch { results["width"] = 0; }
+  try { const v = input.height; results["height"] = Number.isFinite(v) ? v : 0; } catch { results["height"] = 0; }
   return results;
 }
 

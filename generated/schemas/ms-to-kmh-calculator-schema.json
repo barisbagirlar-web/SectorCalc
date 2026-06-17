@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "m/s",
       "default": 1,
-      "businessContext": "Speed value in meters per second to be converted to kilometers per hour."
+      "businessContext": "Speed value in meters per second to be converted to kilometers per hour.",
+      "label_i18n": {
+        "en": "Speed (m/s)",
+        "tr": "Speed (m/s)",
+        "de": "Speed (m/s)",
+        "fr": "Speed (m/s)",
+        "es": "Speed (m/s)",
+        "ar": "Speed (m/s)"
+      }
     },
     {
       "id": "conversionFactor",
       "label": "Conversion Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3.6,
-      "businessContext": "Fixed conversion factor from m/s to km/h (1 m/s = 3.6 km/h). Default 3.6."
+      "businessContext": "Fixed conversion factor from m/s to km/h (1 m/s = 3.6 km/h). Default 3.6.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the output."
+      "businessContext": "Number of decimal places for rounding the output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "roundingMethod",
       "label": "Rounding Method",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = normal rounding, 1 = floor, 2 = ceil. Determines how the output is rounded."
+      "businessContext": "0 = normal rounding, 1 = floor, 2 = ceil. Determines how the output is rounded.",
+      "label_i18n": {
+        "en": "Rounding Method",
+        "tr": "Rounding Method",
+        "de": "Rounding Method",
+        "fr": "Rounding Method",
+        "es": "Rounding Method",
+        "ar": "Rounding Method"
+      }
     },
     {
       "id": "expectedOutput",
@@ -39,24 +71,35 @@
       "type": "number",
       "unit": "km/h",
       "default": 0,
-      "businessContext": "Optional manual validation value to compare with computed output."
+      "businessContext": "Optional manual validation value to compare with computed output.",
+      "label_i18n": {
+        "en": "Expected Output (Optional)",
+        "tr": "Expected Output (Optional)",
+        "de": "Expected Output (Optional)",
+        "fr": "Expected Output (Optional)",
+        "es": "Expected Output (Optional)",
+        "ar": "Expected Output (Optional)"
+      }
     }
   ],
   "formulas": {
     "rawValue": "speedMs * conversionFactor",
-    "kmh": "(roundingMethod === 0 ? Math.round(speedMs * conversionFactor * Math.pow(10, decimalPlaces)) : roundingMethod === 1 ? Math.floor(speedMs * conversionFactor * Math.pow(10, decimalPlaces)) : roundingMethod === 2 ? Math.ceil(speedMs * conversionFactor * Math.pow(10, decimalPlaces)) : speedMs * conversionFactor) / Math.pow(10, decimalPlaces)"
+    "kmh": "(roundingMethod === 0 ? Math.round(speedMs * conversionFactor * Math.pow(10, decimalPlaces)) : roundingMethod === 1 ? Math.floor(speedMs * conversionFactor * Math.pow(10, decimalPlaces)) : roundingMethod === 2 ? Math.ceil(speedMs * conversionFactor * Math.pow(10, decimalPlaces)) : speedMs * conversionFactor) / Math.pow(10, decimalPlaces)",
+    "__rawValue___km_h": "{{rawValue}} km/h",
+    "Rounded_to___decimalPlaces___decimal_pla": "Rounded to {{decimalPlaces}} decimal places",
+    "result": "{{kmh}} km/h"
   },
   "outputs": {
-    "primary": "{{kmh}} km/h",
+    "primary": "result",
     "breakdown": [
       "Raw value: {{rawValue}} km/h",
       "Rounded to {{decimalPlaces}} decimal places"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -29,7 +29,7 @@ function evaluateAllFormulas(input: Kp_calculatorInput): Record<string, number> 
 
 export function calculateKp_calculator(input: Kp_calculatorInput): Kp_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Kp_final"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

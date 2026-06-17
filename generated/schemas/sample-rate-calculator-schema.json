@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "units",
       "default": 10000,
-      "businessContext": "Total number of items in the batch or population to inspect."
+      "businessContext": "Total number of items in the batch or population to inspect.",
+      "label_i18n": {
+        "en": "Population Size (N)",
+        "tr": "Population Size (N)",
+        "de": "Population Size (N)",
+        "fr": "Population Size (N)",
+        "es": "Population Size (N)",
+        "ar": "Population Size (N)"
+      }
     },
     {
       "id": "zScore",
       "label": "Z-Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.96,
-      "businessContext": "Z-score corresponding to desired confidence level (e.g., 1.96 for 95% confidence)."
+      "businessContext": "Z-score corresponding to desired confidence level (e.g., 1.96 for 95% confidence).",
+      "label_i18n": {
+        "en": "Z-Score",
+        "tr": "Z-Score",
+        "de": "Z-Score",
+        "fr": "Z-Score",
+        "es": "Z-Score",
+        "ar": "Z-Score"
+      }
     },
     {
       "id": "marginOfError",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Acceptable margin of error as a percentage (e.g., 5 for ±5%). Note: input as percentage, e.g., 5 means 5%."
+      "businessContext": "Acceptable margin of error as a percentage (e.g., 5 for ±5%). Note: input as percentage, e.g., 5 means 5%.",
+      "label_i18n": {
+        "en": "Margin of Error (E)",
+        "tr": "Margin of Error (E)",
+        "de": "Margin of Error (E)",
+        "fr": "Margin of Error (E)",
+        "es": "Margin of Error (E)",
+        "ar": "Margin of Error (E)"
+      }
     },
     {
       "id": "estimatedProportion",
       "label": "Estimated Proportion (p)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Estimated proportion of the characteristic in the population. Use 0.5 for maximum variability."
+      "businessContext": "Estimated proportion of the characteristic in the population. Use 0.5 for maximum variability.",
+      "label_i18n": {
+        "en": "Estimated Proportion (p)",
+        "tr": "Estimated Proportion (p)",
+        "de": "Estimated Proportion (p)",
+        "fr": "Estimated Proportion (p)",
+        "es": "Estimated Proportion (p)",
+        "ar": "Estimated Proportion (p)"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "sampleSize"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

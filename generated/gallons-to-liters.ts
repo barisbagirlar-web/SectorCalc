@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Gallons_to_litersInput {
   gallons: number;
   precision: number;
+  auto_input_3: number;
 }
 
 export const Gallons_to_litersInputSchema = z.object({
   gallons: z.number().default(1),
   precision: z.number().default(2),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Gallons_to_litersInput): Record<string, number> {

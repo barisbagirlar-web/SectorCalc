@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "mGy",
       "default": 10,
-      "businessContext": "Energy deposited per unit mass in the tissue or organ of interest."
+      "businessContext": "Energy deposited per unit mass in the tissue or organ of interest.",
+      "label_i18n": {
+        "en": "Absorbed Dose (mGy)",
+        "tr": "Absorbed Dose (mGy)",
+        "de": "Absorbed Dose (mGy)",
+        "fr": "Absorbed Dose (mGy)",
+        "es": "Absorbed Dose (mGy)",
+        "ar": "Absorbed Dose (mGy)"
+      }
     },
     {
       "id": "numExposures",
       "label": "Number of Exposures",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of identical exposures to multiply the dose by."
+      "businessContext": "Number of identical exposures to multiply the dose by.",
+      "label_i18n": {
+        "en": "Number of Exposures",
+        "tr": "Number of Exposures",
+        "de": "Number of Exposures",
+        "fr": "Number of Exposures",
+        "es": "Number of Exposures",
+        "ar": "Number of Exposures"
+      }
     },
     {
       "id": "wR",
       "label": "Radiation Weighting Factor (wR)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "ICRP 103: 1 for photons/electrons, 5 for protons, 10 for alpha, 20 for neutrons (energy dependent)."
+      "businessContext": "ICRP 103: 1 for photons/electrons, 5 for protons, 10 for alpha, 20 for neutrons (energy dependent).",
+      "label_i18n": {
+        "en": "Radiation Weighting Factor (wR)",
+        "tr": "Radiation Weighting Factor (wR)",
+        "de": "Radiation Weighting Factor (wR)",
+        "fr": "Radiation Weighting Factor (wR)",
+        "es": "Radiation Weighting Factor (wR)",
+        "ar": "Radiation Weighting Factor (wR)"
+      }
     },
     {
       "id": "wT",
       "label": "Tissue Weighting Factor (wT)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.12,
-      "businessContext": "ICRP 103: organ-specific (e.g., lung 0.12, red marrow 0.12, stomach 0.12, thyroid 0.04, breast 0.12, gonads 0.08, bone surface 0.01, brain 0.01, salivary glands 0.01, skin 0.01, remainder 0.12). Sum for whole body = 1. Use 1 for whole-body uniform exposure."
+      "businessContext": "ICRP 103: organ-specific (e.g., lung 0.12, red marrow 0.12, stomach 0.12, thyroid 0.04, breast 0.12, gonads 0.08, bone surface 0.01, brain 0.01, salivary glands 0.01, skin 0.01, remainder 0.12). Sum for whole body = 1. Use 1 for whole-body uniform exposure.",
+      "label_i18n": {
+        "en": "Tissue Weighting Factor (wT)",
+        "tr": "Tissue Weighting Factor (wT)",
+        "de": "Tissue Weighting Factor (wT)",
+        "fr": "Tissue Weighting Factor (wT)",
+        "es": "Tissue Weighting Factor (wT)",
+        "ar": "Tissue Weighting Factor (wT)"
+      }
     },
     {
       "id": "convFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mSv/mGy",
       "default": 1,
-      "businessContext": "Normally 1 mSv per mGy for the same tissue. Adjust if input dose is in different units (e.g., 1000 mSv per Gy)."
+      "businessContext": "Normally 1 mSv per mGy for the same tissue. Adjust if input dose is in different units (e.g., 1000 mSv per Gy).",
+      "label_i18n": {
+        "en": "Conversion Factor (mSv per mGy)",
+        "tr": "Conversion Factor (mSv per mGy)",
+        "de": "Conversion Factor (mSv per mGy)",
+        "fr": "Conversion Factor (mSv per mGy)",
+        "es": "Conversion Factor (mSv per mGy)",
+        "ar": "Conversion Factor (mSv per mGy)"
+      }
     }
   ],
   "formulas": {
@@ -52,10 +92,10 @@
       "equivalentDose_mSv"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

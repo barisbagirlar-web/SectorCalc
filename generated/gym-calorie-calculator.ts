@@ -3,34 +3,34 @@ import * as z from 'zod';
 
 export interface Gym_calorie_calculatorInput {
   weight: number;
-  duration: number;
-  met: number;
+  height: number;
   age: number;
   gender: number;
-  height: number;
+  duration: number;
+  met: number;
 }
 
 export const Gym_calorie_calculatorInputSchema = z.object({
   weight: z.number().default(70),
-  duration: z.number().default(30),
-  met: z.number().default(5),
+  height: z.number().default(170),
   age: z.number().default(30),
   gender: z.number().default(1),
-  height: z.number().default(175),
+  duration: z.number().default(30),
+  met: z.number().default(8),
 });
 
 function evaluateAllFormulas(input: Gym_calorie_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 10 * input.weight + 6.25 * input.height - 5 * input.age + (input.gender === 1 ? 5 : -161); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = input.met * 3.5 * input.weight / 200 * input.duration; results["caloriesBurned"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesBurned"] = 0; }
-  try { const v = (results["caloriesBurned"] ?? 0) + (results["bmr"] ?? 0) / 1440 * input.duration; results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
+  try { const v = input.gender === 1 ? 88.362 + (13.397 * input.weight) + (4.799 * input.height) - (5.677 * input.age) : 447.593 + (9.247 * input.weight) + (3.098 * input.height) - (4.330 * input.age); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
+  try { const v = input.met * input.weight * (input.duration / 60); results["caloriesBurned"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesBurned"] = 0; }
+  try { const v = input.met * input.weight * (1 / 60); results["caloriesPerMinute"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesPerMinute"] = 0; }
   return results;
 }
 
 
 export function calculateGym_calorie_calculator(input: Gym_calorie_calculatorInput): Gym_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCalories"] ?? 0;
+  const totalWasteCost = values["caloriesBurned"] ?? 0;
   const breakdown = {
     
   };

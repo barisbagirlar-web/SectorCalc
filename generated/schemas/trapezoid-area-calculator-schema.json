@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Length of the first parallel side of the trapezoid"
+      "businessContext": "Length of the first parallel side of the trapezoid",
+      "label_i18n": {
+        "en": "Base 1",
+        "tr": "Base 1",
+        "de": "Base 1",
+        "fr": "Base 1",
+        "es": "Base 1",
+        "ar": "Base 1"
+      }
     },
     {
       "id": "base2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Length of the second parallel side of the trapezoid"
+      "businessContext": "Length of the second parallel side of the trapezoid",
+      "label_i18n": {
+        "en": "Base 2",
+        "tr": "Base 2",
+        "de": "Base 2",
+        "fr": "Base 2",
+        "es": "Base 2",
+        "ar": "Base 2"
+      }
     },
     {
       "id": "height",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Perpendicular distance between the two bases"
+      "businessContext": "Perpendicular distance between the two bases",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "outputUnitSelection",
       "label": "Output Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for mm², 2 for cm², 3 for m²"
+      "businessContext": "1 for mm², 2 for cm², 3 for m²",
+      "label_i18n": {
+        "en": "Output Unit",
+        "tr": "Output Unit",
+        "de": "Output Unit",
+        "fr": "Output Unit",
+        "es": "Output Unit",
+        "ar": "Output Unit"
+      }
     }
   ],
   "formulas": {
@@ -51,10 +83,10 @@
       "finalArea"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

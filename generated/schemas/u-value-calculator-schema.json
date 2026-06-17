@@ -74,12 +74,7 @@
     "uValue": "1 / totalResistance"
   },
   "outputs": {
-    "primary": {
-      "id": "uValue",
-      "label": "U Değeri (Isı Geçirgenlik Katsayısı)",
-      "unit": "W/m²K",
-      "formula": "uValue"
-    },
+    "primary": "r1",
     "breakdown": [
       {
         "id": "totalResistance",
@@ -95,10 +90,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "metal-plastics-forming"
 }

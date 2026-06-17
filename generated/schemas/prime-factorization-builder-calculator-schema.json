@@ -5,65 +5,129 @@
       "id": "prime1",
       "label": "Prime Factor 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "First prime number"
+      "businessContext": "First prime number",
+      "label_i18n": {
+        "en": "Prime Factor 1",
+        "tr": "Prime Factor 1",
+        "de": "Prime Factor 1",
+        "fr": "Prime Factor 1",
+        "es": "Prime Factor 1",
+        "ar": "Prime Factor 1"
+      }
     },
     {
       "id": "exponent1",
       "label": "Exponent 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Exponent for the first prime"
+      "businessContext": "Exponent for the first prime",
+      "label_i18n": {
+        "en": "Exponent 1",
+        "tr": "Exponent 1",
+        "de": "Exponent 1",
+        "fr": "Exponent 1",
+        "es": "Exponent 1",
+        "ar": "Exponent 1"
+      }
     },
     {
       "id": "prime2",
       "label": "Prime Factor 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Second prime number"
+      "businessContext": "Second prime number",
+      "label_i18n": {
+        "en": "Prime Factor 2",
+        "tr": "Prime Factor 2",
+        "de": "Prime Factor 2",
+        "fr": "Prime Factor 2",
+        "es": "Prime Factor 2",
+        "ar": "Prime Factor 2"
+      }
     },
     {
       "id": "exponent2",
       "label": "Exponent 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Exponent for the second prime"
+      "businessContext": "Exponent for the second prime",
+      "label_i18n": {
+        "en": "Exponent 2",
+        "tr": "Exponent 2",
+        "de": "Exponent 2",
+        "fr": "Exponent 2",
+        "es": "Exponent 2",
+        "ar": "Exponent 2"
+      }
     },
     {
       "id": "prime3",
       "label": "Prime Factor 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Third prime number"
+      "businessContext": "Third prime number",
+      "label_i18n": {
+        "en": "Prime Factor 3",
+        "tr": "Prime Factor 3",
+        "de": "Prime Factor 3",
+        "fr": "Prime Factor 3",
+        "es": "Prime Factor 3",
+        "ar": "Prime Factor 3"
+      }
     },
     {
       "id": "exponent3",
       "label": "Exponent 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Exponent for the third prime"
+      "businessContext": "Exponent for the third prime",
+      "label_i18n": {
+        "en": "Exponent 3",
+        "tr": "Exponent 3",
+        "de": "Exponent 3",
+        "fr": "Exponent 3",
+        "es": "Exponent 3",
+        "ar": "Exponent 3"
+      }
     },
     {
       "id": "prime4",
       "label": "Prime Factor 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 7,
-      "businessContext": "Fourth prime number"
+      "businessContext": "Fourth prime number",
+      "label_i18n": {
+        "en": "Prime Factor 4",
+        "tr": "Prime Factor 4",
+        "de": "Prime Factor 4",
+        "fr": "Prime Factor 4",
+        "es": "Prime Factor 4",
+        "ar": "Prime Factor 4"
+      }
     },
     {
       "id": "exponent4",
       "label": "Exponent 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Exponent for the fourth prime"
+      "businessContext": "Exponent for the fourth prime",
+      "label_i18n": {
+        "en": "Exponent 4",
+        "tr": "Exponent 4",
+        "de": "Exponent 4",
+        "fr": "Exponent 4",
+        "es": "Exponent 4",
+        "ar": "Exponent 4"
+      }
     }
   ],
   "formulas": {
@@ -82,10 +146,10 @@
       "term4"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

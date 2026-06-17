@@ -3,15 +3,20 @@ import * as z from 'zod';
 
 export interface Kg_to_lbInput {
   kg: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Kg_to_lbInputSchema = z.object({
   kg: z.number().default(1),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Kg_to_lbInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.kg * 2.20462; results["lb"] = Number.isFinite(v) ? v : 0; } catch { results["lb"] = 0; }
+  try { const v = input.kg * 2.20462; results["lb_copy"] = Number.isFinite(v) ? v : 0; } catch { results["lb_copy"] = 0; }
   return results;
 }
 

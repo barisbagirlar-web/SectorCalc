@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Initial mass of the radioactive substance."
+      "businessContext": "Initial mass of the radioactive substance.",
+      "label_i18n": {
+        "en": "Initial Quantity",
+        "tr": "Initial Quantity",
+        "de": "Initial Quantity",
+        "fr": "Initial Quantity",
+        "es": "Initial Quantity",
+        "ar": "Initial Quantity"
+      }
     },
     {
       "id": "halfLife",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Time required for half of the substance to decay."
+      "businessContext": "Time required for half of the substance to decay.",
+      "label_i18n": {
+        "en": "Half-Life",
+        "tr": "Half-Life",
+        "de": "Half-Life",
+        "fr": "Half-Life",
+        "es": "Half-Life",
+        "ar": "Half-Life"
+      }
     },
     {
       "id": "elapsedTime",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Time duration over which decay is calculated."
+      "businessContext": "Time duration over which decay is calculated.",
+      "label_i18n": {
+        "en": "Elapsed Time",
+        "tr": "Elapsed Time",
+        "de": "Elapsed Time",
+        "fr": "Elapsed Time",
+        "es": "Elapsed Time",
+        "ar": "Elapsed Time"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for safety margin in criticality or radiological assessments."
+      "businessContext": "Multiplier for safety margin in criticality or radiological assessments.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "safeRemaining"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

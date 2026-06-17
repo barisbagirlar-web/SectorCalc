@@ -18,6 +18,9 @@ export const Quick_ratio_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Quick_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = ((input.cashEquivalents + input.marketableSecurities + input.accountsReceivable) / input.currentLiabilities) || 0; results["quickRatio"] = Number.isFinite(v) ? v : 0; } catch { results["quickRatio"] = 0; }
+  results["__quickRatio_toFixed_2__"] = 0;
+  results["Nakit___Menkul_K_ymetler___Alacaklar____"] = 0;
+  results["K_sa_Vadeli_Y_k_ml_l_kler_____inputs_cur"] = 0;
   return results;
 }
 

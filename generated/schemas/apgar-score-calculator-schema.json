@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "0: Blue/pale all over; 1: Blue at extremities; 2: No blue"
+      "businessContext": "0: Blue/pale all over; 1: Blue at extremities; 2: No blue",
+      "label_i18n": {
+        "en": "Appearance (Skin Color)",
+        "tr": "Appearance (Skin Color)",
+        "de": "Appearance (Skin Color)",
+        "fr": "Appearance (Skin Color)",
+        "es": "Appearance (Skin Color)",
+        "ar": "Appearance (Skin Color)"
+      }
     },
     {
       "id": "pulse",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "0: Absent; 1: Below 100 bpm; 2: Over 100 bpm"
+      "businessContext": "0: Absent; 1: Below 100 bpm; 2: Over 100 bpm",
+      "label_i18n": {
+        "en": "Pulse (Heart Rate)",
+        "tr": "Pulse (Heart Rate)",
+        "de": "Pulse (Heart Rate)",
+        "fr": "Pulse (Heart Rate)",
+        "es": "Pulse (Heart Rate)",
+        "ar": "Pulse (Heart Rate)"
+      }
     },
     {
       "id": "grimace",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "0: No response; 1: Grimace/feeble cry; 2: Vigorous cry/sneeze"
+      "businessContext": "0: No response; 1: Grimace/feeble cry; 2: Vigorous cry/sneeze",
+      "label_i18n": {
+        "en": "Grimace (Reflex Irritability)",
+        "tr": "Grimace (Reflex Irritability)",
+        "de": "Grimace (Reflex Irritability)",
+        "fr": "Grimace (Reflex Irritability)",
+        "es": "Grimace (Reflex Irritability)",
+        "ar": "Grimace (Reflex Irritability)"
+      }
     },
     {
       "id": "activity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "0: Limp; 1: Some flexion; 2: Active motion"
+      "businessContext": "0: Limp; 1: Some flexion; 2: Active motion",
+      "label_i18n": {
+        "en": "Activity (Muscle Tone)",
+        "tr": "Activity (Muscle Tone)",
+        "de": "Activity (Muscle Tone)",
+        "fr": "Activity (Muscle Tone)",
+        "es": "Activity (Muscle Tone)",
+        "ar": "Activity (Muscle Tone)"
+      }
     },
     {
       "id": "respiration",
@@ -39,11 +71,24 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "0: Absent; 1: Weak/irregular; 2: Good/crying"
+      "businessContext": "0: Absent; 1: Weak/irregular; 2: Good/crying",
+      "label_i18n": {
+        "en": "Respiration (Breathing)",
+        "tr": "Respiration (Breathing)",
+        "de": "Respiration (Breathing)",
+        "fr": "Respiration (Breathing)",
+        "es": "Respiration (Breathing)",
+        "ar": "Respiration (Breathing)"
+      }
     }
   ],
   "formulas": {
-    "totalScore": "appearance + pulse + grimace + activity + respiration"
+    "totalScore": "appearance + pulse + grimace + activity + respiration",
+    "appearance": "appearance",
+    "pulse": "pulse",
+    "grimace": "grimace",
+    "activity": "activity",
+    "respiration": "respiration"
   },
   "outputs": {
     "primary": "totalScore",
@@ -55,10 +100,10 @@
       "respiration"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

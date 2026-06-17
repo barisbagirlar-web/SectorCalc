@@ -22,6 +22,12 @@ export const Sofa_score_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Sofa_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.respScore + input.coagScore + input.liverScore + input.cvScore + input.cnsScore + input.renalScore; results["totalSOFA"] = Number.isFinite(v) ? v : 0; } catch { results["totalSOFA"] = 0; }
+  try { const v = input.respScore; results["respScore"] = Number.isFinite(v) ? v : 0; } catch { results["respScore"] = 0; }
+  try { const v = input.coagScore; results["coagScore"] = Number.isFinite(v) ? v : 0; } catch { results["coagScore"] = 0; }
+  try { const v = input.liverScore; results["liverScore"] = Number.isFinite(v) ? v : 0; } catch { results["liverScore"] = 0; }
+  try { const v = input.cvScore; results["cvScore"] = Number.isFinite(v) ? v : 0; } catch { results["cvScore"] = 0; }
+  try { const v = input.cnsScore; results["cnsScore"] = Number.isFinite(v) ? v : 0; } catch { results["cnsScore"] = 0; }
+  try { const v = input.renalScore; results["renalScore"] = Number.isFinite(v) ? v : 0; } catch { results["renalScore"] = 0; }
   return results;
 }
 

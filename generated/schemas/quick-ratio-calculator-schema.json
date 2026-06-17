@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Kasa, banka, kısa vadeli yatırımlar"
+      "businessContext": "Kasa, banka, kısa vadeli yatırımlar",
+      "label_i18n": {
+        "en": "Nakit ve Nakit Benzerleri",
+        "tr": "Nakit ve Nakit Benzerleri",
+        "de": "Nakit ve Nakit Benzerleri",
+        "fr": "Nakit ve Nakit Benzerleri",
+        "es": "Nakit ve Nakit Benzerleri",
+        "ar": "Nakit ve Nakit Benzerleri"
+      }
     },
     {
       "id": "marketableSecurities",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Hızlıca nakde çevrilebilen kısa vadeli yatırımlar"
+      "businessContext": "Hızlıca nakde çevrilebilen kısa vadeli yatırımlar",
+      "label_i18n": {
+        "en": "Menkul Kıymetler",
+        "tr": "Menkul Kıymetler",
+        "de": "Menkul Kıymetler",
+        "fr": "Menkul Kıymetler",
+        "es": "Menkul Kıymetler",
+        "ar": "Menkul Kıymetler"
+      }
     },
     {
       "id": "accountsReceivable",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Müşterilerden alacaklar"
+      "businessContext": "Müşterilerden alacaklar",
+      "label_i18n": {
+        "en": "Ticari Alacaklar",
+        "tr": "Ticari Alacaklar",
+        "de": "Ticari Alacaklar",
+        "fr": "Ticari Alacaklar",
+        "es": "Ticari Alacaklar",
+        "ar": "Ticari Alacaklar"
+      }
     },
     {
       "id": "currentLiabilities",
@@ -31,11 +55,22 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "1 yıl içinde ödenmesi gereken borçlar"
+      "businessContext": "1 yıl içinde ödenmesi gereken borçlar",
+      "label_i18n": {
+        "en": "Kısa Vadeli Yükümlülükler",
+        "tr": "Kısa Vadeli Yükümlülükler",
+        "de": "Kısa Vadeli Yükümlülükler",
+        "fr": "Kısa Vadeli Yükümlülükler",
+        "es": "Kısa Vadeli Yükümlülükler",
+        "ar": "Kısa Vadeli Yükümlülükler"
+      }
     }
   ],
   "formulas": {
-    "quickRatio": "((inputs.cashEquivalents + inputs.marketableSecurities + inputs.accountsReceivable) / inputs.currentLiabilities) || 0"
+    "quickRatio": "((inputs.cashEquivalents + inputs.marketableSecurities + inputs.accountsReceivable) / inputs.currentLiabilities) || 0",
+    "__quickRatio_toFixed_2__": "${quickRatio.toFixed(2)}",
+    "Nakit___Menkul_K_ymetler___Alacaklar____": "Nakit + Menkul Kıymetler + Alacaklar = ${inputs.cashEquivalents + inputs.marketableSecurities + inputs.accountsReceivable} TRY",
+    "K_sa_Vadeli_Y_k_ml_l_kler_____inputs_cur": "Kısa Vadeli Yükümlülükler = ${inputs.currentLiabilities} TRY"
   },
   "outputs": {
     "primary": "quickRatio",
@@ -45,10 +80,10 @@
       "Kısa Vadeli Yükümlülükler = ${inputs.currentLiabilities} TRY"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "quality-six-sigma"
 }

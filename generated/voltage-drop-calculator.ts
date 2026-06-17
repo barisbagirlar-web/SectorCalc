@@ -23,32 +23,19 @@ export const Voltage_drop_calculatorInputSchema = z.object({
   ambient_temperature: z.number().min(-10).max(60).default(30),
 });
 
-function evaluateAllFormulas(input: Voltage_drop_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = lookup_resistance(input.conductor_material, input.conductor_size); results["resistance_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["resistance_per_unit"] = 0; }
-  try { const v = 1 + α * (input.ambient_temperature - 20); results["temperature_correction_factor"] = Number.isFinite(v) ? v : 0; } catch { results["temperature_correction_factor"] = 0; }
-  try { const v = R20 * TCF; results["adjusted_resistance"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_resistance"] = 0; }
-  try { const v = Math.sqrt(R_adj**2 + X**2); results["effective_impedance"] = Number.isFinite(v) ? v : 0; } catch { results["effective_impedance"] = 0; }
-  try { const v = (input.load_current * input.circuit_length * Z * phase_factor) / 1000; results["voltage_drop_volts"] = Number.isFinite(v) ? v : 0; } catch { results["voltage_drop_volts"] = 0; }
-  try { const v = (Vd / input.system_voltage) * 100; results["voltage_drop_percent"] = Number.isFinite(v) ? v : 0; } catch { results["voltage_drop_percent"] = 0; }
-  try { const v = 2 * (input.load_current**2 * R_adj * input.circuit_length / 1000); results["power_loss"] = Number.isFinite(v) ? v : 0; } catch { results["power_loss"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Voltage_drop_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateVoltage_drop_calculator(input: Voltage_drop_calculatorInput): Voltage_drop_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["voltage_drop_percent"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    resistance_at_20C: values["resistance_at_20C"] ?? 0,
-    temperature_correction_factor: values["temperature_correction_factor"] ?? 0,
-    adjusted_resistance: values["adjusted_resistance"] ?? 0,
-    effective_impedance: values["effective_impedance"] ?? 0,
-    voltage_drop_volts: values["voltage_drop_volts"] ?? 0,
-    power_loss: values["power_loss"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["High conductor resistance","Excessive circuit length","Low power factor","High ambient temperature"];
-  const suggestedActions: string[] = ["Increase conductor size","Reduce circuit length","Improve power factor","Use parallel conductors","Switch to copper conductor"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -67,7 +54,7 @@ export function calculateVoltage_drop_calculator(input: Voltage_drop_calculatorI
 
 export interface Voltage_drop_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { resistance_at_20C: number; temperature_correction_factor: number; adjusted_resistance: number; effective_impedance: number; voltage_drop_volts: number; power_loss: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

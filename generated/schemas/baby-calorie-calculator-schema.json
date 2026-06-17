@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 4.5,
-      "businessContext": "Bebeğin ağırlığı kilogram cinsinden."
+      "businessContext": "Bebeğin ağırlığı kilogram cinsinden.",
+      "label_i18n": {
+        "en": "Bebek Ağırlığı (kg)",
+        "tr": "Bebek Ağırlığı (kg)",
+        "de": "Bebek Ağırlığı (kg)",
+        "fr": "Bebek Ağırlığı (kg)",
+        "es": "Bebek Ağırlığı (kg)",
+        "ar": "Bebek Ağırlığı (kg)"
+      }
     },
     {
       "id": "age",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "ay",
       "default": 2,
-      "businessContext": "Bebeğin tamamlanmış ay cinsinden yaşı."
+      "businessContext": "Bebeğin tamamlanmış ay cinsinden yaşı.",
+      "label_i18n": {
+        "en": "Bebek Yaşı (ay)",
+        "tr": "Bebek Yaşı (ay)",
+        "de": "Bebek Yaşı (ay)",
+        "fr": "Bebek Yaşı (ay)",
+        "es": "Bebek Yaşı (ay)",
+        "ar": "Bebek Yaşı (ay)"
+      }
     },
     {
       "id": "feedingMultiplier",
       "label": "Beslenme Çarpanı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Anne sütü için 1.0, formül için 1.05, karışık beslenme için 1.1."
+      "businessContext": "Anne sütü için 1.0, formül için 1.05, karışık beslenme için 1.1.",
+      "label_i18n": {
+        "en": "Beslenme Çarpanı",
+        "tr": "Beslenme Çarpanı",
+        "de": "Beslenme Çarpanı",
+        "fr": "Beslenme Çarpanı",
+        "es": "Beslenme Çarpanı",
+        "ar": "Beslenme Çarpanı"
+      }
     },
     {
       "id": "solidCalories",
@@ -31,26 +55,37 @@
       "type": "number",
       "unit": "kcal",
       "default": 0,
-      "businessContext": "6 ay üstü için ek gıdalardan alınan ekstra kalori miktarı."
+      "businessContext": "6 ay üstü için ek gıdalardan alınan ekstra kalori miktarı.",
+      "label_i18n": {
+        "en": "Ek Gıda Kalorisi (kcal)",
+        "tr": "Ek Gıda Kalorisi (kcal)",
+        "de": "Ek Gıda Kalorisi (kcal)",
+        "fr": "Ek Gıda Kalorisi (kcal)",
+        "es": "Ek Gıda Kalorisi (kcal)",
+        "ar": "Ek Gıda Kalorisi (kcal)"
+      }
     }
   ],
   "formulas": {
     "base": "weight * (120 - 10 * Math.log(age + 1))",
     "adjusted": "base * feedingMultiplier",
-    "total": "adjusted + solidCalories"
+    "total": "adjusted + solidCalories",
+    "__base__kcal": "${base} kcal",
+    "__adjusted__kcal": "${adjusted} kcal",
+    "__total__kcal": "${total} kcal"
   },
   "outputs": {
-    "primary": "${total} kcal",
+    "primary": "base",
     "breakdown": [
       "Bazal: ${base} kcal",
       "Beslenme Düzeltmeli: ${adjusted} kcal",
       "Toplam: ${total} kcal"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "food-cold-chain-hygiene"
 }

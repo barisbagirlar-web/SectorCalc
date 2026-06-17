@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Total body weight in kilograms"
+      "businessContext": "Total body weight in kilograms",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Height in centimeters for lean mass estimation"
+      "businessContext": "Height in centimeters for lean mass estimation",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age in years (for context, not used in core calculation)"
+      "businessContext": "Age in years (for context, not used in core calculation)",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "0 for female, 1 for male; used in lean mass formula"
+      "businessContext": "0 for female, 1 for male; used in lean mass formula",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "proteinFactor",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "g/kg",
       "default": 1.2,
-      "businessContext": "Daily protein requirement per kg (0.8 for sedentary, 1.2-1.7 for active, 2.2 for muscle gain)"
+      "businessContext": "Daily protein requirement per kg (0.8 for sedentary, 1.2-1.7 for active, 2.2 for muscle gain)",
+      "label_i18n": {
+        "en": "Protein Factor",
+        "tr": "Protein Factor",
+        "de": "Protein Factor",
+        "fr": "Protein Factor",
+        "es": "Protein Factor",
+        "ar": "Protein Factor"
+      }
     },
     {
       "id": "useLeanMass",
       "label": "Use Lean Body Mass",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 to base on total weight, 1 to base on estimated lean body mass"
+      "businessContext": "0 to base on total weight, 1 to base on estimated lean body mass",
+      "label_i18n": {
+        "en": "Use Lean Body Mass",
+        "tr": "Use Lean Body Mass",
+        "de": "Use Lean Body Mass",
+        "fr": "Use Lean Body Mass",
+        "es": "Use Lean Body Mass",
+        "ar": "Use Lean Body Mass"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "baseWeight"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Yalın Üretim",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "lean-production"
 }

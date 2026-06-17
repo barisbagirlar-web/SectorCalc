@@ -39,11 +39,7 @@
     "rtlnQ": "gasConstant * temperature * Math.log(reactionQuotient)"
   },
   "outputs": {
-    "primary": {
-      "id": "deltaG",
-      "label": "Gibbs Free Energy Change",
-      "unit": "kJ/mol"
-    },
+    "primary": "deltaG",
     "breakdown": [
       {
         "id": "standardDeltaG",
@@ -57,8 +53,8 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",

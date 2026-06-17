@@ -165,7 +165,8 @@
       },
       "businessContext_i18n": {
         "en": "Adjusts labor time for job difficulty (e.g., engine rebuild vs. oil change)."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "warranty_included",
@@ -178,7 +179,8 @@
       },
       "businessContext_i18n": {
         "en": "Adds a fixed warranty fee to the quote."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -215,132 +217,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "adjusted_labor_hours",
-      "description": "Labor hours adjusted by complexity factor",
-      "expression": "labor_hours * complexity_factor"
-    },
-    {
-      "id": "parts_cost_with_markup",
-      "description": "Parts cost after applying markup",
-      "expression": "parts_cost * (1 + parts_markup / 100)"
-    },
-    {
-      "id": "labor_cost",
-      "description": "Total labor cost",
-      "expression": "adjusted_labor_hours * labor_rate"
-    },
-    {
-      "id": "direct_cost",
-      "description": "Sum of parts (with markup) and labor",
-      "expression": "parts_cost_with_markup + labor_cost"
-    },
-    {
-      "id": "overhead_cost",
-      "description": "Overhead applied to direct cost",
-      "expression": "direct_cost * (overhead_percent / 100)"
-    },
-    {
-      "id": "total_cost_before_margin",
-      "description": "Total cost including overhead",
-      "expression": "direct_cost + overhead_cost"
-    },
-    {
-      "id": "total_quote",
-      "description": "Final quote price including profit margin, discount, tax, and optional warranty",
-      "expression": "((total_cost_before_margin * (1 + profit_margin / 100)) * (1 - discount_percent / 100)) * (1 + tax_rate / 100) + (warranty_included ? 150 : 0)"
-    }
+    "parts_cost",
+    "parts_cost",
+    "parts_cost",
+    "parts_cost",
+    "parts_cost",
+    "parts_cost",
+    "parts_cost"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_quote",
-      "label": "Total Quote (USD)",
-      "description": "Final price presented to customer including all costs, markup, overhead, profit, discount, tax, and warranty.",
-      "unit": "USD",
-      "dataConfidenceAdjusted": 0.92
-    },
-    "breakdown": {
-      "parts_cost_with_markup": {
-        "label": "Parts Cost with Markup",
-        "unit": "USD"
-      },
-      "labor_cost": {
-        "label": "Labor Cost",
-        "unit": "USD"
-      },
-      "overhead_cost": {
-        "label": "Overhead Cost",
-        "unit": "USD"
-      },
-      "profit_amount": {
-        "label": "Profit Amount",
-        "unit": "USD"
-      },
-      "discount_amount": {
-        "label": "Discount Amount",
-        "unit": "USD"
-      },
-      "tax_amount": {
-        "label": "Sales Tax",
-        "unit": "USD"
-      },
-      "warranty_fee": {
-        "label": "Warranty Fee",
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_labor_time",
-        "label": "Excess Labor Time",
-        "description": "If adjusted labor hours exceed standard by more than 20%, indicates inefficiency or scope creep.",
-        "currentValue": 0,
-        "threshold": 1.2,
-        "unit": "hours"
-      },
-      {
-        "id": "low_parts_markup",
-        "label": "Low Parts Markup",
-        "description": "Parts markup below 15% may erode profitability (industry benchmark 25-40%).",
-        "currentValue": 0,
-        "threshold": 15,
-        "unit": "%"
-      },
-      {
-        "id": "overhead_underestimation",
-        "label": "Overhead Underestimation",
-        "description": "If overhead percent is below 15%, actual overhead may be understated (ISO 9001 cost accounting).",
-        "currentValue": 0,
-        "threshold": 15,
-        "unit": "%"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_parts_markup",
-        "condition": "parts_markup < 20",
-        "action": "Consider raising parts markup to at least 20% to improve margin."
-      },
-      {
-        "id": "review_labor_efficiency",
-        "condition": "adjusted_labor_hours > labor_hours * 1.3",
-        "action": "Job complexity factor is high; review process for waste reduction (Lean)."
-      },
-      {
-        "id": "optimize_overhead_allocation",
-        "condition": "overhead_percent < 15",
-        "action": "Overhead allocation may be too low; verify indirect costs per ISO 9001."
-      },
-      {
-        "id": "offer_warranty",
-        "condition": "warranty_included == false AND total_quote > 2000",
-        "action": "Consider offering extended warranty for quotes over $2,000 to increase customer trust and revenue."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "auto-repair-parts-labor-quote-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK"
 }

@@ -5,25 +5,49 @@
       "id": "a",
       "label": "Coefficient a",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient for sin(x) term"
+      "businessContext": "Coefficient for sin(x) term",
+      "label_i18n": {
+        "en": "Coefficient a",
+        "tr": "Coefficient a",
+        "de": "Coefficient a",
+        "fr": "Coefficient a",
+        "es": "Coefficient a",
+        "ar": "Coefficient a"
+      }
     },
     {
       "id": "b",
       "label": "Coefficient b",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient for cos(y) term"
+      "businessContext": "Coefficient for cos(y) term",
+      "label_i18n": {
+        "en": "Coefficient b",
+        "tr": "Coefficient b",
+        "de": "Coefficient b",
+        "fr": "Coefficient b",
+        "es": "Coefficient b",
+        "ar": "Coefficient b"
+      }
     },
     {
       "id": "c",
       "label": "Coefficient c",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient for cross term x*y"
+      "businessContext": "Coefficient for cross term x*y",
+      "label_i18n": {
+        "en": "Coefficient c",
+        "tr": "Coefficient c",
+        "de": "Coefficient c",
+        "fr": "Coefficient c",
+        "es": "Coefficient c",
+        "ar": "Coefficient c"
+      }
     },
     {
       "id": "x",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "rad",
       "default": 0,
-      "businessContext": "Point of evaluation (x coordinate)"
+      "businessContext": "Point of evaluation (x coordinate)",
+      "label_i18n": {
+        "en": "X value",
+        "tr": "X value",
+        "de": "X value",
+        "fr": "X value",
+        "es": "X value",
+        "ar": "X value"
+      }
     },
     {
       "id": "y",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "rad",
       "default": 0,
-      "businessContext": "Point of evaluation (y coordinate)"
+      "businessContext": "Point of evaluation (y coordinate)",
+      "label_i18n": {
+        "en": "Y value",
+        "tr": "Y value",
+        "de": "Y value",
+        "fr": "Y value",
+        "es": "Y value",
+        "ar": "Y value"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +100,8 @@
       "eigenvalue2"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -18,13 +18,16 @@ export const Ml_to_oz_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Ml_to_oz_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = Math.round(input.volume_ml * input.factor_us * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.volume_ml; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["UK_Fluid_Ounces"] = 0;
+  try { const v = Volume in ml; results["Volume_in_ml"] = Number.isFinite(v) ? v : 0; } catch { results["Volume_in_ml"] = 0; }
   return results;
 }
 
 
 export function calculateMl_to_oz_calculator(input: Ml_to_oz_calculatorInput): Ml_to_oz_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["US"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

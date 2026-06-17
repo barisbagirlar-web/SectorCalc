@@ -5,65 +5,129 @@
       "id": "coeff_x2",
       "label": "a (x² coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of x² in F(x,y)=a·x²+b·y²+c·xy+d·x+e·y+f=0"
+      "businessContext": "Coefficient of x² in F(x,y)=a·x²+b·y²+c·xy+d·x+e·y+f=0",
+      "label_i18n": {
+        "en": "a (x² coefficient)",
+        "tr": "a (x² coefficient)",
+        "de": "a (x² coefficient)",
+        "fr": "a (x² coefficient)",
+        "es": "a (x² coefficient)",
+        "ar": "a (x² coefficient)"
+      }
     },
     {
       "id": "coeff_y2",
       "label": "b (y² coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of y²"
+      "businessContext": "Coefficient of y²",
+      "label_i18n": {
+        "en": "b (y² coefficient)",
+        "tr": "b (y² coefficient)",
+        "de": "b (y² coefficient)",
+        "fr": "b (y² coefficient)",
+        "es": "b (y² coefficient)",
+        "ar": "b (y² coefficient)"
+      }
     },
     {
       "id": "coeff_xy",
       "label": "c (xy coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of xy"
+      "businessContext": "Coefficient of xy",
+      "label_i18n": {
+        "en": "c (xy coefficient)",
+        "tr": "c (xy coefficient)",
+        "de": "c (xy coefficient)",
+        "fr": "c (xy coefficient)",
+        "es": "c (xy coefficient)",
+        "ar": "c (xy coefficient)"
+      }
     },
     {
       "id": "coeff_x",
       "label": "d (x coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of x"
+      "businessContext": "Coefficient of x",
+      "label_i18n": {
+        "en": "d (x coefficient)",
+        "tr": "d (x coefficient)",
+        "de": "d (x coefficient)",
+        "fr": "d (x coefficient)",
+        "es": "d (x coefficient)",
+        "ar": "d (x coefficient)"
+      }
     },
     {
       "id": "coeff_y",
       "label": "e (y coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of y"
+      "businessContext": "Coefficient of y",
+      "label_i18n": {
+        "en": "e (y coefficient)",
+        "tr": "e (y coefficient)",
+        "de": "e (y coefficient)",
+        "fr": "e (y coefficient)",
+        "es": "e (y coefficient)",
+        "ar": "e (y coefficient)"
+      }
     },
     {
       "id": "const",
       "label": "f (constant)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -1,
-      "businessContext": "Constant term"
+      "businessContext": "Constant term",
+      "label_i18n": {
+        "en": "f (constant)",
+        "tr": "f (constant)",
+        "de": "f (constant)",
+        "fr": "f (constant)",
+        "es": "f (constant)",
+        "ar": "f (constant)"
+      }
     },
     {
       "id": "x",
       "label": "x",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "x-coordinate at which to evaluate derivative"
+      "businessContext": "x-coordinate at which to evaluate derivative",
+      "label_i18n": {
+        "en": "x",
+        "tr": "x",
+        "de": "x",
+        "fr": "x",
+        "es": "x",
+        "ar": "x"
+      }
     },
     {
       "id": "y",
       "label": "y",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8660254037844386,
-      "businessContext": "y-coordinate at which to evaluate derivative"
+      "businessContext": "y-coordinate at which to evaluate derivative",
+      "label_i18n": {
+        "en": "y",
+        "tr": "y",
+        "de": "y",
+        "fr": "y",
+        "es": "y",
+        "ar": "y"
+      }
     }
   ],
   "formulas": {
@@ -78,10 +142,10 @@
       "partialY"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

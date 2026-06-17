@@ -235,7 +235,8 @@
       },
       "businessContext_i18n": {
         "en": "Type of subcontractor contract influences margin risk."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "use_lean_accounting",
@@ -248,7 +249,8 @@
       },
       "businessContext_i18n": {
         "en": "Apply Lean accounting principles to value stream costing."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -280,181 +282,22 @@
     }
   },
   "formulas": [
-    {
-      "id": "total_direct_cost",
-      "label": "Total Direct Cost",
-      "expression": "actual_labor_cost + actual_material_cost + actual_equipment_cost",
-      "description": "Sum of all direct costs incurred by subcontractor."
-    },
-    {
-      "id": "overhead_cost",
-      "label": "Overhead Cost",
-      "expression": "total_direct_cost * (overhead_percentage / 100)",
-      "description": "Allocated overhead based on direct costs."
-    },
-    {
-      "id": "lean_waste_cost",
-      "label": "Lean Waste Cost",
-      "expression": "total_direct_cost * (waste_factor / 100)",
-      "description": "Cost of waste (Lean Muda) as a percentage of direct costs."
-    },
-    {
-      "id": "labor_inefficiency_cost",
-      "label": "Labor Inefficiency Cost",
-      "expression": "actual_labor_cost * (1 - labor_efficiency_index)",
-      "description": "Cost due to labor inefficiency (standard vs actual)."
-    },
-    {
-      "id": "total_hidden_loss",
-      "label": "Total Hidden Loss",
-      "expression": "quality_rework_cost + schedule_delay_penalty + material_price_variance + scope_change_cost + inventory_holding_cost + currency_exchange_loss + lean_waste_cost + labor_inefficiency_cost",
-      "description": "Aggregate of all hidden losses not captured in standard cost accounting."
-    },
-    {
-      "id": "total_actual_cost",
-      "label": "Total Actual Cost",
-      "expression": "total_direct_cost + overhead_cost + total_hidden_loss",
-      "description": "Comprehensive actual cost including overhead and hidden losses."
-    },
-    {
-      "id": "margin_leak_percentage",
-      "label": "Margin Leak Percentage (Primary Result)",
-      "expression": "((contract_value - total_actual_cost) / contract_value) * 100",
-      "description": "Percentage of margin eroded due to cost overruns and hidden losses. Primary KPI."
-    }
+    "contract_value",
+    "contract_value",
+    "contract_value",
+    "contract_value",
+    "contract_value",
+    "contract_value",
+    "contract_value"
   ],
   "outputs": {
-    "primary": {
-      "id": "margin_leak_percentage",
-      "label": "Margin Leak Percentage",
-      "unit": "%",
-      "description": "Primary result indicating the percentage of contract margin lost to inefficiencies and hidden costs."
-    },
-    "breakdown": {
-      "total_direct_cost": {
-        "label": "Total Direct Cost",
-        "unit": "USD"
-      },
-      "overhead_cost": {
-        "label": "Overhead Cost",
-        "unit": "USD"
-      },
-      "total_hidden_loss": {
-        "label": "Total Hidden Loss",
-        "unit": "USD"
-      },
-      "total_actual_cost": {
-        "label": "Total Actual Cost",
-        "unit": "USD"
-      },
-      "contract_value": {
-        "label": "Contract Value",
-        "unit": "USD"
-      },
-      "margin_leak_amount": {
-        "label": "Margin Leak Amount",
-        "unit": "USD",
-        "description": "Absolute dollar amount of margin leak (contract_value - total_actual_cost)."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "quality_rework_cost",
-        "label": "Quality Rework Cost",
-        "severity": "high",
-        "description": "Non-conformance rework indicates process instability (Six Sigma)."
-      },
-      {
-        "id": "schedule_delay_penalty",
-        "label": "Schedule Delay Penalty",
-        "severity": "medium",
-        "description": "Late delivery penalties disrupt cash flow and customer trust."
-      },
-      {
-        "id": "waste_factor",
-        "label": "Waste Factor",
-        "severity": "high",
-        "description": "High waste indicates Lean Muda in production."
-      },
-      {
-        "id": "labor_inefficiency_cost",
-        "label": "Labor Inefficiency Cost",
-        "severity": "medium",
-        "description": "Low labor efficiency index points to training or process issues."
-      },
-      {
-        "id": "material_price_variance",
-        "label": "Material Price Variance",
-        "severity": "low",
-        "description": "Market fluctuations or poor procurement practices."
-      },
-      {
-        "id": "scope_change_cost",
-        "label": "Scope Change Cost",
-        "severity": "medium",
-        "description": "Uncontrolled scope changes erode margin."
-      },
-      {
-        "id": "inventory_holding_cost",
-        "label": "Inventory Holding Cost",
-        "severity": "low",
-        "description": "Excess inventory ties up capital (WERC)."
-      },
-      {
-        "id": "currency_exchange_loss",
-        "label": "Currency Exchange Loss",
-        "severity": "low",
-        "description": "Foreign exchange risk not hedged."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_lean_kaizen",
-        "label": "Conduct Lean Kaizen Event",
-        "description": "Target waste reduction and process flow improvement (Lean).",
-        "priority": "high"
-      },
-      {
-        "id": "action_six_sigma_dmaic",
-        "label": "Implement Six Sigma DMAIC Project",
-        "description": "Reduce quality rework and process variation.",
-        "priority": "high"
-      },
-      {
-        "id": "action_labor_training",
-        "label": "Labor Efficiency Training Program",
-        "description": "Improve labor efficiency index through standardized work.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_scope_control",
-        "label": "Strengthen Scope Change Control",
-        "description": "Implement formal change order process to prevent margin leak.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_inventory_optimization",
-        "label": "Optimize Inventory Levels",
-        "description": "Apply WERC best practices for inventory turnover.",
-        "priority": "low"
-      },
-      {
-        "id": "action_currency_hedging",
-        "label": "Implement Currency Hedging Strategy",
-        "description": "Mitigate exchange rate risk on international contracts.",
-        "priority": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Score",
-      "unit": "%",
-      "description": "Adjusted confidence level based on input completeness and accuracy. Default 85% if all inputs provided, reduced if missing or estimated.",
-      "value": 85
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "subcontractor-margin-leak-detector-calculator",
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "lean-production",
+  "category": "Yalın Üretim",
+  "sector": "Üretim & İmalat"
 }

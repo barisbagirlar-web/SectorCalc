@@ -64,12 +64,7 @@
     "paintNeeded": "effectiveArea * numberOfCoats / paintCoverage"
   },
   "outputs": {
-    "primary": {
-      "id": "paintNeeded",
-      "label": "Paint Needed",
-      "unit": "L",
-      "description": "Total paint required considering coats, coverage, and waste."
-    },
+    "primary": "netArea",
     "breakdown": [
       {
         "id": "netArea",
@@ -83,10 +78,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "sustainability-resource-esg"
 }

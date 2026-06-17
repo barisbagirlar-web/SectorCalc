@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 25,
-      "businessContext": "Athlete's age in years"
+      "businessContext": "Athlete's age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "fitnessLevel",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "scale",
       "default": 5,
-      "businessContext": "Self-assessed fitness from 1 (sedentary) to 10 (elite)"
+      "businessContext": "Self-assessed fitness from 1 (sedentary) to 10 (elite)",
+      "label_i18n": {
+        "en": "Fitness Level",
+        "tr": "Fitness Level",
+        "de": "Fitness Level",
+        "fr": "Fitness Level",
+        "es": "Fitness Level",
+        "ar": "Fitness Level"
+      }
     },
     {
       "id": "exerciseIntensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "scale",
       "default": 5,
-      "businessContext": "Perceived exertion from 1 (very light) to 10 (maximal)"
+      "businessContext": "Perceived exertion from 1 (very light) to 10 (maximal)",
+      "label_i18n": {
+        "en": "Exercise Intensity",
+        "tr": "Exercise Intensity",
+        "de": "Exercise Intensity",
+        "fr": "Exercise Intensity",
+        "es": "Exercise Intensity",
+        "ar": "Exercise Intensity"
+      }
     },
     {
       "id": "exerciseDuration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 60,
-      "businessContext": "Total duration of the exercise session in minutes"
+      "businessContext": "Total duration of the exercise session in minutes",
+      "label_i18n": {
+        "en": "Exercise Duration",
+        "tr": "Exercise Duration",
+        "de": "Exercise Duration",
+        "fr": "Exercise Duration",
+        "es": "Exercise Duration",
+        "ar": "Exercise Duration"
+      }
     },
     {
       "id": "recoveryHours",
@@ -39,27 +71,39 @@
       "type": "number",
       "unit": "hours",
       "default": 24,
-      "businessContext": "Time elapsed since exercise for recovery assessment"
+      "businessContext": "Time elapsed since exercise for recovery assessment",
+      "label_i18n": {
+        "en": "Recovery Hours",
+        "tr": "Recovery Hours",
+        "de": "Recovery Hours",
+        "fr": "Recovery Hours",
+        "es": "Recovery Hours",
+        "ar": "Recovery Hours"
+      }
     }
   ],
   "formulas": {
     "trainingLoad": "Math.pow(exerciseIntensity, 2) * exerciseDuration",
     "recoveryFactor": "fitnessLevel * Math.max(1, recoveryHours)",
     "ageCorrection": "1/(1+0.01*Math.pow(age-25, 2))",
-    "DOMSSeverity": "Math.min(100, (trainingLoad / recoveryFactor) * ageCorrection * 100)"
+    "DOMSSeverity": "Math.min(100, (trainingLoad / recoveryFactor) * ageCorrection * 100)",
+    "Training_Load": "Training Load",
+    "Recovery_Factor": "Recovery Factor",
+    "Age_Correction_Factor": "Age Correction Factor",
+    "result": "DOMS Severity Score (0-100)"
   },
   "outputs": {
-    "primary": "DOMS Severity Score (0-100)",
+    "primary": "result",
     "breakdown": [
       "Training Load",
       "Recovery Factor",
       "Age Correction Factor"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Total balance of all your traditional, SEP, and SIMPLE IRAs as of December 31 of the conversion year."
+      "businessContext": "Total balance of all your traditional, SEP, and SIMPLE IRAs as of December 31 of the conversion year.",
+      "label_i18n": {
+        "en": "Total Traditional IRA Balance",
+        "tr": "Total Traditional IRA Balance",
+        "de": "Total Traditional IRA Balance",
+        "fr": "Total Traditional IRA Balance",
+        "es": "Total Traditional IRA Balance",
+        "ar": "Total Traditional IRA Balance"
+      }
     },
     {
       "id": "afterTaxBasis",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 5000,
-      "businessContext": "Total amount of non-deductible (after-tax) contributions you have made to your IRAs over the years."
+      "businessContext": "Total amount of non-deductible (after-tax) contributions you have made to your IRAs over the years.",
+      "label_i18n": {
+        "en": "After-Tax Basis (Non-Deductible Contributions)",
+        "tr": "After-Tax Basis (Non-Deductible Contributions)",
+        "de": "After-Tax Basis (Non-Deductible Contributions)",
+        "fr": "After-Tax Basis (Non-Deductible Contributions)",
+        "es": "After-Tax Basis (Non-Deductible Contributions)",
+        "ar": "After-Tax Basis (Non-Deductible Contributions)"
+      }
     },
     {
       "id": "conversionAmount",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "$",
       "default": 7000,
-      "businessContext": "The amount you plan to convert from your traditional IRA to a Roth IRA this year."
+      "businessContext": "The amount you plan to convert from your traditional IRA to a Roth IRA this year.",
+      "label_i18n": {
+        "en": "Amount to Convert to Roth",
+        "tr": "Amount to Convert to Roth",
+        "de": "Amount to Convert to Roth",
+        "fr": "Amount to Convert to Roth",
+        "es": "Amount to Convert to Roth",
+        "ar": "Amount to Convert to Roth"
+      }
     },
     {
       "id": "taxRate",
       "label": "Marginal Tax Rate",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.24,
-      "businessContext": "Your federal + state marginal tax rate as a decimal (e.g., 0.24 for 24%). This is used to calculate taxes on the taxable portion of the conversion."
+      "businessContext": "Your federal + state marginal tax rate as a decimal (e.g., 0.24 for 24%). This is used to calculate taxes on the taxable portion of the conversion.",
+      "label_i18n": {
+        "en": "Marginal Tax Rate",
+        "tr": "Marginal Tax Rate",
+        "de": "Marginal Tax Rate",
+        "fr": "Marginal Tax Rate",
+        "es": "Marginal Tax Rate",
+        "ar": "Marginal Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -49,7 +81,7 @@
       "rothAmount"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

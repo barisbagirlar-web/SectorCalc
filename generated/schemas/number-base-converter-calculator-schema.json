@@ -5,49 +5,94 @@
       "id": "decimalValue",
       "label": "Decimal Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The decimal integer to be converted into other bases."
+      "businessContext": "The decimal integer to be converted into other bases.",
+      "label_i18n": {
+        "en": "Decimal Number",
+        "tr": "Decimal Number",
+        "de": "Decimal Number",
+        "fr": "Decimal Number",
+        "es": "Decimal Number",
+        "ar": "Decimal Number"
+      }
     },
     {
       "id": "targetBase1",
       "label": "Base 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "First target base for conversion (2-36)."
+      "businessContext": "First target base for conversion (2-36).",
+      "label_i18n": {
+        "en": "Base 1",
+        "tr": "Base 1",
+        "de": "Base 1",
+        "fr": "Base 1",
+        "es": "Base 1",
+        "ar": "Base 1"
+      }
     },
     {
       "id": "targetBase2",
       "label": "Base 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 8,
-      "businessContext": "Second target base for conversion (2-36)."
+      "businessContext": "Second target base for conversion (2-36).",
+      "label_i18n": {
+        "en": "Base 2",
+        "tr": "Base 2",
+        "de": "Base 2",
+        "fr": "Base 2",
+        "es": "Base 2",
+        "ar": "Base 2"
+      }
     },
     {
       "id": "targetBase3",
       "label": "Base 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Third target base for conversion (2-36)."
+      "businessContext": "Third target base for conversion (2-36).",
+      "label_i18n": {
+        "en": "Base 3",
+        "tr": "Base 3",
+        "de": "Base 3",
+        "fr": "Base 3",
+        "es": "Base 3",
+        "ar": "Base 3"
+      }
     },
     {
       "id": "targetBase4",
       "label": "Base 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 16,
-      "businessContext": "Fourth target base for conversion (2-36)."
+      "businessContext": "Fourth target base for conversion (2-36).",
+      "label_i18n": {
+        "en": "Base 4",
+        "tr": "Base 4",
+        "de": "Base 4",
+        "fr": "Base 4",
+        "es": "Base 4",
+        "ar": "Base 4"
+      }
     }
   ],
   "formulas": {
     "primary": "decimalValue + ' (base 10) = ' + (decimalValue).toString(targetBase1).toUpperCase() + ' (base ' + targetBase1 + ')'",
-    "breakdown": "[(decimalValue).toString(targetBase1).toUpperCase(), (decimalValue).toString(targetBase2).toUpperCase(), (decimalValue).toString(targetBase3).toUpperCase(), (decimalValue).toString(targetBase4).toUpperCase()]"
+    "breakdown": "[(decimalValue).toString(targetBase1).toUpperCase(), (decimalValue).toString(targetBase2).toUpperCase(), (decimalValue).toString(targetBase3).toUpperCase(), (decimalValue).toString(targetBase4).toUpperCase()]",
+    "Result_in_Base_1": "Result in Base 1",
+    "Result_in_Base_2": "Result in Base 2",
+    "Result_in_Base_3": "Result in Base 3",
+    "Result_in_Base_4": "Result in Base 4",
+    "result": "Conversion summary (Decimal -> Base 1)"
   },
   "outputs": {
-    "primary": "Conversion summary (Decimal -> Base 1)",
+    "primary": "result",
     "breakdown": [
       "Result in Base 1",
       "Result in Base 2",
@@ -55,10 +100,10 @@
       "Result in Base 4"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

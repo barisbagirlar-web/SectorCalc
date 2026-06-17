@@ -20,13 +20,17 @@ function evaluateAllFormulas(input: Prandtl_meyer_expansionInput): Record<string
   try { const v = ( (1+(input.gamma-1)/2*input.mach1**2) / (1+(input.gamma-1)/2*(results["mach2"] ?? 0)**2) )**(input.gamma/(input.gamma-1)); results["pressureRatio"] = Number.isFinite(v) ? v : 0; } catch { results["pressureRatio"] = 0; }
   try { const v = (1+(input.gamma-1)/2*input.mach1**2)/(1+(input.gamma-1)/2*(results["mach2"] ?? 0)**2); results["temperatureRatio"] = Number.isFinite(v) ? v : 0; } catch { results["temperatureRatio"] = 0; }
   try { const v = ( (1+(input.gamma-1)/2*input.mach1**2) / (1+(input.gamma-1)/2*(results["mach2"] ?? 0)**2) )**(1/(input.gamma-1)); results["densityRatio"] = Number.isFinite(v) ? v : 0; } catch { results["densityRatio"] = 0; }
+  results["Pressure_Ratio__P2_P1_"] = 0;
+  results["Temperature_Ratio__T2_T1_"] = 0;
+  results["Density_Ratio___2__1_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculatePrandtl_meyer_expansion(input: Prandtl_meyer_expansionInput): Prandtl_meyer_expansionOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Downstream"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

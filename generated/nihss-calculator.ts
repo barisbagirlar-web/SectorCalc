@@ -24,6 +24,13 @@ export const Nihss_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Nihss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.consciousness + input.gaze + input.visual + input.facial + input.motor_arm + input.motor_leg + input.language; results["total"] = Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
+  try { const v = input.consciousness; results["consciousness"] = Number.isFinite(v) ? v : 0; } catch { results["consciousness"] = 0; }
+  try { const v = input.gaze; results["gaze"] = Number.isFinite(v) ? v : 0; } catch { results["gaze"] = 0; }
+  try { const v = input.visual; results["visual"] = Number.isFinite(v) ? v : 0; } catch { results["visual"] = 0; }
+  try { const v = input.facial; results["facial"] = Number.isFinite(v) ? v : 0; } catch { results["facial"] = 0; }
+  try { const v = input.motor_arm; results["motor_arm"] = Number.isFinite(v) ? v : 0; } catch { results["motor_arm"] = 0; }
+  try { const v = input.motor_leg; results["motor_leg"] = Number.isFinite(v) ? v : 0; } catch { results["motor_leg"] = 0; }
+  try { const v = input.language; results["language"] = Number.isFinite(v) ? v : 0; } catch { results["language"] = 0; }
   return results;
 }
 

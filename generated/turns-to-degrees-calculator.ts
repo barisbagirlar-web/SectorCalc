@@ -23,6 +23,8 @@ function evaluateAllFormulas(input: Turns_to_degrees_calculatorInput): Record<st
   const results: Record<string, number> = {};
   try { const v = input.turns * 360; results["rawDegrees"] = Number.isFinite(v) ? v : 0; } catch { results["rawDegrees"] = 0; }
   try { const v = Math.round((results["rawDegrees"] ?? 0) * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces); results["roundedDegrees"] = Number.isFinite(v) ? v : 0; } catch { results["roundedDegrees"] = 0; }
+  try { const v = input.turns; results["turns"] = Number.isFinite(v) ? v : 0; } catch { results["turns"] = 0; }
+  try { const v = input.decimalPlaces; results["decimalPlaces"] = Number.isFinite(v) ? v : 0; } catch { results["decimalPlaces"] = 0; }
   return results;
 }
 

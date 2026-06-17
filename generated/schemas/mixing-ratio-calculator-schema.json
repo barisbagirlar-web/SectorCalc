@@ -5,17 +5,33 @@
       "id": "ratioA",
       "label": "Part A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Parts of component A in the mixing ratio"
+      "businessContext": "Parts of component A in the mixing ratio",
+      "label_i18n": {
+        "en": "Part A",
+        "tr": "Part A",
+        "de": "Part A",
+        "fr": "Part A",
+        "es": "Part A",
+        "ar": "Part A"
+      }
     },
     {
       "id": "ratioB",
       "label": "Part B",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Parts of component B in the mixing ratio"
+      "businessContext": "Parts of component B in the mixing ratio",
+      "label_i18n": {
+        "en": "Part B",
+        "tr": "Part B",
+        "de": "Part B",
+        "fr": "Part B",
+        "es": "Part B",
+        "ar": "Part B"
+      }
     },
     {
       "id": "totalQuantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Desired total quantity of the mixture (e.g., in kg or L)"
+      "businessContext": "Desired total quantity of the mixture (e.g., in kg or L)",
+      "label_i18n": {
+        "en": "Total Mixture Quantity",
+        "tr": "Total Mixture Quantity",
+        "de": "Total Mixture Quantity",
+        "fr": "Total Mixture Quantity",
+        "es": "Total Mixture Quantity",
+        "ar": "Total Mixture Quantity"
+      }
     },
     {
       "id": "wastePercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Additional waste or overage percentage (0-100)"
+      "businessContext": "Additional waste or overage percentage (0-100)",
+      "label_i18n": {
+        "en": "Waste Percentage",
+        "tr": "Waste Percentage",
+        "de": "Waste Percentage",
+        "fr": "Waste Percentage",
+        "es": "Waste Percentage",
+        "ar": "Waste Percentage"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "amountB"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

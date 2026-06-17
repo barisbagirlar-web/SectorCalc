@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Dikdörtgen kesitin mm cinsinden genişliği"
+      "businessContext": "Dikdörtgen kesitin mm cinsinden genişliği",
+      "label_i18n": {
+        "en": "Kesit Genişliği",
+        "tr": "Kesit Genişliği",
+        "de": "Kesit Genişliği",
+        "fr": "Kesit Genişliği",
+        "es": "Kesit Genişliği",
+        "ar": "Kesit Genişliği"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,39 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Dikdörtgen kesitin mm cinsinden yüksekliği"
+      "businessContext": "Dikdörtgen kesitin mm cinsinden yüksekliği",
+      "label_i18n": {
+        "en": "Kesit Yüksekliği",
+        "tr": "Kesit Yüksekliği",
+        "de": "Kesit Yüksekliği",
+        "fr": "Kesit Yüksekliği",
+        "es": "Kesit Yüksekliği",
+        "ar": "Kesit Yüksekliği"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
@@ -34,8 +74,8 @@
       "sectionModulusY"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

@@ -5,33 +5,65 @@
       "id": "n",
       "label": "Principal Quantum Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Principal quantum number, positive integer (n = 1, 2, 3, ...)"
+      "businessContext": "Principal quantum number, positive integer (n = 1, 2, 3, ...)",
+      "label_i18n": {
+        "en": "Principal Quantum Number",
+        "tr": "Principal Quantum Number",
+        "de": "Principal Quantum Number",
+        "fr": "Principal Quantum Number",
+        "es": "Principal Quantum Number",
+        "ar": "Principal Quantum Number"
+      }
     },
     {
       "id": "l",
       "label": "Azimuthal Quantum Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Azimuthal quantum number, integer from 0 to n-1"
+      "businessContext": "Azimuthal quantum number, integer from 0 to n-1",
+      "label_i18n": {
+        "en": "Azimuthal Quantum Number",
+        "tr": "Azimuthal Quantum Number",
+        "de": "Azimuthal Quantum Number",
+        "fr": "Azimuthal Quantum Number",
+        "es": "Azimuthal Quantum Number",
+        "ar": "Azimuthal Quantum Number"
+      }
     },
     {
       "id": "ml",
       "label": "Magnetic Quantum Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Magnetic quantum number, integer from -l to +l"
+      "businessContext": "Magnetic quantum number, integer from -l to +l",
+      "label_i18n": {
+        "en": "Magnetic Quantum Number",
+        "tr": "Magnetic Quantum Number",
+        "de": "Magnetic Quantum Number",
+        "fr": "Magnetic Quantum Number",
+        "es": "Magnetic Quantum Number",
+        "ar": "Magnetic Quantum Number"
+      }
     },
     {
       "id": "ms",
       "label": "Spin Quantum Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Spin quantum number, +1/2 or -1/2"
+      "businessContext": "Spin quantum number, +1/2 or -1/2",
+      "label_i18n": {
+        "en": "Spin Quantum Number",
+        "tr": "Spin Quantum Number",
+        "de": "Spin Quantum Number",
+        "fr": "Spin Quantum Number",
+        "es": "Spin Quantum Number",
+        "ar": "Spin Quantum Number"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "is_ms_valid"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

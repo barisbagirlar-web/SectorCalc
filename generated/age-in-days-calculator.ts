@@ -22,13 +22,16 @@ export const Age_in_days_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Age_in_days_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (() => { const birth = new Date(input.birthYear, input.birthMonth - 1, input.birthDay); const ref = new Date(input.refYear, input.refMonth - 1, input.refDay); const diff = Math.floor((ref - birth) / (1000 * 60 * 60 * 24)); return { ageInDays: diff, birthString: birth.toISOString().split('T')[0], refString: ref.toISOString().split('T')[0], diffDays: diff }; })(); results["calculate"] = Number.isFinite(v) ? v : 0; } catch { results["calculate"] = 0; }
+  try { const v = birthString; results["birthString"] = Number.isFinite(v) ? v : 0; } catch { results["birthString"] = 0; }
+  try { const v = refString; results["refString"] = Number.isFinite(v) ? v : 0; } catch { results["refString"] = 0; }
+  try { const v = diffDays; results["diffDays"] = Number.isFinite(v) ? v : 0; } catch { results["diffDays"] = 0; }
   return results;
 }
 
 
 export function calculateAge_in_days_calculator(input: Age_in_days_calculatorInput): Age_in_days_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["ageInDays"] ?? 0;
+  const totalWasteCost = values["calculate"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "The easting coordinate of the known reference point."
+      "businessContext": "The easting coordinate of the known reference point.",
+      "label_i18n": {
+        "en": "Reference X (Easting)",
+        "tr": "Reference X (Easting)",
+        "de": "Reference X (Easting)",
+        "fr": "Reference X (Easting)",
+        "es": "Reference X (Easting)",
+        "ar": "Reference X (Easting)"
+      }
     },
     {
       "id": "refY",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "The northing coordinate of the known reference point."
+      "businessContext": "The northing coordinate of the known reference point.",
+      "label_i18n": {
+        "en": "Reference Y (Northing)",
+        "tr": "Reference Y (Northing)",
+        "de": "Reference Y (Northing)",
+        "fr": "Reference Y (Northing)",
+        "es": "Reference Y (Northing)",
+        "ar": "Reference Y (Northing)"
+      }
     },
     {
       "id": "distance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Horizontal distance from reference to target point."
+      "businessContext": "Horizontal distance from reference to target point.",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "azimuth",
@@ -31,24 +55,34 @@
       "type": "number",
       "unit": "degree",
       "default": 45,
-      "businessContext": "Clockwise angle from north direction to the target direction."
+      "businessContext": "Clockwise angle from north direction to the target direction.",
+      "label_i18n": {
+        "en": "Azimuth Angle",
+        "tr": "Azimuth Angle",
+        "de": "Azimuth Angle",
+        "fr": "Azimuth Angle",
+        "es": "Azimuth Angle",
+        "ar": "Azimuth Angle"
+      }
     }
   ],
   "formulas": {
     "targetX": "refX + distance * Math.sin(azimuth * Math.PI / 180)",
-    "targetY": "refY + distance * Math.cos(azimuth * Math.PI / 180)"
+    "targetY": "refY + distance * Math.cos(azimuth * Math.PI / 180)",
+    "X_____targetX__m": "X = ${targetX} m",
+    "Y_____targetY__m": "Y = ${targetY} m"
   },
   "outputs": {
-    "primary": "Target point: X=${targetX} m, Y=${targetY} m",
+    "primary": "targetX",
     "breakdown": [
       "X = ${targetX} m",
       "Y = ${targetY} m"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

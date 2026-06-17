@@ -18,13 +18,18 @@ export const Ntu_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Ntu_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.slope_a * input.ntus_value + input.intercept_b) * input.dilution_factor; results["tss"] = Number.isFinite(v) ? v : 0; } catch { results["tss"] = 0; }
+  results["TSS____slope_a____NTU____intercept_b_"] = 0;
+  results["_ntus_value__NTU"] = 0;
+  try { const v = input.dilution_factor; results["_dilution_factor_"] = Number.isFinite(v) ? v : 0; } catch { results["_dilution_factor_"] = 0; }
+  results["_tss__mg_L"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateNtu_calculator(input: Ntu_calculatorInput): Ntu_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["TSS"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

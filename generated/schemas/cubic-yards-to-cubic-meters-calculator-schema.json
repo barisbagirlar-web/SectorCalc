@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yd",
       "default": 1,
-      "businessContext": "Enter the length in yards."
+      "businessContext": "Enter the length in yards.",
+      "label_i18n": {
+        "en": "Length (yd)",
+        "tr": "Length (yd)",
+        "de": "Length (yd)",
+        "fr": "Length (yd)",
+        "es": "Length (yd)",
+        "ar": "Length (yd)"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "yd",
       "default": 1,
-      "businessContext": "Enter the width in yards."
+      "businessContext": "Enter the width in yards.",
+      "label_i18n": {
+        "en": "Width (yd)",
+        "tr": "Width (yd)",
+        "de": "Width (yd)",
+        "fr": "Width (yd)",
+        "es": "Width (yd)",
+        "ar": "Width (yd)"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yd",
       "default": 1,
-      "businessContext": "Enter the height in yards."
+      "businessContext": "Enter the height in yards.",
+      "label_i18n": {
+        "en": "Height (yd)",
+        "tr": "Height (yd)",
+        "de": "Height (yd)",
+        "fr": "Height (yd)",
+        "es": "Height (yd)",
+        "ar": "Height (yd)"
+      }
     },
     {
       "id": "cubicYards",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "yd³",
       "default": 0,
-      "businessContext": "Alternatively, enter the volume directly in cubic yards. Overrides dimensions if non-zero."
+      "businessContext": "Alternatively, enter the volume directly in cubic yards. Overrides dimensions if non-zero.",
+      "label_i18n": {
+        "en": "Cubic Yards",
+        "tr": "Cubic Yards",
+        "de": "Cubic Yards",
+        "fr": "Cubic Yards",
+        "es": "Cubic Yards",
+        "ar": "Cubic Yards"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the final result."
+      "businessContext": "Number of decimal places for the final result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "conversionConstant",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m³/yd³",
       "default": 0.764554857992,
-      "businessContext": "Fixed conversion factor: 1 yd³ = 0.764554857992 m³."
+      "businessContext": "Fixed conversion factor: 1 yd³ = 0.764554857992 m³.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     }
   ],
   "formulas": {
@@ -66,10 +114,10 @@
       "breakdown_3"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

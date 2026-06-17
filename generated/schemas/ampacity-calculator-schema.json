@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Select 1 for copper or 0.61 for aluminum conductors as per ampacity standards."
+      "businessContext": "Select 1 for copper or 0.61 for aluminum conductors as per ampacity standards.",
+      "label_i18n": {
+        "en": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
+        "tr": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
+        "de": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
+        "fr": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
+        "es": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
+        "ar": "Conductor Material Factor (Copper=1, Aluminum=0.61)"
+      }
     },
     {
       "id": "area",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm²",
       "default": 2.5,
-      "businessContext": "Nominal cross-sectional area of the conductor in square millimeters."
+      "businessContext": "Nominal cross-sectional area of the conductor in square millimeters.",
+      "label_i18n": {
+        "en": "Cross-Sectional Area",
+        "tr": "Cross-Sectional Area",
+        "de": "Cross-Sectional Area",
+        "fr": "Cross-Sectional Area",
+        "es": "Cross-Sectional Area",
+        "ar": "Cross-Sectional Area"
+      }
     },
     {
       "id": "insulationTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 60,
-      "businessContext": "Maximum operating temperature of the insulation (e.g., 60, 75, 90°C)."
+      "businessContext": "Maximum operating temperature of the insulation (e.g., 60, 75, 90°C).",
+      "label_i18n": {
+        "en": "Insulation Temperature Rating",
+        "tr": "Insulation Temperature Rating",
+        "de": "Insulation Temperature Rating",
+        "fr": "Insulation Temperature Rating",
+        "es": "Insulation Temperature Rating",
+        "ar": "Insulation Temperature Rating"
+      }
     },
     {
       "id": "ambientTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 30,
-      "businessContext": "Expected ambient temperature for the installation environment."
+      "businessContext": "Expected ambient temperature for the installation environment.",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "bundlingFactor",
@@ -39,11 +71,24 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Derating factor for multiple conductors in a raceway or cable (1.0 for single, typically <1 for multiple). Range 0 to 1."
+      "businessContext": "Derating factor for multiple conductors in a raceway or cable (1.0 for single, typically <1 for multiple). Range 0 to 1.",
+      "label_i18n": {
+        "en": "Bundling/Grouping Factor",
+        "tr": "Bundling/Grouping Factor",
+        "de": "Bundling/Grouping Factor",
+        "fr": "Bundling/Grouping Factor",
+        "es": "Bundling/Grouping Factor",
+        "ar": "Bundling/Grouping Factor"
+      }
     }
   ],
   "formulas": {
-    "calculate": "function(materialFactor, area, insulationTemp, ambientTemp, bundlingFactor) { const baseAmpacity = 15 * Math.pow(area, 0.6); const tempFactor = Math.sqrt((insulationTemp - ambientTemp) / (insulationTemp - 30)); const finalAmpacity = materialFactor * baseAmpacity * tempFactor * bundlingFactor; return { primary: finalAmpacity.toFixed(2) + ' A', breakdown: ['Base Ampacity: ' + baseAmpacity.toFixed(2) + ' A', 'Temperature Derating Factor: ' + tempFactor.toFixed(4), 'Bundling Factor: ' + bundlingFactor.toFixed(4), 'Material Factor: ' + materialFactor.toFixed(4), 'Final Ampacity: ' + finalAmpacity.toFixed(2) + ' A'] }; }"
+    "calculate": "function(materialFactor, area, insulationTemp, ambientTemp, bundlingFactor) { const baseAmpacity = 15 * Math.pow(area, 0.6); const tempFactor = Math.sqrt((insulationTemp - ambientTemp) / (insulationTemp - 30)); const finalAmpacity = materialFactor * baseAmpacity * tempFactor * bundlingFactor; return { primary: finalAmpacity.toFixed(2) + ' A', breakdown: ['Base Ampacity: ' + baseAmpacity.toFixed(2) + ' A', 'Temperature Derating Factor: ' + tempFactor.toFixed(4), 'Bundling Factor: ' + bundlingFactor.toFixed(4), 'Material Factor: ' + materialFactor.toFixed(4), 'Final Ampacity: ' + finalAmpacity.toFixed(2) + ' A'] }; }",
+    "baseAmpacity": "baseAmpacity",
+    "tempFactor": "tempFactor",
+    "bundlingFactor": "bundlingFactor",
+    "materialFactor": "materialFactor",
+    "finalAmpacity": "finalAmpacity"
   },
   "outputs": {
     "primary": "finalAmpacity",
@@ -55,10 +100,10 @@
       "finalAmpacity"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "metal-plastics-forming"
 }

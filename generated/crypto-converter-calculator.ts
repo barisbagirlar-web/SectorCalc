@@ -21,13 +21,18 @@ function evaluateAllFormulas(input: Crypto_converter_calculatorInput): Record<st
   try { const v = input.amount * (results["rateAfterSpread"] ?? 0); results["convertedAmount"] = Number.isFinite(v) ? v : 0; } catch { results["convertedAmount"] = 0; }
   try { const v = (results["convertedAmount"] ?? 0) * (input.feePercent/100); results["feeAmount"] = Number.isFinite(v) ? v : 0; } catch { results["feeAmount"] = 0; }
   try { const v = (results["convertedAmount"] ?? 0) - (results["feeAmount"] ?? 0); results["finalAmount"] = Number.isFinite(v) ? v : 0; } catch { results["finalAmount"] = 0; }
+  results["__amount__USD"] = 0;
+  results["__rateAfterSpread_toFixed_8___BTC_USD"] = 0;
+  results["__feeAmount_toFixed_8___BTC"] = 0;
+  results["__finalAmount_toFixed_8___BTC"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateCrypto_converter_calculator(input: Crypto_converter_calculatorInput): Crypto_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Converted"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -56,11 +56,7 @@
     "tubesRequired": "Math.ceil( (jointLength * jointWidth * jointDepth * numberOfJoints * (1 + wasteFactor/100)) / tubeVolume )"
   },
   "outputs": {
-    "primary": {
-      "id": "volumeWithWaste",
-      "label": "Total Caulk Volume Required (with waste)",
-      "unit": "mL"
-    },
+    "primary": "volumeWithWaste",
     "breakdown": [
       {
         "id": "theoreticalVolume",
@@ -74,10 +70,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "sustainability-resource-esg"
 }

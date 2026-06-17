@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 20,
-      "businessContext": "Standard viewing distance for Snellen chart in feet"
+      "businessContext": "Standard viewing distance for Snellen chart in feet",
+      "label_i18n": {
+        "en": "Viewing Distance (ft)",
+        "tr": "Viewing Distance (ft)",
+        "de": "Viewing Distance (ft)",
+        "fr": "Viewing Distance (ft)",
+        "es": "Viewing Distance (ft)",
+        "ar": "Viewing Distance (ft)"
+      }
     },
     {
       "id": "letterFeet",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 20,
-      "businessContext": "Distance at which a person with normal vision can read the same line, in feet"
+      "businessContext": "Distance at which a person with normal vision can read the same line, in feet",
+      "label_i18n": {
+        "en": "Letter Size Distance (ft)",
+        "tr": "Letter Size Distance (ft)",
+        "de": "Letter Size Distance (ft)",
+        "fr": "Letter Size Distance (ft)",
+        "es": "Letter Size Distance (ft)",
+        "ar": "Letter Size Distance (ft)"
+      }
     },
     {
       "id": "viewingMeters",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 6,
-      "businessContext": "Standard viewing distance for metric Snellen chart in meters"
+      "businessContext": "Standard viewing distance for metric Snellen chart in meters",
+      "label_i18n": {
+        "en": "Viewing Distance (m)",
+        "tr": "Viewing Distance (m)",
+        "de": "Viewing Distance (m)",
+        "fr": "Viewing Distance (m)",
+        "es": "Viewing Distance (m)",
+        "ar": "Viewing Distance (m)"
+      }
     },
     {
       "id": "letterMeters",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "m",
       "default": 6,
-      "businessContext": "Distance at which a person with normal vision can read the same line, in meters"
+      "businessContext": "Distance at which a person with normal vision can read the same line, in meters",
+      "label_i18n": {
+        "en": "Letter Size Distance (m)",
+        "tr": "Letter Size Distance (m)",
+        "de": "Letter Size Distance (m)",
+        "fr": "Letter Size Distance (m)",
+        "es": "Letter Size Distance (m)",
+        "ar": "Letter Size Distance (m)"
+      }
     },
     {
       "id": "targetDecimalAcuity",
       "label": "Target Decimal Acuity",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Optional: desired decimal acuity for reverse calculation of required letter distance"
+      "businessContext": "Optional: desired decimal acuity for reverse calculation of required letter distance",
+      "label_i18n": {
+        "en": "Target Decimal Acuity",
+        "tr": "Target Decimal Acuity",
+        "de": "Target Decimal Acuity",
+        "fr": "Target Decimal Acuity",
+        "es": "Target Decimal Acuity",
+        "ar": "Target Decimal Acuity"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "requiredLetterDistance"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

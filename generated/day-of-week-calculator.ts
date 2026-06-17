@@ -29,7 +29,7 @@ function evaluateAllFormulas(input: Day_of_week_calculatorInput): Record<string,
 
 export function calculateDay_of_week_calculator(input: Day_of_week_calculatorInput): Day_of_week_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["['Cumartesi','Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma'][dayOfWeek]"] ?? 0;
+  const totalWasteCost = values["adjustedMonth"] ?? 0;
   const breakdown = {
     
   };

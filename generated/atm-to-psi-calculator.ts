@@ -20,6 +20,9 @@ function evaluateAllFormulas(input: Atm_to_psi_calculatorInput): Record<string, 
   try { const v = input.atm * input.conversionFactor; results["rawPsi"] = Number.isFinite(v) ? v : 0; } catch { results["rawPsi"] = 0; }
   try { const v = (results["rawPsi"] ?? 0) + input.offset; results["psiWithOffset"] = Number.isFinite(v) ? v : 0; } catch { results["psiWithOffset"] = 0; }
   try { const v = Math.round((results["psiWithOffset"] ?? 0) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["psi"] = Number.isFinite(v) ? v : 0; } catch { results["psi"] = 0; }
+  try { const v = input.atm; results["atm"] = Number.isFinite(v) ? v : 0; } catch { results["atm"] = 0; }
+  try { const v = input.conversionFactor; results["conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
+  try { const v = input.offset; results["offset"] = Number.isFinite(v) ? v : 0; } catch { results["offset"] = 0; }
   return results;
 }
 

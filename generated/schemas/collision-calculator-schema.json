@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "First object's mass in kilograms"
+      "businessContext": "First object's mass in kilograms",
+      "label_i18n": {
+        "en": "Mass 1",
+        "tr": "Mass 1",
+        "de": "Mass 1",
+        "fr": "Mass 1",
+        "es": "Mass 1",
+        "ar": "Mass 1"
+      }
     },
     {
       "id": "velocity1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 10,
-      "businessContext": "First object's initial velocity in meters per second"
+      "businessContext": "First object's initial velocity in meters per second",
+      "label_i18n": {
+        "en": "Velocity 1",
+        "tr": "Velocity 1",
+        "de": "Velocity 1",
+        "fr": "Velocity 1",
+        "es": "Velocity 1",
+        "ar": "Velocity 1"
+      }
     },
     {
       "id": "mass2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1500,
-      "businessContext": "Second object's mass in kilograms"
+      "businessContext": "Second object's mass in kilograms",
+      "label_i18n": {
+        "en": "Mass 2",
+        "tr": "Mass 2",
+        "de": "Mass 2",
+        "fr": "Mass 2",
+        "es": "Mass 2",
+        "ar": "Mass 2"
+      }
     },
     {
       "id": "velocity2",
@@ -31,17 +55,29 @@
       "type": "number",
       "unit": "m/s",
       "default": -5,
-      "businessContext": "Second object's initial velocity in meters per second"
+      "businessContext": "Second object's initial velocity in meters per second",
+      "label_i18n": {
+        "en": "Velocity 2",
+        "tr": "Velocity 2",
+        "de": "Velocity 2",
+        "fr": "Velocity 2",
+        "es": "Velocity 2",
+        "ar": "Velocity 2"
+      }
     }
   ],
   "formulas": {
     "finalVelocityMass1": "((mass1 - mass2) * velocity1 + 2 * mass2 * velocity2) / (mass1 + mass2)",
     "finalVelocityMass2": "(2 * mass1 * velocity1 + (mass2 - mass1) * velocity2) / (mass1 + mass2)",
     "initialKineticEnergy": "0.5 * mass1 * velocity1 * velocity1 + 0.5 * mass2 * velocity2 * velocity2",
-    "finalKineticEnergy": "0.5 * mass1 * finalVelocityMass1 * finalVelocityMass1 + 0.5 * mass2 * finalVelocityMass2 * finalVelocityMass2"
+    "finalKineticEnergy": "0.5 * mass1 * finalVelocityMass1 * finalVelocityMass1 + 0.5 * mass2 * finalVelocityMass2 * finalVelocityMass2",
+    "Final_Velocity_Mass_1": "Final Velocity Mass 1",
+    "Final_Velocity_Mass_2": "Final Velocity Mass 2",
+    "Initial_Kinetic_Energy": "Initial Kinetic Energy",
+    "Final_Kinetic_Energy": "Final Kinetic Energy"
   },
   "outputs": {
-    "primary": "Collision calculations completed successfully",
+    "primary": "finalVelocityMass1",
     "breakdown": [
       "Final Velocity Mass 1",
       "Final Velocity Mass 2",
@@ -49,8 +85,8 @@
       "Final Kinetic Energy"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

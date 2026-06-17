@@ -48,12 +48,7 @@
     "yieldPercent": "(massCrystal / massInitialSolute) * 100"
   },
   "outputs": {
-    "primary": {
-      "id": "crystalYield",
-      "label": "Crystal Yield",
-      "unit": "%",
-      "formula": "yieldPercent"
-    },
+    "primary": "massInitialSolute",
     "breakdown": [
       {
         "id": "massCrystallized",
@@ -69,10 +64,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Current age in years."
+      "businessContext": "Current age in years.",
+      "label_i18n": {
+        "en": "Chronological Age",
+        "tr": "Chronological Age",
+        "de": "Chronological Age",
+        "fr": "Chronological Age",
+        "es": "Chronological Age",
+        "ar": "Chronological Age"
+      }
     },
     {
       "id": "restingHeartRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 70,
-      "businessContext": "Average resting heart rate in beats per minute."
+      "businessContext": "Average resting heart rate in beats per minute.",
+      "label_i18n": {
+        "en": "Resting Heart Rate",
+        "tr": "Resting Heart Rate",
+        "de": "Resting Heart Rate",
+        "fr": "Resting Heart Rate",
+        "es": "Resting Heart Rate",
+        "ar": "Resting Heart Rate"
+      }
     },
     {
       "id": "waistCircumference",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 80,
-      "businessContext": "Waist measurement at navel level in centimeters."
+      "businessContext": "Waist measurement at navel level in centimeters.",
+      "label_i18n": {
+        "en": "Waist Circumference",
+        "tr": "Waist Circumference",
+        "de": "Waist Circumference",
+        "fr": "Waist Circumference",
+        "es": "Waist Circumference",
+        "ar": "Waist Circumference"
+      }
     },
     {
       "id": "exerciseDaysPerWeek",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 3,
-      "businessContext": "Days per week with at least 30 minutes of moderate exercise."
+      "businessContext": "Days per week with at least 30 minutes of moderate exercise.",
+      "label_i18n": {
+        "en": "Exercise Days per Week",
+        "tr": "Exercise Days per Week",
+        "de": "Exercise Days per Week",
+        "fr": "Exercise Days per Week",
+        "es": "Exercise Days per Week",
+        "ar": "Exercise Days per Week"
+      }
     },
     {
       "id": "systolicBP",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Systolic blood pressure reading in mmHg."
+      "businessContext": "Systolic blood pressure reading in mmHg.",
+      "label_i18n": {
+        "en": "Systolic Blood Pressure",
+        "tr": "Systolic Blood Pressure",
+        "de": "Systolic Blood Pressure",
+        "fr": "Systolic Blood Pressure",
+        "es": "Systolic Blood Pressure",
+        "ar": "Systolic Blood Pressure"
+      }
     },
     {
       "id": "diastolicBP",
@@ -47,18 +87,25 @@
       "type": "number",
       "unit": "mmHg",
       "default": 80,
-      "businessContext": "Diastolic blood pressure reading in mmHg."
+      "businessContext": "Diastolic blood pressure reading in mmHg.",
+      "label_i18n": {
+        "en": "Diastolic Blood Pressure",
+        "tr": "Diastolic Blood Pressure",
+        "de": "Diastolic Blood Pressure",
+        "fr": "Diastolic Blood Pressure",
+        "es": "Diastolic Blood Pressure",
+        "ar": "Diastolic Blood Pressure"
+      }
     }
   ],
   "formulas": {
     "biologicalAge": "chronologicalAge + 0.2 * (restingHeartRate - 70) + 0.3 * (waistCircumference - 80) - 0.5 * (exerciseDaysPerWeek - 3) + 0.1 * (systolicBP - 120) + 0.1 * (diastolicBP - 80)",
-    "breakdown": {
-      "heartRateAdjustment": "0.2 * (restingHeartRate - 70)",
-      "waistAdjustment": "0.3 * (waistCircumference - 80)",
-      "exerciseAdjustment": "-0.5 * (exerciseDaysPerWeek - 3)",
-      "systolicAdjustment": "0.1 * (systolicBP - 120)",
-      "diastolicAdjustment": "0.1 * (diastolicBP - 80)"
-    }
+    "breakdown": "chronologicalAge",
+    "heartRateAdjustment": "heartRateAdjustment",
+    "waistAdjustment": "waistAdjustment",
+    "exerciseAdjustment": "exerciseAdjustment",
+    "systolicAdjustment": "systolicAdjustment",
+    "diastolicAdjustment": "diastolicAdjustment"
   },
   "outputs": {
     "primary": "biologicalAge",
@@ -70,10 +117,10 @@
       "diastolicAdjustment"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

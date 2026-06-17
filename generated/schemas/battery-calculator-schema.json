@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ah",
       "default": 100,
-      "businessContext": "Rated ampere-hour capacity of a single battery"
+      "businessContext": "Rated ampere-hour capacity of a single battery",
+      "label_i18n": {
+        "en": "Battery Capacity (Ah)",
+        "tr": "Battery Capacity (Ah)",
+        "de": "Battery Capacity (Ah)",
+        "fr": "Battery Capacity (Ah)",
+        "es": "Battery Capacity (Ah)",
+        "ar": "Battery Capacity (Ah)"
+      }
     },
     {
       "id": "voltage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "V",
       "default": 12,
-      "businessContext": "Nominal voltage of the battery"
+      "businessContext": "Nominal voltage of the battery",
+      "label_i18n": {
+        "en": "Nominal Voltage (V)",
+        "tr": "Nominal Voltage (V)",
+        "de": "Nominal Voltage (V)",
+        "fr": "Nominal Voltage (V)",
+        "es": "Nominal Voltage (V)",
+        "ar": "Nominal Voltage (V)"
+      }
     },
     {
       "id": "loadPower",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "W",
       "default": 50,
-      "businessContext": "Continuous power draw from the battery"
+      "businessContext": "Continuous power draw from the battery",
+      "label_i18n": {
+        "en": "Load Power (W)",
+        "tr": "Load Power (W)",
+        "de": "Load Power (W)",
+        "fr": "Load Power (W)",
+        "es": "Load Power (W)",
+        "ar": "Load Power (W)"
+      }
     },
     {
       "id": "dod",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Maximum discharge depth to avoid battery damage"
+      "businessContext": "Maximum discharge depth to avoid battery damage",
+      "label_i18n": {
+        "en": "Depth of Discharge (%)",
+        "tr": "Depth of Discharge (%)",
+        "de": "Depth of Discharge (%)",
+        "fr": "Depth of Discharge (%)",
+        "es": "Depth of Discharge (%)",
+        "ar": "Depth of Discharge (%)"
+      }
     },
     {
       "id": "efficiency",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Combined inverter and wiring efficiency losses"
+      "businessContext": "Combined inverter and wiring efficiency losses",
+      "label_i18n": {
+        "en": "System Efficiency (%)",
+        "tr": "System Efficiency (%)",
+        "de": "System Efficiency (%)",
+        "fr": "System Efficiency (%)",
+        "es": "System Efficiency (%)",
+        "ar": "System Efficiency (%)"
+      }
     },
     {
       "id": "numberOfBatteries",
       "label": "Number of Batteries",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Total number of identical batteries in parallel (adds capacity)"
+      "businessContext": "Total number of identical batteries in parallel (adds capacity)",
+      "label_i18n": {
+        "en": "Number of Batteries",
+        "tr": "Number of Batteries",
+        "de": "Number of Batteries",
+        "fr": "Number of Batteries",
+        "es": "Number of Batteries",
+        "ar": "Number of Batteries"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "totalAh"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "electrical-power-systems"
 }

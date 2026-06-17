@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Total catchment area of the roof surface available for rainwater collection."
+      "businessContext": "Total catchment area of the roof surface available for rainwater collection.",
+      "label_i18n": {
+        "en": "Roof Area",
+        "tr": "Roof Area",
+        "de": "Roof Area",
+        "fr": "Roof Area",
+        "es": "Roof Area",
+        "ar": "Roof Area"
+      }
     },
     {
       "id": "runoffCoeff",
       "label": "Runoff Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
-      "businessContext": "Ratio of rainfall that becomes runoff, accounting for roof material, slope, and evaporation losses."
+      "businessContext": "Ratio of rainfall that becomes runoff, accounting for roof material, slope, and evaporation losses.",
+      "label_i18n": {
+        "en": "Runoff Coefficient",
+        "tr": "Runoff Coefficient",
+        "de": "Runoff Coefficient",
+        "fr": "Runoff Coefficient",
+        "es": "Runoff Coefficient",
+        "ar": "Runoff Coefficient"
+      }
     },
     {
       "id": "annualRainfall",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm/year",
       "default": 800,
-      "businessContext": "Long-term average precipitation depth per year at the location."
+      "businessContext": "Long-term average precipitation depth per year at the location.",
+      "label_i18n": {
+        "en": "Average Annual Rainfall",
+        "tr": "Average Annual Rainfall",
+        "de": "Average Annual Rainfall",
+        "fr": "Average Annual Rainfall",
+        "es": "Average Annual Rainfall",
+        "ar": "Average Annual Rainfall"
+      }
     },
     {
       "id": "filterEfficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Percentage of harvested water that passes through the filtration system without loss."
+      "businessContext": "Percentage of harvested water that passes through the filtration system without loss.",
+      "label_i18n": {
+        "en": "Filter Efficiency",
+        "tr": "Filter Efficiency",
+        "de": "Filter Efficiency",
+        "fr": "Filter Efficiency",
+        "es": "Filter Efficiency",
+        "ar": "Filter Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "monthlyAverage"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg"
 }

@@ -18,13 +18,16 @@ function evaluateAllFormulas(input: Kc_calculatorInput): Record<string, number> 
   try { const v = (input.d30 ** 2) / (input.d10 * input.d60); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   try { const v = input.d30 ** 2; results["numerator"] = Number.isFinite(v) ? v : 0; } catch { results["numerator"] = 0; }
   try { const v = input.d10 * input.d60; results["denominator"] = Number.isFinite(v) ? v : 0; } catch { results["denominator"] = 0; }
+  results["Numerator__D30__"] = 0;
+  results["Denominator__D10___D60_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateKc_calculator(input: Kc_calculatorInput): Kc_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Kc"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

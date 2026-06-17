@@ -18,13 +18,16 @@ export const Phase_diagram_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Phase_diagram_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 100 * (input.liquidComposition - input.alloyComposition) / (input.liquidComposition - input.solidComposition); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.alloyComposition; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["S_v__Faz_Oran_____"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculatePhase_diagram_calculator(input: Phase_diagram_calculatorInput): Phase_diagram_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Kat"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

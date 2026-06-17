@@ -77,7 +77,7 @@
       "id": "phaseType",
       "label": "Phase Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "single",
       "min": null,
       "max": null,
@@ -156,210 +156,24 @@
     ]
   },
   "formulas": [
-    {
-      "id": "resistance_from_v_and_i",
-      "name": "Resistance from Voltage and Current",
-      "description": "R = V / I (Ohm's Law)",
-      "equation": "resistance = voltage / current",
-      "inputs": [
-        "voltage",
-        "current"
-      ],
-      "output": "resistance"
-    },
-    {
-      "id": "current_from_v_and_r",
-      "name": "Current from Voltage and Resistance",
-      "description": "I = V / R",
-      "equation": "current = voltage / resistance",
-      "inputs": [
-        "voltage",
-        "resistance"
-      ],
-      "output": "current"
-    },
-    {
-      "id": "voltage_from_i_and_r",
-      "name": "Voltage from Current and Resistance",
-      "description": "V = I * R",
-      "equation": "voltage = current * resistance",
-      "inputs": [
-        "current",
-        "resistance"
-      ],
-      "output": "voltage"
-    },
-    {
-      "id": "real_power_dc",
-      "name": "Real Power (DC or Resistive AC)",
-      "description": "P = V * I (for DC or unity power factor)",
-      "equation": "realPower = voltage * current",
-      "inputs": [
-        "voltage",
-        "current"
-      ],
-      "output": "realPower"
-    },
-    {
-      "id": "real_power_ac",
-      "name": "Real Power (AC with power factor)",
-      "description": "P = V * I * cos φ (single-phase) or P = √3 * V * I * cos φ (three-phase)",
-      "equation": "realPower = (phaseType == 'three' ? sqrt(3) : 1) * voltage * current * powerFactor",
-      "inputs": [
-        "voltage",
-        "current",
-        "powerFactor",
-        "phaseType"
-      ],
-      "output": "realPower"
-    },
-    {
-      "id": "apparent_power",
-      "name": "Apparent Power",
-      "description": "S = V * I (single-phase) or S = √3 * V * I (three-phase)",
-      "equation": "apparentPower = (phaseType == 'three' ? sqrt(3) : 1) * voltage * current",
-      "inputs": [
-        "voltage",
-        "current",
-        "phaseType"
-      ],
-      "output": "apparentPower"
-    },
-    {
-      "id": "reactive_power",
-      "name": "Reactive Power",
-      "description": "Q = √(S² - P²)",
-      "equation": "reactivePower = sqrt(apparentPower^2 - realPower^2)",
-      "inputs": [
-        "apparentPower",
-        "realPower"
-      ],
-      "output": "reactivePower"
-    },
-    {
-      "id": "power_loss",
-      "name": "Power Loss (I²R)",
-      "description": "P_loss = I² * R",
-      "equation": "powerLoss = current^2 * resistance",
-      "inputs": [
-        "current",
-        "resistance"
-      ],
-      "output": "powerLoss"
-    },
-    {
-      "id": "temperature_corrected_resistance",
-      "name": "Temperature Corrected Resistance",
-      "description": "R_t = R_ref * (1 + α * (T - T_ref)), α = 0.00393 /°C for copper, T_ref = 20°C",
-      "equation": "correctedResistance = resistance * (1 + 0.00393 * (temperature - 20))",
-      "inputs": [
-        "resistance",
-        "temperature"
-      ],
-      "output": "correctedResistance"
-    }
+    "voltage",
+    "voltage",
+    "voltage",
+    "voltage",
+    "voltage",
+    "voltage",
+    "voltage",
+    "voltage",
+    "voltage"
   ],
   "outputs": {
-    "primary": {
-      "id": "realPower",
-      "label": "Real Power (P)",
-      "unit": "W",
-      "value": null,
-      "description": "Calculated real power consumption or generation."
-    },
-    "breakdown": {
-      "apparentPower": {
-        "id": "apparentPower",
-        "label": "Apparent Power (S)",
-        "unit": "VA",
-        "value": null,
-        "description": "Total power including reactive component."
-      },
-      "reactivePower": {
-        "id": "reactivePower",
-        "label": "Reactive Power (Q)",
-        "unit": "VAR",
-        "value": null,
-        "description": "Non-working power due to inductive or capacitive loads."
-      },
-      "powerLoss": {
-        "id": "powerLoss",
-        "label": "I²R Loss (P_loss)",
-        "unit": "W",
-        "value": null,
-        "description": "Power dissipated as heat in conductors and windings."
-      },
-      "correctedResistance": {
-        "id": "correctedResistance",
-        "label": "Temperature Corrected Resistance",
-        "unit": "Ω",
-        "value": null,
-        "description": "Resistance adjusted for ambient temperature (copper TCR)."
-      },
-      "powerFactorActual": {
-        "id": "powerFactorActual",
-        "label": "Actual Power Factor",
-        "unit": "dimensionless",
-        "value": null,
-        "description": "Calculated power factor from real and apparent power."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_driver_high_current",
-        "label": "High Current",
-        "description": "I²R losses increase quadratically with current. Consider reducing load or increasing conductor size.",
-        "impact": "high"
-      },
-      {
-        "id": "loss_driver_low_power_factor",
-        "label": "Low Power Factor",
-        "description": "Low power factor increases apparent power and line losses. Power factor correction can reduce losses by up to 20%.",
-        "impact": "medium"
-      },
-      {
-        "id": "loss_driver_high_temperature",
-        "label": "High Ambient Temperature",
-        "description": "Increased resistance due to temperature raises I²R losses. For every 10°C above 20°C, copper resistance increases by ~3.9%.",
-        "impact": "medium"
-      },
-      {
-        "id": "loss_driver_harmonics",
-        "label": "Harmonic Distortion",
-        "description": "Non-linear loads cause harmonic currents that increase RMS current and additional losses in transformers and conductors.",
-        "impact": "low"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_reduce_current",
-        "condition": "current > 100",
-        "action": "Reduce load current or increase conductor cross-section to lower I²R losses and prevent overheating."
-      },
-      {
-        "id": "action_improve_power_factor",
-        "condition": "powerFactor < 0.85",
-        "action": "Install power factor correction capacitors to improve power factor above 0.95, reducing apparent power and utility penalties."
-      },
-      {
-        "id": "action_thermal_management",
-        "condition": "temperature > 50",
-        "action": "Improve ventilation or relocate equipment to cooler area. Consider using higher temperature rated insulation (e.g., 90°C rated cable)."
-      },
-      {
-        "id": "action_voltage_regulation",
-        "condition": "voltage < 200 OR voltage > 250",
-        "action": "Check voltage regulation at point of common coupling. Voltage deviation >10% may cause equipment malfunction and increased losses."
-      },
-      {
-        "id": "action_harmonic_mitigation",
-        "condition": "powerFactor < 0.7 AND phaseType == 'three'",
-        "action": "Perform harmonic analysis. Install passive or active harmonic filters to reduce THD and improve system efficiency."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.95
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",
-  "categorySlug": "sustainability-resource-esg"
+  "categorySlug": "electrical-power-systems",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
+  "toolName": "ohms-law-calculator"
 }

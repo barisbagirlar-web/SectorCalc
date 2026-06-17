@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Taşınımın gerçekleştiği dikey plakanın yüksekliği."
+      "businessContext": "Taşınımın gerçekleştiği dikey plakanın yüksekliği.",
+      "label_i18n": {
+        "en": "Plaka Yüksekliği (L)",
+        "tr": "Plaka Yüksekliği (L)",
+        "de": "Plaka Yüksekliği (L)",
+        "fr": "Plaka Yüksekliği (L)",
+        "es": "Plaka Yüksekliği (L)",
+        "ar": "Plaka Yüksekliği (L)"
+      }
     },
     {
       "id": "W",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Isı transfer alanı hesabı için plaka genişliği."
+      "businessContext": "Isı transfer alanı hesabı için plaka genişliği.",
+      "label_i18n": {
+        "en": "Plaka Genişliği (W)",
+        "tr": "Plaka Genişliği (W)",
+        "de": "Plaka Genişliği (W)",
+        "fr": "Plaka Genişliği (W)",
+        "es": "Plaka Genişliği (W)",
+        "ar": "Plaka Genişliği (W)"
+      }
     },
     {
       "id": "Ts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 50,
-      "businessContext": "Plaka yüzey sıcaklığı."
+      "businessContext": "Plaka yüzey sıcaklığı.",
+      "label_i18n": {
+        "en": "Yüzey Sıcaklığı",
+        "tr": "Yüzey Sıcaklığı",
+        "de": "Yüzey Sıcaklığı",
+        "fr": "Yüzey Sıcaklığı",
+        "es": "Yüzey Sıcaklığı",
+        "ar": "Yüzey Sıcaklığı"
+      }
     },
     {
       "id": "Tinf",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Ortam akışkan sıcaklığı (genellikle hava)."
+      "businessContext": "Ortam akışkan sıcaklığı (genellikle hava).",
+      "label_i18n": {
+        "en": "Akışkan Sıcaklığı",
+        "tr": "Akışkan Sıcaklığı",
+        "de": "Akışkan Sıcaklığı",
+        "fr": "Akışkan Sıcaklığı",
+        "es": "Akışkan Sıcaklığı",
+        "ar": "Akışkan Sıcaklığı"
+      }
     },
     {
       "id": "k",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "W/mK",
       "default": 0.0257,
-      "businessContext": "Akışkanın ısıl iletkenlik katsayısı (hava için ~0.0257 W/mK)."
+      "businessContext": "Akışkanın ısıl iletkenlik katsayısı (hava için ~0.0257 W/mK).",
+      "label_i18n": {
+        "en": "Isıl İletkenlik (k)",
+        "tr": "Isıl İletkenlik (k)",
+        "de": "Isıl İletkenlik (k)",
+        "fr": "Isıl İletkenlik (k)",
+        "es": "Isıl İletkenlik (k)",
+        "ar": "Isıl İletkenlik (k)"
+      }
     },
     {
       "id": "nu",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "m²/s",
       "default": 0.000016,
-      "businessContext": "Akışkanın kinematik viskozitesi (hava için ~1.6e-5 m²/s)."
+      "businessContext": "Akışkanın kinematik viskozitesi (hava için ~1.6e-5 m²/s).",
+      "label_i18n": {
+        "en": "Kinematik Viskozite (ν)",
+        "tr": "Kinematik Viskozite (ν)",
+        "de": "Kinematik Viskozite (ν)",
+        "fr": "Kinematik Viskozite (ν)",
+        "es": "Kinematik Viskozite (ν)",
+        "ar": "Kinematik Viskozite (ν)"
+      }
     },
     {
       "id": "Pr",
       "label": "Prandtl Sayısı (Pr)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.7,
-      "businessContext": "Akışkanın Prandtl sayısı (hava için ~0.7)."
+      "businessContext": "Akışkanın Prandtl sayısı (hava için ~0.7).",
+      "label_i18n": {
+        "en": "Prandtl Sayısı (Pr)",
+        "tr": "Prandtl Sayısı (Pr)",
+        "de": "Prandtl Sayısı (Pr)",
+        "fr": "Prandtl Sayısı (Pr)",
+        "es": "Prandtl Sayısı (Pr)",
+        "ar": "Prandtl Sayısı (Pr)"
+      }
     }
   ],
   "formulas": {
@@ -67,7 +123,13 @@
     "Nu": "Ra <= 1e9 ? 0.59 * Math.pow(Ra, 0.25) : 0.1 * Math.pow(Ra, 1/3)",
     "h": "Nu * k / L",
     "A": "L * W",
-    "Q": "h * A * deltaT"
+    "Q": "h * A * deltaT",
+    "Grashof_Say_s___Gr_": "Grashof Sayısı (Gr)",
+    "Rayleigh_Say_s___Ra_": "Rayleigh Sayısı (Ra)",
+    "Nusselt_Say_s___Nu_": "Nusselt Sayısı (Nu)",
+    "Is__Ta__n_m_Katsay_s___h___W_m_K_": "Isı Taşınım Katsayısı (h) [W/m²K]",
+    "Alan__A___m__": "Alan (A) [m²]",
+    "S_cakl_k_Fark____T____C_": "Sıcaklık Farkı (ΔT) [°C]"
   },
   "outputs": {
     "primary": "Q",
@@ -80,8 +142,8 @@
       "Sıcaklık Farkı (ΔT) [°C]"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

@@ -5,41 +5,81 @@
       "id": "sign",
       "label": "Sign (0: positive, 1: negative)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sign bit of the floating-point number (must be 0 for positive input as log2 is undefined for non-positive numbers)"
+      "businessContext": "Sign bit of the floating-point number (must be 0 for positive input as log2 is undefined for non-positive numbers)",
+      "label_i18n": {
+        "en": "Sign (0: positive, 1: negative)",
+        "tr": "Sign (0: positive, 1: negative)",
+        "de": "Sign (0: positive, 1: negative)",
+        "fr": "Sign (0: positive, 1: negative)",
+        "es": "Sign (0: positive, 1: negative)",
+        "ar": "Sign (0: positive, 1: negative)"
+      }
     },
     {
       "id": "fraction",
       "label": "Fraction (mantissa)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Fractional part of the mantissa, in range [0, 1) for normalized numbers."
+      "businessContext": "Fractional part of the mantissa, in range [0, 1) for normalized numbers.",
+      "label_i18n": {
+        "en": "Fraction (mantissa)",
+        "tr": "Fraction (mantissa)",
+        "de": "Fraction (mantissa)",
+        "fr": "Fraction (mantissa)",
+        "es": "Fraction (mantissa)",
+        "ar": "Fraction (mantissa)"
+      }
     },
     {
       "id": "exponent",
       "label": "Exponent",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Exponent value before bias adjustment."
+      "businessContext": "Exponent value before bias adjustment.",
+      "label_i18n": {
+        "en": "Exponent",
+        "tr": "Exponent",
+        "de": "Exponent",
+        "fr": "Exponent",
+        "es": "Exponent",
+        "ar": "Exponent"
+      }
     },
     {
       "id": "bias",
       "label": "Bias",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 127,
-      "businessContext": "Bias value (e.g., 127 for single-precision IEEE 754)."
+      "businessContext": "Bias value (e.g., 127 for single-precision IEEE 754).",
+      "label_i18n": {
+        "en": "Bias",
+        "tr": "Bias",
+        "de": "Bias",
+        "fr": "Bias",
+        "es": "Bias",
+        "ar": "Bias"
+      }
     },
     {
       "id": "precision",
       "label": "Output Precision (decimal places)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places to round the result."
+      "businessContext": "Number of decimal places to round the result.",
+      "label_i18n": {
+        "en": "Output Precision (decimal places)",
+        "tr": "Output Precision (decimal places)",
+        "de": "Output Precision (decimal places)",
+        "fr": "Output Precision (decimal places)",
+        "es": "Output Precision (decimal places)",
+        "ar": "Output Precision (decimal places)"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "fractionalPart"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

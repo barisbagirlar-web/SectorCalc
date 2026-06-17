@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the substance to be vaporized."
+      "businessContext": "Mass of the substance to be vaporized.",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "initialTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Starting temperature of the liquid before heating."
+      "businessContext": "Starting temperature of the liquid before heating.",
+      "label_i18n": {
+        "en": "Initial Temperature",
+        "tr": "Initial Temperature",
+        "de": "Initial Temperature",
+        "fr": "Initial Temperature",
+        "es": "Initial Temperature",
+        "ar": "Initial Temperature"
+      }
     },
     {
       "id": "boilingPoint",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 100,
-      "businessContext": "Boiling point of the liquid at the given pressure."
+      "businessContext": "Boiling point of the liquid at the given pressure.",
+      "label_i18n": {
+        "en": "Boiling Point",
+        "tr": "Boiling Point",
+        "de": "Boiling Point",
+        "fr": "Boiling Point",
+        "es": "Boiling Point",
+        "ar": "Boiling Point"
+      }
     },
     {
       "id": "specificHeat",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kJ/(kg·°C)",
       "default": 4.18,
-      "businessContext": "Specific heat capacity of the liquid phase (constant pressure)."
+      "businessContext": "Specific heat capacity of the liquid phase (constant pressure).",
+      "label_i18n": {
+        "en": "Specific Heat Capacity",
+        "tr": "Specific Heat Capacity",
+        "de": "Specific Heat Capacity",
+        "fr": "Specific Heat Capacity",
+        "es": "Specific Heat Capacity",
+        "ar": "Specific Heat Capacity"
+      }
     },
     {
       "id": "latentHeat",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kJ/kg",
       "default": 2260,
-      "businessContext": "Energy required to vaporize one kilogram of the liquid at boiling point."
+      "businessContext": "Energy required to vaporize one kilogram of the liquid at boiling point.",
+      "label_i18n": {
+        "en": "Latent Heat of Vaporization",
+        "tr": "Latent Heat of Vaporization",
+        "de": "Latent Heat of Vaporization",
+        "fr": "Latent Heat of Vaporization",
+        "es": "Latent Heat of Vaporization",
+        "ar": "Latent Heat of Vaporization"
+      }
     },
     {
       "id": "efficiency",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Efficiency of the heating system (100% means no losses)."
+      "businessContext": "Efficiency of the heating system (100% means no losses).",
+      "label_i18n": {
+        "en": "Heating Efficiency",
+        "tr": "Heating Efficiency",
+        "de": "Heating Efficiency",
+        "fr": "Heating Efficiency",
+        "es": "Heating Efficiency",
+        "ar": "Heating Efficiency"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier to account for design margins or uncertainties."
+      "businessContext": "Multiplier to account for design margins or uncertainties.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -73,10 +129,10 @@
       "totalTheoretical"
     ]
   },
-  "category": "Enerji & Karbon",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

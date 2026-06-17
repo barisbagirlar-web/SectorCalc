@@ -28,13 +28,17 @@ function evaluateAllFormulas(input: Hohmann_transfer_calculatorInput): Record<st
   try { const v = (results["v2f"] ?? 0) - (results["va"] ?? 0); results["dv2"] = Number.isFinite(v) ? v : 0; } catch { results["dv2"] = 0; }
   try { const v = (results["dv1"] ?? 0) + (results["dv2"] ?? 0); results["dvTotal"] = Number.isFinite(v) ? v : 0; } catch { results["dvTotal"] = 0; }
   try { const v = Math.PI * Math.sqrt(Math.pow((results["a"] ?? 0), 3) / input.mu); results["t_transfer"] = Number.isFinite(v) ? v : 0; } catch { results["t_transfer"] = 0; }
+  results["__dv1__km_s"] = 0;
+  results["__dv2__km_s"] = 0;
+  results["__t_transfer__s"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateHohmann_transfer_calculator(input: Hohmann_transfer_calculatorInput): Hohmann_transfer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

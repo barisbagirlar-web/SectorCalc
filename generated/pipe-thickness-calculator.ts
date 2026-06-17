@@ -20,6 +20,8 @@ export const Pipe_thickness_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Pipe_thickness_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.pressure * input.diameter) / (2 * input.allowableStress * input.jointEfficiency) + input.corrosionAllowance; results["requiredThickness"] = Number.isFinite(v) ? v : 0; } catch { results["requiredThickness"] = 0; }
+  try { const v = P*D/(2*S*E); results["P_D__2_S_E_"] = Number.isFinite(v) ? v : 0; } catch { results["P_D__2_S_E_"] = 0; }
+  try { const v = P*D/(2*S*E) + C; results["t___P_D__2_S_E____C"] = Number.isFinite(v) ? v : 0; } catch { results["t___P_D__2_S_E____C"] = 0; }
   return results;
 }
 

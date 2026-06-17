@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "Operating frequency of the AC signal"
+      "businessContext": "Operating frequency of the AC signal",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
     },
     {
       "id": "capacitance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "F",
       "default": 0.000001,
-      "businessContext": "Rated capacitance at 25°C"
+      "businessContext": "Rated capacitance at 25°C",
+      "label_i18n": {
+        "en": "Nominal Capacitance",
+        "tr": "Nominal Capacitance",
+        "de": "Nominal Capacitance",
+        "fr": "Nominal Capacitance",
+        "es": "Nominal Capacitance",
+        "ar": "Nominal Capacitance"
+      }
     },
     {
       "id": "tc",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ppm/°C",
       "default": 0,
-      "businessContext": "Capacitance change per degree Celsius (ppm)"
+      "businessContext": "Capacitance change per degree Celsius (ppm)",
+      "label_i18n": {
+        "en": "Temperature Coefficient",
+        "tr": "Temperature Coefficient",
+        "de": "Temperature Coefficient",
+        "fr": "Temperature Coefficient",
+        "es": "Temperature Coefficient",
+        "ar": "Temperature Coefficient"
+      }
     },
     {
       "id": "temperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Operating temperature"
+      "businessContext": "Operating temperature",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "esr",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "Ω",
       "default": 0.1,
-      "businessContext": "ESR of the capacitor"
+      "businessContext": "ESR of the capacitor",
+      "label_i18n": {
+        "en": "Equivalent Series Resistance",
+        "tr": "Equivalent Series Resistance",
+        "de": "Equivalent Series Resistance",
+        "fr": "Equivalent Series Resistance",
+        "es": "Equivalent Series Resistance",
+        "ar": "Equivalent Series Resistance"
+      }
     },
     {
       "id": "safety_factor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Design margin multiplier for reactance"
+      "businessContext": "Design margin multiplier for reactance",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -65,10 +113,10 @@
       "phase_angle"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

@@ -24,7 +24,7 @@ function evaluateAllFormulas(input: Flat_rate_vat_calculatorInput): Record<strin
 
 export function calculateFlat_rate_vat_calculator(input: Flat_rate_vat_calculatorInput): Flat_rate_vat_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["vatPayable"] ?? 0;
   const breakdown = {
     
   };

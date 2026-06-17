@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "Current length of the nail from nail bed to tip in millimeters."
+      "businessContext": "Current length of the nail from nail bed to tip in millimeters.",
+      "label_i18n": {
+        "en": "Initial Nail Length",
+        "tr": "Initial Nail Length",
+        "de": "Initial Nail Length",
+        "fr": "Initial Nail Length",
+        "es": "Initial Nail Length",
+        "ar": "Initial Nail Length"
+      }
     },
     {
       "id": "targetLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Desired final nail length in millimeters."
+      "businessContext": "Desired final nail length in millimeters.",
+      "label_i18n": {
+        "en": "Target Nail Length",
+        "tr": "Target Nail Length",
+        "de": "Target Nail Length",
+        "fr": "Target Nail Length",
+        "es": "Target Nail Length",
+        "ar": "Target Nail Length"
+      }
     },
     {
       "id": "growthRatePerMonth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm/month",
       "default": 3.5,
-      "businessContext": "Average nail growth rate in millimeters per month."
+      "businessContext": "Average nail growth rate in millimeters per month.",
+      "label_i18n": {
+        "en": "Growth Rate per Month",
+        "tr": "Growth Rate per Month",
+        "de": "Growth Rate per Month",
+        "fr": "Growth Rate per Month",
+        "es": "Growth Rate per Month",
+        "ar": "Growth Rate per Month"
+      }
     },
     {
       "id": "breakagePerMonth",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mm/month",
       "default": 0.5,
-      "businessContext": "Average nail breakage/loss per month without protection."
+      "businessContext": "Average nail breakage/loss per month without protection.",
+      "label_i18n": {
+        "en": "Breakage Rate per Month",
+        "tr": "Breakage Rate per Month",
+        "de": "Breakage Rate per Month",
+        "fr": "Breakage Rate per Month",
+        "es": "Breakage Rate per Month",
+        "ar": "Breakage Rate per Month"
+      }
     },
     {
       "id": "protectionFactor",
       "label": "Protection Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "How well you protect your nails (0 = no protection, 1 = full protection)."
+      "businessContext": "How well you protect your nails (0 = no protection, 1 = full protection).",
+      "label_i18n": {
+        "en": "Protection Factor",
+        "tr": "Protection Factor",
+        "de": "Protection Factor",
+        "fr": "Protection Factor",
+        "es": "Protection Factor",
+        "ar": "Protection Factor"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "breakageLossPerMonth"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

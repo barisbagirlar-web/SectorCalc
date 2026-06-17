@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ng/mL",
       "default": 200,
-      "businessContext": "Measured concentration of cotinine in plasma."
+      "businessContext": "Measured concentration of cotinine in plasma.",
+      "label_i18n": {
+        "en": "Plasma Cotinine",
+        "tr": "Plasma Cotinine",
+        "de": "Plasma Cotinine",
+        "fr": "Plasma Cotinine",
+        "es": "Plasma Cotinine",
+        "ar": "Plasma Cotinine"
+      }
     },
     {
       "id": "slope",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ng/mL per cigarette/day",
       "default": 12.5,
-      "businessContext": "Slope of the cotinine vs cigarettes per day linear model."
+      "businessContext": "Slope of the cotinine vs cigarettes per day linear model.",
+      "label_i18n": {
+        "en": "Calibration Slope",
+        "tr": "Calibration Slope",
+        "de": "Calibration Slope",
+        "fr": "Calibration Slope",
+        "es": "Calibration Slope",
+        "ar": "Calibration Slope"
+      }
     },
     {
       "id": "intercept",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ng/mL",
       "default": 0,
-      "businessContext": "Intercept of the linear model."
+      "businessContext": "Intercept of the linear model.",
+      "label_i18n": {
+        "en": "Calibration Intercept",
+        "tr": "Calibration Intercept",
+        "de": "Calibration Intercept",
+        "fr": "Calibration Intercept",
+        "es": "Calibration Intercept",
+        "ar": "Calibration Intercept"
+      }
     },
     {
       "id": "bodyWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Subject's body weight for dose normalization."
+      "businessContext": "Subject's body weight for dose normalization.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "nicotinePerCig",
@@ -39,25 +71,35 @@
       "type": "number",
       "unit": "mg",
       "default": 1,
-      "businessContext": "Average nicotine delivered per cigarette."
+      "businessContext": "Average nicotine delivered per cigarette.",
+      "label_i18n": {
+        "en": "Nicotine per Cigarette",
+        "tr": "Nicotine per Cigarette",
+        "de": "Nicotine per Cigarette",
+        "fr": "Nicotine per Cigarette",
+        "es": "Nicotine per Cigarette",
+        "ar": "Nicotine per Cigarette"
+      }
     }
   ],
   "formulas": {
     "estimatedCigarettesPerDay": "Math.max(0, (cotininePlasma - intercept) / slope)",
     "nicotineIntakeMg": "Math.max(0, (cotininePlasma - intercept) / slope) * nicotinePerCig",
-    "nicotineIntakeMgPerKg": "Math.max(0, (cotininePlasma - intercept) / slope) * nicotinePerCig / bodyWeight"
+    "nicotineIntakeMgPerKg": "Math.max(0, (cotininePlasma - intercept) / slope) * nicotinePerCig / bodyWeight",
+    "Nicotine_Intake__mg_day_": "Nicotine Intake (mg/day)",
+    "Nicotine_Intake__mg_kg_day_": "Nicotine Intake (mg/kg/day)"
   },
   "outputs": {
-    "primary": "Estimated Cigarettes per Day",
+    "primary": "estimatedCigarettesPerDay",
     "breakdown": [
       "Nicotine Intake (mg/day)",
       "Nicotine Intake (mg/kg/day)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

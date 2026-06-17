@@ -32,6 +32,12 @@ function evaluateAllFormulas(input: Convection_calculatorInput): Record<string, 
   try { const v = (results["Nu"] ?? 0) * input.k / input.L; results["h"] = Number.isFinite(v) ? v : 0; } catch { results["h"] = 0; }
   try { const v = input.L * input.W; results["A"] = Number.isFinite(v) ? v : 0; } catch { results["A"] = 0; }
   try { const v = (results["h"] ?? 0) * (results["A"] ?? 0) * (results["deltaT"] ?? 0); results["Q"] = Number.isFinite(v) ? v : 0; } catch { results["Q"] = 0; }
+  results["Grashof_Say_s___Gr_"] = 0;
+  results["Rayleigh_Say_s___Ra_"] = 0;
+  results["Nusselt_Say_s___Nu_"] = 0;
+  results["Is__Ta__n_m_Katsay_s___h___W_m_K_"] = 0;
+  try { const v = Alan ((results["A"] ?? 0)); results["Alan__A___m__"] = Number.isFinite(v) ? v : 0; } catch { results["Alan__A___m__"] = 0; }
+  results["S_cakl_k_Fark____T____C_"] = 0;
   return results;
 }
 

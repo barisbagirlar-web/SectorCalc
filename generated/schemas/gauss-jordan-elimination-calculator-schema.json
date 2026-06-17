@@ -5,49 +5,97 @@
       "id": "a11",
       "label": "Equation 1, coefficient of x",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The coefficient a11 in the first equation."
+      "businessContext": "The coefficient a11 in the first equation.",
+      "label_i18n": {
+        "en": "Equation 1, coefficient of x",
+        "tr": "Equation 1, coefficient of x",
+        "de": "Equation 1, coefficient of x",
+        "fr": "Equation 1, coefficient of x",
+        "es": "Equation 1, coefficient of x",
+        "ar": "Equation 1, coefficient of x"
+      }
     },
     {
       "id": "a12",
       "label": "Equation 1, coefficient of y",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The coefficient a12 in the first equation."
+      "businessContext": "The coefficient a12 in the first equation.",
+      "label_i18n": {
+        "en": "Equation 1, coefficient of y",
+        "tr": "Equation 1, coefficient of y",
+        "de": "Equation 1, coefficient of y",
+        "fr": "Equation 1, coefficient of y",
+        "es": "Equation 1, coefficient of y",
+        "ar": "Equation 1, coefficient of y"
+      }
     },
     {
       "id": "a21",
       "label": "Equation 2, coefficient of x",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The coefficient a21 in the second equation."
+      "businessContext": "The coefficient a21 in the second equation.",
+      "label_i18n": {
+        "en": "Equation 2, coefficient of x",
+        "tr": "Equation 2, coefficient of x",
+        "de": "Equation 2, coefficient of x",
+        "fr": "Equation 2, coefficient of x",
+        "es": "Equation 2, coefficient of x",
+        "ar": "Equation 2, coefficient of x"
+      }
     },
     {
       "id": "a22",
       "label": "Equation 2, coefficient of y",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The coefficient a22 in the second equation."
+      "businessContext": "The coefficient a22 in the second equation.",
+      "label_i18n": {
+        "en": "Equation 2, coefficient of y",
+        "tr": "Equation 2, coefficient of y",
+        "de": "Equation 2, coefficient of y",
+        "fr": "Equation 2, coefficient of y",
+        "es": "Equation 2, coefficient of y",
+        "ar": "Equation 2, coefficient of y"
+      }
     },
     {
       "id": "b1",
       "label": "Equation 1, right-hand side",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The constant term b1 in the first equation."
+      "businessContext": "The constant term b1 in the first equation.",
+      "label_i18n": {
+        "en": "Equation 1, right-hand side",
+        "tr": "Equation 1, right-hand side",
+        "de": "Equation 1, right-hand side",
+        "fr": "Equation 1, right-hand side",
+        "es": "Equation 1, right-hand side",
+        "ar": "Equation 1, right-hand side"
+      }
     },
     {
       "id": "b2",
       "label": "Equation 2, right-hand side",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The constant term b2 in the second equation."
+      "businessContext": "The constant term b2 in the second equation.",
+      "label_i18n": {
+        "en": "Equation 2, right-hand side",
+        "tr": "Equation 2, right-hand side",
+        "de": "Equation 2, right-hand side",
+        "fr": "Equation 2, right-hand side",
+        "es": "Equation 2, right-hand side",
+        "ar": "Equation 2, right-hand side"
+      }
     }
   ],
   "formulas": {
@@ -63,10 +111,10 @@
       "y"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

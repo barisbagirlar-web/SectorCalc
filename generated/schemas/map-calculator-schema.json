@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Systolic pressure during heart contraction"
+      "businessContext": "Systolic pressure during heart contraction",
+      "label_i18n": {
+        "en": "Systolic Blood Pressure",
+        "tr": "Systolic Blood Pressure",
+        "de": "Systolic Blood Pressure",
+        "fr": "Systolic Blood Pressure",
+        "es": "Systolic Blood Pressure",
+        "ar": "Systolic Blood Pressure"
+      }
     },
     {
       "id": "dbp",
@@ -15,23 +23,58 @@
       "type": "number",
       "unit": "mmHg",
       "default": 80,
-      "businessContext": "Diastolic pressure during heart relaxation"
+      "businessContext": "Diastolic pressure during heart relaxation",
+      "label_i18n": {
+        "en": "Diastolic Blood Pressure",
+        "tr": "Diastolic Blood Pressure",
+        "de": "Diastolic Blood Pressure",
+        "fr": "Diastolic Blood Pressure",
+        "es": "Diastolic Blood Pressure",
+        "ar": "Diastolic Blood Pressure"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
-    "map": "(2 * dbp + sbp) / 3"
+    "map": "(2 * dbp + sbp) / 3",
+    "MAP____2___DBP___SBP____3": "MAP = (2 * DBP + SBP) / 3",
+    "Pulse_Pressure___SBP___DBP": "Pulse Pressure = SBP - DBP",
+    "result": "Mean Arterial Pressure (MAP)"
   },
   "outputs": {
-    "primary": "Mean Arterial Pressure (MAP)",
+    "primary": "result",
     "breakdown": [
       "MAP = (2 * DBP + SBP) / 3",
       "Pulse Pressure = SBP - DBP"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

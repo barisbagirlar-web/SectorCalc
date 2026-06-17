@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Left endpoint of the interval"
+      "businessContext": "Left endpoint of the interval",
+      "label_i18n": {
+        "en": "Lower bound a",
+        "tr": "Lower bound a",
+        "de": "Lower bound a",
+        "fr": "Lower bound a",
+        "es": "Lower bound a",
+        "ar": "Lower bound a"
+      }
     },
     {
       "id": "b",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Right endpoint of the interval, must be greater than a"
+      "businessContext": "Right endpoint of the interval, must be greater than a",
+      "label_i18n": {
+        "en": "Upper bound b",
+        "tr": "Upper bound b",
+        "de": "Upper bound b",
+        "fr": "Upper bound b",
+        "es": "Upper bound b",
+        "ar": "Upper bound b"
+      }
     },
     {
       "id": "f_a",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": -1,
-      "businessContext": "Function value at the lower bound"
+      "businessContext": "Function value at the lower bound",
+      "label_i18n": {
+        "en": "f(a)",
+        "tr": "f(a)",
+        "de": "f(a)",
+        "fr": "f(a)",
+        "es": "f(a)",
+        "ar": "f(a)"
+      }
     },
     {
       "id": "f_b",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Function value at the upper bound"
+      "businessContext": "Function value at the upper bound",
+      "label_i18n": {
+        "en": "f(b)",
+        "tr": "f(b)",
+        "de": "f(b)",
+        "fr": "f(b)",
+        "es": "f(b)",
+        "ar": "f(b)"
+      }
     },
     {
       "id": "k",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Value to find between f(a) and f(b)"
+      "businessContext": "Value to find between f(a) and f(b)",
+      "label_i18n": {
+        "en": "Target value k",
+        "tr": "Target value k",
+        "de": "Target value k",
+        "fr": "Target value k",
+        "es": "Target value k",
+        "ar": "Target value k"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "intervalInfo"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

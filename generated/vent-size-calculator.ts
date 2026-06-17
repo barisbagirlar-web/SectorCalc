@@ -20,13 +20,18 @@ function evaluateAllFormulas(input: Vent_size_calculatorInput): Record<string, n
   try { const v = (input.ach * input.volume) / 3600; results["flow"] = Number.isFinite(v) ? v : 0; } catch { results["flow"] = 0; }
   try { const v = (results["flow"] ?? 0) / input.velocity; results["areaRaw"] = Number.isFinite(v) ? v : 0; } catch { results["areaRaw"] = 0; }
   try { const v = (results["areaRaw"] ?? 0) * input.safetyFactor; results["areaFinal"] = Number.isFinite(v) ? v : 0; } catch { results["areaFinal"] = 0; }
+  results["__volume__m_"] = 0;
+  results["__flow_toFixed_4___m__s"] = 0;
+  results["__areaRaw_toFixed_4___m_"] = 0;
+  results["__areaFinal_toFixed_4___m_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateVent_size_calculator(input: Vent_size_calculatorInput): Vent_size_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Gerekli"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -33,7 +33,7 @@ function evaluateAllFormulas(input: Retirement_calculatorInput): Record<string, 
 
 export function calculateRetirement_calculator(input: Retirement_calculatorInput): Retirement_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["shortfallSurplus"] ?? 0;
+  const totalWasteCost = values["yearsToRetirement"] ?? 0;
   const breakdown = {
     
   };

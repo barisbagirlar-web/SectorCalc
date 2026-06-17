@@ -25,13 +25,17 @@ function evaluateAllFormulas(input: Concrete_wall_calculatorInput): Record<strin
   try { const v = (results["netVolume"] ?? 0) * (1 + input.wasteFactor / 100); results["totalVolume"] = Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
   try { const v = (results["totalVolume"] ?? 0) - (results["netVolume"] ?? 0); results["wasteVolume"] = Number.isFinite(v) ? v : 0; } catch { results["wasteVolume"] = 0; }
   try { const v = (results["totalVolume"] ?? 0) * input.costPerCubicMeter; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  results["Net_Volume__m__"] = 0;
+  results["Waste_Volume__m__"] = 0;
+  results["Total_Cost"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateConcrete_wall_calculator(input: Concrete_wall_calculatorInput): Concrete_wall_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

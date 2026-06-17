@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bbl",
       "default": 1,
-      "businessContext": "The number of oil barrels to convert. Standard oil barrel is 42 US gallons."
+      "businessContext": "The number of oil barrels to convert. Standard oil barrel is 42 US gallons.",
+      "label_i18n": {
+        "en": "Oil Barrels",
+        "tr": "Oil Barrels",
+        "de": "Oil Barrels",
+        "fr": "Oil Barrels",
+        "es": "Oil Barrels",
+        "ar": "Oil Barrels"
+      }
     },
     {
       "id": "observedTemperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature at which the volume is measured."
+      "businessContext": "Temperature at which the volume is measured.",
+      "label_i18n": {
+        "en": "Observed Temperature",
+        "tr": "Observed Temperature",
+        "de": "Observed Temperature",
+        "fr": "Observed Temperature",
+        "es": "Observed Temperature",
+        "ar": "Observed Temperature"
+      }
     },
     {
       "id": "referenceTemperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 15,
-      "businessContext": "Reference temperature for standard volume (typically 15°C or 60°F)."
+      "businessContext": "Reference temperature for standard volume (typically 15°C or 60°F).",
+      "label_i18n": {
+        "en": "Reference Temperature",
+        "tr": "Reference Temperature",
+        "de": "Reference Temperature",
+        "fr": "Reference Temperature",
+        "es": "Reference Temperature",
+        "ar": "Reference Temperature"
+      }
     },
     {
       "id": "alpha",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "1/°C",
       "default": 0.0007,
-      "businessContext": "Coefficient of volumetric thermal expansion for the oil. Typical range for crude oil: 0.0006 to 0.0008 per °C."
+      "businessContext": "Coefficient of volumetric thermal expansion for the oil. Typical range for crude oil: 0.0006 to 0.0008 per °C.",
+      "label_i18n": {
+        "en": "Thermal Expansion Coefficient",
+        "tr": "Thermal Expansion Coefficient",
+        "de": "Thermal Expansion Coefficient",
+        "fr": "Thermal Expansion Coefficient",
+        "es": "Thermal Expansion Coefficient",
+        "ar": "Thermal Expansion Coefficient"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output."
+      "businessContext": "Number of decimal places for the output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "referenceBarrels"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Enerji & Karbon",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "metal-plastics-forming"
 }

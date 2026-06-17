@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "failures/hour",
       "default": 0.001,
-      "businessContext": "The rate at which failures occur per unit time (exponential distribution parameter)"
+      "businessContext": "The rate at which failures occur per unit time (exponential distribution parameter)",
+      "label_i18n": {
+        "en": "Failure Rate (λ)",
+        "tr": "Failure Rate (λ)",
+        "de": "Failure Rate (λ)",
+        "fr": "Failure Rate (λ)",
+        "es": "Failure Rate (λ)",
+        "ar": "Failure Rate (λ)"
+      }
     },
     {
       "id": "time",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "hours",
       "default": 1000,
-      "businessContext": "Time point at which to compute survival probability"
+      "businessContext": "Time point at which to compute survival probability",
+      "label_i18n": {
+        "en": "Time (t)",
+        "tr": "Time (t)",
+        "de": "Time (t)",
+        "fr": "Time (t)",
+        "es": "Time (t)",
+        "ar": "Time (t)"
+      }
     },
     {
       "id": "targetSurvivalProb",
       "label": "Target Survival Probability",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "Desired survival probability (between 0 and 1) to compute the required time (e.g., B10 life)"
+      "businessContext": "Desired survival probability (between 0 and 1) to compute the required time (e.g., B10 life)",
+      "label_i18n": {
+        "en": "Target Survival Probability",
+        "tr": "Target Survival Probability",
+        "de": "Target Survival Probability",
+        "fr": "Target Survival Probability",
+        "es": "Target Survival Probability",
+        "ar": "Target Survival Probability"
+      }
     },
     {
       "id": "observedFailures",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "failures",
       "default": 0,
-      "businessContext": "Observed number of failures in a test (for reference, not used in calculations)"
+      "businessContext": "Observed number of failures in a test (for reference, not used in calculations)",
+      "label_i18n": {
+        "en": "Observed Failures",
+        "tr": "Observed Failures",
+        "de": "Observed Failures",
+        "fr": "Observed Failures",
+        "es": "Observed Failures",
+        "ar": "Observed Failures"
+      }
     },
     {
       "id": "totalTestTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1000,
-      "businessContext": "Total operating time of all items under test (for reference, not used in calculations)"
+      "businessContext": "Total operating time of all items under test (for reference, not used in calculations)",
+      "label_i18n": {
+        "en": "Total Test Time",
+        "tr": "Total Test Time",
+        "de": "Total Test Time",
+        "fr": "Total Test Time",
+        "es": "Total Test Time",
+        "ar": "Total Test Time"
+      }
     }
   ],
   "formulas": {
@@ -60,10 +100,10 @@
       "b10Life"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

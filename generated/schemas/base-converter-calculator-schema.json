@@ -5,25 +5,49 @@
       "id": "inputNumber",
       "label": "Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "The number whose logarithm base is to be converted."
+      "businessContext": "The number whose logarithm base is to be converted.",
+      "label_i18n": {
+        "en": "Number",
+        "tr": "Number",
+        "de": "Number",
+        "fr": "Number",
+        "es": "Number",
+        "ar": "Number"
+      }
     },
     {
       "id": "fromBase",
       "label": "From Base",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "The base of the logarithm you are converting from."
+      "businessContext": "The base of the logarithm you are converting from.",
+      "label_i18n": {
+        "en": "From Base",
+        "tr": "From Base",
+        "de": "From Base",
+        "fr": "From Base",
+        "es": "From Base",
+        "ar": "From Base"
+      }
     },
     {
       "id": "toBase",
       "label": "To Base",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "The target logarithm base to convert to."
+      "businessContext": "The target logarithm base to convert to.",
+      "label_i18n": {
+        "en": "To Base",
+        "tr": "To Base",
+        "de": "To Base",
+        "fr": "To Base",
+        "es": "To Base",
+        "ar": "To Base"
+      }
     },
     {
       "id": "roundDigits",
@@ -31,25 +55,36 @@
       "type": "number",
       "unit": "digits",
       "default": 4,
-      "businessContext": "Number of decimal places for rounding the result."
+      "businessContext": "Number of decimal places for rounding the result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "primary": "Math.round((Math.log(inputNumber) / Math.log(toBase)) * Math.pow(10, roundDigits)) / Math.pow(10, roundDigits)",
     "logFromBase": "Math.round((Math.log(inputNumber) / Math.log(fromBase)) * Math.pow(10, roundDigits)) / Math.pow(10, roundDigits)",
-    "naturalLog": "Math.round(Math.log(inputNumber) * Math.pow(10, roundDigits)) / Math.pow(10, roundDigits)"
+    "naturalLog": "Math.round(Math.log(inputNumber) * Math.pow(10, roundDigits)) / Math.pow(10, roundDigits)",
+    "log__fromBase__inputNumber_": "log_{fromBase}(inputNumber)",
+    "ln_inputNumber_": "ln(inputNumber)",
+    "result": "log_{toBase}(inputNumber)"
   },
   "outputs": {
-    "primary": "log_{toBase}(inputNumber)",
+    "primary": "result",
     "breakdown": [
       "log_{fromBase}(inputNumber)",
       "ln(inputNumber)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

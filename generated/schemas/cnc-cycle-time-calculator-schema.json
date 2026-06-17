@@ -300,189 +300,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "cutting_time",
-      "label": "Cutting Time",
-      "description": "Total time the tool is engaged in cutting.",
-      "formula": "(cutting_length / feed_rate) * number_of_passes * material_hardness_factor * tool_wear_factor",
-      "unit": "minutes",
-      "intermediate": true
-    },
-    {
-      "id": "rapid_traverse_time",
-      "label": "Rapid Traverse Time",
-      "description": "Total time for non-cutting rapid moves.",
-      "formula": "rapid_traverse_distance / rapid_traverse_rate",
-      "unit": "minutes",
-      "intermediate": true
-    },
-    {
-      "id": "tool_change_total_time",
-      "label": "Total Tool Change Time",
-      "description": "Aggregate time for all tool changes.",
-      "formula": "tool_change_time * number_of_tool_changes / 60",
-      "unit": "minutes",
-      "intermediate": true
-    },
-    {
-      "id": "auxiliary_time",
-      "label": "Auxiliary Time",
-      "description": "Time for part loading, coolant, and measurement.",
-      "formula": "(part_loading_time + coolant_on_time + measurement_time) / 60",
-      "unit": "minutes",
-      "intermediate": true
-    },
-    {
-      "id": "raw_cycle_time",
-      "label": "Raw Cycle Time",
-      "description": "Sum of all time components before efficiency adjustment.",
-      "formula": "cutting_time + rapid_traverse_time + tool_change_total_time + auxiliary_time",
-      "unit": "minutes",
-      "intermediate": true
-    },
-    {
-      "id": "efficiency_adjustment",
-      "label": "Efficiency Adjustment Factor",
-      "description": "Factor to account for machine efficiency losses.",
-      "formula": "100 / machine_efficiency",
-      "unit": "dimensionless",
-      "intermediate": true
-    },
-    {
-      "id": "primary_result",
-      "label": "Total Cycle Time",
-      "description": "Final cycle time per part, adjusted for efficiency.",
-      "formula": "raw_cycle_time * efficiency_adjustment",
-      "unit": "minutes",
-      "primary": true
-    }
+    "cutting_length",
+    "cutting_length",
+    "cutting_length",
+    "cutting_length",
+    "cutting_length",
+    "cutting_length",
+    "cutting_length"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_cycle_time",
-      "label": "Total Cycle Time",
-      "value": null,
-      "unit": "minutes",
-      "description": "The complete cycle time per part, including all operations and efficiency losses."
-    },
-    "breakdown": {
-      "cutting_time": {
-        "id": "cutting_time",
-        "label": "Cutting Time",
-        "value": null,
-        "unit": "minutes",
-        "percentage": null
-      },
-      "rapid_traverse_time": {
-        "id": "rapid_traverse_time",
-        "label": "Rapid Traverse Time",
-        "value": null,
-        "unit": "minutes",
-        "percentage": null
-      },
-      "tool_change_time": {
-        "id": "tool_change_time",
-        "label": "Tool Change Time",
-        "value": null,
-        "unit": "minutes",
-        "percentage": null
-      },
-      "auxiliary_time": {
-        "id": "auxiliary_time",
-        "label": "Auxiliary Time",
-        "value": null,
-        "unit": "minutes",
-        "percentage": null
-      },
-      "efficiency_loss": {
-        "id": "efficiency_loss",
-        "label": "Efficiency Loss",
-        "value": null,
-        "unit": "minutes",
-        "percentage": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "non_cutting_overhead",
-        "label": "Non-Cutting Overhead",
-        "description": "Time spent on non-value-added activities (rapid traverse, tool change, auxiliary).",
-        "value": null,
-        "unit": "minutes",
-        "impact": "high"
-      },
-      {
-        "id": "tool_wear_impact",
-        "label": "Tool Wear Impact",
-        "description": "Additional time due to worn tool (reduced feed rate or multiple passes).",
-        "value": null,
-        "unit": "minutes",
-        "impact": "medium"
-      },
-      {
-        "id": "material_hardness_impact",
-        "label": "Material Hardness Impact",
-        "description": "Extra cutting time due to material hardness.",
-        "value": null,
-        "unit": "minutes",
-        "impact": "medium"
-      },
-      {
-        "id": "efficiency_loss_driver",
-        "label": "Efficiency Loss",
-        "description": "Time lost due to machine inefficiency (downtime, speed loss, defects).",
-        "value": null,
-        "unit": "minutes",
-        "impact": "high"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_rapid_traverse",
-        "label": "Optimize Tool Path",
-        "description": "Reduce rapid traverse distance by optimizing CAM toolpath. Potential savings: up to 20% of non-cutting time.",
-        "impact": "medium",
-        "effort": "low"
-      },
-      {
-        "id": "combine_operations",
-        "label": "Combine Operations",
-        "description": "Use multi-functional tools to reduce number of tool changes. Potential savings: up to 15% of cycle time.",
-        "impact": "high",
-        "effort": "medium"
-      },
-      {
-        "id": "increase_feed_rate",
-        "label": "Increase Feed Rate",
-        "description": "If tool and material allow, increase feed rate to reduce cutting time. Check tool manufacturer specs.",
-        "impact": "high",
-        "effort": "low"
-      },
-      {
-        "id": "improve_machine_efficiency",
-        "label": "Improve OEE",
-        "description": "Implement TPM (Total Productive Maintenance) to reduce downtime and speed losses. Target >85% efficiency.",
-        "impact": "high",
-        "effort": "high"
-      },
-      {
-        "id": "use_premium_tooling",
-        "label": "Use Premium Tooling",
-        "description": "Invest in coated or advanced tooling to reduce tool wear factor and allow higher cutting parameters.",
-        "impact": "medium",
-        "effort": "medium"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_cycle_time",
-      "label": "Data Confidence Adjusted Cycle Time",
-      "value": null,
-      "unit": "minutes",
-      "description": "Cycle time adjusted for data confidence (e.g., based on input variability or historical accuracy).",
-      "confidenceLevel": "medium"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "cnc-additive-manufacturing",
+  "category": "İmalat & Üretim",
+  "sector": "Üretim & İmalat",
+  "toolName": "cnc-cycle-time-calculator"
 }

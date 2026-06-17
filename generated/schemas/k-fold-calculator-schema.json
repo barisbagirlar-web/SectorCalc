@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "folds",
       "default": 5,
-      "businessContext": "Number of folds used in cross-validation"
+      "businessContext": "Number of folds used in cross-validation",
+      "label_i18n": {
+        "en": "Number of Folds (k)",
+        "tr": "Number of Folds (k)",
+        "de": "Number of Folds (k)",
+        "fr": "Number of Folds (k)",
+        "es": "Number of Folds (k)",
+        "ar": "Number of Folds (k)"
+      }
     },
     {
       "id": "n",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "samples",
       "default": 1000,
-      "businessContext": "Total number of observations in the dataset"
+      "businessContext": "Total number of observations in the dataset",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "meanAccuracy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Average accuracy across all folds"
+      "businessContext": "Average accuracy across all folds",
+      "label_i18n": {
+        "en": "Mean Accuracy",
+        "tr": "Mean Accuracy",
+        "de": "Mean Accuracy",
+        "fr": "Mean Accuracy",
+        "es": "Mean Accuracy",
+        "ar": "Mean Accuracy"
+      }
     },
     {
       "id": "stdDevAccuracy",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Standard deviation of accuracy scores from each fold"
+      "businessContext": "Standard deviation of accuracy scores from each fold",
+      "label_i18n": {
+        "en": "Standard Deviation of Accuracy",
+        "tr": "Standard Deviation of Accuracy",
+        "de": "Standard Deviation of Accuracy",
+        "fr": "Standard Deviation of Accuracy",
+        "es": "Standard Deviation of Accuracy",
+        "ar": "Standard Deviation of Accuracy"
+      }
     },
     {
       "id": "zScore",
       "label": "Z-Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.96,
-      "businessContext": "Z-score for desired confidence level (e.g., 1.96 for 95%)"
+      "businessContext": "Z-score for desired confidence level (e.g., 1.96 for 95%)",
+      "label_i18n": {
+        "en": "Z-Score",
+        "tr": "Z-Score",
+        "de": "Z-Score",
+        "fr": "Z-Score",
+        "es": "Z-Score",
+        "ar": "Z-Score"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "upperBoundCI"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

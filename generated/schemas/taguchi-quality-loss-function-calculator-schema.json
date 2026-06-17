@@ -171,7 +171,8 @@
       },
       "businessContext_i18n": {
         "en": "Type of quality characteristic: nominal-is-best (target), smaller-is-better (e.g., impurities), larger-is-better (e.g., strength)."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "include_hidden_factory",
@@ -184,7 +185,8 @@
       },
       "businessContext_i18n": {
         "en": "If true, adds estimated losses from rework, inspection, and scrap that are not captured by the basic loss function."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -253,186 +255,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "loss_coefficient_k",
-      "name": "Loss Coefficient (k)",
-      "description": "Constant that scales the quadratic loss. Derived from cost at limit and deviation at limit.",
-      "equation": "k = A₀ / (Δ²)",
-      "variables": {
-        "A₀": "cost_at_limit",
-        "Δ": "deviation_at_limit"
-      },
-      "unit": "currency / units²"
-    },
-    {
-      "id": "mean_squared_deviation_msd",
-      "name": "Mean Squared Deviation (MSD)",
-      "description": "Expected squared deviation from target, considering process mean and variance.",
-      "equation": "MSD = σ² + (μ - T)²",
-      "variables": {
-        "σ": "process_std_dev",
-        "μ": "process_mean",
-        "T": "target_value"
-      },
-      "unit": "units²"
-    },
-    {
-      "id": "loss_per_unit_lpu",
-      "name": "Loss per Unit (L)",
-      "description": "Average quality loss per unit produced.",
-      "equation": "L = k * MSD",
-      "variables": {
-        "k": "loss_coefficient_k",
-        "MSD": "mean_squared_deviation_msd"
-      },
-      "unit": "currency"
-    },
-    {
-      "id": "total_loss_basic",
-      "name": "Total Basic Loss",
-      "description": "Total quality loss for the production volume.",
-      "equation": "TotalBasicLoss = L * N",
-      "variables": {
-        "L": "loss_per_unit_lpu",
-        "N": "production_volume"
-      },
-      "unit": "currency"
-    },
-    {
-      "id": "hidden_factory_loss",
-      "name": "Hidden Factory Loss",
-      "description": "Estimated additional loss from rework, scrap, and inspection inefficiencies. Only calculated if include_hidden_factory is true.",
-      "equation": "HiddenLoss = (1 - inspection_rate/100) * TotalBasicLoss * 0.15 + (Cpk < 1.33 ? TotalBasicLoss * 0.10 : 0)",
-      "variables": {
-        "TotalBasicLoss": "total_loss_basic",
-        "inspection_rate": "inspection_rate",
-        "Cpk": "process_capability_cpk"
-      },
-      "unit": "currency"
-    },
-    {
-      "id": "process_capability_cpk",
-      "name": "Process Capability Index (Cpk)",
-      "description": "Measures how well the process fits within specification limits, accounting for centering.",
-      "equation": "Cpk = min((USL - μ)/(3σ), (μ - LSL)/(3σ))",
-      "variables": {
-        "USL": "upper_spec_limit",
-        "LSL": "lower_spec_limit",
-        "μ": "process_mean",
-        "σ": "process_std_dev"
-      },
-      "unit": "dimensionless"
-    },
-    {
-      "id": "total_loss_adjusted",
-      "name": "Total Adjusted Loss (Primary Result)",
-      "description": "Final total quality loss including hidden factory losses if selected.",
-      "equation": "TotalAdjustedLoss = TotalBasicLoss + (include_hidden_factory ? HiddenLoss : 0)",
-      "variables": {
-        "TotalBasicLoss": "total_loss_basic",
-        "HiddenLoss": "hidden_factory_loss",
-        "include_hidden_factory": "include_hidden_factory"
-      },
-      "unit": "currency"
-    }
+    "target_value",
+    "target_value",
+    "target_value",
+    "target_value",
+    "target_value",
+    "target_value",
+    "target_value"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_adjusted_loss",
-      "label": "Total Adjusted Quality Loss",
-      "value": null,
-      "unit": "currency",
-      "description": "Primary result: total financial loss due to quality deviations, including hidden factory losses."
-    },
-    "breakdown": {
-      "loss_coefficient_k": {
-        "label": "Loss Coefficient (k)",
-        "value": null,
-        "unit": "currency / units²"
-      },
-      "mean_squared_deviation_msd": {
-        "label": "Mean Squared Deviation (MSD)",
-        "value": null,
-        "unit": "units²"
-      },
-      "loss_per_unit_lpu": {
-        "label": "Loss per Unit (L)",
-        "value": null,
-        "unit": "currency"
-      },
-      "total_basic_loss": {
-        "label": "Total Basic Loss",
-        "value": null,
-        "unit": "currency"
-      },
-      "hidden_factory_loss": {
-        "label": "Hidden Factory Loss",
-        "value": null,
-        "unit": "currency"
-      },
-      "process_capability_cpk": {
-        "label": "Process Capability (Cpk)",
-        "value": null,
-        "unit": "dimensionless"
-      },
-      "process_sigma_level": {
-        "label": "Process Sigma Level",
-        "value": null,
-        "unit": "sigma"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "driver": "Process centering offset",
-        "impact": "Increases MSD quadratically",
-        "mitigation": "Adjust process mean toward target"
-      },
-      {
-        "driver": "High process variation",
-        "impact": "Increases MSD linearly with variance",
-        "mitigation": "Reduce variation through SPC and process improvement"
-      },
-      {
-        "driver": "Low inspection coverage",
-        "impact": "Increases hidden factory losses",
-        "mitigation": "Increase inspection rate or implement mistake-proofing"
-      },
-      {
-        "driver": "Inadequate specification limits",
-        "impact": "Increases loss coefficient if limits are too tight",
-        "mitigation": "Review tolerance design with engineering"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "priority": 1,
-        "action": "Center the process mean to target value",
-        "expectedBenefit": "Reduces MSD and loss per unit significantly",
-        "effort": "Medium"
-      },
-      {
-        "priority": 2,
-        "action": "Reduce process standard deviation by 20%",
-        "expectedBenefit": "Lowers loss per unit by 36% (quadratic effect)",
-        "effort": "High"
-      },
-      {
-        "priority": 3,
-        "action": "Increase inspection rate to 100%",
-        "expectedBenefit": "Eliminates hidden factory loss component",
-        "effort": "Low"
-      },
-      {
-        "priority": 4,
-        "action": "Conduct Design of Experiments (DOE) to identify key factors",
-        "expectedBenefit": "Long-term variation reduction",
-        "effort": "High"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "taguchi-quality-loss-function-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

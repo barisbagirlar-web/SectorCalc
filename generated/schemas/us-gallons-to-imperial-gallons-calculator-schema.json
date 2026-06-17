@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "gal (US)",
       "default": 0,
-      "businessContext": "Volume in US liquid gallons to be converted."
+      "businessContext": "Volume in US liquid gallons to be converted.",
+      "label_i18n": {
+        "en": "US Gallons",
+        "tr": "US Gallons",
+        "de": "US Gallons",
+        "fr": "US Gallons",
+        "es": "US Gallons",
+        "ar": "US Gallons"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Imperial/US",
       "default": 0.832674,
-      "businessContext": "Standard conversion factor: 1 US gallon = 0.832674 Imperial gallons. Editable for custom calibration."
+      "businessContext": "Standard conversion factor: 1 US gallon = 0.832674 Imperial gallons. Editable for custom calibration.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "roundingPrecision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimals",
       "default": 2,
-      "businessContext": "Number of decimal places for the output Imperial gallons. Must be integer."
+      "businessContext": "Number of decimal places for the output Imperial gallons. Must be integer.",
+      "label_i18n": {
+        "en": "Rounding Precision",
+        "tr": "Rounding Precision",
+        "de": "Rounding Precision",
+        "fr": "Rounding Precision",
+        "es": "Rounding Precision",
+        "ar": "Rounding Precision"
+      }
     },
     {
       "id": "batchQuantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 1,
-      "businessContext": "Number of identical volume units to calculate total Imperial gallons."
+      "businessContext": "Number of identical volume units to calculate total Imperial gallons.",
+      "label_i18n": {
+        "en": "Batch Quantity",
+        "tr": "Batch Quantity",
+        "de": "Batch Quantity",
+        "fr": "Batch Quantity",
+        "es": "Batch Quantity",
+        "ar": "Batch Quantity"
+      }
     },
     {
       "id": "temperatureC",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature for volume correction. Standard reference temperature is 20°C. Currently not used in calculation but reserved for future thermal expansion compensation."
+      "businessContext": "Temperature for volume correction. Standard reference temperature is 20°C. Currently not used in calculation but reserved for future thermal expansion compensation.",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "measurementUncertainty",
@@ -47,15 +87,29 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Expanded uncertainty (k=2) for the US gallon volume measurement. For documentation and traceability."
+      "businessContext": "Expanded uncertainty (k=2) for the US gallon volume measurement. For documentation and traceability.",
+      "label_i18n": {
+        "en": "Measurement Uncertainty",
+        "tr": "Measurement Uncertainty",
+        "de": "Measurement Uncertainty",
+        "fr": "Measurement Uncertainty",
+        "es": "Measurement Uncertainty",
+        "ar": "Measurement Uncertainty"
+      }
     }
   ],
   "formulas": {
     "imperialUnrounded": "usGallons * conversionFactor * batchQuantity",
-    "imperialRounded": "Math.round(imperialUnrounded * 10**roundingPrecision) / 10**roundingPrecision"
+    "imperialRounded": "Math.round(imperialUnrounded * 10**roundingPrecision) / 10**roundingPrecision",
+    "____usGallons_toFixed_2______gal__US__": "' + usGallons.toFixed(2) + ' gal (US)'",
+    "____conversionFactor_toFixed_6______Impe": "' + conversionFactor.toFixed(6) + ' Imperial/US'",
+    "____batchQuantity": "' + batchQuantity",
+    "____imperialUnrounded_toFixed_10______Im": "' + imperialUnrounded.toFixed(10) + ' Imperial gallons'",
+    "____imperialRounded_____Imperial_gallons": "' + imperialRounded + ' Imperial gallons'",
+    "result": "imperialRounded + ' Imperial gallons'"
   },
   "outputs": {
-    "primary": "imperialRounded + ' Imperial gallons'",
+    "primary": "result",
     "breakdown": [
       "'US Gallons input: ' + usGallons.toFixed(2) + ' gal (US)'",
       "'Conversion factor: ' + conversionFactor.toFixed(6) + ' Imperial/US'",
@@ -64,10 +118,10 @@
       "'Rounded to ' + roundingPrecision + ' decimals: ' + imperialRounded + ' Imperial gallons'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

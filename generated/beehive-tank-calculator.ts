@@ -29,13 +29,19 @@ function evaluateAllFormulas(input: Beehive_tank_calculatorInput): Record<string
   try { const v = (results["totalSurfaceArea"] ?? 0) * (input.wallThickness / 1000); results["materialVolume"] = Number.isFinite(v) ? v : 0; } catch { results["materialVolume"] = 0; }
   try { const v = (results["materialVolume"] ?? 0) * input.materialDensity; results["materialWeight"] = Number.isFinite(v) ? v : 0; } catch { results["materialWeight"] = 0; }
   try { const v = (results["materialWeight"] ?? 0) * input.materialCost; results["materialCostTotal"] = Number.isFinite(v) ? v : 0; } catch { results["materialCostTotal"] = 0; }
+  results["Silindir_Hacmi__m__"] = 0;
+  results["Kubbe_Hacmi__m__"] = 0;
+  results["Y_zey_Alan___m__"] = 0;
+  results["Malzeme_A__rl_____kg_"] = 0;
+  results["Malzeme_Maliyeti__TRY_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateBeehive_tank_calculator(input: Beehive_tank_calculatorInput): Beehive_tank_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Toplam"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

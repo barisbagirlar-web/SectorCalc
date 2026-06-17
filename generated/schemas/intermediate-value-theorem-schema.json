@@ -5,56 +5,108 @@
       "id": "a",
       "label": "Lower bound a",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Left endpoint of interval"
+      "businessContext": "Left endpoint of interval",
+      "label_i18n": {
+        "en": "Lower bound a",
+        "tr": "Lower bound a",
+        "de": "Lower bound a",
+        "fr": "Lower bound a",
+        "es": "Lower bound a",
+        "ar": "Lower bound a"
+      }
     },
     {
       "id": "b",
       "label": "Upper bound b",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Right endpoint of interval"
+      "businessContext": "Right endpoint of interval",
+      "label_i18n": {
+        "en": "Upper bound b",
+        "tr": "Upper bound b",
+        "de": "Upper bound b",
+        "fr": "Upper bound b",
+        "es": "Upper bound b",
+        "ar": "Upper bound b"
+      }
     },
     {
       "id": "fa",
       "label": "f(a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -1,
-      "businessContext": "Function value at a"
+      "businessContext": "Function value at a",
+      "label_i18n": {
+        "en": "f(a)",
+        "tr": "f(a)",
+        "de": "f(a)",
+        "fr": "f(a)",
+        "es": "f(a)",
+        "ar": "f(a)"
+      }
     },
     {
       "id": "fb",
       "label": "f(b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Function value at b"
+      "businessContext": "Function value at b",
+      "label_i18n": {
+        "en": "f(b)",
+        "tr": "f(b)",
+        "de": "f(b)",
+        "fr": "f(b)",
+        "es": "f(b)",
+        "ar": "f(b)"
+      }
     },
     {
       "id": "k",
       "label": "Target value k",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Intermediate value to find"
+      "businessContext": "Intermediate value to find",
+      "label_i18n": {
+        "en": "Target value k",
+        "tr": "Target value k",
+        "de": "Target value k",
+        "fr": "Target value k",
+        "es": "Target value k",
+        "ar": "Target value k"
+      }
     },
     {
       "id": "tolerance",
       "label": "Tolerance",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.001,
-      "businessContext": "Acceptable error for bisection"
+      "businessContext": "Acceptable error for bisection",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     }
   ],
   "formulas": {
     "exists": "((fa - k) * (fb - k) <= 0) ? 1 : 0",
     "c": "((fa - k) * (fb - k) <= 0) ? (a + b) / 2 : null",
     "fc": "((fa - k) * (fb - k) <= 0) ? ((fb - fa) / (b - a)) * (c - a) + fa : null",
-    "iterations": "((fa - k) * (fb - k) <= 0) ? Math.ceil(Math.log((b - a) / tolerance) / Math.log(2)) : 0"
+    "iterations": "((fa - k) * (fb - k) <= 0) ? Math.ceil(Math.log((b - a) / tolerance) / Math.log(2)) : 0",
+    "1_if_a_solution_exists__0_otherwise": "1 if a solution exists, 0 otherwise",
+    "approximate_root__midpoint__if_exists__e": "approximate root (midpoint) if exists, else null",
+    "approximate_function_value_at_c": "approximate function value at c",
+    "number_of_bisection_steps_needed": "number of bisection steps needed"
   },
   "outputs": {
     "primary": "c",
@@ -65,10 +117,10 @@
       "iterations: number of bisection steps needed"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "finance-sales-working-capital"
 }

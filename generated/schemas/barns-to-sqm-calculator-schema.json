@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "b",
       "default": 1,
-      "businessContext": "The number of barns to convert."
+      "businessContext": "The number of barns to convert.",
+      "label_i18n": {
+        "en": "Barns",
+        "tr": "Barns",
+        "de": "Barns",
+        "fr": "Barns",
+        "es": "Barns",
+        "ar": "Barns"
+      }
     },
     {
       "id": "multiplier",
       "label": "Scale Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier to apply after conversion."
+      "businessContext": "Multiplier to apply after conversion.",
+      "label_i18n": {
+        "en": "Scale Factor",
+        "tr": "Scale Factor",
+        "de": "Scale Factor",
+        "fr": "Scale Factor",
+        "es": "Scale Factor",
+        "ar": "Scale Factor"
+      }
     },
     {
       "id": "constant",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m²",
       "default": 0,
-      "businessContext": "Additive constant in square meters."
+      "businessContext": "Additive constant in square meters.",
+      "label_i18n": {
+        "en": "Offset",
+        "tr": "Offset",
+        "de": "Offset",
+        "fr": "Offset",
+        "es": "Offset",
+        "ar": "Offset"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "Number of decimal places for rounding."
+      "businessContext": "Number of decimal places for rounding.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "scaled"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

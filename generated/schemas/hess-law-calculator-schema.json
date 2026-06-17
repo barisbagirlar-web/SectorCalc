@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Enthalpy change of first reaction step"
+      "businessContext": "Enthalpy change of first reaction step",
+      "label_i18n": {
+        "en": "ΔH₁ (kJ/mol)",
+        "tr": "ΔH₁ (kJ/mol)",
+        "de": "ΔH₁ (kJ/mol)",
+        "fr": "ΔH₁ (kJ/mol)",
+        "es": "ΔH₁ (kJ/mol)",
+        "ar": "ΔH₁ (kJ/mol)"
+      }
     },
     {
       "id": "deltaH2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Enthalpy change of second reaction step"
+      "businessContext": "Enthalpy change of second reaction step",
+      "label_i18n": {
+        "en": "ΔH₂ (kJ/mol)",
+        "tr": "ΔH₂ (kJ/mol)",
+        "de": "ΔH₂ (kJ/mol)",
+        "fr": "ΔH₂ (kJ/mol)",
+        "es": "ΔH₂ (kJ/mol)",
+        "ar": "ΔH₂ (kJ/mol)"
+      }
     },
     {
       "id": "deltaH3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Enthalpy change of third reaction step"
+      "businessContext": "Enthalpy change of third reaction step",
+      "label_i18n": {
+        "en": "ΔH₃ (kJ/mol)",
+        "tr": "ΔH₃ (kJ/mol)",
+        "de": "ΔH₃ (kJ/mol)",
+        "fr": "ΔH₃ (kJ/mol)",
+        "es": "ΔH₃ (kJ/mol)",
+        "ar": "ΔH₃ (kJ/mol)"
+      }
     },
     {
       "id": "deltaH4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Enthalpy change of fourth reaction step"
+      "businessContext": "Enthalpy change of fourth reaction step",
+      "label_i18n": {
+        "en": "ΔH₄ (kJ/mol)",
+        "tr": "ΔH₄ (kJ/mol)",
+        "de": "ΔH₄ (kJ/mol)",
+        "fr": "ΔH₄ (kJ/mol)",
+        "es": "ΔH₄ (kJ/mol)",
+        "ar": "ΔH₄ (kJ/mol)"
+      }
     },
     {
       "id": "deltaH5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Enthalpy change of fifth reaction step"
+      "businessContext": "Enthalpy change of fifth reaction step",
+      "label_i18n": {
+        "en": "ΔH₅ (kJ/mol)",
+        "tr": "ΔH₅ (kJ/mol)",
+        "de": "ΔH₅ (kJ/mol)",
+        "fr": "ΔH₅ (kJ/mol)",
+        "es": "ΔH₅ (kJ/mol)",
+        "ar": "ΔH₅ (kJ/mol)"
+      }
     },
     {
       "id": "deltaH6",
@@ -47,14 +87,29 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Enthalpy change of sixth reaction step"
+      "businessContext": "Enthalpy change of sixth reaction step",
+      "label_i18n": {
+        "en": "ΔH₆ (kJ/mol)",
+        "tr": "ΔH₆ (kJ/mol)",
+        "de": "ΔH₆ (kJ/mol)",
+        "fr": "ΔH₆ (kJ/mol)",
+        "es": "ΔH₆ (kJ/mol)",
+        "ar": "ΔH₆ (kJ/mol)"
+      }
     }
   ],
   "formulas": {
-    "totalDeltaH": "deltaH1 + deltaH2 + deltaH3 + deltaH4 + deltaH5 + deltaH6"
+    "totalDeltaH": "deltaH1 + deltaH2 + deltaH3 + deltaH4 + deltaH5 + deltaH6",
+    "_H____deltaH1_kJ_mol": "ΔH₁ = deltaH1 kJ/mol",
+    "_H____deltaH2_kJ_mol": "ΔH₂ = deltaH2 kJ/mol",
+    "_H____deltaH3_kJ_mol": "ΔH₃ = deltaH3 kJ/mol",
+    "_H____deltaH4_kJ_mol": "ΔH₄ = deltaH4 kJ/mol",
+    "_H____deltaH5_kJ_mol": "ΔH₅ = deltaH5 kJ/mol",
+    "_H____deltaH6_kJ_mol": "ΔH₆ = deltaH6 kJ/mol",
+    "result": "Total ΔH = deltaH1 + deltaH2 + deltaH3 + deltaH4 + deltaH5 + deltaH6 kJ/mol"
   },
   "outputs": {
-    "primary": "Total ΔH = deltaH1 + deltaH2 + deltaH3 + deltaH4 + deltaH5 + deltaH6 kJ/mol",
+    "primary": "result",
     "breakdown": [
       "ΔH₁ = deltaH1 kJ/mol",
       "ΔH₂ = deltaH2 kJ/mol",
@@ -64,10 +119,10 @@
       "ΔH₆ = deltaH6 kJ/mol"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

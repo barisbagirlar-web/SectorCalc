@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "Total distance traveled by the vehicle."
+      "businessContext": "Total distance traveled by the vehicle.",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Distance (km)",
+        "de": "Distance (km)",
+        "fr": "Distance (km)",
+        "es": "Distance (km)",
+        "ar": "Distance (km)"
+      }
     },
     {
       "id": "fuelConsumption",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/100km",
       "default": 8,
-      "businessContext": "Average fuel consumption per 100 km (e.g., 8 L/100km for a mid-size car)."
+      "businessContext": "Average fuel consumption per 100 km (e.g., 8 L/100km for a mid-size car).",
+      "label_i18n": {
+        "en": "Fuel Consumption Rate",
+        "tr": "Fuel Consumption Rate",
+        "de": "Fuel Consumption Rate",
+        "fr": "Fuel Consumption Rate",
+        "es": "Fuel Consumption Rate",
+        "ar": "Fuel Consumption Rate"
+      }
     },
     {
       "id": "emissionFactor",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "kg CO₂/L",
       "default": 2.31,
-      "businessContext": "CO₂ emissions per liter of fuel burned. For diesel ~2.68 kg/L, gasoline ~2.31 kg/L."
+      "businessContext": "CO₂ emissions per liter of fuel burned. For diesel ~2.68 kg/L, gasoline ~2.31 kg/L.",
+      "label_i18n": {
+        "en": "Fuel Emission Factor",
+        "tr": "Fuel Emission Factor",
+        "de": "Fuel Emission Factor",
+        "fr": "Fuel Emission Factor",
+        "es": "Fuel Emission Factor",
+        "ar": "Fuel Emission Factor"
+      }
     },
     {
       "id": "numberOfTrips",
       "label": "Number of Trips or Vehicles",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of identical trips or vehicles to scale total emissions."
+      "businessContext": "Number of identical trips or vehicles to scale total emissions.",
+      "label_i18n": {
+        "en": "Number of Trips or Vehicles",
+        "tr": "Number of Trips or Vehicles",
+        "de": "Number of Trips or Vehicles",
+        "fr": "Number of Trips or Vehicles",
+        "es": "Number of Trips or Vehicles",
+        "ar": "Number of Trips or Vehicles"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "fuelUsed"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",

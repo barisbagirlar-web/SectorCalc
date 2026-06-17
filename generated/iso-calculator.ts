@@ -16,13 +16,18 @@ export const Iso_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Iso_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.availability / 100) * (input.performance / 100) * (input.quality / 100) * 100; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.availability; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Availability_Score____"] = 0;
+  results["Performance_Score____"] = 0;
+  results["Quality_Score____"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateIso_calculator(input: Iso_calculatorInput): Iso_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["OEE"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

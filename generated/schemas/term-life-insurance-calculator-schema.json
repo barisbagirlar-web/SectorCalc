@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the insured person"
+      "businessContext": "Age of the insured person",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "isSmoker",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "binary (1=Yes, 0=No)",
       "default": 0,
-      "businessContext": "Indicates if the insured is a smoker"
+      "businessContext": "Indicates if the insured is a smoker",
+      "label_i18n": {
+        "en": "Smoker",
+        "tr": "Smoker",
+        "de": "Smoker",
+        "fr": "Smoker",
+        "es": "Smoker",
+        "ar": "Smoker"
+      }
     },
     {
       "id": "coverageAmount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Death benefit amount"
+      "businessContext": "Death benefit amount",
+      "label_i18n": {
+        "en": "Coverage Amount",
+        "tr": "Coverage Amount",
+        "de": "Coverage Amount",
+        "fr": "Coverage Amount",
+        "es": "Coverage Amount",
+        "ar": "Coverage Amount"
+      }
     },
     {
       "id": "termYears",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Policy term length"
+      "businessContext": "Policy term length",
+      "label_i18n": {
+        "en": "Term (Years)",
+        "tr": "Term (Years)",
+        "de": "Term (Years)",
+        "fr": "Term (Years)",
+        "es": "Term (Years)",
+        "ar": "Term (Years)"
+      }
     },
     {
       "id": "interestRate",
@@ -39,26 +71,33 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual discount rate for present value calculation"
+      "businessContext": "Annual discount rate for present value calculation",
+      "label_i18n": {
+        "en": "Interest Rate",
+        "tr": "Interest Rate",
+        "de": "Interest Rate",
+        "fr": "Interest Rate",
+        "es": "Interest Rate",
+        "ar": "Interest Rate"
+      }
     }
   ],
   "formulas": {
     "primary": "coverageAmount * (0.001 * (age - 20 + 5 * isSmoker)) / Math.pow(1 + interestRate/100, termYears)",
-    "breakdown": [
-      "0.001 * (age - 20 + 5 * isSmoker)",
-      "Math.pow(1 + interestRate/100, termYears)",
-      "coverageAmount"
-    ]
+    "breakdown": "age",
+    "__breakdown0_": "${breakdown0}",
+    "__breakdown1_": "${breakdown1}",
+    "__breakdown2_": "${breakdown2}"
   },
   "outputs": {
-    "primary": "Estimated Annual Premium: ${primary}",
+    "primary": "primary",
     "breakdown": [
       "Mortality Probability: ${breakdown0}",
       "Discount Factor: ${breakdown1}",
       "Coverage Amount: ${breakdown2}"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

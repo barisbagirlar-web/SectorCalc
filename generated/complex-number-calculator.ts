@@ -29,13 +29,18 @@ function evaluateAllFormulas(input: Complex_number_calculatorInput): Record<stri
   try { const v = (input.imag1 * input.real2 - input.real1 * input.imag2) / (input.real2 * input.real2 + input.imag2 * input.imag2); results["divImag"] = Number.isFinite(v) ? v : 0; } catch { results["divImag"] = 0; }
   try { const v = Math.sqrt(input.real1 * input.real1 + input.imag1 * input.imag1); results["magnitude"] = Number.isFinite(v) ? v : 0; } catch { results["magnitude"] = 0; }
   try { const v = Math.atan2(input.imag1, input.real1); results["phase"] = Number.isFinite(v) ? v : 0; } catch { results["phase"] = 0; }
+  try { const v = {real}; results["_real_"] = Number.isFinite(v) ? v : 0; } catch { results["_real_"] = 0; }
+  try { const v = {imag}; results["_imag_"] = Number.isFinite(v) ? v : 0; } catch { results["_imag_"] = 0; }
+  try { const v = {mag}; results["_mag_"] = Number.isFinite(v) ? v : 0; } catch { results["_mag_"] = 0; }
+  try { const v = (results["phase"] ?? 0); results["_phase_"] = Number.isFinite(v) ? v : 0; } catch { results["_phase_"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateComplex_number_calculator(input: Complex_number_calculatorInput): Complex_number_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Result"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

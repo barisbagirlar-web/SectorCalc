@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km/sa",
       "default": 50,
-      "businessContext": "Araç hızı (km/saat cinsinden)"
+      "businessContext": "Araç hızı (km/saat cinsinden)",
+      "label_i18n": {
+        "en": "Hız",
+        "tr": "Hız",
+        "de": "Hız",
+        "fr": "Hız",
+        "es": "Hız",
+        "ar": "Hız"
+      }
     },
     {
       "id": "reactionTime",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "s",
       "default": 1.5,
-      "businessContext": "Sürücünün tepki süresi (saniye)"
+      "businessContext": "Sürücünün tepki süresi (saniye)",
+      "label_i18n": {
+        "en": "Tepki Süresi",
+        "tr": "Tepki Süresi",
+        "de": "Tepki Süresi",
+        "fr": "Tepki Süresi",
+        "es": "Tepki Süresi",
+        "ar": "Tepki Süresi"
+      }
     },
     {
       "id": "friction",
       "label": "Sürtünme Katsayısı (μ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.7,
-      "businessContext": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)"
+      "businessContext": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)",
+      "label_i18n": {
+        "en": "Sürtünme Katsayısı (μ)",
+        "tr": "Sürtünme Katsayısı (μ)",
+        "de": "Sürtünme Katsayısı (μ)",
+        "fr": "Sürtünme Katsayısı (μ)",
+        "es": "Sürtünme Katsayısı (μ)",
+        "ar": "Sürtünme Katsayısı (μ)"
+      }
     },
     {
       "id": "gradient",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)"
+      "businessContext": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)",
+      "label_i18n": {
+        "en": "Yol Eğimi",
+        "tr": "Yol Eğimi",
+        "de": "Yol Eğimi",
+        "fr": "Yol Eğimi",
+        "es": "Yol Eğimi",
+        "ar": "Yol Eğimi"
+      }
     }
   ],
   "formulas": {
@@ -41,12 +73,7 @@
     "total": "dThinking + dBraking"
   },
   "outputs": {
-    "primary": {
-      "id": "total",
-      "label": "Toplam Durma Mesafesi",
-      "unit": "m",
-      "value": "total"
-    },
+    "primary": "v",
     "breakdown": [
       {
         "id": "dThinking",
@@ -62,10 +89,10 @@
       }
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

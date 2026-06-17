@@ -5,44 +5,72 @@
       "id": "numerator",
       "label": "Pay (Numerator)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Kesrin pay değeri"
+      "businessContext": "Kesrin pay değeri",
+      "label_i18n": {
+        "en": "Pay (Numerator)",
+        "tr": "Pay (Numerator)",
+        "de": "Pay (Numerator)",
+        "fr": "Pay (Numerator)",
+        "es": "Pay (Numerator)",
+        "ar": "Pay (Numerator)"
+      }
     },
     {
       "id": "denominator",
       "label": "Payda (Denominator)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Kesrin payda değeri"
+      "businessContext": "Kesrin payda değeri",
+      "label_i18n": {
+        "en": "Payda (Denominator)",
+        "tr": "Payda (Denominator)",
+        "de": "Payda (Denominator)",
+        "fr": "Payda (Denominator)",
+        "es": "Payda (Denominator)",
+        "ar": "Payda (Denominator)"
+      }
     },
     {
       "id": "multiplier",
       "label": "Çarpan (Multiplier)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Genişletme çarpanı"
+      "businessContext": "Genişletme çarpanı",
+      "label_i18n": {
+        "en": "Çarpan (Multiplier)",
+        "tr": "Çarpan (Multiplier)",
+        "de": "Çarpan (Multiplier)",
+        "fr": "Çarpan (Multiplier)",
+        "es": "Çarpan (Multiplier)",
+        "ar": "Çarpan (Multiplier)"
+      }
     }
   ],
   "formulas": {
     "equivalentNumerator": "numerator * multiplier",
     "equivalentDenominator": "denominator * multiplier",
-    "decimalValue": "numerator / denominator"
+    "decimalValue": "numerator / denominator",
+    "__numerator____denominator_": "${numerator}/${denominator}",
+    "__multiplier_": "${multiplier}",
+    "__decimalValue_": "${decimalValue}",
+    "result": "Eşdeğer kesir: ${equivalentNumerator}/${equivalentDenominator}"
   },
   "outputs": {
-    "primary": "Eşdeğer kesir: ${equivalentNumerator}/${equivalentDenominator}",
+    "primary": "result",
     "breakdown": [
       "Orijinal kesir: ${numerator}/${denominator}",
       "Çarpan: ${multiplier}",
       "Ondalık değer: ${decimalValue}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

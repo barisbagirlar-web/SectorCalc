@@ -29,13 +29,16 @@ function evaluateAllFormulas(input: Heat_exchanger_designInput): Record<string, 
   try { const v = input.tempColdIn + ((results["heatDuty"] ?? 0) / (input.massFlowCold * input.cpCold * 1000)); results["tempColdOut"] = Number.isFinite(v) ? v : 0; } catch { results["tempColdOut"] = 0; }
   try { const v = ((input.tempHotIn - (results["tempColdOut"] ?? 0)) - (input.tempHotOut - input.tempColdIn)) / Math.log((input.tempHotIn - (results["tempColdOut"] ?? 0)) / (input.tempHotOut - input.tempColdIn)); results["lmtd"] = Number.isFinite(v) ? v : 0; } catch { results["lmtd"] = 0; }
   try { const v = (results["heatDuty"] ?? 0) / (input.overallHeatTransferCoeff * (results["lmtd"] ?? 0)); results["area"] = Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
+  results["_heatDuty__W"] = 0;
+  results["_tempColdOut___C"] = 0;
+  results["_lmtd___C"] = 0;
   return results;
 }
 
 
 export function calculateHeat_exchanger_design(input: Heat_exchanger_designInput): Heat_exchanger_designOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Required"] ?? 0;
+  const totalWasteCost = values["heatDuty"] ?? 0;
   const breakdown = {
     
   };

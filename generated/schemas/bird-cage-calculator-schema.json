@@ -51,11 +51,7 @@
     "totalWeight": "wireVolume * 7.85 / 1000"
   },
   "outputs": {
-    "primary": {
-      "label": "Total Wire Length",
-      "value": "totalWireLength",
-      "unit": "m"
-    },
+    "primary": "surfaceArea",
     "breakdown": [
       {
         "label": "Mesh Surface Area",
@@ -74,10 +70,10 @@
       }
     ]
   },
-  "category": "Malzeme, Fire & OEE",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

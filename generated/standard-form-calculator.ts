@@ -20,6 +20,8 @@ function evaluateAllFormulas(input: Standard_form_calculatorInput): Record<strin
   try { const v = input.number === 0 ? 0 : (input.notationMode === 0 ? Math.floor(Math.log10(Math.abs(input.number))) : Math.floor(Math.log10(Math.abs(input.number)) / 3) * 3); results["exponent"] = Number.isFinite(v) ? v : 0; } catch { results["exponent"] = 0; }
   try { const v = (function() { if (number === 0) return 0; var exp = number === 0 ? 0 : (notationMode === 0 ? Math.floor(Math.log10(Math.abs(number))) : Math.floor(Math.log10(Math.abs(number)) / 3) * 3); var m = number / Math.pow(10, exp); if (m === 0) return 0; var d = Math.ceil(Math.log10(Math.abs(m))); var power = sigFig - d; var mag = Math.pow(10, power); return Math.round(m * mag) / mag; })(); results["mantissa"] = Number.isFinite(v) ? v : 0; } catch { results["mantissa"] = 0; }
   try { const v = (results["mantissa"] ?? 0) + ' × 10^' + (results["exponent"] ?? 0); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = String((results["mantissa"] ?? 0)); results["String_mantissa_"] = Number.isFinite(v) ? v : 0; } catch { results["String_mantissa_"] = 0; }
+  try { const v = String((results["exponent"] ?? 0)); results["String_exponent_"] = Number.isFinite(v) ? v : 0; } catch { results["String_exponent_"] = 0; }
   return results;
 }
 

@@ -40,12 +40,7 @@
     "timeTo95": "-(Math.log(0.05)) / learningRate"
   },
   "outputs": {
-    "primary": {
-      "id": "plateau",
-      "label": "Plato Performansı",
-      "unit": "birim/saat",
-      "formula": "plateau"
-    },
+    "primary": "plateau",
     "breakdown": [
       {
         "id": "approachPercent",
@@ -61,7 +56,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
-  "premiumRequired": false
+  "premiumRequired": false,
+  "categorySlug": "technology-ai-cloud-cyber",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

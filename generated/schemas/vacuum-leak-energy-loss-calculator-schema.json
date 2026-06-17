@@ -139,7 +139,7 @@
       "id": "include_carbon_cost",
       "label": "Include Carbon Cost Calculation",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "businessContext": "If enabled, calculates CO2 emissions and associated cost based on grid emission factor.",
       "label_i18n": {
@@ -226,189 +226,27 @@
     ]
   },
   "formulas": [
-    {
-      "id": "discharge_coefficient",
-      "label": "Discharge Coefficient (Cd)",
-      "description": "Selects the discharge coefficient based on leak type.",
-      "expression": "CASE leak_type WHEN 'round' THEN 0.62 WHEN 'sharp' THEN 0.85 WHEN 'long' THEN 0.50 END",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "orifice_area_m2",
-      "label": "Orifice Area (m²)",
-      "description": "Cross-sectional area of the leak orifice.",
-      "expression": "PI * (leak_diameter_mm / 2000)^2",
-      "unit": "m²"
-    },
-    {
-      "id": "absolute_pressure_pa",
-      "label": "Absolute Pressure (Pa)",
-      "description": "Absolute pressure at the leak (gauge + atmospheric).",
-      "expression": "(system_pressure_bar + 1.01325) * 100000",
-      "unit": "Pa"
-    },
-    {
-      "id": "air_density_kg_per_m3",
-      "label": "Air Density (kg/m³)",
-      "description": "Density of air at ambient temperature and absolute pressure (ideal gas law).",
-      "expression": "absolute_pressure_pa / (287.058 * (ambient_temperature_c + 273.15))",
-      "unit": "kg/m³"
-    },
-    {
-      "id": "mass_flow_rate_kg_per_s",
-      "label": "Mass Flow Rate (kg/s)",
-      "description": "Mass flow of air through the leak using orifice flow equation (choked flow assumed).",
-      "expression": "discharge_coefficient * orifice_area_m2 * SQRT(2 * air_density_kg_per_m3 * (absolute_pressure_pa - 101325))",
-      "unit": "kg/s"
-    },
-    {
-      "id": "volumetric_flow_rate_cfm",
-      "label": "Volumetric Flow Rate (cfm)",
-      "description": "Volumetric flow rate at standard conditions (1 atm, 20°C) converted to cfm.",
-      "expression": "mass_flow_rate_kg_per_s * (3600 / 1.225) * 0.5886",
-      "unit": "cfm"
-    },
-    {
-      "id": "power_loss_kw",
-      "label": "Power Loss (kW)",
-      "description": "Power required to compress the leaked air, based on specific power.",
-      "expression": "(volumetric_flow_rate_cfm / 100) * compressor_specific_power",
-      "unit": "kW"
-    },
-    {
-      "id": "annual_energy_loss_kwh",
-      "label": "Annual Energy Loss (kWh)",
-      "description": "Total energy lost per year due to the leak.",
-      "expression": "power_loss_kw * operating_hours_per_year",
-      "unit": "kWh"
-    },
-    {
-      "id": "annual_cost_usd",
-      "label": "Annual Cost (USD)",
-      "description": "Total cost of energy lost per year.",
-      "expression": "annual_energy_loss_kwh * electricity_cost_per_kwh",
-      "unit": "USD"
-    },
-    {
-      "id": "annual_co2_kg",
-      "label": "Annual CO2 Emissions (kg)",
-      "description": "CO2 emissions associated with the energy loss (if enabled).",
-      "expression": "CASE WHEN include_carbon_cost = true THEN annual_energy_loss_kwh * emission_factor_kg_co2_per_kwh ELSE 0 END",
-      "unit": "kg CO2"
-    },
-    {
-      "id": "annual_carbon_cost_usd",
-      "label": "Annual Carbon Cost (USD)",
-      "description": "Monetary cost of CO2 emissions at a social cost of carbon (assumed $50/tonne).",
-      "expression": "annual_co2_kg * 0.05",
-      "unit": "USD"
-    },
-    {
-      "id": "total_annual_cost_usd",
-      "label": "Total Annual Cost (USD)",
-      "description": "Sum of energy cost and carbon cost.",
-      "expression": "annual_cost_usd + annual_carbon_cost_usd",
-      "unit": "USD"
-    }
+    "leak_diameter_mm",
+    "leak_diameter_mm",
+    "leak_diameter_mm",
+    "leak_diameter_mm",
+    "leak_diameter_mm",
+    "leak_diameter_mm",
+    "leak_diameter_mm",
+    "leak_diameter_mm",
+    "leak_diameter_mm",
+    "leak_diameter_mm",
+    "leak_diameter_mm",
+    "leak_diameter_mm"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_cost_usd",
-      "label": "Total Annual Cost (USD)",
-      "value": null,
-      "unit": "USD",
-      "description": "Total annual cost including energy and carbon (if enabled)."
-    },
-    "breakdown": {
-      "annual_energy_loss_kwh": {
-        "label": "Annual Energy Loss (kWh)",
-        "value": null,
-        "unit": "kWh"
-      },
-      "annual_cost_usd": {
-        "label": "Annual Energy Cost (USD)",
-        "value": null,
-        "unit": "USD"
-      },
-      "annual_co2_kg": {
-        "label": "Annual CO2 Emissions (kg)",
-        "value": null,
-        "unit": "kg CO2"
-      },
-      "annual_carbon_cost_usd": {
-        "label": "Annual Carbon Cost (USD)",
-        "value": null,
-        "unit": "USD"
-      },
-      "power_loss_kw": {
-        "label": "Power Loss (kW)",
-        "value": null,
-        "unit": "kW"
-      },
-      "volumetric_flow_rate_cfm": {
-        "label": "Volumetric Flow Rate (cfm)",
-        "value": null,
-        "unit": "cfm"
-      },
-      "mass_flow_rate_kg_per_s": {
-        "label": "Mass Flow Rate (kg/s)",
-        "value": null,
-        "unit": "kg/s"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "leak_diameter_sensitivity",
-        "label": "Leak Diameter Sensitivity",
-        "description": "Small increases in leak diameter cause exponential increase in loss. A 1 mm increase can double the cost.",
-        "value": null,
-        "unit": "dimensionless"
-      },
-      {
-        "id": "pressure_sensitivity",
-        "label": "Pressure Sensitivity",
-        "description": "Higher system pressure increases mass flow proportionally. Reducing pressure by 1 bar can reduce loss by ~14%.",
-        "value": null,
-        "unit": "dimensionless"
-      },
-      {
-        "id": "operating_hours_sensitivity",
-        "label": "Operating Hours Sensitivity",
-        "description": "Reducing operating hours (e.g., shutdowns) directly reduces annual loss.",
-        "value": null,
-        "unit": "dimensionless"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": "high",
-        "description": "Perform ultrasonic leak detection survey to locate and tag all leaks. Target: repair leaks > 2 mm within 1 week."
-      },
-      {
-        "id": "action_2",
-        "priority": "medium",
-        "description": "Implement a leak management program with quarterly audits and repair KPIs (e.g., < 5% leakage rate)."
-      },
-      {
-        "id": "action_3",
-        "priority": "medium",
-        "description": "Consider installing variable speed drive (VSD) compressors to match supply with demand and reduce baseline leakage impact."
-      },
-      {
-        "id": "action_4",
-        "priority": "low",
-        "description": "Evaluate system pressure reduction: lowering pressure by 1 bar can save 7-10% in energy costs."
-      },
-      {
-        "id": "action_5",
-        "priority": "low",
-        "description": "Train maintenance staff on proper fitting, hose, and connection inspection to prevent future leaks."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",
-  "categorySlug": "sustainability-resource-esg"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
+  "toolName": "vacuum-leak-energy-loss-calculator"
 }

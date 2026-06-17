@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "TB",
       "default": 1,
-      "businessContext": "Tüm disklerin toplam ham depolama kapasitesi."
+      "businessContext": "Tüm disklerin toplam ham depolama kapasitesi.",
+      "label_i18n": {
+        "en": "Toplam Ham Kapasite (TB)",
+        "tr": "Toplam Ham Kapasite (TB)",
+        "de": "Toplam Ham Kapasite (TB)",
+        "fr": "Toplam Ham Kapasite (TB)",
+        "es": "Toplam Ham Kapasite (TB)",
+        "ar": "Toplam Ham Kapasite (TB)"
+      }
     },
     {
       "id": "raidUsableMultiplier",
       "label": "RAID Kullanılabilirlik Oranı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "RAID yapılandırmasına bağlı olarak kullanılabilir kapasitenin ham kapasiteye oranı. Örn: RAID 5 (n-1)/n, RAID 10 = 0.5."
+      "businessContext": "RAID yapılandırmasına bağlı olarak kullanılabilir kapasitenin ham kapasiteye oranı. Örn: RAID 5 (n-1)/n, RAID 10 = 0.5.",
+      "label_i18n": {
+        "en": "RAID Kullanılabilirlik Oranı",
+        "tr": "RAID Kullanılabilirlik Oranı",
+        "de": "RAID Kullanılabilirlik Oranı",
+        "fr": "RAID Kullanılabilirlik Oranı",
+        "es": "RAID Kullanılabilirlik Oranı",
+        "ar": "RAID Kullanılabilirlik Oranı"
+      }
     },
     {
       "id": "formatOverheadPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Dosya sistemi biçimlendirme ve metaveri için ayrılan alan yüzdesi."
+      "businessContext": "Dosya sistemi biçimlendirme ve metaveri için ayrılan alan yüzdesi.",
+      "label_i18n": {
+        "en": "Formatlama Kaybı (%)",
+        "tr": "Formatlama Kaybı (%)",
+        "de": "Formatlama Kaybı (%)",
+        "fr": "Formatlama Kaybı (%)",
+        "es": "Formatlama Kaybı (%)",
+        "ar": "Formatlama Kaybı (%)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TB/PB",
       "default": 1000,
-      "businessContext": "1 petabaytın kaç terabayt olduğu. SI: 1000, İkili: 1024."
+      "businessContext": "1 petabaytın kaç terabayt olduğu. SI: 1000, İkili: 1024.",
+      "label_i18n": {
+        "en": "PB Dönüşüm Katsayısı",
+        "tr": "PB Dönüşüm Katsayısı",
+        "de": "PB Dönüşüm Katsayısı",
+        "fr": "PB Dönüşüm Katsayısı",
+        "es": "PB Dönüşüm Katsayısı",
+        "ar": "PB Dönüşüm Katsayısı"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "rawPB"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

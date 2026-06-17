@@ -19,6 +19,8 @@ function evaluateAllFormulas(input: Total_cholesterol_calculatorInput): Record<s
   const results: Record<string, number> = {};
   try { const v = input.triglycerides / input.conversionFactor; results["vldl"] = Number.isFinite(v) ? v : 0; } catch { results["vldl"] = 0; }
   try { const v = input.hdl + input.ldl + (results["vldl"] ?? 0); results["totalCholesterol"] = Number.isFinite(v) ? v : 0; } catch { results["totalCholesterol"] = 0; }
+  try { const v = input.hdl; results["hdl"] = Number.isFinite(v) ? v : 0; } catch { results["hdl"] = 0; }
+  try { const v = input.ldl; results["ldl"] = Number.isFinite(v) ? v : 0; } catch { results["ldl"] = 0; }
   return results;
 }
 

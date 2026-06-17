@@ -48,11 +48,7 @@
     "totalExcavationVolume": "swellVolume * (1 + wasteFactor/100)"
   },
   "outputs": {
-    "primary": {
-      "id": "totalExcavationVolume",
-      "label": "Toplam Kazı Hacmi",
-      "unit": "m³"
-    },
+    "primary": "originalVolume",
     "breakdown": [
       {
         "id": "originalVolume",
@@ -71,7 +67,7 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

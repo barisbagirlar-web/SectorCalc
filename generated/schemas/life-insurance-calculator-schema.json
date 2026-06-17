@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the insured person in years"
+      "businessContext": "Age of the insured person in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "coverageAmount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Total coverage amount (death benefit) in USD"
+      "businessContext": "Total coverage amount (death benefit) in USD",
+      "label_i18n": {
+        "en": "Coverage Amount",
+        "tr": "Coverage Amount",
+        "de": "Coverage Amount",
+        "fr": "Coverage Amount",
+        "es": "Coverage Amount",
+        "ar": "Coverage Amount"
+      }
     },
     {
       "id": "term",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Length of the policy term in years"
+      "businessContext": "Length of the policy term in years",
+      "label_i18n": {
+        "en": "Term Length",
+        "tr": "Term Length",
+        "de": "Term Length",
+        "fr": "Term Length",
+        "es": "Term Length",
+        "ar": "Term Length"
+      }
     },
     {
       "id": "smokingStatus",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "0 for non-smoker, 1 for smoker"
+      "businessContext": "0 for non-smoker, 1 for smoker",
+      "label_i18n": {
+        "en": "Smoking Status",
+        "tr": "Smoking Status",
+        "de": "Smoking Status",
+        "fr": "Smoking Status",
+        "es": "Smoking Status",
+        "ar": "Smoking Status"
+      }
     },
     {
       "id": "gender",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "0 for male, 1 for female (used for risk adjustment)"
+      "businessContext": "0 for male, 1 for female (used for risk adjustment)",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "healthScore",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "points",
       "default": 80,
-      "businessContext": "Health score from 0-100, higher is better"
+      "businessContext": "Health score from 0-100, higher is better",
+      "label_i18n": {
+        "en": "Health Score",
+        "tr": "Health Score",
+        "de": "Health Score",
+        "fr": "Health Score",
+        "es": "Health Score",
+        "ar": "Health Score"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +104,17 @@
     "smokerLoading": "smokingStatus * 2",
     "healthLoading": "(100 - healthScore) * 0.05",
     "annualPremium": "(coverageAmount / 1000) * (baseRate + ageLoading + smokerLoading + healthLoading)",
-    "monthlyPremium": "annualPremium / 12"
+    "monthlyPremium": "annualPremium / 12",
+    "_____coverageAmount___1000____baseRate__": "$${((coverageAmount / 1000) * baseRate).toFixed(2)}/year",
+    "_____coverageAmount___1000____ageLoading": "$${((coverageAmount / 1000) * ageLoading).toFixed(2)}/year",
+    "_____coverageAmount___1000____smokerLoad": "$${((coverageAmount / 1000) * smokerLoading).toFixed(2)}/year",
+    "_____coverageAmount___1000____healthLoad": "$${((coverageAmount / 1000) * healthLoading).toFixed(2)}/year",
+    "___annualPremium_toFixed_2___year": "$${annualPremium.toFixed(2)}/year",
+    "___monthlyPremium_toFixed_2___month": "$${monthlyPremium.toFixed(2)}/month",
+    "result": "`$${monthlyPremium.toFixed(2)}/month`"
   },
   "outputs": {
-    "primary": "`$${monthlyPremium.toFixed(2)}/month`",
+    "primary": "result",
     "breakdown": [
       "Base Premium: $${((coverageAmount / 1000) * baseRate).toFixed(2)}/year",
       "Age Loading: $${((coverageAmount / 1000) * ageLoading).toFixed(2)}/year",
@@ -69,10 +124,10 @@
       "Monthly Premium: $${monthlyPremium.toFixed(2)}/month"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

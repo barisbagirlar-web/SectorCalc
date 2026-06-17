@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Length of the beam"
+      "businessContext": "Length of the beam",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Width of the cross-section"
+      "businessContext": "Width of the cross-section",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "Height of the cross-section"
+      "businessContext": "Height of the cross-section",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "density",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Material density (steel: 7850 kg/m³)"
+      "businessContext": "Material density (steel: 7850 kg/m³)",
+      "label_i18n": {
+        "en": "Density",
+        "tr": "Density",
+        "de": "Density",
+        "fr": "Density",
+        "es": "Density",
+        "ar": "Density"
+      }
     },
     {
       "id": "yieldStrength",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Material yield strength (e.g., 250 MPa for S235)"
+      "businessContext": "Material yield strength (e.g., 250 MPa for S235)",
+      "label_i18n": {
+        "en": "Yield Strength",
+        "tr": "Yield Strength",
+        "de": "Yield Strength",
+        "fr": "Yield Strength",
+        "es": "Yield Strength",
+        "ar": "Yield Strength"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Design safety factor (≥1.0)"
+      "businessContext": "Design safety factor (≥1.0)",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -58,19 +106,22 @@
     "weight": "width * height * length * density * 9.81",
     "maxMoment": "(yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor",
     "maxUniformLoad": "8 * ((yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor) / Math.pow(length, 2)",
-    "maxTotalLoad": "8 * ((yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor) / length"
+    "maxTotalLoad": "8 * ((yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor) / length",
+    "width___height___length___density___9_81": "width * height * length * density * 9.81",
+    "_yieldStrength___1e6_____width___Math_po": "(yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor",
+    "result": "8 * ((yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor) / length"
   },
   "outputs": {
-    "primary": "8 * ((yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor) / length",
+    "primary": "result",
     "breakdown": [
       "width * height * length * density * 9.81",
       "(yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "metal-plastics-forming"
 }

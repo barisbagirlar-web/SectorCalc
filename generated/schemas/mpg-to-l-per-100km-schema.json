@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mpg",
       "default": 25,
-      "businessContext": "Fuel efficiency in miles per gallon (US gallon)."
+      "businessContext": "Fuel efficiency in miles per gallon (US gallon).",
+      "label_i18n": {
+        "en": "Miles per Gallon (MPG)",
+        "tr": "Miles per Gallon (MPG)",
+        "de": "Miles per Gallon (MPG)",
+        "fr": "Miles per Gallon (MPG)",
+        "es": "Miles per Gallon (MPG)",
+        "ar": "Miles per Gallon (MPG)"
+      }
     },
     {
       "id": "fuelType",
@@ -15,11 +23,44 @@
       "type": "number",
       "unit": "factor",
       "default": 1,
-      "businessContext": "Conversion factor for fuel type: 1 for gasoline, 0.9 for diesel, 1.1 for LPG."
+      "businessContext": "Conversion factor for fuel type: 1 for gasoline, 0.9 for diesel, 1.1 for LPG.",
+      "label_i18n": {
+        "en": "Fuel Type",
+        "tr": "Fuel Type",
+        "de": "Fuel Type",
+        "fr": "Fuel Type",
+        "es": "Fuel Type",
+        "ar": "Fuel Type"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
-    "litersPer100km": "235.214583 / (mpg * fuelType)"
+    "litersPer100km": "235.214583 / (mpg * fuelType)",
+    "litersPer100km___235_214583____mpg___fue": "litersPer100km = 235.214583 / (mpg * fuelType)"
   },
   "outputs": {
     "primary": "litersPer100km",
@@ -27,10 +68,10 @@
       "litersPer100km = 235.214583 / (mpg * fuelType)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "maintenance-reliability"
 }

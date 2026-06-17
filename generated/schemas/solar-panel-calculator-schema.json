@@ -74,11 +74,7 @@
     "co2Reduction": "annualEnergy * 0.5"
   },
   "outputs": {
-    "primary": {
-      "id": "annualEnergy",
-      "label": "Annual Energy Production",
-      "unit": "kWh"
-    },
+    "primary": "peakPower",
     "breakdown": [
       {
         "id": "peakPower",
@@ -102,7 +98,7 @@
       }
     ]
   },
-  "category": "Enerji & Karbon",
+  "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "ecology-environment",

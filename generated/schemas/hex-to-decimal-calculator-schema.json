@@ -5,37 +5,73 @@
       "id": "hexDigit0",
       "label": "Hex Digit (16^0)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Least significant hexadecimal digit (0-15)"
+      "businessContext": "Least significant hexadecimal digit (0-15)",
+      "label_i18n": {
+        "en": "Hex Digit (16^0)",
+        "tr": "Hex Digit (16^0)",
+        "de": "Hex Digit (16^0)",
+        "fr": "Hex Digit (16^0)",
+        "es": "Hex Digit (16^0)",
+        "ar": "Hex Digit (16^0)"
+      }
     },
     {
       "id": "hexDigit1",
       "label": "Hex Digit (16^1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second hexadecimal digit (0-15)"
+      "businessContext": "Second hexadecimal digit (0-15)",
+      "label_i18n": {
+        "en": "Hex Digit (16^1)",
+        "tr": "Hex Digit (16^1)",
+        "de": "Hex Digit (16^1)",
+        "fr": "Hex Digit (16^1)",
+        "es": "Hex Digit (16^1)",
+        "ar": "Hex Digit (16^1)"
+      }
     },
     {
       "id": "hexDigit2",
       "label": "Hex Digit (16^2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third hexadecimal digit (0-15)"
+      "businessContext": "Third hexadecimal digit (0-15)",
+      "label_i18n": {
+        "en": "Hex Digit (16^2)",
+        "tr": "Hex Digit (16^2)",
+        "de": "Hex Digit (16^2)",
+        "fr": "Hex Digit (16^2)",
+        "es": "Hex Digit (16^2)",
+        "ar": "Hex Digit (16^2)"
+      }
     },
     {
       "id": "hexDigit3",
       "label": "Hex Digit (16^3)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Most significant hexadecimal digit (0-15)"
+      "businessContext": "Most significant hexadecimal digit (0-15)",
+      "label_i18n": {
+        "en": "Hex Digit (16^3)",
+        "tr": "Hex Digit (16^3)",
+        "de": "Hex Digit (16^3)",
+        "fr": "Hex Digit (16^3)",
+        "es": "Hex Digit (16^3)",
+        "ar": "Hex Digit (16^3)"
+      }
     }
   ],
   "formulas": {
-    "decimal": "inputs.hexDigit0 + inputs.hexDigit1 * 16 + inputs.hexDigit2 * 16**2 + inputs.hexDigit3 * 16**3"
+    "decimal": "inputs.hexDigit0 + inputs.hexDigit1 * 16 + inputs.hexDigit2 * 16**2 + inputs.hexDigit3 * 16**3",
+    "hexDigit0___1": "hexDigit0 * 1",
+    "hexDigit1___16": "hexDigit1 * 16",
+    "hexDigit2___256": "hexDigit2 * 256",
+    "hexDigit3___4096": "hexDigit3 * 4096"
   },
   "outputs": {
     "primary": "decimal",
@@ -46,10 +82,10 @@
       "hexDigit3 * 4096"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

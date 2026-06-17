@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Total length of roofline requiring fascia boards"
+      "businessContext": "Total length of roofline requiring fascia boards",
+      "label_i18n": {
+        "en": "Total roof length",
+        "tr": "Total roof length",
+        "de": "Total roof length",
+        "fr": "Total roof length",
+        "es": "Total roof length",
+        "ar": "Total roof length"
+      }
     },
     {
       "id": "fasciaBoardLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3.6,
-      "businessContext": "Length of a single fascia board"
+      "businessContext": "Length of a single fascia board",
+      "label_i18n": {
+        "en": "Fascia board length",
+        "tr": "Fascia board length",
+        "de": "Fascia board length",
+        "fr": "Fascia board length",
+        "es": "Fascia board length",
+        "ar": "Fascia board length"
+      }
     },
     {
       "id": "overlap",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.05,
-      "businessContext": "Overlap length per joint between boards"
+      "businessContext": "Overlap length per joint between boards",
+      "label_i18n": {
+        "en": "Overlap",
+        "tr": "Overlap",
+        "de": "Overlap",
+        "fr": "Overlap",
+        "es": "Overlap",
+        "ar": "Overlap"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Waste percentage to account for cuts and errors"
+      "businessContext": "Waste percentage to account for cuts and errors",
+      "label_i18n": {
+        "en": "Waste factor",
+        "tr": "Waste factor",
+        "de": "Waste factor",
+        "fr": "Waste factor",
+        "es": "Waste factor",
+        "ar": "Waste factor"
+      }
     },
     {
       "id": "pricePerBoard",
@@ -39,17 +71,32 @@
       "type": "number",
       "unit": "$",
       "default": 20,
-      "businessContext": "Unit price of each fascia board"
+      "businessContext": "Unit price of each fascia board",
+      "label_i18n": {
+        "en": "Price per board",
+        "tr": "Price per board",
+        "de": "Price per board",
+        "fr": "Price per board",
+        "es": "Price per board",
+        "ar": "Price per board"
+      }
     }
   ],
   "formulas": {
     "effectiveLength": "fasciaBoardLength - overlap",
     "boardsNeeded": "Math.ceil(totalRoofLength / effectiveLength)",
     "totalBoards": "Math.ceil(boardsNeeded * (1 + wasteFactor / 100))",
-    "totalCost": "totalBoards * pricePerBoard"
+    "totalCost": "totalBoards * pricePerBoard",
+    "__fasciaBoardLength__m": "${fasciaBoardLength} m",
+    "__effectiveLength__m": "${effectiveLength} m",
+    "__boardsNeeded_": "${boardsNeeded}",
+    "__wasteFactor__": "${wasteFactor}%",
+    "__totalBoards_": "${totalBoards}",
+    "___pricePerBoard_": "$${pricePerBoard}",
+    "___totalCost_": "$${totalCost}"
   },
   "outputs": {
-    "primary": "Total cost: $${totalCost}",
+    "primary": "effectiveLength",
     "breakdown": [
       "Fascia board length: ${fasciaBoardLength} m",
       "Effective length per board (with overlap): ${effectiveLength} m",
@@ -60,7 +107,7 @@
       "Total cost: $${totalCost}"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

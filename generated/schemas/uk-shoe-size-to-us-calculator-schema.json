@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "UK size",
       "default": 8,
-      "businessContext": "The shoe size measured in the UK system."
+      "businessContext": "The shoe size measured in the UK system.",
+      "label_i18n": {
+        "en": "UK Shoe Size",
+        "tr": "UK Shoe Size",
+        "de": "UK Shoe Size",
+        "fr": "UK Shoe Size",
+        "es": "UK Shoe Size",
+        "ar": "UK Shoe Size"
+      }
     },
     {
       "id": "gender",
       "label": "Gender (0=Men, 1=Women)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Select 0 for men's sizing or 1 for women's sizing."
+      "businessContext": "Select 0 for men's sizing or 1 for women's sizing.",
+      "label_i18n": {
+        "en": "Gender (0=Men, 1=Women)",
+        "tr": "Gender (0=Men, 1=Women)",
+        "de": "Gender (0=Men, 1=Women)",
+        "fr": "Gender (0=Men, 1=Women)",
+        "es": "Gender (0=Men, 1=Women)",
+        "ar": "Gender (0=Men, 1=Women)"
+      }
     },
     {
       "id": "adjustment",
       "label": "Adjustment Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fine-tuning offset for brand-specific variations."
+      "businessContext": "Fine-tuning offset for brand-specific variations.",
+      "label_i18n": {
+        "en": "Adjustment Factor",
+        "tr": "Adjustment Factor",
+        "de": "Adjustment Factor",
+        "fr": "Adjustment Factor",
+        "es": "Adjustment Factor",
+        "ar": "Adjustment Factor"
+      }
     },
     {
       "id": "rounding",
       "label": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Choose rounding style: floor, nearest integer, or ceiling."
+      "businessContext": "Choose rounding style: floor, nearest integer, or ceiling.",
+      "label_i18n": {
+        "en": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
+        "tr": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
+        "de": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
+        "fr": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
+        "es": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
+        "ar": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "rawSize"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

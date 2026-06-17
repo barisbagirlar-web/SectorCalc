@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Mass of the load to be supported"
+      "businessContext": "Mass of the load to be supported",
+      "label_i18n": {
+        "en": "Load Mass",
+        "tr": "Load Mass",
+        "de": "Load Mass",
+        "fr": "Load Mass",
+        "es": "Load Mass",
+        "ar": "Load Mass"
+      }
     },
     {
       "id": "gravity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Gravitational acceleration (standard 9.81 m/s²)"
+      "businessContext": "Gravitational acceleration (standard 9.81 m/s²)",
+      "label_i18n": {
+        "en": "Gravity",
+        "tr": "Gravity",
+        "de": "Gravity",
+        "fr": "Gravity",
+        "es": "Gravity",
+        "ar": "Gravity"
+      }
     },
     {
       "id": "angle",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "°",
       "default": 45,
-      "businessContext": "Angle of ropes/cables from horizontal"
+      "businessContext": "Angle of ropes/cables from horizontal",
+      "label_i18n": {
+        "en": "Angle from Horizontal",
+        "tr": "Angle from Horizontal",
+        "de": "Angle from Horizontal",
+        "fr": "Angle from Horizontal",
+        "es": "Angle from Horizontal",
+        "ar": "Angle from Horizontal"
+      }
     },
     {
       "id": "numberOfRopes",
       "label": "Number of Ropes",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of supporting ropes or cables"
+      "businessContext": "Number of supporting ropes or cables",
+      "label_i18n": {
+        "en": "Number of Ropes",
+        "tr": "Number of Ropes",
+        "de": "Number of Ropes",
+        "fr": "Number of Ropes",
+        "es": "Number of Ropes",
+        "ar": "Number of Ropes"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Engineering safety factor per relevant standards"
+      "businessContext": "Engineering safety factor per relevant standards",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -53,10 +93,10 @@
       "tensionWithSafety"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "hse-ergonomics"
 }

@@ -7,20 +7,62 @@
       "type": "number",
       "unit": "lb",
       "default": 1,
-      "businessContext": "Weight in pounds to be converted to ounces."
+      "businessContext": "Weight in pounds to be converted to ounces.",
+      "label_i18n": {
+        "en": "Pounds",
+        "tr": "Pounds",
+        "de": "Pounds",
+        "fr": "Pounds",
+        "es": "Pounds",
+        "ar": "Pounds"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the result."
+      "businessContext": "Number of decimal places for the result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
     "ounces": "pounds * 16",
-    "roundedOunces": "Math.round(ounces * 10 ** decimalPlaces) / 10 ** decimalPlaces"
+    "roundedOunces": "Math.round(ounces * 10 ** decimalPlaces) / 10 ** decimalPlaces",
+    "ounces___pounds___16": "ounces = pounds * 16",
+    "roundedOunces___Math_round_ounces___10__": "roundedOunces = Math.round(ounces * 10 ** decimalPlaces) / 10 ** decimalPlaces"
   },
   "outputs": {
     "primary": "roundedOunces",
@@ -29,7 +71,7 @@
       "roundedOunces = Math.round(ounces * 10 ** decimalPlaces) / 10 ** decimalPlaces"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",

@@ -5,33 +5,65 @@
       "id": "n",
       "label": "Number (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "The non-negative integer for which factorial is to be calculated."
+      "businessContext": "The non-negative integer for which factorial is to be calculated.",
+      "label_i18n": {
+        "en": "Number (n)",
+        "tr": "Number (n)",
+        "de": "Number (n)",
+        "fr": "Number (n)",
+        "es": "Number (n)",
+        "ar": "Number (n)"
+      }
     },
     {
       "id": "reserved1",
       "label": "Reserved 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Reserved for future use."
+      "businessContext": "Reserved for future use.",
+      "label_i18n": {
+        "en": "Reserved 1",
+        "tr": "Reserved 1",
+        "de": "Reserved 1",
+        "fr": "Reserved 1",
+        "es": "Reserved 1",
+        "ar": "Reserved 1"
+      }
     },
     {
       "id": "reserved2",
       "label": "Reserved 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Reserved for future use."
+      "businessContext": "Reserved for future use.",
+      "label_i18n": {
+        "en": "Reserved 2",
+        "tr": "Reserved 2",
+        "de": "Reserved 2",
+        "fr": "Reserved 2",
+        "es": "Reserved 2",
+        "ar": "Reserved 2"
+      }
     },
     {
       "id": "reserved3",
       "label": "Reserved 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Reserved for future use."
+      "businessContext": "Reserved for future use.",
+      "label_i18n": {
+        "en": "Reserved 3",
+        "tr": "Reserved 3",
+        "de": "Reserved 3",
+        "fr": "Reserved 3",
+        "es": "Reserved 3",
+        "ar": "Reserved 3"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "steps"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

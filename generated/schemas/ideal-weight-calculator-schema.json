@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 5,
-      "businessContext": "Height in feet"
+      "businessContext": "Height in feet",
+      "label_i18n": {
+        "en": "Height (feet)",
+        "tr": "Height (feet)",
+        "de": "Height (feet)",
+        "fr": "Height (feet)",
+        "es": "Height (feet)",
+        "ar": "Height (feet)"
+      }
     },
     {
       "id": "height_in",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Additional inches"
+      "businessContext": "Additional inches",
+      "label_i18n": {
+        "en": "Height (inches)",
+        "tr": "Height (inches)",
+        "de": "Height (inches)",
+        "fr": "Height (inches)",
+        "es": "Height (inches)",
+        "ar": "Height (inches)"
+      }
     },
     {
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1=Male, 2=Female"
+      "businessContext": "1=Male, 2=Female",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "body_frame",
       "label": "Body Frame",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "1=Small, 2=Medium, 3=Large"
+      "businessContext": "1=Small, 2=Medium, 3=Large",
+      "label_i18n": {
+        "en": "Body Frame",
+        "tr": "Body Frame",
+        "de": "Body Frame",
+        "fr": "Body Frame",
+        "es": "Body Frame",
+        "ar": "Body Frame"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "bmi"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

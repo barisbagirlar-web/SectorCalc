@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Internal cylinder diameter"
+      "businessContext": "Internal cylinder diameter",
+      "label_i18n": {
+        "en": "Bore Diameter (mm)",
+        "tr": "Bore Diameter (mm)",
+        "de": "Bore Diameter (mm)",
+        "fr": "Bore Diameter (mm)",
+        "es": "Bore Diameter (mm)",
+        "ar": "Bore Diameter (mm)"
+      }
     },
     {
       "id": "stroke",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Cylinder stroke length"
+      "businessContext": "Cylinder stroke length",
+      "label_i18n": {
+        "en": "Stroke Length (mm)",
+        "tr": "Stroke Length (mm)",
+        "de": "Stroke Length (mm)",
+        "fr": "Stroke Length (mm)",
+        "es": "Stroke Length (mm)",
+        "ar": "Stroke Length (mm)"
+      }
     },
     {
       "id": "pressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bar",
       "default": 6,
-      "businessContext": "Gauge working pressure"
+      "businessContext": "Gauge working pressure",
+      "label_i18n": {
+        "en": "Operating Pressure (bar)",
+        "tr": "Operating Pressure (bar)",
+        "de": "Operating Pressure (bar)",
+        "fr": "Operating Pressure (bar)",
+        "es": "Operating Pressure (bar)",
+        "ar": "Operating Pressure (bar)"
+      }
     },
     {
       "id": "cyclesPerMinute",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cycles/min",
       "default": 10,
-      "businessContext": "Complete extend-retract cycles per minute"
+      "businessContext": "Complete extend-retract cycles per minute",
+      "label_i18n": {
+        "en": "Cycles per Minute",
+        "tr": "Cycles per Minute",
+        "de": "Cycles per Minute",
+        "fr": "Cycles per Minute",
+        "es": "Cycles per Minute",
+        "ar": "Cycles per Minute"
+      }
     },
     {
       "id": "atmospheric",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "bar",
       "default": 1.013,
-      "businessContext": "Local atmospheric pressure, default 1.013 bar at sea level"
+      "businessContext": "Local atmospheric pressure, default 1.013 bar at sea level",
+      "label_i18n": {
+        "en": "Atmospheric Pressure (bar)",
+        "tr": "Atmospheric Pressure (bar)",
+        "de": "Atmospheric Pressure (bar)",
+        "fr": "Atmospheric Pressure (bar)",
+        "es": "Atmospheric Pressure (bar)",
+        "ar": "Atmospheric Pressure (bar)"
+      }
     },
     {
       "id": "actingFactor",
       "label": "Acting Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "1 for single-acting, 2 for double-acting cylinder"
+      "businessContext": "1 for single-acting, 2 for double-acting cylinder",
+      "label_i18n": {
+        "en": "Acting Factor",
+        "tr": "Acting Factor",
+        "de": "Acting Factor",
+        "fr": "Acting Factor",
+        "es": "Acting Factor",
+        "ar": "Acting Factor"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "totalConsumptionMM3"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

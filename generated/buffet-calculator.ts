@@ -32,7 +32,7 @@ function evaluateAllFormulas(input: Buffet_calculatorInput): Record<string, numb
 
 export function calculateBuffet_calculator(input: Buffet_calculatorInput): Buffet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["profitMargin"] ?? 0;
+  const totalWasteCost = values["totalRevenue"] ?? 0;
   const breakdown = {
     
   };

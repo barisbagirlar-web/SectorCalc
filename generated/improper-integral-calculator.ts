@@ -18,13 +18,17 @@ export const Improper_integral_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Improper_integral_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.B > 0 ? (input.A * Math.exp(-input.B * (input.a - input.x0))) / input.B : NaN; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = -input.B * (input.a - input.x0); results["_B____a___x0_"] = Number.isFinite(v) ? v : 0; } catch { results["_B____a___x0_"] = 0; }
+  try { const v = Math.exp(-input.B * (input.a - input.x0)); results["Math_exp__B____a___x0__"] = Number.isFinite(v) ? v : 0; } catch { results["Math_exp__B____a___x0__"] = 0; }
+  try { const v = (input.A * Math.exp(-input.B * (input.a - input.x0))) / input.B; results["_A___Math_exp__B____a___x0______B"] = Number.isFinite(v) ? v : 0; } catch { results["_A___Math_exp__B____a___x0______B"] = 0; }
+  try { const v = input.B > 0 ? (input.A * Math.exp(-input.B * (input.a - input.x0))) / input.B : NaN; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateImproper_integral_calculator(input: Improper_integral_calculatorInput): Improper_integral_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["B"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

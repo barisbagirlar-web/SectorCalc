@@ -31,7 +31,7 @@ function evaluateAllFormulas(input: Degree_sequence_calculatorInput): Record<str
 
 export function calculateDegree_sequence_calculator(input: Degree_sequence_calculatorInput): Degree_sequence_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["edges"] ?? 0;
+  const totalWasteCost = values["sum"] ?? 0;
   const breakdown = {
     
   };

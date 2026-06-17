@@ -27,13 +27,17 @@ function evaluateAllFormulas(input: Monopoly_probabilityInput): Record<string, n
   try { const v = 1 - (results["probLandOnTargetOneTurn"] ?? 0); results["probNotLandOnTargetOneTurn"] = Number.isFinite(v) ? v : 0; } catch { results["probNotLandOnTargetOneTurn"] = 0; }
   try { const v = 1 - Math.pow((results["probNotLandOnTargetOneTurn"] ?? 0), input.turns); results["probLandAtLeastOnce"] = Number.isFinite(v) ? v : 0; } catch { results["probLandAtLeastOnce"] = 0; }
   try { const v = input.turns / input.boardSpaces; results["expectedLandings"] = Number.isFinite(v) ? v : 0; } catch { results["expectedLandings"] = 0; }
+  results["Mean_dice_roll_per_turn"] = 0;
+  results["Standard_deviation_of_dice_roll"] = 0;
+  results["Probability_per_turn"] = 0;
+  results["Expected_number_of_landings"] = 0;
   return results;
 }
 
 
 export function calculateMonopoly_probability(input: Monopoly_probabilityInput): Monopoly_probabilityOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Probability"] ?? 0;
+  const totalWasteCost = values["meanRoll"] ?? 0;
   const breakdown = {
     
   };

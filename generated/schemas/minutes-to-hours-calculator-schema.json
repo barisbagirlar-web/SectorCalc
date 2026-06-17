@@ -7,51 +7,82 @@
       "type": "number",
       "unit": "min",
       "default": 60,
-      "businessContext": "Total duration in minutes to convert to hours"
+      "businessContext": "Total duration in minutes to convert to hours",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "decPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the primary decimal hour output"
+      "businessContext": "Number of decimal places for the primary decimal hour output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "fmt",
       "label": "Output Format (0=Decimal, 1=HH:MM)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Indicates if output should be decimal hours (0) or hours and minutes (1)"
+      "businessContext": "Indicates if output should be decimal hours (0) or hours and minutes (1)",
+      "label_i18n": {
+        "en": "Output Format (0=Decimal, 1=HH:MM)",
+        "tr": "Output Format (0=Decimal, 1=HH:MM)",
+        "de": "Output Format (0=Decimal, 1=HH:MM)",
+        "fr": "Output Format (0=Decimal, 1=HH:MM)",
+        "es": "Output Format (0=Decimal, 1=HH:MM)",
+        "ar": "Output Format (0=Decimal, 1=HH:MM)"
+      }
     },
     {
       "id": "rndMode",
       "label": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Rounding method applied to the decimal hour output"
+      "businessContext": "Rounding method applied to the decimal hour output",
+      "label_i18n": {
+        "en": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "tr": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "de": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "fr": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "es": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "ar": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)"
+      }
     }
   ],
   "formulas": {
     "primary": "rndMode == 0 ? Math.round(inputMinutes/60 * Math.pow(10, decPlaces)) / Math.pow(10, decPlaces) : (rndMode == 1 ? Math.floor(inputMinutes/60 * Math.pow(10, decPlaces)) / Math.pow(10, decPlaces) : Math.ceil(inputMinutes/60 * Math.pow(10, decPlaces)) / Math.pow(10, decPlaces))",
-    "breakdown": [
-      "Math.floor(inputMinutes / 60)",
-      "inputMinutes % 60"
-    ]
+    "breakdown": "inputMinutes",
+    "hours": "hours",
+    "minutes": "minutes"
   },
   "outputs": {
-    "primary": "decimal hours",
+    "primary": "primary",
     "breakdown": [
       "hours",
       "minutes"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

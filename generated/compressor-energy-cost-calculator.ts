@@ -29,31 +29,19 @@ export const Compressor_energy_cost_calculatorInputSchema = z.object({
   maintenance_quality: z.enum(['poor', 'standard', 'excellent']).default('standard'),
 });
 
-function evaluateAllFormulas(input: Compressor_energy_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.compressor_power_rating / (input.motor_efficiency / 100); results["actual_power_input"] = Number.isFinite(v) ? v : 0; } catch { results["actual_power_input"] = 0; }
-  try { const v = (results["actual_power_input"] ?? 0) * input.operating_hours_per_year * (input.load_factor / 100); results["annual_energy_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_consumption"] = 0; }
-  try { const v = (results["annual_energy_consumption"] ?? 0) * (input.leakage_percentage / 100); results["leakage_energy_loss"] = Number.isFinite(v) ? v : 0; } catch { results["leakage_energy_loss"] = 0; }
-  try { const v = 1 + ((input.pressure_setpoint - 6) * 0.01 / 0.1); results["pressure_penalty_factor"] = Number.isFinite(v) ? v : 0; } catch { results["pressure_penalty_factor"] = 0; }
-  try { const v = 1 + ((input.ambient_temperature - 20) * 0.005); results["temperature_correction_factor"] = Number.isFinite(v) ? v : 0; } catch { results["temperature_correction_factor"] = 0; }
-  try { const v = input.has_vsd ? 0.85 : 1.0; results["vsd_efficiency_factor"] = Number.isFinite(v) ? v : 0; } catch { results["vsd_efficiency_factor"] = 0; }
-  try { const v = (input.maintenance_quality === 'poor' ? 1.15 : (input.maintenance_quality === 'standard' ? 1.05 : (input.maintenance_quality === 'excellent' ? 1.0 : 0))); results["maintenance_penalty_factor"] = Number.isFinite(v) ? v : 0; } catch { results["maintenance_penalty_factor"] = 0; }
-  try { const v = (results["annual_energy_consumption"] ?? 0) * (results["pressure_penalty_factor"] ?? 0) * (results["temperature_correction_factor"] ?? 0) * (results["vsd_efficiency_factor"] ?? 0) * (results["maintenance_penalty_factor"] ?? 0); results["adjusted_annual_energy"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_annual_energy"] = 0; }
-  try { const v = (results["adjusted_annual_energy"] ?? 0) * input.electricity_cost_per_kwh; results["total_annual_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_energy_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Compressor_energy_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateCompressor_energy_cost_calculator(input: Compressor_energy_cost_calculatorInput): Compressor_energy_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_annual_energy_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    id: values["id"] ?? 0,
-    label: values["label"] ?? 0,
-    components: values["components"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Leakage","Pressure Drop Across Filters/Dryers","Inadequate Maintenance","System Oversizing","Heat of Compression Not Recovered"];
-  const suggestedActions: string[] = ["Implement a leak detection and repair program. Target: reduce leakage to <10%.","Reduce system pressure setpoint by 1 bar if possible. Each 1 bar reduction saves ~7% energy.","Install VSD on compressor if load varies >30%. Expected savings 15-35%.","Upgrade maintenance to predictive (IoT-based). Replace filters, check belts, lubricate.","Install heat recovery system to capture waste heat for building heating or preheat."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -72,7 +60,7 @@ export function calculateCompressor_energy_cost_calculator(input: Compressor_ene
 
 export interface Compressor_energy_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { id: number; label: number; components: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

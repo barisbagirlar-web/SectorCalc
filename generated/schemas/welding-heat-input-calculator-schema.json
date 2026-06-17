@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 25,
-      "businessContext": "Arc voltage during welding, measured at the power source terminals. Affects total energy input."
+      "businessContext": "Arc voltage during welding, measured at the power source terminals. Affects total energy input.",
+      "label_i18n": {
+        "en": "Voltage",
+        "tr": "Voltage",
+        "de": "Voltage",
+        "fr": "Voltage",
+        "es": "Voltage",
+        "ar": "Voltage"
+      }
     },
     {
       "id": "current",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "A",
       "default": 200,
-      "businessContext": "Welding current, typically measured with a clamp meter. Higher current increases heat input."
+      "businessContext": "Welding current, typically measured with a clamp meter. Higher current increases heat input.",
+      "label_i18n": {
+        "en": "Current",
+        "tr": "Current",
+        "de": "Current",
+        "fr": "Current",
+        "es": "Current",
+        "ar": "Current"
+      }
     },
     {
       "id": "travelSpeed",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "mm/min",
       "default": 300,
-      "businessContext": "Speed of the welding torch along the joint. Faster speeds reduce heat input per unit length."
+      "businessContext": "Speed of the welding torch along the joint. Faster speeds reduce heat input per unit length.",
+      "label_i18n": {
+        "en": "Travel Speed",
+        "tr": "Travel Speed",
+        "de": "Travel Speed",
+        "fr": "Travel Speed",
+        "es": "Travel Speed",
+        "ar": "Travel Speed"
+      }
     },
     {
       "id": "efficiency",
       "label": "Arc Efficiency",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Thermal efficiency factor of the welding process (e.g., 0.8 for SMAW, 0.9 for GMAW, 1.0 for SAW)."
+      "businessContext": "Thermal efficiency factor of the welding process (e.g., 0.8 for SMAW, 0.9 for GMAW, 1.0 for SAW).",
+      "label_i18n": {
+        "en": "Arc Efficiency",
+        "tr": "Arc Efficiency",
+        "de": "Arc Efficiency",
+        "fr": "Arc Efficiency",
+        "es": "Arc Efficiency",
+        "ar": "Arc Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "effectiveHeatRate"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

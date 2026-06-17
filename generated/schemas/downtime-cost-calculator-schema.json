@@ -127,7 +127,7 @@
       "id": "shift_type",
       "label": "Shift Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "day",
       "options": [
         "day",
@@ -146,7 +146,7 @@
       "id": "include_quality_loss",
       "label": "Include Quality Loss",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "businessContext": "If true, adds cost of scrap and rework caused by the downtime event.",
       "label_i18n": {
@@ -197,144 +197,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "lost_production_units",
-      "label": "Lost Production Units",
-      "description": "Units not produced due to downtime.",
-      "expression": "planned_production_rate * downtime_duration",
-      "unit": "units"
-    },
-    {
-      "id": "lost_revenue",
-      "label": "Lost Revenue",
-      "description": "Revenue lost from units not produced.",
-      "expression": "lost_production_units * revenue_per_unit",
-      "unit": "currency"
-    },
-    {
-      "id": "labor_cost",
-      "label": "Labor Cost",
-      "description": "Direct labor cost incurred during downtime (idle time).",
-      "expression": "direct_labor_cost_per_hour * downtime_duration * (CASE shift_type WHEN 'night' THEN 1.15 WHEN 'weekend' THEN 1.5 ELSE 1.0 END)",
-      "unit": "currency"
-    },
-    {
-      "id": "energy_cost",
-      "label": "Energy Cost",
-      "description": "Energy consumed during downtime (often idle but still running).",
-      "expression": "energy_cost_per_hour * downtime_duration",
-      "unit": "currency"
-    },
-    {
-      "id": "quality_loss_cost",
-      "label": "Quality Loss Cost",
-      "description": "Cost of scrap and rework due to downtime (if include_quality_loss is true).",
-      "expression": "CASE WHEN include_quality_loss = true THEN (lost_production_units * (scrap_rate_during_downtime / 100) * revenue_per_unit * 0.5) ELSE 0 END",
-      "unit": "currency"
-    },
-    {
-      "id": "recovery_cost",
-      "label": "Recovery Cost",
-      "description": "Additional cost to return to steady-state (overtime, expedited maintenance).",
-      "expression": "lost_revenue * recovery_time_factor",
-      "unit": "currency"
-    },
-    {
-      "id": "total_downtime_cost",
-      "label": "Total Downtime Cost",
-      "description": "Primary result – sum of all cost components.",
-      "expression": "lost_revenue + labor_cost + energy_cost + quality_loss_cost + recovery_cost",
-      "unit": "currency"
-    }
+    "planned_production_rate",
+    "planned_production_rate",
+    "planned_production_rate",
+    "planned_production_rate",
+    "planned_production_rate",
+    "planned_production_rate",
+    "planned_production_rate"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_downtime_cost",
-      "label": "Total Downtime Cost",
-      "unit": "currency",
-      "description": "Aggregate cost of the downtime event."
-    },
-    "breakdown": {
-      "lost_revenue": {
-        "id": "lost_revenue",
-        "label": "Lost Revenue",
-        "unit": "currency"
-      },
-      "labor_cost": {
-        "id": "labor_cost",
-        "label": "Labor Cost",
-        "unit": "currency"
-      },
-      "energy_cost": {
-        "id": "energy_cost",
-        "label": "Energy Cost",
-        "unit": "currency"
-      },
-      "quality_loss_cost": {
-        "id": "quality_loss_cost",
-        "label": "Quality Loss Cost",
-        "unit": "currency"
-      },
-      "recovery_cost": {
-        "id": "recovery_cost",
-        "label": "Recovery Cost",
-        "unit": "currency"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "lost_throughput_ratio",
-        "label": "Lost Throughput Ratio",
-        "value": "lost_production_units / (planned_production_rate * 168)",
-        "unit": "ratio",
-        "description": "Fraction of weekly capacity lost (WERC benchmark)."
-      },
-      {
-        "id": "cost_per_downtime_hour",
-        "label": "Cost per Downtime Hour",
-        "value": "total_downtime_cost / downtime_duration",
-        "unit": "currency/hour",
-        "description": "Average cost per hour of downtime."
-      },
-      {
-        "id": "opportunity_cost",
-        "label": "Opportunity Cost (Lost Profit)",
-        "value": "lost_revenue * 0.2",
-        "unit": "currency",
-        "description": "Estimated lost profit assuming 20% margin (Lean accounting)."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "label": "Implement TPM (Total Productive Maintenance)",
-        "description": "Reduce unplanned downtime by 30-50% through autonomous and planned maintenance (Lean TPM)."
-      },
-      {
-        "id": "action_2",
-        "label": "Standardize Restart Procedures",
-        "description": "Create checklists to reduce scrap rate and recovery time (Six Sigma DMAIC)."
-      },
-      {
-        "id": "action_3",
-        "label": "Install Real-Time Monitoring",
-        "description": "Use IIoT sensors to detect anomalies before downtime occurs (Industry 4.0)."
-      },
-      {
-        "id": "action_4",
-        "label": "Cross-Train Operators",
-        "description": "Ensure backup personnel to minimize labor idle cost (Lean workforce flexibility)."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "adjusted_total_cost",
-      "label": "Data Confidence Adjusted Total Cost",
-      "description": "Total cost adjusted by a confidence factor (0.8 to 1.2) based on input reliability.",
-      "value": "total_downtime_cost * 1.0",
-      "unit": "currency"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
+  "toolName": "downtime-cost-calculator"
 }

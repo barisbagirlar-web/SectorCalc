@@ -27,33 +27,19 @@ export const Auto_repair_parts_labor_quote_calculatorInputSchema = z.object({
   warranty_included: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Auto_repair_parts_labor_quote_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.labor_hours * input.complexity_factor; results["adjusted_labor_hours"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_labor_hours"] = 0; }
-  try { const v = input.parts_cost * (1 + input.parts_markup / 100); results["parts_cost_with_markup"] = Number.isFinite(v) ? v : 0; } catch { results["parts_cost_with_markup"] = 0; }
-  try { const v = (results["adjusted_labor_hours"] ?? 0) * input.labor_rate; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
-  try { const v = (results["parts_cost_with_markup"] ?? 0) + (results["labor_cost"] ?? 0); results["direct_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_cost"] = 0; }
-  try { const v = (results["direct_cost"] ?? 0) * (input.overhead_percent / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
-  try { const v = (results["direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0); results["total_cost_before_margin"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_before_margin"] = 0; }
-  try { const v = (((results["total_cost_before_margin"] ?? 0) * (1 + input.profit_margin / 100)) * (1 - input.discount_percent / 100)) * (1 + input.tax_rate / 100) + (input.warranty_included ? 150 : 0); results["total_quote"] = Number.isFinite(v) ? v : 0; } catch { results["total_quote"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Auto_repair_parts_labor_quote_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateAuto_repair_parts_labor_quote_calculator(input: Auto_repair_parts_labor_quote_calculatorInput): Auto_repair_parts_labor_quote_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_quote"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    parts_cost_with_markup: values["parts_cost_with_markup"] ?? 0,
-    labor_cost: values["labor_cost"] ?? 0,
-    overhead_cost: values["overhead_cost"] ?? 0,
-    profit_amount: values["profit_amount"] ?? 0,
-    discount_amount: values["discount_amount"] ?? 0,
-    tax_amount: values["tax_amount"] ?? 0,
-    warranty_fee: values["warranty_fee"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excess Labor Time","Low Parts Markup","Overhead Underestimation"];
-  const suggestedActions: string[] = ["Consider raising parts markup to at least 20% to improve margin.","Job complexity factor is high; review process for waste reduction (Lean).","Overhead allocation may be too low; verify indirect costs per ISO 9001.","Consider offering extended warranty for quotes over $2,000 to increase customer trust and revenue."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -72,7 +58,7 @@ export function calculateAuto_repair_parts_labor_quote_calculator(input: Auto_re
 
 export interface Auto_repair_parts_labor_quote_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { parts_cost_with_markup: number; labor_cost: number; overhead_cost: number; profit_amount: number; discount_amount: number; tax_amount: number; warranty_fee: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

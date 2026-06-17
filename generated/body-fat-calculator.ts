@@ -23,31 +23,19 @@ export const Body_fat_calculatorInputSchema = z.object({
   activityLevel: z.enum(['sedentary', 'light', 'moderate', 'active', 'very active']).default('moderate'),
 });
 
-function evaluateAllFormulas(input: Body_fat_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.weight / ((input.height / 100) ^ 2); results["bmi"] = Number.isFinite(v) ? v : 0; } catch { results["bmi"] = 0; }
-  try { const v = input.gender == 'male' ? (1.0323 - 0.000154 * input.waistCircumference + 0.0001557 * input.neckCircumference - 0.000069 * input.height) : (1.0296 - 0.000154 * input.waistCircumference + 0.0001557 * input.neckCircumference + 0.000069 * input.hipCircumference - 0.000069 * input.height); results["bodyDensity"] = Number.isFinite(v) ? v : 0; } catch { results["bodyDensity"] = 0; }
-  try { const v = (495 / (results["bodyDensity"] ?? 0)) - 450; results["bodyFatPercentage"] = Number.isFinite(v) ? v : 0; } catch { results["bodyFatPercentage"] = 0; }
-  try { const v = input.weight * ((results["bodyFatPercentage"] ?? 0) / 100); results["fatMass"] = Number.isFinite(v) ? v : 0; } catch { results["fatMass"] = 0; }
-  try { const v = input.weight - (results["fatMass"] ?? 0); results["leanMass"] = Number.isFinite(v) ? v : 0; } catch { results["leanMass"] = 0; }
-  try { const v = input.waistCircumference / input.hipCircumference; results["waistHipRatio"] = Number.isFinite(v) ? v : 0; } catch { results["waistHipRatio"] = 0; }
-  try { const v = (results["bodyFatPercentage"] ?? 0) * (1 - 0.05 * (input.activityLevel == 'sedentary' ? 1 : input.activityLevel == 'light' ? 0.8 : input.activityLevel == 'moderate' ? 0.6 : input.activityLevel == 'active' ? 0.4 : 0.2)); results["adjustedBodyFat"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedBodyFat"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Body_fat_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateBody_fat_calculator(input: Body_fat_calculatorInput): Body_fat_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["bodyFatPercentage"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    bmi: values["bmi"] ?? 0,
-    bodyDensity: values["bodyDensity"] ?? 0,
-    fatMass: values["fatMass"] ?? 0,
-    leanMass: values["leanMass"] ?? 0,
-    waistHipRatio: values["waistHipRatio"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Neck circumference measurement error > 0.5 cm can bias body fat by ±2% (Six Sigma MSA).","Hydration affects body density; not accounted in Navy method (Lean waste: variation).","Self-reported activity level may overestimate energy expenditure (ISO 8996).","Siri equation assumes constant density of fat-free mass; bias increases with age (ISO 20685)."];
-  const suggestedActions: string[] = ["If body fat > 25% (male) or > 32% (female): implement Lean Kaizen health improvement plan with diet and exercise.","If waist-hip ratio > 0.9 (male) or > 0.85 (female): schedule ergonomic workstation assessment per WERC guidelines.","If BMI > 30: refer to occupational health for metabolic screening (ISO 45001).","Repeat measurements monthly to reduce random error and track trend (SPC control chart)."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -66,7 +54,7 @@ export function calculateBody_fat_calculator(input: Body_fat_calculatorInput): B
 
 export interface Body_fat_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { bmi: number; bodyDensity: number; fatMass: number; leanMass: number; waistHipRatio: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

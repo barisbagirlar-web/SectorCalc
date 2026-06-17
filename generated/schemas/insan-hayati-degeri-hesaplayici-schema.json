@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "₺/yıl",
       "default": 100000,
-      "businessContext": "Kişinin vergi sonrası yıllık net geliri"
+      "businessContext": "Kişinin vergi sonrası yıllık net geliri",
+      "label_i18n": {
+        "en": "Yıllık Net Gelir",
+        "tr": "Yıllık Net Gelir",
+        "de": "Yıllık Net Gelir",
+        "fr": "Yıllık Net Gelir",
+        "es": "Yıllık Net Gelir",
+        "ar": "Yıllık Net Gelir"
+      }
     },
     {
       "id": "personalExpenseRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Gelirin kişisel harcamalara ayrılan yüzdesi"
+      "businessContext": "Gelirin kişisel harcamalara ayrılan yüzdesi",
+      "label_i18n": {
+        "en": "Kişisel Gider Oranı",
+        "tr": "Kişisel Gider Oranı",
+        "de": "Kişisel Gider Oranı",
+        "fr": "Kişisel Gider Oranı",
+        "es": "Kişisel Gider Oranı",
+        "ar": "Kişisel Gider Oranı"
+      }
     },
     {
       "id": "currentAge",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 35,
-      "businessContext": "Kişinin şu anki yaşı"
+      "businessContext": "Kişinin şu anki yaşı",
+      "label_i18n": {
+        "en": "Mevcut Yaş",
+        "tr": "Mevcut Yaş",
+        "de": "Mevcut Yaş",
+        "fr": "Mevcut Yaş",
+        "es": "Mevcut Yaş",
+        "ar": "Mevcut Yaş"
+      }
     },
     {
       "id": "retirementAge",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 65,
-      "businessContext": "Beklenen emeklilik yaşı"
+      "businessContext": "Beklenen emeklilik yaşı",
+      "label_i18n": {
+        "en": "Emeklilik Yaşı",
+        "tr": "Emeklilik Yaşı",
+        "de": "Emeklilik Yaşı",
+        "fr": "Emeklilik Yaşı",
+        "es": "Emeklilik Yaşı",
+        "ar": "Emeklilik Yaşı"
+      }
     },
     {
       "id": "discountRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Gelecekteki nakit akışlarını bugüne indirgeme oranı (genellikle risksiz faiz oranı)"
+      "businessContext": "Gelecekteki nakit akışlarını bugüne indirgeme oranı (genellikle risksiz faiz oranı)",
+      "label_i18n": {
+        "en": "İskonto Oranı",
+        "tr": "İskonto Oranı",
+        "de": "İskonto Oranı",
+        "fr": "İskonto Oranı",
+        "es": "İskonto Oranı",
+        "ar": "İskonto Oranı"
+      }
     },
     {
       "id": "incomeGrowthRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Beklenen yıllık reel gelir artış oranı"
+      "businessContext": "Beklenen yıllık reel gelir artış oranı",
+      "label_i18n": {
+        "en": "Yıllık Gelir Artış Oranı",
+        "tr": "Yıllık Gelir Artış Oranı",
+        "de": "Yıllık Gelir Artış Oranı",
+        "fr": "Yıllık Gelir Artış Oranı",
+        "es": "Yıllık Gelir Artış Oranı",
+        "ar": "Yıllık Gelir Artış Oranı"
+      }
     }
   ],
   "formulas": {
@@ -57,19 +105,22 @@
     "discountFactor": "discountRate / 100",
     "totalIncomePV": "growthFactor === discountFactor ? annualIncome * remainingYears / (1 + discountFactor) : annualIncome * (1 - Math.pow((1 + growthFactor) / (1 + discountFactor), remainingYears)) / (discountFactor - growthFactor)",
     "totalExpensePV": "totalIncomePV * (personalExpenseRate / 100)",
-    "hlv": "totalIncomePV - totalExpensePV"
+    "hlv": "totalIncomePV - totalExpensePV",
+    "Toplam_Gelirin_Bug_nk__De_eri": "Toplam Gelirin Bugünkü Değeri",
+    "Toplam_Giderin_Bug_nk__De_eri": "Toplam Giderin Bugünkü Değeri",
+    "result": "İnsan Hayatı Değeri (HLV)"
   },
   "outputs": {
-    "primary": "İnsan Hayatı Değeri (HLV)",
+    "primary": "result",
     "breakdown": [
       "Toplam Gelirin Bugünkü Değeri",
       "Toplam Giderin Bugünkü Değeri"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

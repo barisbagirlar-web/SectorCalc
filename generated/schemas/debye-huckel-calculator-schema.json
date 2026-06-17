@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "(mol/L)^(-1/2)",
       "default": 0.509,
-      "businessContext": "Empirical constant dependent on temperature and solvent. For water at 25°C, use 0.509."
+      "businessContext": "Empirical constant dependent on temperature and solvent. For water at 25°C, use 0.509.",
+      "label_i18n": {
+        "en": "Debye-Hückel A",
+        "tr": "Debye-Hückel A",
+        "de": "Debye-Hückel A",
+        "fr": "Debye-Hückel A",
+        "es": "Debye-Hückel A",
+        "ar": "Debye-Hückel A"
+      }
     },
     {
       "id": "bConstant",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "(mol/L)^(-1/2) Å^(-1)",
       "default": 0.328,
-      "businessContext": "Empirical constant dependent on temperature and solvent. For water at 25°C, use 0.328."
+      "businessContext": "Empirical constant dependent on temperature and solvent. For water at 25°C, use 0.328.",
+      "label_i18n": {
+        "en": "Debye-Hückel B",
+        "tr": "Debye-Hückel B",
+        "de": "Debye-Hückel B",
+        "fr": "Debye-Hückel B",
+        "es": "Debye-Hückel B",
+        "ar": "Debye-Hückel B"
+      }
     },
     {
       "id": "ionicStrength",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Half the sum of concentrations times squared charges of all ions. Range typically 0.001 - 0.5 mol/L."
+      "businessContext": "Half the sum of concentrations times squared charges of all ions. Range typically 0.001 - 0.5 mol/L.",
+      "label_i18n": {
+        "en": "Ionic Strength",
+        "tr": "Ionic Strength",
+        "de": "Ionic Strength",
+        "fr": "Ionic Strength",
+        "es": "Ionic Strength",
+        "ar": "Ionic Strength"
+      }
     },
     {
       "id": "chargeCation",
       "label": "Cation Charge (z+)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Absolute charge number of the cation, e.g., 1 for Na+, 2 for Ca2+."
+      "businessContext": "Absolute charge number of the cation, e.g., 1 for Na+, 2 for Ca2+.",
+      "label_i18n": {
+        "en": "Cation Charge (z+)",
+        "tr": "Cation Charge (z+)",
+        "de": "Cation Charge (z+)",
+        "fr": "Cation Charge (z+)",
+        "es": "Cation Charge (z+)",
+        "ar": "Cation Charge (z+)"
+      }
     },
     {
       "id": "chargeAnion",
       "label": "Anion Charge (|z-|)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Absolute charge number of the anion, e.g., 1 for Cl-, 2 for SO4^2-."
+      "businessContext": "Absolute charge number of the anion, e.g., 1 for Cl-, 2 for SO4^2-.",
+      "label_i18n": {
+        "en": "Anion Charge (|z-|)",
+        "tr": "Anion Charge (|z-|)",
+        "de": "Anion Charge (|z-|)",
+        "fr": "Anion Charge (|z-|)",
+        "es": "Anion Charge (|z-|)",
+        "ar": "Anion Charge (|z-|)"
+      }
     },
     {
       "id": "ionSize",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "Å",
       "default": 3.04,
-      "businessContext": "Effective diameter of the hydrated ion. Common values: 3-9 Å. For many simple ions, ~3-4 Å."
+      "businessContext": "Effective diameter of the hydrated ion. Common values: 3-9 Å. For many simple ions, ~3-4 Å.",
+      "label_i18n": {
+        "en": "Ion Size Parameter (a)",
+        "tr": "Ion Size Parameter (a)",
+        "de": "Ion Size Parameter (a)",
+        "fr": "Ion Size Parameter (a)",
+        "es": "Ion Size Parameter (a)",
+        "ar": "Ion Size Parameter (a)"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "sqrtI"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

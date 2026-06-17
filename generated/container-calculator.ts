@@ -20,13 +20,16 @@ function evaluateAllFormulas(input: Container_calculatorInput): Record<string, n
   try { const v = Math.ceil(input.totalQuantity / input.itemsPerPallet); results["palletsNeeded"] = Number.isFinite(v) ? v : 0; } catch { results["palletsNeeded"] = 0; }
   try { const v = Math.ceil((results["palletsNeeded"] ?? 0) / input.palletsPerContainer); results["containersWithoutReserve"] = Number.isFinite(v) ? v : 0; } catch { results["containersWithoutReserve"] = 0; }
   try { const v = Math.ceil((results["containersWithoutReserve"] ?? 0) * (1 + input.reservePercent / 100)); results["containersWithReserve"] = Number.isFinite(v) ? v : 0; } catch { results["containersWithReserve"] = 0; }
+  try { const v = $(results["palletsNeeded"] ?? 0); results["__palletsNeeded_"] = Number.isFinite(v) ? v : 0; } catch { results["__palletsNeeded_"] = 0; }
+  try { const v = $(results["containersWithoutReserve"] ?? 0); results["__containersWithoutReserve_"] = Number.isFinite(v) ? v : 0; } catch { results["__containersWithoutReserve_"] = 0; }
+  try { const v = $(results["containersWithReserve"] ?? 0); results["__containersWithReserve_"] = Number.isFinite(v) ? v : 0; } catch { results["__containersWithReserve_"] = 0; }
   return results;
 }
 
 
 export function calculateContainer_calculator(input: Container_calculatorInput): Container_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Gerekli"] ?? 0;
+  const totalWasteCost = values["palletsNeeded"] ?? 0;
   const breakdown = {
     
   };

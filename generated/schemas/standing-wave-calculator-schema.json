@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of the vibrating string"
+      "businessContext": "Length of the vibrating string",
+      "label_i18n": {
+        "en": "Length (L)",
+        "tr": "Length (L)",
+        "de": "Length (L)",
+        "fr": "Length (L)",
+        "es": "Length (L)",
+        "ar": "Length (L)"
+      }
     },
     {
       "id": "tension",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "N",
       "default": 100,
-      "businessContext": "Tension applied to the string"
+      "businessContext": "Tension applied to the string",
+      "label_i18n": {
+        "en": "Tension (T)",
+        "tr": "Tension (T)",
+        "de": "Tension (T)",
+        "fr": "Tension (T)",
+        "es": "Tension (T)",
+        "ar": "Tension (T)"
+      }
     },
     {
       "id": "linearDensity",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "kg/m",
       "default": 0.01,
-      "businessContext": "Mass per unit length of the string"
+      "businessContext": "Mass per unit length of the string",
+      "label_i18n": {
+        "en": "Linear Density (μ)",
+        "tr": "Linear Density (μ)",
+        "de": "Linear Density (μ)",
+        "fr": "Linear Density (μ)",
+        "es": "Linear Density (μ)",
+        "ar": "Linear Density (μ)"
+      }
     },
     {
       "id": "harmonic",
       "label": "Harmonic Number (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Harmonic mode: 1=fundamental, 2=2nd harmonic, etc."
+      "businessContext": "Harmonic mode: 1=fundamental, 2=2nd harmonic, etc.",
+      "label_i18n": {
+        "en": "Harmonic Number (n)",
+        "tr": "Harmonic Number (n)",
+        "de": "Harmonic Number (n)",
+        "fr": "Harmonic Number (n)",
+        "es": "Harmonic Number (n)",
+        "ar": "Harmonic Number (n)"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "waveSpeed"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "metal-plastics-forming"
 }

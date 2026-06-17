@@ -20,13 +20,15 @@ function evaluateAllFormulas(input: Slope_intercept_form_calculatorInput): Recor
   try { const v = `y = ${input.slope}x + ${input.yIntercept}`; results["equation"] = Number.isFinite(v) ? v : 0; } catch { results["equation"] = 0; }
   try { const v = input.slope * input.xValue + input.yIntercept; results["y_calc"] = Number.isFinite(v) ? v : 0; } catch { results["y_calc"] = 0; }
   try { const v = (input.yValue - input.yIntercept) / input.slope; results["x_calc"] = Number.isFinite(v) ? v : 0; } catch { results["x_calc"] = 0; }
+  results["Verilen_x_____xValue__i_in_y_____y_calc_"] = 0;
+  results["Verilen_y_____yValue__i_in_x_____x_calc_"] = 0;
   return results;
 }
 
 
 export function calculateSlope_intercept_form_calculator(input: Slope_intercept_form_calculatorInput): Slope_intercept_form_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["${equation}"] ?? 0;
+  const totalWasteCost = values["equation"] ?? 0;
   const breakdown = {
     
   };

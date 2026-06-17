@@ -21,17 +21,16 @@ export const Diophantine_equationInputSchema = z.object({
 
 function evaluateAllFormulas(input: Diophantine_equationInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (() => { function gcd(a,b){return b===0?Math.abs(a):gcd(b,a%b)} })(); results["gcd"] = Number.isFinite(v) ? v : 0; } catch { results["gcd"] = 0; }
-  try { const v = (() => { let g=gcd(input.a,input.b); return input.c%g===0 })(); results["checkSolvability"] = Number.isFinite(v) ? v : 0; } catch { results["checkSolvability"] = 0; }
-  try { const v = input.x0 + (input.b/(results["gcd"] ?? 0)(input.a,input.b))*input.k; results["generalX"] = Number.isFinite(v) ? v : 0; } catch { results["generalX"] = 0; }
-  try { const v = input.y0 - (input.a/(results["gcd"] ?? 0)(input.a,input.b))*input.k; results["generalY"] = Number.isFinite(v) ? v : 0; } catch { results["generalY"] = 0; }
+  try { const v = input.x0 + input.b * input.k; results["generalX"] = Number.isFinite(v) ? v : 0; } catch { results["generalX"] = 0; }
+  try { const v = input.y0 - input.a * input.k; results["generalY"] = Number.isFinite(v) ? v : 0; } catch { results["generalY"] = 0; }
+  try { const v = (results["generalX"] ?? 0) + (results["generalY"] ?? 0); results["solutionSum"] = Number.isFinite(v) ? v : 0; } catch { results["solutionSum"] = 0; }
   return results;
 }
 
 
 export function calculateDiophantine_equation(input: Diophantine_equationInput): Diophantine_equationOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["General"] ?? 0;
+  const totalWasteCost = values["solutionSum"] ?? 0;
   const breakdown = {
     
   };

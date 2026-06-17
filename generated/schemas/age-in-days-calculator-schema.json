@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 1990,
-      "businessContext": "Kişinin doğduğu yıl"
+      "businessContext": "Kişinin doğduğu yıl",
+      "label_i18n": {
+        "en": "Doğum Yılı",
+        "tr": "Doğum Yılı",
+        "de": "Doğum Yılı",
+        "fr": "Doğum Yılı",
+        "es": "Doğum Yılı",
+        "ar": "Doğum Yılı"
+      }
     },
     {
       "id": "birthMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Kişinin doğduğu ay (1-12)"
+      "businessContext": "Kişinin doğduğu ay (1-12)",
+      "label_i18n": {
+        "en": "Doğum Ay",
+        "tr": "Doğum Ay",
+        "de": "Doğum Ay",
+        "fr": "Doğum Ay",
+        "es": "Doğum Ay",
+        "ar": "Doğum Ay"
+      }
     },
     {
       "id": "birthDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Kişinin doğduğu gün"
+      "businessContext": "Kişinin doğduğu gün",
+      "label_i18n": {
+        "en": "Doğum Gün",
+        "tr": "Doğum Gün",
+        "de": "Doğum Gün",
+        "fr": "Doğum Gün",
+        "es": "Doğum Gün",
+        "ar": "Doğum Gün"
+      }
     },
     {
       "id": "refYear",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 2025,
-      "businessContext": "Yaş hesaplanacak yıl"
+      "businessContext": "Yaş hesaplanacak yıl",
+      "label_i18n": {
+        "en": "Referans Yıl",
+        "tr": "Referans Yıl",
+        "de": "Referans Yıl",
+        "fr": "Referans Yıl",
+        "es": "Referans Yıl",
+        "ar": "Referans Yıl"
+      }
     },
     {
       "id": "refMonth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Yaş hesaplanacak ay (1-12)"
+      "businessContext": "Yaş hesaplanacak ay (1-12)",
+      "label_i18n": {
+        "en": "Referans Ay",
+        "tr": "Referans Ay",
+        "de": "Referans Ay",
+        "fr": "Referans Ay",
+        "es": "Referans Ay",
+        "ar": "Referans Ay"
+      }
     },
     {
       "id": "refDay",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Yaş hesaplanacak gün"
+      "businessContext": "Yaş hesaplanacak gün",
+      "label_i18n": {
+        "en": "Referans Gün",
+        "tr": "Referans Gün",
+        "de": "Referans Gün",
+        "fr": "Referans Gün",
+        "es": "Referans Gün",
+        "ar": "Referans Gün"
+      }
     }
   ],
   "formulas": {
-    "calculate": "const birth = new Date(birthYear, birthMonth - 1, birthDay); const ref = new Date(refYear, refMonth - 1, refDay); const diff = Math.floor((ref - birth) / (1000 * 60 * 60 * 24)); return { ageInDays: diff, birthString: birth.toISOString().split('T')[0], refString: ref.toISOString().split('T')[0], diffDays: diff };"
+    "calculate": "const birth = new Date(birthYear, birthMonth - 1, birthDay); const ref = new Date(refYear, refMonth - 1, refDay); const diff = Math.floor((ref - birth) / (1000 * 60 * 60 * 24)); return { ageInDays: diff, birthString: birth.toISOString().split('T')[0], refString: ref.toISOString().split('T')[0], diffDays: diff };",
+    "birthString": "birthString",
+    "refString": "refString",
+    "diffDays": "diffDays"
   },
   "outputs": {
-    "primary": "ageInDays",
+    "primary": "calculate",
     "breakdown": [
       "birthString",
       "refString",
       "diffDays"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

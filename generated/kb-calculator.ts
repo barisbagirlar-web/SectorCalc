@@ -18,6 +18,9 @@ export const Kb_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Kb_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.shearModulus * Math.pow(input.wireDia, 4)) / (8 * Math.pow(input.coilDia, 3) * input.activeCoils); results["k"] = Number.isFinite(v) ? v : 0; } catch { results["k"] = 0; }
+  results["Tel__ap_n_n_4__kuvveti"] = 0;
+  results["Sar_m__ap_n_n_3__kuvveti"] = 0;
+  results["Payda__arp_m_"] = 0;
   return results;
 }
 

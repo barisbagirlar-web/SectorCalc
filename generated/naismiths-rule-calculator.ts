@@ -26,13 +26,17 @@ function evaluateAllFormulas(input: Naismiths_rule_calculatorInput): Record<stri
   try { const v = (input.descent / 100) * input.descentTimePer100m; results["descentTime"] = Number.isFinite(v) ? v : 0; } catch { results["descentTime"] = 0; }
   try { const v = (results["flatTime"] ?? 0) + (results["ascentTime"] ?? 0) + (results["descentTime"] ?? 0); results["totalTimeMin"] = Number.isFinite(v) ? v : 0; } catch { results["totalTimeMin"] = 0; }
   try { const v = (results["totalTimeMin"] ?? 0) / 60; results["totalTimeHours"] = Number.isFinite(v) ? v : 0; } catch { results["totalTimeHours"] = 0; }
+  results["_flatTime__minutes"] = 0;
+  results["_ascentTime__minutes"] = 0;
+  results["_descentTime__minutes"] = 0;
+  results["_totalTimeMin__minutes"] = 0;
   return results;
 }
 
 
 export function calculateNaismiths_rule_calculator(input: Naismiths_rule_calculatorInput): Naismiths_rule_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["flatTime"] ?? 0;
   const breakdown = {
     
   };

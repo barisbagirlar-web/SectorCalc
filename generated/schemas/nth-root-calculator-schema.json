@@ -5,41 +5,81 @@
       "id": "radicand",
       "label": "Radicand",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Measurement value"
+      "businessContext": "Measurement value",
+      "label_i18n": {
+        "en": "Radicand",
+        "tr": "Radicand",
+        "de": "Radicand",
+        "fr": "Radicand",
+        "es": "Radicand",
+        "ar": "Radicand"
+      }
     },
     {
       "id": "index",
       "label": "Index (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Root degree"
+      "businessContext": "Root degree",
+      "label_i18n": {
+        "en": "Index (n)",
+        "tr": "Index (n)",
+        "de": "Index (n)",
+        "fr": "Index (n)",
+        "es": "Index (n)",
+        "ar": "Index (n)"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "Display precision"
+      "businessContext": "Display precision",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "tolerance",
       "label": "Tolerance",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1e-10,
-      "businessContext": "Calculation tolerance"
+      "businessContext": "Calculation tolerance",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     },
     {
       "id": "initialGuess",
       "label": "Initial Guess",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Iteration start value"
+      "businessContext": "Iteration start value",
+      "label_i18n": {
+        "en": "Initial Guess",
+        "tr": "Initial Guess",
+        "de": "Initial Guess",
+        "fr": "Initial Guess",
+        "es": "Initial Guess",
+        "ar": "Initial Guess"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "rootVerification"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -29,32 +29,19 @@ export const Cobot_vs_manual_labor_comparator_calculatorInputSchema = z.object({
   training_cost: z.number().min(0).max(30000).default(5000),
 });
 
-function evaluateAllFormulas(input: Cobot_vs_manual_labor_comparator_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.annual_manual_labor_cost * input.number_of_workers * input.labor_productivity_factor; results["annual_manual_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["annual_manual_cost_total"] = 0; }
-  try { const v = input.cobot_annual_maintenance + (input.cobot_annual_maintenance * 0.05); results["annual_cobot_operating_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_cobot_operating_cost"] = 0; }
-  try { const v = ((results["annual_manual_cost_total"] ?? 0) * (input.shift_type == 'Single' ? 1 : (input.shift_type == 'Double' ? 2 : 3))) - (results["annual_cobot_operating_cost"] ?? 0); results["annual_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_savings"] = 0; }
-  try { const v = input.cobot_purchase_price + (input.include_training_cost ? input.training_cost : 0); results["initial_investment"] = Number.isFinite(v) ? v : 0; } catch { results["initial_investment"] = 0; }
-  try { const v = -(results["initial_investment"] ?? 0) + (((input.discount_rate/100)) === 0 ? ((results["annual_savings"] ?? 0)) * (input.cobot_lifespan_years) : ((results["annual_savings"] ?? 0)) * (Math.pow(1 + (input.discount_rate/100), (input.cobot_lifespan_years)) - 1) / (((input.discount_rate/100)) * Math.pow(1 + (input.discount_rate/100), (input.cobot_lifespan_years)))); results["net_present_value"] = Number.isFinite(v) ? v : 0; } catch { results["net_present_value"] = 0; }
-  try { const v = (results["initial_investment"] ?? 0) / (results["annual_savings"] ?? 0); results["payback_years"] = Number.isFinite(v) ? v : 0; } catch { results["payback_years"] = 0; }
-  try { const v = (((results["annual_savings"] ?? 0) * input.cobot_lifespan_years - (results["initial_investment"] ?? 0)) / (results["initial_investment"] ?? 0)) * 100; results["return_on_investment"] = Number.isFinite(v) ? v : 0; } catch { results["return_on_investment"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Cobot_vs_manual_labor_comparator_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateCobot_vs_manual_labor_comparator_calculator(input: Cobot_vs_manual_labor_comparator_calculatorInput): Cobot_vs_manual_labor_comparator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["net_present_value"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    annual_manual_cost_total: values["annual_manual_cost_total"] ?? 0,
-    annual_cobot_operating_cost: values["annual_cobot_operating_cost"] ?? 0,
-    annual_savings: values["annual_savings"] ?? 0,
-    initial_investment: values["initial_investment"] ?? 0,
-    payback_years: values["payback_years"] ?? 0,
-    return_on_investment: values["return_on_investment"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Manual Labor Productivity Loss","Cobot Downtime Cost","Shift Utilization Gap"];
-  const suggestedActions: string[] = ["Apply Lean before Automating","Consider Cobot Sharing","Run Six Sigma DMAIC","Ergonomic Risk Assessment"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -73,7 +60,7 @@ export function calculateCobot_vs_manual_labor_comparator_calculator(input: Cobo
 
 export interface Cobot_vs_manual_labor_comparator_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { annual_manual_cost_total: number; annual_cobot_operating_cost: number; annual_savings: number; initial_investment: number; payback_years: number; return_on_investment: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

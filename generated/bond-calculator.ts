@@ -25,13 +25,19 @@ function evaluateAllFormulas(input: Bond_calculatorInput): Record<string, number
   try { const v = (results["couponPayment"] ?? 0) * (1 - (1 + (results["discountRate"] ?? 0)) ** (-(results["totalPeriods"] ?? 0))) / (results["discountRate"] ?? 0); results["pvCoupons"] = Number.isFinite(v) ? v : 0; } catch { results["pvCoupons"] = 0; }
   try { const v = input.faceValue * (1 + (results["discountRate"] ?? 0)) ** (-(results["totalPeriods"] ?? 0)); results["pvFace"] = Number.isFinite(v) ? v : 0; } catch { results["pvFace"] = 0; }
   try { const v = (results["discountRate"] ?? 0) === 0 ? input.faceValue + (results["couponPayment"] ?? 0) * (results["totalPeriods"] ?? 0) : (results["pvCoupons"] ?? 0) + (results["pvFace"] ?? 0); results["bondPrice"] = Number.isFinite(v) ? v : 0; } catch { results["bondPrice"] = 0; }
+  results["Coupon_Payment"] = 0;
+  results["Discount_Rate_per_Period"] = 0;
+  results["Total_Periods"] = 0;
+  results["Present_Value_of_Coupons"] = 0;
+  results["Present_Value_of_Face_Value"] = 0;
+  results["Bond_Price"] = 0;
   return results;
 }
 
 
 export function calculateBond_calculator(input: Bond_calculatorInput): Bond_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Bond"] ?? 0;
+  const totalWasteCost = values["couponPayment"] ?? 0;
   const breakdown = {
     
   };

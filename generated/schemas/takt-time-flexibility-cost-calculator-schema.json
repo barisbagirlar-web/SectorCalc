@@ -195,177 +195,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "takt_time",
-      "name": "Takt Time",
-      "description": "Available work time divided by customer demand per shift.",
-      "formula": "available_work_time_seconds / customer_demand_per_shift",
-      "unit": "seconds per unit",
-      "intermediate": true
-    },
-    {
-      "id": "takt_utilization",
-      "name": "Takt Utilization",
-      "description": "Ratio of actual cycle time to takt time.",
-      "formula": "cycle_time_seconds / (available_work_time_seconds / customer_demand_per_shift)",
-      "unit": "dimensionless",
-      "intermediate": true
-    },
-    {
-      "id": "changeover_cost_per_unit",
-      "name": "Changeover Cost per Unit",
-      "description": "Labor and overhead cost incurred per unit due to changeovers.",
-      "formula": "(changeover_time_minutes / 60) * labor_cost_per_hour * (1 + overhead_rate_percent / 100) / batch_size",
-      "unit": "$ per unit",
-      "intermediate": true
-    },
-    {
-      "id": "demand_uncertainty_penalty",
-      "name": "Demand Uncertainty Penalty",
-      "description": "Additional cost due to demand variability, modeled as a function of CV and takt time.",
-      "formula": "demand_variability_coefficient * (labor_cost_per_hour / 3600) * (available_work_time_seconds / customer_demand_per_shift) * 0.5",
-      "unit": "$ per unit",
-      "intermediate": true
-    },
-    {
-      "id": "flexibility_cost_per_unit",
-      "name": "Flexibility Cost per Unit",
-      "description": "Total cost per unit attributed to flexibility (changeover + demand uncertainty).",
-      "formula": "changeover_cost_per_unit + demand_uncertainty_penalty",
-      "unit": "$ per unit",
-      "intermediate": true
-    },
-    {
-      "id": "total_flexibility_cost_per_shift",
-      "name": "Total Flexibility Cost per Shift",
-      "description": "Total flexibility cost incurred per shift.",
-      "formula": "flexibility_cost_per_unit * customer_demand_per_shift",
-      "unit": "$ per shift",
-      "intermediate": true
-    },
-    {
-      "id": "flexibility_cost_index",
-      "name": "Flexibility Cost Index",
-      "description": "Primary result: ratio of flexibility cost per unit to direct labor cost per unit, expressed as a percentage.",
-      "formula": "(flexibility_cost_per_unit / ((labor_cost_per_hour / 3600) * cycle_time_seconds)) * 100",
-      "unit": "%",
-      "intermediate": false
-    }
+    "available_work_time_seconds",
+    "available_work_time_seconds",
+    "available_work_time_seconds",
+    "available_work_time_seconds",
+    "available_work_time_seconds",
+    "available_work_time_seconds",
+    "available_work_time_seconds"
   ],
   "outputs": {
-    "primary": {
-      "id": "flexibility_cost_index",
-      "label": "Flexibility Cost Index",
-      "value": null,
-      "unit": "%",
-      "description": "Percentage of direct labor cost consumed by flexibility-related costs. Lower is better."
-    },
-    "breakdown": {
-      "takt_time": {
-        "id": "takt_time",
-        "label": "Takt Time",
-        "value": null,
-        "unit": "seconds per unit"
-      },
-      "takt_utilization": {
-        "id": "takt_utilization",
-        "label": "Takt Utilization",
-        "value": null,
-        "unit": "dimensionless"
-      },
-      "changeover_cost_per_unit": {
-        "id": "changeover_cost_per_unit",
-        "label": "Changeover Cost per Unit",
-        "value": null,
-        "unit": "$ per unit"
-      },
-      "demand_uncertainty_penalty": {
-        "id": "demand_uncertainty_penalty",
-        "label": "Demand Uncertainty Penalty",
-        "value": null,
-        "unit": "$ per unit"
-      },
-      "flexibility_cost_per_unit": {
-        "id": "flexibility_cost_per_unit",
-        "label": "Flexibility Cost per Unit",
-        "value": null,
-        "unit": "$ per unit"
-      },
-      "total_flexibility_cost_per_shift": {
-        "id": "total_flexibility_cost_per_shift",
-        "label": "Total Flexibility Cost per Shift",
-        "value": null,
-        "unit": "$ per shift"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excessive_changeover_time",
-        "label": "Excessive Changeover Time",
-        "description": "Changeover time is above 10 minutes; consider SMED (Single-Minute Exchange of Die) techniques.",
-        "condition": "changeover_time_minutes > 10"
-      },
-      {
-        "id": "high_demand_variability",
-        "label": "High Demand Variability",
-        "description": "Demand CV > 0.5; consider demand smoothing or safety capacity buffers.",
-        "condition": "demand_variability_coefficient > 0.5"
-      },
-      {
-        "id": "low_batch_size_efficiency",
-        "label": "Low Batch Size Efficiency",
-        "description": "Batch size is less than 50 units; changeover cost per unit may be high.",
-        "condition": "batch_size < 50"
-      },
-      {
-        "id": "takt_time_mismatch",
-        "label": "Takt Time Mismatch",
-        "description": "Cycle time is more than 90% of takt time; risk of line stoppage.",
-        "condition": "cycle_time_seconds > 0.9 * (available_work_time_seconds / customer_demand_per_shift)"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_changeover_time",
-        "label": "Implement SMED to reduce changeover time",
-        "description": "Target changeover time below 5 minutes to lower flexibility cost.",
-        "expectedImpact": "Reduces changeover_cost_per_unit by up to 50%."
-      },
-      {
-        "id": "increase_batch_size",
-        "label": "Increase batch size where possible",
-        "description": "Consolidate orders to reduce frequency of changeovers.",
-        "expectedImpact": "Reduces changeover_cost_per_unit proportionally."
-      },
-      {
-        "id": "demand_smoothing",
-        "label": "Apply demand smoothing with customer agreements",
-        "description": "Level demand to reduce variability penalty.",
-        "expectedImpact": "Reduces demand_uncertainty_penalty by up to 30%."
-      },
-      {
-        "id": "mixed_model_sequencing",
-        "label": "Optimize mixed-model sequencing",
-        "description": "Use heijunka to balance product mix and reduce changeover impact.",
-        "expectedImpact": "Improves takt utilization and reduces flexibility cost index."
-      },
-      {
-        "id": "capacity_buffers",
-        "label": "Introduce capacity buffers (overtime or extra shifts)",
-        "description": "Temporary capacity increase to handle demand spikes.",
-        "expectedImpact": "Reduces risk of missed deliveries but may increase labor cost."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Flexibility Cost Index",
-      "value": null,
-      "unit": "%",
-      "description": "Flexibility cost index adjusted for data quality (e.g., measurement uncertainty). Currently set to primary value as a placeholder."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "takt-time-flexibility-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK"
 }

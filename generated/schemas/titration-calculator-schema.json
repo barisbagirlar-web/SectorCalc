@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Concentration of the standard solution used for titration."
+      "businessContext": "Concentration of the standard solution used for titration.",
+      "label_i18n": {
+        "en": "Titrant Concentration",
+        "tr": "Titrant Concentration",
+        "de": "Titrant Concentration",
+        "fr": "Titrant Concentration",
+        "es": "Titrant Concentration",
+        "ar": "Titrant Concentration"
+      }
     },
     {
       "id": "titrantVol",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mL",
       "default": 20,
-      "businessContext": "Volume of titrant added to reach the endpoint."
+      "businessContext": "Volume of titrant added to reach the endpoint.",
+      "label_i18n": {
+        "en": "Volume of Titrant",
+        "tr": "Volume of Titrant",
+        "de": "Volume of Titrant",
+        "fr": "Volume of Titrant",
+        "es": "Volume of Titrant",
+        "ar": "Volume of Titrant"
+      }
     },
     {
       "id": "analyteVol",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "mL",
       "default": 25,
-      "businessContext": "Volume of the sample solution being titrated."
+      "businessContext": "Volume of the sample solution being titrated.",
+      "label_i18n": {
+        "en": "Volume of Analyte",
+        "tr": "Volume of Analyte",
+        "de": "Volume of Analyte",
+        "fr": "Volume of Analyte",
+        "es": "Volume of Analyte",
+        "ar": "Volume of Analyte"
+      }
     },
     {
       "id": "stoichCoeffTitrant",
       "label": "Stoichiometric Coefficient (Titrant)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Mole ratio of titrant in the balanced reaction equation."
+      "businessContext": "Mole ratio of titrant in the balanced reaction equation.",
+      "label_i18n": {
+        "en": "Stoichiometric Coefficient (Titrant)",
+        "tr": "Stoichiometric Coefficient (Titrant)",
+        "de": "Stoichiometric Coefficient (Titrant)",
+        "fr": "Stoichiometric Coefficient (Titrant)",
+        "es": "Stoichiometric Coefficient (Titrant)",
+        "ar": "Stoichiometric Coefficient (Titrant)"
+      }
     },
     {
       "id": "stoichCoeffAnalyte",
       "label": "Stoichiometric Coefficient (Analyte)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Mole ratio of analyte in the balanced reaction equation."
+      "businessContext": "Mole ratio of analyte in the balanced reaction equation.",
+      "label_i18n": {
+        "en": "Stoichiometric Coefficient (Analyte)",
+        "tr": "Stoichiometric Coefficient (Analyte)",
+        "de": "Stoichiometric Coefficient (Analyte)",
+        "fr": "Stoichiometric Coefficient (Analyte)",
+        "es": "Stoichiometric Coefficient (Analyte)",
+        "ar": "Stoichiometric Coefficient (Analyte)"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "analyteMoles"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "quality-six-sigma"
 }

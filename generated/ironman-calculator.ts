@@ -29,13 +29,16 @@ function evaluateAllFormulas(input: Ironman_calculatorInput): Record<string, num
   try { const v = (input.yieldStrength * 1e6) * (input.width * Math.pow(input.height, 2) / 6) / input.safetyFactor; results["maxMoment"] = Number.isFinite(v) ? v : 0; } catch { results["maxMoment"] = 0; }
   try { const v = 8 * ((input.yieldStrength * 1e6) * (input.width * Math.pow(input.height, 2) / 6) / input.safetyFactor) / Math.pow(input.length, 2); results["maxUniformLoad"] = Number.isFinite(v) ? v : 0; } catch { results["maxUniformLoad"] = 0; }
   try { const v = 8 * ((input.yieldStrength * 1e6) * (input.width * Math.pow(input.height, 2) / 6) / input.safetyFactor) / input.length; results["maxTotalLoad"] = Number.isFinite(v) ? v : 0; } catch { results["maxTotalLoad"] = 0; }
+  try { const v = input.width * input.height * input.length * input.density * 9.81; results["width___height___length___density___9_81"] = Number.isFinite(v) ? v : 0; } catch { results["width___height___length___density___9_81"] = 0; }
+  try { const v = (input.yieldStrength * 1e6) * (input.width * Math.pow(input.height, 2) / 6) / input.safetyFactor; results["_yieldStrength___1e6_____width___Math_po"] = Number.isFinite(v) ? v : 0; } catch { results["_yieldStrength___1e6_____width___Math_po"] = 0; }
+  try { const v = 8 * ((input.yieldStrength * 1e6) * (input.width * Math.pow(input.height, 2) / 6) / input.safetyFactor) / input.length; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateIronman_calculator(input: Ironman_calculatorInput): Ironman_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["8"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

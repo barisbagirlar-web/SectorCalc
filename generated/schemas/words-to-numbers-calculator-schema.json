@@ -5,57 +5,113 @@
       "id": "millions",
       "label": "Millions",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of millions"
+      "businessContext": "Number of millions",
+      "label_i18n": {
+        "en": "Millions",
+        "tr": "Millions",
+        "de": "Millions",
+        "fr": "Millions",
+        "es": "Millions",
+        "ar": "Millions"
+      }
     },
     {
       "id": "thousands",
       "label": "Thousands",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of thousands"
+      "businessContext": "Number of thousands",
+      "label_i18n": {
+        "en": "Thousands",
+        "tr": "Thousands",
+        "de": "Thousands",
+        "fr": "Thousands",
+        "es": "Thousands",
+        "ar": "Thousands"
+      }
     },
     {
       "id": "hundreds",
       "label": "Hundreds",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of hundreds"
+      "businessContext": "Number of hundreds",
+      "label_i18n": {
+        "en": "Hundreds",
+        "tr": "Hundreds",
+        "de": "Hundreds",
+        "fr": "Hundreds",
+        "es": "Hundreds",
+        "ar": "Hundreds"
+      }
     },
     {
       "id": "tens",
       "label": "Tens",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of tens"
+      "businessContext": "Number of tens",
+      "label_i18n": {
+        "en": "Tens",
+        "tr": "Tens",
+        "de": "Tens",
+        "fr": "Tens",
+        "es": "Tens",
+        "ar": "Tens"
+      }
     },
     {
       "id": "ones",
       "label": "Ones",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of ones"
+      "businessContext": "Number of ones",
+      "label_i18n": {
+        "en": "Ones",
+        "tr": "Ones",
+        "de": "Ones",
+        "fr": "Ones",
+        "es": "Ones",
+        "ar": "Ones"
+      }
     },
     {
       "id": "tenths",
       "label": "Tenths",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of tenths (for decimal)"
+      "businessContext": "Number of tenths (for decimal)",
+      "label_i18n": {
+        "en": "Tenths",
+        "tr": "Tenths",
+        "de": "Tenths",
+        "fr": "Tenths",
+        "es": "Tenths",
+        "ar": "Tenths"
+      }
     },
     {
       "id": "hundredths",
       "label": "Hundredths",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of hundredths (for decimal)"
+      "businessContext": "Number of hundredths (for decimal)",
+      "label_i18n": {
+        "en": "Hundredths",
+        "tr": "Hundredths",
+        "de": "Hundredths",
+        "fr": "Hundredths",
+        "es": "Hundredths",
+        "ar": "Hundredths"
+      }
     }
   ],
   "formulas": {
@@ -80,10 +136,10 @@
       "hundredthsPart"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Total weight of goods including packaging"
+      "businessContext": "Total weight of goods including packaging",
+      "label_i18n": {
+        "en": "Gross Weight",
+        "tr": "Gross Weight",
+        "de": "Gross Weight",
+        "fr": "Gross Weight",
+        "es": "Gross Weight",
+        "ar": "Gross Weight"
+      }
     },
     {
       "id": "tare_kg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Weight of empty packaging or container"
+      "businessContext": "Weight of empty packaging or container",
+      "label_i18n": {
+        "en": "Tare Weight",
+        "tr": "Tare Weight",
+        "de": "Tare Weight",
+        "fr": "Tare Weight",
+        "es": "Tare Weight",
+        "ar": "Tare Weight"
+      }
     },
     {
       "id": "batch_count",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of identical containers in the shipment"
+      "businessContext": "Number of identical containers in the shipment",
+      "label_i18n": {
+        "en": "Number of Containers",
+        "tr": "Number of Containers",
+        "de": "Number of Containers",
+        "fr": "Number of Containers",
+        "es": "Number of Containers",
+        "ar": "Number of Containers"
+      }
     },
     {
       "id": "decimal_places",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Precision of the output value in tons (0-6 recommended)"
+      "businessContext": "Precision of the output value in tons (0-6 recommended)",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "gross_tons"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

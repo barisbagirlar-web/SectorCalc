@@ -5,33 +5,65 @@
       "id": "h",
       "label": "Vertex x (h)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Vertex x-coordinate"
+      "businessContext": "Vertex x-coordinate",
+      "label_i18n": {
+        "en": "Vertex x (h)",
+        "tr": "Vertex x (h)",
+        "de": "Vertex x (h)",
+        "fr": "Vertex x (h)",
+        "es": "Vertex x (h)",
+        "ar": "Vertex x (h)"
+      }
     },
     {
       "id": "k",
       "label": "Vertex y (k)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Vertex y-coordinate"
+      "businessContext": "Vertex y-coordinate",
+      "label_i18n": {
+        "en": "Vertex y (k)",
+        "tr": "Vertex y (k)",
+        "de": "Vertex y (k)",
+        "fr": "Vertex y (k)",
+        "es": "Vertex y (k)",
+        "ar": "Vertex y (k)"
+      }
     },
     {
       "id": "x1",
       "label": "Point x (x₁)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "x-coordinate of a point on the parabola"
+      "businessContext": "x-coordinate of a point on the parabola",
+      "label_i18n": {
+        "en": "Point x (x₁)",
+        "tr": "Point x (x₁)",
+        "de": "Point x (x₁)",
+        "fr": "Point x (x₁)",
+        "es": "Point x (x₁)",
+        "ar": "Point x (x₁)"
+      }
     },
     {
       "id": "y1",
       "label": "Point y (y₁)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "y-coordinate of a point on the parabola"
+      "businessContext": "y-coordinate of a point on the parabola",
+      "label_i18n": {
+        "en": "Point y (y₁)",
+        "tr": "Point y (y₁)",
+        "de": "Point y (y₁)",
+        "fr": "Point y (y₁)",
+        "es": "Point y (y₁)",
+        "ar": "Point y (y₁)"
+      }
     }
   ],
   "formulas": {
@@ -51,8 +83,8 @@
       "aValue"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

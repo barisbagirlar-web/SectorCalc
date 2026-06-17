@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Shortest_path_calculatorInput): Record<strin
 
 export function calculateShortest_path_calculator(input: Shortest_path_calculatorInput): Shortest_path_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["dx"] ?? 0;
   const breakdown = {
     
   };

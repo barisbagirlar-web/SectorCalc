@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg",
       "default": 500,
-      "businessContext": "İlacın standart yetişkin dozu (mg)"
+      "businessContext": "İlacın standart yetişkin dozu (mg)",
+      "label_i18n": {
+        "en": "Yetişkin Dozu",
+        "tr": "Yetişkin Dozu",
+        "de": "Yetişkin Dozu",
+        "fr": "Yetişkin Dozu",
+        "es": "Yetişkin Dozu",
+        "ar": "Yetişkin Dozu"
+      }
     },
     {
       "id": "childWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Çocuğun vücut ağırlığı (kg)"
+      "businessContext": "Çocuğun vücut ağırlığı (kg)",
+      "label_i18n": {
+        "en": "Çocuk Ağırlığı",
+        "tr": "Çocuk Ağırlığı",
+        "de": "Çocuk Ağırlığı",
+        "fr": "Çocuk Ağırlığı",
+        "es": "Çocuk Ağırlığı",
+        "ar": "Çocuk Ağırlığı"
+      }
     },
     {
       "id": "childAge",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 5,
-      "businessContext": "Çocuğun yaşı (yıl)"
+      "businessContext": "Çocuğun yaşı (yıl)",
+      "label_i18n": {
+        "en": "Çocuk Yaşı",
+        "tr": "Çocuk Yaşı",
+        "de": "Çocuk Yaşı",
+        "fr": "Çocuk Yaşı",
+        "es": "Çocuk Yaşı",
+        "ar": "Çocuk Yaşı"
+      }
     },
     {
       "id": "maxDosePerKg",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/kg/gün",
       "default": 80,
-      "businessContext": "Güvenli üst sınır mg/kg/gün (örn. 80)"
+      "businessContext": "Güvenli üst sınır mg/kg/gün (örn. 80)",
+      "label_i18n": {
+        "en": "Maksimum Doz/kg/Gün",
+        "tr": "Maksimum Doz/kg/Gün",
+        "de": "Maksimum Doz/kg/Gün",
+        "fr": "Maksimum Doz/kg/Gün",
+        "es": "Maksimum Doz/kg/Gün",
+        "ar": "Maksimum Doz/kg/Gün"
+      }
     },
     {
       "id": "concentration",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mg/mL",
       "default": 100,
-      "businessContext": "Sıvı formdaki ilaç konsantrasyonu (mg/mL)"
+      "businessContext": "Sıvı formdaki ilaç konsantrasyonu (mg/mL)",
+      "label_i18n": {
+        "en": "Konsantrasyon",
+        "tr": "Konsantrasyon",
+        "de": "Konsantrasyon",
+        "fr": "Konsantrasyon",
+        "es": "Konsantrasyon",
+        "ar": "Konsantrasyon"
+      }
     }
   ],
   "formulas": {
@@ -49,19 +89,22 @@
     "volumeClarke": "Math.round(clarkDose / concentration * 100) / 100",
     "volumeYoung": "Math.round(youngDose / concentration * 100) / 100",
     "isClarkeSafe": "clarkDose <= maxAllowedDose",
-    "isYoungSafe": "youngDose <= maxAllowedDose"
+    "isYoungSafe": "youngDose <= maxAllowedDose",
+    "__youngDose__mg____volumeYoung__mL___G_v": "${youngDose} mg (${volumeYoung} mL), Güvenli: ${isYoungSafe}",
+    "__maxAllowedDose__mg": "${maxAllowedDose} mg",
+    "result": "Clark Kuralı: ${clarkDose} mg (${volumeClarke} mL), Güvenli: ${isClarkeSafe}"
   },
   "outputs": {
-    "primary": "Clark Kuralı: ${clarkDose} mg (${volumeClarke} mL), Güvenli: ${isClarkeSafe}",
+    "primary": "result",
     "breakdown": [
       "Young Kuralı: ${youngDose} mg (${volumeYoung} mL), Güvenli: ${isYoungSafe}",
       "Maksimum Güvenli Günlük Doz: ${maxAllowedDose} mg"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

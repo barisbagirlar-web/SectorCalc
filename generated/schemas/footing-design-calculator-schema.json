@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kN",
       "default": 500,
-      "businessContext": "Service axial load from column"
+      "businessContext": "Service axial load from column",
+      "label_i18n": {
+        "en": "Column Load",
+        "tr": "Column Load",
+        "de": "Column Load",
+        "fr": "Column Load",
+        "es": "Column Load",
+        "ar": "Column Load"
+      }
     },
     {
       "id": "soilBearingCapacity",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "kPa",
       "default": 150,
-      "businessContext": "Allowable soil bearing capacity"
+      "businessContext": "Allowable soil bearing capacity",
+      "label_i18n": {
+        "en": "Soil Bearing Capacity",
+        "tr": "Soil Bearing Capacity",
+        "de": "Soil Bearing Capacity",
+        "fr": "Soil Bearing Capacity",
+        "es": "Soil Bearing Capacity",
+        "ar": "Soil Bearing Capacity"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2.5,
-      "businessContext": "Factor of safety for bearing"
+      "businessContext": "Factor of safety for bearing",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "lengthToWidthRatio",
       "label": "Length/Width Ratio",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Desired footing length to width ratio"
+      "businessContext": "Desired footing length to width ratio",
+      "label_i18n": {
+        "en": "Length/Width Ratio",
+        "tr": "Length/Width Ratio",
+        "de": "Length/Width Ratio",
+        "fr": "Length/Width Ratio",
+        "es": "Length/Width Ratio",
+        "ar": "Length/Width Ratio"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "footingLength"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "project-construction-management"
 }

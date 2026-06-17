@@ -19,13 +19,18 @@ function evaluateAllFormulas(input: Indefinite_integralInput): Record<string, nu
   const results: Record<string, number> = {};
   try { const v = input.functionType === 1 ? (input.coefficient * ((results["x"] ?? 0) ** (input.exponent + 1)) / (input.exponent + 1)) + input.constant : input.functionType === 2 ? (input.coefficient * Math.exp((results["x"] ?? 0))) + input.constant : input.functionType === 3 ? (-input.coefficient * Math.cos((results["x"] ?? 0))) + input.constant : 0; results["integralResult"] = Number.isFinite(v) ? v : 0; } catch { results["integralResult"] = 0; }
   try { const v = 1; results["x"] = Number.isFinite(v) ? v : 0; } catch { results["x"] = 0; }
+  try { const v = input.coefficient; results["a____coefficient_"] = Number.isFinite(v) ? v : 0; } catch { results["a____coefficient_"] = 0; }
+  try { const v = input.exponent; results["n____exponent_"] = Number.isFinite(v) ? v : 0; } catch { results["n____exponent_"] = 0; }
+  try { const v = input.constant; results["C____constant_"] = Number.isFinite(v) ? v : 0; } catch { results["C____constant_"] = 0; }
+  try { const v = (results["integralResult"] ?? 0); results["_integralResult_"] = Number.isFinite(v) ? v : 0; } catch { results["_integralResult_"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateIndefinite_integral(input: Indefinite_integralInput): Indefinite_integralOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["∫ f(x) dx = (a * x^(n+1))/(n+1) + C"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

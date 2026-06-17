@@ -39,11 +39,7 @@
     "seedRatioPercent": "((meltedTemp - targetTemp) / (targetTemp - seedTemp)) * 100"
   },
   "outputs": {
-    "primary": {
-      "id": "requiredSeedMass",
-      "label": "Required Seed Chocolate Mass",
-      "unit": "kg"
-    },
+    "primary": "requiredSeedMass",
     "breakdown": [
       {
         "id": "seedRatioPercent",
@@ -52,10 +48,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Perakende & Gıda",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

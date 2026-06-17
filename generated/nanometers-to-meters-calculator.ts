@@ -27,13 +27,18 @@ function evaluateAllFormulas(input: Nanometers_to_meters_calculatorInput): Recor
   try { const v = (input.nmValue / input.conversionFactor) * input.scaling; results["scaledMeters"] = Number.isFinite(v) ? v : 0; } catch { results["scaledMeters"] = 0; }
   try { const v = ((input.nmValue / input.conversionFactor) * input.scaling) + input.offset; results["offsetMeters"] = Number.isFinite(v) ? v : 0; } catch { results["offsetMeters"] = 0; }
   try { const v = ((input.nmValue / input.conversionFactor) * input.scaling + input.offset) * input.targetUnitFactor; results["resultInTarget"] = Number.isFinite(v) ? v : 0; } catch { results["resultInTarget"] = 0; }
+  try { const v = input.nmValue / input.conversionFactor; results["nmValue___conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["nmValue___conversionFactor"] = 0; }
+  try { const v = (input.nmValue / input.conversionFactor) * input.scaling; results["_nmValue___conversionFactor____scaling"] = Number.isFinite(v) ? v : 0; } catch { results["_nmValue___conversionFactor____scaling"] = 0; }
+  try { const v = ((input.nmValue / input.conversionFactor) * input.scaling) + input.offset; results["__nmValue___conversionFactor____scaling_"] = Number.isFinite(v) ? v : 0; } catch { results["__nmValue___conversionFactor____scaling_"] = 0; }
+  try { const v = (((input.nmValue / input.conversionFactor) * input.scaling) + input.offset) * input.targetUnitFactor; results["___nmValue___conversionFactor____scaling"] = Number.isFinite(v) ? v : 0; } catch { results["___nmValue___conversionFactor____scaling"] = 0; }
+  try { const v = parseFloat(((((input.nmValue / input.conversionFactor) * input.scaling) + input.offset) * input.targetUnitFactor).toFixed(input.precision)); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateNanometers_to_meters_calculator(input: Nanometers_to_meters_calculatorInput): Nanometers_to_meters_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["parseFloat"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

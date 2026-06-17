@@ -20,13 +20,17 @@ function evaluateAllFormulas(input: Foot_pounds_to_joules_calculatorInput): Reco
   try { const v = input.foot_pounds * input.conversion_factor; results["joules_exact"] = Number.isFinite(v) ? v : 0; } catch { results["joules_exact"] = 0; }
   try { const v = Math.round((results["joules_exact"] ?? 0) * Math.pow(10, input.decimal_places)) / Math.pow(10, input.decimal_places); results["joules_rounded"] = Number.isFinite(v) ? v : 0; } catch { results["joules_rounded"] = 0; }
   try { const v = (results["joules_exact"] ?? 0) * (input.uncertainty_percent / 100); results["uncertainty"] = Number.isFinite(v) ? v : 0; } catch { results["uncertainty"] = 0; }
+  results["____joules_exact_____J_"] = 0;
+  results["____joules_rounded_____J_"] = 0;
+  results["_____uncertainty_____J_"] = 0;
+  try { const v = (results["joules_rounded"] ?? 0) + ' J'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateFoot_pounds_to_joules_calculator(input: Foot_pounds_to_joules_calculatorInput): Foot_pounds_to_joules_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["joules_rounded"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

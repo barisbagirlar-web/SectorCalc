@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 40,
-      "businessContext": "The operating temperature of the component or system in degrees Celsius."
+      "businessContext": "The operating temperature of the component or system in degrees Celsius.",
+      "label_i18n": {
+        "en": "Operating Temperature",
+        "tr": "Operating Temperature",
+        "de": "Operating Temperature",
+        "fr": "Operating Temperature",
+        "es": "Operating Temperature",
+        "ar": "Operating Temperature"
+      }
     },
     {
       "id": "referenceTemperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "The reference temperature at which standard aging data is known."
+      "businessContext": "The reference temperature at which standard aging data is known.",
+      "label_i18n": {
+        "en": "Reference Temperature",
+        "tr": "Reference Temperature",
+        "de": "Reference Temperature",
+        "fr": "Reference Temperature",
+        "es": "Reference Temperature",
+        "ar": "Reference Temperature"
+      }
     },
     {
       "id": "activationEnergy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "eV",
       "default": 0.7,
-      "businessContext": "Activation energy for the aging process, typically in electron volts."
+      "businessContext": "Activation energy for the aging process, typically in electron volts.",
+      "label_i18n": {
+        "en": "Activation Energy",
+        "tr": "Activation Energy",
+        "de": "Activation Energy",
+        "fr": "Activation Energy",
+        "es": "Activation Energy",
+        "ar": "Activation Energy"
+      }
     },
     {
       "id": "referenceTime",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "The duration at reference conditions for which aging is compared."
+      "businessContext": "The duration at reference conditions for which aging is compared.",
+      "label_i18n": {
+        "en": "Reference Time",
+        "tr": "Reference Time",
+        "de": "Reference Time",
+        "fr": "Reference Time",
+        "es": "Reference Time",
+        "ar": "Reference Time"
+      }
     },
     {
       "id": "treatmentEffectiveness",
       "label": "Treatment Effectiveness",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Effectiveness factor of the anti-aging treatment, ranging from 0 (no effect) to 1 (fully effective)."
+      "businessContext": "Effectiveness factor of the anti-aging treatment, ranging from 0 (no effect) to 1 (fully effective).",
+      "label_i18n": {
+        "en": "Treatment Effectiveness",
+        "tr": "Treatment Effectiveness",
+        "de": "Treatment Effectiveness",
+        "fr": "Treatment Effectiveness",
+        "es": "Treatment Effectiveness",
+        "ar": "Treatment Effectiveness"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "treatmentEffectivenessFactor"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "sustainability-resource-esg"
 }

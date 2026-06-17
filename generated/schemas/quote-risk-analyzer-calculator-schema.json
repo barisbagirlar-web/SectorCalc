@@ -80,7 +80,7 @@
       "id": "labor_skill_level",
       "label": "Labor Skill Level",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "medium",
       "min": null,
       "max": null,
@@ -133,7 +133,7 @@
       "id": "customer_credit_rating",
       "label": "Customer Credit Rating",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "BBB",
       "min": null,
       "max": null,
@@ -159,7 +159,7 @@
       "id": "contract_penalty_clause",
       "label": "Contract Penalty Clause",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -211,208 +211,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "base_revenue",
-      "name": "Base Revenue",
-      "description": "Total revenue from the quote.",
-      "formula": "order_volume * unit_price",
-      "unit": "USD",
-      "inputs": [
-        "order_volume",
-        "unit_price"
-      ]
-    },
-    {
-      "id": "defect_risk_cost",
-      "name": "Defect Risk Cost",
-      "description": "Expected cost due to defects, including rework and scrap, based on Six Sigma principles.",
-      "formula": "base_revenue * (quality_defect_rate / 100) * 1.5",
-      "unit": "USD",
-      "inputs": [
-        "base_revenue",
-        "quality_defect_rate"
-      ],
-      "notes": "1.5 multiplier accounts for hidden rework and inspection costs per ISO 9001."
-    },
-    {
-      "id": "lead_time_risk_factor",
-      "name": "Lead Time Risk Factor",
-      "description": "Risk multiplier based on lead time and logistics complexity.",
-      "formula": "1 + (production_lead_time_days / 365) * (logistics_complexity / 10)",
-      "unit": "dimensionless",
-      "inputs": [
-        "production_lead_time_days",
-        "logistics_complexity"
-      ]
-    },
-    {
-      "id": "material_cost_risk",
-      "name": "Material Cost Risk",
-      "description": "Potential additional cost from material price volatility.",
-      "formula": "base_revenue * 0.4 * (material_cost_variability / 100)",
-      "unit": "USD",
-      "inputs": [
-        "base_revenue",
-        "material_cost_variability"
-      ],
-      "notes": "Assumes 40% of revenue is material cost (typical for manufacturing)."
-    },
-    {
-      "id": "credit_risk_factor",
-      "name": "Credit Risk Factor",
-      "description": "Risk factor based on customer credit rating.",
-      "formula": "CASE customer_credit_rating WHEN 'AAA' THEN 0.01 WHEN 'AA' THEN 0.02 WHEN 'A' THEN 0.03 WHEN 'BBB' THEN 0.05 WHEN 'BB' THEN 0.10 WHEN 'B' THEN 0.15 WHEN 'CCC' THEN 0.25 WHEN 'D' THEN 0.50 ELSE 0.05 END",
-      "unit": "dimensionless",
-      "inputs": [
-        "customer_credit_rating"
-      ]
-    },
-    {
-      "id": "penalty_risk",
-      "name": "Penalty Risk",
-      "description": "Additional risk if penalty clause exists.",
-      "formula": "IF contract_penalty_clause THEN base_revenue * 0.05 ELSE 0",
-      "unit": "USD",
-      "inputs": [
-        "base_revenue",
-        "contract_penalty_clause"
-      ],
-      "notes": "5% of revenue as typical penalty exposure."
-    },
-    {
-      "id": "risk_score",
-      "name": "Overall Risk Score",
-      "description": "Primary risk score (0-100) combining all risk factors, normalized.",
-      "formula": "MIN(100, ((defect_risk_cost + material_cost_risk + penalty_risk) / base_revenue * 100 * lead_time_risk_factor) + (credit_risk_factor * 100))",
-      "unit": "score (0-100)",
-      "inputs": [
-        "defect_risk_cost",
-        "material_cost_risk",
-        "penalty_risk",
-        "base_revenue",
-        "lead_time_risk_factor",
-        "credit_risk_factor"
-      ],
-      "isPrimary": true
-    }
+    "order_volume",
+    "order_volume",
+    "order_volume",
+    "order_volume",
+    "order_volume",
+    "order_volume",
+    "order_volume"
   ],
   "outputs": {
-    "primary": {
-      "id": "risk_score",
-      "label": "Overall Risk Score",
-      "value": null,
-      "unit": "score (0-100)",
-      "description": "Aggregate risk score for the quote. Higher values indicate greater risk."
-    },
-    "breakdown": {
-      "cost_risk_index": {
-        "id": "cost_risk_index",
-        "label": "Cost Risk Index",
-        "value": null,
-        "unit": "ratio",
-        "description": "Ratio of total risk cost to base revenue."
-      },
-      "defect_risk_cost": {
-        "id": "defect_risk_cost",
-        "label": "Defect Risk Cost",
-        "value": null,
-        "unit": "USD",
-        "description": "Expected cost from defects."
-      },
-      "material_cost_risk": {
-        "id": "material_cost_risk",
-        "label": "Material Cost Risk",
-        "value": null,
-        "unit": "USD",
-        "description": "Expected additional material cost."
-      },
-      "penalty_risk": {
-        "id": "penalty_risk",
-        "label": "Penalty Risk",
-        "value": null,
-        "unit": "USD",
-        "description": "Potential penalty cost."
-      },
-      "credit_risk_factor": {
-        "id": "credit_risk_factor",
-        "label": "Credit Risk Factor",
-        "value": null,
-        "unit": "dimensionless",
-        "description": "Factor from customer credit rating."
-      },
-      "lead_time_risk_factor": {
-        "id": "lead_time_risk_factor",
-        "label": "Lead Time Risk Factor",
-        "value": null,
-        "unit": "dimensionless",
-        "description": "Multiplier for lead time and logistics complexity."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "hidden_rework_cost",
-        "label": "Hidden Rework Cost",
-        "description": "Unplanned rework due to defects not captured in standard defect rate (Lean Muda).",
-        "estimatedValue": null,
-        "unit": "USD"
-      },
-      {
-        "id": "expediting_shipping_cost",
-        "label": "Expediting Shipping Cost",
-        "description": "Cost of air freight or expedited shipping to meet deadlines (WERC logistics risk).",
-        "estimatedValue": null,
-        "unit": "USD"
-      },
-      {
-        "id": "inventory_holding_cost",
-        "label": "Inventory Holding Cost",
-        "description": "Cost of carrying extra safety stock due to lead time variability.",
-        "estimatedValue": null,
-        "unit": "USD"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_reduce_lead_time",
-        "label": "Reduce Lead Time",
-        "description": "Negotiate shorter lead time or use lean production methods to lower risk.",
-        "priority": "high"
-      },
-      {
-        "id": "action_improve_quality",
-        "label": "Improve Quality Control",
-        "description": "Implement Six Sigma DMAIC to reduce defect rate below 2%.",
-        "priority": "high"
-      },
-      {
-        "id": "action_hedge_materials",
-        "label": "Hedge Material Costs",
-        "description": "Use fixed-price contracts or futures to mitigate material cost variability.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_credit_check",
-        "label": "Enhanced Credit Check",
-        "description": "Request advance payment or credit insurance for low-rated customers.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_penalty_waiver",
-        "label": "Negotiate Penalty Waiver",
-        "description": "Attempt to remove or cap penalty clauses in the contract.",
-        "priority": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_risk",
-      "label": "Data Confidence Adjusted Risk Score",
-      "value": null,
-      "unit": "score (0-100)",
-      "description": "Risk score adjusted for data quality and completeness (e.g., if inputs are estimated, score is inflated by 10%)."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "quote-risk-analyzer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

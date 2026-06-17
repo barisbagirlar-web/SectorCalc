@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "V",
       "default": 400,
-      "businessContext": "Nominal system voltage (e.g., 230V single-phase, 400V three-phase)."
+      "businessContext": "Nominal system voltage (e.g., 230V single-phase, 400V three-phase).",
+      "label_i18n": {
+        "en": "System Voltage",
+        "tr": "System Voltage",
+        "de": "System Voltage",
+        "fr": "System Voltage",
+        "es": "System Voltage",
+        "ar": "System Voltage"
+      }
     },
     {
       "id": "phases",
       "label": "Number of Phases",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "1 for single-phase, 3 for three-phase."
+      "businessContext": "1 for single-phase, 3 for three-phase.",
+      "label_i18n": {
+        "en": "Number of Phases",
+        "tr": "Number of Phases",
+        "de": "Number of Phases",
+        "fr": "Number of Phases",
+        "es": "Number of Phases",
+        "ar": "Number of Phases"
+      }
     },
     {
       "id": "numberOfCircuits",
       "label": "Number of Branch Circuits",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Total number of branch circuits to be supplied."
+      "businessContext": "Total number of branch circuits to be supplied.",
+      "label_i18n": {
+        "en": "Number of Branch Circuits",
+        "tr": "Number of Branch Circuits",
+        "de": "Number of Branch Circuits",
+        "fr": "Number of Branch Circuits",
+        "es": "Number of Branch Circuits",
+        "ar": "Number of Branch Circuits"
+      }
     },
     {
       "id": "loadPerCircuit",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "A",
       "default": 20,
-      "businessContext": "Rated current per branch circuit."
+      "businessContext": "Rated current per branch circuit.",
+      "label_i18n": {
+        "en": "Load per Circuit",
+        "tr": "Load per Circuit",
+        "de": "Load per Circuit",
+        "fr": "Load per Circuit",
+        "es": "Load per Circuit",
+        "ar": "Load per Circuit"
+      }
     },
     {
       "id": "diversityFactor",
       "label": "Diversity Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Factor accounting for non-simultaneous loads (0-1)."
+      "businessContext": "Factor accounting for non-simultaneous loads (0-1).",
+      "label_i18n": {
+        "en": "Diversity Factor",
+        "tr": "Diversity Factor",
+        "de": "Diversity Factor",
+        "fr": "Diversity Factor",
+        "es": "Diversity Factor",
+        "ar": "Diversity Factor"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Power Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
-      "businessContext": "Power factor of the load (0-1)."
+      "businessContext": "Power factor of the load (0-1).",
+      "label_i18n": {
+        "en": "Power Factor",
+        "tr": "Power Factor",
+        "de": "Power Factor",
+        "fr": "Power Factor",
+        "es": "Power Factor",
+        "ar": "Power Factor"
+      }
     }
   ],
   "formulas": {
@@ -58,12 +106,7 @@
     "mainBreakerCurrent": "totalLoadkVA * 1000 / (phases === 3 ? (Math.sqrt(3) * voltage) : voltage)"
   },
   "outputs": {
-    "primary": {
-      "id": "requiredPanelRating",
-      "label": "Required Panel Rating",
-      "unit": "kVA",
-      "description": "Minimum panel kVA rating with 25% safety margin."
-    },
+    "primary": "totalCurrent",
     "breakdown": [
       {
         "id": "totalCurrent",
@@ -91,10 +134,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "electrical-power-systems"
 }

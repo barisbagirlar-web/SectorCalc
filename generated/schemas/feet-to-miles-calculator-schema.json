@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 1000,
-      "businessContext": "Distance in feet to convert to miles."
+      "businessContext": "Distance in feet to convert to miles.",
+      "label_i18n": {
+        "en": "Feet",
+        "tr": "Feet",
+        "de": "Feet",
+        "fr": "Feet",
+        "es": "Feet",
+        "ar": "Feet"
+      }
     },
     {
       "id": "feetPerMile",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "ft/mi",
       "default": 5280,
-      "businessContext": "Conversion factor: 1 mile = 5280 feet (international foot)."
+      "businessContext": "Conversion factor: 1 mile = 5280 feet (international foot).",
+      "label_i18n": {
+        "en": "Feet per Mile",
+        "tr": "Feet per Mile",
+        "de": "Feet per Mile",
+        "fr": "Feet per Mile",
+        "es": "Feet per Mile",
+        "ar": "Feet per Mile"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the output miles."
+      "businessContext": "Number of decimal places for rounding the output miles.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "milesValue",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mi",
       "default": 0,
-      "businessContext": "Optional miles value for reverse conversion to feet. If non-zero, the reverse feet will be displayed in breakdown."
+      "businessContext": "Optional miles value for reverse conversion to feet. If non-zero, the reverse feet will be displayed in breakdown.",
+      "label_i18n": {
+        "en": "Miles (Reverse)",
+        "tr": "Miles (Reverse)",
+        "de": "Miles (Reverse)",
+        "fr": "Miles (Reverse)",
+        "es": "Miles (Reverse)",
+        "ar": "Miles (Reverse)"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "reverseFeet"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

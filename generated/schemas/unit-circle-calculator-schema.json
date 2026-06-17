@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "deg",
       "default": 0,
-      "businessContext": "Starting angle in degrees"
+      "businessContext": "Starting angle in degrees",
+      "label_i18n": {
+        "en": "Initial Angle",
+        "tr": "Initial Angle",
+        "de": "Initial Angle",
+        "fr": "Initial Angle",
+        "es": "Initial Angle",
+        "ar": "Initial Angle"
+      }
     },
     {
       "id": "angularVelocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "rad/s",
       "default": 0,
-      "businessContext": "Constant angular velocity in radians per second"
+      "businessContext": "Constant angular velocity in radians per second",
+      "label_i18n": {
+        "en": "Angular Velocity",
+        "tr": "Angular Velocity",
+        "de": "Angular Velocity",
+        "fr": "Angular Velocity",
+        "es": "Angular Velocity",
+        "ar": "Angular Velocity"
+      }
     },
     {
       "id": "time",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Elapsed time in seconds"
+      "businessContext": "Elapsed time in seconds",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for output rounding"
+      "businessContext": "Number of decimal places for output rounding",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -42,10 +74,17 @@
     "tanVal": "sinVal / cosVal",
     "cotVal": "cosVal / sinVal",
     "secVal": "1 / cosVal",
-    "cscVal": "1 / sinVal"
+    "cscVal": "1 / sinVal",
+    "_sin__________sinVal_toFixed_decimalPlac": "\"sin(θ) = \" + sinVal.toFixed(decimalPlaces)",
+    "_cos__________cosVal_toFixed_decimalPlac": "\"cos(θ) = \" + cosVal.toFixed(decimalPlaces)",
+    "_tan__________tanVal_toFixed_decimalPlac": "\"tan(θ) = \" + tanVal.toFixed(decimalPlaces)",
+    "_cot__________cotVal_toFixed_decimalPlac": "\"cot(θ) = \" + cotVal.toFixed(decimalPlaces)",
+    "_sec__________secVal_toFixed_decimalPlac": "\"sec(θ) = \" + secVal.toFixed(decimalPlaces)",
+    "_csc__________cscVal_toFixed_decimalPlac": "\"csc(θ) = \" + cscVal.toFixed(decimalPlaces)",
+    "result": "\"(\" + cosVal.toFixed(decimalPlaces) + \", \" + sinVal.toFixed(decimalPlaces) + \")\""
   },
   "outputs": {
-    "primary": "\"(\" + cosVal.toFixed(decimalPlaces) + \", \" + sinVal.toFixed(decimalPlaces) + \")\"",
+    "primary": "result",
     "breakdown": [
       "\"sin(θ) = \" + sinVal.toFixed(decimalPlaces)",
       "\"cos(θ) = \" + cosVal.toFixed(decimalPlaces)",
@@ -55,10 +94,10 @@
       "\"csc(θ) = \" + cscVal.toFixed(decimalPlaces)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

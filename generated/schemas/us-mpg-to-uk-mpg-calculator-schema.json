@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "mpg (US)",
       "default": 25,
-      "businessContext": "Fuel economy in miles per US gallon"
+      "businessContext": "Fuel economy in miles per US gallon",
+      "label_i18n": {
+        "en": "US MPG",
+        "tr": "US MPG",
+        "de": "US MPG",
+        "fr": "US MPG",
+        "es": "US MPG",
+        "ar": "US MPG"
+      }
     },
     {
       "id": "conversionFactor",
       "label": "Conversion Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.20095,
-      "businessContext": "Factor to convert US mpg to UK mpg. Based on 1 US gallon = 0.832674 UK gallon"
+      "businessContext": "Factor to convert US mpg to UK mpg. Based on 1 US gallon = 0.832674 UK gallon",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounded output"
+      "businessContext": "Number of decimal places for rounded output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "referenceValue",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mpg (UK)",
       "default": 30,
-      "businessContext": "Optional reference UK mpg value for comparison"
+      "businessContext": "Optional reference UK mpg value for comparison",
+      "label_i18n": {
+        "en": "Reference Value",
+        "tr": "Reference Value",
+        "de": "Reference Value",
+        "fr": "Reference Value",
+        "es": "Reference Value",
+        "ar": "Reference Value"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "difference"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "maintenance-reliability"
 }

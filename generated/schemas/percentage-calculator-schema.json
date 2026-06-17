@@ -95,7 +95,7 @@
       "id": "process_type",
       "label": "Process Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "manufacturing",
       "options": [
         "manufacturing",
@@ -115,7 +115,7 @@
       "id": "include_scrap_in_defect",
       "label": "Include Scrap in Defect Count",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "businessContext": "If true, scrap units are counted as defective for defect rate calculation.",
       "label_i18n": {
@@ -182,154 +182,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "effective_defects",
-      "label": "Effective Defects",
-      "description": "Total defects including scrap if selected.",
-      "formula": "if(include_scrap_in_defect, defective_units + scrap_units, defective_units)",
-      "unit": "units"
-    },
-    {
-      "id": "defect_rate",
-      "label": "Defect Rate (%)",
-      "description": "Percentage of units that are defective (DPMO basis).",
-      "formula": "(effective_defects / total_units) * 100",
-      "unit": "%"
-    },
-    {
-      "id": "first_pass_yield",
-      "label": "First-Pass Yield (%)",
-      "description": "Percentage of units produced without any defect or rework (Six Sigma FTY).",
-      "formula": "((total_units - effective_defects - rework_units) / total_units) * 100",
-      "unit": "%"
-    },
-    {
-      "id": "scrap_rate",
-      "label": "Scrap Rate (%)",
-      "description": "Percentage of units scrapped.",
-      "formula": "(scrap_units / total_units) * 100",
-      "unit": "%"
-    },
-    {
-      "id": "rework_rate",
-      "label": "Rework Rate (%)",
-      "description": "Percentage of units requiring rework.",
-      "formula": "(rework_units / total_units) * 100",
-      "unit": "%"
-    },
-    {
-      "id": "yield_gap",
-      "label": "Yield Gap (percentage points)",
-      "description": "Difference between target yield and actual first-pass yield.",
-      "formula": "target_yield - first_pass_yield",
-      "unit": "pp"
-    },
-    {
-      "id": "overall_equipment_effectiveness_impact",
-      "label": "OEE Impact (%)",
-      "description": "Estimated impact on Overall Equipment Effectiveness due to defects and rework (ISO 22400).",
-      "formula": "defect_rate + rework_rate + scrap_rate",
-      "unit": "%"
-    }
+    "total_units",
+    "total_units",
+    "total_units",
+    "total_units",
+    "total_units",
+    "total_units",
+    "total_units"
   ],
   "outputs": {
-    "primary": {
-      "id": "first_pass_yield",
-      "label": "First-Pass Yield (%)",
-      "value": null,
-      "unit": "%",
-      "description": "Primary metric for process quality performance."
-    },
-    "breakdown": {
-      "defect_rate": {
-        "id": "defect_rate",
-        "label": "Defect Rate",
-        "value": null,
-        "unit": "%"
-      },
-      "scrap_rate": {
-        "id": "scrap_rate",
-        "label": "Scrap Rate",
-        "value": null,
-        "unit": "%"
-      },
-      "rework_rate": {
-        "id": "rework_rate",
-        "label": "Rework Rate",
-        "value": null,
-        "unit": "%"
-      },
-      "yield_gap": {
-        "id": "yield_gap",
-        "label": "Yield Gap",
-        "value": null,
-        "unit": "pp"
-      },
-      "oee_impact": {
-        "id": "oee_impact",
-        "label": "OEE Impact",
-        "value": null,
-        "unit": "%"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excessive_rework",
-        "label": "Excessive Rework",
-        "description": "Rework rate above 10% indicates process instability or inadequate training.",
-        "threshold": 10,
-        "unit": "%"
-      },
-      {
-        "id": "high_scrap",
-        "label": "High Scrap",
-        "description": "Scrap rate above 5% suggests material or process parameter issues.",
-        "threshold": 5,
-        "unit": "%"
-      },
-      {
-        "id": "yield_gap_positive",
-        "label": "Yield Gap Positive",
-        "description": "Actual yield below target indicates need for process improvement.",
-        "threshold": 0,
-        "unit": "pp"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_defects",
-        "label": "Reduce Defects",
-        "description": "Implement SPC (Statistical Process Control) to monitor and reduce defect rate.",
-        "priority": "high"
-      },
-      {
-        "id": "minimize_rework",
-        "label": "Minimize Rework",
-        "description": "Conduct root cause analysis (5 Whys, Fishbone) for rework drivers.",
-        "priority": "medium"
-      },
-      {
-        "id": "scrap_reduction",
-        "label": "Scrap Reduction",
-        "description": "Review material specifications and process parameters to lower scrap.",
-        "priority": "high"
-      },
-      {
-        "id": "target_alignment",
-        "label": "Align to Target Yield",
-        "description": "Set incremental improvement goals to close yield gap (Kaizen).",
-        "priority": "medium"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_yield",
-      "label": "Data Confidence Adjusted Yield",
-      "value": null,
-      "unit": "%",
-      "description": "First-pass yield adjusted for data completeness and measurement system accuracy (ISO 10012)."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "percentage-calculator"
 }

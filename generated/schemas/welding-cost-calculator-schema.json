@@ -254,7 +254,8 @@
       },
       "businessContext_i18n": {
         "en": "Standard arc welding process per AWS A3.0."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "use_premium_material",
@@ -267,7 +268,8 @@
       },
       "businessContext_i18n": {
         "en": "Toggle to apply a 20% cost premium for high-performance filler wire."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -321,192 +323,25 @@
     ]
   },
   "formulas": [
-    {
-      "id": "weld_volume",
-      "name": "Weld Volume (cm³)",
-      "description": "Volume of deposited weld metal assuming a triangular fillet cross-section.",
-      "formula": "(weld_length_mm / 10) * (weld_throat_mm / 10) * (weld_throat_mm / 10) / 2",
-      "unit": "cm³"
-    },
-    {
-      "id": "filler_mass",
-      "name": "Filler Mass Required (kg)",
-      "description": "Mass of filler metal needed accounting for deposition efficiency.",
-      "formula": "weld_volume * material_density_g_per_cm3 / 1000 / (deposition_efficiency / 100)",
-      "unit": "kg"
-    },
-    {
-      "id": "labor_time",
-      "name": "Labor Time (hours)",
-      "description": "Total arc-on time for the weld.",
-      "formula": "(weld_length_mm / welding_speed_mm_per_min) / 60",
-      "unit": "hours"
-    },
-    {
-      "id": "filler_cost",
-      "name": "Filler Material Cost (USD)",
-      "description": "Cost of filler wire including premium if selected.",
-      "formula": "filler_mass * filler_wire_cost_per_kg * (1 + (use_premium_material ? 0.2 : 0))",
-      "unit": "USD"
-    },
-    {
-      "id": "gas_cost",
-      "name": "Shielding Gas Cost (USD)",
-      "description": "Cost of shielding gas consumed during welding.",
-      "formula": "gas_flow_rate_l_per_min * (weld_length_mm / welding_speed_mm_per_min) * gas_cost_per_liter",
-      "unit": "USD"
-    },
-    {
-      "id": "energy_cost",
-      "name": "Energy Cost (USD)",
-      "description": "Cost of electrical energy for welding.",
-      "formula": "welding_power_kw * labor_time * energy_cost_per_kwh",
-      "unit": "USD"
-    },
-    {
-      "id": "labor_cost",
-      "name": "Labor Cost (USD)",
-      "description": "Direct labor cost for welding.",
-      "formula": "labor_time * labor_rate_per_hour",
-      "unit": "USD"
-    },
-    {
-      "id": "overhead_cost",
-      "name": "Overhead Cost (USD)",
-      "description": "Allocated overhead for the welding operation.",
-      "formula": "labor_time * overhead_rate_per_hour",
-      "unit": "USD"
-    },
-    {
-      "id": "rework_cost",
-      "name": "Rework Cost (USD)",
-      "description": "Expected cost of rework based on defect rate.",
-      "formula": "(filler_cost + gas_cost + energy_cost + labor_cost + overhead_cost) * (rework_rate_percent / 100) * rework_cost_factor",
-      "unit": "USD"
-    },
-    {
-      "id": "total_welding_cost",
-      "name": "Total Welding Cost (USD)",
-      "description": "Primary result: total cost per weld including rework.",
-      "formula": "filler_cost + gas_cost + energy_cost + labor_cost + overhead_cost + rework_cost",
-      "unit": "USD"
-    }
+    "weld_length_mm",
+    "weld_length_mm",
+    "weld_length_mm",
+    "weld_length_mm",
+    "weld_length_mm",
+    "weld_length_mm",
+    "weld_length_mm",
+    "weld_length_mm",
+    "weld_length_mm",
+    "weld_length_mm"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_welding_cost",
-      "label": "Total Welding Cost",
-      "value": null,
-      "unit": "USD",
-      "description": "Total cost per weld joint including all direct and indirect costs."
-    },
-    "breakdown": {
-      "fillerCost": {
-        "id": "filler_cost",
-        "label": "Filler Material Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "gasCost": {
-        "id": "gas_cost",
-        "label": "Shielding Gas Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "energyCost": {
-        "id": "energy_cost",
-        "label": "Energy Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "laborCost": {
-        "id": "labor_cost",
-        "label": "Labor Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "overheadCost": {
-        "id": "overhead_cost",
-        "label": "Overhead Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "reworkCost": {
-        "id": "rework_cost",
-        "label": "Rework Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "spatter_loss",
-        "label": "Spatter Loss",
-        "description": "Filler material lost as spatter, not deposited.",
-        "estimatedValue": null,
-        "unit": "USD",
-        "impact": "Increases filler cost by up to 15%."
-      },
-      {
-        "id": "idle_time",
-        "label": "Idle Time",
-        "description": "Non-arc time (setup, repositioning, breaks).",
-        "estimatedValue": null,
-        "unit": "USD",
-        "impact": "Can add 20-40% to labor cost."
-      },
-      {
-        "id": "defect_scrap",
-        "label": "Defect Scrap",
-        "description": "Cost of scrapped parts due to non-repairable defects.",
-        "estimatedValue": null,
-        "unit": "USD",
-        "impact": "Typically 1-5% of total cost."
-      },
-      {
-        "id": "consumable_wear",
-        "label": "Consumable Wear",
-        "description": "Cost of contact tips, nozzles, liners.",
-        "estimatedValue": null,
-        "unit": "USD",
-        "impact": "Adds 2-8% to consumable cost."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "optimize_welding_parameters",
-        "description": "Increase welding speed or reduce power to lower energy and labor costs.",
-        "expectedSavingsPercent": 10,
-        "effort": "medium"
-      },
-      {
-        "id": "reduce_rework",
-        "description": "Implement statistical process control (SPC) to reduce rework rate below 5%.",
-        "expectedSavingsPercent": 15,
-        "effort": "high"
-      },
-      {
-        "id": "improve_deposition_efficiency",
-        "description": "Switch to low-spatter wire or optimize shielding gas mix.",
-        "expectedSavingsPercent": 8,
-        "effort": "low"
-      },
-      {
-        "id": "automation_assessment",
-        "description": "Evaluate robotic welding for high-volume joints to reduce labor cost.",
-        "expectedSavingsPercent": 25,
-        "effort": "high"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
+  "toolName": "welding-cost-calculator"
 }

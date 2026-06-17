@@ -2,26 +2,24 @@
 import * as z from 'zod';
 
 export interface Strength_level_calculatorInput {
-  bodyWeight: number;
-  liftWeight: number;
-  reps: number;
-  age: number;
-  gender: number;
+  appliedForce: number;
+  crossSectionArea: number;
+  yieldStrength: number;
+  safetyFactor: number;
 }
 
 export const Strength_level_calculatorInputSchema = z.object({
-  bodyWeight: z.number().default(75),
-  liftWeight: z.number().default(100),
-  reps: z.number().default(5),
-  age: z.number().default(30),
-  gender: z.number().default(0),
+  appliedForce: z.number().default(1000),
+  crossSectionArea: z.number().default(50),
+  yieldStrength: z.number().default(250),
+  safetyFactor: z.number().default(1.5),
 });
 
 function evaluateAllFormulas(input: Strength_level_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.liftWeight*(1+input.reps/30); results["estimated1RM"] = Number.isFinite(v) ? v : 0; } catch { results["estimated1RM"] = 0; }
-  try { const v = (input.liftWeight*(1+input.reps/30))/input.bodyWeight; results["relativeStrength"] = Number.isFinite(v) ? v : 0; } catch { results["relativeStrength"] = 0; }
-  try { const v = input.gender===0?((input.liftWeight*(1+input.reps/30))/input.bodyWeight>=2?'Elite':(input.liftWeight*(1+input.reps/30))/input.bodyWeight>=1.5?'Advanced':(input.liftWeight*(1+input.reps/30))/input.bodyWeight>=1.25?'Intermediate':(input.liftWeight*(1+input.reps/30))/input.bodyWeight>=1?'Novice':'Beginner'):((input.liftWeight*(1+input.reps/30))/input.bodyWeight>=1.5?'Elite':(input.liftWeight*(1+input.reps/30))/input.bodyWeight>=1?'Advanced':(input.liftWeight*(1+input.reps/30))/input.bodyWeight>=0.75?'Intermediate':(input.liftWeight*(1+input.reps/30))/input.bodyWeight>=0.5?'Novice':'Beginner'); results["strengthLevel"] = Number.isFinite(v) ? v : 0; } catch { results["strengthLevel"] = 0; }
+  try { const v = (input.yieldStrength / ((input.appliedForce / input.crossSectionArea) * input.safetyFactor)) * 100; results["strengthLevel"] = Number.isFinite(v) ? v : 0; } catch { results["strengthLevel"] = 0; }
+  try { const v = input.appliedForce / input.crossSectionArea; results["workingStress"] = Number.isFinite(v) ? v : 0; } catch { results["workingStress"] = 0; }
+  try { const v = input.yieldStrength / input.safetyFactor; results["allowableStress"] = Number.isFinite(v) ? v : 0; } catch { results["allowableStress"] = 0; }
   return results;
 }
 

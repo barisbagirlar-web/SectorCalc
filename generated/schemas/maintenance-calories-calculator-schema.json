@@ -5,9 +5,17 @@
       "id": "gender",
       "label": "Cinsiyet (Kadın=0, Erkek=1)",
       "type": "number",
-      "unit": null,
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Kullanıcının cinsiyeti; 0 kadın, 1 erkek olarak alınır."
+      "businessContext": "Kullanıcının cinsiyeti; 0 kadın, 1 erkek olarak alınır.",
+      "label_i18n": {
+        "en": "Cinsiyet (Kadın=0, Erkek=1)",
+        "tr": "Cinsiyet (Kadın=0, Erkek=1)",
+        "de": "Cinsiyet (Kadın=0, Erkek=1)",
+        "fr": "Cinsiyet (Kadın=0, Erkek=1)",
+        "es": "Cinsiyet (Kadın=0, Erkek=1)",
+        "ar": "Cinsiyet (Kadın=0, Erkek=1)"
+      }
     },
     {
       "id": "age",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı, yıl cinsinden."
+      "businessContext": "Kullanıcının yaşı, yıl cinsinden.",
+      "label_i18n": {
+        "en": "Yaş (yıl)",
+        "tr": "Yaş (yıl)",
+        "de": "Yaş (yıl)",
+        "fr": "Yaş (yıl)",
+        "es": "Yaş (yıl)",
+        "ar": "Yaş (yıl)"
+      }
     },
     {
       "id": "weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının vücut ağırlığı, kilogram."
+      "businessContext": "Kullanıcının vücut ağırlığı, kilogram.",
+      "label_i18n": {
+        "en": "Ağırlık (kg)",
+        "tr": "Ağırlık (kg)",
+        "de": "Ağırlık (kg)",
+        "fr": "Ağırlık (kg)",
+        "es": "Ağırlık (kg)",
+        "ar": "Ağırlık (kg)"
+      }
     },
     {
       "id": "height",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kullanıcının boyu, santimetre."
+      "businessContext": "Kullanıcının boyu, santimetre.",
+      "label_i18n": {
+        "en": "Boy (cm)",
+        "tr": "Boy (cm)",
+        "de": "Boy (cm)",
+        "fr": "Boy (cm)",
+        "es": "Boy (cm)",
+        "ar": "Boy (cm)"
+      }
     },
     {
       "id": "activityLevel",
       "label": "Aktivite Seviyesi Çarpanı",
       "type": "number",
-      "unit": null,
+      "unit": "unit",
       "default": 1.55,
-      "businessContext": "Fiziksel aktivite düzeyi çarpanı (sedanter:1.2, hafif:1.375, orta:1.55, yüksek:1.725, çok yüksek:1.9)."
+      "businessContext": "Fiziksel aktivite düzeyi çarpanı (sedanter:1.2, hafif:1.375, orta:1.55, yüksek:1.725, çok yüksek:1.9).",
+      "label_i18n": {
+        "en": "Aktivite Seviyesi Çarpanı",
+        "tr": "Aktivite Seviyesi Çarpanı",
+        "de": "Aktivite Seviyesi Çarpanı",
+        "fr": "Aktivite Seviyesi Çarpanı",
+        "es": "Aktivite Seviyesi Çarpanı",
+        "ar": "Aktivite Seviyesi Çarpanı"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,10 @@
       "TDEE"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "category": "Bakım & Güvenilirlik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "categorySlug": "maintenance-reliability",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

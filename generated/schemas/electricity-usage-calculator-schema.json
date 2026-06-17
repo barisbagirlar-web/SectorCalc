@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 1,
-      "businessContext": "Average power consumption of the device or system in kilowatts."
+      "businessContext": "Average power consumption of the device or system in kilowatts.",
+      "label_i18n": {
+        "en": "Power Consumption",
+        "tr": "Power Consumption",
+        "de": "Power Consumption",
+        "fr": "Power Consumption",
+        "es": "Power Consumption",
+        "ar": "Power Consumption"
+      }
     },
     {
       "id": "hoursPerDay",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Number of hours the device is used per day, on average."
+      "businessContext": "Number of hours the device is used per day, on average.",
+      "label_i18n": {
+        "en": "Usage per Day",
+        "tr": "Usage per Day",
+        "de": "Usage per Day",
+        "fr": "Usage per Day",
+        "es": "Usage per Day",
+        "ar": "Usage per Day"
+      }
     },
     {
       "id": "daysPerMonth",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Number of days per month the device is operated."
+      "businessContext": "Number of days per month the device is operated.",
+      "label_i18n": {
+        "en": "Days per Month",
+        "tr": "Days per Month",
+        "de": "Days per Month",
+        "fr": "Days per Month",
+        "es": "Days per Month",
+        "ar": "Days per Month"
+      }
     },
     {
       "id": "numberOfDevices",
       "label": "Number of Devices",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of identical devices operating under the same conditions."
+      "businessContext": "Number of identical devices operating under the same conditions.",
+      "label_i18n": {
+        "en": "Number of Devices",
+        "tr": "Number of Devices",
+        "de": "Number of Devices",
+        "fr": "Number of Devices",
+        "es": "Number of Devices",
+        "ar": "Number of Devices"
+      }
     },
     {
       "id": "costPerKwh",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.15,
-      "businessContext": "Electricity tariff rate per kilowatt-hour (in the local currency)."
+      "businessContext": "Electricity tariff rate per kilowatt-hour (in the local currency).",
+      "label_i18n": {
+        "en": "Cost per kWh",
+        "tr": "Cost per kWh",
+        "de": "Cost per kWh",
+        "fr": "Cost per kWh",
+        "es": "Cost per kWh",
+        "ar": "Cost per kWh"
+      }
     }
   ],
   "formulas": {
@@ -52,10 +92,10 @@
       "totalEnergyKwh"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

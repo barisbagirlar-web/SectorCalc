@@ -8,7 +8,7 @@ describe("all-tools-data", () => {
   it("includes slug-based premium schemas from filenames", () => {
     const premiumTools = getPremiumTools("en");
     const slugOnlyPremium = premiumTools.find(
-      (tool) => tool.slug === "auto-repair-parts-labor-quote",
+      (tool) => tool.slug === "auto-repair-parts-labor-quote-calculator",
     );
 
     expect(slugOnlyPremium).toBeDefined();
@@ -32,9 +32,9 @@ describe("all-tools-data", () => {
     expect(freeTools.length).toBeGreaterThan(premiumTools.length);
   });
 
-  it("prefers metadata categorySlug over legacy schema category label", () => {
+  it("prefers taxonomy category label over metadata categorySlug", () => {
     const tool = getAllTools("en").find((entry) => entry.slug === "margin-calculator");
-    expect(tool?.categoryKey).toBe("finance-sales-working-capital");
+    expect(tool?.categoryKey).toBe("maliyet-butceleme");
   });
 
   it("resolves localized sector labels for all supported locales", async () => {

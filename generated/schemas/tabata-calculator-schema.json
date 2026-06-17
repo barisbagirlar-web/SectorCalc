@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 20,
-      "businessContext": "Duration of high-intensity work interval"
+      "businessContext": "Duration of high-intensity work interval",
+      "label_i18n": {
+        "en": "Work Interval (s)",
+        "tr": "Work Interval (s)",
+        "de": "Work Interval (s)",
+        "fr": "Work Interval (s)",
+        "es": "Work Interval (s)",
+        "ar": "Work Interval (s)"
+      }
     },
     {
       "id": "restDuration",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "seconds",
       "default": 10,
-      "businessContext": "Duration of rest interval between work intervals"
+      "businessContext": "Duration of rest interval between work intervals",
+      "label_i18n": {
+        "en": "Rest Interval (s)",
+        "tr": "Rest Interval (s)",
+        "de": "Rest Interval (s)",
+        "fr": "Rest Interval (s)",
+        "es": "Rest Interval (s)",
+        "ar": "Rest Interval (s)"
+      }
     },
     {
       "id": "rounds",
       "label": "Number of Rounds",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 8,
-      "businessContext": "Number of work-rest cycles"
+      "businessContext": "Number of work-rest cycles",
+      "label_i18n": {
+        "en": "Number of Rounds",
+        "tr": "Number of Rounds",
+        "de": "Number of Rounds",
+        "fr": "Number of Rounds",
+        "es": "Number of Rounds",
+        "ar": "Number of Rounds"
+      }
     },
     {
       "id": "preparationTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 0,
-      "businessContext": "Time allocated before the first work interval"
+      "businessContext": "Time allocated before the first work interval",
+      "label_i18n": {
+        "en": "Preparation Time (s)",
+        "tr": "Preparation Time (s)",
+        "de": "Preparation Time (s)",
+        "fr": "Preparation Time (s)",
+        "es": "Preparation Time (s)",
+        "ar": "Preparation Time (s)"
+      }
     },
     {
       "id": "coolDownTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 0,
-      "businessContext": "Time allocated after the last rest interval"
+      "businessContext": "Time allocated after the last rest interval",
+      "label_i18n": {
+        "en": "Cool Down Time (s)",
+        "tr": "Cool Down Time (s)",
+        "de": "Cool Down Time (s)",
+        "fr": "Cool Down Time (s)",
+        "es": "Cool Down Time (s)",
+        "ar": "Cool Down Time (s)"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,10 @@
       "totalRestTime"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "category": "Bakım & Güvenilirlik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "categorySlug": "maintenance-reliability",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

@@ -5,33 +5,65 @@
       "id": "octalValue1",
       "label": "Sekizlik Sayı 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur."
+      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur.",
+      "label_i18n": {
+        "en": "Sekizlik Sayı 1",
+        "tr": "Sekizlik Sayı 1",
+        "de": "Sekizlik Sayı 1",
+        "fr": "Sekizlik Sayı 1",
+        "es": "Sekizlik Sayı 1",
+        "ar": "Sekizlik Sayı 1"
+      }
     },
     {
       "id": "octalValue2",
       "label": "Sekizlik Sayı 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur."
+      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur.",
+      "label_i18n": {
+        "en": "Sekizlik Sayı 2",
+        "tr": "Sekizlik Sayı 2",
+        "de": "Sekizlik Sayı 2",
+        "fr": "Sekizlik Sayı 2",
+        "es": "Sekizlik Sayı 2",
+        "ar": "Sekizlik Sayı 2"
+      }
     },
     {
       "id": "octalValue3",
       "label": "Sekizlik Sayı 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur."
+      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur.",
+      "label_i18n": {
+        "en": "Sekizlik Sayı 3",
+        "tr": "Sekizlik Sayı 3",
+        "de": "Sekizlik Sayı 3",
+        "fr": "Sekizlik Sayı 3",
+        "es": "Sekizlik Sayı 3",
+        "ar": "Sekizlik Sayı 3"
+      }
     },
     {
       "id": "octalValue4",
       "label": "Sekizlik Sayı 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur."
+      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur.",
+      "label_i18n": {
+        "en": "Sekizlik Sayı 4",
+        "tr": "Sekizlik Sayı 4",
+        "de": "Sekizlik Sayı 4",
+        "fr": "Sekizlik Sayı 4",
+        "es": "Sekizlik Sayı 4",
+        "ar": "Sekizlik Sayı 4"
+      }
     }
   ],
   "formulas": {
@@ -52,8 +84,8 @@
       "decimalSum"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -16,6 +16,8 @@ export const Faradays_law_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Faradays_law_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = -input.number_of_turns * (input.magnetic_flux_change / input.time_interval); results["induced_emf"] = Number.isFinite(v) ? v : 0; } catch { results["induced_emf"] = 0; }
+  results["Induced_EMF____N__________t_"] = 0;
+  try { const v = input.magnetic_flux_change, Δt = input.time_interval, N = input.number_of_turns; results["_____magnetic_flux_change___t___time_int"] = Number.isFinite(v) ? v : 0; } catch { results["_____magnetic_flux_change___t___time_int"] = 0; }
   return results;
 }
 

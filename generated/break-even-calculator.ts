@@ -21,32 +21,19 @@ export const Break_even_calculatorInputSchema = z.object({
   cost_allocation_method: z.enum(['traditional', 'activity-based']).default('traditional'),
 });
 
-function evaluateAllFormulas(input: Break_even_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.selling_price_per_unit - input.variable_cost_per_unit; results["contribution_margin_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["contribution_margin_per_unit"] = 0; }
-  try { const v = (input.selling_price_per_unit - input.variable_cost_per_unit) / input.selling_price_per_unit; results["contribution_margin_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["contribution_margin_ratio"] = 0; }
-  try { const v = input.fixed_costs / (input.selling_price_per_unit - input.variable_cost_per_unit); results["break_even_units"] = Number.isFinite(v) ? v : 0; } catch { results["break_even_units"] = 0; }
-  try { const v = (results["break_even_units"] ?? 0) * input.selling_price_per_unit; results["break_even_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["break_even_revenue"] = 0; }
-  try { const v = (input.defect_rate / 1000000) * input.rework_cost_per_unit; results["quality_loss_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["quality_loss_per_unit"] = 0; }
-  try { const v = input.fixed_costs / (input.selling_price_per_unit - input.variable_cost_per_unit - (results["quality_loss_per_unit"] ?? 0)); results["adjusted_break_even_units"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_break_even_units"] = 0; }
-  try { const v = (input.production_volume - (results["break_even_units"] ?? 0)) / input.production_volume; results["margin_of_safety"] = Number.isFinite(v) ? v : 0; } catch { results["margin_of_safety"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Break_even_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateBreak_even_calculator(input: Break_even_calculatorInput): Break_even_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["break_even_units"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    contribution_margin_per_unit: values["contribution_margin_per_unit"] ?? 0,
-    contribution_margin_ratio: values["contribution_margin_ratio"] ?? 0,
-    break_even_revenue: values["break_even_revenue"] ?? 0,
-    quality_loss_per_unit: values["quality_loss_per_unit"] ?? 0,
-    adjusted_break_even_units: values["adjusted_break_even_units"] ?? 0,
-    margin_of_safety: values["margin_of_safety"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Defect Rate Impact on Break-Even","Rework Cost Impact","Fixed Cost Leverage"];
-  const suggestedActions: string[] = ["Implement Six Sigma DMAIC to reduce defect rate below 5000 ppm.","Conduct value stream mapping to identify and eliminate non-value-added activities.","Perform market analysis to justify price increase based on quality improvements.","Review overhead allocation using activity-based costing (ABC)."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -65,7 +52,7 @@ export function calculateBreak_even_calculator(input: Break_even_calculatorInput
 
 export interface Break_even_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { contribution_margin_per_unit: number; contribution_margin_ratio: number; break_even_revenue: number; quality_loss_per_unit: number; adjusted_break_even_units: number; margin_of_safety: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

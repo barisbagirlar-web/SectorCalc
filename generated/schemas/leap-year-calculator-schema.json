@@ -5,33 +5,65 @@
       "id": "year",
       "label": "Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2024,
-      "businessContext": "The Gregorian calendar year to check for leap year status."
+      "businessContext": "The Gregorian calendar year to check for leap year status.",
+      "label_i18n": {
+        "en": "Year",
+        "tr": "Year",
+        "de": "Year",
+        "fr": "Year",
+        "es": "Year",
+        "ar": "Year"
+      }
     },
     {
       "id": "divisor4",
       "label": "4-Year Rule Divisor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "The divisor for the 4-year cycle. Standard is 4 for Gregorian."
+      "businessContext": "The divisor for the 4-year cycle. Standard is 4 for Gregorian.",
+      "label_i18n": {
+        "en": "4-Year Rule Divisor",
+        "tr": "4-Year Rule Divisor",
+        "de": "4-Year Rule Divisor",
+        "fr": "4-Year Rule Divisor",
+        "es": "4-Year Rule Divisor",
+        "ar": "4-Year Rule Divisor"
+      }
     },
     {
       "id": "divisor100",
       "label": "100-Year Rule Divisor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "The divisor for the century exception. Standard is 100 for Gregorian."
+      "businessContext": "The divisor for the century exception. Standard is 100 for Gregorian.",
+      "label_i18n": {
+        "en": "100-Year Rule Divisor",
+        "tr": "100-Year Rule Divisor",
+        "de": "100-Year Rule Divisor",
+        "fr": "100-Year Rule Divisor",
+        "es": "100-Year Rule Divisor",
+        "ar": "100-Year Rule Divisor"
+      }
     },
     {
       "id": "divisor400",
       "label": "400-Year Rule Divisor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 400,
-      "businessContext": "The divisor for the 400-year exception. Standard is 400 for Gregorian."
+      "businessContext": "The divisor for the 400-year exception. Standard is 400 for Gregorian.",
+      "label_i18n": {
+        "en": "400-Year Rule Divisor",
+        "tr": "400-Year Rule Divisor",
+        "de": "400-Year Rule Divisor",
+        "fr": "400-Year Rule Divisor",
+        "es": "400-Year Rule Divisor",
+        "ar": "400-Year Rule Divisor"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "divBy400"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

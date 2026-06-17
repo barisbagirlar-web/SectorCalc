@@ -69,11 +69,7 @@
     "profitMargin": "(netProfit / totalRevenue) * 100"
   },
   "outputs": {
-    "primary": {
-      "id": "netProfit",
-      "label": "Net Profit",
-      "unit": "€"
-    },
+    "primary": "totalRevenue",
     "breakdown": [
       {
         "id": "grossProfit",
@@ -93,8 +89,8 @@
       }
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Perakende & Gıda",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

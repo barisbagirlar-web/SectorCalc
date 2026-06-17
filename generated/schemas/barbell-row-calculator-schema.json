@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 28,
-      "businessContext": "Diameter of the barbell shaft for section modulus calculation."
+      "businessContext": "Diameter of the barbell shaft for section modulus calculation.",
+      "label_i18n": {
+        "en": "Barbell Diameter",
+        "tr": "Barbell Diameter",
+        "de": "Barbell Diameter",
+        "fr": "Barbell Diameter",
+        "es": "Barbell Diameter",
+        "ar": "Barbell Diameter"
+      }
     },
     {
       "id": "barbellLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2200,
-      "businessContext": "Length of the barbell between supports for bending moment calculation."
+      "businessContext": "Length of the barbell between supports for bending moment calculation.",
+      "label_i18n": {
+        "en": "Barbell Length",
+        "tr": "Barbell Length",
+        "de": "Barbell Length",
+        "fr": "Barbell Length",
+        "es": "Barbell Length",
+        "ar": "Barbell Length"
+      }
     },
     {
       "id": "loadWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Weight of the plates loaded on the barbell, including bar weight if not centered."
+      "businessContext": "Weight of the plates loaded on the barbell, including bar weight if not centered.",
+      "label_i18n": {
+        "en": "Load Weight",
+        "tr": "Load Weight",
+        "de": "Load Weight",
+        "fr": "Load Weight",
+        "es": "Load Weight",
+        "ar": "Load Weight"
+      }
     },
     {
       "id": "yieldStrength",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Yield strength of the barbell material for allowable stress calculation."
+      "businessContext": "Yield strength of the barbell material for allowable stress calculation.",
+      "label_i18n": {
+        "en": "Material Yield Strength",
+        "tr": "Material Yield Strength",
+        "de": "Material Yield Strength",
+        "fr": "Material Yield Strength",
+        "es": "Material Yield Strength",
+        "ar": "Material Yield Strength"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Design safety factor to ensure safe load capacity."
+      "businessContext": "Design safety factor to ensure safe load capacity.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,10 @@
       "safetyMargin"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "premiumRequired": false,
+  "categorySlug": "metal-plastics-forming",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

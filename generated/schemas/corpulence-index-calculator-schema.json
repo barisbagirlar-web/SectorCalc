@@ -5,9 +5,17 @@
       "id": "unit_system",
       "label": "Measurement System",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = Metric (kg, cm), 1 = Imperial (stones, pounds, feet, inches)"
+      "businessContext": "0 = Metric (kg, cm), 1 = Imperial (stones, pounds, feet, inches)",
+      "label_i18n": {
+        "en": "Measurement System",
+        "tr": "Measurement System",
+        "de": "Measurement System",
+        "fr": "Measurement System",
+        "es": "Measurement System",
+        "ar": "Measurement System"
+      }
     },
     {
       "id": "weight_kg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms, used when Metric system selected"
+      "businessContext": "Body weight in kilograms, used when Metric system selected",
+      "label_i18n": {
+        "en": "Weight (kg)",
+        "tr": "Weight (kg)",
+        "de": "Weight (kg)",
+        "fr": "Weight (kg)",
+        "es": "Weight (kg)",
+        "ar": "Weight (kg)"
+      }
     },
     {
       "id": "height_cm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Body height in centimeters, used when Metric system selected"
+      "businessContext": "Body height in centimeters, used when Metric system selected",
+      "label_i18n": {
+        "en": "Height (cm)",
+        "tr": "Height (cm)",
+        "de": "Height (cm)",
+        "fr": "Height (cm)",
+        "es": "Height (cm)",
+        "ar": "Height (cm)"
+      }
     },
     {
       "id": "weight_stones",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "st",
       "default": 0,
-      "businessContext": "Whole number of stones, used when Imperial system selected"
+      "businessContext": "Whole number of stones, used when Imperial system selected",
+      "label_i18n": {
+        "en": "Weight - Stones",
+        "tr": "Weight - Stones",
+        "de": "Weight - Stones",
+        "fr": "Weight - Stones",
+        "es": "Weight - Stones",
+        "ar": "Weight - Stones"
+      }
     },
     {
       "id": "weight_pounds",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "lbs",
       "default": 0,
-      "businessContext": "Additional pounds beyond stones, used when Imperial system selected"
+      "businessContext": "Additional pounds beyond stones, used when Imperial system selected",
+      "label_i18n": {
+        "en": "Weight - Pounds",
+        "tr": "Weight - Pounds",
+        "de": "Weight - Pounds",
+        "fr": "Weight - Pounds",
+        "es": "Weight - Pounds",
+        "ar": "Weight - Pounds"
+      }
     },
     {
       "id": "height_feet",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Whole number of feet, used when Imperial system selected"
+      "businessContext": "Whole number of feet, used when Imperial system selected",
+      "label_i18n": {
+        "en": "Height - Feet",
+        "tr": "Height - Feet",
+        "de": "Height - Feet",
+        "fr": "Height - Feet",
+        "es": "Height - Feet",
+        "ar": "Height - Feet"
+      }
     },
     {
       "id": "height_inches",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Additional inches beyond feet, used when Imperial system selected"
+      "businessContext": "Additional inches beyond feet, used when Imperial system selected",
+      "label_i18n": {
+        "en": "Height - Inches",
+        "tr": "Height - Inches",
+        "de": "Height - Inches",
+        "fr": "Height - Inches",
+        "es": "Height - Inches",
+        "ar": "Height - Inches"
+      }
     }
   ],
   "formulas": {
@@ -70,10 +126,10 @@
       "height_m"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

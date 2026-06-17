@@ -33,34 +33,19 @@ export const Irrigation_cost_check_calculatorInputSchema = z.object({
   has_automation: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Irrigation_cost_check_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.water_volume * (1 - input.distribution_losses / 100); results["effective_water_volume"] = Number.isFinite(v) ? v : 0; } catch { results["effective_water_volume"] = 0; }
-  try { const v = input.water_volume * input.water_cost_per_m3; results["water_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["water_cost_total"] = 0; }
-  try { const v = input.water_volume * input.energy_cost_per_kwh * (100 / input.pump_efficiency); results["energy_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["energy_cost_total"] = 0; }
-  try { const v = input.labor_hours_per_year * input.labor_rate; results["labor_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost_total"] = 0; }
-  try { const v = (results["water_cost_total"] ?? 0) + (results["energy_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + input.maintenance_cost; results["total_operating_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_operating_cost"] = 0; }
-  try { const v = (results["total_operating_cost"] ?? 0) / (results["effective_water_volume"] ?? 0); results["cost_per_effective_m3"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_effective_m3"] = 0; }
-  try { const v = (results["total_operating_cost"] ?? 0) / input.irrigated_area; results["irrigation_cost_per_ha"] = Number.isFinite(v) ? v : 0; } catch { results["irrigation_cost_per_ha"] = 0; }
-  try { const v = (results["total_operating_cost"] ?? 0) / (input.irrigated_area * input.crop_value_per_ha); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Irrigation_cost_check_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateIrrigation_cost_check_calculator(input: Irrigation_cost_check_calculatorInput): Irrigation_cost_check_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["irrigation_cost_ratio"] ?? values["primary_result"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    water_cost_total: values["water_cost_total"] ?? 0,
-    energy_cost_total: values["energy_cost_total"] ?? 0,
-    labor_cost_total: values["labor_cost_total"] ?? 0,
-    maintenance_cost: values["maintenance_cost"] ?? 0,
-    total_operating_cost: values["total_operating_cost"] ?? 0,
-    cost_per_effective_m3: values["cost_per_effective_m3"] ?? 0,
-    irrigation_cost_per_ha: values["irrigation_cost_per_ha"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Distribution losses impact","Pump inefficiency impact","Labor inefficiency impact"];
-  const suggestedActions: string[] = ["Implement leak detection and repair program to reduce distribution losses by 5%.","Replace pump with high-efficiency model (target 85% efficiency).","Install soil moisture sensors and automated scheduling to reduce water use by 15% and labor by 40%.","Convert from sprinkler to drip irrigation to improve application efficiency by 20%."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -79,7 +64,7 @@ export function calculateIrrigation_cost_check_calculator(input: Irrigation_cost
 
 export interface Irrigation_cost_check_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { water_cost_total: number; energy_cost_total: number; labor_cost_total: number; maintenance_cost: number; total_operating_cost: number; cost_per_effective_m3: number; irrigation_cost_per_ha: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

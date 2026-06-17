@@ -143,7 +143,7 @@
       "id": "depreciation_method",
       "label": "Depreciation Method",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "straight_line",
       "min": null,
       "max": null,
@@ -164,7 +164,7 @@
       "id": "include_sensitivity",
       "label": "Include Sensitivity Analysis",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -222,178 +222,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "annual_net_cash_flow",
-      "name": "Annual Net Cash Flow",
-      "description": "Net cash flow after tax and depreciation shield.",
-      "formula": "annual_net_cash_flow = (annual_cash_inflow - annual_cash_outflow) * (1 - tax_rate/100) + (depreciation_expense * (tax_rate/100))",
-      "dependencies": [
-        "annual_cash_inflow",
-        "annual_cash_outflow",
-        "tax_rate",
-        "depreciation_expense"
-      ]
-    },
-    {
-      "id": "depreciation_expense",
-      "name": "Depreciation Expense",
-      "description": "Annual depreciation based on selected method.",
-      "formula": "depreciation_expense = (initial_investment - salvage_value) / project_life_years (straight_line)",
-      "dependencies": [
-        "initial_investment",
-        "salvage_value",
-        "project_life_years",
-        "depreciation_method"
-      ]
-    },
-    {
-      "id": "present_value_factor",
-      "name": "Present Value Factor",
-      "description": "Discount factor for each year t.",
-      "formula": "pv_factor_t = 1 / (1 + (discount_rate/100))^t",
-      "dependencies": [
-        "discount_rate"
-      ]
-    },
-    {
-      "id": "npv",
-      "name": "Net Present Value",
-      "description": "Sum of discounted net cash flows minus initial investment.",
-      "formula": "npv = -initial_investment + sum_{t=1}^{project_life_years} (annual_net_cash_flow * pv_factor_t) + (salvage_value * pv_factor_{project_life_years})",
-      "dependencies": [
-        "initial_investment",
-        "annual_net_cash_flow",
-        "pv_factor_t",
-        "salvage_value",
-        "project_life_years"
-      ]
-    },
-    {
-      "id": "irr",
-      "name": "Internal Rate of Return",
-      "description": "Discount rate that makes NPV zero (approximated via Newton-Raphson).",
-      "formula": "irr = solve(NPV(irr) = 0)",
-      "dependencies": [
-        "npv",
-        "annual_net_cash_flow",
-        "initial_investment",
-        "project_life_years"
-      ]
-    },
-    {
-      "id": "payback_period",
-      "name": "Payback Period",
-      "description": "Time to recover initial investment from undiscounted cash flows.",
-      "formula": "payback_period = initial_investment / annual_net_cash_flow",
-      "dependencies": [
-        "initial_investment",
-        "annual_net_cash_flow"
-      ]
-    },
-    {
-      "id": "profitability_index",
-      "name": "Profitability Index",
-      "description": "Ratio of present value of future cash flows to initial investment.",
-      "formula": "profitability_index = (npv + initial_investment) / initial_investment",
-      "dependencies": [
-        "npv",
-        "initial_investment"
-      ]
-    }
+    "initial_investment",
+    "initial_investment",
+    "initial_investment",
+    "initial_investment",
+    "initial_investment",
+    "initial_investment",
+    "initial_investment"
   ],
   "outputs": {
-    "primary": {
-      "id": "npv",
-      "label": "Net Present Value",
-      "unit": "USD",
-      "value": null,
-      "description": "Primary decision metric. Positive NPV indicates value creation."
-    },
-    "breakdown": {
-      "id": "breakdown",
-      "label": "Financial Breakdown",
-      "unit": "USD",
-      "components": {
-        "total_present_value_inflows": {
-          "label": "Total PV of Inflows",
-          "value": null,
-          "unit": "USD"
-        },
-        "total_present_value_outflows": {
-          "label": "Total PV of Outflows",
-          "value": null,
-          "unit": "USD"
-        },
-        "depreciation_tax_shield": {
-          "label": "Depreciation Tax Shield",
-          "value": null,
-          "unit": "USD"
-        },
-        "salvage_present_value": {
-          "label": "PV of Salvage Value",
-          "value": null,
-          "unit": "USD"
-        }
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "high_discount_rate_erosion",
-        "label": "High Discount Rate Erosion",
-        "description": "Discount rate above 10% significantly reduces long-term cash flow value.",
-        "severity": "medium",
-        "triggerCondition": "discount_rate > 10"
-      },
-      {
-        "id": "inflation_mismatch",
-        "label": "Inflation Mismatch",
-        "description": "Inflation rate exceeds discount rate, eroding real returns.",
-        "severity": "high",
-        "triggerCondition": "inflation_rate > discount_rate"
-      },
-      {
-        "id": "low_tax_shield_utilization",
-        "label": "Low Tax Shield Utilization",
-        "description": "Depreciation method yields lower tax shield than optimal.",
-        "severity": "low",
-        "triggerCondition": "depreciation_method == 'straight_line' && tax_rate > 20"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_capex",
-        "label": "Reduce Initial Investment",
-        "description": "Negotiate lower equipment costs or consider leasing to improve NPV.",
-        "impact": "high"
-      },
-      {
-        "id": "increase_revenue",
-        "label": "Increase Annual Inflow",
-        "description": "Explore process improvements or market expansion to boost cash inflows.",
-        "impact": "high"
-      },
-      {
-        "id": "optimize_depreciation",
-        "label": "Switch to Accelerated Depreciation",
-        "description": "Using double-declining method increases early tax shields and NPV.",
-        "impact": "medium"
-      },
-      {
-        "id": "extend_project_life",
-        "label": "Extend Project Life",
-        "description": "If salvage value is high, extending life may improve NPV.",
-        "impact": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_npv",
-      "label": "Confidence-Adjusted NPV",
-      "unit": "USD",
-      "value": null,
-      "description": "NPV adjusted for input uncertainty using Monte Carlo simulation (if enabled)."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Proje & Yatırım",
+  "sector": "Finans & İK",
+  "toolName": "npv-calculator"
 }

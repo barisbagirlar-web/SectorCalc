@@ -220,7 +220,8 @@
       },
       "businessContext_i18n": {
         "en": "Chemical class of dye, affects fixation efficiency and cost."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "use_lean_optimization",
@@ -233,7 +234,8 @@
       },
       "businessContext_i18n": {
         "en": "If true, applies lean principles to reduce waste and rework."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -277,148 +279,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "dye_mass_kg",
-      "description": "Mass of dye powder required",
-      "expression": "(dye_volume_l * dye_concentration_gpl) / 1000",
-      "unit": "kg"
-    },
-    {
-      "id": "dye_cost",
-      "description": "Cost of dye powder",
-      "expression": "dye_mass_kg * dye_price_per_kg",
-      "unit": "USD"
-    },
-    {
-      "id": "chemical_cost",
-      "description": "Cost of auxiliary chemicals",
-      "expression": "dye_volume_l * chemicals_per_liter",
-      "unit": "USD"
-    },
-    {
-      "id": "labor_cost",
-      "description": "Labor cost for the batch",
-      "expression": "labor_cost_per_hour * batch_time_hours",
-      "unit": "USD"
-    },
-    {
-      "id": "water_cost",
-      "description": "Water cost for the batch",
-      "expression": "(water_usage_l_per_kg * fabric_weight_kg / 1000) * water_cost_per_m3",
-      "unit": "USD"
-    },
-    {
-      "id": "waste_cost",
-      "description": "Cost of waste/rework (including all variable costs)",
-      "expression": "(dye_cost + chemical_cost + energy_cost_per_batch + labor_cost + water_cost) * (waste_percentage / 100)",
-      "unit": "USD"
-    },
-    {
-      "id": "total_cost_per_batch",
-      "description": "Primary result: total cost per batch including waste",
-      "expression": "dye_cost + chemical_cost + energy_cost_per_batch + labor_cost + water_cost + waste_cost",
-      "unit": "USD"
-    }
+    "dye_volume_l",
+    "dye_volume_l",
+    "dye_volume_l",
+    "dye_volume_l",
+    "dye_volume_l",
+    "dye_volume_l",
+    "dye_volume_l"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_cost_per_batch",
-      "label": "Total cost per batch",
-      "unit": "USD",
-      "description": "Sum of all direct and indirect costs including waste."
-    },
-    "breakdown": {
-      "dye_cost": {
-        "label": "Dye cost",
-        "unit": "USD",
-        "description": "Cost of dye powder."
-      },
-      "chemical_cost": {
-        "label": "Chemical cost",
-        "unit": "USD",
-        "description": "Cost of auxiliary chemicals."
-      },
-      "energy_cost": {
-        "label": "Energy cost",
-        "unit": "USD",
-        "description": "Energy cost per batch."
-      },
-      "labor_cost": {
-        "label": "Labor cost",
-        "unit": "USD",
-        "description": "Labor cost for the batch."
-      },
-      "water_cost": {
-        "label": "Water cost",
-        "unit": "USD",
-        "description": "Water cost for the batch."
-      },
-      "waste_cost": {
-        "label": "Waste / rework cost",
-        "unit": "USD",
-        "description": "Additional cost due to waste and rework."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_dye_fixation",
-        "label": "Dye fixation loss",
-        "description": "Unfixed dye washed out, typical 10-30% for reactive dyes. Hidden cost in water and waste.",
-        "estimatedImpact": "dye_cost * 0.2"
-      },
-      {
-        "id": "loss_water_heating",
-        "label": "Water heating inefficiency",
-        "description": "Heat loss during bath preparation and drainage. Typical 15% of energy cost.",
-        "estimatedImpact": "energy_cost_per_batch * 0.15"
-      },
-      {
-        "id": "loss_setup_time",
-        "label": "Setup / changeover time",
-        "description": "Non-productive time between batches. Lean SMED can reduce this.",
-        "estimatedImpact": "labor_cost_per_hour * 0.5"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_reduce_waste",
-        "label": "Reduce waste using Six Sigma DMAIC",
-        "description": "Implement root cause analysis to lower waste percentage below 5%.",
-        "expectedSavings": "total_cost_per_batch * (waste_percentage - 5) / 100",
-        "effort": "medium"
-      },
-      {
-        "id": "action_optimize_dye_concentration",
-        "label": "Optimize dye concentration",
-        "description": "Use lower concentration with better fixation (e.g., 3 g/L instead of 5 g/L) to reduce dye cost and waste.",
-        "expectedSavings": "(dye_mass_kg * dye_price_per_kg) * 0.4",
-        "effort": "low"
-      },
-      {
-        "id": "action_lean_water_reduction",
-        "label": "Reduce water usage via lean methods",
-        "description": "Implement counter-current washing or reuse rinse water. Target 30% reduction.",
-        "expectedSavings": "water_cost * 0.3",
-        "effort": "high"
-      },
-      {
-        "id": "action_energy_efficiency",
-        "label": "Improve energy efficiency",
-        "description": "Insulate dyeing machines, optimize heating profiles. Target 10% reduction.",
-        "expectedSavings": "energy_cost_per_batch * 0.1",
-        "effort": "medium"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "adjusted_total_cost",
-      "label": "Adjusted total cost (with confidence factor)",
-      "unit": "USD",
-      "description": "Total cost multiplied by a confidence factor (0.9 to 1.1) based on input variability.",
-      "expression": "total_cost_per_batch * (1 + (waste_percentage / 100) * 0.1)"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "dye-recipe-cost-optimizer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

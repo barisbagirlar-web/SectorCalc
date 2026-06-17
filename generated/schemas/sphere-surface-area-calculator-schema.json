@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "The radius of the sphere in meters"
+      "businessContext": "The radius of the sphere in meters",
+      "label_i18n": {
+        "en": "Radius",
+        "tr": "Radius",
+        "de": "Radius",
+        "fr": "Radius",
+        "es": "Radius",
+        "ar": "Radius"
+      }
     },
     {
       "id": "diameter",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "The diameter of the sphere in meters, used if Input Type is 1"
+      "businessContext": "The diameter of the sphere in meters, used if Input Type is 1",
+      "label_i18n": {
+        "en": "Diameter",
+        "tr": "Diameter",
+        "de": "Diameter",
+        "fr": "Diameter",
+        "es": "Diameter",
+        "ar": "Diameter"
+      }
     },
     {
       "id": "inputType",
       "label": "Input Type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = Use Radius, 1 = Use Diameter"
+      "businessContext": "0 = Use Radius, 1 = Use Diameter",
+      "label_i18n": {
+        "en": "Input Type",
+        "tr": "Input Type",
+        "de": "Input Type",
+        "fr": "Input Type",
+        "es": "Input Type",
+        "ar": "Input Type"
+      }
     },
     {
       "id": "outputUnit",
       "label": "Output Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = m², 1 = cm², 2 = mm², 3 = ft²"
+      "businessContext": "0 = m², 1 = cm², 2 = mm², 3 = ft²",
+      "label_i18n": {
+        "en": "Output Unit",
+        "tr": "Output Unit",
+        "de": "Output Unit",
+        "fr": "Output Unit",
+        "es": "Output Unit",
+        "ar": "Output Unit"
+      }
     },
     {
       "id": "costPerSquareMeter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/m²",
       "default": 0,
-      "businessContext": "Cost of material per square meter for coating or painting"
+      "businessContext": "Cost of material per square meter for coating or painting",
+      "label_i18n": {
+        "en": "Cost per m²",
+        "tr": "Cost per m²",
+        "de": "Cost per m²",
+        "fr": "Cost per m²",
+        "es": "Cost per m²",
+        "ar": "Cost per m²"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Additional percentage for material waste"
+      "businessContext": "Additional percentage for material waste",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -55,7 +103,11 @@
     "areaM2": "4 * Math.PI * Math.pow(radiusUsed, 2)",
     "conversionFactor": "outputUnit === 0 ? 1 : outputUnit === 1 ? 10000 : outputUnit === 2 ? 1000000 : outputUnit === 3 ? 10.7639 : 1",
     "convertedArea": "areaM2 * conversionFactor",
-    "totalCost": "areaM2 * costPerSquareMeter * (1 + wasteFactor / 100)"
+    "totalCost": "areaM2 * costPerSquareMeter * (1 + wasteFactor / 100)",
+    "_radiusUsed__m": "{radiusUsed} m",
+    "_areaM2_": "{areaM2}",
+    "_convertedArea_": "{convertedArea}",
+    "_totalCost_": "{totalCost}"
   },
   "outputs": {
     "primary": "convertedArea",
@@ -66,10 +118,10 @@
       "Total cost including waste: {totalCost}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

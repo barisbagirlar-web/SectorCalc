@@ -5,33 +5,65 @@
       "id": "a",
       "label": "a (x³ coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of the cubic term in f(x)=ax³+bx²+cx+d"
+      "businessContext": "Coefficient of the cubic term in f(x)=ax³+bx²+cx+d",
+      "label_i18n": {
+        "en": "a (x³ coefficient)",
+        "tr": "a (x³ coefficient)",
+        "de": "a (x³ coefficient)",
+        "fr": "a (x³ coefficient)",
+        "es": "a (x³ coefficient)",
+        "ar": "a (x³ coefficient)"
+      }
     },
     {
       "id": "b",
       "label": "b (x² coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -2,
-      "businessContext": "Coefficient of the quadratic term"
+      "businessContext": "Coefficient of the quadratic term",
+      "label_i18n": {
+        "en": "b (x² coefficient)",
+        "tr": "b (x² coefficient)",
+        "de": "b (x² coefficient)",
+        "fr": "b (x² coefficient)",
+        "es": "b (x² coefficient)",
+        "ar": "b (x² coefficient)"
+      }
     },
     {
       "id": "c",
       "label": "c (x coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -3,
-      "businessContext": "Coefficient of the linear term"
+      "businessContext": "Coefficient of the linear term",
+      "label_i18n": {
+        "en": "c (x coefficient)",
+        "tr": "c (x coefficient)",
+        "de": "c (x coefficient)",
+        "fr": "c (x coefficient)",
+        "es": "c (x coefficient)",
+        "ar": "c (x coefficient)"
+      }
     },
     {
       "id": "d",
       "label": "d (constant)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term, does not affect critical points"
+      "businessContext": "Constant term, does not affect critical points",
+      "label_i18n": {
+        "en": "d (constant)",
+        "tr": "d (constant)",
+        "de": "d (constant)",
+        "fr": "d (constant)",
+        "es": "d (constant)",
+        "ar": "d (constant)"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "hasReal"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

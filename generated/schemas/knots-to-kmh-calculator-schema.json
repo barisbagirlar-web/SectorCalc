@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kn",
       "default": 0,
-      "businessContext": "The speed value in knots to convert."
+      "businessContext": "The speed value in knots to convert.",
+      "label_i18n": {
+        "en": "Speed in knots",
+        "tr": "Speed in knots",
+        "de": "Speed in knots",
+        "fr": "Speed in knots",
+        "es": "Speed in knots",
+        "ar": "Speed in knots"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "km/h per kn",
       "default": 1.852,
-      "businessContext": "Standard conversion factor from knots to kilometers per hour. Default is 1.852."
+      "businessContext": "Standard conversion factor from knots to kilometers per hour. Default is 1.852.",
+      "label_i18n": {
+        "en": "Conversion factor",
+        "tr": "Conversion factor",
+        "de": "Conversion factor",
+        "fr": "Conversion factor",
+        "es": "Conversion factor",
+        "ar": "Conversion factor"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the result."
+      "businessContext": "Number of decimal places for the result.",
+      "label_i18n": {
+        "en": "Decimal places",
+        "tr": "Decimal places",
+        "de": "Decimal places",
+        "fr": "Decimal places",
+        "es": "Decimal places",
+        "ar": "Decimal places"
+      }
     },
     {
       "id": "roundingMode",
       "label": "Rounding mode",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Rounding mode: 0 = floor, 1 = round, 2 = ceil."
+      "businessContext": "Rounding mode: 0 = floor, 1 = round, 2 = ceil.",
+      "label_i18n": {
+        "en": "Rounding mode",
+        "tr": "Rounding mode",
+        "de": "Rounding mode",
+        "fr": "Rounding mode",
+        "es": "Rounding mode",
+        "ar": "Rounding mode"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "conversionFactor"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

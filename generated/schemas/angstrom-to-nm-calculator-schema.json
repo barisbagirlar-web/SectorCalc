@@ -7,11 +7,69 @@
       "type": "number",
       "unit": "Å",
       "default": 1,
-      "businessContext": "Wavelength or atomic scale measurement"
+      "businessContext": "Wavelength or atomic scale measurement",
+      "label_i18n": {
+        "en": "Value in Angstroms",
+        "tr": "Value in Angstroms",
+        "de": "Value in Angstroms",
+        "fr": "Value in Angstroms",
+        "es": "Value in Angstroms",
+        "ar": "Value in Angstroms"
+      }
+    },
+    {
+      "id": "auto_input_2",
+      "label": "auto_input_2",
+      "label_i18n": {
+        "en": "auto_input_2",
+        "tr": "auto_input_2",
+        "de": "auto_input_2",
+        "fr": "auto_input_2",
+        "es": "auto_input_2",
+        "ar": "auto_input_2"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 2.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 2.",
+        "tr": "Auto-generated input 2.",
+        "de": "Auto-generated input 2.",
+        "fr": "Auto-generated input 2.",
+        "es": "Auto-generated input 2.",
+        "ar": "Auto-generated input 2."
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
-    "nanoMeters": "angstromValue * 0.1"
+    "nanoMeters": "angstromValue * 0.1",
+    "1_____0_1_nm": "1 Å = 0.1 nm",
+    "angstromValue___0_1___nanoMeters_nm": "angstromValue * 0.1 = nanoMeters nm"
   },
   "outputs": {
     "primary": "nanoMeters",
@@ -20,10 +78,10 @@
       "Result: angstromValue * 0.1 = nanoMeters nm"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

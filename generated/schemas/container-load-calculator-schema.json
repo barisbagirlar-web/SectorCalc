@@ -16,7 +16,7 @@
       "id": "container_type",
       "label": "Container Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "20ft_standard",
       "options": [
         {
@@ -112,7 +112,7 @@
       "id": "stacking_factor",
       "label": "Stacking Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
       "min": 1,
       "max": 5,
@@ -128,7 +128,7 @@
       "id": "load_secure_method",
       "label": "Load Securing Method",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "blocking",
       "options": [
         {
@@ -156,7 +156,7 @@
       "id": "use_pallet",
       "label": "Use Pallet",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "businessContext": "Indicates if cargo is palletized. Pallet dimensions add to base footprint and reduce usable height.",
       "label_i18n": {
@@ -223,152 +223,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "container_internal_dimensions",
-      "name": "Container Internal Dimensions",
-      "description": "Retrieve internal length, width, height, and max gross weight based on container type per ISO 668.",
-      "inputs": [
-        "container_type"
-      ],
-      "formula": "CASE container_type WHEN '20ft_standard' THEN {length: 589.8, width: 235.2, height: 239.2, max_gross_kg: 24000} WHEN '40ft_standard' THEN {length: 1203.2, width: 235.2, height: 239.2, max_gross_kg: 30480} WHEN '40ft_highcube' THEN {length: 1203.2, width: 235.2, height: 269.2, max_gross_kg: 30480} WHEN '20ft_open_top' THEN {length: 589.8, width: 235.2, height: 233.0, max_gross_kg: 24000} END",
-      "unit": "cm / kg"
-    },
-    {
-      "id": "total_unit_height",
-      "name": "Total Unit Height",
-      "description": "Calculate total height of one cargo unit including pallet if used.",
-      "inputs": [
-        "cargo_height_cm",
-        "pallet_height_cm",
-        "use_pallet"
-      ],
-      "formula": "cargo_height_cm + (use_pallet ? pallet_height_cm : 0)",
-      "unit": "cm"
-    },
-    {
-      "id": "units_per_layer",
-      "name": "Units per Layer",
-      "description": "Maximum number of cargo units that can be placed on one layer based on floor area utilization (Lean: 85% target).",
-      "inputs": [
-        "container_internal_dimensions",
-        "cargo_length_cm",
-        "cargo_width_cm"
-      ],
-      "formula": "FLOOR((container_internal_dimensions.length / cargo_length_cm) * (container_internal_dimensions.width / cargo_width_cm) * 0.85)",
-      "unit": "units"
-    },
-    {
-      "id": "total_layers",
-      "name": "Total Layers",
-      "description": "Number of vertical layers possible considering stacking factor and total unit height.",
-      "inputs": [
-        "container_internal_dimensions",
-        "total_unit_height",
-        "stacking_factor"
-      ],
-      "formula": "MIN(stacking_factor, FLOOR(container_internal_dimensions.height / total_unit_height))",
-      "unit": "layers"
-    },
-    {
-      "id": "total_units",
-      "name": "Total Units",
-      "description": "Total number of cargo units that can be loaded into the container.",
-      "inputs": [
-        "units_per_layer",
-        "total_layers"
-      ],
-      "formula": "units_per_layer * total_layers",
-      "unit": "units"
-    },
-    {
-      "id": "volume_utilization",
-      "name": "Volume Utilization",
-      "description": "Ratio of cargo volume to container internal volume (Six Sigma metric for waste reduction).",
-      "inputs": [
-        "total_units",
-        "cargo_length_cm",
-        "cargo_width_cm",
-        "total_unit_height",
-        "container_internal_dimensions"
-      ],
-      "formula": "(total_units * cargo_length_cm * cargo_width_cm * total_unit_height) / (container_internal_dimensions.length * container_internal_dimensions.width * container_internal_dimensions.height)",
-      "unit": "ratio"
-    },
-    {
-      "id": "weight_utilization",
-      "name": "Weight Utilization",
-      "description": "Ratio of total cargo weight to container max gross weight.",
-      "inputs": [
-        "total_units",
-        "cargo_weight_kg",
-        "container_internal_dimensions"
-      ],
-      "formula": "(total_units * cargo_weight_kg) / container_internal_dimensions.max_gross_kg",
-      "unit": "ratio"
-    }
+    "container_type",
+    "container_type",
+    "container_type",
+    "container_type",
+    "container_type",
+    "container_type",
+    "container_type"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_units",
-      "label": "Total Loadable Units",
-      "value": null,
-      "unit": "units",
-      "description": "Maximum number of cargo units that can be loaded into the selected container."
-    },
-    "breakdown": {
-      "container_type": null,
-      "container_internal_volume_m3": null,
-      "cargo_volume_m3": null,
-      "volume_utilization": null,
-      "weight_utilization": null,
-      "total_weight_kg": null,
-      "void_space_percentage": null,
-      "units_per_layer": null,
-      "total_layers": null,
-      "stacking_efficiency": null
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "void_space_loss",
-        "description": "Unused volume due to dimensional mismatch or stacking constraints.",
-        "estimated_loss_percentage": null
-      },
-      {
-        "id": "weight_capacity_loss",
-        "description": "Unused weight capacity due to volume-limited loading.",
-        "estimated_loss_percentage": null
-      },
-      {
-        "id": "stacking_inefficiency",
-        "description": "Loss from inability to fully utilize stacking factor due to height constraints.",
-        "estimated_loss_percentage": null
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reconfigure_pallet",
-        "description": "Consider using half-pallets or removing pallets to increase unit count.",
-        "potential_gain_percentage": null
-      },
-      {
-        "id": "adjust_stacking",
-        "description": "Increase stacking factor if cargo crush resistance allows.",
-        "potential_gain_percentage": null
-      },
-      {
-        "id": "change_container",
-        "description": "Switch to a 40 ft High Cube if height is the limiting factor.",
-        "potential_gain_percentage": null
-      },
-      {
-        "id": "mix_cargo_sizes",
-        "description": "Use mixed cargo sizes to fill void spaces (Lean: reduce muda).",
-        "potential_gain_percentage": null
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "lean-production",
+  "category": "Yalın Üretim",
+  "sector": "Üretim & İmalat",
+  "toolName": "container-load-calculator"
 }

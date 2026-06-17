@@ -17,14 +17,19 @@ export const Negative_predictive_value_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Negative_predictive_value_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.tn + input.fn ? input.tn / (input.tn + input.fn) : 0; results["npv"] = Number.isFinite(v) ? v : 0; } catch { results["npv"] = 0; }
+  try { const v = 0; results["0"] = Number.isFinite(v) ? v : 0; } catch { results["0"] = 0; }
+  try { const v = input.tn + input.fn ? input.tn / (input.tn + input.fn) : (results["0"] ?? 0); results["npv"] = Number.isFinite(v) ? v : 0; } catch { results["npv"] = 0; }
+  try { const v = input.tn; results["tn"] = Number.isFinite(v) ? v : 0; } catch { results["tn"] = 0; }
+  try { const v = input.fn; results["fn"] = Number.isFinite(v) ? v : 0; } catch { results["fn"] = 0; }
+  try { const v = input.tn + input.fn; results["tn___fn"] = Number.isFinite(v) ? v : 0; } catch { results["tn___fn"] = 0; }
+  try { const v = input.tn + input.fn ? input.tn / (input.tn + input.fn) : (results["0"] ?? 0); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateNegative_predictive_value_calculator(input: Negative_predictive_value_calculatorInput): Negative_predictive_value_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["tn"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

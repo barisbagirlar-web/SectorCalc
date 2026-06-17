@@ -5,49 +5,97 @@
       "id": "mean1",
       "label": "Mean of Group 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Average value of the first group"
+      "businessContext": "Average value of the first group",
+      "label_i18n": {
+        "en": "Mean of Group 1",
+        "tr": "Mean of Group 1",
+        "de": "Mean of Group 1",
+        "fr": "Mean of Group 1",
+        "es": "Mean of Group 1",
+        "ar": "Mean of Group 1"
+      }
     },
     {
       "id": "mean2",
       "label": "Mean of Group 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Average value of the second group"
+      "businessContext": "Average value of the second group",
+      "label_i18n": {
+        "en": "Mean of Group 2",
+        "tr": "Mean of Group 2",
+        "de": "Mean of Group 2",
+        "fr": "Mean of Group 2",
+        "es": "Mean of Group 2",
+        "ar": "Mean of Group 2"
+      }
     },
     {
       "id": "sd1",
       "label": "Standard Deviation of Group 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Standard deviation of the first group"
+      "businessContext": "Standard deviation of the first group",
+      "label_i18n": {
+        "en": "Standard Deviation of Group 1",
+        "tr": "Standard Deviation of Group 1",
+        "de": "Standard Deviation of Group 1",
+        "fr": "Standard Deviation of Group 1",
+        "es": "Standard Deviation of Group 1",
+        "ar": "Standard Deviation of Group 1"
+      }
     },
     {
       "id": "sd2",
       "label": "Standard Deviation of Group 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Standard deviation of the second group"
+      "businessContext": "Standard deviation of the second group",
+      "label_i18n": {
+        "en": "Standard Deviation of Group 2",
+        "tr": "Standard Deviation of Group 2",
+        "de": "Standard Deviation of Group 2",
+        "fr": "Standard Deviation of Group 2",
+        "es": "Standard Deviation of Group 2",
+        "ar": "Standard Deviation of Group 2"
+      }
     },
     {
       "id": "n1",
       "label": "Sample Size of Group 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Number of observations in the first group"
+      "businessContext": "Number of observations in the first group",
+      "label_i18n": {
+        "en": "Sample Size of Group 1",
+        "tr": "Sample Size of Group 1",
+        "de": "Sample Size of Group 1",
+        "fr": "Sample Size of Group 1",
+        "es": "Sample Size of Group 1",
+        "ar": "Sample Size of Group 1"
+      }
     },
     {
       "id": "n2",
       "label": "Sample Size of Group 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Number of observations in the second group"
+      "businessContext": "Number of observations in the second group",
+      "label_i18n": {
+        "en": "Sample Size of Group 2",
+        "tr": "Sample Size of Group 2",
+        "de": "Sample Size of Group 2",
+        "fr": "Sample Size of Group 2",
+        "es": "Sample Size of Group 2",
+        "ar": "Sample Size of Group 2"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "interpretation"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

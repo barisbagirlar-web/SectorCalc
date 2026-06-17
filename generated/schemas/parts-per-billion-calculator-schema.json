@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg",
       "default": 0,
-      "businessContext": "Mass of the solute substance in milligrams, used for mass/volume calculations."
+      "businessContext": "Mass of the solute substance in milligrams, used for mass/volume calculations.",
+      "label_i18n": {
+        "en": "Mass of Solute",
+        "tr": "Mass of Solute",
+        "de": "Mass of Solute",
+        "fr": "Mass of Solute",
+        "es": "Mass of Solute",
+        "ar": "Mass of Solute"
+      }
     },
     {
       "id": "solution_volume_L",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L",
       "default": 0,
-      "businessContext": "Total volume of the liquid solution in liters."
+      "businessContext": "Total volume of the liquid solution in liters.",
+      "label_i18n": {
+        "en": "Solution Volume",
+        "tr": "Solution Volume",
+        "de": "Solution Volume",
+        "fr": "Solution Volume",
+        "es": "Solution Volume",
+        "ar": "Solution Volume"
+      }
     },
     {
       "id": "solution_density_kg_per_L",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/L",
       "default": 1,
-      "businessContext": "Density of the solution; default is 1 kg/L for water."
+      "businessContext": "Density of the solution; default is 1 kg/L for water.",
+      "label_i18n": {
+        "en": "Solution Density",
+        "tr": "Solution Density",
+        "de": "Solution Density",
+        "fr": "Solution Density",
+        "es": "Solution Density",
+        "ar": "Solution Density"
+      }
     },
     {
       "id": "gas_solute_volume_mL",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mL",
       "default": 0,
-      "businessContext": "Volume of the solute gas in milliliters, for gas-phase ppb calculations."
+      "businessContext": "Volume of the solute gas in milliliters, for gas-phase ppb calculations.",
+      "label_i18n": {
+        "en": "Gas Solute Volume",
+        "tr": "Gas Solute Volume",
+        "de": "Gas Solute Volume",
+        "fr": "Gas Solute Volume",
+        "es": "Gas Solute Volume",
+        "ar": "Gas Solute Volume"
+      }
     },
     {
       "id": "total_gas_volume_L",
@@ -39,14 +71,26 @@
       "type": "number",
       "unit": "L",
       "default": 0,
-      "businessContext": "Total volume of the gas mixture in liters."
+      "businessContext": "Total volume of the gas mixture in liters.",
+      "label_i18n": {
+        "en": "Total Gas Volume",
+        "tr": "Total Gas Volume",
+        "de": "Total Gas Volume",
+        "fr": "Total Gas Volume",
+        "es": "Total Gas Volume",
+        "ar": "Total Gas Volume"
+      }
     }
   ],
   "formulas": {
-    "compute": "function(inputs) { const ppm_mass = inputs.solute_mass_mg && inputs.solution_volume_L ? (inputs.solute_mass_mg / (inputs.solution_volume_L * inputs.solution_density_kg_per_L)) : 0; const ppb_mass = ppm_mass * 1000; const mg_per_L = inputs.solution_volume_L ? inputs.solute_mass_mg / inputs.solution_volume_L : 0; const ppm_mass_exact = inputs.solution_density_kg_per_L ? mg_per_L / inputs.solution_density_kg_per_L : 0; const ppb_gas = inputs.gas_solute_volume_mL && inputs.total_gas_volume_L ? (inputs.gas_solute_volume_mL / (inputs.total_gas_volume_L * 1000)) * 1e9 : 0; const ppb = (inputs.solute_mass_mg || inputs.gas_solute_volume_mL) ? (ppb_mass || ppb_gas) : 0; return { ppb: ppb, mass_based_ppb: ppb_mass, gas_based_ppb: ppb_gas, concentration_mg_per_L: mg_per_L, concentration_ppm: ppm_mass_exact }; }"
+    "compute": "function(inputs) { const ppm_mass = inputs.solute_mass_mg && inputs.solution_volume_L ? (inputs.solute_mass_mg / (inputs.solution_volume_L * inputs.solution_density_kg_per_L)) : 0; const ppb_mass = ppm_mass * 1000; const mg_per_L = inputs.solution_volume_L ? inputs.solute_mass_mg / inputs.solution_volume_L : 0; const ppm_mass_exact = inputs.solution_density_kg_per_L ? mg_per_L / inputs.solution_density_kg_per_L : 0; const ppb_gas = inputs.gas_solute_volume_mL && inputs.total_gas_volume_L ? (inputs.gas_solute_volume_mL / (inputs.total_gas_volume_L * 1000)) * 1e9 : 0; const ppb = (inputs.solute_mass_mg || inputs.gas_solute_volume_mL) ? (ppb_mass || ppb_gas) : 0; return { ppb: ppb, mass_based_ppb: ppb_mass, gas_based_ppb: ppb_gas, concentration_mg_per_L: mg_per_L, concentration_ppm: ppm_mass_exact }; }",
+    "mass_based_ppb": "mass_based_ppb",
+    "gas_based_ppb": "gas_based_ppb",
+    "concentration_mg_per_L": "concentration_mg_per_L",
+    "concentration_ppm": "concentration_ppm"
   },
   "outputs": {
-    "primary": "ppb",
+    "primary": "compute",
     "breakdown": [
       "mass_based_ppb",
       "gas_based_ppb",
@@ -54,10 +98,10 @@
       "concentration_ppm"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

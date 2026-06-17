@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "€/kg",
       "default": 5,
-      "businessContext": "Cost of raw ham per kilogram"
+      "businessContext": "Cost of raw ham per kilogram",
+      "label_i18n": {
+        "en": "Raw Material Cost (per kg)",
+        "tr": "Raw Material Cost (per kg)",
+        "de": "Raw Material Cost (per kg)",
+        "fr": "Raw Material Cost (per kg)",
+        "es": "Raw Material Cost (per kg)",
+        "ar": "Raw Material Cost (per kg)"
+      }
     },
     {
       "id": "processing_time",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0.5,
-      "businessContext": "Time required to process one kilogram of ham"
+      "businessContext": "Time required to process one kilogram of ham",
+      "label_i18n": {
+        "en": "Processing Time (per kg)",
+        "tr": "Processing Time (per kg)",
+        "de": "Processing Time (per kg)",
+        "fr": "Processing Time (per kg)",
+        "es": "Processing Time (per kg)",
+        "ar": "Processing Time (per kg)"
+      }
     },
     {
       "id": "labor_cost_per_hour",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "€/hour",
       "default": 20,
-      "businessContext": "Hourly wage for processing labor"
+      "businessContext": "Hourly wage for processing labor",
+      "label_i18n": {
+        "en": "Labor Cost per Hour",
+        "tr": "Labor Cost per Hour",
+        "de": "Labor Cost per Hour",
+        "fr": "Labor Cost per Hour",
+        "es": "Labor Cost per Hour",
+        "ar": "Labor Cost per Hour"
+      }
     },
     {
       "id": "energy_cost_per_kwh",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "€/kWh",
       "default": 0.15,
-      "businessContext": "Cost of electricity per kilowatt-hour"
+      "businessContext": "Cost of electricity per kilowatt-hour",
+      "label_i18n": {
+        "en": "Energy Cost per kWh",
+        "tr": "Energy Cost per kWh",
+        "de": "Energy Cost per kWh",
+        "fr": "Energy Cost per kWh",
+        "es": "Energy Cost per kWh",
+        "ar": "Energy Cost per kWh"
+      }
     },
     {
       "id": "energy_consumption_per_kg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kWh/kg",
       "default": 2,
-      "businessContext": "Energy used to process one kilogram of ham"
+      "businessContext": "Energy used to process one kilogram of ham",
+      "label_i18n": {
+        "en": "Energy Consumption per kg",
+        "tr": "Energy Consumption per kg",
+        "de": "Energy Consumption per kg",
+        "fr": "Energy Consumption per kg",
+        "es": "Energy Consumption per kg",
+        "ar": "Energy Consumption per kg"
+      }
     },
     {
       "id": "yield_percentage",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Percentage of usable ham after processing"
+      "businessContext": "Percentage of usable ham after processing",
+      "label_i18n": {
+        "en": "Yield Percentage",
+        "tr": "Yield Percentage",
+        "de": "Yield Percentage",
+        "fr": "Yield Percentage",
+        "es": "Yield Percentage",
+        "ar": "Yield Percentage"
+      }
     },
     {
       "id": "packaging_cost_per_kg",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "€/kg",
       "default": 0.5,
-      "businessContext": "Cost of packaging per kilogram of finished ham"
+      "businessContext": "Cost of packaging per kilogram of finished ham",
+      "label_i18n": {
+        "en": "Packaging Cost per kg",
+        "tr": "Packaging Cost per kg",
+        "de": "Packaging Cost per kg",
+        "fr": "Packaging Cost per kg",
+        "es": "Packaging Cost per kg",
+        "ar": "Packaging Cost per kg"
+      }
     },
     {
       "id": "overhead_percentage",
@@ -63,27 +119,38 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Overhead costs as a percentage of direct costs"
+      "businessContext": "Overhead costs as a percentage of direct costs",
+      "label_i18n": {
+        "en": "Overhead Percentage",
+        "tr": "Overhead Percentage",
+        "de": "Overhead Percentage",
+        "fr": "Overhead Percentage",
+        "es": "Overhead Percentage",
+        "ar": "Overhead Percentage"
+      }
     }
   ],
   "formulas": {
     "total_direct_cost": "raw_material_cost + (processing_time * labor_cost_per_hour) + (energy_consumption_per_kg * energy_cost_per_kwh) + packaging_cost_per_kg",
     "adjusted_cost_for_yield": "total_direct_cost / (yield_percentage / 100)",
     "overhead_cost": "adjusted_cost_for_yield * (overhead_percentage / 100)",
-    "total_cost_per_kg": "adjusted_cost_for_yield + overhead_cost"
+    "total_cost_per_kg": "adjusted_cost_for_yield + overhead_cost",
+    "Total_Direct_Cost_per_kg__before_yield_a": "Total Direct Cost per kg (before yield adjustment)",
+    "Adjusted_Cost_per_kg__accounting_for_yie": "Adjusted Cost per kg (accounting for yield loss)",
+    "Overhead_Cost_per_kg": "Overhead Cost per kg"
   },
   "outputs": {
-    "primary": "Total Cost per kg of finished ham",
+    "primary": "total_direct_cost",
     "breakdown": [
       "Total Direct Cost per kg (before yield adjustment)",
       "Adjusted Cost per kg (accounting for yield loss)",
       "Overhead Cost per kg"
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Üretim & İmalat",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg"
 }

@@ -175,7 +175,7 @@
       "id": "contract_type",
       "label": "Contract Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "fixed_price",
       "options": [
         "fixed_price",
@@ -194,7 +194,7 @@
       "id": "lean_certification_active",
       "label": "Lean Certification Active",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "businessContext": "Indicates if the supplier holds an active Lean certification (e.g., ISO 18404).",
       "label_i18n": {
@@ -271,152 +271,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "throughput_ratio",
-      "description": "Ratio of actual to target throughput",
-      "expression": "actual_throughput / target_throughput",
-      "unit": "ratio"
-    },
-    {
-      "id": "quality_multiplier",
-      "description": "Quality performance multiplier based on defect rate relative to threshold",
-      "expression": "MAX(0, 1 - (defect_rate / quality_threshold_ppm))",
-      "unit": "ratio"
-    },
-    {
-      "id": "delivery_multiplier",
-      "description": "Delivery performance multiplier based on on-time delivery percentage",
-      "expression": "MAX(0, (on_time_delivery_percent - delivery_threshold_percent) / (100 - delivery_threshold_percent))",
-      "unit": "ratio"
-    },
-    {
-      "id": "cost_savings_per_unit",
-      "description": "Cost savings per unit compared to target",
-      "expression": "MAX(0, target_cost_per_unit - cost_per_unit)",
-      "unit": "$/unit"
-    },
-    {
-      "id": "cost_savings_incentive",
-      "description": "Incentive from cost savings sharing",
-      "expression": "cost_savings_per_unit * actual_throughput * (cost_reduction_sharing_percent / 100)",
-      "unit": "$"
-    },
-    {
-      "id": "base_incentive",
-      "description": "Base incentive before multipliers",
-      "expression": "actual_throughput * incentive_base_rate",
-      "unit": "$"
-    },
-    {
-      "id": "performance_adjusted_incentive",
-      "description": "Base incentive adjusted by quality and delivery multipliers",
-      "expression": "base_incentive * quality_multiplier * delivery_multiplier",
-      "unit": "$"
-    },
-    {
-      "id": "total_incentive",
-      "description": "Primary result: total incentive payout including cost savings sharing",
-      "expression": "performance_adjusted_incentive + cost_savings_incentive",
-      "unit": "$"
-    }
+    "actual_throughput",
+    "actual_throughput",
+    "actual_throughput",
+    "actual_throughput",
+    "actual_throughput",
+    "actual_throughput",
+    "actual_throughput",
+    "actual_throughput"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_incentive",
-      "label": "Total Incentive Payout",
-      "unit": "$",
-      "description": "Calculated total incentive payout based on all performance factors."
-    },
-    "breakdown": {
-      "base_incentive": {
-        "id": "base_incentive",
-        "label": "Base Incentive",
-        "unit": "$",
-        "description": "Incentive based on throughput and base rate."
-      },
-      "quality_multiplier": {
-        "id": "quality_multiplier",
-        "label": "Quality Multiplier",
-        "unit": "ratio",
-        "description": "Multiplier from 0 to 1 based on defect rate."
-      },
-      "delivery_multiplier": {
-        "id": "delivery_multiplier",
-        "label": "Delivery Multiplier",
-        "unit": "ratio",
-        "description": "Multiplier from 0 to 1 based on on-time delivery."
-      },
-      "performance_adjusted_incentive": {
-        "id": "performance_adjusted_incentive",
-        "label": "Performance Adjusted Incentive",
-        "unit": "$",
-        "description": "Base incentive after quality and delivery adjustments."
-      },
-      "cost_savings_incentive": {
-        "id": "cost_savings_incentive",
-        "label": "Cost Savings Incentive",
-        "unit": "$",
-        "description": "Additional incentive from shared cost savings."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_defect_cost",
-        "label": "Excess Defect Cost",
-        "unit": "$",
-        "description": "Estimated cost of defects above target, based on cost per unit and defect rate.",
-        "formula": "actual_throughput * (defect_rate / 1000000) * cost_per_unit"
-      },
-      {
-        "id": "late_delivery_penalty",
-        "label": "Late Delivery Penalty",
-        "unit": "$",
-        "description": "Estimated penalty for late deliveries, assuming 5% of order value.",
-        "formula": "actual_throughput * (1 - on_time_delivery_percent / 100) * cost_per_unit * 0.05"
-      },
-      {
-        "id": "throughput_gap_loss",
-        "label": "Throughput Gap Loss",
-        "unit": "$",
-        "description": "Lost revenue opportunity from not meeting target throughput.",
-        "formula": "(target_throughput - actual_throughput) * incentive_base_rate"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_defects",
-        "priority": "high",
-        "action": "Implement Six Sigma DMAIC project to reduce defect rate below threshold.",
-        "expectedImpact": "Increase quality multiplier and total incentive."
-      },
-      {
-        "id": "improve_delivery",
-        "priority": "high",
-        "action": "Adopt Lean pull system and Kanban to improve on-time delivery.",
-        "expectedImpact": "Increase delivery multiplier and total incentive."
-      },
-      {
-        "id": "cost_reduction",
-        "priority": "medium",
-        "action": "Conduct value stream mapping to identify and eliminate waste, reducing cost per unit.",
-        "expectedImpact": "Increase cost savings incentive."
-      },
-      {
-        "id": "capacity_planning",
-        "priority": "medium",
-        "action": "Review capacity constraints and consider OEE improvement to close throughput gap.",
-        "expectedImpact": "Increase base incentive and reduce throughput gap loss."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Incentive",
-      "unit": "$",
-      "description": "Total incentive adjusted by a confidence factor based on data quality (e.g., measurement system accuracy). Default confidence factor = 0.95.",
-      "formula": "total_incentive * 0.95"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "contract-incentive-calculator"
 }

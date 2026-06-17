@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "oz",
       "default": 5.125,
-      "businessContext": "Mass of the baseball in ounces. MLB regulations: 5 to 5.25 ounces."
+      "businessContext": "Mass of the baseball in ounces. MLB regulations: 5 to 5.25 ounces.",
+      "label_i18n": {
+        "en": "Ball Mass",
+        "tr": "Ball Mass",
+        "de": "Ball Mass",
+        "fr": "Ball Mass",
+        "es": "Ball Mass",
+        "ar": "Ball Mass"
+      }
     },
     {
       "id": "batMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "oz",
       "default": 28,
-      "businessContext": "Effective mass of the bat at the impact point, typically less than total bat weight. Default is for a standard wood bat."
+      "businessContext": "Effective mass of the bat at the impact point, typically less than total bat weight. Default is for a standard wood bat.",
+      "label_i18n": {
+        "en": "Effective Bat Mass",
+        "tr": "Effective Bat Mass",
+        "de": "Effective Bat Mass",
+        "fr": "Effective Bat Mass",
+        "es": "Effective Bat Mass",
+        "ar": "Effective Bat Mass"
+      }
     },
     {
       "id": "pitchSpeed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mph",
       "default": 90,
-      "businessContext": "Speed of the pitched ball as it crosses the plate, in miles per hour."
+      "businessContext": "Speed of the pitched ball as it crosses the plate, in miles per hour.",
+      "label_i18n": {
+        "en": "Pitch Speed",
+        "tr": "Pitch Speed",
+        "de": "Pitch Speed",
+        "fr": "Pitch Speed",
+        "es": "Pitch Speed",
+        "ar": "Pitch Speed"
+      }
     },
     {
       "id": "batSpeed",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mph",
       "default": 70,
-      "businessContext": "Speed of the bat's sweet spot at the moment of impact, in miles per hour."
+      "businessContext": "Speed of the bat's sweet spot at the moment of impact, in miles per hour.",
+      "label_i18n": {
+        "en": "Bat Speed",
+        "tr": "Bat Speed",
+        "de": "Bat Speed",
+        "fr": "Bat Speed",
+        "es": "Bat Speed",
+        "ar": "Bat Speed"
+      }
     },
     {
       "id": "cor",
       "label": "Coefficient of Restitution",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Coefficient of restitution between ball and bat, typically 0.5 to 0.55 for wood bats."
+      "businessContext": "Coefficient of restitution between ball and bat, typically 0.5 to 0.55 for wood bats.",
+      "label_i18n": {
+        "en": "Coefficient of Restitution",
+        "tr": "Coefficient of Restitution",
+        "de": "Coefficient of Restitution",
+        "fr": "Coefficient of Restitution",
+        "es": "Coefficient of Restitution",
+        "ar": "Coefficient of Restitution"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "pitchContribution"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

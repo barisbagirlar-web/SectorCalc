@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "₺",
       "default": 0,
-      "businessContext": "Şirketin toplam piyasa değeri"
+      "businessContext": "Şirketin toplam piyasa değeri",
+      "label_i18n": {
+        "en": "Piyasa Değeri",
+        "tr": "Piyasa Değeri",
+        "de": "Piyasa Değeri",
+        "fr": "Piyasa Değeri",
+        "es": "Piyasa Değeri",
+        "ar": "Piyasa Değeri"
+      }
     },
     {
       "id": "totalSales",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "₺",
       "default": 0,
-      "businessContext": "Şirketin yıllık toplam satış geliri"
+      "businessContext": "Şirketin yıllık toplam satış geliri",
+      "label_i18n": {
+        "en": "Toplam Satışlar",
+        "tr": "Toplam Satışlar",
+        "de": "Toplam Satışlar",
+        "fr": "Toplam Satışlar",
+        "es": "Toplam Satışlar",
+        "ar": "Toplam Satışlar"
+      }
     },
     {
       "id": "pricePerShare",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "₺",
       "default": 0,
-      "businessContext": "Bir hissenin güncel fiyatı"
+      "businessContext": "Bir hissenin güncel fiyatı",
+      "label_i18n": {
+        "en": "Hisse Fiyatı",
+        "tr": "Hisse Fiyatı",
+        "de": "Hisse Fiyatı",
+        "fr": "Hisse Fiyatı",
+        "es": "Hisse Fiyatı",
+        "ar": "Hisse Fiyatı"
+      }
     },
     {
       "id": "salesPerShare",
@@ -31,23 +55,33 @@
       "type": "number",
       "unit": "₺",
       "default": 0,
-      "businessContext": "Hisse başına yıllık satış geliri"
+      "businessContext": "Hisse başına yıllık satış geliri",
+      "label_i18n": {
+        "en": "Hisse Başına Satış",
+        "tr": "Hisse Başına Satış",
+        "de": "Hisse Başına Satış",
+        "fr": "Hisse Başına Satış",
+        "es": "Hisse Başına Satış",
+        "ar": "Hisse Başına Satış"
+      }
     }
   ],
   "formulas": {
     "primary": "marketCap / totalSales",
-    "psPerShare": "pricePerShare / salesPerShare"
+    "psPerShare": "pricePerShare / salesPerShare",
+    "P_S_Oran___Hisse_Ba__na_": "P/S Oranı (Hisse Başına)",
+    "result": "P/S Oranı (Piyasa Değeri)"
   },
   "outputs": {
-    "primary": "P/S Oranı (Piyasa Değeri)",
+    "primary": "result",
     "breakdown": [
       "P/S Oranı (Hisse Başına)"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "quality-six-sigma"
 }

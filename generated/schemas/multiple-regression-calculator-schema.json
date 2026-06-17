@@ -5,57 +5,113 @@
       "id": "intercept",
       "label": "Intercept (b0)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term in the regression equation"
+      "businessContext": "Constant term in the regression equation",
+      "label_i18n": {
+        "en": "Intercept (b0)",
+        "tr": "Intercept (b0)",
+        "de": "Intercept (b0)",
+        "fr": "Intercept (b0)",
+        "es": "Intercept (b0)",
+        "ar": "Intercept (b0)"
+      }
     },
     {
       "id": "slope1",
       "label": "Slope for Variable 1 (b1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient for first predictor"
+      "businessContext": "Coefficient for first predictor",
+      "label_i18n": {
+        "en": "Slope for Variable 1 (b1)",
+        "tr": "Slope for Variable 1 (b1)",
+        "de": "Slope for Variable 1 (b1)",
+        "fr": "Slope for Variable 1 (b1)",
+        "es": "Slope for Variable 1 (b1)",
+        "ar": "Slope for Variable 1 (b1)"
+      }
     },
     {
       "id": "slope2",
       "label": "Slope for Variable 2 (b2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient for second predictor"
+      "businessContext": "Coefficient for second predictor",
+      "label_i18n": {
+        "en": "Slope for Variable 2 (b2)",
+        "tr": "Slope for Variable 2 (b2)",
+        "de": "Slope for Variable 2 (b2)",
+        "fr": "Slope for Variable 2 (b2)",
+        "es": "Slope for Variable 2 (b2)",
+        "ar": "Slope for Variable 2 (b2)"
+      }
     },
     {
       "id": "slope3",
       "label": "Slope for Variable 3 (b3)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient for third predictor"
+      "businessContext": "Coefficient for third predictor",
+      "label_i18n": {
+        "en": "Slope for Variable 3 (b3)",
+        "tr": "Slope for Variable 3 (b3)",
+        "de": "Slope for Variable 3 (b3)",
+        "fr": "Slope for Variable 3 (b3)",
+        "es": "Slope for Variable 3 (b3)",
+        "ar": "Slope for Variable 3 (b3)"
+      }
     },
     {
       "id": "x1",
       "label": "Value of Variable 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Observed value for first independent variable"
+      "businessContext": "Observed value for first independent variable",
+      "label_i18n": {
+        "en": "Value of Variable 1",
+        "tr": "Value of Variable 1",
+        "de": "Value of Variable 1",
+        "fr": "Value of Variable 1",
+        "es": "Value of Variable 1",
+        "ar": "Value of Variable 1"
+      }
     },
     {
       "id": "x2",
       "label": "Value of Variable 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Observed value for second independent variable"
+      "businessContext": "Observed value for second independent variable",
+      "label_i18n": {
+        "en": "Value of Variable 2",
+        "tr": "Value of Variable 2",
+        "de": "Value of Variable 2",
+        "fr": "Value of Variable 2",
+        "es": "Value of Variable 2",
+        "ar": "Value of Variable 2"
+      }
     },
     {
       "id": "x3",
       "label": "Value of Variable 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Observed value for third independent variable"
+      "businessContext": "Observed value for third independent variable",
+      "label_i18n": {
+        "en": "Value of Variable 3",
+        "tr": "Value of Variable 3",
+        "de": "Value of Variable 3",
+        "fr": "Value of Variable 3",
+        "es": "Value of Variable 3",
+        "ar": "Value of Variable 3"
+      }
     }
   ],
   "formulas": {
@@ -74,10 +130,10 @@
       "var3Contribution"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -37,13 +37,17 @@ function evaluateAllFormulas(input: Limit_calculatorInput): Record<string, numbe
   try { const v = (results["leftLimit"] ?? 0); results["breakdown_0"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown_0"] = 0; }
   try { const v = (results["rightLimit"] ?? 0); results["breakdown_1"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown_1"] = 0; }
   try { const v = Math.abs((results["leftLimit"] ?? 0) - (results["rightLimit"] ?? 0)); results["breakdown_2"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown_2"] = 0; }
+  results["Left_hand_limit"] = 0;
+  results["Right_hand_limit"] = 0;
+  results["Absolute_difference_between_left_and_rig"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateLimit_calculator(input: Limit_calculatorInput): Limit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Approximate"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

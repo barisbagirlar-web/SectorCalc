@@ -27,6 +27,8 @@ function evaluateAllFormulas(input: Binary_to_decimal_calculatorInput): Record<s
   const results: Record<string, number> = {};
   try { const v = input.bit7 * Math.pow(2, 7) + input.bit6 * Math.pow(2, 6) + input.bit5 * Math.pow(2, 5) + input.bit4 * Math.pow(2, 4) + input.bit3 * Math.pow(2, 3) + input.bit2 * Math.pow(2, 2) + input.bit1 * Math.pow(2, 1) + input.bit0 * Math.pow(2, 0); results["decimal"] = Number.isFinite(v) ? v : 0; } catch { results["decimal"] = 0; }
   try { const v = '' + input.bit7 + input.bit6 + input.bit5 + input.bit4 + input.bit3 + input.bit2 + input.bit1 + input.bit0; results["binaryString"] = Number.isFinite(v) ? v : 0; } catch { results["binaryString"] = 0; }
+  results["____binaryString"] = 0;
+  results["____decimal"] = 0;
   return results;
 }
 

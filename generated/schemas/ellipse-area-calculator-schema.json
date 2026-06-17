@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of the longest radius of the ellipse"
+      "businessContext": "Length of the longest radius of the ellipse",
+      "label_i18n": {
+        "en": "Semi-Major Axis (a)",
+        "tr": "Semi-Major Axis (a)",
+        "de": "Semi-Major Axis (a)",
+        "fr": "Semi-Major Axis (a)",
+        "es": "Semi-Major Axis (a)",
+        "ar": "Semi-Major Axis (a)"
+      }
     },
     {
       "id": "semiMinorAxis",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of the shortest radius of the ellipse"
+      "businessContext": "Length of the shortest radius of the ellipse",
+      "label_i18n": {
+        "en": "Semi-Minor Axis (b)",
+        "tr": "Semi-Minor Axis (b)",
+        "de": "Semi-Minor Axis (b)",
+        "fr": "Semi-Minor Axis (b)",
+        "es": "Semi-Minor Axis (b)",
+        "ar": "Semi-Minor Axis (b)"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for output rounding"
+      "businessContext": "Number of decimal places for output rounding",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "unitConversionFactor",
       "label": "Unit Conversion Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiply the area by this factor to convert to desired area units (e.g., 10000 to convert m² to cm²)"
+      "businessContext": "Multiply the area by this factor to convert to desired area units (e.g., 10000 to convert m² to cm²)",
+      "label_i18n": {
+        "en": "Unit Conversion Factor",
+        "tr": "Unit Conversion Factor",
+        "de": "Unit Conversion Factor",
+        "fr": "Unit Conversion Factor",
+        "es": "Unit Conversion Factor",
+        "ar": "Unit Conversion Factor"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "convertedArea"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

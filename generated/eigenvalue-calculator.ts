@@ -23,13 +23,18 @@ function evaluateAllFormulas(input: Eigenvalue_calculatorInput): Record<string, 
   try { const v = Math.pow(input.a + input.d, 2) - 4 * (input.a * input.d - input.b * input.c); results["discriminant"] = Number.isFinite(v) ? v : 0; } catch { results["discriminant"] = 0; }
   try { const v = ((input.a + input.d) + Math.sqrt(Math.pow(input.a + input.d, 2) - 4 * (input.a * input.d - input.b * input.c))) / 2; results["eigenvalue1"] = Number.isFinite(v) ? v : 0; } catch { results["eigenvalue1"] = 0; }
   try { const v = ((input.a + input.d) - Math.sqrt(Math.pow(input.a + input.d, 2) - 4 * (input.a * input.d - input.b * input.c))) / 2; results["eigenvalue2"] = Number.isFinite(v) ? v : 0; } catch { results["eigenvalue2"] = 0; }
+  try { const v = input.a + input.d; results["a___d"] = Number.isFinite(v) ? v : 0; } catch { results["a___d"] = 0; }
+  try { const v = input.a * input.d - input.b * input.c; results["a___d___b___c"] = Number.isFinite(v) ? v : 0; } catch { results["a___d___b___c"] = 0; }
+  try { const v = Math.pow(input.a + input.d, 2) - 4 * (input.a * input.d - input.b * input.c); results["Math_pow_a___d__2____4____a___d___b___c_"] = Number.isFinite(v) ? v : 0; } catch { results["Math_pow_a___d__2____4____a___d___b___c_"] = 0; }
+  try { const v = ((input.a + input.d) + Math.sqrt(Math.pow(input.a + input.d, 2) - 4 * (input.a * input.d - input.b * input.c))) / 2; results["__a___d____Math_sqrt_Math_pow_a___d__2__"] = Number.isFinite(v) ? v : 0; } catch { results["__a___d____Math_sqrt_Math_pow_a___d__2__"] = 0; }
+  try { const v = ((input.a + input.d) + Math.sqrt(Math.pow(input.a + input.d, 2) - 4 * (input.a * input.d - input.b * input.c))) / 2 + ', ' + ((input.a + input.d) - Math.sqrt(Math.pow(input.a + input.d, 2) - 4 * (input.a * input.d - input.b * input.c))) / 2; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateEigenvalue_calculator(input: Eigenvalue_calculatorInput): Eigenvalue_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2 + ', ' + ((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

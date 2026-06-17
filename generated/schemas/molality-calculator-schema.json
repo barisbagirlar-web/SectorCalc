@@ -32,12 +32,7 @@
     "molality": "molesSolute / solventMassKg"
   },
   "outputs": {
-    "primary": {
-      "id": "molality",
-      "label": "Molality",
-      "unit": "mol/kg",
-      "value": "molality"
-    },
+    "primary": "molesSolute",
     "breakdown": [
       {
         "id": "molesSolute",
@@ -53,10 +48,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

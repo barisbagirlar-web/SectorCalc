@@ -27,30 +27,19 @@ export const Supply_chain_disruption_risk_calculatorInputSchema = z.object({
   use_advanced_hedging: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Supply_chain_disruption_risk_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = ((100 - input.supplier_reliability_score) / 100) * (input.single_source_dependency / 100); results["supplier_risk_factor"] = Number.isFinite(v) ? v : 0; } catch { results["supplier_risk_factor"] = 0; }
-  try { const v = Math.max(0, (input.lead_time_variability * 100) / (input.inventory_buffer_days + 1)); results["inventory_risk_factor"] = Number.isFinite(v) ? v : 0; } catch { results["inventory_risk_factor"] = 0; }
-  try { const v = (input.geopolitical_risk_index / 100) * 0.4 + input.transportation_disruption_probability * 0.35 + (input.cyber_risk_score / 100) * 0.25; results["external_risk_factor"] = Number.isFinite(v) ? v : 0; } catch { results["external_risk_factor"] = 0; }
-  try { const v = input.demand_volatility * 0.5 + (input.quality_defect_rate / 100000) * 0.5; results["demand_quality_risk_factor"] = Number.isFinite(v) ? v : 0; } catch { results["demand_quality_risk_factor"] = 0; }
-  try { const v = input.use_advanced_hedging ? 0.85 : 1.0; results["hedging_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["hedging_adjustment"] = 0; }
-  try { const v = ((results["supplier_risk_factor"] ?? 0) * 30 + (results["inventory_risk_factor"] ?? 0) * 20 + (results["external_risk_factor"] ?? 0) * 25 + (results["demand_quality_risk_factor"] ?? 0) * 25) * (results["hedging_adjustment"] ?? 0); results["raw_disruption_risk"] = Number.isFinite(v) ? v : 0; } catch { results["raw_disruption_risk"] = 0; }
-  try { const v = Math.min(100, Math.max(0, (results["raw_disruption_risk"] ?? 0))); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Supply_chain_disruption_risk_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateSupply_chain_disruption_risk_calculator(input: Supply_chain_disruption_risk_calculatorInput): Supply_chain_disruption_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["disruption_risk_score"] ?? values["primary_result"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    supplierRiskComponent: values["supplierRiskComponent"] ?? 0,
-    inventoryRiskComponent: values["inventoryRiskComponent"] ?? 0,
-    externalRiskComponent: values["externalRiskComponent"] ?? 0,
-    demandQualityRiskComponent: values["demandQualityRiskComponent"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Single Source Dependency Loss","Quality Defect Loss","Transportation Disruption Loss"];
-  const suggestedActions: string[] = ["Implement supplier diversification program to reduce single source dependency below 30%.","Increase inventory buffer to at least 30 days to absorb lead time variability.","Initiate Six Sigma DMAIC project to reduce defect rate below 500 ppm.","Conduct comprehensive cybersecurity audit and implement NIST framework controls.","Enable advanced hedging strategies to mitigate currency and commodity risks."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -69,7 +58,7 @@ export function calculateSupply_chain_disruption_risk_calculator(input: Supply_c
 
 export interface Supply_chain_disruption_risk_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { supplierRiskComponent: number; inventoryRiskComponent: number; externalRiskComponent: number; demandQualityRiskComponent: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

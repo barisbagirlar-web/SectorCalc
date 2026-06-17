@@ -27,33 +27,19 @@ export const Fuel_route_drift_calculatorInputSchema = z.object({
   include_hidden_losses: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Fuel_route_drift_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.actual_distance_km - input.planned_distance_km; results["drift_distance"] = Number.isFinite(v) ? v : 0; } catch { results["drift_distance"] = 0; }
-  try { const v = ((results["drift_distance"] ?? 0) / input.planned_distance_km) * 100; results["drift_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["drift_percentage"] = 0; }
-  try { const v = input.fuel_consumption_rate * input.terrain_factor * input.traffic_condition * (1 + (input.load_weight_tonnes * 0.005)) * (1 - (input.driver_behavior_score * 0.002)) * (1 + (input.vehicle_age_years * 0.02)); results["adjusted_fuel_rate"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_fuel_rate"] = 0; }
-  try { const v = (input.planned_distance_km / 100) * (results["adjusted_fuel_rate"] ?? 0); results["planned_fuel_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["planned_fuel_consumption"] = 0; }
-  try { const v = (input.actual_distance_km / 100) * (results["adjusted_fuel_rate"] ?? 0); results["actual_fuel_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["actual_fuel_consumption"] = 0; }
-  try { const v = (results["actual_fuel_consumption"] ?? 0) - (results["planned_fuel_consumption"] ?? 0); results["excess_fuel_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["excess_fuel_consumption"] = 0; }
-  try { const v = (results["excess_fuel_consumption"] ?? 0) * input.fuel_price_per_liter; results["excess_fuel_cost"] = Number.isFinite(v) ? v : 0; } catch { results["excess_fuel_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Fuel_route_drift_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateFuel_route_drift_calculator(input: Fuel_route_drift_calculatorInput): Fuel_route_drift_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_excess_fuel_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    drift_distance_km: values["drift_distance_km"] ?? 0,
-    drift_percentage: values["drift_percentage"] ?? 0,
-    adjusted_fuel_rate: values["adjusted_fuel_rate"] ?? 0,
-    planned_fuel_consumption: values["planned_fuel_consumption"] ?? 0,
-    actual_fuel_consumption: values["actual_fuel_consumption"] ?? 0,
-    excess_fuel_consumption: values["excess_fuel_consumption"] ?? 0,
-    excess_fuel_cost: values["excess_fuel_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Tire Pressure Loss","Engine Wear","Aerodynamic Drag","Idling Time"];
-  const suggestedActions: string[] = ["Re-route planning: Use GPS historical data to avoid congestion and reduce drift.","Driver training: Improve eco-driving score through Lean Six Sigma coaching.","Vehicle maintenance: Schedule tire pressure checks and engine tune-ups.","Load optimization: Reduce unnecessary weight to lower fuel consumption.","Implement telematics: Real-time monitoring to detect and correct drift immediately."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -72,7 +58,7 @@ export function calculateFuel_route_drift_calculator(input: Fuel_route_drift_cal
 
 export interface Fuel_route_drift_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { drift_distance_km: number; drift_percentage: number; adjusted_fuel_rate: number; planned_fuel_consumption: number; actual_fuel_consumption: number; excess_fuel_consumption: number; excess_fuel_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

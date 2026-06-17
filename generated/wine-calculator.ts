@@ -26,13 +26,17 @@ function evaluateAllFormulas(input: Wine_calculatorInput): Record<string, number
   try { const v = (results["totalSugar"] ?? 0) * input.alcoholConversion / 10; results["alcoholPercent"] = Number.isFinite(v) ? v : 0; } catch { results["alcoholPercent"] = 0; }
   try { const v = (results["mustVolume"] ?? 0) * (1 - input.fermentationLoss / 100); results["finalVolume"] = Number.isFinite(v) ? v : 0; } catch { results["finalVolume"] = 0; }
   try { const v = Math.floor((results["finalVolume"] ?? 0) / input.bottleVolume); results["bottleCount"] = Number.isFinite(v) ? v : 0; } catch { results["bottleCount"] = 0; }
+  results["_mustVolume__L"] = 0;
+  results["_totalSugar__g"] = 0;
+  results["_alcoholPercent___"] = 0;
+  results["_finalVolume__L"] = 0;
   return results;
 }
 
 
 export function calculateWine_calculator(input: Wine_calculatorInput): Wine_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Şişe Sayısı: {bottleCount}"] ?? 0;
+  const totalWasteCost = values["mustVolume"] ?? 0;
   const breakdown = {
     
   };

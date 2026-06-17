@@ -5,9 +5,17 @@
       "id": "n",
       "label": "Refractive Index n",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Refractive index of the lens material (dimensionless)."
+      "businessContext": "Refractive index of the lens material (dimensionless).",
+      "label_i18n": {
+        "en": "Refractive Index n",
+        "tr": "Refractive Index n",
+        "de": "Refractive Index n",
+        "fr": "Refractive Index n",
+        "es": "Refractive Index n",
+        "ar": "Refractive Index n"
+      }
     },
     {
       "id": "R1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Radius of curvature of the first lens surface. Sign convention: positive if center of curvature is to the right of the vertex."
+      "businessContext": "Radius of curvature of the first lens surface. Sign convention: positive if center of curvature is to the right of the vertex.",
+      "label_i18n": {
+        "en": "Radius of Curvature R1",
+        "tr": "Radius of Curvature R1",
+        "de": "Radius of Curvature R1",
+        "fr": "Radius of Curvature R1",
+        "es": "Radius of Curvature R1",
+        "ar": "Radius of Curvature R1"
+      }
     },
     {
       "id": "R2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": -100,
-      "businessContext": "Radius of curvature of the second lens surface. Sign convention: positive if center of curvature is to the right of the vertex."
+      "businessContext": "Radius of curvature of the second lens surface. Sign convention: positive if center of curvature is to the right of the vertex.",
+      "label_i18n": {
+        "en": "Radius of Curvature R2",
+        "tr": "Radius of Curvature R2",
+        "de": "Radius of Curvature R2",
+        "fr": "Radius of Curvature R2",
+        "es": "Radius of Curvature R2",
+        "ar": "Radius of Curvature R2"
+      }
     },
     {
       "id": "u",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Distance from the object to the lens, measured along the optical axis. Sign convention: positive if object is on the incident light side (real object)."
+      "businessContext": "Distance from the object to the lens, measured along the optical axis. Sign convention: positive if object is on the incident light side (real object).",
+      "label_i18n": {
+        "en": "Object Distance u",
+        "tr": "Object Distance u",
+        "de": "Object Distance u",
+        "fr": "Object Distance u",
+        "es": "Object Distance u",
+        "ar": "Object Distance u"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "magnification"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

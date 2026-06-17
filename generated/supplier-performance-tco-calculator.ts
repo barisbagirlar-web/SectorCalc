@@ -33,31 +33,19 @@ export const Supplier_performance_tco_calculatorInputSchema = z.object({
   carbon_tax_rate: z.number().min(0).max(1).default(0.05),
 });
 
-function evaluateAllFormulas(input: Supplier_performance_tco_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.inspection_cost_per_unit + (input.defect_rate / 1000000) * (input.purchase_price * 0.5); results["quality_cost"] = Number.isFinite(v) ? v : 0; } catch { results["quality_cost"] = 0; }
-  try { const v = input.freight_cost_per_unit + (input.purchase_price * input.carrying_cost_rate / 100) * (input.lead_time_days / 365); results["logistics_cost"] = Number.isFinite(v) ? v : 0; } catch { results["logistics_cost"] = 0; }
-  try { const v = (input.warranty_claim_rate / 100) * input.average_claim_cost; results["warranty_cost"] = Number.isFinite(v) ? v : 0; } catch { results["warranty_cost"] = 0; }
-  try { const v = input.use_eco_cost ? (input.co2_per_unit * input.carbon_tax_rate) : 0; results["environmental_cost"] = Number.isFinite(v) ? v : 0; } catch { results["environmental_cost"] = 0; }
-  try { const v = input.purchase_price + (results["quality_cost"] ?? 0) + (results["logistics_cost"] ?? 0) + (results["warranty_cost"] ?? 0) + (results["environmental_cost"] ?? 0); results["tco_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["tco_per_unit"] = 0; }
-  try { const v = (results["tco_per_unit"] ?? 0) * input.annual_quantity; results["annual_tco"] = Number.isFinite(v) ? v : 0; } catch { results["annual_tco"] = 0; }
-  try { const v = (results["tco_per_unit"] ?? 0) / input.purchase_price; results["tco_index"] = Number.isFinite(v) ? v : 0; } catch { results["tco_index"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Supplier_performance_tco_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateSupplier_performance_tco_calculator(input: Supplier_performance_tco_calculatorInput): Supplier_performance_tco_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["annual_tco"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    purchaseCost: values["purchaseCost"] ?? 0,
-    qualityCost: values["qualityCost"] ?? 0,
-    logisticsCost: values["logisticsCost"] ?? 0,
-    warrantyCost: values["warrantyCost"] ?? 0,
-    environmentalCost: values["environmentalCost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Defect Rework & Scrap","Expedited Shipping Cost","Supplier Management Overhead"];
-  const suggestedActions: string[] = ["Implement Six Sigma DMAIC","Lean JIT Inventory Reduction","Root Cause Analysis (RCA)"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -76,7 +64,7 @@ export function calculateSupplier_performance_tco_calculator(input: Supplier_per
 
 export interface Supplier_performance_tco_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { purchaseCost: number; qualityCost: number; logisticsCost: number; warrantyCost: number; environmentalCost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

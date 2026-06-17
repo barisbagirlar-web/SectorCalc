@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "lb",
       "default": 0,
-      "businessContext": "The weight in pounds to convert to stones"
+      "businessContext": "The weight in pounds to convert to stones",
+      "label_i18n": {
+        "en": "Pounds",
+        "tr": "Pounds",
+        "de": "Pounds",
+        "fr": "Pounds",
+        "es": "Pounds",
+        "ar": "Pounds"
+      }
     },
     {
       "id": "ounces",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "oz",
       "default": 0,
-      "businessContext": "Additional ounces to add to the pounds before conversion; 16 ounces = 1 pound"
+      "businessContext": "Additional ounces to add to the pounds before conversion; 16 ounces = 1 pound",
+      "label_i18n": {
+        "en": "Ounces",
+        "tr": "Ounces",
+        "de": "Ounces",
+        "fr": "Ounces",
+        "es": "Ounces",
+        "ar": "Ounces"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the primary decimal stones output"
+      "businessContext": "Number of decimal places for the primary decimal stones output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "stoneWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "lb",
       "default": 14,
-      "businessContext": "Number of pounds in one stone (commonly 14), allows for historical or contextual variations"
+      "businessContext": "Number of pounds in one stone (commonly 14), allows for historical or contextual variations",
+      "label_i18n": {
+        "en": "Stone Definition (lb)",
+        "tr": "Stone Definition (lb)",
+        "de": "Stone Definition (lb)",
+        "fr": "Stone Definition (lb)",
+        "es": "Stone Definition (lb)",
+        "ar": "Stone Definition (lb)"
+      }
     }
   ],
   "formulas": {
@@ -49,10 +81,10 @@
       "roundedRemainingPounds"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Deniz seviyesinde 15°C'de standart hava yoğunluğu. Rakım ve sıcaklığa göre değişir."
+      "businessContext": "Deniz seviyesinde 15°C'de standart hava yoğunluğu. Rakım ve sıcaklığa göre değişir.",
+      "label_i18n": {
+        "en": "Hava Yoğunluğu",
+        "tr": "Hava Yoğunluğu",
+        "de": "Hava Yoğunluğu",
+        "fr": "Hava Yoğunluğu",
+        "es": "Hava Yoğunluğu",
+        "ar": "Hava Yoğunluğu"
+      }
     },
     {
       "id": "rotorDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 80,
-      "businessContext": "Türbin kanatlarının süpürdüğü dairenin çapı."
+      "businessContext": "Türbin kanatlarının süpürdüğü dairenin çapı.",
+      "label_i18n": {
+        "en": "Rotor Çapı",
+        "tr": "Rotor Çapı",
+        "de": "Rotor Çapı",
+        "fr": "Rotor Çapı",
+        "es": "Rotor Çapı",
+        "ar": "Rotor Çapı"
+      }
     },
     {
       "id": "windSpeed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 12,
-      "businessContext": "Kanat yüksekliğindeki ortalama rüzgar hızı."
+      "businessContext": "Kanat yüksekliğindeki ortalama rüzgar hızı.",
+      "label_i18n": {
+        "en": "Rüzgar Hızı",
+        "tr": "Rüzgar Hızı",
+        "de": "Rüzgar Hızı",
+        "fr": "Rüzgar Hızı",
+        "es": "Rüzgar Hızı",
+        "ar": "Rüzgar Hızı"
+      }
     },
     {
       "id": "efficiency",
@@ -31,25 +55,35 @@
       "type": "number",
       "unit": "%",
       "default": 40,
-      "businessContext": "Türbinin genel aerodinamik ve mekanik verimliliği. Tipik olarak %35-45 arası."
+      "businessContext": "Türbinin genel aerodinamik ve mekanik verimliliği. Tipik olarak %35-45 arası.",
+      "label_i18n": {
+        "en": "Verimlilik",
+        "tr": "Verimlilik",
+        "de": "Verimlilik",
+        "fr": "Verimlilik",
+        "es": "Verimlilik",
+        "ar": "Verimlilik"
+      }
     }
   ],
   "formulas": {
     "sweptArea": "Math.PI * (rotorDiameter / 2) ** 2",
     "rawPower": "0.5 * airDensity * sweptArea * Math.pow(windSpeed, 3) / 1000",
-    "power": "rawPower * efficiency / 100"
+    "power": "rawPower * efficiency / 100",
+    "__sweptArea__m_": "${sweptArea} m²",
+    "__rawPower__kW": "${rawPower} kW"
   },
   "outputs": {
-    "primary": "Güç: ${power} kW",
+    "primary": "sweptArea",
     "breakdown": [
       "Süpürme Alanı: ${sweptArea} m²",
       "Ham Güç (Verimsiz): ${rawPower} kW"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "metal-plastics-forming"
 }

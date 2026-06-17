@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "minute",
       "default": 30,
-      "businessContext": "Duration of each nap in minutes. Dymaxion schedule typically uses 30-minute naps."
+      "businessContext": "Duration of each nap in minutes. Dymaxion schedule typically uses 30-minute naps.",
+      "label_i18n": {
+        "en": "Nap Duration (minutes)",
+        "tr": "Nap Duration (minutes)",
+        "de": "Nap Duration (minutes)",
+        "fr": "Nap Duration (minutes)",
+        "es": "Nap Duration (minutes)",
+        "ar": "Nap Duration (minutes)"
+      }
     },
     {
       "id": "intervalHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hour",
       "default": 6,
-      "businessContext": "Time between the start of each nap. Standard Dymaxion interval is 6 hours, resulting in 4 naps per day."
+      "businessContext": "Time between the start of each nap. Standard Dymaxion interval is 6 hours, resulting in 4 naps per day.",
+      "label_i18n": {
+        "en": "Interval Between Naps (hours)",
+        "tr": "Interval Between Naps (hours)",
+        "de": "Interval Between Naps (hours)",
+        "fr": "Interval Between Naps (hours)",
+        "es": "Interval Between Naps (hours)",
+        "ar": "Interval Between Naps (hours)"
+      }
     },
     {
       "id": "totalDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "day",
       "default": 7,
-      "businessContext": "Number of consecutive days to calculate total sleep duration."
+      "businessContext": "Number of consecutive days to calculate total sleep duration.",
+      "label_i18n": {
+        "en": "Total Days",
+        "tr": "Total Days",
+        "de": "Total Days",
+        "fr": "Total Days",
+        "es": "Total Days",
+        "ar": "Total Days"
+      }
     },
     {
       "id": "baseSleepHours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hour",
       "default": 8,
-      "businessContext": "Recommended monophasic sleep duration used for efficiency comparison."
+      "businessContext": "Recommended monophasic sleep duration used for efficiency comparison.",
+      "label_i18n": {
+        "en": "Baseline Monophasic Sleep (hours)",
+        "tr": "Baseline Monophasic Sleep (hours)",
+        "de": "Baseline Monophasic Sleep (hours)",
+        "fr": "Baseline Monophasic Sleep (hours)",
+        "es": "Baseline Monophasic Sleep (hours)",
+        "ar": "Baseline Monophasic Sleep (hours)"
+      }
     }
   ],
   "formulas": {
@@ -39,20 +71,24 @@
     "totalNaps": "napsPerDay * totalDays",
     "totalSleepMinutes": "totalNaps * napDurationMinutes",
     "totalSleepHours": "totalSleepMinutes / 60",
-    "efficiencyPercent": "(totalSleepMinutes / (baseSleepHours * 60)) * 100"
+    "efficiencyPercent": "(totalSleepMinutes / (baseSleepHours * 60)) * 100",
+    "__napsPerDay_toFixed_1____standard_Dymax": "${napsPerDay.toFixed(1)} (standard Dymaxion: 4).",
+    "__totalNaps_toFixed_1___": "${totalNaps.toFixed(1)}.",
+    "__efficiencyPercent_toFixed_1_____lower_": "${efficiencyPercent.toFixed(1)}% (lower means less sleep).",
+    "result": "Total sleep: ${totalSleepHours.toFixed(1)} hours (${totalSleepMinutes} minutes) over ${totalDays} day(s)."
   },
   "outputs": {
-    "primary": "Total sleep: ${totalSleepHours.toFixed(1)} hours (${totalSleepMinutes} minutes) over ${totalDays} day(s).",
+    "primary": "result",
     "breakdown": [
       "Number of naps per day: ${napsPerDay.toFixed(1)} (standard Dymaxion: 4).",
       "Total naps: ${totalNaps.toFixed(1)}.",
       "Efficiency relative to ${baseSleepHours}h monophasic: ${efficiencyPercent.toFixed(1)}% (lower means less sleep)."
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

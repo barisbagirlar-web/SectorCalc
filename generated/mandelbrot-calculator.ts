@@ -18,6 +18,8 @@ export const Mandelbrot_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Mandelbrot_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (function(cx,cy,maxIter,escapeRadius){ let real=0,imag=0; for(let i=0;i<maxIter;i++){ let r2=real*real,i2=imag*imag; if(r2+i2>escapeRadius*escapeRadius) return {iterations:i,escaped:true,magnitude:Math.sqrt(r2+i2)}; let newReal=r2-i2+cx,newImag=2*real*imag+cy; real=newReal;imag=newImag; } return {iterations:maxIter,escaped:false,magnitude:Math.sqrt(real*real+imag*imag)}; })(input.real,input.imag,input.maxIter,input.escapeRadius); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  try { const v = (results["result"] ?? 0).escaped; results["result_escaped"] = Number.isFinite(v) ? v : 0; } catch { results["result_escaped"] = 0; }
+  try { const v = (results["result"] ?? 0).magnitude; results["result_magnitude"] = Number.isFinite(v) ? v : 0; } catch { results["result_magnitude"] = 0; }
   return results;
 }
 

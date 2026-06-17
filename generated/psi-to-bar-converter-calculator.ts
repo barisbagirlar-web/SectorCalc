@@ -19,32 +19,19 @@ export const Psi_to_bar_converter_calculatorInputSchema = z.object({
   include_altitude_correction: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Psi_to_bar_converter_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.pressure_psi * 0.0689476; results["base_conversion"] = Number.isFinite(v) ? v : 0; } catch { results["base_conversion"] = 0; }
-  try { const v = 1 + (input.temperature_celsius - 20) * 0.000036; results["temperature_correction_factor"] = Number.isFinite(v) ? v : 0; } catch { results["temperature_correction_factor"] = 0; }
-  try { const v = Math.exp(-input.altitude_meters / 8430); results["altitude_correction_factor"] = Number.isFinite(v) ? v : 0; } catch { results["altitude_correction_factor"] = 0; }
-  try { const v = (input.fluid_type === 'water' ? 1.0 : (input.fluid_type === 'oil' ? 0.85 : (input.fluid_type === 'gas' ? 0.0012 : (input.fluid_type === 'steam' ? 0.0006 : 1.0)))); results["fluid_density_factor"] = Number.isFinite(v) ? v : 0; } catch { results["fluid_density_factor"] = 0; }
-  try { const v = base_bar * (input.include_temperature_correction ? temp_factor : 1) * (input.include_altitude_correction ? alt_factor : 1) * density_factor; results["corrected_bar"] = Number.isFinite(v) ? v : 0; } catch { results["corrected_bar"] = 0; }
-  try { const v = 1.0 - (input.include_temperature_correction ? 0.05 : 0) - (input.include_altitude_correction ? 0.05 : 0) - (input.fluid_type != 'water' ? 0.02 : 0) - (input.pressure_psi == 0 ? 0.1 : 0); results["data_confidence"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence"] = 0; }
-  try { const v = (results["corrected_bar"] ?? 0) * confidence; results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Psi_to_bar_converter_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculatePsi_to_bar_converter_calculator(input: Psi_to_bar_converter_calculatorInput): Psi_to_bar_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["primary_bar"] ?? values["primary_result"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    base_bar: values["base_bar"] ?? 0,
-    temp_factor: values["temp_factor"] ?? 0,
-    alt_factor: values["alt_factor"] ?? 0,
-    density_factor: values["density_factor"] ?? 0,
-    corrected_bar: values["corrected_bar"] ?? 0,
-    confidence: values["confidence"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Uncorrected Temperature Drift","Uncorrected Altitude Error","Fluid Density Mismatch","Sensor Calibration Drift"];
-  const suggestedActions: string[] = ["Enable Temperature Correction","Enable Altitude Correction","Verify Fluid Type","Schedule Sensor Calibration","Document Measurement Uncertainty"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -63,7 +50,7 @@ export function calculatePsi_to_bar_converter_calculator(input: Psi_to_bar_conve
 
 export interface Psi_to_bar_converter_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { base_bar: number; temp_factor: number; alt_factor: number; density_factor: number; corrected_bar: number; confidence: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

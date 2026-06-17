@@ -252,200 +252,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "quality_cost_savings",
-      "name": "Quality Cost Savings",
-      "description": "Annual savings from defect reduction based on Six Sigma principles.",
-      "formula": "annual_revenue * (defect_rate_percent / 100) * cost_per_defect * expected_improvement_factor",
-      "unit": "USD",
-      "dependencies": [
-        "annual_revenue",
-        "defect_rate_percent",
-        "cost_per_defect",
-        "expected_improvement_factor"
-      ]
-    },
-    {
-      "id": "inventory_carrying_cost_savings",
-      "name": "Inventory Carrying Cost Savings",
-      "description": "Reduction in inventory holding costs from Lean inventory reduction.",
-      "formula": "total_inventory_value * (inventory_carrying_cost_percent / 100) * expected_improvement_factor",
-      "unit": "USD",
-      "dependencies": [
-        "total_inventory_value",
-        "inventory_carrying_cost_percent",
-        "expected_improvement_factor"
-      ]
-    },
-    {
-      "id": "labor_efficiency_savings",
-      "name": "Labor Efficiency Savings",
-      "description": "Labor cost reduction from process improvements (Lean).",
-      "formula": "annual_labor_cost * expected_improvement_factor * 0.5",
-      "unit": "USD",
-      "dependencies": [
-        "annual_labor_cost",
-        "expected_improvement_factor"
-      ]
-    },
-    {
-      "id": "energy_savings",
-      "name": "Energy Savings",
-      "description": "Energy cost reduction from Lean and Green initiatives.",
-      "formula": "annual_energy_cost * expected_improvement_factor * 0.3",
-      "unit": "USD",
-      "dependencies": [
-        "annual_energy_cost",
-        "expected_improvement_factor"
-      ]
-    },
-    {
-      "id": "total_annual_benefit",
-      "name": "Total Annual Benefit",
-      "description": "Sum of all annual savings from improvements.",
-      "formula": "quality_cost_savings + inventory_carrying_cost_savings + labor_efficiency_savings + energy_savings",
-      "unit": "USD",
-      "dependencies": [
-        "quality_cost_savings",
-        "inventory_carrying_cost_savings",
-        "labor_efficiency_savings",
-        "energy_savings"
-      ]
-    },
-    {
-      "id": "net_present_value",
-      "name": "Net Present Value (NPV) - 5 Year",
-      "description": "NPV of improvement investment over 5 years using 10% discount rate.",
-      "formula": "total_annual_benefit * ((1 - (1 + 0.10)^-5) / 0.10) - lean_implementation_cost",
-      "unit": "USD",
-      "dependencies": [
-        "total_annual_benefit",
-        "lean_implementation_cost"
-      ]
-    },
-    {
-      "id": "roi_percent",
-      "name": "Return on Investment (ROI) %",
-      "description": "Primary ROI metric as a percentage.",
-      "formula": "((total_annual_benefit * 5) - lean_implementation_cost) / lean_implementation_cost * 100",
-      "unit": "%",
-      "dependencies": [
-        "total_annual_benefit",
-        "lean_implementation_cost"
-      ]
-    }
+    "annual_revenue",
+    "annual_revenue",
+    "annual_revenue",
+    "annual_revenue",
+    "annual_revenue",
+    "annual_revenue",
+    "annual_revenue"
   ],
   "outputs": {
-    "primary": {
-      "id": "roi_percent",
-      "label": "Return on Investment (ROI)",
-      "value": null,
-      "unit": "%",
-      "description": "Overall ROI percentage over 5 years from Lean/Six Sigma implementation."
-    },
-    "breakdown": {
-      "quality_cost_savings": {
-        "label": "Quality Cost Savings",
-        "value": null,
-        "unit": "USD",
-        "description": "Annual savings from defect reduction."
-      },
-      "inventory_carrying_cost_savings": {
-        "label": "Inventory Carrying Cost Savings",
-        "value": null,
-        "unit": "USD",
-        "description": "Annual savings from reduced inventory holding costs."
-      },
-      "labor_efficiency_savings": {
-        "label": "Labor Efficiency Savings",
-        "value": null,
-        "unit": "USD",
-        "description": "Annual savings from improved labor productivity."
-      },
-      "energy_savings": {
-        "label": "Energy Savings",
-        "value": null,
-        "unit": "USD",
-        "description": "Annual savings from energy efficiency improvements."
-      },
-      "total_annual_benefit": {
-        "label": "Total Annual Benefit",
-        "value": null,
-        "unit": "USD",
-        "description": "Sum of all annual savings."
-      },
-      "net_present_value": {
-        "label": "Net Present Value (5 Year)",
-        "value": null,
-        "unit": "USD",
-        "description": "NPV of the investment over 5 years at 10% discount rate."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_motion_waste",
-        "label": "Excess Motion Waste",
-        "description": "Unnecessary movement of people or equipment, typical in non-Lean environments.",
-        "estimated_cost": null,
-        "unit": "USD"
-      },
-      {
-        "id": "overprocessing_waste",
-        "label": "Overprocessing Waste",
-        "description": "Doing more work than required by the customer (e.g., extra inspections).",
-        "estimated_cost": null,
-        "unit": "USD"
-      },
-      {
-        "id": "waiting_time_waste",
-        "label": "Waiting Time Waste",
-        "description": "Idle time due to bottlenecks or unbalanced workflows.",
-        "estimated_cost": null,
-        "unit": "USD"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": "high",
-        "description": "Implement 5S workplace organization to reduce motion and waiting waste.",
-        "expected_impact": "5-10% improvement in labor efficiency."
-      },
-      {
-        "id": "action_2",
-        "priority": "high",
-        "description": "Deploy Statistical Process Control (SPC) to reduce defect rates.",
-        "expected_impact": "30-50% reduction in defect rate within 6 months."
-      },
-      {
-        "id": "action_3",
-        "priority": "medium",
-        "description": "Conduct value stream mapping to identify and eliminate overprocessing.",
-        "expected_impact": "10-20% reduction in cycle time."
-      },
-      {
-        "id": "action_4",
-        "priority": "medium",
-        "description": "Optimize inventory levels using Kanban systems.",
-        "expected_impact": "15-25% reduction in inventory carrying costs."
-      },
-      {
-        "id": "action_5",
-        "priority": "low",
-        "description": "Invest in energy-efficient equipment and lighting.",
-        "expected_impact": "10-15% reduction in energy costs."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "adjusted_roi",
-      "label": "Confidence-Adjusted ROI",
-      "value": null,
-      "unit": "%",
-      "description": "ROI adjusted for data uncertainty using a confidence factor of 0.85 (based on typical industrial data quality).",
-      "confidence_factor": 0.85
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "roi-calculator"
 }

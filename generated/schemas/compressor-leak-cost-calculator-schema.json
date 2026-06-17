@@ -123,7 +123,8 @@
       },
       "businessContext_i18n": {
         "en": "Geometry of the leak affects discharge coefficient. Round orifice is most common."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "include_maintenance_cost",
@@ -136,7 +137,8 @@
       },
       "businessContext_i18n": {
         "en": "If true, adds estimated labor and material cost for leak repair."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -181,156 +183,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "leak_flow_rate",
-      "label": "Leak Flow Rate per Leak",
-      "description": "Calculates the volumetric flow rate of air through a single leak using orifice equation (ISO 6358).",
-      "formula": "C_d * A * sqrt( (2 * (P_sys + 14.7) * 144) / (R * T) )",
-      "variables": {
-        "C_d": "discharge coefficient (0.65 for round orifice, 0.55 for crack, 0.75 for threaded fitting)",
-        "A": "cross-sectional area of leak (sq ft) = pi * (leak_diameter/2)^2 / 144",
-        "P_sys": "system pressure (psig)",
-        "R": "gas constant for air = 53.35 ft·lbf/(lbm·°R)",
-        "T": "absolute temperature = 520 °R (60°F)"
-      },
-      "unit": "scfm per leak"
-    },
-    {
-      "id": "total_leak_flow",
-      "label": "Total Leak Flow",
-      "description": "Total volumetric flow rate from all leaks.",
-      "formula": "leak_flow_rate * number_of_leaks",
-      "unit": "scfm"
-    },
-    {
-      "id": "power_consumption",
-      "label": "Power Consumption due to Leaks",
-      "description": "Power required to compress the leaked air, accounting for compressor efficiency.",
-      "formula": "(total_leak_flow * 0.746) / (compressor_efficiency / 100)",
-      "unit": "kW"
-    },
-    {
-      "id": "annual_energy",
-      "label": "Annual Energy Consumption",
-      "description": "Total energy consumed by leaks over a year.",
-      "formula": "power_consumption * operating_hours",
-      "unit": "kWh/year"
-    },
-    {
-      "id": "annual_cost",
-      "label": "Annual Energy Cost",
-      "description": "Direct energy cost of leaks.",
-      "formula": "annual_energy * electricity_cost",
-      "unit": "$/year"
-    },
-    {
-      "id": "maintenance_cost",
-      "label": "Annual Maintenance Cost",
-      "description": "Estimated cost to repair leaks (labor + materials). Only included if include_maintenance_cost is true.",
-      "formula": "number_of_leaks * 50",
-      "unit": "$/year"
-    },
-    {
-      "id": "total_annual_cost",
-      "label": "Total Annual Leak Cost",
-      "description": "Primary result: total financial impact of leaks.",
-      "formula": "annual_cost + (include_maintenance_cost ? maintenance_cost : 0)",
-      "unit": "$/year"
-    }
+    "system_pressure",
+    "system_pressure",
+    "system_pressure",
+    "system_pressure",
+    "system_pressure",
+    "system_pressure",
+    "system_pressure"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_cost",
-      "label": "Total Annual Leak Cost",
-      "unit": "$/year",
-      "description": "Primary financial metric combining energy and maintenance costs."
-    },
-    "breakdown": {
-      "energy_cost": {
-        "id": "annual_cost",
-        "label": "Annual Energy Cost",
-        "unit": "$/year"
-      },
-      "maintenance_cost": {
-        "id": "maintenance_cost",
-        "label": "Annual Maintenance Cost",
-        "unit": "$/year"
-      },
-      "total_leak_flow": {
-        "id": "total_leak_flow",
-        "label": "Total Leak Flow",
-        "unit": "scfm"
-      },
-      "power_consumption": {
-        "id": "power_consumption",
-        "label": "Power Consumption due to Leaks",
-        "unit": "kW"
-      },
-      "annual_energy": {
-        "id": "annual_energy",
-        "label": "Annual Energy Consumption",
-        "unit": "kWh/year"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "pressure_drop_effect",
-        "label": "Pressure Drop Effect",
-        "description": "Leaks cause system pressure drop, reducing end-use efficiency and increasing compressor load."
-      },
-      {
-        "id": "unplanned_maintenance",
-        "label": "Unplanned Maintenance",
-        "description": "Frequent cycling and overloading due to leaks increase wear on compressor components."
-      },
-      {
-        "id": "production_downtime",
-        "label": "Production Downtime",
-        "description": "Insufficient pressure due to leaks can cause production line stoppages."
-      },
-      {
-        "id": "carbon_emissions",
-        "label": "Carbon Emissions",
-        "description": "Excess energy consumption from leaks increases CO2 footprint (approx. 0.9 lb CO2 per kWh)."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "ultrasonic_survey",
-        "label": "Conduct Ultrasonic Leak Survey",
-        "description": "Use ultrasonic detectors to locate and quantify leaks (ISO 50001 best practice)."
-      },
-      {
-        "id": "repair_priority",
-        "label": "Prioritize Repairs by Leak Size",
-        "description": "Fix leaks > 1/4 inch first, then medium leaks. Use Six Sigma DMAIC approach."
-      },
-      {
-        "id": "pressure_reduction",
-        "label": "Reduce System Pressure",
-        "description": "Lowering pressure by 2 psi can reduce leak flow by ~1% (Lean energy principle)."
-      },
-      {
-        "id": "leak_tagging",
-        "label": "Implement Leak Tagging Program",
-        "description": "Tag and track leaks with a color-coded system (WERC recommended)."
-      },
-      {
-        "id": "compressor_controls",
-        "label": "Optimize Compressor Controls",
-        "description": "Install variable speed drives or sequencing controls to match demand."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_adjusted_cost",
-      "label": "Confidence-Adjusted Annual Cost",
-      "description": "Total annual cost adjusted by a confidence factor based on input variability.",
-      "formula": "total_annual_cost * confidence_factor",
-      "unit": "$/year",
-      "confidence_factor": 0.85
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
+  "toolName": "compressor-leak-cost-calculator"
 }

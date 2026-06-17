@@ -203,159 +203,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "lmp_gestational_age_days",
-      "description": "Calculate gestational age in days from LMP to current date (assumed as today for due date calculation).",
-      "formula": "lmp_gestational_age_days = (current_timestamp - lmp_date) / 86400",
-      "inputs": [
-        "lmp_date"
-      ],
-      "output": "lmp_gestational_age_days"
-    },
-    {
-      "id": "ovulation_offset",
-      "description": "Adjust ovulation day based on cycle length and luteal phase.",
-      "formula": "ovulation_offset = cycle_length - luteal_phase_length",
-      "inputs": [
-        "cycle_length",
-        "luteal_phase_length"
-      ],
-      "output": "ovulation_offset"
-    },
-    {
-      "id": "edd_lmp",
-      "description": "Estimated due date using Naegele's rule adjusted for cycle length.",
-      "formula": "edd_lmp = lmp_date + 280 * 86400 + (cycle_length - 28) * 86400",
-      "inputs": [
-        "lmp_date",
-        "cycle_length"
-      ],
-      "output": "edd_lmp"
-    },
-    {
-      "id": "edd_ultrasound",
-      "description": "Estimated due date from ultrasound gestational age.",
-      "formula": "edd_ultrasound = current_timestamp + (40 - ultrasound_ga_weeks) * 7 * 86400 - ultrasound_ga_days * 86400",
-      "inputs": [
-        "ultrasound_ga_weeks",
-        "ultrasound_ga_days"
-      ],
-      "output": "edd_ultrasound"
-    },
-    {
-      "id": "edd_primary",
-      "description": "Primary due date: use ultrasound if available, else LMP-based.",
-      "formula": "edd_primary = (ultrasound_ga_weeks is not null) ? edd_ultrasound : edd_lmp",
-      "inputs": [
-        "edd_ultrasound",
-        "edd_lmp",
-        "ultrasound_ga_weeks"
-      ],
-      "output": "edd_primary"
-    },
-    {
-      "id": "gestational_age_at_edd",
-      "description": "Gestational age at the primary due date (should be 40 weeks).",
-      "formula": "gestational_age_at_edd = 40 * 7",
-      "inputs": [],
-      "output": "gestational_age_at_edd"
-    },
-    {
-      "id": "confidence_interval",
-      "description": "Calculate 95% confidence interval for due date based on cycle variability.",
-      "formula": "confidence_interval_days = 1.96 * cycle_variability * sqrt(280 / cycle_length)",
-      "inputs": [
-        "cycle_variability",
-        "cycle_length"
-      ],
-      "output": "confidence_interval_days"
-    }
+    "lmp_date",
+    "lmp_date",
+    "lmp_date",
+    "lmp_date",
+    "lmp_date",
+    "lmp_date",
+    "lmp_date"
   ],
   "outputs": {
-    "primary": {
-      "id": "edd",
-      "label": "Estimated Due Date (EDD)",
-      "unit": "Unix timestamp (seconds)",
-      "description": "Primary estimated due date based on best available data."
-    },
-    "breakdown": {
-      "edd_lmp": {
-        "id": "edd_lmp",
-        "label": "EDD based on LMP",
-        "unit": "Unix timestamp"
-      },
-      "edd_ultrasound": {
-        "id": "edd_ultrasound",
-        "label": "EDD based on Ultrasound",
-        "unit": "Unix timestamp"
-      },
-      "gestational_age_days": {
-        "id": "gestational_age_days",
-        "label": "Gestational Age at EDD (days)",
-        "unit": "days"
-      },
-      "ovulation_offset": {
-        "id": "ovulation_offset",
-        "label": "Ovulation Offset from LMP",
-        "unit": "days"
-      },
-      "confidence_interval_days": {
-        "id": "confidence_interval_days",
-        "label": "95% Confidence Interval (± days)",
-        "unit": "days"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "cycle_variability_impact",
-        "label": "Cycle Variability Impact",
-        "description": "Uncertainty in cycle length reduces precision of LMP-based due date.",
-        "value": "cycle_variability"
-      },
-      {
-        "id": "luteal_phase_variation",
-        "label": "Luteal Phase Variation",
-        "description": "Deviations from typical 14-day luteal phase shift ovulation date.",
-        "value": "abs(luteal_phase_length - 14)"
-      },
-      {
-        "id": "ultrasound_timing",
-        "label": "Ultrasound Timing Error",
-        "description": "Ultrasound dating accuracy decreases after 20 weeks.",
-        "value": "max(0, ultrasound_ga_weeks - 20)"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "confirm_ultrasound",
-        "label": "Schedule ultrasound for dating confirmation",
-        "condition": "cycle_variability > 5 OR risk_factors != 'none'"
-      },
-      {
-        "id": "monitor_high_risk",
-        "label": "Initiate high-risk pregnancy monitoring protocol",
-        "condition": "parity >= 5 OR risk_factors != 'none'"
-      },
-      {
-        "id": "reconcile_dates",
-        "label": "Reconcile LMP and ultrasound dates if discrepancy > 2 weeks",
-        "condition": "abs(edd_lmp - edd_ultrasound) > 14 * 86400"
-      },
-      {
-        "id": "track_cycle_history",
-        "label": "Encourage cycle tracking for future cycle variability reduction",
-        "condition": "cycle_variability > 3"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Score",
-      "unit": "percentage",
-      "description": "Confidence in the due date estimate based on input quality and variability.",
-      "formula": "max(0, min(100, 100 - (cycle_variability * 5) - (abs(luteal_phase_length - 14) * 2) - (parity * 1) - (risk_factors != 'none' ? 10 : 0)))"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "pregnancy-due-date-calculator"
 }

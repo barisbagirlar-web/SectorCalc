@@ -21,13 +21,18 @@ function evaluateAllFormulas(input: Boyles_law_calculatorInput): Record<string, 
   try { const v = (() => { if (input.initialPressure && input.initialVolume && input.finalPressure && input.finalPressure !== 0) { return (input.initialPressure * input.initialVolume) / input.finalPressure; } else { return null; } })(); results["calculateFinalVolume"] = Number.isFinite(v) ? v : 0; } catch { results["calculateFinalVolume"] = 0; }
   try { const v = (() => { if (input.finalPressure && input.finalVolume && input.initialVolume && input.initialVolume !== 0) { return (input.finalPressure * input.finalVolume) / input.initialVolume; } else { return null; } })(); results["calculateInitialPressure"] = Number.isFinite(v) ? v : 0; } catch { results["calculateInitialPressure"] = 0; }
   try { const v = (() => { if (input.finalPressure && input.finalVolume && input.initialPressure && input.initialPressure !== 0) { return (input.finalPressure * input.finalVolume) / input.initialPressure; } else { return null; } })(); results["calculateInitialVolume"] = Number.isFinite(v) ? v : 0; } catch { results["calculateInitialVolume"] = 0; }
+  results["P1___V1___P2___V2"] = 0;
+  results["_initialPressure_____initialVolume_____p"] = 0;
+  results["_finalPressure_____finalVolume_____produ"] = 0;
+  results["_product_____product2___within_tolerance"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateBoyles_law_calculator(input: Boyles_law_calculatorInput): Boyles_law_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Calculated"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

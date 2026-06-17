@@ -5,17 +5,33 @@
       "id": "point",
       "label": "Point Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "The point established on the come-out roll (4,5,6,8,9,10)."
+      "businessContext": "The point established on the come-out roll (4,5,6,8,9,10).",
+      "label_i18n": {
+        "en": "Point Number",
+        "tr": "Point Number",
+        "de": "Point Number",
+        "fr": "Point Number",
+        "es": "Point Number",
+        "ar": "Point Number"
+      }
     },
     {
       "id": "rolls",
       "label": "Number of Rolls",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of dice rolls to simulate or calculate probability for."
+      "businessContext": "Number of dice rolls to simulate or calculate probability for.",
+      "label_i18n": {
+        "en": "Number of Rolls",
+        "tr": "Number of Rolls",
+        "de": "Number of Rolls",
+        "fr": "Number of Rolls",
+        "es": "Number of Rolls",
+        "ar": "Number of Rolls"
+      }
     },
     {
       "id": "betAmount",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "USD",
       "default": 10,
-      "businessContext": "Amount wagered on the pass line or point."
+      "businessContext": "Amount wagered on the pass line or point.",
+      "label_i18n": {
+        "en": "Bet Amount",
+        "tr": "Bet Amount",
+        "de": "Bet Amount",
+        "fr": "Bet Amount",
+        "es": "Bet Amount",
+        "ar": "Bet Amount"
+      }
     },
     {
       "id": "payoutOdds",
       "label": "Payout Odds (e.g., 2 for 2:1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Payout multiplier for winning bet (e.g., 1 for even money, 2 for 2:1)."
+      "businessContext": "Payout multiplier for winning bet (e.g., 1 for even money, 2 for 2:1).",
+      "label_i18n": {
+        "en": "Payout Odds (e.g., 2 for 2:1)",
+        "tr": "Payout Odds (e.g., 2 for 2:1)",
+        "de": "Payout Odds (e.g., 2 for 2:1)",
+        "fr": "Payout Odds (e.g., 2 for 2:1)",
+        "es": "Payout Odds (e.g., 2 for 2:1)",
+        "ar": "Payout Odds (e.g., 2 for 2:1)"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "winChanceAfterNRolls"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

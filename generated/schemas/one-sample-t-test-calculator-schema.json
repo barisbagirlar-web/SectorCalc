@@ -5,33 +5,65 @@
       "id": "sampleMean",
       "label": "Sample Mean",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "The average of your sample data"
+      "businessContext": "The average of your sample data",
+      "label_i18n": {
+        "en": "Sample Mean",
+        "tr": "Sample Mean",
+        "de": "Sample Mean",
+        "fr": "Sample Mean",
+        "es": "Sample Mean",
+        "ar": "Sample Mean"
+      }
     },
     {
       "id": "sampleStdDev",
       "label": "Sample Standard Deviation",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "The standard deviation of your sample data"
+      "businessContext": "The standard deviation of your sample data",
+      "label_i18n": {
+        "en": "Sample Standard Deviation",
+        "tr": "Sample Standard Deviation",
+        "de": "Sample Standard Deviation",
+        "fr": "Sample Standard Deviation",
+        "es": "Sample Standard Deviation",
+        "ar": "Sample Standard Deviation"
+      }
     },
     {
       "id": "sampleSize",
       "label": "Sample Size (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Number of observations in the sample"
+      "businessContext": "Number of observations in the sample",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "hypothesizedMean",
       "label": "Hypothesized Population Mean",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 9,
-      "businessContext": "The population mean under the null hypothesis"
+      "businessContext": "The population mean under the null hypothesis",
+      "label_i18n": {
+        "en": "Hypothesized Population Mean",
+        "tr": "Hypothesized Population Mean",
+        "de": "Hypothesized Population Mean",
+        "fr": "Hypothesized Population Mean",
+        "es": "Hypothesized Population Mean",
+        "ar": "Hypothesized Population Mean"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "meanDifference"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

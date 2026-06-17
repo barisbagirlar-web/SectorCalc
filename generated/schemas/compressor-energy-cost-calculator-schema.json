@@ -49,7 +49,7 @@
       "id": "compressor_type",
       "label": "Compressor Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "rotary_screw",
       "options": [
         {
@@ -177,7 +177,7 @@
       "id": "has_vsd",
       "label": "Variable Speed Drive (VSD) Installed",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "businessContext": "VSD can reduce energy consumption by 15-35% under part-load conditions.",
       "label_i18n": {
@@ -191,7 +191,7 @@
       "id": "maintenance_quality",
       "label": "Maintenance Quality Level",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "standard",
       "options": [
         {
@@ -253,204 +253,24 @@
     ]
   },
   "formulas": [
-    {
-      "id": "actual_power_input",
-      "description": "Actual electrical power input to compressor motor",
-      "formula": "compressor_power_rating / (motor_efficiency / 100)",
-      "unit": "kW",
-      "example": "75 / 0.92 = 81.52 kW"
-    },
-    {
-      "id": "annual_energy_consumption",
-      "description": "Total annual energy consumption at average load",
-      "formula": "actual_power_input * operating_hours_per_year * (load_factor / 100)",
-      "unit": "kWh",
-      "example": "81.52 * 8000 * 0.70 = 456,512 kWh"
-    },
-    {
-      "id": "leakage_energy_loss",
-      "description": "Energy lost due to system leaks",
-      "formula": "annual_energy_consumption * (leakage_percentage / 100)",
-      "unit": "kWh",
-      "example": "456,512 * 0.20 = 91,302 kWh"
-    },
-    {
-      "id": "pressure_penalty_factor",
-      "description": "Energy penalty due to high pressure (1% per 0.1 bar above 6 bar baseline)",
-      "formula": "1 + ((pressure_setpoint - 6) * 0.01 / 0.1)",
-      "unit": "dimensionless",
-      "example": "1 + ((7 - 6) * 0.1) = 1.10"
-    },
-    {
-      "id": "temperature_correction_factor",
-      "description": "Correction for ambient temperature (ISO 1217 reference 20°C)",
-      "formula": "1 + ((ambient_temperature - 20) * 0.005)",
-      "unit": "dimensionless",
-      "example": "1 + ((25 - 20) * 0.005) = 1.025"
-    },
-    {
-      "id": "vsd_efficiency_factor",
-      "description": "Efficiency improvement factor if VSD installed",
-      "formula": "has_vsd ? 0.85 : 1.0",
-      "unit": "dimensionless",
-      "example": "0.85 if VSD, else 1.0"
-    },
-    {
-      "id": "maintenance_penalty_factor",
-      "description": "Penalty for poor maintenance (ISO 50001 best practices)",
-      "formula": "CASE maintenance_quality WHEN 'poor' THEN 1.15 WHEN 'standard' THEN 1.05 WHEN 'excellent' THEN 1.0 END",
-      "unit": "dimensionless",
-      "example": "1.05 for standard maintenance"
-    },
-    {
-      "id": "adjusted_annual_energy",
-      "description": "Energy consumption adjusted for pressure, temperature, VSD, and maintenance",
-      "formula": "annual_energy_consumption * pressure_penalty_factor * temperature_correction_factor * vsd_efficiency_factor * maintenance_penalty_factor",
-      "unit": "kWh",
-      "example": "456,512 * 1.10 * 1.025 * 0.85 * 1.05 = 459,876 kWh"
-    },
-    {
-      "id": "total_annual_energy_cost",
-      "description": "Primary result: Total annual energy cost of compressed air system",
-      "formula": "adjusted_annual_energy * electricity_cost_per_kwh",
-      "unit": "$/year",
-      "example": "459,876 * 0.12 = $55,185"
-    }
+    "compressor_power_rating",
+    "compressor_power_rating",
+    "compressor_power_rating",
+    "compressor_power_rating",
+    "compressor_power_rating",
+    "compressor_power_rating",
+    "compressor_power_rating",
+    "compressor_power_rating",
+    "compressor_power_rating"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_energy_cost",
-      "label": "Total Annual Energy Cost",
-      "unit": "$/year",
-      "description": "Primary result: Total annual cost to operate the compressed air system including all losses and corrections."
-    },
-    "breakdown": {
-      "id": "cost_breakdown",
-      "label": "Cost Breakdown",
-      "components": [
-        {
-          "id": "base_energy_cost",
-          "label": "Base Energy Cost (at reference conditions)",
-          "unit": "$/year",
-          "description": "Cost without pressure, temperature, VSD, or maintenance adjustments."
-        },
-        {
-          "id": "leakage_cost",
-          "label": "Cost of Leakage",
-          "unit": "$/year",
-          "description": "Annual cost attributed to compressed air leaks."
-        },
-        {
-          "id": "pressure_penalty_cost",
-          "label": "Pressure Penalty Cost",
-          "unit": "$/year",
-          "description": "Additional cost due to operating above 6 bar(g) baseline."
-        },
-        {
-          "id": "temperature_penalty_cost",
-          "label": "Temperature Penalty Cost",
-          "unit": "$/year",
-          "description": "Additional cost due to ambient temperature above 20°C."
-        },
-        {
-          "id": "maintenance_penalty_cost",
-          "label": "Maintenance Penalty Cost",
-          "unit": "$/year",
-          "description": "Additional cost due to suboptimal maintenance practices."
-        },
-        {
-          "id": "vsd_savings",
-          "label": "VSD Savings (if applicable)",
-          "unit": "$/year",
-          "description": "Cost savings from variable speed drive operation."
-        }
-      ]
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "leakage",
-        "label": "Leakage",
-        "value": "leakage_energy_loss",
-        "unit": "kWh/year",
-        "description": "Energy lost through system leaks. Typically 20-30% of total consumption."
-      },
-      {
-        "id": "pressure_drop",
-        "label": "Pressure Drop Across Filters/Dryers",
-        "value": "pressure_penalty_factor",
-        "unit": "dimensionless",
-        "description": "Excessive pressure drop increases compressor discharge pressure requirement."
-      },
-      {
-        "id": "inadequate_maintenance",
-        "label": "Inadequate Maintenance",
-        "value": "maintenance_penalty_factor",
-        "unit": "dimensionless",
-        "description": "Poor maintenance leads to higher friction, leakage, and inefficiency."
-      },
-      {
-        "id": "oversizing",
-        "label": "System Oversizing",
-        "value": "load_factor",
-        "unit": "%",
-        "description": "Compressor running at low load factor indicates oversizing, wasting energy."
-      },
-      {
-        "id": "heat_of_compression",
-        "label": "Heat of Compression Not Recovered",
-        "value": "ambient_temperature",
-        "unit": "°C",
-        "description": "Waste heat can be recovered for space heating or process use."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_leak_repair",
-        "priority": 1,
-        "description": "Implement a leak detection and repair program. Target: reduce leakage to <10%.",
-        "estimated_savings_percent": 15,
-        "estimated_payback_months": 6
-      },
-      {
-        "id": "action_pressure_reduction",
-        "priority": 2,
-        "description": "Reduce system pressure setpoint by 1 bar if possible. Each 1 bar reduction saves ~7% energy.",
-        "estimated_savings_percent": 7,
-        "estimated_payback_months": 1
-      },
-      {
-        "id": "action_vsd_retrofit",
-        "priority": 3,
-        "description": "Install VSD on compressor if load varies >30%. Expected savings 15-35%.",
-        "estimated_savings_percent": 20,
-        "estimated_payback_months": 18
-      },
-      {
-        "id": "action_maintenance_improvement",
-        "priority": 4,
-        "description": "Upgrade maintenance to predictive (IoT-based). Replace filters, check belts, lubricate.",
-        "estimated_savings_percent": 10,
-        "estimated_payback_months": 12
-      },
-      {
-        "id": "action_heat_recovery",
-        "priority": 5,
-        "description": "Install heat recovery system to capture waste heat for building heating or preheat.",
-        "estimated_savings_percent": 5,
-        "estimated_payback_months": 24
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Adjusted Result",
-      "unit": "$/year",
-      "description": "Total annual energy cost adjusted by a confidence factor (0.8 to 1.2) based on input data quality and completeness.",
-      "value": 55185,
-      "confidence_factor": 0.95,
-      "adjusted_value": 52426
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",
-  "categorySlug": "sustainability-resource-esg"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
+  "toolName": "compressor-energy-cost-calculator"
 }

@@ -35,31 +35,19 @@ export const Cnc_cycle_time_calculatorInputSchema = z.object({
   measurement_time: z.number().min(0).max(300).default(0),
 });
 
-function evaluateAllFormulas(input: Cnc_cycle_time_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.cutting_length / input.feed_rate) * input.number_of_passes * input.material_hardness_factor * input.tool_wear_factor; results["cutting_time"] = Number.isFinite(v) ? v : 0; } catch { results["cutting_time"] = 0; }
-  try { const v = input.rapid_traverse_distance / input.rapid_traverse_rate; results["rapid_traverse_time"] = Number.isFinite(v) ? v : 0; } catch { results["rapid_traverse_time"] = 0; }
-  try { const v = input.tool_change_time * input.number_of_tool_changes / 60; results["tool_change_total_time"] = Number.isFinite(v) ? v : 0; } catch { results["tool_change_total_time"] = 0; }
-  try { const v = (input.part_loading_time + input.coolant_on_time + input.measurement_time) / 60; results["auxiliary_time"] = Number.isFinite(v) ? v : 0; } catch { results["auxiliary_time"] = 0; }
-  try { const v = (results["cutting_time"] ?? 0) + (results["rapid_traverse_time"] ?? 0) + (results["tool_change_total_time"] ?? 0) + (results["auxiliary_time"] ?? 0); results["raw_cycle_time"] = Number.isFinite(v) ? v : 0; } catch { results["raw_cycle_time"] = 0; }
-  try { const v = 100 / input.machine_efficiency; results["efficiency_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["efficiency_adjustment"] = 0; }
-  try { const v = (results["raw_cycle_time"] ?? 0) * (results["efficiency_adjustment"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Cnc_cycle_time_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateCnc_cycle_time_calculator(input: Cnc_cycle_time_calculatorInput): Cnc_cycle_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_cycle_time"] ?? values["primary_result"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    cutting_time: values["cutting_time"] ?? 0,
-    rapid_traverse_time: values["rapid_traverse_time"] ?? 0,
-    tool_change_time: values["tool_change_time"] ?? 0,
-    auxiliary_time: values["auxiliary_time"] ?? 0,
-    efficiency_loss: values["efficiency_loss"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Non-Cutting Overhead","Tool Wear Impact","Material Hardness Impact","Efficiency Loss"];
-  const suggestedActions: string[] = ["Optimize Tool Path","Combine Operations","Increase Feed Rate","Improve OEE","Use Premium Tooling"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -78,7 +66,7 @@ export function calculateCnc_cycle_time_calculator(input: Cnc_cycle_time_calcula
 
 export interface Cnc_cycle_time_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { cutting_time: number; rapid_traverse_time: number; tool_change_time: number; auxiliary_time: number; efficiency_loss: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

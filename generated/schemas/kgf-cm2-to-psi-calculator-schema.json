@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kgf/cm²",
       "default": 0,
-      "businessContext": "The pressure value to convert, in kilogram-force per square centimeter."
+      "businessContext": "The pressure value to convert, in kilogram-force per square centimeter.",
+      "label_i18n": {
+        "en": "Pressure (kgf/cm²)",
+        "tr": "Pressure (kgf/cm²)",
+        "de": "Pressure (kgf/cm²)",
+        "fr": "Pressure (kgf/cm²)",
+        "es": "Pressure (kgf/cm²)",
+        "ar": "Pressure (kgf/cm²)"
+      }
     },
     {
       "id": "conversionFactorConstant",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "psi per kgf/cm²",
       "default": 14.22334330711986,
-      "businessContext": "The conversion factor from kgf/cm² to psi (1 kgf/cm² = 14.2233 psi). This is a fixed physical constant; do not modify."
+      "businessContext": "The conversion factor from kgf/cm² to psi (1 kgf/cm² = 14.2233 psi). This is a fixed physical constant; do not modify.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output psi value."
+      "businessContext": "Number of decimal places for the output psi value.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "outputScale",
       "label": "Output Scale",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for the converted result (e.g., use 1 for actual value, 1000 for display in kilopounds)."
+      "businessContext": "Multiplier for the converted result (e.g., use 1 for actual value, 1000 for display in kilopounds).",
+      "label_i18n": {
+        "en": "Output Scale",
+        "tr": "Output Scale",
+        "de": "Output Scale",
+        "fr": "Output Scale",
+        "es": "Output Scale",
+        "ar": "Output Scale"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "originalPressure"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

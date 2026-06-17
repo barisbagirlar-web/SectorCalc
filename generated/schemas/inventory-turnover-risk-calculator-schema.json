@@ -244,155 +244,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "basic_turnover",
-      "name": "Basic Inventory Turnover",
-      "description": "Standard turnover ratio: COGS / Average Inventory.",
-      "formula": "cogs_annual / avg_inventory_value",
-      "unit": "turns/year"
-    },
-    {
-      "id": "adjusted_turnover",
-      "name": "Adjusted Turnover (Demand Variability)",
-      "description": "Turnover penalized by demand variability using a Six Sigma approach (higher CV reduces effective turns).",
-      "formula": "basic_turnover * (1 - demand_variability_coefficient * 0.5)",
-      "unit": "turns/year"
-    },
-    {
-      "id": "obsolescence_impact",
-      "name": "Obsolescence Impact Factor",
-      "description": "Factor representing the drag on turnover due to obsolescence.",
-      "formula": "1 - (obsolescence_rate / 100)",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "carrying_cost_exposure",
-      "name": "Carrying Cost Exposure",
-      "description": "Annual carrying cost as a percentage of inventory value.",
-      "formula": "(carrying_cost_rate / 100) * avg_inventory_value",
-      "unit": "USD"
-    },
-    {
-      "id": "safety_stock_factor",
-      "name": "Safety Stock Factor (Lead Time & Service Level)",
-      "description": "Z-score based on service level (normal approximation) times lead time variability. Uses standard z for service level.",
-      "formula": "qnorm(service_level_target / 100) * sqrt(lead_time_days / 365) * demand_variability_coefficient",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "accuracy_adjustment",
-      "name": "Inventory Accuracy Adjustment",
-      "description": "Penalty factor for record inaccuracy (Lean principle: accuracy drives waste).",
-      "formula": "inventory_accuracy_pct / 100",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "primary_result",
-      "name": "Inventory Turnover Risk Score (Effective Turns)",
-      "description": "Primary result: risk-adjusted turnover considering variability, obsolescence, safety stock, and accuracy. Lower values indicate higher risk.",
-      "formula": "adjusted_turnover * obsolescence_impact * accuracy_adjustment / (1 + safety_stock_factor)",
-      "unit": "turns/year"
-    }
+    "avg_inventory_value",
+    "avg_inventory_value",
+    "avg_inventory_value",
+    "avg_inventory_value",
+    "avg_inventory_value",
+    "avg_inventory_value",
+    "avg_inventory_value"
   ],
   "outputs": {
-    "primary": {
-      "id": "effective_turns",
-      "label": "Effective Inventory Turnover (Risk-Adjusted)",
-      "unit": "turns/year",
-      "description": "Primary risk-adjusted turnover metric. Lower than basic turnover indicates higher risk from variability, obsolescence, or inaccuracy."
-    },
-    "breakdown": {
-      "basic_turnover": {
-        "id": "basic_turnover",
-        "label": "Basic Turnover",
-        "unit": "turns/year"
-      },
-      "adjusted_turnover": {
-        "id": "adjusted_turnover",
-        "label": "Adjusted Turnover (Demand Variability)",
-        "unit": "turns/year"
-      },
-      "obsolescence_impact": {
-        "id": "obsolescence_impact",
-        "label": "Obsolescence Impact Factor",
-        "unit": "dimensionless"
-      },
-      "carrying_cost_exposure": {
-        "id": "carrying_cost_exposure",
-        "label": "Annual Carrying Cost Exposure",
-        "unit": "USD"
-      },
-      "safety_stock_factor": {
-        "id": "safety_stock_factor",
-        "label": "Safety Stock Factor",
-        "unit": "dimensionless"
-      },
-      "accuracy_adjustment": {
-        "id": "accuracy_adjustment",
-        "label": "Accuracy Adjustment",
-        "unit": "dimensionless"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "demand_variability_loss",
-        "label": "Demand Variability Loss",
-        "description": "Lost turnover potential due to demand unpredictability.",
-        "value": "basic_turnover - adjusted_turnover",
-        "unit": "turns/year"
-      },
-      {
-        "id": "obsolescence_loss",
-        "label": "Obsolescence Loss",
-        "description": "Value lost to obsolescence annually.",
-        "value": "avg_inventory_value * (obsolescence_rate / 100)",
-        "unit": "USD"
-      },
-      {
-        "id": "inaccuracy_loss",
-        "label": "Inventory Inaccuracy Loss",
-        "description": "Imputed loss from record inaccuracy (waste, expediting, stockouts).",
-        "value": "avg_inventory_value * (1 - accuracy_adjustment)",
-        "unit": "USD"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_demand_variability",
-        "condition": "demand_variability_coefficient > 0.5",
-        "action": "Implement demand sensing and S&OP to reduce variability. Consider postponement strategies."
-      },
-      {
-        "id": "reduce_obsolescence",
-        "condition": "obsolescence_rate > 8",
-        "action": "Conduct ABC-XYZ analysis and phase out slow movers. Use markdown optimization."
-      },
-      {
-        "id": "improve_accuracy",
-        "condition": "inventory_accuracy_pct < 95",
-        "action": "Implement cycle counting program (ISO 9001:2015 clause 7.1.5). Use barcode/RFID."
-      },
-      {
-        "id": "optimize_safety_stock",
-        "condition": "safety_stock_factor > 0.5",
-        "action": "Review safety stock levels using Six Sigma DMAIC. Reduce lead time variability."
-      },
-      {
-        "id": "reduce_carrying_cost",
-        "condition": "carrying_cost_rate > 25",
-        "action": "Negotiate lower storage rates, reduce excess inventory, or use consignment."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Score",
-      "description": "Aggregate confidence in input data quality (0-1). Based on accuracy and completeness of inputs.",
-      "value": "inventory_accuracy_pct / 100 * (1 - demand_variability_coefficient * 0.1)",
-      "unit": "dimensionless"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "inventory-turnover-risk-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

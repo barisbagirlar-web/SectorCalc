@@ -5,49 +5,97 @@
       "id": "v1",
       "label": "Vertex 1 Degree",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Degree of vertex 1 in the graph"
+      "businessContext": "Degree of vertex 1 in the graph",
+      "label_i18n": {
+        "en": "Vertex 1 Degree",
+        "tr": "Vertex 1 Degree",
+        "de": "Vertex 1 Degree",
+        "fr": "Vertex 1 Degree",
+        "es": "Vertex 1 Degree",
+        "ar": "Vertex 1 Degree"
+      }
     },
     {
       "id": "v2",
       "label": "Vertex 2 Degree",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Degree of vertex 2 in the graph"
+      "businessContext": "Degree of vertex 2 in the graph",
+      "label_i18n": {
+        "en": "Vertex 2 Degree",
+        "tr": "Vertex 2 Degree",
+        "de": "Vertex 2 Degree",
+        "fr": "Vertex 2 Degree",
+        "es": "Vertex 2 Degree",
+        "ar": "Vertex 2 Degree"
+      }
     },
     {
       "id": "v3",
       "label": "Vertex 3 Degree",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Degree of vertex 3 in the graph"
+      "businessContext": "Degree of vertex 3 in the graph",
+      "label_i18n": {
+        "en": "Vertex 3 Degree",
+        "tr": "Vertex 3 Degree",
+        "de": "Vertex 3 Degree",
+        "fr": "Vertex 3 Degree",
+        "es": "Vertex 3 Degree",
+        "ar": "Vertex 3 Degree"
+      }
     },
     {
       "id": "v4",
       "label": "Vertex 4 Degree",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Degree of vertex 4 in the graph"
+      "businessContext": "Degree of vertex 4 in the graph",
+      "label_i18n": {
+        "en": "Vertex 4 Degree",
+        "tr": "Vertex 4 Degree",
+        "de": "Vertex 4 Degree",
+        "fr": "Vertex 4 Degree",
+        "es": "Vertex 4 Degree",
+        "ar": "Vertex 4 Degree"
+      }
     },
     {
       "id": "v5",
       "label": "Vertex 5 Degree",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Degree of vertex 5 in the graph"
+      "businessContext": "Degree of vertex 5 in the graph",
+      "label_i18n": {
+        "en": "Vertex 5 Degree",
+        "tr": "Vertex 5 Degree",
+        "de": "Vertex 5 Degree",
+        "fr": "Vertex 5 Degree",
+        "es": "Vertex 5 Degree",
+        "ar": "Vertex 5 Degree"
+      }
     },
     {
       "id": "v6",
       "label": "Vertex 6 Degree",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Degree of vertex 6 in the graph"
+      "businessContext": "Degree of vertex 6 in the graph",
+      "label_i18n": {
+        "en": "Vertex 6 Degree",
+        "tr": "Vertex 6 Degree",
+        "de": "Vertex 6 Degree",
+        "fr": "Vertex 6 Degree",
+        "es": "Vertex 6 Degree",
+        "ar": "Vertex 6 Degree"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "isValid"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

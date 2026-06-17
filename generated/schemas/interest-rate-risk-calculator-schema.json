@@ -111,7 +111,7 @@
       "id": "confidence_level",
       "label": "Confidence Level",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "95%",
       "min": null,
       "max": null,
@@ -132,7 +132,7 @@
       "id": "volatility_regime",
       "label": "Volatility Regime",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "normal",
       "min": null,
       "max": null,
@@ -183,207 +183,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "price_change_duration",
-      "name": "Duration-based price change",
-      "description": "First-order approximation of price change using modified duration.",
-      "formula": "ΔP_dur = -duration * (rate_change / 10000) * portfolio_value",
-      "inputs": [
-        "duration",
-        "rate_change",
-        "portfolio_value"
-      ],
-      "output_unit": "USD"
-    },
-    {
-      "id": "price_change_convexity",
-      "name": "Convexity adjustment",
-      "description": "Second-order convexity correction for price change.",
-      "formula": "ΔP_conv = 0.5 * convexity * (rate_change / 10000)^2 * portfolio_value",
-      "inputs": [
-        "convexity",
-        "rate_change",
-        "portfolio_value"
-      ],
-      "output_unit": "USD"
-    },
-    {
-      "id": "total_price_change",
-      "name": "Total price change (unhedged)",
-      "description": "Combined duration and convexity effect on portfolio value.",
-      "formula": "ΔP_total = ΔP_dur + ΔP_conv",
-      "inputs": [
-        "price_change_duration",
-        "price_change_convexity"
-      ],
-      "output_unit": "USD"
-    },
-    {
-      "id": "hedged_price_change",
-      "name": "Hedged price change",
-      "description": "Net price change after applying hedge ratio.",
-      "formula": "ΔP_hedged = ΔP_total * (1 - hedge_ratio / 100)",
-      "inputs": [
-        "total_price_change",
-        "hedge_ratio"
-      ],
-      "output_unit": "USD"
-    },
-    {
-      "id": "value_at_risk",
-      "name": "Value at Risk (VaR)",
-      "description": "Statistical loss estimate at given confidence level under normal volatility.",
-      "formula": "VaR = -1.645 * (abs(ΔP_total) * volatility_factor) for 95% confidence",
-      "inputs": [
-        "total_price_change",
-        "confidence_level",
-        "volatility_regime"
-      ],
-      "output_unit": "USD",
-      "parameters": {
-        "volatility_factor": {
-          "low": 0.5,
-          "normal": 1,
-          "high": 1.5,
-          "extreme": 2.5
-        },
-        "z_score": {
-          "90%": 1.282,
-          "95%": 1.645,
-          "99%": 2.326
-        }
-      }
-    },
-    {
-      "id": "data_confidence_adjustment",
-      "name": "Data confidence adjusted loss",
-      "description": "Adjusts the hedged loss by a confidence factor based on input quality and volatility regime.",
-      "formula": "DCA = ΔP_hedged * (1 - 0.1 * (volatility_regime_index))",
-      "inputs": [
-        "hedged_price_change",
-        "volatility_regime"
-      ],
-      "output_unit": "USD",
-      "parameters": {
-        "volatility_regime_index": {
-          "low": 0,
-          "normal": 1,
-          "high": 2,
-          "extreme": 3
-        }
-      }
-    },
-    {
-      "id": "primary_result",
-      "name": "Net Interest Rate Risk Exposure",
-      "description": "Primary result: expected financial impact after hedging and confidence adjustment.",
-      "formula": "primary_result = DCA",
-      "inputs": [
-        "data_confidence_adjustment"
-      ],
-      "output_unit": "USD"
-    }
+    "current_rate",
+    "current_rate",
+    "current_rate",
+    "current_rate",
+    "current_rate",
+    "current_rate",
+    "current_rate"
   ],
   "outputs": {
-    "primary": {
-      "id": "net_interest_rate_risk_exposure",
-      "label": "Net Interest Rate Risk Exposure",
-      "unit": "USD",
-      "description": "Expected change in portfolio value after hedging and confidence adjustment."
-    },
-    "breakdown": {
-      "id": "breakdown",
-      "label": "Risk Breakdown",
-      "type": "object",
-      "properties": {
-        "duration_impact": {
-          "label": "Duration Impact",
-          "unit": "USD",
-          "description": "First-order price change from duration."
-        },
-        "convexity_impact": {
-          "label": "Convexity Impact",
-          "unit": "USD",
-          "description": "Second-order convexity adjustment."
-        },
-        "unhedged_impact": {
-          "label": "Unhedged Impact",
-          "unit": "USD",
-          "description": "Total price change before hedging."
-        },
-        "hedged_impact": {
-          "label": "Hedged Impact",
-          "unit": "USD",
-          "description": "Net impact after applying hedge ratio."
-        },
-        "value_at_risk": {
-          "label": "Value at Risk (VaR)",
-          "unit": "USD",
-          "description": "Statistical loss at selected confidence level."
-        }
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "driver_1",
-        "name": "Parallel Shift Assumption",
-        "description": "Assumes all maturities shift equally; non-parallel shifts may cause additional basis risk.",
-        "severity": "medium"
-      },
-      {
-        "id": "driver_2",
-        "name": "Liquidity Spread Compression",
-        "description": "In stressed markets, liquidity premiums may erode, amplifying losses beyond duration/convexity estimates.",
-        "severity": "high"
-      },
-      {
-        "id": "driver_3",
-        "name": "Counterparty Credit Risk on Hedges",
-        "description": "Hedge effectiveness may degrade if counterparty defaults or collateral calls are missed.",
-        "severity": "high"
-      },
-      {
-        "id": "driver_4",
-        "name": "Embedded Options (Call/Put)",
-        "description": "Bonds with embedded options have negative convexity at certain yield levels, not captured by standard convexity.",
-        "severity": "medium"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": 1,
-        "description": "Increase hedge ratio to 80% if volatility regime is high or extreme."
-      },
-      {
-        "id": "action_2",
-        "priority": 2,
-        "description": "Diversify into floating-rate notes to reduce duration exposure."
-      },
-      {
-        "id": "action_3",
-        "priority": 3,
-        "description": "Implement interest rate swaps to lock in current rates for 6-12 months."
-      },
-      {
-        "id": "action_4",
-        "priority": 4,
-        "description": "Conduct scenario analysis for non-parallel yield curve shifts (e.g., steepening/flattening)."
-      },
-      {
-        "id": "action_5",
-        "priority": 5,
-        "description": "Review counterparty credit limits and collateral agreements for hedge positions."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_loss",
-      "label": "Data Confidence Adjusted Loss",
-      "unit": "USD",
-      "description": "Loss figure adjusted for volatility regime and input reliability."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Vergi & Finansal Raporlama",
+  "sector": "Finans & İK",
+  "toolName": "interest-rate-risk-calculator"
 }

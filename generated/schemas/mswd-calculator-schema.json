@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 8,
-      "businessContext": "The total weighted sum of squared differences between observed and predicted values."
+      "businessContext": "The total weighted sum of squared differences between observed and predicted values.",
+      "label_i18n": {
+        "en": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)",
+        "tr": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)",
+        "de": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)",
+        "fr": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)",
+        "es": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)",
+        "ar": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)"
+      }
     },
     {
       "id": "numberOfDataPoints",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "The number of measurements in the regression."
+      "businessContext": "The number of measurements in the regression.",
+      "label_i18n": {
+        "en": "Number of Data Points (n)",
+        "tr": "Number of Data Points (n)",
+        "de": "Number of Data Points (n)",
+        "fr": "Number of Data Points (n)",
+        "es": "Number of Data Points (n)",
+        "ar": "Number of Data Points (n)"
+      }
     },
     {
       "id": "numberOfParameters",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 2,
-      "businessContext": "The number of fitted parameters in the regression model (e.g., slope and intercept)."
+      "businessContext": "The number of fitted parameters in the regression model (e.g., slope and intercept).",
+      "label_i18n": {
+        "en": "Number of Parameters (p)",
+        "tr": "Number of Parameters (p)",
+        "de": "Number of Parameters (p)",
+        "fr": "Number of Parameters (p)",
+        "es": "Number of Parameters (p)",
+        "ar": "Number of Parameters (p)"
+      }
     },
     {
       "id": "significanceLevel",
@@ -31,11 +55,23 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.05,
-      "businessContext": "The probability of rejecting a valid model when MSWD exceeds the critical value; used for testing if MSWD indicates overdispersion."
+      "businessContext": "The probability of rejecting a valid model when MSWD exceeds the critical value; used for testing if MSWD indicates overdispersion.",
+      "label_i18n": {
+        "en": "Significance Level (α)",
+        "tr": "Significance Level (α)",
+        "de": "Significance Level (α)",
+        "fr": "Significance Level (α)",
+        "es": "Significance Level (α)",
+        "ar": "Significance Level (α)"
+      }
     }
   ],
   "formulas": {
-    "mswd": "sumWeightedSquaredResiduals / (numberOfDataPoints - numberOfParameters)"
+    "1": "1",
+    "mswd": "sumWeightedSquaredResiduals / (numberOfDataPoints - numberOfParameters)",
+    "sumWeightedSquaredResiduals": "sumWeightedSquaredResiduals",
+    "numberOfDataPoints___numberOfParameters": "numberOfDataPoints - numberOfParameters",
+    "Math_sqrt_2____numberOfDataPoints___numb": "Math.sqrt(2 / (numberOfDataPoints - numberOfParameters))"
   },
   "outputs": {
     "primary": "mswd",
@@ -46,8 +82,8 @@
       "Math.sqrt(2 / (numberOfDataPoints - numberOfParameters))"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

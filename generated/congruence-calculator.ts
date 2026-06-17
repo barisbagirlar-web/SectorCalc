@@ -20,13 +20,14 @@ function evaluateAllFormulas(input: Congruence_calculatorInput): Record<string, 
   try { const v = ((((input.a + input.shift) % input.modulus) + input.modulus) % input.modulus) === (((input.b % input.modulus) + input.modulus) % input.modulus) ? 'Congruent' : 'Not Congruent'; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   try { const v = 'Remainder of ('+input.a+' + '+input.shift+') mod '+input.modulus+' = ' + (((input.a + input.shift) % input.modulus + input.modulus) % input.modulus); results["breakdown[0]"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown[0]"] = 0; }
   try { const v = 'Remainder of '+input.b+' mod '+input.modulus+' = ' + ((input.b % input.modulus + input.modulus) % input.modulus); results["breakdown[1]"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown[1]"] = 0; }
+  results["___"] = 0;
   return results;
 }
 
 
 export function calculateCongruence_calculator(input: Congruence_calculatorInput): Congruence_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["..."] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

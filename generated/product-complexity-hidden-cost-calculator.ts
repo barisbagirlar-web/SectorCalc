@@ -25,31 +25,19 @@ export const Product_complexity_hidden_cost_calculatorInputSchema = z.object({
   use_lean_metrics: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Product_complexity_hidden_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.setup_time_minutes / 60) * input.labor_rate * (input.num_sku / (input.avg_volume_per_sku / 1000)); results["setup_cost_per_sku"] = Number.isFinite(v) ? v : 0; } catch { results["setup_cost_per_sku"] = 0; }
-  try { const v = input.num_components * input.avg_bom_levels * 0.02 * (input.avg_volume_per_sku * 0.5) * 0.25; results["inventory_holding_cost"] = Number.isFinite(v) ? v : 0; } catch { results["inventory_holding_cost"] = 0; }
-  try { const v = input.num_sku * input.avg_volume_per_sku * 0.005 * (input.labor_rate * 0.5 + 10); results["quality_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["quality_loss_cost"] = 0; }
-  try { const v = (input.num_sku * 0.1 + input.num_components * 0.05) * input.overhead_rate * 100; results["overhead_complexity_penalty"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_complexity_penalty"] = 0; }
-  try { const v = input.use_lean_metrics ? 0.7 : 1.0; results["lean_adjustment_factor"] = Number.isFinite(v) ? v : 0; } catch { results["lean_adjustment_factor"] = 0; }
-  try { const v = ((results["setup_cost_per_sku"] ?? 0) * (results["lean_adjustment_factor"] ?? 0) + (results["inventory_holding_cost"] ?? 0) + (results["quality_loss_cost"] ?? 0) * (results["lean_adjustment_factor"] ?? 0) + (results["overhead_complexity_penalty"] ?? 0)) / (input.num_sku * input.avg_volume_per_sku); results["hidden_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_cost_per_unit"] = 0; }
-  try { const v = (results["hidden_cost_per_unit"] ?? 0) * input.num_sku * input.avg_volume_per_sku; results["total_hidden_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_hidden_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Product_complexity_hidden_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateProduct_complexity_hidden_cost_calculator(input: Product_complexity_hidden_cost_calculatorInput): Product_complexity_hidden_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_hidden_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    setup_cost: values["setup_cost"] ?? 0,
-    inventory_holding_cost: values["inventory_holding_cost"] ?? 0,
-    quality_loss_cost: values["quality_loss_cost"] ?? 0,
-    overhead_complexity_penalty: values["overhead_complexity_penalty"] ?? 0,
-    hidden_cost_per_unit: values["hidden_cost_per_unit"] ?? 0
+    
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Conduct SKU rationalization workshop","Implement component commonality program","Deploy SMED for top 20% of changeovers","Adopt Lean Six Sigma to reduce defect rate by 50%"];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -68,7 +56,7 @@ export function calculateProduct_complexity_hidden_cost_calculator(input: Produc
 
 export interface Product_complexity_hidden_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { setup_cost: number; inventory_holding_cost: number; quality_loss_cost: number; overhead_complexity_penalty: number; hidden_cost_per_unit: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

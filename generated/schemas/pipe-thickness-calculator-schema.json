@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 1,
-      "businessContext": "Internal design pressure of the pipe."
+      "businessContext": "Internal design pressure of the pipe.",
+      "label_i18n": {
+        "en": "Design Pressure",
+        "tr": "Design Pressure",
+        "de": "Design Pressure",
+        "fr": "Design Pressure",
+        "es": "Design Pressure",
+        "ar": "Design Pressure"
+      }
     },
     {
       "id": "diameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Outside diameter of the pipe."
+      "businessContext": "Outside diameter of the pipe.",
+      "label_i18n": {
+        "en": "Outside Diameter",
+        "tr": "Outside Diameter",
+        "de": "Outside Diameter",
+        "fr": "Outside Diameter",
+        "es": "Outside Diameter",
+        "ar": "Outside Diameter"
+      }
     },
     {
       "id": "allowableStress",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 138,
-      "businessContext": "Allowable stress of the pipe material at design temperature."
+      "businessContext": "Allowable stress of the pipe material at design temperature.",
+      "label_i18n": {
+        "en": "Allowable Stress",
+        "tr": "Allowable Stress",
+        "de": "Allowable Stress",
+        "fr": "Allowable Stress",
+        "es": "Allowable Stress",
+        "ar": "Allowable Stress"
+      }
     },
     {
       "id": "jointEfficiency",
       "label": "Joint Efficiency",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Longitudinal joint efficiency factor (between 0 and 1)."
+      "businessContext": "Longitudinal joint efficiency factor (between 0 and 1).",
+      "label_i18n": {
+        "en": "Joint Efficiency",
+        "tr": "Joint Efficiency",
+        "de": "Joint Efficiency",
+        "fr": "Joint Efficiency",
+        "es": "Joint Efficiency",
+        "ar": "Joint Efficiency"
+      }
     },
     {
       "id": "corrosionAllowance",
@@ -39,11 +71,21 @@
       "type": "number",
       "unit": "mm",
       "default": 1.5,
-      "businessContext": "Additional thickness to compensate for corrosion or erosion."
+      "businessContext": "Additional thickness to compensate for corrosion or erosion.",
+      "label_i18n": {
+        "en": "Corrosion Allowance",
+        "tr": "Corrosion Allowance",
+        "de": "Corrosion Allowance",
+        "fr": "Corrosion Allowance",
+        "es": "Corrosion Allowance",
+        "ar": "Corrosion Allowance"
+      }
     }
   ],
   "formulas": {
-    "requiredThickness": "(pressure * diameter) / (2 * allowableStress * jointEfficiency) + corrosionAllowance"
+    "requiredThickness": "(pressure * diameter) / (2 * allowableStress * jointEfficiency) + corrosionAllowance",
+    "P_D__2_S_E_": "P*D/(2*S*E)",
+    "t___P_D__2_S_E____C": "t = P*D/(2*S*E) + C"
   },
   "outputs": {
     "primary": "requiredThickness",
@@ -52,10 +94,10 @@
       "Final thickness includes corrosion allowance: t = P*D/(2*S*E) + C"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "process-chemical"
 }

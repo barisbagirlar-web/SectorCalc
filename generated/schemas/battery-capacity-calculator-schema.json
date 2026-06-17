@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W",
       "default": 100,
-      "businessContext": "Total power consumption of the load"
+      "businessContext": "Total power consumption of the load",
+      "label_i18n": {
+        "en": "Load Power",
+        "tr": "Load Power",
+        "de": "Load Power",
+        "fr": "Load Power",
+        "es": "Load Power",
+        "ar": "Load Power"
+      }
     },
     {
       "id": "backupTime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1,
-      "businessContext": "Desired backup time"
+      "businessContext": "Desired backup time",
+      "label_i18n": {
+        "en": "Backup Time",
+        "tr": "Backup Time",
+        "de": "Backup Time",
+        "fr": "Backup Time",
+        "es": "Backup Time",
+        "ar": "Backup Time"
+      }
     },
     {
       "id": "voltage",
@@ -23,40 +39,67 @@
       "type": "number",
       "unit": "V",
       "default": 12,
-      "businessContext": "Nominal voltage of battery bank"
+      "businessContext": "Nominal voltage of battery bank",
+      "label_i18n": {
+        "en": "System Voltage",
+        "tr": "System Voltage",
+        "de": "System Voltage",
+        "fr": "System Voltage",
+        "es": "System Voltage",
+        "ar": "System Voltage"
+      }
     },
     {
       "id": "efficiency",
       "label": "System Efficiency",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "Combined efficiency of inverter and cabling (0-1)"
+      "businessContext": "Combined efficiency of inverter and cabling (0-1)",
+      "label_i18n": {
+        "en": "System Efficiency",
+        "tr": "System Efficiency",
+        "de": "System Efficiency",
+        "fr": "System Efficiency",
+        "es": "System Efficiency",
+        "ar": "System Efficiency"
+      }
     },
     {
       "id": "depthOfDischarge",
       "label": "Depth of Discharge (DoD)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Maximum discharge depth (e.g., 0.8 means 80% usable)"
+      "businessContext": "Maximum discharge depth (e.g., 0.8 means 80% usable)",
+      "label_i18n": {
+        "en": "Depth of Discharge (DoD)",
+        "tr": "Depth of Discharge (DoD)",
+        "de": "Depth of Discharge (DoD)",
+        "fr": "Depth of Discharge (DoD)",
+        "es": "Depth of Discharge (DoD)",
+        "ar": "Depth of Discharge (DoD)"
+      }
     }
   ],
   "formulas": {
     "capacityAh": "(loadPower * backupTime) / (voltage * efficiency * depthOfDischarge)",
-    "energyWh": "(loadPower * backupTime) / (efficiency * depthOfDischarge)"
+    "energyWh": "(loadPower * backupTime) / (efficiency * depthOfDischarge)",
+    "__energyWh_toFixed_2___Wh": "${energyWh.toFixed(2)} Wh",
+    "__capacityAh_toFixed_2___Ah": "${capacityAh.toFixed(2)} Ah",
+    "result": "Required battery capacity: ${capacityAh.toFixed(2)} Ah"
   },
   "outputs": {
-    "primary": "Required battery capacity: ${capacityAh.toFixed(2)} Ah",
+    "primary": "result",
     "breakdown": [
       "Required energy: ${energyWh.toFixed(2)} Wh",
       "Battery capacity: ${capacityAh.toFixed(2)} Ah"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "electrical-power-systems"
 }

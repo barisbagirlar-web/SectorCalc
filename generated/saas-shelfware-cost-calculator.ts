@@ -21,31 +21,19 @@ export const Saas_shelfware_cost_calculatorInputSchema = z.object({
   utilization_threshold: z.number().min(0).max(100).default(80),
 });
 
-function evaluateAllFormulas(input: Saas_shelfware_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.active_users / input.total_licenses) * 100; results["active_utilization_rate"] = Number.isFinite(v) ? v : 0; } catch { results["active_utilization_rate"] = 0; }
-  try { const v = Math.max(0, input.total_licenses - (input.active_users * (100 / input.utilization_threshold))); results["shelfware_licenses"] = Number.isFinite(v) ? v : 0; } catch { results["shelfware_licenses"] = 0; }
-  try { const v = (results["shelfware_licenses"] ?? 0) * input.license_cost_per_month; results["monthly_shelfware_cost"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_shelfware_cost"] = 0; }
-  try { const v = ((results["monthly_shelfware_cost"] ?? 0) * input.contract_months_remaining) + (input.implementation_cost * ((results["shelfware_licenses"] ?? 0) / input.total_licenses)); results["total_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_waste_cost"] = 0; }
-  try { const v = ((results["total_waste_cost"] ?? 0) / ((input.total_licenses * input.license_cost_per_month * input.contract_months_remaining) + input.implementation_cost + (input.monthly_support_cost * input.contract_months_remaining))) * 100; results["waste_percentage_of_total"] = Number.isFinite(v) ? v : 0; } catch { results["waste_percentage_of_total"] = 0; }
-  try { const v = (results["shelfware_licenses"] ?? 0) / input.total_licenses; results["shelfware_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["shelfware_ratio"] = 0; }
-  try { const v = (results["total_waste_cost"] ?? 0) * 0.9; results["data_confidence_adjusted_waste"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjusted_waste"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Saas_shelfware_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateSaas_shelfware_cost_calculator(input: Saas_shelfware_cost_calculatorInput): Saas_shelfware_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_waste_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    active_utilization_rate: values["active_utilization_rate"] ?? 0,
-    shelfware_licenses: values["shelfware_licenses"] ?? 0,
-    monthly_shelfware_cost: values["monthly_shelfware_cost"] ?? 0,
-    waste_percentage_of_total: values["waste_percentage_of_total"] ?? 0,
-    shelfware_ratio: values["shelfware_ratio"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Underutilized Enterprise Plans","Auto-Renewal Inertia","Shadow IT Duplication"];
-  const suggestedActions: string[] = ["Renegotiate Contract","Implement Usage Monitoring","Consolidate Redundant Tools","Increase User Adoption"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -64,7 +52,7 @@ export function calculateSaas_shelfware_cost_calculator(input: Saas_shelfware_co
 
 export interface Saas_shelfware_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { active_utilization_rate: number; shelfware_licenses: number; monthly_shelfware_cost: number; waste_percentage_of_total: number; shelfware_ratio: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

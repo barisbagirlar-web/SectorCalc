@@ -5,33 +5,65 @@
       "id": "year",
       "label": "Yıl",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2025,
-      "businessContext": "Hafta numarası hesaplanacak yıl"
+      "businessContext": "Hafta numarası hesaplanacak yıl",
+      "label_i18n": {
+        "en": "Yıl",
+        "tr": "Yıl",
+        "de": "Yıl",
+        "fr": "Yıl",
+        "es": "Yıl",
+        "ar": "Yıl"
+      }
     },
     {
       "id": "month",
       "label": "Ay",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Hafta numarası hesaplanacak ay (1-12)"
+      "businessContext": "Hafta numarası hesaplanacak ay (1-12)",
+      "label_i18n": {
+        "en": "Ay",
+        "tr": "Ay",
+        "de": "Ay",
+        "fr": "Ay",
+        "es": "Ay",
+        "ar": "Ay"
+      }
     },
     {
       "id": "day",
       "label": "Gün",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Hafta numarası hesaplanacak gün (1-31)"
+      "businessContext": "Hafta numarası hesaplanacak gün (1-31)",
+      "label_i18n": {
+        "en": "Gün",
+        "tr": "Gün",
+        "de": "Gün",
+        "fr": "Gün",
+        "es": "Gün",
+        "ar": "Gün"
+      }
     },
     {
       "id": "weekStartDay",
       "label": "Hafta Başlangıç Günü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Haftanın başladığı gün (0=Pazar, 1=Pazartesi, ..., 6=Cumartesi)"
+      "businessContext": "Haftanın başladığı gün (0=Pazar, 1=Pazartesi, ..., 6=Cumartesi)",
+      "label_i18n": {
+        "en": "Hafta Başlangıç Günü",
+        "tr": "Hafta Başlangıç Günü",
+        "de": "Hafta Başlangıç Günü",
+        "fr": "Hafta Başlangıç Günü",
+        "es": "Hafta Başlangıç Günü",
+        "ar": "Hafta Başlangıç Günü"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "dayOfYear"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

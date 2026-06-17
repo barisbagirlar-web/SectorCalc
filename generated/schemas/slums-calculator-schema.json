@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 120,
-      "businessContext": "Gönderinin uzunluğu"
+      "businessContext": "Gönderinin uzunluğu",
+      "label_i18n": {
+        "en": "Kargo Uzunluğu",
+        "tr": "Kargo Uzunluğu",
+        "de": "Kargo Uzunluğu",
+        "fr": "Kargo Uzunluğu",
+        "es": "Kargo Uzunluğu",
+        "ar": "Kargo Uzunluğu"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 80,
-      "businessContext": "Gönderinin genişliği"
+      "businessContext": "Gönderinin genişliği",
+      "label_i18n": {
+        "en": "Kargo Genişliği",
+        "tr": "Kargo Genişliği",
+        "de": "Kargo Genişliği",
+        "fr": "Kargo Genişliği",
+        "es": "Kargo Genişliği",
+        "ar": "Kargo Genişliği"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Gönderinin yüksekliği"
+      "businessContext": "Gönderinin yüksekliği",
+      "label_i18n": {
+        "en": "Kargo Yüksekliği",
+        "tr": "Kargo Yüksekliği",
+        "de": "Kargo Yüksekliği",
+        "fr": "Kargo Yüksekliği",
+        "es": "Kargo Yüksekliği",
+        "ar": "Kargo Yüksekliği"
+      }
     },
     {
       "id": "weight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 500,
-      "businessContext": "Gönderinin ağırlığı"
+      "businessContext": "Gönderinin ağırlığı",
+      "label_i18n": {
+        "en": "Kargo Ağırlığı",
+        "tr": "Kargo Ağırlığı",
+        "de": "Kargo Ağırlığı",
+        "fr": "Kargo Ağırlığı",
+        "es": "Kargo Ağırlığı",
+        "ar": "Kargo Ağırlığı"
+      }
     },
     {
       "id": "unitLoadCapacity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Bir paletin veya konteynerin taşıma kapasitesi"
+      "businessContext": "Bir paletin veya konteynerin taşıma kapasitesi",
+      "label_i18n": {
+        "en": "Birim Yük Kapasitesi",
+        "tr": "Birim Yük Kapasitesi",
+        "de": "Birim Yük Kapasitesi",
+        "fr": "Birim Yük Kapasitesi",
+        "es": "Birim Yük Kapasitesi",
+        "ar": "Birim Yük Kapasitesi"
+      }
     },
     {
       "id": "volumePerUnit",
@@ -47,27 +87,38 @@
       "type": "number",
       "unit": "m³",
       "default": 1.5,
-      "businessContext": "Bir birim yükün kapladığı hacim"
+      "businessContext": "Bir birim yükün kapladığı hacim",
+      "label_i18n": {
+        "en": "Birim Yük Hacmi",
+        "tr": "Birim Yük Hacmi",
+        "de": "Birim Yük Hacmi",
+        "fr": "Birim Yük Hacmi",
+        "es": "Birim Yük Hacmi",
+        "ar": "Birim Yük Hacmi"
+      }
     }
   ],
   "formulas": {
     "volume": "(length * width * height) / 1000000",
     "volumeUnits": "volume / volumePerUnit",
     "weightUnits": "weight / unitLoadCapacity",
-    "totalUnits": "Math.ceil(Math.max(volumeUnits, weightUnits))"
+    "totalUnits": "Math.ceil(Math.max(volumeUnits, weightUnits))",
+    "__volume__m_": "${volume} m³",
+    "__volumeUnits_": "${volumeUnits}",
+    "__weightUnits_": "${weightUnits}"
   },
   "outputs": {
-    "primary": "Toplam Birim Yük Sayısı: ${totalUnits} birim gerekli.",
+    "primary": "volume",
     "breakdown": [
       "Toplam Hacim: ${volume} m³",
       "Hacim Bazlı Birim Gereksinimi: ${volumeUnits}",
       "Ağırlık Bazlı Birim Gereksinimi: ${weightUnits}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Omuzdan kuyruk dibine kadar ölçülen uzunluk."
+      "businessContext": "Omuzdan kuyruk dibine kadar ölçülen uzunluk.",
+      "label_i18n": {
+        "en": "Vücut Uzunluğu (cm)",
+        "tr": "Vücut Uzunluğu (cm)",
+        "de": "Vücut Uzunluğu (cm)",
+        "fr": "Vücut Uzunluğu (cm)",
+        "es": "Vücut Uzunluğu (cm)",
+        "ar": "Vücut Uzunluğu (cm)"
+      }
     },
     {
       "id": "chest_girth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 40,
-      "businessContext": "Ön bacakların hemen arkasından alınan çevre ölçüsü."
+      "businessContext": "Ön bacakların hemen arkasından alınan çevre ölçüsü.",
+      "label_i18n": {
+        "en": "Göğüs Çevresi (cm)",
+        "tr": "Göğüs Çevresi (cm)",
+        "de": "Göğüs Çevresi (cm)",
+        "fr": "Göğüs Çevresi (cm)",
+        "es": "Göğüs Çevresi (cm)",
+        "ar": "Göğüs Çevresi (cm)"
+      }
     },
     {
       "id": "age_months",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ay",
       "default": 12,
-      "businessContext": "Evcil hayvanın ay cinsinden yaşı. 12 aydan küçükse büyüme faktörü uygulanır."
+      "businessContext": "Evcil hayvanın ay cinsinden yaşı. 12 aydan küçükse büyüme faktörü uygulanır.",
+      "label_i18n": {
+        "en": "Yaş (Ay)",
+        "tr": "Yaş (Ay)",
+        "de": "Yaş (Ay)",
+        "fr": "Yaş (Ay)",
+        "es": "Yaş (Ay)",
+        "ar": "Yaş (Ay)"
+      }
     },
     {
       "id": "condition_factor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "1-5",
       "default": 3,
-      "businessContext": "Vücut kondisyon skoru: 1 çok zayıf, 3 ideal, 5 obez. Ağırlık buna göre ayarlanır."
+      "businessContext": "Vücut kondisyon skoru: 1 çok zayıf, 3 ideal, 5 obez. Ağırlık buna göre ayarlanır.",
+      "label_i18n": {
+        "en": "Kondisyon Faktörü (1-5)",
+        "tr": "Kondisyon Faktörü (1-5)",
+        "de": "Kondisyon Faktörü (1-5)",
+        "fr": "Kondisyon Faktörü (1-5)",
+        "es": "Kondisyon Faktörü (1-5)",
+        "ar": "Kondisyon Faktörü (1-5)"
+      }
     }
   ],
   "formulas": {
@@ -39,19 +71,22 @@
     "ageFactor": "age_months < 12 ? (age_months / 12) : 1",
     "targetWeight": "baseWeight * ageFactor * (condition_factor / 3)",
     "healthyLower": "targetWeight * 0.85",
-    "healthyUpper": "targetWeight * 1.15"
+    "healthyUpper": "targetWeight * 1.15",
+    "____healthyLower_toFixed_1____________he": "' + healthyLower.toFixed(1) + ' - ' + healthyUpper.toFixed(1) + ' kg'",
+    "____targetWeight_toFixed_1______kg_": "' + targetWeight.toFixed(1) + ' kg'",
+    "result": "targetWeight.toFixed(1) + ' kg'"
   },
   "outputs": {
-    "primary": "targetWeight.toFixed(1) + ' kg'",
+    "primary": "result",
     "breakdown": [
       "'Sağlıklı ağırlık aralığı: ' + healthyLower.toFixed(1) + ' - ' + healthyUpper.toFixed(1) + ' kg'",
       "'İdeal kondisyon skoru 3 için tahmini ağırlık: ' + targetWeight.toFixed(1) + ' kg'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

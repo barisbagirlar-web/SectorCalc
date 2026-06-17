@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "lm",
       "default": 1000,
-      "businessContext": "Total light output of the light source in lumens."
+      "businessContext": "Total light output of the light source in lumens.",
+      "label_i18n": {
+        "en": "Luminous Flux",
+        "tr": "Luminous Flux",
+        "de": "Luminous Flux",
+        "fr": "Luminous Flux",
+        "es": "Luminous Flux",
+        "ar": "Luminous Flux"
+      }
     },
     {
       "id": "beamAngle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": 120,
-      "businessContext": "Full angle at which 50% of the peak luminous intensity is maintained."
+      "businessContext": "Full angle at which 50% of the peak luminous intensity is maintained.",
+      "label_i18n": {
+        "en": "Beam Angle",
+        "tr": "Beam Angle",
+        "de": "Beam Angle",
+        "fr": "Beam Angle",
+        "es": "Beam Angle",
+        "ar": "Beam Angle"
+      }
     },
     {
       "id": "distance",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Distance from the light source to the target surface."
+      "businessContext": "Distance from the light source to the target surface.",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "efficiency",
       "label": "Luminaire Efficiency",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "Factor accounting for dirt accumulation, lamp aging, and optical losses (0-1)."
+      "businessContext": "Factor accounting for dirt accumulation, lamp aging, and optical losses (0-1).",
+      "label_i18n": {
+        "en": "Luminaire Efficiency",
+        "tr": "Luminaire Efficiency",
+        "de": "Luminaire Efficiency",
+        "fr": "Luminaire Efficiency",
+        "es": "Luminaire Efficiency",
+        "ar": "Luminaire Efficiency"
+      }
     },
     {
       "id": "ambientLight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "lux",
       "default": 0,
-      "businessContext": "Existing ambient light level at the target surface in lux."
+      "businessContext": "Existing ambient light level at the target surface in lux.",
+      "label_i18n": {
+        "en": "Ambient Light",
+        "tr": "Ambient Light",
+        "de": "Ambient Light",
+        "fr": "Ambient Light",
+        "es": "Ambient Light",
+        "ar": "Ambient Light"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "illuminance"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "cnc-additive-manufacturing"
 }

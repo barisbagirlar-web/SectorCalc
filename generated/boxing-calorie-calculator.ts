@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Boxing_calorie_calculatorInput): Record<stri
 
 export function calculateBoxing_calorie_calculator(input: Boxing_calorie_calculatorInput): Boxing_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["calories_burned"] ?? 0;
+  const totalWasteCost = values["duration_hours"] ?? 0;
   const breakdown = {
     
   };

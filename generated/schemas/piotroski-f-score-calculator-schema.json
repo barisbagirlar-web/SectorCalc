@@ -5,72 +5,145 @@
       "id": "roaPositive",
       "label": "ROA Pozitif",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl net kar / toplam varlıklar pozitif ise 1, değilse 0."
+      "businessContext": "Cari yıl net kar / toplam varlıklar pozitif ise 1, değilse 0.",
+      "label_i18n": {
+        "en": "ROA Pozitif",
+        "tr": "ROA Pozitif",
+        "de": "ROA Pozitif",
+        "fr": "ROA Pozitif",
+        "es": "ROA Pozitif",
+        "ar": "ROA Pozitif"
+      }
     },
     {
       "id": "cfoPositive",
       "label": "İşletme Nakit Akışı Pozitif",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl faaliyet nakit akışı pozitif ise 1, değilse 0."
+      "businessContext": "Cari yıl faaliyet nakit akışı pozitif ise 1, değilse 0.",
+      "label_i18n": {
+        "en": "İşletme Nakit Akışı Pozitif",
+        "tr": "İşletme Nakit Akışı Pozitif",
+        "de": "İşletme Nakit Akışı Pozitif",
+        "fr": "İşletme Nakit Akışı Pozitif",
+        "es": "İşletme Nakit Akışı Pozitif",
+        "ar": "İşletme Nakit Akışı Pozitif"
+      }
     },
     {
       "id": "roaIncreased",
       "label": "ROA Artışı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl ROA'sı önceki yıla göre arttıysa 1, değilse 0."
+      "businessContext": "Cari yıl ROA'sı önceki yıla göre arttıysa 1, değilse 0.",
+      "label_i18n": {
+        "en": "ROA Artışı",
+        "tr": "ROA Artışı",
+        "de": "ROA Artışı",
+        "fr": "ROA Artışı",
+        "es": "ROA Artışı",
+        "ar": "ROA Artışı"
+      }
     },
     {
       "id": "accrualLow",
       "label": "Düşük Tahakkuk",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "İşletme nakit akışı net kardan büyükse 1, değilse 0."
+      "businessContext": "İşletme nakit akışı net kardan büyükse 1, değilse 0.",
+      "label_i18n": {
+        "en": "Düşük Tahakkuk",
+        "tr": "Düşük Tahakkuk",
+        "de": "Düşük Tahakkuk",
+        "fr": "Düşük Tahakkuk",
+        "es": "Düşük Tahakkuk",
+        "ar": "Düşük Tahakkuk"
+      }
     },
     {
       "id": "leverageDecreased",
       "label": "Kaldıraç Azalışı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Uzun vadeli borç / toplam varlıklar oranı azaldıysa 1, değilse 0."
+      "businessContext": "Uzun vadeli borç / toplam varlıklar oranı azaldıysa 1, değilse 0.",
+      "label_i18n": {
+        "en": "Kaldıraç Azalışı",
+        "tr": "Kaldıraç Azalışı",
+        "de": "Kaldıraç Azalışı",
+        "fr": "Kaldıraç Azalışı",
+        "es": "Kaldıraç Azalışı",
+        "ar": "Kaldıraç Azalışı"
+      }
     },
     {
       "id": "currentRatioIncreased",
       "label": "Cari Oran Artışı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl cari oranı önceki yıla göre arttıysa 1, değilse 0."
+      "businessContext": "Cari yıl cari oranı önceki yıla göre arttıysa 1, değilse 0.",
+      "label_i18n": {
+        "en": "Cari Oran Artışı",
+        "tr": "Cari Oran Artışı",
+        "de": "Cari Oran Artışı",
+        "fr": "Cari Oran Artışı",
+        "es": "Cari Oran Artışı",
+        "ar": "Cari Oran Artışı"
+      }
     },
     {
       "id": "grossMarginIncreased",
       "label": "Brüt Kar Marjı Artışı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl brüt kar marjı önceki yıla göre arttıysa 1, değilse 0."
+      "businessContext": "Cari yıl brüt kar marjı önceki yıla göre arttıysa 1, değilse 0.",
+      "label_i18n": {
+        "en": "Brüt Kar Marjı Artışı",
+        "tr": "Brüt Kar Marjı Artışı",
+        "de": "Brüt Kar Marjı Artışı",
+        "fr": "Brüt Kar Marjı Artışı",
+        "es": "Brüt Kar Marjı Artışı",
+        "ar": "Brüt Kar Marjı Artışı"
+      }
     },
     {
       "id": "assetTurnoverIncreased",
       "label": "Varlık Devir Hızı Artışı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Cari yıl varlık devir hızı önceki yıla göre arttıysa 1, değilse 0."
+      "businessContext": "Cari yıl varlık devir hızı önceki yıla göre arttıysa 1, değilse 0.",
+      "label_i18n": {
+        "en": "Varlık Devir Hızı Artışı",
+        "tr": "Varlık Devir Hızı Artışı",
+        "de": "Varlık Devir Hızı Artışı",
+        "fr": "Varlık Devir Hızı Artışı",
+        "es": "Varlık Devir Hızı Artışı",
+        "ar": "Varlık Devir Hızı Artışı"
+      }
     }
   ],
   "formulas": {
-    "primary": "roaPositive + cfoPositive + roaIncreased + accrualLow + leverageDecreased + currentRatioIncreased + grossMarginIncreased + assetTurnoverIncreased"
+    "primary": "roaPositive + cfoPositive + roaIncreased + accrualLow + leverageDecreased + currentRatioIncreased + grossMarginIncreased + assetTurnoverIncreased",
+    "roaPositive": "roaPositive",
+    "cfoPositive": "cfoPositive",
+    "roaIncreased": "roaIncreased",
+    "accrualLow": "accrualLow",
+    "leverageDecreased": "leverageDecreased",
+    "currentRatioIncreased": "currentRatioIncreased",
+    "grossMarginIncreased": "grossMarginIncreased",
+    "assetTurnoverIncreased": "assetTurnoverIncreased",
+    "result": "F-Score"
   },
   "outputs": {
-    "primary": "F-Score",
+    "primary": "result",
     "breakdown": [
       "roaPositive",
       "cfoPositive",
@@ -82,10 +155,10 @@
       "assetTurnoverIncreased"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

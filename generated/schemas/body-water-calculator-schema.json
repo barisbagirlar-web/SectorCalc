@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "binary (0 Kadın, 1 Erkek)",
       "default": 1,
-      "businessContext": "Kullanıcının cinsiyeti: 0 Kadın, 1 Erkek"
+      "businessContext": "Kullanıcının cinsiyeti: 0 Kadın, 1 Erkek",
+      "label_i18n": {
+        "en": "Cinsiyet",
+        "tr": "Cinsiyet",
+        "de": "Cinsiyet",
+        "fr": "Cinsiyet",
+        "es": "Cinsiyet",
+        "ar": "Cinsiyet"
+      }
     },
     {
       "id": "age",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı (yıl cinsinden)"
+      "businessContext": "Kullanıcının yaşı (yıl cinsinden)",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının vücut ağırlığı (kilogram)"
+      "businessContext": "Kullanıcının vücut ağırlığı (kilogram)",
+      "label_i18n": {
+        "en": "Kilo",
+        "tr": "Kilo",
+        "de": "Kilo",
+        "fr": "Kilo",
+        "es": "Kilo",
+        "ar": "Kilo"
+      }
     },
     {
       "id": "height",
@@ -31,25 +55,35 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kullanıcının boyu (santimetre)"
+      "businessContext": "Kullanıcının boyu (santimetre)",
+      "label_i18n": {
+        "en": "Boy",
+        "tr": "Boy",
+        "de": "Boy",
+        "fr": "Boy",
+        "es": "Boy",
+        "ar": "Boy"
+      }
     }
   ],
   "formulas": {
     "tbwMale": "2.447 - (0.09156 * age) + (0.1074 * height) + (0.3362 * weight)",
     "tbwFemale": "-2.097 + (0.1069 * height) + (0.2466 * weight)",
     "totalBodyWater": "sex === 1 ? tbwMale : tbwFemale",
-    "waterPercentage": "((sex === 1 ? tbwMale : tbwFemale) / weight) * 100"
+    "waterPercentage": "((sex === 1 ? tbwMale : tbwFemale) / weight) * 100",
+    "___waterPercentage_toFixed_2__": "%${waterPercentage.toFixed(2)}",
+    "result": "toplam vücut suyu: ${totalBodyWater.toFixed(2)} litre"
   },
   "outputs": {
-    "primary": "toplam vücut suyu: ${totalBodyWater.toFixed(2)} litre",
+    "primary": "result",
     "breakdown": [
       "Vücut su yüzdesi: %${waterPercentage.toFixed(2)}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "sustainability-resource-esg"
 }

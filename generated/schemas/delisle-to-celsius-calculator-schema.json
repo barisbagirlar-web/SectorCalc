@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°De",
       "default": 0,
-      "businessContext": "Temperature reading on the Delisle scale."
+      "businessContext": "Temperature reading on the Delisle scale.",
+      "label_i18n": {
+        "en": "Delisle Temperature",
+        "tr": "Delisle Temperature",
+        "de": "Delisle Temperature",
+        "fr": "Delisle Temperature",
+        "es": "Delisle Temperature",
+        "ar": "Delisle Temperature"
+      }
     },
     {
       "id": "freezingDe",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°De",
       "default": 150,
-      "businessContext": "Delisle value at the freezing point of water (0°C). Historically 150°De."
+      "businessContext": "Delisle value at the freezing point of water (0°C). Historically 150°De.",
+      "label_i18n": {
+        "en": "Freezing Point (Delisle)",
+        "tr": "Freezing Point (Delisle)",
+        "de": "Freezing Point (Delisle)",
+        "fr": "Freezing Point (Delisle)",
+        "es": "Freezing Point (Delisle)",
+        "ar": "Freezing Point (Delisle)"
+      }
     },
     {
       "id": "boilingDe",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "°De",
       "default": 0,
-      "businessContext": "Delisle value at the boiling point of water (100°C). Historically 0°De."
+      "businessContext": "Delisle value at the boiling point of water (100°C). Historically 0°De.",
+      "label_i18n": {
+        "en": "Boiling Point (Delisle)",
+        "tr": "Boiling Point (Delisle)",
+        "de": "Boiling Point (Delisle)",
+        "fr": "Boiling Point (Delisle)",
+        "es": "Boiling Point (Delisle)",
+        "ar": "Boiling Point (Delisle)"
+      }
     },
     {
       "id": "decimals",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output."
+      "businessContext": "Number of decimal places for the output.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "factor"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

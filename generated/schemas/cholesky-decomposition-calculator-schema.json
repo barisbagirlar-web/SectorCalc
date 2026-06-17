@@ -5,49 +5,97 @@
       "id": "a11",
       "label": "A(1,1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Top-left element of symmetric positive-definite matrix A"
+      "businessContext": "Top-left element of symmetric positive-definite matrix A",
+      "label_i18n": {
+        "en": "A(1,1)",
+        "tr": "A(1,1)",
+        "de": "A(1,1)",
+        "fr": "A(1,1)",
+        "es": "A(1,1)",
+        "ar": "A(1,1)"
+      }
     },
     {
       "id": "a12",
       "label": "A(1,2) = A(2,1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "First row, second column (symmetry assumed)"
+      "businessContext": "First row, second column (symmetry assumed)",
+      "label_i18n": {
+        "en": "A(1,2) = A(2,1)",
+        "tr": "A(1,2) = A(2,1)",
+        "de": "A(1,2) = A(2,1)",
+        "fr": "A(1,2) = A(2,1)",
+        "es": "A(1,2) = A(2,1)",
+        "ar": "A(1,2) = A(2,1)"
+      }
     },
     {
       "id": "a13",
       "label": "A(1,3) = A(3,1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "First row, third column"
+      "businessContext": "First row, third column",
+      "label_i18n": {
+        "en": "A(1,3) = A(3,1)",
+        "tr": "A(1,3) = A(3,1)",
+        "de": "A(1,3) = A(3,1)",
+        "fr": "A(1,3) = A(3,1)",
+        "es": "A(1,3) = A(3,1)",
+        "ar": "A(1,3) = A(3,1)"
+      }
     },
     {
       "id": "a22",
       "label": "A(2,2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Second diagonal element"
+      "businessContext": "Second diagonal element",
+      "label_i18n": {
+        "en": "A(2,2)",
+        "tr": "A(2,2)",
+        "de": "A(2,2)",
+        "fr": "A(2,2)",
+        "es": "A(2,2)",
+        "ar": "A(2,2)"
+      }
     },
     {
       "id": "a23",
       "label": "A(2,3) = A(3,2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Second row, third column"
+      "businessContext": "Second row, third column",
+      "label_i18n": {
+        "en": "A(2,3) = A(3,2)",
+        "tr": "A(2,3) = A(3,2)",
+        "de": "A(2,3) = A(3,2)",
+        "fr": "A(2,3) = A(3,2)",
+        "es": "A(2,3) = A(3,2)",
+        "ar": "A(2,3) = A(3,2)"
+      }
     },
     {
       "id": "a33",
       "label": "A(3,3)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Bottom-right element"
+      "businessContext": "Bottom-right element",
+      "label_i18n": {
+        "en": "A(3,3)",
+        "tr": "A(3,3)",
+        "de": "A(3,3)",
+        "fr": "A(3,3)",
+        "es": "A(3,3)",
+        "ar": "A(3,3)"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +104,16 @@
     "l31": "a13 / l11",
     "l22": "Math.sqrt(a22 - Math.pow(l21, 2))",
     "l32": "(a23 - l21 * l31) / l22",
-    "l33": "Math.sqrt(a33 - Math.pow(l31, 2) - Math.pow(l32, 2))"
+    "l33": "Math.sqrt(a33 - Math.pow(l31, 2) - Math.pow(l32, 2))",
+    "l11_____l11_": "l11 = ${l11}",
+    "l21_____l21_": "l21 = ${l21}",
+    "l31_____l31_": "l31 = ${l31}",
+    "l22_____l22_": "l22 = ${l22}",
+    "l32_____l32_": "l32 = ${l32}",
+    "l33_____l33_": "l33 = ${l33}"
   },
   "outputs": {
-    "primary": "L = [[${l11}, 0, 0], [${l21}, ${l22}, 0], [${l31}, ${l32}, ${l33}]]",
+    "primary": "l11",
     "breakdown": [
       "l11 = ${l11}",
       "l21 = ${l21}",
@@ -69,10 +123,10 @@
       "l33 = ${l33}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

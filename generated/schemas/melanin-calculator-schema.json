@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Percentage of eumelanin pigment in total melanin content. Typically ranges 60-80% for darker skin."
+      "businessContext": "Percentage of eumelanin pigment in total melanin content. Typically ranges 60-80% for darker skin.",
+      "label_i18n": {
+        "en": "Eumelanin (%)",
+        "tr": "Eumelanin (%)",
+        "de": "Eumelanin (%)",
+        "fr": "Eumelanin (%)",
+        "es": "Eumelanin (%)",
+        "ar": "Eumelanin (%)"
+      }
     },
     {
       "id": "pheomelaninPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Percentage of pheomelanin pigment. Sum with eumelanin should be 100%."
+      "businessContext": "Percentage of pheomelanin pigment. Sum with eumelanin should be 100%.",
+      "label_i18n": {
+        "en": "Pheomelanin (%)",
+        "tr": "Pheomelanin (%)",
+        "de": "Pheomelanin (%)",
+        "fr": "Pheomelanin (%)",
+        "es": "Pheomelanin (%)",
+        "ar": "Pheomelanin (%)"
+      }
     },
     {
       "id": "melanocyteDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cells/mm²",
       "default": 1000,
-      "businessContext": "Number of melanocytes per square millimeter of skin. Typically 900-2000."
+      "businessContext": "Number of melanocytes per square millimeter of skin. Typically 900-2000.",
+      "label_i18n": {
+        "en": "Melanocyte Density (cells/mm²)",
+        "tr": "Melanocyte Density (cells/mm²)",
+        "de": "Melanocyte Density (cells/mm²)",
+        "fr": "Melanocyte Density (cells/mm²)",
+        "es": "Melanocyte Density (cells/mm²)",
+        "ar": "Melanocyte Density (cells/mm²)"
+      }
     },
     {
       "id": "avgMelaninPerCell",
@@ -31,11 +55,22 @@
       "type": "number",
       "unit": "ng",
       "default": 0.05,
-      "businessContext": "Average melanin content per melanocyte in nanograms."
+      "businessContext": "Average melanin content per melanocyte in nanograms.",
+      "label_i18n": {
+        "en": "Avg. Melanin per Cell (ng)",
+        "tr": "Avg. Melanin per Cell (ng)",
+        "de": "Avg. Melanin per Cell (ng)",
+        "fr": "Avg. Melanin per Cell (ng)",
+        "es": "Avg. Melanin per Cell (ng)",
+        "ar": "Avg. Melanin per Cell (ng)"
+      }
     }
   ],
   "formulas": {
-    "melaninIndex": "(eumelaninPercent * melanocyteDensity * avgMelaninPerCell) / (pheomelaninPercent + 1)"
+    "melaninIndex": "(eumelaninPercent * melanocyteDensity * avgMelaninPerCell) / (pheomelaninPercent + 1)",
+    "Calculate_eumelanin_contribution___Eumel": "Calculate eumelanin contribution = Eumelanin (%) × Melanocyte Density × Avg. Melanin per Cell",
+    "Calculate_pheomelanin_correction___1____": "Calculate pheomelanin correction = 1 / (Pheomelanin (%) + 1)",
+    "Melanin_Index___Eumelanin_contribution__": "Melanin Index = Eumelanin contribution × Pheomelanin correction"
   },
   "outputs": {
     "primary": "melaninIndex",
@@ -45,10 +80,10 @@
       "Step 3: Melanin Index = Eumelanin contribution × Pheomelanin correction"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "metal-plastics-forming"
 }

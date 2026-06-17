@@ -31,33 +31,19 @@ export const Cleaning_bid_optimizer_calculatorInputSchema = z.object({
   use_lean_methods: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Cleaning_bid_optimizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.labor_rate_per_hour * (1 + input.labor_burden_percent / 100); results["effective_labor_rate"] = Number.isFinite(v) ? v : 0; } catch { results["effective_labor_rate"] = 0; }
-  try { const v = input.productivity_sqft_per_hour * (1 - (input.quality_level == 'healthcare' ? 0.15 : input.quality_level == 'premium' ? 0.10 : input.quality_level == 'economy' ? 0.05 : 0)) * (input.use_lean_methods ? 1.10 : 1.00); results["adjusted_productivity"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_productivity"] = 0; }
-  try { const v = (input.total_sq_ft / (results["adjusted_productivity"] ?? 0)) * (results["effective_labor_rate"] ?? 0); results["labor_cost_per_cleaning"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost_per_cleaning"] = 0; }
-  try { const v = input.total_sq_ft * input.material_cost_per_sqft * (1 + input.waste_factor_percent / 100); results["material_cost_per_cleaning"] = Number.isFinite(v) ? v : 0; } catch { results["material_cost_per_cleaning"] = 0; }
-  try { const v = input.total_sq_ft * input.equipment_cost_per_sqft; results["equipment_cost_per_cleaning"] = Number.isFinite(v) ? v : 0; } catch { results["equipment_cost_per_cleaning"] = 0; }
-  try { const v = (results["labor_cost_per_cleaning"] ?? 0) + (results["material_cost_per_cleaning"] ?? 0) + (results["equipment_cost_per_cleaning"] ?? 0); results["total_direct_cost_per_cleaning"] = Number.isFinite(v) ? v : 0; } catch { results["total_direct_cost_per_cleaning"] = 0; }
-  try { const v = (results["total_direct_cost_per_cleaning"] ?? 0) * input.cleaning_frequency * (1 + input.overhead_percent / 100); results["weekly_cost"] = Number.isFinite(v) ? v : 0; } catch { results["weekly_cost"] = 0; }
-  try { const v = (results["weekly_cost"] ?? 0) / (1 - input.desired_margin_percent / 100); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Cleaning_bid_optimizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateCleaning_bid_optimizer_calculator(input: Cleaning_bid_optimizer_calculatorInput): Cleaning_bid_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["weekly_bid_price"] ?? values["primary_result"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    labor_cost_per_cleaning: values["labor_cost_per_cleaning"] ?? 0,
-    material_cost_per_cleaning: values["material_cost_per_cleaning"] ?? 0,
-    equipment_cost_per_cleaning: values["equipment_cost_per_cleaning"] ?? 0,
-    total_direct_cost_per_cleaning: values["total_direct_cost_per_cleaning"] ?? 0,
-    weekly_overhead: values["weekly_overhead"] ?? 0,
-    weekly_profit: values["weekly_profit"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excessive Waste Factor","Low Productivity Rate","High Labor Burden","Quality Level vs. Productivity Mismatch"];
-  const suggestedActions: string[] = ["Implement 5S and Standard Work","Reduce Waste Factor to 3%","Review Quality Tier Selection","Optimize Cleaning Frequency"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -76,7 +62,7 @@ export function calculateCleaning_bid_optimizer_calculator(input: Cleaning_bid_o
 
 export interface Cleaning_bid_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { labor_cost_per_cleaning: number; material_cost_per_cleaning: number; equipment_cost_per_cleaning: number; total_direct_cost_per_cleaning: number; weekly_overhead: number; weekly_profit: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

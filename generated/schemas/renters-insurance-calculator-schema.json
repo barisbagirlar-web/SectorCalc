@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 30000,
-      "businessContext": "Estimated value of personal belongings to be insured."
+      "businessContext": "Estimated value of personal belongings to be insured.",
+      "label_i18n": {
+        "en": "Personal Property Value",
+        "tr": "Personal Property Value",
+        "de": "Personal Property Value",
+        "fr": "Personal Property Value",
+        "es": "Personal Property Value",
+        "ar": "Personal Property Value"
+      }
     },
     {
       "id": "liabilityCoverage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Amount of liability protection desired."
+      "businessContext": "Amount of liability protection desired.",
+      "label_i18n": {
+        "en": "Liability Coverage",
+        "tr": "Liability Coverage",
+        "de": "Liability Coverage",
+        "fr": "Liability Coverage",
+        "es": "Liability Coverage",
+        "ar": "Liability Coverage"
+      }
     },
     {
       "id": "deductible",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "Amount you pay out-of-pocket before insurance kicks in."
+      "businessContext": "Amount you pay out-of-pocket before insurance kicks in.",
+      "label_i18n": {
+        "en": "Deductible",
+        "tr": "Deductible",
+        "de": "Deductible",
+        "fr": "Deductible",
+        "es": "Deductible",
+        "ar": "Deductible"
+      }
     },
     {
       "id": "locationRiskFactor",
       "label": "Location Risk Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier based on crime rate and disaster risk (1.0 = average)."
+      "businessContext": "Multiplier based on crime rate and disaster risk (1.0 = average).",
+      "label_i18n": {
+        "en": "Location Risk Factor",
+        "tr": "Location Risk Factor",
+        "de": "Location Risk Factor",
+        "fr": "Location Risk Factor",
+        "es": "Location Risk Factor",
+        "ar": "Location Risk Factor"
+      }
     },
     {
       "id": "securityDiscount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Discount percentage off premium for having an approved security system."
+      "businessContext": "Discount percentage off premium for having an approved security system.",
+      "label_i18n": {
+        "en": "Security System Discount",
+        "tr": "Security System Discount",
+        "de": "Security System Discount",
+        "fr": "Security System Discount",
+        "es": "Security System Discount",
+        "ar": "Security System Discount"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +88,8 @@
     "discountAmount": "riskAdjustedPremium * (securityDiscount / 100)",
     "finalAnnualPremium": "riskAdjustedPremium - discountAmount",
     "monthlyPremium": "finalAnnualPremium / 12",
-    "totalCoverage": "personalPropertyValue + liabilityCoverage"
+    "totalCoverage": "personalPropertyValue + liabilityCoverage",
+    "deductible": "deductible"
   },
   "outputs": {
     "primary": "finalAnnualPremium",
@@ -58,10 +99,10 @@
       "deductible"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "hse-ergonomics"
 }

@@ -63,47 +63,19 @@ export const Flexible_manufacturing_roi_calculatorInputSchema = z.object({
   hours_per_shift: z.number().min(6).max(12).default(8),
 });
 
-function evaluateAllFormulas(input: Flexible_manufacturing_roi_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.annual_production_volume / input.avg_batch_size; results["annual_changeovers"] = Number.isFinite(v) ? v : 0; } catch { results["annual_changeovers"] = 0; }
-  try { const v = input.current_setup_time - input.target_setup_time; results["setup_time_savings_per_changeover"] = Number.isFinite(v) ? v : 0; } catch { results["setup_time_savings_per_changeover"] = 0; }
-  try { const v = ((results["annual_changeovers"] ?? 0) * (results["setup_time_savings_per_changeover"] ?? 0)) / 60; results["annual_setup_time_savings_hours"] = Number.isFinite(v) ? v : 0; } catch { results["annual_setup_time_savings_hours"] = 0; }
-  try { const v = (results["annual_setup_time_savings_hours"] ?? 0) * input.changeover_cost_per_hour; results["annual_changeover_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_changeover_cost_savings"] = 0; }
-  try { const v = input.avg_inventory_value * (input.inventory_holding_cost_rate / 100) * 0.3; results["inventory_savings"] = Number.isFinite(v) ? v : 0; } catch { results["inventory_savings"] = 0; }
-  try { const v = input.annual_production_volume * (input.quality_defect_rate / 100) * (input.fms_quality_improvement / 100) * input.cost_per_defect; results["quality_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["quality_cost_savings"] = 0; }
-  try { const v = (results["annual_setup_time_savings_hours"] ?? 0) * input.hourly_operating_cost * 0.6 * (input.labor_productivity_gain / 100); results["labor_productivity_savings"] = Number.isFinite(v) ? v : 0; } catch { results["labor_productivity_savings"] = 0; }
-  try { const v = input.current_floor_space * (input.floor_space_reduction / 100) * input.annual_floor_space_cost; results["floor_space_savings"] = Number.isFinite(v) ? v : 0; } catch { results["floor_space_savings"] = 0; }
-  try { const v = input.annual_energy_cost * (input.energy_cost_reduction / 100); results["energy_savings"] = Number.isFinite(v) ? v : 0; } catch { results["energy_savings"] = 0; }
-  try { const v = input.annual_maintenance_cost * (input.maintenance_cost_increase / 100); results["maintenance_cost_change"] = Number.isFinite(v) ? v : 0; } catch { results["maintenance_cost_change"] = 0; }
-  try { const v = (results["annual_changeover_cost_savings"] ?? 0) + (results["inventory_savings"] ?? 0) + (results["quality_cost_savings"] ?? 0) + (results["labor_productivity_savings"] ?? 0) + (results["floor_space_savings"] ?? 0) + (results["energy_savings"] ?? 0) - (results["maintenance_cost_change"] ?? 0); results["total_annual_benefits"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_benefits"] = 0; }
-  try { const v = input.fms_investment + input.training_cost; results["total_initial_investment"] = Number.isFinite(v) ? v : 0; } catch { results["total_initial_investment"] = 0; }
-  try { const v = (results["total_annual_benefits"] ?? 0) * ((1 - (1 + input.discount_rate/100)^(-input.fms_useful_life)) / (input.discount_rate/100)) - (results["total_initial_investment"] ?? 0); results["net_present_value"] = Number.isFinite(v) ? v : 0; } catch { results["net_present_value"] = 0; }
-  try { const v = ((results["net_present_value"] ?? 0) / (results["total_initial_investment"] ?? 0)) * 100; results["roi_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["roi_percentage"] = 0; }
-  try { const v = (results["total_initial_investment"] ?? 0) / (results["total_annual_benefits"] ?? 0); results["payback_period"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period"] = 0; }
-  try { const v = input.discount_rate + ((results["net_present_value"] ?? 0) / ((results["total_initial_investment"] ?? 0) * input.fms_useful_life)) * 100; results["internal_rate_of_return"] = Number.isFinite(v) ? v : 0; } catch { results["internal_rate_of_return"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Flexible_manufacturing_roi_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateFlexible_manufacturing_roi_calculator(input: Flexible_manufacturing_roi_calculatorInput): Flexible_manufacturing_roi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["roi_percentage"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    annual_changeover_cost_savings: values["annual_changeover_cost_savings"] ?? 0,
-    inventory_savings: values["inventory_savings"] ?? 0,
-    quality_cost_savings: values["quality_cost_savings"] ?? 0,
-    labor_productivity_savings: values["labor_productivity_savings"] ?? 0,
-    floor_space_savings: values["floor_space_savings"] ?? 0,
-    energy_savings: values["energy_savings"] ?? 0,
-    maintenance_cost_change: values["maintenance_cost_change"] ?? 0,
-    total_annual_benefits: values["total_annual_benefits"] ?? 0,
-    total_initial_investment: values["total_initial_investment"] ?? 0,
-    net_present_value: values["net_present_value"] ?? 0,
-    payback_period: values["payback_period"] ?? 0,
-    internal_rate_of_return: values["internal_rate_of_return"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Unplanned Downtime","Changeover Quality Losses","Underutilized Labor During Changeovers","Excess Movement and Transport","Inventory Obsolescence"];
-  const suggestedActions: string[] = ["Implement SMED (Single-Minute Exchange of Die)","Adopt Kanban and Pull Production","Implement Total Productive Maintenance (TPM)","Cross-Train Operators","Invest in Automated Guided Vehicles (AGVs)"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -122,7 +94,7 @@ export function calculateFlexible_manufacturing_roi_calculator(input: Flexible_m
 
 export interface Flexible_manufacturing_roi_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { annual_changeover_cost_savings: number; inventory_savings: number; quality_cost_savings: number; labor_productivity_savings: number; floor_space_savings: number; energy_savings: number; maintenance_cost_change: number; total_annual_benefits: number; total_initial_investment: number; net_present_value: number; payback_period: number; internal_rate_of_return: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

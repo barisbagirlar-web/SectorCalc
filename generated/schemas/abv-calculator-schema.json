@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "SG",
       "default": 1.05,
-      "businessContext": "Specific gravity reading before fermentation begins"
+      "businessContext": "Specific gravity reading before fermentation begins",
+      "label_i18n": {
+        "en": "Original Gravity (OG)",
+        "tr": "Original Gravity (OG)",
+        "de": "Original Gravity (OG)",
+        "fr": "Original Gravity (OG)",
+        "es": "Original Gravity (OG)",
+        "ar": "Original Gravity (OG)"
+      }
     },
     {
       "id": "fg",
@@ -15,12 +23,46 @@
       "type": "number",
       "unit": "SG",
       "default": 1.01,
-      "businessContext": "Specific gravity reading after fermentation completes"
+      "businessContext": "Specific gravity reading after fermentation completes",
+      "label_i18n": {
+        "en": "Final Gravity (FG)",
+        "tr": "Final Gravity (FG)",
+        "de": "Final Gravity (FG)",
+        "fr": "Final Gravity (FG)",
+        "es": "Final Gravity (FG)",
+        "ar": "Final Gravity (FG)"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
     "gravityPointsDrop": "og - fg",
-    "abv": "(og - fg) * 131.25"
+    "abv": "(og - fg) * 131.25",
+    "og": "og",
+    "fg": "fg"
   },
   "outputs": {
     "primary": "abv",
@@ -30,8 +72,8 @@
       "gravityPointsDrop"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "category": "Gıda & Tarım",
+  "sector": "Perakende & Gıda",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",

@@ -16,6 +16,9 @@ export const Net_carb_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Net_carb_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.totalCarbs - input.dietaryFiber - input.sugarAlcohols; results["netCarbs"] = Number.isFinite(v) ? v : 0; } catch { results["netCarbs"] = 0; }
+  try { const v = input.totalCarbs; results["totalCarbs"] = Number.isFinite(v) ? v : 0; } catch { results["totalCarbs"] = 0; }
+  try { const v = input.dietaryFiber; results["dietaryFiber"] = Number.isFinite(v) ? v : 0; } catch { results["dietaryFiber"] = 0; }
+  try { const v = input.sugarAlcohols; results["sugarAlcohols"] = Number.isFinite(v) ? v : 0; } catch { results["sugarAlcohols"] = 0; }
   return results;
 }
 

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000,
-      "businessContext": "Average monthly rent for a 1-bedroom apartment in the base city."
+      "businessContext": "Average monthly rent for a 1-bedroom apartment in the base city.",
+      "label_i18n": {
+        "en": "Base City Rent",
+        "tr": "Base City Rent",
+        "de": "Base City Rent",
+        "fr": "Base City Rent",
+        "es": "Base City Rent",
+        "ar": "Base City Rent"
+      }
     },
     {
       "id": "baseUtilities",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200,
-      "businessContext": "Monthly cost of basic utilities (electricity, water, heating, garbage) for a standard apartment."
+      "businessContext": "Monthly cost of basic utilities (electricity, water, heating, garbage) for a standard apartment.",
+      "label_i18n": {
+        "en": "Base City Utilities",
+        "tr": "Base City Utilities",
+        "de": "Base City Utilities",
+        "fr": "Base City Utilities",
+        "es": "Base City Utilities",
+        "ar": "Base City Utilities"
+      }
     },
     {
       "id": "baseGroceries",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 400,
-      "businessContext": "Monthly grocery bill for a single person in the base city."
+      "businessContext": "Monthly grocery bill for a single person in the base city.",
+      "label_i18n": {
+        "en": "Base City Groceries",
+        "tr": "Base City Groceries",
+        "de": "Base City Groceries",
+        "fr": "Base City Groceries",
+        "es": "Base City Groceries",
+        "ar": "Base City Groceries"
+      }
     },
     {
       "id": "baseTransport",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 150,
-      "businessContext": "Monthly public transport pass or equivalent fuel costs in the base city."
+      "businessContext": "Monthly public transport pass or equivalent fuel costs in the base city.",
+      "label_i18n": {
+        "en": "Base City Transportation",
+        "tr": "Base City Transportation",
+        "de": "Base City Transportation",
+        "fr": "Base City Transportation",
+        "es": "Base City Transportation",
+        "ar": "Base City Transportation"
+      }
     },
     {
       "id": "baseMisc",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 250,
-      "businessContext": "Other monthly living expenses (entertainment, clothing, personal care) in the base city."
+      "businessContext": "Other monthly living expenses (entertainment, clothing, personal care) in the base city.",
+      "label_i18n": {
+        "en": "Base City Misc. Expenses",
+        "tr": "Base City Misc. Expenses",
+        "de": "Base City Misc. Expenses",
+        "fr": "Base City Misc. Expenses",
+        "es": "Base City Misc. Expenses",
+        "ar": "Base City Misc. Expenses"
+      }
     },
     {
       "id": "targetIndex",
@@ -47,25 +87,37 @@
       "type": "number",
       "unit": "index",
       "default": 120,
-      "businessContext": "Cost of living index of the target city, relative to base city = 100. A value above 100 means it is more expensive."
+      "businessContext": "Cost of living index of the target city, relative to base city = 100. A value above 100 means it is more expensive.",
+      "label_i18n": {
+        "en": "Target City Cost of Living Index",
+        "tr": "Target City Cost of Living Index",
+        "de": "Target City Cost of Living Index",
+        "fr": "Target City Cost of Living Index",
+        "es": "Target City Cost of Living Index",
+        "ar": "Target City Cost of Living Index"
+      }
     }
   ],
   "formulas": {
     "totalBaseCost": "baseRent + baseUtilities + baseGroceries + baseTransport + baseMisc",
-    "totalTargetCost": "totalBaseCost * targetIndex / 100"
+    "totalTargetCost": "totalBaseCost * targetIndex / 100",
+    "___totalBaseCost_toFixed_2__": "$${totalBaseCost.toFixed(2)}",
+    "__targetIndex_": "${targetIndex}",
+    "___totalTargetCost_toFixed_2__": "$${totalTargetCost.toFixed(2)}",
+    "result": "Equivalent monthly cost in target city: $${totalTargetCost.toFixed(2)}"
   },
   "outputs": {
-    "primary": "Equivalent monthly cost in target city: $${totalTargetCost.toFixed(2)}",
+    "primary": "result",
     "breakdown": [
       "Total base city monthly cost: $${totalBaseCost.toFixed(2)}",
       "Target city index: ${targetIndex}",
       "Equivalent target city cost: $${totalTargetCost.toFixed(2)}"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

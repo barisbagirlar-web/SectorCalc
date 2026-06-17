@@ -5,9 +5,17 @@
       "id": "element1Count",
       "label": "Atom count of element 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of atoms of the first element in the compound"
+      "businessContext": "Number of atoms of the first element in the compound",
+      "label_i18n": {
+        "en": "Atom count of element 1",
+        "tr": "Atom count of element 1",
+        "de": "Atom count of element 1",
+        "fr": "Atom count of element 1",
+        "es": "Atom count of element 1",
+        "ar": "Atom count of element 1"
+      }
     },
     {
       "id": "element1Mass",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Molar mass of the first element"
+      "businessContext": "Molar mass of the first element",
+      "label_i18n": {
+        "en": "Atomic mass of element 1",
+        "tr": "Atomic mass of element 1",
+        "de": "Atomic mass of element 1",
+        "fr": "Atomic mass of element 1",
+        "es": "Atomic mass of element 1",
+        "ar": "Atomic mass of element 1"
+      }
     },
     {
       "id": "element2Count",
       "label": "Atom count of element 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of atoms of the second element in the compound"
+      "businessContext": "Number of atoms of the second element in the compound",
+      "label_i18n": {
+        "en": "Atom count of element 2",
+        "tr": "Atom count of element 2",
+        "de": "Atom count of element 2",
+        "fr": "Atom count of element 2",
+        "es": "Atom count of element 2",
+        "ar": "Atom count of element 2"
+      }
     },
     {
       "id": "element2Mass",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Molar mass of the second element"
+      "businessContext": "Molar mass of the second element",
+      "label_i18n": {
+        "en": "Atomic mass of element 2",
+        "tr": "Atomic mass of element 2",
+        "de": "Atomic mass of element 2",
+        "fr": "Atomic mass of element 2",
+        "es": "Atomic mass of element 2",
+        "ar": "Atomic mass of element 2"
+      }
     },
     {
       "id": "element3Count",
       "label": "Atom count of element 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of atoms of the third element in the compound"
+      "businessContext": "Number of atoms of the third element in the compound",
+      "label_i18n": {
+        "en": "Atom count of element 3",
+        "tr": "Atom count of element 3",
+        "de": "Atom count of element 3",
+        "fr": "Atom count of element 3",
+        "es": "Atom count of element 3",
+        "ar": "Atom count of element 3"
+      }
     },
     {
       "id": "element3Mass",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Molar mass of the third element"
+      "businessContext": "Molar mass of the third element",
+      "label_i18n": {
+        "en": "Atomic mass of element 3",
+        "tr": "Atomic mass of element 3",
+        "de": "Atomic mass of element 3",
+        "fr": "Atomic mass of element 3",
+        "es": "Atomic mass of element 3",
+        "ar": "Atomic mass of element 3"
+      }
     },
     {
       "id": "element4Count",
       "label": "Atom count of element 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of atoms of the fourth element in the compound"
+      "businessContext": "Number of atoms of the fourth element in the compound",
+      "label_i18n": {
+        "en": "Atom count of element 4",
+        "tr": "Atom count of element 4",
+        "de": "Atom count of element 4",
+        "fr": "Atom count of element 4",
+        "es": "Atom count of element 4",
+        "ar": "Atom count of element 4"
+      }
     },
     {
       "id": "element4Mass",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Molar mass of the fourth element"
+      "businessContext": "Molar mass of the fourth element",
+      "label_i18n": {
+        "en": "Atomic mass of element 4",
+        "tr": "Atomic mass of element 4",
+        "de": "Atomic mass of element 4",
+        "fr": "Atomic mass of element 4",
+        "es": "Atomic mass of element 4",
+        "ar": "Atomic mass of element 4"
+      }
     }
   ],
   "formulas": {
@@ -82,10 +146,10 @@
       "contribution4"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

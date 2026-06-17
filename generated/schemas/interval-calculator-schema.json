@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Target dimension"
+      "businessContext": "Target dimension",
+      "label_i18n": {
+        "en": "Nominal Value",
+        "tr": "Nominal Value",
+        "de": "Nominal Value",
+        "fr": "Nominal Value",
+        "es": "Nominal Value",
+        "ar": "Nominal Value"
+      }
     },
     {
       "id": "plusTol",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Plus tolerance from engineering drawing"
+      "businessContext": "Plus tolerance from engineering drawing",
+      "label_i18n": {
+        "en": "Upper Tolerance",
+        "tr": "Upper Tolerance",
+        "de": "Upper Tolerance",
+        "fr": "Upper Tolerance",
+        "es": "Upper Tolerance",
+        "ar": "Upper Tolerance"
+      }
     },
     {
       "id": "minusTol",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "mm",
       "default": 0.05,
-      "businessContext": "Minus tolerance, entered as positive value"
+      "businessContext": "Minus tolerance, entered as positive value",
+      "label_i18n": {
+        "en": "Lower Tolerance",
+        "tr": "Lower Tolerance",
+        "de": "Lower Tolerance",
+        "fr": "Lower Tolerance",
+        "es": "Lower Tolerance",
+        "ar": "Lower Tolerance"
+      }
     },
     {
       "id": "scaleFactor",
       "label": "Unit Conversion Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 = mm; 0.03937 = inch; 0.1 = cm"
+      "businessContext": "1 = mm; 0.03937 = inch; 0.1 = cm",
+      "label_i18n": {
+        "en": "Unit Conversion Factor",
+        "tr": "Unit Conversion Factor",
+        "de": "Unit Conversion Factor",
+        "fr": "Unit Conversion Factor",
+        "es": "Unit Conversion Factor",
+        "ar": "Unit Conversion Factor"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "midpoint"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

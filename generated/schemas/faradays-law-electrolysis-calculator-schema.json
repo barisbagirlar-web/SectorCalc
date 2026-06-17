@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "A",
       "default": 1,
-      "businessContext": "Elektrik akımı (amper)"
+      "businessContext": "Elektrik akımı (amper)",
+      "label_i18n": {
+        "en": "Current (I)",
+        "tr": "Current (I)",
+        "de": "Current (I)",
+        "fr": "Current (I)",
+        "es": "Current (I)",
+        "ar": "Current (I)"
+      }
     },
     {
       "id": "time",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 3600,
-      "businessContext": "Elektroliz süresi (saniye)"
+      "businessContext": "Elektroliz süresi (saniye)",
+      "label_i18n": {
+        "en": "Time (t)",
+        "tr": "Time (t)",
+        "de": "Time (t)",
+        "fr": "Time (t)",
+        "es": "Time (t)",
+        "ar": "Time (t)"
+      }
     },
     {
       "id": "molarMass",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "g/mol",
       "default": 63.5,
-      "businessContext": "Maddenin molar kütlesi (ör: Cu: 63.5 g/mol)"
+      "businessContext": "Maddenin molar kütlesi (ör: Cu: 63.5 g/mol)",
+      "label_i18n": {
+        "en": "Molar Mass (M)",
+        "tr": "Molar Mass (M)",
+        "de": "Molar Mass (M)",
+        "fr": "Molar Mass (M)",
+        "es": "Molar Mass (M)",
+        "ar": "Molar Mass (M)"
+      }
     },
     {
       "id": "electrons",
       "label": "Electrons Transferred (z)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Reaksiyonda aktarılan elektron sayısı"
+      "businessContext": "Reaksiyonda aktarılan elektron sayısı",
+      "label_i18n": {
+        "en": "Electrons Transferred (z)",
+        "tr": "Electrons Transferred (z)",
+        "de": "Electrons Transferred (z)",
+        "fr": "Electrons Transferred (z)",
+        "es": "Electrons Transferred (z)",
+        "ar": "Electrons Transferred (z)"
+      }
     },
     {
       "id": "efficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Akım verimi (Faradayik verim, % olarak)"
+      "businessContext": "Akım verimi (Faradayik verim, % olarak)",
+      "label_i18n": {
+        "en": "Current Efficiency",
+        "tr": "Current Efficiency",
+        "de": "Current Efficiency",
+        "fr": "Current Efficiency",
+        "es": "Current Efficiency",
+        "ar": "Current Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "moles"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Radius of the circular base of the cone."
+      "businessContext": "Radius of the circular base of the cone.",
+      "label_i18n": {
+        "en": "Base Radius",
+        "tr": "Base Radius",
+        "de": "Base Radius",
+        "fr": "Base Radius",
+        "es": "Base Radius",
+        "ar": "Base Radius"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Perpendicular height from base to apex."
+      "businessContext": "Perpendicular height from base to apex.",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "slantHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Slant height along lateral surface; if 0, it will be computed as sqrt(radius^2 + height^2)."
+      "businessContext": "Slant height along lateral surface; if 0, it will be computed as sqrt(radius^2 + height^2).",
+      "label_i18n": {
+        "en": "Slant Height (optional, 0 to auto-calc)",
+        "tr": "Slant Height (optional, 0 to auto-calc)",
+        "de": "Slant Height (optional, 0 to auto-calc)",
+        "fr": "Slant Height (optional, 0 to auto-calc)",
+        "es": "Slant Height (optional, 0 to auto-calc)",
+        "ar": "Slant Height (optional, 0 to auto-calc)"
+      }
     },
     {
       "id": "diameter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Diameter of base; if >0, radius is overridden as diameter/2."
+      "businessContext": "Diameter of base; if >0, radius is overridden as diameter/2.",
+      "label_i18n": {
+        "en": "Base Diameter (alternative to radius)",
+        "tr": "Base Diameter (alternative to radius)",
+        "de": "Base Diameter (alternative to radius)",
+        "fr": "Base Diameter (alternative to radius)",
+        "es": "Base Diameter (alternative to radius)",
+        "ar": "Base Diameter (alternative to radius)"
+      }
     },
     {
       "id": "precision",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding outputs."
+      "businessContext": "Number of decimal places for rounding outputs.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "calcSurface",
       "label": "Include Surface Area (1=yes, 0=no)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "If 1, outputs also include lateral surface area and total surface area."
+      "businessContext": "If 1, outputs also include lateral surface area and total surface area.",
+      "label_i18n": {
+        "en": "Include Surface Area (1=yes, 0=no)",
+        "tr": "Include Surface Area (1=yes, 0=no)",
+        "de": "Include Surface Area (1=yes, 0=no)",
+        "fr": "Include Surface Area (1=yes, 0=no)",
+        "es": "Include Surface Area (1=yes, 0=no)",
+        "ar": "Include Surface Area (1=yes, 0=no)"
+      }
     }
   ],
   "formulas": {
@@ -63,10 +111,10 @@
       "totalSurface"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "maintenance-reliability"
 }

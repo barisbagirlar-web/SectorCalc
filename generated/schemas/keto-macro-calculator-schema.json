@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms"
+      "businessContext": "User's body weight in kilograms",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "User's height in centimeters"
+      "businessContext": "User's height in centimeters",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User's age in years"
+      "businessContext": "User's age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "0 for female, 1 for male"
+      "businessContext": "0 for female, 1 for male",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "activityFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "factor",
       "default": 1.55,
-      "businessContext": "Physical activity multiplier (1.2 sedentary - 2.0 very active)"
+      "businessContext": "Physical activity multiplier (1.2 sedentary - 2.0 very active)",
+      "label_i18n": {
+        "en": "Activity Factor",
+        "tr": "Activity Factor",
+        "de": "Activity Factor",
+        "fr": "Activity Factor",
+        "es": "Activity Factor",
+        "ar": "Activity Factor"
+      }
     },
     {
       "id": "calorieAdjustment",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 0,
-      "businessContext": "Daily calorie surplus or deficit target (e.g., -500 for fat loss)"
+      "businessContext": "Daily calorie surplus or deficit target (e.g., -500 for fat loss)",
+      "label_i18n": {
+        "en": "Calorie Adjustment",
+        "tr": "Calorie Adjustment",
+        "de": "Calorie Adjustment",
+        "fr": "Calorie Adjustment",
+        "es": "Calorie Adjustment",
+        "ar": "Calorie Adjustment"
+      }
     }
   ],
   "formulas": {
@@ -66,10 +114,10 @@
       "carbs"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

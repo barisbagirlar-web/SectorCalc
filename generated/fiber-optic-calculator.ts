@@ -25,13 +25,15 @@ function evaluateAllFormulas(input: Fiber_optic_calculatorInput): Record<string,
   const results: Record<string, number> = {};
   try { const v = input.fiberLength * input.attenuationCoeff + input.numSplices * input.spliceLoss + input.numConnectors * input.connectorLoss; results["totalLoss"] = Number.isFinite(v) ? v : 0; } catch { results["totalLoss"] = 0; }
   try { const v = input.inputPower - (results["totalLoss"] ?? 0); results["receivedPower"] = Number.isFinite(v) ? v : 0; } catch { results["receivedPower"] = 0; }
+  results["__totalLoss__dB"] = 0;
+  results["__receivedPower__dBm"] = 0;
   return results;
 }
 
 
 export function calculateFiber_optic_calculator(input: Fiber_optic_calculatorInput): Fiber_optic_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["${receivedPower} dBm"] ?? 0;
+  const totalWasteCost = values["totalLoss"] ?? 0;
   const breakdown = {
     
   };

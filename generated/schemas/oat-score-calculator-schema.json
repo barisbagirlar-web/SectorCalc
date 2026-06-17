@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Nm",
       "default": 50,
-      "businessContext": "Measured torque in Newton-meters"
+      "businessContext": "Measured torque in Newton-meters",
+      "label_i18n": {
+        "en": "Torque Reading",
+        "tr": "Torque Reading",
+        "de": "Torque Reading",
+        "fr": "Torque Reading",
+        "es": "Torque Reading",
+        "ar": "Torque Reading"
+      }
     },
     {
       "id": "angleReading",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "degrees",
       "default": 5,
-      "businessContext": "Off-axis angle in degrees"
+      "businessContext": "Off-axis angle in degrees",
+      "label_i18n": {
+        "en": "Angle Reading",
+        "tr": "Angle Reading",
+        "de": "Angle Reading",
+        "fr": "Angle Reading",
+        "es": "Angle Reading",
+        "ar": "Angle Reading"
+      }
     },
     {
       "id": "vibrationLevel",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm/s",
       "default": 0.5,
-      "businessContext": "Vibration RMS velocity"
+      "businessContext": "Vibration RMS velocity",
+      "label_i18n": {
+        "en": "Vibration Level",
+        "tr": "Vibration Level",
+        "de": "Vibration Level",
+        "fr": "Vibration Level",
+        "es": "Vibration Level",
+        "ar": "Vibration Level"
+      }
     },
     {
       "id": "defectCount",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "pieces",
       "default": 2,
-      "businessContext": "Number of quality defects detected"
+      "businessContext": "Number of quality defects detected",
+      "label_i18n": {
+        "en": "Defect Count",
+        "tr": "Defect Count",
+        "de": "Defect Count",
+        "fr": "Defect Count",
+        "es": "Defect Count",
+        "ar": "Defect Count"
+      }
     },
     {
       "id": "calibrationFactor",
       "label": "Calibration Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Equipment calibration multiplier"
+      "businessContext": "Equipment calibration multiplier",
+      "label_i18n": {
+        "en": "Calibration Factor",
+        "tr": "Calibration Factor",
+        "de": "Calibration Factor",
+        "fr": "Calibration Factor",
+        "es": "Calibration Factor",
+        "ar": "Calibration Factor"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "rawScore"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

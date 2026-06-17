@@ -18,13 +18,16 @@ export const Teaspoons_to_ml_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Teaspoons_to_ml_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = Math.round(input.teaspoons * input.mlPerTeaspoon * input.numberOfConversions * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  results["Convert_teaspoons_to_base_milliliters__t"] = 0;
+  results["Scale_by_the_number_of_conversions__batc"] = 0;
+  results["Round_the_result_to_the_specified_decima"] = 0;
   return results;
 }
 
 
 export function calculateTeaspoons_to_ml_calculator(input: Teaspoons_to_ml_calculatorInput): Teaspoons_to_ml_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["milliliters"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

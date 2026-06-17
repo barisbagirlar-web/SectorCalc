@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Conta iç çapı (mm)"
+      "businessContext": "Conta iç çapı (mm)",
+      "label_i18n": {
+        "en": "İç Çap",
+        "tr": "İç Çap",
+        "de": "İç Çap",
+        "fr": "İç Çap",
+        "es": "İç Çap",
+        "ar": "İç Çap"
+      }
     },
     {
       "id": "outerDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Conta dış çapı (mm)"
+      "businessContext": "Conta dış çapı (mm)",
+      "label_i18n": {
+        "en": "Dış Çap",
+        "tr": "Dış Çap",
+        "de": "Dış Çap",
+        "fr": "Dış Çap",
+        "es": "Dış Çap",
+        "ar": "Dış Çap"
+      }
     },
     {
       "id": "designPressure",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "bar",
       "default": 16,
-      "businessContext": "Sistem tasarım basıncı (bar)"
+      "businessContext": "Sistem tasarım basıncı (bar)",
+      "label_i18n": {
+        "en": "Tasarım Basıncı",
+        "tr": "Tasarım Basıncı",
+        "de": "Tasarım Basıncı",
+        "fr": "Tasarım Basıncı",
+        "es": "Tasarım Basıncı",
+        "ar": "Tasarım Basıncı"
+      }
     },
     {
       "id": "gasketFactor",
       "label": "Conta Faktörü (m)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2.5,
-      "businessContext": "ASME contası faktörü (boyutsuz)"
+      "businessContext": "ASME contası faktörü (boyutsuz)",
+      "label_i18n": {
+        "en": "Conta Faktörü (m)",
+        "tr": "Conta Faktörü (m)",
+        "de": "Conta Faktörü (m)",
+        "fr": "Conta Faktörü (m)",
+        "es": "Conta Faktörü (m)",
+        "ar": "Conta Faktörü (m)"
+      }
     },
     {
       "id": "seatingStress",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 20,
-      "businessContext": "Conta oturma gerilimi (MPa)"
+      "businessContext": "Conta oturma gerilimi (MPa)",
+      "label_i18n": {
+        "en": "Oturma Gerilimi (y)",
+        "tr": "Oturma Gerilimi (y)",
+        "de": "Oturma Gerilimi (y)",
+        "fr": "Oturma Gerilimi (y)",
+        "es": "Oturma Gerilimi (y)",
+        "ar": "Oturma Gerilimi (y)"
+      }
     },
     {
       "id": "boltCount",
       "label": "Civata Sayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Flanştaki toplam civata sayısı"
+      "businessContext": "Flanştaki toplam civata sayısı",
+      "label_i18n": {
+        "en": "Civata Sayısı",
+        "tr": "Civata Sayısı",
+        "de": "Civata Sayısı",
+        "fr": "Civata Sayısı",
+        "es": "Civata Sayısı",
+        "ar": "Civata Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -60,16 +108,19 @@
     "operatingForcePerBolt": "operatingForce / boltCount",
     "seatingForcePerBolt": "seatingForce / boltCount",
     "maxForcePerBolt": "maxTotalForce / boltCount",
-    "effectiveArea": "Math.PI / 4 * (outerDiameter**2 - innerDiameter**2)"
+    "effectiveArea": "Math.PI / 4 * (outerDiameter**2 - innerDiameter**2)",
+    "_____operatingForce___1000__toFixed_2___": "' + (operatingForce / 1000).toFixed(2) + ' kN')",
+    "_____seatingForce___1000__toFixed_2_____": "' + (seatingForce / 1000).toFixed(2) + ' kN')",
+    "result": "(maxTotalForce / 1000).toFixed(2) + ' kN'"
   },
   "outputs": {
-    "primary": "(maxTotalForce / 1000).toFixed(2) + ' kN'",
+    "primary": "result",
     "breakdown": [
       "('Çalışma Yükü: ' + (operatingForce / 1000).toFixed(2) + ' kN')",
       "('Oturma Yükü: ' + (seatingForce / 1000).toFixed(2) + ' kN')"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

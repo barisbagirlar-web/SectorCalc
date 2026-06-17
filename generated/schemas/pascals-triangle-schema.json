@@ -5,51 +5,86 @@
       "id": "rowIndex",
       "label": "Row Index (0-based)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "The row number in Pascal's triangle, starting from 0."
+      "businessContext": "The row number in Pascal's triangle, starting from 0.",
+      "label_i18n": {
+        "en": "Row Index (0-based)",
+        "tr": "Row Index (0-based)",
+        "de": "Row Index (0-based)",
+        "fr": "Row Index (0-based)",
+        "es": "Row Index (0-based)",
+        "ar": "Row Index (0-based)"
+      }
     },
     {
       "id": "colIndex",
       "label": "Column Index (0-based)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "The column position within the specified row, starting from 0."
+      "businessContext": "The column position within the specified row, starting from 0.",
+      "label_i18n": {
+        "en": "Column Index (0-based)",
+        "tr": "Column Index (0-based)",
+        "de": "Column Index (0-based)",
+        "fr": "Column Index (0-based)",
+        "es": "Column Index (0-based)",
+        "ar": "Column Index (0-based)"
+      }
     },
     {
       "id": "numRows",
       "label": "Number of Rows to Generate",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Total number of rows to generate for the triangle."
+      "businessContext": "Total number of rows to generate for the triangle.",
+      "label_i18n": {
+        "en": "Number of Rows to Generate",
+        "tr": "Number of Rows to Generate",
+        "de": "Number of Rows to Generate",
+        "fr": "Number of Rows to Generate",
+        "es": "Number of Rows to Generate",
+        "ar": "Number of Rows to Generate"
+      }
     },
     {
       "id": "maxValue",
       "label": "Maximum Value to Display",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Only display entries with value less than or equal to this threshold."
+      "businessContext": "Only display entries with value less than or equal to this threshold.",
+      "label_i18n": {
+        "en": "Maximum Value to Display",
+        "tr": "Maximum Value to Display",
+        "de": "Maximum Value to Display",
+        "fr": "Maximum Value to Display",
+        "es": "Maximum Value to Display",
+        "ar": "Maximum Value to Display"
+      }
     }
   ],
   "formulas": {
     "binomialCoefficient": "function binomial(n, k) { if (k < 0 || k > n) return 0; if (k === 0 || k === n) return 1; k = Math.min(k, n - k); let c = 1; for (let i = 0; i < k; i++) { c = c * (n - i) / (i + 1); } return c; }",
     "generateTriangle": "function generateTriangle(rows) { let triangle = []; for (let n = 0; n < rows; n++) { let row = []; for (let k = 0; k <= n; k++) { row.push(binomial(n, k)); } triangle.push(row); } return triangle; }",
-    "filterByMaxValue": "function filterByMaxValue(triangle, maxVal) { return triangle.map(row => row.filter(val => val <= maxVal)); }"
+    "filterByMaxValue": "function filterByMaxValue(triangle, maxVal) { return triangle.map(row => row.filter(val => val <= maxVal)); }",
+    "generateTriangle_numRows_": "generateTriangle(numRows)",
+    "filterByMaxValue_generateTriangle_numRow": "filterByMaxValue(generateTriangle(numRows), maxValue)",
+    "result": "binomialCoefficient(rowIndex, colIndex)"
   },
   "outputs": {
-    "primary": "binomialCoefficient(rowIndex, colIndex)",
+    "primary": "result",
     "breakdown": [
       "generateTriangle(numRows)",
       "filterByMaxValue(generateTriangle(numRows), maxValue)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İnşaat & Yapı",
+  "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "project-construction-management"
 }

@@ -5,41 +5,81 @@
       "id": "history",
       "label": "History Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Patient history score (0, 1, or 2)"
+      "businessContext": "Patient history score (0, 1, or 2)",
+      "label_i18n": {
+        "en": "History Score",
+        "tr": "History Score",
+        "de": "History Score",
+        "fr": "History Score",
+        "es": "History Score",
+        "ar": "History Score"
+      }
     },
     {
       "id": "ecg",
       "label": "ECG Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "ECG findings score (0, 1, or 2)"
+      "businessContext": "ECG findings score (0, 1, or 2)",
+      "label_i18n": {
+        "en": "ECG Score",
+        "tr": "ECG Score",
+        "de": "ECG Score",
+        "fr": "ECG Score",
+        "es": "ECG Score",
+        "ar": "ECG Score"
+      }
     },
     {
       "id": "age",
       "label": "Age Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Age score (0, 1, or 2)"
+      "businessContext": "Age score (0, 1, or 2)",
+      "label_i18n": {
+        "en": "Age Score",
+        "tr": "Age Score",
+        "de": "Age Score",
+        "fr": "Age Score",
+        "es": "Age Score",
+        "ar": "Age Score"
+      }
     },
     {
       "id": "riskFactors",
       "label": "Risk Factors Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of risk factors score (0, 1, or 2)"
+      "businessContext": "Number of risk factors score (0, 1, or 2)",
+      "label_i18n": {
+        "en": "Risk Factors Score",
+        "tr": "Risk Factors Score",
+        "de": "Risk Factors Score",
+        "fr": "Risk Factors Score",
+        "es": "Risk Factors Score",
+        "ar": "Risk Factors Score"
+      }
     },
     {
       "id": "troponin",
       "label": "Troponin Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Troponin level score (0, 1, or 2)"
+      "businessContext": "Troponin level score (0, 1, or 2)",
+      "label_i18n": {
+        "en": "Troponin Score",
+        "tr": "Troponin Score",
+        "de": "Troponin Score",
+        "fr": "Troponin Score",
+        "es": "Troponin Score",
+        "ar": "Troponin Score"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +100,8 @@
       "b4"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

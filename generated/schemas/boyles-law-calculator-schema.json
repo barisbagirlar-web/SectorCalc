@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "atm",
       "default": 1,
-      "businessContext": "Starting pressure of the gas in the system"
+      "businessContext": "Starting pressure of the gas in the system",
+      "label_i18n": {
+        "en": "Initial Pressure (P1)",
+        "tr": "Initial Pressure (P1)",
+        "de": "Initial Pressure (P1)",
+        "fr": "Initial Pressure (P1)",
+        "es": "Initial Pressure (P1)",
+        "ar": "Initial Pressure (P1)"
+      }
     },
     {
       "id": "initialVolume",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Starting volume of the gas"
+      "businessContext": "Starting volume of the gas",
+      "label_i18n": {
+        "en": "Initial Volume (V1)",
+        "tr": "Initial Volume (V1)",
+        "de": "Initial Volume (V1)",
+        "fr": "Initial Volume (V1)",
+        "es": "Initial Volume (V1)",
+        "ar": "Initial Volume (V1)"
+      }
     },
     {
       "id": "finalPressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "atm",
       "default": 2,
-      "businessContext": "Pressure after change (leave blank to calculate)"
+      "businessContext": "Pressure after change (leave blank to calculate)",
+      "label_i18n": {
+        "en": "Final Pressure (P2)",
+        "tr": "Final Pressure (P2)",
+        "de": "Final Pressure (P2)",
+        "fr": "Final Pressure (P2)",
+        "es": "Final Pressure (P2)",
+        "ar": "Final Pressure (P2)"
+      }
     },
     {
       "id": "finalVolume",
@@ -31,17 +55,30 @@
       "type": "number",
       "unit": "L",
       "default": 0.5,
-      "businessContext": "Volume after change (leave blank to calculate)"
+      "businessContext": "Volume after change (leave blank to calculate)",
+      "label_i18n": {
+        "en": "Final Volume (V2)",
+        "tr": "Final Volume (V2)",
+        "de": "Final Volume (V2)",
+        "fr": "Final Volume (V2)",
+        "es": "Final Volume (V2)",
+        "ar": "Final Volume (V2)"
+      }
     }
   ],
   "formulas": {
     "calculateFinalPressure": "if (initialPressure && initialVolume && finalVolume && finalVolume !== 0) { return (initialPressure * initialVolume) / finalVolume; } else { return null; }",
     "calculateFinalVolume": "if (initialPressure && initialVolume && finalPressure && finalPressure !== 0) { return (initialPressure * initialVolume) / finalPressure; } else { return null; }",
     "calculateInitialPressure": "if (finalPressure && finalVolume && initialVolume && initialVolume !== 0) { return (finalPressure * finalVolume) / initialVolume; } else { return null; }",
-    "calculateInitialVolume": "if (finalPressure && finalVolume && initialPressure && initialPressure !== 0) { return (finalPressure * finalVolume) / initialPressure; } else { return null; }"
+    "calculateInitialVolume": "if (finalPressure && finalVolume && initialPressure && initialPressure !== 0) { return (finalPressure * finalVolume) / initialPressure; } else { return null; }",
+    "P1___V1___P2___V2": "P1 * V1 = P2 * V2",
+    "_initialPressure_____initialVolume_____p": "{initialPressure} * {initialVolume} = {product}",
+    "_finalPressure_____finalVolume_____produ": "{finalPressure} * {finalVolume} = {product2}",
+    "_product_____product2___within_tolerance": "{product} ≈ {product2} (within tolerance)",
+    "result": "Calculated unknown variable (P2 or V2 or P1 or V1)"
   },
   "outputs": {
-    "primary": "Calculated unknown variable (P2 or V2 or P1 or V1)",
+    "primary": "result",
     "breakdown": [
       "P1 * V1 = P2 * V2",
       "Product of initial pressure and volume: {initialPressure} * {initialVolume} = {product}",
@@ -49,10 +86,10 @@
       "Verification: {product} ≈ {product2} (within tolerance)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

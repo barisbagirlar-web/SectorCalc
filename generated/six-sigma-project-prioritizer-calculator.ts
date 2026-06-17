@@ -25,32 +25,19 @@ export const Six_sigma_project_prioritizer_calculatorInputSchema = z.object({
   data_confidence: z.number().min(0).max(100).default(80),
 });
 
-function evaluateAllFormulas(input: Six_sigma_project_prioritizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.annual_volume * (input.defect_rate / 1000000); results["current_defects"] = Number.isFinite(v) ? v : 0; } catch { results["current_defects"] = 0; }
-  try { const v = (results["current_defects"] ?? 0) * input.cost_per_defect; results["current_copq"] = Number.isFinite(v) ? v : 0; } catch { results["current_copq"] = 0; }
-  try { const v = input.annual_volume * (3.4 / 1000000); results["target_defects"] = Number.isFinite(v) ? v : 0; } catch { results["target_defects"] = 0; }
-  try { const v = (results["target_defects"] ?? 0) * input.cost_per_defect; results["target_copq"] = Number.isFinite(v) ? v : 0; } catch { results["target_copq"] = 0; }
-  try { const v = (results["current_copq"] ?? 0) - (results["target_copq"] ?? 0); results["annual_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_savings"] = 0; }
-  try { const v = (((results["annual_savings"] ?? 0) - input.implementation_cost) / input.implementation_cost) * 100; results["roi"] = Number.isFinite(v) ? v : 0; } catch { results["roi"] = 0; }
-  results["priority_score"] = 0;
-  return results;
+function evaluateAllFormulas(_input: Six_sigma_project_prioritizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateSix_sigma_project_prioritizer_calculator(input: Six_sigma_project_prioritizer_calculatorInput): Six_sigma_project_prioritizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["priority_score"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    current_defects: values["current_defects"] ?? 0,
-    current_copq: values["current_copq"] ?? 0,
-    target_defects: values["target_defects"] ?? 0,
-    target_copq: values["target_copq"] ?? 0,
-    annual_savings: values["annual_savings"] ?? 0,
-    roi: values["roi"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["High Defect Rate","Low Sigma Level","High Cost of Poor Quality"];
-  const suggestedActions: string[] = ["Implement SPC and DMAIC","Conduct Root Cause Analysis","Six Sigma Training for Team","Run Pilot Project"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -69,7 +56,7 @@ export function calculateSix_sigma_project_prioritizer_calculator(input: Six_sig
 
 export interface Six_sigma_project_prioritizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { current_defects: number; current_copq: number; target_defects: number; target_copq: number; annual_savings: number; roi: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

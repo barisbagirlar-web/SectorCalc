@@ -144,7 +144,7 @@
       "id": "soil_type",
       "label": "Soil Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "loam",
       "options": [
         "sand",
@@ -165,7 +165,7 @@
       "id": "irrigation_available",
       "label": "Irrigation Available",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "businessContext": "Indicates if supplemental irrigation is used, influencing emergence and target population.",
       "label_i18n": {
@@ -219,169 +219,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "adjusted_germination_rate",
-      "name": "Adjusted Germination Rate",
-      "description": "Combined germination and emergence efficiency (ISO 5692 compliant).",
-      "formula": "adjusted_germination_rate = (germination_rate / 100) * (field_emergence_factor / 100)",
-      "unit": "decimal",
-      "order": 1
-    },
-    {
-      "id": "required_seeds_per_hectare",
-      "name": "Required Seeds per Hectare",
-      "description": "Number of seeds needed per hectare to achieve target population after losses.",
-      "formula": "required_seeds_per_hectare = target_population / (adjusted_germination_rate * (planter_efficiency / 100))",
-      "unit": "seeds/ha",
-      "order": 2
-    },
-    {
-      "id": "seeding_rate_mass",
-      "name": "Seeding Rate by Mass",
-      "description": "Mass of seed required per hectare based on seed weight.",
-      "formula": "seeding_rate_mass = (required_seeds_per_hectare * seed_weight) / 1000000",
-      "unit": "kg/ha",
-      "order": 3
-    },
-    {
-      "id": "seed_spacing_in_row",
-      "name": "Seed Spacing in Row",
-      "description": "Average distance between seeds within a row (Lean metric for uniformity).",
-      "formula": "seed_spacing_in_row = (row_spacing / 100) * 10000 / required_seeds_per_hectare * 100",
-      "unit": "cm",
-      "order": 4
-    },
-    {
-      "id": "total_seed_cost_per_hectare",
-      "name": "Total Seed Cost per Hectare",
-      "description": "Direct cost of seed per hectare.",
-      "formula": "total_seed_cost_per_hectare = seeding_rate_mass * seed_cost_per_unit",
-      "unit": "$/ha",
-      "order": 5
-    },
-    {
-      "id": "potential_yield_value_per_hectare",
-      "name": "Potential Yield Value per Hectare",
-      "description": "Estimated revenue per hectare based on target population and typical yield per plant (Six Sigma benchmark).",
-      "formula": "potential_yield_value_per_hectare = (target_population * 0.0005) * expected_yield_value",
-      "unit": "$/ha",
-      "order": 6
-    },
-    {
-      "id": "net_seed_roi",
-      "name": "Net Seed ROI",
-      "description": "Return on investment for seed cost (Lean value stream metric).",
-      "formula": "net_seed_roi = ((potential_yield_value_per_hectare - total_seed_cost_per_hectare) / total_seed_cost_per_hectare) * 100",
-      "unit": "%",
-      "order": 7
-    }
+    "target_population",
+    "target_population",
+    "target_population",
+    "target_population",
+    "target_population",
+    "target_population",
+    "target_population"
   ],
   "outputs": {
-    "primary": {
-      "id": "recommended_seeding_rate",
-      "label": "Recommended Seeding Rate",
-      "value": null,
-      "unit": "kg/ha",
-      "description": "Primary output: mass of seed per hectare to achieve target population with adjustments."
-    },
-    "breakdown": {
-      "adjusted_germination_rate": {
-        "label": "Adjusted Germination Rate",
-        "value": null,
-        "unit": "decimal"
-      },
-      "required_seeds_per_hectare": {
-        "label": "Required Seeds per Hectare",
-        "value": null,
-        "unit": "seeds/ha"
-      },
-      "seed_spacing_in_row": {
-        "label": "Seed Spacing in Row",
-        "value": null,
-        "unit": "cm"
-      },
-      "total_seed_cost_per_hectare": {
-        "label": "Total Seed Cost per Hectare",
-        "value": null,
-        "unit": "$/ha"
-      },
-      "potential_yield_value_per_hectare": {
-        "label": "Potential Yield Value per Hectare",
-        "value": null,
-        "unit": "$/ha"
-      },
-      "net_seed_roi": {
-        "label": "Net Seed ROI",
-        "value": null,
-        "unit": "%"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "germination_loss",
-        "label": "Germination Loss",
-        "description": "Seeds lost due to germination failure (1 - germination_rate/100).",
-        "value": null,
-        "unit": "%"
-      },
-      {
-        "id": "emergence_loss",
-        "label": "Emergence Loss",
-        "description": "Seedlings lost during emergence (1 - field_emergence_factor/100).",
-        "value": null,
-        "unit": "%"
-      },
-      {
-        "id": "planter_inefficiency_loss",
-        "label": "Planter Inefficiency Loss",
-        "description": "Seeds wasted due to planter skips/doubles (1 - planter_efficiency/100).",
-        "value": null,
-        "unit": "%"
-      },
-      {
-        "id": "combined_loss_factor",
-        "label": "Combined Loss Factor",
-        "description": "Total multiplicative loss from all drivers (Lean waste metric).",
-        "value": null,
-        "unit": "decimal"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_germination",
-        "condition": "germination_rate < 85",
-        "action": "Use high-vigor seed lot or apply seed treatment to improve germination rate.",
-        "priority": "high"
-      },
-      {
-        "id": "improve_planter_maintenance",
-        "condition": "planter_efficiency < 90",
-        "action": "Conduct planter calibration and preventive maintenance per Six Sigma DMAIC to reduce skips and doubles.",
-        "priority": "high"
-      },
-      {
-        "id": "adjust_row_spacing",
-        "condition": "seed_spacing_in_row < 5 OR seed_spacing_in_row > 30",
-        "action": "Re-evaluate row spacing for optimal plant distribution; consider variable rate seeding.",
-        "priority": "medium"
-      },
-      {
-        "id": "economic_review",
-        "condition": "net_seed_roi < 100",
-        "action": "Review seed cost vs. yield value; consider alternative seed varieties or reduced population.",
-        "priority": "medium"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_adjusted_seeding_rate",
-      "label": "Confidence-Adjusted Seeding Rate",
-      "description": "Seeding rate adjusted by a confidence factor based on input variability (WERC standard for data quality).",
-      "value": null,
-      "unit": "kg/ha",
-      "confidenceFactor": 0.95
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "seed-rate-calculator"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Alan uzunluğu"
+      "businessContext": "Alan uzunluğu",
+      "label_i18n": {
+        "en": "Uzunluk",
+        "tr": "Uzunluk",
+        "de": "Uzunluk",
+        "fr": "Uzunluk",
+        "es": "Uzunluk",
+        "ar": "Uzunluk"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Alan genişliği"
+      "businessContext": "Alan genişliği",
+      "label_i18n": {
+        "en": "Genişlik",
+        "tr": "Genişlik",
+        "de": "Genişlik",
+        "fr": "Genişlik",
+        "es": "Genişlik",
+        "ar": "Genişlik"
+      }
     },
     {
       "id": "seedingRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g/m²",
       "default": 30,
-      "businessContext": "Metrekare başına tohum gram miktarı"
+      "businessContext": "Metrekare başına tohum gram miktarı",
+      "label_i18n": {
+        "en": "Tohumlama Oranı",
+        "tr": "Tohumlama Oranı",
+        "de": "Tohumlama Oranı",
+        "fr": "Tohumlama Oranı",
+        "es": "Tohumlama Oranı",
+        "ar": "Tohumlama Oranı"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Uygulama kaybı yüzdesi"
+      "businessContext": "Uygulama kaybı yüzdesi",
+      "label_i18n": {
+        "en": "Fire Faktörü",
+        "tr": "Fire Faktörü",
+        "de": "Fire Faktörü",
+        "fr": "Fire Faktörü",
+        "es": "Fire Faktörü",
+        "ar": "Fire Faktörü"
+      }
     },
     {
       "id": "germinationRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Tohumların çimlenme yüzdesi"
+      "businessContext": "Tohumların çimlenme yüzdesi",
+      "label_i18n": {
+        "en": "Çimlenme Oranı",
+        "tr": "Çimlenme Oranı",
+        "de": "Çimlenme Oranı",
+        "fr": "Çimlenme Oranı",
+        "es": "Çimlenme Oranı",
+        "ar": "Çimlenme Oranı"
+      }
     },
     {
       "id": "seedPurity",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Tohum karışımının saflık yüzdesi"
+      "businessContext": "Tohum karışımının saflık yüzdesi",
+      "label_i18n": {
+        "en": "Tohum Saflığı",
+        "tr": "Tohum Saflığı",
+        "de": "Tohum Saflığı",
+        "fr": "Tohum Saflığı",
+        "es": "Tohum Saflığı",
+        "ar": "Tohum Saflığı"
+      }
     },
     {
       "id": "overseedingFactor",
       "label": "Yeniden Tohumlama Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Yeniden tohumlama çarpanı (1 = yeni çim, >1 = mevcut çime ek tohumlama)"
+      "businessContext": "Yeniden tohumlama çarpanı (1 = yeni çim, >1 = mevcut çime ek tohumlama)",
+      "label_i18n": {
+        "en": "Yeniden Tohumlama Faktörü",
+        "tr": "Yeniden Tohumlama Faktörü",
+        "de": "Yeniden Tohumlama Faktörü",
+        "fr": "Yeniden Tohumlama Faktörü",
+        "es": "Yeniden Tohumlama Faktörü",
+        "ar": "Yeniden Tohumlama Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -72,10 +128,10 @@
       "adjustedSeedGrams"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "sustainability-resource-esg"
 }

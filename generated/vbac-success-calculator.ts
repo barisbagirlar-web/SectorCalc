@@ -22,13 +22,16 @@ export const Vbac_success_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Vbac_success_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 100 / (1 + Math.exp(-(-3.5 + 0.05 * input.maternalAge + 0.1 * input.bmi - 1.2 * input.prevVaginalBirth + 1.5 * input.prevCSIndication + 0.2 * input.gestationalAge + 0.3 * input.cervicalDilation))); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = -3.5 + 0.05 * input.maternalAge + 0.1 * input.bmi - 1.2 * input.prevVaginalBirth + 1.5 * input.prevCSIndication + 0.2 * input.gestationalAge + 0.3 * input.cervicalDilation; results["_3_5___0_05___maternalAge___0_1___bmi___"] = Number.isFinite(v) ? v : 0; } catch { results["_3_5___0_05___maternalAge___0_1___bmi___"] = 0; }
+  try { const v = 100 / (1 + Math.exp(-z)); results["100____1___exp__z__"] = Number.isFinite(v) ? v : 0; } catch { results["100____1___exp__z__"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateVbac_success_calculator(input: Vbac_success_calculatorInput): Vbac_success_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["VBAC"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

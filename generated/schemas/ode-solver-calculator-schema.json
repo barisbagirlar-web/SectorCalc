@@ -5,17 +5,33 @@
       "id": "a",
       "label": "Coefficient a (dy/dt = a·y + b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Rate constant in first-order linear ODE"
+      "businessContext": "Rate constant in first-order linear ODE",
+      "label_i18n": {
+        "en": "Coefficient a (dy/dt = a·y + b)",
+        "tr": "Coefficient a (dy/dt = a·y + b)",
+        "de": "Coefficient a (dy/dt = a·y + b)",
+        "fr": "Coefficient a (dy/dt = a·y + b)",
+        "es": "Coefficient a (dy/dt = a·y + b)",
+        "ar": "Coefficient a (dy/dt = a·y + b)"
+      }
     },
     {
       "id": "b",
       "label": "Constant term b",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Forcing term in the ODE"
+      "businessContext": "Forcing term in the ODE",
+      "label_i18n": {
+        "en": "Constant term b",
+        "tr": "Constant term b",
+        "de": "Constant term b",
+        "fr": "Constant term b",
+        "es": "Constant term b",
+        "ar": "Constant term b"
+      }
     },
     {
       "id": "t0",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Start time for the integration"
+      "businessContext": "Start time for the integration",
+      "label_i18n": {
+        "en": "Initial time",
+        "tr": "Initial time",
+        "de": "Initial time",
+        "fr": "Initial time",
+        "es": "Initial time",
+        "ar": "Initial time"
+      }
     },
     {
       "id": "y0",
       "label": "Initial value y(t0)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Initial condition at t0"
+      "businessContext": "Initial condition at t0",
+      "label_i18n": {
+        "en": "Initial value y(t0)",
+        "tr": "Initial value y(t0)",
+        "de": "Initial value y(t0)",
+        "fr": "Initial value y(t0)",
+        "es": "Initial value y(t0)",
+        "ar": "Initial value y(t0)"
+      }
     },
     {
       "id": "h",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "s",
       "default": 0.1,
-      "businessContext": "Time increment for numerical approximation"
+      "businessContext": "Time increment for numerical approximation",
+      "label_i18n": {
+        "en": "Step size",
+        "tr": "Step size",
+        "de": "Step size",
+        "fr": "Step size",
+        "es": "Step size",
+        "ar": "Step size"
+      }
     },
     {
       "id": "n",
       "label": "Number of steps",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Total integration steps to reach final time"
+      "businessContext": "Total integration steps to reach final time",
+      "label_i18n": {
+        "en": "Number of steps",
+        "tr": "Number of steps",
+        "de": "Number of steps",
+        "fr": "Number of steps",
+        "es": "Number of steps",
+        "ar": "Number of steps"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "constant_C"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 0,
-      "businessContext": "Enter count of 14 AWG conductors"
+      "businessContext": "Enter count of 14 AWG conductors",
+      "label_i18n": {
+        "en": "Number of 14 AWG Conductors",
+        "tr": "Number of 14 AWG Conductors",
+        "de": "Number of 14 AWG Conductors",
+        "fr": "Number of 14 AWG Conductors",
+        "es": "Number of 14 AWG Conductors",
+        "ar": "Number of 14 AWG Conductors"
+      }
     },
     {
       "id": "number12AWG",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 0,
-      "businessContext": "Enter count of 12 AWG conductors"
+      "businessContext": "Enter count of 12 AWG conductors",
+      "label_i18n": {
+        "en": "Number of 12 AWG Conductors",
+        "tr": "Number of 12 AWG Conductors",
+        "de": "Number of 12 AWG Conductors",
+        "fr": "Number of 12 AWG Conductors",
+        "es": "Number of 12 AWG Conductors",
+        "ar": "Number of 12 AWG Conductors"
+      }
     },
     {
       "id": "number10AWG",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 0,
-      "businessContext": "Enter count of 10 AWG conductors"
+      "businessContext": "Enter count of 10 AWG conductors",
+      "label_i18n": {
+        "en": "Number of 10 AWG Conductors",
+        "tr": "Number of 10 AWG Conductors",
+        "de": "Number of 10 AWG Conductors",
+        "fr": "Number of 10 AWG Conductors",
+        "es": "Number of 10 AWG Conductors",
+        "ar": "Number of 10 AWG Conductors"
+      }
     },
     {
       "id": "numberOfDevices",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 0,
-      "businessContext": "Each device (switch/receptacle) counts as 2 of the largest conductor volume"
+      "businessContext": "Each device (switch/receptacle) counts as 2 of the largest conductor volume",
+      "label_i18n": {
+        "en": "Number of Devices",
+        "tr": "Number of Devices",
+        "de": "Number of Devices",
+        "fr": "Number of Devices",
+        "es": "Number of Devices",
+        "ar": "Number of Devices"
+      }
     },
     {
       "id": "numberOfClamps",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "pcs",
       "default": 0,
-      "businessContext": "Each clamp counts as 1 of the largest conductor volume"
+      "businessContext": "Each clamp counts as 1 of the largest conductor volume",
+      "label_i18n": {
+        "en": "Number of Internal Cable Clamps",
+        "tr": "Number of Internal Cable Clamps",
+        "de": "Number of Internal Cable Clamps",
+        "fr": "Number of Internal Cable Clamps",
+        "es": "Number of Internal Cable Clamps",
+        "ar": "Number of Internal Cable Clamps"
+      }
     },
     {
       "id": "equipmentGroundPresent",
       "label": "Equipment Ground Present",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Set 1 if equipment grounding conductors are present (they count as 1 of the largest volume), else 0"
+      "businessContext": "Set 1 if equipment grounding conductors are present (they count as 1 of the largest volume), else 0",
+      "label_i18n": {
+        "en": "Equipment Ground Present",
+        "tr": "Equipment Ground Present",
+        "de": "Equipment Ground Present",
+        "fr": "Equipment Ground Present",
+        "es": "Equipment Ground Present",
+        "ar": "Equipment Ground Present"
+      }
     }
   ],
   "formulas": {
@@ -67,10 +115,10 @@
       "groundVolume"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

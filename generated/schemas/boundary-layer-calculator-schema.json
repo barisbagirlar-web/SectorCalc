@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 10,
-      "businessContext": "The velocity of the fluid far from the boundary."
+      "businessContext": "The velocity of the fluid far from the boundary.",
+      "label_i18n": {
+        "en": "Free-stream Velocity",
+        "tr": "Free-stream Velocity",
+        "de": "Free-stream Velocity",
+        "fr": "Free-stream Velocity",
+        "es": "Free-stream Velocity",
+        "ar": "Free-stream Velocity"
+      }
     },
     {
       "id": "kinematicViscosity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²/s",
       "default": 0.000015,
-      "businessContext": "Kinematic viscosity of the fluid (ν = μ/ρ)."
+      "businessContext": "Kinematic viscosity of the fluid (ν = μ/ρ).",
+      "label_i18n": {
+        "en": "Kinematic Viscosity",
+        "tr": "Kinematic Viscosity",
+        "de": "Kinematic Viscosity",
+        "fr": "Kinematic Viscosity",
+        "es": "Kinematic Viscosity",
+        "ar": "Kinematic Viscosity"
+      }
     },
     {
       "id": "distance",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Distance along the surface from the leading edge."
+      "businessContext": "Distance along the surface from the leading edge.",
+      "label_i18n": {
+        "en": "Distance from Leading Edge",
+        "tr": "Distance from Leading Edge",
+        "de": "Distance from Leading Edge",
+        "fr": "Distance from Leading Edge",
+        "es": "Distance from Leading Edge",
+        "ar": "Distance from Leading Edge"
+      }
     },
     {
       "id": "flowRegime",
       "label": "Flow Regime (0=Laminar, 1=Turbulent)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Select 0 for laminar boundary layer, 1 for turbulent (using 1/7th power law)."
+      "businessContext": "Select 0 for laminar boundary layer, 1 for turbulent (using 1/7th power law).",
+      "label_i18n": {
+        "en": "Flow Regime (0=Laminar, 1=Turbulent)",
+        "tr": "Flow Regime (0=Laminar, 1=Turbulent)",
+        "de": "Flow Regime (0=Laminar, 1=Turbulent)",
+        "fr": "Flow Regime (0=Laminar, 1=Turbulent)",
+        "es": "Flow Regime (0=Laminar, 1=Turbulent)",
+        "ar": "Flow Regime (0=Laminar, 1=Turbulent)"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "cf"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "process-chemical"
 }

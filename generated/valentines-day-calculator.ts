@@ -26,13 +26,16 @@ function evaluateAllFormulas(input: Valentines_day_calculatorInput): Record<stri
   try { const v = (results["totalCost"] ?? 0) / input.numPeople; results["costPerPerson"] = Number.isFinite(v) ? v : 0; } catch { results["costPerPerson"] = 0; }
   try { const v = ((results["totalCost"] ?? 0) / input.budget) * 100; results["budgetUtilization"] = Number.isFinite(v) ? v : 0; } catch { results["budgetUtilization"] = 0; }
   try { const v = Math.min(100, (input.giftCost * 0.4 + input.dinnerCost * 0.3 + input.flowerCost * 0.2 + input.otherCost * 0.1) / (input.budget / 100)); results["romanceScore"] = Number.isFinite(v) ? v : 0; } catch { results["romanceScore"] = 0; }
+  results["_costPerPerson__TL"] = 0;
+  results["__budgetUtilization_"] = 0;
+  try { const v = (results["romanceScore"] ?? 0)/100; results["_romanceScore__100"] = Number.isFinite(v) ? v : 0; } catch { results["_romanceScore__100"] = 0; }
   return results;
 }
 
 
 export function calculateValentines_day_calculator(input: Valentines_day_calculatorInput): Valentines_day_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Toplam"] ?? 0;
+  const totalWasteCost = values["totalCost"] ?? 0;
   const breakdown = {
     
   };

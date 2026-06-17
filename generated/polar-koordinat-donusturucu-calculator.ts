@@ -21,13 +21,15 @@ function evaluateAllFormulas(input: Polar_koordinat_donusturucu_calculatorInput)
   const results: Record<string, number> = {};
   try { const v = input.conversionType === 1 ? `Polar: input.r = ${Math.sqrt(input.x*input.x+input.y*input.y).toFixed(4)}, θ = ${(Math.atan2(input.y,input.x)*180/Math.PI).toFixed(2)}°` : `Kartezyen: input.x = ${(input.r*Math.cos(input.theta*Math.PI/180)).toFixed(4)}, input.y = ${(input.r*Math.sin(input.theta*Math.PI/180)).toFixed(4)}`; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   results["breakdown"] = 0;
+  results["Bile_en_de_erlerini_ayr__ayr__listeler"] = 0;
+  results["Hesaplama_detay__sa_lar"] = 0;
   return results;
 }
 
 
 export function calculatePolar_koordinat_donusturucu_calculator(input: Polar_koordinat_donusturucu_calculatorInput): Polar_koordinat_donusturucu_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["D"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "Gregorian calendar year to convert"
+      "businessContext": "Gregorian calendar year to convert",
+      "label_i18n": {
+        "en": "Gregorian Year",
+        "tr": "Gregorian Year",
+        "de": "Gregorian Year",
+        "fr": "Gregorian Year",
+        "es": "Gregorian Year",
+        "ar": "Gregorian Year"
+      }
     },
     {
       "id": "gregorianMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "Gregorian calendar month (1-12)"
+      "businessContext": "Gregorian calendar month (1-12)",
+      "label_i18n": {
+        "en": "Gregorian Month",
+        "tr": "Gregorian Month",
+        "de": "Gregorian Month",
+        "fr": "Gregorian Month",
+        "es": "Gregorian Month",
+        "ar": "Gregorian Month"
+      }
     },
     {
       "id": "gregorianDay",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "Gregorian calendar day (1-31)"
+      "businessContext": "Gregorian calendar day (1-31)",
+      "label_i18n": {
+        "en": "Gregorian Day",
+        "tr": "Gregorian Day",
+        "de": "Gregorian Day",
+        "fr": "Gregorian Day",
+        "es": "Gregorian Day",
+        "ar": "Gregorian Day"
+      }
     },
     {
       "id": "targetCalendar",
       "label": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for Julian, 1 for Islamic, 2 for Hebrew"
+      "businessContext": "0 for Julian, 1 for Islamic, 2 for Hebrew",
+      "label_i18n": {
+        "en": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
+        "tr": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
+        "de": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
+        "fr": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
+        "es": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
+        "ar": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)"
+      }
     }
   ],
   "formulas": {
@@ -44,20 +76,23 @@
     "islamicDay": "Math.floor((julianDay - 1948439.5) - Math.floor(354.367 * islamicYear) - Math.floor(29.53059 * (islamicMonth - 1))) + 1",
     "hebrewYear": "Math.floor((julianDay - 347997.5) / 365.2468)",
     "hebrewMonth": "Math.floor(((julianDay - 347997.5) - Math.floor(365.2468 * hebrewYear)) / 29.53059) + 1",
-    "hebrewDay": "Math.floor((julianDay - 347997.5) - Math.floor(365.2468 * hebrewYear) - Math.floor(29.53059 * (hebrewMonth - 1))) + 1"
+    "hebrewDay": "Math.floor((julianDay - 347997.5) - Math.floor(365.2468 * hebrewYear) - Math.floor(29.53059 * (hebrewMonth - 1))) + 1",
+    "_julianYear___julianMonth___julianDayOfM": "{julianYear}-{julianMonth}-{julianDayOfMonth}",
+    "_islamicYear___islamicMonth___islamicDay": "{islamicYear}-{islamicMonth}-{islamicDay}",
+    "_hebrewYear___hebrewMonth___hebrewDay_": "{hebrewYear}-{hebrewMonth}-{hebrewDay}"
   },
   "outputs": {
-    "primary": "Converted date based on target calendar",
+    "primary": "julianDay",
     "breakdown": [
       "Julian: {julianYear}-{julianMonth}-{julianDayOfMonth}",
       "Islamic: {islamicYear}-{islamicMonth}-{islamicDay}",
       "Hebrew: {hebrewYear}-{hebrewMonth}-{hebrewDay}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

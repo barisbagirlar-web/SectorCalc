@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "credits",
       "default": 3,
-      "businessContext": "The number of credits for course 1."
+      "businessContext": "The number of credits for course 1.",
+      "label_i18n": {
+        "en": "Course 1 Credit Hours",
+        "tr": "Course 1 Credit Hours",
+        "de": "Course 1 Credit Hours",
+        "fr": "Course 1 Credit Hours",
+        "es": "Course 1 Credit Hours",
+        "ar": "Course 1 Credit Hours"
+      }
     },
     {
       "id": "grade1",
       "label": "Course 1 Grade Point",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The grade point for course 1 (e.g., 4.0 for A, 3.0 for B)."
+      "businessContext": "The grade point for course 1 (e.g., 4.0 for A, 3.0 for B).",
+      "label_i18n": {
+        "en": "Course 1 Grade Point",
+        "tr": "Course 1 Grade Point",
+        "de": "Course 1 Grade Point",
+        "fr": "Course 1 Grade Point",
+        "es": "Course 1 Grade Point",
+        "ar": "Course 1 Grade Point"
+      }
     },
     {
       "id": "credit2",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "credits",
       "default": 3,
-      "businessContext": "The number of credits for course 2."
+      "businessContext": "The number of credits for course 2.",
+      "label_i18n": {
+        "en": "Course 2 Credit Hours",
+        "tr": "Course 2 Credit Hours",
+        "de": "Course 2 Credit Hours",
+        "fr": "Course 2 Credit Hours",
+        "es": "Course 2 Credit Hours",
+        "ar": "Course 2 Credit Hours"
+      }
     },
     {
       "id": "grade2",
       "label": "Course 2 Grade Point",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The grade point for course 2."
+      "businessContext": "The grade point for course 2.",
+      "label_i18n": {
+        "en": "Course 2 Grade Point",
+        "tr": "Course 2 Grade Point",
+        "de": "Course 2 Grade Point",
+        "fr": "Course 2 Grade Point",
+        "es": "Course 2 Grade Point",
+        "ar": "Course 2 Grade Point"
+      }
     },
     {
       "id": "credit3",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "credits",
       "default": 3,
-      "businessContext": "The number of credits for course 3."
+      "businessContext": "The number of credits for course 3.",
+      "label_i18n": {
+        "en": "Course 3 Credit Hours",
+        "tr": "Course 3 Credit Hours",
+        "de": "Course 3 Credit Hours",
+        "fr": "Course 3 Credit Hours",
+        "es": "Course 3 Credit Hours",
+        "ar": "Course 3 Credit Hours"
+      }
     },
     {
       "id": "grade3",
       "label": "Course 3 Grade Point",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The grade point for course 3."
+      "businessContext": "The grade point for course 3.",
+      "label_i18n": {
+        "en": "Course 3 Grade Point",
+        "tr": "Course 3 Grade Point",
+        "de": "Course 3 Grade Point",
+        "fr": "Course 3 Grade Point",
+        "es": "Course 3 Grade Point",
+        "ar": "Course 3 Grade Point"
+      }
     },
     {
       "id": "credit4",
@@ -55,15 +103,31 @@
       "type": "number",
       "unit": "credits",
       "default": 3,
-      "businessContext": "The number of credits for course 4."
+      "businessContext": "The number of credits for course 4.",
+      "label_i18n": {
+        "en": "Course 4 Credit Hours",
+        "tr": "Course 4 Credit Hours",
+        "de": "Course 4 Credit Hours",
+        "fr": "Course 4 Credit Hours",
+        "es": "Course 4 Credit Hours",
+        "ar": "Course 4 Credit Hours"
+      }
     },
     {
       "id": "grade4",
       "label": "Course 4 Grade Point",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The grade point for course 4."
+      "businessContext": "The grade point for course 4.",
+      "label_i18n": {
+        "en": "Course 4 Grade Point",
+        "tr": "Course 4 Grade Point",
+        "de": "Course 4 Grade Point",
+        "fr": "Course 4 Grade Point",
+        "es": "Course 4 Grade Point",
+        "ar": "Course 4 Grade Point"
+      }
     }
   ],
   "formulas": {
@@ -78,10 +142,10 @@
       "totalPoints"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

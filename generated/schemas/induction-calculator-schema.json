@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 50,
-      "businessContext": "Elektrik şebeke frekansı"
+      "businessContext": "Elektrik şebeke frekansı",
+      "label_i18n": {
+        "en": "Frekans (Hz)",
+        "tr": "Frekans (Hz)",
+        "de": "Frekans (Hz)",
+        "fr": "Frekans (Hz)",
+        "es": "Frekans (Hz)",
+        "ar": "Frekans (Hz)"
+      }
     },
     {
       "id": "poles",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "Motor kutup sayısı"
+      "businessContext": "Motor kutup sayısı",
+      "label_i18n": {
+        "en": "Kutup Sayısı",
+        "tr": "Kutup Sayısı",
+        "de": "Kutup Sayısı",
+        "fr": "Kutup Sayısı",
+        "es": "Kutup Sayısı",
+        "ar": "Kutup Sayısı"
+      }
     },
     {
       "id": "slip",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Motor kayması"
+      "businessContext": "Motor kayması",
+      "label_i18n": {
+        "en": "Kayma (%)",
+        "tr": "Kayma (%)",
+        "de": "Kayma (%)",
+        "fr": "Kayma (%)",
+        "es": "Kayma (%)",
+        "ar": "Kayma (%)"
+      }
     },
     {
       "id": "outputPower",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kW",
       "default": 10,
-      "businessContext": "Motor mil gücü"
+      "businessContext": "Motor mil gücü",
+      "label_i18n": {
+        "en": "Çıkış Gücü (kW)",
+        "tr": "Çıkış Gücü (kW)",
+        "de": "Çıkış Gücü (kW)",
+        "fr": "Çıkış Gücü (kW)",
+        "es": "Çıkış Gücü (kW)",
+        "ar": "Çıkış Gücü (kW)"
+      }
     },
     {
       "id": "voltage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "V",
       "default": 400,
-      "businessContext": "Hat voltajı"
+      "businessContext": "Hat voltajı",
+      "label_i18n": {
+        "en": "Gerilim (V)",
+        "tr": "Gerilim (V)",
+        "de": "Gerilim (V)",
+        "fr": "Gerilim (V)",
+        "es": "Gerilim (V)",
+        "ar": "Gerilim (V)"
+      }
     },
     {
       "id": "current",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "A",
       "default": 20,
-      "businessContext": "Hat akımı"
+      "businessContext": "Hat akımı",
+      "label_i18n": {
+        "en": "Akım (A)",
+        "tr": "Akım (A)",
+        "de": "Akım (A)",
+        "fr": "Akım (A)",
+        "es": "Akım (A)",
+        "ar": "Akım (A)"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Güç Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
-      "businessContext": "Motor güç faktörü"
+      "businessContext": "Motor güç faktörü",
+      "label_i18n": {
+        "en": "Güç Faktörü",
+        "tr": "Güç Faktörü",
+        "de": "Güç Faktörü",
+        "fr": "Güç Faktörü",
+        "es": "Güç Faktörü",
+        "ar": "Güç Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -74,10 +130,10 @@
       "efficiency"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

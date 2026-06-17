@@ -27,13 +27,19 @@ function evaluateAllFormulas(input: Screen_resolution_calculatorInput): Record<s
   try { const v = input.screenWidth / (results["ppi"] ?? 0); results["screenWidthInches"] = Number.isFinite(v) ? v : 0; } catch { results["screenWidthInches"] = 0; }
   try { const v = input.screenHeight / (results["ppi"] ?? 0); results["screenHeightInches"] = Number.isFinite(v) ? v : 0; } catch { results["screenHeightInches"] = 0; }
   try { const v = (input.screenDiagonal / (results["diagonalPixels"] ?? 0)) * 25.4; results["pixelPitch"] = Number.isFinite(v) ? v : 0; } catch { results["pixelPitch"] = 0; }
+  results["_screenWidth__x__screenHeight_"] = 0;
+  results["_aspectDecimal___Custom___aspectRatioX__"] = 0;
+  results["_totalPixels_____totalPixelsMP__MP_"] = 0;
+  results["_screenWidthInches__in"] = 0;
+  results["_screenHeightInches__in"] = 0;
+  results["_pixelPitch__mm"] = 0;
   return results;
 }
 
 
 export function calculateScreen_resolution_calculator(input: Screen_resolution_calculatorInput): Screen_resolution_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["PPI"] ?? 0;
+  const totalWasteCost = values["totalPixels"] ?? 0;
   const breakdown = {
     
   };

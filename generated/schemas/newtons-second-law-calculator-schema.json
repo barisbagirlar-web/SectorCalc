@@ -5,9 +5,17 @@
       "id": "mode",
       "label": "Calculation Mode",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1=Calculate Force, 2=Calculate Acceleration, 3=Calculate Mass"
+      "businessContext": "1=Calculate Force, 2=Calculate Acceleration, 3=Calculate Mass",
+      "label_i18n": {
+        "en": "Calculation Mode",
+        "tr": "Calculation Mode",
+        "de": "Calculation Mode",
+        "fr": "Calculation Mode",
+        "es": "Calculation Mode",
+        "ar": "Calculation Mode"
+      }
     },
     {
       "id": "mass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the object"
+      "businessContext": "Mass of the object",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "acceleration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 0,
-      "businessContext": "Acceleration of the object"
+      "businessContext": "Acceleration of the object",
+      "label_i18n": {
+        "en": "Acceleration",
+        "tr": "Acceleration",
+        "de": "Acceleration",
+        "fr": "Acceleration",
+        "es": "Acceleration",
+        "ar": "Acceleration"
+      }
     },
     {
       "id": "force",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "N",
       "default": 0,
-      "businessContext": "Net force acting on the object"
+      "businessContext": "Net force acting on the object",
+      "label_i18n": {
+        "en": "Force",
+        "tr": "Force",
+        "de": "Force",
+        "fr": "Force",
+        "es": "Force",
+        "ar": "Force"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for engineering safety margin (>=1)"
+      "businessContext": "Multiplier for engineering safety margin (>=1)",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "massCalc"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 25,
-      "businessContext": "Hastanın kronolojik yaşı (yıl olarak)"
+      "businessContext": "Hastanın kronolojik yaşı (yıl olarak)",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "extracted",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Geçmişte çekilmiş daimi dişlerin sayısı"
+      "businessContext": "Geçmişte çekilmiş daimi dişlerin sayısı",
+      "label_i18n": {
+        "en": "Çekilen Dişler",
+        "tr": "Çekilen Dişler",
+        "de": "Çekilen Dişler",
+        "fr": "Çekilen Dişler",
+        "es": "Çekilen Dişler",
+        "ar": "Çekilen Dişler"
+      }
     },
     {
       "id": "missing",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Doğuştan veya kayıp nedeniyle ağızda bulunmayan daimi dişlerin sayısı"
+      "businessContext": "Doğuştan veya kayıp nedeniyle ağızda bulunmayan daimi dişlerin sayısı",
+      "label_i18n": {
+        "en": "Eksik Dişler",
+        "tr": "Eksik Dişler",
+        "de": "Eksik Dişler",
+        "fr": "Eksik Dişler",
+        "es": "Eksik Dişler",
+        "ar": "Eksik Dişler"
+      }
     },
     {
       "id": "wisdomOverride",
       "label": "Yirmilik Diş Zorla",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Yaştan bağımsız tüm 20 yaş dişlerini dahil etmek için 1, yoksa 0"
+      "businessContext": "Yaştan bağımsız tüm 20 yaş dişlerini dahil etmek için 1, yoksa 0",
+      "label_i18n": {
+        "en": "Yirmilik Diş Zorla",
+        "tr": "Yirmilik Diş Zorla",
+        "de": "Yirmilik Diş Zorla",
+        "fr": "Yirmilik Diş Zorla",
+        "es": "Yirmilik Diş Zorla",
+        "ar": "Yirmilik Diş Zorla"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "presentTeeth"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

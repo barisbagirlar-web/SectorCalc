@@ -25,13 +25,16 @@ function evaluateAllFormulas(input: Linoleum_calculatorInput): Record<string, nu
   try { const v = 1 + input.wastePercentage / 100; results["wasteFactor"] = Number.isFinite(v) ? v : 0; } catch { results["wasteFactor"] = 0; }
   try { const v = (results["areaBeforeWaste"] ?? 0) * (results["wasteFactor"] ?? 0); results["finalArea"] = Number.isFinite(v) ? v : 0; } catch { results["finalArea"] = 0; }
   try { const v = (results["finalArea"] ?? 0) * input.pricePerSqM; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = (results["numberOfStrips"] ?? 0); results["_numberOfStrips_"] = Number.isFinite(v) ? v : 0; } catch { results["_numberOfStrips_"] = 0; }
+  results["_totalLinearMeters__m"] = 0;
+  results["_areaBeforeWaste__m_"] = 0;
   return results;
 }
 
 
 export function calculateLinoleum_calculator(input: Linoleum_calculatorInput): Linoleum_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["numberOfStrips"] ?? 0;
   const breakdown = {
     
   };

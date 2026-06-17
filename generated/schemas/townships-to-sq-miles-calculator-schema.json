@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "townships",
       "default": 0,
-      "businessContext": "Area in townships for first parcel"
+      "businessContext": "Area in townships for first parcel",
+      "label_i18n": {
+        "en": "Township A",
+        "tr": "Township A",
+        "de": "Township A",
+        "fr": "Township A",
+        "es": "Township A",
+        "ar": "Township A"
+      }
     },
     {
       "id": "township_b",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "townships",
       "default": 0,
-      "businessContext": "Area in townships for second parcel"
+      "businessContext": "Area in townships for second parcel",
+      "label_i18n": {
+        "en": "Township B",
+        "tr": "Township B",
+        "de": "Township B",
+        "fr": "Township B",
+        "es": "Township B",
+        "ar": "Township B"
+      }
     },
     {
       "id": "township_c",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "townships",
       "default": 0,
-      "businessContext": "Area in townships for third parcel"
+      "businessContext": "Area in townships for third parcel",
+      "label_i18n": {
+        "en": "Township C",
+        "tr": "Township C",
+        "de": "Township C",
+        "fr": "Township C",
+        "es": "Township C",
+        "ar": "Township C"
+      }
     },
     {
       "id": "township_d",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "townships",
       "default": 0,
-      "businessContext": "Area in townships for fourth parcel"
+      "businessContext": "Area in townships for fourth parcel",
+      "label_i18n": {
+        "en": "Township D",
+        "tr": "Township D",
+        "de": "Township D",
+        "fr": "Township D",
+        "es": "Township D",
+        "ar": "Township D"
+      }
     },
     {
       "id": "decimal_places",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for output"
+      "businessContext": "Number of decimal places for output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "total_sq_miles"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

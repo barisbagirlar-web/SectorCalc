@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0,
-      "businessContext": "Cubic coefficient of f(x)=ax³+bx²+cx+d"
+      "businessContext": "Cubic coefficient of f(x)=ax³+bx²+cx+d",
+      "label_i18n": {
+        "en": "Kübik katsayı (a x³)",
+        "tr": "Kübik katsayı (a x³)",
+        "de": "Kübik katsayı (a x³)",
+        "fr": "Kübik katsayı (a x³)",
+        "es": "Kübik katsayı (a x³)",
+        "ar": "Kübik katsayı (a x³)"
+      }
     },
     {
       "id": "coeffB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0,
-      "businessContext": "Quadratic coefficient of f(x)=ax³+bx²+cx+d"
+      "businessContext": "Quadratic coefficient of f(x)=ax³+bx²+cx+d",
+      "label_i18n": {
+        "en": "Kare katsayı (b x²)",
+        "tr": "Kare katsayı (b x²)",
+        "de": "Kare katsayı (b x²)",
+        "fr": "Kare katsayı (b x²)",
+        "es": "Kare katsayı (b x²)",
+        "ar": "Kare katsayı (b x²)"
+      }
     },
     {
       "id": "coeffC",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Linear coefficient of f(x)=ax³+bx²+cx+d"
+      "businessContext": "Linear coefficient of f(x)=ax³+bx²+cx+d",
+      "label_i18n": {
+        "en": "Doğrusal katsayı (c x)",
+        "tr": "Doğrusal katsayı (c x)",
+        "de": "Doğrusal katsayı (c x)",
+        "fr": "Doğrusal katsayı (c x)",
+        "es": "Doğrusal katsayı (c x)",
+        "ar": "Doğrusal katsayı (c x)"
+      }
     },
     {
       "id": "coeffD",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0,
-      "businessContext": "Constant term of f(x)=ax³+bx²+cx+d"
+      "businessContext": "Constant term of f(x)=ax³+bx²+cx+d",
+      "label_i18n": {
+        "en": "Sabit terim (d)",
+        "tr": "Sabit terim (d)",
+        "de": "Sabit terim (d)",
+        "fr": "Sabit terim (d)",
+        "es": "Sabit terim (d)",
+        "ar": "Sabit terim (d)"
+      }
     },
     {
       "id": "lowerLimit",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Lower integration limit"
+      "businessContext": "Lower integration limit",
+      "label_i18n": {
+        "en": "Alt sınır",
+        "tr": "Alt sınır",
+        "de": "Alt sınır",
+        "fr": "Alt sınır",
+        "es": "Alt sınır",
+        "ar": "Alt sınır"
+      }
     },
     {
       "id": "upperLimit",
@@ -47,20 +87,27 @@
       "type": "number",
       "unit": "birim",
       "default": 1,
-      "businessContext": "Upper integration limit"
+      "businessContext": "Upper integration limit",
+      "label_i18n": {
+        "en": "Üst sınır",
+        "tr": "Üst sınır",
+        "de": "Üst sınır",
+        "fr": "Üst sınır",
+        "es": "Üst sınır",
+        "ar": "Üst sınır"
+      }
     }
   ],
   "formulas": {
     "primary": "(coeffA/4)*upperLimit**4 + (coeffB/3)*upperLimit**3 + (coeffC/2)*upperLimit**2 + coeffD*upperLimit - ((coeffA/4)*lowerLimit**4 + (coeffB/3)*lowerLimit**3 + (coeffC/2)*lowerLimit**2 + coeffD*lowerLimit)",
-    "breakdown": [
-      "`F(x) = (${coeffA}/4)x⁴ + (${coeffB}/3)x³ + (${coeffC}/2)x² + ${coeffD}x`",
-      "`F(${upperLimit}) = ${((coeffA/4)*upperLimit**4 + (coeffB/3)*upperLimit**3 + (coeffC/2)*upperLimit**2 + coeffD*upperLimit).toFixed(3)}`",
-      "`F(${lowerLimit}) = ${((coeffA/4)*lowerLimit**4 + (coeffB/3)*lowerLimit**3 + (coeffC/2)*lowerLimit**2 + coeffD*lowerLimit).toFixed(3)}`",
-      "`∫ f(x) dx = ${((coeffA/4)*upperLimit**4 + (coeffB/3)*upperLimit**3 + (coeffC/2)*upperLimit**2 + coeffD*upperLimit - ((coeffA/4)*lowerLimit**4 + (coeffB/3)*lowerLimit**3 + (coeffC/2)*lowerLimit**2 + coeffD*lowerLimit)).toFixed(3)}`"
-    ]
+    "breakdown": "coeffA",
+    "antiderivativeExpression": "antiderivativeExpression",
+    "upperEvaluation": "upperEvaluation",
+    "lowerEvaluation": "lowerEvaluation",
+    "result": "result"
   },
   "outputs": {
-    "primary": "definiteIntegral",
+    "primary": "primary",
     "breakdown": [
       "antiderivativeExpression",
       "upperEvaluation",
@@ -68,10 +115,10 @@
       "result"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

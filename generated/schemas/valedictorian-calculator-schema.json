@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Percentage of defect-free outputs"
+      "businessContext": "Percentage of defect-free outputs",
+      "label_i18n": {
+        "en": "Quality Rate",
+        "tr": "Quality Rate",
+        "de": "Quality Rate",
+        "fr": "Quality Rate",
+        "es": "Quality Rate",
+        "ar": "Quality Rate"
+      }
     },
     {
       "id": "efficiencyRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Actual production rate vs. ideal rate"
+      "businessContext": "Actual production rate vs. ideal rate",
+      "label_i18n": {
+        "en": "Efficiency Rate",
+        "tr": "Efficiency Rate",
+        "de": "Efficiency Rate",
+        "fr": "Efficiency Rate",
+        "es": "Efficiency Rate",
+        "ar": "Efficiency Rate"
+      }
     },
     {
       "id": "availabilityRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Percentage of scheduled uptime"
+      "businessContext": "Percentage of scheduled uptime",
+      "label_i18n": {
+        "en": "Availability Rate",
+        "tr": "Availability Rate",
+        "de": "Availability Rate",
+        "fr": "Availability Rate",
+        "es": "Availability Rate",
+        "ar": "Availability Rate"
+      }
     },
     {
       "id": "costIndex",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Cost index relative to standard (100 = standard, higher is worse)"
+      "businessContext": "Cost index relative to standard (100 = standard, higher is worse)",
+      "label_i18n": {
+        "en": "Cost Index",
+        "tr": "Cost Index",
+        "de": "Cost Index",
+        "fr": "Cost Index",
+        "es": "Cost Index",
+        "ar": "Cost Index"
+      }
     },
     {
       "id": "safetyScore",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Safety performance score (0–100)"
+      "businessContext": "Safety performance score (0–100)",
+      "label_i18n": {
+        "en": "Safety Score",
+        "tr": "Safety Score",
+        "de": "Safety Score",
+        "fr": "Safety Score",
+        "es": "Safety Score",
+        "ar": "Safety Score"
+      }
     },
     {
       "id": "energyEfficiency",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 75,
-      "businessContext": "Energy consumption performance vs. baseline"
+      "businessContext": "Energy consumption performance vs. baseline",
+      "label_i18n": {
+        "en": "Energy Efficiency",
+        "tr": "Energy Efficiency",
+        "de": "Energy Efficiency",
+        "fr": "Energy Efficiency",
+        "es": "Energy Efficiency",
+        "ar": "Energy Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,7 @@
     "energyComponent": "energyEfficiency / 100 * 0.1"
   },
   "outputs": {
-    "primary": "valedictorianScore",
+    "primary": "primary",
     "breakdown": [
       "qualityComponent",
       "efficiencyComponent",
@@ -70,10 +118,10 @@
       "energyComponent"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "Üretim & İmalat",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "sustainability-resource-esg"
 }

@@ -18,6 +18,9 @@ export const Feet_per_second_to_mph_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Feet_per_second_to_mph_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (() => { const mph = (input.feetPerSecond + input.calibrationOffset) * (3600 / 5280) * input.outputUnitScaling; return +mph.toFixed(input.precision); })(); results["convertToMph"] = Number.isFinite(v) ? v : 0; } catch { results["convertToMph"] = 0; }
+  try { const v = input.feetPerSecond + input.calibrationOffset; results["adjustedSpeed___feetPerSecond___calibrat"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedSpeed___feetPerSecond___calibrat"] = 0; }
+  try { const v = adjustedSpeed * (3600 / 5280) * input.outputUnitScaling; results["mphRaw___adjustedSpeed____3600___5280___"] = Number.isFinite(v) ? v : 0; } catch { results["mphRaw___adjustedSpeed____3600___5280___"] = 0; }
+  try { const v = Math.round(mphRaw, input.precision); results["round_mphRaw__precision_"] = Number.isFinite(v) ? v : 0; } catch { results["round_mphRaw__precision_"] = 0; }
   return results;
 }
 

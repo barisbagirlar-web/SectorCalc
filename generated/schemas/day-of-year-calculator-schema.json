@@ -5,41 +5,81 @@
       "id": "month",
       "label": "Month",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Input month (1–12)"
+      "businessContext": "Input month (1–12)",
+      "label_i18n": {
+        "en": "Month",
+        "tr": "Month",
+        "de": "Month",
+        "fr": "Month",
+        "es": "Month",
+        "ar": "Month"
+      }
     },
     {
       "id": "day",
       "label": "Day",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Input day (1–31)"
+      "businessContext": "Input day (1–31)",
+      "label_i18n": {
+        "en": "Day",
+        "tr": "Day",
+        "de": "Day",
+        "fr": "Day",
+        "es": "Day",
+        "ar": "Day"
+      }
     },
     {
       "id": "year",
       "label": "Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2023,
-      "businessContext": "Input year (e.g., 2023)"
+      "businessContext": "Input year (e.g., 2023)",
+      "label_i18n": {
+        "en": "Year",
+        "tr": "Year",
+        "de": "Year",
+        "fr": "Year",
+        "es": "Year",
+        "ar": "Year"
+      }
     },
     {
       "id": "fiscalStartMonth",
       "label": "Fiscal Start Month",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Month when fiscal year starts (1–12)"
+      "businessContext": "Month when fiscal year starts (1–12)",
+      "label_i18n": {
+        "en": "Fiscal Start Month",
+        "tr": "Fiscal Start Month",
+        "de": "Fiscal Start Month",
+        "fr": "Fiscal Start Month",
+        "es": "Fiscal Start Month",
+        "ar": "Fiscal Start Month"
+      }
     },
     {
       "id": "fiscalStartDay",
       "label": "Fiscal Start Day",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Day when fiscal year starts (1–31)"
+      "businessContext": "Day when fiscal year starts (1–31)",
+      "label_i18n": {
+        "en": "Fiscal Start Day",
+        "tr": "Fiscal Start Day",
+        "de": "Fiscal Start Day",
+        "fr": "Fiscal Start Day",
+        "es": "Fiscal Start Day",
+        "ar": "Fiscal Start Day"
+      }
     }
   ],
   "formulas": {
@@ -55,8 +95,8 @@
       "dayOfFiscalYear"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

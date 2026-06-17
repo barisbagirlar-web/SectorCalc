@@ -139,7 +139,8 @@
       },
       "businessContext_i18n": {
         "en": "Defines which emission scopes are included in the carbon intensity calculation."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "use_verified_data",
@@ -152,7 +153,8 @@
       },
       "businessContext_i18n": {
         "en": "If true, only data from verified sources (e.g., accredited verifier) is used; otherwise estimated data may be included."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -192,142 +194,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "total_emissions",
-      "label": "Total Emissions",
-      "description": "Annual total CO2e emissions from production.",
-      "formula": "annual_production_volume * carbon_intensity",
-      "unit": "tCO2e per year"
-    },
-    {
-      "id": "allowable_emissions",
-      "label": "Allowable Emissions (Free Allocation)",
-      "description": "Emissions covered by free allowances.",
-      "formula": "total_emissions * (free_allocation_percentage / 100)",
-      "unit": "tCO2e per year"
-    },
-    {
-      "id": "exposed_emissions",
-      "label": "Exposed Emissions",
-      "description": "Emissions subject to CBAM certificate purchase.",
-      "formula": "total_emissions - allowable_emissions",
-      "unit": "tCO2e per year"
-    },
-    {
-      "id": "cbam_cost_per_ton",
-      "label": "CBAM Cost per Ton Product",
-      "description": "Financial exposure per ton of product due to CBAM.",
-      "formula": "(exposed_emissions * cbam_carbon_price) / annual_production_volume",
-      "unit": "EUR per ton product"
-    },
-    {
-      "id": "efficiency_adjusted_cost",
-      "label": "Efficiency Adjusted Cost",
-      "description": "CBAM cost adjusted for production efficiency (lean principle).",
-      "formula": "cbam_cost_per_ton / production_efficiency_index",
-      "unit": "EUR per ton product"
-    },
-    {
-      "id": "compliance_risk_factor",
-      "label": "Compliance Risk Factor",
-      "description": "Multiplier reflecting data quality and readiness risk.",
-      "formula": "1 + ((100 - compliance_readiness_score) / 100)",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "total_cbam_exposure",
-      "label": "Total CBAM Exposure (Primary Result)",
-      "description": "Risk-adjusted total financial exposure from CBAM, incorporating efficiency and compliance factors.",
-      "formula": "efficiency_adjusted_cost * compliance_risk_factor * annual_production_volume",
-      "unit": "EUR per year"
-    }
+    "annual_production_volume",
+    "annual_production_volume",
+    "annual_production_volume",
+    "annual_production_volume",
+    "annual_production_volume",
+    "annual_production_volume",
+    "annual_production_volume"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_cbam_exposure",
-      "label": "Total CBAM Exposure",
-      "unit": "EUR per year",
-      "description": "Risk-adjusted total financial exposure from CBAM."
-    },
-    "breakdown": {
-      "total_emissions": {
-        "label": "Total Emissions",
-        "unit": "tCO2e per year"
-      },
-      "allowable_emissions": {
-        "label": "Allowable Emissions",
-        "unit": "tCO2e per year"
-      },
-      "exposed_emissions": {
-        "label": "Exposed Emissions",
-        "unit": "tCO2e per year"
-      },
-      "cbam_cost_per_ton": {
-        "label": "CBAM Cost per Ton",
-        "unit": "EUR per ton product"
-      },
-      "efficiency_adjusted_cost": {
-        "label": "Efficiency Adjusted Cost",
-        "unit": "EUR per ton product"
-      },
-      "compliance_risk_factor": {
-        "label": "Compliance Risk Factor",
-        "unit": "dimensionless"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "low_efficiency_waste",
-        "label": "Low Efficiency Waste",
-        "description": "Additional emissions due to production efficiency below 1.0 (lean waste).",
-        "value": "annual_production_volume * carbon_intensity * (1 - production_efficiency_index)",
-        "unit": "tCO2e per year"
-      },
-      {
-        "id": "benchmark_gap",
-        "label": "Benchmark Gap",
-        "description": "Excess emissions compared to industry benchmark (ISO 50001).",
-        "value": "annual_production_volume * (carbon_intensity - industry_benchmark_intensity)",
-        "unit": "tCO2e per year"
-      },
-      {
-        "id": "compliance_data_gap",
-        "label": "Compliance Data Gap",
-        "description": "Potential additional cost due to unverified or missing data.",
-        "value": "total_cbam_exposure * (1 - (compliance_readiness_score / 100))",
-        "unit": "EUR per year"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "improve_oee",
-        "label": "Improve Overall Equipment Effectiveness",
-        "description": "Implement Lean Six Sigma to reduce waste and increase efficiency index above 0.85.",
-        "priority": "high"
-      },
-      {
-        "id": "reduce_carbon_intensity",
-        "label": "Reduce Carbon Intensity",
-        "description": "Adopt BAT and renewable energy to lower intensity towards industry benchmark.",
-        "priority": "high"
-      },
-      {
-        "id": "enhance_compliance_system",
-        "label": "Enhance Compliance Data System",
-        "description": "Invest in automated data collection and third-party verification to raise readiness score above 80.",
-        "priority": "medium"
-      },
-      {
-        "id": "optimize_free_allocation",
-        "label": "Optimize Free Allocation Strategy",
-        "description": "Review allocation methodology and consider early investment in low-carbon processes.",
-        "priority": "medium"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.78
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "cbam-exposure-check-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon"
 }

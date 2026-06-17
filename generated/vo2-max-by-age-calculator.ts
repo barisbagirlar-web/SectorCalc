@@ -20,13 +20,16 @@ export const Vo2_max_by_age_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Vo2_max_by_age_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 132.853 - 0.0769 * input.weight - 0.3877 * input.age + 6.315 * input.gender - 3.2649 * input.walkTime - 0.1565 * input.heartRate; results["vo2max"] = Number.isFinite(v) ? v : 0; } catch { results["vo2max"] = 0; }
+  try { const v = 132.853 - 0.0769 * input.weight - 0.3877 * input.age + 6.315 * input.gender - 3.2649 * input.walkTime - 0.1565 * input.heartRate; results["132_853___0_0769___weight___0_3877___age"] = Number.isFinite(v) ? v : 0; } catch { results["132_853___0_0769___weight___0_3877___age"] = 0; }
+  results["Compare_result_with_normative_values_bas"] = 0;
+  try { const v = VO2max (ml/kg/min); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateVo2_max_by_age_calculator(input: Vo2_max_by_age_calculatorInput): Vo2_max_by_age_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["VO2max"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

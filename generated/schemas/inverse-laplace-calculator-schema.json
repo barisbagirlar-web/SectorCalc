@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "Coefficient of the numerator polynomial in F(s)"
+      "businessContext": "Coefficient of the numerator polynomial in F(s)",
+      "label_i18n": {
+        "en": "F(s) Numerator Coefficient",
+        "tr": "F(s) Numerator Coefficient",
+        "de": "F(s) Numerator Coefficient",
+        "fr": "F(s) Numerator Coefficient",
+        "es": "F(s) Numerator Coefficient",
+        "ar": "F(s) Numerator Coefficient"
+      }
     },
     {
       "id": "numerator_order",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "none",
       "default": 0,
-      "businessContext": "Order of the numerator polynomial (0 for constant)"
+      "businessContext": "Order of the numerator polynomial (0 for constant)",
+      "label_i18n": {
+        "en": "Numerator Order",
+        "tr": "Numerator Order",
+        "de": "Numerator Order",
+        "fr": "Numerator Order",
+        "es": "Numerator Order",
+        "ar": "Numerator Order"
+      }
     },
     {
       "id": "denominator_coeffs",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "Coefficients of denominator polynomial from highest to lowest order, e.g., 1,2,1 for s^2+2s+1"
+      "businessContext": "Coefficients of denominator polynomial from highest to lowest order, e.g., 1,2,1 for s^2+2s+1",
+      "label_i18n": {
+        "en": "Denominator Coefficients (comma-separated)",
+        "tr": "Denominator Coefficients (comma-separated)",
+        "de": "Denominator Coefficients (comma-separated)",
+        "fr": "Denominator Coefficients (comma-separated)",
+        "es": "Denominator Coefficients (comma-separated)",
+        "ar": "Denominator Coefficients (comma-separated)"
+      }
     },
     {
       "id": "denominator_order",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "Order of the denominator polynomial"
+      "businessContext": "Order of the denominator polynomial",
+      "label_i18n": {
+        "en": "Denominator Order",
+        "tr": "Denominator Order",
+        "de": "Denominator Order",
+        "fr": "Denominator Order",
+        "es": "Denominator Order",
+        "ar": "Denominator Order"
+      }
     },
     {
       "id": "time_value",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Time at which to evaluate the inverse Laplace transform"
+      "businessContext": "Time at which to evaluate the inverse Laplace transform",
+      "label_i18n": {
+        "en": "Time t (s)",
+        "tr": "Time t (s)",
+        "de": "Time t (s)",
+        "fr": "Time t (s)",
+        "es": "Time t (s)",
+        "ar": "Time t (s)"
+      }
     },
     {
       "id": "damping_ratio",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "none",
       "default": 0.5,
-      "businessContext": "Damping ratio for second-order systems"
+      "businessContext": "Damping ratio for second-order systems",
+      "label_i18n": {
+        "en": "Damping Ratio ζ",
+        "tr": "Damping Ratio ζ",
+        "de": "Damping Ratio ζ",
+        "fr": "Damping Ratio ζ",
+        "es": "Damping Ratio ζ",
+        "ar": "Damping Ratio ζ"
+      }
     },
     {
       "id": "natural_frequency",
@@ -55,27 +103,35 @@
       "type": "number",
       "unit": "rad/s",
       "default": 1,
-      "businessContext": "Undamped natural frequency for second-order systems"
+      "businessContext": "Undamped natural frequency for second-order systems",
+      "label_i18n": {
+        "en": "Natural Frequency ωn (rad/s)",
+        "tr": "Natural Frequency ωn (rad/s)",
+        "de": "Natural Frequency ωn (rad/s)",
+        "fr": "Natural Frequency ωn (rad/s)",
+        "es": "Natural Frequency ωn (rad/s)",
+        "ar": "Natural Frequency ωn (rad/s)"
+      }
     }
   ],
   "formulas": {
     "primary": "if (denominator_order === 1) { return (F_s / denominator_coeffs) * Math.exp(-denominator_coeffs * time_value); } else if (denominator_order === 2) { let omega_n = natural_frequency; let zeta = damping_ratio; let omega_d = omega_n * Math.sqrt(1 - zeta * zeta); let numerator = F_s; let denominator = denominator_coeffs; return (numerator / denominator) * (1 - (Math.exp(-zeta * omega_n * time_value) / Math.sqrt(1 - zeta * zeta)) * Math.sin(omega_d * time_value + Math.acos(zeta))); } else { return 0; }",
-    "breakdown": [
-      "if (denominator_order === 1) { let a = denominator_coeffs; let K = F_s; return K * Math.exp(-a * time_value); }",
-      "if (denominator_order === 2) { let omega_n = natural_frequency; let zeta = damping_ratio; let omega_d = omega_n * Math.sqrt(1 - zeta * zeta); let K = F_s; let denom = denominator_coeffs; let step_response = 1 - (Math.exp(-zeta * omega_n * time_value) / Math.sqrt(1 - zeta * zeta)) * Math.sin(omega_d * time_value + Math.acos(zeta)); return (K / denom) * step_response; }"
-    ]
+    "breakdown": "F_s",
+    "Exponential_term": "Exponential term",
+    "Sinusoidal_term": "Sinusoidal term",
+    "result": "f(t) value"
   },
   "outputs": {
-    "primary": "f(t) value",
+    "primary": "result",
     "breakdown": [
       "Exponential term",
       "Sinusoidal term"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

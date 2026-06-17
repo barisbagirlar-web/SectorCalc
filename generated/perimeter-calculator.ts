@@ -26,6 +26,7 @@ export const Perimeter_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Perimeter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.side1 + input.side2 + input.side3 + input.side4 + input.side5 + input.side6 + input.side7 + input.side8; results["perimeter"] = Number.isFinite(v) ? v : 0; } catch { results["perimeter"] = 0; }
+  try { const v = input.side1 + input.side2 + input.side3 + input.side4 + input.side5 + input.side6 + input.side7 + input.side8; results["perimeter___side1___side2___side3___side"] = Number.isFinite(v) ? v : 0; } catch { results["perimeter___side1___side2___side3___side"] = 0; }
   return results;
 }
 

@@ -27,32 +27,19 @@ export const Mortgage_calculatorInputSchema = z.object({
   payment_frequency: z.enum(['monthly', 'biweekly', 'accelerated_biweekly']).default('monthly'),
 });
 
-function evaluateAllFormulas(input: Mortgage_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.loan_amount / (1 - input.down_payment_percent / 100); results["property_value"] = Number.isFinite(v) ? v : 0; } catch { results["property_value"] = 0; }
-  try { const v = input.annual_interest_rate / 100 / 12; results["monthly_interest_rate"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_interest_rate"] = 0; }
-  try { const v = input.loan_term_years * 12 * (input.payment_frequency == 'biweekly' ? 26/12 : input.payment_frequency == 'accelerated_biweekly' ? 26/12 : 1); results["number_of_payments"] = Number.isFinite(v) ? v : 0; } catch { results["number_of_payments"] = 0; }
-  try { const v = input.loan_amount * ((results["monthly_interest_rate"] ?? 0) * (1 + (results["monthly_interest_rate"] ?? 0))^(results["number_of_payments"] ?? 0)) / ((1 + (results["monthly_interest_rate"] ?? 0))^(results["number_of_payments"] ?? 0) - 1); results["monthly_principal_interest"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_principal_interest"] = 0; }
-  try { const v = ((results["property_value"] ?? 0) * (input.property_tax_rate / 100) + (results["property_value"] ?? 0) * (input.insurance_rate / 100)) / 12; results["monthly_taxes_insurance"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_taxes_insurance"] = 0; }
-  try { const v = (results["monthly_principal_interest"] ?? 0) + (results["monthly_taxes_insurance"] ?? 0) + input.monthly_hoa; results["monthly_payment"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_payment"] = 0; }
-  try { const v = (results["monthly_principal_interest"] ?? 0) * (results["number_of_payments"] ?? 0) - input.loan_amount; results["total_interest"] = Number.isFinite(v) ? v : 0; } catch { results["total_interest"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Mortgage_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateMortgage_calculator(input: Mortgage_calculatorInput): Mortgage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["monthly_payment"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    principal_and_interest: values["principal_and_interest"] ?? 0,
-    taxes_and_insurance: values["taxes_and_insurance"] ?? 0,
-    hoa: values["hoa"] ?? 0,
-    total_interest: values["total_interest"] ?? 0,
-    property_value: values["property_value"] ?? 0,
-    debt_to_income_ratio: values["debt_to_income_ratio"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Private Mortgage Insurance (PMI)","Opportunity Cost of Down Payment","Inflation Erosion of Fixed Payment"];
-  const suggestedActions: string[] = ["Increase Down Payment to 20%","Consider 15-Year Term","Shop for Lower Interest Rate","Pay Down Existing Debt"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -71,7 +58,7 @@ export function calculateMortgage_calculator(input: Mortgage_calculatorInput): M
 
 export interface Mortgage_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { principal_and_interest: number; taxes_and_insurance: number; hoa: number; total_interest: number; property_value: number; debt_to_income_ratio: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

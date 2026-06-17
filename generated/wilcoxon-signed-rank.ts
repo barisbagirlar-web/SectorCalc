@@ -30,13 +30,19 @@ function evaluateAllFormulas(input: Wilcoxon_signed_rankInput): Record<string, n
   try { const v = ((results["W"] ?? 0) - (results["expectedW"] ?? 0)) / (results["stdW"] ?? 0); results["z"] = Number.isFinite(v) ? v : 0; } catch { results["z"] = 0; }
   try { const v = 2 * (1 - normalCDF(Math.abs((results["z"] ?? 0)))); results["pValue"] = Number.isFinite(v) ? v : 0; } catch { results["pValue"] = 0; }
   try { const v = (results["pValue"] ?? 0) < input.alpha; results["rejectNull"] = Number.isFinite(v) ? v : 0; } catch { results["rejectNull"] = 0; }
+  results["W___sum_of_positive_ranks_"] = 0;
+  results["W___sum_of_negative_ranks_"] = 0;
+  results["n__number_of_non_zero_differences_"] = 0;
+  try { const v = (results["z"] ?? 0)-score; results["z_score"] = Number.isFinite(v) ? v : 0; } catch { results["z_score"] = 0; }
+  try { const v = p-value; results["p_value"] = Number.isFinite(v) ? v : 0; } catch { results["p_value"] = 0; }
+  results["Reject_null_hypothesis_"] = 0;
   return results;
 }
 
 
 export function calculateWilcoxon_signed_rank(input: Wilcoxon_signed_rankInput): Wilcoxon_signed_rankOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["W"] ?? 0;
+  const totalWasteCost = values["differences"] ?? 0;
   const breakdown = {
     
   };

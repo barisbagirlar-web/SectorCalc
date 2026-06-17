@@ -18,6 +18,7 @@ export const Gravitational_force_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Gravitational_force_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.gravitationalConstant * input.mass1 * input.mass2 / (input.distance ** 2); results["force"] = Number.isFinite(v) ? v : 0; } catch { results["force"] = 0; }
+  try { const v = input.gravitationalConstant * input.mass1 * input.mass2 / (input.distance ** 2); results["force_copy"] = Number.isFinite(v) ? v : 0; } catch { results["force_copy"] = 0; }
   return results;
 }
 

@@ -30,7 +30,7 @@ function evaluateAllFormulas(input: Trigonometry_calculatorInput): Record<string
 
 export function calculateTrigonometry_calculator(input: Trigonometry_calculatorInput): Trigonometry_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["y"] ?? 0;
+  const totalWasteCost = values["x_rad"] ?? 0;
   const breakdown = {
     
   };

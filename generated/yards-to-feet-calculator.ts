@@ -18,6 +18,8 @@ export const Yards_to_feet_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Yards_to_feet_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.roundingMethod == 0 ? Math.round(input.yards * input.conversionFactor * Math.pow(10, input.precision)) / Math.pow(10, input.precision) : input.roundingMethod == 1 ? Math.floor(input.yards * input.conversionFactor * Math.pow(10, input.precision)) / Math.pow(10, input.precision) : Math.ceil(input.yards * input.conversionFactor * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.yards * input.conversionFactor; results["yards___conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["yards___conversionFactor"] = 0; }
+  try { const v = input.conversionFactor; results["conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
   return results;
 }
 

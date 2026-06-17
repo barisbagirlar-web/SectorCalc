@@ -5,49 +5,97 @@
       "id": "base",
       "label": "Base",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "The base number to be raised to a power."
+      "businessContext": "The base number to be raised to a power.",
+      "label_i18n": {
+        "en": "Base",
+        "tr": "Base",
+        "de": "Base",
+        "fr": "Base",
+        "es": "Base",
+        "ar": "Base"
+      }
     },
     {
       "id": "exponent",
       "label": "Exponent",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "The power to which the base is raised."
+      "businessContext": "The power to which the base is raised.",
+      "label_i18n": {
+        "en": "Exponent",
+        "tr": "Exponent",
+        "de": "Exponent",
+        "fr": "Exponent",
+        "es": "Exponent",
+        "ar": "Exponent"
+      }
     },
     {
       "id": "multiplier",
       "label": "Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiply the power result by this factor."
+      "businessContext": "Multiply the power result by this factor.",
+      "label_i18n": {
+        "en": "Multiplier",
+        "tr": "Multiplier",
+        "de": "Multiplier",
+        "fr": "Multiplier",
+        "es": "Multiplier",
+        "ar": "Multiplier"
+      }
     },
     {
       "id": "constantAdd",
       "label": "Constant Addition",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Add a constant to the result after multiplication."
+      "businessContext": "Add a constant to the result after multiplication.",
+      "label_i18n": {
+        "en": "Constant Addition",
+        "tr": "Constant Addition",
+        "de": "Constant Addition",
+        "fr": "Constant Addition",
+        "es": "Constant Addition",
+        "ar": "Constant Addition"
+      }
     },
     {
       "id": "modulus",
       "label": "Modulus",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "If greater than 0, the result is taken modulo this value."
+      "businessContext": "If greater than 0, the result is taken modulo this value.",
+      "label_i18n": {
+        "en": "Modulus",
+        "tr": "Modulus",
+        "de": "Modulus",
+        "fr": "Modulus",
+        "es": "Modulus",
+        "ar": "Modulus"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for final rounding."
+      "businessContext": "Number of decimal places for final rounding.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -66,8 +114,8 @@
       "moduloApplied"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

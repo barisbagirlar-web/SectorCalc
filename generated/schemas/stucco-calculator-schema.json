@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Sıvanacak toplam duvar alanı (m² cinsinden)."
+      "businessContext": "Sıvanacak toplam duvar alanı (m² cinsinden).",
+      "label_i18n": {
+        "en": "Duvar Alanı",
+        "tr": "Duvar Alanı",
+        "de": "Duvar Alanı",
+        "fr": "Duvar Alanı",
+        "es": "Duvar Alanı",
+        "ar": "Duvar Alanı"
+      }
     },
     {
       "id": "thickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Uygulanacak toplam sıva kalınlığı (mm cinsinden)."
+      "businessContext": "Uygulanacak toplam sıva kalınlığı (mm cinsinden).",
+      "label_i18n": {
+        "en": "Sıva Kalınlığı",
+        "tr": "Sıva Kalınlığı",
+        "de": "Sıva Kalınlığı",
+        "fr": "Sıva Kalınlığı",
+        "es": "Sıva Kalınlığı",
+        "ar": "Sıva Kalınlığı"
+      }
     },
     {
       "id": "kgPerSqmPerMm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/(m²·mm)",
       "default": 1,
-      "businessContext": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm)."
+      "businessContext": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm).",
+      "label_i18n": {
+        "en": "Karışım Yoğunluğu",
+        "tr": "Karışım Yoğunluğu",
+        "de": "Karışım Yoğunluğu",
+        "fr": "Karışım Yoğunluğu",
+        "es": "Karışım Yoğunluğu",
+        "ar": "Karışım Yoğunluğu"
+      }
     },
     {
       "id": "bagWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 25,
-      "businessContext": "Bir torba sıva karışımının net ağırlığı (kg)."
+      "businessContext": "Bir torba sıva karışımının net ağırlığı (kg).",
+      "label_i18n": {
+        "en": "Torba Ağırlığı",
+        "tr": "Torba Ağırlığı",
+        "de": "Torba Ağırlığı",
+        "fr": "Torba Ağırlığı",
+        "es": "Torba Ağırlığı",
+        "ar": "Torba Ağırlığı"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,25 +71,36 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Uygulama sırasında oluşacak fire oranı (% cinsinden)."
+      "businessContext": "Uygulama sırasında oluşacak fire oranı (% cinsinden).",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
     "totalDryMix": "wallArea * thickness * kgPerSqmPerMm * (1 + wasteFactor / 100)",
-    "totalBags": "Math.ceil(totalDryMix / bagWeight)"
+    "totalBags": "Math.ceil(totalDryMix / bagWeight)",
+    "__totalDryMix_toFixed_2____kg": "{{totalDryMix.toFixed(2)}} kg",
+    "___wasteFactor__": "%{{wasteFactor}}",
+    "__bagWeight___kg": "{{bagWeight}} kg"
   },
   "outputs": {
-    "primary": "Gerekli Torba Sayısı: {{totalBags}}",
+    "primary": "totalDryMix",
     "breakdown": [
       "Toplam kuru karışım (fire dahil): {{totalDryMix.toFixed(2)}} kg",
       "Fire oranı: %{{wasteFactor}}",
       "Torba ağırlığı: {{bagWeight}} kg"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "sustainability-resource-esg"
 }

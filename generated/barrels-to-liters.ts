@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Barrels_to_litersInput {
   barrels: number;
   barrelType: number;
+  auto_input_3: number;
 }
 
 export const Barrels_to_litersInputSchema = z.object({
   barrels: z.number().default(1),
   barrelType: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Barrels_to_litersInput): Record<string, number> {

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "psi",
       "default": 0,
-      "businessContext": "The pressure value in pounds per square inch to convert."
+      "businessContext": "The pressure value in pounds per square inch to convert.",
+      "label_i18n": {
+        "en": "Pressure in PSI",
+        "tr": "Pressure in PSI",
+        "de": "Pressure in PSI",
+        "fr": "Pressure in PSI",
+        "es": "Pressure in PSI",
+        "ar": "Pressure in PSI"
+      }
     },
     {
       "id": "conversion_factor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Pa/psi",
       "default": 6894.76,
-      "businessContext": "Standard conversion factor from PSI to Pascals. Calibrated per ISO 80000-4."
+      "businessContext": "Standard conversion factor from PSI to Pascals. Calibrated per ISO 80000-4.",
+      "label_i18n": {
+        "en": "Conversion Factor (psi to Pa)",
+        "tr": "Conversion Factor (psi to Pa)",
+        "de": "Conversion Factor (psi to Pa)",
+        "fr": "Conversion Factor (psi to Pa)",
+        "es": "Conversion Factor (psi to Pa)",
+        "ar": "Conversion Factor (psi to Pa)"
+      }
     },
     {
       "id": "calibration_offset",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "Pa",
       "default": 0,
-      "businessContext": "Additive offset for sensor calibration, per ISO 17025."
+      "businessContext": "Additive offset for sensor calibration, per ISO 17025.",
+      "label_i18n": {
+        "en": "Calibration Offset",
+        "tr": "Calibration Offset",
+        "de": "Calibration Offset",
+        "fr": "Calibration Offset",
+        "es": "Calibration Offset",
+        "ar": "Calibration Offset"
+      }
     },
     {
       "id": "decimal_places",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output result, for industrial reporting."
+      "businessContext": "Number of decimal places for the output result, for industrial reporting.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "pascal_with_offset"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",
-  "categorySlug": "sustainability-resource-esg"
+  "categorySlug": "quality-six-sigma"
 }

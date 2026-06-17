@@ -30,7 +30,7 @@ function evaluateAllFormulas(input: Data_cap_calculatorInput): Record<string, nu
 
 export function calculateData_cap_calculator(input: Data_cap_calculatorInput): Data_cap_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["estimatedOverageCost"] ?? 0;
+  const totalWasteCost = values["dailyAverageUsage"] ?? 0;
   const breakdown = {
     
   };

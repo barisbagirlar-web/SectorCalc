@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 2020,
-      "businessContext": "Tarih hesaplamasında başlangıç yılı"
+      "businessContext": "Tarih hesaplamasında başlangıç yılı",
+      "label_i18n": {
+        "en": "Başlangıç Yılı",
+        "tr": "Başlangıç Yılı",
+        "de": "Başlangıç Yılı",
+        "fr": "Başlangıç Yılı",
+        "es": "Başlangıç Yılı",
+        "ar": "Başlangıç Yılı"
+      }
     },
     {
       "id": "startMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Tarih hesaplamasında başlangıç ayı (1-12)"
+      "businessContext": "Tarih hesaplamasında başlangıç ayı (1-12)",
+      "label_i18n": {
+        "en": "Başlangıç Ayı",
+        "tr": "Başlangıç Ayı",
+        "de": "Başlangıç Ayı",
+        "fr": "Başlangıç Ayı",
+        "es": "Başlangıç Ayı",
+        "ar": "Başlangıç Ayı"
+      }
     },
     {
       "id": "startDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Tarih hesaplamasında başlangıç günü"
+      "businessContext": "Tarih hesaplamasında başlangıç günü",
+      "label_i18n": {
+        "en": "Başlangıç Günü",
+        "tr": "Başlangıç Günü",
+        "de": "Başlangıç Günü",
+        "fr": "Başlangıç Günü",
+        "es": "Başlangıç Günü",
+        "ar": "Başlangıç Günü"
+      }
     },
     {
       "id": "yearsToAdd",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 0,
-      "businessContext": "Başlangıç tarihine eklenecek yıl miktarı"
+      "businessContext": "Başlangıç tarihine eklenecek yıl miktarı",
+      "label_i18n": {
+        "en": "Eklenecek Yıl",
+        "tr": "Eklenecek Yıl",
+        "de": "Eklenecek Yıl",
+        "fr": "Eklenecek Yıl",
+        "es": "Eklenecek Yıl",
+        "ar": "Eklenecek Yıl"
+      }
     },
     {
       "id": "monthsToAdd",
@@ -39,25 +71,36 @@
       "type": "number",
       "unit": "ay",
       "default": 0,
-      "businessContext": "Başlangıç tarihine eklenecek ay miktarı"
+      "businessContext": "Başlangıç tarihine eklenecek ay miktarı",
+      "label_i18n": {
+        "en": "Eklenecek Ay",
+        "tr": "Eklenecek Ay",
+        "de": "Eklenecek Ay",
+        "fr": "Eklenecek Ay",
+        "es": "Eklenecek Ay",
+        "ar": "Eklenecek Ay"
+      }
     }
   ],
   "formulas": {
     "primary": "'Yeni Tarih: ' + Math.floor(((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) / 12) + '-' + (((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) % 12 + 1) + '-' + startDay",
     "breakdown0": "'Yıl: ' + Math.floor(((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) / 12)",
-    "breakdown1": "'Ay: ' + (((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) % 12 + 1) + ' Gün: ' + startDay"
+    "breakdown1": "'Ay: ' + (((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) % 12 + 1) + ' Gün: ' + startDay",
+    "Y_l_Bile_eni": "Yıl Bileşeni",
+    "Ay_ve_G_n_Bile_enleri": "Ay ve Gün Bileşenleri",
+    "result": "Yeni Tarih (YYYY-AA-GG)"
   },
   "outputs": {
-    "primary": "Yeni Tarih (YYYY-AA-GG)",
+    "primary": "result",
     "breakdown": [
       "Yıl Bileşeni",
       "Ay ve Gün Bileşenleri"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

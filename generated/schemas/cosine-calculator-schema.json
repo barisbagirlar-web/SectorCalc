@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "deg",
       "default": 0,
-      "businessContext": "Enter the angle value. Base unit is degrees unless unit selector is set to 1 (radians)."
+      "businessContext": "Enter the angle value. Base unit is degrees unless unit selector is set to 1 (radians).",
+      "label_i18n": {
+        "en": "Angle",
+        "tr": "Angle",
+        "de": "Angle",
+        "fr": "Angle",
+        "es": "Angle",
+        "ar": "Angle"
+      }
     },
     {
       "id": "unitSelector",
       "label": "Unit (0=deg,1=rad)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Select unit: 0 for degrees, 1 for radians. The angle will be interpreted accordingly."
+      "businessContext": "Select unit: 0 for degrees, 1 for radians. The angle will be interpreted accordingly.",
+      "label_i18n": {
+        "en": "Unit (0=deg,1=rad)",
+        "tr": "Unit (0=deg,1=rad)",
+        "de": "Unit (0=deg,1=rad)",
+        "fr": "Unit (0=deg,1=rad)",
+        "es": "Unit (0=deg,1=rad)",
+        "ar": "Unit (0=deg,1=rad)"
+      }
     },
     {
       "id": "amplitude",
       "label": "Amplitude",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Amplitude scaling factor for the cosine function. Default 1 gives standard cosine."
+      "businessContext": "Amplitude scaling factor for the cosine function. Default 1 gives standard cosine.",
+      "label_i18n": {
+        "en": "Amplitude",
+        "tr": "Amplitude",
+        "de": "Amplitude",
+        "fr": "Amplitude",
+        "es": "Amplitude",
+        "ar": "Amplitude"
+      }
     },
     {
       "id": "frequency",
       "label": "Frequency Multiplier (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Frequency multiplier for cosine argument: cos(b*x + phase)."
+      "businessContext": "Frequency multiplier for cosine argument: cos(b*x + phase).",
+      "label_i18n": {
+        "en": "Frequency Multiplier (b)",
+        "tr": "Frequency Multiplier (b)",
+        "de": "Frequency Multiplier (b)",
+        "fr": "Frequency Multiplier (b)",
+        "es": "Frequency Multiplier (b)",
+        "ar": "Frequency Multiplier (b)"
+      }
     },
     {
       "id": "phaseShift",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "rad",
       "default": 0,
-      "businessContext": "Phase shift added to argument. Input in radians regardless of unit selector, since phase shift is typically in radians."
+      "businessContext": "Phase shift added to argument. Input in radians regardless of unit selector, since phase shift is typically in radians.",
+      "label_i18n": {
+        "en": "Phase Shift (c)",
+        "tr": "Phase Shift (c)",
+        "de": "Phase Shift (c)",
+        "fr": "Phase Shift (c)",
+        "es": "Phase Shift (c)",
+        "ar": "Phase Shift (c)"
+      }
     },
     {
       "id": "roundTo",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for rounding the output."
+      "businessContext": "Number of decimal places for rounding the output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "rawCos"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "workforce-hr"
 }

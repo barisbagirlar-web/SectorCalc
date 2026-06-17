@@ -95,7 +95,7 @@
       "id": "order_frequency",
       "label": "Order Frequency",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "monthly",
       "options": [
         "weekly",
@@ -116,7 +116,7 @@
       "id": "use_lean_inventory",
       "label": "Use Lean Inventory Principles",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "businessContext": "If enabled, applies just-in-time ordering to reduce holding costs and waste.",
       "label_i18n": {
@@ -161,164 +161,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "order_quantity",
-      "label": "Optimal Order Quantity (EOQ)",
-      "description": "Economic Order Quantity based on annual usage, order cost, and holding cost.",
-      "formula": "SQRT((2 * annual_usage_units * order_cost) / (unit_cost * (holding_cost_rate/100)))",
-      "dependencies": [
-        "annual_usage_units",
-        "order_cost",
-        "unit_cost",
-        "holding_cost_rate"
-      ]
-    },
-    {
-      "id": "total_order_cost",
-      "label": "Total Annual Order Cost",
-      "description": "Annual cost of placing orders.",
-      "formula": "(annual_usage_units / order_quantity) * order_cost",
-      "dependencies": [
-        "annual_usage_units",
-        "order_quantity",
-        "order_cost"
-      ]
-    },
-    {
-      "id": "total_holding_cost",
-      "label": "Total Annual Holding Cost",
-      "description": "Annual cost of holding inventory.",
-      "formula": "(order_quantity / 2) * unit_cost * (holding_cost_rate/100)",
-      "dependencies": [
-        "order_quantity",
-        "unit_cost",
-        "holding_cost_rate"
-      ]
-    },
-    {
-      "id": "waste_cost",
-      "label": "Annual Waste Cost",
-      "description": "Cost of wasted supplies due to over-ordering or damage.",
-      "formula": "annual_usage_units * unit_cost * (waste_percentage/100)",
-      "dependencies": [
-        "annual_usage_units",
-        "unit_cost",
-        "waste_percentage"
-      ]
-    },
-    {
-      "id": "lean_adjustment",
-      "label": "Lean Inventory Adjustment",
-      "description": "If lean inventory is enabled, reduces holding cost by 30% and waste by 50%.",
-      "formula": "use_lean_inventory ? (total_holding_cost * 0.7 + waste_cost * 0.5) : (total_holding_cost + waste_cost)",
-      "dependencies": [
-        "use_lean_inventory",
-        "total_holding_cost",
-        "waste_cost"
-      ]
-    },
-    {
-      "id": "total_supply_cost",
-      "label": "Total Supply Cost (Base)",
-      "description": "Base cost of supplies without waste and holding.",
-      "formula": "annual_usage_units * unit_cost",
-      "dependencies": [
-        "annual_usage_units",
-        "unit_cost"
-      ]
-    },
-    {
-      "id": "total_cost",
-      "label": "Total Annual Cost (Primary Result)",
-      "description": "Comprehensive total cost including ordering, holding, waste, and lean adjustments.",
-      "formula": "total_supply_cost + total_order_cost + lean_adjustment",
-      "dependencies": [
-        "total_supply_cost",
-        "total_order_cost",
-        "lean_adjustment"
-      ]
-    }
+    "annual_usage_units",
+    "annual_usage_units",
+    "annual_usage_units",
+    "annual_usage_units",
+    "annual_usage_units",
+    "annual_usage_units",
+    "annual_usage_units"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_cost",
-      "label": "Total Annual Cost",
-      "unit": "USD",
-      "description": "Primary result: total annual cost of office supplies including all cost drivers."
-    },
-    "breakdown": {
-      "supply_cost": {
-        "id": "total_supply_cost",
-        "label": "Base Supply Cost",
-        "unit": "USD"
-      },
-      "order_cost": {
-        "id": "total_order_cost",
-        "label": "Annual Order Cost",
-        "unit": "USD"
-      },
-      "holding_cost": {
-        "id": "total_holding_cost",
-        "label": "Annual Holding Cost",
-        "unit": "USD"
-      },
-      "waste_cost": {
-        "id": "waste_cost",
-        "label": "Annual Waste Cost",
-        "unit": "USD"
-      },
-      "lean_adjustment": {
-        "id": "lean_adjustment",
-        "label": "Lean Adjustment",
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_inventory_cost",
-        "label": "Excess Inventory Cost",
-        "description": "Cost of inventory beyond optimal EOQ due to infrequent ordering.",
-        "formula": "ABS((annual_usage_units / order_frequency_in_months) - order_quantity) * unit_cost * (holding_cost_rate/100)",
-        "unit": "USD"
-      },
-      {
-        "id": "obsolescence_risk",
-        "label": "Obsolescence Risk",
-        "description": "Estimated cost of supplies becoming obsolete before use.",
-        "formula": "total_supply_cost * 0.02",
-        "unit": "USD"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_waste",
-        "label": "Reduce Waste",
-        "description": "Implement 5S and root cause analysis to reduce waste below 10%.",
-        "impact": "Potential savings of up to 20% on waste cost."
-      },
-      {
-        "id": "increase_order_frequency",
-        "label": "Increase Order Frequency",
-        "description": "Switch to weekly ordering to lower holding costs and align with lean principles.",
-        "impact": "Reduces holding cost by up to 40%."
-      },
-      {
-        "id": "adopt_lean_inventory",
-        "label": "Adopt Lean Inventory",
-        "description": "Enable lean inventory toggle to automatically reduce waste and holding costs.",
-        "impact": "Combined reduction of 30% in holding and 50% in waste costs."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_cost",
-      "label": "Data Confidence Adjusted Total Cost",
-      "description": "Total cost adjusted for data confidence (e.g., ±10% uncertainty in inputs).",
-      "formula": "total_cost * (1 + (0.1 * (1 - confidence_level)))",
-      "unit": "USD",
-      "confidence_level": 0.85
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
+  "toolName": "office-supplies-cost-calculator"
 }

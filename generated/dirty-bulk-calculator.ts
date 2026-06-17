@@ -3,37 +3,36 @@ import * as z from 'zod';
 
 export interface Dirty_bulk_calculatorInput {
   weight: number;
-  height: number;
-  age: number;
-  gender: number;
-  activityFactor: number;
-  surplusPercent: number;
+  distance: number;
+  ratePerTonKm: number;
+  cleaningSurchargePercent: number;
+  demurrageRiskFactor: number;
+  demurrageRate: number;
 }
 
 export const Dirty_bulk_calculatorInputSchema = z.object({
-  weight: z.number().default(80),
-  height: z.number().default(175),
-  age: z.number().default(25),
-  gender: z.number().default(1),
-  activityFactor: z.number().default(1.55),
-  surplusPercent: z.number().default(25),
+  weight: z.number().default(1000),
+  distance: z.number().default(500),
+  ratePerTonKm: z.number().default(0.05),
+  cleaningSurchargePercent: z.number().default(15),
+  demurrageRiskFactor: z.number().default(2),
+  demurrageRate: z.number().default(5000),
 });
 
 function evaluateAllFormulas(input: Dirty_bulk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.gender ? (10 * input.weight + 6.25 * input.height - 5 * input.age + 5) : (10 * input.weight + 6.25 * input.height - 5 * input.age - 161); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = (results["bmr"] ?? 0) * input.activityFactor; results["tdee"] = Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
-  try { const v = (results["tdee"] ?? 0) * (1 + input.surplusPercent / 100); results["targetCalories"] = Number.isFinite(v) ? v : 0; } catch { results["targetCalories"] = 0; }
-  try { const v = input.weight * 2; results["proteinGrams"] = Number.isFinite(v) ? v : 0; } catch { results["proteinGrams"] = 0; }
-  try { const v = input.weight * 0.8; results["fatGrams"] = Number.isFinite(v) ? v : 0; } catch { results["fatGrams"] = 0; }
-  try { const v = ((results["targetCalories"] ?? 0) - ((results["proteinGrams"] ?? 0) * 4 + (results["fatGrams"] ?? 0) * 9)) / 4; results["carbGrams"] = Number.isFinite(v) ? v : 0; } catch { results["carbGrams"] = 0; }
+  try { const v = input.weight * input.distance * input.ratePerTonKm; results["baseCost"] = Number.isFinite(v) ? v : 0; } catch { results["baseCost"] = 0; }
+  try { const v = (results["baseCost"] ?? 0) * (input.cleaningSurchargePercent / 100); results["cleaningSurcharge"] = Number.isFinite(v) ? v : 0; } catch { results["cleaningSurcharge"] = 0; }
+  try { const v = input.demurrageRiskFactor * input.demurrageRate; results["demurrageCost"] = Number.isFinite(v) ? v : 0; } catch { results["demurrageCost"] = 0; }
+  try { const v = (results["baseCost"] ?? 0) + (results["cleaningSurcharge"] ?? 0) + (results["demurrageCost"] ?? 0); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = (results["totalCost"] ?? 0) / input.weight; results["costPerTon"] = Number.isFinite(v) ? v : 0; } catch { results["costPerTon"] = 0; }
   return results;
 }
 
 
 export function calculateDirty_bulk_calculator(input: Dirty_bulk_calculatorInput): Dirty_bulk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["targetCalories"] ?? 0;
+  const totalWasteCost = values["totalCost"] ?? 0;
   const breakdown = {
     
   };

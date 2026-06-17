@@ -18,6 +18,8 @@ export const Pte_academic_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Pte_academic_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = Math.round((input.listening + input.reading + input.speaking + input.writing) / 4); results["overallScore"] = Number.isFinite(v) ? v : 0; } catch { results["overallScore"] = 0; }
+  results["Average_of_four_communicative_skill_scor"] = 0;
+  results["Overall_score_is_rounded_to_the_nearest_"] = 0;
   return results;
 }
 

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Üretim başına bir defalık kurulum maliyeti"
+      "businessContext": "Üretim başına bir defalık kurulum maliyeti",
+      "label_i18n": {
+        "en": "Kurulum Maliyeti",
+        "tr": "Kurulum Maliyeti",
+        "de": "Kurulum Maliyeti",
+        "fr": "Kurulum Maliyeti",
+        "es": "Kurulum Maliyeti",
+        "ar": "Kurulum Maliyeti"
+      }
     },
     {
       "id": "cycleCount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Toplam üretim çevrimi veya parça sayısı"
+      "businessContext": "Toplam üretim çevrimi veya parça sayısı",
+      "label_i18n": {
+        "en": "Çevrim Sayısı",
+        "tr": "Çevrim Sayısı",
+        "de": "Çevrim Sayısı",
+        "fr": "Çevrim Sayısı",
+        "es": "Çevrim Sayısı",
+        "ar": "Çevrim Sayısı"
+      }
     },
     {
       "id": "materialCostPerCycle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL/çevrim",
       "default": 0,
-      "businessContext": "Her çevrim başına malzeme maliyeti"
+      "businessContext": "Her çevrim başına malzeme maliyeti",
+      "label_i18n": {
+        "en": "Birim Malzeme Maliyeti",
+        "tr": "Birim Malzeme Maliyeti",
+        "de": "Birim Malzeme Maliyeti",
+        "fr": "Birim Malzeme Maliyeti",
+        "es": "Birim Malzeme Maliyeti",
+        "ar": "Birim Malzeme Maliyeti"
+      }
     },
     {
       "id": "laborCostPerHour",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/saat",
       "default": 0,
-      "businessContext": "Bir saatlik işçilik maliyeti"
+      "businessContext": "Bir saatlik işçilik maliyeti",
+      "label_i18n": {
+        "en": "Saatlik İşçilik Maliyeti",
+        "tr": "Saatlik İşçilik Maliyeti",
+        "de": "Saatlik İşçilik Maliyeti",
+        "fr": "Saatlik İşçilik Maliyeti",
+        "es": "Saatlik İşçilik Maliyeti",
+        "ar": "Saatlik İşçilik Maliyeti"
+      }
     },
     {
       "id": "cycleTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "saat",
       "default": 0.01,
-      "businessContext": "Bir çevrimin tamamlanma süresi (saat)"
+      "businessContext": "Bir çevrimin tamamlanma süresi (saat)",
+      "label_i18n": {
+        "en": "Çevrim Süresi",
+        "tr": "Çevrim Süresi",
+        "de": "Çevrim Süresi",
+        "fr": "Çevrim Süresi",
+        "es": "Çevrim Süresi",
+        "ar": "Çevrim Süresi"
+      }
     },
     {
       "id": "overheadRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TL/saat",
       "default": 0,
-      "businessContext": "Saatlik genel gider (enerji, amortisman vb.)"
+      "businessContext": "Saatlik genel gider (enerji, amortisman vb.)",
+      "label_i18n": {
+        "en": "Genel Gider Oranı",
+        "tr": "Genel Gider Oranı",
+        "de": "Genel Gider Oranı",
+        "fr": "Genel Gider Oranı",
+        "es": "Genel Gider Oranı",
+        "ar": "Genel Gider Oranı"
+      }
     }
   ],
   "formulas": {
@@ -55,10 +103,15 @@
     "setupCostPerCycle": "setupCost / cycleCount",
     "materialCostPerCycle": "materialCostPerCycle",
     "laborCostPerCycle": "laborCostPerHour * cycleTime",
-    "overheadCostPerCycle": "overheadRate * cycleTime"
+    "overheadCostPerCycle": "overheadRate * cycleTime",
+    "Kurulum_Maliyeti__TL__evrim_": "Kurulum Maliyeti (TL/çevrim)",
+    "Malzeme_Maliyeti__TL__evrim_": "Malzeme Maliyeti (TL/çevrim)",
+    "___ilik_Maliyeti__TL__evrim_": "İşçilik Maliyeti (TL/çevrim)",
+    "Genel_Gider__TL__evrim_": "Genel Gider (TL/çevrim)",
+    "result": "Çevrim Başına Maliyet (TL/çevrim)"
   },
   "outputs": {
-    "primary": "Çevrim Başına Maliyet (TL/çevrim)",
+    "primary": "result",
     "breakdown": [
       "Kurulum Maliyeti (TL/çevrim)",
       "Malzeme Maliyeti (TL/çevrim)",
@@ -66,10 +119,10 @@
       "Genel Gider (TL/çevrim)"
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Üretim & İmalat",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

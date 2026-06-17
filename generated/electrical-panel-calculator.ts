@@ -32,7 +32,7 @@ function evaluateAllFormulas(input: Electrical_panel_calculatorInput): Record<st
 
 export function calculateElectrical_panel_calculator(input: Electrical_panel_calculatorInput): Electrical_panel_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["requiredPanelRating"] ?? 0;
+  const totalWasteCost = values["totalCurrent"] ?? 0;
   const breakdown = {
     
   };

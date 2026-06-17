@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": null,
-      "businessContext": "Baby's weight in kilograms"
+      "businessContext": "Baby's weight in kilograms",
+      "label_i18n": {
+        "en": "Weight (kg)",
+        "tr": "Weight (kg)",
+        "de": "Weight (kg)",
+        "fr": "Weight (kg)",
+        "es": "Weight (kg)",
+        "ar": "Weight (kg)"
+      }
     },
     {
       "id": "length_cm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": null,
-      "businessContext": "Baby's length in centimeters"
+      "businessContext": "Baby's length in centimeters",
+      "label_i18n": {
+        "en": "Length (cm)",
+        "tr": "Length (cm)",
+        "de": "Length (cm)",
+        "fr": "Length (cm)",
+        "es": "Length (cm)",
+        "ar": "Length (cm)"
+      }
     },
     {
       "id": "weight_lb",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "lb",
       "default": null,
-      "businessContext": "Baby's weight in pounds"
+      "businessContext": "Baby's weight in pounds",
+      "label_i18n": {
+        "en": "Weight (lb)",
+        "tr": "Weight (lb)",
+        "de": "Weight (lb)",
+        "fr": "Weight (lb)",
+        "es": "Weight (lb)",
+        "ar": "Weight (lb)"
+      }
     },
     {
       "id": "length_in",
@@ -31,11 +55,22 @@
       "type": "number",
       "unit": "in",
       "default": null,
-      "businessContext": "Baby's length in inches"
+      "businessContext": "Baby's length in inches",
+      "label_i18n": {
+        "en": "Length (in)",
+        "tr": "Length (in)",
+        "de": "Length (in)",
+        "fr": "Length (in)",
+        "es": "Length (in)",
+        "ar": "Length (in)"
+      }
     }
   ],
   "formulas": {
-    "bmi": "weight_kg != null && length_cm != null ? weight_kg / Math.pow(length_cm/100, 2) : (weight_lb != null && length_in != null ? (weight_lb/2.20462) / Math.pow((length_in*2.54)/100, 2) : null)"
+    "bmi": "weight_kg != null && length_cm != null ? weight_kg / Math.pow(length_cm/100, 2) : (weight_lb != null && length_in != null ? (weight_lb/2.20462) / Math.pow((length_in*2.54)/100, 2) : null)",
+    "BMI___weight__kg_____length__m___": "BMI = weight (kg) / (length (m))²",
+    "BMI___weight_kg____length_cm_100__": "BMI = weight_kg / (length_cm/100)²",
+    "BMI____weight_lb___2_20462______length_i": "BMI = (weight_lb / 2.20462) / ((length_in * 2.54 / 100)²)"
   },
   "outputs": {
     "primary": "bmi",
@@ -45,8 +80,8 @@
       "If using imperial: BMI = (weight_lb / 2.20462) / ((length_in * 2.54 / 100)²)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

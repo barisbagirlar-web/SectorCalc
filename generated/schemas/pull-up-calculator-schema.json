@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Weight of the load to be pulled up."
+      "businessContext": "Weight of the load to be pulled up.",
+      "label_i18n": {
+        "en": "Load Weight",
+        "tr": "Load Weight",
+        "de": "Load Weight",
+        "fr": "Load Weight",
+        "es": "Load Weight",
+        "ar": "Load Weight"
+      }
     },
     {
       "id": "inclineAngle",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Angle of the incline from horizontal."
+      "businessContext": "Angle of the incline from horizontal.",
+      "label_i18n": {
+        "en": "Incline Angle",
+        "tr": "Incline Angle",
+        "de": "Incline Angle",
+        "fr": "Incline Angle",
+        "es": "Incline Angle",
+        "ar": "Incline Angle"
+      }
     },
     {
       "id": "frictionCoefficient",
       "label": "Friction Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.2,
-      "businessContext": "Coefficient of friction between load and surface."
+      "businessContext": "Coefficient of friction between load and surface.",
+      "label_i18n": {
+        "en": "Friction Coefficient",
+        "tr": "Friction Coefficient",
+        "de": "Friction Coefficient",
+        "fr": "Friction Coefficient",
+        "es": "Friction Coefficient",
+        "ar": "Friction Coefficient"
+      }
     },
     {
       "id": "mechanicalAdvantage",
       "label": "Mechanical Advantage",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Mechanical advantage from pulley systems (1 for direct pull)."
+      "businessContext": "Mechanical advantage from pulley systems (1 for direct pull).",
+      "label_i18n": {
+        "en": "Mechanical Advantage",
+        "tr": "Mechanical Advantage",
+        "de": "Mechanical Advantage",
+        "fr": "Mechanical Advantage",
+        "es": "Mechanical Advantage",
+        "ar": "Mechanical Advantage"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,10 @@
       "totalRequiredForce"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "premiumRequired": false,
+  "categorySlug": "cnc-additive-manufacturing",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

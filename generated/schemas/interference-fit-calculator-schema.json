@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Nominal diameter of the shaft"
+      "businessContext": "Nominal diameter of the shaft",
+      "label_i18n": {
+        "en": "Shaft Diameter (mm)",
+        "tr": "Shaft Diameter (mm)",
+        "de": "Shaft Diameter (mm)",
+        "fr": "Shaft Diameter (mm)",
+        "es": "Shaft Diameter (mm)",
+        "ar": "Shaft Diameter (mm)"
+      }
     },
     {
       "id": "hub_diameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Outer diameter of the hub"
+      "businessContext": "Outer diameter of the hub",
+      "label_i18n": {
+        "en": "Hub Outer Diameter (mm)",
+        "tr": "Hub Outer Diameter (mm)",
+        "de": "Hub Outer Diameter (mm)",
+        "fr": "Hub Outer Diameter (mm)",
+        "es": "Hub Outer Diameter (mm)",
+        "ar": "Hub Outer Diameter (mm)"
+      }
     },
     {
       "id": "interference",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.05,
-      "businessContext": "Radial interference between shaft and hub"
+      "businessContext": "Radial interference between shaft and hub",
+      "label_i18n": {
+        "en": "Interference (mm)",
+        "tr": "Interference (mm)",
+        "de": "Interference (mm)",
+        "fr": "Interference (mm)",
+        "es": "Interference (mm)",
+        "ar": "Interference (mm)"
+      }
     },
     {
       "id": "young_modulus_shaft",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "GPa",
       "default": 210,
-      "businessContext": "Elastic modulus of shaft material"
+      "businessContext": "Elastic modulus of shaft material",
+      "label_i18n": {
+        "en": "Young's Modulus Shaft (GPa)",
+        "tr": "Young's Modulus Shaft (GPa)",
+        "de": "Young's Modulus Shaft (GPa)",
+        "fr": "Young's Modulus Shaft (GPa)",
+        "es": "Young's Modulus Shaft (GPa)",
+        "ar": "Young's Modulus Shaft (GPa)"
+      }
     },
     {
       "id": "young_modulus_hub",
@@ -39,38 +71,74 @@
       "type": "number",
       "unit": "GPa",
       "default": 210,
-      "businessContext": "Elastic modulus of hub material"
+      "businessContext": "Elastic modulus of hub material",
+      "label_i18n": {
+        "en": "Young's Modulus Hub (GPa)",
+        "tr": "Young's Modulus Hub (GPa)",
+        "de": "Young's Modulus Hub (GPa)",
+        "fr": "Young's Modulus Hub (GPa)",
+        "es": "Young's Modulus Hub (GPa)",
+        "ar": "Young's Modulus Hub (GPa)"
+      }
     },
     {
       "id": "poisson_shaft",
       "label": "Poisson's Ratio Shaft",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.3,
-      "businessContext": "Poisson's ratio of shaft material"
+      "businessContext": "Poisson's ratio of shaft material",
+      "label_i18n": {
+        "en": "Poisson's Ratio Shaft",
+        "tr": "Poisson's Ratio Shaft",
+        "de": "Poisson's Ratio Shaft",
+        "fr": "Poisson's Ratio Shaft",
+        "es": "Poisson's Ratio Shaft",
+        "ar": "Poisson's Ratio Shaft"
+      }
     },
     {
       "id": "poisson_hub",
       "label": "Poisson's Ratio Hub",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.3,
-      "businessContext": "Poisson's ratio of hub material"
+      "businessContext": "Poisson's ratio of hub material",
+      "label_i18n": {
+        "en": "Poisson's Ratio Hub",
+        "tr": "Poisson's Ratio Hub",
+        "de": "Poisson's Ratio Hub",
+        "fr": "Poisson's Ratio Hub",
+        "es": "Poisson's Ratio Hub",
+        "ar": "Poisson's Ratio Hub"
+      }
     },
     {
       "id": "friction_coefficient",
       "label": "Friction Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.15,
-      "businessContext": "Coefficient of friction between mating surfaces"
+      "businessContext": "Coefficient of friction between mating surfaces",
+      "label_i18n": {
+        "en": "Friction Coefficient",
+        "tr": "Friction Coefficient",
+        "de": "Friction Coefficient",
+        "fr": "Friction Coefficient",
+        "es": "Friction Coefficient",
+        "ar": "Friction Coefficient"
+      }
     }
   ],
   "formulas": {
     "contact_pressure": "interference / ( (shaft_diameter/2) * ( (1/young_modulus_shaft) * (1 - poisson_shaft) + (1/young_modulus_hub) * ( (hub_diameter**2 + shaft_diameter**2) / (hub_diameter**2 - shaft_diameter**2) + poisson_hub ) ) )",
     "axial_force": "Math.PI * shaft_diameter * 1000 * contact_pressure * friction_coefficient * (shaft_diameter/2)",
     "torque_capacity": "Math.PI * shaft_diameter * 1000 * contact_pressure * friction_coefficient * (shaft_diameter/2) * (shaft_diameter/2)",
-    "von_mises_stress_hub": "contact_pressure * ( (hub_diameter**2 + shaft_diameter**2) / (hub_diameter**2 - shaft_diameter**2) )"
+    "von_mises_stress_hub": "contact_pressure * ( (hub_diameter**2 + shaft_diameter**2) / (hub_diameter**2 - shaft_diameter**2) )",
+    "_contact_pressure__MPa": "{contact_pressure} MPa",
+    "_axial_force__N": "{axial_force} N",
+    "_torque_capacity__N_mm": "{torque_capacity} N·mm",
+    "_von_mises_stress_hub__MPa": "{von_mises_stress_hub} MPa"
   },
   "outputs": {
     "primary": "contact_pressure",
@@ -81,10 +149,10 @@
       "Von Mises Stress (Hub): {von_mises_stress_hub} MPa"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

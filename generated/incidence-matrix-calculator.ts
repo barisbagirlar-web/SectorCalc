@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Incidence_matrix_calculatorInput {
   nodeCount: number;
   edgeCount: number;
+  auto_input_3: number;
 }
 
 export const Incidence_matrix_calculatorInputSchema = z.object({
   nodeCount: z.number().default(5),
   edgeCount: z.number().default(4),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Incidence_matrix_calculatorInput): Record<string, number> {

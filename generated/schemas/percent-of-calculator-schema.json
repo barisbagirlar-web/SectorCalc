@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "birim",
       "default": 100,
-      "businessContext": "Hesaplama yapılacak temel değer."
+      "businessContext": "Hesaplama yapılacak temel değer.",
+      "label_i18n": {
+        "en": "Temel Tutar",
+        "tr": "Temel Tutar",
+        "de": "Temel Tutar",
+        "fr": "Temel Tutar",
+        "es": "Temel Tutar",
+        "ar": "Temel Tutar"
+      }
     },
     {
       "id": "percent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Temel tutar üzerinden hesaplanacak yüzde oranı."
+      "businessContext": "Temel tutar üzerinden hesaplanacak yüzde oranı.",
+      "label_i18n": {
+        "en": "Yüzde",
+        "tr": "Yüzde",
+        "de": "Yüzde",
+        "fr": "Yüzde",
+        "es": "Yüzde",
+        "ar": "Yüzde"
+      }
     },
     {
       "id": "additionalFixed",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Yüzde sonucuna eklenecek sabit miktar."
+      "businessContext": "Yüzde sonucuna eklenecek sabit miktar.",
+      "label_i18n": {
+        "en": "Sabit Ek Tutar",
+        "tr": "Sabit Ek Tutar",
+        "de": "Sabit Ek Tutar",
+        "fr": "Sabit Ek Tutar",
+        "es": "Sabit Ek Tutar",
+        "ar": "Sabit Ek Tutar"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Ondalık Basamak",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Sonucun yuvarlanacağı ondalık basamak sayısı."
+      "businessContext": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "totalBeforeRounding"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

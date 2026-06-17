@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 500,
-      "businessContext": "Declared net weight on the package"
+      "businessContext": "Declared net weight on the package",
+      "label_i18n": {
+        "en": "Nominal Net Weight",
+        "tr": "Nominal Net Weight",
+        "de": "Nominal Net Weight",
+        "fr": "Nominal Net Weight",
+        "es": "Nominal Net Weight",
+        "ar": "Nominal Net Weight"
+      }
     },
     {
       "id": "processStandardDeviation",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 5,
-      "businessContext": "Standard deviation of the filling process"
+      "businessContext": "Standard deviation of the filling process",
+      "label_i18n": {
+        "en": "Process Standard Deviation",
+        "tr": "Process Standard Deviation",
+        "de": "Process Standard Deviation",
+        "fr": "Process Standard Deviation",
+        "es": "Process Standard Deviation",
+        "ar": "Process Standard Deviation"
+      }
     },
     {
       "id": "minimumLegalNetWeight",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "g",
       "default": 485,
-      "businessContext": "Minimum legal net weight allowed"
+      "businessContext": "Minimum legal net weight allowed",
+      "label_i18n": {
+        "en": "Legal Minimum Net Weight",
+        "tr": "Legal Minimum Net Weight",
+        "de": "Legal Minimum Net Weight",
+        "fr": "Legal Minimum Net Weight",
+        "es": "Legal Minimum Net Weight",
+        "ar": "Legal Minimum Net Weight"
+      }
     },
     {
       "id": "safetyFactorZ",
       "label": "Safety Factor (Z-Score)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.645,
-      "businessContext": "Z-score for desired confidence level (e.g., 1.645 for 95% one-sided)"
+      "businessContext": "Z-score for desired confidence level (e.g., 1.645 for 95% one-sided)",
+      "label_i18n": {
+        "en": "Safety Factor (Z-Score)",
+        "tr": "Safety Factor (Z-Score)",
+        "de": "Safety Factor (Z-Score)",
+        "fr": "Safety Factor (Z-Score)",
+        "es": "Safety Factor (Z-Score)",
+        "ar": "Safety Factor (Z-Score)"
+      }
     },
     {
       "id": "tareWeight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Weight of packaging/container"
+      "businessContext": "Weight of packaging/container",
+      "label_i18n": {
+        "en": "Tare Weight",
+        "tr": "Tare Weight",
+        "de": "Tare Weight",
+        "fr": "Tare Weight",
+        "es": "Tare Weight",
+        "ar": "Tare Weight"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "overfillAmount"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "Üretim & İmalat",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

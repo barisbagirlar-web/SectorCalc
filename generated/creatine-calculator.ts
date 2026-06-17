@@ -23,13 +23,15 @@ function evaluateAllFormulas(input: Creatine_calculatorInput): Record<string, nu
   try { const v = (input.totalUnits * (results["netDosagePerUnit"] ?? 0)) / 1000; results["totalTheoreticalKg"] = Number.isFinite(v) ? v : 0; } catch { results["totalTheoreticalKg"] = 0; }
   try { const v = (results["totalTheoreticalKg"] ?? 0) / (1 - input.lossRate / 100); results["totalNeededKg"] = Number.isFinite(v) ? v : 0; } catch { results["totalNeededKg"] = 0; }
   try { const v = (results["totalNeededKg"] ?? 0) * input.costPerKg; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  results["__totalNeededKg__kg"] = 0;
+  results["__totalCost__TL"] = 0;
   return results;
 }
 
 
 export function calculateCreatine_calculator(input: Creatine_calculatorInput): Creatine_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Toplam"] ?? 0;
+  const totalWasteCost = values["netDosagePerUnit"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Diameter of the cylindrical hole for the post, typically 3 times the post width."
+      "businessContext": "Diameter of the cylindrical hole for the post, typically 3 times the post width.",
+      "label_i18n": {
+        "en": "Hole Diameter",
+        "tr": "Hole Diameter",
+        "de": "Hole Diameter",
+        "fr": "Hole Diameter",
+        "es": "Hole Diameter",
+        "ar": "Hole Diameter"
+      }
     },
     {
       "id": "holeDepth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 60,
-      "businessContext": "Depth of the hole, usually 1/3 to 1/2 of the above-ground post height."
+      "businessContext": "Depth of the hole, usually 1/3 to 1/2 of the above-ground post height.",
+      "label_i18n": {
+        "en": "Hole Depth",
+        "tr": "Hole Depth",
+        "de": "Hole Depth",
+        "fr": "Hole Depth",
+        "es": "Hole Depth",
+        "ar": "Hole Depth"
+      }
     },
     {
       "id": "postSide",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Width of a square post. For round posts, use diameter equivalent."
+      "businessContext": "Width of a square post. For round posts, use diameter equivalent.",
+      "label_i18n": {
+        "en": "Post Side Width",
+        "tr": "Post Side Width",
+        "de": "Post Side Width",
+        "fr": "Post Side Width",
+        "es": "Post Side Width",
+        "ar": "Post Side Width"
+      }
     },
     {
       "id": "numberOfPosts",
       "label": "Number of Posts",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Total number of post holes to be filled."
+      "businessContext": "Total number of post holes to be filled.",
+      "label_i18n": {
+        "en": "Number of Posts",
+        "tr": "Number of Posts",
+        "de": "Number of Posts",
+        "fr": "Number of Posts",
+        "es": "Number of Posts",
+        "ar": "Number of Posts"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Extra percentage of concrete to order for spillage, over-digging, etc."
+      "businessContext": "Extra percentage of concrete to order for spillage, over-digging, etc.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +88,17 @@
     "concretePerHole": "holeVolume - postVolume",
     "totalConcrete": "concretePerHole * numberOfPosts",
     "totalWithWaste": "totalConcrete * (1 + wasteFactor / 100)",
-    "totalCubicMeters": "totalWithWaste / 1000000"
+    "totalCubicMeters": "totalWithWaste / 1000000",
+    "holeVolume_toFixed_0______cm__": "holeVolume.toFixed(0) + ' cm³'",
+    "postVolume_toFixed_0______cm__": "postVolume.toFixed(0) + ' cm³'",
+    "concretePerHole_toFixed_0______cm__per_h": "concretePerHole.toFixed(0) + ' cm³ per hole'",
+    "totalConcrete_toFixed_0______cm__": "totalConcrete.toFixed(0) + ' cm³'",
+    "totalWithWaste_toFixed_0______cm___with_": "totalWithWaste.toFixed(0) + ' cm³ (with waste)'",
+    "totalCubicMeters_toFixed_4______m__": "totalCubicMeters.toFixed(4) + ' m³'",
+    "result": "totalCubicMeters.toFixed(2) + ' m³'"
   },
   "outputs": {
-    "primary": "totalCubicMeters.toFixed(2) + ' m³'",
+    "primary": "result",
     "breakdown": [
       "holeVolume.toFixed(0) + ' cm³'",
       "postVolume.toFixed(0) + ' cm³'",
@@ -61,10 +108,10 @@
       "totalCubicMeters.toFixed(4) + ' m³'"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "sustainability-resource-esg"
 }

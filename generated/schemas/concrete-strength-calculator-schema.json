@@ -48,11 +48,7 @@
     "compressiveStrength": "strength28Day * (age / (4 + 0.85 * age))"
   },
   "outputs": {
-    "primary": {
-      "id": "compressiveStrength",
-      "label": "Compressive Strength",
-      "unit": "MPa"
-    },
+    "primary": "waterCementRatio",
     "breakdown": [
       {
         "id": "waterCementRatio",
@@ -66,7 +62,7 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

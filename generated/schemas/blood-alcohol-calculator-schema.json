@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "drinks",
       "default": 3,
-      "businessContext": "Number of standard alcoholic beverages consumed"
+      "businessContext": "Number of standard alcoholic beverages consumed",
+      "label_i18n": {
+        "en": "Number of Drinks",
+        "tr": "Number of Drinks",
+        "de": "Number of Drinks",
+        "fr": "Number of Drinks",
+        "es": "Number of Drinks",
+        "ar": "Number of Drinks"
+      }
     },
     {
       "id": "volumePerDrink",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ml",
       "default": 355,
-      "businessContext": "Volume of a single drink in milliliters"
+      "businessContext": "Volume of a single drink in milliliters",
+      "label_i18n": {
+        "en": "Volume per Drink",
+        "tr": "Volume per Drink",
+        "de": "Volume per Drink",
+        "fr": "Volume per Drink",
+        "es": "Volume per Drink",
+        "ar": "Volume per Drink"
+      }
     },
     {
       "id": "alcoholPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of alcohol in the beverage"
+      "businessContext": "Percentage of alcohol in the beverage",
+      "label_i18n": {
+        "en": "Alcohol by Volume",
+        "tr": "Alcohol by Volume",
+        "de": "Alcohol by Volume",
+        "fr": "Alcohol by Volume",
+        "es": "Alcohol by Volume",
+        "ar": "Alcohol by Volume"
+      }
     },
     {
       "id": "bodyWeight",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight of the person in kilograms"
+      "businessContext": "Body weight of the person in kilograms",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "gender",
       "label": "Gender (1=Male, 0=Female)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Biological sex: 1 for male, 0 for female"
+      "businessContext": "Biological sex: 1 for male, 0 for female",
+      "label_i18n": {
+        "en": "Gender (1=Male, 0=Female)",
+        "tr": "Gender (1=Male, 0=Female)",
+        "de": "Gender (1=Male, 0=Female)",
+        "fr": "Gender (1=Male, 0=Female)",
+        "es": "Gender (1=Male, 0=Female)",
+        "ar": "Gender (1=Male, 0=Female)"
+      }
     },
     {
       "id": "hoursSinceFirstDrink",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hours",
       "default": 2,
-      "businessContext": "Time elapsed since the first drink was consumed"
+      "businessContext": "Time elapsed since the first drink was consumed",
+      "label_i18n": {
+        "en": "Time Since First Drink",
+        "tr": "Time Since First Drink",
+        "de": "Time Since First Drink",
+        "fr": "Time Since First Drink",
+        "es": "Time Since First Drink",
+        "ar": "Time Since First Drink"
+      }
     }
   ],
   "formulas": {
@@ -68,10 +116,10 @@
       "bacPromille"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Glove_size_calculatorInput {
   handCircumferenceCm: number;
   handLengthCm: number;
+  auto_input_3: number;
 }
 
 export const Glove_size_calculatorInputSchema = z.object({
   handCircumferenceCm: z.number().default(20),
   handLengthCm: z.number().default(18.5),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Glove_size_calculatorInput): Record<string, number> {
@@ -23,7 +25,7 @@ function evaluateAllFormulas(input: Glove_size_calculatorInput): Record<string, 
 
 export function calculateGlove_size_calculator(input: Glove_size_calculatorInput): Glove_size_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["circumferenceInch"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Used to calculate base hydration need based on body mass."
+      "businessContext": "Used to calculate base hydration need based on body mass.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "moderate_activity_hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours/day",
       "default": 0,
-      "businessContext": "Moderate physical activity like walking or light work increases water loss."
+      "businessContext": "Moderate physical activity like walking or light work increases water loss.",
+      "label_i18n": {
+        "en": "Moderate Activity (hours/day)",
+        "tr": "Moderate Activity (hours/day)",
+        "de": "Moderate Activity (hours/day)",
+        "fr": "Moderate Activity (hours/day)",
+        "es": "Moderate Activity (hours/day)",
+        "ar": "Moderate Activity (hours/day)"
+      }
     },
     {
       "id": "heavy_activity_hours",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours/day",
       "default": 0,
-      "businessContext": "Intense physical labor or exercise significantly raises hydration requirements."
+      "businessContext": "Intense physical labor or exercise significantly raises hydration requirements.",
+      "label_i18n": {
+        "en": "Heavy Activity (hours/day)",
+        "tr": "Heavy Activity (hours/day)",
+        "de": "Heavy Activity (hours/day)",
+        "fr": "Heavy Activity (hours/day)",
+        "es": "Heavy Activity (hours/day)",
+        "ar": "Heavy Activity (hours/day)"
+      }
     },
     {
       "id": "average_temperature",
@@ -31,27 +55,39 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "High temperatures increase sweating and water needs, adjustment applied above 30°C."
+      "businessContext": "High temperatures increase sweating and water needs, adjustment applied above 30°C.",
+      "label_i18n": {
+        "en": "Average Ambient Temperature",
+        "tr": "Average Ambient Temperature",
+        "de": "Average Ambient Temperature",
+        "fr": "Average Ambient Temperature",
+        "es": "Average Ambient Temperature",
+        "ar": "Average Ambient Temperature"
+      }
     }
   ],
   "formulas": {
     "total": "weight * 0.033 + moderate_activity_hours * 0.35 + heavy_activity_hours * 0.7 + (average_temperature > 30 ? (average_temperature - 30) * 0.2 : 0)",
     "base": "weight * 0.033",
     "activity": "moderate_activity_hours * 0.35 + heavy_activity_hours * 0.7",
-    "tempAdjust": "average_temperature > 30 ? (average_temperature - 30) * 0.2 : 0"
+    "tempAdjust": "average_temperature > 30 ? (average_temperature - 30) * 0.2 : 0",
+    "__base_toFixed_1___L": "${base.toFixed(1)} L",
+    "__activity_toFixed_1___L": "${activity.toFixed(1)} L",
+    "__tempAdjust_toFixed_1___L": "${tempAdjust.toFixed(1)} L",
+    "result": "${total.toFixed(1)} L per day"
   },
   "outputs": {
-    "primary": "${total.toFixed(1)} L per day",
+    "primary": "result",
     "breakdown": [
       "Base (from body weight): ${base.toFixed(1)} L",
       "Activity adjustment: ${activity.toFixed(1)} L",
       "Temperature adjustment: ${tempAdjust.toFixed(1)} L"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

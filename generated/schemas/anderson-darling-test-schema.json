@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Number of data points in the sample"
+      "businessContext": "Number of data points in the sample",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "sortedData",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "value",
       "default": "1,2,3,4,5,6,7,8,9,10",
-      "businessContext": "Sample values sorted in ascending order"
+      "businessContext": "Sample values sorted in ascending order",
+      "label_i18n": {
+        "en": "Sorted Data (comma-separated)",
+        "tr": "Sorted Data (comma-separated)",
+        "de": "Sorted Data (comma-separated)",
+        "fr": "Sorted Data (comma-separated)",
+        "es": "Sorted Data (comma-separated)",
+        "ar": "Sorted Data (comma-separated)"
+      }
     },
     {
       "id": "mean",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "value",
       "default": 5.5,
-      "businessContext": "Mean of the hypothesized normal distribution"
+      "businessContext": "Mean of the hypothesized normal distribution",
+      "label_i18n": {
+        "en": "Mean (μ)",
+        "tr": "Mean (μ)",
+        "de": "Mean (μ)",
+        "fr": "Mean (μ)",
+        "es": "Mean (μ)",
+        "ar": "Mean (μ)"
+      }
     },
     {
       "id": "stdDev",
@@ -31,26 +55,37 @@
       "type": "number",
       "unit": "value",
       "default": 2.872,
-      "businessContext": "Standard deviation of the hypothesized normal distribution"
+      "businessContext": "Standard deviation of the hypothesized normal distribution",
+      "label_i18n": {
+        "en": "Standard Deviation (σ)",
+        "tr": "Standard Deviation (σ)",
+        "de": "Standard Deviation (σ)",
+        "fr": "Standard Deviation (σ)",
+        "es": "Standard Deviation (σ)",
+        "ar": "Standard Deviation (σ)"
+      }
     }
   ],
   "formulas": {
     "computeZ": "let data = inputs.sortedData.split(',').map(Number); let n = inputs.sampleSize; let mean = inputs.mean; let std = inputs.stdDev; let z = data.map(x => (x - mean) / std); return z;",
     "computeCDF": "let z = computeZ(); return z.map(zi => 0.5 * (1 + Math.erf(zi / Math.sqrt(2))));",
     "computeAD": "let cdf = computeCDF(); let n = inputs.sampleSize; let sum = 0; for (let i = 0; i < n; i++) { let term = (2 * (i + 1) - 1) * (Math.log(cdf[i]) + Math.log(1 - cdf[n - 1 - i])); sum += term; } let ad = -n - (1 / n) * sum; return ad;",
-    "computeAdjustedAD": "let ad = computeAD(); let n = inputs.sampleSize; let adj = ad * (1 + 0.75 / n + 2.25 / (n * n)); return adj;"
+    "computeAdjustedAD": "let ad = computeAD(); let n = inputs.sampleSize; let adj = ad * (1 + 0.75 / n + 2.25 / (n * n)); return adj;",
+    "Anderson_Darling_Statistic__A__": "Anderson-Darling Statistic (A²)",
+    "Adjusted_Anderson_Darling_Statistic": "Adjusted Anderson-Darling Statistic",
+    "result": "Adjusted Anderson-Darling Statistic"
   },
   "outputs": {
-    "primary": "Adjusted Anderson-Darling Statistic",
+    "primary": "result",
     "breakdown": [
       "Anderson-Darling Statistic (A²)",
       "Adjusted Anderson-Darling Statistic"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

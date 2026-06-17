@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "kcal",
       "default": 100,
-      "businessContext": "Amount of energy to convert from kilocalories"
+      "businessContext": "Amount of energy to convert from kilocalories",
+      "label_i18n": {
+        "en": "Energy in Kilocalories",
+        "tr": "Energy in Kilocalories",
+        "de": "Energy in Kilocalories",
+        "fr": "Energy in Kilocalories",
+        "es": "Energy in Kilocalories",
+        "ar": "Energy in Kilocalories"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output joules value"
+      "businessContext": "Number of decimal places for the output joules value",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "joulePerKcal",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "J/kcal",
       "default": 4184,
-      "businessContext": "Conversion factor: 1 kilocalorie equals this many joules (standard 4184 J/kcal)"
+      "businessContext": "Conversion factor: 1 kilocalorie equals this many joules (standard 4184 J/kcal)",
+      "label_i18n": {
+        "en": "Joules per Kilocalorie",
+        "tr": "Joules per Kilocalorie",
+        "de": "Joules per Kilocalorie",
+        "fr": "Joules per Kilocalorie",
+        "es": "Joules per Kilocalorie",
+        "ar": "Joules per Kilocalorie"
+      }
     },
     {
       "id": "scale",
       "label": "Scale Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplicative scale factor applied to the conversion result (default 1)"
+      "businessContext": "Multiplicative scale factor applied to the conversion result (default 1)",
+      "label_i18n": {
+        "en": "Scale Factor",
+        "tr": "Scale Factor",
+        "de": "Scale Factor",
+        "fr": "Scale Factor",
+        "es": "Scale Factor",
+        "ar": "Scale Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "conversionFactorUsed"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "sustainability-resource-esg"
 }

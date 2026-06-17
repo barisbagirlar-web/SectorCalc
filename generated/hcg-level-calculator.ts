@@ -34,7 +34,7 @@ function evaluateAllFormulas(input: Hcg_level_calculatorInput): Record<string, n
 
 export function calculateHcg_level_calculator(input: Hcg_level_calculatorInput): Hcg_level_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["hcg"] ?? 0;
+  const totalWasteCost = values["totalMass"] ?? 0;
   const breakdown = {
     
   };

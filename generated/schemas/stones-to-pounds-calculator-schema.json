@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "st",
       "default": 0,
-      "businessContext": "Weight in stones to convert"
+      "businessContext": "Weight in stones to convert",
+      "label_i18n": {
+        "en": "Stones",
+        "tr": "Stones",
+        "de": "Stones",
+        "fr": "Stones",
+        "es": "Stones",
+        "ar": "Stones"
+      }
     },
     {
       "id": "adjustmentFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "lb/st",
       "default": 14,
-      "businessContext": "Pounds per stone, default 14 for standard conversion"
+      "businessContext": "Pounds per stone, default 14 for standard conversion",
+      "label_i18n": {
+        "en": "Conversion Factor (lb/st)",
+        "tr": "Conversion Factor (lb/st)",
+        "de": "Conversion Factor (lb/st)",
+        "fr": "Conversion Factor (lb/st)",
+        "es": "Conversion Factor (lb/st)",
+        "ar": "Conversion Factor (lb/st)"
+      }
     },
     {
       "id": "additionalWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "lb",
       "default": 0,
-      "businessContext": "Extra weight in pounds to add to the total"
+      "businessContext": "Extra weight in pounds to add to the total",
+      "label_i18n": {
+        "en": "Additional Pounds",
+        "tr": "Additional Pounds",
+        "de": "Additional Pounds",
+        "fr": "Additional Pounds",
+        "es": "Additional Pounds",
+        "ar": "Additional Pounds"
+      }
     },
     {
       "id": "subtractWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "lb",
       "default": 0,
-      "businessContext": "Weight in pounds to subtract from the total"
+      "businessContext": "Weight in pounds to subtract from the total",
+      "label_i18n": {
+        "en": "Subtract Pounds",
+        "tr": "Subtract Pounds",
+        "de": "Subtract Pounds",
+        "fr": "Subtract Pounds",
+        "es": "Subtract Pounds",
+        "ar": "Subtract Pounds"
+      }
     },
     {
       "id": "ounces",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "oz",
       "default": 0,
-      "businessContext": "Extra weight in ounces to add (16 oz = 1 lb)"
+      "businessContext": "Extra weight in ounces to add (16 oz = 1 lb)",
+      "label_i18n": {
+        "en": "Additional Ounces",
+        "tr": "Additional Ounces",
+        "de": "Additional Ounces",
+        "fr": "Additional Ounces",
+        "es": "Additional Ounces",
+        "ar": "Additional Ounces"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounded output"
+      "businessContext": "Number of decimal places for rounded output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "stonesToPounds"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

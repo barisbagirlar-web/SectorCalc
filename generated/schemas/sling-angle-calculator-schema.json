@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Kaldırılacak toplam yük ağırlığı"
+      "businessContext": "Kaldırılacak toplam yük ağırlığı",
+      "label_i18n": {
+        "en": "Yük Ağırlığı",
+        "tr": "Yük Ağırlığı",
+        "de": "Yük Ağırlığı",
+        "fr": "Yük Ağırlığı",
+        "es": "Yük Ağırlığı",
+        "ar": "Yük Ağırlığı"
+      }
     },
     {
       "id": "numberOfSlingLegs",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Yükü taşıyan sapan kollarının sayısı (genellikle 1,2,3 veya 4)"
+      "businessContext": "Yükü taşıyan sapan kollarının sayısı (genellikle 1,2,3 veya 4)",
+      "label_i18n": {
+        "en": "Sapan Kol Sayısı",
+        "tr": "Sapan Kol Sayısı",
+        "de": "Sapan Kol Sayısı",
+        "fr": "Sapan Kol Sayısı",
+        "es": "Sapan Kol Sayısı",
+        "ar": "Sapan Kol Sayısı"
+      }
     },
     {
       "id": "slingAngle",
@@ -23,31 +39,63 @@
       "type": "number",
       "unit": "derece",
       "default": 30,
-      "businessContext": "Dikey eksenle sapan kolu arasındaki açı (0° dikey sapan, 90° yatay sapan)"
+      "businessContext": "Dikey eksenle sapan kolu arasındaki açı (0° dikey sapan, 90° yatay sapan)",
+      "label_i18n": {
+        "en": "Sapan Açısı (Dikeyden)",
+        "tr": "Sapan Açısı (Dikeyden)",
+        "de": "Sapan Açısı (Dikeyden)",
+        "fr": "Sapan Açısı (Dikeyden)",
+        "es": "Sapan Açısı (Dikeyden)",
+        "ar": "Sapan Açısı (Dikeyden)"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Emniyet Katsayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Uygulanacak emniyet faktörü (örn. 5:1)"
+      "businessContext": "Uygulanacak emniyet faktörü (örn. 5:1)",
+      "label_i18n": {
+        "en": "Emniyet Katsayısı",
+        "tr": "Emniyet Katsayısı",
+        "de": "Emniyet Katsayısı",
+        "fr": "Emniyet Katsayısı",
+        "es": "Emniyet Katsayısı",
+        "ar": "Emniyet Katsayısı"
+      }
     },
     {
       "id": "dynamicFactor",
       "label": "Dinamik Katsayı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Dinamik yükleme etkisi (statik yükün çarpılacağı faktör)"
+      "businessContext": "Dinamik yükleme etkisi (statik yükün çarpılacağı faktör)",
+      "label_i18n": {
+        "en": "Dinamik Katsayı",
+        "tr": "Dinamik Katsayı",
+        "de": "Dinamik Katsayı",
+        "fr": "Dinamik Katsayı",
+        "es": "Dinamik Katsayı",
+        "ar": "Dinamik Katsayı"
+      }
     },
     {
       "id": "efficiencyFactor",
       "label": "Verimlilik Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Sapanların ideal olmayan yük dağılımı için düzeltme faktörü (0-1 arası, 1 mükemmel dağılım)"
+      "businessContext": "Sapanların ideal olmayan yük dağılımı için düzeltme faktörü (0-1 arası, 1 mükemmel dağılım)",
+      "label_i18n": {
+        "en": "Verimlilik Faktörü",
+        "tr": "Verimlilik Faktörü",
+        "de": "Verimlilik Faktörü",
+        "fr": "Verimlilik Faktörü",
+        "es": "Verimlilik Faktörü",
+        "ar": "Verimlilik Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "requiredBreakingStrength"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

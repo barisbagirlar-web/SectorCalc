@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms"
+      "businessContext": "Body weight in kilograms",
+      "label_i18n": {
+        "en": "Weight (kg)",
+        "tr": "Weight (kg)",
+        "de": "Weight (kg)",
+        "fr": "Weight (kg)",
+        "es": "Weight (kg)",
+        "ar": "Weight (kg)"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Height in centimeters"
+      "businessContext": "Height in centimeters",
+      "label_i18n": {
+        "en": "Height (cm)",
+        "tr": "Height (cm)",
+        "de": "Height (cm)",
+        "fr": "Height (cm)",
+        "es": "Height (cm)",
+        "ar": "Height (cm)"
+      }
     },
     {
       "id": "age",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age in years"
+      "businessContext": "Age in years",
+      "label_i18n": {
+        "en": "Age (years)",
+        "tr": "Age (years)",
+        "de": "Age (years)",
+        "fr": "Age (years)",
+        "es": "Age (years)",
+        "ar": "Age (years)"
+      }
     },
     {
       "id": "gender",
       "label": "Gender (0: Female, 1: Male)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Gender code: 0 for female, 1 for male"
+      "businessContext": "Gender code: 0 for female, 1 for male",
+      "label_i18n": {
+        "en": "Gender (0: Female, 1: Male)",
+        "tr": "Gender (0: Female, 1: Male)",
+        "de": "Gender (0: Female, 1: Male)",
+        "fr": "Gender (0: Female, 1: Male)",
+        "es": "Gender (0: Female, 1: Male)",
+        "ar": "Gender (0: Female, 1: Male)"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "totalBodyWater"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "sustainability-resource-esg"
 }

@@ -5,9 +5,17 @@
       "id": "peckType",
       "label": "Peck Type (0=US, 1=Imperial)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Select US or Imperial peck standard."
+      "businessContext": "Select US or Imperial peck standard.",
+      "label_i18n": {
+        "en": "Peck Type (0=US, 1=Imperial)",
+        "tr": "Peck Type (0=US, 1=Imperial)",
+        "de": "Peck Type (0=US, 1=Imperial)",
+        "fr": "Peck Type (0=US, 1=Imperial)",
+        "es": "Peck Type (0=US, 1=Imperial)",
+        "ar": "Peck Type (0=US, 1=Imperial)"
+      }
     },
     {
       "id": "peckQuantity",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "pk",
       "default": 1,
-      "businessContext": "Quantity of pecks to convert."
+      "businessContext": "Quantity of pecks to convert.",
+      "label_i18n": {
+        "en": "Pecks",
+        "tr": "Pecks",
+        "de": "Pecks",
+        "fr": "Pecks",
+        "es": "Pecks",
+        "ar": "Pecks"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for output."
+      "businessContext": "Number of decimal places for output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "uncertaintyMargin",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Uncertainty margin for volume measurement (default 0%)."
+      "businessContext": "Uncertainty margin for volume measurement (default 0%).",
+      "label_i18n": {
+        "en": "Uncertainty Margin (%)",
+        "tr": "Uncertainty Margin (%)",
+        "de": "Uncertainty Margin (%)",
+        "fr": "Uncertainty Margin (%)",
+        "es": "Uncertainty Margin (%)",
+        "ar": "Uncertainty Margin (%)"
+      }
     },
     {
       "id": "roundingMode",
       "label": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Rounding method for final output."
+      "businessContext": "Rounding method for final output.",
+      "label_i18n": {
+        "en": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "tr": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "de": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "fr": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "es": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+        "ar": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)"
+      }
     },
     {
       "id": "temperature",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature for potential volume correction (if applicable)."
+      "businessContext": "Temperature for potential volume correction (if applicable).",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "liters"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "finance-sales-working-capital"
 }

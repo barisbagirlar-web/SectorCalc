@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "slug",
       "default": 0,
-      "businessContext": "Mass in slugs to convert"
+      "businessContext": "Mass in slugs to convert",
+      "label_i18n": {
+        "en": "Slug Value",
+        "tr": "Slug Value",
+        "de": "Slug Value",
+        "fr": "Slug Value",
+        "es": "Slug Value",
+        "ar": "Slug Value"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "kg/slug",
       "default": 14.5939029372,
-      "businessContext": "Standard slug to kg conversion factor"
+      "businessContext": "Standard slug to kg conversion factor",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for safety margin (1 = no safety)"
+      "businessContext": "Multiplier for safety margin (1 = no safety)",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "quantity",
       "label": "Quantity",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of units or batches"
+      "businessContext": "Number of units or batches",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "withSafety"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

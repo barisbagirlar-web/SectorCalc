@@ -24,13 +24,15 @@ function evaluateAllFormulas(input: Cookie_cost_calculatorInput): Record<string,
   try { const v = (input.flourCost * 0.5 + input.sugarCost * 0.3 + input.butterCost * 0.25 + input.eggCost * 2 + input.chocolateCost * 0.2) * (input.numberOfCookies / 12); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
   try { const v = (results["totalCost"] ?? 0) / input.numberOfCookies; results["costPerCookie"] = Number.isFinite(v) ? v : 0; } catch { results["costPerCookie"] = 0; }
   try { const v = (results["costPerCookie"] ?? 0) * 1.3; results["sellingPrice"] = Number.isFinite(v) ? v : 0; } catch { results["sellingPrice"] = 0; }
+  results["Cost_per_Cookie"] = 0;
+  results["Recommended_Selling_Price__30__margin_"] = 0;
   return results;
 }
 
 
 export function calculateCookie_cost_calculator(input: Cookie_cost_calculatorInput): Cookie_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["totalCost"] ?? 0;
   const breakdown = {
     
   };

@@ -27,31 +27,19 @@ export const Cut_fill_balance_optimizer_calculatorInputSchema = z.object({
   useOptimizedHaulRoutes: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Cut_fill_balance_optimizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.cutVolume * input.shrinkageFactor; results["adjustedCutVolume"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedCutVolume"] = 0; }
-  try { const v = input.fillVolume * input.swellFactor; results["adjustedFillVolume"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedFillVolume"] = 0; }
-  try { const v = (results["adjustedCutVolume"] ?? 0) - input.fillVolume; results["netBalance"] = Number.isFinite(v) ? v : 0; } catch { results["netBalance"] = 0; }
-  try { const v = Math.max(0, (results["netBalance"] ?? 0)); results["excessCutVolume"] = Number.isFinite(v) ? v : 0; } catch { results["excessCutVolume"] = 0; }
-  try { const v = Math.max(0, -(results["netBalance"] ?? 0)); results["deficitFillVolume"] = Number.isFinite(v) ? v : 0; } catch { results["deficitFillVolume"] = 0; }
-  try { const v = Math.min((results["adjustedCutVolume"] ?? 0), input.fillVolume) * input.swellFactor + ((results["excessCutVolume"] ?? 0) * input.swellFactor) + ((results["deficitFillVolume"] ?? 0) * input.swellFactor); results["totalHaulVolume"] = Number.isFinite(v) ? v : 0; } catch { results["totalHaulVolume"] = 0; }
-  try { const v = ((results["totalHaulVolume"] ?? 0) * input.unitHaulCost * input.haulDistance) + ((results["excessCutVolume"] ?? 0) * input.wasteDisposalCost) + ((results["deficitFillVolume"] ?? 0) * input.borrowCost); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Cut_fill_balance_optimizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateCut_fill_balance_optimizer_calculator(input: Cut_fill_balance_optimizer_calculatorInput): Cut_fill_balance_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    haulCost: values["haulCost"] ?? 0,
-    wasteCost: values["wasteCost"] ?? 0,
-    borrowCost: values["borrowCost"] ?? 0,
-    netBalance: values["netBalance"] ?? 0,
-    totalHaulVolume: values["totalHaulVolume"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Rehandle Ratio","Idle Equipment Time","Fuel Waste Factor"];
-  const suggestedActions: string[] = ["Optimize Haul Routes","Revise Cut/Fill Design","On-Site Material Processing","Implement Lean Haul Practices"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -70,7 +58,7 @@ export function calculateCut_fill_balance_optimizer_calculator(input: Cut_fill_b
 
 export interface Cut_fill_balance_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { haulCost: number; wasteCost: number; borrowCost: number; netBalance: number; totalHaulVolume: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

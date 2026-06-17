@@ -51,12 +51,7 @@
     "benefitCostRatio": "pvBenefits / totalPVcosts"
   },
   "outputs": {
-    "primary": {
-      "id": "benefitCostRatio",
-      "label": "Benefit-Cost Ratio (BCR)",
-      "unit": "ratio",
-      "description": "Ratio of total discounted benefits to total discounted costs. Values > 1 indicate a financially viable project."
-    },
+    "primary": "r",
     "breakdown": [
       {
         "id": "pvBenefits",
@@ -72,10 +67,10 @@
       }
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

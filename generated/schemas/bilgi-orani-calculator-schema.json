@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Portföyün dönemsel getiri oranı."
+      "businessContext": "Portföyün dönemsel getiri oranı.",
+      "label_i18n": {
+        "en": "Portföy Getirisi",
+        "tr": "Portföy Getirisi",
+        "de": "Portföy Getirisi",
+        "fr": "Portföy Getirisi",
+        "es": "Portföy Getirisi",
+        "ar": "Portföy Getirisi"
+      }
     },
     {
       "id": "benchmarkGetiri",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Karşılaştırma ölçütünün (benchmark) dönemsel getiri oranı."
+      "businessContext": "Karşılaştırma ölçütünün (benchmark) dönemsel getiri oranı.",
+      "label_i18n": {
+        "en": "Benchmark Getirisi",
+        "tr": "Benchmark Getirisi",
+        "de": "Benchmark Getirisi",
+        "fr": "Benchmark Getirisi",
+        "es": "Benchmark Getirisi",
+        "ar": "Benchmark Getirisi"
+      }
     },
     {
       "id": "takipHatasi",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Portföy getirisi ile benchmark getirisi arasındaki farkın standart sapması."
+      "businessContext": "Portföy getirisi ile benchmark getirisi arasındaki farkın standart sapması.",
+      "label_i18n": {
+        "en": "Takip Hatası",
+        "tr": "Takip Hatası",
+        "de": "Takip Hatası",
+        "fr": "Takip Hatası",
+        "es": "Takip Hatası",
+        "ar": "Takip Hatası"
+      }
     },
     {
       "id": "yilliklastirmaCarpani",
       "label": "Yıllıklaştırma Çarpanı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Dönemsel getirileri ve takip hatasını yıllıklandırmak için kullanılan çarpan. Aylık veriler için genellikle √12 ≈ 3,464 kullanılır."
+      "businessContext": "Dönemsel getirileri ve takip hatasını yıllıklandırmak için kullanılan çarpan. Aylık veriler için genellikle √12 ≈ 3,464 kullanılır.",
+      "label_i18n": {
+        "en": "Yıllıklaştırma Çarpanı",
+        "tr": "Yıllıklaştırma Çarpanı",
+        "de": "Yıllıklaştırma Çarpanı",
+        "fr": "Yıllıklaştırma Çarpanı",
+        "es": "Yıllıklaştırma Çarpanı",
+        "ar": "Yıllıklaştırma Çarpanı"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "yillikTakipHatasi"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

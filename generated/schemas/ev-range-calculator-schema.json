@@ -56,12 +56,7 @@
     "estimated_range_km": "(battery_capacity * 1000) / (base_consumption * temperature_factor * driving_style_factor + (auxiliary_power / average_speed))"
   },
   "outputs": {
-    "primary": {
-      "id": "estimated_range_km",
-      "label": "Estimated Range",
-      "unit": "km",
-      "value": "estimated_range_km"
-    },
+    "primary": "effective_consumption",
     "breakdown": [
       {
         "id": "optimal_range_km",
@@ -77,10 +72,10 @@
       }
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

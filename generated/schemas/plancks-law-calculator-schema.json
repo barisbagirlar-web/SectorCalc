@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "K",
       "default": 5000,
-      "businessContext": "Temperature of the black body in Kelvin"
+      "businessContext": "Temperature of the black body in Kelvin",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "wavelength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5e-7,
-      "businessContext": "Wavelength at which spectral radiance is calculated"
+      "businessContext": "Wavelength at which spectral radiance is calculated",
+      "label_i18n": {
+        "en": "Wavelength",
+        "tr": "Wavelength",
+        "de": "Wavelength",
+        "fr": "Wavelength",
+        "es": "Wavelength",
+        "ar": "Wavelength"
+      }
     },
     {
       "id": "wavelengthMin",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1e-7,
-      "businessContext": "Minimum wavelength for integration range"
+      "businessContext": "Minimum wavelength for integration range",
+      "label_i18n": {
+        "en": "Wavelength Min",
+        "tr": "Wavelength Min",
+        "de": "Wavelength Min",
+        "fr": "Wavelength Min",
+        "es": "Wavelength Min",
+        "ar": "Wavelength Min"
+      }
     },
     {
       "id": "wavelengthMax",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "m",
       "default": 0.000003,
-      "businessContext": "Maximum wavelength for integration range"
+      "businessContext": "Maximum wavelength for integration range",
+      "label_i18n": {
+        "en": "Wavelength Max",
+        "tr": "Wavelength Max",
+        "de": "Wavelength Max",
+        "fr": "Wavelength Max",
+        "es": "Wavelength Max",
+        "ar": "Wavelength Max"
+      }
     },
     {
       "id": "numSteps",
       "label": "Integration Steps",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1000,
-      "businessContext": "Number of steps for numerical integration"
+      "businessContext": "Number of steps for numerical integration",
+      "label_i18n": {
+        "en": "Integration Steps",
+        "tr": "Integration Steps",
+        "de": "Integration Steps",
+        "fr": "Integration Steps",
+        "es": "Integration Steps",
+        "ar": "Integration Steps"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "peakWavelength"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

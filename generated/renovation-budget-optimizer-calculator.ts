@@ -25,31 +25,19 @@ export const Renovation_budget_optimizer_calculatorInputSchema = z.object({
   phased_renovation: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Renovation_budget_optimizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.material_quality === 'economy' ? 25 : (input.material_quality === 'standard' ? 50 : (input.material_quality === 'premium' ? 90 : 50))); results["base_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["base_material_cost"] = 0; }
-  try { const v = (input.scope_complexity === 'low' ? 1.0 : (input.scope_complexity === 'medium' ? 1.3 : (input.scope_complexity === 'high' ? 1.8 : 1.3))); results["scope_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["scope_multiplier"] = 0; }
-  try { const v = (input.sustainability_target === 'none' ? 0 : (input.sustainability_target === 'LEED' ? 0.15 : (input.sustainability_target === 'WELL' ? 0.20 : (input.sustainability_target === 'BREEAM' ? 0.18 : 0)))); results["sustainability_surcharge"] = Number.isFinite(v) ? v : 0; } catch { results["sustainability_surcharge"] = 0; }
-  try { const v = ((input.phased_renovation) ? (1.05) : (1.0)); results["phasing_efficiency"] = Number.isFinite(v) ? v : 0; } catch { results["phasing_efficiency"] = 0; }
-  try { const v = input.total_area_sqft * (results["base_material_cost"] ?? 0) * (results["scope_multiplier"] ?? 0) * (1 + input.waste_factor_pct/100) * input.region_cost_index * (1 + (results["sustainability_surcharge"] ?? 0)) * (results["phasing_efficiency"] ?? 0); results["material_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["material_cost_total"] = 0; }
-  try { const v = input.total_area_sqft * input.labor_efficiency_factor * 65 * (results["scope_multiplier"] ?? 0) * input.region_cost_index * (results["phasing_efficiency"] ?? 0); results["labor_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost_total"] = 0; }
-  try { const v = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0)) * (input.contingency_pct/100); results["contingency_amount"] = Number.isFinite(v) ? v : 0; } catch { results["contingency_amount"] = 0; }
-  try { const v = (results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + (results["contingency_amount"] ?? 0); results["primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["primaryResult"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Renovation_budget_optimizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateRenovation_budget_optimizer_calculator(input: Renovation_budget_optimizer_calculatorInput): Renovation_budget_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_budget"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    material_cost: values["material_cost"] ?? 0,
-    labor_cost: values["labor_cost"] ?? 0,
-    contingency: values["contingency"] ?? 0,
-    cost_per_sqft: values["cost_per_sqft"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Material Waste Inefficiency","Labor Productivity Gap","Scope Creep Allowance"];
-  const suggestedActions: string[] = ["Implement Lean Material Management","Enhance Crew Training & Workflow","Conduct Value Engineering Review","Optimize Phasing Schedule"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -68,7 +56,7 @@ export function calculateRenovation_budget_optimizer_calculator(input: Renovatio
 
 export interface Renovation_budget_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { material_cost: number; labor_cost: number; contingency: number; cost_per_sqft: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

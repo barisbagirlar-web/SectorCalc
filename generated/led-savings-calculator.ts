@@ -28,13 +28,16 @@ function evaluateAllFormulas(input: Led_savings_calculatorInput): Record<string,
   try { const v = (input.currentBulbWattage - input.ledBulbWattage) * input.numberOfBulbs * input.dailyUsageHours * input.daysPerYear / 1000; results["annualEnergySavings"] = Number.isFinite(v) ? v : 0; } catch { results["annualEnergySavings"] = 0; }
   try { const v = (results["annualEnergySavings"] ?? 0) * input.electricityRate; results["annualCostSavings"] = Number.isFinite(v) ? v : 0; } catch { results["annualCostSavings"] = 0; }
   try { const v = (results["annualCostSavings"] ?? 0) > 0 ? (input.ledBulbCost - input.currentBulbCost) * input.numberOfBulbs / (results["annualCostSavings"] ?? 0) : null; results["paybackPeriod"] = Number.isFinite(v) ? v : 0; } catch { results["paybackPeriod"] = 0; }
+  results["__annualEnergySavings_toFixed_2___kWh_ye"] = 0;
+  results["__paybackPeriod_____null___paybackPeriod"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateLed_savings_calculator(input: Led_savings_calculatorInput): Led_savings_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Annual"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

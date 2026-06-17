@@ -285,7 +285,8 @@
       },
       "businessContext_i18n": {
         "en": "Select the most relevant standard for threshold evaluation."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -334,170 +335,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "productivity_loss_cost",
-      "label": "Productivity loss cost (noise + vibration)",
-      "description": "Based on ISO 9612 and literature: 0.5% productivity loss per dB(A) above 80, plus 1% per 0.1 m/s² above 0.3.",
-      "expression": "num_workers_exposed * avg_worker_annual_salary * (MAX(0, (noise_level_dba - 80) * 0.005) + MAX(0, (vibration_level_ms2 - 0.3) * 10 * 0.01))",
-      "unit": "USD/year"
-    },
-    {
-      "id": "health_and_ppe_cost",
-      "label": "Health & PPE cost",
-      "description": "Direct cost of hearing protection, audiometric testing, and vibration health surveillance.",
-      "expression": "num_workers_exposed * hearing_protection_cost_per_worker_per_year + (num_workers_exposed * 50 * (vibration_level_ms2 > 0.5 ? 1 : 0))",
-      "unit": "USD/year"
-    },
-    {
-      "id": "quality_defect_cost",
-      "label": "Quality defect cost due to vibration",
-      "description": "Cost of rework and scrap attributed to vibration-induced defects.",
-      "expression": "annual_production_volume * (quality_defect_rate_percent / 100) * cost_per_defect",
-      "unit": "USD/year"
-    },
-    {
-      "id": "excess_energy_cost",
-      "label": "Excess energy cost due to vibration",
-      "description": "Vibration increases friction and energy consumption. Estimated 5% increase per 1 m/s² above 0.5.",
-      "expression": "number_of_machines * machine_power_kw * machine_runtime_hours_per_day * 365 * energy_cost_per_kwh * (0.05 * MAX(0, vibration_level_ms2 - 0.5))",
-      "unit": "USD/year"
-    },
-    {
-      "id": "excess_maintenance_cost",
-      "label": "Excess maintenance cost due to vibration",
-      "description": "Vibration accelerates wear. Estimated 10% increase per 1 m/s² above 0.3.",
-      "expression": "number_of_machines * maintenance_cost_per_machine_per_year * (0.10 * MAX(0, vibration_level_ms2 - 0.3))",
-      "unit": "USD/year"
-    },
-    {
-      "id": "total_annual_loss",
-      "label": "Total annual loss from noise & vibration",
-      "description": "Sum of all direct and indirect costs.",
-      "expression": "productivity_loss_cost + health_and_ppe_cost + quality_defect_cost + excess_energy_cost + excess_maintenance_cost",
-      "unit": "USD/year"
-    },
-    {
-      "id": "roi_improvement",
-      "label": "Return on investment (5-year)",
-      "description": "Net present value of investing in noise and vibration reduction, assuming 50% reduction in losses.",
-      "expression": "(total_annual_loss * 0.5 * 5) - (noise_reduction_investment + vibration_reduction_investment)",
-      "unit": "USD"
-    }
+    "num_workers_exposed",
+    "num_workers_exposed",
+    "num_workers_exposed",
+    "num_workers_exposed",
+    "num_workers_exposed",
+    "num_workers_exposed",
+    "num_workers_exposed"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_loss",
-      "label": "Total annual loss from noise & vibration",
-      "value": null,
-      "unit": "USD/year",
-      "formulaRef": "total_annual_loss"
-    },
-    "breakdown": {
-      "productivityLossCost": {
-        "label": "Productivity loss cost",
-        "value": null,
-        "unit": "USD/year",
-        "formulaRef": "productivity_loss_cost"
-      },
-      "healthAndPpeCost": {
-        "label": "Health & PPE cost",
-        "value": null,
-        "unit": "USD/year",
-        "formulaRef": "health_and_ppe_cost"
-      },
-      "qualityDefectCost": {
-        "label": "Quality defect cost",
-        "value": null,
-        "unit": "USD/year",
-        "formulaRef": "quality_defect_cost"
-      },
-      "excessEnergyCost": {
-        "label": "Excess energy cost",
-        "value": null,
-        "unit": "USD/year",
-        "formulaRef": "excess_energy_cost"
-      },
-      "excessMaintenanceCost": {
-        "label": "Excess maintenance cost",
-        "value": null,
-        "unit": "USD/year",
-        "formulaRef": "excess_maintenance_cost"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "absenteeism_related",
-        "label": "Absenteeism due to noise/vibration",
-        "description": "Estimated 2-5% additional absenteeism cost not captured in direct productivity loss.",
-        "estimatedImpact": "low"
-      },
-      {
-        "id": "regulatory_fines",
-        "label": "Regulatory non-compliance fines",
-        "description": "Potential OSHA/EU fines for exceeding noise/vibration limits.",
-        "estimatedImpact": "medium"
-      },
-      {
-        "id": "employee_turnover",
-        "label": "Increased turnover costs",
-        "description": "Higher turnover in high noise/vibration areas (recruitment, training).",
-        "estimatedImpact": "medium"
-      },
-      {
-        "id": "brand_reputation",
-        "label": "Brand reputation damage",
-        "description": "Negative perception from poor working conditions.",
-        "estimatedImpact": "low"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": "critical",
-        "description": "Implement engineering controls for vibration (isolators, dampers) on machines exceeding 1.15 m/s².",
-        "estimatedCost": "vibration_reduction_investment",
-        "estimatedBenefit": "50% reduction in vibration-related costs"
-      },
-      {
-        "id": "action_2",
-        "priority": "high",
-        "description": "Install acoustic enclosures or barriers for noise sources above 85 dB(A).",
-        "estimatedCost": "noise_reduction_investment",
-        "estimatedBenefit": "30% reduction in noise-related productivity loss"
-      },
-      {
-        "id": "action_3",
-        "priority": "medium",
-        "description": "Initiate a Six Sigma DMAIC project to reduce vibration-induced defects by 50%.",
-        "estimatedCost": 20000,
-        "estimatedBenefit": "50% reduction in quality defect cost"
-      },
-      {
-        "id": "action_4",
-        "priority": "medium",
-        "description": "Establish a predictive maintenance program using vibration monitoring.",
-        "estimatedCost": 15000,
-        "estimatedBenefit": "20% reduction in excess maintenance cost"
-      },
-      {
-        "id": "action_5",
-        "priority": "low",
-        "description": "Rotate workers to reduce daily exposure hours below 8 hours.",
-        "estimatedCost": 0,
-        "estimatedBenefit": "Reduced health risk and potential liability"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data confidence adjusted total loss",
-      "description": "Total annual loss multiplied by a confidence factor (0.7 to 1.0) based on input completeness and precision.",
-      "value": null,
-      "unit": "USD/year",
-      "calculation": "total_annual_loss * (0.7 + 0.3 * (num_workers_exposed > 0 ? 1 : 0) * (noise_level_dba > 0 ? 1 : 0) * (vibration_level_ms2 > 0 ? 1 : 0) / 3)"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "noise-vibration-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

@@ -27,33 +27,19 @@ export const Restaurant_menu_margin_leak_calculatorInputSchema = z.object({
   lean_kitchen_maturity: z.enum(['Initial', 'Developing', 'Standardized', 'Optimized', 'World-Class']).default('Developing'),
 });
 
-function evaluateAllFormulas(input: Restaurant_menu_margin_leak_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.avg_cover_price - input.food_cost_per_cover; results["gross_margin_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["gross_margin_per_cover"] = 0; }
-  try { const v = (results["gross_margin_per_cover"] ?? 0) - input.labor_cost_per_cover - input.overhead_per_cover; results["contribution_margin_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["contribution_margin_per_cover"] = 0; }
-  try { const v = input.food_cost_per_cover * (input.waste_percentage / 100); results["waste_leak_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["waste_leak_per_cover"] = 0; }
-  try { const v = input.food_cost_per_cover * (input.theft_shrinkage_percentage / 100); results["theft_leak_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["theft_leak_per_cover"] = 0; }
-  try { const v = input.avg_cover_price * (input.discount_comp_percentage / 100); results["discount_leak_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["discount_leak_per_cover"] = 0; }
-  try { const v = (results["waste_leak_per_cover"] ?? 0) + (results["theft_leak_per_cover"] ?? 0) + (results["discount_leak_per_cover"] ?? 0); results["total_leak_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["total_leak_per_cover"] = 0; }
-  try { const v = (results["contribution_margin_per_cover"] ?? 0) - (results["total_leak_per_cover"] ?? 0); results["net_margin_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["net_margin_per_cover"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Restaurant_menu_margin_leak_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateRestaurant_menu_margin_leak_calculator(input: Restaurant_menu_margin_leak_calculatorInput): Restaurant_menu_margin_leak_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["net_margin_percentage"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    gross_margin_per_cover: values["gross_margin_per_cover"] ?? 0,
-    contribution_margin_per_cover: values["contribution_margin_per_cover"] ?? 0,
-    waste_leak_per_cover: values["waste_leak_per_cover"] ?? 0,
-    theft_leak_per_cover: values["theft_leak_per_cover"] ?? 0,
-    discount_leak_per_cover: values["discount_leak_per_cover"] ?? 0,
-    total_leak_per_cover: values["total_leak_per_cover"] ?? 0,
-    net_margin_per_cover: values["net_margin_per_cover"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Food Waste","Theft & Shrinkage","Discounts & Comps"];
-  const suggestedActions: string[] = ["Implement Lean Kitchen Practices","Strengthen Inventory Control","Menu Re-engineering","Enforce Portion Control"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -72,7 +58,7 @@ export function calculateRestaurant_menu_margin_leak_calculator(input: Restauran
 
 export interface Restaurant_menu_margin_leak_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { gross_margin_per_cover: number; contribution_margin_per_cover: number; waste_leak_per_cover: number; theft_leak_per_cover: number; discount_leak_per_cover: number; total_leak_per_cover: number; net_margin_per_cover: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

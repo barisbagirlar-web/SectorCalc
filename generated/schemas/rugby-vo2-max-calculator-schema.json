@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Subject's body weight in kilograms"
+      "businessContext": "Subject's body weight in kilograms",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "age",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Subject's age in years"
+      "businessContext": "Subject's age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
       "label": "Gender (0=Female, 1=Male)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Biological gender encoded as 0 for female, 1 for male"
+      "businessContext": "Biological gender encoded as 0 for female, 1 for male",
+      "label_i18n": {
+        "en": "Gender (0=Female, 1=Male)",
+        "tr": "Gender (0=Female, 1=Male)",
+        "de": "Gender (0=Female, 1=Male)",
+        "fr": "Gender (0=Female, 1=Male)",
+        "es": "Gender (0=Female, 1=Male)",
+        "ar": "Gender (0=Female, 1=Male)"
+      }
     },
     {
       "id": "time",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "min",
       "default": 15,
-      "businessContext": "Time taken to walk 1 mile in minutes"
+      "businessContext": "Time taken to walk 1 mile in minutes",
+      "label_i18n": {
+        "en": "1-Mile Walk Time",
+        "tr": "1-Mile Walk Time",
+        "de": "1-Mile Walk Time",
+        "fr": "1-Mile Walk Time",
+        "es": "1-Mile Walk Time",
+        "ar": "1-Mile Walk Time"
+      }
     },
     {
       "id": "heartRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 120,
-      "businessContext": "Heart rate immediately after completing the 1-mile walk in beats per minute"
+      "businessContext": "Heart rate immediately after completing the 1-mile walk in beats per minute",
+      "label_i18n": {
+        "en": "End Heart Rate",
+        "tr": "End Heart Rate",
+        "de": "End Heart Rate",
+        "fr": "End Heart Rate",
+        "es": "End Heart Rate",
+        "ar": "End Heart Rate"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "mets"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

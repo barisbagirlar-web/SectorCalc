@@ -19,6 +19,7 @@ function evaluateAllFormulas(input: Brake_thermal_efficiency_calculatorInput): R
   const results: Record<string, number> = {};
   try { const v = (input.fuelMassFlow * input.lhv) / 3600; results["energyInput"] = Number.isFinite(v) ? v : 0; } catch { results["energyInput"] = 0; }
   try { const v = (input.brakePower / (results["energyInput"] ?? 0)) * 100 * input.correctionFactor; results["efficiency"] = Number.isFinite(v) ? v : 0; } catch { results["efficiency"] = 0; }
+  try { const v = input.brakePower; results["brakePower"] = Number.isFinite(v) ? v : 0; } catch { results["brakePower"] = 0; }
   return results;
 }
 

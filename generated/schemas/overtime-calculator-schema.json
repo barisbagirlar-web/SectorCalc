@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 40,
-      "businessContext": "Normal working hours per period (e.g., per week)"
+      "businessContext": "Normal working hours per period (e.g., per week)",
+      "label_i18n": {
+        "en": "Regular Hours",
+        "tr": "Regular Hours",
+        "de": "Regular Hours",
+        "fr": "Regular Hours",
+        "es": "Regular Hours",
+        "ar": "Regular Hours"
+      }
     },
     {
       "id": "overtimeHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 5,
-      "businessContext": "Overtime hours worked beyond regular time"
+      "businessContext": "Overtime hours worked beyond regular time",
+      "label_i18n": {
+        "en": "Overtime Hours",
+        "tr": "Overtime Hours",
+        "de": "Overtime Hours",
+        "fr": "Overtime Hours",
+        "es": "Overtime Hours",
+        "ar": "Overtime Hours"
+      }
     },
     {
       "id": "hourlyRate",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "currency/hr",
       "default": 20,
-      "businessContext": "Normal hourly wage rate"
+      "businessContext": "Normal hourly wage rate",
+      "label_i18n": {
+        "en": "Hourly Rate",
+        "tr": "Hourly Rate",
+        "de": "Hourly Rate",
+        "fr": "Hourly Rate",
+        "es": "Hourly Rate",
+        "ar": "Hourly Rate"
+      }
     },
     {
       "id": "overtimeMultiplier",
       "label": "Overtime Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Multiplier applied to hourly rate for overtime (e.g., 1.5 for time and a half)"
+      "businessContext": "Multiplier applied to hourly rate for overtime (e.g., 1.5 for time and a half)",
+      "label_i18n": {
+        "en": "Overtime Multiplier",
+        "tr": "Overtime Multiplier",
+        "de": "Overtime Multiplier",
+        "fr": "Overtime Multiplier",
+        "es": "Overtime Multiplier",
+        "ar": "Overtime Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -40,11 +72,7 @@
     "totalPay": "regularPay + overtimePay"
   },
   "outputs": {
-    "primary": {
-      "id": "totalPay",
-      "label": "Total Pay",
-      "unit": "currency"
-    },
+    "primary": "regularPay",
     "breakdown": [
       {
         "id": "regularPay",
@@ -58,10 +86,10 @@
       }
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "İK & Personel",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "workforce-hr"
 }

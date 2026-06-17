@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "The central frequency of the passband, critical for tuning to desired signal in RF and audio applications."
+      "businessContext": "The central frequency of the passband, critical for tuning to desired signal in RF and audio applications.",
+      "label_i18n": {
+        "en": "Center Frequency",
+        "tr": "Center Frequency",
+        "de": "Center Frequency",
+        "fr": "Center Frequency",
+        "es": "Center Frequency",
+        "ar": "Center Frequency"
+      }
     },
     {
       "id": "bandwidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 100,
-      "businessContext": "Width of frequency range where signal passes with minimal attenuation; determines filter selectivity."
+      "businessContext": "Width of frequency range where signal passes with minimal attenuation; determines filter selectivity.",
+      "label_i18n": {
+        "en": "Bandwidth",
+        "tr": "Bandwidth",
+        "de": "Bandwidth",
+        "fr": "Bandwidth",
+        "es": "Bandwidth",
+        "ar": "Bandwidth"
+      }
     },
     {
       "id": "gain_dB",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "dB",
       "default": 0,
-      "businessContext": "Amplification in decibels within the passband; 0 dB means unity gain."
+      "businessContext": "Amplification in decibels within the passband; 0 dB means unity gain.",
+      "label_i18n": {
+        "en": "Passband Gain",
+        "tr": "Passband Gain",
+        "de": "Passband Gain",
+        "fr": "Passband Gain",
+        "es": "Passband Gain",
+        "ar": "Passband Gain"
+      }
     },
     {
       "id": "filterOrder",
       "label": "Filter Order",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The order of the filter, influencing the roll-off rate and complexity; not used in basic calculation but provided for context."
+      "businessContext": "The order of the filter, influencing the roll-off rate and complexity; not used in basic calculation but provided for context.",
+      "label_i18n": {
+        "en": "Filter Order",
+        "tr": "Filter Order",
+        "de": "Filter Order",
+        "fr": "Filter Order",
+        "es": "Filter Order",
+        "ar": "Filter Order"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "gainLinear"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

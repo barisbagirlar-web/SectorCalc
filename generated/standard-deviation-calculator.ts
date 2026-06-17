@@ -23,33 +23,19 @@ export const Standard_deviation_calculatorInputSchema = z.object({
   target_value: z.number(),
 });
 
-function evaluateAllFormulas(input: Standard_deviation_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (1/n) * Σ(x_i); results["mean"] = Number.isFinite(v) ? v : 0; } catch { results["mean"] = 0; }
-  try { const v = Σ(x_i - μ)**2; results["sum_squared_deviations"] = Number.isFinite(v) ? v : 0; } catch { results["sum_squared_deviations"] = 0; }
-  results["variance"] = 0;
-  results["standard_deviation"] = 0;
-  results["relative_standard_deviation"] = 0;
-  try { const v = (USL - LSL) / (6 * sigma); results["process_capability_cp"] = Number.isFinite(v) ? v : 0; } catch { results["process_capability_cp"] = 0; }
-  results["process_capability_cpk"] = 0;
-  return results;
+function evaluateAllFormulas(_input: Standard_deviation_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateStandard_deviation_calculator(input: Standard_deviation_calculatorInput): Standard_deviation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["standard_deviation"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    mean: values["mean"] ?? 0,
-    variance: values["variance"] ?? 0,
-    sample_size: values["sample_size"] ?? 0,
-    sum_squared_deviations: values["sum_squared_deviations"] ?? 0,
-    relative_standard_deviation: values["relative_standard_deviation"] ?? 0,
-    cp: values["cp"] ?? 0,
-    cpk: values["cpk"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["High Process Variation","Off-Center Process Mean","Insufficient Sample Size"];
-  const suggestedActions: string[] = ["Reduce Process Variation","Center Process on Target","Increase Sample Size","Review Specification Limits"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -68,7 +54,7 @@ export function calculateStandard_deviation_calculator(input: Standard_deviation
 
 export interface Standard_deviation_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { mean: number; variance: number; sample_size: number; sum_squared_deviations: number; relative_standard_deviation: number; cp: number; cpk: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

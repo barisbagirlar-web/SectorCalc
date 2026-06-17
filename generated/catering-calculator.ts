@@ -34,7 +34,7 @@ function evaluateAllFormulas(input: Catering_calculatorInput): Record<string, nu
 
 export function calculateCatering_calculator(input: Catering_calculatorInput): Catering_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCost"] ?? 0;
+  const totalWasteCost = values["totalRawCost"] ?? 0;
   const breakdown = {
     
   };

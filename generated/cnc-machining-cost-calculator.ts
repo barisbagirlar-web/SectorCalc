@@ -33,31 +33,19 @@ export const Cnc_machining_cost_calculatorInputSchema = z.object({
   density_g_per_cm3: z.number().min(0.5).max(20).default(2.7),
 });
 
-function evaluateAllFormulas(input: Cnc_machining_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = ((input.stock_volume_cm3 * input.density_g_per_cm3 / 1000) * input.material_cost_per_kg_usd) * (1 + input.scrap_rate_percent / 100); results["raw_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["raw_material_cost"] = 0; }
-  try { const v = (input.machining_time_min / 60) * input.machine_hourly_rate_usd + (input.setup_time_min / 60 / input.batch_size) * input.machine_hourly_rate_usd; results["machining_cost"] = Number.isFinite(v) ? v : 0; } catch { results["machining_cost"] = 0; }
-  try { const v = (input.machining_time_min / 60) * input.labor_hourly_rate_usd + (input.setup_time_min / 60 / input.batch_size) * input.labor_hourly_rate_usd; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
-  try { const v = input.tooling_cost_per_part_usd; results["tooling_cost"] = Number.isFinite(v) ? v : 0; } catch { results["tooling_cost"] = 0; }
-  try { const v = (results["raw_material_cost"] ?? 0) + (results["machining_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["tooling_cost"] ?? 0); results["direct_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_cost"] = 0; }
-  try { const v = (results["direct_cost"] ?? 0) * (input.overhead_percentage / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
-  try { const v = ((results["direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0)) / (1 - input.scrap_rate_percent / 100); results["total_cost_per_part"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_part"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Cnc_machining_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateCnc_machining_cost_calculator(input: Cnc_machining_cost_calculatorInput): Cnc_machining_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_cost_per_part"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    raw_material_cost: values["raw_material_cost"] ?? 0,
-    machining_cost: values["machining_cost"] ?? 0,
-    labor_cost: values["labor_cost"] ?? 0,
-    tooling_cost: values["tooling_cost"] ?? 0,
-    overhead_cost: values["overhead_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Setup Amortization per Part","Scrap Loss per Good Part","Material Utilization Loss"];
-  const suggestedActions: string[] = ["Implement SMED (Single-Minute Exchange of Die) to reduce setup time by 50%.","Apply Six Sigma DMAIC to identify root causes of scrap; consider SPC monitoring.","Evaluate tool coatings and feeds/speeds to extend tool life; use ISO 13399 tool data.","Combine orders or use group technology to increase batch size."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -76,7 +64,7 @@ export function calculateCnc_machining_cost_calculator(input: Cnc_machining_cost
 
 export interface Cnc_machining_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { raw_material_cost: number; machining_cost: number; labor_cost: number; tooling_cost: number; overhead_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -23,31 +23,19 @@ export const Pregnancy_due_date_calculatorInputSchema = z.object({
   risk_factors: z.enum(['none', 'hypertension', 'diabetes', 'multiple_gestation', 'previous_preterm', 'other']).default('none'),
 });
 
-function evaluateAllFormulas(input: Pregnancy_due_date_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (current_timestamp - input.lmp_date) / 86400; results["lmp_gestational_age_days"] = Number.isFinite(v) ? v : 0; } catch { results["lmp_gestational_age_days"] = 0; }
-  try { const v = input.cycle_length - input.luteal_phase_length; results["ovulation_offset"] = Number.isFinite(v) ? v : 0; } catch { results["ovulation_offset"] = 0; }
-  try { const v = input.lmp_date + 280 * 86400 + (input.cycle_length - 28) * 86400; results["edd_lmp"] = Number.isFinite(v) ? v : 0; } catch { results["edd_lmp"] = 0; }
-  try { const v = current_timestamp + (40 - input.ultrasound_ga_weeks) * 7 * 86400 - input.ultrasound_ga_days * 86400; results["edd_ultrasound"] = Number.isFinite(v) ? v : 0; } catch { results["edd_ultrasound"] = 0; }
-  try { const v = (input.ultrasound_ga_weeks != null) ? (results["edd_ultrasound"] ?? 0) : (results["edd_lmp"] ?? 0); results["edd_primary"] = Number.isFinite(v) ? v : 0; } catch { results["edd_primary"] = 0; }
-  try { const v = 40 * 7; results["gestational_age_at_edd"] = Number.isFinite(v) ? v : 0; } catch { results["gestational_age_at_edd"] = 0; }
-  try { const v = 1.96 * input.cycle_variability * Math.sqrt(280 / input.cycle_length); results["confidence_interval_days"] = Number.isFinite(v) ? v : 0; } catch { results["confidence_interval_days"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Pregnancy_due_date_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculatePregnancy_due_date_calculator(input: Pregnancy_due_date_calculatorInput): Pregnancy_due_date_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["edd"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    edd_lmp: values["edd_lmp"] ?? 0,
-    edd_ultrasound: values["edd_ultrasound"] ?? 0,
-    gestational_age_days: values["gestational_age_days"] ?? 0,
-    ovulation_offset: values["ovulation_offset"] ?? 0,
-    confidence_interval_days: values["confidence_interval_days"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Cycle Variability Impact","Luteal Phase Variation","Ultrasound Timing Error"];
-  const suggestedActions: string[] = ["Schedule ultrasound for dating confirmation","Initiate high-risk pregnancy monitoring protocol","Reconcile LMP and ultrasound dates if discrepancy > 2 weeks","Encourage cycle tracking for future cycle variability reduction"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -66,7 +54,7 @@ export function calculatePregnancy_due_date_calculator(input: Pregnancy_due_date
 
 export interface Pregnancy_due_date_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { edd_lmp: number; edd_ultrasound: number; gestational_age_days: number; ovulation_offset: number; confidence_interval_days: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

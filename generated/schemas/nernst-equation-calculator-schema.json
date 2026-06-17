@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "Redoks yarı hücresinin standart potansiyeli"
+      "businessContext": "Redoks yarı hücresinin standart potansiyeli",
+      "label_i18n": {
+        "en": "Standart Elektrot Potansiyeli (E°)",
+        "tr": "Standart Elektrot Potansiyeli (E°)",
+        "de": "Standart Elektrot Potansiyeli (E°)",
+        "fr": "Standart Elektrot Potansiyeli (E°)",
+        "es": "Standart Elektrot Potansiyeli (E°)",
+        "ar": "Standart Elektrot Potansiyeli (E°)"
+      }
     },
     {
       "id": "temp",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Reaksiyon sıcaklığı"
+      "businessContext": "Reaksiyon sıcaklığı",
+      "label_i18n": {
+        "en": "Sıcaklık (T)",
+        "tr": "Sıcaklık (T)",
+        "de": "Sıcaklık (T)",
+        "fr": "Sıcaklık (T)",
+        "es": "Sıcaklık (T)",
+        "ar": "Sıcaklık (T)"
+      }
     },
     {
       "id": "n",
       "label": "Aktarılan Elektron Sayısı (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Yarı reaksiyonda transfer edilen elektron sayısı"
+      "businessContext": "Yarı reaksiyonda transfer edilen elektron sayısı",
+      "label_i18n": {
+        "en": "Aktarılan Elektron Sayısı (n)",
+        "tr": "Aktarılan Elektron Sayısı (n)",
+        "de": "Aktarılan Elektron Sayısı (n)",
+        "fr": "Aktarılan Elektron Sayısı (n)",
+        "es": "Aktarılan Elektron Sayısı (n)",
+        "ar": "Aktarılan Elektron Sayısı (n)"
+      }
     },
     {
       "id": "C_ox",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Yükseltgenmiş türün molar derişimi"
+      "businessContext": "Yükseltgenmiş türün molar derişimi",
+      "label_i18n": {
+        "en": "Yükseltgenmiş Tür Derişimi [Ox]",
+        "tr": "Yükseltgenmiş Tür Derişimi [Ox]",
+        "de": "Yükseltgenmiş Tür Derişimi [Ox]",
+        "fr": "Yükseltgenmiş Tür Derişimi [Ox]",
+        "es": "Yükseltgenmiş Tür Derişimi [Ox]",
+        "ar": "Yükseltgenmiş Tür Derişimi [Ox]"
+      }
     },
     {
       "id": "C_red",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "İndirgenmiş türün molar derişimi"
+      "businessContext": "İndirgenmiş türün molar derişimi",
+      "label_i18n": {
+        "en": "İndirgenmiş Tür Derişimi [Red]",
+        "tr": "İndirgenmiş Tür Derişimi [Red]",
+        "de": "İndirgenmiş Tür Derişimi [Red]",
+        "fr": "İndirgenmiş Tür Derişimi [Red]",
+        "es": "İndirgenmiş Tür Derişimi [Red]",
+        "ar": "İndirgenmiş Tür Derişimi [Red]"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "Q"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

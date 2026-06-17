@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft·lb",
       "default": 1,
-      "businessContext": "The energy or torque value in foot-pounds to convert."
+      "businessContext": "The energy or torque value in foot-pounds to convert.",
+      "label_i18n": {
+        "en": "Foot-Pounds (ft·lb)",
+        "tr": "Foot-Pounds (ft·lb)",
+        "de": "Foot-Pounds (ft·lb)",
+        "fr": "Foot-Pounds (ft·lb)",
+        "es": "Foot-Pounds (ft·lb)",
+        "ar": "Foot-Pounds (ft·lb)"
+      }
     },
     {
       "id": "conversion_factor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "J/(ft·lb)",
       "default": 1.3558179483314003,
-      "businessContext": "Standard conversion factor. Modify only if using a different calibration."
+      "businessContext": "Standard conversion factor. Modify only if using a different calibration.",
+      "label_i18n": {
+        "en": "Conversion Factor (J/ft·lb)",
+        "tr": "Conversion Factor (J/ft·lb)",
+        "de": "Conversion Factor (J/ft·lb)",
+        "fr": "Conversion Factor (J/ft·lb)",
+        "es": "Conversion Factor (J/ft·lb)",
+        "ar": "Conversion Factor (J/ft·lb)"
+      }
     },
     {
       "id": "decimal_places",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 2,
-      "businessContext": "Number of decimal places for the output value."
+      "businessContext": "Number of decimal places for the output value.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "uncertainty_percent",
@@ -31,26 +55,38 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Estimated measurement uncertainty as a percentage of the converted value."
+      "businessContext": "Estimated measurement uncertainty as a percentage of the converted value.",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (%)",
+        "tr": "Measurement Uncertainty (%)",
+        "de": "Measurement Uncertainty (%)",
+        "fr": "Measurement Uncertainty (%)",
+        "es": "Measurement Uncertainty (%)",
+        "ar": "Measurement Uncertainty (%)"
+      }
     }
   ],
   "formulas": {
     "joules_exact": "foot_pounds * conversion_factor",
     "joules_rounded": "Math.round(joules_exact * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
-    "uncertainty": "joules_exact * (uncertainty_percent / 100)"
+    "uncertainty": "joules_exact * (uncertainty_percent / 100)",
+    "____joules_exact_____J_": "' + joules_exact + ' J'",
+    "____joules_rounded_____J_": "' + joules_rounded + ' J'",
+    "_____uncertainty_____J_": "±' + uncertainty + ' J'",
+    "result": "joules_rounded + ' J'"
   },
   "outputs": {
-    "primary": "joules_rounded + ' J'",
+    "primary": "result",
     "breakdown": [
       "'Exact conversion: ' + joules_exact + ' J'",
       "'Rounded to ' + decimal_places + ' decimal places: ' + joules_rounded + ' J'",
       "'Measurement uncertainty: ±' + uncertainty + ' J'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

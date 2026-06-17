@@ -5,25 +5,49 @@
       "id": "totalImpressions",
       "label": "Total Impressions",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Total number of ad impressions"
+      "businessContext": "Total number of ad impressions",
+      "label_i18n": {
+        "en": "Total Impressions",
+        "tr": "Total Impressions",
+        "de": "Total Impressions",
+        "fr": "Total Impressions",
+        "es": "Total Impressions",
+        "ar": "Total Impressions"
+      }
     },
     {
       "id": "totalClicks",
       "label": "Total Clicks",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Total number of ad clicks"
+      "businessContext": "Total number of ad clicks",
+      "label_i18n": {
+        "en": "Total Clicks",
+        "tr": "Total Clicks",
+        "de": "Total Clicks",
+        "fr": "Total Clicks",
+        "es": "Total Clicks",
+        "ar": "Total Clicks"
+      }
     },
     {
       "id": "totalConversions",
       "label": "Total Conversions",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Total conversions from clicks (optional)"
+      "businessContext": "Total conversions from clicks (optional)",
+      "label_i18n": {
+        "en": "Total Conversions",
+        "tr": "Total Conversions",
+        "de": "Total Conversions",
+        "fr": "Total Conversions",
+        "es": "Total Conversions",
+        "ar": "Total Conversions"
+      }
     },
     {
       "id": "totalCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Total cost of the advertising campaign"
+      "businessContext": "Total cost of the advertising campaign",
+      "label_i18n": {
+        "en": "Total Ad Cost",
+        "tr": "Total Ad Cost",
+        "de": "Total Ad Cost",
+        "fr": "Total Ad Cost",
+        "es": "Total Ad Cost",
+        "ar": "Total Ad Cost"
+      }
     },
     {
       "id": "ctrTarget",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Target click-through rate percentage"
+      "businessContext": "Target click-through rate percentage",
+      "label_i18n": {
+        "en": "Target CTR",
+        "tr": "Target CTR",
+        "de": "Target CTR",
+        "fr": "Target CTR",
+        "es": "Target CTR",
+        "ar": "Target CTR"
+      }
     }
   ],
   "formulas": {
@@ -55,10 +95,10 @@
       "costPerClick"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "finance-sales-working-capital"
 }

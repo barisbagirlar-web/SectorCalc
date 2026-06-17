@@ -143,7 +143,7 @@
       "id": "include_benefits",
       "label": "Include Benefits & Payroll Taxes",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -159,7 +159,7 @@
       "id": "overhead_allocation_method",
       "label": "Overhead Allocation Method",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "direct_labor_hours",
       "min": null,
       "max": null,
@@ -214,139 +214,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "effective_labor_rate",
-      "description": "Adjusted direct labor rate including benefits and shift premium",
-      "formula": "direct_labor_hourly_rate * (1 + (include_benefits ? 0.30 : 0)) * shift_premium_factor",
-      "unit": "USD/hour"
-    },
-    {
-      "id": "total_direct_labor_hours",
-      "description": "Total annual direct labor hours available",
-      "formula": "num_direct_labor_employees * annual_operating_hours_per_employee",
-      "unit": "hours/year"
-    },
-    {
-      "id": "overhead_rate_per_hour",
-      "description": "Overhead cost allocated per direct labor hour",
-      "formula": "total_annual_overhead_costs / total_direct_labor_hours",
-      "unit": "USD/hour"
-    },
-    {
-      "id": "machine_rate_per_hour",
-      "description": "Machine cost allocated per direct labor hour",
-      "formula": "total_annual_machine_costs / total_direct_labor_hours",
-      "unit": "USD/hour"
-    },
-    {
-      "id": "gross_hourly_rate",
-      "description": "Sum of labor, overhead, and machine costs before efficiency and quality adjustments",
-      "formula": "effective_labor_rate + overhead_rate_per_hour + machine_rate_per_hour",
-      "unit": "USD/hour"
-    },
-    {
-      "id": "efficiency_adjustment_factor",
-      "description": "Combined factor for efficiency and quality losses (Lean/Six Sigma approach)",
-      "formula": "(average_shop_efficiency_percent / 100) * (quality_yield_percent / 100)",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "true_shop_hourly_rate",
-      "description": "Primary result: fully burdened hourly rate accounting for all costs and losses",
-      "formula": "gross_hourly_rate / efficiency_adjustment_factor",
-      "unit": "USD/hour"
-    }
+    "direct_labor_hourly_rate",
+    "direct_labor_hourly_rate",
+    "direct_labor_hourly_rate",
+    "direct_labor_hourly_rate",
+    "direct_labor_hourly_rate",
+    "direct_labor_hourly_rate",
+    "direct_labor_hourly_rate"
   ],
   "outputs": {
-    "primary": {
-      "id": "true_shop_hourly_rate",
-      "label": "True Shop Hourly Rate",
-      "description": "The actual cost per productive hour, including all direct and indirect costs, adjusted for efficiency and quality losses.",
-      "unit": "USD/hour",
-      "dataConfidenceAdjusted": 0
-    },
-    "breakdown": {
-      "effective_labor_rate": {
-        "label": "Effective Labor Rate",
-        "unit": "USD/hour",
-        "description": "Direct labor rate after benefits and shift premium."
-      },
-      "overhead_rate_per_hour": {
-        "label": "Overhead Rate per Hour",
-        "unit": "USD/hour",
-        "description": "Overhead allocated per direct labor hour."
-      },
-      "machine_rate_per_hour": {
-        "label": "Machine Rate per Hour",
-        "unit": "USD/hour",
-        "description": "Machine cost allocated per direct labor hour."
-      },
-      "gross_hourly_rate": {
-        "label": "Gross Hourly Rate",
-        "unit": "USD/hour",
-        "description": "Sum of labor, overhead, and machine rates before efficiency adjustment."
-      },
-      "efficiency_adjustment_factor": {
-        "label": "Efficiency Adjustment Factor",
-        "unit": "dimensionless",
-        "description": "Product of efficiency and yield percentages."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "downtime_loss",
-        "label": "Downtime Loss",
-        "description": "Hours lost due to unplanned downtime, setup, and maintenance.",
-        "estimatedImpact": "Reduces efficiency by 5-15%"
-      },
-      {
-        "id": "speed_loss",
-        "label": "Speed Loss",
-        "description": "Running equipment below rated speed (e.g., due to aging or suboptimal settings).",
-        "estimatedImpact": "Reduces efficiency by 3-10%"
-      },
-      {
-        "id": "quality_loss",
-        "label": "Quality Loss (Rework & Scrap)",
-        "description": "Time and material wasted on defective products.",
-        "estimatedImpact": "Reduces yield by 2-20%"
-      },
-      {
-        "id": "indirect_labor_burden",
-        "label": "Indirect Labor Burden",
-        "description": "Time spent by direct labor on non-productive activities (cleaning, meetings, training).",
-        "estimatedImpact": "Adds 5-15% to effective labor rate"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_downtime",
-        "label": "Implement TPM (Total Productive Maintenance)",
-        "description": "Reduce unplanned downtime by 50% through preventive maintenance and operator training.",
-        "expectedImprovement": "Efficiency increase of 5-10%"
-      },
-      {
-        "id": "improve_yield",
-        "label": "Deploy Six Sigma DMAIC for top defect causes",
-        "description": "Target the top 3 defect types to improve first-pass yield.",
-        "expectedImprovement": "Yield increase of 5-15%"
-      },
-      {
-        "id": "optimize_overhead",
-        "label": "Review overhead allocation and reduce non-value-added costs",
-        "description": "Lean office and indirect cost reduction.",
-        "expectedImprovement": "Overhead rate reduction of 10-20%"
-      },
-      {
-        "id": "standardize_work",
-        "label": "Standardize work procedures to reduce speed loss",
-        "description": "Create and train on best-practice standard work.",
-        "expectedImprovement": "Speed loss reduction of 3-7%"
-      }
-    ],
-    "dataConfidenceAdjusted": 0
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
+  "toolName": "shop-hourly-rate-calculator"
 }

@@ -25,7 +25,7 @@ function evaluateAllFormulas(input: Age_in_hours_calculatorInput): Record<string
 
 export function calculateAge_in_hours_calculator(input: Age_in_hours_calculatorInput): Age_in_hours_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalHours"] ?? 0;
+  const totalWasteCost = values["totalDays"] ?? 0;
   const breakdown = {
     
   };

@@ -5,9 +5,17 @@
       "id": "testType",
       "label": "Test Type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for Shuttle Run (20m), 1 for Yo-Yo Intermittent Recovery Test Level 1"
+      "businessContext": "0 for Shuttle Run (20m), 1 for Yo-Yo Intermittent Recovery Test Level 1",
+      "label_i18n": {
+        "en": "Test Type",
+        "tr": "Test Type",
+        "de": "Test Type",
+        "fr": "Test Type",
+        "es": "Test Type",
+        "ar": "Test Type"
+      }
     },
     {
       "id": "maxSpeed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 12,
-      "businessContext": "Speed at the last completed stage of the shuttle run test."
+      "businessContext": "Speed at the last completed stage of the shuttle run test.",
+      "label_i18n": {
+        "en": "Maximum Speed",
+        "tr": "Maximum Speed",
+        "de": "Maximum Speed",
+        "fr": "Maximum Speed",
+        "es": "Maximum Speed",
+        "ar": "Maximum Speed"
+      }
     },
     {
       "id": "age",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 25,
-      "businessContext": "Age of the athlete."
+      "businessContext": "Age of the athlete.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "distance",
@@ -31,11 +55,21 @@
       "type": "number",
       "unit": "m",
       "default": 2000,
-      "businessContext": "Total distance covered during the Yo-Yo IR1 test."
+      "businessContext": "Total distance covered during the Yo-Yo IR1 test.",
+      "label_i18n": {
+        "en": "Distance Covered",
+        "tr": "Distance Covered",
+        "de": "Distance Covered",
+        "fr": "Distance Covered",
+        "es": "Distance Covered",
+        "ar": "Distance Covered"
+      }
     }
   ],
   "formulas": {
-    "vo2max": "testType === 0 ? (31.025 + 3.238 * maxSpeed - 3.248 * age + 0.1536 * maxSpeed * age) : (distance * 0.0084 + 36.4)"
+    "vo2max": "testType === 0 ? (31.025 + 3.238 * maxSpeed - 3.248 * age + 0.1536 * maxSpeed * age) : (distance * 0.0084 + 36.4)",
+    "VO2max___31_025___3_238___maxSpeed___3_2": "VO2max = 31.025 + 3.238 * maxSpeed - 3.248 * age + 0.1536 * maxSpeed * age",
+    "VO2max___distance___0_0084___36_4": "VO2max = distance * 0.0084 + 36.4"
   },
   "outputs": {
     "primary": "vo2max",
@@ -45,10 +79,10 @@
       "Yo-Yo IR1 Formula: VO2max = distance * 0.0084 + 36.4"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -170,7 +170,8 @@
       },
       "businessContext_i18n": {
         "en": "Typical payment behavior of the customer base, used to adjust effective DSO."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -210,129 +211,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "annual_revenue",
-      "description": "Total annual revenue from invoices",
-      "expression": "avg_invoice_value * annual_invoice_count"
-    },
-    {
-      "id": "current_dso",
-      "description": "Current Days Sales Outstanding adjusted for payment behavior",
-      "expression": "current_terms_days + CASE payment_behavior WHEN 'On-time' THEN 0 WHEN 'Slightly late (1-5 days)' THEN 3 WHEN 'Late (6-15 days)' THEN 10 WHEN 'Very late (>15 days)' THEN 20 END"
-    },
-    {
-      "id": "proposed_dso",
-      "description": "Proposed DSO after new terms, assuming discount takers pay within discount window",
-      "expression": "(customer_acceptance_rate_pct/100) * discount_window_days + (1 - customer_acceptance_rate_pct/100) * proposed_terms_days + CASE payment_behavior WHEN 'On-time' THEN 0 WHEN 'Slightly late (1-5 days)' THEN 3 WHEN 'Late (6-15 days)' THEN 10 WHEN 'Very late (>15 days)' THEN 20 END"
-    },
-    {
-      "id": "dso_reduction_days",
-      "description": "Reduction in DSO",
-      "expression": "current_dso - proposed_dso"
-    },
-    {
-      "id": "working_capital_benefit",
-      "description": "Annual working capital freed up due to DSO reduction",
-      "expression": "(dso_reduction_days / 365) * annual_revenue"
-    },
-    {
-      "id": "annual_discount_cost",
-      "description": "Annual cost of early payment discounts taken",
-      "expression": "annual_revenue * (customer_acceptance_rate_pct/100) * (early_payment_discount_pct/100)"
-    },
-    {
-      "id": "cost_of_capital_savings",
-      "description": "Savings from reduced financing need (using cost of capital)",
-      "expression": "working_capital_benefit * (cost_of_capital_pct/100)"
-    },
-    {
-      "id": "net_annual_benefit",
-      "description": "Primary result: net annual benefit from payment term optimization",
-      "expression": "cost_of_capital_savings - annual_discount_cost"
-    }
+    "avg_invoice_value",
+    "avg_invoice_value",
+    "avg_invoice_value",
+    "avg_invoice_value",
+    "avg_invoice_value",
+    "avg_invoice_value",
+    "avg_invoice_value",
+    "avg_invoice_value"
   ],
   "outputs": {
-    "primary": {
-      "id": "net_annual_benefit",
-      "label": "Net Annual Benefit",
-      "unit": "USD",
-      "description": "Annual net financial benefit after accounting for discount costs and capital savings."
-    },
-    "breakdown": {
-      "annual_revenue": {
-        "label": "Annual Revenue",
-        "unit": "USD"
-      },
-      "current_dso": {
-        "label": "Current DSO",
-        "unit": "days"
-      },
-      "proposed_dso": {
-        "label": "Proposed DSO",
-        "unit": "days"
-      },
-      "dso_reduction_days": {
-        "label": "DSO Reduction",
-        "unit": "days"
-      },
-      "working_capital_benefit": {
-        "label": "Working Capital Benefit",
-        "unit": "USD"
-      },
-      "annual_discount_cost": {
-        "label": "Annual Discount Cost",
-        "unit": "USD"
-      },
-      "cost_of_capital_savings": {
-        "label": "Cost of Capital Savings",
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "lost_revenue_from_discount",
-        "label": "Lost Revenue from Discount",
-        "description": "Revenue foregone due to discounts taken, not captured in net benefit.",
-        "unit": "USD",
-        "value_expression": "annual_discount_cost"
-      },
-      {
-        "id": "customer_relationship_risk",
-        "label": "Customer Relationship Risk",
-        "description": "Potential negative impact on customer satisfaction if terms are too aggressive.",
-        "unit": "qualitative",
-        "value_expression": "IF proposed_terms_days < 10 THEN 'High' ELSE 'Low' END"
-      },
-      {
-        "id": "operational_disruption_cost",
-        "label": "Operational Disruption Cost",
-        "description": "Cost of updating billing systems and training staff for new terms.",
-        "unit": "USD",
-        "value_expression": "0.005 * annual_revenue"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "description": "If net benefit is positive, implement proposed terms with a pilot group of customers."
-      },
-      {
-        "id": "action_2",
-        "description": "If acceptance rate is low, consider increasing discount percentage or extending discount window."
-      },
-      {
-        "id": "action_3",
-        "description": "Monitor DSO monthly and compare to industry benchmark (ISO 30400, WERC DSO standards)."
-      },
-      {
-        "id": "action_4",
-        "description": "Use Six Sigma DMAIC to reduce variability in payment behavior."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "payment-term-optimizer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik"
 }

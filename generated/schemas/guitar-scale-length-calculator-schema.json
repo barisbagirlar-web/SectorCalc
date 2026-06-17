@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "mm",
       "default": 648,
-      "businessContext": "Distance from nut to bridge saddle in millimeters."
+      "businessContext": "Distance from nut to bridge saddle in millimeters.",
+      "label_i18n": {
+        "en": "Scale Length",
+        "tr": "Scale Length",
+        "de": "Scale Length",
+        "fr": "Scale Length",
+        "es": "Scale Length",
+        "ar": "Scale Length"
+      }
     },
     {
       "id": "numberOfFrets",
       "label": "Number of Frets",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 22,
-      "businessContext": "Total number of frets on the fretboard (used for context)."
+      "businessContext": "Total number of frets on the fretboard (used for context).",
+      "label_i18n": {
+        "en": "Number of Frets",
+        "tr": "Number of Frets",
+        "de": "Number of Frets",
+        "fr": "Number of Frets",
+        "es": "Number of Frets",
+        "ar": "Number of Frets"
+      }
     },
     {
       "id": "fretNumber",
       "label": "Target Fret Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12,
-      "businessContext": "The fret number for which to calculate the distance from the nut."
+      "businessContext": "The fret number for which to calculate the distance from the nut.",
+      "label_i18n": {
+        "en": "Target Fret Number",
+        "tr": "Target Fret Number",
+        "de": "Target Fret Number",
+        "fr": "Target Fret Number",
+        "es": "Target Fret Number",
+        "ar": "Target Fret Number"
+      }
     },
     {
       "id": "stringGauge",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "inch",
       "default": 0.01,
-      "businessContext": "Diameter of the string in inches (e.g., .010 for high E)."
+      "businessContext": "Diameter of the string in inches (e.g., .010 for high E).",
+      "label_i18n": {
+        "en": "String Gauge",
+        "tr": "String Gauge",
+        "de": "String Gauge",
+        "fr": "String Gauge",
+        "es": "String Gauge",
+        "ar": "String Gauge"
+      }
     },
     {
       "id": "tuningFrequency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 329.63,
-      "businessContext": "Target frequency for the string (e.g., E4 = 329.63 Hz)."
+      "businessContext": "Target frequency for the string (e.g., E4 = 329.63 Hz).",
+      "label_i18n": {
+        "en": "Tuning Frequency",
+        "tr": "Tuning Frequency",
+        "de": "Tuning Frequency",
+        "fr": "Tuning Frequency",
+        "es": "Tuning Frequency",
+        "ar": "Tuning Frequency"
+      }
     }
   ],
   "formulas": {
@@ -47,20 +87,24 @@
     "scaleLengthInches": "scaleLength / 25.4",
     "stringUnitWeight": "0.283 * Math.PI * Math.pow(stringGauge / 2, 2)",
     "tensionLbs": "(stringUnitWeight * Math.pow(2 * scaleLengthInches * tuningFrequency, 2)) / 386.4",
-    "tensionKg": "tensionLbs * 0.453592"
+    "tensionKg": "tensionLbs * 0.453592",
+    "__tensionLbs_toFixed_2___lbs": "${tensionLbs.toFixed(2)} lbs",
+    "__tensionKg_toFixed_2___kg": "${tensionKg.toFixed(2)} kg",
+    "__scaleLengthInches_toFixed_2___in": "${scaleLengthInches.toFixed(2)} in",
+    "result": "Distance from nut to fret ${fretNumber}: ${fretDistance.toFixed(2)} mm"
   },
   "outputs": {
-    "primary": "Distance from nut to fret ${fretNumber}: ${fretDistance.toFixed(2)} mm",
+    "primary": "result",
     "breakdown": [
       "String tension (lbs): ${tensionLbs.toFixed(2)} lbs",
       "String tension (kg): ${tensionKg.toFixed(2)} kg",
       "Scale length in inches: ${scaleLengthInches.toFixed(2)} in"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Atölye & Tamir",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

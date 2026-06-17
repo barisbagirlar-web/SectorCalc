@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of a single concrete curb section"
+      "businessContext": "Length of a single concrete curb section",
+      "label_i18n": {
+        "en": "Curb Length (per piece)",
+        "tr": "Curb Length (per piece)",
+        "de": "Curb Length (per piece)",
+        "fr": "Curb Length (per piece)",
+        "es": "Curb Length (per piece)",
+        "ar": "Curb Length (per piece)"
+      }
     },
     {
       "id": "curbWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.15,
-      "businessContext": "Width of the curb cross-section"
+      "businessContext": "Width of the curb cross-section",
+      "label_i18n": {
+        "en": "Curb Width",
+        "tr": "Curb Width",
+        "de": "Curb Width",
+        "fr": "Curb Width",
+        "es": "Curb Width",
+        "ar": "Curb Width"
+      }
     },
     {
       "id": "curbHeight",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "Height of the curb cross-section"
+      "businessContext": "Height of the curb cross-section",
+      "label_i18n": {
+        "en": "Curb Height",
+        "tr": "Curb Height",
+        "de": "Curb Height",
+        "fr": "Curb Height",
+        "es": "Curb Height",
+        "ar": "Curb Height"
+      }
     },
     {
       "id": "curbCount",
       "label": "Number of Curbs",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Total count of curb pieces to produce or install"
+      "businessContext": "Total count of curb pieces to produce or install",
+      "label_i18n": {
+        "en": "Number of Curbs",
+        "tr": "Number of Curbs",
+        "de": "Number of Curbs",
+        "fr": "Number of Curbs",
+        "es": "Number of Curbs",
+        "ar": "Number of Curbs"
+      }
     },
     {
       "id": "concreteDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 2400,
-      "businessContext": "Standard reinforced concrete density"
+      "businessContext": "Standard reinforced concrete density",
+      "label_i18n": {
+        "en": "Concrete Density",
+        "tr": "Concrete Density",
+        "de": "Concrete Density",
+        "fr": "Concrete Density",
+        "es": "Concrete Density",
+        "ar": "Concrete Density"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage allowance for material loss, spillage, or over-excavation"
+      "businessContext": "Percentage allowance for material loss, spillage, or over-excavation",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,7 @@
       "totalWeightKg"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

@@ -79,7 +79,7 @@
       "id": "field_condition",
       "label": "Field Condition",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "good",
       "min": null,
       "max": null,
@@ -101,7 +101,7 @@
       "id": "irrigation_type",
       "label": "Irrigation Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "drip",
       "min": null,
       "max": null,
@@ -265,220 +265,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "gross_loss",
-      "name": "Gross Yield Loss",
-      "description": "Difference between expected and actual yield.",
-      "formula": "expected_yield - actual_yield",
-      "unit": "kg/ha",
-      "inputs": [
-        "expected_yield",
-        "actual_yield"
-      ]
-    },
-    {
-      "id": "harvest_loss_kg",
-      "name": "Harvest Loss (kg/ha)",
-      "description": "Absolute harvest loss based on actual yield.",
-      "formula": "actual_yield * (harvest_loss_pct / 100)",
-      "unit": "kg/ha",
-      "inputs": [
-        "actual_yield",
-        "harvest_loss_pct"
-      ]
-    },
-    {
-      "id": "post_harvest_loss_kg",
-      "name": "Post-Harvest Loss (kg/ha)",
-      "description": "Absolute post-harvest loss based on actual yield.",
-      "formula": "actual_yield * (post_harvest_loss_pct / 100)",
-      "unit": "kg/ha",
-      "inputs": [
-        "actual_yield",
-        "post_harvest_loss_pct"
-      ]
-    },
-    {
-      "id": "field_condition_factor",
-      "name": "Field Condition Factor",
-      "description": "Multiplier based on field condition rating (excellent=0.95, good=1.00, fair=1.10, poor=1.25).",
-      "formula": "CASE field_condition WHEN 'excellent' THEN 0.95 WHEN 'good' THEN 1.00 WHEN 'fair' THEN 1.10 WHEN 'poor' THEN 1.25 END",
-      "unit": "dimensionless",
-      "inputs": [
-        "field_condition"
-      ]
-    },
-    {
-      "id": "irrigation_efficiency_factor",
-      "name": "Irrigation Efficiency Factor",
-      "description": "Multiplier based on irrigation type (drip=0.90, sprinkler=1.00, flood=1.15, rainfed=1.20).",
-      "formula": "CASE irrigation_type WHEN 'drip' THEN 0.90 WHEN 'sprinkler' THEN 1.00 WHEN 'flood' THEN 1.15 WHEN 'rainfed' THEN 1.20 END",
-      "unit": "dimensionless",
-      "inputs": [
-        "irrigation_type"
-      ]
-    },
-    {
-      "id": "biotic_loss_index",
-      "name": "Biotic Loss Index",
-      "description": "Combined impact of pests, diseases, and weeds on yield.",
-      "formula": "(pest_pressure * 0.4 + disease_index * 0.4 + (weed_cover_pct / 10) * 0.2) / 10",
-      "unit": "index (0-1)",
-      "inputs": [
-        "pest_pressure",
-        "disease_index",
-        "weed_cover_pct"
-      ]
-    },
-    {
-      "id": "operational_efficiency_score",
-      "name": "Operational Efficiency Score",
-      "description": "Composite of labor and equipment performance.",
-      "formula": "(labor_efficiency * 0.5 + equipment_reliability * 0.5) / 100",
-      "unit": "index (0-1)",
-      "inputs": [
-        "labor_efficiency",
-        "equipment_reliability"
-      ]
-    },
-    {
-      "id": "total_yield_loss_pct",
-      "name": "Total Yield Loss (%)",
-      "description": "Primary result: overall yield loss percentage adjusted by field, irrigation, biotic, and operational factors.",
-      "formula": "((gross_loss / expected_yield) * 100) * field_condition_factor * irrigation_efficiency_factor * (1 + biotic_loss_index) * (1 + (1 - operational_efficiency_score))",
-      "unit": "%",
-      "inputs": [
-        "gross_loss",
-        "expected_yield",
-        "field_condition_factor",
-        "irrigation_efficiency_factor",
-        "biotic_loss_index",
-        "operational_efficiency_score"
-      ],
-      "isPrimary": true
-    }
+    "expected_yield",
+    "expected_yield",
+    "expected_yield",
+    "expected_yield",
+    "expected_yield",
+    "expected_yield",
+    "expected_yield",
+    "expected_yield"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_yield_loss_pct",
-      "label": "Total Yield Loss (%)",
-      "value": null,
-      "unit": "%",
-      "description": "Adjusted overall yield loss percentage incorporating all loss drivers."
-    },
-    "breakdown": {
-      "gross_loss_kg": {
-        "id": "gross_loss_kg",
-        "label": "Gross Yield Loss (kg/ha)",
-        "value": null,
-        "unit": "kg/ha"
-      },
-      "harvest_loss_kg": {
-        "id": "harvest_loss_kg",
-        "label": "Harvest Loss (kg/ha)",
-        "value": null,
-        "unit": "kg/ha"
-      },
-      "post_harvest_loss_kg": {
-        "id": "post_harvest_loss_kg",
-        "label": "Post-Harvest Loss (kg/ha)",
-        "value": null,
-        "unit": "kg/ha"
-      },
-      "biotic_loss_index": {
-        "id": "biotic_loss_index",
-        "label": "Biotic Loss Index",
-        "value": null,
-        "unit": "index"
-      },
-      "operational_efficiency_score": {
-        "id": "operational_efficiency_score",
-        "label": "Operational Efficiency Score",
-        "value": null,
-        "unit": "index"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "microclimate_variation",
-        "label": "Microclimate Variation",
-        "description": "Unexplained yield variability due to local weather patterns not captured by inputs.",
-        "potentialImpact": "medium"
-      },
-      {
-        "id": "nutrient_imbalance",
-        "label": "Nutrient Imbalance",
-        "description": "Suboptimal NPK ratios or micronutrient deficiencies not reflected in soil quality score.",
-        "potentialImpact": "high"
-      },
-      {
-        "id": "timing_delays",
-        "label": "Timing Delays",
-        "description": "Delays in planting, irrigation, or harvest that reduce yield potential.",
-        "potentialImpact": "medium"
-      },
-      {
-        "id": "genetic_variability",
-        "label": "Genetic Variability",
-        "description": "Inherent seed lot heterogeneity causing uneven maturity and loss.",
-        "potentialImpact": "low"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_harvest_optimization",
-        "label": "Optimize Harvest Settings",
-        "description": "Adjust combine speed, reel index, and concave clearance to reduce shatter loss.",
-        "priority": "high",
-        "applicableWhen": "harvest_loss_pct > 8"
-      },
-      {
-        "id": "action_ipm_program",
-        "label": "Implement Integrated Pest Management",
-        "description": "Use biological controls, resistant varieties, and targeted spraying to reduce pest and disease pressure.",
-        "priority": "high",
-        "applicableWhen": "biotic_loss_index > 0.3"
-      },
-      {
-        "id": "action_soil_amendment",
-        "label": "Soil Health Improvement",
-        "description": "Apply organic matter, adjust pH, and use cover crops to boost soil quality score above 60.",
-        "priority": "medium",
-        "applicableWhen": "soil_quality_score < 60"
-      },
-      {
-        "id": "action_irrigation_audit",
-        "label": "Irrigation System Audit",
-        "description": "Evaluate uniformity and scheduling; consider upgrading to drip or precision sprinkler.",
-        "priority": "medium",
-        "applicableWhen": "irrigation_type IN ('flood','rainfed')"
-      },
-      {
-        "id": "action_training_program",
-        "label": "Operator Training",
-        "description": "Provide hands-on training for harvest and post-harvest handling to reduce losses.",
-        "priority": "medium",
-        "applicableWhen": "labor_efficiency < 70"
-      },
-      {
-        "id": "action_preventive_maintenance",
-        "label": "Preventive Maintenance Schedule",
-        "description": "Implement regular maintenance for all field equipment to improve reliability above 80%.",
-        "priority": "high",
-        "applicableWhen": "equipment_reliability < 80"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted",
-      "label": "Data Confidence Adjusted Yield Loss",
-      "value": null,
-      "unit": "%",
-      "description": "Total yield loss adjusted by a confidence factor based on input completeness and consistency.",
-      "confidenceFactor": 0.85
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "crop-yield-loss-analyzer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

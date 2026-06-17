@@ -33,7 +33,7 @@ function evaluateAllFormulas(input: Opportunity_zone_calculatorInput): Record<st
 
 export function calculateOpportunity_zone_calculator(input: Opportunity_zone_calculatorInput): Opportunity_zone_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalSavings"] ?? 0;
+  const totalWasteCost = values["combinedTaxRate"] ?? 0;
   const breakdown = {
     
   };

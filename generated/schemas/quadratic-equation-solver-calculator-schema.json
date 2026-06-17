@@ -5,33 +5,65 @@
       "id": "a",
       "label": "Coefficient a",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Quadratic coefficient (non-zero for quadratic)"
+      "businessContext": "Quadratic coefficient (non-zero for quadratic)",
+      "label_i18n": {
+        "en": "Coefficient a",
+        "tr": "Coefficient a",
+        "de": "Coefficient a",
+        "fr": "Coefficient a",
+        "es": "Coefficient a",
+        "ar": "Coefficient a"
+      }
     },
     {
       "id": "b",
       "label": "Coefficient b",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Linear coefficient"
+      "businessContext": "Linear coefficient",
+      "label_i18n": {
+        "en": "Coefficient b",
+        "tr": "Coefficient b",
+        "de": "Coefficient b",
+        "fr": "Coefficient b",
+        "es": "Coefficient b",
+        "ar": "Coefficient b"
+      }
     },
     {
       "id": "c",
       "label": "Constant c",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term"
+      "businessContext": "Constant term",
+      "label_i18n": {
+        "en": "Constant c",
+        "tr": "Constant c",
+        "de": "Constant c",
+        "fr": "Constant c",
+        "es": "Constant c",
+        "ar": "Constant c"
+      }
     },
     {
       "id": "x",
       "label": "Evaluate at x",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Optional: evaluate the quadratic at this x value"
+      "businessContext": "Optional: evaluate the quadratic at this x value",
+      "label_i18n": {
+        "en": "Evaluate at x",
+        "tr": "Evaluate at x",
+        "de": "Evaluate at x",
+        "fr": "Evaluate at x",
+        "es": "Evaluate at x",
+        "ar": "Evaluate at x"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +86,8 @@
       "evalAtX"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

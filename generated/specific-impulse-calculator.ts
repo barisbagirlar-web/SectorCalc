@@ -16,13 +16,16 @@ export const Specific_impulse_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Specific_impulse_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.thrust / (input.massFlowRate * input.standardGravity); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  results["Isp___F________g__"] = 0;
+  results["Divide_thrust_by_the_product_of_mass_flo"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateSpecific_impulse_calculator(input: Specific_impulse_calculatorInput): Specific_impulse_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Specific"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

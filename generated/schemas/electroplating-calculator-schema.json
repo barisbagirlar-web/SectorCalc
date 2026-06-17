@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm²",
       "default": 100,
-      "businessContext": "total area to be plated"
+      "businessContext": "total area to be plated",
+      "label_i18n": {
+        "en": "Surface Area",
+        "tr": "Surface Area",
+        "de": "Surface Area",
+        "fr": "Surface Area",
+        "es": "Surface Area",
+        "ar": "Surface Area"
+      }
     },
     {
       "id": "thickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "µm",
       "default": 10,
-      "businessContext": "desired coating thickness"
+      "businessContext": "desired coating thickness",
+      "label_i18n": {
+        "en": "Plating Thickness",
+        "tr": "Plating Thickness",
+        "de": "Plating Thickness",
+        "fr": "Plating Thickness",
+        "es": "Plating Thickness",
+        "ar": "Plating Thickness"
+      }
     },
     {
       "id": "currentDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "A/dm²",
       "default": 2,
-      "businessContext": "applied current per unit area"
+      "businessContext": "applied current per unit area",
+      "label_i18n": {
+        "en": "Current Density",
+        "tr": "Current Density",
+        "de": "Current Density",
+        "fr": "Current Density",
+        "es": "Current Density",
+        "ar": "Current Density"
+      }
     },
     {
       "id": "efficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "percentage of current used for metal deposition"
+      "businessContext": "percentage of current used for metal deposition",
+      "label_i18n": {
+        "en": "Cathode Efficiency",
+        "tr": "Cathode Efficiency",
+        "de": "Cathode Efficiency",
+        "fr": "Cathode Efficiency",
+        "es": "Cathode Efficiency",
+        "ar": "Cathode Efficiency"
+      }
     },
     {
       "id": "density",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 8.96,
-      "businessContext": "density of plating metal"
+      "businessContext": "density of plating metal",
+      "label_i18n": {
+        "en": "Metal Density",
+        "tr": "Metal Density",
+        "de": "Metal Density",
+        "fr": "Metal Density",
+        "es": "Metal Density",
+        "ar": "Metal Density"
+      }
     },
     {
       "id": "atomicWeight",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "g/mol",
       "default": 63.55,
-      "businessContext": "molar mass of metal"
+      "businessContext": "molar mass of metal",
+      "label_i18n": {
+        "en": "Atomic Weight",
+        "tr": "Atomic Weight",
+        "de": "Atomic Weight",
+        "fr": "Atomic Weight",
+        "es": "Atomic Weight",
+        "ar": "Atomic Weight"
+      }
     },
     {
       "id": "valence",
       "label": "Valence",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "number of electrons transferred per ion"
+      "businessContext": "number of electrons transferred per ion",
+      "label_i18n": {
+        "en": "Valence",
+        "tr": "Valence",
+        "de": "Valence",
+        "fr": "Valence",
+        "es": "Valence",
+        "ar": "Valence"
+      }
     }
   ],
   "formulas": {
@@ -74,9 +130,10 @@
       "current"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "metal-plastics-forming",
+  "premiumRequired": false
 }

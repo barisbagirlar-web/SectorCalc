@@ -22,13 +22,16 @@ function evaluateAllFormulas(input: Scientific_notation_converter_calculatorInpu
   try { const v = input.conversionMode === 0 ? (input.decimalNumber === 0 ? '0' : (input.decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(input.decimalNumber))))).toFixed(input.precision) + 'e' + Math.floor(Math.log10(Math.abs(input.decimalNumber)))) : (input.scientificCoefficient * Math.pow(10, input.scientificExponent)).toFixed(input.precision); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   try { const v = input.conversionMode === 0 ? (input.decimalNumber === 0 ? 'Coefficient: 0' : 'Coefficient: ' + (input.decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(input.decimalNumber))))).toFixed(input.precision)) : 'Decimal: ' + (input.scientificCoefficient * Math.pow(10, input.scientificExponent)).toFixed(input.precision); results["breakdown0"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown0"] = 0; }
   try { const v = input.conversionMode === 0 ? (input.decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(input.decimalNumber)))) : 'Scientific Input: ' + input.scientificCoefficient + 'e' + input.scientificExponent; results["breakdown1"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown1"] = 0; }
+  results["0_____Coefficient_______decimalNumber___"] = 0;
+  results["0_____Exponent______Math_floor_Math_log1"] = 0;
+  try { const v = input.conversionMode === 0 ? (input.decimalNumber === 0 ? '0' : (input.decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(input.decimalNumber))))).toFixed(input.precision) + 'e' + Math.floor(Math.log10(Math.abs(input.decimalNumber)))) : (input.scientificCoefficient * Math.pow(10, input.scientificExponent)).toFixed(input.precision); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateScientific_notation_converter_calculator(input: Scientific_notation_converter_calculatorInput): Scientific_notation_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["conversionMode"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

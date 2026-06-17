@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "cm",
       "default": 80,
-      "businessContext": "Measured at the narrowest point, in cm"
+      "businessContext": "Measured at the narrowest point, in cm",
+      "label_i18n": {
+        "en": "Waist Circumference",
+        "tr": "Waist Circumference",
+        "de": "Waist Circumference",
+        "fr": "Waist Circumference",
+        "es": "Waist Circumference",
+        "ar": "Waist Circumference"
+      }
     },
     {
       "id": "waistUnit",
       "label": "Waist Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for cm, 1 for inches"
+      "businessContext": "0 for cm, 1 for inches",
+      "label_i18n": {
+        "en": "Waist Unit",
+        "tr": "Waist Unit",
+        "de": "Waist Unit",
+        "fr": "Waist Unit",
+        "es": "Waist Unit",
+        "ar": "Waist Unit"
+      }
     },
     {
       "id": "height",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Measured without shoes, in cm"
+      "businessContext": "Measured without shoes, in cm",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "heightUnit",
       "label": "Height Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for cm, 1 for inches"
+      "businessContext": "0 for cm, 1 for inches",
+      "label_i18n": {
+        "en": "Height Unit",
+        "tr": "Height Unit",
+        "de": "Height Unit",
+        "fr": "Height Unit",
+        "es": "Height Unit",
+        "ar": "Height Unit"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "ratio"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

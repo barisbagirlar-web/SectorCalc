@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms"
+      "businessContext": "User's body weight in kilograms",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "duration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 60,
-      "businessContext": "Total duration of Zumba session in minutes"
+      "businessContext": "Total duration of Zumba session in minutes",
+      "label_i18n": {
+        "en": "Duration",
+        "tr": "Duration",
+        "de": "Duration",
+        "fr": "Duration",
+        "es": "Duration",
+        "ar": "Duration"
+      }
     },
     {
       "id": "MET",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MET",
       "default": 7.5,
-      "businessContext": "Metabolic Equivalent of Task for Zumba, typically 6-8"
+      "businessContext": "Metabolic Equivalent of Task for Zumba, typically 6-8",
+      "label_i18n": {
+        "en": "MET Value",
+        "tr": "MET Value",
+        "de": "MET Value",
+        "fr": "MET Value",
+        "es": "MET Value",
+        "ar": "MET Value"
+      }
     },
     {
       "id": "intensityFactor",
@@ -31,22 +55,36 @@
       "type": "number",
       "unit": "factor",
       "default": 1,
-      "businessContext": "Multiplier to adjust for effort level (1.0 moderate, 1.2 high, 0.8 low)"
+      "businessContext": "Multiplier to adjust for effort level (1.0 moderate, 1.2 high, 0.8 low)",
+      "label_i18n": {
+        "en": "Intensity Factor",
+        "tr": "Intensity Factor",
+        "de": "Intensity Factor",
+        "fr": "Intensity Factor",
+        "es": "Intensity Factor",
+        "ar": "Intensity Factor"
+      }
     }
   ],
   "formulas": {
     "caloriesBurned": "weight * MET * (duration / 60) * intensityFactor",
-    "hours": "duration / 60"
+    "hours": "duration / 60",
+    "Total_Time__hours_": "Total Time (hours)",
+    "MET_Value": "MET Value",
+    "Intensity_Factor": "Intensity Factor"
   },
   "outputs": {
-    "primary": "Calories Burned",
+    "primary": "caloriesBurned",
     "breakdown": [
       "Total Time (hours)",
       "MET Value",
       "Intensity Factor"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
+  "premiumRequired": false,
+  "categorySlug": "quality-six-sigma",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

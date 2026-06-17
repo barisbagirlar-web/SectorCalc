@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hands",
       "default": 15,
-      "businessContext": "Height of horse in hands (1 hand = 4 inches)"
+      "businessContext": "Height of horse in hands (1 hand = 4 inches)",
+      "label_i18n": {
+        "en": "Hands (hh)",
+        "tr": "Hands (hh)",
+        "de": "Hands (hh)",
+        "fr": "Hands (hh)",
+        "es": "Hands (hh)",
+        "ar": "Hands (hh)"
+      }
     },
     {
       "id": "inches",
@@ -15,25 +23,61 @@
       "type": "number",
       "unit": "inches",
       "default": 0,
-      "businessContext": "Remaining inches beyond full hands (0-3)"
+      "businessContext": "Remaining inches beyond full hands (0-3)",
+      "label_i18n": {
+        "en": "Additional Inches",
+        "tr": "Additional Inches",
+        "de": "Additional Inches",
+        "fr": "Additional Inches",
+        "es": "Additional Inches",
+        "ar": "Additional Inches"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
     "totalInches": "hands * 4 + inches",
     "feet": "Math.floor(totalInches / 12)",
     "remainingInches": "totalInches % 12",
-    "primary": "feet + ' ft ' + remainingInches + ' in'"
+    "primary": "feet + ' ft ' + remainingInches + ' in'",
+    "totalInches_____inches_total_": "totalInches + ' inches total'",
+    "feet_____feet_": "feet + ' feet'",
+    "remainingInches_____inches_": "remainingInches + ' inches'",
+    "result": "feet + ' ft ' + remainingInches + ' in'"
   },
   "outputs": {
-    "primary": "feet + ' ft ' + remainingInches + ' in'",
+    "primary": "result",
     "breakdown": [
       "totalInches + ' inches total'",
       "feet + ' feet'",
       "remainingInches + ' inches'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

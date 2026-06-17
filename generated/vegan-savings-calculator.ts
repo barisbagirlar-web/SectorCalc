@@ -27,13 +27,15 @@ function evaluateAllFormulas(input: Vegan_savings_calculatorInput): Record<strin
   try { const v = 'Total CO2 Savings: ' + (results["co2Savings"] ?? 0) + ' kg CO2, Total Cost Savings: $' + (results["costSavings"] ?? 0); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   try { const v = 'Meat-based total CO2: ' + (input.numMeals * input.weeks * input.co2MeatPerMeal) + ' kg CO2, Cost: $' + (input.numMeals * input.weeks * input.costMeatPerMeal); results["breakdown1"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown1"] = 0; }
   try { const v = 'Vegan total CO2: ' + (input.numMeals * input.weeks * input.co2VeganPerMeal) + ' kg CO2, Cost: $' + (input.numMeals * input.weeks * input.costVeganPerMeal); results["breakdown2"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown2"] = 0; }
+  results["_formulas_breakdown1_"] = 0;
+  results["_formulas_breakdown2_"] = 0;
   return results;
 }
 
 
 export function calculateVegan_savings_calculator(input: Vegan_savings_calculatorInput): Vegan_savings_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["{formulas.primary}"] ?? 0;
+  const totalWasteCost = values["totalMeals"] ?? 0;
   const breakdown = {
     
   };

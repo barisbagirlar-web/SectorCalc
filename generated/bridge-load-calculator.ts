@@ -20,13 +20,17 @@ export const Bridge_load_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Bridge_load_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 4 * ((input.materialStrength * 1e6 / input.safetyFactor) * input.beamWidth * input.beamHeight ** 2 / 6) / input.spanLength / 1000; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.spanLength; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Allowable_Stress__Pa_"] = 0;
+  results["Maximum_Bending_Moment__Nm_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateBridge_load_calculator(input: Bridge_load_calculatorInput): Bridge_load_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Maximum"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

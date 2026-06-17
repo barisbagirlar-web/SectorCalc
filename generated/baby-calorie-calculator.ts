@@ -20,13 +20,16 @@ function evaluateAllFormulas(input: Baby_calorie_calculatorInput): Record<string
   try { const v = input.weight * (120 - 10 * Math.log(input.age + 1)); results["base"] = Number.isFinite(v) ? v : 0; } catch { results["base"] = 0; }
   try { const v = (results["base"] ?? 0) * input.feedingMultiplier; results["adjusted"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted"] = 0; }
   try { const v = (results["adjusted"] ?? 0) + input.solidCalories; results["total"] = Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
+  results["__base__kcal"] = 0;
+  results["__adjusted__kcal"] = 0;
+  results["__total__kcal"] = 0;
   return results;
 }
 
 
 export function calculateBaby_calorie_calculator(input: Baby_calorie_calculatorInput): Baby_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["${total} kcal"] ?? 0;
+  const totalWasteCost = values["base"] ?? 0;
   const breakdown = {
     
   };

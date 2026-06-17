@@ -29,31 +29,19 @@ export const Kwh_cost_calculatorInputSchema = z.object({
   include_demand_charge: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Kwh_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.energy_consumption_kwh / (input.system_efficiency / 100); results["adjusted_energy_kwh"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_energy_kwh"] = 0; }
-  try { const v = (results["adjusted_energy_kwh"] ?? 0) * input.energy_rate_per_kwh; results["energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["energy_cost"] = 0; }
-  try { const v = ((input.include_demand_charge) ? (input.peak_demand_kw * input.demand_rate_per_kw) : (0)); results["demand_cost"] = Number.isFinite(v) ? v : 0; } catch { results["demand_cost"] = 0; }
-  try { const v = ((input.power_factor < input.pf_penalty_threshold) ? ((input.pf_penalty_threshold - input.power_factor) * input.peak_demand_kw * input.pf_penalty_rate) : (0)); results["pf_penalty_cost"] = Number.isFinite(v) ? v : 0; } catch { results["pf_penalty_cost"] = 0; }
-  try { const v = input.energy_consumption_kwh / (input.peak_demand_kw * input.operating_hours); results["load_factor"] = Number.isFinite(v) ? v : 0; } catch { results["load_factor"] = 0; }
-  try { const v = (results["energy_cost"] ?? 0) + (results["demand_cost"] ?? 0) + (results["pf_penalty_cost"] ?? 0); results["total_cost_before_tax"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_before_tax"] = 0; }
-  try { const v = (results["total_cost_before_tax"] ?? 0) * 1.08; results["total_cost_with_tax"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_with_tax"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Kwh_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateKwh_cost_calculator(input: Kwh_cost_calculatorInput): Kwh_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    energy_cost: values["energy_cost"] ?? 0,
-    demand_cost: values["demand_cost"] ?? 0,
-    pf_penalty_cost: values["pf_penalty_cost"] ?? 0,
-    load_factor: values["load_factor"] ?? 0,
-    adjusted_energy_kwh: values["adjusted_energy_kwh"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Transformer Losses","Cabling Losses","Motor Inefficiency"];
-  const suggestedActions: string[] = ["Install Power Factor Correction Capacitors","Implement Demand-Side Management","Upgrade to High-Efficiency Equipment","Conduct ISO 50001 Energy Audit"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -72,7 +60,7 @@ export function calculateKwh_cost_calculator(input: Kwh_cost_calculatorInput): K
 
 export interface Kwh_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { energy_cost: number; demand_cost: number; pf_penalty_cost: number; load_factor: number; adjusted_energy_kwh: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

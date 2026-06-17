@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Hardness_converterInput {
   hardnessValue: number;
   scaleFrom: number;
+  auto_input_3: number;
 }
 
 export const Hardness_converterInputSchema = z.object({
   hardnessValue: z.number().default(0),
   scaleFrom: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Hardness_converterInput): Record<string, number> {

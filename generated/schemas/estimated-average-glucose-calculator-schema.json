@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Glycated hemoglobin percentage (DCCT/NGSP)"
+      "businessContext": "Glycated hemoglobin percentage (DCCT/NGSP)",
+      "label_i18n": {
+        "en": "HbA1c (%)",
+        "tr": "HbA1c (%)",
+        "de": "HbA1c (%)",
+        "fr": "HbA1c (%)",
+        "es": "HbA1c (%)",
+        "ar": "HbA1c (%)"
+      }
     },
     {
       "id": "factor_mgdl",
       "label": "Factor (mg/dL)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 28.7,
-      "businessContext": "Multiplication factor for mg/dL conversion"
+      "businessContext": "Multiplication factor for mg/dL conversion",
+      "label_i18n": {
+        "en": "Factor (mg/dL)",
+        "tr": "Factor (mg/dL)",
+        "de": "Factor (mg/dL)",
+        "fr": "Factor (mg/dL)",
+        "es": "Factor (mg/dL)",
+        "ar": "Factor (mg/dL)"
+      }
     },
     {
       "id": "offset_mgdl",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "mg/dL",
       "default": -46.7,
-      "businessContext": "Subtraction offset for mg/dL conversion"
+      "businessContext": "Subtraction offset for mg/dL conversion",
+      "label_i18n": {
+        "en": "Offset (mg/dL)",
+        "tr": "Offset (mg/dL)",
+        "de": "Offset (mg/dL)",
+        "fr": "Offset (mg/dL)",
+        "es": "Offset (mg/dL)",
+        "ar": "Offset (mg/dL)"
+      }
     },
     {
       "id": "factor_mmol",
       "label": "Factor (mmol/L)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.59,
-      "businessContext": "Multiplication factor for mmol/L conversion"
+      "businessContext": "Multiplication factor for mmol/L conversion",
+      "label_i18n": {
+        "en": "Factor (mmol/L)",
+        "tr": "Factor (mmol/L)",
+        "de": "Factor (mmol/L)",
+        "fr": "Factor (mmol/L)",
+        "es": "Factor (mmol/L)",
+        "ar": "Factor (mmol/L)"
+      }
     },
     {
       "id": "offset_mmol",
@@ -39,23 +71,33 @@
       "type": "number",
       "unit": "mmol/L",
       "default": -2.59,
-      "businessContext": "Subtraction offset for mmol/L conversion"
+      "businessContext": "Subtraction offset for mmol/L conversion",
+      "label_i18n": {
+        "en": "Offset (mmol/L)",
+        "tr": "Offset (mmol/L)",
+        "de": "Offset (mmol/L)",
+        "fr": "Offset (mmol/L)",
+        "es": "Offset (mmol/L)",
+        "ar": "Offset (mmol/L)"
+      }
     }
   ],
   "formulas": {
     "eag_mgdl": "factor_mgdl * hba1c + offset_mgdl",
-    "eag_mmol": "factor_mmol * hba1c + offset_mmol"
+    "eag_mmol": "factor_mmol * hba1c + offset_mmol",
+    "eag_mmol_toFixed_1______mmol_L_": "eag_mmol.toFixed(1) + ' mmol/L'",
+    "result": "eag_mgdl.toFixed(1) + ' mg/dL'"
   },
   "outputs": {
-    "primary": "eag_mgdl.toFixed(1) + ' mg/dL'",
+    "primary": "result",
     "breakdown": [
       "eag_mmol.toFixed(1) + ' mmol/L'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

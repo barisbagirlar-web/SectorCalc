@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of the shaft between supports."
+      "businessContext": "Length of the shaft between supports.",
+      "label_i18n": {
+        "en": "Shaft Length (L)",
+        "tr": "Shaft Length (L)",
+        "de": "Shaft Length (L)",
+        "fr": "Shaft Length (L)",
+        "es": "Shaft Length (L)",
+        "ar": "Shaft Length (L)"
+      }
     },
     {
       "id": "shaftDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.05,
-      "businessContext": "Diameter of the solid cylindrical shaft."
+      "businessContext": "Diameter of the solid cylindrical shaft.",
+      "label_i18n": {
+        "en": "Shaft Diameter (D)",
+        "tr": "Shaft Diameter (D)",
+        "de": "Shaft Diameter (D)",
+        "fr": "Shaft Diameter (D)",
+        "es": "Shaft Diameter (D)",
+        "ar": "Shaft Diameter (D)"
+      }
     },
     {
       "id": "youngsModulus",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 210000000000,
-      "businessContext": "Material's modulus of elasticity, e.g., steel ~210 GPa."
+      "businessContext": "Material's modulus of elasticity, e.g., steel ~210 GPa.",
+      "label_i18n": {
+        "en": "Young's Modulus (E)",
+        "tr": "Young's Modulus (E)",
+        "de": "Young's Modulus (E)",
+        "fr": "Young's Modulus (E)",
+        "es": "Young's Modulus (E)",
+        "ar": "Young's Modulus (E)"
+      }
     },
     {
       "id": "density",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Density of the shaft material, e.g., steel ~7850 kg/m³."
+      "businessContext": "Density of the shaft material, e.g., steel ~7850 kg/m³.",
+      "label_i18n": {
+        "en": "Material Density (ρ)",
+        "tr": "Material Density (ρ)",
+        "de": "Material Density (ρ)",
+        "fr": "Material Density (ρ)",
+        "es": "Material Density (ρ)",
+        "ar": "Material Density (ρ)"
+      }
     },
     {
       "id": "supportFactor",
       "label": "Support Factor (C)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3.141592653589793,
-      "businessContext": "Dimensionless factor based on end conditions: π for pinned-pinned, 4.730 for fixed-fixed, 3.927 for fixed-pinned, 1.875 for fixed-free."
+      "businessContext": "Dimensionless factor based on end conditions: π for pinned-pinned, 4.730 for fixed-fixed, 3.927 for fixed-pinned, 1.875 for fixed-free.",
+      "label_i18n": {
+        "en": "Support Factor (C)",
+        "tr": "Support Factor (C)",
+        "de": "Support Factor (C)",
+        "fr": "Support Factor (C)",
+        "es": "Support Factor (C)",
+        "ar": "Support Factor (C)"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "criticalSpeedRPM"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "metal-plastics-forming"
 }

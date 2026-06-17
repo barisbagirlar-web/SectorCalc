@@ -5,33 +5,65 @@
       "id": "num1",
       "label": "Numerator 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "First fraction's numerator"
+      "businessContext": "First fraction's numerator",
+      "label_i18n": {
+        "en": "Numerator 1",
+        "tr": "Numerator 1",
+        "de": "Numerator 1",
+        "fr": "Numerator 1",
+        "es": "Numerator 1",
+        "ar": "Numerator 1"
+      }
     },
     {
       "id": "den1",
       "label": "Denominator 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "First fraction's denominator (cannot be zero)"
+      "businessContext": "First fraction's denominator (cannot be zero)",
+      "label_i18n": {
+        "en": "Denominator 1",
+        "tr": "Denominator 1",
+        "de": "Denominator 1",
+        "fr": "Denominator 1",
+        "es": "Denominator 1",
+        "ar": "Denominator 1"
+      }
     },
     {
       "id": "num2",
       "label": "Numerator 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Second fraction's numerator"
+      "businessContext": "Second fraction's numerator",
+      "label_i18n": {
+        "en": "Numerator 2",
+        "tr": "Numerator 2",
+        "de": "Numerator 2",
+        "fr": "Numerator 2",
+        "es": "Numerator 2",
+        "ar": "Numerator 2"
+      }
     },
     {
       "id": "den2",
       "label": "Denominator 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Second fraction's denominator (cannot be zero)"
+      "businessContext": "Second fraction's denominator (cannot be zero)",
+      "label_i18n": {
+        "en": "Denominator 2",
+        "tr": "Denominator 2",
+        "de": "Denominator 2",
+        "fr": "Denominator 2",
+        "es": "Denominator 2",
+        "ar": "Denominator 2"
+      }
     }
   ],
   "formulas": {
@@ -49,10 +81,10 @@
       "breakdown1"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

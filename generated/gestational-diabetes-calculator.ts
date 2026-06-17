@@ -28,13 +28,16 @@ function evaluateAllFormulas(input: Gestational_diabetes_calculatorInput): Recor
   try { const v = ((input.age - 25) * 0.1 + (input.bmi - 25) * 0.2 + input.previousGDM * 2 + input.familyDiabetes * 1.5 + (input.fastingGlucose - 92) * 0.05 + (input.ogtt1h - 180) * 0.02 + (input.ogtt2h - 153) * 0.02 + (input.gestationalWeek - 24) * 0.01); results["riskScore"] = Number.isFinite(v) ? v : 0; } catch { results["riskScore"] = 0; }
   try { const v = 1 / (1 + Math.exp(-(results["riskScore"] ?? 0))); results["gdmProbability"] = Number.isFinite(v) ? v : 0; } catch { results["gdmProbability"] = 0; }
   try { const v = ((input.fastingGlucose >= 92 || input.ogtt1h >= 180 || input.ogtt2h >= 153) ? 1 : 0); results["diagnosis"] = Number.isFinite(v) ? v : 0; } catch { results["diagnosis"] = 0; }
+  results["Risk_Skoru"] = 0;
+  results["Tan__Kriteri__0_Negatif__1_Pozitif_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateGestational_diabetes_calculator(input: Gestational_diabetes_calculatorInput): Gestational_diabetes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["GDM"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

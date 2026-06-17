@@ -5,49 +5,97 @@
       "id": "zScore",
       "label": "Z-score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Standard normal deviate (used if rawScoreProvided is 0)"
+      "businessContext": "Standard normal deviate (used if rawScoreProvided is 0)",
+      "label_i18n": {
+        "en": "Z-score",
+        "tr": "Z-score",
+        "de": "Z-score",
+        "fr": "Z-score",
+        "es": "Z-score",
+        "ar": "Z-score"
+      }
     },
     {
       "id": "mean",
       "label": "Mean",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Population mean for raw score conversion"
+      "businessContext": "Population mean for raw score conversion",
+      "label_i18n": {
+        "en": "Mean",
+        "tr": "Mean",
+        "de": "Mean",
+        "fr": "Mean",
+        "es": "Mean",
+        "ar": "Mean"
+      }
     },
     {
       "id": "stdDev",
       "label": "Standard Deviation",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Population standard deviation (must be > 0)"
+      "businessContext": "Population standard deviation (must be > 0)",
+      "label_i18n": {
+        "en": "Standard Deviation",
+        "tr": "Standard Deviation",
+        "de": "Standard Deviation",
+        "fr": "Standard Deviation",
+        "es": "Standard Deviation",
+        "ar": "Standard Deviation"
+      }
     },
     {
       "id": "rawScore",
       "label": "Raw Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Raw value to convert to Z-score"
+      "businessContext": "Raw value to convert to Z-score",
+      "label_i18n": {
+        "en": "Raw Score",
+        "tr": "Raw Score",
+        "de": "Raw Score",
+        "fr": "Raw Score",
+        "es": "Raw Score",
+        "ar": "Raw Score"
+      }
     },
     {
       "id": "rawScoreProvided",
       "label": "Use Raw Score?",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Set to 1 to compute Z-score from raw score, mean, stdDev; 0 to use given Z-score"
+      "businessContext": "Set to 1 to compute Z-score from raw score, mean, stdDev; 0 to use given Z-score",
+      "label_i18n": {
+        "en": "Use Raw Score?",
+        "tr": "Use Raw Score?",
+        "de": "Use Raw Score?",
+        "fr": "Use Raw Score?",
+        "es": "Use Raw Score?",
+        "ar": "Use Raw Score?"
+      }
     },
     {
       "id": "tail",
       "label": "Tail",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = lower tail (cumulative), 1 = upper tail (1 - cumulative)"
+      "businessContext": "0 = lower tail (cumulative), 1 = upper tail (1 - cumulative)",
+      "label_i18n": {
+        "en": "Tail",
+        "tr": "Tail",
+        "de": "Tail",
+        "fr": "Tail",
+        "es": "Tail",
+        "ar": "Tail"
+      }
     }
   ],
   "formulas": {
@@ -65,10 +113,10 @@
       "cdf"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

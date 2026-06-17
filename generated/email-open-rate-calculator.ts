@@ -27,7 +27,7 @@ function evaluateAllFormulas(input: Email_open_rate_calculatorInput): Record<str
 
 export function calculateEmail_open_rate_calculator(input: Email_open_rate_calculatorInput): Email_open_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["openRate"] ?? 0;
+  const totalWasteCost = values["deliveredFormula"] ?? 0;
   const breakdown = {
     
   };

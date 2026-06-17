@@ -223,7 +223,7 @@
       "id": "include_risk_adjustment",
       "label": "Include Risk Adjustment",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -297,168 +297,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "effective_hours_per_fte_regular",
-      "label": "Effective Regular Hours per FTE per Week",
-      "description": "Productive hours contributed by one FTE during regular time (assuming 40-hour week at normal productivity).",
-      "expression": "40 * (1 - quality_defect_rate_normal / 100)",
-      "unit": "hours/week"
-    },
-    {
-      "id": "effective_overtime_hours_per_fte",
-      "label": "Effective Overtime Hours per FTE per Week",
-      "description": "Productive hours from overtime per FTE, adjusted for overtime productivity and defect rate.",
-      "expression": "overtime_hours_per_week * (productivity_factor_overtime / 100) * (1 - (quality_defect_rate_normal + quality_defect_rate_overtime) / 100)",
-      "unit": "hours/week"
-    },
-    {
-      "id": "total_effective_hours_overtime_scenario",
-      "label": "Total Effective Hours per Week (Overtime Scenario)",
-      "description": "Total productive hours available using current headcount plus overtime.",
-      "expression": "current_headcount * (effective_hours_per_fte_regular + effective_overtime_hours_per_fte)",
-      "unit": "hours/week"
-    },
-    {
-      "id": "fte_shortfall",
-      "label": "FTE Shortfall (if hiring)",
-      "description": "Number of additional FTEs needed to meet weekly productive hours without overtime.",
-      "expression": "max(0, (weekly_productive_hours_needed - current_headcount * effective_hours_per_fte_regular) / (40 * (productivity_factor_new_hire / 100) * (1 - quality_defect_rate_normal / 100)))",
-      "unit": "FTEs"
-    },
-    {
-      "id": "annual_cost_overtime",
-      "label": "Annual Cost of Overtime Strategy",
-      "description": "Total annual labor cost including base wages, overtime pay, and defect costs, with optional risk multiplier.",
-      "expression": "current_headcount * (40 * avg_hourly_wage * weeks_per_year) + current_headcount * (overtime_hours_per_week * avg_hourly_wage * overtime_premium * weeks_per_year) + (current_headcount * overtime_hours_per_week * (quality_defect_rate_normal + quality_defect_rate_overtime) / 100 * cost_per_defect * weeks_per_year) * (include_risk_adjustment ? risk_multiplier : 1)",
-      "unit": "$/year"
-    },
-    {
-      "id": "annual_cost_hiring",
-      "label": "Annual Cost of Hiring Strategy",
-      "description": "Total annual cost including base wages, benefits, hiring costs (amortized over first year), and defect costs for new hires.",
-      "expression": "(current_headcount + fte_shortfall) * (40 * avg_hourly_wage * weeks_per_year + annual_benefits_cost_per_fte) + fte_shortfall * hiring_cost_per_fte + (current_headcount + fte_shortfall) * 40 * (quality_defect_rate_normal / 100) * cost_per_defect * weeks_per_year",
-      "unit": "$/year"
-    },
-    {
-      "id": "breakeven_hours",
-      "label": "Breakeven Overtime Hours per FTE per Week",
-      "description": "The overtime hours per FTE at which the annual cost of overtime equals the annual cost of hiring. Derived by solving annual_cost_overtime = annual_cost_hiring for overtime_hours_per_week.",
-      "expression": "(annual_cost_hiring - current_headcount * 40 * avg_hourly_wage * weeks_per_year) / (current_headcount * (avg_hourly_wage * overtime_premium * weeks_per_year + (quality_defect_rate_normal + quality_defect_rate_overtime) / 100 * cost_per_defect * weeks_per_year * (include_risk_adjustment ? risk_multiplier : 1)))",
-      "unit": "hours/week/FTE"
-    }
+    "current_headcount",
+    "current_headcount",
+    "current_headcount",
+    "current_headcount",
+    "current_headcount",
+    "current_headcount",
+    "current_headcount"
   ],
   "outputs": {
-    "primary": {
-      "id": "breakeven_hours",
-      "label": "Breakeven Overtime Hours per FTE per Week",
-      "value": null,
-      "unit": "hours/week/FTE",
-      "description": "If actual overtime hours exceed this value, hiring is more cost-effective. If below, overtime is cheaper."
-    },
-    "breakdown": {
-      "annual_cost_overtime": {
-        "id": "annual_cost_overtime",
-        "label": "Annual Cost – Overtime Strategy",
-        "value": null,
-        "unit": "$/year"
-      },
-      "annual_cost_hiring": {
-        "id": "annual_cost_hiring",
-        "label": "Annual Cost – Hiring Strategy",
-        "value": null,
-        "unit": "$/year"
-      },
-      "cost_difference": {
-        "id": "cost_difference",
-        "label": "Cost Difference (Hiring – Overtime)",
-        "value": null,
-        "unit": "$/year",
-        "description": "Positive means overtime is cheaper; negative means hiring is cheaper."
-      },
-      "fte_shortfall": {
-        "id": "fte_shortfall",
-        "label": "FTEs Needed if Hiring",
-        "value": null,
-        "unit": "FTEs"
-      },
-      "total_effective_hours_overtime_scenario": {
-        "id": "total_effective_hours_overtime_scenario",
-        "label": "Effective Hours per Week (Overtime)",
-        "value": null,
-        "unit": "hours/week"
-      },
-      "annual_defect_cost_overtime": {
-        "id": "annual_defect_cost_overtime",
-        "label": "Annual Defect Cost – Overtime",
-        "value": null,
-        "unit": "$/year"
-      },
-      "annual_defect_cost_hiring": {
-        "id": "annual_defect_cost_hiring",
-        "label": "Annual Defect Cost – Hiring",
-        "value": null,
-        "unit": "$/year"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "fatigue_induced_quality_loss",
-        "label": "Fatigue-Induced Quality Loss",
-        "description": "Additional defect costs due to overtime fatigue, calculated as overtime_hours_per_week * current_headcount * quality_defect_rate_overtime / 100 * cost_per_defect * weeks_per_year.",
-        "value": null,
-        "unit": "$/year"
-      },
-      {
-        "id": "new_hire_ramp_up_productivity_loss",
-        "label": "New Hire Ramp-Up Productivity Loss",
-        "description": "Productivity gap during new hire ramp-up period (first 3 months), estimated as fte_shortfall * 40 * (1 - productivity_factor_new_hire / 100) * 12 weeks * avg_hourly_wage.",
-        "value": null,
-        "unit": "$/year"
-      },
-      {
-        "id": "overtime_burnout_turnover_risk",
-        "label": "Overtime Burnout & Turnover Risk",
-        "description": "Estimated cost of increased turnover due to chronic overtime, using a standard 15% turnover rate increase per 10 hours overtime/week.",
-        "value": null,
-        "unit": "$/year"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": "high",
-        "action": "If breakeven_hours < actual overtime hours, initiate hiring process for fte_shortfall FTEs.",
-        "condition": "breakeven_hours < overtime_hours_per_week"
-      },
-      {
-        "id": "action_2",
-        "priority": "medium",
-        "action": "Implement fatigue management protocols (job rotation, micro-breaks) to reduce overtime defect rate.",
-        "condition": "quality_defect_rate_overtime > 1.0"
-      },
-      {
-        "id": "action_3",
-        "priority": "low",
-        "action": "Review overtime risk multiplier annually using incident and turnover data.",
-        "condition": "include_risk_adjustment == true"
-      },
-      {
-        "id": "action_4",
-        "priority": "medium",
-        "action": "Consider cross-training to increase effective regular hours per FTE and reduce overtime dependency.",
-        "condition": "overtime_hours_per_week > 10"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Confidence-Adjusted Breakeven",
-      "value": null,
-      "unit": "hours/week/FTE",
-      "description": "Breakeven hours adjusted by a confidence factor (0.8 to 1.2) based on input variability. Default confidence factor = 1.0."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "overtime-vs-hiring-breakeven-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "workforce-hr",
+  "category": "İK & Personel",
+  "sector": "Finans & İK"
 }

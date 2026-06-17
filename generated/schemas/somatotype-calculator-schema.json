@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 175,
-      "businessContext": "User's height in centimeters"
+      "businessContext": "User's height in centimeters",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's weight in kilograms"
+      "businessContext": "User's weight in kilograms",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "skinfold_triceps",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 12,
-      "businessContext": "Triceps skinfold thickness measurement"
+      "businessContext": "Triceps skinfold thickness measurement",
+      "label_i18n": {
+        "en": "Triceps Skinfold",
+        "tr": "Triceps Skinfold",
+        "de": "Triceps Skinfold",
+        "fr": "Triceps Skinfold",
+        "es": "Triceps Skinfold",
+        "ar": "Triceps Skinfold"
+      }
     },
     {
       "id": "skinfold_subscapular",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 15,
-      "businessContext": "Subscapular skinfold thickness measurement"
+      "businessContext": "Subscapular skinfold thickness measurement",
+      "label_i18n": {
+        "en": "Subscapular Skinfold",
+        "tr": "Subscapular Skinfold",
+        "de": "Subscapular Skinfold",
+        "fr": "Subscapular Skinfold",
+        "es": "Subscapular Skinfold",
+        "ar": "Subscapular Skinfold"
+      }
     },
     {
       "id": "skinfold_suprailiac",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Suprailiac skinfold thickness measurement"
+      "businessContext": "Suprailiac skinfold thickness measurement",
+      "label_i18n": {
+        "en": "Suprailiac Skinfold",
+        "tr": "Suprailiac Skinfold",
+        "de": "Suprailiac Skinfold",
+        "fr": "Suprailiac Skinfold",
+        "es": "Suprailiac Skinfold",
+        "ar": "Suprailiac Skinfold"
+      }
     },
     {
       "id": "skinfold_calf",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 8,
-      "businessContext": "Calf skinfold thickness measurement"
+      "businessContext": "Calf skinfold thickness measurement",
+      "label_i18n": {
+        "en": "Calf Skinfold",
+        "tr": "Calf Skinfold",
+        "de": "Calf Skinfold",
+        "fr": "Calf Skinfold",
+        "es": "Calf Skinfold",
+        "ar": "Calf Skinfold"
+      }
     },
     {
       "id": "humerus_breadth",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "cm",
       "default": 6.5,
-      "businessContext": "Breadth of the humerus bone"
+      "businessContext": "Breadth of the humerus bone",
+      "label_i18n": {
+        "en": "Humerus Breadth",
+        "tr": "Humerus Breadth",
+        "de": "Humerus Breadth",
+        "fr": "Humerus Breadth",
+        "es": "Humerus Breadth",
+        "ar": "Humerus Breadth"
+      }
     },
     {
       "id": "femur_breadth",
@@ -63,26 +119,37 @@
       "type": "number",
       "unit": "cm",
       "default": 9.5,
-      "businessContext": "Breadth of the femur bone"
+      "businessContext": "Breadth of the femur bone",
+      "label_i18n": {
+        "en": "Femur Breadth",
+        "tr": "Femur Breadth",
+        "de": "Femur Breadth",
+        "fr": "Femur Breadth",
+        "es": "Femur Breadth",
+        "ar": "Femur Breadth"
+      }
     }
   ],
   "formulas": {
     "endomorphy": "-0.7182 + 0.1451 * (skinfold_triceps + skinfold_subscapular + skinfold_suprailiac) - 0.00068 * ((skinfold_triceps + skinfold_subscapular + skinfold_suprailiac) ** 2) + 0.0000014 * ((skinfold_triceps + skinfold_subscapular + skinfold_suprailiac) ** 3)",
     "mesomorphy": "0.858 * humerus_breadth + 0.601 * femur_breadth + 0.188 * (skinfold_triceps + skinfold_calf) + 0.161 * (skinfold_subscapular + skinfold_suprailiac) - 0.131 * height + 4.5",
-    "ectomorphy": "if (height / Math.cbrt(weight) > 40.75) { ecto = 0.732 * (height / Math.cbrt(weight)) - 28.58 } else if (height / Math.cbrt(weight) >= 38.25) { ecto = 0.463 * (height / Math.cbrt(weight)) - 17.63 } else { ecto = 0.1 }"
+    "ectomorphy": "if (height / Math.cbrt(weight) > 40.75) { ecto = 0.732 * (height / Math.cbrt(weight)) - 28.58 } else if (height / Math.cbrt(weight) >= 38.25) { ecto = 0.463 * (height / Math.cbrt(weight)) - 17.63 } else { ecto = 0.1 }",
+    "_endomorphy_": "{endomorphy}",
+    "_mesomorphy_": "{mesomorphy}",
+    "_ectomorphy_": "{ectomorphy}"
   },
   "outputs": {
-    "primary": "Somatotype",
+    "primary": "endomorphy",
     "breakdown": [
       "Endomorphy: {endomorphy}",
       "Mesomorphy: {mesomorphy}",
       "Ectomorphy: {ectomorphy}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

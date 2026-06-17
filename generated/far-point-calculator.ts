@@ -27,7 +27,7 @@ function evaluateAllFormulas(input: Far_point_calculatorInput): Record<string, n
 
 export function calculateFar_point_calculator(input: Far_point_calculatorInput): Far_point_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["lineOfSightDistance"] ?? 0;
+  const totalWasteCost = values["effectiveRadius"] ?? 0;
   const breakdown = {
     
   };

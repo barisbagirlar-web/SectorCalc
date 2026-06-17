@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Angle component in degrees"
+      "businessContext": "Angle component in degrees",
+      "label_i18n": {
+        "en": "Degrees",
+        "tr": "Degrees",
+        "de": "Degrees",
+        "fr": "Degrees",
+        "es": "Degrees",
+        "ar": "Degrees"
+      }
     },
     {
       "id": "min",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "'",
       "default": 0,
-      "businessContext": "Angle component in arcminutes"
+      "businessContext": "Angle component in arcminutes",
+      "label_i18n": {
+        "en": "Arcminutes",
+        "tr": "Arcminutes",
+        "de": "Arcminutes",
+        "fr": "Arcminutes",
+        "es": "Arcminutes",
+        "ar": "Arcminutes"
+      }
     },
     {
       "id": "sec",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "\"",
       "default": 0,
-      "businessContext": "Angle component in arcseconds"
+      "businessContext": "Angle component in arcseconds",
+      "label_i18n": {
+        "en": "Arcseconds",
+        "tr": "Arcseconds",
+        "de": "Arcseconds",
+        "fr": "Arcseconds",
+        "es": "Arcseconds",
+        "ar": "Arcseconds"
+      }
     },
     {
       "id": "coeff",
       "label": "Calibration Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplicative calibration factor for conversion (e.g., instrument scale)"
+      "businessContext": "Multiplicative calibration factor for conversion (e.g., instrument scale)",
+      "label_i18n": {
+        "en": "Calibration Factor",
+        "tr": "Calibration Factor",
+        "de": "Calibration Factor",
+        "fr": "Calibration Factor",
+        "es": "Calibration Factor",
+        "ar": "Calibration Factor"
+      }
     },
     {
       "id": "offset",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "'",
       "default": 0,
-      "businessContext": "Additive offset in arcminutes (e.g., zero error)"
+      "businessContext": "Additive offset in arcminutes (e.g., zero error)",
+      "label_i18n": {
+        "en": "Offset",
+        "tr": "Offset",
+        "de": "Offset",
+        "fr": "Offset",
+        "es": "Offset",
+        "ar": "Offset"
+      }
     },
     {
       "id": "rounding",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounded output"
+      "businessContext": "Number of decimal places for rounded output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "calibratedTotal"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

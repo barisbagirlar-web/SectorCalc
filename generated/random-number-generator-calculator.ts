@@ -19,6 +19,9 @@ function evaluateAllFormulas(input: Random_number_generator_calculatorInput): Re
   const results: Record<string, number> = {};
   try { const v = (Math.sin((input.seed + 0) * 9301 + 49297) + 1) / 2; results["raw"] = Number.isFinite(v) ? v : 0; } catch { results["raw"] = 0; }
   try { const v = input.min + (results["raw"] ?? 0) * (input.max - input.min); results["randomValue"] = Number.isFinite(v) ? v : 0; } catch { results["randomValue"] = 0; }
+  try { const v = input.min; results["min"] = Number.isFinite(v) ? v : 0; } catch { results["min"] = 0; }
+  try { const v = input.max; results["max"] = Number.isFinite(v) ? v : 0; } catch { results["max"] = 0; }
+  try { const v = input.seed; results["seed"] = Number.isFinite(v) ? v : 0; } catch { results["seed"] = 0; }
   return results;
 }
 

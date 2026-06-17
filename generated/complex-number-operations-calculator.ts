@@ -32,13 +32,22 @@ function evaluateAllFormulas(input: Complex_number_operations_calculatorInput): 
   try { const v = -input.imag1; results["conj1_imag"] = Number.isFinite(v) ? v : 0; } catch { results["conj1_imag"] = 0; }
   try { const v = input.real2; results["conj2_real"] = Number.isFinite(v) ? v : 0; } catch { results["conj2_real"] = 0; }
   try { const v = -input.imag2; results["conj2_imag"] = Number.isFinite(v) ? v : 0; } catch { results["conj2_imag"] = 0; }
+  results["____sum_real_________sum_imag____i_"] = 0;
+  results["____diff_real_________diff_imag____i_"] = 0;
+  results["____prod_real_________prod_imag____i_"] = 0;
+  results["____quot_real_________quot_imag____i_"] = 0;
+  results["____mag1"] = 0;
+  results["____mag2"] = 0;
+  results["____conj1_real_________conj1_imag____i_"] = 0;
+  results["____conj2_real_________conj2_imag____i_"] = 0;
+  try { const v = "Complex Operations: Z1=" + input.real1 + "+" + input.imag1 + "i, Z2=" + input.real2 + "+" + input.imag2 + "i"; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateComplex_number_operations_calculator(input: Complex_number_operations_calculatorInput): Complex_number_operations_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["\"Complex Operations: Z1=\" + real1 + \"+\" + imag1 + \"i, Z2=\" + real2 + \"+\" + imag2 + \"i\""] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

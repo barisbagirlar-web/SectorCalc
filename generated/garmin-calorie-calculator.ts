@@ -3,35 +3,32 @@ import * as z from 'zod';
 
 export interface Garmin_calorie_calculatorInput {
   weight: number;
-  height: number;
   age: number;
-  gender: number;
+  heartRate: number;
   duration: number;
-  met: number;
+  genderFactor: number;
 }
 
 export const Garmin_calorie_calculatorInputSchema = z.object({
   weight: z.number().default(70),
-  height: z.number().default(170),
   age: z.number().default(30),
-  gender: z.number().default(1),
+  heartRate: z.number().default(120),
   duration: z.number().default(30),
-  met: z.number().default(8),
+  genderFactor: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Garmin_calorie_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.gender == 0 ? 447.593 + 9.247 * input.weight + 3.098 * input.height - 4.330 * input.age : 88.362 + 13.397 * input.weight + 4.799 * input.height - 5.677 * input.age; results["bmrPerDay"] = Number.isFinite(v) ? v : 0; } catch { results["bmrPerDay"] = 0; }
-  try { const v = input.met * input.weight * (input.duration / 60); results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
-  try { const v = ((results["bmrPerDay"] ?? 0) / 1440) * input.duration; results["restingCalories"] = Number.isFinite(v) ? v : 0; } catch { results["restingCalories"] = 0; }
-  try { const v = (results["totalCalories"] ?? 0) - (results["restingCalories"] ?? 0); results["activeCalories"] = Number.isFinite(v) ? v : 0; } catch { results["activeCalories"] = 0; }
+  try { const v = ((input.genderFactor >= 1) ? ((input.age * 0.2017 - input.weight * 0.09036 + input.heartRate * 0.6309 - 55.0969) * input.duration / 4.184) : ((input.age * 0.074 - input.weight * 0.05741 + input.heartRate * 0.4472 - 20.4022) * input.duration / 4.184)); results["calories"] = Number.isFinite(v) ? v : 0; } catch { results["calories"] = 0; }
+  try { const v = (results["calories"] ?? 0) / input.duration; results["caloriesPerMin"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesPerMin"] = 0; }
+  try { const v = input.genderFactor >= 1 ? 'Male' : 'Female'; results["genderUsed"] = Number.isFinite(v) ? v : 0; } catch { results["genderUsed"] = 0; }
   return results;
 }
 
 
 export function calculateGarmin_calorie_calculator(input: Garmin_calorie_calculatorInput): Garmin_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCalories"] ?? 0;
+  const totalWasteCost = values["calories"] ?? 0;
   const breakdown = {
     
   };

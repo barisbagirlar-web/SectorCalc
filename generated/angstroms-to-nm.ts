@@ -3,15 +3,20 @@ import * as z from 'zod';
 
 export interface Angstroms_to_nmInput {
   angstroms: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Angstroms_to_nmInputSchema = z.object({
   angstroms: z.number().default(1),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Angstroms_to_nmInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.angstroms * 0.1; results["nanometers"] = Number.isFinite(v) ? v : 0; } catch { results["nanometers"] = 0; }
+  try { const v = input.angstroms * 0.1; results["nanometers___angstroms___0_1"] = Number.isFinite(v) ? v : 0; } catch { results["nanometers___angstroms___0_1"] = 0; }
   return results;
 }
 

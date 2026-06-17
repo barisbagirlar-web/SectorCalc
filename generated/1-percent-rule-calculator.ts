@@ -24,13 +24,14 @@ function evaluateAllFormulas(input: _1_percent_rule_calculatorInput): Record<str
   try { const v = (results["totalInvestment"] ?? 0) * 0.01; results["onePercentThreshold"] = Number.isFinite(v) ? v : 0; } catch { results["onePercentThreshold"] = 0; }
   try { const v = input.monthlyRent >= (results["onePercentThreshold"] ?? 0) ? 1 : 0; results["meetsRule"] = Number.isFinite(v) ? v : 0; } catch { results["meetsRule"] = 0; }
   try { const v = ((results["monthlyNetIncome"] ?? 0) * 12 / (results["totalInvestment"] ?? 0)) * 100; results["annualReturn"] = Number.isFinite(v) ? v : 0; } catch { results["annualReturn"] = 0; }
+  try { const v = input.monthlyRent >= (results["onePercentThreshold"] ?? 0) ? 'Passes 1% Rule' : 'Fails 1% Rule'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculate_1_percent_rule_calculator(input: _1_percent_rule_calculatorInput): _1_percent_rule_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["monthlyRent"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

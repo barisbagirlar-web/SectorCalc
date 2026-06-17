@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "nm",
       "default": 500,
-      "businessContext": "Wavelength of the light used, in nanometers."
+      "businessContext": "Wavelength of the light used, in nanometers.",
+      "label_i18n": {
+        "en": "Wavelength",
+        "tr": "Wavelength",
+        "de": "Wavelength",
+        "fr": "Wavelength",
+        "es": "Wavelength",
+        "ar": "Wavelength"
+      }
     },
     {
       "id": "slitWidth",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Width of the single slit, in millimeters."
+      "businessContext": "Width of the single slit, in millimeters.",
+      "label_i18n": {
+        "en": "Slit Width",
+        "tr": "Slit Width",
+        "de": "Slit Width",
+        "fr": "Slit Width",
+        "es": "Slit Width",
+        "ar": "Slit Width"
+      }
     },
     {
       "id": "order",
       "label": "Order (m)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Order of the minimum (positive integer)."
+      "businessContext": "Order of the minimum (positive integer).",
+      "label_i18n": {
+        "en": "Order (m)",
+        "tr": "Order (m)",
+        "de": "Order (m)",
+        "fr": "Order (m)",
+        "es": "Order (m)",
+        "ar": "Order (m)"
+      }
     },
     {
       "id": "screenDistance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Distance from the slit to the screen, in meters."
+      "businessContext": "Distance from the slit to the screen, in meters.",
+      "label_i18n": {
+        "en": "Screen Distance",
+        "tr": "Screen Distance",
+        "de": "Screen Distance",
+        "fr": "Screen Distance",
+        "es": "Screen Distance",
+        "ar": "Screen Distance"
+      }
     }
   ],
   "formulas": {
@@ -40,12 +72,7 @@
     "position": "screenDistance * (((order * wavelength * 1e-9) / (slitWidth * 1e-3)) / Math.sqrt(1 - ((order * wavelength * 1e-9) / (slitWidth * 1e-3))**2))"
   },
   "outputs": {
-    "primary": {
-      "id": "position",
-      "label": "Linear Position",
-      "unit": "m",
-      "formula": "position"
-    },
+    "primary": "sinTheta",
     "breakdown": [
       {
         "id": "sinTheta",
@@ -61,10 +88,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

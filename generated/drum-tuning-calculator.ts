@@ -20,13 +20,17 @@ export const Drum_tuning_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Drum_tuning_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 0.766 / (input.drumDiameter * 0.01) * Math.sqrt(input.tension / (input.headThickness * 0.001 * input.headDensity * input.densityAdjustment)); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.drumDiameter; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["First_Overtone__Hz_"] = 0;
+  results["Second_Overtone__Hz_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateDrum_tuning_calculator(input: Drum_tuning_calculatorInput): Drum_tuning_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Fundamental"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

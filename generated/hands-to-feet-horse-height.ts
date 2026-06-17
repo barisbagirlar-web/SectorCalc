@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Hands_to_feet_horse_heightInput {
   hands: number;
   inches: number;
+  auto_input_3: number;
 }
 
 export const Hands_to_feet_horse_heightInputSchema = z.object({
   hands: z.number().default(15),
   inches: z.number().default(0),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Hands_to_feet_horse_heightInput): Record<string, number> {
@@ -17,13 +19,17 @@ function evaluateAllFormulas(input: Hands_to_feet_horse_heightInput): Record<str
   try { const v = Math.floor((results["totalInches"] ?? 0) / 12); results["feet"] = Number.isFinite(v) ? v : 0; } catch { results["feet"] = 0; }
   try { const v = (results["totalInches"] ?? 0) % 12; results["remainingInches"] = Number.isFinite(v) ? v : 0; } catch { results["remainingInches"] = 0; }
   try { const v = (results["feet"] ?? 0) + ' ft ' + (results["remainingInches"] ?? 0) + ' in'; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = (results["totalInches"] ?? 0) + ' input.inches total'; results["totalInches_____inches_total_"] = Number.isFinite(v) ? v : 0; } catch { results["totalInches_____inches_total_"] = 0; }
+  try { const v = (results["feet"] ?? 0) + ' (results["feet"] ?? 0)'; results["feet_____feet_"] = Number.isFinite(v) ? v : 0; } catch { results["feet_____feet_"] = 0; }
+  try { const v = (results["remainingInches"] ?? 0) + ' input.inches'; results["remainingInches_____inches_"] = Number.isFinite(v) ? v : 0; } catch { results["remainingInches_____inches_"] = 0; }
+  try { const v = (results["feet"] ?? 0) + ' ft ' + (results["remainingInches"] ?? 0) + ' in'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateHands_to_feet_horse_height(input: Hands_to_feet_horse_heightInput): Hands_to_feet_horse_heightOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["feet"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

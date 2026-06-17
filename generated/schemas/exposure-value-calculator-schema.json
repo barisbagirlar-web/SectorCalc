@@ -5,9 +5,17 @@
       "id": "aperture",
       "label": "Aperture (f-stop)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 8,
-      "businessContext": "Lens aperture setting."
+      "businessContext": "Lens aperture setting.",
+      "label_i18n": {
+        "en": "Aperture (f-stop)",
+        "tr": "Aperture (f-stop)",
+        "de": "Aperture (f-stop)",
+        "fr": "Aperture (f-stop)",
+        "es": "Aperture (f-stop)",
+        "ar": "Aperture (f-stop)"
+      }
     },
     {
       "id": "shutterSpeed",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "s",
       "default": 0.008,
-      "businessContext": "Exposure time in seconds."
+      "businessContext": "Exposure time in seconds.",
+      "label_i18n": {
+        "en": "Shutter Speed",
+        "tr": "Shutter Speed",
+        "de": "Shutter Speed",
+        "fr": "Shutter Speed",
+        "es": "Shutter Speed",
+        "ar": "Shutter Speed"
+      }
     },
     {
       "id": "iso",
       "label": "ISO",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Sensor sensitivity rating."
+      "businessContext": "Sensor sensitivity rating.",
+      "label_i18n": {
+        "en": "ISO",
+        "tr": "ISO",
+        "de": "ISO",
+        "fr": "ISO",
+        "es": "ISO",
+        "ar": "ISO"
+      }
     },
     {
       "id": "measuredEV",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "EV",
       "default": 12,
-      "businessContext": "Exposure value from light meter."
+      "businessContext": "Exposure value from light meter.",
+      "label_i18n": {
+        "en": "Measured EV",
+        "tr": "Measured EV",
+        "de": "Measured EV",
+        "fr": "Measured EV",
+        "es": "Measured EV",
+        "ar": "Measured EV"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "difference"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

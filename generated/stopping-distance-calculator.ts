@@ -27,7 +27,7 @@ function evaluateAllFormulas(input: Stopping_distance_calculatorInput): Record<s
 
 export function calculateStopping_distance_calculator(input: Stopping_distance_calculatorInput): Stopping_distance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["v"] ?? 0;
   const breakdown = {
     
   };

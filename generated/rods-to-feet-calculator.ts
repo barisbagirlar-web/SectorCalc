@@ -22,6 +22,10 @@ function evaluateAllFormulas(input: Rods_to_feet_calculatorInput): Record<string
   try { const v = input.rods * input.feetPerRod; results["baseFeet"] = Number.isFinite(v) ? v : 0; } catch { results["baseFeet"] = 0; }
   try { const v = (results["baseFeet"] ?? 0) * (1 + input.safetyFactor / 100); results["safetyFeet"] = Number.isFinite(v) ? v : 0; } catch { results["safetyFeet"] = 0; }
   try { const v = Math.round((results["safetyFeet"] ?? 0) * 10 ** input.decimalPlaces) / 10 ** input.decimalPlaces; results["totalFeet"] = Number.isFinite(v) ? v : 0; } catch { results["totalFeet"] = 0; }
+  results["_rods__rods____feetPerRod__ft_rod____bas"] = 0;
+  results["_safetyFeet__ft"] = 0;
+  results["_totalFeet__ft"] = 0;
+  results["__tolerance__ft"] = 0;
   return results;
 }
 

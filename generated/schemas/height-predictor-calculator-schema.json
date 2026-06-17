@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 165,
-      "businessContext": "Height of the biological mother in centimeters."
+      "businessContext": "Height of the biological mother in centimeters.",
+      "label_i18n": {
+        "en": "Mother's Height",
+        "tr": "Mother's Height",
+        "de": "Mother's Height",
+        "fr": "Mother's Height",
+        "es": "Mother's Height",
+        "ar": "Mother's Height"
+      }
     },
     {
       "id": "fatherHeight",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "cm",
       "default": 175,
-      "businessContext": "Height of the biological father in centimeters."
+      "businessContext": "Height of the biological father in centimeters.",
+      "label_i18n": {
+        "en": "Father's Height",
+        "tr": "Father's Height",
+        "de": "Father's Height",
+        "fr": "Father's Height",
+        "es": "Father's Height",
+        "ar": "Father's Height"
+      }
     },
     {
       "id": "gender",
       "label": "Child's Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for girl, 1 for boy. Used to apply gender-specific mid-parental height formula."
+      "businessContext": "0 for girl, 1 for boy. Used to apply gender-specific mid-parental height formula.",
+      "label_i18n": {
+        "en": "Child's Gender",
+        "tr": "Child's Gender",
+        "de": "Child's Gender",
+        "fr": "Child's Gender",
+        "es": "Child's Gender",
+        "ar": "Child's Gender"
+      }
     },
     {
       "id": "currentHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Current measured height of the child in centimeters. Used to adjust prediction toward the mid-parental height."
+      "businessContext": "Current measured height of the child in centimeters. Used to adjust prediction toward the mid-parental height.",
+      "label_i18n": {
+        "en": "Current Height",
+        "tr": "Current Height",
+        "de": "Current Height",
+        "fr": "Current Height",
+        "es": "Current Height",
+        "ar": "Current Height"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "predictedHeight"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

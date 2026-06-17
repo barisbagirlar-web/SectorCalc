@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "m²",
       "default": 10,
-      "businessContext": "Total surface area that requires spackling"
+      "businessContext": "Total surface area that requires spackling",
+      "label_i18n": {
+        "en": "Wall Area (m²)",
+        "tr": "Wall Area (m²)",
+        "de": "Wall Area (m²)",
+        "fr": "Wall Area (m²)",
+        "es": "Wall Area (m²)",
+        "ar": "Wall Area (m²)"
+      }
     },
     {
       "id": "numberOfHoles",
       "label": "Number of Holes",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 50,
-      "businessContext": "Approximate count of holes to fill"
+      "businessContext": "Approximate count of holes to fill",
+      "label_i18n": {
+        "en": "Number of Holes",
+        "tr": "Number of Holes",
+        "de": "Number of Holes",
+        "fr": "Number of Holes",
+        "es": "Number of Holes",
+        "ar": "Number of Holes"
+      }
     },
     {
       "id": "holeDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Diameter of typical holes in millimeters"
+      "businessContext": "Diameter of typical holes in millimeters",
+      "label_i18n": {
+        "en": "Average Hole Diameter (mm)",
+        "tr": "Average Hole Diameter (mm)",
+        "de": "Average Hole Diameter (mm)",
+        "fr": "Average Hole Diameter (mm)",
+        "es": "Average Hole Diameter (mm)",
+        "ar": "Average Hole Diameter (mm)"
+      }
     },
     {
       "id": "holeDepth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3,
-      "businessContext": "Depth of typical holes in millimeters"
+      "businessContext": "Depth of typical holes in millimeters",
+      "label_i18n": {
+        "en": "Average Hole Depth (mm)",
+        "tr": "Average Hole Depth (mm)",
+        "de": "Average Hole Depth (mm)",
+        "fr": "Average Hole Depth (mm)",
+        "es": "Average Hole Depth (mm)",
+        "ar": "Average Hole Depth (mm)"
+      }
     },
     {
       "id": "spackleDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1500,
-      "businessContext": "Density of the spackle compound used"
+      "businessContext": "Density of the spackle compound used",
+      "label_i18n": {
+        "en": "Spackle Density",
+        "tr": "Spackle Density",
+        "de": "Spackle Density",
+        "fr": "Spackle Density",
+        "es": "Spackle Density",
+        "ar": "Spackle Density"
+      }
     },
     {
       "id": "containerSize",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Net weight of a single spackle container"
+      "businessContext": "Net weight of a single spackle container",
+      "label_i18n": {
+        "en": "Container Size (kg)",
+        "tr": "Container Size (kg)",
+        "de": "Container Size (kg)",
+        "fr": "Container Size (kg)",
+        "es": "Container Size (kg)",
+        "ar": "Container Size (kg)"
+      }
     },
     {
       "id": "wasteFactor",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Extra material to account for waste and spillage"
+      "businessContext": "Extra material to account for waste and spillage",
+      "label_i18n": {
+        "en": "Waste Factor (%)",
+        "tr": "Waste Factor (%)",
+        "de": "Waste Factor (%)",
+        "fr": "Waste Factor (%)",
+        "es": "Waste Factor (%)",
+        "ar": "Waste Factor (%)"
+      }
     }
   ],
   "formulas": {
@@ -73,10 +129,10 @@
       "containersNeeded"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "metal-plastics-forming"
 }

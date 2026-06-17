@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MHz",
       "default": 2400,
-      "businessContext": "Çalışma frekansı, dalga boyunu ve anten boyutlandırmasını belirler."
+      "businessContext": "Çalışma frekansı, dalga boyunu ve anten boyutlandırmasını belirler.",
+      "label_i18n": {
+        "en": "Frekans",
+        "tr": "Frekans",
+        "de": "Frekans",
+        "fr": "Frekans",
+        "es": "Frekans",
+        "ar": "Frekans"
+      }
     },
     {
       "id": "diameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Parabolik anten yansıtıcı çapı, kazanç ve hüzme genişliğini doğrudan etkiler."
+      "businessContext": "Parabolik anten yansıtıcı çapı, kazanç ve hüzme genişliğini doğrudan etkiler.",
+      "label_i18n": {
+        "en": "Anten Çapı",
+        "tr": "Anten Çapı",
+        "de": "Anten Çapı",
+        "fr": "Anten Çapı",
+        "es": "Anten Çapı",
+        "ar": "Anten Çapı"
+      }
     },
     {
       "id": "efficiency",
@@ -23,25 +39,36 @@
       "type": "number",
       "unit": "oransal",
       "default": 0.6,
-      "businessContext": "Açıklık verimliliği, antenin teorik maksimum performansa ne kadar yakın olduğunu gösterir."
+      "businessContext": "Açıklık verimliliği, antenin teorik maksimum performansa ne kadar yakın olduğunu gösterir.",
+      "label_i18n": {
+        "en": "Verimlilik",
+        "tr": "Verimlilik",
+        "de": "Verimlilik",
+        "fr": "Verimlilik",
+        "es": "Verimlilik",
+        "ar": "Verimlilik"
+      }
     }
   ],
   "formulas": {
     "wavelength": "300 / frequency",
     "gain": "10 * Math.log10(efficiency * Math.pow(Math.PI * diameter / (300 / frequency), 2))",
-    "beamwidth": "70 * (300 / frequency) / diameter"
+    "beamwidth": "70 * (300 / frequency) / diameter",
+    "Dalga_Boyu__m_": "Dalga Boyu (m)",
+    "Yar__G___H_zme_Geni_li_i____": "Yarı Güç Hüzme Genişliği (°)",
+    "result": "Kazanç (dBi)"
   },
   "outputs": {
-    "primary": "Kazanç (dBi)",
+    "primary": "result",
     "breakdown": [
       "Dalga Boyu (m)",
       "Yarı Güç Hüzme Genişliği (°)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "sustainability-resource-esg"
 }

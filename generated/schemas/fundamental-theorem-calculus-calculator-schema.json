@@ -5,55 +5,106 @@
       "id": "a",
       "label": "Lower Limit (a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Alt integrasyon sınırı"
+      "businessContext": "Alt integrasyon sınırı",
+      "label_i18n": {
+        "en": "Lower Limit (a)",
+        "tr": "Lower Limit (a)",
+        "de": "Lower Limit (a)",
+        "fr": "Lower Limit (a)",
+        "es": "Lower Limit (a)",
+        "ar": "Lower Limit (a)"
+      }
     },
     {
       "id": "b",
       "label": "Upper Limit (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Üst integrasyon sınırı"
+      "businessContext": "Üst integrasyon sınırı",
+      "label_i18n": {
+        "en": "Upper Limit (b)",
+        "tr": "Upper Limit (b)",
+        "de": "Upper Limit (b)",
+        "fr": "Upper Limit (b)",
+        "es": "Upper Limit (b)",
+        "ar": "Upper Limit (b)"
+      }
     },
     {
       "id": "c0",
       "label": "Constant Coefficient (c₀)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sabit terim katsayısı"
+      "businessContext": "Sabit terim katsayısı",
+      "label_i18n": {
+        "en": "Constant Coefficient (c₀)",
+        "tr": "Constant Coefficient (c₀)",
+        "de": "Constant Coefficient (c₀)",
+        "fr": "Constant Coefficient (c₀)",
+        "es": "Constant Coefficient (c₀)",
+        "ar": "Constant Coefficient (c₀)"
+      }
     },
     {
       "id": "c1",
       "label": "Linear Coefficient (c₁)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "x terimi katsayısı"
+      "businessContext": "x terimi katsayısı",
+      "label_i18n": {
+        "en": "Linear Coefficient (c₁)",
+        "tr": "Linear Coefficient (c₁)",
+        "de": "Linear Coefficient (c₁)",
+        "fr": "Linear Coefficient (c₁)",
+        "es": "Linear Coefficient (c₁)",
+        "ar": "Linear Coefficient (c₁)"
+      }
     },
     {
       "id": "c2",
       "label": "Quadratic Coefficient (c₂)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "x² terimi katsayısı"
+      "businessContext": "x² terimi katsayısı",
+      "label_i18n": {
+        "en": "Quadratic Coefficient (c₂)",
+        "tr": "Quadratic Coefficient (c₂)",
+        "de": "Quadratic Coefficient (c₂)",
+        "fr": "Quadratic Coefficient (c₂)",
+        "es": "Quadratic Coefficient (c₂)",
+        "ar": "Quadratic Coefficient (c₂)"
+      }
     },
     {
       "id": "c3",
       "label": "Cubic Coefficient (c₃)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "x³ terimi katsayısı"
+      "businessContext": "x³ terimi katsayısı",
+      "label_i18n": {
+        "en": "Cubic Coefficient (c₃)",
+        "tr": "Cubic Coefficient (c₃)",
+        "de": "Cubic Coefficient (c₃)",
+        "fr": "Cubic Coefficient (c₃)",
+        "es": "Cubic Coefficient (c₃)",
+        "ar": "Cubic Coefficient (c₃)"
+      }
     }
   ],
   "formulas": {
     "Fb": "c0*b + c1*(b**2)/2 + c2*(b**3)/3 + c3*(b**4)/4",
     "Fa": "c0*a + c1*(a**2)/2 + c2*(a**3)/3 + c3*(a**4)/4",
-    "primary": "Fb - Fa"
+    "primary": "Fb - Fa",
+    "F_b____c_b___c_b__2___c_b__3___c_b__4___": "F(b) = c₀b + c₁b²/2 + c₂b³/3 + c₃b⁴/4 = ${Fb}",
+    "F_a____c_a___c_a__2___c_a__3___c_a__4___": "F(a) = c₀a + c₁a²/2 + c₂a³/3 + c₃a⁴/4 = ${Fa}",
+    "__a_b_f_x__dx___F_b____F_a______primary_": "∫_a^b f(x) dx = F(b) - F(a) = ${primary}"
   },
   "outputs": {
     "primary": "primary",
@@ -63,10 +114,10 @@
       "∫_a^b f(x) dx = F(b) - F(a) = ${primary}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

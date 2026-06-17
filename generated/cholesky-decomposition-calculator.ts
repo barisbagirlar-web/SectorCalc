@@ -27,13 +27,19 @@ function evaluateAllFormulas(input: Cholesky_decomposition_calculatorInput): Rec
   try { const v = Math.sqrt(input.a22 - Math.pow((results["l21"] ?? 0), 2)); results["l22"] = Number.isFinite(v) ? v : 0; } catch { results["l22"] = 0; }
   try { const v = (input.a23 - (results["l21"] ?? 0) * (results["l31"] ?? 0)) / (results["l22"] ?? 0); results["l32"] = Number.isFinite(v) ? v : 0; } catch { results["l32"] = 0; }
   try { const v = Math.sqrt(input.a33 - Math.pow((results["l31"] ?? 0), 2) - Math.pow((results["l32"] ?? 0), 2)); results["l33"] = Number.isFinite(v) ? v : 0; } catch { results["l33"] = 0; }
+  try { const v = $(results["l11"] ?? 0); results["l11_____l11_"] = Number.isFinite(v) ? v : 0; } catch { results["l11_____l11_"] = 0; }
+  try { const v = $(results["l21"] ?? 0); results["l21_____l21_"] = Number.isFinite(v) ? v : 0; } catch { results["l21_____l21_"] = 0; }
+  try { const v = $(results["l31"] ?? 0); results["l31_____l31_"] = Number.isFinite(v) ? v : 0; } catch { results["l31_____l31_"] = 0; }
+  try { const v = $(results["l22"] ?? 0); results["l22_____l22_"] = Number.isFinite(v) ? v : 0; } catch { results["l22_____l22_"] = 0; }
+  try { const v = $(results["l32"] ?? 0); results["l32_____l32_"] = Number.isFinite(v) ? v : 0; } catch { results["l32_____l32_"] = 0; }
+  try { const v = $(results["l33"] ?? 0); results["l33_____l33_"] = Number.isFinite(v) ? v : 0; } catch { results["l33_____l33_"] = 0; }
   return results;
 }
 
 
 export function calculateCholesky_decomposition_calculator(input: Cholesky_decomposition_calculatorInput): Cholesky_decomposition_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["L"] ?? 0;
+  const totalWasteCost = values["l11"] ?? 0;
   const breakdown = {
     
   };

@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Concept_2_calculatorInput): Record<string, n
 
 export function calculateConcept_2_calculator(input: Concept_2_calculatorInput): Concept_2_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["maxStress"] ?? 0;
+  const totalWasteCost = values["maxMoment"] ?? 0;
   const breakdown = {
     
   };

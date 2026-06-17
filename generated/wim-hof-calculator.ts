@@ -30,7 +30,7 @@ function evaluateAllFormulas(input: Wim_hof_calculatorInput): Record<string, num
 
 export function calculateWim_hof_calculator(input: Wim_hof_calculatorInput): Wim_hof_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["metabolicIncrease"] ?? 0;
+  const totalWasteCost = values["bsa"] ?? 0;
   const breakdown = {
     
   };

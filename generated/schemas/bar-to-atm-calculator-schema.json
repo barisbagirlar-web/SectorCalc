@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1,
-      "businessContext": "Measured pressure value in bars."
+      "businessContext": "Measured pressure value in bars.",
+      "label_i18n": {
+        "en": "Pressure (bar)",
+        "tr": "Pressure (bar)",
+        "de": "Pressure (bar)",
+        "fr": "Pressure (bar)",
+        "es": "Pressure (bar)",
+        "ar": "Pressure (bar)"
+      }
     },
     {
       "id": "calibration_offset_bar",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bar",
       "default": 0,
-      "businessContext": "Instrument calibration offset to apply to the measured pressure."
+      "businessContext": "Instrument calibration offset to apply to the measured pressure.",
+      "label_i18n": {
+        "en": "Calibration Offset (bar)",
+        "tr": "Calibration Offset (bar)",
+        "de": "Calibration Offset (bar)",
+        "fr": "Calibration Offset (bar)",
+        "es": "Calibration Offset (bar)",
+        "ar": "Calibration Offset (bar)"
+      }
     },
     {
       "id": "uncertainty_percent",
@@ -23,35 +39,50 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Expanded measurement uncertainty as a percentage of the reading (k=2)."
+      "businessContext": "Expanded measurement uncertainty as a percentage of the reading (k=2).",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (%)",
+        "tr": "Measurement Uncertainty (%)",
+        "de": "Measurement Uncertainty (%)",
+        "fr": "Measurement Uncertainty (%)",
+        "es": "Measurement Uncertainty (%)",
+        "ar": "Measurement Uncertainty (%)"
+      }
     },
     {
       "id": "decimal_places",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for the output value."
+      "businessContext": "Number of decimal places for the output value.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "primary": "((pressure_bar + calibration_offset_bar) * 0.9869232667160128).toFixed(decimal_places)",
-    "breakdown": [
-      "'Adjusted pressure: ' + (pressure_bar + calibration_offset_bar).toFixed(2) + ' bar'",
-      "'Converted: ' + ((pressure_bar + calibration_offset_bar) * 0.9869232667160128).toFixed(decimal_places) + ' atm (Uncertainty: ±' + ((pressure_bar + calibration_offset_bar) * 0.9869232667160128 * uncertainty_percent / 100).toFixed(decimal_places) + ' atm)'"
-    ]
+    "breakdown": "pressure_bar",
+    "Adjusted_pressure_after_calibration_offs": "Adjusted pressure after calibration offset.",
+    "Final_converted_value_with_uncertainty_r": "Final converted value with uncertainty range."
   },
   "outputs": {
-    "primary": "Converted pressure with specified decimal places.",
+    "primary": "primary",
     "breakdown": [
       "Adjusted pressure after calibration offset.",
       "Final converted value with uncertainty range."
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100,
-      "businessContext": "Total amount of the bill including tax."
+      "businessContext": "Total amount of the bill including tax.",
+      "label_i18n": {
+        "en": "Total Bill Amount",
+        "tr": "Total Bill Amount",
+        "de": "Total Bill Amount",
+        "fr": "Total Bill Amount",
+        "es": "Total Bill Amount",
+        "ar": "Total Bill Amount"
+      }
     },
     {
       "id": "tipPercentage",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Percentage of the pre-tax amount to tip."
+      "businessContext": "Percentage of the pre-tax amount to tip.",
+      "label_i18n": {
+        "en": "Tip Percentage",
+        "tr": "Tip Percentage",
+        "de": "Tip Percentage",
+        "fr": "Tip Percentage",
+        "es": "Tip Percentage",
+        "ar": "Tip Percentage"
+      }
     },
     {
       "id": "numberOfPeople",
       "label": "Number of People",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of people sharing the bill."
+      "businessContext": "Number of people sharing the bill.",
+      "label_i18n": {
+        "en": "Number of People",
+        "tr": "Number of People",
+        "de": "Number of People",
+        "fr": "Number of People",
+        "es": "Number of People",
+        "ar": "Number of People"
+      }
     },
     {
       "id": "taxAmount",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Amount of tax included in the total bill. Used to calculate pre-tax amount for tipping."
+      "businessContext": "Amount of tax included in the total bill. Used to calculate pre-tax amount for tipping.",
+      "label_i18n": {
+        "en": "Tax Amount",
+        "tr": "Tax Amount",
+        "de": "Tax Amount",
+        "fr": "Tax Amount",
+        "es": "Tax Amount",
+        "ar": "Tax Amount"
+      }
     },
     {
       "id": "roundUp",
       "label": "Round Up Total Per Person?",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Set to 1 to round the total cost per person up to the nearest whole dollar, otherwise 0."
+      "businessContext": "Set to 1 to round the total cost per person up to the nearest whole dollar, otherwise 0.",
+      "label_i18n": {
+        "en": "Round Up Total Per Person?",
+        "tr": "Round Up Total Per Person?",
+        "de": "Round Up Total Per Person?",
+        "fr": "Round Up Total Per Person?",
+        "es": "Round Up Total Per Person?",
+        "ar": "Round Up Total Per Person?"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "tipPerPerson"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Perakende & Gıda",
+  "category": "Vergi & Finansal Raporlama",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

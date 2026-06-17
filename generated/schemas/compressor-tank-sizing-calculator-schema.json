@@ -124,7 +124,8 @@
       },
       "businessContext_i18n": {
         "en": "Type of compressor capacity control, affects tank sizing factor."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "ambientTemperature",
@@ -192,7 +193,8 @@
       },
       "businessContext_i18n": {
         "en": "Primary use case, influences safety factor."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -246,178 +248,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "airDensityCorrectionFactor",
-      "name": "Air Density Correction Factor",
-      "description": "Corrects for altitude and temperature effects on air density.",
-      "formula": "K_density = ( (520 / (ambientTemperature + 460)) * ( (14.7) / (14.7 - (altitude * 0.0005)) ) )",
-      "inputs": [
-        "ambientTemperature",
-        "altitude"
-      ],
-      "unit": "dimensionless"
-    },
-    {
-      "id": "effectiveCompressorFlow",
-      "name": "Effective Compressor Flow",
-      "description": "Compressor flow adjusted for leakage and density.",
-      "formula": "Q_comp_eff = compressorFlowRate * (1 - systemLeakagePercent/100) * K_density",
-      "inputs": [
-        "compressorFlowRate",
-        "systemLeakagePercent",
-        "airDensityCorrectionFactor"
-      ],
-      "unit": "cfm"
-    },
-    {
-      "id": "netPeakSurplus",
-      "name": "Net Peak Surplus Demand",
-      "description": "Additional flow required during peak beyond compressor capacity.",
-      "formula": "Q_peak_surplus = max(0, peakDemandFlowRate - effectiveCompressorFlow)",
-      "inputs": [
-        "peakDemandFlowRate",
-        "effectiveCompressorFlow"
-      ],
-      "unit": "cfm"
-    },
-    {
-      "id": "requiredTankVolumeStandard",
-      "name": "Required Tank Volume (Standard)",
-      "description": "Tank volume based on peak surplus and allowable pressure drop (ideal gas law).",
-      "formula": "V_tank_std = (Q_peak_surplus * peakDuration * 14.7) / (pressureDifferential * 60)",
-      "inputs": [
-        "netPeakSurplus",
-        "peakDuration",
-        "pressureDifferential"
-      ],
-      "unit": "gallons"
-    },
-    {
-      "id": "controlTypeFactor",
-      "name": "Control Type Factor",
-      "description": "Multiplier based on compressor control type to account for cycling and response.",
-      "formula": "F_ctrl = CASE compressorControlType WHEN 'Load/Unload' THEN 1.25 WHEN 'Variable Speed Drive (VSD)' THEN 1.0 WHEN 'Modulating' THEN 1.15 WHEN 'Start/Stop' THEN 1.5 ELSE 1.2 END",
-      "inputs": [
-        "compressorControlType"
-      ],
-      "unit": "dimensionless"
-    },
-    {
-      "id": "applicationSafetyFactor",
-      "name": "Application Safety Factor",
-      "description": "Safety factor based on application criticality.",
-      "formula": "F_safe = CASE applicationType WHEN 'Instrument Air' THEN 1.5 WHEN 'Process Air' THEN 1.3 WHEN 'Pneumatic Tools' THEN 1.2 WHEN 'General Manufacturing' THEN 1.1 WHEN 'HVAC Control' THEN 1.0 ELSE 1.15 END",
-      "inputs": [
-        "applicationType"
-      ],
-      "unit": "dimensionless"
-    },
-    {
-      "id": "calculatedTankSize",
-      "name": "Calculated Tank Size (Primary Result)",
-      "description": "Final recommended receiver tank volume in gallons.",
-      "formula": "V_tank = V_tank_std * F_ctrl * F_safe",
-      "inputs": [
-        "requiredTankVolumeStandard",
-        "controlTypeFactor",
-        "applicationSafetyFactor"
-      ],
-      "unit": "gallons"
-    }
+    "compressorFlowRate",
+    "compressorFlowRate",
+    "compressorFlowRate",
+    "compressorFlowRate",
+    "compressorFlowRate",
+    "compressorFlowRate",
+    "compressorFlowRate"
   ],
   "outputs": {
-    "primary": {
-      "id": "calculatedTankSize",
-      "label": "Recommended Tank Size",
-      "unit": "gallons",
-      "description": "Final recommended receiver tank volume."
-    },
-    "breakdown": {
-      "airDensityCorrectionFactor": {
-        "id": "airDensityCorrectionFactor",
-        "label": "Air Density Correction Factor",
-        "unit": "dimensionless",
-        "description": "Factor correcting for altitude and temperature."
-      },
-      "effectiveCompressorFlow": {
-        "id": "effectiveCompressorFlow",
-        "label": "Effective Compressor Flow",
-        "unit": "cfm",
-        "description": "Compressor flow after leakage and density correction."
-      },
-      "netPeakSurplus": {
-        "id": "netPeakSurplus",
-        "label": "Net Peak Surplus Demand",
-        "unit": "cfm",
-        "description": "Additional flow needed during peak."
-      },
-      "requiredTankVolumeStandard": {
-        "id": "requiredTankVolumeStandard",
-        "label": "Required Tank Volume (Standard)",
-        "unit": "gallons",
-        "description": "Tank volume before control and safety factors."
-      },
-      "controlTypeFactor": {
-        "id": "controlTypeFactor",
-        "label": "Control Type Factor",
-        "unit": "dimensionless",
-        "description": "Multiplier based on compressor control."
-      },
-      "applicationSafetyFactor": {
-        "id": "applicationSafetyFactor",
-        "label": "Application Safety Factor",
-        "unit": "dimensionless",
-        "description": "Safety factor based on application."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "leakageLoss",
-        "label": "Leakage Loss",
-        "value": "systemLeakagePercent",
-        "unit": "%",
-        "description": "Percentage of compressed air lost to leaks."
-      },
-      {
-        "id": "pressureDropLoss",
-        "label": "Pressure Drop Loss",
-        "value": "pressureDifferential",
-        "unit": "psi",
-        "description": "Allowable pressure drop used for sizing."
-      },
-      {
-        "id": "peakDemandRatio",
-        "label": "Peak-to-Average Demand Ratio",
-        "value": "peakDemandFlowRate / demandFlowRate",
-        "unit": "dimensionless",
-        "description": "Ratio indicating demand variability."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduceLeakage",
-        "condition": "systemLeakagePercent > 15",
-        "action": "Implement a leak detection and repair program to reduce leakage below 10%."
-      },
-      {
-        "id": "optimizeControl",
-        "condition": "controlTypeFactor > 1.2",
-        "action": "Consider upgrading to Variable Speed Drive (VSD) compressor to reduce tank size and energy costs."
-      },
-      {
-        "id": "increasePressureDifferential",
-        "condition": "pressureDifferential < 5",
-        "action": "If system allows, increase allowable pressure differential to reduce tank size."
-      },
-      {
-        "id": "verifyDemandProfile",
-        "condition": "peakDemandFlowRate > 2 * demandFlowRate",
-        "action": "Conduct a detailed demand study to confirm peak magnitude and duration."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
+  "toolName": "compressor-tank-sizing-calculator"
 }

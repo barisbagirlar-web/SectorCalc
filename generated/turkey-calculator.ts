@@ -25,13 +25,18 @@ function evaluateAllFormulas(input: Turkey_calculatorInput): Record<string, numb
   try { const v = 1 + input.altitude * 0.0001; results["altFactor"] = Number.isFinite(v) ? v : 0; } catch { results["altFactor"] = 0; }
   try { const v = (results["baseTime"] ?? 0) * (results["tempFactor"] ?? 0) * (results["thawFactor"] ?? 0) * (results["altFactor"] ?? 0); results["totalMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["totalMinutes"] = 0; }
   try { const v = Math.round((results["totalMinutes"] ?? 0)); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  results["weight___40___stuffing___20_minutes"] = 0;
+  results["_0_2__per__C_from_180_C"] = 0;
+  results["1_5x_if_frozen"] = 0;
+  results["_0_01__per_meter"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateTurkey_calculator(input: Turkey_calculatorInput): Turkey_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

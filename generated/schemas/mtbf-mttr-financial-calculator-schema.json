@@ -213,170 +213,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "failure_rate",
-      "name": "Failure Rate (λ)",
-      "description": "Number of failures per operating hour per unit.",
-      "formula": "λ = 1 / MTBF",
-      "unit": "failures/hour"
-    },
-    {
-      "id": "annual_failures_per_unit",
-      "name": "Annual Failures per Unit",
-      "description": "Expected number of failures per unit per year.",
-      "formula": "F_unit = operating_hours_per_year / MTBF",
-      "unit": "failures/year/unit"
-    },
-    {
-      "id": "total_annual_failures",
-      "name": "Total Annual Failures (Fleet)",
-      "description": "Total failures across all units.",
-      "formula": "F_total = F_unit * number_of_units",
-      "unit": "failures/year"
-    },
-    {
-      "id": "annual_downtime_hours",
-      "name": "Annual Downtime Hours",
-      "description": "Total hours of downtime per year due to failures.",
-      "formula": "Downtime_hours = F_total * MTTR",
-      "unit": "hours/year"
-    },
-    {
-      "id": "availability",
-      "name": "Operational Availability (A)",
-      "description": "Inherent availability based on MTBF and MTTR.",
-      "formula": "A = MTBF / (MTBF + MTTR) * 100",
-      "unit": "%"
-    },
-    {
-      "id": "total_downtime_cost",
-      "name": "Total Downtime Cost",
-      "description": "Financial loss from downtime (lost production + labor).",
-      "formula": "Downtime_cost = Downtime_hours * (cost_per_downtime_hour + maintenance_labor_rate)",
-      "unit": "currency/year"
-    },
-    {
-      "id": "total_failure_cost",
-      "name": "Total Failure Cost",
-      "description": "Total cost including downtime, failure events, and labor.",
-      "formula": "Failure_cost = Downtime_cost + (F_total * cost_per_failure_event) + (F_total * MTTR * maintenance_labor_rate)",
-      "unit": "currency/year"
-    },
-    {
-      "id": "net_financial_impact",
-      "name": "Net Financial Impact (Primary Result)",
-      "description": "Total annual cost of unreliability including improvement investment.",
-      "formula": "Net_impact = Failure_cost + reliability_improvement_investment",
-      "unit": "currency/year"
-    }
+    "operating_hours_per_year",
+    "operating_hours_per_year",
+    "operating_hours_per_year",
+    "operating_hours_per_year",
+    "operating_hours_per_year",
+    "operating_hours_per_year",
+    "operating_hours_per_year",
+    "operating_hours_per_year"
   ],
   "outputs": {
-    "primary": {
-      "id": "net_financial_impact",
-      "label": "Net Annual Financial Impact",
-      "unit": "currency/year",
-      "description": "Total annual cost attributed to equipment unreliability and maintenance, including improvement investments."
-    },
-    "breakdown": {
-      "annual_downtime_hours": {
-        "id": "annual_downtime_hours",
-        "label": "Annual Downtime Hours",
-        "unit": "hours/year"
-      },
-      "total_annual_failures": {
-        "id": "total_annual_failures",
-        "label": "Total Annual Failures",
-        "unit": "failures/year"
-      },
-      "availability": {
-        "id": "availability",
-        "label": "Operational Availability",
-        "unit": "%"
-      },
-      "total_downtime_cost": {
-        "id": "total_downtime_cost",
-        "label": "Total Downtime Cost",
-        "unit": "currency/year"
-      },
-      "total_failure_cost": {
-        "id": "total_failure_cost",
-        "label": "Total Failure Cost (incl. events & labor)",
-        "unit": "currency/year"
-      },
-      "cost_per_failure": {
-        "id": "cost_per_failure",
-        "label": "Average Cost per Failure",
-        "unit": "currency/failure",
-        "formula": "total_failure_cost / total_annual_failures"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excessive_mttr",
-        "label": "Excessive MTTR",
-        "description": "MTTR is above 4 hours, indicating slow repair processes or lack of spare parts.",
-        "impact": "Increases downtime hours and cost."
-      },
-      {
-        "id": "low_mtbf",
-        "label": "Low MTBF relative to benchmark",
-        "description": "MTBF is below industry benchmark, suggesting design or maintenance issues.",
-        "impact": "Increases failure frequency and total cost."
-      },
-      {
-        "id": "high_failure_event_cost",
-        "label": "High cost per failure event",
-        "description": "Cost per failure event exceeds 10% of equipment value, indicating expensive repairs or logistics.",
-        "impact": "Directly increases total failure cost."
-      },
-      {
-        "id": "underinvestment_in_reliability",
-        "label": "Underinvestment in Reliability",
-        "description": "Reliability improvement investment is zero or very low compared to total failure cost.",
-        "impact": "Missed opportunity to reduce long-term costs."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_mttr",
-        "label": "Reduce MTTR",
-        "description": "Implement standardized repair procedures, improve spare parts availability, and train technicians.",
-        "expectedBenefit": "Reduces downtime hours and cost."
-      },
-      {
-        "id": "increase_mtbf",
-        "label": "Increase MTBF",
-        "description": "Adopt predictive maintenance (vibration analysis, thermography), improve design, and use higher quality components.",
-        "expectedBenefit": "Reduces failure frequency and total cost."
-      },
-      {
-        "id": "optimize_maintenance_labor",
-        "label": "Optimize Maintenance Labor",
-        "description": "Cross-train staff, use remote diagnostics, and reduce travel time.",
-        "expectedBenefit": "Lowers labor cost per repair."
-      },
-      {
-        "id": "invest_in_reliability",
-        "label": "Invest in Reliability Improvement",
-        "description": "Allocate budget for reliability engineering, root cause analysis, and condition monitoring.",
-        "expectedBenefit": "Long-term reduction in failure cost and improved availability."
-      },
-      {
-        "id": "benchmark_and_target",
-        "label": "Benchmark and Set Targets",
-        "description": "Compare MTBF and MTTR against industry standards (WERC, ISO) and set improvement targets.",
-        "expectedBenefit": "Aligns performance with best-in-class."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Score",
-      "unit": "%",
-      "description": "Confidence in the output based on input data quality and completeness. Adjusted for missing or estimated inputs.",
-      "value": 85
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "maintenance-reliability",
+  "category": "Bakım & Güvenilirlik",
+  "sector": "Üretim & İmalat",
+  "toolName": "mtbf-mttr-financial-calculator"
 }

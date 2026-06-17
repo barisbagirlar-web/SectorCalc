@@ -30,7 +30,7 @@ function evaluateAllFormulas(input: Plagiarism_calculatorInput): Record<string, 
 
 export function calculatePlagiarism_calculator(input: Plagiarism_calculatorInput): Plagiarism_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["overallSimilarity"] ?? 0;
+  const totalWasteCost = values["wordSimilarity"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "lbs",
       "default": 150,
-      "businessContext": "User's body weight in pounds"
+      "businessContext": "User's body weight in pounds",
+      "label_i18n": {
+        "en": "Weight (lbs)",
+        "tr": "Weight (lbs)",
+        "de": "Weight (lbs)",
+        "fr": "Weight (lbs)",
+        "es": "Weight (lbs)",
+        "ar": "Weight (lbs)"
+      }
     },
     {
       "id": "bodyFat",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Estimated body fat percentage"
+      "businessContext": "Estimated body fat percentage",
+      "label_i18n": {
+        "en": "Body Fat (%)",
+        "tr": "Body Fat (%)",
+        "de": "Body Fat (%)",
+        "fr": "Body Fat (%)",
+        "es": "Body Fat (%)",
+        "ar": "Body Fat (%)"
+      }
     },
     {
       "id": "activityFactor",
       "label": "Activity Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.7,
-      "businessContext": "Zone Diet activity factor (0.5-1.0)"
+      "businessContext": "Zone Diet activity factor (0.5-1.0)",
+      "label_i18n": {
+        "en": "Activity Factor",
+        "tr": "Activity Factor",
+        "de": "Activity Factor",
+        "fr": "Activity Factor",
+        "es": "Activity Factor",
+        "ar": "Activity Factor"
+      }
     }
   ],
   "formulas": {
@@ -42,8 +66,8 @@
       "fatBlocks"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

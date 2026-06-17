@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "Assessment of alertness"
+      "businessContext": "Assessment of alertness",
+      "label_i18n": {
+        "en": "Level of Consciousness (0-3)",
+        "tr": "Level of Consciousness (0-3)",
+        "de": "Level of Consciousness (0-3)",
+        "fr": "Level of Consciousness (0-3)",
+        "es": "Level of Consciousness (0-3)",
+        "ar": "Level of Consciousness (0-3)"
+      }
     },
     {
       "id": "gaze",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "Horizontal eye movement"
+      "businessContext": "Horizontal eye movement",
+      "label_i18n": {
+        "en": "Best Gaze (0-2)",
+        "tr": "Best Gaze (0-2)",
+        "de": "Best Gaze (0-2)",
+        "fr": "Best Gaze (0-2)",
+        "es": "Best Gaze (0-2)",
+        "ar": "Best Gaze (0-2)"
+      }
     },
     {
       "id": "visual",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "Visual field testing"
+      "businessContext": "Visual field testing",
+      "label_i18n": {
+        "en": "Visual Fields (0-3)",
+        "tr": "Visual Fields (0-3)",
+        "de": "Visual Fields (0-3)",
+        "fr": "Visual Fields (0-3)",
+        "es": "Visual Fields (0-3)",
+        "ar": "Visual Fields (0-3)"
+      }
     },
     {
       "id": "facial",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "Facial muscle weakness"
+      "businessContext": "Facial muscle weakness",
+      "label_i18n": {
+        "en": "Facial Palsy (0-3)",
+        "tr": "Facial Palsy (0-3)",
+        "de": "Facial Palsy (0-3)",
+        "fr": "Facial Palsy (0-3)",
+        "es": "Facial Palsy (0-3)",
+        "ar": "Facial Palsy (0-3)"
+      }
     },
     {
       "id": "motor_arm",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "Arm motor strength assessment"
+      "businessContext": "Arm motor strength assessment",
+      "label_i18n": {
+        "en": "Motor Arm (0-4, average of left & right)",
+        "tr": "Motor Arm (0-4, average of left & right)",
+        "de": "Motor Arm (0-4, average of left & right)",
+        "fr": "Motor Arm (0-4, average of left & right)",
+        "es": "Motor Arm (0-4, average of left & right)",
+        "ar": "Motor Arm (0-4, average of left & right)"
+      }
     },
     {
       "id": "motor_leg",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "Leg motor strength assessment"
+      "businessContext": "Leg motor strength assessment",
+      "label_i18n": {
+        "en": "Motor Leg (0-4, average of left & right)",
+        "tr": "Motor Leg (0-4, average of left & right)",
+        "de": "Motor Leg (0-4, average of left & right)",
+        "fr": "Motor Leg (0-4, average of left & right)",
+        "es": "Motor Leg (0-4, average of left & right)",
+        "ar": "Motor Leg (0-4, average of left & right)"
+      }
     },
     {
       "id": "language",
@@ -55,11 +103,26 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "Aphasia assessment"
+      "businessContext": "Aphasia assessment",
+      "label_i18n": {
+        "en": "Best Language (0-3)",
+        "tr": "Best Language (0-3)",
+        "de": "Best Language (0-3)",
+        "fr": "Best Language (0-3)",
+        "es": "Best Language (0-3)",
+        "ar": "Best Language (0-3)"
+      }
     }
   ],
   "formulas": {
-    "total": "consciousness + gaze + visual + facial + motor_arm + motor_leg + language"
+    "total": "consciousness + gaze + visual + facial + motor_arm + motor_leg + language",
+    "consciousness": "consciousness",
+    "gaze": "gaze",
+    "visual": "visual",
+    "facial": "facial",
+    "motor_arm": "motor_arm",
+    "motor_leg": "motor_leg",
+    "language": "language"
   },
   "outputs": {
     "primary": "total",
@@ -73,10 +136,10 @@
       "language"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

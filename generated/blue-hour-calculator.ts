@@ -32,13 +32,19 @@ function evaluateAllFormulas(input: Blue_hour_calculatorInput): Record<string, n
   try { const v = (results["sunset_solar"] ?? 0) + 0.5; results["blue_hour_evening_end"] = Number.isFinite(v) ? v : 0; } catch { results["blue_hour_evening_end"] = 0; }
   try { const v = (results["blue_hour_morning_end"] ?? 0) - (results["blue_hour_morning_start"] ?? 0); results["blue_hour_morning_duration"] = Number.isFinite(v) ? v : 0; } catch { results["blue_hour_morning_duration"] = 0; }
   try { const v = (results["blue_hour_evening_end"] ?? 0) - (results["blue_hour_evening_start"] ?? 0); results["blue_hour_evening_duration"] = Number.isFinite(v) ? v : 0; } catch { results["blue_hour_evening_duration"] = 0; }
+  results["_blue_hour_morning_start__hours"] = 0;
+  results["_blue_hour_morning_end__hours"] = 0;
+  results["_blue_hour_evening_start__hours"] = 0;
+  results["_blue_hour_evening_end__hours"] = 0;
+  results["_blue_hour_morning_duration__hours"] = 0;
+  results["_blue_hour_evening_duration__hours"] = 0;
   return results;
 }
 
 
 export function calculateBlue_hour_calculator(input: Blue_hour_calculatorInput): Blue_hour_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Blue"] ?? 0;
+  const totalWasteCost = values["solar_declination"] ?? 0;
   const breakdown = {
     
   };

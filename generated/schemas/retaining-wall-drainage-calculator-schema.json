@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Height of retaining wall from base to top."
+      "businessContext": "Height of retaining wall from base to top.",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "wallLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of wall section being drained."
+      "businessContext": "Length of wall section being drained.",
+      "label_i18n": {
+        "en": "Wall Length",
+        "tr": "Wall Length",
+        "de": "Wall Length",
+        "fr": "Wall Length",
+        "es": "Wall Length",
+        "ar": "Wall Length"
+      }
     },
     {
       "id": "soilPermeability",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0.00001,
-      "businessContext": "Hydraulic conductivity of backfill soil. Fine sand ~1e-5, gravel ~1e-3."
+      "businessContext": "Hydraulic conductivity of backfill soil. Fine sand ~1e-5, gravel ~1e-3.",
+      "label_i18n": {
+        "en": "Soil Permeability (k)",
+        "tr": "Soil Permeability (k)",
+        "de": "Soil Permeability (k)",
+        "fr": "Soil Permeability (k)",
+        "es": "Soil Permeability (k)",
+        "ar": "Soil Permeability (k)"
+      }
     },
     {
       "id": "pipeDiameter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Inner diameter of drainage pipe."
+      "businessContext": "Inner diameter of drainage pipe.",
+      "label_i18n": {
+        "en": "Drain Pipe Diameter",
+        "tr": "Drain Pipe Diameter",
+        "de": "Drain Pipe Diameter",
+        "fr": "Drain Pipe Diameter",
+        "es": "Drain Pipe Diameter",
+        "ar": "Drain Pipe Diameter"
+      }
     },
     {
       "id": "pipeSlope",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Slope of drain pipe as percentage (e.g., 1 = 1%)."
+      "businessContext": "Slope of drain pipe as percentage (e.g., 1 = 1%).",
+      "label_i18n": {
+        "en": "Pipe Slope",
+        "tr": "Pipe Slope",
+        "de": "Pipe Slope",
+        "fr": "Pipe Slope",
+        "es": "Pipe Slope",
+        "ar": "Pipe Slope"
+      }
     },
     {
       "id": "manningN",
       "label": "Manning's n",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.013,
-      "businessContext": "Roughness coefficient for pipe material (e.g., concrete=0.013, corrugated metal=0.024)."
+      "businessContext": "Roughness coefficient for pipe material (e.g., concrete=0.013, corrugated metal=0.024).",
+      "label_i18n": {
+        "en": "Manning's n",
+        "tr": "Manning's n",
+        "de": "Manning's n",
+        "fr": "Manning's n",
+        "es": "Manning's n",
+        "ar": "Manning's n"
+      }
     }
   ],
   "formulas": {
@@ -66,10 +114,10 @@
       "pipeCapacity"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

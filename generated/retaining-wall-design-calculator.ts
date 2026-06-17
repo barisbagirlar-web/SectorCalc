@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Retaining_wall_design_calculatorInput): Reco
 
 export function calculateRetaining_wall_design_calculator(input: Retaining_wall_design_calculatorInput): Retaining_wall_design_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["ptotal"] ?? 0;
+  const totalWasteCost = values["ka"] ?? 0;
   const breakdown = {
     
   };

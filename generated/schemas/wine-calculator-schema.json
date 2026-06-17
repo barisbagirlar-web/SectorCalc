@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Toplam üzüm miktarı"
+      "businessContext": "Toplam üzüm miktarı",
+      "label_i18n": {
+        "en": "Üzüm Ağırlığı (kg)",
+        "tr": "Üzüm Ağırlığı (kg)",
+        "de": "Üzüm Ağırlığı (kg)",
+        "fr": "Üzüm Ağırlığı (kg)",
+        "es": "Üzüm Ağırlığı (kg)",
+        "ar": "Üzüm Ağırlığı (kg)"
+      }
     },
     {
       "id": "sugarContent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/L",
       "default": 220,
-      "businessContext": "Üzümün şeker konsantrasyonu"
+      "businessContext": "Üzümün şeker konsantrasyonu",
+      "label_i18n": {
+        "en": "Şeker Oranı (g/L)",
+        "tr": "Şeker Oranı (g/L)",
+        "de": "Şeker Oranı (g/L)",
+        "fr": "Şeker Oranı (g/L)",
+        "es": "Şeker Oranı (g/L)",
+        "ar": "Şeker Oranı (g/L)"
+      }
     },
     {
       "id": "yieldPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Presleme sonrası şıra oranı"
+      "businessContext": "Presleme sonrası şıra oranı",
+      "label_i18n": {
+        "en": "Şıra Verimi (%)",
+        "tr": "Şıra Verimi (%)",
+        "de": "Şıra Verimi (%)",
+        "fr": "Şıra Verimi (%)",
+        "es": "Şıra Verimi (%)",
+        "ar": "Şıra Verimi (%)"
+      }
     },
     {
       "id": "alcoholConversion",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "% alc./g şeker",
       "default": 0.55,
-      "businessContext": "Her g şekerden oluşan alkol yüzdesi"
+      "businessContext": "Her g şekerden oluşan alkol yüzdesi",
+      "label_i18n": {
+        "en": "Alkol Dönüşüm Faktörü",
+        "tr": "Alkol Dönüşüm Faktörü",
+        "de": "Alkol Dönüşüm Faktörü",
+        "fr": "Alkol Dönüşüm Faktörü",
+        "es": "Alkol Dönüşüm Faktörü",
+        "ar": "Alkol Dönüşüm Faktörü"
+      }
     },
     {
       "id": "fermentationLoss",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Fermantasyon sırasında hacim kaybı"
+      "businessContext": "Fermantasyon sırasında hacim kaybı",
+      "label_i18n": {
+        "en": "Fermantasyon Kaybı (%)",
+        "tr": "Fermantasyon Kaybı (%)",
+        "de": "Fermantasyon Kaybı (%)",
+        "fr": "Fermantasyon Kaybı (%)",
+        "es": "Fermantasyon Kaybı (%)",
+        "ar": "Fermantasyon Kaybı (%)"
+      }
     },
     {
       "id": "bottleVolume",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "L",
       "default": 0.75,
-      "businessContext": "Standart şişe hacmi"
+      "businessContext": "Standart şişe hacmi",
+      "label_i18n": {
+        "en": "Şişe Hacmi (L)",
+        "tr": "Şişe Hacmi (L)",
+        "de": "Şişe Hacmi (L)",
+        "fr": "Şişe Hacmi (L)",
+        "es": "Şişe Hacmi (L)",
+        "ar": "Şişe Hacmi (L)"
+      }
     }
   ],
   "formulas": {
@@ -55,10 +103,14 @@
     "totalSugar": "mustVolume * sugarContent",
     "alcoholPercent": "totalSugar * alcoholConversion / 10",
     "finalVolume": "mustVolume * (1 - fermentationLoss / 100)",
-    "bottleCount": "Math.floor(finalVolume / bottleVolume)"
+    "bottleCount": "Math.floor(finalVolume / bottleVolume)",
+    "_mustVolume__L": "{mustVolume} L",
+    "_totalSugar__g": "{totalSugar} g",
+    "_alcoholPercent___": "{alcoholPercent} %",
+    "_finalVolume__L": "{finalVolume} L"
   },
   "outputs": {
-    "primary": "Şişe Sayısı: {bottleCount}",
+    "primary": "mustVolume",
     "breakdown": [
       "Şıra Hacmi: {mustVolume} L",
       "Toplam Şeker: {totalSugar} g",
@@ -66,10 +118,10 @@
       "Fermantasyon Sonrası Hacim: {finalVolume} L"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",
-  "categorySlug": "food-cold-chain-hygiene"
+  "categorySlug": "quality-six-sigma"
 }

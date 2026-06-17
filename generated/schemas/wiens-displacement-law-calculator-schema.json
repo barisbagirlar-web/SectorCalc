@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "K",
       "default": 5778,
-      "businessContext": "Absolute temperature of the black-body radiator in Kelvin. Typical values: 300 K (room temperature), 5778 K (Sun's photosphere)."
+      "businessContext": "Absolute temperature of the black-body radiator in Kelvin. Typical values: 300 K (room temperature), 5778 K (Sun's photosphere).",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "constant_b",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m·K",
       "default": 0.002897771955,
-      "businessContext": "Wien's displacement constant for wavelength. The product of peak wavelength and temperature equals this constant. Standard value: 2.897771955E-3 m·K."
+      "businessContext": "Wien's displacement constant for wavelength. The product of peak wavelength and temperature equals this constant. Standard value: 2.897771955E-3 m·K.",
+      "label_i18n": {
+        "en": "Wien's Displacement Constant (λmax)",
+        "tr": "Wien's Displacement Constant (λmax)",
+        "de": "Wien's Displacement Constant (λmax)",
+        "fr": "Wien's Displacement Constant (λmax)",
+        "es": "Wien's Displacement Constant (λmax)",
+        "ar": "Wien's Displacement Constant (λmax)"
+      }
     },
     {
       "id": "constant_b_freq",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "Hz/K",
       "default": 58789257570,
-      "businessContext": "Wien's displacement constant for frequency. The ratio of peak frequency to temperature is approximately 5.879E10 Hz/K."
+      "businessContext": "Wien's displacement constant for frequency. The ratio of peak frequency to temperature is approximately 5.879E10 Hz/K.",
+      "label_i18n": {
+        "en": "Wien's Frequency Constant",
+        "tr": "Wien's Frequency Constant",
+        "de": "Wien's Frequency Constant",
+        "fr": "Wien's Frequency Constant",
+        "es": "Wien's Frequency Constant",
+        "ar": "Wien's Frequency Constant"
+      }
     },
     {
       "id": "wavelength_scale",
       "label": "Wavelength Scale Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1000000000,
-      "businessContext": "Scaling factor to convert wavelength from meters to desired output unit. For nanometers, set to 1E9; for micrometers, set to 1E6; for meters, set to 1."
+      "businessContext": "Scaling factor to convert wavelength from meters to desired output unit. For nanometers, set to 1E9; for micrometers, set to 1E6; for meters, set to 1.",
+      "label_i18n": {
+        "en": "Wavelength Scale Factor",
+        "tr": "Wavelength Scale Factor",
+        "de": "Wavelength Scale Factor",
+        "fr": "Wavelength Scale Factor",
+        "es": "Wavelength Scale Factor",
+        "ar": "Wavelength Scale Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "peakFrequency_Hz"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

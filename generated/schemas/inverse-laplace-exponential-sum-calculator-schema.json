@@ -5,9 +5,17 @@
       "id": "A1",
       "label": "Amplitude 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of the first exponential term in the Laplace inverse"
+      "businessContext": "Coefficient of the first exponential term in the Laplace inverse",
+      "label_i18n": {
+        "en": "Amplitude 1",
+        "tr": "Amplitude 1",
+        "de": "Amplitude 1",
+        "fr": "Amplitude 1",
+        "es": "Amplitude 1",
+        "ar": "Amplitude 1"
+      }
     },
     {
       "id": "p1",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "1/s",
       "default": 1,
-      "businessContext": "Pole location for the first exponential (positive for stable decay)"
+      "businessContext": "Pole location for the first exponential (positive for stable decay)",
+      "label_i18n": {
+        "en": "Decay Rate 1",
+        "tr": "Decay Rate 1",
+        "de": "Decay Rate 1",
+        "fr": "Decay Rate 1",
+        "es": "Decay Rate 1",
+        "ar": "Decay Rate 1"
+      }
     },
     {
       "id": "A2",
       "label": "Amplitude 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of the second exponential term"
+      "businessContext": "Coefficient of the second exponential term",
+      "label_i18n": {
+        "en": "Amplitude 2",
+        "tr": "Amplitude 2",
+        "de": "Amplitude 2",
+        "fr": "Amplitude 2",
+        "es": "Amplitude 2",
+        "ar": "Amplitude 2"
+      }
     },
     {
       "id": "p2",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "1/s",
       "default": 0,
-      "businessContext": "Pole location for the second exponential"
+      "businessContext": "Pole location for the second exponential",
+      "label_i18n": {
+        "en": "Decay Rate 2",
+        "tr": "Decay Rate 2",
+        "de": "Decay Rate 2",
+        "fr": "Decay Rate 2",
+        "es": "Decay Rate 2",
+        "ar": "Decay Rate 2"
+      }
     },
     {
       "id": "A3",
       "label": "Amplitude 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of the third exponential term"
+      "businessContext": "Coefficient of the third exponential term",
+      "label_i18n": {
+        "en": "Amplitude 3",
+        "tr": "Amplitude 3",
+        "de": "Amplitude 3",
+        "fr": "Amplitude 3",
+        "es": "Amplitude 3",
+        "ar": "Amplitude 3"
+      }
     },
     {
       "id": "p3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "1/s",
       "default": 0,
-      "businessContext": "Pole location for the third exponential"
+      "businessContext": "Pole location for the third exponential",
+      "label_i18n": {
+        "en": "Decay Rate 3",
+        "tr": "Decay Rate 3",
+        "de": "Decay Rate 3",
+        "fr": "Decay Rate 3",
+        "es": "Decay Rate 3",
+        "ar": "Decay Rate 3"
+      }
     },
     {
       "id": "t",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Time point at which to evaluate the inverse Laplace transform"
+      "businessContext": "Time point at which to evaluate the inverse Laplace transform",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     }
   ],
   "formulas": {
@@ -72,10 +128,10 @@
       "exp3"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

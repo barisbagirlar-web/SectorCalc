@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "mm",
       "default": 4,
-      "businessContext": "Modül, dişli boyutlandırma için standart bir parametredir."
+      "businessContext": "Modül, dişli boyutlandırma için standart bir parametredir.",
+      "label_i18n": {
+        "en": "Modül (m)",
+        "tr": "Modül (m)",
+        "de": "Modül (m)",
+        "fr": "Modül (m)",
+        "es": "Modül (m)",
+        "ar": "Modül (m)"
+      }
     },
     {
       "id": "z1",
       "label": "Pinyon Diş Sayısı (z₁)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 20,
-      "businessContext": "Küçük (pinyon) dişlinin diş sayısı."
+      "businessContext": "Küçük (pinyon) dişlinin diş sayısı.",
+      "label_i18n": {
+        "en": "Pinyon Diş Sayısı (z₁)",
+        "tr": "Pinyon Diş Sayısı (z₁)",
+        "de": "Pinyon Diş Sayısı (z₁)",
+        "fr": "Pinyon Diş Sayısı (z₁)",
+        "es": "Pinyon Diş Sayısı (z₁)",
+        "ar": "Pinyon Diş Sayısı (z₁)"
+      }
     },
     {
       "id": "z2",
       "label": "Ayna Diş Sayısı (z₂)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 40,
-      "businessContext": "Büyük (ayna) dişlinin diş sayısı."
+      "businessContext": "Büyük (ayna) dişlinin diş sayısı.",
+      "label_i18n": {
+        "en": "Ayna Diş Sayısı (z₂)",
+        "tr": "Ayna Diş Sayısı (z₂)",
+        "de": "Ayna Diş Sayısı (z₂)",
+        "fr": "Ayna Diş Sayısı (z₂)",
+        "es": "Ayna Diş Sayısı (z₂)",
+        "ar": "Ayna Diş Sayısı (z₂)"
+      }
     },
     {
       "id": "shaftAngle",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°",
       "default": 90,
-      "businessContext": "Kesişen iki mil arasındaki açı (genellikle 90°)."
+      "businessContext": "Kesişen iki mil arasındaki açı (genellikle 90°).",
+      "label_i18n": {
+        "en": "Mil Açısı (Σ)",
+        "tr": "Mil Açısı (Σ)",
+        "de": "Mil Açısı (Σ)",
+        "fr": "Mil Açısı (Σ)",
+        "es": "Mil Açısı (Σ)",
+        "ar": "Mil Açısı (Σ)"
+      }
     },
     {
       "id": "pressureAngle",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "°",
       "default": 20,
-      "businessContext": "Standart kavrama açısı; çoğunlukla 20° kullanılır."
+      "businessContext": "Standart kavrama açısı; çoğunlukla 20° kullanılır.",
+      "label_i18n": {
+        "en": "Kavrama Açısı (α)",
+        "tr": "Kavrama Açısı (α)",
+        "de": "Kavrama Açısı (α)",
+        "fr": "Kavrama Açısı (α)",
+        "es": "Kavrama Açısı (α)",
+        "ar": "Kavrama Açısı (α)"
+      }
     },
     {
       "id": "faceWidthFactor",
       "label": "Diş Genişliği Faktörü (k)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.3,
-      "businessContext": "Diş genişliğinin konik mesafeye oranı (genelde 0,2 – 0,3 aralığında)."
+      "businessContext": "Diş genişliğinin konik mesafeye oranı (genelde 0,2 – 0,3 aralığında).",
+      "label_i18n": {
+        "en": "Diş Genişliği Faktörü (k)",
+        "tr": "Diş Genişliği Faktörü (k)",
+        "de": "Diş Genişliği Faktörü (k)",
+        "fr": "Diş Genişliği Faktörü (k)",
+        "es": "Diş Genişliği Faktörü (k)",
+        "ar": "Diş Genişliği Faktörü (k)"
+      }
     }
   ],
   "formulas": {
@@ -79,7 +127,7 @@
       "h"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

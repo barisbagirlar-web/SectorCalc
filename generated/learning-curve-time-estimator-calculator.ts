@@ -23,31 +23,19 @@ export const Learning_curve_time_estimator_calculatorInputSchema = z.object({
   break_in_penalty: z.number().min(0).max(50).default(10),
 });
 
-function evaluateAllFormulas(input: Learning_curve_time_estimator_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = Math.log(input.learning_rate/100) / Math.log(2); results["learning_exponent"] = Number.isFinite(v) ? v : 0; } catch { results["learning_exponent"] = 0; }
-  try { const v = input.first_unit_time * (input.target_units ^ b); results["time_for_target_unit"] = Number.isFinite(v) ? v : 0; } catch { results["time_for_target_unit"] = 0; }
-  try { const v = input.first_unit_time * (input.target_units ^ b) / (1 + b); results["cumulative_average_time"] = Number.isFinite(v) ? v : 0; } catch { results["cumulative_average_time"] = 0; }
-  try { const v = input.first_unit_time * (input.target_units ^ (1+b)) / (1+b); results["total_time_for_target"] = Number.isFinite(v) ? v : 0; } catch { results["total_time_for_target"] = 0; }
-  try { const v = ((input.include_break_in) ? (factor = 1 + (input.break_in_penalty/100)) : (factor = 1)); results["break_in_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["break_in_adjustment"] = 0; }
-  try { const v = (results["time_for_target_unit"] ?? 0) * (results["break_in_adjustment"] ?? 0); results["adjusted_time_for_target"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_time_for_target"] = 0; }
-  try { const v = (results["total_time_for_target"] ?? 0) / input.shift_length; results["calendar_days_estimate"] = Number.isFinite(v) ? v : 0; } catch { results["calendar_days_estimate"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Learning_curve_time_estimator_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateLearning_curve_time_estimator_calculator(input: Learning_curve_time_estimator_calculatorInput): Learning_curve_time_estimator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["estimated_time_target_unit"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    learning_exponent: values["learning_exponent"] ?? 0,
-    time_for_target_unit_raw: values["time_for_target_unit_raw"] ?? 0,
-    cumulative_average_time: values["cumulative_average_time"] ?? 0,
-    total_time_for_target: values["total_time_for_target"] ?? 0,
-    calendar_days_estimate: values["calendar_days_estimate"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Low Learning Rate","High First Unit Time","Break-In Penalty Applied"];
-  const suggestedActions: string[] = ["Improve Operator Training","Reduce First Unit Time","Minimize Production Breaks"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -66,7 +54,7 @@ export function calculateLearning_curve_time_estimator_calculator(input: Learnin
 
 export interface Learning_curve_time_estimator_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { learning_exponent: number; time_for_target_unit_raw: number; cumulative_average_time: number; total_time_for_target: number; calendar_days_estimate: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

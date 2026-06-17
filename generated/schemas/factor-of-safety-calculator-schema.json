@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N",
       "default": 10000,
-      "businessContext": "The external force acting on the component, e.g., tension, compression, or shear."
+      "businessContext": "The external force acting on the component, e.g., tension, compression, or shear.",
+      "label_i18n": {
+        "en": "Applied Force",
+        "tr": "Applied Force",
+        "de": "Applied Force",
+        "fr": "Applied Force",
+        "es": "Applied Force",
+        "ar": "Applied Force"
+      }
     },
     {
       "id": "crossSectionArea",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm²",
       "default": 50,
-      "businessContext": "The effective cross-sectional area resisting the force."
+      "businessContext": "The effective cross-sectional area resisting the force.",
+      "label_i18n": {
+        "en": "Cross-Sectional Area",
+        "tr": "Cross-Sectional Area",
+        "de": "Cross-Sectional Area",
+        "fr": "Cross-Sectional Area",
+        "es": "Cross-Sectional Area",
+        "ar": "Cross-Sectional Area"
+      }
     },
     {
       "id": "yieldStrength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Stress at which material begins to deform plastically, typically from material datasheet."
+      "businessContext": "Stress at which material begins to deform plastically, typically from material datasheet.",
+      "label_i18n": {
+        "en": "Material Yield Strength",
+        "tr": "Material Yield Strength",
+        "de": "Material Yield Strength",
+        "fr": "Material Yield Strength",
+        "es": "Material Yield Strength",
+        "ar": "Material Yield Strength"
+      }
     },
     {
       "id": "ultimateTensileStrength",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "MPa",
       "default": 400,
-      "businessContext": "Maximum stress material can withstand while being stretched or pulled before breaking."
+      "businessContext": "Maximum stress material can withstand while being stretched or pulled before breaking.",
+      "label_i18n": {
+        "en": "Ultimate Tensile Strength",
+        "tr": "Ultimate Tensile Strength",
+        "de": "Ultimate Tensile Strength",
+        "fr": "Ultimate Tensile Strength",
+        "es": "Ultimate Tensile Strength",
+        "ar": "Ultimate Tensile Strength"
+      }
     },
     {
       "id": "designFactor",
       "label": "Required Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "The minimum allowable factor of safety as per design standards, used for pass/fail check."
+      "businessContext": "The minimum allowable factor of safety as per design standards, used for pass/fail check.",
+      "label_i18n": {
+        "en": "Required Safety Factor",
+        "tr": "Required Safety Factor",
+        "de": "Required Safety Factor",
+        "fr": "Required Safety Factor",
+        "es": "Required Safety Factor",
+        "ar": "Required Safety Factor"
+      }
     },
     {
       "id": "stressConcentrationFactor",
       "label": "Stress Concentration Factor (Kt)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Factor accounting for geometric discontinuities. For basic analysis, set to 1."
+      "businessContext": "Factor accounting for geometric discontinuities. For basic analysis, set to 1.",
+      "label_i18n": {
+        "en": "Stress Concentration Factor (Kt)",
+        "tr": "Stress Concentration Factor (Kt)",
+        "de": "Stress Concentration Factor (Kt)",
+        "fr": "Stress Concentration Factor (Kt)",
+        "es": "Stress Concentration Factor (Kt)",
+        "ar": "Stress Concentration Factor (Kt)"
+      }
     }
   ],
   "formulas": {
@@ -71,10 +119,10 @@
       "breakdown4"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

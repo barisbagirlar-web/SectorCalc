@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Cone_surface_area_calculatorInput {
   radius: number;
   height: number;
+  auto_input_3: number;
 }
 
 export const Cone_surface_area_calculatorInputSchema = z.object({
   radius: z.number().default(5),
   height: z.number().default(10),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Cone_surface_area_calculatorInput): Record<string, number> {

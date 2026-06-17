@@ -155,7 +155,8 @@
       },
       "businessContext_i18n": {
         "en": "Select 'auto' for Reynolds-based determination. Override for sensitivity analysis."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "include_measurement_uncertainty",
@@ -168,7 +169,8 @@
       },
       "businessContext_i18n": {
         "en": "When true, applies GUM (Guide to the Expression of Uncertainty in Measurement) propagation to final result."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -208,173 +210,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "cross_sectional_area",
-      "name": "Pipe Cross-Sectional Area",
-      "expression": "3.141592653589793 * (pipe_diameter / 2)^2",
-      "unit": "m²",
-      "description": "Internal cross-sectional area of the pipe."
-    },
-    {
-      "id": "flow_velocity",
-      "name": "Average Flow Velocity",
-      "expression": "flow_rate / cross_sectional_area",
-      "unit": "m/s",
-      "description": "Bulk fluid velocity."
-    },
-    {
-      "id": "reynolds_number",
-      "name": "Reynolds Number",
-      "expression": "fluid_density * flow_velocity * pipe_diameter / fluid_viscosity",
-      "unit": "dimensionless",
-      "description": "Dimensionless number indicating flow regime."
-    },
-    {
-      "id": "friction_factor",
-      "name": "Darcy Friction Factor",
-      "expression": "IF(flow_regime='laminar' OR (flow_regime='auto' AND reynolds_number < 2000), 64 / reynolds_number, 1 / (-2 * LOG10( (roughness/(3.7*pipe_diameter)) + (2.51/(reynolds_number * SQRT(0.02))) ))^2)",
-      "unit": "dimensionless",
-      "description": "Colebrook-White equation for turbulent flow; 64/Re for laminar. Iterative approximation used."
-    },
-    {
-      "id": "major_loss",
-      "name": "Major (Friction) Head Loss",
-      "expression": "friction_factor * (pipe_length / pipe_diameter) * (flow_velocity^2 / (2 * 9.80665))",
-      "unit": "m",
-      "description": "Head loss due to pipe friction per Darcy-Weisbach."
-    },
-    {
-      "id": "minor_loss",
-      "name": "Minor (Fittings) Head Loss",
-      "expression": "minor_loss_coefficient * (flow_velocity^2 / (2 * 9.80665))",
-      "unit": "m",
-      "description": "Head loss due to fittings, valves, bends."
-    },
-    {
-      "id": "total_head_loss",
-      "name": "Total Head Loss",
-      "expression": "major_loss + minor_loss + elevation_change",
-      "unit": "m",
-      "description": "Sum of all head losses and elevation change."
-    },
-    {
-      "id": "pressure_drop",
-      "name": "Pressure Drop (Primary Result)",
-      "expression": "fluid_density * 9.80665 * total_head_loss",
-      "unit": "Pa",
-      "description": "Total pressure drop across the pipe system. Primary output."
-    }
+    "pipe_diameter",
+    "pipe_diameter",
+    "pipe_diameter",
+    "pipe_diameter",
+    "pipe_diameter",
+    "pipe_diameter",
+    "pipe_diameter",
+    "pipe_diameter"
   ],
   "outputs": {
-    "primary": {
-      "id": "pressure_drop",
-      "label": "Pressure Drop",
-      "value": null,
-      "unit": "Pa",
-      "description": "Total pressure drop from inlet to outlet."
-    },
-    "breakdown": {
-      "cross_sectional_area": {
-        "id": "cross_sectional_area",
-        "label": "Cross-Sectional Area",
-        "value": null,
-        "unit": "m²"
-      },
-      "flow_velocity": {
-        "id": "flow_velocity",
-        "label": "Flow Velocity",
-        "value": null,
-        "unit": "m/s"
-      },
-      "reynolds_number": {
-        "id": "reynolds_number",
-        "label": "Reynolds Number",
-        "value": null,
-        "unit": "dimensionless"
-      },
-      "friction_factor": {
-        "id": "friction_factor",
-        "label": "Darcy Friction Factor",
-        "value": null,
-        "unit": "dimensionless"
-      },
-      "major_loss": {
-        "id": "major_loss",
-        "label": "Major Head Loss",
-        "value": null,
-        "unit": "m"
-      },
-      "minor_loss": {
-        "id": "minor_loss",
-        "label": "Minor Head Loss",
-        "value": null,
-        "unit": "m"
-      },
-      "total_head_loss": {
-        "id": "total_head_loss",
-        "label": "Total Head Loss",
-        "value": null,
-        "unit": "m"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "velocity_squared_term",
-        "label": "Velocity Squared Contribution",
-        "description": "Dominant term in head loss; small changes in diameter cause large changes in loss.",
-        "value": null,
-        "unit": "m²/s²"
-      },
-      {
-        "id": "relative_roughness",
-        "label": "Relative Roughness",
-        "description": "Ratio of roughness to diameter; key driver of friction factor in turbulent flow.",
-        "value": null,
-        "unit": "dimensionless"
-      },
-      {
-        "id": "viscous_damping_ratio",
-        "label": "Viscous Damping Ratio",
-        "description": "Ratio of viscous forces to inertial forces; low ratio indicates turbulence.",
-        "value": null,
-        "unit": "dimensionless"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_diameter",
-        "condition": "flow_velocity > 5",
-        "action": "Increase pipe diameter to reduce velocity and friction losses.",
-        "expectedImprovement": "Reduces pressure drop by approximately (D_new/D_old)^(-5) for turbulent flow."
-      },
-      {
-        "id": "reduce_roughness",
-        "condition": "friction_factor > 0.03",
-        "action": "Consider smoother pipe material (e.g., HDPE instead of steel) or internal lining.",
-        "expectedImprovement": "Can reduce friction factor by 20-40%."
-      },
-      {
-        "id": "minimize_fittings",
-        "condition": "minor_loss / total_head_loss > 0.3",
-        "action": "Reduce number of fittings or use long-radius bends to lower minor loss coefficient.",
-        "expectedImprovement": "Reduces minor loss proportionally to K reduction."
-      },
-      {
-        "id": "check_viscosity",
-        "condition": "reynolds_number < 2000 AND flow_rate > 0.001",
-        "action": "Verify fluid viscosity; consider heating to reduce viscosity and achieve turbulent flow.",
-        "expectedImprovement": "Transition to turbulent flow can reduce required pump head."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_pressure_drop",
-      "label": "Data Confidence Adjusted Pressure Drop",
-      "value": null,
-      "unit": "Pa",
-      "description": "Pressure drop adjusted for measurement uncertainty using GUM propagation (k=2 coverage factor)."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "process-chemical",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
+  "toolName": "pipe-flow-calculator"
 }

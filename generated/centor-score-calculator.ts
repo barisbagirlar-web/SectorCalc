@@ -18,6 +18,10 @@ export const Centor_score_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Centor_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.fever + input.exudates + input.lymphadenopathy + input.cough_absence; results["score"] = Number.isFinite(v) ? v : 0; } catch { results["score"] = 0; }
+  try { const v = input.fever; results["fever"] = Number.isFinite(v) ? v : 0; } catch { results["fever"] = 0; }
+  try { const v = input.exudates; results["exudates"] = Number.isFinite(v) ? v : 0; } catch { results["exudates"] = 0; }
+  try { const v = input.lymphadenopathy; results["lymphadenopathy"] = Number.isFinite(v) ? v : 0; } catch { results["lymphadenopathy"] = 0; }
+  try { const v = input.cough_absence; results["cough_absence"] = Number.isFinite(v) ? v : 0; } catch { results["cough_absence"] = 0; }
   return results;
 }
 

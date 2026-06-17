@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Toplam kesilen trafik veya lojistik ceza sayısı"
+      "businessContext": "Toplam kesilen trafik veya lojistik ceza sayısı",
+      "label_i18n": {
+        "en": "Kesilen Ceza Sayısı",
+        "tr": "Kesilen Ceza Sayısı",
+        "de": "Kesilen Ceza Sayısı",
+        "fr": "Kesilen Ceza Sayısı",
+        "es": "Kesilen Ceza Sayısı",
+        "ar": "Kesilen Ceza Sayısı"
+      }
     },
     {
       "id": "finePerCitation",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "TL",
       "default": 500,
-      "businessContext": "Her bir ceza için ödenmesi gereken temel para cezası tutarı"
+      "businessContext": "Her bir ceza için ödenmesi gereken temel para cezası tutarı",
+      "label_i18n": {
+        "en": "Ceza Başına Para Cezası",
+        "tr": "Ceza Başına Para Cezası",
+        "de": "Ceza Başına Para Cezası",
+        "fr": "Ceza Başına Para Cezası",
+        "es": "Ceza Başına Para Cezası",
+        "ar": "Ceza Başına Para Cezası"
+      }
     },
     {
       "id": "severityMultiplier",
       "label": "Ağırlaştırıcı Çarpan",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Ceza ciddiyetine göre çarpan (örn. tekerrür, yük hasarı vb.)"
+      "businessContext": "Ceza ciddiyetine göre çarpan (örn. tekerrür, yük hasarı vb.)",
+      "label_i18n": {
+        "en": "Ağırlaştırıcı Çarpan",
+        "tr": "Ağırlaştırıcı Çarpan",
+        "de": "Ağırlaştırıcı Çarpan",
+        "fr": "Ağırlaştırıcı Çarpan",
+        "es": "Ağırlaştırıcı Çarpan",
+        "ar": "Ağırlaştırıcı Çarpan"
+      }
     },
     {
       "id": "processingFeePerCitation",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Her ceza için tahsil edilen idari işlem ücreti"
+      "businessContext": "Her ceza için tahsil edilen idari işlem ücreti",
+      "label_i18n": {
+        "en": "İşlem Ücreti (Ceza Başına)",
+        "tr": "İşlem Ücreti (Ceza Başına)",
+        "de": "İşlem Ücreti (Ceza Başına)",
+        "fr": "İşlem Ücreti (Ceza Başına)",
+        "es": "İşlem Ücreti (Ceza Başına)",
+        "ar": "İşlem Ücreti (Ceza Başına)"
+      }
     },
     {
       "id": "earlyPaymentDiscount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Erken ödeme durumunda uygulanacak yüzde indirim (0 ise indirim yok)"
+      "businessContext": "Erken ödeme durumunda uygulanacak yüzde indirim (0 ise indirim yok)",
+      "label_i18n": {
+        "en": "Erken Ödeme İndirimi (%)",
+        "tr": "Erken Ödeme İndirimi (%)",
+        "de": "Erken Ödeme İndirimi (%)",
+        "fr": "Erken Ödeme İndirimi (%)",
+        "es": "Erken Ödeme İndirimi (%)",
+        "ar": "Erken Ödeme İndirimi (%)"
+      }
     }
   ],
   "formulas": {
@@ -57,8 +97,8 @@
       "discountAmount"
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

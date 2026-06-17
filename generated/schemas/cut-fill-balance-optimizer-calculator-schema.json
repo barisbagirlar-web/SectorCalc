@@ -156,7 +156,8 @@
       },
       "businessContext_i18n": {
         "en": "Type of material being moved, affects swell/shrinkage factors and handling difficulty."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "useOptimizedHaulRoutes",
@@ -169,7 +170,8 @@
       },
       "businessContext_i18n": {
         "en": "If enabled, the tool applies lean logistics principles to minimize haul distance and idle time."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -218,148 +220,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "adjustedCutVolume",
-      "label": "Adjusted Cut Volume (Bank to Compacted)",
-      "description": "Converts cut volume from bank state to compacted state using shrinkage factor.",
-      "formula": "cutVolume * shrinkageFactor",
-      "unit": "m³ (compacted)"
-    },
-    {
-      "id": "adjustedFillVolume",
-      "label": "Adjusted Fill Volume (Bank to Loose for Haul)",
-      "description": "Converts fill volume from compacted state to loose state using swell factor for haul cost calculation.",
-      "formula": "fillVolume * swellFactor",
-      "unit": "m³ (loose)"
-    },
-    {
-      "id": "netBalance",
-      "label": "Net Balance (Compacted Basis)",
-      "description": "Difference between adjusted cut and fill volumes on a compacted basis.",
-      "formula": "adjustedCutVolume - fillVolume",
-      "unit": "m³ (compacted)"
-    },
-    {
-      "id": "excessCutVolume",
-      "label": "Excess Cut Volume (Waste)",
-      "description": "Volume of cut material that cannot be used for fill, requiring disposal.",
-      "formula": "MAX(0, netBalance)",
-      "unit": "m³ (compacted)"
-    },
-    {
-      "id": "deficitFillVolume",
-      "label": "Deficit Fill Volume (Borrow)",
-      "description": "Volume of fill material that must be imported from borrow pits.",
-      "formula": "MAX(0, -netBalance)",
-      "unit": "m³ (compacted)"
-    },
-    {
-      "id": "totalHaulVolume",
-      "label": "Total Haul Volume (Loose Basis)",
-      "description": "Total volume of material to be hauled, considering both cut-to-fill and borrow/waste movements.",
-      "formula": "MIN(adjustedCutVolume, fillVolume) * swellFactor + (excessCutVolume * swellFactor) + (deficitFillVolume * swellFactor)",
-      "unit": "m³ (loose)"
-    },
-    {
-      "id": "totalCost",
-      "label": "Total Earthwork Cost",
-      "description": "Primary result: total cost including haul, waste disposal, and borrow material.",
-      "formula": "(totalHaulVolume * unitHaulCost * haulDistance) + (excessCutVolume * wasteDisposalCost) + (deficitFillVolume * borrowCost)",
-      "unit": "USD"
-    }
+    "cutVolume",
+    "cutVolume",
+    "cutVolume",
+    "cutVolume",
+    "cutVolume",
+    "cutVolume",
+    "cutVolume"
   ],
   "outputs": {
-    "primary": {
-      "id": "totalCost",
-      "label": "Total Earthwork Cost",
-      "unit": "USD",
-      "description": "Aggregate cost of cut-fill balance operations including haul, waste, and borrow."
-    },
-    "breakdown": {
-      "haulCost": {
-        "id": "haulCost",
-        "label": "Haul Cost",
-        "unit": "USD",
-        "description": "Cost of transporting material from cut to fill and to/from waste/borrow sites."
-      },
-      "wasteCost": {
-        "id": "wasteCost",
-        "label": "Waste Disposal Cost",
-        "unit": "USD",
-        "description": "Cost of disposing excess cut material."
-      },
-      "borrowCost": {
-        "id": "borrowCost",
-        "label": "Borrow Material Cost",
-        "unit": "USD",
-        "description": "Cost of importing material to meet fill deficit."
-      },
-      "netBalance": {
-        "id": "netBalance",
-        "label": "Net Balance (Compacted)",
-        "unit": "m³",
-        "description": "Positive indicates excess cut, negative indicates deficit fill."
-      },
-      "totalHaulVolume": {
-        "id": "totalHaulVolume",
-        "label": "Total Haul Volume (Loose)",
-        "unit": "m³",
-        "description": "Total loose volume moved."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "rehandleRatio",
-        "label": "Rehandle Ratio",
-        "unit": "ratio",
-        "description": "Ratio of material moved more than once (e.g., stockpiled then hauled). High values indicate inefficiency.",
-        "value": "0.0"
-      },
-      {
-        "id": "idleEquipmentTime",
-        "label": "Idle Equipment Time",
-        "unit": "hours",
-        "description": "Estimated total idle time due to imbalance, based on standard cycle times.",
-        "value": "0.0"
-      },
-      {
-        "id": "fuelWasteFactor",
-        "label": "Fuel Waste Factor",
-        "unit": "ratio",
-        "description": "Additional fuel consumption due to suboptimal haul routes (1.0 = optimal).",
-        "value": "1.0"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduceHaulDistance",
-        "label": "Optimize Haul Routes",
-        "description": "Use GPS and site layout to reduce average haul distance by at least 10%.",
-        "expectedImpact": "Reduces haul cost proportionally."
-      },
-      {
-        "id": "adjustCutFillDesign",
-        "label": "Revise Cut/Fill Design",
-        "description": "If net balance > 20% of total volume, consider regrading to reduce waste or borrow.",
-        "expectedImpact": "Lowers waste and borrow costs."
-      },
-      {
-        "id": "useOnSiteProcessing",
-        "label": "On-Site Material Processing",
-        "description": "Crush rock or treat clay on-site to improve material usability and reduce borrow.",
-        "expectedImpact": "Reduces borrow cost and haul volume."
-      },
-      {
-        "id": "implementLeanHaul",
-        "label": "Implement Lean Haul Practices",
-        "description": "Apply Six Sigma DMAIC to reduce cycle time variability and equipment idle time.",
-        "expectedImpact": "Improves productivity and reduces fuel waste."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "cut-fill-balance-optimizer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

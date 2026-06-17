@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 230,
-      "businessContext": "Devre gerilimi"
+      "businessContext": "Devre gerilimi",
+      "label_i18n": {
+        "en": "Gerilim (V)",
+        "tr": "Gerilim (V)",
+        "de": "Gerilim (V)",
+        "fr": "Gerilim (V)",
+        "es": "Gerilim (V)",
+        "ar": "Gerilim (V)"
+      }
     },
     {
       "id": "currentPerDevice",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "A",
       "default": 1,
-      "businessContext": "Her bir cihazın çektiği akım"
+      "businessContext": "Her bir cihazın çektiği akım",
+      "label_i18n": {
+        "en": "Cihaz Başına Akım (A)",
+        "tr": "Cihaz Başına Akım (A)",
+        "de": "Cihaz Başına Akım (A)",
+        "fr": "Cihaz Başına Akım (A)",
+        "es": "Cihaz Başına Akım (A)",
+        "ar": "Cihaz Başına Akım (A)"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Güç Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Yükün güç faktörü (0-1 arası)"
+      "businessContext": "Yükün güç faktörü (0-1 arası)",
+      "label_i18n": {
+        "en": "Güç Faktörü",
+        "tr": "Güç Faktörü",
+        "de": "Güç Faktörü",
+        "fr": "Güç Faktörü",
+        "es": "Güç Faktörü",
+        "ar": "Güç Faktörü"
+      }
     },
     {
       "id": "numberOfDevices",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Paralel bağlı cihaz sayısı"
+      "businessContext": "Paralel bağlı cihaz sayısı",
+      "label_i18n": {
+        "en": "Cihaz Sayısı",
+        "tr": "Cihaz Sayısı",
+        "de": "Cihaz Sayısı",
+        "fr": "Cihaz Sayısı",
+        "es": "Cihaz Sayısı",
+        "ar": "Cihaz Sayısı"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Emniyet Katsayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.25,
-      "businessContext": "Sürekli yük için NEC %125 kuralı"
+      "businessContext": "Sürekli yük için NEC %125 kuralı",
+      "label_i18n": {
+        "en": "Emniyet Katsayısı",
+        "tr": "Emniyet Katsayısı",
+        "de": "Emniyet Katsayısı",
+        "fr": "Emniyet Katsayısı",
+        "es": "Emniyet Katsayısı",
+        "ar": "Emniyet Katsayısı"
+      }
     },
     {
       "id": "breakerRating",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "A",
       "default": 16,
-      "businessContext": "Devre kesici nominal akımı"
+      "businessContext": "Devre kesici nominal akımı",
+      "label_i18n": {
+        "en": "Sigorta Akımı (A)",
+        "tr": "Sigorta Akımı (A)",
+        "de": "Sigorta Akımı (A)",
+        "fr": "Sigorta Akımı (A)",
+        "es": "Sigorta Akımı (A)",
+        "ar": "Sigorta Akımı (A)"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "loadPercentage"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "electrical-power-systems"
 }

@@ -57,12 +57,7 @@
     "totalCost": "totalEnergy * energyCost"
   },
   "outputs": {
-    "primary": {
-      "id": "totalCost",
-      "label": "Total Energy Cost",
-      "unit": "currency",
-      "formula": "totalCost"
-    },
+    "primary": "energyPerCycle",
     "breakdown": [
       {
         "id": "totalEnergy",
@@ -78,7 +73,10 @@
       }
     ]
   },
-  "category": "Enerji & Karbon",
+  "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
-  "premiumRequired": false
+  "premiumRequired": false,
+  "categorySlug": "sustainability-resource-esg",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

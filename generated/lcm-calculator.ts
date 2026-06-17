@@ -31,33 +31,19 @@ export const Lcm_calculatorInputSchema = z.object({
   data_confidence: z.number().min(0).max(100).default(80),
 });
 
-function evaluateAllFormulas(input: Lcm_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.maintenance_strategy === 'preventive' ? 12 : (input.maintenance_strategy === 'predictive' ? 6 : (input.maintenance_strategy === 'reactive' ? 4 : 12))); results["annual_maintenance_frequency"] = Number.isFinite(v) ? v : 0; } catch { results["annual_maintenance_frequency"] = 0; }
-  try { const v = (results["annual_maintenance_frequency"] ?? 0) * (2 * input.labor_rate); results["annual_maintenance_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_maintenance_labor_cost"] = 0; }
-  try { const v = (results["annual_maintenance_frequency"] ?? 0) * input.parts_cost_per_incident; results["annual_parts_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_parts_cost"] = 0; }
-  try { const v = input.annual_operating_hours * input.power_rating_kw * input.energy_cost_per_kwh; results["annual_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
-  try { const v = (results["annual_maintenance_frequency"] ?? 0) * 0.5 * input.downtime_cost_per_hour; results["annual_downtime_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_downtime_cost"] = 0; }
-  try { const v = (results["annual_maintenance_labor_cost"] ?? 0) + (results["annual_parts_cost"] ?? 0) + (results["annual_energy_cost"] ?? 0) + (results["annual_downtime_cost"] ?? 0); results["total_annual_maintenance_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_maintenance_cost"] = 0; }
-  try { const v = (results["total_annual_maintenance_cost"] ?? 0) * ((1 - (1 + input.discount_rate/100)^(-input.expected_life_years)) / (input.discount_rate/100)); results["net_present_value_maintenance"] = Number.isFinite(v) ? v : 0; } catch { results["net_present_value_maintenance"] = 0; }
-  try { const v = input.acquisition_cost + (results["net_present_value_maintenance"] ?? 0); results["total_life_cycle_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_life_cycle_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Lcm_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateLcm_calculator(input: Lcm_calculatorInput): Lcm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_life_cycle_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    acquisition_cost: values["acquisition_cost"] ?? 0,
-    net_present_value_maintenance: values["net_present_value_maintenance"] ?? 0,
-    annual_maintenance_labor_cost: values["annual_maintenance_labor_cost"] ?? 0,
-    annual_parts_cost: values["annual_parts_cost"] ?? 0,
-    annual_energy_cost: values["annual_energy_cost"] ?? 0,
-    annual_downtime_cost: values["annual_downtime_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Energy Inefficiency","Excessive Downtime","High Parts Inventory"];
-  const suggestedActions: string[] = ["Switch to Predictive Maintenance","Conduct Energy Audit","Implement Reliability Improvement Program","Optimize Spare Parts Inventory"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -76,7 +62,7 @@ export function calculateLcm_calculator(input: Lcm_calculatorInput): Lcm_calcula
 
 export interface Lcm_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { acquisition_cost: number; net_present_value_maintenance: number; annual_maintenance_labor_cost: number; annual_parts_cost: number; annual_energy_cost: number; annual_downtime_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

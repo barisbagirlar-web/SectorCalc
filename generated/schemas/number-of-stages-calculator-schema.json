@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1,
-      "businessContext": "Suction pressure at compressor inlet"
+      "businessContext": "Suction pressure at compressor inlet",
+      "label_i18n": {
+        "en": "Inlet Pressure",
+        "tr": "Inlet Pressure",
+        "de": "Inlet Pressure",
+        "fr": "Inlet Pressure",
+        "es": "Inlet Pressure",
+        "ar": "Inlet Pressure"
+      }
     },
     {
       "id": "p_out",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "bar",
       "default": 10,
-      "businessContext": "Discharge pressure required"
+      "businessContext": "Discharge pressure required",
+      "label_i18n": {
+        "en": "Outlet Pressure",
+        "tr": "Outlet Pressure",
+        "de": "Outlet Pressure",
+        "fr": "Outlet Pressure",
+        "es": "Outlet Pressure",
+        "ar": "Outlet Pressure"
+      }
     },
     {
       "id": "r_max",
       "label": "Max Pressure Ratio per Stage",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3.5,
-      "businessContext": "Maximum allowable pressure ratio for a single stage based on compressor type"
+      "businessContext": "Maximum allowable pressure ratio for a single stage based on compressor type",
+      "label_i18n": {
+        "en": "Max Pressure Ratio per Stage",
+        "tr": "Max Pressure Ratio per Stage",
+        "de": "Max Pressure Ratio per Stage",
+        "fr": "Max Pressure Ratio per Stage",
+        "es": "Max Pressure Ratio per Stage",
+        "ar": "Max Pressure Ratio per Stage"
+      }
     },
     {
       "id": "safety_factor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.1,
-      "businessContext": "Factor to oversize number of stages for reliability, typically 1.05-1.2"
+      "businessContext": "Factor to oversize number of stages for reliability, typically 1.05-1.2",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "stagesExact"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Enerji & Karbon",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

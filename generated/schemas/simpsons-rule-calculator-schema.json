@@ -5,33 +5,65 @@
       "id": "a",
       "label": "Lower limit (a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Integration lower bound"
+      "businessContext": "Integration lower bound",
+      "label_i18n": {
+        "en": "Lower limit (a)",
+        "tr": "Lower limit (a)",
+        "de": "Lower limit (a)",
+        "fr": "Lower limit (a)",
+        "es": "Lower limit (a)",
+        "ar": "Lower limit (a)"
+      }
     },
     {
       "id": "b",
       "label": "Upper limit (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Integration upper bound"
+      "businessContext": "Integration upper bound",
+      "label_i18n": {
+        "en": "Upper limit (b)",
+        "tr": "Upper limit (b)",
+        "de": "Upper limit (b)",
+        "fr": "Upper limit (b)",
+        "es": "Upper limit (b)",
+        "ar": "Upper limit (b)"
+      }
     },
     {
       "id": "n",
       "label": "Number of subintervals (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Must be even for Simpson's rule"
+      "businessContext": "Must be even for Simpson's rule",
+      "label_i18n": {
+        "en": "Number of subintervals (n)",
+        "tr": "Number of subintervals (n)",
+        "de": "Number of subintervals (n)",
+        "fr": "Number of subintervals (n)",
+        "es": "Number of subintervals (n)",
+        "ar": "Number of subintervals (n)"
+      }
     },
     {
       "id": "functionType",
       "label": "Function type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)"
+      "businessContext": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
+      "label_i18n": {
+        "en": "Function type",
+        "tr": "Function type",
+        "de": "Function type",
+        "fr": "Function type",
+        "es": "Function type",
+        "ar": "Function type"
+      }
     }
   ],
   "formulas": {
@@ -42,7 +74,13 @@
     "f_at_a": "f(a)",
     "f_at_b": "f(b)",
     "integral": "(h / 3) * (f_at_a + f_at_b + 4 * sumOdd + 2 * sumEven)",
-    "f": "function(x) { if (functionType === 1) return Math.sin(x); if (functionType === 2) return Math.cos(x); if (functionType === 3) return x * x; if (functionType === 4) return Math.sqrt(x); if (functionType === 5) return Math.exp(x); if (functionType === 6) return Math.log(x); return 0; }"
+    "f": "function(x) { if (functionType === 1) return Math.sin(x); if (functionType === 2) return Math.cos(x); if (functionType === 3) return x * x; if (functionType === 4) return Math.sqrt(x); if (functionType === 5) return Math.exp(x); if (functionType === 6) return Math.log(x); return 0; }",
+    "h____b___a____n": "h = (b - a) / n",
+    "f_a____sin_a__or_cos_a__or_a_2_or_sqrt_a": "f(a) = sin(a) or cos(a) or a^2 or sqrt(a) or exp(a) or log(a)",
+    "f_b____sin_b__or_cos_b__or_b_2_or_sqrt_b": "f(b) = sin(b) or cos(b) or b^2 or sqrt(b) or exp(b) or log(b)",
+    "Sum_of_odd_indexed_f_x_i_": "Sum of odd-indexed f(x_i)",
+    "Sum_of_even_indexed_f_x_i_": "Sum of even-indexed f(x_i)",
+    "Integral____h_3_____f_a____f_b____4_sumO": "Integral ≈ (h/3) * [f(a) + f(b) + 4*sumOdd + 2*sumEven]"
   },
   "outputs": {
     "primary": "integral",
@@ -55,10 +93,10 @@
       "Integral ≈ (h/3) * [f(a) + f(b) + 4*sumOdd + 2*sumEven]"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

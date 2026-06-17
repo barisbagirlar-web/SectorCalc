@@ -246,163 +246,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "direct_material_cost",
-      "label": "Direct Material Cost per Unit",
-      "description": "Material cost adjusted for waste and complexity.",
-      "expression": "material_cost * (1 + waste_factor / 100) * (1 + (complexity_factor == 'high' ? 0.15 : complexity_factor == 'medium' ? 0.05 : 0))",
-      "unit": "USD"
-    },
-    {
-      "id": "direct_labor_cost",
-      "label": "Direct Labor Cost per Unit",
-      "description": "Labor cost adjusted for complexity and quality level.",
-      "expression": "labor_hours * labor_rate * (1 + (complexity_factor == 'high' ? 0.20 : complexity_factor == 'medium' ? 0.10 : 0)) * (1 + (quality_level == 'premium' ? 0.15 : quality_level == 'standard' ? 0.05 : 0))",
-      "unit": "USD"
-    },
-    {
-      "id": "overhead_cost",
-      "label": "Overhead Cost per Unit",
-      "description": "Overhead applied to direct material and labor costs.",
-      "expression": "(direct_material_cost + direct_labor_cost) * (overhead_rate / 100)",
-      "unit": "USD"
-    },
-    {
-      "id": "total_cost_per_unit",
-      "label": "Total Cost per Unit",
-      "description": "Sum of all direct and indirect costs before margin.",
-      "expression": "direct_material_cost + direct_labor_cost + overhead_cost + shipping_cost_per_unit",
-      "unit": "USD"
-    },
-    {
-      "id": "volume_discount_factor",
-      "label": "Volume Discount Factor",
-      "description": "Economies of scale factor based on order quantity.",
-      "expression": "quantity >= 1000 ? 0.92 : quantity >= 500 ? 0.95 : quantity >= 100 ? 0.98 : 1.0",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "safe_price_before_risk",
-      "label": "Safe Price before Risk Margin",
-      "description": "Price covering all costs with volume discount applied.",
-      "expression": "total_cost_per_unit * volume_discount_factor",
-      "unit": "USD"
-    },
-    {
-      "id": "safe_price",
-      "label": "Safe Price per Unit (Primary Result)",
-      "description": "Final recommended price including risk margin and profit buffer.",
-      "expression": "safe_price_before_risk * (1 + risk_margin / 100)",
-      "unit": "USD"
-    }
+    "material_cost",
+    "material_cost",
+    "material_cost",
+    "material_cost",
+    "material_cost",
+    "material_cost",
+    "material_cost"
   ],
   "outputs": {
-    "primary": {
-      "id": "safe_price",
-      "label": "Safe Price per Unit",
-      "unit": "USD",
-      "description": "Recommended minimum price per signage unit to ensure profitability and risk coverage."
-    },
-    "breakdown": {
-      "id": "cost_breakdown",
-      "label": "Cost Breakdown per Unit",
-      "type": "object",
-      "properties": {
-        "direct_material_cost": {
-          "label": "Direct Material Cost",
-          "unit": "USD",
-          "description": "Material cost including waste and complexity adjustment."
-        },
-        "direct_labor_cost": {
-          "label": "Direct Labor Cost",
-          "unit": "USD",
-          "description": "Labor cost adjusted for complexity and quality level."
-        },
-        "overhead_cost": {
-          "label": "Overhead Cost",
-          "unit": "USD",
-          "description": "Allocated overhead based on direct costs."
-        },
-        "shipping_cost_per_unit": {
-          "label": "Shipping Cost",
-          "unit": "USD",
-          "description": "Freight cost per unit."
-        },
-        "volume_discount_factor": {
-          "label": "Volume Discount Factor",
-          "unit": "dimensionless",
-          "description": "Multiplier applied for order quantity discounts."
-        },
-        "risk_margin_applied": {
-          "label": "Risk Margin Applied",
-          "unit": "%",
-          "description": "Percentage added for risk coverage."
-        }
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excessive_waste",
-        "label": "Excessive Waste",
-        "description": "Waste factor above 5% indicates process inefficiency. Potential savings through Lean kaizen events.",
-        "impact": "high"
-      },
-      {
-        "id": "quality_rework_cost",
-        "label": "Quality Rework Cost",
-        "description": "Premium quality level adds 15% labor overhead. Consider if customer truly requires Six Sigma level.",
-        "impact": "medium"
-      },
-      {
-        "id": "complexity_premium",
-        "label": "Complexity Premium",
-        "description": "High complexity adds up to 20% to labor and 15% to material. Evaluate design simplification.",
-        "impact": "high"
-      },
-      {
-        "id": "underutilized_volume_discount",
-        "label": "Underutilized Volume Discount",
-        "description": "Order quantity below 100 units misses volume discount. Consider bundling orders.",
-        "impact": "low"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_waste",
-        "label": "Implement Waste Reduction Program",
-        "description": "Conduct value stream mapping to identify and eliminate waste sources. Target waste factor below 3%.",
-        "expectedSavings": "Up to 2% of material cost"
-      },
-      {
-        "id": "negotiate_material_pricing",
-        "label": "Negotiate Bulk Material Pricing",
-        "description": "Leverage order volume to negotiate lower material costs with suppliers. Target 5-10% reduction.",
-        "expectedSavings": "5-10% of material cost"
-      },
-      {
-        "id": "standardize_design",
-        "label": "Standardize Signage Design",
-        "description": "Reduce complexity by using standard shapes and fewer colors. Move from high to medium complexity.",
-        "expectedSavings": "10-15% of labor cost"
-      },
-      {
-        "id": "optimize_quality_level",
-        "label": "Match Quality Level to Customer Needs",
-        "description": "Use standard quality (AQL 1.0) unless premium is contractually required. Avoid over-specification.",
-        "expectedSavings": "5-10% of labor cost"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_adjusted_price",
-      "label": "Data Confidence Adjusted Price",
-      "unit": "USD",
-      "description": "Safe price adjusted by a confidence factor based on input variability and historical accuracy.",
-      "value": null,
-      "calculation": "safe_price * (1 - (0.05 * (waste_factor > 10 ? 1 : 0) + 0.03 * (complexity_factor == 'high' ? 1 : 0) + 0.02 * (quality_level == 'premium' ? 1 : 0)))"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "signage-safe-price-tool-calculator",
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
+  "premiumRequired": false
 }

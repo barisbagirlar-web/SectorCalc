@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "USD",
       "default": 500000,
-      "businessContext": "The total value of the insured property including buildings and contents."
+      "businessContext": "The total value of the insured property including buildings and contents.",
+      "label_i18n": {
+        "en": "Property Value",
+        "tr": "Property Value",
+        "de": "Property Value",
+        "fr": "Property Value",
+        "es": "Property Value",
+        "ar": "Property Value"
+      }
     },
     {
       "id": "floodZoneFactor",
       "label": "Flood Zone Risk Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.02,
-      "businessContext": "A factor representing the flood risk: 0.01 for low risk, 0.05 for high risk. Based on FEMA flood maps."
+      "businessContext": "A factor representing the flood risk: 0.01 for low risk, 0.05 for high risk. Based on FEMA flood maps.",
+      "label_i18n": {
+        "en": "Flood Zone Risk Factor",
+        "tr": "Flood Zone Risk Factor",
+        "de": "Flood Zone Risk Factor",
+        "fr": "Flood Zone Risk Factor",
+        "es": "Flood Zone Risk Factor",
+        "ar": "Flood Zone Risk Factor"
+      }
     },
     {
       "id": "coverageAmount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 400000,
-      "businessContext": "The maximum amount the insurance will pay out."
+      "businessContext": "The maximum amount the insurance will pay out.",
+      "label_i18n": {
+        "en": "Coverage Amount",
+        "tr": "Coverage Amount",
+        "de": "Coverage Amount",
+        "fr": "Coverage Amount",
+        "es": "Coverage Amount",
+        "ar": "Coverage Amount"
+      }
     },
     {
       "id": "deductible",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "The amount the policyholder pays out-of-pocket before insurance coverage kicks in."
+      "businessContext": "The amount the policyholder pays out-of-pocket before insurance coverage kicks in.",
+      "label_i18n": {
+        "en": "Deductible",
+        "tr": "Deductible",
+        "de": "Deductible",
+        "fr": "Deductible",
+        "es": "Deductible",
+        "ar": "Deductible"
+      }
     },
     {
       "id": "buildingTypeFactor",
       "label": "Building Type Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Multiplier based on building type: 1.0 for residential, 1.2 for commercial, 1.5 for industrial."
+      "businessContext": "Multiplier based on building type: 1.0 for residential, 1.2 for commercial, 1.5 for industrial.",
+      "label_i18n": {
+        "en": "Building Type Factor",
+        "tr": "Building Type Factor",
+        "de": "Building Type Factor",
+        "fr": "Building Type Factor",
+        "es": "Building Type Factor",
+        "ar": "Building Type Factor"
+      }
     },
     {
       "id": "ageOfBuilding",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Age of the building in years, used to calculate depreciation factor."
+      "businessContext": "Age of the building in years, used to calculate depreciation factor.",
+      "label_i18n": {
+        "en": "Building Age",
+        "tr": "Building Age",
+        "de": "Building Age",
+        "fr": "Building Age",
+        "es": "Building Age",
+        "ar": "Building Age"
+      }
     }
   ],
   "formulas": {
@@ -63,10 +111,10 @@
       "deductibleCredit"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "İnşaat & Yapı",
+  "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "project-construction-management"
 }

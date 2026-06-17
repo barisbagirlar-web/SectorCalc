@@ -58,21 +58,17 @@
     "profitMargin": "(profit / totalRevenue) * 100"
   },
   "outputs": {
-    "primary": {
-      "id": "profitMargin",
-      "label": "Profit Margin",
-      "unit": "%"
-    },
+    "primary": "totalRevenue",
     "breakdown": [
       "totalRevenue",
       "totalCost",
       "profit"
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Perakende & Gıda",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",
-  "categorySlug": "food-cold-chain-hygiene"
+  "categorySlug": "finance-sales-working-capital"
 }

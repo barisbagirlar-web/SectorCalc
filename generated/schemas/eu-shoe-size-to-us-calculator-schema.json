@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "EU",
       "default": 42,
-      "businessContext": "Shoe size according to the European standard (Paris points)."
+      "businessContext": "Shoe size according to the European standard (Paris points).",
+      "label_i18n": {
+        "en": "EU Shoe Size",
+        "tr": "EU Shoe Size",
+        "de": "EU Shoe Size",
+        "fr": "EU Shoe Size",
+        "es": "EU Shoe Size",
+        "ar": "EU Shoe Size"
+      }
     },
     {
       "id": "conversionType",
       "label": "Conversion Type (1: Men, 2: Women, 3: Kids)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Select the target gender/age group for US size conversion: 1 for men, 2 for women, 3 for children."
+      "businessContext": "Select the target gender/age group for US size conversion: 1 for men, 2 for women, 3 for children.",
+      "label_i18n": {
+        "en": "Conversion Type (1: Men, 2: Women, 3: Kids)",
+        "tr": "Conversion Type (1: Men, 2: Women, 3: Kids)",
+        "de": "Conversion Type (1: Men, 2: Women, 3: Kids)",
+        "fr": "Conversion Type (1: Men, 2: Women, 3: Kids)",
+        "es": "Conversion Type (1: Men, 2: Women, 3: Kids)",
+        "ar": "Conversion Type (1: Men, 2: Women, 3: Kids)"
+      }
     },
     {
       "id": "brandAdjustment",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "US",
       "default": 0,
-      "businessContext": "Offset to account for brand-specific sizing variations (e.g., +0.5 if the brand runs small)."
+      "businessContext": "Offset to account for brand-specific sizing variations (e.g., +0.5 if the brand runs small).",
+      "label_i18n": {
+        "en": "Brand Adjustment",
+        "tr": "Brand Adjustment",
+        "de": "Brand Adjustment",
+        "fr": "Brand Adjustment",
+        "es": "Brand Adjustment",
+        "ar": "Brand Adjustment"
+      }
     },
     {
       "id": "calibrationOffset",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "US",
       "default": 0,
-      "businessContext": "User-defined calibration offset for personal fit preferences."
+      "businessContext": "User-defined calibration offset for personal fit preferences.",
+      "label_i18n": {
+        "en": "Calibration Offset",
+        "tr": "Calibration Offset",
+        "de": "Calibration Offset",
+        "fr": "Calibration Offset",
+        "es": "Calibration Offset",
+        "ar": "Calibration Offset"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "kidsUS"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

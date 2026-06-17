@@ -27,32 +27,19 @@ export const Tool_wear_cost_calculatorInputSchema = z.object({
   coolant_used: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Tool_wear_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.tool_cost / input.tool_life_parts; results["tool_cost_per_part"] = Number.isFinite(v) ? v : 0; } catch { results["tool_cost_per_part"] = 0; }
-  try { const v = (input.replacement_time_min / 60) * input.machine_hourly_rate / input.tool_life_parts; results["downtime_cost_per_part"] = Number.isFinite(v) ? v : 0; } catch { results["downtime_cost_per_part"] = 0; }
-  try { const v = (input.rework_rate / 100) * input.rework_cost_per_part; results["rework_cost_per_part_wear"] = Number.isFinite(v) ? v : 0; } catch { results["rework_cost_per_part_wear"] = 0; }
-  try { const v = (input.scrap_rate / 100) * input.scrap_material_cost; results["scrap_cost_per_part_wear"] = Number.isFinite(v) ? v : 0; } catch { results["scrap_cost_per_part_wear"] = 0; }
-  try { const v = (input.tool_type === 'carbide' ? 1.0 : (input.tool_type === 'ceramic' ? 1.2 : (input.tool_type === 'cbn' ? 1.5 : (input.tool_type === 'diamond' ? 2.0 : (input.tool_type === 'hss' ? 0.8 : 1.0))))); results["tool_type_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["tool_type_multiplier"] = 0; }
-  try { const v = ((input.coolant_used) ? (0.9) : (1.0)); results["coolant_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["coolant_adjustment"] = 0; }
-  try { const v = ((results["tool_cost_per_part"] ?? 0) + (results["downtime_cost_per_part"] ?? 0) + (results["rework_cost_per_part_wear"] ?? 0) + (results["scrap_cost_per_part_wear"] ?? 0)) * (results["tool_type_multiplier"] ?? 0) * (results["coolant_adjustment"] ?? 0); results["primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["primaryResult"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Tool_wear_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateTool_wear_cost_calculator(input: Tool_wear_cost_calculatorInput): Tool_wear_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_tool_wear_cost_per_part"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    tool_cost_per_part: values["tool_cost_per_part"] ?? 0,
-    downtime_cost_per_part: values["downtime_cost_per_part"] ?? 0,
-    rework_cost_per_part_wear: values["rework_cost_per_part_wear"] ?? 0,
-    scrap_cost_per_part_wear: values["scrap_cost_per_part_wear"] ?? 0,
-    tool_type_multiplier: values["tool_type_multiplier"] ?? 0,
-    coolant_adjustment: values["coolant_adjustment"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excessive Replacement Time","High Rework Rate","Low Tool Life"];
-  const suggestedActions: string[] = ["Optimize Cutting Parameters","Implement Predictive Maintenance","Standardize Tool Replacement Procedure","Evaluate Coolant System"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -71,7 +58,7 @@ export function calculateTool_wear_cost_calculator(input: Tool_wear_cost_calcula
 
 export interface Tool_wear_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { tool_cost_per_part: number; downtime_cost_per_part: number; rework_cost_per_part_wear: number; scrap_cost_per_part_wear: number; tool_type_multiplier: number; coolant_adjustment: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

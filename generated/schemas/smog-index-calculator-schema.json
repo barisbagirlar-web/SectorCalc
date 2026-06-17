@@ -5,33 +5,65 @@
       "id": "totalSentences",
       "label": "Toplam Cümle Sayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Analiz edilen metindeki toplam cümle sayısı"
+      "businessContext": "Analiz edilen metindeki toplam cümle sayısı",
+      "label_i18n": {
+        "en": "Toplam Cümle Sayısı",
+        "tr": "Toplam Cümle Sayısı",
+        "de": "Toplam Cümle Sayısı",
+        "fr": "Toplam Cümle Sayısı",
+        "es": "Toplam Cümle Sayısı",
+        "ar": "Toplam Cümle Sayısı"
+      }
     },
     {
       "id": "totalPolysyllabicWords",
       "label": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Metinde 3 veya daha fazla heceye sahip kelime sayısı"
+      "businessContext": "Metinde 3 veya daha fazla heceye sahip kelime sayısı",
+      "label_i18n": {
+        "en": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
+        "tr": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
+        "de": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
+        "fr": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
+        "es": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
+        "ar": "Toplam Çok Heceli Kelime Sayısı (3+ hece)"
+      }
     },
     {
       "id": "sampleSize",
       "label": "Örneklem Cümle Sayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)"
+      "businessContext": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)",
+      "label_i18n": {
+        "en": "Örneklem Cümle Sayısı",
+        "tr": "Örneklem Cümle Sayısı",
+        "de": "Örneklem Cümle Sayısı",
+        "fr": "Örneklem Cümle Sayısı",
+        "es": "Örneklem Cümle Sayısı",
+        "ar": "Örneklem Cümle Sayısı"
+      }
     },
     {
       "id": "totalWords",
       "label": "Toplam Kelime Sayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 300,
-      "businessContext": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)"
+      "businessContext": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)",
+      "label_i18n": {
+        "en": "Toplam Kelime Sayısı",
+        "tr": "Toplam Kelime Sayısı",
+        "de": "Toplam Kelime Sayısı",
+        "fr": "Toplam Kelime Sayısı",
+        "es": "Toplam Kelime Sayısı",
+        "ar": "Toplam Kelime Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "polysyllableCountPer30"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

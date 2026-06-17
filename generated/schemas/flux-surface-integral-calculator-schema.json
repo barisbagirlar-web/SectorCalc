@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N/C",
       "default": 0,
-      "businessContext": "X component of the vector field"
+      "businessContext": "X component of the vector field",
+      "label_i18n": {
+        "en": "Vector Field X-Component",
+        "tr": "Vector Field X-Component",
+        "de": "Vector Field X-Component",
+        "fr": "Vector Field X-Component",
+        "es": "Vector Field X-Component",
+        "ar": "Vector Field X-Component"
+      }
     },
     {
       "id": "fy",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "N/C",
       "default": 0,
-      "businessContext": "Y component of the vector field"
+      "businessContext": "Y component of the vector field",
+      "label_i18n": {
+        "en": "Vector Field Y-Component",
+        "tr": "Vector Field Y-Component",
+        "de": "Vector Field Y-Component",
+        "fr": "Vector Field Y-Component",
+        "es": "Vector Field Y-Component",
+        "ar": "Vector Field Y-Component"
+      }
     },
     {
       "id": "fz",
@@ -23,31 +39,63 @@
       "type": "number",
       "unit": "N/C",
       "default": 0,
-      "businessContext": "Z component of the vector field"
+      "businessContext": "Z component of the vector field",
+      "label_i18n": {
+        "en": "Vector Field Z-Component",
+        "tr": "Vector Field Z-Component",
+        "de": "Vector Field Z-Component",
+        "fr": "Vector Field Z-Component",
+        "es": "Vector Field Z-Component",
+        "ar": "Vector Field Z-Component"
+      }
     },
     {
       "id": "nx",
       "label": "Unit Normal X-Component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "X component of the unit normal vector"
+      "businessContext": "X component of the unit normal vector",
+      "label_i18n": {
+        "en": "Unit Normal X-Component",
+        "tr": "Unit Normal X-Component",
+        "de": "Unit Normal X-Component",
+        "fr": "Unit Normal X-Component",
+        "es": "Unit Normal X-Component",
+        "ar": "Unit Normal X-Component"
+      }
     },
     {
       "id": "ny",
       "label": "Unit Normal Y-Component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Y component of the unit normal vector"
+      "businessContext": "Y component of the unit normal vector",
+      "label_i18n": {
+        "en": "Unit Normal Y-Component",
+        "tr": "Unit Normal Y-Component",
+        "de": "Unit Normal Y-Component",
+        "fr": "Unit Normal Y-Component",
+        "es": "Unit Normal Y-Component",
+        "ar": "Unit Normal Y-Component"
+      }
     },
     {
       "id": "nz",
       "label": "Unit Normal Z-Component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Z component of the unit normal vector"
+      "businessContext": "Z component of the unit normal vector",
+      "label_i18n": {
+        "en": "Unit Normal Z-Component",
+        "tr": "Unit Normal Z-Component",
+        "de": "Unit Normal Z-Component",
+        "fr": "Unit Normal Z-Component",
+        "es": "Unit Normal Z-Component",
+        "ar": "Unit Normal Z-Component"
+      }
     },
     {
       "id": "area",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Area of the surface"
+      "businessContext": "Area of the surface",
+      "label_i18n": {
+        "en": "Surface Area",
+        "tr": "Surface Area",
+        "de": "Surface Area",
+        "fr": "Surface Area",
+        "es": "Surface Area",
+        "ar": "Surface Area"
+      }
     }
   ],
   "formulas": {
@@ -68,10 +124,10 @@
       "dotProduct"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

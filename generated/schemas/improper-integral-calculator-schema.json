@@ -5,50 +5,86 @@
       "id": "A",
       "label": "Amplitüd (A)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Integrand genlik çarpanı"
+      "businessContext": "Integrand genlik çarpanı",
+      "label_i18n": {
+        "en": "Amplitüd (A)",
+        "tr": "Amplitüd (A)",
+        "de": "Amplitüd (A)",
+        "fr": "Amplitüd (A)",
+        "es": "Amplitüd (A)",
+        "ar": "Amplitüd (A)"
+      }
     },
     {
       "id": "B",
       "label": "Bozunum katsayısı (B, >0)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Üstel bozunma hızı"
+      "businessContext": "Üstel bozunma hızı",
+      "label_i18n": {
+        "en": "Bozunum katsayısı (B, >0)",
+        "tr": "Bozunum katsayısı (B, >0)",
+        "de": "Bozunum katsayısı (B, >0)",
+        "fr": "Bozunum katsayısı (B, >0)",
+        "es": "Bozunum katsayısı (B, >0)",
+        "ar": "Bozunum katsayısı (B, >0)"
+      }
     },
     {
       "id": "a",
       "label": "Alt sınır (a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "İntegral başlangıcı"
+      "businessContext": "İntegral başlangıcı",
+      "label_i18n": {
+        "en": "Alt sınır (a)",
+        "tr": "Alt sınır (a)",
+        "de": "Alt sınır (a)",
+        "fr": "Alt sınır (a)",
+        "es": "Alt sınır (a)",
+        "ar": "Alt sınır (a)"
+      }
     },
     {
       "id": "x0",
       "label": "Kayma (x₀)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Üssün kayma noktası"
+      "businessContext": "Üssün kayma noktası",
+      "label_i18n": {
+        "en": "Kayma (x₀)",
+        "tr": "Kayma (x₀)",
+        "de": "Kayma (x₀)",
+        "fr": "Kayma (x₀)",
+        "es": "Kayma (x₀)",
+        "ar": "Kayma (x₀)"
+      }
     }
   ],
   "formulas": {
-    "primary": "B > 0 ? (A * Math.exp(-B * (a - x0))) / B : NaN"
+    "primary": "B > 0 ? (A * Math.exp(-B * (a - x0))) / B : NaN",
+    "_B____a___x0_": "-B * (a - x0)",
+    "Math_exp__B____a___x0__": "Math.exp(-B * (a - x0))",
+    "_A___Math_exp__B____a___x0______B": "(A * Math.exp(-B * (a - x0))) / B",
+    "result": "B > 0 ? (A * Math.exp(-B * (a - x0))) / B : NaN"
   },
   "outputs": {
-    "primary": "B > 0 ? (A * Math.exp(-B * (a - x0))) / B : NaN",
+    "primary": "result",
     "breakdown": [
       "-B * (a - x0)",
       "Math.exp(-B * (a - x0))",
       "(A * Math.exp(-B * (a - x0))) / B"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

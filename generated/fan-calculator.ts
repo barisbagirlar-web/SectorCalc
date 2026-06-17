@@ -24,13 +24,18 @@ function evaluateAllFormulas(input: Fan_calculatorInput): Record<string, number>
   try { const v = (input.airflow * input.staticPressure) / 3600000; results["airPowerKW"] = Number.isFinite(v) ? v : 0; } catch { results["airPowerKW"] = 0; }
   try { const v = input.airflow / 3600; results["airflowM3s"] = Number.isFinite(v) ? v : 0; } catch { results["airflowM3s"] = 0; }
   try { const v = (input.airflow / 3600) * input.airDensity; results["massFlowRate"] = Number.isFinite(v) ? v : 0; } catch { results["massFlowRate"] = 0; }
+  results["Air_Power__kW_"] = 0;
+  results["Fan_Shaft_Power__kW_"] = 0;
+  results["Volumetric_Flow_Rate__m__s_"] = 0;
+  results["Mass_Flow_Rate__kg_s_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateFan_calculator(input: Fan_calculatorInput): Fan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Motor"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

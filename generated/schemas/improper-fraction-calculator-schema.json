@@ -5,51 +5,86 @@
       "id": "whole",
       "label": "Whole Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The whole number part of the mixed fraction"
+      "businessContext": "The whole number part of the mixed fraction",
+      "label_i18n": {
+        "en": "Whole Number",
+        "tr": "Whole Number",
+        "de": "Whole Number",
+        "fr": "Whole Number",
+        "es": "Whole Number",
+        "ar": "Whole Number"
+      }
     },
     {
       "id": "numerator",
       "label": "Numerator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The numerator of the fractional part"
+      "businessContext": "The numerator of the fractional part",
+      "label_i18n": {
+        "en": "Numerator",
+        "tr": "Numerator",
+        "de": "Numerator",
+        "fr": "Numerator",
+        "es": "Numerator",
+        "ar": "Numerator"
+      }
     },
     {
       "id": "denominator",
       "label": "Denominator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The denominator of the fractional part"
+      "businessContext": "The denominator of the fractional part",
+      "label_i18n": {
+        "en": "Denominator",
+        "tr": "Denominator",
+        "de": "Denominator",
+        "fr": "Denominator",
+        "es": "Denominator",
+        "ar": "Denominator"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the decimal representation"
+      "businessContext": "Number of decimal places for the decimal representation",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "improperNumerator": "whole * denominator + numerator",
     "improperDenominator": "denominator",
-    "decimal": "Number((improperNumerator / improperDenominator).toFixed(decimalPlaces))"
+    "decimal": "Number((improperNumerator / improperDenominator).toFixed(decimalPlaces))",
+    "__decimal__": "${decimal}`",
+    "__whole____numerator____denominator__": "${whole} ${numerator}/${denominator}`",
+    "result": "`${improperNumerator}/${improperDenominator}`"
   },
   "outputs": {
-    "primary": "`${improperNumerator}/${improperDenominator}`",
+    "primary": "result",
     "breakdown": [
       "`Decimal: ${decimal}`",
       "`Mixed Number: ${whole} ${numerator}/${denominator}`"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -5,33 +5,65 @@
       "id": "a11",
       "label": "A11",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Element (1,1) of matrix A"
+      "businessContext": "Element (1,1) of matrix A",
+      "label_i18n": {
+        "en": "A11",
+        "tr": "A11",
+        "de": "A11",
+        "fr": "A11",
+        "es": "A11",
+        "ar": "A11"
+      }
     },
     {
       "id": "a12",
       "label": "A12",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Element (1,2) of matrix A"
+      "businessContext": "Element (1,2) of matrix A",
+      "label_i18n": {
+        "en": "A12",
+        "tr": "A12",
+        "de": "A12",
+        "fr": "A12",
+        "es": "A12",
+        "ar": "A12"
+      }
     },
     {
       "id": "a21",
       "label": "A21",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Element (2,1) of matrix A"
+      "businessContext": "Element (2,1) of matrix A",
+      "label_i18n": {
+        "en": "A21",
+        "tr": "A21",
+        "de": "A21",
+        "fr": "A21",
+        "es": "A21",
+        "ar": "A21"
+      }
     },
     {
       "id": "a22",
       "label": "A22",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Element (2,2) of matrix A"
+      "businessContext": "Element (2,2) of matrix A",
+      "label_i18n": {
+        "en": "A22",
+        "tr": "A22",
+        "de": "A22",
+        "fr": "A22",
+        "es": "A22",
+        "ar": "A22"
+      }
     }
   ],
   "formulas": {
@@ -42,10 +74,16 @@
     "lambda2": "(traceATA - discriminant) / 2",
     "sigma1": "Math.sqrt(lambda1)",
     "sigma2": "Math.sqrt(lambda2)",
-    "condNumber": "sigma2 > 0 ? sigma1 / sigma2 : Infinity"
+    "condNumber": "sigma2 > 0 ? sigma1 / sigma2 : Infinity",
+    "__sigma1_toFixed_4__": "${sigma1.toFixed(4)}",
+    "__sigma2_toFixed_4__": "${sigma2.toFixed(4)}",
+    "__condNumber_toFixed_4__": "${condNumber.toFixed(4)}",
+    "__detA_toFixed_4__": "${detA.toFixed(4)}",
+    "__traceATA_toFixed_4__": "${traceATA.toFixed(4)}",
+    "result": "σ₁ = ${sigma1.toFixed(4)}, σ₂ = ${sigma2.toFixed(4)}"
   },
   "outputs": {
-    "primary": "σ₁ = ${sigma1.toFixed(4)}, σ₂ = ${sigma2.toFixed(4)}",
+    "primary": "result",
     "breakdown": [
       "Maximum singular value: ${sigma1.toFixed(4)}",
       "Minimum singular value: ${sigma2.toFixed(4)}",
@@ -54,8 +92,8 @@
       "Trace of AᵀA: ${traceATA.toFixed(4)}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

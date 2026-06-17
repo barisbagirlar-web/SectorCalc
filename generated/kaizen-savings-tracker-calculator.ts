@@ -35,33 +35,19 @@ export const Kaizen_savings_tracker_calculatorInputSchema = z.object({
   data_confidence: z.enum(['low', 'medium', 'high']).default('medium'),
 });
 
-function evaluateAllFormulas(input: Kaizen_savings_tracker_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.labor_rate * input.operators_affected * (input.time_saved_per_operator / 60) * input.shifts_per_day * input.operating_days_per_year; results["labor_savings"] = Number.isFinite(v) ? v : 0; } catch { results["labor_savings"] = 0; }
-  try { const v = ((input.defect_rate_before - input.defect_rate_after) / 100) * input.annual_production_volume * input.cost_per_defect; results["defect_savings"] = Number.isFinite(v) ? v : 0; } catch { results["defect_savings"] = 0; }
-  try { const v = (results["labor_savings"] ?? 0) + (results["defect_savings"] ?? 0) + input.material_cost_savings + input.energy_cost_savings; results["direct_savings"] = Number.isFinite(v) ? v : 0; } catch { results["direct_savings"] = 0; }
-  try { const v = (results["direct_savings"] ?? 0) * sustainability_factor_value; results["sustainability_adjusted_savings"] = Number.isFinite(v) ? v : 0; } catch { results["sustainability_adjusted_savings"] = 0; }
-  try { const v = (((results["sustainability_adjusted_savings"] ?? 0) - input.implementation_cost) / input.implementation_cost) * 100; results["return_on_investment"] = Number.isFinite(v) ? v : 0; } catch { results["return_on_investment"] = 0; }
-  try { const v = (input.implementation_cost / ((results["sustainability_adjusted_savings"] ?? 0) / 12)); results["payback_period"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period"] = 0; }
-  try { const v = (results["sustainability_adjusted_savings"] ?? 0) * data_confidence_value; results["total_annual_savings"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_savings"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Kaizen_savings_tracker_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateKaizen_savings_tracker_calculator(input: Kaizen_savings_tracker_calculatorInput): Kaizen_savings_tracker_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_annual_savings"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    labor_savings: values["labor_savings"] ?? 0,
-    defect_savings: values["defect_savings"] ?? 0,
-    material_cost_savings: values["material_cost_savings"] ?? 0,
-    energy_cost_savings: values["energy_cost_savings"] ?? 0,
-    implementation_cost: values["implementation_cost"] ?? 0,
-    return_on_investment: values["return_on_investment"] ?? 0,
-    payback_period: values["payback_period"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Unplanned Downtime","Rework Loop Time","Inventory Waste","Motion Waste"];
-  const suggestedActions: string[] = ["Standardize Improved Process","Implement Visual Management","Conduct Follow-up Time Studies","Expand Kaizen to Adjacent Processes","Review Data Confidence"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -80,7 +66,7 @@ export function calculateKaizen_savings_tracker_calculator(input: Kaizen_savings
 
 export interface Kaizen_savings_tracker_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { labor_savings: number; defect_savings: number; material_cost_savings: number; energy_cost_savings: number; implementation_cost: number; return_on_investment: number; payback_period: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

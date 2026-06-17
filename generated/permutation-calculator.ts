@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Permutation_calculatorInput {
   n: number;
   r: number;
+  auto_input_3: number;
 }
 
 export const Permutation_calculatorInputSchema = z.object({
   n: z.number().default(5),
   r: z.number().default(3),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Permutation_calculatorInput): Record<string, number> {

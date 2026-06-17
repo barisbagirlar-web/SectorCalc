@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ml",
       "default": 100,
-      "businessContext": "Miktar mililitre cinsinden"
+      "businessContext": "Miktar mililitre cinsinden",
+      "label_i18n": {
+        "en": "Volume (ml)",
+        "tr": "Volume (ml)",
+        "de": "Volume (ml)",
+        "fr": "Volume (ml)",
+        "es": "Volume (ml)",
+        "ar": "Volume (ml)"
+      }
     },
     {
       "id": "factor_us",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "oz/ml",
       "default": 0.033814,
-      "businessContext": "1 ml = 0.033814 US fluid ounces"
+      "businessContext": "1 ml = 0.033814 US fluid ounces",
+      "label_i18n": {
+        "en": "US fl oz per ml",
+        "tr": "US fl oz per ml",
+        "de": "US fl oz per ml",
+        "fr": "US fl oz per ml",
+        "es": "US fl oz per ml",
+        "ar": "US fl oz per ml"
+      }
     },
     {
       "id": "factor_uk",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "oz/ml",
       "default": 0.035195,
-      "businessContext": "1 ml = 0.035195 UK fluid ounces"
+      "businessContext": "1 ml = 0.035195 UK fluid ounces",
+      "label_i18n": {
+        "en": "UK fl oz per ml",
+        "tr": "UK fl oz per ml",
+        "de": "UK fl oz per ml",
+        "fr": "UK fl oz per ml",
+        "es": "UK fl oz per ml",
+        "ar": "UK fl oz per ml"
+      }
     },
     {
       "id": "precision",
@@ -31,27 +55,34 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Yuvarlama hassasiyeti (ondalık basamak)"
+      "businessContext": "Yuvarlama hassasiyeti (ondalık basamak)",
+      "label_i18n": {
+        "en": "Decimal precision",
+        "tr": "Decimal precision",
+        "de": "Decimal precision",
+        "fr": "Decimal precision",
+        "es": "Decimal precision",
+        "ar": "Decimal precision"
+      }
     }
   ],
   "formulas": {
     "primary": "Math.round(volume_ml * factor_us * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "breakdown": [
-      "Math.round(volume_ml * factor_uk * Math.pow(10, precision)) / Math.pow(10, precision)",
-      "volume_ml"
-    ]
+    "breakdown": "volume_ml",
+    "UK_Fluid_Ounces": "UK Fluid Ounces",
+    "Volume_in_ml": "Volume in ml"
   },
   "outputs": {
-    "primary": "US Fluid Ounces",
+    "primary": "primary",
     "breakdown": [
       "UK Fluid Ounces",
       "Volume in ml"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

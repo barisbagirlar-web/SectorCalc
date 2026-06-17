@@ -14,6 +14,11 @@ import {
   getFreeTrafficCategoryLanding,
   listFreeTrafficCategorySlugs,
 } from "@/lib/seo/free-traffic-category-landing";
+import {
+  getTaxonomyCategoryLanding,
+  listTaxonomyCategorySlugs,
+  resolveTaxonomyCategoryTitle,
+} from "@/lib/seo/taxonomy-category-landing";
 
 type PageProps = {
   params: Promise<{ locale: string; category: string }>;
@@ -24,11 +29,31 @@ export const dynamic = "force-static";
 export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<Array<{ category: string }>> {
-  return listFreeTrafficCategorySlugs().map((category) => ({ category }));
+  const taxonomy = listTaxonomyCategorySlugs().map((category) => ({ category }));
+  const freeTraffic = listFreeTrafficCategorySlugs().map((category) => ({ category }));
+  const seen = new Set<string>();
+  return [...taxonomy, ...freeTraffic].filter((entry) => {
+    if (seen.has(entry.category)) {
+      return false;
+    }
+    seen.add(entry.category);
+    return true;
+  });
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, category } = await params;
+  const taxonomyLanding = getTaxonomyCategoryLanding(category, locale);
+  if (taxonomyLanding) {
+    const title = resolveTaxonomyCategoryTitle(taxonomyLanding, locale);
+    return createPageMetadata({
+      title: `${title} | SectorCalc`,
+      description: `${title} — ${taxonomyLanding.tools.length} calculators and decision tools.`,
+      path: `/tools/category/${category}`,
+      locale: locale as AppLocale,
+    });
+  }
+
   const landing = getFreeTrafficCategoryLanding(category, locale);
   if (!landing) {
     return {};
@@ -48,6 +73,82 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function ToolsCategoryLandingPage({ params }: PageProps) {
   const { locale, category } = await params;
   setRequestLocale(locale);
+
+  const taxonomyLanding = getTaxonomyCategoryLanding(category, locale);
+  if (taxonomyLanding) {
+    const t = await getTranslations("generatedToolCatalog");
+    const categoryTitle = resolveTaxonomyCategoryTitle(taxonomyLanding, locale);
+    const categoryDescription = `${categoryTitle} — ${taxonomyLanding.tools.length} ${locale === "tr" ? "hesaplama aracı" : "calculators"}.`;
+
+    const jsonLd = [
+      await buildLocalizedBreadcrumbJsonLd(
+        [
+          { key: "home", path: "/" },
+          { key: "generatedTools", path: "/tools/generated" },
+          { name: categoryTitle, path: `/tools/category/${category}` },
+        ],
+        locale,
+      ),
+      buildItemListJsonLd(
+        taxonomyLanding.tools.map((tool) => ({
+          name: tool.name,
+          path: tool.href,
+        })),
+        categoryTitle,
+        locale,
+      ),
+    ];
+
+    return (
+      <PageLayout>
+        <JsonLd data={jsonLd} />
+        <section className="sc-pro-section sc-pro-section--border">
+          <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0 pb-12 pt-8">
+            <nav aria-label="Breadcrumb" className="mb-4 text-sm text-body-charcoal">
+              <Link href="/tools/generated" prefetch={false} className="hover:underline">
+                {t("title")}
+              </Link>
+              <span className="mx-2" aria-hidden="true">
+                /
+              </span>
+              <span>{categoryTitle}</span>
+            </nav>
+
+            <header className="mb-8 max-w-3xl">
+              <h1 className="text-2xl font-semibold text-premium-velvet sm:text-3xl">{categoryTitle}</h1>
+              <p className="tool-description mt-3 text-sm text-body-charcoal sm:text-base">
+                {categoryDescription}
+              </p>
+            </header>
+
+            <article aria-label={categoryTitle}>
+              <p className="mb-4 text-sm text-body-charcoal" role="status">
+                {t("resultsCount", { count: taxonomyLanding.tools.length })}
+              </p>
+
+              {taxonomyLanding.tools.length === 0 ? (
+                <p className="rounded-lg border border-dashed border-technical-gray bg-surface-cream px-4 py-10 text-center text-sm text-body-charcoal">
+                  {t("noResults")}
+                </p>
+              ) : (
+                <ToolsIconTileGrid
+                  tools={taxonomyLanding.tools.map((tool) => ({
+                    slug: tool.slug,
+                    name: tool.name,
+                    shortDescription: tool.name,
+                    description: tool.name,
+                    tier: tool.premiumRequired ? "premium" : "free",
+                    industrySlug: tool.sectorKey,
+                    href: tool.href,
+                  }))}
+                />
+              )}
+            </article>
+          </Container>
+        </section>
+      </PageLayout>
+    );
+  }
 
   const landing = getFreeTrafficCategoryLanding(category, locale);
   if (!landing) {

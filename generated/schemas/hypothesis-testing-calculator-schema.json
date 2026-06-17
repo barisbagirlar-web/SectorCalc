@@ -5,66 +5,117 @@
       "id": "sampleMean",
       "label": "Sample Mean (x̄)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Observed average of the sample data."
+      "businessContext": "Observed average of the sample data.",
+      "label_i18n": {
+        "en": "Sample Mean (x̄)",
+        "tr": "Sample Mean (x̄)",
+        "de": "Sample Mean (x̄)",
+        "fr": "Sample Mean (x̄)",
+        "es": "Sample Mean (x̄)",
+        "ar": "Sample Mean (x̄)"
+      }
     },
     {
       "id": "nullMean",
       "label": "Null Hypothesis Mean (μ₀)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Hypothesized population mean under the null hypothesis."
+      "businessContext": "Hypothesized population mean under the null hypothesis.",
+      "label_i18n": {
+        "en": "Null Hypothesis Mean (μ₀)",
+        "tr": "Null Hypothesis Mean (μ₀)",
+        "de": "Null Hypothesis Mean (μ₀)",
+        "fr": "Null Hypothesis Mean (μ₀)",
+        "es": "Null Hypothesis Mean (μ₀)",
+        "ar": "Null Hypothesis Mean (μ₀)"
+      }
     },
     {
       "id": "stdDev",
       "label": "Population Standard Deviation (σ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Known standard deviation of the population. For unknown σ, use sample standard deviation with t-test; this tool assumes normal distribution."
+      "businessContext": "Known standard deviation of the population. For unknown σ, use sample standard deviation with t-test; this tool assumes normal distribution.",
+      "label_i18n": {
+        "en": "Population Standard Deviation (σ)",
+        "tr": "Population Standard Deviation (σ)",
+        "de": "Population Standard Deviation (σ)",
+        "fr": "Population Standard Deviation (σ)",
+        "es": "Population Standard Deviation (σ)",
+        "ar": "Population Standard Deviation (σ)"
+      }
     },
     {
       "id": "sampleSize",
       "label": "Sample Size (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Number of observations in the sample."
+      "businessContext": "Number of observations in the sample.",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "alpha",
       "label": "Significance Level (α)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.05,
-      "businessContext": "Probability threshold for rejecting the null hypothesis (e.g., 0.05 for 5%)."
+      "businessContext": "Probability threshold for rejecting the null hypothesis (e.g., 0.05 for 5%).",
+      "label_i18n": {
+        "en": "Significance Level (α)",
+        "tr": "Significance Level (α)",
+        "de": "Significance Level (α)",
+        "fr": "Significance Level (α)",
+        "es": "Significance Level (α)",
+        "ar": "Significance Level (α)"
+      }
     },
     {
       "id": "tails",
       "label": "Tail Type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "1 for one-tailed test, 2 for two-tailed test."
+      "businessContext": "1 for one-tailed test, 2 for two-tailed test.",
+      "label_i18n": {
+        "en": "Tail Type",
+        "tr": "Tail Type",
+        "de": "Tail Type",
+        "fr": "Tail Type",
+        "es": "Tail Type",
+        "ar": "Tail Type"
+      }
     }
   ],
   "formulas": {
     "zScore": "(sampleMean - nullMean) / (stdDev / Math.sqrt(sampleSize))",
-    "pValue": "(function() { const z = (sampleMean - nullMean) / (stdDev / Math.sqrt(sampleSize)); const cdf = (x) => { const a1 = 0.254829592; const a2 = -0.284496736; const a3 = 1.421413741; const a4 = -1.453152027; const a5 = 1.061405429; const p = 0.3275911; const sign = (x >= 0) ? 1 : -1; x = Math.abs(x) / Math.sqrt(2); const t = 1.0 / (1.0 + p * x); const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x); return 0.5 * (1.0 + sign * y); }; if (tails === 2) { return 2 * (1 - cdf(Math.abs(z))); } else { return 1 - cdf(z); } })()"
+    "pValue": "(function() { const z = (sampleMean - nullMean) / (stdDev / Math.sqrt(sampleSize)); const cdf = (x) => { const a1 = 0.254829592; const a2 = -0.284496736; const a3 = 1.421413741; const a4 = -1.453152027; const a5 = 1.061405429; const p = 0.3275911; const sign = (x >= 0) ? 1 : -1; x = Math.abs(x) / Math.sqrt(2); const t = 1.0 / (1.0 + p * x); const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x); return 0.5 * (1.0 + sign * y); }; if (tails === 2) { return 2 * (1 - cdf(Math.abs(z))); } else { return 1 - cdf(z); } })()",
+    "____zScore_toFixed_4_": "' + zScore.toFixed(4)",
+    "____pValue_toFixed_4_____pValue___alpha_": "' + pValue.toFixed(4) + (pValue < alpha ? ' (significant)' : ' (not significant)')",
+    "result": "(pValue < alpha) ? 'Reject H₀' : 'Fail to reject H₀'"
   },
   "outputs": {
-    "primary": "(pValue < alpha) ? 'Reject H₀' : 'Fail to reject H₀'",
+    "primary": "result",
     "breakdown": [
       "'Z-Score: ' + zScore.toFixed(4)",
       "'p-value: ' + pValue.toFixed(4) + (pValue < alpha ? ' (significant)' : ' (not significant)')"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

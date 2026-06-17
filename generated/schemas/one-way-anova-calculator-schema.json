@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unit²",
       "default": 0,
-      "businessContext": "Variation attributable to the differences between group means."
+      "businessContext": "Variation attributable to the differences between group means.",
+      "label_i18n": {
+        "en": "Sum of Squares Between (SSB)",
+        "tr": "Sum of Squares Between (SSB)",
+        "de": "Sum of Squares Between (SSB)",
+        "fr": "Sum of Squares Between (SSB)",
+        "es": "Sum of Squares Between (SSB)",
+        "ar": "Sum of Squares Between (SSB)"
+      }
     },
     {
       "id": "ssw",
@@ -15,31 +23,63 @@
       "type": "number",
       "unit": "unit²",
       "default": 0,
-      "businessContext": "Variation within groups, due to random error or individual differences."
+      "businessContext": "Variation within groups, due to random error or individual differences.",
+      "label_i18n": {
+        "en": "Sum of Squares Within (SSW)",
+        "tr": "Sum of Squares Within (SSW)",
+        "de": "Sum of Squares Within (SSW)",
+        "fr": "Sum of Squares Within (SSW)",
+        "es": "Sum of Squares Within (SSW)",
+        "ar": "Sum of Squares Within (SSW)"
+      }
     },
     {
       "id": "dfb",
       "label": "Degrees of Freedom Between (dfB)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of groups minus 1 (k-1)."
+      "businessContext": "Number of groups minus 1 (k-1).",
+      "label_i18n": {
+        "en": "Degrees of Freedom Between (dfB)",
+        "tr": "Degrees of Freedom Between (dfB)",
+        "de": "Degrees of Freedom Between (dfB)",
+        "fr": "Degrees of Freedom Between (dfB)",
+        "es": "Degrees of Freedom Between (dfB)",
+        "ar": "Degrees of Freedom Between (dfB)"
+      }
     },
     {
       "id": "dfw",
       "label": "Degrees of Freedom Within (dfW)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Total number of observations minus number of groups (N-k)."
+      "businessContext": "Total number of observations minus number of groups (N-k).",
+      "label_i18n": {
+        "en": "Degrees of Freedom Within (dfW)",
+        "tr": "Degrees of Freedom Within (dfW)",
+        "de": "Degrees of Freedom Within (dfW)",
+        "fr": "Degrees of Freedom Within (dfW)",
+        "es": "Degrees of Freedom Within (dfW)",
+        "ar": "Degrees of Freedom Within (dfW)"
+      }
     },
     {
       "id": "alpha",
       "label": "Significance Level (α)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.05,
-      "businessContext": "Threshold for statistical significance, probability of Type I error."
+      "businessContext": "Threshold for statistical significance, probability of Type I error.",
+      "label_i18n": {
+        "en": "Significance Level (α)",
+        "tr": "Significance Level (α)",
+        "de": "Significance Level (α)",
+        "fr": "Significance Level (α)",
+        "es": "Significance Level (α)",
+        "ar": "Significance Level (α)"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "etaSq"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

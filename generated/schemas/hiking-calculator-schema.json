@@ -41,12 +41,7 @@
     "totalTime": "baseTime + ascentTime"
   },
   "outputs": {
-    "primary": {
-      "id": "totalTime",
-      "label": "Toplam Tahmini Süre",
-      "unit": "saat",
-      "formula": "totalTime"
-    },
+    "primary": "adjustedSpeed",
     "breakdown": [
       {
         "id": "baseTime",
@@ -62,10 +57,10 @@
       }
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

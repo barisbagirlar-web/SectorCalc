@@ -5,8 +5,10 @@ import {
   generatedCalculateExport,
   generatedInputSchemaExport,
 } from "@/lib/generated-tools/export-names";
+import { evaluateSchemaTrust } from "@/lib/generated-tools/trust-gate";
 
 const GENERATED_DIR = path.join(PROJECT_ROOT, "generated");
+const SCHEMAS_DIR = path.join(PROJECT_ROOT, "generated/schemas");
 const OUTPUT_FILE = path.join(
   PROJECT_ROOT,
   "src",
@@ -15,12 +17,28 @@ const OUTPUT_FILE = path.join(
   "calculator-registry.ts",
 );
 
+function isTrustGateActive(slug: string): boolean {
+  const schemaPath = path.join(SCHEMAS_DIR, `${slug}-schema.json`);
+  if (!fs.existsSync(schemaPath)) {
+    return true;
+  }
+  const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8")) as Record<string, unknown>;
+  const trust = evaluateSchemaTrust(schema, slug);
+  return trust.status === "PASS" || trust.status === "WARN";
+}
+
 function main(): void {
-  const toolFiles = fs
+  const allToolFiles = fs
     .readdirSync(GENERATED_DIR)
     .filter((name) => name.endsWith(".ts") && name !== "index.ts")
     .map((name) => name.replace(/\.ts$/, ""))
     .sort((left, right) => left.localeCompare(right));
+
+  const toolFiles = allToolFiles.filter(isTrustGateActive);
+  const quarantined = allToolFiles.length - toolFiles.length;
+  if (quarantined > 0) {
+    console.log(`Trust gate: ${quarantined} slug(s) excluded (FAIL/QUARANTINE)`);
+  }
 
   const loaderEntries = toolFiles
     .map((slug) => `  ${JSON.stringify(slug)}: createLoader(${JSON.stringify(slug)}),`)
@@ -68,6 +86,8 @@ ${loaderEntries}
 export const GENERATED_CALCULATOR_SLUGS = Object.freeze(
   Object.keys(CALCULATOR_LOADERS).sort((left, right) => left.localeCompare(right)),
 ) as readonly string[];
+
+export const GENERATED_CALCULATOR_COUNT = GENERATED_CALCULATOR_SLUGS.length;
 
 export async function loadGeneratedCalculator(
   slug: string,

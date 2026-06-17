@@ -40,12 +40,7 @@
     "distance": "Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)"
   },
   "outputs": {
-    "primary": {
-      "label": "Shortest Distance",
-      "value": "distance",
-      "unit": "m",
-      "businessContext": "The Euclidean straight-line distance between the two points."
-    },
+    "primary": "dx",
     "breakdown": [
       {
         "label": "Horizontal Distance (dx)",
@@ -61,10 +56,10 @@
       }
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

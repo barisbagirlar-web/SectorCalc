@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 50,
-      "businessContext": "Amount of carbohydrates in the meal to be consumed."
+      "businessContext": "Amount of carbohydrates in the meal to be consumed.",
+      "label_i18n": {
+        "en": "Total Carbohydrates",
+        "tr": "Total Carbohydrates",
+        "de": "Total Carbohydrates",
+        "fr": "Total Carbohydrates",
+        "es": "Total Carbohydrates",
+        "ar": "Total Carbohydrates"
+      }
     },
     {
       "id": "icr",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/U",
       "default": 10,
-      "businessContext": "Grams of carbohydrate covered by one unit of rapid-acting insulin."
+      "businessContext": "Grams of carbohydrate covered by one unit of rapid-acting insulin.",
+      "label_i18n": {
+        "en": "Insulin-to-Carb Ratio",
+        "tr": "Insulin-to-Carb Ratio",
+        "de": "Insulin-to-Carb Ratio",
+        "fr": "Insulin-to-Carb Ratio",
+        "es": "Insulin-to-Carb Ratio",
+        "ar": "Insulin-to-Carb Ratio"
+      }
     },
     {
       "id": "current_bg",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 150,
-      "businessContext": "Pre-meal capillary blood glucose measurement."
+      "businessContext": "Pre-meal capillary blood glucose measurement.",
+      "label_i18n": {
+        "en": "Current Blood Glucose",
+        "tr": "Current Blood Glucose",
+        "de": "Current Blood Glucose",
+        "fr": "Current Blood Glucose",
+        "es": "Current Blood Glucose",
+        "ar": "Current Blood Glucose"
+      }
     },
     {
       "id": "target_bg",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 100,
-      "businessContext": "Individualized post-prandial blood glucose goal."
+      "businessContext": "Individualized post-prandial blood glucose goal.",
+      "label_i18n": {
+        "en": "Target Blood Glucose",
+        "tr": "Target Blood Glucose",
+        "de": "Target Blood Glucose",
+        "fr": "Target Blood Glucose",
+        "es": "Target Blood Glucose",
+        "ar": "Target Blood Glucose"
+      }
     },
     {
       "id": "isf",
@@ -39,25 +71,36 @@
       "type": "number",
       "unit": "mg/dL per U",
       "default": 50,
-      "businessContext": "Expected drop in blood glucose per unit of insulin (correction factor)."
+      "businessContext": "Expected drop in blood glucose per unit of insulin (correction factor).",
+      "label_i18n": {
+        "en": "Insulin Sensitivity Factor",
+        "tr": "Insulin Sensitivity Factor",
+        "de": "Insulin Sensitivity Factor",
+        "fr": "Insulin Sensitivity Factor",
+        "es": "Insulin Sensitivity Factor",
+        "ar": "Insulin Sensitivity Factor"
+      }
     }
   ],
   "formulas": {
     "meal_dose": "carbs / icr",
     "correction_dose": "Math.max(0, (current_bg - target_bg) / isf)",
-    "total_insulin": "carbs / icr + Math.max(0, (current_bg - target_bg) / isf)"
+    "total_insulin": "carbs / icr + Math.max(0, (current_bg - target_bg) / isf)",
+    "Meal_Insulin_Dose__U_": "Meal Insulin Dose (U)",
+    "Correction_Insulin_Dose__U_": "Correction Insulin Dose (U)",
+    "result": "Total Insulin Dose (U)"
   },
   "outputs": {
-    "primary": "Total Insulin Dose (U)",
+    "primary": "result",
     "breakdown": [
       "Meal Insulin Dose (U)",
       "Correction Insulin Dose (U)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

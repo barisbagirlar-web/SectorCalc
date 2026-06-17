@@ -17,7 +17,8 @@ export const Atomic_radius_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Atomic_radius_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.molarMass / (input.density * avogadro); results["volumePerAtom"] = Number.isFinite(v) ? v : 0; } catch { results["volumePerAtom"] = 0; }
+  try { const v = 6.02214076e+23; results["avogadro"] = Number.isFinite(v) ? v : 0; } catch { results["avogadro"] = 0; }
+  try { const v = input.molarMass / (input.density * (results["avogadro"] ?? 0)); results["volumePerAtom"] = Number.isFinite(v) ? v : 0; } catch { results["volumePerAtom"] = 0; }
   try { const v = input.structureType == 0 ? input.manualPackingFactor : (input.structureType == 1 ? 0.52 : input.structureType == 2 ? 0.68 : input.structureType == 3 ? 0.74 : 0.74); results["packingFactorUsed"] = Number.isFinite(v) ? v : 0; } catch { results["packingFactorUsed"] = 0; }
   try { const v = (results["packingFactorUsed"] ?? 0) * (results["volumePerAtom"] ?? 0); results["atomicVolume"] = Number.isFinite(v) ? v : 0; } catch { results["atomicVolume"] = 0; }
   try { const v = Math.pow(3 * (results["atomicVolume"] ?? 0) / (4 * Math.PI), 1/3); results["atomicRadiusCm"] = Number.isFinite(v) ? v : 0; } catch { results["atomicRadiusCm"] = 0; }

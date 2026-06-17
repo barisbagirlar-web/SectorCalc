@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "integer",
       "default": 5,
-      "businessContext": "Total number of elements in the set"
+      "businessContext": "Total number of elements in the set",
+      "label_i18n": {
+        "en": "n (set size)",
+        "tr": "n (set size)",
+        "de": "n (set size)",
+        "fr": "n (set size)",
+        "es": "n (set size)",
+        "ar": "n (set size)"
+      }
     },
     {
       "id": "k",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "integer",
       "default": 2,
-      "businessContext": "Number of non-empty subsets to partition into"
+      "businessContext": "Number of non-empty subsets to partition into",
+      "label_i18n": {
+        "en": "k (number of subsets)",
+        "tr": "k (number of subsets)",
+        "de": "k (number of subsets)",
+        "fr": "k (number of subsets)",
+        "es": "k (number of subsets)",
+        "ar": "k (number of subsets)"
+      }
     },
     {
       "id": "type",
@@ -23,26 +39,37 @@
       "type": "number",
       "unit": "enum",
       "default": 2,
-      "businessContext": "Select 1 for Stirling numbers of the first kind, 2 for second kind"
+      "businessContext": "Select 1 for Stirling numbers of the first kind, 2 for second kind",
+      "label_i18n": {
+        "en": "Type (1=first kind, 2=second kind)",
+        "tr": "Type (1=first kind, 2=second kind)",
+        "de": "Type (1=first kind, 2=second kind)",
+        "fr": "Type (1=first kind, 2=second kind)",
+        "es": "Type (1=first kind, 2=second kind)",
+        "ar": "Type (1=first kind, 2=second kind)"
+      }
     }
   ],
   "formulas": {
     "stirlingSecond": "function stirlingSecond(n,k){if(k===0||k>n)return 0;if(k===1||k===n)return 1;let sum=0;for(let i=0;i<=k;i++){sum+=((i%2===0?1:-1)*comb(k,i)*Math.pow(k-i,n))}return sum/fact(k)}",
     "stirlingFirst": "function stirlingFirst(n,k){if(k===0||k>n)return 0;if(k===n)return 1;if(k===1)return fact(n-1);return stirlingFirst(n-1,k-1)+(n-1)*stirlingFirst(n-1,k)}",
     "fact": "function fact(x){if(x<=1)return 1;let r=1;for(let i=2;i<=x;i++)r*=i;return r}",
-    "comb": "function comb(n,k){if(k<0||k>n)return 0;if(k===0||k===n)return 1;let r=1;for(let i=1;i<=k;i++){r=r*(n-i+1)/i}return r}"
+    "comb": "function comb(n,k){if(k<0||k>n)return 0;if(k===0||k===n)return 1;let r=1;for(let i=1;i<=k;i++){r=r*(n-i+1)/i}return r}",
+    "Combinatorial_interpretation": "Combinatorial interpretation",
+    "Intermediate_factorial_values": "Intermediate factorial values",
+    "result": "Stirling number S(n,k)"
   },
   "outputs": {
-    "primary": "Stirling number S(n,k)",
+    "primary": "result",
     "breakdown": [
       "Combinatorial interpretation",
       "Intermediate factorial values"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

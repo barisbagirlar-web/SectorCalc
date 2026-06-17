@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 300,
-      "businessContext": "Cross-sectional width of the concrete column."
+      "businessContext": "Cross-sectional width of the concrete column.",
+      "label_i18n": {
+        "en": "Column Width (b)",
+        "tr": "Column Width (b)",
+        "de": "Column Width (b)",
+        "fr": "Column Width (b)",
+        "es": "Column Width (b)",
+        "ar": "Column Width (b)"
+      }
     },
     {
       "id": "depth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 300,
-      "businessContext": "Cross-sectional depth of the concrete column."
+      "businessContext": "Cross-sectional depth of the concrete column.",
+      "label_i18n": {
+        "en": "Column Depth (h)",
+        "tr": "Column Depth (h)",
+        "de": "Column Depth (h)",
+        "fr": "Column Depth (h)",
+        "es": "Column Depth (h)",
+        "ar": "Column Depth (h)"
+      }
     },
     {
       "id": "fc",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 25,
-      "businessContext": "Specified compressive strength of concrete at 28 days."
+      "businessContext": "Specified compressive strength of concrete at 28 days.",
+      "label_i18n": {
+        "en": "Concrete Compressive Strength (f'c)",
+        "tr": "Concrete Compressive Strength (f'c)",
+        "de": "Concrete Compressive Strength (f'c)",
+        "fr": "Concrete Compressive Strength (f'c)",
+        "es": "Concrete Compressive Strength (f'c)",
+        "ar": "Concrete Compressive Strength (f'c)"
+      }
     },
     {
       "id": "fy",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 420,
-      "businessContext": "Yield strength of longitudinal reinforcing steel."
+      "businessContext": "Yield strength of longitudinal reinforcing steel.",
+      "label_i18n": {
+        "en": "Steel Yield Strength (fy)",
+        "tr": "Steel Yield Strength (fy)",
+        "de": "Steel Yield Strength (fy)",
+        "fr": "Steel Yield Strength (fy)",
+        "es": "Steel Yield Strength (fy)",
+        "ar": "Steel Yield Strength (fy)"
+      }
     },
     {
       "id": "as",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm²",
       "default": 1256,
-      "businessContext": "Total cross-sectional area of longitudinal reinforcement."
+      "businessContext": "Total cross-sectional area of longitudinal reinforcement.",
+      "label_i18n": {
+        "en": "Total Steel Area (As)",
+        "tr": "Total Steel Area (As)",
+        "de": "Total Steel Area (As)",
+        "fr": "Total Steel Area (As)",
+        "es": "Total Steel Area (As)",
+        "ar": "Total Steel Area (As)"
+      }
     },
     {
       "id": "phi",
@@ -47,27 +87,39 @@
       "type": "number",
       "unit": "none",
       "default": 0.65,
-      "businessContext": "Strength reduction factor for tied columns (0.65 per ACI 318)."
+      "businessContext": "Strength reduction factor for tied columns (0.65 per ACI 318).",
+      "label_i18n": {
+        "en": "Strength Reduction Factor (φ)",
+        "tr": "Strength Reduction Factor (φ)",
+        "de": "Strength Reduction Factor (φ)",
+        "fr": "Strength Reduction Factor (φ)",
+        "es": "Strength Reduction Factor (φ)",
+        "ar": "Strength Reduction Factor (φ)"
+      }
     }
   ],
   "formulas": {
     "ag": "width * depth",
     "ro": "as / ag",
     "pn": "0.85 * fc * (ag - as) + fy * as",
-    "phiPn_kN": "phi * pn / 1000"
+    "phiPn_kN": "phi * pn / 1000",
+    "_ag__mm_": "{ag} mm²",
+    "_ro_": "{ro}",
+    "_pn__N": "{pn} N",
+    "result": "Design Axial Capacity (φPn): {phiPn_kN} kN"
   },
   "outputs": {
-    "primary": "Design Axial Capacity (φPn): {phiPn_kN} kN",
+    "primary": "result",
     "breakdown": [
       "Gross Area (Ag): {ag} mm²",
       "Steel Ratio (ρ): {ro}",
       "Nominal Axial Capacity (Pn): {pn} N"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "project-construction-management"
 }

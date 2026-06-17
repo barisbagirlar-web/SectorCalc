@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms"
+      "businessContext": "User's body weight in kilograms",
+      "label_i18n": {
+        "en": "Body Weight (kg)",
+        "tr": "Body Weight (kg)",
+        "de": "Body Weight (kg)",
+        "fr": "Body Weight (kg)",
+        "es": "Body Weight (kg)",
+        "ar": "Body Weight (kg)"
+      }
     },
     {
       "id": "baseProtein",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "g/kg",
       "default": 0.8,
-      "businessContext": "Base protein recommendation per kg of body weight (e.g., 0.8 for sedentary)"
+      "businessContext": "Base protein recommendation per kg of body weight (e.g., 0.8 for sedentary)",
+      "label_i18n": {
+        "en": "Base Protein (g/kg)",
+        "tr": "Base Protein (g/kg)",
+        "de": "Base Protein (g/kg)",
+        "fr": "Base Protein (g/kg)",
+        "es": "Base Protein (g/kg)",
+        "ar": "Base Protein (g/kg)"
+      }
     },
     {
       "id": "activityFactor",
       "label": "Activity Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for activity level (1.0 for sedentary, 1.5 for active, 2.0 for athlete)"
+      "businessContext": "Multiplier for activity level (1.0 for sedentary, 1.5 for active, 2.0 for athlete)",
+      "label_i18n": {
+        "en": "Activity Multiplier",
+        "tr": "Activity Multiplier",
+        "de": "Activity Multiplier",
+        "fr": "Activity Multiplier",
+        "es": "Activity Multiplier",
+        "ar": "Activity Multiplier"
+      }
     },
     {
       "id": "goalFactor",
       "label": "Goal Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for goal (1.0 for maintenance, 1.2 for muscle gain, 0.9 for weight loss)"
+      "businessContext": "Multiplier for goal (1.0 for maintenance, 1.2 for muscle gain, 0.9 for weight loss)",
+      "label_i18n": {
+        "en": "Goal Multiplier",
+        "tr": "Goal Multiplier",
+        "de": "Goal Multiplier",
+        "fr": "Goal Multiplier",
+        "es": "Goal Multiplier",
+        "ar": "Goal Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "proteinCalories"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -35,35 +35,19 @@ export const Moq_inventory_balance_calculatorInputSchema = z.object({
   use_moq_override: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Moq_inventory_balance_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.annual_demand / input.days_per_year; results["daily_demand"] = Number.isFinite(v) ? v : 0; } catch { results["daily_demand"] = 0; }
-  try { const v = Math.sqrt((2 * input.annual_demand * input.ordering_cost) / input.holding_cost_per_unit); results["eoq"] = Number.isFinite(v) ? v : 0; } catch { results["eoq"] = 0; }
-  results["adjusted_order_quantity"] = 0;
-  try { const v = z_score(input.service_level/100) * input.demand_std_dev * Math.sqrt(input.lead_time_days / input.supplier_reliability); results["safety_stock"] = Number.isFinite(v) ? v : 0; } catch { results["safety_stock"] = 0; }
-  try { const v = (results["daily_demand"] ?? 0) * input.lead_time_days + (results["safety_stock"] ?? 0); results["reorder_point"] = Number.isFinite(v) ? v : 0; } catch { results["reorder_point"] = 0; }
-  try { const v = (input.annual_demand / (results["adjusted_order_quantity"] ?? 0)) * input.ordering_cost + ((results["adjusted_order_quantity"] ?? 0) / 2 + (results["safety_stock"] ?? 0)) * input.holding_cost_per_unit + (input.annual_demand * input.backorder_cost_per_unit * (1 - input.service_level/100)); results["total_annual_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_cost"] = 0; }
-  try { const v = (((results["adjusted_order_quantity"] ?? 0) > (results["eoq"] ?? 0)) ? (((results["adjusted_order_quantity"] ?? 0) - (results["eoq"] ?? 0)) * input.holding_cost_per_unit / 2) : (0)); results["moq_penalty_cost"] = Number.isFinite(v) ? v : 0; } catch { results["moq_penalty_cost"] = 0; }
-  try { const v = input.annual_demand / (((results["adjusted_order_quantity"] ?? 0) / 2) + (results["safety_stock"] ?? 0)); results["inventory_turnover"] = Number.isFinite(v) ? v : 0; } catch { results["inventory_turnover"] = 0; }
-  try { const v = (((results["adjusted_order_quantity"] ?? 0) / 2) + (results["safety_stock"] ?? 0)) * input.unit_cost; results["total_inventory_value"] = Number.isFinite(v) ? v : 0; } catch { results["total_inventory_value"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Moq_inventory_balance_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateMoq_inventory_balance_calculator(input: Moq_inventory_balance_calculatorInput): Moq_inventory_balance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["optimal_order_quantity"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    eoq: values["eoq"] ?? 0,
-    safety_stock: values["safety_stock"] ?? 0,
-    reorder_point: values["reorder_point"] ?? 0,
-    total_annual_cost: values["total_annual_cost"] ?? 0,
-    inventory_turnover: values["inventory_turnover"] ?? 0,
-    total_inventory_value: values["total_inventory_value"] ?? 0,
-    moq_penalty_cost: values["moq_penalty_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excess Holding Cost from MOQ","Demand Uncertainty Cost","Supplier Unreliability Impact","Backorder Risk Cost"];
-  const suggestedActions: string[] = ["Negotiate with supplier to reduce MOQ to at least {eoq} units to save ${moq_penalty_cost} annually.","Work with supplier to improve on-time delivery above 90% to reduce safety stock by {safety_stock * (1 - supplier_reliability)} units.","Consider increasing service level to 95% to reduce backorder costs. Additional safety stock cost is ${safety_stock_increase_cost}.","Order frequency is high. Consider consolidating orders to reduce ordering costs. Target order interval: {30} days.","Storage capacity utilization exceeds 80%. Expand storage or reduce order quantity to avoid congestion."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -82,7 +66,7 @@ export function calculateMoq_inventory_balance_calculator(input: Moq_inventory_b
 
 export interface Moq_inventory_balance_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { eoq: number; safety_stock: number; reorder_point: number; total_annual_cost: number; inventory_turnover: number; total_inventory_value: number; moq_penalty_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -5,9 +5,17 @@
       "id": "order",
       "label": "Filter Order (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Order of the Bessel filter (integer >= 1). Higher order gives steeper roll-off."
+      "businessContext": "Order of the Bessel filter (integer >= 1). Higher order gives steeper roll-off.",
+      "label_i18n": {
+        "en": "Filter Order (n)",
+        "tr": "Filter Order (n)",
+        "de": "Filter Order (n)",
+        "fr": "Filter Order (n)",
+        "es": "Filter Order (n)",
+        "ar": "Filter Order (n)"
+      }
     },
     {
       "id": "cutoffFrequency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "The -3 dB cutoff frequency of the filter in Hz."
+      "businessContext": "The -3 dB cutoff frequency of the filter in Hz.",
+      "label_i18n": {
+        "en": "Cutoff Frequency (fc)",
+        "tr": "Cutoff Frequency (fc)",
+        "de": "Cutoff Frequency (fc)",
+        "fr": "Cutoff Frequency (fc)",
+        "es": "Cutoff Frequency (fc)",
+        "ar": "Cutoff Frequency (fc)"
+      }
     },
     {
       "id": "samplingFrequency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 10000,
-      "businessContext": "Sampling frequency for digital implementation (must be > 2*fc)."
+      "businessContext": "Sampling frequency for digital implementation (must be > 2*fc).",
+      "label_i18n": {
+        "en": "Sampling Frequency (fs)",
+        "tr": "Sampling Frequency (fs)",
+        "de": "Sampling Frequency (fs)",
+        "fr": "Sampling Frequency (fs)",
+        "es": "Sampling Frequency (fs)",
+        "ar": "Sampling Frequency (fs)"
+      }
     },
     {
       "id": "frequencyPoint",
@@ -31,26 +55,35 @@
       "type": "number",
       "unit": "Hz",
       "default": 500,
-      "businessContext": "Frequency at which to evaluate the filter response."
+      "businessContext": "Frequency at which to evaluate the filter response.",
+      "label_i18n": {
+        "en": "Frequency Point (f)",
+        "tr": "Frequency Point (f)",
+        "de": "Frequency Point (f)",
+        "fr": "Frequency Point (f)",
+        "es": "Frequency Point (f)",
+        "ar": "Frequency Point (f)"
+      }
     }
   ],
   "formulas": {
     "normalizedFrequency": "frequencyPoint / cutoffFrequency",
     "besselPolynomial": "order === 1 ? 1 + normalizedFrequency : order === 2 ? 3 + 3*normalizedFrequency + normalizedFrequency**2 : order === 3 ? 15 + 15*normalizedFrequency + 6*normalizedFrequency**2 + normalizedFrequency**3 : 105 + 105*normalizedFrequency + 45*normalizedFrequency**2 + 10*normalizedFrequency**3 + normalizedFrequency**4",
     "magnitudeResponse": "1 / Math.sqrt(besselPolynomial * besselPolynomial.conjugate ? besselPolynomial * besselPolynomial.conjugate : besselPolynomial * besselPolynomial)",
-    "phaseResponse": "-Math.atan2(normalizedFrequency, 1) * order"
+    "phaseResponse": "-Math.atan2(normalizedFrequency, 1) * order",
+    "result": "Magnitude Response (dB)"
   },
   "outputs": {
-    "primary": "Magnitude Response (dB)",
+    "primary": "result",
     "breakdown": [
       "Magnitude Response (linear): magnitudeResponse",
       "Phase Response (radians): phaseResponse"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "quality-six-sigma"
 }

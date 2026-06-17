@@ -30,7 +30,7 @@ function evaluateAllFormulas(input: Ev_range_calculatorInput): Record<string, nu
 
 export function calculateEv_range_calculator(input: Ev_range_calculatorInput): Ev_range_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["estimated_range_km"] ?? 0;
+  const totalWasteCost = values["effective_consumption"] ?? 0;
   const breakdown = {
     
   };

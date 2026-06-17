@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 80,
-      "businessContext": "The design speed of the road section."
+      "businessContext": "The design speed of the road section.",
+      "label_i18n": {
+        "en": "Design Speed",
+        "tr": "Design Speed",
+        "de": "Design Speed",
+        "fr": "Design Speed",
+        "es": "Design Speed",
+        "ar": "Design Speed"
+      }
     },
     {
       "id": "curveRadius",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "m",
       "default": 200,
-      "businessContext": "The radius of the horizontal curve."
+      "businessContext": "The radius of the horizontal curve.",
+      "label_i18n": {
+        "en": "Curve Radius",
+        "tr": "Curve Radius",
+        "de": "Curve Radius",
+        "fr": "Curve Radius",
+        "es": "Curve Radius",
+        "ar": "Curve Radius"
+      }
     },
     {
       "id": "frictionCoeff",
       "label": "Side Friction Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.15,
-      "businessContext": "The coefficient of side friction assumed for design."
+      "businessContext": "The coefficient of side friction assumed for design.",
+      "label_i18n": {
+        "en": "Side Friction Factor",
+        "tr": "Side Friction Factor",
+        "de": "Side Friction Factor",
+        "fr": "Side Friction Factor",
+        "es": "Side Friction Factor",
+        "ar": "Side Friction Factor"
+      }
     },
     {
       "id": "maxSuperelevation",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Maximum allowable superelevation rate per design standards."
+      "businessContext": "Maximum allowable superelevation rate per design standards.",
+      "label_i18n": {
+        "en": "Maximum Superelevation",
+        "tr": "Maximum Superelevation",
+        "de": "Maximum Superelevation",
+        "fr": "Maximum Superelevation",
+        "es": "Maximum Superelevation",
+        "ar": "Maximum Superelevation"
+      }
     },
     {
       "id": "gravity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Gravitational acceleration constant."
+      "businessContext": "Gravitational acceleration constant.",
+      "label_i18n": {
+        "en": "Acceleration due to Gravity",
+        "tr": "Acceleration due to Gravity",
+        "de": "Acceleration due to Gravity",
+        "fr": "Acceleration due to Gravity",
+        "es": "Acceleration due to Gravity",
+        "ar": "Acceleration due to Gravity"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "requiredFrictionCoefficient"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "quality-six-sigma"
 }

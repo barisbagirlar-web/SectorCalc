@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Haltercinin vücut ağırlığı (kg)"
+      "businessContext": "Haltercinin vücut ağırlığı (kg)",
+      "label_i18n": {
+        "en": "Vücut Ağırlığı",
+        "tr": "Vücut Ağırlığı",
+        "de": "Vücut Ağırlığı",
+        "fr": "Vücut Ağırlığı",
+        "es": "Vücut Ağırlığı",
+        "ar": "Vücut Ağırlığı"
+      }
     },
     {
       "id": "totalLifted",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "kg",
       "default": 200,
-      "businessContext": "Koparma ve silkme toplamı (kg)"
+      "businessContext": "Koparma ve silkme toplamı (kg)",
+      "label_i18n": {
+        "en": "Toplam Kaldırılan Ağırlık",
+        "tr": "Toplam Kaldırılan Ağırlık",
+        "de": "Toplam Kaldırılan Ağırlık",
+        "fr": "Toplam Kaldırılan Ağırlık",
+        "es": "Toplam Kaldırılan Ağırlık",
+        "ar": "Toplam Kaldırılan Ağırlık"
+      }
     },
     {
       "id": "coefficientA",
       "label": "Sinclair Katsayısı A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.722762521,
-      "businessContext": "Sinclair formülü A katsayısı (boyutsuz)"
+      "businessContext": "Sinclair formülü A katsayısı (boyutsuz)",
+      "label_i18n": {
+        "en": "Sinclair Katsayısı A",
+        "tr": "Sinclair Katsayısı A",
+        "de": "Sinclair Katsayısı A",
+        "fr": "Sinclair Katsayısı A",
+        "es": "Sinclair Katsayısı A",
+        "ar": "Sinclair Katsayısı A"
+      }
     },
     {
       "id": "coefficientB",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 193.609,
-      "businessContext": "Sinclair formülü b referans ağırlığı (kg)"
+      "businessContext": "Sinclair formülü b referans ağırlığı (kg)",
+      "label_i18n": {
+        "en": "Sinclair Katsayısı b",
+        "tr": "Sinclair Katsayısı b",
+        "de": "Sinclair Katsayısı b",
+        "fr": "Sinclair Katsayısı b",
+        "es": "Sinclair Katsayısı b",
+        "ar": "Sinclair Katsayısı b"
+      }
     }
   ],
   "formulas": {
@@ -40,11 +72,7 @@
     "bodyweightRatio": "bodyweight / coefficientB"
   },
   "outputs": {
-    "primary": {
-      "id": "sinclairScore",
-      "label": "Sinclair Puanı",
-      "unit": "puan"
-    },
+    "primary": "sinclairScore",
     "breakdown": [
       {
         "id": "adjustedFactor",
@@ -58,7 +86,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "categorySlug": "technology-ai-cloud-cyber",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

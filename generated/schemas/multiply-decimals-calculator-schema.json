@@ -5,33 +5,65 @@
       "id": "inputA",
       "label": "First Decimal Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Enter the first decimal number to multiply"
+      "businessContext": "Enter the first decimal number to multiply",
+      "label_i18n": {
+        "en": "First Decimal Number",
+        "tr": "First Decimal Number",
+        "de": "First Decimal Number",
+        "fr": "First Decimal Number",
+        "es": "First Decimal Number",
+        "ar": "First Decimal Number"
+      }
     },
     {
       "id": "inputB",
       "label": "Second Decimal Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Enter the second decimal number to multiply"
+      "businessContext": "Enter the second decimal number to multiply",
+      "label_i18n": {
+        "en": "Second Decimal Number",
+        "tr": "Second Decimal Number",
+        "de": "Second Decimal Number",
+        "fr": "Second Decimal Number",
+        "es": "Second Decimal Number",
+        "ar": "Second Decimal Number"
+      }
     },
     {
       "id": "multiplierAdjustment",
       "label": "Multiplier Adjustment Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Optional adjustment factor (e.g., for unit conversion, set to 1 for direct multiplication)"
+      "businessContext": "Optional adjustment factor (e.g., for unit conversion, set to 1 for direct multiplication)",
+      "label_i18n": {
+        "en": "Multiplier Adjustment Factor",
+        "tr": "Multiplier Adjustment Factor",
+        "de": "Multiplier Adjustment Factor",
+        "fr": "Multiplier Adjustment Factor",
+        "es": "Multiplier Adjustment Factor",
+        "ar": "Multiplier Adjustment Factor"
+      }
     },
     {
       "id": "roundingPrecision",
       "label": "Decimal Places for Rounding",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places to round the final result"
+      "businessContext": "Number of decimal places to round the final result",
+      "label_i18n": {
+        "en": "Decimal Places for Rounding",
+        "tr": "Decimal Places for Rounding",
+        "de": "Decimal Places for Rounding",
+        "fr": "Decimal Places for Rounding",
+        "es": "Decimal Places for Rounding",
+        "ar": "Decimal Places for Rounding"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "roundedProduct"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

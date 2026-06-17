@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Color hue angle, range 0-360 degrees."
+      "businessContext": "Color hue angle, range 0-360 degrees.",
+      "label_i18n": {
+        "en": "Hue",
+        "tr": "Hue",
+        "de": "Hue",
+        "fr": "Hue",
+        "es": "Hue",
+        "ar": "Hue"
+      }
     },
     {
       "id": "saturation",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Color saturation percentage, 0-100."
+      "businessContext": "Color saturation percentage, 0-100.",
+      "label_i18n": {
+        "en": "Saturation",
+        "tr": "Saturation",
+        "de": "Saturation",
+        "fr": "Saturation",
+        "es": "Saturation",
+        "ar": "Saturation"
+      }
     },
     {
       "id": "lightness",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Color lightness percentage, 0-100."
+      "businessContext": "Color lightness percentage, 0-100.",
+      "label_i18n": {
+        "en": "Lightness",
+        "tr": "Lightness",
+        "de": "Lightness",
+        "fr": "Lightness",
+        "es": "Lightness",
+        "ar": "Lightness"
+      }
     },
     {
       "id": "max",
       "label": "Max RGB Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 255,
-      "businessContext": "Maximum value for each RGB channel, e.g., 255 for 8-bit."
+      "businessContext": "Maximum value for each RGB channel, e.g., 255 for 8-bit.",
+      "label_i18n": {
+        "en": "Max RGB Value",
+        "tr": "Max RGB Value",
+        "de": "Max RGB Value",
+        "fr": "Max RGB Value",
+        "es": "Max RGB Value",
+        "ar": "Max RGB Value"
+      }
     }
   ],
   "formulas": {
@@ -60,10 +92,10 @@
       "b"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

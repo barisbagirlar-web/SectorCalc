@@ -7,23 +7,82 @@
       "type": "number",
       "unit": "Nm",
       "default": 100,
-      "businessContext": "Input torque in Newton-meters"
+      "businessContext": "Input torque in Newton-meters",
+      "label_i18n": {
+        "en": "Torque (Nm)",
+        "tr": "Torque (Nm)",
+        "de": "Torque (Nm)",
+        "fr": "Torque (Nm)",
+        "es": "Torque (Nm)",
+        "ar": "Torque (Nm)"
+      }
+    },
+    {
+      "id": "auto_input_2",
+      "label": "auto_input_2",
+      "label_i18n": {
+        "en": "auto_input_2",
+        "tr": "auto_input_2",
+        "de": "auto_input_2",
+        "fr": "auto_input_2",
+        "es": "auto_input_2",
+        "ar": "auto_input_2"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 2.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 2.",
+        "tr": "Auto-generated input 2.",
+        "de": "Auto-generated input 2.",
+        "fr": "Auto-generated input 2.",
+        "es": "Auto-generated input 2.",
+        "ar": "Auto-generated input 2."
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
-    "torqueFtLb": "torqueNm * 0.7375621492772655"
+    "torqueFtLb": "torqueNm * 0.7375621492772655",
+    "1_Nm___0_7375621492772655_ft_lb": "1 Nm = 0.7375621492772655 ft-lb",
+    "_torqueNm__Nm___0_7375621492772655____to": "{torqueNm} Nm × 0.7375621492772655 = {torqueFtLb} ft-lb",
+    "result": "Torque in ft-lb: {torqueFtLb}"
   },
   "outputs": {
-    "primary": "Torque in ft-lb: {torqueFtLb}",
+    "primary": "result",
     "breakdown": [
       "Conversion factor: 1 Nm = 0.7375621492772655 ft-lb",
       "Result: {torqueNm} Nm × 0.7375621492772655 = {torqueFtLb} ft-lb"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "cnc-additive-manufacturing"
 }

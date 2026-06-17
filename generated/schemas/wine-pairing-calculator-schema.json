@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "score (0-10)",
       "default": 5,
-      "businessContext": "Perceived acidity of the wine, where 0 is flat and 10 is very tart."
+      "businessContext": "Perceived acidity of the wine, where 0 is flat and 10 is very tart.",
+      "label_i18n": {
+        "en": "Wine Acidity",
+        "tr": "Wine Acidity",
+        "de": "Wine Acidity",
+        "fr": "Wine Acidity",
+        "es": "Wine Acidity",
+        "ar": "Wine Acidity"
+      }
     },
     {
       "id": "wine_sweetness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "score (0-10)",
       "default": 5,
-      "businessContext": "Perceived sweetness of the wine, where 0 is bone-dry and 10 is very sweet."
+      "businessContext": "Perceived sweetness of the wine, where 0 is bone-dry and 10 is very sweet.",
+      "label_i18n": {
+        "en": "Wine Sweetness",
+        "tr": "Wine Sweetness",
+        "de": "Wine Sweetness",
+        "fr": "Wine Sweetness",
+        "es": "Wine Sweetness",
+        "ar": "Wine Sweetness"
+      }
     },
     {
       "id": "wine_body",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "score (0-10)",
       "default": 5,
-      "businessContext": "Body or weight of the wine on the palate, where 0 is light and 10 is full-bodied."
+      "businessContext": "Body or weight of the wine on the palate, where 0 is light and 10 is full-bodied.",
+      "label_i18n": {
+        "en": "Wine Body",
+        "tr": "Wine Body",
+        "de": "Wine Body",
+        "fr": "Wine Body",
+        "es": "Wine Body",
+        "ar": "Wine Body"
+      }
     },
     {
       "id": "food_acidity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "score (0-10)",
       "default": 5,
-      "businessContext": "Perceived acidity of the food, where 0 is bland and 10 is sharply acidic."
+      "businessContext": "Perceived acidity of the food, where 0 is bland and 10 is sharply acidic.",
+      "label_i18n": {
+        "en": "Food Acidity",
+        "tr": "Food Acidity",
+        "de": "Food Acidity",
+        "fr": "Food Acidity",
+        "es": "Food Acidity",
+        "ar": "Food Acidity"
+      }
     },
     {
       "id": "food_sweetness",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "score (0-10)",
       "default": 5,
-      "businessContext": "Perceived sweetness of the food, where 0 is savory and 10 is dessert-like."
+      "businessContext": "Perceived sweetness of the food, where 0 is savory and 10 is dessert-like.",
+      "label_i18n": {
+        "en": "Food Sweetness",
+        "tr": "Food Sweetness",
+        "de": "Food Sweetness",
+        "fr": "Food Sweetness",
+        "es": "Food Sweetness",
+        "ar": "Food Sweetness"
+      }
     },
     {
       "id": "food_richness",
@@ -47,24 +87,32 @@
       "type": "number",
       "unit": "score (0-10)",
       "default": 5,
-      "businessContext": "Richness or fattiness of the food, where 0 is lean and 10 is very heavy."
+      "businessContext": "Richness or fattiness of the food, where 0 is lean and 10 is very heavy.",
+      "label_i18n": {
+        "en": "Food Richness",
+        "tr": "Food Richness",
+        "de": "Food Richness",
+        "fr": "Food Richness",
+        "es": "Food Richness",
+        "ar": "Food Richness"
+      }
     }
   ],
   "formulas": {
     "primary": "Math.max(0, Math.min(100, 100 - (Math.abs(wine_acidity - food_acidity) * 8 + Math.abs(wine_sweetness - food_sweetness) * 8 + Math.abs(wine_body - food_richness) * 6)))",
-    "breakdown": [
-      "Math.max(0, Math.min(100, 100 - (Math.abs(wine_acidity - food_acidity) * 8 + Math.abs(wine_sweetness - food_sweetness) * 8)))",
-      "Math.max(0, Math.min(100, 100 - Math.abs(wine_body - food_richness) * 10))"
-    ]
+    "breakdown": "wine_acidity",
+    "Flavor_Balance____": "Flavor Balance (%)",
+    "Weight_Compatibility____": "Weight Compatibility (%)",
+    "result": "Pairing Score (%)"
   },
   "outputs": {
-    "primary": "Pairing Score (%)",
+    "primary": "result",
     "breakdown": [
       "Flavor Balance (%)",
       "Weight Compatibility (%)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",

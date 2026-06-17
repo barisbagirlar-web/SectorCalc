@@ -29,7 +29,7 @@ function evaluateAllFormulas(input: Age_in_seconds_calculatorInput): Record<stri
 
 export function calculateAge_in_seconds_calculator(input: Age_in_seconds_calculatorInput): Age_in_seconds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["ageInSeconds"] ?? 0;
+  const totalWasteCost = values["totalDays"] ?? 0;
   const breakdown = {
     
   };

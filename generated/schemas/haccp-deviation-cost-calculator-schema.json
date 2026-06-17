@@ -15,7 +15,7 @@
       "id": "deviation_type",
       "label": "Deviation Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "temperature",
       "min": null,
       "max": null,
@@ -135,7 +135,7 @@
       "id": "regulatory_penalty_flag",
       "label": "Regulatory Penalty Applicable?",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -167,7 +167,7 @@
       "id": "recall_cost_flag",
       "label": "Recall Cost Included?",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -215,7 +215,7 @@
       "id": "data_confidence",
       "label": "Data Confidence (0-1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
       "min": 0,
       "max": 1,
@@ -270,148 +270,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "material_loss_cost",
-      "label": "Material Loss Cost",
-      "description": "Cost of raw materials that are scrapped (not reworked).",
-      "formula": "affected_batch_kg * (1 - rework_percentage/100) * unit_cost_per_kg",
-      "unit": "$"
-    },
-    {
-      "id": "rework_cost",
-      "label": "Rework Cost",
-      "description": "Additional cost to rework the salvageable portion of the batch.",
-      "formula": "affected_batch_kg * (rework_percentage/100) * rework_cost_per_kg",
-      "unit": "$"
-    },
-    {
-      "id": "downtime_cost",
-      "label": "Downtime Cost",
-      "description": "Lost production opportunity cost due to downtime.",
-      "formula": "downtime_hours * hourly_overhead_rate",
-      "unit": "$"
-    },
-    {
-      "id": "regulatory_penalty_cost",
-      "label": "Regulatory Penalty Cost",
-      "description": "Estimated regulatory fine if applicable.",
-      "formula": "regulatory_penalty_flag ? base_penalty_amount : 0",
-      "unit": "$"
-    },
-    {
-      "id": "recall_cost",
-      "label": "Recall Cost",
-      "description": "Total recall cost (fixed + variable per kg).",
-      "formula": "recall_cost_flag ? (recall_fixed_cost + affected_batch_kg * recall_variable_per_kg) : 0",
-      "unit": "$"
-    },
-    {
-      "id": "waste_cost",
-      "label": "Waste Cost",
-      "description": "Total cost of scrapped material (material loss + disposal).",
-      "formula": "material_loss_cost",
-      "unit": "$"
-    },
-    {
-      "id": "total_deviation_cost",
-      "label": "Total Deviation Cost (Primary Result)",
-      "description": "Sum of all direct and indirect costs from the deviation.",
-      "formula": "material_loss_cost + rework_cost + downtime_cost + regulatory_penalty_cost + recall_cost",
-      "unit": "$",
-      "isPrimary": true
-    }
+    "deviation_type",
+    "deviation_type",
+    "deviation_type",
+    "deviation_type",
+    "deviation_type",
+    "deviation_type",
+    "deviation_type"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_deviation_cost",
-      "label": "Total Deviation Cost",
-      "value": null,
-      "unit": "$",
-      "description": "Aggregate financial impact of the HACCP deviation."
-    },
-    "breakdown": {
-      "material_loss_cost": {
-        "label": "Material Loss Cost",
-        "unit": "$",
-        "description": "Cost of scrapped raw materials."
-      },
-      "rework_cost": {
-        "label": "Rework Cost",
-        "unit": "$",
-        "description": "Cost to rework salvageable product."
-      },
-      "downtime_cost": {
-        "label": "Downtime Cost",
-        "unit": "$",
-        "description": "Lost production opportunity cost."
-      },
-      "regulatory_penalty_cost": {
-        "label": "Regulatory Penalty Cost",
-        "unit": "$",
-        "description": "Estimated regulatory fines."
-      },
-      "recall_cost": {
-        "label": "Recall Cost",
-        "unit": "$",
-        "description": "Total recall-related expenses."
-      },
-      "waste_cost": {
-        "label": "Waste Cost",
-        "unit": "$",
-        "description": "Total cost of scrapped material."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "brand_damage_multiplier",
-        "label": "Brand Damage Multiplier",
-        "value": 1.5,
-        "description": "Estimated factor for long-term brand reputation loss (not included in primary cost)."
-      },
-      {
-        "id": "customer_compensation",
-        "label": "Customer Compensation",
-        "value": 0,
-        "description": "Potential compensation to affected customers (not included in primary cost)."
-      },
-      {
-        "id": "increased_inspection_cost",
-        "label": "Increased Inspection Cost",
-        "value": 5000,
-        "description": "Additional QA/QC inspection costs post-deviation (not included in primary cost)."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "label": "Perform Root Cause Analysis (RCA)",
-        "description": "Conduct a formal RCA using 5-Why or Fishbone to prevent recurrence."
-      },
-      {
-        "id": "action_2",
-        "label": "Update HACCP Plan",
-        "description": "Revise critical control points (CCPs) and monitoring procedures based on findings."
-      },
-      {
-        "id": "action_3",
-        "label": "Retrain Personnel",
-        "description": "Provide refresher training on HACCP principles and deviation handling."
-      },
-      {
-        "id": "action_4",
-        "label": "Implement Corrective and Preventive Actions (CAPA)",
-        "description": "Document and track CAPA to ensure effectiveness."
-      },
-      {
-        "id": "action_5",
-        "label": "Notify Regulatory Authorities if Required",
-        "description": "Comply with reporting obligations (e.g., FDA, USDA) to avoid further penalties."
-      }
-    ],
-    "dataConfidenceAdjusted": null
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "haccp-deviation-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK"
 }

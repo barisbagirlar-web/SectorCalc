@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "Diameter of the spring wire"
+      "businessContext": "Diameter of the spring wire",
+      "label_i18n": {
+        "en": "Wire Diameter",
+        "tr": "Wire Diameter",
+        "de": "Wire Diameter",
+        "fr": "Wire Diameter",
+        "es": "Wire Diameter",
+        "ar": "Wire Diameter"
+      }
     },
     {
       "id": "D",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Average diameter of the coil"
+      "businessContext": "Average diameter of the coil",
+      "label_i18n": {
+        "en": "Mean Coil Diameter",
+        "tr": "Mean Coil Diameter",
+        "de": "Mean Coil Diameter",
+        "fr": "Mean Coil Diameter",
+        "es": "Mean Coil Diameter",
+        "ar": "Mean Coil Diameter"
+      }
     },
     {
       "id": "n",
       "label": "Number of Active Coils",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Number of coils contributing to spring deflection"
+      "businessContext": "Number of coils contributing to spring deflection",
+      "label_i18n": {
+        "en": "Number of Active Coils",
+        "tr": "Number of Active Coils",
+        "de": "Number of Active Coils",
+        "fr": "Number of Active Coils",
+        "es": "Number of Active Coils",
+        "ar": "Number of Active Coils"
+      }
     },
     {
       "id": "G",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "N/mm²",
       "default": 80000,
-      "businessContext": "Material shear modulus (e.g., steel ~80000 N/mm²)"
+      "businessContext": "Material shear modulus (e.g., steel ~80000 N/mm²)",
+      "label_i18n": {
+        "en": "Shear Modulus",
+        "tr": "Shear Modulus",
+        "de": "Shear Modulus",
+        "fr": "Shear Modulus",
+        "es": "Shear Modulus",
+        "ar": "Shear Modulus"
+      }
     },
     {
       "id": "F",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "N",
       "default": 100,
-      "businessContext": "Maximum working force applied to the spring"
+      "businessContext": "Maximum working force applied to the spring",
+      "label_i18n": {
+        "en": "Applied Load",
+        "tr": "Applied Load",
+        "de": "Applied Load",
+        "fr": "Applied Load",
+        "es": "Applied Load",
+        "ar": "Applied Load"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "deflection_at_load"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

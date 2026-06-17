@@ -5,51 +5,86 @@
       "id": "numberA",
       "label": "Sayı A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Birinci sayı"
+      "businessContext": "Birinci sayı",
+      "label_i18n": {
+        "en": "Sayı A",
+        "tr": "Sayı A",
+        "de": "Sayı A",
+        "fr": "Sayı A",
+        "es": "Sayı A",
+        "ar": "Sayı A"
+      }
     },
     {
       "id": "numberB",
       "label": "Sayı B",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "İkinci sayı"
+      "businessContext": "İkinci sayı",
+      "label_i18n": {
+        "en": "Sayı B",
+        "tr": "Sayı B",
+        "de": "Sayı B",
+        "fr": "Sayı B",
+        "es": "Sayı B",
+        "ar": "Sayı B"
+      }
     },
     {
       "id": "operation",
       "label": "İşlem",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1=Toplama, 2=Çıkarma, 3=Çarpma, 4=Bölme"
+      "businessContext": "1=Toplama, 2=Çıkarma, 3=Çarpma, 4=Bölme",
+      "label_i18n": {
+        "en": "İşlem",
+        "tr": "İşlem",
+        "de": "İşlem",
+        "fr": "İşlem",
+        "es": "İşlem",
+        "ar": "İşlem"
+      }
     },
     {
       "id": "precision",
       "label": "Ondalık Basamak",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sonuç ondalık basamak sayısı (0 tamsayıya yuvarla)"
+      "businessContext": "Sonuç ondalık basamak sayısı (0 tamsayıya yuvarla)",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
     "rawResult": "(operation == 1 ? numberA + numberB : operation == 2 ? numberA - numberB : operation == 3 ? numberA * numberB : operation == 4 ? (numberB != 0 ? numberA / numberB : NaN) : NaN)",
-    "finalResult": "precision == 0 ? Math.round(rawResult) : Number(rawResult.toFixed(precision))"
+    "finalResult": "precision == 0 ? Math.round(rawResult) : Number(rawResult.toFixed(precision))",
+    "_numberA___operation__1_____operation__2": "{numberA} {operation==1?'+':operation==2?'-':operation==3?'*':'/'} {numberB} = {rawResult}",
+    "_finalResult_": "{finalResult}",
+    "_romanResult_": "{romanResult}"
   },
   "outputs": {
-    "primary": "Roma rakamı ile sonuç: {romanResult}",
+    "primary": "rawResult",
     "breakdown": [
       "İşlem: {numberA} {operation==1?'+':operation==2?'-':operation==3?'*':'/'} {numberB} = {rawResult}",
       "Yuvarlanmış sonuç: {finalResult}",
       "Roma rakamı karşılığı: {romanResult}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

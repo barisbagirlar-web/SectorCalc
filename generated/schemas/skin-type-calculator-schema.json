@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "index",
       "default": 2,
-      "businessContext": "Skin oiliness scale: 0 (very dry) to 4 (very oily)."
+      "businessContext": "Skin oiliness scale: 0 (very dry) to 4 (very oily).",
+      "label_i18n": {
+        "en": "Oiliness Level",
+        "tr": "Oiliness Level",
+        "de": "Oiliness Level",
+        "fr": "Oiliness Level",
+        "es": "Oiliness Level",
+        "ar": "Oiliness Level"
+      }
     },
     {
       "id": "hydration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "index",
       "default": 2,
-      "businessContext": "Skin hydration scale: 0 (very dehydrated) to 4 (very hydrated)."
+      "businessContext": "Skin hydration scale: 0 (very dehydrated) to 4 (very hydrated).",
+      "label_i18n": {
+        "en": "Hydration Level",
+        "tr": "Hydration Level",
+        "de": "Hydration Level",
+        "fr": "Hydration Level",
+        "es": "Hydration Level",
+        "ar": "Hydration Level"
+      }
     },
     {
       "id": "sensitivity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "index",
       "default": 2,
-      "businessContext": "Skin sensitivity scale: 0 (not sensitive) to 4 (very sensitive)."
+      "businessContext": "Skin sensitivity scale: 0 (not sensitive) to 4 (very sensitive).",
+      "label_i18n": {
+        "en": "Sensitivity Level",
+        "tr": "Sensitivity Level",
+        "de": "Sensitivity Level",
+        "fr": "Sensitivity Level",
+        "es": "Sensitivity Level",
+        "ar": "Sensitivity Level"
+      }
     },
     {
       "id": "pigmentation",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "index",
       "default": 2,
-      "businessContext": "Pigmentation concerns scale: 0 (no issues) to 4 (major pigmentation)."
+      "businessContext": "Pigmentation concerns scale: 0 (no issues) to 4 (major pigmentation).",
+      "label_i18n": {
+        "en": "Pigmentation Level",
+        "tr": "Pigmentation Level",
+        "de": "Pigmentation Level",
+        "fr": "Pigmentation Level",
+        "es": "Pigmentation Level",
+        "ar": "Pigmentation Level"
+      }
     },
     {
       "id": "elasticity",
@@ -39,27 +71,39 @@
       "type": "number",
       "unit": "index",
       "default": 2,
-      "businessContext": "Skin elasticity scale: 0 (poor) to 4 (excellent)."
+      "businessContext": "Skin elasticity scale: 0 (poor) to 4 (excellent).",
+      "label_i18n": {
+        "en": "Skin Elasticity",
+        "tr": "Skin Elasticity",
+        "de": "Skin Elasticity",
+        "fr": "Skin Elasticity",
+        "es": "Skin Elasticity",
+        "ar": "Skin Elasticity"
+      }
     }
   ],
   "formulas": {
     "skinIndex": "(oiliness + hydration) * 12.5",
     "sensitivityIndex": "sensitivity * 25",
     "pigmentationIndex": "pigmentation * 25",
-    "agingIndex": "(4 - elasticity) * 25"
+    "agingIndex": "(4 - elasticity) * 25",
+    "__sensitivityIndex_toFixed_0__": "${sensitivityIndex.toFixed(0)}",
+    "__pigmentationIndex_toFixed_0__": "${pigmentationIndex.toFixed(0)}",
+    "__agingIndex_toFixed_0__": "${agingIndex.toFixed(0)}",
+    "result": "Skin Type Index: ${skinIndex.toFixed(0)} (0=Dry, 100=Oily)"
   },
   "outputs": {
-    "primary": "Skin Type Index: ${skinIndex.toFixed(0)} (0=Dry, 100=Oily)",
+    "primary": "result",
     "breakdown": [
       "Sensitivity Index: ${sensitivityIndex.toFixed(0)}",
       "Pigmentation Index: ${pigmentationIndex.toFixed(0)}",
       "Aging Index: ${agingIndex.toFixed(0)}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

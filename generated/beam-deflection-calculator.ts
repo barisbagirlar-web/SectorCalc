@@ -29,34 +29,19 @@ export const Beam_deflection_calculatorInputSchema = z.object({
   use_lean_optimization: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Beam_deflection_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = ((input.load_type == 'point_center') ? (P/2) : (((input.load_type == 'point_any') ? (P*(L-a)/L) : (((input.load_type == 'uniform') ? (w*L/2) : (((input.load_type == 'triangular') ? (w*L/6) : (0)))))))); results["reaction_left"] = Number.isFinite(v) ? v : 0; } catch { results["reaction_left"] = 0; }
-  try { const v = ((input.load_type == 'point_center') ? (P/2) : (((input.load_type == 'point_any') ? (P*a/L) : (((input.load_type == 'uniform') ? (w*L/2) : (((input.load_type == 'triangular') ? (w*L/3) : (0)))))))); results["reaction_right"] = Number.isFinite(v) ? v : 0; } catch { results["reaction_right"] = 0; }
-  try { const v = ((input.load_type == 'point_center') ? (P*L/4) : (((input.load_type == 'point_any') ? (P*a*(L-a)/L) : (((input.load_type == 'uniform') ? (w*L**2/8) : (((input.load_type == 'triangular') ? (w*L**2/9*Math.sqrt(3)) : (0)))))))); results["max_bending_moment"] = Number.isFinite(v) ? v : 0; } catch { results["max_bending_moment"] = 0; }
-  try { const v = ((input.load_type == 'point_center') ? (0) : (((input.load_type == 'point_any') ? (0) : (((input.load_type == 'uniform') ? (0) : (((input.load_type == 'triangular') ? (0) : (0)))))))); results["max_deflection"] = Number.isFinite(v) ? v : 0; } catch { results["max_deflection"] = 0; }
-  results["max_bending_stress"] = 0;
-  try { const v = sigma_y / sigma_max; results["actual_safety_factor"] = Number.isFinite(v) ? v : 0; } catch { results["actual_safety_factor"] = 0; }
-  try { const v = sigma_max / sigma_y; results["material_utilization"] = Number.isFinite(v) ? v : 0; } catch { results["material_utilization"] = 0; }
-  results["lean_mass_reduction_percent"] = 0;
-  return results;
+function evaluateAllFormulas(_input: Beam_deflection_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateBeam_deflection_calculator(input: Beam_deflection_calculatorInput): Beam_deflection_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["max_deflection"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    reaction_left: values["reaction_left"] ?? 0,
-    reaction_right: values["reaction_right"] ?? 0,
-    max_bending_moment: values["max_bending_moment"] ?? 0,
-    max_bending_stress: values["max_bending_stress"] ?? 0,
-    actual_safety_factor: values["actual_safety_factor"] ?? 0,
-    material_utilization: values["material_utilization"] ?? 0,
-    lean_mass_reduction_percent: values["lean_mass_reduction_percent"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excess Material Cost","Deflection-Induced Downtime","Safety Risk Premium"];
-  const suggestedActions: string[] = ["Increase Beam Cross-Section","Reduce Span Length","Use Higher Grade Material","Apply Lean Redesign","Implement Predictive Maintenance"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -75,7 +60,7 @@ export function calculateBeam_deflection_calculator(input: Beam_deflection_calcu
 
 export interface Beam_deflection_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { reaction_left: number; reaction_right: number; max_bending_moment: number; max_bending_stress: number; actual_safety_factor: number; material_utilization: number; lean_mass_reduction_percent: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

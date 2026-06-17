@@ -40,12 +40,7 @@
     "dv": "2 * v_inf * Math.sin(delta / 2)"
   },
   "outputs": {
-    "primary": {
-      "id": "v_out",
-      "label": "Resulting Heliocentric Speed",
-      "unit": "km/s",
-      "formula": "v_out"
-    },
+    "primary": "delta",
     "breakdown": [
       {
         "id": "delta",
@@ -61,10 +56,10 @@
       }
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -5,41 +5,81 @@
       "id": "gateType",
       "label": "Gate Type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Select gate: 1=AND, 2=OR, 3=XOR, 4=NAND, 5=NOR, 6=XNOR"
+      "businessContext": "Select gate: 1=AND, 2=OR, 3=XOR, 4=NAND, 5=NOR, 6=XNOR",
+      "label_i18n": {
+        "en": "Gate Type",
+        "tr": "Gate Type",
+        "de": "Gate Type",
+        "fr": "Gate Type",
+        "es": "Gate Type",
+        "ar": "Gate Type"
+      }
     },
     {
       "id": "A",
       "label": "Input A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary input (0 or 1)"
+      "businessContext": "Binary input (0 or 1)",
+      "label_i18n": {
+        "en": "Input A",
+        "tr": "Input A",
+        "de": "Input A",
+        "fr": "Input A",
+        "es": "Input A",
+        "ar": "Input A"
+      }
     },
     {
       "id": "B",
       "label": "Input B",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary input (0 or 1)"
+      "businessContext": "Binary input (0 or 1)",
+      "label_i18n": {
+        "en": "Input B",
+        "tr": "Input B",
+        "de": "Input B",
+        "fr": "Input B",
+        "es": "Input B",
+        "ar": "Input B"
+      }
     },
     {
       "id": "C",
       "label": "Input C",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary input (0 or 1)"
+      "businessContext": "Binary input (0 or 1)",
+      "label_i18n": {
+        "en": "Input C",
+        "tr": "Input C",
+        "de": "Input C",
+        "fr": "Input C",
+        "es": "Input C",
+        "ar": "Input C"
+      }
     },
     {
       "id": "D",
       "label": "Input D",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary input (0 or 1)"
+      "businessContext": "Binary input (0 or 1)",
+      "label_i18n": {
+        "en": "Input D",
+        "tr": "Input D",
+        "de": "Input D",
+        "fr": "Input D",
+        "es": "Input D",
+        "ar": "Input D"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +100,8 @@
       "sum"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -18,13 +18,16 @@ function evaluateAllFormulas(input: Antenna_calculatorInput): Record<string, num
   try { const v = 300 / input.frequency; results["wavelength"] = Number.isFinite(v) ? v : 0; } catch { results["wavelength"] = 0; }
   try { const v = 10 * Math.log10(input.efficiency * Math.pow(Math.PI * input.diameter / (300 / input.frequency), 2)); results["gain"] = Number.isFinite(v) ? v : 0; } catch { results["gain"] = 0; }
   try { const v = 70 * (300 / input.frequency) / input.diameter; results["beamwidth"] = Number.isFinite(v) ? v : 0; } catch { results["beamwidth"] = 0; }
+  results["Dalga_Boyu__m_"] = 0;
+  results["Yar__G___H_zme_Geni_li_i____"] = 0;
+  try { const v = Kazanç (dBi); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateAntenna_calculator(input: Antenna_calculatorInput): Antenna_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Kazan"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

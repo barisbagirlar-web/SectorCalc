@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Inner diameter of the pipe. Affects flow velocity and pressure loss."
+      "businessContext": "Inner diameter of the pipe. Affects flow velocity and pressure loss.",
+      "label_i18n": {
+        "en": "Pipe Inner Diameter",
+        "tr": "Pipe Inner Diameter",
+        "de": "Pipe Inner Diameter",
+        "fr": "Pipe Inner Diameter",
+        "es": "Pipe Inner Diameter",
+        "ar": "Pipe Inner Diameter"
+      }
     },
     {
       "id": "pipeLength",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "Length of straight pipe segment. Pressure loss is directly proportional to length."
+      "businessContext": "Length of straight pipe segment. Pressure loss is directly proportional to length.",
+      "label_i18n": {
+        "en": "Pipe Length",
+        "tr": "Pipe Length",
+        "de": "Pipe Length",
+        "fr": "Pipe Length",
+        "es": "Pipe Length",
+        "ar": "Pipe Length"
+      }
     },
     {
       "id": "frictionFactor",
       "label": "Darcy Friction Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.02,
-      "businessContext": "Dimensionless friction factor (f) from Moody chart or Colebrook equation, depends on pipe roughness and Reynolds number."
+      "businessContext": "Dimensionless friction factor (f) from Moody chart or Colebrook equation, depends on pipe roughness and Reynolds number.",
+      "label_i18n": {
+        "en": "Darcy Friction Factor",
+        "tr": "Darcy Friction Factor",
+        "de": "Darcy Friction Factor",
+        "fr": "Darcy Friction Factor",
+        "es": "Darcy Friction Factor",
+        "ar": "Darcy Friction Factor"
+      }
     },
     {
       "id": "fluidDensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Mass density of the fluid (e.g., 1000 kg/m³ for water). Affects pressure loss magnitude."
+      "businessContext": "Mass density of the fluid (e.g., 1000 kg/m³ for water). Affects pressure loss magnitude.",
+      "label_i18n": {
+        "en": "Fluid Density",
+        "tr": "Fluid Density",
+        "de": "Fluid Density",
+        "fr": "Fluid Density",
+        "es": "Fluid Density",
+        "ar": "Fluid Density"
+      }
     },
     {
       "id": "flowRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0.01,
-      "businessContext": "Volume flow rate of the fluid. Determines velocity and hence friction losses."
+      "businessContext": "Volume flow rate of the fluid. Determines velocity and hence friction losses.",
+      "label_i18n": {
+        "en": "Volumetric Flow Rate",
+        "tr": "Volumetric Flow Rate",
+        "de": "Volumetric Flow Rate",
+        "fr": "Volumetric Flow Rate",
+        "es": "Volumetric Flow Rate",
+        "ar": "Volumetric Flow Rate"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "headLoss"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "process-chemical"
 }

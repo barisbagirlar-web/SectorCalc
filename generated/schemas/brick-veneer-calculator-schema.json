@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Width of the wall to be veneered"
+      "businessContext": "Width of the wall to be veneered",
+      "label_i18n": {
+        "en": "Wall Width",
+        "tr": "Wall Width",
+        "de": "Wall Width",
+        "fr": "Wall Width",
+        "es": "Wall Width",
+        "ar": "Wall Width"
+      }
     },
     {
       "id": "wallHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Height of the wall"
+      "businessContext": "Height of the wall",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "brickLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 230,
-      "businessContext": "Length of a single brick"
+      "businessContext": "Length of a single brick",
+      "label_i18n": {
+        "en": "Brick Length",
+        "tr": "Brick Length",
+        "de": "Brick Length",
+        "fr": "Brick Length",
+        "es": "Brick Length",
+        "ar": "Brick Length"
+      }
     },
     {
       "id": "brickHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 76,
-      "businessContext": "Height of a single brick"
+      "businessContext": "Height of a single brick",
+      "label_i18n": {
+        "en": "Brick Height",
+        "tr": "Brick Height",
+        "de": "Brick Height",
+        "fr": "Brick Height",
+        "es": "Brick Height",
+        "ar": "Brick Height"
+      }
     },
     {
       "id": "mortarJoint",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Thickness of mortar joint between bricks"
+      "businessContext": "Thickness of mortar joint between bricks",
+      "label_i18n": {
+        "en": "Mortar Joint Thickness",
+        "tr": "Mortar Joint Thickness",
+        "de": "Mortar Joint Thickness",
+        "fr": "Mortar Joint Thickness",
+        "es": "Mortar Joint Thickness",
+        "ar": "Mortar Joint Thickness"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,20 +87,27 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of additional bricks to account for cutting and breakage"
+      "businessContext": "Percentage of additional bricks to account for cutting and breakage",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
     "primary": "Math.ceil( (wallWidth * wallHeight) / ((brickLength + mortarJoint) * (brickHeight + mortarJoint) / 1000000) * (1 + wasteFactor / 100) )",
-    "breakdown": [
-      "wallWidth * wallHeight",
-      "(brickLength + mortarJoint) * (brickHeight + mortarJoint) / 1000000",
-      "wallWidth * wallHeight / ((brickLength + mortarJoint) * (brickHeight + mortarJoint) / 1000000)",
-      "wallWidth * wallHeight / ((brickLength + mortarJoint) * (brickHeight + mortarJoint) / 1000000) * wasteFactor / 100"
-    ]
+    "breakdown": "wallWidth",
+    "wallArea": "wallArea",
+    "brickAreaWithMortar": "brickAreaWithMortar",
+    "bricksWithoutWaste": "bricksWithoutWaste",
+    "wasteBricks": "wasteBricks"
   },
   "outputs": {
-    "primary": "totalBricks",
+    "primary": "primary",
     "breakdown": [
       "wallArea",
       "brickAreaWithMortar",
@@ -68,7 +115,7 @@
       "wasteBricks"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

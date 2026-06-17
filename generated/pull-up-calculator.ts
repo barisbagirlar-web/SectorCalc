@@ -2,34 +2,31 @@
 import * as z from 'zod';
 
 export interface Pull_up_calculatorInput {
-  supplyVoltage: number;
-  minHighVoltage: number;
-  inputLeakageHigh: number;
-  numberOfLoads: number;
-  outputLowVoltage: number;
-  outputSinkCurrent: number;
+  loadWeight: number;
+  inclineAngle: number;
+  frictionCoefficient: number;
+  mechanicalAdvantage: number;
 }
 
 export const Pull_up_calculatorInputSchema = z.object({
-  supplyVoltage: z.number().default(5),
-  minHighVoltage: z.number().default(3.5),
-  inputLeakageHigh: z.number().default(0.000001),
-  numberOfLoads: z.number().default(1),
-  outputLowVoltage: z.number().default(0.4),
-  outputSinkCurrent: z.number().default(0.016),
+  loadWeight: z.number().default(100),
+  inclineAngle: z.number().default(30),
+  frictionCoefficient: z.number().default(0.2),
+  mechanicalAdvantage: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Pull_up_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.supplyVoltage - input.minHighVoltage) / (input.numberOfLoads * input.inputLeakageHigh); results["maxPullUpResistance"] = Number.isFinite(v) ? v : 0; } catch { results["maxPullUpResistance"] = 0; }
-  try { const v = (input.supplyVoltage - input.outputLowVoltage) / input.outputSinkCurrent; results["minPullUpResistance"] = Number.isFinite(v) ? v : 0; } catch { results["minPullUpResistance"] = 0; }
+  try { const v = input.loadWeight * 9.81 * Math.sin(input.inclineAngle * Math.PI / 180); results["gravitationalForceComponent"] = Number.isFinite(v) ? v : 0; } catch { results["gravitationalForceComponent"] = 0; }
+  try { const v = input.frictionCoefficient * input.loadWeight * 9.81 * Math.cos(input.inclineAngle * Math.PI / 180); results["frictionForce"] = Number.isFinite(v) ? v : 0; } catch { results["frictionForce"] = 0; }
+  try { const v = ((results["gravitationalForceComponent"] ?? 0) + (results["frictionForce"] ?? 0)) / input.mechanicalAdvantage; results["totalRequiredForce"] = Number.isFinite(v) ? v : 0; } catch { results["totalRequiredForce"] = 0; }
   return results;
 }
 
 
 export function calculatePull_up_calculator(input: Pull_up_calculatorInput): Pull_up_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["maxPullUpResistance"] ?? 0;
+  const totalWasteCost = values["totalRequiredForce"] ?? 0;
   const breakdown = {
     
   };

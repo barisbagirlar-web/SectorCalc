@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Standard daily operating hours outside Ramadan."
+      "businessContext": "Standard daily operating hours outside Ramadan.",
+      "label_i18n": {
+        "en": "Normal Daily Working Hours",
+        "tr": "Normal Daily Working Hours",
+        "de": "Normal Daily Working Hours",
+        "fr": "Normal Daily Working Hours",
+        "es": "Normal Daily Working Hours",
+        "ar": "Normal Daily Working Hours"
+      }
     },
     {
       "id": "ramadanDailyHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 6,
-      "businessContext": "Reduced daily operating hours during Ramadan."
+      "businessContext": "Reduced daily operating hours during Ramadan.",
+      "label_i18n": {
+        "en": "Ramadan Daily Working Hours",
+        "tr": "Ramadan Daily Working Hours",
+        "de": "Ramadan Daily Working Hours",
+        "fr": "Ramadan Daily Working Hours",
+        "es": "Ramadan Daily Working Hours",
+        "ar": "Ramadan Daily Working Hours"
+      }
     },
     {
       "id": "workingDaysRamadan",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 22,
-      "businessContext": "Total number of working days in the month of Ramadan."
+      "businessContext": "Total number of working days in the month of Ramadan.",
+      "label_i18n": {
+        "en": "Working Days in Ramadan",
+        "tr": "Working Days in Ramadan",
+        "de": "Working Days in Ramadan",
+        "fr": "Working Days in Ramadan",
+        "es": "Working Days in Ramadan",
+        "ar": "Working Days in Ramadan"
+      }
     },
     {
       "id": "energyConsumptionRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kW",
       "default": 500,
-      "businessContext": "Average electrical power demand while factory is operating."
+      "businessContext": "Average electrical power demand while factory is operating.",
+      "label_i18n": {
+        "en": "Energy Consumption Rate",
+        "tr": "Energy Consumption Rate",
+        "de": "Energy Consumption Rate",
+        "fr": "Energy Consumption Rate",
+        "es": "Energy Consumption Rate",
+        "ar": "Energy Consumption Rate"
+      }
     },
     {
       "id": "energyCostPerKwh",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "₺/kWh",
       "default": 2.5,
-      "businessContext": "Cost of electricity per kilowatt-hour."
+      "businessContext": "Cost of electricity per kilowatt-hour.",
+      "label_i18n": {
+        "en": "Energy Cost per kWh",
+        "tr": "Energy Cost per kWh",
+        "de": "Energy Cost per kWh",
+        "fr": "Energy Cost per kWh",
+        "es": "Energy Cost per kWh",
+        "ar": "Energy Cost per kWh"
+      }
     },
     {
       "id": "co2EmissionFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg CO₂/kWh",
       "default": 0.5,
-      "businessContext": "Carbon dioxide emission per kilowatt-hour consumed from grid."
+      "businessContext": "Carbon dioxide emission per kilowatt-hour consumed from grid.",
+      "label_i18n": {
+        "en": "CO₂ Emission Factor",
+        "tr": "CO₂ Emission Factor",
+        "de": "CO₂ Emission Factor",
+        "fr": "CO₂ Emission Factor",
+        "es": "CO₂ Emission Factor",
+        "ar": "CO₂ Emission Factor"
+      }
     }
   ],
   "formulas": {
@@ -55,10 +103,11 @@
     "Normal Energy Consumption (kWh)": "normalDailyHours * workingDaysRamadan * energyConsumptionRate",
     "Ramadan Energy Consumption (kWh)": "ramadanDailyHours * workingDaysRamadan * energyConsumptionRate",
     "Total Energy Saved (kWh)": "(normalDailyHours - ramadanDailyHours) * workingDaysRamadan * energyConsumptionRate",
-    "CO₂ Emission Reduction (kg)": "(normalDailyHours - ramadanDailyHours) * workingDaysRamadan * energyConsumptionRate * co2EmissionFactor"
+    "CO₂ Emission Reduction (kg)": "(normalDailyHours - ramadanDailyHours) * workingDaysRamadan * energyConsumptionRate * co2EmissionFactor",
+    "result": "Total Energy Cost Savings (₺)"
   },
   "outputs": {
-    "primary": "Total Energy Cost Savings (₺)",
+    "primary": "result",
     "breakdown": [
       "Normal Energy Consumption (kWh)",
       "Ramadan Energy Consumption (kWh)",
@@ -66,10 +115,10 @@
       "CO₂ Emission Reduction (kg)"
     ]
   },
-  "category": "Enerji & Karbon",
+  "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "sustainability-resource-esg"
 }

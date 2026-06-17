@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 330,
-      "businessContext": "The distance from the nut to the bridge, representing the vibrating length of the string. Standard mandolin scale length is around 330 mm."
+      "businessContext": "The distance from the nut to the bridge, representing the vibrating length of the string. Standard mandolin scale length is around 330 mm.",
+      "label_i18n": {
+        "en": "Scale Length",
+        "tr": "Scale Length",
+        "de": "Scale Length",
+        "fr": "Scale Length",
+        "es": "Scale Length",
+        "ar": "Scale Length"
+      }
     },
     {
       "id": "stringDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.25,
-      "businessContext": "The diameter of the string in millimeters. Typical mandolin strings range from 0.2 mm to 0.4 mm."
+      "businessContext": "The diameter of the string in millimeters. Typical mandolin strings range from 0.2 mm to 0.4 mm.",
+      "label_i18n": {
+        "en": "String Diameter",
+        "tr": "String Diameter",
+        "de": "String Diameter",
+        "fr": "String Diameter",
+        "es": "String Diameter",
+        "ar": "String Diameter"
+      }
     },
     {
       "id": "materialDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7800,
-      "businessContext": "The density of the string material in kilograms per cubic meter. Common values are 7800 for steel, 6500 for titanium, 1840 for nylon."
+      "businessContext": "The density of the string material in kilograms per cubic meter. Common values are 7800 for steel, 6500 for titanium, 1840 for nylon.",
+      "label_i18n": {
+        "en": "Material Density",
+        "tr": "Material Density",
+        "de": "Material Density",
+        "fr": "Material Density",
+        "es": "Material Density",
+        "ar": "Material Density"
+      }
     },
     {
       "id": "noteFrequency",
@@ -31,25 +55,37 @@
       "type": "number",
       "unit": "Hz",
       "default": 196,
-      "businessContext": "The desired fundamental frequency of the string in Hertz. G3 (the lowest standard mandolin string) is 196 Hz."
+      "businessContext": "The desired fundamental frequency of the string in Hertz. G3 (the lowest standard mandolin string) is 196 Hz.",
+      "label_i18n": {
+        "en": "Note Frequency",
+        "tr": "Note Frequency",
+        "de": "Note Frequency",
+        "fr": "Note Frequency",
+        "es": "Note Frequency",
+        "ar": "Note Frequency"
+      }
     }
   ],
   "formulas": {
     "linearDensity": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2)",
-    "tension": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2) * Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)"
+    "tension": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2) * Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)",
+    "materialDensity___Math_PI___Math_pow__st": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2)",
+    "2____scaleLength___1000____noteFrequency": "2 * (scaleLength / 1000) * noteFrequency",
+    "Math_pow_2____scaleLength___1000____note": "Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)",
+    "result": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2) * Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)"
   },
   "outputs": {
-    "primary": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2) * Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)",
+    "primary": "result",
     "breakdown": [
       "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2)",
       "2 * (scaleLength / 1000) * noteFrequency",
       "Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Atölye & Tamir",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

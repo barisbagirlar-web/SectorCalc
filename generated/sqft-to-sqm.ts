@@ -3,15 +3,20 @@ import * as z from 'zod';
 
 export interface Sqft_to_sqmInput {
   sqft: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Sqft_to_sqmInputSchema = z.object({
   sqft: z.number().default(100),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Sqft_to_sqmInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.sqft * 0.09290304; results["sqm"] = Number.isFinite(v) ? v : 0; } catch { results["sqm"] = 0; }
+  results["sqft___0_09290304___sqm"] = 0;
   return results;
 }
 

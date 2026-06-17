@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "K",
       "default": 2.725,
-      "businessContext": "Temperature of the CMB (default 2.725 K)"
+      "businessContext": "Temperature of the CMB (default 2.725 K)",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "frequency",
@@ -15,7 +23,39 @@
       "type": "number",
       "unit": "Hz",
       "default": 160200000000,
-      "businessContext": "Observation frequency (peak of CMB is ~160.2 GHz)"
+      "businessContext": "Observation frequency (peak of CMB is ~160.2 GHz)",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
@@ -30,10 +70,10 @@
       "peak_wavelength"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

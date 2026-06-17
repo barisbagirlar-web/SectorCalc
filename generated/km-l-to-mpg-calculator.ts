@@ -18,6 +18,9 @@ export const Km_l_to_mpg_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Km_l_to_mpg_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.sourceUnit == 0 ? (input.gallonType == 0 ? input.value * 2.352145833333333 : input.value * 2.8248094) : (input.gallonType == 0 ? input.value / 2.352145833333333 : input.value / 2.8248094)).toFixed(input.decimalPlaces) + (input.sourceUnit == 0 ? (input.gallonType == 0 ? ' mpg (US)' : ' mpg (UK)') : (input.gallonType == 0 ? ' km/L (from US mpg)' : ' km/L (from UK mpg)')); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.value; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = (results["breakdown"] ?? 0)[0]; results["breakdown_0_"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown_0_"] = 0; }
+  try { const v = (results["breakdown"] ?? 0)[1]; results["breakdown_1_"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown_1_"] = 0; }
   return results;
 }
 

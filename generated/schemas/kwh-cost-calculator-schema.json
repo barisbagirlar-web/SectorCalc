@@ -173,7 +173,8 @@
       },
       "businessContext_i18n": {
         "en": "Utility rate structure. Affects how energy and demand charges are calculated."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "include_demand_charge",
@@ -186,7 +187,8 @@
       },
       "businessContext_i18n": {
         "en": "Toggle to include or exclude demand charges from total cost."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -238,150 +240,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "adjusted_energy_kwh",
-      "label": "Adjusted Energy Consumption (kWh)",
-      "formula": "energy_consumption_kwh / (system_efficiency / 100)",
-      "description": "Adjusts raw energy consumption for system losses per ISO 50001 energy baseline."
-    },
-    {
-      "id": "energy_cost",
-      "label": "Energy Cost ($)",
-      "formula": "adjusted_energy_kwh * energy_rate_per_kwh",
-      "description": "Total cost of energy consumed, including loss adjustment."
-    },
-    {
-      "id": "demand_cost",
-      "label": "Demand Cost ($)",
-      "formula": "if(include_demand_charge, peak_demand_kw * demand_rate_per_kw, 0)",
-      "description": "Demand charge based on peak demand and rate, conditional on user selection."
-    },
-    {
-      "id": "pf_penalty_cost",
-      "label": "Power Factor Penalty ($)",
-      "formula": "if(power_factor < pf_penalty_threshold, (pf_penalty_threshold - power_factor) * peak_demand_kw * pf_penalty_rate, 0)",
-      "description": "Penalty for reactive power when PF below threshold, based on kvar demand."
-    },
-    {
-      "id": "load_factor",
-      "label": "Load Factor",
-      "formula": "energy_consumption_kwh / (peak_demand_kw * operating_hours)",
-      "description": "Ratio of average load to peak load. Indicates demand-side efficiency per WERC guidelines."
-    },
-    {
-      "id": "total_cost_before_tax",
-      "label": "Total Cost Before Tax ($)",
-      "formula": "energy_cost + demand_cost + pf_penalty_cost",
-      "description": "Sum of all direct electrical costs before taxes or surcharges."
-    },
-    {
-      "id": "total_cost_with_tax",
-      "label": "Total Cost with Tax ($)",
-      "formula": "total_cost_before_tax * 1.08",
-      "description": "Total cost including 8% standard industrial tax/surcharge (adjustable per region)."
-    }
+    "energy_consumption_kwh",
+    "energy_consumption_kwh",
+    "energy_consumption_kwh",
+    "energy_consumption_kwh",
+    "energy_consumption_kwh",
+    "energy_consumption_kwh",
+    "energy_consumption_kwh"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_cost",
-      "label": "Total KWh Cost ($)",
-      "value": "total_cost_with_tax",
-      "unit": "$",
-      "description": "Final total cost of electrical energy consumption including all charges, penalties, and taxes."
-    },
-    "breakdown": {
-      "energy_cost": {
-        "id": "energy_cost",
-        "label": "Energy Cost",
-        "value": "energy_cost",
-        "unit": "$",
-        "description": "Cost of energy consumed (adjusted for losses)."
-      },
-      "demand_cost": {
-        "id": "demand_cost",
-        "label": "Demand Cost",
-        "value": "demand_cost",
-        "unit": "$",
-        "description": "Cost based on peak demand."
-      },
-      "pf_penalty_cost": {
-        "id": "pf_penalty_cost",
-        "label": "PF Penalty Cost",
-        "value": "pf_penalty_cost",
-        "unit": "$",
-        "description": "Penalty for low power factor."
-      },
-      "load_factor": {
-        "id": "load_factor",
-        "label": "Load Factor",
-        "value": "load_factor",
-        "unit": "ratio",
-        "description": "Operational efficiency metric."
-      },
-      "adjusted_energy_kwh": {
-        "id": "adjusted_energy_kwh",
-        "label": "Adjusted Energy (kWh)",
-        "value": "adjusted_energy_kwh",
-        "unit": "kWh",
-        "description": "Energy consumption after efficiency adjustment."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_transformer",
-        "label": "Transformer Losses",
-        "value": "energy_consumption_kwh * 0.02",
-        "unit": "kWh",
-        "description": "Estimated 2% loss from transformers per IEEE standards."
-      },
-      {
-        "id": "loss_cabling",
-        "label": "Cabling Losses",
-        "value": "energy_consumption_kwh * 0.015",
-        "unit": "kWh",
-        "description": "Estimated 1.5% loss from cable resistance per NEC guidelines."
-      },
-      {
-        "id": "loss_motor",
-        "label": "Motor Inefficiency",
-        "value": "energy_consumption_kwh * 0.03",
-        "unit": "kWh",
-        "description": "Estimated 3% loss from motor inefficiency per NEMA MG1."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_pf_correction",
-        "label": "Install Power Factor Correction Capacitors",
-        "description": "Reduce PF penalty by installing capacitors to improve power factor above 0.95.",
-        "estimatedSavings": "pf_penalty_cost * 0.8",
-        "priority": "high"
-      },
-      {
-        "id": "action_demand_reduction",
-        "label": "Implement Demand-Side Management",
-        "description": "Shift loads to off-peak hours to reduce peak demand and demand charges.",
-        "estimatedSavings": "demand_cost * 0.15",
-        "priority": "medium"
-      },
-      {
-        "id": "action_efficiency_upgrade",
-        "label": "Upgrade to High-Efficiency Equipment",
-        "description": "Replace old transformers and motors with IE4/NEMA Premium units to reduce losses.",
-        "estimatedSavings": "energy_cost * 0.05",
-        "priority": "medium"
-      },
-      {
-        "id": "action_energy_audit",
-        "label": "Conduct ISO 50001 Energy Audit",
-        "description": "Identify additional savings opportunities through systematic energy review.",
-        "estimatedSavings": "total_cost_before_tax * 0.1",
-        "priority": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",
-  "categorySlug": "sustainability-resource-esg"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
+  "toolName": "kwh-cost-calculator"
 }

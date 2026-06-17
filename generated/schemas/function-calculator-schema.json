@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0,
-      "businessContext": "Hesaplanacak değişken değeri"
+      "businessContext": "Hesaplanacak değişken değeri",
+      "label_i18n": {
+        "en": "Değişken x",
+        "tr": "Değişken x",
+        "de": "Değişken x",
+        "fr": "Değişken x",
+        "es": "Değişken x",
+        "ar": "Değişken x"
+      }
     },
     {
       "id": "a",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Sinüs fonksiyonunun çarpanı"
+      "businessContext": "Sinüs fonksiyonunun çarpanı",
+      "label_i18n": {
+        "en": "Sinüs katsayısı (a)",
+        "tr": "Sinüs katsayısı (a)",
+        "de": "Sinüs katsayısı (a)",
+        "fr": "Sinüs katsayısı (a)",
+        "es": "Sinüs katsayısı (a)",
+        "ar": "Sinüs katsayısı (a)"
+      }
     },
     {
       "id": "b",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Sinüs içindeki çarpan"
+      "businessContext": "Sinüs içindeki çarpan",
+      "label_i18n": {
+        "en": "Sinüs frekansı (b)",
+        "tr": "Sinüs frekansı (b)",
+        "de": "Sinüs frekansı (b)",
+        "fr": "Sinüs frekansı (b)",
+        "es": "Sinüs frekansı (b)",
+        "ar": "Sinüs frekansı (b)"
+      }
     },
     {
       "id": "c",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Kosinüs fonksiyonunun çarpanı"
+      "businessContext": "Kosinüs fonksiyonunun çarpanı",
+      "label_i18n": {
+        "en": "Kosinüs katsayısı (c)",
+        "tr": "Kosinüs katsayısı (c)",
+        "de": "Kosinüs katsayısı (c)",
+        "fr": "Kosinüs katsayısı (c)",
+        "es": "Kosinüs katsayısı (c)",
+        "ar": "Kosinüs katsayısı (c)"
+      }
     },
     {
       "id": "d",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Kosinüs içindeki çarpan"
+      "businessContext": "Kosinüs içindeki çarpan",
+      "label_i18n": {
+        "en": "Kosinüs frekansı (d)",
+        "tr": "Kosinüs frekansı (d)",
+        "de": "Kosinüs frekansı (d)",
+        "fr": "Kosinüs frekansı (d)",
+        "es": "Kosinüs frekansı (d)",
+        "ar": "Kosinüs frekansı (d)"
+      }
     },
     {
       "id": "e",
@@ -47,27 +87,33 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0,
-      "businessContext": "e^x teriminin katsayısı"
+      "businessContext": "e^x teriminin katsayısı",
+      "label_i18n": {
+        "en": "Üstel katsayısı (e)",
+        "tr": "Üstel katsayısı (e)",
+        "de": "Üstel katsayısı (e)",
+        "fr": "Üstel katsayısı (e)",
+        "es": "Üstel katsayısı (e)",
+        "ar": "Üstel katsayısı (e)"
+      }
     }
   ],
   "formulas": {
     "primary": "a * Math.sin(b * x) + c * Math.cos(d * x) + e * Math.exp(x)",
-    "breakdown": [
-      "a * Math.sin(b * x)",
-      "c * Math.cos(d * x)",
-      "e * Math.exp(x)"
-    ]
+    "term_sin": "a * Math.sin(b * x)",
+    "term_cos": "c * Math.cos(d * x)",
+    "term_exp": "e * Math.exp(x)"
   },
   "outputs": {
-    "primary": "Sonuç (y) = a * sin(b * x) + c * cos(d * x) + e * e^x",
+    "primary": "primary",
     "breakdown": [
-      "Sinüs terimi: a * sin(b * x)",
-      "Kosinüs terimi: c * cos(d * x)",
-      "Üstel terim: e * e^x"
+      "term_sin",
+      "term_cos",
+      "term_exp"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

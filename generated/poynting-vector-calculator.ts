@@ -31,7 +31,7 @@ function evaluateAllFormulas(input: Poynting_vector_calculatorInput): Record<str
 
 export function calculatePoynting_vector_calculator(input: Poynting_vector_calculatorInput): Poynting_vector_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["magnitude"] ?? 0;
+  const totalWasteCost = values["Sx"] ?? 0;
   const breakdown = {
     
   };

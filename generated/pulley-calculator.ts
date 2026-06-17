@@ -20,13 +20,16 @@ function evaluateAllFormulas(input: Pulley_calculatorInput): Record<string, numb
   try { const v = input.driverDiameter / input.drivenDiameter; results["speedRatio"] = Number.isFinite(v) ? v : 0; } catch { results["speedRatio"] = 0; }
   try { const v = input.driverRPM * (results["speedRatio"] ?? 0); results["drivenRPM"] = Number.isFinite(v) ? v : 0; } catch { results["drivenRPM"] = 0; }
   try { const v = 2 * input.centerDistance + 1.5708 * (input.driverDiameter + input.drivenDiameter) + ((input.drivenDiameter - input.driverDiameter) ** 2) / (4 * input.centerDistance); results["beltLength"] = Number.isFinite(v) ? v : 0; } catch { results["beltLength"] = 0; }
+  results["_drivenRPM_toFixed_0___RPM"] = 0;
+  results["driven____speedRatio_toFixed_2__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculatePulley_calculator(input: Pulley_calculatorInput): Pulley_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Required"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -20,6 +20,11 @@ export const Bishop_score_for_labor_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Bishop_score_for_labor_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.dilationScore + input.effacementScore + input.stationScore + input.consistencyScore + input.positionScore; results["totalBishopScore"] = Number.isFinite(v) ? v : 0; } catch { results["totalBishopScore"] = 0; }
+  try { const v = input.dilationScore; results["dilationScore"] = Number.isFinite(v) ? v : 0; } catch { results["dilationScore"] = 0; }
+  try { const v = input.effacementScore; results["effacementScore"] = Number.isFinite(v) ? v : 0; } catch { results["effacementScore"] = 0; }
+  try { const v = input.stationScore; results["stationScore"] = Number.isFinite(v) ? v : 0; } catch { results["stationScore"] = 0; }
+  try { const v = input.consistencyScore; results["consistencyScore"] = Number.isFinite(v) ? v : 0; } catch { results["consistencyScore"] = 0; }
+  try { const v = input.positionScore; results["positionScore"] = Number.isFinite(v) ? v : 0; } catch { results["positionScore"] = 0; }
   return results;
 }
 

@@ -2,36 +2,37 @@
 import * as z from 'zod';
 
 export interface Diet_break_calculatorInput {
+  dailyCalories: number;
+  dietDays: number;
+  breakDays: number;
+  activityFactor: number;
   weight: number;
-  height: number;
-  age: number;
-  gender: number;
-  activityLevel: number;
-  dietDurationWeeks: number;
 }
 
 export const Diet_break_calculatorInputSchema = z.object({
+  dailyCalories: z.number().default(2000),
+  dietDays: z.number().default(5),
+  breakDays: z.number().default(2),
+  activityFactor: z.number().default(1.2),
   weight: z.number().default(70),
-  height: z.number().default(170),
-  age: z.number().default(30),
-  gender: z.number().default(0),
-  activityLevel: z.number().default(1.55),
-  dietDurationWeeks: z.number().default(12),
 });
 
 function evaluateAllFormulas(input: Diet_break_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 10 * input.weight + 6.25 * input.height - 5 * input.age - 161 + 166 * input.gender; results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = (results["bmr"] ?? 0) * input.activityLevel; results["tdee"] = Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
-  try { const v = (results["tdee"] ?? 0); results["maintenanceCalories"] = Number.isFinite(v) ? v : 0; } catch { results["maintenanceCalories"] = 0; }
-  try { const v = input.dietDurationWeeks / 4; results["dietBreakWeeks"] = Number.isFinite(v) ? v : 0; } catch { results["dietBreakWeeks"] = 0; }
+  try { const v = input.dailyCalories * input.dietDays + (input.dailyCalories * input.activityFactor) * input.breakDays; results["totalWeeklyCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalWeeklyCalories"] = 0; }
+  try { const v = (input.dailyCalories * input.dietDays + (input.dailyCalories * input.activityFactor) * input.breakDays) / (input.dietDays + input.breakDays); results["averageDailyCalories"] = Number.isFinite(v) ? v : 0; } catch { results["averageDailyCalories"] = 0; }
+  try { const v = input.dailyCalories * input.activityFactor; results["breakDayCalories"] = Number.isFinite(v) ? v : 0; } catch { results["breakDayCalories"] = 0; }
+  try { const v = (input.dailyCalories * input.dietDays + (input.dailyCalories * input.activityFactor) * input.breakDays) / (input.dietDays + input.breakDays) - input.dailyCalories; results["calorieDifference"] = Number.isFinite(v) ? v : 0; } catch { results["calorieDifference"] = 0; }
+  results["Diyet_Aras__G_n_Kalorisi"] = 0;
+  results["Toplam_Haftal_k_Kalori"] = 0;
+  results["Kalori_A_____Fazlas_"] = 0;
   return results;
 }
 
 
 export function calculateDiet_break_calculator(input: Diet_break_calculatorInput): Diet_break_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["maintenanceCalories"] ?? 0;
+  const totalWasteCost = values["totalWeeklyCalories"] ?? 0;
   const breakdown = {
     
   };

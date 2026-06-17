@@ -39,35 +39,19 @@ export const Welding_cost_calculatorInputSchema = z.object({
   use_premium_material: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Welding_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.weld_length_mm / 10) * (input.weld_throat_mm / 10) * (input.weld_throat_mm / 10) / 2; results["weld_volume"] = Number.isFinite(v) ? v : 0; } catch { results["weld_volume"] = 0; }
-  try { const v = (results["weld_volume"] ?? 0) * input.material_density_g_per_cm3 / 1000 / (input.deposition_efficiency / 100); results["filler_mass"] = Number.isFinite(v) ? v : 0; } catch { results["filler_mass"] = 0; }
-  try { const v = (input.weld_length_mm / input.welding_speed_mm_per_min) / 60; results["labor_time"] = Number.isFinite(v) ? v : 0; } catch { results["labor_time"] = 0; }
-  try { const v = (results["filler_mass"] ?? 0) * input.filler_wire_cost_per_kg * (1 + (input.use_premium_material ? 0.2 : 0)); results["filler_cost"] = Number.isFinite(v) ? v : 0; } catch { results["filler_cost"] = 0; }
-  try { const v = input.gas_flow_rate_l_per_min * (input.weld_length_mm / input.welding_speed_mm_per_min) * input.gas_cost_per_liter; results["gas_cost"] = Number.isFinite(v) ? v : 0; } catch { results["gas_cost"] = 0; }
-  try { const v = input.welding_power_kw * (results["labor_time"] ?? 0) * input.energy_cost_per_kwh; results["energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["energy_cost"] = 0; }
-  try { const v = (results["labor_time"] ?? 0) * input.labor_rate_per_hour; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
-  try { const v = (results["labor_time"] ?? 0) * input.overhead_rate_per_hour; results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
-  try { const v = ((results["filler_cost"] ?? 0) + (results["gas_cost"] ?? 0) + (results["energy_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["overhead_cost"] ?? 0)) * (input.rework_rate_percent / 100) * input.rework_cost_factor; results["rework_cost"] = Number.isFinite(v) ? v : 0; } catch { results["rework_cost"] = 0; }
-  try { const v = (results["filler_cost"] ?? 0) + (results["gas_cost"] ?? 0) + (results["energy_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["overhead_cost"] ?? 0) + (results["rework_cost"] ?? 0); results["total_welding_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_welding_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Welding_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateWelding_cost_calculator(input: Welding_cost_calculatorInput): Welding_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_welding_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    fillerCost: values["fillerCost"] ?? 0,
-    gasCost: values["gasCost"] ?? 0,
-    energyCost: values["energyCost"] ?? 0,
-    laborCost: values["laborCost"] ?? 0,
-    overheadCost: values["overheadCost"] ?? 0,
-    reworkCost: values["reworkCost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Spatter Loss","Idle Time","Defect Scrap","Consumable Wear"];
-  const suggestedActions: string[] = ["Increase welding speed or reduce power to lower energy and labor costs.","Implement statistical process control (SPC) to reduce rework rate below 5%.","Switch to low-spatter wire or optimize shielding gas mix.","Evaluate robotic welding for high-volume joints to reduce labor cost."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -86,7 +70,7 @@ export function calculateWelding_cost_calculator(input: Welding_cost_calculatorI
 
 export interface Welding_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { fillerCost: number; gasCost: number; energyCost: number; laborCost: number; overheadCost: number; reworkCost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

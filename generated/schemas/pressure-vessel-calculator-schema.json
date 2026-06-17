@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 1.5,
-      "businessContext": "Design pressure of the vessel"
+      "businessContext": "Design pressure of the vessel",
+      "label_i18n": {
+        "en": "Internal Pressure",
+        "tr": "Internal Pressure",
+        "de": "Internal Pressure",
+        "fr": "Internal Pressure",
+        "es": "Internal Pressure",
+        "ar": "Internal Pressure"
+      }
     },
     {
       "id": "diameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "Internal diameter of the cylindrical shell"
+      "businessContext": "Internal diameter of the cylindrical shell",
+      "label_i18n": {
+        "en": "Inner Diameter",
+        "tr": "Inner Diameter",
+        "de": "Inner Diameter",
+        "fr": "Inner Diameter",
+        "es": "Inner Diameter",
+        "ar": "Inner Diameter"
+      }
     },
     {
       "id": "allowableStress",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 138,
-      "businessContext": "Material allowable stress at design temperature per ASME Section II Part D"
+      "businessContext": "Material allowable stress at design temperature per ASME Section II Part D",
+      "label_i18n": {
+        "en": "Allowable Stress",
+        "tr": "Allowable Stress",
+        "de": "Allowable Stress",
+        "fr": "Allowable Stress",
+        "es": "Allowable Stress",
+        "ar": "Allowable Stress"
+      }
     },
     {
       "id": "jointEfficiency",
       "label": "Joint Efficiency",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
-      "businessContext": "Weld joint efficiency factor per ASME UW-12"
+      "businessContext": "Weld joint efficiency factor per ASME UW-12",
+      "label_i18n": {
+        "en": "Joint Efficiency",
+        "tr": "Joint Efficiency",
+        "de": "Joint Efficiency",
+        "fr": "Joint Efficiency",
+        "es": "Joint Efficiency",
+        "ar": "Joint Efficiency"
+      }
     },
     {
       "id": "corrosionAllowance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3,
-      "businessContext": "Corrosion allowance added to wall thickness"
+      "businessContext": "Corrosion allowance added to wall thickness",
+      "label_i18n": {
+        "en": "Corrosion Allowance",
+        "tr": "Corrosion Allowance",
+        "de": "Corrosion Allowance",
+        "fr": "Corrosion Allowance",
+        "es": "Corrosion Allowance",
+        "ar": "Corrosion Allowance"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,7 @@
       "longitudinalThickness"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

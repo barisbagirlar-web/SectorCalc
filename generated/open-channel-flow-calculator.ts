@@ -30,13 +30,17 @@ function evaluateAllFormulas(input: Open_channel_flow_calculatorInput): Record<s
   try { const v = (results["A"] ?? 0) / (results["TopWidth"] ?? 0); results["HydraulicDepth"] = Number.isFinite(v) ? v : 0; } catch { results["HydraulicDepth"] = 0; }
   try { const v = (results["Velocity"] ?? 0) / Math.sqrt(input.gravity * (results["HydraulicDepth"] ?? 0)); results["FroudeNumber"] = Number.isFinite(v) ? v : 0; } catch { results["FroudeNumber"] = 0; }
   try { const v = input.depth + ((results["Velocity"] ?? 0) * (results["Velocity"] ?? 0)) / (2 * input.gravity); results["SpecificEnergy"] = Number.isFinite(v) ? v : 0; } catch { results["SpecificEnergy"] = 0; }
+  try { const v = (results["Velocity"] ?? 0) (m/s); results["Velocity__m_s_"] = Number.isFinite(v) ? v : 0; } catch { results["Velocity__m_s_"] = 0; }
+  results["Froude_Number"] = 0;
+  results["Hydraulic_Radius__m_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateOpen_channel_flow_calculator(input: Open_channel_flow_calculatorInput): Open_channel_flow_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Discharge"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

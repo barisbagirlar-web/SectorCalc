@@ -5,41 +5,67 @@
       "id": "t_value",
       "label": "t Değeri",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Hesaplanan t istatistiği"
+      "businessContext": "Hesaplanan t istatistiği",
+      "label_i18n": {
+        "en": "t Değeri",
+        "tr": "t Değeri",
+        "de": "t Değeri",
+        "fr": "t Değeri",
+        "es": "t Değeri",
+        "ar": "t Değeri"
+      }
     },
     {
       "id": "degrees_of_freedom",
       "label": "Serbestlik Derecesi",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Örneklem büyüklüğü eksi bir"
+      "businessContext": "Örneklem büyüklüğü eksi bir",
+      "label_i18n": {
+        "en": "Serbestlik Derecesi",
+        "tr": "Serbestlik Derecesi",
+        "de": "Serbestlik Derecesi",
+        "fr": "Serbestlik Derecesi",
+        "es": "Serbestlik Derecesi",
+        "ar": "Serbestlik Derecesi"
+      }
     },
     {
       "id": "tails",
       "label": "Kuyruk Sayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "1 veya 2 kuyruklu test"
+      "businessContext": "1 veya 2 kuyruklu test",
+      "label_i18n": {
+        "en": "Kuyruk Sayısı",
+        "tr": "Kuyruk Sayısı",
+        "de": "Kuyruk Sayısı",
+        "fr": "Kuyruk Sayısı",
+        "es": "Kuyruk Sayısı",
+        "ar": "Kuyruk Sayısı"
+      }
     }
   ],
   "formulas": {
     "cdf": "function(t, df) { var x = df / (df + t*t); var a = df / 2; var b = 0.5; var betaInc = betainc(x, a, b); return 1 - 0.5 * betaInc; }",
     "p_value": "function(t, df, tails) { var p = 1 - cdf(Math.abs(t), df); return tails === 2 ? 2 * p : p; }",
-    "critical_value": "function(alpha, df, tails) { // approximate using inverse t-distribution; return 1.0; }"
+    "critical_value": "function(alpha, df, tails) { // approximate using inverse t-distribution; return 1.0; }",
+    "_p_value_": "{p_value}",
+    "_critical_value_": "{critical_value}"
   },
   "outputs": {
-    "primary": "p_değeri",
+    "primary": "cdf",
     "breakdown": [
       "p_değeri: {p_value}",
       "Kritik t değeri (α=0.05): {critical_value}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

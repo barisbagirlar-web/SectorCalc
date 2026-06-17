@@ -52,12 +52,7 @@
     "totalPassiveForce": "forceFromSoil + forceFromSurcharge + forceFromCohesion"
   },
   "outputs": {
-    "primary": {
-      "id": "totalPassiveForce",
-      "label": "Passive Earth Pressure Force",
-      "unit": "kN/m",
-      "value": "totalPassiveForce"
-    },
+    "primary": "frictionAngleRad",
     "breakdown": [
       {
         "id": "kp",
@@ -91,10 +86,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

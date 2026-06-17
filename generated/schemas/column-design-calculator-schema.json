@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kN",
       "default": 100,
-      "businessContext": "Kolon üzerine uygulanan eksenel basınç yükü."
+      "businessContext": "Kolon üzerine uygulanan eksenel basınç yükü.",
+      "label_i18n": {
+        "en": "Eksenel Yük (Axial Load)",
+        "tr": "Eksenel Yük (Axial Load)",
+        "de": "Eksenel Yük (Axial Load)",
+        "fr": "Eksenel Yük (Axial Load)",
+        "es": "Eksenel Yük (Axial Load)",
+        "ar": "Eksenel Yük (Axial Load)"
+      }
     },
     {
       "id": "L",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Kolonun burkulma boyu, uç bağlantı koşullarına bağlıdır."
+      "businessContext": "Kolonun burkulma boyu, uç bağlantı koşullarına bağlıdır.",
+      "label_i18n": {
+        "en": "Etkili Uzunluk (Effective Length)",
+        "tr": "Etkili Uzunluk (Effective Length)",
+        "de": "Etkili Uzunluk (Effective Length)",
+        "fr": "Etkili Uzunluk (Effective Length)",
+        "es": "Etkili Uzunluk (Effective Length)",
+        "ar": "Etkili Uzunluk (Effective Length)"
+      }
     },
     {
       "id": "E",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "GPa",
       "default": 200,
-      "businessContext": "Malzemenin elastikiyet modülü; çelik için ~200 GPa."
+      "businessContext": "Malzemenin elastikiyet modülü; çelik için ~200 GPa.",
+      "label_i18n": {
+        "en": "Elastisite Modülü (Modulus of Elasticity)",
+        "tr": "Elastisite Modülü (Modulus of Elasticity)",
+        "de": "Elastisite Modülü (Modulus of Elasticity)",
+        "fr": "Elastisite Modülü (Modulus of Elasticity)",
+        "es": "Elastisite Modülü (Modulus of Elasticity)",
+        "ar": "Elastisite Modülü (Modulus of Elasticity)"
+      }
     },
     {
       "id": "I",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm⁴",
       "default": 1000,
-      "businessContext": "Kesitin zayıf eksene göre alan atalet momenti."
+      "businessContext": "Kesitin zayıf eksene göre alan atalet momenti.",
+      "label_i18n": {
+        "en": "Atalet Momenti (Moment of Inertia)",
+        "tr": "Atalet Momenti (Moment of Inertia)",
+        "de": "Atalet Momenti (Moment of Inertia)",
+        "fr": "Atalet Momenti (Moment of Inertia)",
+        "es": "Atalet Momenti (Moment of Inertia)",
+        "ar": "Atalet Momenti (Moment of Inertia)"
+      }
     },
     {
       "id": "A",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm²",
       "default": 50,
-      "businessContext": "Kolon kesitinin toplam alanı."
+      "businessContext": "Kolon kesitinin toplam alanı.",
+      "label_i18n": {
+        "en": "Kesit Alanı (Cross-Sectional Area)",
+        "tr": "Kesit Alanı (Cross-Sectional Area)",
+        "de": "Kesit Alanı (Cross-Sectional Area)",
+        "fr": "Kesit Alanı (Cross-Sectional Area)",
+        "es": "Kesit Alanı (Cross-Sectional Area)",
+        "ar": "Kesit Alanı (Cross-Sectional Area)"
+      }
     },
     {
       "id": "Fy",
@@ -47,20 +87,43 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa."
+      "businessContext": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa.",
+      "label_i18n": {
+        "en": "Akma Dayanımı (Yield Strength)",
+        "tr": "Akma Dayanımı (Yield Strength)",
+        "de": "Akma Dayanımı (Yield Strength)",
+        "fr": "Akma Dayanımı (Yield Strength)",
+        "es": "Akma Dayanımı (Yield Strength)",
+        "ar": "Akma Dayanımı (Yield Strength)"
+      }
     },
     {
       "id": "SF",
       "label": "Güvenlik Faktörü (Safety Factor)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Tasarımda istenen güvenlik katsayısı."
+      "businessContext": "Tasarımda istenen güvenlik katsayısı.",
+      "label_i18n": {
+        "en": "Güvenlik Faktörü (Safety Factor)",
+        "tr": "Güvenlik Faktörü (Safety Factor)",
+        "de": "Güvenlik Faktörü (Safety Factor)",
+        "fr": "Güvenlik Faktörü (Safety Factor)",
+        "es": "Güvenlik Faktörü (Safety Factor)",
+        "ar": "Güvenlik Faktörü (Safety Factor)"
+      }
     }
   ],
-  "formulas": {},
+  "formulas": {
+    "result": "Math.min(Math.PI ** 2 * E * I / (100 * L ** 2), A * Fy / (10 * SF))",
+    "Math_PI____2___E___I____100___L____2_": "Math.PI ** 2 * E * I / (100 * L ** 2)",
+    "A___Fy____10___SF_": "A * Fy / (10 * SF)",
+    "100___L___Math_sqrt_I___A_": "100 * L / Math.sqrt(I / A)",
+    "P___Math_min_Math_PI____2___E___I____100": "P / Math.min(Math.PI ** 2 * E * I / (100 * L ** 2), A * Fy / (10 * SF))",
+    "primary_result": "Math.min(Math.PI ** 2 * E * I / (100 * L ** 2), A * Fy / (10 * SF))"
+  },
   "outputs": {
-    "primary": "Math.min(Math.PI ** 2 * E * I / (100 * L ** 2), A * Fy / (10 * SF))",
+    "primary": "primary_result",
     "breakdown": [
       "Math.PI ** 2 * E * I / (100 * L ** 2)",
       "A * Fy / (10 * SF)",
@@ -68,10 +131,10 @@
       "P / Math.min(Math.PI ** 2 * E * I / (100 * L ** 2), A * Fy / (10 * SF))"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "project-construction-management"
 }

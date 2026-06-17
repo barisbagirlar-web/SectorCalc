@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 30,
-      "businessContext": "Total carbohydrates per serving as shown on nutrition facts label."
+      "businessContext": "Total carbohydrates per serving as shown on nutrition facts label.",
+      "label_i18n": {
+        "en": "Total Carbohydrates",
+        "tr": "Total Carbohydrates",
+        "de": "Total Carbohydrates",
+        "fr": "Total Carbohydrates",
+        "es": "Total Carbohydrates",
+        "ar": "Total Carbohydrates"
+      }
     },
     {
       "id": "dietaryFiber",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 5,
-      "businessContext": "Dietary fiber per serving in grams. Fiber is subtracted because it is not digested."
+      "businessContext": "Dietary fiber per serving in grams. Fiber is subtracted because it is not digested.",
+      "label_i18n": {
+        "en": "Dietary Fiber",
+        "tr": "Dietary Fiber",
+        "de": "Dietary Fiber",
+        "fr": "Dietary Fiber",
+        "es": "Dietary Fiber",
+        "ar": "Dietary Fiber"
+      }
     },
     {
       "id": "sugarAlcohols",
@@ -23,11 +39,22 @@
       "type": "number",
       "unit": "g",
       "default": 2,
-      "businessContext": "Sugar alcohols per serving (e.g., maltitol, sorbitol). Fully subtracted as they have minimal impact on blood sugar."
+      "businessContext": "Sugar alcohols per serving (e.g., maltitol, sorbitol). Fully subtracted as they have minimal impact on blood sugar.",
+      "label_i18n": {
+        "en": "Sugar Alcohols",
+        "tr": "Sugar Alcohols",
+        "de": "Sugar Alcohols",
+        "fr": "Sugar Alcohols",
+        "es": "Sugar Alcohols",
+        "ar": "Sugar Alcohols"
+      }
     }
   ],
   "formulas": {
-    "netCarbs": "totalCarbs - dietaryFiber - sugarAlcohols"
+    "netCarbs": "totalCarbs - dietaryFiber - sugarAlcohols",
+    "totalCarbs": "totalCarbs",
+    "dietaryFiber": "dietaryFiber",
+    "sugarAlcohols": "sugarAlcohols"
   },
   "outputs": {
     "primary": "netCarbs",
@@ -38,10 +65,10 @@
       "netCarbs"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

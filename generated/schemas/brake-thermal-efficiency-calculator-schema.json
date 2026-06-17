@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Measured brake power from engine dynamometer."
+      "businessContext": "Measured brake power from engine dynamometer.",
+      "label_i18n": {
+        "en": "Brake Power",
+        "tr": "Brake Power",
+        "de": "Brake Power",
+        "fr": "Brake Power",
+        "es": "Brake Power",
+        "ar": "Brake Power"
+      }
     },
     {
       "id": "fuelMassFlow",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/h",
       "default": 20,
-      "businessContext": "Fuel consumption rate measured by fuel flow meter."
+      "businessContext": "Fuel consumption rate measured by fuel flow meter.",
+      "label_i18n": {
+        "en": "Fuel Mass Flow Rate",
+        "tr": "Fuel Mass Flow Rate",
+        "de": "Fuel Mass Flow Rate",
+        "fr": "Fuel Mass Flow Rate",
+        "es": "Fuel Mass Flow Rate",
+        "ar": "Fuel Mass Flow Rate"
+      }
     },
     {
       "id": "lhv",
@@ -23,20 +39,37 @@
       "type": "number",
       "unit": "kJ/kg",
       "default": 42000,
-      "businessContext": "Lower heating value of the fuel (energy content)."
+      "businessContext": "Lower heating value of the fuel (energy content).",
+      "label_i18n": {
+        "en": "Lower Heating Value",
+        "tr": "Lower Heating Value",
+        "de": "Lower Heating Value",
+        "fr": "Lower Heating Value",
+        "es": "Lower Heating Value",
+        "ar": "Lower Heating Value"
+      }
     },
     {
       "id": "correctionFactor",
       "label": "Efficiency Correction Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier to account for environmental or measurement corrections (default 1 for no correction)."
+      "businessContext": "Multiplier to account for environmental or measurement corrections (default 1 for no correction).",
+      "label_i18n": {
+        "en": "Efficiency Correction Factor",
+        "tr": "Efficiency Correction Factor",
+        "de": "Efficiency Correction Factor",
+        "fr": "Efficiency Correction Factor",
+        "es": "Efficiency Correction Factor",
+        "ar": "Efficiency Correction Factor"
+      }
     }
   ],
   "formulas": {
     "energyInput": "(fuelMassFlow * lhv) / 3600",
-    "efficiency": "(brakePower / energyInput) * 100 * correctionFactor"
+    "efficiency": "(brakePower / energyInput) * 100 * correctionFactor",
+    "brakePower": "brakePower"
   },
   "outputs": {
     "primary": "efficiency",
@@ -45,10 +78,10 @@
       "brakePower"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "maintenance-reliability"
 }

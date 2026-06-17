@@ -4,16 +4,19 @@ import * as z from 'zod';
 export interface Grm_calculatorInput {
   propertyPrice: number;
   annualRentalIncome: number;
+  auto_input_3: number;
 }
 
 export const Grm_calculatorInputSchema = z.object({
   propertyPrice: z.number().default(500000),
   annualRentalIncome: z.number().default(60000),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Grm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.propertyPrice / input.annualRentalIncome; results["grm"] = Number.isFinite(v) ? v : 0; } catch { results["grm"] = 0; }
+  results["propertyPrice___annualRentalIncome___grm"] = 0;
   return results;
 }
 

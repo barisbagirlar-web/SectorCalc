@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Whole feet value"
+      "businessContext": "Whole feet value",
+      "label_i18n": {
+        "en": "Feet",
+        "tr": "Feet",
+        "de": "Feet",
+        "fr": "Feet",
+        "es": "Feet",
+        "ar": "Feet"
+      }
     },
     {
       "id": "inches",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Additional whole inches"
+      "businessContext": "Additional whole inches",
+      "label_i18n": {
+        "en": "Inches",
+        "tr": "Inches",
+        "de": "Inches",
+        "fr": "Inches",
+        "es": "Inches",
+        "ar": "Inches"
+      }
     },
     {
       "id": "fractionNumerator",
       "label": "Fractional Inch Numerator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Numerator for fractional inch (e.g., 1 for 1/2)"
+      "businessContext": "Numerator for fractional inch (e.g., 1 for 1/2)",
+      "label_i18n": {
+        "en": "Fractional Inch Numerator",
+        "tr": "Fractional Inch Numerator",
+        "de": "Fractional Inch Numerator",
+        "fr": "Fractional Inch Numerator",
+        "es": "Fractional Inch Numerator",
+        "ar": "Fractional Inch Numerator"
+      }
     },
     {
       "id": "fractionDenominator",
       "label": "Fractional Inch Denominator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Denominator for fractional inch (e.g., 2 for 1/2)"
+      "businessContext": "Denominator for fractional inch (e.g., 2 for 1/2)",
+      "label_i18n": {
+        "en": "Fractional Inch Denominator",
+        "tr": "Fractional Inch Denominator",
+        "de": "Fractional Inch Denominator",
+        "fr": "Fractional Inch Denominator",
+        "es": "Fractional Inch Denominator",
+        "ar": "Fractional Inch Denominator"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "fractionInches"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

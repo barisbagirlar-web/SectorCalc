@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Focal length of the lens. Positive for converging, negative for diverging."
+      "businessContext": "Focal length of the lens. Positive for converging, negative for diverging.",
+      "label_i18n": {
+        "en": "Focal Length (f)",
+        "tr": "Focal Length (f)",
+        "de": "Focal Length (f)",
+        "fr": "Focal Length (f)",
+        "es": "Focal Length (f)",
+        "ar": "Focal Length (f)"
+      }
     },
     {
       "id": "objectDistance",
@@ -15,7 +23,39 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Distance from the object to the lens. Positive if on the incoming light side."
+      "businessContext": "Distance from the object to the lens. Positive if on the incoming light side.",
+      "label_i18n": {
+        "en": "Object Distance (do)",
+        "tr": "Object Distance (do)",
+        "de": "Object Distance (do)",
+        "fr": "Object Distance (do)",
+        "es": "Object Distance (do)",
+        "ar": "Object Distance (do)"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
@@ -28,10 +68,10 @@
       "imageDistance"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

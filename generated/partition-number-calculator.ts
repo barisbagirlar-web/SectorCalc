@@ -18,13 +18,16 @@ export const Partition_number_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Partition_number_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 1 / (input.divisor * input.n * input.sqrt3) * Math.exp(input.pi * Math.sqrt(2 * input.n / 3)); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.n; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = exponentValue; results["exponentValue"] = Number.isFinite(v) ? v : 0; } catch { results["exponentValue"] = 0; }
+  try { const v = denominatorValue; results["denominatorValue"] = Number.isFinite(v) ? v : 0; } catch { results["denominatorValue"] = 0; }
   return results;
 }
 
 
 export function calculatePartition_number_calculator(input: Partition_number_calculatorInput): Partition_number_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["approxPartitionNumber"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

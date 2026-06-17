@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Weight of fresh fruit used in the jam recipe."
+      "businessContext": "Weight of fresh fruit used in the jam recipe.",
+      "label_i18n": {
+        "en": "Fruit Weight",
+        "tr": "Fruit Weight",
+        "de": "Fruit Weight",
+        "fr": "Fruit Weight",
+        "es": "Fruit Weight",
+        "ar": "Fruit Weight"
+      }
     },
     {
       "id": "fruitBrix",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Natural sugar content of the fruit measured in degrees Brix."
+      "businessContext": "Natural sugar content of the fruit measured in degrees Brix.",
+      "label_i18n": {
+        "en": "Fruit Brix",
+        "tr": "Fruit Brix",
+        "de": "Fruit Brix",
+        "fr": "Fruit Brix",
+        "es": "Fruit Brix",
+        "ar": "Fruit Brix"
+      }
     },
     {
       "id": "targetBrix",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 65,
-      "businessContext": "Desired final sugar concentration for proper jam setting and preservation."
+      "businessContext": "Desired final sugar concentration for proper jam setting and preservation.",
+      "label_i18n": {
+        "en": "Target Brix",
+        "tr": "Target Brix",
+        "de": "Target Brix",
+        "fr": "Target Brix",
+        "es": "Target Brix",
+        "ar": "Target Brix"
+      }
     },
     {
       "id": "pectinWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Weight of pectin powder added; usually contains sugar as a carrier."
+      "businessContext": "Weight of pectin powder added; usually contains sugar as a carrier.",
+      "label_i18n": {
+        "en": "Pectin Weight",
+        "tr": "Pectin Weight",
+        "de": "Pectin Weight",
+        "fr": "Pectin Weight",
+        "es": "Pectin Weight",
+        "ar": "Pectin Weight"
+      }
     },
     {
       "id": "pectinSugarContent",
@@ -39,25 +71,36 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Percentage of sugar in the pectin powder (typically dextrose)."
+      "businessContext": "Percentage of sugar in the pectin powder (typically dextrose).",
+      "label_i18n": {
+        "en": "Pectin Sugar Content",
+        "tr": "Pectin Sugar Content",
+        "de": "Pectin Sugar Content",
+        "fr": "Pectin Sugar Content",
+        "es": "Pectin Sugar Content",
+        "ar": "Pectin Sugar Content"
+      }
     }
   ],
   "formulas": {
     "sugarToAdd": "Math.max(0, fruitWeight * (targetBrix - fruitBrix) / (100 - targetBrix) - pectinWeight * (pectinSugarContent / 100))",
     "totalWeight": "fruitWeight + sugarToAdd + pectinWeight",
-    "finalBrix": "((fruitWeight * fruitBrix / 100) + sugarToAdd + pectinWeight * (pectinSugarContent / 100)) / totalWeight * 100"
+    "finalBrix": "((fruitWeight * fruitBrix / 100) + sugarToAdd + pectinWeight * (pectinSugarContent / 100)) / totalWeight * 100",
+    "Total_Jam_Weight__kg_": "Total Jam Weight (kg)",
+    "Final_Brix____": "Final Brix (%)",
+    "result": "Sugar to Add (kg)"
   },
   "outputs": {
-    "primary": "Sugar to Add (kg)",
+    "primary": "result",
     "breakdown": [
       "Total Jam Weight (kg)",
       "Final Brix (%)"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "Perakende & Gıda",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",
-  "categorySlug": "food-cold-chain-hygiene"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

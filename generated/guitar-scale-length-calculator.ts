@@ -24,13 +24,17 @@ function evaluateAllFormulas(input: Guitar_scale_length_calculatorInput): Record
   try { const v = 0.283 * Math.PI * Math.pow(input.stringGauge / 2, 2); results["stringUnitWeight"] = Number.isFinite(v) ? v : 0; } catch { results["stringUnitWeight"] = 0; }
   try { const v = ((results["stringUnitWeight"] ?? 0) * Math.pow(2 * (results["scaleLengthInches"] ?? 0) * input.tuningFrequency, 2)) / 386.4; results["tensionLbs"] = Number.isFinite(v) ? v : 0; } catch { results["tensionLbs"] = 0; }
   try { const v = (results["tensionLbs"] ?? 0) * 0.453592; results["tensionKg"] = Number.isFinite(v) ? v : 0; } catch { results["tensionKg"] = 0; }
+  results["__tensionLbs_toFixed_2___lbs"] = 0;
+  results["__tensionKg_toFixed_2___kg"] = 0;
+  results["__scaleLengthInches_toFixed_2___in"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateGuitar_scale_length_calculator(input: Guitar_scale_length_calculatorInput): Guitar_scale_length_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Distance"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

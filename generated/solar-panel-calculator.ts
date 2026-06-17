@@ -36,7 +36,7 @@ function evaluateAllFormulas(input: Solar_panel_calculatorInput): Record<string,
 
 export function calculateSolar_panel_calculator(input: Solar_panel_calculatorInput): Solar_panel_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["annualEnergy"] ?? 0;
+  const totalWasteCost = values["peakPower"] ?? 0;
   const breakdown = {
     
   };

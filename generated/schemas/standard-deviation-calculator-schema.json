@@ -193,159 +193,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "mean",
-      "name": "Arithmetic Mean",
-      "formula": "μ = (1/n) * Σ(x_i)",
-      "description": "Average of all data points.",
-      "order": 1
-    },
-    {
-      "id": "sum_squared_deviations",
-      "name": "Sum of Squared Deviations",
-      "formula": "SS = Σ(x_i - μ)^2",
-      "description": "Sum of squared differences from the mean.",
-      "order": 2
-    },
-    {
-      "id": "variance",
-      "name": "Variance",
-      "formula": "σ² = SS / n  (population)  or  s² = SS / (n-1) (sample)",
-      "description": "Average squared deviation from the mean, with Bessel's correction for sample.",
-      "order": 3
-    },
-    {
-      "id": "standard_deviation",
-      "name": "Standard Deviation",
-      "formula": "σ = sqrt(σ²)  or  s = sqrt(s²)",
-      "description": "Square root of variance, in original units.",
-      "order": 4
-    },
-    {
-      "id": "relative_standard_deviation",
-      "name": "Relative Standard Deviation (RSD)",
-      "formula": "RSD = (σ / μ) * 100%",
-      "description": "Coefficient of variation expressed as percentage.",
-      "order": 5
-    },
-    {
-      "id": "process_capability_cp",
-      "name": "Process Capability Index Cp",
-      "formula": "Cp = (USL - LSL) / (6 * σ)",
-      "description": "Measures potential process capability assuming centered process.",
-      "order": 6
-    },
-    {
-      "id": "process_capability_cpk",
-      "name": "Process Capability Index Cpk",
-      "formula": "Cpk = min( (USL - μ)/(3σ), (μ - LSL)/(3σ) )",
-      "description": "Measures actual process capability accounting for centering.",
-      "order": 7
-    }
+    "data_points",
+    "data_points",
+    "data_points",
+    "data_points",
+    "data_points",
+    "data_points",
+    "data_points"
   ],
   "outputs": {
-    "primary": {
-      "id": "standard_deviation",
-      "label": "Standard Deviation",
-      "value": null,
-      "unit": "same as input unit",
-      "description": "Primary measure of process variability."
-    },
-    "breakdown": {
-      "mean": {
-        "id": "mean",
-        "label": "Mean",
-        "value": null,
-        "unit": "same as input unit"
-      },
-      "variance": {
-        "id": "variance",
-        "label": "Variance",
-        "value": null,
-        "unit": "squared input unit"
-      },
-      "sample_size": {
-        "id": "sample_size",
-        "label": "Sample Size (n)",
-        "value": null,
-        "unit": "count"
-      },
-      "sum_squared_deviations": {
-        "id": "sum_squared_deviations",
-        "label": "Sum of Squared Deviations",
-        "value": null,
-        "unit": "squared input unit"
-      },
-      "relative_standard_deviation": {
-        "id": "relative_standard_deviation",
-        "label": "Relative Standard Deviation (RSD)",
-        "value": null,
-        "unit": "%"
-      },
-      "cp": {
-        "id": "cp",
-        "label": "Cp",
-        "value": null,
-        "unit": "unitless"
-      },
-      "cpk": {
-        "id": "cpk",
-        "label": "Cpk",
-        "value": null,
-        "unit": "unitless"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "high_variation",
-        "label": "High Process Variation",
-        "description": "Standard deviation exceeds acceptable tolerance-based threshold, leading to increased defect rate and rework costs.",
-        "severity": "critical"
-      },
-      {
-        "id": "off_center_mean",
-        "label": "Off-Center Process Mean",
-        "description": "Mean deviates from target, causing asymmetric scrap and potential customer dissatisfaction.",
-        "severity": "warning"
-      },
-      {
-        "id": "insufficient_sample_size",
-        "label": "Insufficient Sample Size",
-        "description": "Small sample size reduces confidence in standard deviation estimate, increasing risk of wrong decisions.",
-        "severity": "warning"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_reduce_variation",
-        "label": "Reduce Process Variation",
-        "description": "Implement statistical process control (SPC) and root cause analysis to identify and eliminate sources of variation."
-      },
-      {
-        "id": "action_center_process",
-        "label": "Center Process on Target",
-        "description": "Adjust process parameters (e.g., tool offset, temperature) to shift mean toward target value."
-      },
-      {
-        "id": "action_increase_sample",
-        "label": "Increase Sample Size",
-        "description": "Collect more data points to improve reliability of standard deviation estimate and capability indices."
-      },
-      {
-        "id": "action_review_specifications",
-        "label": "Review Specification Limits",
-        "description": "If Cp/Cpk are low, consider tolerance relaxation or process redesign to meet requirements."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_std_dev",
-      "label": "Data Confidence Adjusted Standard Deviation",
-      "value": null,
-      "unit": "same as input unit",
-      "description": "Standard deviation adjusted for small sample bias using correction factor c4 (from ISO 5725)."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "standard-deviation-calculator"
 }

@@ -20,6 +20,11 @@ export const Subjective_well_being_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Subjective_well_being_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.physical + input.mental + input.social + input.emotional + input.spiritual) / 5; results["overallScore"] = Number.isFinite(v) ? v : 0; } catch { results["overallScore"] = 0; }
+  try { const v = input.physical; results["physical"] = Number.isFinite(v) ? v : 0; } catch { results["physical"] = 0; }
+  try { const v = input.mental; results["mental"] = Number.isFinite(v) ? v : 0; } catch { results["mental"] = 0; }
+  try { const v = input.social; results["social"] = Number.isFinite(v) ? v : 0; } catch { results["social"] = 0; }
+  try { const v = input.emotional; results["emotional"] = Number.isFinite(v) ? v : 0; } catch { results["emotional"] = 0; }
+  try { const v = input.spiritual; results["spiritual"] = Number.isFinite(v) ? v : 0; } catch { results["spiritual"] = 0; }
   return results;
 }
 

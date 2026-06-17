@@ -5,58 +5,101 @@
       "id": "n",
       "label": "Veri Sayısı (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Gözlem sayısı"
+      "businessContext": "Gözlem sayısı",
+      "label_i18n": {
+        "en": "Veri Sayısı (n)",
+        "tr": "Veri Sayısı (n)",
+        "de": "Veri Sayısı (n)",
+        "fr": "Veri Sayısı (n)",
+        "es": "Veri Sayısı (n)",
+        "ar": "Veri Sayısı (n)"
+      }
     },
     {
       "id": "sumX",
       "label": "x Toplamı (Σx)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 55,
-      "businessContext": "Bağımsız değişkenin toplamı"
+      "businessContext": "Bağımsız değişkenin toplamı",
+      "label_i18n": {
+        "en": "x Toplamı (Σx)",
+        "tr": "x Toplamı (Σx)",
+        "de": "x Toplamı (Σx)",
+        "fr": "x Toplamı (Σx)",
+        "es": "x Toplamı (Σx)",
+        "ar": "x Toplamı (Σx)"
+      }
     },
     {
       "id": "sumY",
       "label": "y Toplamı (Σy)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Bağımlı değişkenin toplamı"
+      "businessContext": "Bağımlı değişkenin toplamı",
+      "label_i18n": {
+        "en": "y Toplamı (Σy)",
+        "tr": "y Toplamı (Σy)",
+        "de": "y Toplamı (Σy)",
+        "fr": "y Toplamı (Σy)",
+        "es": "y Toplamı (Σy)",
+        "ar": "y Toplamı (Σy)"
+      }
     },
     {
       "id": "sumXY",
       "label": "x·y Toplamı (Σxy)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 600,
-      "businessContext": "Bağımsız ve bağımlı değişkenin çarpımlarının toplamı"
+      "businessContext": "Bağımsız ve bağımlı değişkenin çarpımlarının toplamı",
+      "label_i18n": {
+        "en": "x·y Toplamı (Σxy)",
+        "tr": "x·y Toplamı (Σxy)",
+        "de": "x·y Toplamı (Σxy)",
+        "fr": "x·y Toplamı (Σxy)",
+        "es": "x·y Toplamı (Σxy)",
+        "ar": "x·y Toplamı (Σxy)"
+      }
     },
     {
       "id": "sumX2",
       "label": "x² Toplamı (Σx²)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 385,
-      "businessContext": "Bağımsız değişkenin karelerinin toplamı"
+      "businessContext": "Bağımsız değişkenin karelerinin toplamı",
+      "label_i18n": {
+        "en": "x² Toplamı (Σx²)",
+        "tr": "x² Toplamı (Σx²)",
+        "de": "x² Toplamı (Σx²)",
+        "fr": "x² Toplamı (Σx²)",
+        "es": "x² Toplamı (Σx²)",
+        "ar": "x² Toplamı (Σx²)"
+      }
     }
   ],
   "formulas": {
     "b": "(n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX)",
-    "a": "(sumY - b * sumX) / n"
+    "a": "(sumY - b * sumX) / n",
+    "__b_toFixed_4__": "${b.toFixed(4)}",
+    "__a_toFixed_4__": "${a.toFixed(4)}",
+    "result": "Regresyon Denklemi: y = ${a.toFixed(4)} + ${b.toFixed(4)}·x"
   },
   "outputs": {
-    "primary": "Regresyon Denklemi: y = ${a.toFixed(4)} + ${b.toFixed(4)}·x",
+    "primary": "result",
     "breakdown": [
       "Eğim (b): ${b.toFixed(4)}",
       "Kesişim (a): ${a.toFixed(4)}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

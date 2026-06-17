@@ -5,41 +5,78 @@
       "id": "functionType",
       "label": "Function Type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: polynomial, 2: exponential, 3: trigonometric"
+      "businessContext": "1: polynomial, 2: exponential, 3: trigonometric",
+      "label_i18n": {
+        "en": "Function Type",
+        "tr": "Function Type",
+        "de": "Function Type",
+        "fr": "Function Type",
+        "es": "Function Type",
+        "ar": "Function Type"
+      }
     },
     {
       "id": "coefficient",
       "label": "Coefficient (a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of the function"
+      "businessContext": "Coefficient of the function",
+      "label_i18n": {
+        "en": "Coefficient (a)",
+        "tr": "Coefficient (a)",
+        "de": "Coefficient (a)",
+        "fr": "Coefficient (a)",
+        "es": "Coefficient (a)",
+        "ar": "Coefficient (a)"
+      }
     },
     {
       "id": "exponent",
       "label": "Exponent (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Exponent for polynomial (n != -1)"
+      "businessContext": "Exponent for polynomial (n != -1)",
+      "label_i18n": {
+        "en": "Exponent (n)",
+        "tr": "Exponent (n)",
+        "de": "Exponent (n)",
+        "fr": "Exponent (n)",
+        "es": "Exponent (n)",
+        "ar": "Exponent (n)"
+      }
     },
     {
       "id": "constant",
       "label": "Constant (C)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Integration constant"
+      "businessContext": "Integration constant",
+      "label_i18n": {
+        "en": "Constant (C)",
+        "tr": "Constant (C)",
+        "de": "Constant (C)",
+        "fr": "Constant (C)",
+        "es": "Constant (C)",
+        "ar": "Constant (C)"
+      }
     }
   ],
   "formulas": {
     "integralResult": "functionType === 1 ? (coefficient * (x ** (exponent + 1)) / (exponent + 1)) + constant : functionType === 2 ? (coefficient * Math.exp(x)) + constant : functionType === 3 ? (-coefficient * Math.cos(x)) + constant : 0",
-    "x": "1"
+    "x": "1",
+    "a____coefficient_": "a = {coefficient}",
+    "n____exponent_": "n = {exponent}",
+    "C____constant_": "C = {constant}",
+    "_integralResult_": "{integralResult}",
+    "result": "∫ f(x) dx = (a * x^(n+1))/(n+1) + C"
   },
   "outputs": {
-    "primary": "∫ f(x) dx = (a * x^(n+1))/(n+1) + C",
+    "primary": "result",
     "breakdown": [
       "Coefficient: a = {coefficient}",
       "Exponent: n = {exponent}",
@@ -47,10 +84,10 @@
       "Result: {integralResult}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Stopping_sight_distance_calculatorInput): Re
 
 export function calculateStopping_sight_distance_calculator(input: Stopping_sight_distance_calculatorInput): Stopping_sight_distance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["ssd"] ?? 0;
+  const totalWasteCost = values["reactionDist"] ?? 0;
   const breakdown = {
     
   };

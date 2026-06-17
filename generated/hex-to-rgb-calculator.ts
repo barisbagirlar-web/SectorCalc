@@ -31,7 +31,7 @@ function evaluateAllFormulas(input: Hex_to_rgb_calculatorInput): Record<string, 
 
 export function calculateHex_to_rgb_calculator(input: Hex_to_rgb_calculatorInput): Hex_to_rgb_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["red"] ?? 0;
   const breakdown = {
     
   };

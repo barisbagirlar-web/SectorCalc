@@ -21,6 +21,9 @@ function evaluateAllFormulas(input: Adjusted_r_squared_calculatorInput): Record<
   try { const v = input.sampleSize - input.predictors - 1; results["denominator"] = Number.isFinite(v) ? v : 0; } catch { results["denominator"] = 0; }
   try { const v = (results["denominator"] ?? 0) > 0 ? 1 - ((results["numerator"] ?? 0) / (results["denominator"] ?? 0)) : NaN; results["adjustedRSquared"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedRSquared"] = 0; }
   try { const v = Number.isFinite((results["adjustedRSquared"] ?? 0)) ? Math.round((results["adjustedRSquared"] ?? 0) * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces) : NaN; results["adjustedRSquaredFormatted"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedRSquaredFormatted"] = 0; }
+  try { const v = input.rSquared; results["rSquared"] = Number.isFinite(v) ? v : 0; } catch { results["rSquared"] = 0; }
+  try { const v = input.sampleSize; results["sampleSize"] = Number.isFinite(v) ? v : 0; } catch { results["sampleSize"] = 0; }
+  try { const v = input.predictors; results["predictors"] = Number.isFinite(v) ? v : 0; } catch { results["predictors"] = 0; }
   return results;
 }
 

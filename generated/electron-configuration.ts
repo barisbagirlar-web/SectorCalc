@@ -22,13 +22,15 @@ function evaluateAllFormulas(input: Electron_configurationInput): Record<string,
   try { const v = input.atomicNumber - input.screening; results["z_eff"] = Number.isFinite(v) ? v : 0; } catch { results["z_eff"] = 0; }
   try { const v = 1 / input.n1**2 - 1 / input.n2**2; results["invDiff"] = Number.isFinite(v) ? v : 0; } catch { results["invDiff"] = 0; }
   try { const v = input.rydberg * (results["z_eff"] ?? 0)**2 * (results["invDiff"] ?? 0); results["energy"] = Number.isFinite(v) ? v : 0; } catch { results["energy"] = 0; }
+  results["Effective_Nuclear_Charge__Z_eff_"] = 0;
+  results["Energy_Difference_Term__1_n1_2___1_n2_2_"] = 0;
   return results;
 }
 
 
 export function calculateElectron_configuration(input: Electron_configurationInput): Electron_configurationOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Transition"] ?? 0;
+  const totalWasteCost = values["z_eff"] ?? 0;
   const breakdown = {
     
   };

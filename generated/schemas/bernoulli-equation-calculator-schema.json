@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Akışkanın yoğunluğu (örneğin su için 1000 kg/m³)"
+      "businessContext": "Akışkanın yoğunluğu (örneğin su için 1000 kg/m³)",
+      "label_i18n": {
+        "en": "Akışkan Yoğunluğu (ρ)",
+        "tr": "Akışkan Yoğunluğu (ρ)",
+        "de": "Akışkan Yoğunluğu (ρ)",
+        "fr": "Akışkan Yoğunluğu (ρ)",
+        "es": "Akışkan Yoğunluğu (ρ)",
+        "ar": "Akışkan Yoğunluğu (ρ)"
+      }
     },
     {
       "id": "g",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Standart yerçekimi ivmesi; 9.81 m/s² alınır"
+      "businessContext": "Standart yerçekimi ivmesi; 9.81 m/s² alınır",
+      "label_i18n": {
+        "en": "Yerçekimi İvmesi (g)",
+        "tr": "Yerçekimi İvmesi (g)",
+        "de": "Yerçekimi İvmesi (g)",
+        "fr": "Yerçekimi İvmesi (g)",
+        "es": "Yerçekimi İvmesi (g)",
+        "ar": "Yerçekimi İvmesi (g)"
+      }
     },
     {
       "id": "P1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Giriş noktasındaki mutlak basınç (örneğin atmosfer basıncı 101325 Pa)"
+      "businessContext": "Giriş noktasındaki mutlak basınç (örneğin atmosfer basıncı 101325 Pa)",
+      "label_i18n": {
+        "en": "1 Noktası Basıncı (P₁)",
+        "tr": "1 Noktası Basıncı (P₁)",
+        "de": "1 Noktası Basıncı (P₁)",
+        "fr": "1 Noktası Basıncı (P₁)",
+        "es": "1 Noktası Basıncı (P₁)",
+        "ar": "1 Noktası Basıncı (P₁)"
+      }
     },
     {
       "id": "v1",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 1,
-      "businessContext": "Giriş noktasındaki akış hızı"
+      "businessContext": "Giriş noktasındaki akış hızı",
+      "label_i18n": {
+        "en": "1 Noktası Hızı (v₁)",
+        "tr": "1 Noktası Hızı (v₁)",
+        "de": "1 Noktası Hızı (v₁)",
+        "fr": "1 Noktası Hızı (v₁)",
+        "es": "1 Noktası Hızı (v₁)",
+        "ar": "1 Noktası Hızı (v₁)"
+      }
     },
     {
       "id": "z1",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Giriş noktasının referans seviyeye göre yüksekliği"
+      "businessContext": "Giriş noktasının referans seviyeye göre yüksekliği",
+      "label_i18n": {
+        "en": "1 Noktası Yüksekliği (z₁)",
+        "tr": "1 Noktası Yüksekliği (z₁)",
+        "de": "1 Noktası Yüksekliği (z₁)",
+        "fr": "1 Noktası Yüksekliği (z₁)",
+        "es": "1 Noktası Yüksekliği (z₁)",
+        "ar": "1 Noktası Yüksekliği (z₁)"
+      }
     },
     {
       "id": "P2",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Çıkış noktasındaki mutlak basınç"
+      "businessContext": "Çıkış noktasındaki mutlak basınç",
+      "label_i18n": {
+        "en": "2 Noktası Basıncı (P₂)",
+        "tr": "2 Noktası Basıncı (P₂)",
+        "de": "2 Noktası Basıncı (P₂)",
+        "fr": "2 Noktası Basıncı (P₂)",
+        "es": "2 Noktası Basıncı (P₂)",
+        "ar": "2 Noktası Basıncı (P₂)"
+      }
     },
     {
       "id": "z2",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Çıkış noktasının referans seviyeye göre yüksekliği"
+      "businessContext": "Çıkış noktasının referans seviyeye göre yüksekliği",
+      "label_i18n": {
+        "en": "2 Noktası Yüksekliği (z₂)",
+        "tr": "2 Noktası Yüksekliği (z₂)",
+        "de": "2 Noktası Yüksekliği (z₂)",
+        "fr": "2 Noktası Yüksekliği (z₂)",
+        "es": "2 Noktası Yüksekliği (z₂)",
+        "ar": "2 Noktası Yüksekliği (z₂)"
+      }
     },
     {
       "id": "head_loss",
@@ -63,14 +119,28 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İki nokta arasındaki toplam yük kaybı (sürtünme vb.), 0 girilirse kayıpsız kabul edilir"
+      "businessContext": "İki nokta arasındaki toplam yük kaybı (sürtünme vb.), 0 girilirse kayıpsız kabul edilir",
+      "label_i18n": {
+        "en": "Yük Kaybı (hₗ)",
+        "tr": "Yük Kaybı (hₗ)",
+        "de": "Yük Kaybı (hₗ)",
+        "fr": "Yük Kaybı (hₗ)",
+        "es": "Yük Kaybı (hₗ)",
+        "ar": "Yük Kaybı (hₗ)"
+      }
     }
   ],
   "formulas": {
-    "v2": "Math.sqrt(2 * ((P1 - P2) / density + g * (z1 - z2) + v1 * v1 / 2 - g * head_loss))"
+    "v2": "Math.sqrt(2 * ((P1 - P2) / density + g * (z1 - z2) + v1 * v1 / 2 - g * head_loss))",
+    "_P____P________g_____value__m": "(P₁ - P₂) / (ρ·g) = {value} m",
+    "z____z_____value__m": "z₁ - z₂ = {value} m",
+    "v____2g_____value__m": "v₁²/(2g) = {value} m",
+    "_h____P__P_____g_____z__z_____v____2g___": "Δh = (P₁-P₂)/(ρg) + (z₁-z₂) + v₁²/(2g) - hₗ = {value} m",
+    "v______2g__h_____value__m_s": "v₂ = √(2g·Δh) = {value} m/s",
+    "result": "Hız (v₂)"
   },
   "outputs": {
-    "primary": "Hız (v₂)",
+    "primary": "result",
     "breakdown": [
       "Basınç enerjisi farkı yüksekliği: (P₁ - P₂) / (ρ·g) = {value} m",
       "Potansiyel enerji farkı: z₁ - z₂ = {value} m",
@@ -79,10 +149,10 @@
       "v₂ = √(2g·Δh) = {value} m/s"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "metal-plastics-forming"
 }

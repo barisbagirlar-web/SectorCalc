@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "The real interest rate adjusted for inflation."
+      "businessContext": "The real interest rate adjusted for inflation.",
+      "label_i18n": {
+        "en": "Real Interest Rate",
+        "tr": "Real Interest Rate",
+        "de": "Real Interest Rate",
+        "fr": "Real Interest Rate",
+        "es": "Real Interest Rate",
+        "ar": "Real Interest Rate"
+      }
     },
     {
       "id": "inflationRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "The expected inflation rate."
+      "businessContext": "The expected inflation rate.",
+      "label_i18n": {
+        "en": "Inflation Rate",
+        "tr": "Inflation Rate",
+        "de": "Inflation Rate",
+        "fr": "Inflation Rate",
+        "es": "Inflation Rate",
+        "ar": "Inflation Rate"
+      }
     },
     {
       "id": "taxRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "The tax rate applied to interest income."
+      "businessContext": "The tax rate applied to interest income.",
+      "label_i18n": {
+        "en": "Tax Rate on Interest Income",
+        "tr": "Tax Rate on Interest Income",
+        "de": "Tax Rate on Interest Income",
+        "fr": "Tax Rate on Interest Income",
+        "es": "Tax Rate on Interest Income",
+        "ar": "Tax Rate on Interest Income"
+      }
     },
     {
       "id": "feePercentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.5,
-      "businessContext": "Annual fee as a percentage of the principal."
+      "businessContext": "Annual fee as a percentage of the principal.",
+      "label_i18n": {
+        "en": "Annual Fee Percentage",
+        "tr": "Annual Fee Percentage",
+        "de": "Annual Fee Percentage",
+        "fr": "Annual Fee Percentage",
+        "es": "Annual Fee Percentage",
+        "ar": "Annual Fee Percentage"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,16 @@
     "afterTaxDecimal": "nominalDecimal * (1 - taxDecimal)",
     "afterTaxRatePercent": "afterTaxDecimal * 100",
     "afterFeesDecimal": "afterTaxDecimal - feeDecimal",
-    "afterFeesRatePercent": "afterFeesDecimal * 100"
+    "afterFeesRatePercent": "afterFeesDecimal * 100",
+    "Real_Rate__decimal_": "Real Rate (decimal)",
+    "Inflation_Rate__decimal_": "Inflation Rate (decimal)",
+    "Nominal_Rate__decimal_": "Nominal Rate (decimal)",
+    "After_Tax_Nominal_Rate____": "After-Tax Nominal Rate (%)",
+    "After_Fees_Nominal_Rate____": "After-Fees Nominal Rate (%)",
+    "result": "Nominal Interest Rate (%)"
   },
   "outputs": {
-    "primary": "Nominal Interest Rate (%)",
+    "primary": "result",
     "breakdown": [
       "Real Rate (decimal)",
       "Inflation Rate (decimal)",
@@ -56,7 +94,7 @@
       "After-Fees Nominal Rate (%)"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

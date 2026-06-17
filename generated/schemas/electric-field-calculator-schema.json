@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "C",
       "default": 0.000001,
-      "businessContext": "Charge of first point charge (Q1)"
+      "businessContext": "Charge of first point charge (Q1)",
+      "label_i18n": {
+        "en": "Charge 1",
+        "tr": "Charge 1",
+        "de": "Charge 1",
+        "fr": "Charge 1",
+        "es": "Charge 1",
+        "ar": "Charge 1"
+      }
     },
     {
       "id": "r1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Distance from first charge (r1)"
+      "businessContext": "Distance from first charge (r1)",
+      "label_i18n": {
+        "en": "Distance 1",
+        "tr": "Distance 1",
+        "de": "Distance 1",
+        "fr": "Distance 1",
+        "es": "Distance 1",
+        "ar": "Distance 1"
+      }
     },
     {
       "id": "Q2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "C",
       "default": -0.000001,
-      "businessContext": "Charge of second point charge (Q2)"
+      "businessContext": "Charge of second point charge (Q2)",
+      "label_i18n": {
+        "en": "Charge 2",
+        "tr": "Charge 2",
+        "de": "Charge 2",
+        "fr": "Charge 2",
+        "es": "Charge 2",
+        "ar": "Charge 2"
+      }
     },
     {
       "id": "r2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Distance from second charge (r2)"
+      "businessContext": "Distance from second charge (r2)",
+      "label_i18n": {
+        "en": "Distance 2",
+        "tr": "Distance 2",
+        "de": "Distance 2",
+        "fr": "Distance 2",
+        "es": "Distance 2",
+        "ar": "Distance 2"
+      }
     },
     {
       "id": "theta",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "°",
       "default": 90,
-      "businessContext": "Angle between the individual electric field vectors at the point (theta)"
+      "businessContext": "Angle between the individual electric field vectors at the point (theta)",
+      "label_i18n": {
+        "en": "Angle",
+        "tr": "Angle",
+        "de": "Angle",
+        "fr": "Angle",
+        "es": "Angle",
+        "ar": "Angle"
+      }
     },
     {
       "id": "epsilon_r",
       "label": "Relative Permittivity",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Relative permittivity of the medium (εr), dimensionless"
+      "businessContext": "Relative permittivity of the medium (εr), dimensionless",
+      "label_i18n": {
+        "en": "Relative Permittivity",
+        "tr": "Relative Permittivity",
+        "de": "Relative Permittivity",
+        "fr": "Relative Permittivity",
+        "es": "Relative Permittivity",
+        "ar": "Relative Permittivity"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "E2"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

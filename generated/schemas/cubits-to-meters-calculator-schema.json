@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cubit",
       "default": 1,
-      "businessContext": "Enter the number of cubits to convert."
+      "businessContext": "Enter the number of cubits to convert.",
+      "label_i18n": {
+        "en": "Cubits",
+        "tr": "Cubits",
+        "de": "Cubits",
+        "fr": "Cubits",
+        "es": "Cubits",
+        "ar": "Cubits"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,27 +23,55 @@
       "type": "number",
       "unit": "m/cubit",
       "default": 0.4572,
-      "businessContext": "Standard conversion factor: 1 cubit = 0.4572 m. Adjust if using a different definition."
+      "businessContext": "Standard conversion factor: 1 cubit = 0.4572 m. Adjust if using a different definition.",
+      "label_i18n": {
+        "en": "Conversion Factor (m per cubit)",
+        "tr": "Conversion Factor (m per cubit)",
+        "de": "Conversion Factor (m per cubit)",
+        "fr": "Conversion Factor (m per cubit)",
+        "es": "Conversion Factor (m per cubit)",
+        "ar": "Conversion Factor (m per cubit)"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for display (affects breakdown rounding)."
+      "businessContext": "Number of decimal places for display (affects breakdown rounding).",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "roundingMethod",
       "label": "Rounding Method",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0: standard (not implemented in formula; for future use), 1: floor, 2: ceil. Currently only raw value computed."
+      "businessContext": "0: standard (not implemented in formula; for future use), 1: floor, 2: ceil. Currently only raw value computed.",
+      "label_i18n": {
+        "en": "Rounding Method",
+        "tr": "Rounding Method",
+        "de": "Rounding Method",
+        "fr": "Rounding Method",
+        "es": "Rounding Method",
+        "ar": "Rounding Method"
+      }
     }
   ],
   "formulas": {
-    "rawMeters": "cubits * conversionFactor"
+    "rawMeters": "cubits * conversionFactor",
+    "cubits": "cubits",
+    "conversionFactor": "conversionFactor",
+    "decimalPlaces": "decimalPlaces",
+    "roundingMethod": "roundingMethod"
   },
   "outputs": {
     "primary": "rawMeters",
@@ -46,10 +82,10 @@
       "roundingMethod"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

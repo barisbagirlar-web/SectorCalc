@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "tbsp",
       "default": 1,
-      "businessContext": "Number of tablespoons to convert to milliliters."
+      "businessContext": "Number of tablespoons to convert to milliliters.",
+      "label_i18n": {
+        "en": "Tablespoons",
+        "tr": "Tablespoons",
+        "de": "Tablespoons",
+        "fr": "Tablespoons",
+        "es": "Tablespoons",
+        "ar": "Tablespoons"
+      }
     },
     {
       "id": "batchSize",
       "label": "Batch Size",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of identical batches (multiplier for total tablespoons)."
+      "businessContext": "Number of identical batches (multiplier for total tablespoons).",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     },
     {
       "id": "conversionType",
       "label": "Tablespoon Standard",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1=US (14.79 ml), 2=Metric (15 ml), 3=UK (17.76 ml), 4=Australian (20 ml)."
+      "businessContext": "1=US (14.79 ml), 2=Metric (15 ml), 3=UK (17.76 ml), 4=Australian (20 ml).",
+      "label_i18n": {
+        "en": "Tablespoon Standard",
+        "tr": "Tablespoon Standard",
+        "de": "Tablespoon Standard",
+        "fr": "Tablespoon Standard",
+        "es": "Tablespoon Standard",
+        "ar": "Tablespoon Standard"
+      }
     },
     {
       "id": "precision",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "decimals",
       "default": 2,
-      "businessContext": "Number of decimal places for the result."
+      "businessContext": "Number of decimal places for the result.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "customFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ml/tbsp",
       "default": 0,
-      "businessContext": "Override standard conversion factor (0 to use selected standard)."
+      "businessContext": "Override standard conversion factor (0 to use selected standard).",
+      "label_i18n": {
+        "en": "Custom Conversion Factor",
+        "tr": "Custom Conversion Factor",
+        "de": "Custom Conversion Factor",
+        "fr": "Custom Conversion Factor",
+        "es": "Custom Conversion Factor",
+        "ar": "Custom Conversion Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "conversionFactorUsed"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

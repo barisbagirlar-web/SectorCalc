@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Standard enthalpy of formation of the ionic compound from its elements."
+      "businessContext": "Standard enthalpy of formation of the ionic compound from its elements.",
+      "label_i18n": {
+        "en": "Formation Enthalpy (ΔH_f)",
+        "tr": "Formation Enthalpy (ΔH_f)",
+        "de": "Formation Enthalpy (ΔH_f)",
+        "fr": "Formation Enthalpy (ΔH_f)",
+        "es": "Formation Enthalpy (ΔH_f)",
+        "ar": "Formation Enthalpy (ΔH_f)"
+      }
     },
     {
       "id": "sublimationEnergy",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Energy required to vaporize one mole of the metal (cation precursor)."
+      "businessContext": "Energy required to vaporize one mole of the metal (cation precursor).",
+      "label_i18n": {
+        "en": "Sublimation Energy (S)",
+        "tr": "Sublimation Energy (S)",
+        "de": "Sublimation Energy (S)",
+        "fr": "Sublimation Energy (S)",
+        "es": "Sublimation Energy (S)",
+        "ar": "Sublimation Energy (S)"
+      }
     },
     {
       "id": "atomizationEnthalpyPerX",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Energy required to form one mole of isolated gaseous X atoms from the standard state of element X (e.g., ½ bond dissociation energy for diatomic X₂)."
+      "businessContext": "Energy required to form one mole of isolated gaseous X atoms from the standard state of element X (e.g., ½ bond dissociation energy for diatomic X₂).",
+      "label_i18n": {
+        "en": "Atomization Enthalpy per X atom",
+        "tr": "Atomization Enthalpy per X atom",
+        "de": "Atomization Enthalpy per X atom",
+        "fr": "Atomization Enthalpy per X atom",
+        "es": "Atomization Enthalpy per X atom",
+        "ar": "Atomization Enthalpy per X atom"
+      }
     },
     {
       "id": "ionizationEnergy",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Energy required to remove the most loosely held electron from one mole of gaseous metal atoms to form cations."
+      "businessContext": "Energy required to remove the most loosely held electron from one mole of gaseous metal atoms to form cations.",
+      "label_i18n": {
+        "en": "Ionization Energy (IP)",
+        "tr": "Ionization Energy (IP)",
+        "de": "Ionization Energy (IP)",
+        "fr": "Ionization Energy (IP)",
+        "es": "Ionization Energy (IP)",
+        "ar": "Ionization Energy (IP)"
+      }
     },
     {
       "id": "latticeEnergy",
@@ -39,11 +71,24 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Energy released when gaseous ions combine to form one mole of the ionic solid (exothermic, input as positive magnitude)."
+      "businessContext": "Energy released when gaseous ions combine to form one mole of the ionic solid (exothermic, input as positive magnitude).",
+      "label_i18n": {
+        "en": "Lattice Energy (U)",
+        "tr": "Lattice Energy (U)",
+        "de": "Lattice Energy (U)",
+        "fr": "Lattice Energy (U)",
+        "es": "Lattice Energy (U)",
+        "ar": "Lattice Energy (U)"
+      }
     }
   ],
   "formulas": {
-    "electronAffinity": "sublimationEnergy + atomizationEnthalpyPerX + ionizationEnergy + latticeEnergy - formationEnthalpy"
+    "electronAffinity": "sublimationEnergy + atomizationEnthalpyPerX + ionizationEnergy + latticeEnergy - formationEnthalpy",
+    "formationEnthalpy": "formationEnthalpy",
+    "sublimationEnergy": "sublimationEnergy",
+    "atomizationEnthalpyPerX": "atomizationEnthalpyPerX",
+    "ionizationEnergy": "ionizationEnergy",
+    "latticeEnergy": "latticeEnergy"
   },
   "outputs": {
     "primary": "electronAffinity",
@@ -56,10 +101,10 @@
       "electronAffinity"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

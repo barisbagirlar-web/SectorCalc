@@ -23,13 +23,16 @@ function evaluateAllFormulas(input: Pps_calculatorInput): Record<string, number>
   try { const v = (results["productionRate_pps"] ?? 0) * 60; results["productionRate_pcsPerMinute"] = Number.isFinite(v) ? v : 0; } catch { results["productionRate_pcsPerMinute"] = 0; }
   try { const v = (results["productionRate_pps"] ?? 0) * 3600; results["productionRate_pcsPerHour"] = Number.isFinite(v) ? v : 0; } catch { results["productionRate_pcsPerHour"] = 0; }
   try { const v = (results["productionRate_pps"] ?? 0) * 3600 * input.shiftDuration; results["productionRate_pcsPerShift"] = Number.isFinite(v) ? v : 0; } catch { results["productionRate_pcsPerShift"] = 0; }
+  results["productionRate_pcsPerMinute_pieces_minut"] = 0;
+  results["productionRate_pcsPerHour_pieces_hour"] = 0;
+  results["productionRate_pcsPerShift_pieces_shift_"] = 0;
   return results;
 }
 
 
 export function calculatePps_calculator(input: Pps_calculatorInput): Pps_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["productionRate_pps"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Dış yarıçap metre cinsinden."
+      "businessContext": "Dış yarıçap metre cinsinden.",
+      "label_i18n": {
+        "en": "Dış Yarıçap (R)",
+        "tr": "Dış Yarıçap (R)",
+        "de": "Dış Yarıçap (R)",
+        "fr": "Dış Yarıçap (R)",
+        "es": "Dış Yarıçap (R)",
+        "ar": "Dış Yarıçap (R)"
+      }
     },
     {
       "id": "innerRadius",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "İç yarıçap metre cinsinden (dolu silindir için 0)."
+      "businessContext": "İç yarıçap metre cinsinden (dolu silindir için 0).",
+      "label_i18n": {
+        "en": "İç Yarıçap (r)",
+        "tr": "İç Yarıçap (r)",
+        "de": "İç Yarıçap (r)",
+        "fr": "İç Yarıçap (r)",
+        "es": "İç Yarıçap (r)",
+        "ar": "İç Yarıçap (r)"
+      }
     },
     {
       "id": "height",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Silindir yüksekliği metre cinsinden."
+      "businessContext": "Silindir yüksekliği metre cinsinden.",
+      "label_i18n": {
+        "en": "Yükseklik (h)",
+        "tr": "Yükseklik (h)",
+        "de": "Yükseklik (h)",
+        "fr": "Yükseklik (h)",
+        "es": "Yükseklik (h)",
+        "ar": "Yükseklik (h)"
+      }
     },
     {
       "id": "quantity",
       "label": "Adet (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Üretilecek silindir sayısı."
+      "businessContext": "Üretilecek silindir sayısı.",
+      "label_i18n": {
+        "en": "Adet (n)",
+        "tr": "Adet (n)",
+        "de": "Adet (n)",
+        "fr": "Adet (n)",
+        "es": "Adet (n)",
+        "ar": "Adet (n)"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,7 @@
       "crossSectionalArea"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",

@@ -5,33 +5,65 @@
       "id": "sampleSize",
       "label": "Sample Size (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Number of observations in the sample"
+      "businessContext": "Number of observations in the sample",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "skewness",
       "label": "Skewness",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sample skewness coefficient"
+      "businessContext": "Sample skewness coefficient",
+      "label_i18n": {
+        "en": "Skewness",
+        "tr": "Skewness",
+        "de": "Skewness",
+        "fr": "Skewness",
+        "es": "Skewness",
+        "ar": "Skewness"
+      }
     },
     {
       "id": "excessKurtosis",
       "label": "Excess Kurtosis",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Excess kurtosis (kurtosis - 3)"
+      "businessContext": "Excess kurtosis (kurtosis - 3)",
+      "label_i18n": {
+        "en": "Excess Kurtosis",
+        "tr": "Excess Kurtosis",
+        "de": "Excess Kurtosis",
+        "fr": "Excess Kurtosis",
+        "es": "Excess Kurtosis",
+        "ar": "Excess Kurtosis"
+      }
     },
     {
       "id": "criticalZ",
       "label": "Critical Z-value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Z-score threshold for normality rule of thumb"
+      "businessContext": "Z-score threshold for normality rule of thumb",
+      "label_i18n": {
+        "en": "Critical Z-value",
+        "tr": "Critical Z-value",
+        "de": "Critical Z-value",
+        "fr": "Critical Z-value",
+        "es": "Critical Z-value",
+        "ar": "Critical Z-value"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "seKurt"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

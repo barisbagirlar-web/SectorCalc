@@ -28,13 +28,16 @@ function evaluateAllFormulas(input: Sleep_need_calculatorInput): Record<string, 
   try { const v = (results["baseSleepMinutes"] ?? 0) + (results["shiftAdjustment"] ?? 0) + (results["qualityAdjustment"] ?? 0) + (results["activityAdjustment"] ?? 0); results["totalSleepMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["totalSleepMinutes"] = 0; }
   try { const v = (input.desiredWakeUp - (results["totalSleepMinutes"] ?? 0) + 1440) % 1440; results["bedtimeMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["bedtimeMinutes"] = 0; }
   try { const v = (results["totalSleepMinutes"] ?? 0) / 60; results["sleepDurationHours"] = Number.isFinite(v) ? v : 0; } catch { results["sleepDurationHours"] = 0; }
+  results["____Math_floor_bedtimeMinutes___60______"] = 0;
+  results["____Math_round_totalSleepMinutes______mi"] = 0;
+  try { const v = 'Recommended sleep: ' + Math.round((results["totalSleepMinutes"] ?? 0) / 60 * 10) / 10 + ' hours'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateSleep_need_calculator(input: Sleep_need_calculatorInput): Sleep_need_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["'Recommended sleep: ' + Math.round(totalSleepMinutes / 60 * 10) / 10 + ' hours'"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

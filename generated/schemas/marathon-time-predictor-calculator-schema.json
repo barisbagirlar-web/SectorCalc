@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 21.1,
-      "businessContext": "Distance of a recent race used for prediction (e.g., half marathon)"
+      "businessContext": "Distance of a recent race used for prediction (e.g., half marathon)",
+      "label_i18n": {
+        "en": "Recent Race Distance",
+        "tr": "Recent Race Distance",
+        "de": "Recent Race Distance",
+        "fr": "Recent Race Distance",
+        "es": "Recent Race Distance",
+        "ar": "Recent Race Distance"
+      }
     },
     {
       "id": "recentTime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 100,
-      "businessContext": "Finishing time of the recent race in minutes"
+      "businessContext": "Finishing time of the recent race in minutes",
+      "label_i18n": {
+        "en": "Recent Race Time",
+        "tr": "Recent Race Time",
+        "de": "Recent Race Time",
+        "fr": "Recent Race Time",
+        "es": "Recent Race Time",
+        "ar": "Recent Race Time"
+      }
     },
     {
       "id": "marathonDistance",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "km",
       "default": 42.195,
-      "businessContext": "Target marathon distance (standard 42.195 km)"
+      "businessContext": "Target marathon distance (standard 42.195 km)",
+      "label_i18n": {
+        "en": "Marathon Distance",
+        "tr": "Marathon Distance",
+        "de": "Marathon Distance",
+        "fr": "Marathon Distance",
+        "es": "Marathon Distance",
+        "ar": "Marathon Distance"
+      }
     },
     {
       "id": "exponent",
       "label": "Fatigue Exponent",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.06,
-      "businessContext": "Empirical fatigue exponent for time prediction (Riegel formula uses 1.06)"
+      "businessContext": "Empirical fatigue exponent for time prediction (Riegel formula uses 1.06)",
+      "label_i18n": {
+        "en": "Fatigue Exponent",
+        "tr": "Fatigue Exponent",
+        "de": "Fatigue Exponent",
+        "fr": "Fatigue Exponent",
+        "es": "Fatigue Exponent",
+        "ar": "Fatigue Exponent"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "predictedTimeHours"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

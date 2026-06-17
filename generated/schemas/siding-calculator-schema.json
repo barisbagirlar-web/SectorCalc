@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Total perimeter length of all walls to be sided."
+      "businessContext": "Total perimeter length of all walls to be sided.",
+      "label_i18n": {
+        "en": "Total Wall Length",
+        "tr": "Total Wall Length",
+        "de": "Total Wall Length",
+        "fr": "Total Wall Length",
+        "es": "Total Wall Length",
+        "ar": "Total Wall Length"
+      }
     },
     {
       "id": "wallHeight",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Height of the walls from base to eaves."
+      "businessContext": "Height of the walls from base to eaves.",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "windowCount",
       "label": "Number of Windows",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Total count of window openings."
+      "businessContext": "Total count of window openings.",
+      "label_i18n": {
+        "en": "Number of Windows",
+        "tr": "Number of Windows",
+        "de": "Number of Windows",
+        "fr": "Number of Windows",
+        "es": "Number of Windows",
+        "ar": "Number of Windows"
+      }
     },
     {
       "id": "windowArea",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "m²",
       "default": 1.5,
-      "businessContext": "Average area of a single window opening."
+      "businessContext": "Average area of a single window opening.",
+      "label_i18n": {
+        "en": "Area per Window",
+        "tr": "Area per Window",
+        "de": "Area per Window",
+        "fr": "Area per Window",
+        "es": "Area per Window",
+        "ar": "Area per Window"
+      }
     },
     {
       "id": "doorCount",
       "label": "Number of Doors",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Total count of door openings."
+      "businessContext": "Total count of door openings.",
+      "label_i18n": {
+        "en": "Number of Doors",
+        "tr": "Number of Doors",
+        "de": "Number of Doors",
+        "fr": "Number of Doors",
+        "es": "Number of Doors",
+        "ar": "Number of Doors"
+      }
     },
     {
       "id": "doorArea",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m²",
       "default": 2,
-      "businessContext": "Average area of a single door opening."
+      "businessContext": "Average area of a single door opening.",
+      "label_i18n": {
+        "en": "Area per Door",
+        "tr": "Area per Door",
+        "de": "Area per Door",
+        "fr": "Area per Door",
+        "es": "Area per Door",
+        "ar": "Area per Door"
+      }
     },
     {
       "id": "sidingCoverage",
@@ -55,15 +103,31 @@
       "type": "number",
       "unit": "m² per panel",
       "default": 1,
-      "businessContext": "Surface area covered by one siding panel."
+      "businessContext": "Surface area covered by one siding panel.",
+      "label_i18n": {
+        "en": "Siding Panel Coverage",
+        "tr": "Siding Panel Coverage",
+        "de": "Siding Panel Coverage",
+        "fr": "Siding Panel Coverage",
+        "es": "Siding Panel Coverage",
+        "ar": "Siding Panel Coverage"
+      }
     },
     {
       "id": "wasteFactor",
       "label": "Waste Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.1,
-      "businessContext": "Extra material to account for cuts and waste (e.g., 0.1 for 10%)."
+      "businessContext": "Extra material to account for cuts and waste (e.g., 0.1 for 10%).",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -84,10 +148,10 @@
       "wastePanels"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "sustainability-resource-esg"
 }

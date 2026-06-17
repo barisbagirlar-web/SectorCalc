@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "First numerical value in the dataset."
+      "businessContext": "First numerical value in the dataset.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Value 1",
+        "de": "Value 1",
+        "fr": "Value 1",
+        "es": "Value 1",
+        "ar": "Value 1"
+      }
     },
     {
       "id": "weight1",
       "label": "Weight 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Weight for the first value, indicating its relative importance."
+      "businessContext": "Weight for the first value, indicating its relative importance.",
+      "label_i18n": {
+        "en": "Weight 1",
+        "tr": "Weight 1",
+        "de": "Weight 1",
+        "fr": "Weight 1",
+        "es": "Weight 1",
+        "ar": "Weight 1"
+      }
     },
     {
       "id": "value2",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Second numerical value in the dataset."
+      "businessContext": "Second numerical value in the dataset.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Value 2",
+        "de": "Value 2",
+        "fr": "Value 2",
+        "es": "Value 2",
+        "ar": "Value 2"
+      }
     },
     {
       "id": "weight2",
       "label": "Weight 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Weight for the second value."
+      "businessContext": "Weight for the second value.",
+      "label_i18n": {
+        "en": "Weight 2",
+        "tr": "Weight 2",
+        "de": "Weight 2",
+        "fr": "Weight 2",
+        "es": "Weight 2",
+        "ar": "Weight 2"
+      }
     },
     {
       "id": "value3",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Third numerical value in the dataset."
+      "businessContext": "Third numerical value in the dataset.",
+      "label_i18n": {
+        "en": "Value 3",
+        "tr": "Value 3",
+        "de": "Value 3",
+        "fr": "Value 3",
+        "es": "Value 3",
+        "ar": "Value 3"
+      }
     },
     {
       "id": "weight3",
       "label": "Weight 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Weight for the third value."
+      "businessContext": "Weight for the third value.",
+      "label_i18n": {
+        "en": "Weight 3",
+        "tr": "Weight 3",
+        "de": "Weight 3",
+        "fr": "Weight 3",
+        "es": "Weight 3",
+        "ar": "Weight 3"
+      }
     },
     {
       "id": "value4",
@@ -55,15 +103,31 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth numerical value in the dataset."
+      "businessContext": "Fourth numerical value in the dataset.",
+      "label_i18n": {
+        "en": "Value 4",
+        "tr": "Value 4",
+        "de": "Value 4",
+        "fr": "Value 4",
+        "es": "Value 4",
+        "ar": "Value 4"
+      }
     },
     {
       "id": "weight4",
       "label": "Weight 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Weight for the fourth value."
+      "businessContext": "Weight for the fourth value.",
+      "label_i18n": {
+        "en": "Weight 4",
+        "tr": "Weight 4",
+        "de": "Weight 4",
+        "fr": "Weight 4",
+        "es": "Weight 4",
+        "ar": "Weight 4"
+      }
     }
   ],
   "formulas": {
@@ -78,8 +142,8 @@
       "sumWeights"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

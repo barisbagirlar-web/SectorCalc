@@ -5,38 +5,73 @@
       "id": "min",
       "label": "Minimum Değer",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Üretilecek rastgele sayı için alt sınır"
+      "businessContext": "Üretilecek rastgele sayı için alt sınır",
+      "label_i18n": {
+        "en": "Minimum Değer",
+        "tr": "Minimum Değer",
+        "de": "Minimum Değer",
+        "fr": "Minimum Değer",
+        "es": "Minimum Değer",
+        "ar": "Minimum Değer"
+      }
     },
     {
       "id": "max",
       "label": "Maksimum Değer",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Üretilecek rastgele sayı için üst sınır"
+      "businessContext": "Üretilecek rastgele sayı için üst sınır",
+      "label_i18n": {
+        "en": "Maksimum Değer",
+        "tr": "Maksimum Değer",
+        "de": "Maksimum Değer",
+        "fr": "Maksimum Değer",
+        "es": "Maksimum Değer",
+        "ar": "Maksimum Değer"
+      }
     },
     {
       "id": "seed",
       "label": "Tohum (Seed)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12345,
-      "businessContext": "Rastgele sayı üretimi için başlangıç tohumu. Aynı tohum aynı sonucu verir."
+      "businessContext": "Rastgele sayı üretimi için başlangıç tohumu. Aynı tohum aynı sonucu verir.",
+      "label_i18n": {
+        "en": "Tohum (Seed)",
+        "tr": "Tohum (Seed)",
+        "de": "Tohum (Seed)",
+        "fr": "Tohum (Seed)",
+        "es": "Tohum (Seed)",
+        "ar": "Tohum (Seed)"
+      }
     },
     {
       "id": "count",
       "label": "Adet",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Kaç adet rastgele sayı üretileceği (Bu sürümde yalnızca 1 desteklenir)."
+      "businessContext": "Kaç adet rastgele sayı üretileceği (Bu sürümde yalnızca 1 desteklenir).",
+      "label_i18n": {
+        "en": "Adet",
+        "tr": "Adet",
+        "de": "Adet",
+        "fr": "Adet",
+        "es": "Adet",
+        "ar": "Adet"
+      }
     }
   ],
   "formulas": {
     "raw": "(Math.sin((seed + 0) * 9301 + 49297) + 1) / 2",
-    "randomValue": "min + raw * (max - min)"
+    "randomValue": "min + raw * (max - min)",
+    "min": "min",
+    "max": "max",
+    "seed": "seed"
   },
   "outputs": {
     "primary": "randomValue",
@@ -47,10 +82,10 @@
       "raw"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

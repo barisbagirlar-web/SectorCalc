@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1,
-      "businessContext": "Çelik tel çapı"
+      "businessContext": "Çelik tel çapı",
+      "label_i18n": {
+        "en": "Wire Diameter",
+        "tr": "Wire Diameter",
+        "de": "Wire Diameter",
+        "fr": "Wire Diameter",
+        "es": "Wire Diameter",
+        "ar": "Wire Diameter"
+      }
     },
     {
       "id": "meanCoilDiameter",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Ortalama bobin çapı"
+      "businessContext": "Ortalama bobin çapı",
+      "label_i18n": {
+        "en": "Mean Coil Diameter",
+        "tr": "Mean Coil Diameter",
+        "de": "Mean Coil Diameter",
+        "fr": "Mean Coil Diameter",
+        "es": "Mean Coil Diameter",
+        "ar": "Mean Coil Diameter"
+      }
     },
     {
       "id": "activeCoils",
       "label": "Number of Active Coils",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Aktif sarım sayısı"
+      "businessContext": "Aktif sarım sayısı",
+      "label_i18n": {
+        "en": "Number of Active Coils",
+        "tr": "Number of Active Coils",
+        "de": "Number of Active Coils",
+        "fr": "Number of Active Coils",
+        "es": "Number of Active Coils",
+        "ar": "Number of Active Coils"
+      }
     },
     {
       "id": "shearModulus",
@@ -31,11 +55,23 @@
       "type": "number",
       "unit": "GPa",
       "default": 79.3,
-      "businessContext": "Kayma modülü (çelik için tipik)"
+      "businessContext": "Kayma modülü (çelik için tipik)",
+      "label_i18n": {
+        "en": "Shear Modulus (G)",
+        "tr": "Shear Modulus (G)",
+        "de": "Shear Modulus (G)",
+        "fr": "Shear Modulus (G)",
+        "es": "Shear Modulus (G)",
+        "ar": "Shear Modulus (G)"
+      }
     }
   ],
   "formulas": {
-    "springRate": "(shearModulus * 1000 * wireDiameter**4) / (8 * meanCoilDiameter**3 * activeCoils)"
+    "springRate": "(shearModulus * 1000 * wireDiameter**4) / (8 * meanCoilDiameter**3 * activeCoils)",
+    "k____G___d_4_____8___D_3___N_": "k = (G * d^4) / (8 * D^3 * N)",
+    "shearModulus___1000": "shearModulus * 1000",
+    "k____G_MPa___d_4_____8___D_3___N_": "k = (G_MPa * d^4) / (8 * D^3 * N)",
+    "springRate_N_mm": "springRate N/mm"
   },
   "outputs": {
     "primary": "springRate",
@@ -46,8 +82,8 @@
       "Hesaplanan yay oranı: springRate N/mm"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

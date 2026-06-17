@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Whole degrees component of the angle in DMS format."
+      "businessContext": "Whole degrees component of the angle in DMS format.",
+      "label_i18n": {
+        "en": "Degrees",
+        "tr": "Degrees",
+        "de": "Degrees",
+        "fr": "Degrees",
+        "es": "Degrees",
+        "ar": "Degrees"
+      }
     },
     {
       "id": "minutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "'",
       "default": 0,
-      "businessContext": "Minutes component (0-59)."
+      "businessContext": "Minutes component (0-59).",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "seconds",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "\"",
       "default": 0,
-      "businessContext": "Seconds component (0-59.999...)."
+      "businessContext": "Seconds component (0-59.999...).",
+      "label_i18n": {
+        "en": "Seconds",
+        "tr": "Seconds",
+        "de": "Seconds",
+        "fr": "Seconds",
+        "es": "Seconds",
+        "ar": "Seconds"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "Number of decimal places to round the output radian value for precision control."
+      "businessContext": "Number of decimal places to round the output radian value for precision control.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "conversionFactor"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -35,10 +35,10 @@ describe("all-tools-data locale labels", () => {
   it("localizes free-tool categories outside Turkish", () => {
     const enTools = getFreeTools("en");
     const trTools = getFreeTools("tr");
-    const enFinance = enTools.find((tool) => tool.categoryKey === "finans-kredi");
-    const trFinance = trTools.find((tool) => tool.categoryKey === "finans-kredi");
+    const enFinance = enTools.find((tool) => tool.categoryKey === "vergi-finansal-raporlama");
+    const trFinance = trTools.find((tool) => tool.categoryKey === "vergi-finansal-raporlama");
 
-    expect(enFinance?.category).toBe("Finance & Credit");
-    expect(trFinance?.category).toBe("Finans & Kredi");
+    expect(enFinance?.category).toBe("Tax & Financial Reporting");
+    expect(trFinance?.category).toBe("Vergi & Finansal Raporlama");
   });
 });

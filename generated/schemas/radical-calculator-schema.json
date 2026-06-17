@@ -5,33 +5,65 @@
       "id": "multiplier",
       "label": "Çarpan",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Kök önündeki katsayı çarpanı"
+      "businessContext": "Kök önündeki katsayı çarpanı",
+      "label_i18n": {
+        "en": "Çarpan",
+        "tr": "Çarpan",
+        "de": "Çarpan",
+        "fr": "Çarpan",
+        "es": "Çarpan",
+        "ar": "Çarpan"
+      }
     },
     {
       "id": "radicand",
       "label": "Köklü Sayı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 16,
-      "businessContext": "Kök içine yazılan sayı"
+      "businessContext": "Kök içine yazılan sayı",
+      "label_i18n": {
+        "en": "Köklü Sayı",
+        "tr": "Köklü Sayı",
+        "de": "Köklü Sayı",
+        "fr": "Köklü Sayı",
+        "es": "Köklü Sayı",
+        "ar": "Köklü Sayı"
+      }
     },
     {
       "id": "index",
       "label": "Kök Derecesi",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Kökün derecesi (2 karekök, 3 küpkök...)"
+      "businessContext": "Kökün derecesi (2 karekök, 3 küpkök...)",
+      "label_i18n": {
+        "en": "Kök Derecesi",
+        "tr": "Kök Derecesi",
+        "de": "Kök Derecesi",
+        "fr": "Kök Derecesi",
+        "es": "Kök Derecesi",
+        "ar": "Kök Derecesi"
+      }
     },
     {
       "id": "addend",
       "label": "Ek Terim",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sonuca eklenecek sabit sayı"
+      "businessContext": "Sonuca eklenecek sabit sayı",
+      "label_i18n": {
+        "en": "Ek Terim",
+        "tr": "Ek Terim",
+        "de": "Ek Terim",
+        "fr": "Ek Terim",
+        "es": "Ek Terim",
+        "ar": "Ek Terim"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "multiplied"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

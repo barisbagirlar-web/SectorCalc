@@ -18,13 +18,16 @@ export const Pace_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Pace_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = `Pace: ${(input.hours*60+input.minutes+input.seconds/60)/input.distanceKm} min/km`; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.distanceKm; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = Speed in km/h; results["Speed_in_km_h"] = Number.isFinite(v) ? v : 0; } catch { results["Speed_in_km_h"] = 0; }
+  results["Pace_per_mile"] = 0;
   return results;
 }
 
 
 export function calculatePace_calculator(input: Pace_calculatorInput): Pace_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Pace"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

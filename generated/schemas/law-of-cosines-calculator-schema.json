@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Length of first side"
+      "businessContext": "Length of first side",
+      "label_i18n": {
+        "en": "Side a",
+        "tr": "Side a",
+        "de": "Side a",
+        "fr": "Side a",
+        "es": "Side a",
+        "ar": "Side a"
+      }
     },
     {
       "id": "sideB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Length of second side"
+      "businessContext": "Length of second side",
+      "label_i18n": {
+        "en": "Side b",
+        "tr": "Side b",
+        "de": "Side b",
+        "fr": "Side b",
+        "es": "Side b",
+        "ar": "Side b"
+      }
     },
     {
       "id": "angleC",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "degrees",
       "default": 0,
-      "businessContext": "Included angle between sides a and b"
+      "businessContext": "Included angle between sides a and b",
+      "label_i18n": {
+        "en": "Angle C",
+        "tr": "Angle C",
+        "de": "Angle C",
+        "fr": "Angle C",
+        "es": "Angle C",
+        "ar": "Angle C"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for output rounding"
+      "businessContext": "Number of decimal places for output rounding",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "angleB_rounded"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

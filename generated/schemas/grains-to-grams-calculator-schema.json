@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "gr",
       "default": 0,
-      "businessContext": "Enter the mass in grains to be converted to grams."
+      "businessContext": "Enter the mass in grains to be converted to grams.",
+      "label_i18n": {
+        "en": "Grains",
+        "tr": "Grains",
+        "de": "Grains",
+        "fr": "Grains",
+        "es": "Grains",
+        "ar": "Grains"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "g/gr",
       "default": 0.06479891,
-      "businessContext": "Standard conversion factor from grains to grams. Change for custom conversions."
+      "businessContext": "Standard conversion factor from grains to grams. Change for custom conversions.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output; ensures adherence to quality tolerances."
+      "businessContext": "Number of decimal places for the output; ensures adherence to quality tolerances.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "batchCount",
       "label": "Number of Batches",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "If converting for multiple batches, enter the batch quantity for total mass."
+      "businessContext": "If converting for multiple batches, enter the batch quantity for total mass.",
+      "label_i18n": {
+        "en": "Number of Batches",
+        "tr": "Number of Batches",
+        "de": "Number of Batches",
+        "fr": "Number of Batches",
+        "es": "Number of Batches",
+        "ar": "Number of Batches"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "unroundedGrams"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

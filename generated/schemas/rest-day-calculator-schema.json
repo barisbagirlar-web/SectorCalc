@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Percentage of reference strength needed before loading"
+      "businessContext": "Percentage of reference strength needed before loading",
+      "label_i18n": {
+        "en": "Required Strength",
+        "tr": "Required Strength",
+        "de": "Required Strength",
+        "fr": "Required Strength",
+        "es": "Required Strength",
+        "ar": "Required Strength"
+      }
     },
     {
       "id": "refStrength",
@@ -15,31 +23,63 @@
       "type": "number",
       "unit": "MPa",
       "default": 30,
-      "businessContext": "Concrete strength at 28 days under standard conditions"
+      "businessContext": "Concrete strength at 28 days under standard conditions",
+      "label_i18n": {
+        "en": "Reference 28-Day Strength",
+        "tr": "Reference 28-Day Strength",
+        "de": "Reference 28-Day Strength",
+        "fr": "Reference 28-Day Strength",
+        "es": "Reference 28-Day Strength",
+        "ar": "Reference 28-Day Strength"
+      }
     },
     {
       "id": "tempCoeff",
       "label": "Temperature Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Adjustment for ambient temperature (1.0 at 20°C, increase for colder)"
+      "businessContext": "Adjustment for ambient temperature (1.0 at 20°C, increase for colder)",
+      "label_i18n": {
+        "en": "Temperature Factor",
+        "tr": "Temperature Factor",
+        "de": "Temperature Factor",
+        "fr": "Temperature Factor",
+        "es": "Temperature Factor",
+        "ar": "Temperature Factor"
+      }
     },
     {
       "id": "humidCoeff",
       "label": "Humidity Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Adjustment for relative humidity (1.0 at 60% RH)"
+      "businessContext": "Adjustment for relative humidity (1.0 at 60% RH)",
+      "label_i18n": {
+        "en": "Humidity Factor",
+        "tr": "Humidity Factor",
+        "de": "Humidity Factor",
+        "fr": "Humidity Factor",
+        "es": "Humidity Factor",
+        "ar": "Humidity Factor"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Multiplier to ensure conservative estimate"
+      "businessContext": "Multiplier to ensure conservative estimate",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -48,14 +88,14 @@
     "estimatedStrength": "refStrength * Math.sqrt((safetyFactor * tempCoeff * humidCoeff * 28 * (targetPercent / 100) ** 2) / 28)"
   },
   "outputs": {
-    "primary": "restDays",
+    "primary": "primary",
     "breakdown": [
       "requiredStrength",
       "estimatedStrength"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

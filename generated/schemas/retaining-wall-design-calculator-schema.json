@@ -42,12 +42,7 @@
     "M": "pa * (H/3) + pq * (H/2)"
   },
   "outputs": {
-    "primary": {
-      "id": "ptotal",
-      "label": "Total Lateral Force",
-      "unit": "kN/m",
-      "businessContext": "Total horizontal force acting on the wall per meter length."
-    },
+    "primary": "ka",
     "breakdown": [
       {
         "id": "pa",
@@ -69,10 +64,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

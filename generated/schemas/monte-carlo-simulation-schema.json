@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "Expected value of the process output"
+      "businessContext": "Expected value of the process output",
+      "label_i18n": {
+        "en": "Mean (μ)",
+        "tr": "Mean (μ)",
+        "de": "Mean (μ)",
+        "fr": "Mean (μ)",
+        "es": "Mean (μ)",
+        "ar": "Mean (μ)"
+      }
     },
     {
       "id": "stdDev",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 10,
-      "businessContext": "Variability of the process output"
+      "businessContext": "Variability of the process output",
+      "label_i18n": {
+        "en": "Standard Deviation (σ)",
+        "tr": "Standard Deviation (σ)",
+        "de": "Standard Deviation (σ)",
+        "fr": "Standard Deviation (σ)",
+        "es": "Standard Deviation (σ)",
+        "ar": "Standard Deviation (σ)"
+      }
     },
     {
       "id": "lowerSpec",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 80,
-      "businessContext": "Minimum acceptable value"
+      "businessContext": "Minimum acceptable value",
+      "label_i18n": {
+        "en": "Lower Specification Limit (LSL)",
+        "tr": "Lower Specification Limit (LSL)",
+        "de": "Lower Specification Limit (LSL)",
+        "fr": "Lower Specification Limit (LSL)",
+        "es": "Lower Specification Limit (LSL)",
+        "ar": "Lower Specification Limit (LSL)"
+      }
     },
     {
       "id": "upperSpec",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "units",
       "default": 120,
-      "businessContext": "Maximum acceptable value"
+      "businessContext": "Maximum acceptable value",
+      "label_i18n": {
+        "en": "Upper Specification Limit (USL)",
+        "tr": "Upper Specification Limit (USL)",
+        "de": "Upper Specification Limit (USL)",
+        "fr": "Upper Specification Limit (USL)",
+        "es": "Upper Specification Limit (USL)",
+        "ar": "Upper Specification Limit (USL)"
+      }
     },
     {
       "id": "numSamples",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "count",
       "default": 10000,
-      "businessContext": "Number of Monte Carlo iterations"
+      "businessContext": "Number of Monte Carlo iterations",
+      "label_i18n": {
+        "en": "Number of Samples",
+        "tr": "Number of Samples",
+        "de": "Number of Samples",
+        "fr": "Number of Samples",
+        "es": "Number of Samples",
+        "ar": "Number of Samples"
+      }
     },
     {
       "id": "seed",
       "label": "Random Seed",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 42,
-      "businessContext": "Seed for reproducible random numbers"
+      "businessContext": "Seed for reproducible random numbers",
+      "label_i18n": {
+        "en": "Random Seed",
+        "tr": "Random Seed",
+        "de": "Random Seed",
+        "fr": "Random Seed",
+        "es": "Random Seed",
+        "ar": "Random Seed"
+      }
     }
   ],
   "formulas": {
@@ -66,10 +114,10 @@
       "cpk"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

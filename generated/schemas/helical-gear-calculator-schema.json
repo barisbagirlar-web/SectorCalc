@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "Standard module size for gear teeth"
+      "businessContext": "Standard module size for gear teeth",
+      "label_i18n": {
+        "en": "Normal Module",
+        "tr": "Normal Module",
+        "de": "Normal Module",
+        "fr": "Normal Module",
+        "es": "Normal Module",
+        "ar": "Normal Module"
+      }
     },
     {
       "id": "z",
       "label": "Number of Teeth",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 20,
-      "businessContext": "Number of teeth on the gear"
+      "businessContext": "Number of teeth on the gear",
+      "label_i18n": {
+        "en": "Number of Teeth",
+        "tr": "Number of Teeth",
+        "de": "Number of Teeth",
+        "fr": "Number of Teeth",
+        "es": "Number of Teeth",
+        "ar": "Number of Teeth"
+      }
     },
     {
       "id": "beta",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "deg",
       "default": 15,
-      "businessContext": "Angle of gear teeth relative to axis"
+      "businessContext": "Angle of gear teeth relative to axis",
+      "label_i18n": {
+        "en": "Helix Angle",
+        "tr": "Helix Angle",
+        "de": "Helix Angle",
+        "fr": "Helix Angle",
+        "es": "Helix Angle",
+        "ar": "Helix Angle"
+      }
     },
     {
       "id": "alpha",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "deg",
       "default": 20,
-      "businessContext": "Standard pressure angle in normal plane"
+      "businessContext": "Standard pressure angle in normal plane",
+      "label_i18n": {
+        "en": "Normal Pressure Angle",
+        "tr": "Normal Pressure Angle",
+        "de": "Normal Pressure Angle",
+        "fr": "Normal Pressure Angle",
+        "es": "Normal Pressure Angle",
+        "ar": "Normal Pressure Angle"
+      }
     },
     {
       "id": "ha",
       "label": "Addendum Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Addendum height factor (typically 1 for standard)"
+      "businessContext": "Addendum height factor (typically 1 for standard)",
+      "label_i18n": {
+        "en": "Addendum Coefficient",
+        "tr": "Addendum Coefficient",
+        "de": "Addendum Coefficient",
+        "fr": "Addendum Coefficient",
+        "es": "Addendum Coefficient",
+        "ar": "Addendum Coefficient"
+      }
     },
     {
       "id": "c",
       "label": "Dedendum Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.25,
-      "businessContext": "Dedendum clearance factor (typically 0.25)"
+      "businessContext": "Dedendum clearance factor (typically 0.25)",
+      "label_i18n": {
+        "en": "Dedendum Coefficient",
+        "tr": "Dedendum Coefficient",
+        "de": "Dedendum Coefficient",
+        "fr": "Dedendum Coefficient",
+        "es": "Dedendum Coefficient",
+        "ar": "Dedendum Coefficient"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,7 @@
       "transverseCircularPitch"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

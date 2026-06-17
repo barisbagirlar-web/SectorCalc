@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "px",
       "default": 1920,
-      "businessContext": "Horizontal resolution of the video in pixels"
+      "businessContext": "Horizontal resolution of the video in pixels",
+      "label_i18n": {
+        "en": "Video Width",
+        "tr": "Video Width",
+        "de": "Video Width",
+        "fr": "Video Width",
+        "es": "Video Width",
+        "ar": "Video Width"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "px",
       "default": 1080,
-      "businessContext": "Vertical resolution of the video in pixels"
+      "businessContext": "Vertical resolution of the video in pixels",
+      "label_i18n": {
+        "en": "Video Height",
+        "tr": "Video Height",
+        "de": "Video Height",
+        "fr": "Video Height",
+        "es": "Video Height",
+        "ar": "Video Height"
+      }
     },
     {
       "id": "frameRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "fps",
       "default": 30,
-      "businessContext": "Number of frames displayed per second"
+      "businessContext": "Number of frames displayed per second",
+      "label_i18n": {
+        "en": "Frame Rate",
+        "tr": "Frame Rate",
+        "de": "Frame Rate",
+        "fr": "Frame Rate",
+        "es": "Frame Rate",
+        "ar": "Frame Rate"
+      }
     },
     {
       "id": "colorDepth",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "bits/pixel",
       "default": 24,
-      "businessContext": "Number of bits used to represent the color of a single pixel, e.g., 24 for True Color"
+      "businessContext": "Number of bits used to represent the color of a single pixel, e.g., 24 for True Color",
+      "label_i18n": {
+        "en": "Color Depth",
+        "tr": "Color Depth",
+        "de": "Color Depth",
+        "fr": "Color Depth",
+        "es": "Color Depth",
+        "ar": "Color Depth"
+      }
     },
     {
       "id": "compressionRatio",
       "label": "Compression Ratio",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.1,
-      "businessContext": "Typical values: 0.1 for H.264, 0.05 for H.265. Determines the compression factor applied to the uncompressed bitrate."
+      "businessContext": "Typical values: 0.1 for H.264, 0.05 for H.265. Determines the compression factor applied to the uncompressed bitrate.",
+      "label_i18n": {
+        "en": "Compression Ratio",
+        "tr": "Compression Ratio",
+        "de": "Compression Ratio",
+        "fr": "Compression Ratio",
+        "es": "Compression Ratio",
+        "ar": "Compression Ratio"
+      }
     },
     {
       "id": "duration",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "s",
       "default": 60,
-      "businessContext": "Length of the video in seconds, used to calculate total file size"
+      "businessContext": "Length of the video in seconds, used to calculate total file size",
+      "label_i18n": {
+        "en": "Duration",
+        "tr": "Duration",
+        "de": "Duration",
+        "fr": "Duration",
+        "es": "Duration",
+        "ar": "Duration"
+      }
     }
   ],
   "formulas": {
@@ -59,11 +107,7 @@
     "fileSizeGB": "fileSizeMB / 1024"
   },
   "outputs": {
-    "primary": {
-      "id": "compressedBitrateMbps",
-      "label": "Video Bitrate",
-      "unit": "Mbps"
-    },
+    "primary": "uncompressedBitrateBps",
     "breakdown": [
       {
         "id": "uncompressedBitrateMbps",
@@ -82,10 +126,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -21,13 +21,15 @@ function evaluateAllFormulas(input: Estimated_average_glucose_calculatorInput): 
   const results: Record<string, number> = {};
   try { const v = input.factor_mgdl * input.hba1c + input.offset_mgdl; results["eag_mgdl"] = Number.isFinite(v) ? v : 0; } catch { results["eag_mgdl"] = 0; }
   try { const v = input.factor_mmol * input.hba1c + input.offset_mmol; results["eag_mmol"] = Number.isFinite(v) ? v : 0; } catch { results["eag_mmol"] = 0; }
+  try { const v = (results["eag_mmol"] ?? 0).toFixed(1) + ' mmol/L'; results["eag_mmol_toFixed_1______mmol_L_"] = Number.isFinite(v) ? v : 0; } catch { results["eag_mmol_toFixed_1______mmol_L_"] = 0; }
+  try { const v = (results["eag_mgdl"] ?? 0).toFixed(1) + ' mg/dL'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateEstimated_average_glucose_calculator(input: Estimated_average_glucose_calculatorInput): Estimated_average_glucose_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["eag_mgdl"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

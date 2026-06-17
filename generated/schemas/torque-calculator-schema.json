@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "-",
       "default": 0.2,
-      "businessContext": "Nut factor or torque coefficient, typically 0.2 for dry threads"
+      "businessContext": "Nut factor or torque coefficient, typically 0.2 for dry threads",
+      "label_i18n": {
+        "en": "Torque Coefficient (c)",
+        "tr": "Torque Coefficient (c)",
+        "de": "Torque Coefficient (c)",
+        "fr": "Torque Coefficient (c)",
+        "es": "Torque Coefficient (c)",
+        "ar": "Torque Coefficient (c)"
+      }
     },
     {
       "id": "diameter_mm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Nominal diameter of the bolt"
+      "businessContext": "Nominal diameter of the bolt",
+      "label_i18n": {
+        "en": "Bolt Diameter",
+        "tr": "Bolt Diameter",
+        "de": "Bolt Diameter",
+        "fr": "Bolt Diameter",
+        "es": "Bolt Diameter",
+        "ar": "Bolt Diameter"
+      }
     },
     {
       "id": "tension_kn",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kN",
       "default": 50,
-      "businessContext": "Desired tension force in the bolt"
+      "businessContext": "Desired tension force in the bolt",
+      "label_i18n": {
+        "en": "Target Clamp Load",
+        "tr": "Target Clamp Load",
+        "de": "Target Clamp Load",
+        "fr": "Target Clamp Load",
+        "es": "Target Clamp Load",
+        "ar": "Target Clamp Load"
+      }
     },
     {
       "id": "safety_factor",
@@ -31,23 +55,32 @@
       "type": "number",
       "unit": "-",
       "default": 1.2,
-      "businessContext": "Multiplier to ensure clamping under uncertainty"
+      "businessContext": "Multiplier to ensure clamping under uncertainty",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
     "torque_nm": "coefficient_c * diameter_mm * tension_kn * safety_factor",
-    "torque_without_safety": "coefficient_c * diameter_mm * tension_kn"
+    "torque_without_safety": "coefficient_c * diameter_mm * tension_kn",
+    "torque_without_safety_Nm": "torque_without_safety Nm"
   },
   "outputs": {
-    "primary": "torque_nm Nm",
+    "primary": "torque_nm",
     "breakdown": [
       "torque_without_safety Nm"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

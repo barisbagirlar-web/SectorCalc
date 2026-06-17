@@ -22,13 +22,16 @@ function evaluateAllFormulas(input: Carb_to_insulin_ratio_calculatorInput): Reco
   try { const v = input.carbs / input.icr; results["meal_dose"] = Number.isFinite(v) ? v : 0; } catch { results["meal_dose"] = 0; }
   try { const v = Math.max(0, (input.current_bg - input.target_bg) / input.isf); results["correction_dose"] = Number.isFinite(v) ? v : 0; } catch { results["correction_dose"] = 0; }
   try { const v = input.carbs / input.icr + Math.max(0, (input.current_bg - input.target_bg) / input.isf); results["total_insulin"] = Number.isFinite(v) ? v : 0; } catch { results["total_insulin"] = 0; }
+  results["Meal_Insulin_Dose__U_"] = 0;
+  results["Correction_Insulin_Dose__U_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateCarb_to_insulin_ratio_calculator(input: Carb_to_insulin_ratio_calculatorInput): Carb_to_insulin_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

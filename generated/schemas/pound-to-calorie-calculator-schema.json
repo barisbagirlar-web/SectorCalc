@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "lb",
       "default": 1,
-      "businessContext": "The weight in pounds to convert to calories. Standard use is for body fat energy content."
+      "businessContext": "The weight in pounds to convert to calories. Standard use is for body fat energy content.",
+      "label_i18n": {
+        "en": "Weight in Pounds",
+        "tr": "Weight in Pounds",
+        "de": "Weight in Pounds",
+        "fr": "Weight in Pounds",
+        "es": "Weight in Pounds",
+        "ar": "Weight in Pounds"
+      }
     },
     {
       "id": "caloriesPerPound",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "kcal/lb",
       "default": 3500,
-      "businessContext": "Conversion factor from pounds to calories. Default 3500 kcal/lb is the widely accepted value for body fat."
+      "businessContext": "Conversion factor from pounds to calories. Default 3500 kcal/lb is the widely accepted value for body fat.",
+      "label_i18n": {
+        "en": "Calories per Pound",
+        "tr": "Calories per Pound",
+        "de": "Calories per Pound",
+        "fr": "Calories per Pound",
+        "es": "Calories per Pound",
+        "ar": "Calories per Pound"
+      }
     },
     {
       "id": "includeKilojoules",
       "label": "Include Kilojoules",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Set to 1 to also display the equivalent energy in kilojoules."
+      "businessContext": "Set to 1 to also display the equivalent energy in kilojoules.",
+      "label_i18n": {
+        "en": "Include Kilojoules",
+        "tr": "Include Kilojoules",
+        "de": "Include Kilojoules",
+        "fr": "Include Kilojoules",
+        "es": "Include Kilojoules",
+        "ar": "Include Kilojoules"
+      }
     },
     {
       "id": "roundingPrecision",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "decimal places",
       "default": 0,
-      "businessContext": "Number of decimal places to round the output values."
+      "businessContext": "Number of decimal places to round the output values.",
+      "label_i18n": {
+        "en": "Rounding Precision",
+        "tr": "Rounding Precision",
+        "de": "Rounding Precision",
+        "fr": "Rounding Precision",
+        "es": "Rounding Precision",
+        "ar": "Rounding Precision"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "kilojoules"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

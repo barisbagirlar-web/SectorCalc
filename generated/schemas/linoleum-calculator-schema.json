@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Length of the room to be covered with linoleum."
+      "businessContext": "Length of the room to be covered with linoleum.",
+      "label_i18n": {
+        "en": "Room Length",
+        "tr": "Room Length",
+        "de": "Room Length",
+        "fr": "Room Length",
+        "es": "Room Length",
+        "ar": "Room Length"
+      }
     },
     {
       "id": "roomWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Width of the room to be covered with linoleum."
+      "businessContext": "Width of the room to be covered with linoleum.",
+      "label_i18n": {
+        "en": "Room Width",
+        "tr": "Room Width",
+        "de": "Room Width",
+        "fr": "Room Width",
+        "es": "Room Width",
+        "ar": "Room Width"
+      }
     },
     {
       "id": "rollWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Width of the linoleum roll as supplied by the manufacturer."
+      "businessContext": "Width of the linoleum roll as supplied by the manufacturer.",
+      "label_i18n": {
+        "en": "Roll Width",
+        "tr": "Roll Width",
+        "de": "Roll Width",
+        "fr": "Roll Width",
+        "es": "Roll Width",
+        "ar": "Roll Width"
+      }
     },
     {
       "id": "wastePercentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional material to account for cutting, pattern matching, and installation waste."
+      "businessContext": "Additional material to account for cutting, pattern matching, and installation waste.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "pricePerSqM",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/m²",
       "default": 20,
-      "businessContext": "Cost of linoleum per square meter in local currency."
+      "businessContext": "Cost of linoleum per square meter in local currency.",
+      "label_i18n": {
+        "en": "Price per m²",
+        "tr": "Price per m²",
+        "de": "Price per m²",
+        "fr": "Price per m²",
+        "es": "Price per m²",
+        "ar": "Price per m²"
+      }
     }
   ],
   "formulas": {
@@ -48,20 +88,23 @@
     "areaBeforeWaste": "totalLinearMeters * rollWidth",
     "wasteFactor": "1 + wastePercentage / 100",
     "finalArea": "areaBeforeWaste * wasteFactor",
-    "totalCost": "finalArea * pricePerSqM"
+    "totalCost": "finalArea * pricePerSqM",
+    "_numberOfStrips_": "{numberOfStrips}",
+    "_totalLinearMeters__m": "{totalLinearMeters} m",
+    "_areaBeforeWaste__m_": "{areaBeforeWaste} m²"
   },
   "outputs": {
-    "primary": "Total area to purchase: {finalArea} m², Total cost: {totalCost} currency.",
+    "primary": "numberOfStrips",
     "breakdown": [
       "Number of strips: {numberOfStrips}",
       "Total linear meters: {totalLinearMeters} m",
       "Area before waste: {areaBeforeWaste} m²"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "sustainability-resource-esg"
 }

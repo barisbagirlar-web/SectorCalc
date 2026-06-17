@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "m²",
       "default": 0,
-      "businessContext": "If known, enter the prism's base area directly (set >0). If 0, base area is computed from sides and side length."
+      "businessContext": "If known, enter the prism's base area directly (set >0). If 0, base area is computed from sides and side length.",
+      "label_i18n": {
+        "en": "Base Area",
+        "tr": "Base Area",
+        "de": "Base Area",
+        "fr": "Base Area",
+        "es": "Base Area",
+        "ar": "Base Area"
+      }
     },
     {
       "id": "sides",
       "label": "Number of Sides",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of sides of the regular polygonal base (e.g., 3 for triangle, 4 for square). Only used if base area is 0."
+      "businessContext": "Number of sides of the regular polygonal base (e.g., 3 for triangle, 4 for square). Only used if base area is 0.",
+      "label_i18n": {
+        "en": "Number of Sides",
+        "tr": "Number of Sides",
+        "de": "Number of Sides",
+        "fr": "Number of Sides",
+        "es": "Number of Sides",
+        "ar": "Number of Sides"
+      }
     },
     {
       "id": "sideLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of one side of the regular polygonal base. Only used if base area is 0."
+      "businessContext": "Length of one side of the regular polygonal base. Only used if base area is 0.",
+      "label_i18n": {
+        "en": "Side Length",
+        "tr": "Side Length",
+        "de": "Side Length",
+        "fr": "Side Length",
+        "es": "Side Length",
+        "ar": "Side Length"
+      }
     },
     {
       "id": "height",
@@ -31,13 +55,22 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Perpendicular height of the prism."
+      "businessContext": "Perpendicular height of the prism.",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     }
   ],
   "formulas": {
     "computedBaseArea": "(sides >= 3) ? (sides * sideLength * sideLength) / (4 * Math.tan(Math.PI / sides)) : (sideLength * sideLength)",
     "finalBaseArea": "baseArea > 0 ? baseArea : computedBaseArea",
-    "volume": "finalBaseArea * height"
+    "volume": "finalBaseArea * height",
+    "height": "height"
   },
   "outputs": {
     "primary": "volume",
@@ -46,8 +79,8 @@
       "height"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

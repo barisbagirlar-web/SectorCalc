@@ -22,13 +22,16 @@ function evaluateAllFormulas(input: Karvonen_formulaInput): Record<string, numbe
   try { const v = input.max_hr - input.resting_hr; results["heartRateReserve"] = Number.isFinite(v) ? v : 0; } catch { results["heartRateReserve"] = 0; }
   try { const v = Math.round(input.resting_hr + (results["heartRateReserve"] ?? 0) * (input.intensity_min / 100)); results["targetHRMin"] = Number.isFinite(v) ? v : 0; } catch { results["targetHRMin"] = 0; }
   try { const v = Math.round(input.resting_hr + (results["heartRateReserve"] ?? 0) * (input.intensity_max / 100)); results["targetHRMax"] = Number.isFinite(v) ? v : 0; } catch { results["targetHRMax"] = 0; }
+  results["heartRateReserve_bpm"] = 0;
+  results["targetHRMin___targetHRMax_bpm"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateKarvonen_formula(input: Karvonen_formulaInput): Karvonen_formulaOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["targetHRMin"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

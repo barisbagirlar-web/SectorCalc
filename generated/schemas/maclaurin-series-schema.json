@@ -5,33 +5,65 @@
       "id": "function",
       "label": "Function f(x)",
       "type": "string",
-      "unit": "",
+      "unit": "unit",
       "default": "sin(x)",
-      "businessContext": "Mathematical function to expand"
+      "businessContext": "Mathematical function to expand",
+      "label_i18n": {
+        "en": "Function f(x)",
+        "tr": "Function f(x)",
+        "de": "Function f(x)",
+        "fr": "Function f(x)",
+        "es": "Function f(x)",
+        "ar": "Function f(x)"
+      }
     },
     {
       "id": "center",
       "label": "Center a",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Expansion point (Maclaurin if a=0)"
+      "businessContext": "Expansion point (Maclaurin if a=0)",
+      "label_i18n": {
+        "en": "Center a",
+        "tr": "Center a",
+        "de": "Center a",
+        "fr": "Center a",
+        "es": "Center a",
+        "ar": "Center a"
+      }
     },
     {
       "id": "x_value",
       "label": "Evaluation point x",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Point at which series is evaluated"
+      "businessContext": "Point at which series is evaluated",
+      "label_i18n": {
+        "en": "Evaluation point x",
+        "tr": "Evaluation point x",
+        "de": "Evaluation point x",
+        "fr": "Evaluation point x",
+        "es": "Evaluation point x",
+        "ar": "Evaluation point x"
+      }
     },
     {
       "id": "terms",
       "label": "Number of terms n",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Number of terms in the series"
+      "businessContext": "Number of terms in the series",
+      "label_i18n": {
+        "en": "Number of terms n",
+        "tr": "Number of terms n",
+        "de": "Number of terms n",
+        "fr": "Number of terms n",
+        "es": "Number of terms n",
+        "ar": "Number of terms n"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "error"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

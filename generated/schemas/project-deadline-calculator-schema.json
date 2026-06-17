@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "tasks",
       "default": 100,
-      "businessContext": "Proje kapsamındaki toplam iş paketi veya görev sayısı"
+      "businessContext": "Proje kapsamındaki toplam iş paketi veya görev sayısı",
+      "label_i18n": {
+        "en": "Toplam Görev Sayısı",
+        "tr": "Toplam Görev Sayısı",
+        "de": "Toplam Görev Sayısı",
+        "fr": "Toplam Görev Sayısı",
+        "es": "Toplam Görev Sayısı",
+        "ar": "Toplam Görev Sayısı"
+      }
     },
     {
       "id": "tasksPerDay",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "tasks/day",
       "default": 5,
-      "businessContext": "Bir ekip üyesinin günde tamamlayabileceği ortalama görev sayısı"
+      "businessContext": "Bir ekip üyesinin günde tamamlayabileceği ortalama görev sayısı",
+      "label_i18n": {
+        "en": "Günlük Tamamlanan Görev",
+        "tr": "Günlük Tamamlanan Görev",
+        "de": "Günlük Tamamlanan Görev",
+        "fr": "Günlük Tamamlanan Görev",
+        "es": "Günlük Tamamlanan Görev",
+        "ar": "Günlük Tamamlanan Görev"
+      }
     },
     {
       "id": "teamSize",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "people",
       "default": 3,
-      "businessContext": "Projede çalışan toplam kişi sayısı"
+      "businessContext": "Projede çalışan toplam kişi sayısı",
+      "label_i18n": {
+        "en": "Ekip Büyüklüğü",
+        "tr": "Ekip Büyüklüğü",
+        "de": "Ekip Büyüklüğü",
+        "fr": "Ekip Büyüklüğü",
+        "es": "Ekip Büyüklüğü",
+        "ar": "Ekip Büyüklüğü"
+      }
     },
     {
       "id": "complexityFactor",
       "label": "Karmaşıklık Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Proje karmaşıklığına bağlı olarak süreyi artıran çarpan (1.0 = basit, 1.5 = karmaşık)"
+      "businessContext": "Proje karmaşıklığına bağlı olarak süreyi artıran çarpan (1.0 = basit, 1.5 = karmaşık)",
+      "label_i18n": {
+        "en": "Karmaşıklık Faktörü",
+        "tr": "Karmaşıklık Faktörü",
+        "de": "Karmaşıklık Faktörü",
+        "fr": "Karmaşıklık Faktörü",
+        "es": "Karmaşıklık Faktörü",
+        "ar": "Karmaşıklık Faktörü"
+      }
     },
     {
       "id": "contingencyPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Öngörülemeyen gecikmeler için ayrılan tampon süre yüzdesi"
+      "businessContext": "Öngörülemeyen gecikmeler için ayrılan tampon süre yüzdesi",
+      "label_i18n": {
+        "en": "Yedek Süre Oranı",
+        "tr": "Yedek Süre Oranı",
+        "de": "Yedek Süre Oranı",
+        "fr": "Yedek Süre Oranı",
+        "es": "Yedek Süre Oranı",
+        "ar": "Yedek Süre Oranı"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "contingencyDays"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Proje & Yatırım",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "finance-sales-working-capital"
 }

@@ -5,33 +5,65 @@
       "id": "n",
       "label": "Total Items (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Total number of distinct items in the set."
+      "businessContext": "Total number of distinct items in the set.",
+      "label_i18n": {
+        "en": "Total Items (n)",
+        "tr": "Total Items (n)",
+        "de": "Total Items (n)",
+        "fr": "Total Items (n)",
+        "es": "Total Items (n)",
+        "ar": "Total Items (n)"
+      }
     },
     {
       "id": "r",
       "label": "Items to Arrange (r)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of items to select and arrange."
+      "businessContext": "Number of items to select and arrange.",
+      "label_i18n": {
+        "en": "Items to Arrange (r)",
+        "tr": "Items to Arrange (r)",
+        "de": "Items to Arrange (r)",
+        "fr": "Items to Arrange (r)",
+        "es": "Items to Arrange (r)",
+        "ar": "Items to Arrange (r)"
+      }
     },
     {
       "id": "orderMatters",
       "label": "Order Matters (1=Yes, 0=No)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Whether the order of selection matters (permutation vs combination)."
+      "businessContext": "Whether the order of selection matters (permutation vs combination).",
+      "label_i18n": {
+        "en": "Order Matters (1=Yes, 0=No)",
+        "tr": "Order Matters (1=Yes, 0=No)",
+        "de": "Order Matters (1=Yes, 0=No)",
+        "fr": "Order Matters (1=Yes, 0=No)",
+        "es": "Order Matters (1=Yes, 0=No)",
+        "ar": "Order Matters (1=Yes, 0=No)"
+      }
     },
     {
       "id": "repetitionAllowed",
       "label": "Repetition Allowed (1=Yes, 0=No)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Whether the same item can be selected more than once."
+      "businessContext": "Whether the same item can be selected more than once.",
+      "label_i18n": {
+        "en": "Repetition Allowed (1=Yes, 0=No)",
+        "tr": "Repetition Allowed (1=Yes, 0=No)",
+        "de": "Repetition Allowed (1=Yes, 0=No)",
+        "fr": "Repetition Allowed (1=Yes, 0=No)",
+        "es": "Repetition Allowed (1=Yes, 0=No)",
+        "ar": "Repetition Allowed (1=Yes, 0=No)"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +86,10 @@
       "method"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

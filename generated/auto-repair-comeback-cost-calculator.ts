@@ -25,31 +25,19 @@ export const Auto_repair_comeback_cost_calculatorInputSchema = z.object({
   include_hidden_costs: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Auto_repair_comeback_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.comeback_count / input.total_repair_orders * 100; results["comeback_rate"] = Number.isFinite(v) ? v : 0; } catch { results["comeback_rate"] = 0; }
-  try { const v = input.comeback_count * input.avg_hours_per_comeback * input.avg_labor_rate; results["direct_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
-  try { const v = input.comeback_count * input.parts_cost_per_comeback; results["direct_parts_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_parts_cost"] = 0; }
-  try { const v = input.include_hidden_costs ? ((results["direct_labor_cost"] ?? 0) + (results["direct_parts_cost"] ?? 0)) * 0.20 : 0; results["hidden_overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_overhead_cost"] = 0; }
-  try { const v = input.comeback_count * (input.lost_customer_rate / 100) * input.customer_lifetime_value; results["lost_future_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["lost_future_revenue"] = 0; }
-  try { const v = (input.shop_type === 'dealer' ? 1.25 : (input.shop_type === 'franchise' ? 1.15 : (input.shop_type === 'fleet' ? 1.05 : 1.0))); results["shop_type_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["shop_type_multiplier"] = 0; }
-  try { const v = ((results["direct_labor_cost"] ?? 0) + (results["direct_parts_cost"] ?? 0) + (results["hidden_overhead_cost"] ?? 0) + (results["lost_future_revenue"] ?? 0)) * (results["shop_type_multiplier"] ?? 0); results["total_comeback_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_comeback_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Auto_repair_comeback_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateAuto_repair_comeback_cost_calculator(input: Auto_repair_comeback_cost_calculatorInput): Auto_repair_comeback_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_comeback_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    direct_labor_cost: values["direct_labor_cost"] ?? 0,
-    direct_parts_cost: values["direct_parts_cost"] ?? 0,
-    hidden_overhead_cost: values["hidden_overhead_cost"] ?? 0,
-    lost_future_revenue: values["lost_future_revenue"] ?? 0,
-    shop_type_multiplier: values["shop_type_multiplier"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Comeback Rate","Lost Customer Rate","Average Hours per Comeback"];
-  const suggestedActions: string[] = ["Implement 5-Why Root Cause Analysis","Standardize Repair Procedures","Customer Follow-Up Program","Technician Certification on Complex Repairs"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -68,7 +56,7 @@ export function calculateAuto_repair_comeback_cost_calculator(input: Auto_repair
 
 export interface Auto_repair_comeback_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { direct_labor_cost: number; direct_parts_cost: number; hidden_overhead_cost: number; lost_future_revenue: number; shop_type_multiplier: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

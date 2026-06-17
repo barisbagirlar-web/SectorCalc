@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "The amount to be sent or received"
+      "businessContext": "The amount to be sent or received",
+      "label_i18n": {
+        "en": "Transaction Amount",
+        "tr": "Transaction Amount",
+        "de": "Transaction Amount",
+        "fr": "Transaction Amount",
+        "es": "Transaction Amount",
+        "ar": "Transaction Amount"
+      }
     },
     {
       "id": "feePercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 2.9,
-      "businessContext": "PayPal's domestic transaction fee percentage"
+      "businessContext": "PayPal's domestic transaction fee percentage",
+      "label_i18n": {
+        "en": "Domestic Fee Percentage",
+        "tr": "Domestic Fee Percentage",
+        "de": "Domestic Fee Percentage",
+        "fr": "Domestic Fee Percentage",
+        "es": "Domestic Fee Percentage",
+        "ar": "Domestic Fee Percentage"
+      }
     },
     {
       "id": "fixedFee",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "USD",
       "default": 0.3,
-      "businessContext": "Fixed fee added per domestic transaction"
+      "businessContext": "Fixed fee added per domestic transaction",
+      "label_i18n": {
+        "en": "Fixed Fee per Transaction",
+        "tr": "Fixed Fee per Transaction",
+        "de": "Fixed Fee per Transaction",
+        "fr": "Fixed Fee per Transaction",
+        "es": "Fixed Fee per Transaction",
+        "ar": "Fixed Fee per Transaction"
+      }
     },
     {
       "id": "isInternational",
       "label": "International Transaction (0=No, 1=Yes)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Indicates if the transaction is cross-border"
+      "businessContext": "Indicates if the transaction is cross-border",
+      "label_i18n": {
+        "en": "International Transaction (0=No, 1=Yes)",
+        "tr": "International Transaction (0=No, 1=Yes)",
+        "de": "International Transaction (0=No, 1=Yes)",
+        "fr": "International Transaction (0=No, 1=Yes)",
+        "es": "International Transaction (0=No, 1=Yes)",
+        "ar": "International Transaction (0=No, 1=Yes)"
+      }
     },
     {
       "id": "internationalFeePercentage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.5,
-      "businessContext": "Additional fee percentage for international transactions"
+      "businessContext": "Additional fee percentage for international transactions",
+      "label_i18n": {
+        "en": "International Fee Percentage",
+        "tr": "International Fee Percentage",
+        "de": "International Fee Percentage",
+        "fr": "International Fee Percentage",
+        "es": "International Fee Percentage",
+        "ar": "International Fee Percentage"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "internationalFeeAmount"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "quality-six-sigma"
 }

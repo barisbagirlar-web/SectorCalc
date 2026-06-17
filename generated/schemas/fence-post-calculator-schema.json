@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "Total linear distance of the fence to be constructed"
+      "businessContext": "Total linear distance of the fence to be constructed",
+      "label_i18n": {
+        "en": "Fence Length",
+        "tr": "Fence Length",
+        "de": "Fence Length",
+        "fr": "Fence Length",
+        "es": "Fence Length",
+        "ar": "Fence Length"
+      }
     },
     {
       "id": "postSpacing",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Maximum distance between fence posts as per design specifications"
+      "businessContext": "Maximum distance between fence posts as per design specifications",
+      "label_i18n": {
+        "en": "Post Spacing",
+        "tr": "Post Spacing",
+        "de": "Post Spacing",
+        "fr": "Post Spacing",
+        "es": "Post Spacing",
+        "ar": "Post Spacing"
+      }
     },
     {
       "id": "numberOfCorners",
       "label": "Number of Corners",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of directional changes in the fence line requiring additional corner posts"
+      "businessContext": "Number of directional changes in the fence line requiring additional corner posts",
+      "label_i18n": {
+        "en": "Number of Corners",
+        "tr": "Number of Corners",
+        "de": "Number of Corners",
+        "fr": "Number of Corners",
+        "es": "Number of Corners",
+        "ar": "Number of Corners"
+      }
     },
     {
       "id": "numberOfGateOpenings",
       "label": "Number of Gate Openings",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of gates planned in the fence line; each gate adds posts"
+      "businessContext": "Number of gates planned in the fence line; each gate adds posts",
+      "label_i18n": {
+        "en": "Number of Gate Openings",
+        "tr": "Number of Gate Openings",
+        "de": "Number of Gate Openings",
+        "fr": "Number of Gate Openings",
+        "es": "Number of Gate Openings",
+        "ar": "Number of Gate Openings"
+      }
     },
     {
       "id": "postDiameter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Diameter of the fence post for concrete volume calculation"
+      "businessContext": "Diameter of the fence post for concrete volume calculation",
+      "label_i18n": {
+        "en": "Post Diameter",
+        "tr": "Post Diameter",
+        "de": "Post Diameter",
+        "fr": "Post Diameter",
+        "es": "Post Diameter",
+        "ar": "Post Diameter"
+      }
     },
     {
       "id": "postDepth",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.6,
-      "businessContext": "Depth of the post hole for concrete volume calculation"
+      "businessContext": "Depth of the post hole for concrete volume calculation",
+      "label_i18n": {
+        "en": "Post Depth",
+        "tr": "Post Depth",
+        "de": "Post Depth",
+        "fr": "Post Depth",
+        "es": "Post Depth",
+        "ar": "Post Depth"
+      }
     }
   ],
   "formulas": {
@@ -61,10 +109,10 @@
       "concreteTotal"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

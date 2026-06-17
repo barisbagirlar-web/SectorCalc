@@ -5,41 +5,81 @@
       "id": "sortScore",
       "label": "Sort (Seiri)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Score 1-5 for workplace organization with necessary items only"
+      "businessContext": "Score 1-5 for workplace organization with necessary items only",
+      "label_i18n": {
+        "en": "Sort (Seiri)",
+        "tr": "Sort (Seiri)",
+        "de": "Sort (Seiri)",
+        "fr": "Sort (Seiri)",
+        "es": "Sort (Seiri)",
+        "ar": "Sort (Seiri)"
+      }
     },
     {
       "id": "setOrderScore",
       "label": "Set in Order (Seiton)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Score 1-5 for efficient arrangement of tools and materials"
+      "businessContext": "Score 1-5 for efficient arrangement of tools and materials",
+      "label_i18n": {
+        "en": "Set in Order (Seiton)",
+        "tr": "Set in Order (Seiton)",
+        "de": "Set in Order (Seiton)",
+        "fr": "Set in Order (Seiton)",
+        "es": "Set in Order (Seiton)",
+        "ar": "Set in Order (Seiton)"
+      }
     },
     {
       "id": "shineScore",
       "label": "Shine (Seiso)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Score 1-5 for cleanliness and inspection"
+      "businessContext": "Score 1-5 for cleanliness and inspection",
+      "label_i18n": {
+        "en": "Shine (Seiso)",
+        "tr": "Shine (Seiso)",
+        "de": "Shine (Seiso)",
+        "fr": "Shine (Seiso)",
+        "es": "Shine (Seiso)",
+        "ar": "Shine (Seiso)"
+      }
     },
     {
       "id": "standardizeScore",
       "label": "Standardize (Seiketsu)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Score 1-5 for standardized processes and visual controls"
+      "businessContext": "Score 1-5 for standardized processes and visual controls",
+      "label_i18n": {
+        "en": "Standardize (Seiketsu)",
+        "tr": "Standardize (Seiketsu)",
+        "de": "Standardize (Seiketsu)",
+        "fr": "Standardize (Seiketsu)",
+        "es": "Standardize (Seiketsu)",
+        "ar": "Standardize (Seiketsu)"
+      }
     },
     {
       "id": "sustainScore",
       "label": "Sustain (Shitsuke)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Score 1-5 for discipline and continuous improvement"
+      "businessContext": "Score 1-5 for discipline and continuous improvement",
+      "label_i18n": {
+        "en": "Sustain (Shitsuke)",
+        "tr": "Sustain (Shitsuke)",
+        "de": "Sustain (Shitsuke)",
+        "fr": "Sustain (Shitsuke)",
+        "es": "Sustain (Shitsuke)",
+        "ar": "Sustain (Shitsuke)"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +90,16 @@
     "setOrderStr": "`Set in Order: ${setOrderScore}`",
     "shineStr": "`Shine: ${shineScore}`",
     "standardizeStr": "`Standardize: ${standardizeScore}`",
-    "sustainStr": "`Sustain: ${sustainScore}`"
+    "sustainStr": "`Sustain: ${sustainScore}`",
+    "_sortStr_": "{sortStr}",
+    "_setOrderStr_": "{setOrderStr}",
+    "_shineStr_": "{shineStr}",
+    "_standardizeStr_": "{standardizeStr}",
+    "_sustainStr_": "{sustainStr}",
+    "result": "Total 5S Score: {total} / 25 ({percentage}%)"
   },
   "outputs": {
-    "primary": "Total 5S Score: {total} / 25 ({percentage}%)",
+    "primary": "result",
     "breakdown": [
       "{sortStr}",
       "{setOrderStr}",
@@ -62,10 +108,10 @@
       "{sustainStr}"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

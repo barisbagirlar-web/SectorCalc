@@ -21,6 +21,8 @@ function evaluateAllFormulas(input: Inhg_to_psi_calculatorInput): Record<string,
   const results: Record<string, number> = {};
   try { const v = input.pressure_inhg * input.conversion_factor; results["pressure_psi_raw"] = Number.isFinite(v) ? v : 0; } catch { results["pressure_psi_raw"] = 0; }
   try { const v = Math.round((results["pressure_psi_raw"] ?? 0) * Math.pow(10, input.decimal_places)) / Math.pow(10, input.decimal_places); results["pressure_psi"] = Number.isFinite(v) ? v : 0; } catch { results["pressure_psi"] = 0; }
+  try { const v = input.pressure_inhg * input.conversion_factor; results["pressure_psi_raw___pressure_inhg___conve"] = Number.isFinite(v) ? v : 0; } catch { results["pressure_psi_raw___pressure_inhg___conve"] = 0; }
+  try { const v = Math.round((results["pressure_psi_raw"] ?? 0), input.decimal_places); results["pressure_psi___round_pressure_psi_raw__d"] = Number.isFinite(v) ? v : 0; } catch { results["pressure_psi___round_pressure_psi_raw__d"] = 0; }
   return results;
 }
 

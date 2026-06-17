@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Molarity of the weak acid solution being titrated"
+      "businessContext": "Molarity of the weak acid solution being titrated",
+      "label_i18n": {
+        "en": "Acid Concentration",
+        "tr": "Acid Concentration",
+        "de": "Acid Concentration",
+        "fr": "Acid Concentration",
+        "es": "Acid Concentration",
+        "ar": "Acid Concentration"
+      }
     },
     {
       "id": "acidVolume",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mL",
       "default": 25,
-      "businessContext": "Volume of acid solution in the flask"
+      "businessContext": "Volume of acid solution in the flask",
+      "label_i18n": {
+        "en": "Acid Volume",
+        "tr": "Acid Volume",
+        "de": "Acid Volume",
+        "fr": "Acid Volume",
+        "es": "Acid Volume",
+        "ar": "Acid Volume"
+      }
     },
     {
       "id": "titrantConcentration",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Molarity of the strong base titrant"
+      "businessContext": "Molarity of the strong base titrant",
+      "label_i18n": {
+        "en": "Titrant Concentration",
+        "tr": "Titrant Concentration",
+        "de": "Titrant Concentration",
+        "fr": "Titrant Concentration",
+        "es": "Titrant Concentration",
+        "ar": "Titrant Concentration"
+      }
     },
     {
       "id": "acidDissociationConstant",
       "label": "Acid Dissociation Constant (Ka)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.000018,
-      "businessContext": "Dissociation constant of the weak acid"
+      "businessContext": "Dissociation constant of the weak acid",
+      "label_i18n": {
+        "en": "Acid Dissociation Constant (Ka)",
+        "tr": "Acid Dissociation Constant (Ka)",
+        "de": "Acid Dissociation Constant (Ka)",
+        "fr": "Acid Dissociation Constant (Ka)",
+        "es": "Acid Dissociation Constant (Ka)",
+        "ar": "Acid Dissociation Constant (Ka)"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "pKa"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

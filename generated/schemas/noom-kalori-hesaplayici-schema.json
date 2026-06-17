@@ -47,11 +47,7 @@
     "TDEE": "BMR * activityLevel"
   },
   "outputs": {
-    "primary": {
-      "id": "TDEE",
-      "label": "Günlük Kalori İhtiyacı",
-      "unit": "kcal/gün"
-    },
+    "primary": "BMR",
     "breakdown": [
       {
         "id": "BMR",
@@ -65,7 +61,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
-  "premiumRequired": false
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "categorySlug": "technology-ai-cloud-cyber",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation"
 }

@@ -40,12 +40,7 @@
     "maxStress": "maxMoment / sectionModulus / 1e6"
   },
   "outputs": {
-    "primary": {
-      "id": "maxStress",
-      "label": "Maximum Bending Stress",
-      "unit": "MPa",
-      "description": "Maximum bending stress in the beam in megapascals."
-    },
+    "primary": "maxMoment",
     "breakdown": [
       {
         "id": "maxMoment",
@@ -61,10 +56,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "cnc-additive-manufacturing"
 }

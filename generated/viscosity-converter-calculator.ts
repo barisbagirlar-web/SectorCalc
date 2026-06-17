@@ -56,13 +56,14 @@ function evaluateAllFormulas(input: Viscosity_converter_calculatorInput): Record
   }
   steps.push(`Sonuç: ${result} ${unitNames[to]}`);
   return { primary: result, breakdown: steps }; })(value, from, to, dens); results["convert"] = Number.isFinite(v) ? v : 0; } catch { results["convert"] = 0; }
+  try { const v = conversionSteps; results["conversionSteps"] = Number.isFinite(v) ? v : 0; } catch { results["conversionSteps"] = 0; }
   return results;
 }
 
 
 export function calculateViscosity_converter_calculator(input: Viscosity_converter_calculatorInput): Viscosity_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["convertedValue"] ?? 0;
+  const totalWasteCost = values["convert"] ?? 0;
   const breakdown = {
     
   };

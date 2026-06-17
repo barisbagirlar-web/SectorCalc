@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Distance between bridge supports"
+      "businessContext": "Distance between bridge supports",
+      "label_i18n": {
+        "en": "Span Length (m)",
+        "tr": "Span Length (m)",
+        "de": "Span Length (m)",
+        "fr": "Span Length (m)",
+        "es": "Span Length (m)",
+        "ar": "Span Length (m)"
+      }
     },
     {
       "id": "deck_width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Width of the bridge deck"
+      "businessContext": "Width of the bridge deck",
+      "label_i18n": {
+        "en": "Deck Width (m)",
+        "tr": "Deck Width (m)",
+        "de": "Deck Width (m)",
+        "fr": "Deck Width (m)",
+        "es": "Deck Width (m)",
+        "ar": "Deck Width (m)"
+      }
     },
     {
       "id": "load_per_area",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kN/m²",
       "default": 5,
-      "businessContext": "Distributed load on the deck"
+      "businessContext": "Distributed load on the deck",
+      "label_i18n": {
+        "en": "Load per Area (kN/m²)",
+        "tr": "Load per Area (kN/m²)",
+        "de": "Load per Area (kN/m²)",
+        "fr": "Load per Area (kN/m²)",
+        "es": "Load per Area (kN/m²)",
+        "ar": "Load per Area (kN/m²)"
+      }
     },
     {
       "id": "steel_yield_strength",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Yield strength of structural steel"
+      "businessContext": "Yield strength of structural steel",
+      "label_i18n": {
+        "en": "Steel Yield Strength (MPa)",
+        "tr": "Steel Yield Strength (MPa)",
+        "de": "Steel Yield Strength (MPa)",
+        "fr": "Steel Yield Strength (MPa)",
+        "es": "Steel Yield Strength (MPa)",
+        "ar": "Steel Yield Strength (MPa)"
+      }
     },
     {
       "id": "safety_factor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Factor of safety for design"
+      "businessContext": "Factor of safety for design",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "beam_depth",
@@ -47,17 +87,26 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Depth of main beams"
+      "businessContext": "Depth of main beams",
+      "label_i18n": {
+        "en": "Beam Depth (m)",
+        "tr": "Beam Depth (m)",
+        "de": "Beam Depth (m)",
+        "fr": "Beam Depth (m)",
+        "es": "Beam Depth (m)",
+        "ar": "Beam Depth (m)"
+      }
     }
   ],
   "formulas": {
     "total_load": "load_per_area * deck_width * span_length",
     "max_moment": "total_load * span_length / 8",
     "section_modulus_required": "max_moment * 1000 / (steel_yield_strength / safety_factor)",
-    "beam_width_estimate": "section_modulus_required * 6 / (beam_depth ** 2) / 1000"
+    "beam_width_estimate": "section_modulus_required * 6 / (beam_depth ** 2) / 1000",
+    "result": "Required Beam Width (mm)"
   },
   "outputs": {
-    "primary": "Required Beam Width (mm)",
+    "primary": "result",
     "breakdown": [
       "Total Load (kN): total_load",
       "Max Moment (kN·m): max_moment",
@@ -65,10 +114,10 @@
       "Estimated Beam Width (mm): beam_width_estimate"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

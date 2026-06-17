@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 1000,
-      "businessContext": "Net amount on the supplier's invoice in foreign currency."
+      "businessContext": "Net amount on the supplier's invoice in foreign currency.",
+      "label_i18n": {
+        "en": "Invoice Net Amount",
+        "tr": "Invoice Net Amount",
+        "de": "Invoice Net Amount",
+        "fr": "Invoice Net Amount",
+        "es": "Invoice Net Amount",
+        "ar": "Invoice Net Amount"
+      }
     },
     {
       "id": "exchangeRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "local/foreign",
       "default": 1,
-      "businessContext": "Exchange rate to convert foreign currency to local currency for VAT calculation."
+      "businessContext": "Exchange rate to convert foreign currency to local currency for VAT calculation.",
+      "label_i18n": {
+        "en": "Exchange Rate",
+        "tr": "Exchange Rate",
+        "de": "Exchange Rate",
+        "fr": "Exchange Rate",
+        "es": "Exchange Rate",
+        "ar": "Exchange Rate"
+      }
     },
     {
       "id": "vatRate",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Your domestic VAT rate applicable to the received service."
+      "businessContext": "Your domestic VAT rate applicable to the received service.",
+      "label_i18n": {
+        "en": "Domestic VAT Rate",
+        "tr": "Domestic VAT Rate",
+        "de": "Domestic VAT Rate",
+        "fr": "Domestic VAT Rate",
+        "es": "Domestic VAT Rate",
+        "ar": "Domestic VAT Rate"
+      }
     },
     {
       "id": "isCrossBorder",
       "label": "Cross-Border Transaction",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 if the service is from a foreign supplier, 0 if domestic reverse charge."
+      "businessContext": "1 if the service is from a foreign supplier, 0 if domestic reverse charge.",
+      "label_i18n": {
+        "en": "Cross-Border Transaction",
+        "tr": "Cross-Border Transaction",
+        "de": "Cross-Border Transaction",
+        "fr": "Cross-Border Transaction",
+        "es": "Cross-Border Transaction",
+        "ar": "Cross-Border Transaction"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "totalPayableToSupplier"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

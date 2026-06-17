@@ -37,35 +37,19 @@ export const Filament_recycling_cost_comparator_calculatorInputSchema = z.object
   carbon_price: z.number().min(0).max(200).default(50),
 });
 
-function evaluateAllFormulas(input: Filament_recycling_cost_comparator_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.recycling_machine_cost / input.machine_life_years; results["annual_depreciation"] = Number.isFinite(v) ? v : 0; } catch { results["annual_depreciation"] = 0; }
-  try { const v = input.annual_production_volume * input.recycling_energy_consumption * input.electricity_price; results["annual_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
-  try { const v = input.annual_production_volume * input.labor_hours_per_kg * input.labor_rate; results["annual_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_labor_cost"] = 0; }
-  try { const v = input.annual_production_volume * input.waste_collection_cost / (input.recycling_yield / 100); results["annual_waste_collection"] = Number.isFinite(v) ? v : 0; } catch { results["annual_waste_collection"] = 0; }
-  try { const v = input.include_carbon_cost ? (input.annual_production_volume * 0.5 * input.carbon_price / 1000) : 0; results["annual_carbon_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_carbon_cost"] = 0; }
-  try { const v = (results["annual_depreciation"] ?? 0) + input.annual_maintenance_cost + (results["annual_energy_cost"] ?? 0) + (results["annual_labor_cost"] ?? 0) + (results["annual_waste_collection"] ?? 0) + (results["annual_carbon_cost"] ?? 0); results["total_annual_recycling_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_recycling_cost"] = 0; }
-  try { const v = (results["total_annual_recycling_cost"] ?? 0) / input.annual_production_volume; results["cost_per_kg_recycled"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_kg_recycled"] = 0; }
-  try { const v = (results["cost_per_kg_recycled"] ?? 0) / (input.quality_factor / 100); results["quality_adjusted_cost"] = Number.isFinite(v) ? v : 0; } catch { results["quality_adjusted_cost"] = 0; }
-  try { const v = input.virgin_filament_price - (results["quality_adjusted_cost"] ?? 0); results["savings_per_kg"] = Number.isFinite(v) ? v : 0; } catch { results["savings_per_kg"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Filament_recycling_cost_comparator_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateFilament_recycling_cost_comparator_calculator(input: Filament_recycling_cost_comparator_calculatorInput): Filament_recycling_cost_comparator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["primaryResult"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    depreciation_per_kg: values["depreciation_per_kg"] ?? 0,
-    maintenance_per_kg: values["maintenance_per_kg"] ?? 0,
-    energy_per_kg: values["energy_per_kg"] ?? 0,
-    labor_per_kg: values["labor_per_kg"] ?? 0,
-    waste_collection_per_kg: values["waste_collection_per_kg"] ?? 0,
-    carbon_per_kg: values["carbon_per_kg"] ?? 0,
-    quality_adjustment_factor: values["quality_adjustment_factor"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Yield Loss Cost","Quality Degradation Cost","Energy Inefficiency Penalty"];
-  const suggestedActions: string[] = ["Improve Recycling Yield","Reduce Energy Consumption","Increase Production Volume","Negotiate Waste Collection Rates"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -84,7 +68,7 @@ export function calculateFilament_recycling_cost_comparator_calculator(input: Fi
 
 export interface Filament_recycling_cost_comparator_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { depreciation_per_kg: number; maintenance_per_kg: number; energy_per_kg: number; labor_per_kg: number; waste_collection_per_kg: number; carbon_per_kg: number; quality_adjustment_factor: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

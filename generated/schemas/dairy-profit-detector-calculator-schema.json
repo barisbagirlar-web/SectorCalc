@@ -189,7 +189,7 @@
       "id": "quality_grade",
       "label": "Quality Grade",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "A",
       "min": null,
       "max": null,
@@ -210,7 +210,7 @@
       "id": "seasonal_demand_factor",
       "label": "Seasonal Demand Factor",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "Normal",
       "min": null,
       "max": null,
@@ -330,161 +330,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "net_milk_volume",
-      "label": "Net Milk Volume (after waste)",
-      "expression": "milk_volume_liters * (1 - waste_percentage / 100)",
-      "unit": "L/day",
-      "description": "Effective milk volume after accounting for shrinkage."
-    },
-    {
-      "id": "total_variable_cost_per_day",
-      "label": "Total Variable Cost per Day",
-      "expression": "(production_cost_per_liter + other_variable_cost_per_liter) * milk_volume_liters + labor_hours_per_day * labor_rate_per_hour + energy_cost_per_day",
-      "unit": "USD/day",
-      "description": "Sum of all variable costs including labor and energy."
-    },
-    {
-      "id": "total_cost_per_day",
-      "label": "Total Cost per Day",
-      "expression": "total_variable_cost_per_day + fixed_cost_per_day",
-      "unit": "USD/day",
-      "description": "Total daily cost (variable + fixed)."
-    },
-    {
-      "id": "revenue_per_day",
-      "label": "Revenue per Day",
-      "expression": "net_milk_volume * selling_price_per_liter",
-      "unit": "USD/day",
-      "description": "Daily revenue from milk sales."
-    },
-    {
-      "id": "profit_per_day",
-      "label": "Profit per Day",
-      "expression": "revenue_per_day - total_cost_per_day",
-      "unit": "USD/day",
-      "description": "Daily net profit."
-    },
-    {
-      "id": "profit_margin_percentage",
-      "label": "Profit Margin (%)",
-      "expression": "(profit_per_day / revenue_per_day) * 100",
-      "unit": "%",
-      "description": "Profit as a percentage of revenue."
-    },
-    {
-      "id": "labor_efficiency",
-      "label": "Labor Efficiency (Liters per Labor Hour)",
-      "expression": "net_milk_volume / labor_hours_per_day",
-      "unit": "L/hour",
-      "description": "Milk volume processed per labor hour."
-    }
+    "milk_volume_liters",
+    "milk_volume_liters",
+    "milk_volume_liters",
+    "milk_volume_liters",
+    "milk_volume_liters",
+    "milk_volume_liters",
+    "milk_volume_liters"
   ],
   "outputs": {
-    "primary": {
-      "id": "profit_per_day",
-      "label": "Daily Profit",
-      "unit": "USD/day",
-      "description": "Primary result – net profit per day."
-    },
-    "breakdown": {
-      "revenue_per_day": {
-        "id": "revenue_per_day",
-        "label": "Revenue per Day",
-        "unit": "USD/day"
-      },
-      "total_cost_per_day": {
-        "id": "total_cost_per_day",
-        "label": "Total Cost per Day",
-        "unit": "USD/day"
-      },
-      "total_variable_cost_per_day": {
-        "id": "total_variable_cost_per_day",
-        "label": "Total Variable Cost per Day",
-        "unit": "USD/day"
-      },
-      "fixed_cost_per_day": {
-        "id": "fixed_cost_per_day",
-        "label": "Fixed Cost per Day",
-        "unit": "USD/day"
-      },
-      "net_milk_volume": {
-        "id": "net_milk_volume",
-        "label": "Net Milk Volume",
-        "unit": "L/day"
-      },
-      "profit_margin_percentage": {
-        "id": "profit_margin_percentage",
-        "label": "Profit Margin (%)",
-        "unit": "%"
-      },
-      "labor_efficiency": {
-        "id": "labor_efficiency",
-        "label": "Labor Efficiency",
-        "unit": "L/hour"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "waste_loss",
-        "label": "Waste Loss",
-        "value": "milk_volume_liters * waste_percentage / 100 * selling_price_per_liter",
-        "unit": "USD/day",
-        "description": "Revenue lost due to waste."
-      },
-      {
-        "id": "quality_penalty",
-        "label": "Quality Penalty",
-        "value": "quality_grade == 'C' ? 0.02 * milk_volume_liters : (quality_grade == 'B' ? 0.01 * milk_volume_liters : 0)",
-        "unit": "USD/day",
-        "description": "Estimated revenue loss from lower quality grade."
-      },
-      {
-        "id": "labor_inefficiency_cost",
-        "label": "Labor Inefficiency Cost",
-        "value": "labor_hours_per_day * labor_rate_per_hour * (1 - (net_milk_volume / (labor_hours_per_day * 100)))",
-        "unit": "USD/day",
-        "description": "Cost of labor above benchmark efficiency (100 L/hour)."
-      },
-      {
-        "id": "energy_overuse_cost",
-        "label": "Energy Overuse Cost",
-        "value": "energy_cost_per_day * 0.1",
-        "unit": "USD/day",
-        "description": "Estimated 10% energy waste due to inefficiencies."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": "high",
-        "description": "Reduce waste by improving cooling and handling processes – target waste below 2%."
-      },
-      {
-        "id": "action_2",
-        "priority": "medium",
-        "description": "Review labor scheduling and consider automation if labor efficiency is below 80 L/hour."
-      },
-      {
-        "id": "action_3",
-        "priority": "high",
-        "description": "Negotiate better milk prices or shift to higher-value products (cheese, yogurt) if margin is low."
-      },
-      {
-        "id": "action_4",
-        "priority": "medium",
-        "description": "Implement energy audits and upgrade to energy-efficient equipment to reduce energy cost."
-      },
-      {
-        "id": "action_5",
-        "priority": "critical",
-        "description": "Immediate quality improvement program if grade is C – review herd health and milking hygiene."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "dairy-profit-detector-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK"
 }

@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "KB",
       "default": 0,
-      "businessContext": "Input value in kilobytes to be converted to megabytes. Typical for storage or memory size calculations."
+      "businessContext": "Input value in kilobytes to be converted to megabytes. Typical for storage or memory size calculations.",
+      "label_i18n": {
+        "en": "Kilobytes (KB)",
+        "tr": "Kilobytes (KB)",
+        "de": "Kilobytes (KB)",
+        "fr": "Kilobytes (KB)",
+        "es": "Kilobytes (KB)",
+        "ar": "Kilobytes (KB)"
+      }
     },
     {
       "id": "divisor",
       "label": "Conversion Divisor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1024,
-      "businessContext": "Number of kilobytes per megabyte. Use 1024 for binary (MiB) or 1000 for decimal (MB) per SI standards. Default 1024 aligns with technical memory specifications."
+      "businessContext": "Number of kilobytes per megabyte. Use 1024 for binary (MiB) or 1000 for decimal (MB) per SI standards. Default 1024 aligns with technical memory specifications.",
+      "label_i18n": {
+        "en": "Conversion Divisor",
+        "tr": "Conversion Divisor",
+        "de": "Conversion Divisor",
+        "fr": "Conversion Divisor",
+        "es": "Conversion Divisor",
+        "ar": "Conversion Divisor"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the output. Ensures precision control for technical documentation and reporting."
+      "businessContext": "Number of decimal places for rounding the output. Ensures precision control for technical documentation and reporting.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "offset",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MB",
       "default": 0,
-      "businessContext": "Static offset added to the converted value, used to correct systematic measurement deviations in industrial data acquisition systems."
+      "businessContext": "Static offset added to the converted value, used to correct systematic measurement deviations in industrial data acquisition systems.",
+      "label_i18n": {
+        "en": "Calibration Offset (MB)",
+        "tr": "Calibration Offset (MB)",
+        "de": "Calibration Offset (MB)",
+        "fr": "Calibration Offset (MB)",
+        "es": "Calibration Offset (MB)",
+        "ar": "Calibration Offset (MB)"
+      }
     }
   ],
   "formulas": {
@@ -51,10 +83,10 @@
       "breakdown2"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

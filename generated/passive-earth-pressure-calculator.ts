@@ -32,7 +32,7 @@ function evaluateAllFormulas(input: Passive_earth_pressure_calculatorInput): Rec
 
 export function calculatePassive_earth_pressure_calculator(input: Passive_earth_pressure_calculatorInput): Passive_earth_pressure_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalPassiveForce"] ?? 0;
+  const totalWasteCost = values["frictionAngleRad"] ?? 0;
   const breakdown = {
     
   };

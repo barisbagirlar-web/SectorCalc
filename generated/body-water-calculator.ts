@@ -21,13 +21,15 @@ function evaluateAllFormulas(input: Body_water_calculatorInput): Record<string, 
   try { const v = -2.097 + (0.1069 * input.height) + (0.2466 * input.weight); results["tbwFemale"] = Number.isFinite(v) ? v : 0; } catch { results["tbwFemale"] = 0; }
   try { const v = input.sex === 1 ? (results["tbwMale"] ?? 0) : (results["tbwFemale"] ?? 0); results["totalBodyWater"] = Number.isFinite(v) ? v : 0; } catch { results["totalBodyWater"] = 0; }
   try { const v = ((input.sex === 1 ? (results["tbwMale"] ?? 0) : (results["tbwFemale"] ?? 0)) / input.weight) * 100; results["waterPercentage"] = Number.isFinite(v) ? v : 0; } catch { results["waterPercentage"] = 0; }
+  results["___waterPercentage_toFixed_2__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateBody_water_calculator(input: Body_water_calculatorInput): Body_water_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["toplam"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

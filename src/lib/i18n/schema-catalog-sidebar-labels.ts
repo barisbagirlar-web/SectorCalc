@@ -5,6 +5,7 @@ import {
 import { resolveIndustrySectorDisplayLabel } from "@/lib/i18n/industry-sector-display-labels";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
+import { CATEGORY_TAXONOMY, TAXONOMY_CATEGORY_NAMES } from "@/lib/tools/category-taxonomy";
 
 type LocaleLabelMap = Readonly<Record<SupportedLocale, string>>;
 
@@ -117,6 +118,22 @@ const SCHEMA_CATEGORY_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
     es: "Finanzas y RR. HH.",
     ar: "المالية والموارد البشرية",
   },
+  ...Object.fromEntries(
+    TAXONOMY_CATEGORY_NAMES.map((title) => {
+      const entry = CATEGORY_TAXONOMY[title];
+      return [
+        entry.slug,
+        {
+          tr: entry.trTitle,
+          en: entry.enTitle,
+          de: entry.enTitle,
+          fr: entry.enTitle,
+          es: entry.enTitle,
+          ar: entry.enTitle,
+        } satisfies LocaleLabelMap,
+      ] as const;
+    }),
+  ),
 };
 
 /** Schema catalog sector keys → localized sidebar labels (all 6 locales). */
@@ -208,6 +225,30 @@ const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
     fr: "Aménagement paysager et pelouse",
     es: "Paisajismo y césped",
     ar: "تنسيق الحدائق والعناية بالمسطحات",
+  },
+  "isg-risk": {
+    en: "HSE & Risk",
+    tr: "İSG & Risk",
+    de: "Arbeitsschutz & Risiko",
+    fr: "SST et risque",
+    es: "PRL y riesgo",
+    ar: "السلامة والمخاطر",
+  },
+  surdurulebilirlik: {
+    en: "Sustainability",
+    tr: "Sürdürülebilirlik",
+    de: "Nachhaltigkeit",
+    fr: "Durabilité",
+    es: "Sostenibilidad",
+    ar: "الاستدامة",
+  },
+  "kalite-spc-alti-sigma": {
+    en: "Quality, SPC & Six Sigma",
+    tr: "Kalite, SPC & Altı Sigma",
+    de: "Qualität, SPC & Six Sigma",
+    fr: "Qualité, SPC et Six Sigma",
+    es: "Calidad, SPC y Seis Sigma",
+    ar: "الجودة وSPC وسي سيجما",
   },
 };
 

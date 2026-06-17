@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cup",
       "default": 1,
-      "businessContext": "Number of cups of flour to convert."
+      "businessContext": "Number of cups of flour to convert.",
+      "label_i18n": {
+        "en": "Cups of Flour",
+        "tr": "Cups of Flour",
+        "de": "Cups of Flour",
+        "fr": "Cups of Flour",
+        "es": "Cups of Flour",
+        "ar": "Cups of Flour"
+      }
     },
     {
       "id": "baseGramsPerCup",
@@ -15,31 +23,63 @@
       "type": "number",
       "unit": "g/cup",
       "default": 125,
-      "businessContext": "Baseline weight of 1 cup of flour (all-purpose: 125g, bread: 130g, cake: 115g)."
+      "businessContext": "Baseline weight of 1 cup of flour (all-purpose: 125g, bread: 130g, cake: 115g).",
+      "label_i18n": {
+        "en": "Standard Grams per Cup",
+        "tr": "Standard Grams per Cup",
+        "de": "Standard Grams per Cup",
+        "fr": "Standard Grams per Cup",
+        "es": "Standard Grams per Cup",
+        "ar": "Standard Grams per Cup"
+      }
     },
     {
       "id": "packingFactor",
       "label": "Packing Density Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Adjustment for measuring method (sifted: 1.0, spooned: 1.1, scooped: 1.2)."
+      "businessContext": "Adjustment for measuring method (sifted: 1.0, spooned: 1.1, scooped: 1.2).",
+      "label_i18n": {
+        "en": "Packing Density Factor",
+        "tr": "Packing Density Factor",
+        "de": "Packing Density Factor",
+        "fr": "Packing Density Factor",
+        "es": "Packing Density Factor",
+        "ar": "Packing Density Factor"
+      }
     },
     {
       "id": "humidityFactor",
       "label": "Humidity Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Adjusts for moisture content (normal: 1.0, humid: >1)."
+      "businessContext": "Adjusts for moisture content (normal: 1.0, humid: >1).",
+      "label_i18n": {
+        "en": "Humidity Factor",
+        "tr": "Humidity Factor",
+        "de": "Humidity Factor",
+        "fr": "Humidity Factor",
+        "es": "Humidity Factor",
+        "ar": "Humidity Factor"
+      }
     },
     {
       "id": "scaleCalibration",
       "label": "Scale Calibration Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Correction if your scale is not perfectly calibrated (e.g., 1.05 means scale reads 5% high)."
+      "businessContext": "Correction if your scale is not perfectly calibrated (e.g., 1.05 means scale reads 5% high).",
+      "label_i18n": {
+        "en": "Scale Calibration Factor",
+        "tr": "Scale Calibration Factor",
+        "de": "Scale Calibration Factor",
+        "fr": "Scale Calibration Factor",
+        "es": "Scale Calibration Factor",
+        "ar": "Scale Calibration Factor"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "scaleAdjustment"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

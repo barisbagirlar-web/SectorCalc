@@ -29,7 +29,7 @@ function evaluateAllFormulas(input: Active_earth_pressure_calculatorInput): Reco
 
 export function calculateActive_earth_pressure_calculator(input: Active_earth_pressure_calculatorInput): Active_earth_pressure_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalForce"] ?? 0;
+  const totalWasteCost = values["ka"] ?? 0;
   const breakdown = {
     
   };

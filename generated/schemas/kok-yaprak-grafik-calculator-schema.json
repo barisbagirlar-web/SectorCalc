@@ -5,65 +5,129 @@
       "id": "v1",
       "label": "Veri Noktası 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 55,
-      "businessContext": "Kök-yaprak grafiğinin ilk veri noktası (örn. ölçüm değeri)"
+      "businessContext": "Kök-yaprak grafiğinin ilk veri noktası (örn. ölçüm değeri)",
+      "label_i18n": {
+        "en": "Veri Noktası 1",
+        "tr": "Veri Noktası 1",
+        "de": "Veri Noktası 1",
+        "fr": "Veri Noktası 1",
+        "es": "Veri Noktası 1",
+        "ar": "Veri Noktası 1"
+      }
     },
     {
       "id": "v2",
       "label": "Veri Noktası 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 62,
-      "businessContext": "Kök-yaprak grafiğinin ikinci veri noktası"
+      "businessContext": "Kök-yaprak grafiğinin ikinci veri noktası",
+      "label_i18n": {
+        "en": "Veri Noktası 2",
+        "tr": "Veri Noktası 2",
+        "de": "Veri Noktası 2",
+        "fr": "Veri Noktası 2",
+        "es": "Veri Noktası 2",
+        "ar": "Veri Noktası 2"
+      }
     },
     {
       "id": "v3",
       "label": "Veri Noktası 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 68,
-      "businessContext": "Kök-yaprak grafiğinin üçüncü veri noktası"
+      "businessContext": "Kök-yaprak grafiğinin üçüncü veri noktası",
+      "label_i18n": {
+        "en": "Veri Noktası 3",
+        "tr": "Veri Noktası 3",
+        "de": "Veri Noktası 3",
+        "fr": "Veri Noktası 3",
+        "es": "Veri Noktası 3",
+        "ar": "Veri Noktası 3"
+      }
     },
     {
       "id": "v4",
       "label": "Veri Noktası 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 73,
-      "businessContext": "Kök-yaprak grafiğinin dördüncü veri noktası"
+      "businessContext": "Kök-yaprak grafiğinin dördüncü veri noktası",
+      "label_i18n": {
+        "en": "Veri Noktası 4",
+        "tr": "Veri Noktası 4",
+        "de": "Veri Noktası 4",
+        "fr": "Veri Noktası 4",
+        "es": "Veri Noktası 4",
+        "ar": "Veri Noktası 4"
+      }
     },
     {
       "id": "v5",
       "label": "Veri Noktası 5",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 78,
-      "businessContext": "Kök-yaprak grafiğinin beşinci veri noktası"
+      "businessContext": "Kök-yaprak grafiğinin beşinci veri noktası",
+      "label_i18n": {
+        "en": "Veri Noktası 5",
+        "tr": "Veri Noktası 5",
+        "de": "Veri Noktası 5",
+        "fr": "Veri Noktası 5",
+        "es": "Veri Noktası 5",
+        "ar": "Veri Noktası 5"
+      }
     },
     {
       "id": "v6",
       "label": "Veri Noktası 6",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 81,
-      "businessContext": "Kök-yaprak grafiğinin altıncı veri noktası"
+      "businessContext": "Kök-yaprak grafiğinin altıncı veri noktası",
+      "label_i18n": {
+        "en": "Veri Noktası 6",
+        "tr": "Veri Noktası 6",
+        "de": "Veri Noktası 6",
+        "fr": "Veri Noktası 6",
+        "es": "Veri Noktası 6",
+        "ar": "Veri Noktası 6"
+      }
     },
     {
       "id": "v7",
       "label": "Veri Noktası 7",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 89,
-      "businessContext": "Kök-yaprak grafiğinin yedinci veri noktası"
+      "businessContext": "Kök-yaprak grafiğinin yedinci veri noktası",
+      "label_i18n": {
+        "en": "Veri Noktası 7",
+        "tr": "Veri Noktası 7",
+        "de": "Veri Noktası 7",
+        "fr": "Veri Noktası 7",
+        "es": "Veri Noktası 7",
+        "ar": "Veri Noktası 7"
+      }
     },
     {
       "id": "v8",
       "label": "Veri Noktası 8",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 95,
-      "businessContext": "Kök-yaprak grafiğinin sekizinci veri noktası"
+      "businessContext": "Kök-yaprak grafiğinin sekizinci veri noktası",
+      "label_i18n": {
+        "en": "Veri Noktası 8",
+        "tr": "Veri Noktası 8",
+        "de": "Veri Noktası 8",
+        "fr": "Veri Noktası 8",
+        "es": "Veri Noktası 8",
+        "ar": "Veri Noktası 8"
+      }
     }
   ],
   "formulas": {
@@ -82,10 +146,10 @@
       "medyan"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

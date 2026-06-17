@@ -18,6 +18,8 @@ export const Parsecs_to_light_years_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Parsecs_to_light_years_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.parsecs * input.conversionFactor; results["lightYears"] = Number.isFinite(v) ? v : 0; } catch { results["lightYears"] = 0; }
+  results["Convert__parsecs__pc_using_conversion_fa"] = 0;
+  results["_lightYears__ly"] = 0;
   return results;
 }
 

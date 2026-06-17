@@ -215,150 +215,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "gross_margin_per_cover",
-      "name": "Gross Margin per Cover",
-      "description": "Revenue minus direct food cost per cover.",
-      "formula": "avg_cover_price - food_cost_per_cover",
-      "unit": "USD"
-    },
-    {
-      "id": "contribution_margin_per_cover",
-      "name": "Contribution Margin per Cover",
-      "description": "Gross margin minus labor and overhead.",
-      "formula": "gross_margin_per_cover - labor_cost_per_cover - overhead_per_cover",
-      "unit": "USD"
-    },
-    {
-      "id": "waste_leak_per_cover",
-      "name": "Waste Leak per Cover",
-      "description": "Monetary loss from food waste per cover.",
-      "formula": "food_cost_per_cover * (waste_percentage / 100)",
-      "unit": "USD"
-    },
-    {
-      "id": "theft_leak_per_cover",
-      "name": "Theft & Shrinkage Leak per Cover",
-      "description": "Monetary loss from theft and shrinkage per cover.",
-      "formula": "food_cost_per_cover * (theft_shrinkage_percentage / 100)",
-      "unit": "USD"
-    },
-    {
-      "id": "discount_leak_per_cover",
-      "name": "Discount & Comp Leak per Cover",
-      "description": "Revenue loss from discounts and comps per cover.",
-      "formula": "avg_cover_price * (discount_comp_percentage / 100)",
-      "unit": "USD"
-    },
-    {
-      "id": "total_leak_per_cover",
-      "name": "Total Leak per Cover",
-      "description": "Sum of all hidden losses per cover.",
-      "formula": "waste_leak_per_cover + theft_leak_per_cover + discount_leak_per_cover",
-      "unit": "USD"
-    },
-    {
-      "id": "net_margin_per_cover",
-      "name": "Net Margin per Cover",
-      "description": "Contribution margin minus total leak.",
-      "formula": "contribution_margin_per_cover - total_leak_per_cover",
-      "unit": "USD"
-    }
+    "avg_cover_price",
+    "avg_cover_price",
+    "avg_cover_price",
+    "avg_cover_price",
+    "avg_cover_price",
+    "avg_cover_price",
+    "avg_cover_price"
   ],
   "outputs": {
-    "primary": {
-      "id": "net_margin_percentage",
-      "label": "Net Margin Percentage",
-      "description": "Primary result: net margin as a percentage of cover price.",
-      "formula": "(net_margin_per_cover / avg_cover_price) * 100",
-      "unit": "%"
-    },
-    "breakdown": {
-      "gross_margin_per_cover": {
-        "label": "Gross Margin per Cover",
-        "unit": "USD"
-      },
-      "contribution_margin_per_cover": {
-        "label": "Contribution Margin per Cover",
-        "unit": "USD"
-      },
-      "waste_leak_per_cover": {
-        "label": "Waste Leak per Cover",
-        "unit": "USD"
-      },
-      "theft_leak_per_cover": {
-        "label": "Theft & Shrinkage Leak per Cover",
-        "unit": "USD"
-      },
-      "discount_leak_per_cover": {
-        "label": "Discount & Comp Leak per Cover",
-        "unit": "USD"
-      },
-      "total_leak_per_cover": {
-        "label": "Total Leak per Cover",
-        "unit": "USD"
-      },
-      "net_margin_per_cover": {
-        "label": "Net Margin per Cover",
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "waste_driver",
-        "label": "Food Waste",
-        "value": "waste_leak_per_cover",
-        "impact": "Direct reduction of gross margin through unused inventory."
-      },
-      {
-        "id": "theft_driver",
-        "label": "Theft & Shrinkage",
-        "value": "theft_leak_per_cover",
-        "impact": "Unaccounted inventory loss erodes cost control."
-      },
-      {
-        "id": "discount_driver",
-        "label": "Discounts & Comps",
-        "value": "discount_leak_per_cover",
-        "impact": "Revenue leakage from pricing and promotional policies."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_lean_kitchen",
-        "label": "Implement Lean Kitchen Practices",
-        "description": "Adopt 5S, standardized work, and waste walk audits to reduce waste and improve flow.",
-        "referenceStandard": "ISO 9001:2015 / Lean Six Sigma DMAIC"
-      },
-      {
-        "id": "action_inventory_control",
-        "label": "Strengthen Inventory Control",
-        "description": "Use perpetual inventory systems, cycle counting, and variance reporting to reduce theft.",
-        "referenceStandard": "WERC DC Metrics / COSO Internal Control"
-      },
-      {
-        "id": "action_menu_reengineering",
-        "label": "Menu Re-engineering",
-        "description": "Analyze item profitability, reposition high-margin items, and reduce discount frequency.",
-        "referenceStandard": "Menu Engineering Matrix (Kasavana & Smith)"
-      },
-      {
-        "id": "action_portion_control",
-        "label": "Enforce Portion Control",
-        "description": "Standardize recipes, use portion scales, and train staff to reduce waste and cost variability.",
-        "referenceStandard": "Six Sigma Process Control (SPC)"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "adjusted_net_margin",
-      "label": "Data Confidence Adjusted Net Margin",
-      "description": "Net margin adjusted by a confidence factor based on input reliability (e.g., waste and theft estimates).",
-      "formula": "net_margin_per_cover * (1 - (waste_percentage + theft_shrinkage_percentage) / 200)",
-      "unit": "USD"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "restaurant-menu-margin-leak-calculator",
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK"
 }

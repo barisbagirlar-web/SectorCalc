@@ -3,15 +3,20 @@ import * as z from 'zod';
 
 export interface Micrograms_to_mgInput {
   micrograms: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Micrograms_to_mgInputSchema = z.object({
   micrograms: z.number().default(1000),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Micrograms_to_mgInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.micrograms / 1000; results["milligrams"] = Number.isFinite(v) ? v : 0; } catch { results["milligrams"] = 0; }
+  try { const v = input.micrograms / 1000; results["milligrams___micrograms___1000"] = Number.isFinite(v) ? v : 0; } catch { results["milligrams___micrograms___1000"] = 0; }
   return results;
 }
 

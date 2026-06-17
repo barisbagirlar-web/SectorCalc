@@ -5,65 +5,129 @@
       "id": "x1",
       "label": "X₁",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First X value"
+      "businessContext": "First X value",
+      "label_i18n": {
+        "en": "X₁",
+        "tr": "X₁",
+        "de": "X₁",
+        "fr": "X₁",
+        "es": "X₁",
+        "ar": "X₁"
+      }
     },
     {
       "id": "y1",
       "label": "Y₁",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First Y value"
+      "businessContext": "First Y value",
+      "label_i18n": {
+        "en": "Y₁",
+        "tr": "Y₁",
+        "de": "Y₁",
+        "fr": "Y₁",
+        "es": "Y₁",
+        "ar": "Y₁"
+      }
     },
     {
       "id": "x2",
       "label": "X₂",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second X value"
+      "businessContext": "Second X value",
+      "label_i18n": {
+        "en": "X₂",
+        "tr": "X₂",
+        "de": "X₂",
+        "fr": "X₂",
+        "es": "X₂",
+        "ar": "X₂"
+      }
     },
     {
       "id": "y2",
       "label": "Y₂",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second Y value"
+      "businessContext": "Second Y value",
+      "label_i18n": {
+        "en": "Y₂",
+        "tr": "Y₂",
+        "de": "Y₂",
+        "fr": "Y₂",
+        "es": "Y₂",
+        "ar": "Y₂"
+      }
     },
     {
       "id": "x3",
       "label": "X₃",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third X value"
+      "businessContext": "Third X value",
+      "label_i18n": {
+        "en": "X₃",
+        "tr": "X₃",
+        "de": "X₃",
+        "fr": "X₃",
+        "es": "X₃",
+        "ar": "X₃"
+      }
     },
     {
       "id": "y3",
       "label": "Y₃",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third Y value"
+      "businessContext": "Third Y value",
+      "label_i18n": {
+        "en": "Y₃",
+        "tr": "Y₃",
+        "de": "Y₃",
+        "fr": "Y₃",
+        "es": "Y₃",
+        "ar": "Y₃"
+      }
     },
     {
       "id": "x4",
       "label": "X₄",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth X value"
+      "businessContext": "Fourth X value",
+      "label_i18n": {
+        "en": "X₄",
+        "tr": "X₄",
+        "de": "X₄",
+        "fr": "X₄",
+        "es": "X₄",
+        "ar": "X₄"
+      }
     },
     {
       "id": "y4",
       "label": "Y₄",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth Y value"
+      "businessContext": "Fourth Y value",
+      "label_i18n": {
+        "en": "Y₄",
+        "tr": "Y₄",
+        "de": "Y₄",
+        "fr": "Y₄",
+        "es": "Y₄",
+        "ar": "Y₄"
+      }
     }
   ],
   "formulas": {
@@ -92,10 +156,10 @@
       "sumProdDev"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

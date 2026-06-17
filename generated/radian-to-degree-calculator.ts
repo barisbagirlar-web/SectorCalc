@@ -19,6 +19,10 @@ function evaluateAllFormulas(input: Radian_to_degree_calculatorInput): Record<st
   const results: Record<string, number> = {};
   try { const v = input.radian * input.conversionFactor + input.degreeOffset; results["rawDegree"] = Number.isFinite(v) ? v : 0; } catch { results["rawDegree"] = 0; }
   try { const v = Math.round((results["rawDegree"] ?? 0) * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.radian; results["radian"] = Number.isFinite(v) ? v : 0; } catch { results["radian"] = 0; }
+  try { const v = input.conversionFactor; results["conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
+  try { const v = input.degreeOffset; results["degreeOffset"] = Number.isFinite(v) ? v : 0; } catch { results["degreeOffset"] = 0; }
+  try { const v = input.decimalPlaces; results["decimalPlaces"] = Number.isFinite(v) ? v : 0; } catch { results["decimalPlaces"] = 0; }
   return results;
 }
 

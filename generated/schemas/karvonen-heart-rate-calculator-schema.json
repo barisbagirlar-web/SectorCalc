@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age for estimating maximum heart rate (220 - age) if max HR is not directly measured"
+      "businessContext": "Age for estimating maximum heart rate (220 - age) if max HR is not directly measured",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "restingHR",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 60,
-      "businessContext": "Resting heart rate measured in the morning"
+      "businessContext": "Resting heart rate measured in the morning",
+      "label_i18n": {
+        "en": "Resting Heart Rate",
+        "tr": "Resting Heart Rate",
+        "de": "Resting Heart Rate",
+        "fr": "Resting Heart Rate",
+        "es": "Resting Heart Rate",
+        "ar": "Resting Heart Rate"
+      }
     },
     {
       "id": "maxHR",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 190,
-      "businessContext": "Maximum heart rate; if unknown, use 220 - age"
+      "businessContext": "Maximum heart rate; if unknown, use 220 - age",
+      "label_i18n": {
+        "en": "Maximum Heart Rate",
+        "tr": "Maximum Heart Rate",
+        "de": "Maximum Heart Rate",
+        "fr": "Maximum Heart Rate",
+        "es": "Maximum Heart Rate",
+        "ar": "Maximum Heart Rate"
+      }
     },
     {
       "id": "intensityLow",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Lower percentage of heart rate reserve for the target training zone"
+      "businessContext": "Lower percentage of heart rate reserve for the target training zone",
+      "label_i18n": {
+        "en": "Intensity Lower Limit",
+        "tr": "Intensity Lower Limit",
+        "de": "Intensity Lower Limit",
+        "fr": "Intensity Lower Limit",
+        "es": "Intensity Lower Limit",
+        "ar": "Intensity Lower Limit"
+      }
     },
     {
       "id": "intensityHigh",
@@ -39,24 +71,33 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Upper percentage of heart rate reserve for the target training zone"
+      "businessContext": "Upper percentage of heart rate reserve for the target training zone",
+      "label_i18n": {
+        "en": "Intensity Upper Limit",
+        "tr": "Intensity Upper Limit",
+        "de": "Intensity Upper Limit",
+        "fr": "Intensity Upper Limit",
+        "es": "Intensity Upper Limit",
+        "ar": "Intensity Upper Limit"
+      }
     }
   ],
   "formulas": {
     "targetHeartRateLow": "((maxHR - restingHR) * (intensityLow / 100)) + restingHR",
-    "targetHeartRateHigh": "((maxHR - restingHR) * (intensityHigh / 100)) + restingHR"
+    "targetHeartRateHigh": "((maxHR - restingHR) * (intensityHigh / 100)) + restingHR",
+    "result": "Target heart rate zone: {targetHeartRateLow} - {targetHeartRateHigh} bpm"
   },
   "outputs": {
-    "primary": "Target heart rate zone: {targetHeartRateLow} - {targetHeartRateHigh} bpm",
+    "primary": "result",
     "breakdown": [
       "targetHeartRateLow",
       "targetHeartRateHigh"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

@@ -73,11 +73,7 @@
     "mirrPercent": "mirrDecimal * 100"
   },
   "outputs": {
-    "primary": {
-      "id": "mirrPercent",
-      "label": "MIRR",
-      "unit": "%"
-    },
+    "primary": "pvNeg",
     "breakdown": [
       {
         "id": "fvPos",
@@ -91,10 +87,10 @@
       }
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "process-chemical"
 }

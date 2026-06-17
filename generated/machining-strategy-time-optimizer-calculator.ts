@@ -27,32 +27,19 @@ export const Machining_strategy_time_optimizer_calculatorInputSchema = z.object(
   use_high_feed: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Machining_strategy_time_optimizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.cutting_speed * 1000) / (Math.PI * input.part_diameter); results["spindle_speed"] = Number.isFinite(v) ? v : 0; } catch { results["spindle_speed"] = 0; }
-  try { const v = input.part_length / (input.feed_rate * (results["spindle_speed"] ?? 0)); results["cutting_time_per_pass"] = Number.isFinite(v) ? v : 0; } catch { results["cutting_time_per_pass"] = 0; }
-  try { const v = (results["cutting_time_per_pass"] ?? 0) * input.number_of_passes; results["total_cutting_time"] = Number.isFinite(v) ? v : 0; } catch { results["total_cutting_time"] = 0; }
-  try { const v = (results["total_cutting_time"] ?? 0) / input.tool_life_minutes; results["tool_change_frequency"] = Number.isFinite(v) ? v : 0; } catch { results["tool_change_frequency"] = 0; }
-  try { const v = (results["tool_change_frequency"] ?? 0) * input.tool_change_time; results["tool_change_downtime"] = Number.isFinite(v) ? v : 0; } catch { results["tool_change_downtime"] = 0; }
-  try { const v = input.use_high_feed ? 0.85 : 1.0; results["high_feed_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["high_feed_adjustment"] = 0; }
-  try { const v = ((results["total_cutting_time"] ?? 0) + (results["tool_change_downtime"] ?? 0)) * (results["high_feed_adjustment"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
-  try { const v = (results["total_cutting_time"] ?? 0); results["cutting_time"] = Number.isFinite(v) ? v : 0; } catch { results["cutting_time"] = 0; }
-  try { const v = (results["primary_result"] ?? 0); results["optimized_cycle_time"] = Number.isFinite(v) ? v : 0; } catch { results["optimized_cycle_time"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Machining_strategy_time_optimizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateMachining_strategy_time_optimizer_calculator(input: Machining_strategy_time_optimizer_calculatorInput): Machining_strategy_time_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["optimized_cycle_time"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    cutting_time: values["cutting_time"] ?? 0,
-    tool_change_downtime: values["tool_change_downtime"] ?? 0,
-    spindle_speed: values["spindle_speed"] ?? 0,
-    tool_change_frequency: values["tool_change_frequency"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excessive Tool Changes","Low Spindle Utilization","Non-Optimal Feed Rate"];
-  const suggestedActions: string[] = ["Increase Feed Rate","Enable High Feed Strategy","Optimize Tool Life","Reduce Number of Passes"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -71,7 +58,7 @@ export function calculateMachining_strategy_time_optimizer_calculator(input: Mac
 
 export interface Machining_strategy_time_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { cutting_time: number; tool_change_downtime: number; spindle_speed: number; tool_change_frequency: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

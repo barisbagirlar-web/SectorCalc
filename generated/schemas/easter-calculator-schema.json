@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "year",
       "default": 2023,
-      "businessContext": "Gregorian year for which to calculate Easter date"
+      "businessContext": "Gregorian year for which to calculate Easter date",
+      "label_i18n": {
+        "en": "Year",
+        "tr": "Year",
+        "de": "Year",
+        "fr": "Year",
+        "es": "Year",
+        "ar": "Year"
+      }
     },
     {
       "id": "daysToAdd",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Number of days to shift the computed Easter date"
+      "businessContext": "Number of days to shift the computed Easter date",
+      "label_i18n": {
+        "en": "Days Adjustment",
+        "tr": "Days Adjustment",
+        "de": "Days Adjustment",
+        "fr": "Days Adjustment",
+        "es": "Days Adjustment",
+        "ar": "Days Adjustment"
+      }
     },
     {
       "id": "algorithmVersion",
       "label": "Algorithm Version",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Version of the computus algorithm (1 = Gregorian, 2 = Julian, not used in formula)"
+      "businessContext": "Version of the computus algorithm (1 = Gregorian, 2 = Julian, not used in formula)",
+      "label_i18n": {
+        "en": "Algorithm Version",
+        "tr": "Algorithm Version",
+        "de": "Algorithm Version",
+        "fr": "Algorithm Version",
+        "es": "Algorithm Version",
+        "ar": "Algorithm Version"
+      }
     },
     {
       "id": "moonPhaseOffset",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Offset in days to adjust the paschal full moon calculation"
+      "businessContext": "Offset in days to adjust the paschal full moon calculation",
+      "label_i18n": {
+        "en": "Moon Phase Offset",
+        "tr": "Moon Phase Offset",
+        "de": "Moon Phase Offset",
+        "fr": "Moon Phase Offset",
+        "es": "Moon Phase Offset",
+        "ar": "Moon Phase Offset"
+      }
     }
   ],
   "formulas": {
@@ -48,19 +80,20 @@
     "l": "(32 + 2 * e + 2 * i - h - k) % 7",
     "m": "Math.floor((a + 11 * h + 22 * l) / 451)",
     "month": "Math.floor((h + l - 7 * m + 114) / 31)",
-    "day": "((h + l - 7 * m + 114) % 31) + 1 + daysToAdd"
+    "day": "((h + l - 7 * m + 114) % 31) + 1 + daysToAdd",
+    "result": "'Easter: ' + month + '/' + day + '/' + year"
   },
   "outputs": {
-    "primary": "'Easter: ' + month + '/' + day + '/' + year",
+    "primary": "result",
     "breakdown": [
       "month",
       "day"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

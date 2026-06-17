@@ -18,6 +18,10 @@ export const Typography_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Typography_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.viewingDistance * 2.5 * input.ageFactor * input.lightingFactor * input.safetyFactor; results["recommendedFontHeight"] = Number.isFinite(v) ? v : 0; } catch { results["recommendedFontHeight"] = 0; }
+  results["Temel_y_kseklik___G_r___mesafesi___2_5_m"] = 0;
+  results["__ageFactor"] = 0;
+  results["__lightingFactor"] = 0;
+  results["__safetyFactor"] = 0;
   return results;
 }
 

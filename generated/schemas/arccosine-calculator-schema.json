@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of the adjacent side in the right triangle. Must be non-negative."
+      "businessContext": "Length of the adjacent side in the right triangle. Must be non-negative.",
+      "label_i18n": {
+        "en": "Adjacent Side",
+        "tr": "Adjacent Side",
+        "de": "Adjacent Side",
+        "fr": "Adjacent Side",
+        "es": "Adjacent Side",
+        "ar": "Adjacent Side"
+      }
     },
     {
       "id": "hypotenuse",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of the hypotenuse. Must be greater than zero and greater than or equal to the adjacent side to ensure a valid arccosine input (ratio ≤ 1)."
+      "businessContext": "Length of the hypotenuse. Must be greater than zero and greater than or equal to the adjacent side to ensure a valid arccosine input (ratio ≤ 1).",
+      "label_i18n": {
+        "en": "Hypotenuse",
+        "tr": "Hypotenuse",
+        "de": "Hypotenuse",
+        "fr": "Hypotenuse",
+        "es": "Hypotenuse",
+        "ar": "Hypotenuse"
+      }
     },
     {
       "id": "outputUnit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mode",
       "default": 1,
-      "businessContext": "0 = Radians, 1 = Degrees. Select the unit for the computed angle."
+      "businessContext": "0 = Radians, 1 = Degrees. Select the unit for the computed angle.",
+      "label_i18n": {
+        "en": "Output Unit",
+        "tr": "Output Unit",
+        "de": "Output Unit",
+        "fr": "Output Unit",
+        "es": "Output Unit",
+        "ar": "Output Unit"
+      }
     },
     {
       "id": "precision",
@@ -31,16 +55,23 @@
       "type": "number",
       "unit": "count",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the result."
+      "businessContext": "Number of decimal places for rounding the result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "primary": "parseFloat((inputs.outputUnit == 1 ? (Math.acos(inputs.adjacent / inputs.hypotenuse) * (180 / Math.PI)) : Math.acos(inputs.adjacent / inputs.hypotenuse)).toFixed(inputs.precision))",
-    "breakdown": [
-      "`Ratio (adjacent/hypotenuse): ${(inputs.adjacent / inputs.hypotenuse).toFixed(inputs.precision)}`",
-      "`Angle in Radians: ${Math.acos(inputs.adjacent / inputs.hypotenuse).toFixed(inputs.precision)}`",
-      "`Angle in Degrees: ${(Math.acos(inputs.adjacent / inputs.hypotenuse) * (180 / Math.PI)).toFixed(inputs.precision)}`"
-    ]
+    "breakdown": "adjacent",
+    "breakdown_0_": "breakdown[0]",
+    "breakdown_1_": "breakdown[1]",
+    "breakdown_2_": "breakdown[2]"
   },
   "outputs": {
     "primary": "primary",
@@ -50,10 +81,10 @@
       "breakdown[2]"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

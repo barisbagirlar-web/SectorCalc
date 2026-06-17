@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 300000,
-      "businessContext": "Total purchase price of the multi-unit property."
+      "businessContext": "Total purchase price of the multi-unit property.",
+      "label_i18n": {
+        "en": "Property Price",
+        "tr": "Property Price",
+        "de": "Property Price",
+        "fr": "Property Price",
+        "es": "Property Price",
+        "ar": "Property Price"
+      }
     },
     {
       "id": "downPayment",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 60000,
-      "businessContext": "Cash amount paid upfront (typically 20% of property price)."
+      "businessContext": "Cash amount paid upfront (typically 20% of property price).",
+      "label_i18n": {
+        "en": "Down Payment",
+        "tr": "Down Payment",
+        "de": "Down Payment",
+        "fr": "Down Payment",
+        "es": "Down Payment",
+        "ar": "Down Payment"
+      }
     },
     {
       "id": "interestRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 4.5,
-      "businessContext": "Annual mortgage interest rate."
+      "businessContext": "Annual mortgage interest rate.",
+      "label_i18n": {
+        "en": "Interest Rate",
+        "tr": "Interest Rate",
+        "de": "Interest Rate",
+        "fr": "Interest Rate",
+        "es": "Interest Rate",
+        "ar": "Interest Rate"
+      }
     },
     {
       "id": "loanTerm",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Duration of the mortgage loan in years."
+      "businessContext": "Duration of the mortgage loan in years.",
+      "label_i18n": {
+        "en": "Loan Term",
+        "tr": "Loan Term",
+        "de": "Loan Term",
+        "fr": "Loan Term",
+        "es": "Loan Term",
+        "ar": "Loan Term"
+      }
     },
     {
       "id": "monthlyRentIncome",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 2500,
-      "businessContext": "Gross monthly rental income from all rented units before vacancy and expenses."
+      "businessContext": "Gross monthly rental income from all rented units before vacancy and expenses.",
+      "label_i18n": {
+        "en": "Monthly Rental Income",
+        "tr": "Monthly Rental Income",
+        "de": "Monthly Rental Income",
+        "fr": "Monthly Rental Income",
+        "es": "Monthly Rental Income",
+        "ar": "Monthly Rental Income"
+      }
     },
     {
       "id": "monthlyExpenses",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$",
       "default": 800,
-      "businessContext": "Total monthly costs including property taxes, insurance, maintenance, property management, and other expenses."
+      "businessContext": "Total monthly costs including property taxes, insurance, maintenance, property management, and other expenses.",
+      "label_i18n": {
+        "en": "Monthly Operating Expenses",
+        "tr": "Monthly Operating Expenses",
+        "de": "Monthly Operating Expenses",
+        "fr": "Monthly Operating Expenses",
+        "es": "Monthly Operating Expenses",
+        "ar": "Monthly Operating Expenses"
+      }
     },
     {
       "id": "vacancyRate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected percentage of time the rental units are vacant."
+      "businessContext": "Expected percentage of time the rental units are vacant.",
+      "label_i18n": {
+        "en": "Vacancy Rate",
+        "tr": "Vacancy Rate",
+        "de": "Vacancy Rate",
+        "fr": "Vacancy Rate",
+        "es": "Vacancy Rate",
+        "ar": "Vacancy Rate"
+      }
     }
   ],
   "formulas": {
@@ -67,17 +123,20 @@
     "effectiveRentIncome": "monthlyRentIncome - vacancyLoss",
     "netMonthlyCashFlow": "effectiveRentIncome - monthlyMortgage - monthlyExpenses",
     "annualCashFlow": "netMonthlyCashFlow * 12",
-    "cashOnCashReturn": "(annualCashFlow / downPayment) * 100"
+    "cashOnCashReturn": "(annualCashFlow / downPayment) * 100",
+    "Monthly_Mortgage_Payment": "Monthly Mortgage Payment",
+    "Effective_Rental_Income": "Effective Rental Income",
+    "Cash_on_Cash_Return": "Cash-on-Cash Return"
   },
   "outputs": {
-    "primary": "Monthly Cash Flow",
+    "primary": "loanAmount",
     "breakdown": [
       "Monthly Mortgage Payment",
       "Effective Rental Income",
       "Cash-on-Cash Return"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

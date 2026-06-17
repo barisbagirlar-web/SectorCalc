@@ -5,49 +5,83 @@
       "id": "n",
       "label": "n",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Positive integer for factorial approximation"
+      "businessContext": "Positive integer for factorial approximation",
+      "label_i18n": {
+        "en": "n",
+        "tr": "n",
+        "de": "n",
+        "fr": "n",
+        "es": "n",
+        "ar": "n"
+      }
     },
     {
       "id": "a",
       "label": "a",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First-order correction coefficient (1/n term)"
+      "businessContext": "First-order correction coefficient (1/n term)",
+      "label_i18n": {
+        "en": "a",
+        "tr": "a",
+        "de": "a",
+        "fr": "a",
+        "es": "a",
+        "ar": "a"
+      }
     },
     {
       "id": "b",
       "label": "b",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second-order correction coefficient (1/n² term)"
+      "businessContext": "Second-order correction coefficient (1/n² term)",
+      "label_i18n": {
+        "en": "b",
+        "tr": "b",
+        "de": "b",
+        "fr": "b",
+        "es": "b",
+        "ar": "b"
+      }
     },
     {
       "id": "c",
       "label": "c",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third-order correction coefficient (1/n³ term)"
+      "businessContext": "Third-order correction coefficient (1/n³ term)",
+      "label_i18n": {
+        "en": "c",
+        "tr": "c",
+        "de": "c",
+        "fr": "c",
+        "es": "c",
+        "ar": "c"
+      }
     }
   ],
   "formulas": {
-    "primary": "Math.sqrt(2*Math.PI*n) * Math.pow(n/Math.E, n) * (1 + a/n + b/(n*n) + c/(n*n*n))"
+    "primary": "Math.sqrt(2*Math.PI*n) * Math.pow(n/Math.E, n) * (1 + a/n + b/(n*n) + c/(n*n*n))",
+    "Math_sqrt_2_Math_PI_n____Math_pow_n_Math": "Math.sqrt(2*Math.PI*n) * Math.pow(n/Math.E, n)",
+    "_1___a_n___b__n_n____c__n_n_n__": "(1 + a/n + b/(n*n) + c/(n*n*n))"
   },
   "outputs": {
-    "primary": "Stirling approximation for n!",
+    "primary": "primary",
     "breakdown": [
       "Math.sqrt(2*Math.PI*n) * Math.pow(n/Math.E, n)",
       "(1 + a/n + b/(n*n) + c/(n*n*n))"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

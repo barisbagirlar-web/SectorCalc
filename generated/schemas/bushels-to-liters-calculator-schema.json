@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bu",
       "default": 1,
-      "businessContext": "Quantity of grain or dry volume in bushels"
+      "businessContext": "Quantity of grain or dry volume in bushels",
+      "label_i18n": {
+        "en": "Total Bushels",
+        "tr": "Total Bushels",
+        "de": "Total Bushels",
+        "fr": "Total Bushels",
+        "es": "Total Bushels",
+        "ar": "Total Bushels"
+      }
     },
     {
       "id": "conversion_factor",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "L/bu",
       "default": 35.2391,
-      "businessContext": "Conversion factor from bushels to liters (US dry standard: 35.2391 L/bu)"
+      "businessContext": "Conversion factor from bushels to liters (US dry standard: 35.2391 L/bu)",
+      "label_i18n": {
+        "en": "Liters per Bushel",
+        "tr": "Liters per Bushel",
+        "de": "Liters per Bushel",
+        "fr": "Liters per Bushel",
+        "es": "Liters per Bushel",
+        "ar": "Liters per Bushel"
+      }
     },
     {
       "id": "batch_count",
       "label": "Number of Batches",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of batches or lots (multiplies total volume)"
+      "businessContext": "Number of batches or lots (multiplies total volume)",
+      "label_i18n": {
+        "en": "Number of Batches",
+        "tr": "Number of Batches",
+        "de": "Number of Batches",
+        "fr": "Number of Batches",
+        "es": "Number of Batches",
+        "ar": "Number of Batches"
+      }
     },
     {
       "id": "container_size",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L",
       "default": 20,
-      "businessContext": "Volume of each container for logistical planning"
+      "businessContext": "Volume of each container for logistical planning",
+      "label_i18n": {
+        "en": "Container Capacity",
+        "tr": "Container Capacity",
+        "de": "Container Capacity",
+        "fr": "Container Capacity",
+        "es": "Container Capacity",
+        "ar": "Container Capacity"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "containers_needed"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -5,25 +5,49 @@
       "id": "location",
       "label": "Location (μ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Location parameter of the GEV distribution (center)."
+      "businessContext": "Location parameter of the GEV distribution (center).",
+      "label_i18n": {
+        "en": "Location (μ)",
+        "tr": "Location (μ)",
+        "de": "Location (μ)",
+        "fr": "Location (μ)",
+        "es": "Location (μ)",
+        "ar": "Location (μ)"
+      }
     },
     {
       "id": "scale",
       "label": "Scale (σ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Scale parameter, must be > 0. Controls spread."
+      "businessContext": "Scale parameter, must be > 0. Controls spread.",
+      "label_i18n": {
+        "en": "Scale (σ)",
+        "tr": "Scale (σ)",
+        "de": "Scale (σ)",
+        "fr": "Scale (σ)",
+        "es": "Scale (σ)",
+        "ar": "Scale (σ)"
+      }
     },
     {
       "id": "shape",
       "label": "Shape (ξ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Shape parameter. ξ>0 heavy-tailed, ξ=0 Gumbel, ξ<0 bounded."
+      "businessContext": "Shape parameter. ξ>0 heavy-tailed, ξ=0 Gumbel, ξ<0 bounded.",
+      "label_i18n": {
+        "en": "Shape (ξ)",
+        "tr": "Shape (ξ)",
+        "de": "Shape (ξ)",
+        "fr": "Shape (ξ)",
+        "es": "Shape (ξ)",
+        "ar": "Shape (ξ)"
+      }
     },
     {
       "id": "returnPeriod",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 100,
-      "businessContext": "Average recurrence interval in years (e.g., 100 for 100-year event)."
+      "businessContext": "Average recurrence interval in years (e.g., 100 for 100-year event).",
+      "label_i18n": {
+        "en": "Return Period",
+        "tr": "Return Period",
+        "de": "Return Period",
+        "fr": "Return Period",
+        "es": "Return Period",
+        "ar": "Return Period"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "returnLevel"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

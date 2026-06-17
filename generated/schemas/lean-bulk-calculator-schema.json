@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units/day",
       "default": 1000,
-      "businessContext": "Number of units produced per day"
+      "businessContext": "Number of units produced per day",
+      "label_i18n": {
+        "en": "Daily Production Volume",
+        "tr": "Daily Production Volume",
+        "de": "Daily Production Volume",
+        "fr": "Daily Production Volume",
+        "es": "Daily Production Volume",
+        "ar": "Daily Production Volume"
+      }
     },
     {
       "id": "materialPerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0.5,
-      "businessContext": "Amount of raw material required per unit"
+      "businessContext": "Amount of raw material required per unit",
+      "label_i18n": {
+        "en": "Material Per Unit",
+        "tr": "Material Per Unit",
+        "de": "Material Per Unit",
+        "fr": "Material Per Unit",
+        "es": "Material Per Unit",
+        "ar": "Material Per Unit"
+      }
     },
     {
       "id": "containerCapacity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 25,
-      "businessContext": "Capacity of each bulk container"
+      "businessContext": "Capacity of each bulk container",
+      "label_i18n": {
+        "en": "Container Capacity",
+        "tr": "Container Capacity",
+        "de": "Container Capacity",
+        "fr": "Container Capacity",
+        "es": "Container Capacity",
+        "ar": "Container Capacity"
+      }
     },
     {
       "id": "safetyStockDays",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 2,
-      "businessContext": "Days of inventory kept as safety buffer"
+      "businessContext": "Days of inventory kept as safety buffer",
+      "label_i18n": {
+        "en": "Safety Stock Days",
+        "tr": "Safety Stock Days",
+        "de": "Safety Stock Days",
+        "fr": "Safety Stock Days",
+        "es": "Safety Stock Days",
+        "ar": "Safety Stock Days"
+      }
     },
     {
       "id": "leadTimeDays",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Supplier lead time in days"
+      "businessContext": "Supplier lead time in days",
+      "label_i18n": {
+        "en": "Lead Time Days",
+        "tr": "Lead Time Days",
+        "de": "Lead Time Days",
+        "fr": "Lead Time Days",
+        "es": "Lead Time Days",
+        "ar": "Lead Time Days"
+      }
     },
     {
       "id": "reorderPointMultiplier",
       "label": "Reorder Point Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Multiplier to account for variability in demand during lead time"
+      "businessContext": "Multiplier to account for variability in demand during lead time",
+      "label_i18n": {
+        "en": "Reorder Point Multiplier",
+        "tr": "Reorder Point Multiplier",
+        "de": "Reorder Point Multiplier",
+        "fr": "Reorder Point Multiplier",
+        "es": "Reorder Point Multiplier",
+        "ar": "Reorder Point Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -57,11 +105,7 @@
     "avgDailyContainers": "totalDailyMaterial / containerCapacity"
   },
   "outputs": {
-    "primary": {
-      "label": "Total Bulk Material Required",
-      "value": "totalBulkRequired",
-      "unit": "kg"
-    },
+    "primary": "totalDailyMaterial",
     "breakdown": [
       {
         "label": "Number of Containers",
@@ -75,7 +119,10 @@
       }
     ]
   },
-  "category": "Malzeme, Fire & OEE",
+  "category": "Yalın Üretim",
   "sector": "Üretim & İmalat",
-  "premiumRequired": false
+  "premiumRequired": false,
+  "categorySlug": "lean-production",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

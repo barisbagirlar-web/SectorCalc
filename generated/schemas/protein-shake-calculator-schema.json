@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "g",
       "default": 30,
-      "businessContext": "Weight of one scoop of protein powder"
+      "businessContext": "Weight of one scoop of protein powder",
+      "label_i18n": {
+        "en": "Scoop Weight (g)",
+        "tr": "Scoop Weight (g)",
+        "de": "Scoop Weight (g)",
+        "fr": "Scoop Weight (g)",
+        "es": "Scoop Weight (g)",
+        "ar": "Scoop Weight (g)"
+      }
     },
     {
       "id": "numScoops",
       "label": "Number of Scoops",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of scoops used in the shake"
+      "businessContext": "Number of scoops used in the shake",
+      "label_i18n": {
+        "en": "Number of Scoops",
+        "tr": "Number of Scoops",
+        "de": "Number of Scoops",
+        "fr": "Number of Scoops",
+        "es": "Number of Scoops",
+        "ar": "Number of Scoops"
+      }
     },
     {
       "id": "proteinPer100g",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Protein content as percentage of powder weight"
+      "businessContext": "Protein content as percentage of powder weight",
+      "label_i18n": {
+        "en": "Protein per 100g (%)",
+        "tr": "Protein per 100g (%)",
+        "de": "Protein per 100g (%)",
+        "fr": "Protein per 100g (%)",
+        "es": "Protein per 100g (%)",
+        "ar": "Protein per 100g (%)"
+      }
     },
     {
       "id": "caloriesPer100g",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 400,
-      "businessContext": "Caloric content per 100g of powder"
+      "businessContext": "Caloric content per 100g of powder",
+      "label_i18n": {
+        "en": "Calories per 100g",
+        "tr": "Calories per 100g",
+        "de": "Calories per 100g",
+        "fr": "Calories per 100g",
+        "es": "Calories per 100g",
+        "ar": "Calories per 100g"
+      }
     },
     {
       "id": "liquidVolume",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ml",
       "default": 300,
-      "businessContext": "Volume of liquid added (milk or water)"
+      "businessContext": "Volume of liquid added (milk or water)",
+      "label_i18n": {
+        "en": "Liquid Volume (ml)",
+        "tr": "Liquid Volume (ml)",
+        "de": "Liquid Volume (ml)",
+        "fr": "Liquid Volume (ml)",
+        "es": "Liquid Volume (ml)",
+        "ar": "Liquid Volume (ml)"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "proteinPer100ml"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",
-  "categorySlug": "food-cold-chain-hygiene"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

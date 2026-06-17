@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Squat_calculatorInput {
   weight: number;
   reps: number;
+  auto_input_3: number;
 }
 
 export const Squat_calculatorInputSchema = z.object({
   weight: z.number().default(100),
   reps: z.number().default(5),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Squat_calculatorInput): Record<string, number> {

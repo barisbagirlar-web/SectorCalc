@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "Total swimming distance in meters."
+      "businessContext": "Total swimming distance in meters.",
+      "label_i18n": {
+        "en": "Distance (meters)",
+        "tr": "Distance (meters)",
+        "de": "Distance (meters)",
+        "fr": "Distance (meters)",
+        "es": "Distance (meters)",
+        "ar": "Distance (meters)"
+      }
     },
     {
       "id": "time",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 60,
-      "businessContext": "Total time taken to swim the distance."
+      "businessContext": "Total time taken to swim the distance.",
+      "label_i18n": {
+        "en": "Time (seconds)",
+        "tr": "Time (seconds)",
+        "de": "Time (seconds)",
+        "fr": "Time (seconds)",
+        "es": "Time (seconds)",
+        "ar": "Time (seconds)"
+      }
     },
     {
       "id": "restTime",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "s",
       "default": 30,
-      "businessContext": "Rest time between laps or intervals."
+      "businessContext": "Rest time between laps or intervals.",
+      "label_i18n": {
+        "en": "Rest Time (seconds)",
+        "tr": "Rest Time (seconds)",
+        "de": "Rest Time (seconds)",
+        "fr": "Rest Time (seconds)",
+        "es": "Rest Time (seconds)",
+        "ar": "Rest Time (seconds)"
+      }
     },
     {
       "id": "laps",
       "label": "Number of Laps",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of laps or intervals."
+      "businessContext": "Number of laps or intervals.",
+      "label_i18n": {
+        "en": "Number of Laps",
+        "tr": "Number of Laps",
+        "de": "Number of Laps",
+        "fr": "Number of Laps",
+        "es": "Number of Laps",
+        "ar": "Number of Laps"
+      }
     },
     {
       "id": "poolLength",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 25,
-      "businessContext": "Length of the swimming pool."
+      "businessContext": "Length of the swimming pool.",
+      "label_i18n": {
+        "en": "Pool Length (meters)",
+        "tr": "Pool Length (meters)",
+        "de": "Pool Length (meters)",
+        "fr": "Pool Length (meters)",
+        "es": "Pool Length (meters)",
+        "ar": "Pool Length (meters)"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "speedMetersPerSecond"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

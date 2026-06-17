@@ -7,47 +7,95 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Total count of paired (x,y) data points."
+      "businessContext": "Total count of paired (x,y) data points.",
+      "label_i18n": {
+        "en": "Number of data points (n)",
+        "tr": "Number of data points (n)",
+        "de": "Number of data points (n)",
+        "fr": "Number of data points (n)",
+        "es": "Number of data points (n)",
+        "ar": "Number of data points (n)"
+      }
     },
     {
       "id": "sumX",
       "label": "Sum of X values (Σx)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of all x-values in the dataset."
+      "businessContext": "Sum of all x-values in the dataset.",
+      "label_i18n": {
+        "en": "Sum of X values (Σx)",
+        "tr": "Sum of X values (Σx)",
+        "de": "Sum of X values (Σx)",
+        "fr": "Sum of X values (Σx)",
+        "es": "Sum of X values (Σx)",
+        "ar": "Sum of X values (Σx)"
+      }
     },
     {
       "id": "sumY",
       "label": "Sum of Y values (Σy)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of all y-values in the dataset."
+      "businessContext": "Sum of all y-values in the dataset.",
+      "label_i18n": {
+        "en": "Sum of Y values (Σy)",
+        "tr": "Sum of Y values (Σy)",
+        "de": "Sum of Y values (Σy)",
+        "fr": "Sum of Y values (Σy)",
+        "es": "Sum of Y values (Σy)",
+        "ar": "Sum of Y values (Σy)"
+      }
     },
     {
       "id": "sumXY",
       "label": "Sum of X*Y (Σxy)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of the products of each x-y pair."
+      "businessContext": "Sum of the products of each x-y pair.",
+      "label_i18n": {
+        "en": "Sum of X*Y (Σxy)",
+        "tr": "Sum of X*Y (Σxy)",
+        "de": "Sum of X*Y (Σxy)",
+        "fr": "Sum of X*Y (Σxy)",
+        "es": "Sum of X*Y (Σxy)",
+        "ar": "Sum of X*Y (Σxy)"
+      }
     },
     {
       "id": "sumX2",
       "label": "Sum of X² (Σx²)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of the squares of x-values."
+      "businessContext": "Sum of the squares of x-values.",
+      "label_i18n": {
+        "en": "Sum of X² (Σx²)",
+        "tr": "Sum of X² (Σx²)",
+        "de": "Sum of X² (Σx²)",
+        "fr": "Sum of X² (Σx²)",
+        "es": "Sum of X² (Σx²)",
+        "ar": "Sum of X² (Σx²)"
+      }
     },
     {
       "id": "sumY2",
       "label": "Sum of Y² (Σy²)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of the squares of y-values."
+      "businessContext": "Sum of the squares of y-values.",
+      "label_i18n": {
+        "en": "Sum of Y² (Σy²)",
+        "tr": "Sum of Y² (Σy²)",
+        "de": "Sum of Y² (Σy²)",
+        "fr": "Sum of Y² (Σy²)",
+        "es": "Sum of Y² (Σy²)",
+        "ar": "Sum of Y² (Σy²)"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "rSquared"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

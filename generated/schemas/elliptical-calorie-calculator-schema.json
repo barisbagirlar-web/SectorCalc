@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Weight of the user in kilograms for accurate calorie expenditure estimation."
+      "businessContext": "Weight of the user in kilograms for accurate calorie expenditure estimation.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "duration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 30,
-      "businessContext": "Total time spent on the elliptical machine in minutes."
+      "businessContext": "Total time spent on the elliptical machine in minutes.",
+      "label_i18n": {
+        "en": "Exercise Duration",
+        "tr": "Exercise Duration",
+        "de": "Exercise Duration",
+        "fr": "Exercise Duration",
+        "es": "Exercise Duration",
+        "ar": "Exercise Duration"
+      }
     },
     {
       "id": "met",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "MET",
       "default": 5,
-      "businessContext": "Metabolic Equivalent of Task for elliptical exercise (typical range: 5–9, depending on intensity)."
+      "businessContext": "Metabolic Equivalent of Task for elliptical exercise (typical range: 5–9, depending on intensity).",
+      "label_i18n": {
+        "en": "MET Value",
+        "tr": "MET Value",
+        "de": "MET Value",
+        "fr": "MET Value",
+        "es": "MET Value",
+        "ar": "MET Value"
+      }
     },
     {
       "id": "correctionFactor",
       "label": "Personal Correction Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier to adjust for individual physiological differences (e.g., efficiency, fitness level). Default 1.0 indicates standard estimation."
+      "businessContext": "Multiplier to adjust for individual physiological differences (e.g., efficiency, fitness level). Default 1.0 indicates standard estimation.",
+      "label_i18n": {
+        "en": "Personal Correction Factor",
+        "tr": "Personal Correction Factor",
+        "de": "Personal Correction Factor",
+        "fr": "Personal Correction Factor",
+        "es": "Personal Correction Factor",
+        "ar": "Personal Correction Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "metUsed"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

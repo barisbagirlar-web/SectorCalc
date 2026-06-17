@@ -5,49 +5,97 @@
       "id": "lowerLimit",
       "label": "Lower Limit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Lower bound of integration"
+      "businessContext": "Lower bound of integration",
+      "label_i18n": {
+        "en": "Lower Limit",
+        "tr": "Lower Limit",
+        "de": "Lower Limit",
+        "fr": "Lower Limit",
+        "es": "Lower Limit",
+        "ar": "Lower Limit"
+      }
     },
     {
       "id": "upperLimit",
       "label": "Upper Limit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Upper bound of integration"
+      "businessContext": "Upper bound of integration",
+      "label_i18n": {
+        "en": "Upper Limit",
+        "tr": "Upper Limit",
+        "de": "Upper Limit",
+        "fr": "Upper Limit",
+        "es": "Upper Limit",
+        "ar": "Upper Limit"
+      }
     },
     {
       "id": "numIntervals",
       "label": "Number of Intervals",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Number of subintervals (will be rounded to nearest even number for Simpson's rule)"
+      "businessContext": "Number of subintervals (will be rounded to nearest even number for Simpson's rule)",
+      "label_i18n": {
+        "en": "Number of Intervals",
+        "tr": "Number of Intervals",
+        "de": "Number of Intervals",
+        "fr": "Number of Intervals",
+        "es": "Number of Intervals",
+        "ar": "Number of Intervals"
+      }
     },
     {
       "id": "coeffA",
       "label": "Coefficient a (quadratic)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient for x² term in f(x) = a·x² + b·x + c"
+      "businessContext": "Coefficient for x² term in f(x) = a·x² + b·x + c",
+      "label_i18n": {
+        "en": "Coefficient a (quadratic)",
+        "tr": "Coefficient a (quadratic)",
+        "de": "Coefficient a (quadratic)",
+        "fr": "Coefficient a (quadratic)",
+        "es": "Coefficient a (quadratic)",
+        "ar": "Coefficient a (quadratic)"
+      }
     },
     {
       "id": "coeffB",
       "label": "Coefficient b (linear)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient for x term in f(x) = a·x² + b·x + c"
+      "businessContext": "Coefficient for x term in f(x) = a·x² + b·x + c",
+      "label_i18n": {
+        "en": "Coefficient b (linear)",
+        "tr": "Coefficient b (linear)",
+        "de": "Coefficient b (linear)",
+        "fr": "Coefficient b (linear)",
+        "es": "Coefficient b (linear)",
+        "ar": "Coefficient b (linear)"
+      }
     },
     {
       "id": "coeffC",
       "label": "Coefficient c (constant)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term in f(x) = a·x² + b·x + c"
+      "businessContext": "Constant term in f(x) = a·x² + b·x + c",
+      "label_i18n": {
+        "en": "Coefficient c (constant)",
+        "tr": "Coefficient c (constant)",
+        "de": "Coefficient c (constant)",
+        "fr": "Coefficient c (constant)",
+        "es": "Coefficient c (constant)",
+        "ar": "Coefficient c (constant)"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "difference"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

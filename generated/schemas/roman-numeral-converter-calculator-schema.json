@@ -5,69 +5,136 @@
       "id": "s1",
       "label": "Symbol 1 (leftmost)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Value of the first Roman numeral symbol (e.g., M=1000, C=100, X=10, I=1). Enter 0 if unused."
+      "businessContext": "Value of the first Roman numeral symbol (e.g., M=1000, C=100, X=10, I=1). Enter 0 if unused.",
+      "label_i18n": {
+        "en": "Symbol 1 (leftmost)",
+        "tr": "Symbol 1 (leftmost)",
+        "de": "Symbol 1 (leftmost)",
+        "fr": "Symbol 1 (leftmost)",
+        "es": "Symbol 1 (leftmost)",
+        "ar": "Symbol 1 (leftmost)"
+      }
     },
     {
       "id": "s2",
       "label": "Symbol 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Value of the second symbol. Enter 0 if unused."
+      "businessContext": "Value of the second symbol. Enter 0 if unused.",
+      "label_i18n": {
+        "en": "Symbol 2",
+        "tr": "Symbol 2",
+        "de": "Symbol 2",
+        "fr": "Symbol 2",
+        "es": "Symbol 2",
+        "ar": "Symbol 2"
+      }
     },
     {
       "id": "s3",
       "label": "Symbol 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Value of the third symbol. Enter 0 if unused."
+      "businessContext": "Value of the third symbol. Enter 0 if unused.",
+      "label_i18n": {
+        "en": "Symbol 3",
+        "tr": "Symbol 3",
+        "de": "Symbol 3",
+        "fr": "Symbol 3",
+        "es": "Symbol 3",
+        "ar": "Symbol 3"
+      }
     },
     {
       "id": "s4",
       "label": "Symbol 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Value of the fourth symbol. Enter 0 if unused."
+      "businessContext": "Value of the fourth symbol. Enter 0 if unused.",
+      "label_i18n": {
+        "en": "Symbol 4",
+        "tr": "Symbol 4",
+        "de": "Symbol 4",
+        "fr": "Symbol 4",
+        "es": "Symbol 4",
+        "ar": "Symbol 4"
+      }
     },
     {
       "id": "s5",
       "label": "Symbol 5",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Value of the fifth symbol. Enter 0 if unused."
+      "businessContext": "Value of the fifth symbol. Enter 0 if unused.",
+      "label_i18n": {
+        "en": "Symbol 5",
+        "tr": "Symbol 5",
+        "de": "Symbol 5",
+        "fr": "Symbol 5",
+        "es": "Symbol 5",
+        "ar": "Symbol 5"
+      }
     },
     {
       "id": "s6",
       "label": "Symbol 6",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Value of the sixth symbol. Enter 0 if unused."
+      "businessContext": "Value of the sixth symbol. Enter 0 if unused.",
+      "label_i18n": {
+        "en": "Symbol 6",
+        "tr": "Symbol 6",
+        "de": "Symbol 6",
+        "fr": "Symbol 6",
+        "es": "Symbol 6",
+        "ar": "Symbol 6"
+      }
     },
     {
       "id": "s7",
       "label": "Symbol 7",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Value of the seventh symbol. Enter 0 if unused."
+      "businessContext": "Value of the seventh symbol. Enter 0 if unused.",
+      "label_i18n": {
+        "en": "Symbol 7",
+        "tr": "Symbol 7",
+        "de": "Symbol 7",
+        "fr": "Symbol 7",
+        "es": "Symbol 7",
+        "ar": "Symbol 7"
+      }
     },
     {
       "id": "s8",
       "label": "Symbol 8 (rightmost)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Value of the eighth symbol. Enter 0 if unused."
+      "businessContext": "Value of the eighth symbol. Enter 0 if unused.",
+      "label_i18n": {
+        "en": "Symbol 8 (rightmost)",
+        "tr": "Symbol 8 (rightmost)",
+        "de": "Symbol 8 (rightmost)",
+        "fr": "Symbol 8 (rightmost)",
+        "es": "Symbol 8 (rightmost)",
+        "ar": "Symbol 8 (rightmost)"
+      }
     }
   ],
   "formulas": {
-    "arabic": "((s1 < s2 ? -s1 : s1) + (s2 < s3 ? -s2 : s2) + (s3 < s4 ? -s3 : s3) + (s4 < s5 ? -s4 : s4) + (s5 < s6 ? -s5 : s5) + (s6 < s7 ? -s6 : s6) + (s7 < s8 ? -s7 : s7) + s8)"
+    "arabic": "((s1 < s2 ? -s1 : s1) + (s2 < s3 ? -s2 : s2) + (s3 < s4 ? -s3 : s3) + (s4 < s5 ? -s4 : s4) + (s5 < s6 ? -s5 : s5) + (s6 < s7 ? -s6 : s6) + (s7 < s8 ? -s7 : s7) + s8)",
+    "Enter_the_values_of_Roman_numeral_symbol": "Enter the values of Roman numeral symbols (I=1, V=5, X=10, L=50, C=100, D=500, M=1000) in order from left to right.",
+    "The_calculator_applies_subtractive_notat": "The calculator applies subtractive notation: for each pair, if a symbol is smaller than the next, its value is subtracted; otherwise it is added.",
+    "The_final_result_is_the_equivalent_Arabi": "The final result is the equivalent Arabic number."
   },
   "outputs": {
     "primary": "arabic",
@@ -77,10 +144,10 @@
       "Step 3: The final result is the equivalent Arabic number."
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

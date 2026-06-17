@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of side opposite angle A (in meters)"
+      "businessContext": "Length of side opposite angle A (in meters)",
+      "label_i18n": {
+        "en": "Side a",
+        "tr": "Side a",
+        "de": "Side a",
+        "fr": "Side a",
+        "es": "Side a",
+        "ar": "Side a"
+      }
     },
     {
       "id": "angleA",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "deg",
       "default": 30,
-      "businessContext": "Angle opposite side a (in degrees)"
+      "businessContext": "Angle opposite side a (in degrees)",
+      "label_i18n": {
+        "en": "Angle A",
+        "tr": "Angle A",
+        "de": "Angle A",
+        "fr": "Angle A",
+        "es": "Angle A",
+        "ar": "Angle A"
+      }
     },
     {
       "id": "angleB",
@@ -23,25 +39,44 @@
       "type": "number",
       "unit": "deg",
       "default": 45,
-      "businessContext": "Angle opposite side b (target side, in degrees)"
+      "businessContext": "Angle opposite side b (target side, in degrees)",
+      "label_i18n": {
+        "en": "Angle B",
+        "tr": "Angle B",
+        "de": "Angle B",
+        "fr": "Angle B",
+        "es": "Angle B",
+        "ar": "Angle B"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for output rounding"
+      "businessContext": "Number of decimal places for output rounding",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "sideB_raw": "sideA * Math.sin(angleB * Math.PI / 180) / Math.sin(angleA * Math.PI / 180)",
     "angleC": "180 - angleA - angleB",
     "sideC_raw": "sideA * Math.sin(angleC * Math.PI / 180) / Math.sin(angleA * Math.PI / 180)",
-    "lawOfSinesRatio": "sideA / Math.sin(angleA * Math.PI / 180)"
+    "lawOfSinesRatio": "sideA / Math.sin(angleA * Math.PI / 180)",
+    "angleC_": "angleC°",
+    "Math_round_sideC_raw___10__precision____": "Math.round(sideC_raw * 10**precision) / 10**precision",
+    "result": "Math.round(sideB_raw * 10**precision) / 10**precision"
   },
   "outputs": {
-    "primary": "Math.round(sideB_raw * 10**precision) / 10**precision",
+    "primary": "result",
     "breakdown": [
       "Raw side b: sideB_raw",
       "Angle C: angleC°",
@@ -49,8 +84,8 @@
       "Law of Sines Ratio (a/sin A): lawOfSinesRatio"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

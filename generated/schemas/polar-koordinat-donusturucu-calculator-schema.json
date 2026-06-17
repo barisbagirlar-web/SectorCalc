@@ -5,33 +5,65 @@
       "id": "conversionType",
       "label": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Dönüşüm yönünü belirler: 1 Kartezyen'den Polar'a, 2 Polar'dan Kartezyen'e"
+      "businessContext": "Dönüşüm yönünü belirler: 1 Kartezyen'den Polar'a, 2 Polar'dan Kartezyen'e",
+      "label_i18n": {
+        "en": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)",
+        "tr": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)",
+        "de": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)",
+        "fr": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)",
+        "es": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)",
+        "ar": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)"
+      }
     },
     {
       "id": "x",
       "label": "X koordinatı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Kartezyen sistemde yatay bileşen (boyutsuz)"
+      "businessContext": "Kartezyen sistemde yatay bileşen (boyutsuz)",
+      "label_i18n": {
+        "en": "X koordinatı",
+        "tr": "X koordinatı",
+        "de": "X koordinatı",
+        "fr": "X koordinatı",
+        "es": "X koordinatı",
+        "ar": "X koordinatı"
+      }
     },
     {
       "id": "y",
       "label": "Y koordinatı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Kartezyen sistemde düşey bileşen (boyutsuz)"
+      "businessContext": "Kartezyen sistemde düşey bileşen (boyutsuz)",
+      "label_i18n": {
+        "en": "Y koordinatı",
+        "tr": "Y koordinatı",
+        "de": "Y koordinatı",
+        "fr": "Y koordinatı",
+        "es": "Y koordinatı",
+        "ar": "Y koordinatı"
+      }
     },
     {
       "id": "r",
       "label": "Radyal uzaklık (r)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Polar koordinatlarda orijine uzaklık"
+      "businessContext": "Polar koordinatlarda orijine uzaklık",
+      "label_i18n": {
+        "en": "Radyal uzaklık (r)",
+        "tr": "Radyal uzaklık (r)",
+        "de": "Radyal uzaklık (r)",
+        "fr": "Radyal uzaklık (r)",
+        "es": "Radyal uzaklık (r)",
+        "ar": "Radyal uzaklık (r)"
+      }
     },
     {
       "id": "theta",
@@ -39,24 +71,34 @@
       "type": "number",
       "unit": "derece",
       "default": 0,
-      "businessContext": "Polar açı, derece cinsinden pozitif x eksenine göre"
+      "businessContext": "Polar açı, derece cinsinden pozitif x eksenine göre",
+      "label_i18n": {
+        "en": "Açı (θ)",
+        "tr": "Açı (θ)",
+        "de": "Açı (θ)",
+        "fr": "Açı (θ)",
+        "es": "Açı (θ)",
+        "ar": "Açı (θ)"
+      }
     }
   ],
   "formulas": {
     "primary": "conversionType === 1 ? `Polar: r = ${Math.sqrt(x*x+y*y).toFixed(4)}, θ = ${(Math.atan2(y,x)*180/Math.PI).toFixed(2)}°` : `Kartezyen: x = ${(r*Math.cos(theta*Math.PI/180)).toFixed(4)}, y = ${(r*Math.sin(theta*Math.PI/180)).toFixed(4)}`",
-    "breakdown": "conversionType === 1 ? [`r = ${Math.sqrt(x*x+y*y).toFixed(4)}`, `θ = ${(Math.atan2(y,x)*180/Math.PI).toFixed(2)}°`] : [`x = ${(r*Math.cos(theta*Math.PI/180)).toFixed(4)}`, `y = ${(r*Math.sin(theta*Math.PI/180)).toFixed(4)}`]"
+    "breakdown": "conversionType === 1 ? [`r = ${Math.sqrt(x*x+y*y).toFixed(4)}`, `θ = ${(Math.atan2(y,x)*180/Math.PI).toFixed(2)}°`] : [`x = ${(r*Math.cos(theta*Math.PI/180)).toFixed(4)}`, `y = ${(r*Math.sin(theta*Math.PI/180)).toFixed(4)}`]",
+    "Bile_en_de_erlerini_ayr__ayr__listeler": "Bileşen değerlerini ayrı ayrı listeler",
+    "Hesaplama_detay__sa_lar": "Hesaplama detayı sağlar"
   },
   "outputs": {
-    "primary": "Dönüşüm sonucunu ana çıktı olarak gösterir",
+    "primary": "primary",
     "breakdown": [
       "Bileşen değerlerini ayrı ayrı listeler",
       "Hesaplama detayı sağlar"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

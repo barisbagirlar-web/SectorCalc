@@ -18,6 +18,11 @@ export const Harmonic_mean_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Harmonic_mean_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 4 / (1/input.value1 + 1/input.value2 + 1/input.value3 + 1/input.value4); results["harmonicMean"] = Number.isFinite(v) ? v : 0; } catch { results["harmonicMean"] = 0; }
+  try { const v = 1 / input.value1; results["1___inputs_value1"] = Number.isFinite(v) ? v : 0; } catch { results["1___inputs_value1"] = 0; }
+  try { const v = 1 / input.value2; results["1___inputs_value2"] = Number.isFinite(v) ? v : 0; } catch { results["1___inputs_value2"] = 0; }
+  try { const v = 1 / input.value3; results["1___inputs_value3"] = Number.isFinite(v) ? v : 0; } catch { results["1___inputs_value3"] = 0; }
+  try { const v = 1 / input.value4; results["1___inputs_value4"] = Number.isFinite(v) ? v : 0; } catch { results["1___inputs_value4"] = 0; }
+  try { const v = 1/input.value1 + 1/input.value2 + 1/input.value3 + 1/input.value4; results["1_inputs_value1___1_inputs_value2___1_in"] = Number.isFinite(v) ? v : 0; } catch { results["1_inputs_value1___1_inputs_value2___1_in"] = 0; }
   return results;
 }
 

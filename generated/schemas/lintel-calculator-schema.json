@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2000,
-      "businessContext": "Clear span of the opening."
+      "businessContext": "Clear span of the opening.",
+      "label_i18n": {
+        "en": "Span Length",
+        "tr": "Span Length",
+        "de": "Span Length",
+        "fr": "Span Length",
+        "es": "Span Length",
+        "ar": "Span Length"
+      }
     },
     {
       "id": "designLoad",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN/m",
       "default": 10,
-      "businessContext": "Uniformly distributed design load including finishes and live load."
+      "businessContext": "Uniformly distributed design load including finishes and live load.",
+      "label_i18n": {
+        "en": "Design Load",
+        "tr": "Design Load",
+        "de": "Design Load",
+        "fr": "Design Load",
+        "es": "Design Load",
+        "ar": "Design Load"
+      }
     },
     {
       "id": "allowableStress",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "N/mm²",
       "default": 165,
-      "businessContext": "Material allowable stress (e.g., 165 MPa for S275 steel)."
+      "businessContext": "Material allowable stress (e.g., 165 MPa for S275 steel).",
+      "label_i18n": {
+        "en": "Allowable Bending Stress",
+        "tr": "Allowable Bending Stress",
+        "de": "Allowable Bending Stress",
+        "fr": "Allowable Bending Stress",
+        "es": "Allowable Bending Stress",
+        "ar": "Allowable Bending Stress"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Safety factor for allowable stress design."
+      "businessContext": "Safety factor for allowable stress design.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "requiredModulus"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "cnc-additive-manufacturing"
 }

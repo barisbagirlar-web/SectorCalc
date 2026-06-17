@@ -23,33 +23,19 @@ export const Apy_calculatorInputSchema = z.object({
   is_continuous_compounding: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Apy_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = ((input.is_continuous_compounding) ? (Math.exp(input.nominal_rate/100) - 1) : ((1 + (input.nominal_rate/100)/input.compounding_frequency)^input.compounding_frequency - 1)); results["effective_rate"] = Number.isFinite(v) ? v : 0; } catch { results["effective_rate"] = 0; }
-  try { const v = input.initial_principal * (1 + (results["effective_rate"] ?? 0))^input.time_period_years; results["gross_future_value"] = Number.isFinite(v) ? v : 0; } catch { results["gross_future_value"] = 0; }
-  try { const v = (1 - input.fee_percentage/100)^input.time_period_years; results["fee_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["fee_adjustment"] = 0; }
-  try { const v = (results["gross_future_value"] ?? 0) * (results["fee_adjustment"] ?? 0); results["net_future_value"] = Number.isFinite(v) ? v : 0; } catch { results["net_future_value"] = 0; }
-  try { const v = 1 - input.tax_rate/100; results["tax_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["tax_adjustment"] = 0; }
-  try { const v = input.initial_principal + ((results["net_future_value"] ?? 0) - input.initial_principal) * (results["tax_adjustment"] ?? 0); results["after_tax_future_value"] = Number.isFinite(v) ? v : 0; } catch { results["after_tax_future_value"] = 0; }
-  try { const v = (((results["after_tax_future_value"] ?? 0) / input.initial_principal)^(1/input.time_period_years) - 1) * 100; results["apy_nominal"] = Number.isFinite(v) ? v : 0; } catch { results["apy_nominal"] = 0; }
-  try { const v = ((1 + (results["apy_nominal"] ?? 0)/100) / (1 + input.inflation_rate/100) - 1) * 100; results["apy_real"] = Number.isFinite(v) ? v : 0; } catch { results["apy_real"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Apy_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateApy_calculator(input: Apy_calculatorInput): Apy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["apy_nominal"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    effective_rate: values["effective_rate"] ?? 0,
-    gross_future_value: values["gross_future_value"] ?? 0,
-    fee_adjustment: values["fee_adjustment"] ?? 0,
-    net_future_value: values["net_future_value"] ?? 0,
-    after_tax_future_value: values["after_tax_future_value"] ?? 0,
-    apy_real: values["apy_real"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Fee Erosion","Tax Erosion","Inflation Erosion","Compounding Frequency Gap"];
-  const suggestedActions: string[] = ["Negotiate Lower Fees","Increase Compounding Frequency","Tax-Loss Harvesting","Inflation-Protected Securities","Enable Continuous Compounding"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -68,7 +54,7 @@ export function calculateApy_calculator(input: Apy_calculatorInput): Apy_calcula
 
 export interface Apy_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { effective_rate: number; gross_future_value: number; fee_adjustment: number; net_future_value: number; after_tax_future_value: number; apy_real: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

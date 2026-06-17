@@ -48,11 +48,7 @@
     "terminalVelocityMph": "terminalVelocity * 2.23694"
   },
   "outputs": {
-    "primary": {
-      "id": "terminalVelocity",
-      "label": "Terminal Velocity",
-      "unit": "m/s"
-    },
+    "primary": "terminalVelocity",
     "breakdown": [
       {
         "id": "terminalVelocityKmh",
@@ -66,10 +62,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "metal-plastics-forming"
 }

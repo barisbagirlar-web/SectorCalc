@@ -21,13 +21,16 @@ function evaluateAllFormulas(input: Polynomial_regressionInput): Record<string, 
   const results: Record<string, number> = {};
   try { const v = (input.n * input.sumXY - input.sumX * input.sumY) / (input.n * input.sumX2 - input.sumX * input.sumX); results["b"] = Number.isFinite(v) ? v : 0; } catch { results["b"] = 0; }
   try { const v = (input.sumY - (results["b"] ?? 0) * input.sumX) / input.n; results["a"] = Number.isFinite(v) ? v : 0; } catch { results["a"] = 0; }
+  results["__b_toFixed_4__"] = 0;
+  results["__a_toFixed_4__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculatePolynomial_regression(input: Polynomial_regressionInput): Polynomial_regressionOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Regresyon"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

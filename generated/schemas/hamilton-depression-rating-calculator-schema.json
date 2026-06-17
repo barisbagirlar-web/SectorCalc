@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Ölçülen en derin çukur derinliği"
+      "businessContext": "Ölçülen en derin çukur derinliği",
+      "label_i18n": {
+        "en": "Maksimum Depresyon Derinliği (mm)",
+        "tr": "Maksimum Depresyon Derinliği (mm)",
+        "de": "Maksimum Depresyon Derinliği (mm)",
+        "fr": "Maksimum Depresyon Derinliği (mm)",
+        "es": "Maksimum Depresyon Derinliği (mm)",
+        "ar": "Maksimum Depresyon Derinliği (mm)"
+      }
     },
     {
       "id": "area",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm²",
       "default": 10,
-      "businessContext": "Depresyonun yüzey alanı"
+      "businessContext": "Depresyonun yüzey alanı",
+      "label_i18n": {
+        "en": "Depresyon Alanı (mm²)",
+        "tr": "Depresyon Alanı (mm²)",
+        "de": "Depresyon Alanı (mm²)",
+        "fr": "Depresyon Alanı (mm²)",
+        "es": "Depresyon Alanı (mm²)",
+        "ar": "Depresyon Alanı (mm²)"
+      }
     },
     {
       "id": "count",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Tespit edilen toplam depresyon adedi"
+      "businessContext": "Tespit edilen toplam depresyon adedi",
+      "label_i18n": {
+        "en": "Depresyon Sayısı",
+        "tr": "Depresyon Sayısı",
+        "de": "Depresyon Sayısı",
+        "fr": "Depresyon Sayısı",
+        "es": "Depresyon Sayısı",
+        "ar": "Depresyon Sayısı"
+      }
     },
     {
       "id": "sharpness",
       "label": "Kenar Keskinliği (1-5)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Depresyon kenarlarının keskinlik derecesi (1: yuvarlak, 5: keskin)"
+      "businessContext": "Depresyon kenarlarının keskinlik derecesi (1: yuvarlak, 5: keskin)",
+      "label_i18n": {
+        "en": "Kenar Keskinliği (1-5)",
+        "tr": "Kenar Keskinliği (1-5)",
+        "de": "Kenar Keskinliği (1-5)",
+        "fr": "Kenar Keskinliği (1-5)",
+        "es": "Kenar Keskinliği (1-5)",
+        "ar": "Kenar Keskinliği (1-5)"
+      }
     },
     {
       "id": "materialFactor",
       "label": "Malzeme Direnç Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Malzemenin depresyona karşı direncini gösteren katsayı (0.5-2.0)"
+      "businessContext": "Malzemenin depresyona karşı direncini gösteren katsayı (0.5-2.0)",
+      "label_i18n": {
+        "en": "Malzeme Direnç Faktörü",
+        "tr": "Malzeme Direnç Faktörü",
+        "de": "Malzeme Direnç Faktörü",
+        "fr": "Malzeme Direnç Faktörü",
+        "es": "Malzeme Direnç Faktörü",
+        "ar": "Malzeme Direnç Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "countMultiplier"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

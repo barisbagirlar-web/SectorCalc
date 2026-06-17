@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Gerçek sıcaklık değeri"
+      "businessContext": "Gerçek sıcaklık değeri",
+      "label_i18n": {
+        "en": "Actual Temperature",
+        "tr": "Actual Temperature",
+        "de": "Actual Temperature",
+        "fr": "Actual Temperature",
+        "es": "Actual Temperature",
+        "ar": "Actual Temperature"
+      }
     },
     {
       "id": "actual_temperature_unit",
       "label": "Actual Temperature Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: K, 2: °C, 3: °F, 4: °R"
+      "businessContext": "1: K, 2: °C, 3: °F, 4: °R",
+      "label_i18n": {
+        "en": "Actual Temperature Unit",
+        "tr": "Actual Temperature Unit",
+        "de": "Actual Temperature Unit",
+        "fr": "Actual Temperature Unit",
+        "es": "Actual Temperature Unit",
+        "ar": "Actual Temperature Unit"
+      }
     },
     {
       "id": "critical_temperature_value",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "K",
       "default": 400,
-      "businessContext": "Kritik sıcaklık değeri"
+      "businessContext": "Kritik sıcaklık değeri",
+      "label_i18n": {
+        "en": "Critical Temperature",
+        "tr": "Critical Temperature",
+        "de": "Critical Temperature",
+        "fr": "Critical Temperature",
+        "es": "Critical Temperature",
+        "ar": "Critical Temperature"
+      }
     },
     {
       "id": "critical_temperature_unit",
       "label": "Critical Temperature Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: K, 2: °C, 3: °F, 4: °R"
+      "businessContext": "1: K, 2: °C, 3: °F, 4: °R",
+      "label_i18n": {
+        "en": "Critical Temperature Unit",
+        "tr": "Critical Temperature Unit",
+        "de": "Critical Temperature Unit",
+        "fr": "Critical Temperature Unit",
+        "es": "Critical Temperature Unit",
+        "ar": "Critical Temperature Unit"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "critical_temperature_K"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

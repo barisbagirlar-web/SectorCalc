@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 0,
-      "businessContext": "Measured temperature value from sensor or process"
+      "businessContext": "Measured temperature value from sensor or process",
+      "label_i18n": {
+        "en": "Temperature in Celsius",
+        "tr": "Temperature in Celsius",
+        "de": "Temperature in Celsius",
+        "fr": "Temperature in Celsius",
+        "es": "Temperature in Celsius",
+        "ar": "Temperature in Celsius"
+      }
     },
     {
       "id": "offset",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "°C",
       "default": 0,
-      "businessContext": "Instrument calibration offset to be added before conversion"
+      "businessContext": "Instrument calibration offset to be added before conversion",
+      "label_i18n": {
+        "en": "Calibration Offset",
+        "tr": "Calibration Offset",
+        "de": "Calibration Offset",
+        "fr": "Calibration Offset",
+        "es": "Calibration Offset",
+        "ar": "Calibration Offset"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of decimal places for output precision"
+      "businessContext": "Number of decimal places for output precision",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "uncertainty",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 0.1,
-      "businessContext": "Uncertainty of the temperature measurement"
+      "businessContext": "Uncertainty of the temperature measurement",
+      "label_i18n": {
+        "en": "Measurement Uncertainty",
+        "tr": "Measurement Uncertainty",
+        "de": "Measurement Uncertainty",
+        "fr": "Measurement Uncertainty",
+        "es": "Measurement Uncertainty",
+        "ar": "Measurement Uncertainty"
+      }
     }
   ],
   "formulas": {
@@ -51,10 +83,10 @@
       "upperBoundK"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

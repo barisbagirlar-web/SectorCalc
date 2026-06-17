@@ -32,7 +32,7 @@
       "id": "gender",
       "label": "Gender",
       "type": "select",
-      "unit": null,
+      "unit": "unit",
       "default": "male",
       "min": null,
       "max": null,
@@ -84,7 +84,7 @@
       "id": "activityLevel",
       "label": "Activity Level",
       "type": "select",
-      "unit": null,
+      "unit": "unit",
       "default": "moderate",
       "min": null,
       "max": null,
@@ -123,7 +123,7 @@
       "id": "isAthlete",
       "label": "Athlete Mode",
       "type": "boolean",
-      "unit": null,
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -197,164 +197,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "bmr_mifflin",
-      "name": "BMR (Mifflin-St Jeor)",
-      "description": "Most validated equation for general population per ISO 8996.",
-      "formula": "if gender == 'male' then (10 * weight) + (6.25 * height) - (5 * age) + 5 else (10 * weight) + (6.25 * height) - (5 * age) - 161",
-      "unit": "kcal/day"
-    },
-    {
-      "id": "bmr_harris",
-      "name": "BMR (Harris-Benedict)",
-      "description": "Classic equation; used as secondary reference.",
-      "formula": "if gender == 'male' then 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age) else 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)",
-      "unit": "kcal/day"
-    },
-    {
-      "id": "bmr_katch",
-      "name": "BMR (Katch-McArdle)",
-      "description": "Uses lean body mass; requires body fat percentage.",
-      "formula": "370 + (21.6 * (weight * (1 - bodyFatPercent / 100)))",
-      "unit": "kcal/day",
-      "condition": "bodyFatPercent > 0"
-    },
-    {
-      "id": "bmr_ensemble",
-      "name": "Ensemble BMR",
-      "description": "Weighted average of available BMR formulas for robustness.",
-      "formula": "(bmr_mifflin * 0.5 + bmr_harris * 0.3 + (if bodyFatPercent > 0 then bmr_katch * 0.2 else 0)) / (0.5 + 0.3 + (if bodyFatPercent > 0 then 0.2 else 0))",
-      "unit": "kcal/day"
-    },
-    {
-      "id": "activity_multiplier",
-      "name": "Activity Factor",
-      "description": "PAL multiplier based on activity level and athlete mode.",
-      "formula": "case activityLevel when 'sedentary' then 1.2 when 'light' then 1.375 when 'moderate' then 1.55 when 'active' then 1.725 when 'veryActive' then 1.9 else 1.55 end + (if isAthlete then 0.1 else 0)",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "tdee_primary",
-      "name": "Total Daily Energy Expenditure",
-      "description": "Primary result: BMR multiplied by activity factor.",
-      "formula": "bmr_ensemble * activity_multiplier",
-      "unit": "kcal/day"
-    },
-    {
-      "id": "tdee_adjusted",
-      "name": "TDEE (Confidence Adjusted)",
-      "description": "TDEE with data quality adjustment based on input completeness.",
-      "formula": "tdee_primary * dataConfidenceAdjusted",
-      "unit": "kcal/day"
-    }
+    "age",
+    "age",
+    "age",
+    "age",
+    "age",
+    "age",
+    "age"
   ],
   "outputs": {
-    "primary": {
-      "id": "tdee",
-      "label": "Total Daily Energy Expenditure",
-      "value": null,
-      "unit": "kcal/day",
-      "description": "Estimated total calories burned per day."
-    },
-    "breakdown": {
-      "bmr": {
-        "id": "bmr",
-        "label": "Basal Metabolic Rate",
-        "value": null,
-        "unit": "kcal/day",
-        "description": "Energy expended at rest."
-      },
-      "activityBurn": {
-        "id": "activityBurn",
-        "label": "Activity Energy Expenditure",
-        "value": null,
-        "unit": "kcal/day",
-        "description": "Additional calories burned through physical activity."
-      },
-      "thermicEffect": {
-        "id": "thermicEffect",
-        "label": "Thermic Effect of Food",
-        "value": null,
-        "unit": "kcal/day",
-        "description": "Energy used for digestion (estimated as 10% of TDEE)."
-      },
-      "bmrMethod": {
-        "id": "bmrMethod",
-        "label": "Primary BMR Method",
-        "value": "Mifflin-St Jeor",
-        "unit": null,
-        "description": "Equation used for primary BMR calculation."
-      },
-      "activityMultiplier": {
-        "id": "activityMultiplier",
-        "label": "Activity Multiplier",
-        "value": null,
-        "unit": "dimensionless",
-        "description": "PAL factor applied."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "low_activity_underreport",
-        "label": "Activity Underreporting",
-        "description": "Self-reported activity often overestimates; consider objective tracking.",
-        "impact": "Potential 10-20% overestimation of TDEE."
-      },
-      {
-        "id": "bodyfat_estimation_error",
-        "label": "Body Fat Estimation Error",
-        "description": "Visual or impedance methods have ±5% error; affects Katch-McArdle accuracy.",
-        "impact": "Up to 100 kcal/day deviation."
-      },
-      {
-        "id": "age_related_metabolic_decline",
-        "label": "Age-Related Metabolic Decline",
-        "description": "BMR decreases ~1-2% per decade after age 20; not fully captured by equations.",
-        "impact": "Potential 50-150 kcal/day overestimation for older adults."
-      },
-      {
-        "id": "diet_induced_thermogenesis_variability",
-        "label": "TEF Variability",
-        "description": "Thermic effect varies by macronutrient composition; fixed 10% may not apply.",
-        "impact": "±5% of TDEE."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "track_weekly_weight",
-        "label": "Track Weekly Weight Trends",
-        "description": "Compare actual weight change to predicted TDEE; adjust intake by 100-200 kcal if needed.",
-        "priority": "high"
-      },
-      {
-        "id": "use_pal_objective",
-        "label": "Use Objective PAL Measurement",
-        "description": "Wear a heart rate monitor or accelerometer for 7 days to refine activity factor.",
-        "priority": "medium"
-      },
-      {
-        "id": "reassess_bodyfat",
-        "label": "Reassess Body Fat via DEXA or Calipers",
-        "description": "Improve accuracy of Katch-McArdle BMR estimation.",
-        "priority": "medium"
-      },
-      {
-        "id": "adjust_for_athlete_recovery",
-        "label": "Adjust for Athlete Recovery Days",
-        "description": "On rest days, reduce activity multiplier by 0.2 to avoid overestimation.",
-        "priority": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidenceFactor",
-      "label": "Data Confidence Adjustment Factor",
-      "value": null,
-      "unit": "dimensionless",
-      "description": "Multiplier between 0.85 and 1.0 based on input completeness and consistency.",
-      "calculation": "1.0 - (if bodyFatPercent == null then 0.05 else 0) - (if age < 18 || age > 80 then 0.03 else 0) - (if isAthlete && activityLevel == 'moderate' then 0.02 else 0)"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "metal-plastics-forming",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
+  "toolName": "tdee-calculator"
 }

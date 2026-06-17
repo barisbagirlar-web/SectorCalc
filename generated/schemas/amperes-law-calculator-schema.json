@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "A",
       "default": 1,
-      "businessContext": "Current flowing through the conductor"
+      "businessContext": "Current flowing through the conductor",
+      "label_i18n": {
+        "en": "Electric Current",
+        "tr": "Electric Current",
+        "de": "Electric Current",
+        "fr": "Electric Current",
+        "es": "Electric Current",
+        "ar": "Electric Current"
+      }
     },
     {
       "id": "distance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Radial distance from the wire to the point of measurement"
+      "businessContext": "Radial distance from the wire to the point of measurement",
+      "label_i18n": {
+        "en": "Distance from Wire",
+        "tr": "Distance from Wire",
+        "de": "Distance from Wire",
+        "fr": "Distance from Wire",
+        "es": "Distance from Wire",
+        "ar": "Distance from Wire"
+      }
     },
     {
       "id": "permeability",
@@ -23,32 +39,50 @@
       "type": "number",
       "unit": "H/m",
       "default": 0.0000012566370614,
-      "businessContext": "Magnetic permeability of the surrounding medium (default: vacuum)"
+      "businessContext": "Magnetic permeability of the surrounding medium (default: vacuum)",
+      "label_i18n": {
+        "en": "Permeability of Medium",
+        "tr": "Permeability of Medium",
+        "de": "Permeability of Medium",
+        "fr": "Permeability of Medium",
+        "es": "Permeability of Medium",
+        "ar": "Permeability of Medium"
+      }
     },
     {
       "id": "wireCount",
       "label": "Number of Wires",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of parallel wires carrying current (for multi-wire configurations)"
+      "businessContext": "Number of parallel wires carrying current (for multi-wire configurations)",
+      "label_i18n": {
+        "en": "Number of Wires",
+        "tr": "Number of Wires",
+        "de": "Number of Wires",
+        "fr": "Number of Wires",
+        "es": "Number of Wires",
+        "ar": "Number of Wires"
+      }
     }
   ],
   "formulas": {
     "magneticField": "permeability * current * wireCount / (2 * Math.PI * distance)",
-    "magneticFieldUnit": "T"
+    "magneticFieldUnit": "T",
+    "Magnetic_field_________I___N_____2____r_": "Magnetic field = (μ₀ * I * N) / (2π * r)",
+    "Result_in_Tesla__T_": "Result in Tesla (T)"
   },
   "outputs": {
-    "primary": "Magnetic Field Strength",
+    "primary": "magneticField",
     "breakdown": [
       "Magnetic field = (μ₀ * I * N) / (2π * r)",
       "Result in Tesla (T)"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

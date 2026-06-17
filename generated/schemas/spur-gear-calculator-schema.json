@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "mm",
       "default": 1,
-      "businessContext": "The module is the ratio of the pitch diameter to the number of teeth. It defines the size of the gear tooth per DIN 780."
+      "businessContext": "The module is the ratio of the pitch diameter to the number of teeth. It defines the size of the gear tooth per DIN 780.",
+      "label_i18n": {
+        "en": "Module (m)",
+        "tr": "Module (m)",
+        "de": "Module (m)",
+        "fr": "Module (m)",
+        "es": "Module (m)",
+        "ar": "Module (m)"
+      }
     },
     {
       "id": "teeth",
       "label": "Number of Teeth (z)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 20,
-      "businessContext": "The count of teeth on the gear. Together with module determines the pitch diameter."
+      "businessContext": "The count of teeth on the gear. Together with module determines the pitch diameter.",
+      "label_i18n": {
+        "en": "Number of Teeth (z)",
+        "tr": "Number of Teeth (z)",
+        "de": "Number of Teeth (z)",
+        "fr": "Number of Teeth (z)",
+        "es": "Number of Teeth (z)",
+        "ar": "Number of Teeth (z)"
+      }
     },
     {
       "id": "pressureAngle",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "°",
       "default": 20,
-      "businessContext": "The angle between the tooth profile and a radial line at the pitch circle. Standard values are 14.5°, 20°, or 25°."
+      "businessContext": "The angle between the tooth profile and a radial line at the pitch circle. Standard values are 14.5°, 20°, or 25°.",
+      "label_i18n": {
+        "en": "Pressure Angle (α)",
+        "tr": "Pressure Angle (α)",
+        "de": "Pressure Angle (α)",
+        "fr": "Pressure Angle (α)",
+        "es": "Pressure Angle (α)",
+        "ar": "Pressure Angle (α)"
+      }
     },
     {
       "id": "addendumCoeff",
       "label": "Addendum Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for module to determine the addendum height. Standard is 1 for full-depth teeth."
+      "businessContext": "Multiplier for module to determine the addendum height. Standard is 1 for full-depth teeth.",
+      "label_i18n": {
+        "en": "Addendum Coefficient",
+        "tr": "Addendum Coefficient",
+        "de": "Addendum Coefficient",
+        "fr": "Addendum Coefficient",
+        "es": "Addendum Coefficient",
+        "ar": "Addendum Coefficient"
+      }
     },
     {
       "id": "dedendumCoeff",
       "label": "Dedendum Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.25,
-      "businessContext": "Multiplier for module to determine the dedendum depth. Standard is 1.25 for clearance."
+      "businessContext": "Multiplier for module to determine the dedendum depth. Standard is 1.25 for clearance.",
+      "label_i18n": {
+        "en": "Dedendum Coefficient",
+        "tr": "Dedendum Coefficient",
+        "de": "Dedendum Coefficient",
+        "fr": "Dedendum Coefficient",
+        "es": "Dedendum Coefficient",
+        "ar": "Dedendum Coefficient"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +100,7 @@
       "toothThickness"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

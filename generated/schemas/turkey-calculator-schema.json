@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Weight of the whole turkey before cooking"
+      "businessContext": "Weight of the whole turkey before cooking",
+      "label_i18n": {
+        "en": "Turkey Weight (kg)",
+        "tr": "Turkey Weight (kg)",
+        "de": "Turkey Weight (kg)",
+        "fr": "Turkey Weight (kg)",
+        "es": "Turkey Weight (kg)",
+        "ar": "Turkey Weight (kg)"
+      }
     },
     {
       "id": "cookingTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 180,
-      "businessContext": "Oven temperature setting"
+      "businessContext": "Oven temperature setting",
+      "label_i18n": {
+        "en": "Cooking Temperature (°C)",
+        "tr": "Cooking Temperature (°C)",
+        "de": "Cooking Temperature (°C)",
+        "fr": "Cooking Temperature (°C)",
+        "es": "Cooking Temperature (°C)",
+        "ar": "Cooking Temperature (°C)"
+      }
     },
     {
       "id": "stuffing",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0.5,
-      "businessContext": "Weight of stuffing inside the turkey"
+      "businessContext": "Weight of stuffing inside the turkey",
+      "label_i18n": {
+        "en": "Stuffing Weight (kg)",
+        "tr": "Stuffing Weight (kg)",
+        "de": "Stuffing Weight (kg)",
+        "fr": "Stuffing Weight (kg)",
+        "es": "Stuffing Weight (kg)",
+        "ar": "Stuffing Weight (kg)"
+      }
     },
     {
       "id": "thawed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "boolean",
       "default": 1,
-      "businessContext": "Whether the turkey is fully thawed"
+      "businessContext": "Whether the turkey is fully thawed",
+      "label_i18n": {
+        "en": "Thawed? (1=yes, 0=no)",
+        "tr": "Thawed? (1=yes, 0=no)",
+        "de": "Thawed? (1=yes, 0=no)",
+        "fr": "Thawed? (1=yes, 0=no)",
+        "es": "Thawed? (1=yes, 0=no)",
+        "ar": "Thawed? (1=yes, 0=no)"
+      }
     },
     {
       "id": "altitude",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Elevation above sea level"
+      "businessContext": "Elevation above sea level",
+      "label_i18n": {
+        "en": "Altitude (m)",
+        "tr": "Altitude (m)",
+        "de": "Altitude (m)",
+        "fr": "Altitude (m)",
+        "es": "Altitude (m)",
+        "ar": "Altitude (m)"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +88,15 @@
     "thawFactor": "thawed === 1 ? 1 : 1.5",
     "altFactor": "1 + altitude * 0.0001",
     "totalMinutes": "baseTime * tempFactor * thawFactor * altFactor",
-    "primary": "Math.round(totalMinutes)"
+    "primary": "Math.round(totalMinutes)",
+    "weight___40___stuffing___20_minutes": "weight * 40 + stuffing * 20 minutes",
+    "_0_2__per__C_from_180_C": "±0.2% per °C from 180°C",
+    "1_5x_if_frozen": "1.5x if frozen",
+    "_0_01__per_meter": "+0.01% per meter",
+    "result": "Total Cooking Time (minutes)"
   },
   "outputs": {
-    "primary": "Total Cooking Time (minutes)",
+    "primary": "result",
     "breakdown": [
       "Base time: weight * 40 + stuffing * 20 minutes",
       "Temperature adjustment: ±0.2% per °C from 180°C",
@@ -59,10 +104,10 @@
       "Altitude adjustment: +0.01% per meter"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

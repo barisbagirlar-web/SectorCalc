@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 400,
-      "businessContext": "Nominal line-to-line voltage from motor nameplate, typically 400 V for three-phase industrial motors."
+      "businessContext": "Nominal line-to-line voltage from motor nameplate, typically 400 V for three-phase industrial motors.",
+      "label_i18n": {
+        "en": "Voltage (V)",
+        "tr": "Voltage (V)",
+        "de": "Voltage (V)",
+        "fr": "Voltage (V)",
+        "es": "Voltage (V)",
+        "ar": "Voltage (V)"
+      }
     },
     {
       "id": "current",
@@ -15,31 +23,63 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "Full-load amperage (FLA) from motor nameplate."
+      "businessContext": "Full-load amperage (FLA) from motor nameplate.",
+      "label_i18n": {
+        "en": "Current (A)",
+        "tr": "Current (A)",
+        "de": "Current (A)",
+        "fr": "Current (A)",
+        "es": "Current (A)",
+        "ar": "Current (A)"
+      }
     },
     {
       "id": "efficiency",
       "label": "Efficiency (decimal)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "Motor efficiency as a decimal fraction, e.g., 0.9 for 90% per ISO 1217 or manufacturer data."
+      "businessContext": "Motor efficiency as a decimal fraction, e.g., 0.9 for 90% per ISO 1217 or manufacturer data.",
+      "label_i18n": {
+        "en": "Efficiency (decimal)",
+        "tr": "Efficiency (decimal)",
+        "de": "Efficiency (decimal)",
+        "fr": "Efficiency (decimal)",
+        "es": "Efficiency (decimal)",
+        "ar": "Efficiency (decimal)"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Power Factor (decimal)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
-      "businessContext": "Motor power factor under full load, typically 0.8–0.9 for induction motors."
+      "businessContext": "Motor power factor under full load, typically 0.8–0.9 for induction motors.",
+      "label_i18n": {
+        "en": "Power Factor (decimal)",
+        "tr": "Power Factor (decimal)",
+        "de": "Power Factor (decimal)",
+        "fr": "Power Factor (decimal)",
+        "es": "Power Factor (decimal)",
+        "ar": "Power Factor (decimal)"
+      }
     },
     {
       "id": "phaseFactor",
       "label": "Phase Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.732,
-      "businessContext": "1.0 for single-phase, √3 ≈ 1.732 for balanced three-phase. Default reflects common three-phase industrial supply."
+      "businessContext": "1.0 for single-phase, √3 ≈ 1.732 for balanced three-phase. Default reflects common three-phase industrial supply.",
+      "label_i18n": {
+        "en": "Phase Factor",
+        "tr": "Phase Factor",
+        "de": "Phase Factor",
+        "fr": "Phase Factor",
+        "es": "Phase Factor",
+        "ar": "Phase Factor"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "kw"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

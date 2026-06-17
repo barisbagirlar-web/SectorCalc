@@ -23,33 +23,19 @@ export const Spc_limit_calculatorInputSchema = z.object({
   use_estimated_sigma: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Spc_limit_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = lookup_d2(input.subgroup_size); results["d2_constant"] = Number.isFinite(v) ? v : 0; } catch { results["d2_constant"] = 0; }
-  try { const v = input.average_range / d2; results["estimated_sigma"] = Number.isFinite(v) ? v : 0; } catch { results["estimated_sigma"] = 0; }
-  try { const v = input.overall_mean + (A2 * input.average_range); results["ucl_xbar"] = Number.isFinite(v) ? v : 0; } catch { results["ucl_xbar"] = 0; }
-  try { const v = input.overall_mean - (A2 * input.average_range); results["lcl_xbar"] = Number.isFinite(v) ? v : 0; } catch { results["lcl_xbar"] = 0; }
-  try { const v = D4 * input.average_range; results["ucl_r"] = Number.isFinite(v) ? v : 0; } catch { results["ucl_r"] = 0; }
-  try { const v = D3 * input.average_range; results["lcl_r"] = Number.isFinite(v) ? v : 0; } catch { results["lcl_r"] = 0; }
-  try { const v = Math.min((input.usl - input.overall_mean) / (3 * sigma_hat), (input.overall_mean - input.lsl) / (3 * sigma_hat)); results["cpk"] = Number.isFinite(v) ? v : 0; } catch { results["cpk"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Spc_limit_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateSpc_limit_calculator(input: Spc_limit_calculatorInput): Spc_limit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["cpk"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    ucl_xbar: values["ucl_xbar"] ?? 0,
-    lcl_xbar: values["lcl_xbar"] ?? 0,
-    ucl_r: values["ucl_r"] ?? 0,
-    lcl_r: values["lcl_r"] ?? 0,
-    estimated_sigma: values["estimated_sigma"] ?? 0,
-    cp: values["cp"] ?? 0,
-    ppk: values["ppk"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Centering Shift","Excess Variation","Special Cause Count"];
-  const suggestedActions: string[] = ["If Cpk < 1.33 and centering shift > 0.5*σ, adjust process target to midpoint of specification limits.","If Cp < 1.33, implement process improvement (e.g., DOE, SMED, Poka-Yoke) to reduce common cause variation.","If special cause count > 0, perform root cause analysis using 5 Whys or fishbone diagram.","If Ppk significantly lower than Cpk, conduct Gage R&R study to assess measurement system variation.","After process improvement, recalculate control limits with new data to reflect improved state."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -68,7 +54,7 @@ export function calculateSpc_limit_calculator(input: Spc_limit_calculatorInput):
 
 export interface Spc_limit_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { ucl_xbar: number; lcl_xbar: number; ucl_r: number; lcl_r: number; estimated_sigma: number; cp: number; ppk: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms."
+      "businessContext": "User's body weight in kilograms.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "User's height in centimeters."
+      "businessContext": "User's height in centimeters.",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User's age in years."
+      "businessContext": "User's age in years.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "0 for female, 1 for male."
+      "businessContext": "0 for female, 1 for male.",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "duration",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 30,
-      "businessContext": "Total duration of the HIIT session in minutes."
+      "businessContext": "Total duration of the HIIT session in minutes.",
+      "label_i18n": {
+        "en": "Workout Duration",
+        "tr": "Workout Duration",
+        "de": "Workout Duration",
+        "fr": "Workout Duration",
+        "es": "Workout Duration",
+        "ar": "Workout Duration"
+      }
     },
     {
       "id": "met",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "MET",
       "default": 8,
-      "businessContext": "Metabolic Equivalent of Task for HIIT (typically 8-12)."
+      "businessContext": "Metabolic Equivalent of Task for HIIT (typically 8-12).",
+      "label_i18n": {
+        "en": "MET Value",
+        "tr": "MET Value",
+        "de": "MET Value",
+        "fr": "MET Value",
+        "es": "MET Value",
+        "ar": "MET Value"
+      }
     }
   ],
   "formulas": {
@@ -65,7 +113,10 @@
       "bmr"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
+  "premiumRequired": false,
+  "categorySlug": "quality-six-sigma",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

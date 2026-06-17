@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD/unit",
       "default": 10,
-      "businessContext": "Cost of raw materials per unit of insulin produced"
+      "businessContext": "Cost of raw materials per unit of insulin produced",
+      "label_i18n": {
+        "en": "Raw Material Cost",
+        "tr": "Raw Material Cost",
+        "de": "Raw Material Cost",
+        "fr": "Raw Material Cost",
+        "es": "Raw Material Cost",
+        "ar": "Raw Material Cost"
+      }
     },
     {
       "id": "laborCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD/unit",
       "default": 5,
-      "businessContext": "Labor cost per unit of insulin produced"
+      "businessContext": "Labor cost per unit of insulin produced",
+      "label_i18n": {
+        "en": "Labor Cost",
+        "tr": "Labor Cost",
+        "de": "Labor Cost",
+        "fr": "Labor Cost",
+        "es": "Labor Cost",
+        "ar": "Labor Cost"
+      }
     },
     {
       "id": "energyCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/unit",
       "default": 2,
-      "businessContext": "Energy cost per unit of insulin produced"
+      "businessContext": "Energy cost per unit of insulin produced",
+      "label_i18n": {
+        "en": "Energy Cost",
+        "tr": "Energy Cost",
+        "de": "Energy Cost",
+        "fr": "Energy Cost",
+        "es": "Energy Cost",
+        "ar": "Energy Cost"
+      }
     },
     {
       "id": "overheadCost",
@@ -31,39 +55,79 @@
       "type": "number",
       "unit": "USD/unit",
       "default": 3,
-      "businessContext": "Overhead cost per unit of insulin produced"
+      "businessContext": "Overhead cost per unit of insulin produced",
+      "label_i18n": {
+        "en": "Overhead Cost",
+        "tr": "Overhead Cost",
+        "de": "Overhead Cost",
+        "fr": "Overhead Cost",
+        "es": "Overhead Cost",
+        "ar": "Overhead Cost"
+      }
     },
     {
       "id": "sensitivityRaw",
       "label": "Sensitivity to Raw Material",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.3,
-      "businessContext": "Elasticity of total cost with respect to raw material cost (decimal)"
+      "businessContext": "Elasticity of total cost with respect to raw material cost (decimal)",
+      "label_i18n": {
+        "en": "Sensitivity to Raw Material",
+        "tr": "Sensitivity to Raw Material",
+        "de": "Sensitivity to Raw Material",
+        "fr": "Sensitivity to Raw Material",
+        "es": "Sensitivity to Raw Material",
+        "ar": "Sensitivity to Raw Material"
+      }
     },
     {
       "id": "sensitivityLabor",
       "label": "Sensitivity to Labor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.2,
-      "businessContext": "Elasticity of total cost with respect to labor cost (decimal)"
+      "businessContext": "Elasticity of total cost with respect to labor cost (decimal)",
+      "label_i18n": {
+        "en": "Sensitivity to Labor",
+        "tr": "Sensitivity to Labor",
+        "de": "Sensitivity to Labor",
+        "fr": "Sensitivity to Labor",
+        "es": "Sensitivity to Labor",
+        "ar": "Sensitivity to Labor"
+      }
     },
     {
       "id": "sensitivityEnergy",
       "label": "Sensitivity to Energy",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.1,
-      "businessContext": "Elasticity of total cost with respect to energy cost (decimal)"
+      "businessContext": "Elasticity of total cost with respect to energy cost (decimal)",
+      "label_i18n": {
+        "en": "Sensitivity to Energy",
+        "tr": "Sensitivity to Energy",
+        "de": "Sensitivity to Energy",
+        "fr": "Sensitivity to Energy",
+        "es": "Sensitivity to Energy",
+        "ar": "Sensitivity to Energy"
+      }
     },
     {
       "id": "sensitivityOverhead",
       "label": "Sensitivity to Overhead",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.15,
-      "businessContext": "Elasticity of total cost with respect to overhead cost (decimal)"
+      "businessContext": "Elasticity of total cost with respect to overhead cost (decimal)",
+      "label_i18n": {
+        "en": "Sensitivity to Overhead",
+        "tr": "Sensitivity to Overhead",
+        "de": "Sensitivity to Overhead",
+        "fr": "Sensitivity to Overhead",
+        "es": "Sensitivity to Overhead",
+        "ar": "Sensitivity to Overhead"
+      }
     }
   ],
   "formulas": {
@@ -87,10 +151,10 @@
       "overheadSensitivityContribution"
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Üretim & İmalat",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "finance-sales-working-capital"
 }

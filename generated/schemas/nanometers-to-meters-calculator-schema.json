@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "nm",
       "default": 1,
-      "businessContext": "Dönüştürülecek nanometre miktarı"
+      "businessContext": "Dönüştürülecek nanometre miktarı",
+      "label_i18n": {
+        "en": "Nanometre Değeri",
+        "tr": "Nanometre Değeri",
+        "de": "Nanometre Değeri",
+        "fr": "Nanometre Değeri",
+        "es": "Nanometre Değeri",
+        "ar": "Nanometre Değeri"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "nm/m",
       "default": 1000000000,
-      "businessContext": "1 metrenin kaç nanometre olduğu; standart 1.000.000.000"
+      "businessContext": "1 metrenin kaç nanometre olduğu; standart 1.000.000.000",
+      "label_i18n": {
+        "en": "Dönüşüm Çarpanı",
+        "tr": "Dönüşüm Çarpanı",
+        "de": "Dönüşüm Çarpanı",
+        "fr": "Dönüşüm Çarpanı",
+        "es": "Dönüşüm Çarpanı",
+        "ar": "Dönüşüm Çarpanı"
+      }
     },
     {
       "id": "precision",
       "label": "Hassasiyet (Ondalık)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 9,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı"
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Hassasiyet (Ondalık)",
+        "tr": "Hassasiyet (Ondalık)",
+        "de": "Hassasiyet (Ondalık)",
+        "fr": "Hassasiyet (Ondalık)",
+        "es": "Hassasiyet (Ondalık)",
+        "ar": "Hassasiyet (Ondalık)"
+      }
     },
     {
       "id": "scaling",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Sonuç değerini ölçeklendirme katsayısı"
+      "businessContext": "Sonuç değerini ölçeklendirme katsayısı",
+      "label_i18n": {
+        "en": "Ölçekleme",
+        "tr": "Ölçekleme",
+        "de": "Ölçekleme",
+        "fr": "Ölçekleme",
+        "es": "Ölçekleme",
+        "ar": "Ölçekleme"
+      }
     },
     {
       "id": "offset",
@@ -39,33 +71,62 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Sonuca eklenecek sabit değer"
+      "businessContext": "Sonuca eklenecek sabit değer",
+      "label_i18n": {
+        "en": "Ofset",
+        "tr": "Ofset",
+        "de": "Ofset",
+        "fr": "Ofset",
+        "es": "Ofset",
+        "ar": "Ofset"
+      }
     },
     {
       "id": "targetUnitFactor",
       "label": "Hedef Birim Çarpanı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)"
+      "businessContext": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)",
+      "label_i18n": {
+        "en": "Hedef Birim Çarpanı",
+        "tr": "Hedef Birim Çarpanı",
+        "de": "Hedef Birim Çarpanı",
+        "fr": "Hedef Birim Çarpanı",
+        "es": "Hedef Birim Çarpanı",
+        "ar": "Hedef Birim Çarpanı"
+      }
     },
     {
       "id": "scientificNotation",
       "label": "Bilimsel Gösterim",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal"
+      "businessContext": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal",
+      "label_i18n": {
+        "en": "Bilimsel Gösterim",
+        "tr": "Bilimsel Gösterim",
+        "de": "Bilimsel Gösterim",
+        "fr": "Bilimsel Gösterim",
+        "es": "Bilimsel Gösterim",
+        "ar": "Bilimsel Gösterim"
+      }
     }
   ],
   "formulas": {
     "rawMeters": "nmValue / conversionFactor",
     "scaledMeters": "(nmValue / conversionFactor) * scaling",
     "offsetMeters": "((nmValue / conversionFactor) * scaling) + offset",
-    "resultInTarget": "((nmValue / conversionFactor) * scaling + offset) * targetUnitFactor"
+    "resultInTarget": "((nmValue / conversionFactor) * scaling + offset) * targetUnitFactor",
+    "nmValue___conversionFactor": "nmValue / conversionFactor",
+    "_nmValue___conversionFactor____scaling": "(nmValue / conversionFactor) * scaling",
+    "__nmValue___conversionFactor____scaling_": "((nmValue / conversionFactor) * scaling) + offset",
+    "___nmValue___conversionFactor____scaling": "(((nmValue / conversionFactor) * scaling) + offset) * targetUnitFactor",
+    "result": "parseFloat(((((nmValue / conversionFactor) * scaling) + offset) * targetUnitFactor).toFixed(precision))"
   },
   "outputs": {
-    "primary": "parseFloat(((((nmValue / conversionFactor) * scaling) + offset) * targetUnitFactor).toFixed(precision))",
+    "primary": "result",
     "breakdown": [
       "nmValue / conversionFactor",
       "(nmValue / conversionFactor) * scaling",
@@ -73,10 +134,10 @@
       "(((nmValue / conversionFactor) * scaling) + offset) * targetUnitFactor"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

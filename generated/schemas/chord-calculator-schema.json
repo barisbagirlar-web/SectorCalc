@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Circle radius"
+      "businessContext": "Circle radius",
+      "label_i18n": {
+        "en": "Radius",
+        "tr": "Radius",
+        "de": "Radius",
+        "fr": "Radius",
+        "es": "Radius",
+        "ar": "Radius"
+      }
     },
     {
       "id": "angleDeg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": 60,
-      "businessContext": "Angle in degrees (0 if using arc length or offset)"
+      "businessContext": "Angle in degrees (0 if using arc length or offset)",
+      "label_i18n": {
+        "en": "Central Angle",
+        "tr": "Central Angle",
+        "de": "Central Angle",
+        "fr": "Central Angle",
+        "es": "Central Angle",
+        "ar": "Central Angle"
+      }
     },
     {
       "id": "arcLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Arc length alternative to angle (0 to ignore)"
+      "businessContext": "Arc length alternative to angle (0 to ignore)",
+      "label_i18n": {
+        "en": "Arc Length",
+        "tr": "Arc Length",
+        "de": "Arc Length",
+        "fr": "Arc Length",
+        "es": "Arc Length",
+        "ar": "Arc Length"
+      }
     },
     {
       "id": "chordOffset",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Distance from center to chord (0 to ignore)"
+      "businessContext": "Distance from center to chord (0 to ignore)",
+      "label_i18n": {
+        "en": "Chord Offset",
+        "tr": "Chord Offset",
+        "de": "Chord Offset",
+        "fr": "Chord Offset",
+        "es": "Chord Offset",
+        "ar": "Chord Offset"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for outputs"
+      "businessContext": "Number of decimal places for outputs",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -61,10 +101,10 @@
       "segmentAreaFinal"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

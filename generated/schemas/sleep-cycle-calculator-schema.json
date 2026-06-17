@@ -93,7 +93,7 @@
       "id": "shift_worker",
       "label": "Shift worker?",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -140,150 +140,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "actual_sleep_start",
-      "name": "Actual sleep start time",
-      "description": "Wake time minus total sleep duration including fall-asleep latency.",
-      "formula": "wake_time - (total_sleep_minutes / 60)",
-      "dependencies": [
-        "wake_time",
-        "total_sleep_minutes"
-      ]
-    },
-    {
-      "id": "total_sleep_minutes",
-      "name": "Total sleep minutes needed",
-      "description": "Base sleep need (7.5h = 5 cycles) plus debt repayment adjusted by efficiency.",
-      "formula": "max(5 * cycle_length_minutes, (5 * cycle_length_minutes) + (sleep_debt_hours * 60 / recovery_efficiency))",
-      "dependencies": [
-        "cycle_length_minutes",
-        "sleep_debt_hours",
-        "recovery_efficiency"
-      ]
-    },
-    {
-      "id": "optimal_bedtime",
-      "name": "Optimal bedtime (back-calculated)",
-      "description": "Wake time minus total sleep minutes minus fall-asleep latency.",
-      "formula": "wake_time - (total_sleep_minutes / 60) - (fall_asleep_minutes / 60)",
-      "dependencies": [
-        "wake_time",
-        "total_sleep_minutes",
-        "fall_asleep_minutes"
-      ]
-    },
-    {
-      "id": "circadian_penalty",
-      "name": "Circadian disruption penalty",
-      "description": "If shift worker, adds 0.5h to sleep debt equivalent.",
-      "formula": "shift_worker ? 0.5 : 0.0",
-      "dependencies": [
-        "shift_worker"
-      ]
-    },
-    {
-      "id": "adjusted_sleep_debt",
-      "name": "Adjusted sleep debt (with penalty)",
-      "description": "Original debt plus circadian penalty.",
-      "formula": "sleep_debt_hours + circadian_penalty",
-      "dependencies": [
-        "sleep_debt_hours",
-        "circadian_penalty"
-      ]
-    },
-    {
-      "id": "cycle_count",
-      "name": "Number of complete sleep cycles",
-      "description": "Total sleep minutes divided by cycle length, rounded down.",
-      "formula": "floor(total_sleep_minutes / cycle_length_minutes)",
-      "dependencies": [
-        "total_sleep_minutes",
-        "cycle_length_minutes"
-      ]
-    },
-    {
-      "id": "sleep_quality_index",
-      "name": "Sleep quality index (0–100)",
-      "description": "Composite score based on cycle count, debt, and efficiency.",
-      "formula": "min(100, max(0, (cycle_count / 6) * 50 + (1 - (adjusted_sleep_debt / 8)) * 30 + (recovery_efficiency - 0.5) * 40))",
-      "dependencies": [
-        "cycle_count",
-        "adjusted_sleep_debt",
-        "recovery_efficiency"
-      ]
-    }
+    "wake_time",
+    "wake_time",
+    "wake_time",
+    "wake_time",
+    "wake_time",
+    "wake_time",
+    "wake_time"
   ],
   "outputs": {
-    "primary": {
-      "id": "optimal_bedtime",
-      "label": "Optimal bedtime",
-      "unit": "hour (24h)",
-      "description": "Recommended time to go to bed to wake up at desired time with minimal sleep inertia."
-    },
-    "breakdown": {
-      "total_sleep_minutes": {
-        "label": "Total sleep duration",
-        "unit": "minutes"
-      },
-      "cycle_count": {
-        "label": "Complete sleep cycles",
-        "unit": "count"
-      },
-      "adjusted_sleep_debt": {
-        "label": "Adjusted sleep debt",
-        "unit": "hours"
-      },
-      "sleep_quality_index": {
-        "label": "Sleep quality index",
-        "unit": "score (0–100)"
-      },
-      "actual_sleep_start": {
-        "label": "Actual sleep start time",
-        "unit": "hour (24h)"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "unaccounted_caffeine_halflife",
-        "description": "Caffeine consumed within 6h of bedtime can increase sleep onset latency by 30–60 min, not modeled here.",
-        "impact": "medium"
-      },
-      {
-        "id": "light_exposure_after_dark",
-        "description": "Blue light suppresses melatonin; can reduce recovery efficiency by up to 20%.",
-        "impact": "high"
-      },
-      {
-        "id": "sleep_apnea_undiagnosed",
-        "description": "Undiagnosed sleep apnea can reduce recovery efficiency by 40% or more.",
-        "impact": "critical"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_consistent_schedule",
-        "description": "Maintain same wake time every day (including weekends) to stabilize circadian rhythm.",
-        "priority": "high"
-      },
-      {
-        "id": "action_debt_repayment",
-        "description": "If adjusted sleep debt > 2h, add one extra sleep cycle (90 min) for 2–3 nights.",
-        "priority": "high"
-      },
-      {
-        "id": "action_wind_down_routine",
-        "description": "Begin wind-down 30 min before optimal bedtime: dim lights, no screens, cool room (18–20°C).",
-        "priority": "medium"
-      },
-      {
-        "id": "action_shift_worker_mitigation",
-        "description": "Use blackout curtains and scheduled naps (20 min) to offset circadian penalty.",
-        "priority": "medium"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "sleep-cycle-calculator"
 }

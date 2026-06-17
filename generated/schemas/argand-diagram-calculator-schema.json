@@ -5,33 +5,65 @@
       "id": "re1",
       "label": "Re(z₁)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Real part of first complex number"
+      "businessContext": "Real part of first complex number",
+      "label_i18n": {
+        "en": "Re(z₁)",
+        "tr": "Re(z₁)",
+        "de": "Re(z₁)",
+        "fr": "Re(z₁)",
+        "es": "Re(z₁)",
+        "ar": "Re(z₁)"
+      }
     },
     {
       "id": "im1",
       "label": "Im(z₁)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Imaginary part of first complex number"
+      "businessContext": "Imaginary part of first complex number",
+      "label_i18n": {
+        "en": "Im(z₁)",
+        "tr": "Im(z₁)",
+        "de": "Im(z₁)",
+        "fr": "Im(z₁)",
+        "es": "Im(z₁)",
+        "ar": "Im(z₁)"
+      }
     },
     {
       "id": "re2",
       "label": "Re(z₂)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Real part of second complex number"
+      "businessContext": "Real part of second complex number",
+      "label_i18n": {
+        "en": "Re(z₂)",
+        "tr": "Re(z₂)",
+        "de": "Re(z₂)",
+        "fr": "Re(z₂)",
+        "es": "Re(z₂)",
+        "ar": "Re(z₂)"
+      }
     },
     {
       "id": "im2",
       "label": "Im(z₂)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Imaginary part of second complex number"
+      "businessContext": "Imaginary part of second complex number",
+      "label_i18n": {
+        "en": "Im(z₂)",
+        "tr": "Im(z₂)",
+        "de": "Im(z₂)",
+        "fr": "Im(z₂)",
+        "es": "Im(z₂)",
+        "ar": "Im(z₂)"
+      }
     }
   ],
   "formulas": {
@@ -57,10 +89,10 @@
       "z2ArgumentDeg"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

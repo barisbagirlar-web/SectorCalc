@@ -29,31 +29,19 @@ export const Lease_vs_buy_comparator_calculatorInputSchema = z.object({
   leaseType: z.enum(['operating', 'capital']).default('operating'),
 });
 
-function evaluateAllFormulas(input: Lease_vs_buy_comparator_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  results["npvLease"] = 0;
-  results["npvBuy"] = 0;
-  try { const v = depreciationRate_y * input.equipmentCost * input.taxRate; results["depreciationTaxShield"] = Number.isFinite(v) ? v : 0; } catch { results["depreciationTaxShield"] = 0; }
-  try { const v = input.leaseTermMonths * input.monthlyLeasePayment; results["totalCostLease"] = Number.isFinite(v) ? v : 0; } catch { results["totalCostLease"] = 0; }
-  try { const v = input.equipmentCost + (input.leaseTermMonths/12)*input.annualMaintenanceCost - input.residualValue; results["totalCostBuy"] = Number.isFinite(v) ? v : 0; } catch { results["totalCostBuy"] = 0; }
-  try { const v = ((results["totalCostBuy"] ?? 0) * (1 - input.utilizationRate/100)) * 0.15; results["utilizationAdjustedCost"] = Number.isFinite(v) ? v : 0; } catch { results["utilizationAdjustedCost"] = 0; }
-  try { const v = ((results["npvLease"] ?? 0) + (results["utilizationAdjustedCost"] ?? 0)) / (results["npvBuy"] ?? 0); results["primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["primaryResult"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Lease_vs_buy_comparator_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateLease_vs_buy_comparator_calculator(input: Lease_vs_buy_comparator_calculatorInput): Lease_vs_buy_comparator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["leaseVsBuyRatio"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    npvLease: values["npvLease"] ?? 0,
-    npvBuy: values["npvBuy"] ?? 0,
-    totalCostLease: values["totalCostLease"] ?? 0,
-    totalCostBuy: values["totalCostBuy"] ?? 0,
-    utilizationPenalty: values["utilizationPenalty"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Maintenance Cost Escalation","Residual Value Uncertainty","Utilization Rate Variability"];
-  const suggestedActions: string[] = ["Proceed with lease; negotiate lower monthly payment or include maintenance.","Consider purchase; explore financing options to reduce upfront cost.","Re-evaluate need for dedicated equipment; consider short-term rental or shared asset."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -72,7 +60,7 @@ export function calculateLease_vs_buy_comparator_calculator(input: Lease_vs_buy_
 
 export interface Lease_vs_buy_comparator_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { npvLease: number; npvBuy: number; totalCostLease: number; totalCostBuy: number; utilizationPenalty: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

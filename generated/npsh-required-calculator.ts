@@ -17,13 +17,16 @@ function evaluateAllFormulas(input: Npsh_required_calculatorInput): Record<strin
   const results: Record<string, number> = {};
   try { const v = Math.pow((input.speed * Math.sqrt(input.flowRate) / input.suctionSpecificSpeed), (4/3)); results["npshFt"] = Number.isFinite(v) ? v : 0; } catch { results["npshFt"] = 0; }
   try { const v = (results["npshFt"] ?? 0) * 0.3048; results["npshM"] = Number.isFinite(v) ? v : 0; } catch { results["npshM"] = 0; }
+  try { const v = (results["npshFt"] ?? 0).toFixed(2) + ' ft (US customary)'; results["npshFt_toFixed_2______ft__US_customary__"] = Number.isFinite(v) ? v : 0; } catch { results["npshFt_toFixed_2______ft__US_customary__"] = 0; }
+  try { const v = (results["npshM"] ?? 0).toFixed(2) + ' m (metric)'; results["npshM_toFixed_2______m__metric__"] = Number.isFinite(v) ? v : 0; } catch { results["npshM_toFixed_2______m__metric__"] = 0; }
+  try { const v = (results["npshM"] ?? 0).toFixed(2) + ' m'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateNpsh_required_calculator(input: Npsh_required_calculatorInput): Npsh_required_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["npshM"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

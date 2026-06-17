@@ -5,33 +5,65 @@
       "id": "firstTerm",
       "label": "First Term (a1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Starting value of the arithmetic progression"
+      "businessContext": "Starting value of the arithmetic progression",
+      "label_i18n": {
+        "en": "First Term (a1)",
+        "tr": "First Term (a1)",
+        "de": "First Term (a1)",
+        "fr": "First Term (a1)",
+        "es": "First Term (a1)",
+        "ar": "First Term (a1)"
+      }
     },
     {
       "id": "commonDifference",
       "label": "Common Difference (d)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Constant difference between consecutive terms"
+      "businessContext": "Constant difference between consecutive terms",
+      "label_i18n": {
+        "en": "Common Difference (d)",
+        "tr": "Common Difference (d)",
+        "de": "Common Difference (d)",
+        "fr": "Common Difference (d)",
+        "es": "Common Difference (d)",
+        "ar": "Common Difference (d)"
+      }
     },
     {
       "id": "startIndex",
       "label": "Start Term Index",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Index of the first term to include in the segment (1-based)"
+      "businessContext": "Index of the first term to include in the segment (1-based)",
+      "label_i18n": {
+        "en": "Start Term Index",
+        "tr": "Start Term Index",
+        "de": "Start Term Index",
+        "fr": "Start Term Index",
+        "es": "Start Term Index",
+        "ar": "Start Term Index"
+      }
     },
     {
       "id": "endIndex",
       "label": "End Term Index",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Index of the last term to include in the segment (must be ≥ startIndex)"
+      "businessContext": "Index of the last term to include in the segment (must be ≥ startIndex)",
+      "label_i18n": {
+        "en": "End Term Index",
+        "tr": "End Term Index",
+        "de": "End Term Index",
+        "fr": "End Term Index",
+        "es": "End Term Index",
+        "ar": "End Term Index"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,10 @@
       "endValue"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "categorySlug": "technology-ai-cloud-cyber",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

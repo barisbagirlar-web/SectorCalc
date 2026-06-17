@@ -29,7 +29,7 @@ function evaluateAllFormulas(input: Pyramid_surface_area_calculatorInput): Recor
 
 export function calculatePyramid_surface_area_calculator(input: Pyramid_surface_area_calculatorInput): Pyramid_surface_area_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["finalArea"] ?? 0;
+  const totalWasteCost = values["slantHeightComputed"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bit",
       "default": 12,
-      "businessContext": "ADC'nin bit çözünürlüğü"
+      "businessContext": "ADC'nin bit çözünürlüğü",
+      "label_i18n": {
+        "en": "Çözünürlük (bit)",
+        "tr": "Çözünürlük (bit)",
+        "de": "Çözünürlük (bit)",
+        "fr": "Çözünürlük (bit)",
+        "es": "Çözünürlük (bit)",
+        "ar": "Çözünürlük (bit)"
+      }
     },
     {
       "id": "referenceVoltage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "V",
       "default": 3.3,
-      "businessContext": "Tam ölçek referans gerilimi"
+      "businessContext": "Tam ölçek referans gerilimi",
+      "label_i18n": {
+        "en": "Referans Gerilimi",
+        "tr": "Referans Gerilimi",
+        "de": "Referans Gerilimi",
+        "fr": "Referans Gerilimi",
+        "es": "Referans Gerilimi",
+        "ar": "Referans Gerilimi"
+      }
     },
     {
       "id": "inputVoltage",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "V",
       "default": 1.65,
-      "businessContext": "Dönüştürülecek analog giriş gerilimi"
+      "businessContext": "Dönüştürülecek analog giriş gerilimi",
+      "label_i18n": {
+        "en": "Giriş Gerilimi",
+        "tr": "Giriş Gerilimi",
+        "de": "Giriş Gerilimi",
+        "fr": "Giriş Gerilimi",
+        "es": "Giriş Gerilimi",
+        "ar": "Giriş Gerilimi"
+      }
     },
     {
       "id": "gain",
       "label": "Kazanç",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Sinyal kazancı"
+      "businessContext": "Sinyal kazancı",
+      "label_i18n": {
+        "en": "Kazanç",
+        "tr": "Kazanç",
+        "de": "Kazanç",
+        "fr": "Kazanç",
+        "es": "Kazanç",
+        "ar": "Kazanç"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "reconvertedVoltage"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "electrical-power-systems"
 }

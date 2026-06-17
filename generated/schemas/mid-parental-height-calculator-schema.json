@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 180,
-      "businessContext": "Babanın boyu santimetre cinsinden"
+      "businessContext": "Babanın boyu santimetre cinsinden",
+      "label_i18n": {
+        "en": "Baba Boyu (cm)",
+        "tr": "Baba Boyu (cm)",
+        "de": "Baba Boyu (cm)",
+        "fr": "Baba Boyu (cm)",
+        "es": "Baba Boyu (cm)",
+        "ar": "Baba Boyu (cm)"
+      }
     },
     {
       "id": "motherHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 165,
-      "businessContext": "Annenin boyu santimetre cinsinden"
+      "businessContext": "Annenin boyu santimetre cinsinden",
+      "label_i18n": {
+        "en": "Anne Boyu (cm)",
+        "tr": "Anne Boyu (cm)",
+        "de": "Anne Boyu (cm)",
+        "fr": "Anne Boyu (cm)",
+        "es": "Anne Boyu (cm)",
+        "ar": "Anne Boyu (cm)"
+      }
     },
     {
       "id": "childSex",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "0: Kiz, 1: Erkek"
+      "businessContext": "0: Kiz, 1: Erkek",
+      "label_i18n": {
+        "en": "Çocuk Cinsiyeti",
+        "tr": "Çocuk Cinsiyeti",
+        "de": "Çocuk Cinsiyeti",
+        "fr": "Çocuk Cinsiyeti",
+        "es": "Çocuk Cinsiyeti",
+        "ar": "Çocuk Cinsiyeti"
+      }
     },
     {
       "id": "resultUnit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "none",
       "default": 0,
-      "businessContext": "0: cm, 1: inç"
+      "businessContext": "0: cm, 1: inç",
+      "label_i18n": {
+        "en": "Sonuç Birimi",
+        "tr": "Sonuç Birimi",
+        "de": "Sonuç Birimi",
+        "fr": "Sonuç Birimi",
+        "es": "Sonuç Birimi",
+        "ar": "Sonuç Birimi"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,16 @@
     "breakdownStep3": "'Cinsiyet: ' + (childSex === 1 ? 'Erkek' : 'Kiz')",
     "breakdownStep4": "'Formül: (baba + anne ' + (childSex === 1 ? '+ 13' : '- 13') + ') / 2'",
     "breakdownStep5": "'Hesaplanan: ' + midHeightCm.toFixed(1) + ' cm'",
-    "breakdownStep6": "resultUnit === 1 ? 'İnçe çevrildi: ' + outputHeight.toFixed(1) + ' inç' : ''"
+    "breakdownStep6": "resultUnit === 1 ? 'İnçe çevrildi: ' + outputHeight.toFixed(1) + ' inç' : ''",
+    "_breakdownStep1_": "{breakdownStep1}",
+    "_breakdownStep2_": "{breakdownStep2}",
+    "_breakdownStep3_": "{breakdownStep3}",
+    "_breakdownStep4_": "{breakdownStep4}",
+    "_breakdownStep5_": "{breakdownStep5}",
+    "_breakdownStep6_": "{breakdownStep6}"
   },
   "outputs": {
-    "primary": "{primaryText}",
+    "primary": "midHeightCm",
     "breakdown": [
       "{breakdownStep1}",
       "{breakdownStep2}",
@@ -57,10 +95,10 @@
       "{breakdownStep6}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

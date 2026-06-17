@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 12,
-      "businessContext": "Maximum front-to-back length of the baby's head in centimeters."
+      "businessContext": "Maximum front-to-back length of the baby's head in centimeters.",
+      "label_i18n": {
+        "en": "Head Length",
+        "tr": "Head Length",
+        "de": "Head Length",
+        "fr": "Head Length",
+        "es": "Head Length",
+        "ar": "Head Length"
+      }
     },
     {
       "id": "head_width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 9,
-      "businessContext": "Maximum width of the baby's head in centimeters."
+      "businessContext": "Maximum width of the baby's head in centimeters.",
+      "label_i18n": {
+        "en": "Head Width",
+        "tr": "Head Width",
+        "de": "Head Width",
+        "fr": "Head Width",
+        "es": "Head Width",
+        "ar": "Head Width"
+      }
     },
     {
       "id": "head_height",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "cm",
       "default": 8,
-      "businessContext": "Height from crown to base of skull in centimeters."
+      "businessContext": "Height from crown to base of skull in centimeters.",
+      "label_i18n": {
+        "en": "Head Height",
+        "tr": "Head Height",
+        "de": "Head Height",
+        "fr": "Head Height",
+        "es": "Head Height",
+        "ar": "Head Height"
+      }
     },
     {
       "id": "unit_conversion",
       "label": "Output Unit Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiply output lengths by this factor (1 for cm, 0.3937 for inches)."
+      "businessContext": "Multiply output lengths by this factor (1 for cm, 0.3937 for inches).",
+      "label_i18n": {
+        "en": "Output Unit Factor",
+        "tr": "Output Unit Factor",
+        "de": "Output Unit Factor",
+        "fr": "Output Unit Factor",
+        "es": "Output Unit Factor",
+        "ar": "Output Unit Factor"
+      }
     },
     {
       "id": "scale_factor",
       "label": "Scale Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier to adjust circumference for growth or fitting allowance."
+      "businessContext": "Multiplier to adjust circumference for growth or fitting allowance.",
+      "label_i18n": {
+        "en": "Scale Factor",
+        "tr": "Scale Factor",
+        "de": "Scale Factor",
+        "fr": "Scale Factor",
+        "es": "Scale Factor",
+        "ar": "Scale Factor"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "head_surface_area"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

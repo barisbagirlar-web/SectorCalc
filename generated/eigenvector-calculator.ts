@@ -23,13 +23,15 @@ function evaluateAllFormulas(input: Eigenvector_calculatorInput): Record<string,
   try { const v = ((results["trace"] ?? 0) + Math.sqrt((results["disc"] ?? 0))) / 2; results["lambda1"] = Number.isFinite(v) ? v : 0; } catch { results["lambda1"] = 0; }
   try { const v = ((results["trace"] ?? 0) - Math.sqrt((results["disc"] ?? 0))) / 2; results["lambda2"] = Number.isFinite(v) ? v : 0; } catch { results["lambda2"] = 0; }
   try { const v = ((results["lambda1"] ?? 0) - input.a11) / input.a12; results["v2"] = Number.isFinite(v) ? v : 0; } catch { results["v2"] = 0; }
+  try { const v = (results["lambda1"] ?? 0); results["_lambda1_"] = Number.isFinite(v) ? v : 0; } catch { results["_lambda1_"] = 0; }
+  try { const v = (results["lambda2"] ?? 0); results["_lambda2_"] = Number.isFinite(v) ? v : 0; } catch { results["_lambda2_"] = 0; }
   return results;
 }
 
 
 export function calculateEigenvector_calculator(input: Eigenvector_calculatorInput): Eigenvector_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Eigenvector"] ?? 0;
+  const totalWasteCost = values["trace"] ?? 0;
   const breakdown = {
     
   };

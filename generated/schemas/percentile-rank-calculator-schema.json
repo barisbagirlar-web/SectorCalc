@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "birim",
       "default": 50,
-      "businessContext": "Yüzdelik sıralaması hesaplanacak değer"
+      "businessContext": "Yüzdelik sıralaması hesaplanacak değer",
+      "label_i18n": {
+        "en": "Hedef Değer",
+        "tr": "Hedef Değer",
+        "de": "Hedef Değer",
+        "fr": "Hedef Değer",
+        "es": "Hedef Değer",
+        "ar": "Hedef Değer"
+      }
     },
     {
       "id": "value1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "birim",
       "default": 10,
-      "businessContext": "Örnek veri setindeki ilk ölçüm"
+      "businessContext": "Örnek veri setindeki ilk ölçüm",
+      "label_i18n": {
+        "en": "Referans Değer 1",
+        "tr": "Referans Değer 1",
+        "de": "Referans Değer 1",
+        "fr": "Referans Değer 1",
+        "es": "Referans Değer 1",
+        "ar": "Referans Değer 1"
+      }
     },
     {
       "id": "value2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "birim",
       "default": 20,
-      "businessContext": "Örnek veri setindeki ikinci ölçüm"
+      "businessContext": "Örnek veri setindeki ikinci ölçüm",
+      "label_i18n": {
+        "en": "Referans Değer 2",
+        "tr": "Referans Değer 2",
+        "de": "Referans Değer 2",
+        "fr": "Referans Değer 2",
+        "es": "Referans Değer 2",
+        "ar": "Referans Değer 2"
+      }
     },
     {
       "id": "value3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "birim",
       "default": 30,
-      "businessContext": "Örnek veri setindeki üçüncü ölçüm"
+      "businessContext": "Örnek veri setindeki üçüncü ölçüm",
+      "label_i18n": {
+        "en": "Referans Değer 3",
+        "tr": "Referans Değer 3",
+        "de": "Referans Değer 3",
+        "fr": "Referans Değer 3",
+        "es": "Referans Değer 3",
+        "ar": "Referans Değer 3"
+      }
     },
     {
       "id": "value4",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "birim",
       "default": 40,
-      "businessContext": "Örnek veri setindeki dördüncü ölçüm"
+      "businessContext": "Örnek veri setindeki dördüncü ölçüm",
+      "label_i18n": {
+        "en": "Referans Değer 4",
+        "tr": "Referans Değer 4",
+        "de": "Referans Değer 4",
+        "fr": "Referans Değer 4",
+        "es": "Referans Değer 4",
+        "ar": "Referans Değer 4"
+      }
     },
     {
       "id": "value5",
@@ -47,23 +87,23 @@
       "type": "number",
       "unit": "birim",
       "default": 60,
-      "businessContext": "Örnek veri setindeki beşinci ölçüm"
+      "businessContext": "Örnek veri setindeki beşinci ölçüm",
+      "label_i18n": {
+        "en": "Referans Değer 5",
+        "tr": "Referans Değer 5",
+        "de": "Referans Değer 5",
+        "fr": "Referans Değer 5",
+        "es": "Referans Değer 5",
+        "ar": "Referans Değer 5"
+      }
     }
   ],
   "formulas": {
     "primary": "(((value1 < target ? 1 : 0) + (value2 < target ? 1 : 0) + (value3 < target ? 1 : 0) + (value4 < target ? 1 : 0) + (value5 < target ? 1 : 0) + 0.5 * ((value1 == target ? 1 : 0) + (value2 == target ? 1 : 0) + (value3 == target ? 1 : 0) + (value4 == target ? 1 : 0) + (value5 == target ? 1 : 0))) / 5 * 100)",
-    "breakdown": [
-      "(value1 < target ? 1 : 0) + (value2 < target ? 1 : 0) + (value3 < target ? 1 : 0) + (value4 < target ? 1 : 0) + (value5 < target ? 1 : 0)",
-      "(value1 == target ? 1 : 0) + (value2 == target ? 1 : 0) + (value3 == target ? 1 : 0) + (value4 == target ? 1 : 0) + (value5 == target ? 1 : 0)"
-    ]
+    "breakdown": "target"
   },
   "outputs": {
-    "primary": {
-      "id": "percentileRank",
-      "label": "Yüzdelik Sıra",
-      "unit": "%",
-      "description": "Hedef değerin referans veri setindeki yüzdelik sıralaması"
-    },
+    "primary": "primary",
     "breakdown": [
       {
         "id": "belowCount",
@@ -79,10 +119,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

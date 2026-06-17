@@ -23,13 +23,15 @@ function evaluateAllFormulas(input: Reflection_calculatorInput): Record<string, 
   try { const v = ((results["theta2"] ?? 0) !== null) ? Math.round(Math.pow((input.n1*Math.cos((results["theta1"] ?? 0)) - input.n2*Math.cos((results["theta2"] ?? 0)))/(input.n1*Math.cos((results["theta1"] ?? 0)) + input.n2*Math.cos((results["theta2"] ?? 0))), 2) * 10000) / 100 : 100; results["rs"] = Number.isFinite(v) ? v : 0; } catch { results["rs"] = 0; }
   try { const v = ((results["theta2"] ?? 0) !== null) ? Math.round(Math.pow((input.n1*Math.cos((results["theta2"] ?? 0)) - input.n2*Math.cos((results["theta1"] ?? 0)))/(input.n1*Math.cos((results["theta2"] ?? 0)) + input.n2*Math.cos((results["theta1"] ?? 0))), 2) * 10000) / 100 : 100; results["rp"] = Number.isFinite(v) ? v : 0; } catch { results["rp"] = 0; }
   try { const v = ((results["theta2"] ?? 0) !== null) ? Math.round((((results["rs"] ?? 0) + (results["rp"] ?? 0)) / 2) * 100) / 100 : 100; results["averageReflectance"] = Number.isFinite(v) ? v : 0; } catch { results["averageReflectance"] = 0; }
+  results["_rs__"] = 0;
+  results["_rp__"] = 0;
   return results;
 }
 
 
 export function calculateReflection_calculator(input: Reflection_calculatorInput): Reflection_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Average"] ?? 0;
+  const totalWasteCost = values["theta1"] ?? 0;
   const breakdown = {
     
   };

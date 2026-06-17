@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "The weight of the pet in kilograms."
+      "businessContext": "The weight of the pet in kilograms.",
+      "label_i18n": {
+        "en": "Pet Weight",
+        "tr": "Pet Weight",
+        "de": "Pet Weight",
+        "fr": "Pet Weight",
+        "es": "Pet Weight",
+        "ar": "Pet Weight"
+      }
     },
     {
       "id": "activityFactor",
       "label": "Activity Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Multiplier for activity level (e.g., 1.2 for sedentary, 1.5 moderate, 1.8 active)."
+      "businessContext": "Multiplier for activity level (e.g., 1.2 for sedentary, 1.5 moderate, 1.8 active).",
+      "label_i18n": {
+        "en": "Activity Factor",
+        "tr": "Activity Factor",
+        "de": "Activity Factor",
+        "fr": "Activity Factor",
+        "es": "Activity Factor",
+        "ar": "Activity Factor"
+      }
     },
     {
       "id": "caloricDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kcal/kg",
       "default": 3500,
-      "businessContext": "Energy density of the food in kilocalories per kilogram (common for dry food: 3000-4000 kcal/kg)."
+      "businessContext": "Energy density of the food in kilocalories per kilogram (common for dry food: 3000-4000 kcal/kg).",
+      "label_i18n": {
+        "en": "Caloric Density",
+        "tr": "Caloric Density",
+        "de": "Caloric Density",
+        "fr": "Caloric Density",
+        "es": "Caloric Density",
+        "ar": "Caloric Density"
+      }
     },
     {
       "id": "mealsPerDay",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "meals",
       "default": 2,
-      "businessContext": "Number of meals the pet eats daily."
+      "businessContext": "Number of meals the pet eats daily.",
+      "label_i18n": {
+        "en": "Meals Per Day",
+        "tr": "Meals Per Day",
+        "de": "Meals Per Day",
+        "fr": "Meals Per Day",
+        "es": "Meals Per Day",
+        "ar": "Meals Per Day"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "foodPerMealGrams"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "food-cold-chain-hygiene"
 }

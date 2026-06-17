@@ -5,41 +5,81 @@
       "id": "r",
       "label": "Magnitude (r)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Polar form magnitude of complex number"
+      "businessContext": "Polar form magnitude of complex number",
+      "label_i18n": {
+        "en": "Magnitude (r)",
+        "tr": "Magnitude (r)",
+        "de": "Magnitude (r)",
+        "fr": "Magnitude (r)",
+        "es": "Magnitude (r)",
+        "ar": "Magnitude (r)"
+      }
     },
     {
       "id": "theta",
       "label": "Angle (θ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Angle from positive real axis"
+      "businessContext": "Angle from positive real axis",
+      "label_i18n": {
+        "en": "Angle (θ)",
+        "tr": "Angle (θ)",
+        "de": "Angle (θ)",
+        "fr": "Angle (θ)",
+        "es": "Angle (θ)",
+        "ar": "Angle (θ)"
+      }
     },
     {
       "id": "angleUnit",
       "label": "Angle unit (0=rad, 1=deg)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Select 0 for radians or 1 for degrees"
+      "businessContext": "Select 0 for radians or 1 for degrees",
+      "label_i18n": {
+        "en": "Angle unit (0=rad, 1=deg)",
+        "tr": "Angle unit (0=rad, 1=deg)",
+        "de": "Angle unit (0=rad, 1=deg)",
+        "fr": "Angle unit (0=rad, 1=deg)",
+        "es": "Angle unit (0=rad, 1=deg)",
+        "ar": "Angle unit (0=rad, 1=deg)"
+      }
     },
     {
       "id": "n",
       "label": "Exponent (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Power to which the complex number is raised"
+      "businessContext": "Power to which the complex number is raised",
+      "label_i18n": {
+        "en": "Exponent (n)",
+        "tr": "Exponent (n)",
+        "de": "Exponent (n)",
+        "fr": "Exponent (n)",
+        "es": "Exponent (n)",
+        "ar": "Exponent (n)"
+      }
     },
     {
       "id": "decimals",
       "label": "Decimal places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for output"
+      "businessContext": "Number of decimal places for output",
+      "label_i18n": {
+        "en": "Decimal places",
+        "tr": "Decimal places",
+        "de": "Decimal places",
+        "fr": "Decimal places",
+        "es": "Decimal places",
+        "ar": "Decimal places"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +104,10 @@
       "imag"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

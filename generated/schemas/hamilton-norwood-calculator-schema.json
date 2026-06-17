@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Distance from original anterior hairline to current anterior hairline at temples"
+      "businessContext": "Distance from original anterior hairline to current anterior hairline at temples",
+      "label_i18n": {
+        "en": "Temporal Recession (cm)",
+        "tr": "Temporal Recession (cm)",
+        "de": "Temporal Recession (cm)",
+        "fr": "Temporal Recession (cm)",
+        "es": "Temporal Recession (cm)",
+        "ar": "Temporal Recession (cm)"
+      }
     },
     {
       "id": "vertexDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Diameter of circular bald area at the vertex (crown)"
+      "businessContext": "Diameter of circular bald area at the vertex (crown)",
+      "label_i18n": {
+        "en": "Vertex Bald Diameter (cm)",
+        "tr": "Vertex Bald Diameter (cm)",
+        "de": "Vertex Bald Diameter (cm)",
+        "fr": "Vertex Bald Diameter (cm)",
+        "es": "Vertex Bald Diameter (cm)",
+        "ar": "Vertex Bald Diameter (cm)"
+      }
     },
     {
       "id": "frontalThinningArea",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm²",
       "default": 0,
-      "businessContext": "Area of diffuse thinning in frontal region beyond recession"
+      "businessContext": "Area of diffuse thinning in frontal region beyond recession",
+      "label_i18n": {
+        "en": "Frontal Thinning Area (cm²)",
+        "tr": "Frontal Thinning Area (cm²)",
+        "de": "Frontal Thinning Area (cm²)",
+        "fr": "Frontal Thinning Area (cm²)",
+        "es": "Frontal Thinning Area (cm²)",
+        "ar": "Frontal Thinning Area (cm²)"
+      }
     },
     {
       "id": "crownThinningArea",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm²",
       "default": 0,
-      "businessContext": "Area of diffuse thinning around vertex bald spot"
+      "businessContext": "Area of diffuse thinning around vertex bald spot",
+      "label_i18n": {
+        "en": "Crown Thinning Area (cm²)",
+        "tr": "Crown Thinning Area (cm²)",
+        "de": "Crown Thinning Area (cm²)",
+        "fr": "Crown Thinning Area (cm²)",
+        "es": "Crown Thinning Area (cm²)",
+        "ar": "Crown Thinning Area (cm²)"
+      }
     }
   ],
   "formulas": {
@@ -40,10 +72,15 @@
     "frontalThinningScore": "frontalThinningArea / 50",
     "crownThinningScore": "crownThinningArea / 50",
     "totalScore": "recessionScore + vertexScore + frontalThinningScore + crownThinningScore",
-    "norwoodStage": "Math.min(7, Math.max(1, Math.round(totalScore)))"
+    "norwoodStage": "Math.min(7, Math.max(1, Math.round(totalScore)))",
+    "_recessionScore_": "{recessionScore}",
+    "_vertexScore_": "{vertexScore}",
+    "_frontalThinningScore_": "{frontalThinningScore}",
+    "_crownThinningScore_": "{crownThinningScore}",
+    "_totalScore_": "{totalScore}"
   },
   "outputs": {
-    "primary": "Norwood Stage: {norwoodStage}",
+    "primary": "recessionScore",
     "breakdown": [
       "Recession Score: {recessionScore}",
       "Vertex Score: {vertexScore}",
@@ -52,10 +89,10 @@
       "Total Score: {totalScore}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

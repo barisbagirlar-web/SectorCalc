@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 35,
-      "businessContext": "Diameter of the drum head measured across the bearing edge in centimeters."
+      "businessContext": "Diameter of the drum head measured across the bearing edge in centimeters.",
+      "label_i18n": {
+        "en": "Drum Diameter",
+        "tr": "Drum Diameter",
+        "de": "Drum Diameter",
+        "fr": "Drum Diameter",
+        "es": "Drum Diameter",
+        "ar": "Drum Diameter"
+      }
     },
     {
       "id": "headThickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.2,
-      "businessContext": "Thickness of the drum head material (e.g., Mylar) in millimeters."
+      "businessContext": "Thickness of the drum head material (e.g., Mylar) in millimeters.",
+      "label_i18n": {
+        "en": "Head Thickness",
+        "tr": "Head Thickness",
+        "de": "Head Thickness",
+        "fr": "Head Thickness",
+        "es": "Head Thickness",
+        "ar": "Head Thickness"
+      }
     },
     {
       "id": "headDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1400,
-      "businessContext": "Volumetric mass density of the drum head material in kilograms per cubic meter."
+      "businessContext": "Volumetric mass density of the drum head material in kilograms per cubic meter.",
+      "label_i18n": {
+        "en": "Head Material Density",
+        "tr": "Head Material Density",
+        "de": "Head Material Density",
+        "fr": "Head Material Density",
+        "es": "Head Material Density",
+        "ar": "Head Material Density"
+      }
     },
     {
       "id": "tension",
@@ -31,35 +55,51 @@
       "type": "number",
       "unit": "N/m",
       "default": 500,
-      "businessContext": "Tension per unit length applied to the drum head in Newtons per meter."
+      "businessContext": "Tension per unit length applied to the drum head in Newtons per meter.",
+      "label_i18n": {
+        "en": "Tension",
+        "tr": "Tension",
+        "de": "Tension",
+        "fr": "Tension",
+        "es": "Tension",
+        "ar": "Tension"
+      }
     },
     {
       "id": "densityAdjustment",
       "label": "Density Adjustment Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplicative calibration factor to compensate for material variations or environmental effects."
+      "businessContext": "Multiplicative calibration factor to compensate for material variations or environmental effects.",
+      "label_i18n": {
+        "en": "Density Adjustment Factor",
+        "tr": "Density Adjustment Factor",
+        "de": "Density Adjustment Factor",
+        "fr": "Density Adjustment Factor",
+        "es": "Density Adjustment Factor",
+        "ar": "Density Adjustment Factor"
+      }
     }
   ],
   "formulas": {
     "primary": "0.766 / (drumDiameter * 0.01) * Math.sqrt(tension / (headThickness * 0.001 * headDensity * densityAdjustment))",
-    "breakdown": [
-      "0.766 / (drumDiameter * 0.01) * Math.sqrt(tension / (headThickness * 0.001 * headDensity * densityAdjustment)) * 1.593",
-      "0.766 / (drumDiameter * 0.01) * Math.sqrt(tension / (headThickness * 0.001 * headDensity * densityAdjustment)) * 2.135"
-    ]
+    "breakdown": "drumDiameter",
+    "First_Overtone__Hz_": "First Overtone (Hz)",
+    "Second_Overtone__Hz_": "Second Overtone (Hz)",
+    "result": "Fundamental Frequency (Hz)"
   },
   "outputs": {
-    "primary": "Fundamental Frequency (Hz)",
+    "primary": "result",
     "breakdown": [
       "First Overtone (Hz)",
       "Second Overtone (Hz)"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

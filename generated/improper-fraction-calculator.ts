@@ -20,13 +20,16 @@ function evaluateAllFormulas(input: Improper_fraction_calculatorInput): Record<s
   try { const v = input.whole * input.denominator + input.numerator; results["improperNumerator"] = Number.isFinite(v) ? v : 0; } catch { results["improperNumerator"] = 0; }
   try { const v = input.denominator; results["improperDenominator"] = Number.isFinite(v) ? v : 0; } catch { results["improperDenominator"] = 0; }
   try { const v = Number(((results["improperNumerator"] ?? 0) / (results["improperDenominator"] ?? 0)).toFixed(input.decimalPlaces)); results["decimal"] = Number.isFinite(v) ? v : 0; } catch { results["decimal"] = 0; }
+  results["__decimal__"] = 0;
+  results["__whole____numerator____denominator__"] = 0;
+  try { const v = `${(results["improperNumerator"] ?? 0)}/${(results["improperDenominator"] ?? 0)}`; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateImproper_fraction_calculator(input: Improper_fraction_calculatorInput): Improper_fraction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["`${improperNumerator}/${improperDenominator}`"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

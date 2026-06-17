@@ -27,32 +27,19 @@ export const Hvac_capacity_optimizer_calculatorInputSchema = z.object({
   is_preventive_maintenance_active: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Hvac_capacity_optimizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = Math.max(input.cooling_load, input.heating_load) * (1 + 0.02 * (input.ambient_temperature - 25)) * (1 + 0.1 * (input.occupancy_density / 0.05 - 1)); results["total_load"] = Number.isFinite(v) ? v : 0; } catch { results["total_load"] = 0; }
-  try { const v = input.airflow_rate * (1 - input.duct_leakage_factor / 100); results["effective_airflow"] = Number.isFinite(v) ? v : 0; } catch { results["effective_airflow"] = 0; }
-  try { const v = (results["effective_airflow"] ?? 0) * 1.2 * 12; results["sensible_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["sensible_capacity"] = 0; }
-  try { const v = (results["effective_airflow"] ?? 0) * 1.2 * (0.025 - 0.009) * 2500; results["latent_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["latent_capacity"] = 0; }
-  try { const v = ((results["sensible_capacity"] ?? 0) + (results["latent_capacity"] ?? 0)) * (input.efficiency_ratio / 3.5) * (1 - 0.05 * (1 - input.is_preventive_maintenance_active)) * system_type_factor; results["effective_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["effective_capacity"] = 0; }
-  try { const v = (results["total_load"] ?? 0) / (results["effective_capacity"] ?? 0); results["capacity_utilization"] = Number.isFinite(v) ? v : 0; } catch { results["capacity_utilization"] = 0; }
-  try { const v = ((results["total_load"] ?? 0) / (results["effective_capacity"] ?? 0)) * (1 / input.efficiency_ratio) * 100; results["energy_performance_index"] = Number.isFinite(v) ? v : 0; } catch { results["energy_performance_index"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Hvac_capacity_optimizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateHvac_capacity_optimizer_calculator(input: Hvac_capacity_optimizer_calculatorInput): Hvac_capacity_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["capacity_utilization"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    total_load: values["total_load"] ?? 0,
-    effective_airflow: values["effective_airflow"] ?? 0,
-    sensible_capacity: values["sensible_capacity"] ?? 0,
-    latent_capacity: values["latent_capacity"] ?? 0,
-    effective_capacity: values["effective_capacity"] ?? 0,
-    energy_performance_index: values["energy_performance_index"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Duct Leakage Loss","Maintenance Degradation","Humidity Inefficiency"];
-  const suggestedActions: string[] = ["Seal ductwork to reduce leakage below 5%, potentially recovering up to 10% capacity.","Implement preventive maintenance schedule to restore 5% capacity and extend equipment life.","Raise cooling setpoint by 1°C or lower heating setpoint by 1°C to reduce load by 5-10%.","Consider upgrading to high-efficiency equipment (EER > 4.0) to reduce energy consumption by 20%.","Adjust humidification/dehumidification settings to maintain 40-60% RH for comfort and efficiency."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -71,7 +58,7 @@ export function calculateHvac_capacity_optimizer_calculator(input: Hvac_capacity
 
 export interface Hvac_capacity_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { total_load: number; effective_airflow: number; sensible_capacity: number; latent_capacity: number; effective_capacity: number; energy_performance_index: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -24,6 +24,7 @@ export const Drake_equation_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Drake_equation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.R * input.fp * input.ne * input.fl * input.fi * input.fc * input.L; results["N"] = Number.isFinite(v) ? v : 0; } catch { results["N"] = 0; }
+  try { const v = input.R * input.fp * input.ne * input.fl * input.fi * input.fc * input.L; results["N___R___fp___ne___fl___fi___fc___L"] = Number.isFinite(v) ? v : 0; } catch { results["N___R___fp___ne___fl___fi___fc___L"] = 0; }
   return results;
 }
 

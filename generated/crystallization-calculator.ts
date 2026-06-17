@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Crystallization_calculatorInput): Record<str
 
 export function calculateCrystallization_calculator(input: Crystallization_calculatorInput): Crystallization_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["crystalYield"] ?? 0;
+  const totalWasteCost = values["massInitialSolute"] ?? 0;
   const breakdown = {
     
   };

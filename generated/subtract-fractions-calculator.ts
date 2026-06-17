@@ -32,13 +32,18 @@ function evaluateAllFormulas(input: Subtract_fractions_calculatorInput): Record<
   try { const v = (() => { error ? 0 : (() => { let g = simplify ? gcd(resultNum, resultDen) : 1; let den = resultDen / g; if (den < 0) { den = -den; } return den; })() })(); results["simpDen"] = Number.isFinite(v) ? v : 0; } catch { results["simpDen"] = 0; }
   try { const v = (results["error"] ?? 0) ? null : ((results["simpDen"] ?? 0) !== 0 ? (results["simpNum"] ?? 0) / (results["simpDen"] ?? 0) : null); results["decimalResult"] = Number.isFinite(v) ? v : 0; } catch { results["decimalResult"] = 0; }
   try { const v = (input.decimalPrecision && (results["decimalResult"] ?? 0) !== null) ? Math.round((results["decimalResult"] ?? 0) * Math.pow(10, input.decimalPrecision)) / Math.pow(10, input.decimalPrecision) : (results["decimalResult"] ?? 0); results["decimalRounded"] = Number.isFinite(v) ? v : 0; } catch { results["decimalRounded"] = 0; }
+  results["_Step_1__Cross_multiply______numerator1_"] = 0;
+  results["_Step_2__Simplify_intermediate______num1"] = 0;
+  results["_simplify____Step_3__GCD_______gcd_resul"] = 0;
+  results["_Decimal_______decimalRounded_____null__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateSubtract_fractions_calculator(input: Subtract_fractions_calculatorInput): Subtract_fractions_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["${error ? 'Error: Division by zero' : simpNum + '/' + simpDen}"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

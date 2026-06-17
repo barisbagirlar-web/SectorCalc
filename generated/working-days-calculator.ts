@@ -24,6 +24,7 @@ function evaluateAllFormulas(input: Working_days_calculatorInput): Record<string
   try { const v = input.endDate - input.startDate + input.includeStart + input.includeEnd - 1; results["totalCalendarDays"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalendarDays"] = 0; }
   try { const v = (input.weekendDaysPerWeek / 7) * (results["totalCalendarDays"] ?? 0); results["estimatedWeekendDays"] = Number.isFinite(v) ? v : 0; } catch { results["estimatedWeekendDays"] = 0; }
   try { const v = (results["totalCalendarDays"] ?? 0) - (results["estimatedWeekendDays"] ?? 0) - input.holidays; results["workingDays"] = Number.isFinite(v) ? v : 0; } catch { results["workingDays"] = 0; }
+  try { const v = input.holidays; results["holidays"] = Number.isFinite(v) ? v : 0; } catch { results["holidays"] = 0; }
   return results;
 }
 

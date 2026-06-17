@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Age of the pediatric patient in months"
+      "businessContext": "Age of the pediatric patient in months",
+      "label_i18n": {
+        "en": "Patient Age (months)",
+        "tr": "Patient Age (months)",
+        "de": "Patient Age (months)",
+        "fr": "Patient Age (months)",
+        "es": "Patient Age (months)",
+        "ar": "Patient Age (months)"
+      }
     },
     {
       "id": "adultDose",
@@ -15,11 +23,44 @@
       "type": "number",
       "unit": "mg",
       "default": 500,
-      "businessContext": "Standard adult dose of the medication"
+      "businessContext": "Standard adult dose of the medication",
+      "label_i18n": {
+        "en": "Adult Dose (mg)",
+        "tr": "Adult Dose (mg)",
+        "de": "Adult Dose (mg)",
+        "fr": "Adult Dose (mg)",
+        "es": "Adult Dose (mg)",
+        "ar": "Adult Dose (mg)"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
-    "childDose": "adultDose * (age / 150)"
+    "childDose": "adultDose * (age / 150)",
+    "childDose___adultDose____age___150_": "childDose = adultDose * (age / 150)"
   },
   "outputs": {
     "primary": "childDose",
@@ -27,10 +68,10 @@
       "childDose = adultDose * (age / 150)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

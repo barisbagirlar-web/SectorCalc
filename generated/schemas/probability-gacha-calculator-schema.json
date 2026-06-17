@@ -5,17 +5,33 @@
       "id": "attempts",
       "label": "Number of Attempts",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Number of pulls or trials."
+      "businessContext": "Number of pulls or trials.",
+      "label_i18n": {
+        "en": "Number of Attempts",
+        "tr": "Number of Attempts",
+        "de": "Number of Attempts",
+        "fr": "Number of Attempts",
+        "es": "Number of Attempts",
+        "ar": "Number of Attempts"
+      }
     },
     {
       "id": "probability",
       "label": "Success Probability",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.05,
-      "businessContext": "Probability of success per attempt (0 to 1). Must be > 0."
+      "businessContext": "Probability of success per attempt (0 to 1). Must be > 0.",
+      "label_i18n": {
+        "en": "Success Probability",
+        "tr": "Success Probability",
+        "de": "Success Probability",
+        "fr": "Success Probability",
+        "es": "Success Probability",
+        "ar": "Success Probability"
+      }
     },
     {
       "id": "cost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "Cost of each pull in in-game currency."
+      "businessContext": "Cost of each pull in in-game currency.",
+      "label_i18n": {
+        "en": "Cost per Attempt",
+        "tr": "Cost per Attempt",
+        "de": "Cost per Attempt",
+        "fr": "Cost per Attempt",
+        "es": "Cost per Attempt",
+        "ar": "Cost per Attempt"
+      }
     },
     {
       "id": "guarantee",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "attempts",
       "default": 0,
-      "businessContext": "Number of consecutive failures after which next pull is guaranteed success. 0 means no guarantee."
+      "businessContext": "Number of consecutive failures after which next pull is guaranteed success. 0 means no guarantee.",
+      "label_i18n": {
+        "en": "Guarantee Threshold",
+        "tr": "Guarantee Threshold",
+        "de": "Guarantee Threshold",
+        "fr": "Guarantee Threshold",
+        "es": "Guarantee Threshold",
+        "ar": "Guarantee Threshold"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "worstCaseCost"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Molar concentration of reactant A"
+      "businessContext": "Molar concentration of reactant A",
+      "label_i18n": {
+        "en": "Concentration of Reactant A",
+        "tr": "Concentration of Reactant A",
+        "de": "Concentration of Reactant A",
+        "fr": "Concentration of Reactant A",
+        "es": "Concentration of Reactant A",
+        "ar": "Concentration of Reactant A"
+      }
     },
     {
       "id": "coeffA",
       "label": "Stoichiometric Coefficient of A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient a in reaction aA + bB ⇌ cC + dD"
+      "businessContext": "Coefficient a in reaction aA + bB ⇌ cC + dD",
+      "label_i18n": {
+        "en": "Stoichiometric Coefficient of A",
+        "tr": "Stoichiometric Coefficient of A",
+        "de": "Stoichiometric Coefficient of A",
+        "fr": "Stoichiometric Coefficient of A",
+        "es": "Stoichiometric Coefficient of A",
+        "ar": "Stoichiometric Coefficient of A"
+      }
     },
     {
       "id": "concB",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Molar concentration of reactant B"
+      "businessContext": "Molar concentration of reactant B",
+      "label_i18n": {
+        "en": "Concentration of Reactant B",
+        "tr": "Concentration of Reactant B",
+        "de": "Concentration of Reactant B",
+        "fr": "Concentration of Reactant B",
+        "es": "Concentration of Reactant B",
+        "ar": "Concentration of Reactant B"
+      }
     },
     {
       "id": "coeffB",
       "label": "Stoichiometric Coefficient of B",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient b"
+      "businessContext": "Coefficient b",
+      "label_i18n": {
+        "en": "Stoichiometric Coefficient of B",
+        "tr": "Stoichiometric Coefficient of B",
+        "de": "Stoichiometric Coefficient of B",
+        "fr": "Stoichiometric Coefficient of B",
+        "es": "Stoichiometric Coefficient of B",
+        "ar": "Stoichiometric Coefficient of B"
+      }
     },
     {
       "id": "concC",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Molar concentration of product C"
+      "businessContext": "Molar concentration of product C",
+      "label_i18n": {
+        "en": "Concentration of Product C",
+        "tr": "Concentration of Product C",
+        "de": "Concentration of Product C",
+        "fr": "Concentration of Product C",
+        "es": "Concentration of Product C",
+        "ar": "Concentration of Product C"
+      }
     },
     {
       "id": "coeffC",
       "label": "Stoichiometric Coefficient of C",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient c"
+      "businessContext": "Coefficient c",
+      "label_i18n": {
+        "en": "Stoichiometric Coefficient of C",
+        "tr": "Stoichiometric Coefficient of C",
+        "de": "Stoichiometric Coefficient of C",
+        "fr": "Stoichiometric Coefficient of C",
+        "es": "Stoichiometric Coefficient of C",
+        "ar": "Stoichiometric Coefficient of C"
+      }
     },
     {
       "id": "concD",
@@ -55,15 +103,31 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Molar concentration of product D"
+      "businessContext": "Molar concentration of product D",
+      "label_i18n": {
+        "en": "Concentration of Product D",
+        "tr": "Concentration of Product D",
+        "de": "Concentration of Product D",
+        "fr": "Concentration of Product D",
+        "es": "Concentration of Product D",
+        "ar": "Concentration of Product D"
+      }
     },
     {
       "id": "coeffD",
       "label": "Stoichiometric Coefficient of D",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient d"
+      "businessContext": "Coefficient d",
+      "label_i18n": {
+        "en": "Stoichiometric Coefficient of D",
+        "tr": "Stoichiometric Coefficient of D",
+        "de": "Stoichiometric Coefficient of D",
+        "fr": "Stoichiometric Coefficient of D",
+        "es": "Stoichiometric Coefficient of D",
+        "ar": "Stoichiometric Coefficient of D"
+      }
     }
   ],
   "formulas": {
@@ -78,10 +142,10 @@
       "Denominator"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

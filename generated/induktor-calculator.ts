@@ -19,13 +19,16 @@ function evaluateAllFormulas(input: Induktor_calculatorInput): Record<string, nu
   const results: Record<string, number> = {};
   try { const v = Math.pow(input.diameter/25.4,2) * Math.pow(input.turns,2) / (18*(input.diameter/25.4) + 40*(input.length/25.4)); results["inductance_uH"] = Number.isFinite(v) ? v : 0; } catch { results["inductance_uH"] = 0; }
   try { const v = 2 * Math.PI * (input.frequency * 1000) * ((results["inductance_uH"] ?? 0) * 1e-6); results["reactance_ohm"] = Number.isFinite(v) ? v : 0; } catch { results["reactance_ohm"] = 0; }
+  results["__reactance_ohm_toFixed_2____"] = 0;
+  results["__diameter__mm_______length__mm____turns"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateInduktor_calculator(input: Induktor_calculatorInput): Induktor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["End"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -20,13 +20,17 @@ export const Engineering_notation_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Engineering_notation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (() => { const v = value * Math.pow(10, exponent); let e = 0; while (Math.abs(v) >= 1000 && e < maxExponent) { v /= 1000; e += 3; } while (Math.abs(v) < 1 && e > minExponent) { v *= 1000; e -= 3; } const mantissa = v.toFixed(precision); return mantissa + 'e' + e; })(); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.value; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Original_Value"] = 0;
+  results["Log10_of_Value"] = 0;
+  results["Adjusted_Exponent"] = 0;
   return results;
 }
 
 
 export function calculateEngineering_notation_calculator(input: Engineering_notation_calculatorInput): Engineering_notation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Engineering"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

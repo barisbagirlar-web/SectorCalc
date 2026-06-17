@@ -5,41 +5,81 @@
       "id": "numerator",
       "label": "Numerator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Top part of the fraction (dividend)."
+      "businessContext": "Top part of the fraction (dividend).",
+      "label_i18n": {
+        "en": "Numerator",
+        "tr": "Numerator",
+        "de": "Numerator",
+        "fr": "Numerator",
+        "es": "Numerator",
+        "ar": "Numerator"
+      }
     },
     {
       "id": "denominator",
       "label": "Denominator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Bottom part of the fraction (divisor). Must be non-zero."
+      "businessContext": "Bottom part of the fraction (divisor). Must be non-zero.",
+      "label_i18n": {
+        "en": "Denominator",
+        "tr": "Denominator",
+        "de": "Denominator",
+        "fr": "Denominator",
+        "es": "Denominator",
+        "ar": "Denominator"
+      }
     },
     {
       "id": "wholeNumber",
       "label": "Whole Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Whole number part for mixed fractions (optional)."
+      "businessContext": "Whole number part for mixed fractions (optional).",
+      "label_i18n": {
+        "en": "Whole Number",
+        "tr": "Whole Number",
+        "de": "Whole Number",
+        "fr": "Whole Number",
+        "es": "Whole Number",
+        "ar": "Whole Number"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places in the final percentage."
+      "businessContext": "Number of decimal places in the final percentage.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "roundingMode",
       "label": "Rounding Mode",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = standard rounding (half up), 1 = floor, 2 = ceil, 3 = truncate."
+      "businessContext": "0 = standard rounding (half up), 1 = floor, 2 = ceil, 3 = truncate.",
+      "label_i18n": {
+        "en": "Rounding Mode",
+        "tr": "Rounding Mode",
+        "de": "Rounding Mode",
+        "fr": "Rounding Mode",
+        "es": "Rounding Mode",
+        "ar": "Rounding Mode"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +87,10 @@
     "rawPercent": "decimal * 100",
     "factor": "Math.pow(10, decimalPlaces)",
     "scaled": "rawPercent * factor",
-    "primaryPercent": "roundingMode === 0 ? Math.round(scaled) / factor : roundingMode === 1 ? Math.floor(scaled) / factor : roundingMode === 2 ? Math.ceil(scaled) / factor : Math.trunc(scaled) / factor"
+    "primaryPercent": "roundingMode === 0 ? Math.round(scaled) / factor : roundingMode === 1 ? Math.floor(scaled) / factor : roundingMode === 2 ? Math.ceil(scaled) / factor : Math.trunc(scaled) / factor",
+    "Fraction_to_decimal_conversion": "Fraction to decimal conversion",
+    "Raw_percentage__before_rounding_": "Raw percentage (before rounding)",
+    "Final_percentage__rounded_": "Final percentage (rounded)"
   },
   "outputs": {
     "primary": "primaryPercent",
@@ -57,10 +100,10 @@
       "Final percentage (rounded)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

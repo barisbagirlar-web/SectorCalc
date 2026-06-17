@@ -18,6 +18,9 @@ export const Melanin_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Melanin_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.eumelaninPercent * input.melanocyteDensity * input.avgMelaninPerCell) / (input.pheomelaninPercent + 1); results["melaninIndex"] = Number.isFinite(v) ? v : 0; } catch { results["melaninIndex"] = 0; }
+  results["Calculate_eumelanin_contribution___Eumel"] = 0;
+  results["Calculate_pheomelanin_correction___1____"] = 0;
+  results["Melanin_Index___Eumelanin_contribution__"] = 0;
   return results;
 }
 

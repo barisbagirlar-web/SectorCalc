@@ -5,25 +5,49 @@
       "id": "vertices",
       "label": "Number of Vertices (V)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Total number of nodes in the graph."
+      "businessContext": "Total number of nodes in the graph.",
+      "label_i18n": {
+        "en": "Number of Vertices (V)",
+        "tr": "Number of Vertices (V)",
+        "de": "Number of Vertices (V)",
+        "fr": "Number of Vertices (V)",
+        "es": "Number of Vertices (V)",
+        "ar": "Number of Vertices (V)"
+      }
     },
     {
       "id": "edges",
       "label": "Number of Edges (E)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 8,
-      "businessContext": "Total number of connections between nodes."
+      "businessContext": "Total number of connections between nodes.",
+      "label_i18n": {
+        "en": "Number of Edges (E)",
+        "tr": "Number of Edges (E)",
+        "de": "Number of Edges (E)",
+        "fr": "Number of Edges (E)",
+        "es": "Number of Edges (E)",
+        "ar": "Number of Edges (E)"
+      }
     },
     {
       "id": "isBipartite",
       "label": "Is Bipartite? (0=No, 1=Yes)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Indicates whether the graph is bipartite. 1 if yes, 0 otherwise."
+      "businessContext": "Indicates whether the graph is bipartite. 1 if yes, 0 otherwise.",
+      "label_i18n": {
+        "en": "Is Bipartite? (0=No, 1=Yes)",
+        "tr": "Is Bipartite? (0=No, 1=Yes)",
+        "de": "Is Bipartite? (0=No, 1=Yes)",
+        "fr": "Is Bipartite? (0=No, 1=Yes)",
+        "es": "Is Bipartite? (0=No, 1=Yes)",
+        "ar": "Is Bipartite? (0=No, 1=Yes)"
+      }
     }
   ],
   "formulas": {
@@ -38,10 +62,10 @@
       "resultSummary"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

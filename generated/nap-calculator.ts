@@ -24,13 +24,17 @@ function evaluateAllFormulas(input: Nap_calculatorInput): Record<string, number>
   try { const v = input.currentTimeHours + input.sleepCycleMinutes/60; results["cycleNapWakeTime"] = Number.isFinite(v) ? v : 0; } catch { results["cycleNapWakeTime"] = 0; }
   try { const v = input.currentTimeHours + input.minNapMinutes/60; results["shortNapWakeTime"] = Number.isFinite(v) ? v : 0; } catch { results["shortNapWakeTime"] = 0; }
   try { const v = input.currentTimeHours + input.maxNapMinutes/60; results["maxNapWakeTime"] = Number.isFinite(v) ? v : 0; } catch { results["maxNapWakeTime"] = 0; }
+  results["__availableMinutes__dakika"] = 0;
+  results["__cycleNapWakeTime_toFixed_2__"] = 0;
+  results["__shortNapWakeTime_toFixed_2__"] = 0;
+  results["__maxNapWakeTime_toFixed_2__"] = 0;
   return results;
 }
 
 
 export function calculateNap_calculator(input: Nap_calculatorInput): Nap_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Önerilen şekerleme süresi: ${recommendedNapMinutes} dakika"] ?? 0;
+  const totalWasteCost = values["availableMinutes"] ?? 0;
   const breakdown = {
     
   };

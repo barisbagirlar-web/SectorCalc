@@ -5,33 +5,65 @@
       "id": "dividend",
       "label": "Dividend",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "The number to be divided"
+      "businessContext": "The number to be divided",
+      "label_i18n": {
+        "en": "Dividend",
+        "tr": "Dividend",
+        "de": "Dividend",
+        "fr": "Dividend",
+        "es": "Dividend",
+        "ar": "Dividend"
+      }
     },
     {
       "id": "divisor",
       "label": "Divisor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "The number to divide by (must be non-zero)"
+      "businessContext": "The number to divide by (must be non-zero)",
+      "label_i18n": {
+        "en": "Divisor",
+        "tr": "Divisor",
+        "de": "Divisor",
+        "fr": "Divisor",
+        "es": "Divisor",
+        "ar": "Divisor"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places to round the result"
+      "businessContext": "Number of decimal places to round the result",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "roundingMode",
       "label": "Rounding Mode",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "0 = floor, 1 = half up, 2 = ceiling"
+      "businessContext": "0 = floor, 1 = half up, 2 = ceiling",
+      "label_i18n": {
+        "en": "Rounding Mode",
+        "tr": "Rounding Mode",
+        "de": "Rounding Mode",
+        "fr": "Rounding Mode",
+        "es": "Rounding Mode",
+        "ar": "Rounding Mode"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "info"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

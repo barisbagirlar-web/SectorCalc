@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User body weight in kilograms"
+      "businessContext": "User body weight in kilograms",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "duration",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Duration of boxing activity in minutes"
+      "businessContext": "Duration of boxing activity in minutes",
+      "label_i18n": {
+        "en": "Duration",
+        "tr": "Duration",
+        "de": "Duration",
+        "fr": "Duration",
+        "es": "Duration",
+        "ar": "Duration"
+      }
     },
     {
       "id": "met",
       "label": "Activity MET Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 7.8,
-      "businessContext": "Metabolic Equivalent of Task for boxing (e.g., sparring=7.8, bag work=5.5)"
+      "businessContext": "Metabolic Equivalent of Task for boxing (e.g., sparring=7.8, bag work=5.5)",
+      "label_i18n": {
+        "en": "Activity MET Value",
+        "tr": "Activity MET Value",
+        "de": "Activity MET Value",
+        "fr": "Activity MET Value",
+        "es": "Activity MET Value",
+        "ar": "Activity MET Value"
+      }
     },
     {
       "id": "intensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Intensity adjustment percentage (100% = standard effort)"
+      "businessContext": "Intensity adjustment percentage (100% = standard effort)",
+      "label_i18n": {
+        "en": "Intensity",
+        "tr": "Intensity",
+        "de": "Intensity",
+        "fr": "Intensity",
+        "es": "Intensity",
+        "ar": "Intensity"
+      }
     }
   ],
   "formulas": {
@@ -40,11 +72,7 @@
     "calories_per_minute": "calories_burned / duration"
   },
   "outputs": {
-    "primary": {
-      "id": "calories_burned",
-      "label": "Calories Burned",
-      "unit": "kcal"
-    },
+    "primary": "duration_hours",
     "breakdown": [
       {
         "id": "duration_hours",
@@ -58,10 +86,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,47 +7,95 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Total paired data points"
+      "businessContext": "Total paired data points",
+      "label_i18n": {
+        "en": "Number of observations (n)",
+        "tr": "Number of observations (n)",
+        "de": "Number of observations (n)",
+        "fr": "Number of observations (n)",
+        "es": "Number of observations (n)",
+        "ar": "Number of observations (n)"
+      }
     },
     {
       "id": "sumX",
       "label": "Sum of X (Σx)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of all independent variable values"
+      "businessContext": "Sum of all independent variable values",
+      "label_i18n": {
+        "en": "Sum of X (Σx)",
+        "tr": "Sum of X (Σx)",
+        "de": "Sum of X (Σx)",
+        "fr": "Sum of X (Σx)",
+        "es": "Sum of X (Σx)",
+        "ar": "Sum of X (Σx)"
+      }
     },
     {
       "id": "sumY",
       "label": "Sum of Y (Σy)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of all dependent variable values"
+      "businessContext": "Sum of all dependent variable values",
+      "label_i18n": {
+        "en": "Sum of Y (Σy)",
+        "tr": "Sum of Y (Σy)",
+        "de": "Sum of Y (Σy)",
+        "fr": "Sum of Y (Σy)",
+        "es": "Sum of Y (Σy)",
+        "ar": "Sum of Y (Σy)"
+      }
     },
     {
       "id": "sumXSq",
       "label": "Sum of X² (Σx²)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of squares of independent variable"
+      "businessContext": "Sum of squares of independent variable",
+      "label_i18n": {
+        "en": "Sum of X² (Σx²)",
+        "tr": "Sum of X² (Σx²)",
+        "de": "Sum of X² (Σx²)",
+        "fr": "Sum of X² (Σx²)",
+        "es": "Sum of X² (Σx²)",
+        "ar": "Sum of X² (Σx²)"
+      }
     },
     {
       "id": "sumYSq",
       "label": "Sum of Y² (Σy²)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of squares of dependent variable"
+      "businessContext": "Sum of squares of dependent variable",
+      "label_i18n": {
+        "en": "Sum of Y² (Σy²)",
+        "tr": "Sum of Y² (Σy²)",
+        "de": "Sum of Y² (Σy²)",
+        "fr": "Sum of Y² (Σy²)",
+        "es": "Sum of Y² (Σy²)",
+        "ar": "Sum of Y² (Σy²)"
+      }
     },
     {
       "id": "sumXY",
       "label": "Sum of XY (Σxy)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of cross-products of X and Y"
+      "businessContext": "Sum of cross-products of X and Y",
+      "label_i18n": {
+        "en": "Sum of XY (Σxy)",
+        "tr": "Sum of XY (Σxy)",
+        "de": "Sum of XY (Σxy)",
+        "fr": "Sum of XY (Σxy)",
+        "es": "Sum of XY (Σxy)",
+        "ar": "Sum of XY (Σxy)"
+      }
     }
   ],
   "formulas": {
@@ -66,8 +114,8 @@
       "SS_xy"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

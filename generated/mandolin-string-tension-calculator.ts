@@ -19,13 +19,17 @@ function evaluateAllFormulas(input: Mandolin_string_tension_calculatorInput): Re
   const results: Record<string, number> = {};
   try { const v = input.materialDensity * Math.PI * Math.pow((input.stringDiameter / 1000) / 2, 2); results["linearDensity"] = Number.isFinite(v) ? v : 0; } catch { results["linearDensity"] = 0; }
   try { const v = input.materialDensity * Math.PI * Math.pow((input.stringDiameter / 1000) / 2, 2) * Math.pow(2 * (input.scaleLength / 1000) * input.noteFrequency, 2); results["tension"] = Number.isFinite(v) ? v : 0; } catch { results["tension"] = 0; }
+  try { const v = input.materialDensity * Math.PI * Math.pow((input.stringDiameter / 1000) / 2, 2); results["materialDensity___Math_PI___Math_pow__st"] = Number.isFinite(v) ? v : 0; } catch { results["materialDensity___Math_PI___Math_pow__st"] = 0; }
+  try { const v = 2 * (input.scaleLength / 1000) * input.noteFrequency; results["2____scaleLength___1000____noteFrequency"] = Number.isFinite(v) ? v : 0; } catch { results["2____scaleLength___1000____noteFrequency"] = 0; }
+  try { const v = Math.pow(2 * (input.scaleLength / 1000) * input.noteFrequency, 2); results["Math_pow_2____scaleLength___1000____note"] = Number.isFinite(v) ? v : 0; } catch { results["Math_pow_2____scaleLength___1000____note"] = 0; }
+  try { const v = input.materialDensity * Math.PI * Math.pow((input.stringDiameter / 1000) / 2, 2) * Math.pow(2 * (input.scaleLength / 1000) * input.noteFrequency, 2); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateMandolin_string_tension_calculator(input: Mandolin_string_tension_calculatorInput): Mandolin_string_tension_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["materialDensity"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

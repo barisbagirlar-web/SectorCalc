@@ -29,13 +29,17 @@ function evaluateAllFormulas(input: Cat_percentile_calculatorInput): Record<stri
   try { const v = (1 - (input.qa_rank / input.qa_total)) * 100; results["qa_percentile"] = Number.isFinite(v) ? v : 0; } catch { results["qa_percentile"] = 0; }
   try { const v = (1 - (input.varc_rank / input.varc_total)) * 100; results["varc_percentile"] = Number.isFinite(v) ? v : 0; } catch { results["varc_percentile"] = 0; }
   try { const v = (1 - (input.lrdi_rank / input.lrdi_total)) * 100; results["lrdi_percentile"] = Number.isFinite(v) ? v : 0; } catch { results["lrdi_percentile"] = 0; }
+  results["____qa_percentile_toFixed_2_____"] = 0;
+  results["____varc_percentile_toFixed_2_____"] = 0;
+  results["____lrdi_percentile_toFixed_2_____"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateCat_percentile_calculator(input: Cat_percentile_calculatorInput): Cat_percentile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Overall"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

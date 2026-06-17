@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Excavation_calculatorInput): Record<string, 
 
 export function calculateExcavation_calculator(input: Excavation_calculatorInput): Excavation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalExcavationVolume"] ?? 0;
+  const totalWasteCost = values["originalVolume"] ?? 0;
   const breakdown = {
     
   };

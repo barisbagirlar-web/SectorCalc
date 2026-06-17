@@ -29,13 +29,16 @@ function evaluateAllFormulas(input: Education_savings_calculatorInput): Record<s
   try { const v = input.currentSavings * Math.pow(1 + input.returnRate/100, input.yearsUntilCollege) + (input.monthlyContribution * 12) * ((Math.pow(1 + input.returnRate/100, input.yearsUntilCollege) - 1) / (input.returnRate/100)); results["totalSavings"] = Number.isFinite(v) ? v : 0; } catch { results["totalSavings"] = 0; }
   try { const v = (results["totalCost"] ?? 0) - (results["totalSavings"] ?? 0); results["shortfall"] = Number.isFinite(v) ? v : 0; } catch { results["shortfall"] = 0; }
   try { const v = `${(results["shortfall"] ?? 0) > 0 ? 'Shortfall' : 'Surplus'}: $${Math.abs((results["shortfall"] ?? 0)).toFixed(2)}`; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.childAge; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["__breakdown_0__"] = 0;
+  results["__breakdown_1__"] = 0;
   return results;
 }
 
 
 export function calculateEducation_savings_calculator(input: Education_savings_calculatorInput): Education_savings_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["${primary}"] ?? 0;
+  const totalWasteCost = values["totalCost"] ?? 0;
   const breakdown = {
     
   };

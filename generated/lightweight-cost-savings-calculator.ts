@@ -33,31 +33,19 @@ export const Lightweight_cost_savings_calculatorInputSchema = z.object({
   use_recycled_content: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Lightweight_cost_savings_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.current_weight_kg - input.new_weight_kg; results["weight_reduction_kg"] = Number.isFinite(v) ? v : 0; } catch { results["weight_reduction_kg"] = 0; }
-  try { const v = (results["weight_reduction_kg"] ?? 0) * input.material_cost_per_kg * (1 + input.waste_rate_percent / 100); results["material_savings_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["material_savings_per_unit"] = 0; }
-  try { const v = (results["weight_reduction_kg"] ?? 0) * input.shipping_cost_per_kg; results["shipping_savings_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["shipping_savings_per_unit"] = 0; }
-  try { const v = (results["weight_reduction_kg"] ?? 0) * input.energy_consumption_per_kg * input.energy_cost_per_kwh; results["energy_savings_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["energy_savings_per_unit"] = 0; }
-  try { const v = (results["weight_reduction_kg"] ?? 0) * 0.1 * input.labor_hours_per_unit * input.labor_rate_per_hour; results["labor_savings_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["labor_savings_per_unit"] = 0; }
-  try { const v = ((results["material_savings_per_unit"] ?? 0) + (results["shipping_savings_per_unit"] ?? 0) + (results["energy_savings_per_unit"] ?? 0) + (results["labor_savings_per_unit"] ?? 0)) * (input.overhead_rate_percent / 100); results["overhead_savings_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_savings_per_unit"] = 0; }
-  try { const v = ((results["material_savings_per_unit"] ?? 0) + (results["shipping_savings_per_unit"] ?? 0) + (results["energy_savings_per_unit"] ?? 0) + (results["labor_savings_per_unit"] ?? 0) + (results["overhead_savings_per_unit"] ?? 0)) * input.annual_volume_units; results["total_annual_savings"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_savings"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Lightweight_cost_savings_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateLightweight_cost_savings_calculator(input: Lightweight_cost_savings_calculatorInput): Lightweight_cost_savings_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_annual_savings"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    material_savings_annual: values["material_savings_annual"] ?? 0,
-    shipping_savings_annual: values["shipping_savings_annual"] ?? 0,
-    energy_savings_annual: values["energy_savings_annual"] ?? 0,
-    labor_savings_annual: values["labor_savings_annual"] ?? 0,
-    overhead_savings_annual: values["overhead_savings_annual"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Waste Inefficiency","Low Volume","High Overhead Rate","Material Type Premium"];
-  const suggestedActions: string[] = ["Increase Production Volume","Reduce Waste Rate","Negotiate Shipping Rates","Adopt Recycled Content","Automate Material Handling"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -76,7 +64,7 @@ export function calculateLightweight_cost_savings_calculator(input: Lightweight_
 
 export interface Lightweight_cost_savings_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { material_savings_annual: number; shipping_savings_annual: number; energy_savings_annual: number; labor_savings_annual: number; overhead_savings_annual: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

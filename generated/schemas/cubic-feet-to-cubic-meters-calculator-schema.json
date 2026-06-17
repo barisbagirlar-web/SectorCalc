@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 1,
-      "businessContext": "The length dimension in feet."
+      "businessContext": "The length dimension in feet.",
+      "label_i18n": {
+        "en": "Length (feet)",
+        "tr": "Length (feet)",
+        "de": "Length (feet)",
+        "fr": "Length (feet)",
+        "es": "Length (feet)",
+        "ar": "Length (feet)"
+      }
     },
     {
       "id": "widthFeet",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 1,
-      "businessContext": "The width dimension in feet."
+      "businessContext": "The width dimension in feet.",
+      "label_i18n": {
+        "en": "Width (feet)",
+        "tr": "Width (feet)",
+        "de": "Width (feet)",
+        "fr": "Width (feet)",
+        "es": "Width (feet)",
+        "ar": "Width (feet)"
+      }
     },
     {
       "id": "heightFeet",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "ft",
       "default": 1,
-      "businessContext": "The height dimension in feet."
+      "businessContext": "The height dimension in feet.",
+      "label_i18n": {
+        "en": "Height (feet)",
+        "tr": "Height (feet)",
+        "de": "Height (feet)",
+        "fr": "Height (feet)",
+        "es": "Height (feet)",
+        "ar": "Height (feet)"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for reference output."
+      "businessContext": "Number of decimal places for reference output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "rawCubicMeters"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

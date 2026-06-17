@@ -5,71 +5,118 @@
       "id": "decimalValue",
       "label": "Ondalıklı Değer",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Kesire dönüştürülecek ondalıklı sayı"
+      "businessContext": "Kesire dönüştürülecek ondalıklı sayı",
+      "label_i18n": {
+        "en": "Ondalıklı Değer",
+        "tr": "Ondalıklı Değer",
+        "de": "Ondalıklı Değer",
+        "fr": "Ondalıklı Değer",
+        "es": "Ondalıklı Değer",
+        "ar": "Ondalıklı Değer"
+      }
     },
     {
       "id": "maxDenom",
       "label": "Maksimum Payda",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10000,
-      "businessContext": "Kesir yaklaşımı için izin verilen en büyük payda"
+      "businessContext": "Kesir yaklaşımı için izin verilen en büyük payda",
+      "label_i18n": {
+        "en": "Maksimum Payda",
+        "tr": "Maksimum Payda",
+        "de": "Maksimum Payda",
+        "fr": "Maksimum Payda",
+        "es": "Maksimum Payda",
+        "ar": "Maksimum Payda"
+      }
     },
     {
       "id": "simplify",
       "label": "Sadeleştirme",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)"
+      "businessContext": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)",
+      "label_i18n": {
+        "en": "Sadeleştirme",
+        "tr": "Sadeleştirme",
+        "de": "Sadeleştirme",
+        "fr": "Sadeleştirme",
+        "es": "Sadeleştirme",
+        "ar": "Sadeleştirme"
+      }
     },
     {
       "id": "format",
       "label": "Kesir Formatı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir"
+      "businessContext": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir",
+      "label_i18n": {
+        "en": "Kesir Formatı",
+        "tr": "Kesir Formatı",
+        "de": "Kesir Formatı",
+        "fr": "Kesir Formatı",
+        "es": "Kesir Formatı",
+        "ar": "Kesir Formatı"
+      }
     },
     {
       "id": "rounding",
       "label": "Yuvarlama Modu",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0: En Yakın, 1: Aşağı, 2: Yukarı"
+      "businessContext": "0: En Yakın, 1: Aşağı, 2: Yukarı",
+      "label_i18n": {
+        "en": "Yuvarlama Modu",
+        "tr": "Yuvarlama Modu",
+        "de": "Yuvarlama Modu",
+        "fr": "Yuvarlama Modu",
+        "es": "Yuvarlama Modu",
+        "ar": "Yuvarlama Modu"
+      }
     },
     {
       "id": "tolerance",
       "label": "Tolerans",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1e-9,
-      "businessContext": "Ondalıklı sayının kesir eşleşmesi için tolerans"
+      "businessContext": "Ondalıklı sayının kesir eşleşmesi için tolerans",
+      "label_i18n": {
+        "en": "Tolerans",
+        "tr": "Tolerans",
+        "de": "Tolerans",
+        "fr": "Tolerans",
+        "es": "Tolerans",
+        "ar": "Tolerans"
+      }
     }
   ],
   "formulas": {
     "primary": "decimalToFraction(decimalValue, maxDenom, simplify, format, rounding, tolerance).display",
-    "breakdown": [
-      "decimalToFraction(decimalValue, maxDenom, simplify, format, rounding, tolerance).numerator",
-      "decimalToFraction(decimalValue, maxDenom, simplify, format, rounding, tolerance).denominator",
-      "decimalToFraction(decimalValue, maxDenom, simplify, format, rounding, tolerance).wholePart"
-    ]
+    "breakdown": "decimalValue",
+    "Pay": "Pay",
+    "Payda": "Payda",
+    "Tam_K_s_m": "Tam Kısım"
   },
   "outputs": {
-    "primary": "Kesir Gösterimi",
+    "primary": "primary",
     "breakdown": [
       "Pay",
       "Payda",
       "Tam Kısım"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

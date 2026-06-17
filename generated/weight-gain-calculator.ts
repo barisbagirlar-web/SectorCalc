@@ -2,29 +2,24 @@
 import * as z from 'zod';
 
 export interface Weight_gain_calculatorInput {
-  partArea: number;
+  surfaceArea: number;
   coatingThickness: number;
   coatingDensity: number;
   numberOfParts: number;
-  wasteFactor: number;
-  safetyFactor: number;
 }
 
 export const Weight_gain_calculatorInputSchema = z.object({
-  partArea: z.number().default(0.5),
-  coatingThickness: z.number().default(0.1),
-  coatingDensity: z.number().default(2700),
+  surfaceArea: z.number().default(0.5),
+  coatingThickness: z.number().default(50),
+  coatingDensity: z.number().default(1200),
   numberOfParts: z.number().default(100),
-  wasteFactor: z.number().default(5),
-  safetyFactor: z.number().default(1.1),
 });
 
 function evaluateAllFormulas(input: Weight_gain_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.partArea * (input.coatingThickness / 1000); results["volumePerPart"] = Number.isFinite(v) ? v : 0; } catch { results["volumePerPart"] = 0; }
-  try { const v = (results["volumePerPart"] ?? 0) * input.coatingDensity; results["weightGainPerPart"] = Number.isFinite(v) ? v : 0; } catch { results["weightGainPerPart"] = 0; }
-  try { const v = (results["weightGainPerPart"] ?? 0) * input.numberOfParts; results["totalWeightWithoutWaste"] = Number.isFinite(v) ? v : 0; } catch { results["totalWeightWithoutWaste"] = 0; }
-  try { const v = (results["totalWeightWithoutWaste"] ?? 0) * (1 + input.wasteFactor / 100) * input.safetyFactor; results["totalWeightGain"] = Number.isFinite(v) ? v : 0; } catch { results["totalWeightGain"] = 0; }
+  try { const v = input.surfaceArea * input.coatingThickness / 1000000; results["coatingVolumePerPart"] = Number.isFinite(v) ? v : 0; } catch { results["coatingVolumePerPart"] = 0; }
+  try { const v = (results["coatingVolumePerPart"] ?? 0) * input.coatingDensity; results["weightGainPerPart"] = Number.isFinite(v) ? v : 0; } catch { results["weightGainPerPart"] = 0; }
+  try { const v = (results["weightGainPerPart"] ?? 0) * input.numberOfParts; results["totalWeightGain"] = Number.isFinite(v) ? v : 0; } catch { results["totalWeightGain"] = 0; }
   return results;
 }
 

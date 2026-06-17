@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "The numeric value to be converted to engineering notation."
+      "businessContext": "The numeric value to be converted to engineering notation.",
+      "label_i18n": {
+        "en": "Value",
+        "tr": "Value",
+        "de": "Value",
+        "fr": "Value",
+        "es": "Value",
+        "ar": "Value"
+      }
     },
     {
       "id": "exponent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "The exponent of 10 for the value (e.g., 3 for thousands)."
+      "businessContext": "The exponent of 10 for the value (e.g., 3 for thousands).",
+      "label_i18n": {
+        "en": "Exponent",
+        "tr": "Exponent",
+        "de": "Exponent",
+        "fr": "Exponent",
+        "es": "Exponent",
+        "ar": "Exponent"
+      }
     },
     {
       "id": "precision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal places",
       "default": 3,
-      "businessContext": "Number of decimal places in the mantissa."
+      "businessContext": "Number of decimal places in the mantissa.",
+      "label_i18n": {
+        "en": "Precision",
+        "tr": "Precision",
+        "de": "Precision",
+        "fr": "Precision",
+        "es": "Precision",
+        "ar": "Precision"
+      }
     },
     {
       "id": "minExponent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": -12,
-      "businessContext": "Minimum exponent for engineering notation (multiples of 3)."
+      "businessContext": "Minimum exponent for engineering notation (multiples of 3).",
+      "label_i18n": {
+        "en": "Min Exponent",
+        "tr": "Min Exponent",
+        "de": "Min Exponent",
+        "fr": "Min Exponent",
+        "es": "Min Exponent",
+        "ar": "Min Exponent"
+      }
     },
     {
       "id": "maxExponent",
@@ -39,29 +71,36 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 12,
-      "businessContext": "Maximum exponent for engineering notation (multiples of 3)."
+      "businessContext": "Maximum exponent for engineering notation (multiples of 3).",
+      "label_i18n": {
+        "en": "Max Exponent",
+        "tr": "Max Exponent",
+        "de": "Max Exponent",
+        "fr": "Max Exponent",
+        "es": "Max Exponent",
+        "ar": "Max Exponent"
+      }
     }
   ],
   "formulas": {
     "primary": "(() => { const v = value * Math.pow(10, exponent); let e = 0; while (Math.abs(v) >= 1000 && e < maxExponent) { v /= 1000; e += 3; } while (Math.abs(v) < 1 && e > minExponent) { v *= 1000; e -= 3; } const mantissa = v.toFixed(precision); return mantissa + 'e' + e; })()",
-    "breakdown": [
-      "value * Math.pow(10, exponent)",
-      "Math.log10(Math.abs(value * Math.pow(10, exponent)))",
-      "Math.floor(Math.log10(Math.abs(value * Math.pow(10, exponent))) / 3) * 3"
-    ]
+    "breakdown": "value",
+    "Original_Value": "Original Value",
+    "Log10_of_Value": "Log10 of Value",
+    "Adjusted_Exponent": "Adjusted Exponent"
   },
   "outputs": {
-    "primary": "Engineering Notation",
+    "primary": "primary",
     "breakdown": [
       "Original Value",
       "Log10 of Value",
       "Adjusted Exponent"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "maintenance-reliability"
 }

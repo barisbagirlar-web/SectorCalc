@@ -58,12 +58,7 @@
     "totalCalories": "(totalDryWeight / 100) * caloriesPer100g"
   },
   "outputs": {
-    "primary": {
-      "id": "totalCookedPasta",
-      "label": "Cooked Pasta",
-      "unit": "g",
-      "formula": "cookedWeight"
-    },
+    "primary": "totalDryWeight",
     "breakdown": [
       {
         "id": "totalDryPasta",
@@ -91,10 +86,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg"
 }

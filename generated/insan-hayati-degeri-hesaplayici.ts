@@ -28,13 +28,16 @@ function evaluateAllFormulas(input: Insan_hayati_degeri_hesaplayiciInput): Recor
   try { const v = (results["growthFactor"] ?? 0) === (results["discountFactor"] ?? 0) ? input.annualIncome * (results["remainingYears"] ?? 0) / (1 + (results["discountFactor"] ?? 0)) : input.annualIncome * (1 - Math.pow((1 + (results["growthFactor"] ?? 0)) / (1 + (results["discountFactor"] ?? 0)), (results["remainingYears"] ?? 0))) / ((results["discountFactor"] ?? 0) - (results["growthFactor"] ?? 0)); results["totalIncomePV"] = Number.isFinite(v) ? v : 0; } catch { results["totalIncomePV"] = 0; }
   try { const v = (results["totalIncomePV"] ?? 0) * (input.personalExpenseRate / 100); results["totalExpensePV"] = Number.isFinite(v) ? v : 0; } catch { results["totalExpensePV"] = 0; }
   try { const v = (results["totalIncomePV"] ?? 0) - (results["totalExpensePV"] ?? 0); results["hlv"] = Number.isFinite(v) ? v : 0; } catch { results["hlv"] = 0; }
+  results["Toplam_Gelirin_Bug_nk__De_eri"] = 0;
+  results["Toplam_Giderin_Bug_nk__De_eri"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateInsan_hayati_degeri_hesaplayici(input: Insan_hayati_degeri_hesaplayiciInput): Insan_hayati_degeri_hesaplayiciOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["İnsan Hayatı Değeri (HLV)"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

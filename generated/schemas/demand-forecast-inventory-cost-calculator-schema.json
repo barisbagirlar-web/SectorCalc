@@ -177,7 +177,7 @@
       "id": "use_abc_classification",
       "label": "Use ABC Classification",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": 0,
       "max": 1,
@@ -256,220 +256,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "safety_stock",
-      "name": "Safety Stock (units)",
-      "description": "Safety stock based on demand variability and lead time (Lean Six Sigma).",
-      "formula": "Z * demand_std_dev * sqrt(lead_time_days / periods_per_year)",
-      "dependencies": [
-        "demand_std_dev",
-        "lead_time_days",
-        "service_level",
-        "periods_per_year"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "reorder_point",
-      "name": "Reorder Point (units)",
-      "description": "Demand during lead time plus safety stock (WERC DC Metrics).",
-      "formula": "(historical_demand_mean * lead_time_days / periods_per_year) + safety_stock",
-      "dependencies": [
-        "historical_demand_mean",
-        "lead_time_days",
-        "periods_per_year",
-        "safety_stock"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "economic_order_quantity",
-      "name": "Economic Order Quantity (units)",
-      "description": "EOQ minimizing total ordering and holding costs (Harris-Wilson formula).",
-      "formula": "sqrt((2 * historical_demand_mean * ordering_cost) / (unit_cost * holding_cost_rate / 100))",
-      "dependencies": [
-        "historical_demand_mean",
-        "ordering_cost",
-        "unit_cost",
-        "holding_cost_rate"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "total_annual_ordering_cost",
-      "name": "Total Annual Ordering Cost ($)",
-      "description": "Number of orders per year times ordering cost.",
-      "formula": "(historical_demand_mean / economic_order_quantity) * ordering_cost",
-      "dependencies": [
-        "historical_demand_mean",
-        "economic_order_quantity",
-        "ordering_cost"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "total_annual_holding_cost",
-      "name": "Total Annual Holding Cost ($)",
-      "description": "Average inventory (cycle + safety) times unit cost times holding rate.",
-      "formula": "((economic_order_quantity / 2) + safety_stock) * unit_cost * (holding_cost_rate / 100)",
-      "dependencies": [
-        "economic_order_quantity",
-        "safety_stock",
-        "unit_cost",
-        "holding_cost_rate"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "expected_annual_stockout_cost",
-      "name": "Expected Annual Stockout Cost ($)",
-      "description": "Expected stockout units per year times stockout cost (based on service level).",
-      "formula": "(1 - service_level) * historical_demand_mean * stockout_cost_per_unit",
-      "dependencies": [
-        "service_level",
-        "historical_demand_mean",
-        "stockout_cost_per_unit"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "total_annual_inventory_cost",
-      "name": "Total Annual Inventory Cost ($)",
-      "description": "Sum of ordering, holding, and stockout costs (primary result).",
-      "formula": "total_annual_ordering_cost + total_annual_holding_cost + expected_annual_stockout_cost",
-      "dependencies": [
-        "total_annual_ordering_cost",
-        "total_annual_holding_cost",
-        "expected_annual_stockout_cost"
-      ],
-      "intermediate": false,
-      "primary": true
-    }
+    "historical_demand_mean",
+    "historical_demand_mean",
+    "historical_demand_mean",
+    "historical_demand_mean",
+    "historical_demand_mean",
+    "historical_demand_mean",
+    "historical_demand_mean"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_inventory_cost",
-      "label": "Total Annual Inventory Cost ($)",
-      "value": null,
-      "unit": "$",
-      "description": "Sum of ordering, holding, and expected stockout costs per year."
-    },
-    "breakdown": {
-      "total_annual_ordering_cost": {
-        "id": "total_annual_ordering_cost",
-        "label": "Total Annual Ordering Cost",
-        "value": null,
-        "unit": "$",
-        "description": "Cost of placing orders per year."
-      },
-      "total_annual_holding_cost": {
-        "id": "total_annual_holding_cost",
-        "label": "Total Annual Holding Cost",
-        "value": null,
-        "unit": "$",
-        "description": "Cost of carrying inventory (cycle + safety stock)."
-      },
-      "expected_annual_stockout_cost": {
-        "id": "expected_annual_stockout_cost",
-        "label": "Expected Annual Stockout Cost",
-        "value": null,
-        "unit": "$",
-        "description": "Expected cost of unmet demand per year."
-      },
-      "safety_stock": {
-        "id": "safety_stock",
-        "label": "Safety Stock",
-        "value": null,
-        "unit": "units",
-        "description": "Buffer stock to protect against demand variability."
-      },
-      "reorder_point": {
-        "id": "reorder_point",
-        "label": "Reorder Point",
-        "value": null,
-        "unit": "units",
-        "description": "Inventory level triggering a new order."
-      },
-      "economic_order_quantity": {
-        "id": "economic_order_quantity",
-        "label": "Economic Order Quantity",
-        "value": null,
-        "unit": "units",
-        "description": "Optimal order quantity minimizing total costs."
-      },
-      "inventory_turnover": {
-        "id": "inventory_turnover",
-        "label": "Inventory Turnover",
-        "value": null,
-        "unit": "turns/year",
-        "description": "Number of times inventory is sold and replaced per year (WERC DC Metrics)."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "demand_variability_impact",
-        "label": "Demand Variability Impact",
-        "value": null,
-        "unit": "$",
-        "description": "Additional cost due to demand uncertainty (safety stock holding + stockout risk)."
-      },
-      {
-        "id": "lead_time_uncertainty_impact",
-        "label": "Lead Time Uncertainty Impact",
-        "value": null,
-        "unit": "$",
-        "description": "Cost impact if lead time variability is not captured (assumed constant here)."
-      },
-      {
-        "id": "order_batching_inefficiency",
-        "label": "Order Batching Inefficiency",
-        "value": null,
-        "unit": "$",
-        "description": "Cost deviation from EOQ due to practical order constraints."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_lead_time",
-        "action": "Negotiate shorter lead times with suppliers or use local sourcing.",
-        "expected_impact": "Reduces safety stock and reorder point, lowering holding costs.",
-        "priority": "high"
-      },
-      {
-        "id": "improve_forecast_accuracy",
-        "action": "Implement demand sensing or collaborative forecasting (CPFR).",
-        "expected_impact": "Reduces demand standard deviation, lowering safety stock and stockout costs.",
-        "priority": "high"
-      },
-      {
-        "id": "review_service_level",
-        "action": "Consider lowering service level for non-critical items (ABC analysis).",
-        "expected_impact": "Reduces safety stock and holding costs with acceptable stockout risk.",
-        "priority": "medium"
-      },
-      {
-        "id": "optimize_order_quantity",
-        "action": "Adjust order quantities to match EOQ or use quantity discounts.",
-        "expected_impact": "Balances ordering and holding costs.",
-        "priority": "medium"
-      },
-      {
-        "id": "implement_lean_inventory",
-        "action": "Apply Kanban or JIT principles to reduce cycle stock.",
-        "expected_impact": "Lowers average inventory and holding costs.",
-        "priority": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Score",
-      "value": null,
-      "unit": "0-1",
-      "description": "Adjusted confidence based on input data quality (e.g., coefficient of variation, sample size)."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "demand-forecast-inventory-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK"
 }

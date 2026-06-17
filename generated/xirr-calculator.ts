@@ -27,6 +27,7 @@ function evaluateAllFormulas(input: Xirr_calculatorInput): Record<string, number
   const results: Record<string, number> = {};
   try { const v = (function(r) { var c=[initialInvestment,cf1Amount,cf2Amount,finalValue],d=[initialDate,cf1Days,cf2Days,finalDays],d0=d[0],n=0;for(var i=0;i<c.length;i++){n+=c[i]/Math.pow(1+r,(d[i]-d0)/365);}return n; })(r); results["npv"] = Number.isFinite(v) ? v : 0; } catch { results["npv"] = 0; }
   results["xirr"] = 0;
+  try { const v = (results["npv"] ?? 0)((results["xirr"] ?? 0)); results["npv_xirr_"] = Number.isFinite(v) ? v : 0; } catch { results["npv_xirr_"] = 0; }
   return results;
 }
 

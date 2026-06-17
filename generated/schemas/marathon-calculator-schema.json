@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 42.195,
-      "businessContext": "Marathon standard distance in kilometers"
+      "businessContext": "Marathon standard distance in kilometers",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Distance (km)",
+        "de": "Distance (km)",
+        "fr": "Distance (km)",
+        "es": "Distance (km)",
+        "ar": "Distance (km)"
+      }
     },
     {
       "id": "hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hr",
       "default": 4,
-      "businessContext": "Finish time hours component"
+      "businessContext": "Finish time hours component",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "Hours",
+        "fr": "Hours",
+        "es": "Hours",
+        "ar": "Hours"
+      }
     },
     {
       "id": "minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 0,
-      "businessContext": "Finish time minutes component"
+      "businessContext": "Finish time minutes component",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "seconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "sec",
       "default": 0,
-      "businessContext": "Finish time seconds component"
+      "businessContext": "Finish time seconds component",
+      "label_i18n": {
+        "en": "Seconds",
+        "tr": "Seconds",
+        "de": "Seconds",
+        "fr": "Seconds",
+        "es": "Seconds",
+        "ar": "Seconds"
+      }
     }
   ],
   "formulas": {
@@ -43,20 +75,24 @@
     "distance_miles": "distance_km / 1.60934",
     "pace_per_mile_sec": "total_time_sec / distance_miles",
     "pace_per_mile_min": "Math.floor(pace_per_mile_sec / 60)",
-    "pace_per_mile_rem_sec": "Math.round(pace_per_mile_sec % 60)"
+    "pace_per_mile_rem_sec": "Math.round(pace_per_mile_sec % 60)",
+    "______0____pace_per_mile_rem_sec__slice_": "' + ('0' + pace_per_mile_rem_sec).slice(-2) + ' min/mi'",
+    "speed_kmh_toFixed_2______km_h_": "speed_kmh.toFixed(2) + ' km/h'",
+    "____hours___________0____minutes__slice_": "' + hours + ':' + ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2)",
+    "result": "pace_per_km_min + ':' + ('0' + pace_per_km_rem_sec).slice(-2) + ' min/km'"
   },
   "outputs": {
-    "primary": "pace_per_km_min + ':' + ('0' + pace_per_km_rem_sec).slice(-2) + ' min/km'",
+    "primary": "result",
     "breakdown": [
       "pace_per_mile_min + ':' + ('0' + pace_per_mile_rem_sec).slice(-2) + ' min/mi'",
       "speed_kmh.toFixed(2) + ' km/h'",
       "'Total: ' + hours + ':' + ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

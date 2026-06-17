@@ -18,6 +18,9 @@ export const Pkb_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Pkb_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.kb > 0 ? -Math.log10(input.kb) : (input.ka > 0 ? -Math.log10(input.kw / input.ka) : (input.pka !== undefined ? 14 - input.pka : null)); results["pKb"] = Number.isFinite(v) ? v : 0; } catch { results["pKb"] = 0; }
+  try { const v = input.kb || (input.kw / input.ka); results["inputs_kb_____inputs_kw___inputs_ka_"] = Number.isFinite(v) ? v : 0; } catch { results["inputs_kb_____inputs_kw___inputs_ka_"] = 0; }
+  try { const v = -Math.log10(Kb); results["pKb____log10_Kb_"] = Number.isFinite(v) ? v : 0; } catch { results["pKb____log10_Kb_"] = 0; }
+  results["Computed_pKb_value"] = 0;
   return results;
 }
 

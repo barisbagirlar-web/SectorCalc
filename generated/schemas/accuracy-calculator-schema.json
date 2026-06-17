@@ -50,12 +50,7 @@
     "within_tolerance": "Math.abs(measured_value - calibration_offset - true_value) <= tolerance_limit ? 'Yes' : 'No'"
   },
   "outputs": {
-    "primary": {
-      "label": "Accuracy (%)",
-      "id": "accuracy_percent",
-      "unit": "%",
-      "description": "Measurement accuracy as a percentage of true value"
-    },
+    "primary": "absolute_error",
     "breakdown": [
       {
         "label": "Absolute Error",
@@ -79,10 +74,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

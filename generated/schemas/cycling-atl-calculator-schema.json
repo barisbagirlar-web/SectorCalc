@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TSS",
       "default": 0,
-      "businessContext": "Your Acute Training Load from yesterday"
+      "businessContext": "Your Acute Training Load from yesterday",
+      "label_i18n": {
+        "en": "Previous ATL",
+        "tr": "Previous ATL",
+        "de": "Previous ATL",
+        "fr": "Previous ATL",
+        "es": "Previous ATL",
+        "ar": "Previous ATL"
+      }
     },
     {
       "id": "tssToday",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TSS",
       "default": 0,
-      "businessContext": "Training Stress Score for today's ride"
+      "businessContext": "Training Stress Score for today's ride",
+      "label_i18n": {
+        "en": "Today's TSS",
+        "tr": "Today's TSS",
+        "de": "Today's TSS",
+        "fr": "Today's TSS",
+        "es": "Today's TSS",
+        "ar": "Today's TSS"
+      }
     },
     {
       "id": "timeConstant",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "days",
       "default": 7,
-      "businessContext": "Number of days for ATL weighting (commonly 7)"
+      "businessContext": "Number of days for ATL weighting (commonly 7)",
+      "label_i18n": {
+        "en": "Time Constant",
+        "tr": "Time Constant",
+        "de": "Time Constant",
+        "fr": "Time Constant",
+        "es": "Time Constant",
+        "ar": "Time Constant"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of decimal places for rounded output"
+      "businessContext": "Number of decimal places for rounded output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "atlChange"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

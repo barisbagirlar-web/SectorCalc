@@ -1,4 +1,6 @@
-const SCHEMA_CATEGORY_KEYS: Readonly<Record<string, string>> = {
+import { CATEGORY_TAXONOMY, TAXONOMY_CATEGORY_NAMES } from "@/lib/tools/category-taxonomy";
+
+const LEGACY_SCHEMA_CATEGORY_KEYS: Readonly<Record<string, string>> = {
   "Finans & Kredi": "finans-kredi",
   "Malzeme, Fire & OEE": "malzeme-fire-oee",
   "Ölçüm & Dönüşüm": "olcum-donusum",
@@ -12,6 +14,15 @@ const SCHEMA_CATEGORY_KEYS: Readonly<Record<string, string>> = {
   "Finans & İK": "finans-ik",
 };
 
+const TAXONOMY_CATEGORY_KEYS: Readonly<Record<string, string>> = Object.fromEntries(
+  TAXONOMY_CATEGORY_NAMES.map((title) => [title, CATEGORY_TAXONOMY[title].slug]),
+);
+
+const SCHEMA_CATEGORY_KEYS: Readonly<Record<string, string>> = {
+  ...LEGACY_SCHEMA_CATEGORY_KEYS,
+  ...TAXONOMY_CATEGORY_KEYS,
+};
+
 const SCHEMA_SECTOR_KEYS: Readonly<Record<string, string>> = {
   "Finans & İK": "finans-ik",
   "Üretim & İmalat": "uretim-imalat",
@@ -23,6 +34,9 @@ const SCHEMA_SECTOR_KEYS: Readonly<Record<string, string>> = {
   "Lojistik & Sevkiyat": "lojistik-sevkiyat",
   "Atölye & Tamir": "atolye-tamir",
   "Finans & Kredi": "finans-kredi",
+  "İSG & Risk": "isg-risk",
+  Sürdürülebilirlik: "surdurulebilirlik",
+  "Kalite, SPC & Altı Sigma": "kalite-spc-alti-sigma",
 };
 
 function slugifyLabel(label: string): string {

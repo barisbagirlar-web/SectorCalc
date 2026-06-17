@@ -5,41 +5,81 @@
       "id": "input1",
       "label": "Value 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First input value for calculating the average"
+      "businessContext": "First input value for calculating the average",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Value 1",
+        "de": "Value 1",
+        "fr": "Value 1",
+        "es": "Value 1",
+        "ar": "Value 1"
+      }
     },
     {
       "id": "input2",
       "label": "Value 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second input value for calculating the average"
+      "businessContext": "Second input value for calculating the average",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Value 2",
+        "de": "Value 2",
+        "fr": "Value 2",
+        "es": "Value 2",
+        "ar": "Value 2"
+      }
     },
     {
       "id": "input3",
       "label": "Value 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third input value for calculating the average"
+      "businessContext": "Third input value for calculating the average",
+      "label_i18n": {
+        "en": "Value 3",
+        "tr": "Value 3",
+        "de": "Value 3",
+        "fr": "Value 3",
+        "es": "Value 3",
+        "ar": "Value 3"
+      }
     },
     {
       "id": "input4",
       "label": "Value 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth input value for calculating the average"
+      "businessContext": "Fourth input value for calculating the average",
+      "label_i18n": {
+        "en": "Value 4",
+        "tr": "Value 4",
+        "de": "Value 4",
+        "fr": "Value 4",
+        "es": "Value 4",
+        "ar": "Value 4"
+      }
     },
     {
       "id": "input5",
       "label": "Value 5",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fifth input value for calculating the average"
+      "businessContext": "Fifth input value for calculating the average",
+      "label_i18n": {
+        "en": "Value 5",
+        "tr": "Value 5",
+        "de": "Value 5",
+        "fr": "Value 5",
+        "es": "Value 5",
+        "ar": "Value 5"
+      }
     }
   ],
   "formulas": {
@@ -53,10 +93,10 @@
       "average"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

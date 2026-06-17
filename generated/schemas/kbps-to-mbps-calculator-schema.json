@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "kbps",
       "default": 1024,
-      "businessContext": "Data transfer rate in kilobits per second."
+      "businessContext": "Data transfer rate in kilobits per second.",
+      "label_i18n": {
+        "en": "Kilobits per second (kbps)",
+        "tr": "Kilobits per second (kbps)",
+        "de": "Kilobits per second (kbps)",
+        "fr": "Kilobits per second (kbps)",
+        "es": "Kilobits per second (kbps)",
+        "ar": "Kilobits per second (kbps)"
+      }
     },
     {
       "id": "conversionStandard",
       "label": "Conversion Standard",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Select the base for kilo to mega conversion. 0 for SI (1000), 1 for binary (1024)."
+      "businessContext": "Select the base for kilo to mega conversion. 0 for SI (1000), 1 for binary (1024).",
+      "label_i18n": {
+        "en": "Conversion Standard",
+        "tr": "Conversion Standard",
+        "de": "Conversion Standard",
+        "fr": "Conversion Standard",
+        "es": "Conversion Standard",
+        "ar": "Conversion Standard"
+      }
     },
     {
       "id": "networkOverhead",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Additional overhead percentage to add to the rate. E.g., 5 for 5% overhead."
+      "businessContext": "Additional overhead percentage to add to the rate. E.g., 5 for 5% overhead.",
+      "label_i18n": {
+        "en": "Network Overhead (%)",
+        "tr": "Network Overhead (%)",
+        "de": "Network Overhead (%)",
+        "fr": "Network Overhead (%)",
+        "es": "Network Overhead (%)",
+        "ar": "Network Overhead (%)"
+      }
     },
     {
       "id": "precision",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places in the result."
+      "businessContext": "Number of decimal places in the result.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "rawMbps"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

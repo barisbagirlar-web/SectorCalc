@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "m²",
       "defaultValue": 1000,
-      "businessContext": "The surface area of the catchment contributing to runoff."
+      "businessContext": "The surface area of the catchment contributing to runoff.",
+      "label_i18n": {
+        "en": "Catchment Area",
+        "tr": "Catchment Area",
+        "de": "Catchment Area",
+        "fr": "Catchment Area",
+        "es": "Catchment Area",
+        "ar": "Catchment Area"
+      }
     },
     {
       "id": "runoffCoefficient",
       "label": "Runoff Coefficient (C)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "defaultValue": 0.5,
-      "businessContext": "Dimensionless coefficient representing the fraction of rainfall that becomes runoff, depending on surface type and slope."
+      "businessContext": "Dimensionless coefficient representing the fraction of rainfall that becomes runoff, depending on surface type and slope.",
+      "label_i18n": {
+        "en": "Runoff Coefficient (C)",
+        "tr": "Runoff Coefficient (C)",
+        "de": "Runoff Coefficient (C)",
+        "fr": "Runoff Coefficient (C)",
+        "es": "Runoff Coefficient (C)",
+        "ar": "Runoff Coefficient (C)"
+      }
     },
     {
       "id": "rainfallIntensity",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "mm/h",
       "defaultValue": 50,
-      "businessContext": "Design rainfall intensity in millimeters per hour, typically derived from IDF curves for the specified duration and return period."
+      "businessContext": "Design rainfall intensity in millimeters per hour, typically derived from IDF curves for the specified duration and return period.",
+      "label_i18n": {
+        "en": "Rainfall Intensity (I)",
+        "tr": "Rainfall Intensity (I)",
+        "de": "Rainfall Intensity (I)",
+        "fr": "Rainfall Intensity (I)",
+        "es": "Rainfall Intensity (I)",
+        "ar": "Rainfall Intensity (I)"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "defaultValue": 1.1,
-      "businessContext": "Multiplier applied to the calculated runoff to account for uncertainties and future changes in catchment conditions."
+      "businessContext": "Multiplier applied to the calculated runoff to account for uncertainties and future changes in catchment conditions.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "runoffM3s"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "hse-ergonomics"
 }

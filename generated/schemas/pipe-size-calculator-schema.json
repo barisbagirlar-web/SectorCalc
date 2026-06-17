@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/h",
       "default": 100,
-      "businessContext": "Volumetric flow rate of the fluid"
+      "businessContext": "Volumetric flow rate of the fluid",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "velocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 2,
-      "businessContext": "Allowable fluid velocity based on service and material"
+      "businessContext": "Allowable fluid velocity based on service and material",
+      "label_i18n": {
+        "en": "Design Velocity",
+        "tr": "Design Velocity",
+        "de": "Design Velocity",
+        "fr": "Design Velocity",
+        "es": "Design Velocity",
+        "ar": "Design Velocity"
+      }
     },
     {
       "id": "pressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bar",
       "default": 10,
-      "businessContext": "Internal design pressure of the pipe"
+      "businessContext": "Internal design pressure of the pipe",
+      "label_i18n": {
+        "en": "Operating Pressure",
+        "tr": "Operating Pressure",
+        "de": "Operating Pressure",
+        "fr": "Operating Pressure",
+        "es": "Operating Pressure",
+        "ar": "Operating Pressure"
+      }
     },
     {
       "id": "allowableStress",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 137.9,
-      "businessContext": "Allowable stress of the pipe material at design temperature"
+      "businessContext": "Allowable stress of the pipe material at design temperature",
+      "label_i18n": {
+        "en": "Allowable Stress",
+        "tr": "Allowable Stress",
+        "de": "Allowable Stress",
+        "fr": "Allowable Stress",
+        "es": "Allowable Stress",
+        "ar": "Allowable Stress"
+      }
     },
     {
       "id": "jointEfficiency",
       "label": "Joint Efficiency",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Longitudinal joint efficiency factor (0-1)"
+      "businessContext": "Longitudinal joint efficiency factor (0-1)",
+      "label_i18n": {
+        "en": "Joint Efficiency",
+        "tr": "Joint Efficiency",
+        "de": "Joint Efficiency",
+        "fr": "Joint Efficiency",
+        "es": "Joint Efficiency",
+        "ar": "Joint Efficiency"
+      }
     },
     {
       "id": "corrosionAllowance",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1.5,
-      "businessContext": "Additional thickness to compensate for material loss due to corrosion"
+      "businessContext": "Additional thickness to compensate for material loss due to corrosion",
+      "label_i18n": {
+        "en": "Corrosion Allowance",
+        "tr": "Corrosion Allowance",
+        "de": "Corrosion Allowance",
+        "fr": "Corrosion Allowance",
+        "es": "Corrosion Allowance",
+        "ar": "Corrosion Allowance"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "area_mm2"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "process-chemical"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 10,
-      "businessContext": "Process measurement to evaluate"
+      "businessContext": "Process measurement to evaluate",
+      "label_i18n": {
+        "en": "Measurement Value",
+        "tr": "Measurement Value",
+        "de": "Measurement Value",
+        "fr": "Measurement Value",
+        "es": "Measurement Value",
+        "ar": "Measurement Value"
+      }
     },
     {
       "id": "target",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 10,
-      "businessContext": "Nominal target value"
+      "businessContext": "Nominal target value",
+      "label_i18n": {
+        "en": "Target Value",
+        "tr": "Target Value",
+        "de": "Target Value",
+        "fr": "Target Value",
+        "es": "Target Value",
+        "ar": "Target Value"
+      }
     },
     {
       "id": "lowerSpec",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 8,
-      "businessContext": "Minimum acceptable value"
+      "businessContext": "Minimum acceptable value",
+      "label_i18n": {
+        "en": "Lower Specification Limit",
+        "tr": "Lower Specification Limit",
+        "de": "Lower Specification Limit",
+        "fr": "Lower Specification Limit",
+        "es": "Lower Specification Limit",
+        "ar": "Lower Specification Limit"
+      }
     },
     {
       "id": "upperSpec",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "units",
       "default": 12,
-      "businessContext": "Maximum acceptable value"
+      "businessContext": "Maximum acceptable value",
+      "label_i18n": {
+        "en": "Upper Specification Limit",
+        "tr": "Upper Specification Limit",
+        "de": "Upper Specification Limit",
+        "fr": "Upper Specification Limit",
+        "es": "Upper Specification Limit",
+        "ar": "Upper Specification Limit"
+      }
     },
     {
       "id": "warningFraction",
       "label": "Warning Zone Fraction",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Fraction of spec half-range defining green zone around target (0-1)"
+      "businessContext": "Fraction of spec half-range defining green zone around target (0-1)",
+      "label_i18n": {
+        "en": "Warning Zone Fraction",
+        "tr": "Warning Zone Fraction",
+        "de": "Warning Zone Fraction",
+        "fr": "Warning Zone Fraction",
+        "es": "Warning Zone Fraction",
+        "ar": "Warning Zone Fraction"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "percentDeviation"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Inner diameter of the pipe or duct"
+      "businessContext": "Inner diameter of the pipe or duct",
+      "label_i18n": {
+        "en": "Pipe Inner Diameter",
+        "tr": "Pipe Inner Diameter",
+        "de": "Pipe Inner Diameter",
+        "fr": "Pipe Inner Diameter",
+        "es": "Pipe Inner Diameter",
+        "ar": "Pipe Inner Diameter"
+      }
     },
     {
       "id": "velocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 1,
-      "businessContext": "Average flow velocity"
+      "businessContext": "Average flow velocity",
+      "label_i18n": {
+        "en": "Flow Velocity",
+        "tr": "Flow Velocity",
+        "de": "Flow Velocity",
+        "fr": "Flow Velocity",
+        "es": "Flow Velocity",
+        "ar": "Flow Velocity"
+      }
     },
     {
       "id": "density",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of the fluid (e.g., 1000 for water)"
+      "businessContext": "Density of the fluid (e.g., 1000 for water)",
+      "label_i18n": {
+        "en": "Fluid Density",
+        "tr": "Fluid Density",
+        "de": "Fluid Density",
+        "fr": "Fluid Density",
+        "es": "Fluid Density",
+        "ar": "Fluid Density"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Design safety factor for flow rate capacity"
+      "businessContext": "Design safety factor for flow rate capacity",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "outputUnitMultiplier",
       "label": "Output Unit Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier to convert m³/s to desired unit (e.g., 1000 for L/s)"
+      "businessContext": "Multiplier to convert m³/s to desired unit (e.g., 1000 for L/s)",
+      "label_i18n": {
+        "en": "Output Unit Multiplier",
+        "tr": "Output Unit Multiplier",
+        "de": "Output Unit Multiplier",
+        "fr": "Output Unit Multiplier",
+        "es": "Output Unit Multiplier",
+        "ar": "Output Unit Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "massFlowRate"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

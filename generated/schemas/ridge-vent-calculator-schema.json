@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "sq ft",
       "default": 1500,
-      "businessContext": "Total floor area of the attic space in square feet."
+      "businessContext": "Total floor area of the attic space in square feet.",
+      "label_i18n": {
+        "en": "Attic Floor Area",
+        "tr": "Attic Floor Area",
+        "de": "Attic Floor Area",
+        "fr": "Attic Floor Area",
+        "es": "Attic Floor Area",
+        "ar": "Attic Floor Area"
+      }
     },
     {
       "id": "ventRatio",
       "label": "Ventilation Ratio (1:X)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 150,
-      "businessContext": "Required total net free area expressed as 1 square foot per X square feet of attic area. Common values: 150 for standard construction, 300 with certain vapor barriers."
+      "businessContext": "Required total net free area expressed as 1 square foot per X square feet of attic area. Common values: 150 for standard construction, 300 with certain vapor barriers.",
+      "label_i18n": {
+        "en": "Ventilation Ratio (1:X)",
+        "tr": "Ventilation Ratio (1:X)",
+        "de": "Ventilation Ratio (1:X)",
+        "fr": "Ventilation Ratio (1:X)",
+        "es": "Ventilation Ratio (1:X)",
+        "ar": "Ventilation Ratio (1:X)"
+      }
     },
     {
       "id": "nfaPerFoot",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "sq in/ft",
       "default": 18,
-      "businessContext": "Net free area rating of the ridge vent product, in square inches per linear foot."
+      "businessContext": "Net free area rating of the ridge vent product, in square inches per linear foot.",
+      "label_i18n": {
+        "en": "Ridge Vent NFA per Foot",
+        "tr": "Ridge Vent NFA per Foot",
+        "de": "Ridge Vent NFA per Foot",
+        "fr": "Ridge Vent NFA per Foot",
+        "es": "Ridge Vent NFA per Foot",
+        "ar": "Ridge Vent NFA per Foot"
+      }
     },
     {
       "id": "splitFactor",
       "label": "Exhaust Split Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Fraction of total ventilation area that should be provided by ridge exhaust. Typically 0.5 for balanced intake/exhaust."
+      "businessContext": "Fraction of total ventilation area that should be provided by ridge exhaust. Typically 0.5 for balanced intake/exhaust.",
+      "label_i18n": {
+        "en": "Exhaust Split Factor",
+        "tr": "Exhaust Split Factor",
+        "de": "Exhaust Split Factor",
+        "fr": "Exhaust Split Factor",
+        "es": "Exhaust Split Factor",
+        "ar": "Exhaust Split Factor"
+      }
     }
   ],
   "formulas": {
@@ -40,12 +72,7 @@
     "requiredLength": "ridgeNFA * 144 / nfaPerFoot"
   },
   "outputs": {
-    "primary": {
-      "id": "requiredLength",
-      "label": "Required Ridge Vent Length",
-      "unit": "ft",
-      "description": "Linear feet of ridge vent needed to achieve the required exhaust net free area."
-    },
+    "primary": "totalNFA",
     "breakdown": [
       {
         "id": "totalNFA",
@@ -61,10 +88,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "quality-six-sigma"
 }

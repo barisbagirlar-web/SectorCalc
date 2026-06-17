@@ -262,210 +262,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "eoq",
-      "name": "Economic Order Quantity",
-      "description": "Classic EOQ formula minimizing total ordering and holding costs.",
-      "formula": "sqrt((2 * annual_demand * ordering_cost) / holding_cost_per_unit)",
-      "dependencies": [
-        "annual_demand",
-        "ordering_cost",
-        "holding_cost_per_unit"
-      ]
-    },
-    {
-      "id": "safety_stock",
-      "name": "Safety Stock",
-      "description": "Safety stock based on demand variability and service level (Z-score).",
-      "formula": "Z(service_level) * demand_variability * sqrt(lead_time_days)",
-      "dependencies": [
-        "service_level",
-        "demand_variability",
-        "lead_time_days"
-      ]
-    },
-    {
-      "id": "reorder_point",
-      "name": "Reorder Point",
-      "description": "Reorder point considering lead time demand and safety stock.",
-      "formula": "(annual_demand / 365) * lead_time_days + safety_stock",
-      "dependencies": [
-        "annual_demand",
-        "lead_time_days",
-        "safety_stock"
-      ]
-    },
-    {
-      "id": "total_ordering_cost",
-      "name": "Total Annual Ordering Cost",
-      "description": "Annual cost of placing orders.",
-      "formula": "(annual_demand / eoq) * ordering_cost",
-      "dependencies": [
-        "annual_demand",
-        "eoq",
-        "ordering_cost"
-      ]
-    },
-    {
-      "id": "total_holding_cost",
-      "name": "Total Annual Holding Cost",
-      "description": "Annual cost of holding inventory (cycle stock + safety stock).",
-      "formula": "((eoq / 2) + safety_stock) * holding_cost_per_unit",
-      "dependencies": [
-        "eoq",
-        "safety_stock",
-        "holding_cost_per_unit"
-      ]
-    },
-    {
-      "id": "space_cost",
-      "name": "Space Cost Component",
-      "description": "Annual cost of warehouse space occupied by inventory.",
-      "formula": "((eoq / 2) + safety_stock) * item_footprint * storage_cost_per_sqft",
-      "dependencies": [
-        "eoq",
-        "safety_stock",
-        "item_footprint",
-        "storage_cost_per_sqft"
-      ]
-    },
-    {
-      "id": "total_annual_inventory_cost",
-      "name": "Total Annual Inventory Cost",
-      "description": "Sum of ordering, holding, and space costs (primary result).",
-      "formula": "total_ordering_cost + total_holding_cost + space_cost",
-      "dependencies": [
-        "total_ordering_cost",
-        "total_holding_cost",
-        "space_cost"
-      ]
-    }
+    "annual_demand",
+    "annual_demand",
+    "annual_demand",
+    "annual_demand",
+    "annual_demand",
+    "annual_demand",
+    "annual_demand"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_inventory_cost",
-      "label": "Total Annual Inventory Cost",
-      "unit": "$/year",
-      "description": "The primary result: total cost of ordering, holding, and space for the optimal EOQ policy."
-    },
-    "breakdown": {
-      "id": "cost_breakdown",
-      "label": "Cost Breakdown",
-      "type": "object",
-      "properties": {
-        "eoq": {
-          "id": "eoq",
-          "label": "Economic Order Quantity",
-          "unit": "units",
-          "value": null
-        },
-        "safety_stock": {
-          "id": "safety_stock",
-          "label": "Safety Stock",
-          "unit": "units",
-          "value": null
-        },
-        "reorder_point": {
-          "id": "reorder_point",
-          "label": "Reorder Point",
-          "unit": "units",
-          "value": null
-        },
-        "total_ordering_cost": {
-          "id": "total_ordering_cost",
-          "label": "Total Ordering Cost",
-          "unit": "$/year",
-          "value": null
-        },
-        "total_holding_cost": {
-          "id": "total_holding_cost",
-          "label": "Total Holding Cost",
-          "unit": "$/year",
-          "value": null
-        },
-        "space_cost": {
-          "id": "space_cost",
-          "label": "Space Cost",
-          "unit": "$/year",
-          "value": null
-        },
-        "inventory_turns": {
-          "id": "inventory_turns",
-          "label": "Inventory Turns",
-          "unit": "turns/year",
-          "value": null
-        }
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_ordering",
-        "label": "Excess Ordering Cost",
-        "description": "If ordering cost is high relative to holding cost, consider consolidating orders or using blanket POs.",
-        "metric": "ordering_cost / holding_cost_per_unit",
-        "threshold": "> 25"
-      },
-      {
-        "id": "demand_uncertainty",
-        "label": "Demand Uncertainty Impact",
-        "description": "High demand variability inflates safety stock and holding costs. Consider demand smoothing or VMI.",
-        "metric": "demand_variability / (annual_demand / 365)",
-        "threshold": "> 0.5"
-      },
-      {
-        "id": "space_inefficiency",
-        "label": "Space Utilization Inefficiency",
-        "description": "Item footprint or storage cost per sqft is high relative to unit cost. Evaluate storage method or item design.",
-        "metric": "space_cost / total_holding_cost",
-        "threshold": "> 0.3"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_ordering_cost",
-        "label": "Reduce Ordering Cost",
-        "description": "Implement e-procurement or blanket orders to lower ordering cost, which will reduce EOQ and total cost.",
-        "impact": "High",
-        "effort": "Medium"
-      },
-      {
-        "id": "negotiate_holding_cost",
-        "label": "Negotiate Storage or Insurance",
-        "description": "Review warehouse contracts or insurance premiums to lower holding cost per unit.",
-        "impact": "Medium",
-        "effort": "Low"
-      },
-      {
-        "id": "improve_forecasting",
-        "label": "Improve Demand Forecasting",
-        "description": "Use statistical forecasting or AI to reduce demand variability, lowering safety stock.",
-        "impact": "High",
-        "effort": "High"
-      },
-      {
-        "id": "review_service_level",
-        "label": "Review Service Level Target",
-        "description": "If backorder cost is low, consider reducing service level to cut safety stock.",
-        "impact": "Medium",
-        "effort": "Low"
-      },
-      {
-        "id": "optimize_warehouse_layout",
-        "label": "Optimize Warehouse Layout",
-        "description": "Reduce item footprint by using vertical storage or better racking systems.",
-        "impact": "Low",
-        "effort": "High"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Adjusted Total Cost",
-      "unit": "$/year",
-      "description": "Total annual inventory cost adjusted by a confidence factor (0.8 to 1.2) based on input data quality (e.g., variability, historical accuracy). Default 1.0 if all inputs are within typical ranges.",
-      "value": null
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "procurement-supply-chain",
+  "category": "Lojistik & Tedarik Zinciri",
+  "sector": "Lojistik & Sevkiyat",
+  "toolName": "eoq-inventory-calculator"
 }

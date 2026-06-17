@@ -5,65 +5,129 @@
       "id": "fpr1",
       "label": "FPR 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.1,
-      "businessContext": "First false positive rate point"
+      "businessContext": "First false positive rate point",
+      "label_i18n": {
+        "en": "FPR 1",
+        "tr": "FPR 1",
+        "de": "FPR 1",
+        "fr": "FPR 1",
+        "es": "FPR 1",
+        "ar": "FPR 1"
+      }
     },
     {
       "id": "tpr1",
       "label": "TPR 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "First true positive rate point"
+      "businessContext": "First true positive rate point",
+      "label_i18n": {
+        "en": "TPR 1",
+        "tr": "TPR 1",
+        "de": "TPR 1",
+        "fr": "TPR 1",
+        "es": "TPR 1",
+        "ar": "TPR 1"
+      }
     },
     {
       "id": "fpr2",
       "label": "FPR 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.2,
-      "businessContext": "Second false positive rate point"
+      "businessContext": "Second false positive rate point",
+      "label_i18n": {
+        "en": "FPR 2",
+        "tr": "FPR 2",
+        "de": "FPR 2",
+        "fr": "FPR 2",
+        "es": "FPR 2",
+        "ar": "FPR 2"
+      }
     },
     {
       "id": "tpr2",
       "label": "TPR 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Second true positive rate point"
+      "businessContext": "Second true positive rate point",
+      "label_i18n": {
+        "en": "TPR 2",
+        "tr": "TPR 2",
+        "de": "TPR 2",
+        "fr": "TPR 2",
+        "es": "TPR 2",
+        "ar": "TPR 2"
+      }
     },
     {
       "id": "fpr3",
       "label": "FPR 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Third false positive rate point"
+      "businessContext": "Third false positive rate point",
+      "label_i18n": {
+        "en": "FPR 3",
+        "tr": "FPR 3",
+        "de": "FPR 3",
+        "fr": "FPR 3",
+        "es": "FPR 3",
+        "ar": "FPR 3"
+      }
     },
     {
       "id": "tpr3",
       "label": "TPR 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "Third true positive rate point"
+      "businessContext": "Third true positive rate point",
+      "label_i18n": {
+        "en": "TPR 3",
+        "tr": "TPR 3",
+        "de": "TPR 3",
+        "fr": "TPR 3",
+        "es": "TPR 3",
+        "ar": "TPR 3"
+      }
     },
     {
       "id": "fpr4",
       "label": "FPR 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Fourth false positive rate point"
+      "businessContext": "Fourth false positive rate point",
+      "label_i18n": {
+        "en": "FPR 4",
+        "tr": "FPR 4",
+        "de": "FPR 4",
+        "fr": "FPR 4",
+        "es": "FPR 4",
+        "ar": "FPR 4"
+      }
     },
     {
       "id": "tpr4",
       "label": "TPR 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.95,
-      "businessContext": "Fourth true positive rate point"
+      "businessContext": "Fourth true positive rate point",
+      "label_i18n": {
+        "en": "TPR 4",
+        "tr": "TPR 4",
+        "de": "TPR 4",
+        "fr": "TPR 4",
+        "es": "TPR 4",
+        "ar": "TPR 4"
+      }
     }
   ],
   "formulas": {
@@ -76,8 +140,8 @@
       "gini"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

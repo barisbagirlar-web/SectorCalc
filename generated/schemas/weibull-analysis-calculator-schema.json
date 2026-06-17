@@ -5,9 +5,17 @@
       "id": "shape",
       "label": "Shape Parameter (β)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Shape parameter of the Weibull distribution. Must be > 0. Determines failure rate behavior (β<1: decreasing, β=1: exponential, β>1: increasing)."
+      "businessContext": "Shape parameter of the Weibull distribution. Must be > 0. Determines failure rate behavior (β<1: decreasing, β=1: exponential, β>1: increasing).",
+      "label_i18n": {
+        "en": "Shape Parameter (β)",
+        "tr": "Shape Parameter (β)",
+        "de": "Shape Parameter (β)",
+        "fr": "Shape Parameter (β)",
+        "es": "Shape Parameter (β)",
+        "ar": "Shape Parameter (β)"
+      }
     },
     {
       "id": "scale",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 100,
-      "businessContext": "Characteristic life or scale parameter. Time at which 63.2% of items have failed when location=0. Must be > 0."
+      "businessContext": "Characteristic life or scale parameter. Time at which 63.2% of items have failed when location=0. Must be > 0.",
+      "label_i18n": {
+        "en": "Scale Parameter (η)",
+        "tr": "Scale Parameter (η)",
+        "de": "Scale Parameter (η)",
+        "fr": "Scale Parameter (η)",
+        "es": "Scale Parameter (η)",
+        "ar": "Scale Parameter (η)"
+      }
     },
     {
       "id": "time",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 100,
-      "businessContext": "Time at which to compute reliability and failure metrics."
+      "businessContext": "Time at which to compute reliability and failure metrics.",
+      "label_i18n": {
+        "en": "Time (t)",
+        "tr": "Time (t)",
+        "de": "Time (t)",
+        "fr": "Time (t)",
+        "es": "Time (t)",
+        "ar": "Time (t)"
+      }
     },
     {
       "id": "location",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Shift parameter for failure-free period. Reliable before this time. Typically 0."
+      "businessContext": "Shift parameter for failure-free period. Reliable before this time. Typically 0.",
+      "label_i18n": {
+        "en": "Location Parameter (γ)",
+        "tr": "Location Parameter (γ)",
+        "de": "Location Parameter (γ)",
+        "fr": "Location Parameter (γ)",
+        "es": "Location Parameter (γ)",
+        "ar": "Location Parameter (γ)"
+      }
     }
   ],
   "formulas": {
@@ -41,11 +73,7 @@
     "b10Life": "location + scale * Math.pow(-Math.log(0.9), 1 / shape)"
   },
   "outputs": {
-    "primary": {
-      "id": "reliability",
-      "label": "Reliability R(t)",
-      "unit": ""
-    },
+    "primary": "reliability",
     "breakdown": [
       {
         "id": "failureProbability",
@@ -64,10 +92,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

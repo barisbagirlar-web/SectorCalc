@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Select shape: 1=Rectangle, 2=Circle, 3=Hollow Circle, 4=I-beam"
+      "businessContext": "Select shape: 1=Rectangle, 2=Circle, 3=Hollow Circle, 4=I-beam",
+      "label_i18n": {
+        "en": "Shape",
+        "tr": "Shape",
+        "de": "Shape",
+        "fr": "Shape",
+        "es": "Shape",
+        "ar": "Shape"
+      }
     },
     {
       "id": "dim1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Base width for rectangle/I-beam, outer radius for circle/hollow circle"
+      "businessContext": "Base width for rectangle/I-beam, outer radius for circle/hollow circle",
+      "label_i18n": {
+        "en": "Width/Outer Radius (b or R)",
+        "tr": "Width/Outer Radius (b or R)",
+        "de": "Width/Outer Radius (b or R)",
+        "fr": "Width/Outer Radius (b or R)",
+        "es": "Width/Outer Radius (b or R)",
+        "ar": "Width/Outer Radius (b or R)"
+      }
     },
     {
       "id": "dim2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Height for rectangle, overall height for I-beam (includes flanges); unused for circle"
+      "businessContext": "Height for rectangle, overall height for I-beam (includes flanges); unused for circle",
+      "label_i18n": {
+        "en": "Height (h)",
+        "tr": "Height (h)",
+        "de": "Height (h)",
+        "fr": "Height (h)",
+        "es": "Height (h)",
+        "ar": "Height (h)"
+      }
     },
     {
       "id": "dim3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Flange thickness for I-beam, inner radius for hollow circle; unused for rectangle/circle"
+      "businessContext": "Flange thickness for I-beam, inner radius for hollow circle; unused for rectangle/circle",
+      "label_i18n": {
+        "en": "Flange Thickness/Inner Radius (tf or r)",
+        "tr": "Flange Thickness/Inner Radius (tf or r)",
+        "de": "Flange Thickness/Inner Radius (tf or r)",
+        "fr": "Flange Thickness/Inner Radius (tf or r)",
+        "es": "Flange Thickness/Inner Radius (tf or r)",
+        "ar": "Flange Thickness/Inner Radius (tf or r)"
+      }
     },
     {
       "id": "dim4",
@@ -39,38 +71,36 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Web thickness for I-beam; unused for other shapes"
+      "businessContext": "Web thickness for I-beam; unused for other shapes",
+      "label_i18n": {
+        "en": "Web Thickness (tw)",
+        "tr": "Web Thickness (tw)",
+        "de": "Web Thickness (tw)",
+        "fr": "Web Thickness (tw)",
+        "es": "Web Thickness (tw)",
+        "ar": "Web Thickness (tw)"
+      }
     }
   ],
   "formulas": {
-    "1": {
-      "Ix": "(dim1 * Math.pow(dim2, 3)) / 12",
-      "Iy": "(dim2 * Math.pow(dim1, 3)) / 12"
-    },
-    "2": {
-      "Ix": "(Math.PI * Math.pow(dim1, 4)) / 4",
-      "Iy": "(Math.PI * Math.pow(dim1, 4)) / 4"
-    },
-    "3": {
-      "Ix": "Math.PI * (Math.pow(dim1, 4) - Math.pow(dim3, 4)) / 4",
-      "Iy": "Math.PI * (Math.pow(dim1, 4) - Math.pow(dim3, 4)) / 4"
-    },
-    "4": {
-      "Ix": "(dim1 * Math.pow(dim2, 3) - (dim1 - dim4) * Math.pow(dim2 - 2*dim3, 3)) / 12",
-      "Iy": "2 * (dim3 * Math.pow(dim1, 3) / 12) + ((dim2 - 2*dim3) * Math.pow(dim4, 3) / 12)"
-    }
+    "1": "shape",
+    "2": "shape",
+    "3": "shape",
+    "4": "shape",
+    "I_y": "I_y",
+    "Shape_description": "Shape description"
   },
   "outputs": {
-    "primary": "I_x",
+    "primary": "1",
     "breakdown": [
       "I_y",
       "Shape description"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "cnc-additive-manufacturing"
 }

@@ -207,7 +207,7 @@
       "id": "include_hidden_losses",
       "label": "Include Hidden Losses (e.g., customer dissatisfaction, lost sales)",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -276,162 +276,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "units_produced_per_hour",
-      "label": "Units Produced per Hour",
-      "description": "Production rate based on cycle time and units per cycle.",
-      "formula": "units_per_cycle / (process_cycle_time_min / 60)",
-      "unit": "units/hour"
-    },
-    {
-      "id": "total_delay_hours",
-      "label": "Total Delay Hours per Event",
-      "description": "Sum of detection and response delays.",
-      "formula": "detection_delay_hours + response_delay_hours",
-      "unit": "hours"
-    },
-    {
-      "id": "defective_units_during_delay",
-      "label": "Defective Units Produced During Delay",
-      "description": "Number of defective units produced while process is out of control and not corrected.",
-      "formula": "units_produced_per_hour * total_delay_hours * (defect_rate_out_of_control / 100)",
-      "unit": "units"
-    },
-    {
-      "id": "direct_defect_cost_per_event",
-      "label": "Direct Defect Cost per Event",
-      "description": "Cost of defective units produced during the delay period.",
-      "formula": "defective_units_during_delay * cost_per_defect",
-      "unit": "USD"
-    },
-    {
-      "id": "hidden_loss_cost_per_event",
-      "label": "Hidden Loss Cost per Event",
-      "description": "Estimated hidden costs (customer dissatisfaction, lost sales) if enabled.",
-      "formula": "include_hidden_losses ? direct_defect_cost_per_event * (hidden_loss_multiplier - 1) : 0",
-      "unit": "USD"
-    },
-    {
-      "id": "total_delay_cost_per_event",
-      "label": "Total Delay Cost per Event",
-      "description": "Sum of direct defect cost, hidden loss, and correction cost for one event.",
-      "formula": "direct_defect_cost_per_event + hidden_loss_cost_per_event + cost_of_correction_per_event",
-      "unit": "USD"
-    },
-    {
-      "id": "annual_delay_cost",
-      "label": "Annual Delay Cost",
-      "description": "Total annual cost due to delayed SPC signal response.",
-      "formula": "total_delay_cost_per_event * signal_frequency_per_year",
-      "unit": "USD/year"
-    }
+    "process_cycle_time_min",
+    "process_cycle_time_min",
+    "process_cycle_time_min",
+    "process_cycle_time_min",
+    "process_cycle_time_min",
+    "process_cycle_time_min",
+    "process_cycle_time_min"
   ],
   "outputs": {
-    "primary": {
-      "id": "annual_delay_cost",
-      "label": "Annual SPC Signal Delay Cost",
-      "value": null,
-      "unit": "USD/year",
-      "description": "Total estimated annual cost resulting from delayed detection and response to out-of-control SPC signals."
-    },
-    "breakdown": {
-      "direct_defect_cost_per_event": {
-        "label": "Direct Defect Cost per Event",
-        "value": null,
-        "unit": "USD"
-      },
-      "hidden_loss_cost_per_event": {
-        "label": "Hidden Loss Cost per Event",
-        "value": null,
-        "unit": "USD"
-      },
-      "cost_of_correction_per_event": {
-        "label": "Cost of Correction per Event",
-        "value": null,
-        "unit": "USD"
-      },
-      "total_delay_cost_per_event": {
-        "label": "Total Delay Cost per Event",
-        "value": null,
-        "unit": "USD"
-      },
-      "defective_units_during_delay": {
-        "label": "Defective Units During Delay",
-        "value": null,
-        "unit": "units"
-      },
-      "annual_signal_events": {
-        "label": "Annual Signal Events",
-        "value": null,
-        "unit": "events/year"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "detection_delay",
-        "label": "Detection Delay",
-        "description": "Time to detect out-of-control signal. Long delays increase defect volume.",
-        "impact": "high"
-      },
-      {
-        "id": "response_delay",
-        "label": "Response Delay",
-        "description": "Time to implement corrective action. Delays prolong defect generation.",
-        "impact": "high"
-      },
-      {
-        "id": "defect_rate_spread",
-        "label": "Defect Rate Spread",
-        "description": "Difference between out-of-control and in-control defect rates. Larger spread increases cost.",
-        "impact": "medium"
-      },
-      {
-        "id": "production_rate",
-        "label": "Production Rate",
-        "description": "Higher production rates amplify the number of defects during delays.",
-        "impact": "medium"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_detection_delay",
-        "label": "Reduce Detection Delay",
-        "description": "Implement real-time SPC monitoring or reduce sampling intervals to detect signals faster.",
-        "expectedImpact": "Reduces defective units during delay by up to 50%.",
-        "effort": "medium"
-      },
-      {
-        "id": "improve_response_time",
-        "label": "Improve Response Time",
-        "description": "Establish clear escalation protocols and pre-defined corrective action plans (CAPA).",
-        "expectedImpact": "Reduces response delay by 30-60%.",
-        "effort": "low"
-      },
-      {
-        "id": "enhance_process_capability",
-        "label": "Enhance Process Capability",
-        "description": "Use Six Sigma DMAIC to reduce baseline defect rate and tighten control limits.",
-        "expectedImpact": "Lowers defect rate spread and overall cost.",
-        "effort": "high"
-      },
-      {
-        "id": "automate_correction",
-        "label": "Automate Correction",
-        "description": "Deploy automated feedback loops (e.g., APC) to adjust process parameters without manual intervention.",
-        "expectedImpact": "Eliminates response delay for common-cause variations.",
-        "effort": "high"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_cost",
-      "label": "Data Confidence Adjusted Annual Cost",
-      "value": null,
-      "unit": "USD/year",
-      "description": "Annual delay cost adjusted for data confidence (e.g., based on input variability or historical accuracy). Default multiplier = 0.85 for conservative estimate."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "spc-signal-delay-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

@@ -26,13 +26,18 @@ function evaluateAllFormulas(input: Cost_per_cycle_calculatorInput): Record<stri
   try { const v = input.materialCostPerCycle; results["materialCostPerCycle"] = Number.isFinite(v) ? v : 0; } catch { results["materialCostPerCycle"] = 0; }
   try { const v = input.laborCostPerHour * input.cycleTime; results["laborCostPerCycle"] = Number.isFinite(v) ? v : 0; } catch { results["laborCostPerCycle"] = 0; }
   try { const v = input.overheadRate * input.cycleTime; results["overheadCostPerCycle"] = Number.isFinite(v) ? v : 0; } catch { results["overheadCostPerCycle"] = 0; }
+  results["Kurulum_Maliyeti__TL__evrim_"] = 0;
+  results["Malzeme_Maliyeti__TL__evrim_"] = 0;
+  results["___ilik_Maliyeti__TL__evrim_"] = 0;
+  results["Genel_Gider__TL__evrim_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateCost_per_cycle_calculator(input: Cost_per_cycle_calculatorInput): Cost_per_cycle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Çevrim Başına Maliyet (TL/çevrim)"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

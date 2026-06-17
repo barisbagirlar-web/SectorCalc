@@ -31,7 +31,7 @@ function evaluateAllFormulas(input: Bird_cage_calculatorInput): Record<string, n
 
 export function calculateBird_cage_calculator(input: Bird_cage_calculatorInput): Bird_cage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["surfaceArea"] ?? 0;
   const breakdown = {
     
   };

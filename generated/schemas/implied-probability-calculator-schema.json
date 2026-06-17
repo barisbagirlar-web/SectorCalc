@@ -5,41 +5,81 @@
       "id": "oddsType",
       "label": "Odds Format",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: Decimal, 2: Fractional, 3: American"
+      "businessContext": "1: Decimal, 2: Fractional, 3: American",
+      "label_i18n": {
+        "en": "Odds Format",
+        "tr": "Odds Format",
+        "de": "Odds Format",
+        "fr": "Odds Format",
+        "es": "Odds Format",
+        "ar": "Odds Format"
+      }
     },
     {
       "id": "decimalOdds",
       "label": "Decimal Odds",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Enter decimal odds"
+      "businessContext": "Enter decimal odds",
+      "label_i18n": {
+        "en": "Decimal Odds",
+        "tr": "Decimal Odds",
+        "de": "Decimal Odds",
+        "fr": "Decimal Odds",
+        "es": "Decimal Odds",
+        "ar": "Decimal Odds"
+      }
     },
     {
       "id": "fractionalNumerator",
       "label": "Fractional Numerator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Numerator of fractional odds"
+      "businessContext": "Numerator of fractional odds",
+      "label_i18n": {
+        "en": "Fractional Numerator",
+        "tr": "Fractional Numerator",
+        "de": "Fractional Numerator",
+        "fr": "Fractional Numerator",
+        "es": "Fractional Numerator",
+        "ar": "Fractional Numerator"
+      }
     },
     {
       "id": "fractionalDenominator",
       "label": "Fractional Denominator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Denominator of fractional odds"
+      "businessContext": "Denominator of fractional odds",
+      "label_i18n": {
+        "en": "Fractional Denominator",
+        "tr": "Fractional Denominator",
+        "de": "Fractional Denominator",
+        "fr": "Fractional Denominator",
+        "es": "Fractional Denominator",
+        "ar": "Fractional Denominator"
+      }
     },
     {
       "id": "americanOdds",
       "label": "American Odds",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -110,
-      "businessContext": "Positive for underdog, negative for favorite"
+      "businessContext": "Positive for underdog, negative for favorite",
+      "label_i18n": {
+        "en": "American Odds",
+        "tr": "American Odds",
+        "de": "American Odds",
+        "fr": "American Odds",
+        "es": "American Odds",
+        "ar": "American Odds"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "fairDecimalOdds"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

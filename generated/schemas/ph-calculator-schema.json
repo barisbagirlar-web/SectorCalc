@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L",
       "default": 0.05,
-      "businessContext": "Kullanılan asit çözeltisinin hacmi."
+      "businessContext": "Kullanılan asit çözeltisinin hacmi.",
+      "label_i18n": {
+        "en": "Asit Hacmi",
+        "tr": "Asit Hacmi",
+        "de": "Asit Hacmi",
+        "fr": "Asit Hacmi",
+        "es": "Asit Hacmi",
+        "ar": "Asit Hacmi"
+      }
     },
     {
       "id": "concAcid",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Asit çözeltisinin konsantrasyonu."
+      "businessContext": "Asit çözeltisinin konsantrasyonu.",
+      "label_i18n": {
+        "en": "Asit Derişimi",
+        "tr": "Asit Derişimi",
+        "de": "Asit Derişimi",
+        "fr": "Asit Derişimi",
+        "es": "Asit Derişimi",
+        "ar": "Asit Derişimi"
+      }
     },
     {
       "id": "volBase",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 0.05,
-      "businessContext": "Kullanılan baz çözeltisinin hacmi."
+      "businessContext": "Kullanılan baz çözeltisinin hacmi.",
+      "label_i18n": {
+        "en": "Baz Hacmi",
+        "tr": "Baz Hacmi",
+        "de": "Baz Hacmi",
+        "fr": "Baz Hacmi",
+        "es": "Baz Hacmi",
+        "ar": "Baz Hacmi"
+      }
     },
     {
       "id": "concBase",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Baz çözeltisinin konsantrasyonu."
+      "businessContext": "Baz çözeltisinin konsantrasyonu.",
+      "label_i18n": {
+        "en": "Baz Derişimi",
+        "tr": "Baz Derişimi",
+        "de": "Baz Derişimi",
+        "fr": "Baz Derişimi",
+        "es": "Baz Derişimi",
+        "ar": "Baz Derişimi"
+      }
     },
     {
       "id": "Kw",
       "label": "Su İyonlaşma Sabiti (Kw)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1e-14,
-      "businessContext": "Suyun iyonlaşma sabiti, sıcaklığa bağlı değişir; 25°C için 1e-14."
+      "businessContext": "Suyun iyonlaşma sabiti, sıcaklığa bağlı değişir; 25°C için 1e-14.",
+      "label_i18n": {
+        "en": "Su İyonlaşma Sabiti (Kw)",
+        "tr": "Su İyonlaşma Sabiti (Kw)",
+        "de": "Su İyonlaşma Sabiti (Kw)",
+        "fr": "Su İyonlaşma Sabiti (Kw)",
+        "es": "Su İyonlaşma Sabiti (Kw)",
+        "ar": "Su İyonlaşma Sabiti (Kw)"
+      }
     }
   ],
   "formulas": {
@@ -59,10 +99,10 @@
       "pH"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

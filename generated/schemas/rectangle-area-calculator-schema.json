@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "Dikdörtgenin milimetre cinsinden uzunluğu."
+      "businessContext": "Dikdörtgenin milimetre cinsinden uzunluğu.",
+      "label_i18n": {
+        "en": "Uzunluk (mm)",
+        "tr": "Uzunluk (mm)",
+        "de": "Uzunluk (mm)",
+        "fr": "Uzunluk (mm)",
+        "es": "Uzunluk (mm)",
+        "ar": "Uzunluk (mm)"
+      }
     },
     {
       "id": "widthMm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "Dikdörtgenin milimetre cinsinden genişliği."
+      "businessContext": "Dikdörtgenin milimetre cinsinden genişliği.",
+      "label_i18n": {
+        "en": "Genişlik (mm)",
+        "tr": "Genişlik (mm)",
+        "de": "Genişlik (mm)",
+        "fr": "Genişlik (mm)",
+        "es": "Genişlik (mm)",
+        "ar": "Genişlik (mm)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²/mm²",
       "default": 0.000001,
-      "businessContext": "Milimetrekareyi metrekareye çevirme faktörü. 1 mm² = 1e-6 m²."
+      "businessContext": "Milimetrekareyi metrekareye çevirme faktörü. 1 mm² = 1e-6 m².",
+      "label_i18n": {
+        "en": "Alan Dönüşüm Faktörü",
+        "tr": "Alan Dönüşüm Faktörü",
+        "de": "Alan Dönüşüm Faktörü",
+        "fr": "Alan Dönüşüm Faktörü",
+        "es": "Alan Dönüşüm Faktörü",
+        "ar": "Alan Dönüşüm Faktörü"
+      }
     },
     {
       "id": "tolerancePercent",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "İmalat toleransı, her iki boyuta uygulanacak yüzde."
+      "businessContext": "İmalat toleransı, her iki boyuta uygulanacak yüzde.",
+      "label_i18n": {
+        "en": "Tolerans (%)",
+        "tr": "Tolerans (%)",
+        "de": "Tolerans (%)",
+        "fr": "Tolerans (%)",
+        "es": "Tolerans (%)",
+        "ar": "Tolerans (%)"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Emniyet Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Alan hesaplamasına uygulanacak emniyet çarpanı."
+      "businessContext": "Alan hesaplamasına uygulanacak emniyet çarpanı.",
+      "label_i18n": {
+        "en": "Emniyet Faktörü",
+        "tr": "Emniyet Faktörü",
+        "de": "Emniyet Faktörü",
+        "fr": "Emniyet Faktörü",
+        "es": "Emniyet Faktörü",
+        "ar": "Emniyet Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "rawAreaMm2"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

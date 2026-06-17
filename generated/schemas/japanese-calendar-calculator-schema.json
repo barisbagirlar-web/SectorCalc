@@ -7,25 +7,83 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "The Gregorian calendar year to be converted into the Japanese era format."
+      "businessContext": "The Gregorian calendar year to be converted into the Japanese era format.",
+      "label_i18n": {
+        "en": "Gregorian Year",
+        "tr": "Gregorian Year",
+        "de": "Gregorian Year",
+        "fr": "Gregorian Year",
+        "es": "Gregorian Year",
+        "ar": "Gregorian Year"
+      }
+    },
+    {
+      "id": "auto_input_2",
+      "label": "auto_input_2",
+      "label_i18n": {
+        "en": "auto_input_2",
+        "tr": "auto_input_2",
+        "de": "auto_input_2",
+        "fr": "auto_input_2",
+        "es": "auto_input_2",
+        "ar": "auto_input_2"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 2.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 2.",
+        "tr": "Auto-generated input 2.",
+        "de": "Auto-generated input 2.",
+        "fr": "Auto-generated input 2.",
+        "es": "Auto-generated input 2.",
+        "ar": "Auto-generated input 2."
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
     "eraStart": "(gregorianYear >= 2019) ? 2019 : (gregorianYear >= 1989) ? 1989 : (gregorianYear >= 1926) ? 1926 : (gregorianYear >= 1912) ? 1912 : (gregorianYear >= 1868) ? 1868 : 0",
     "eraName": "(gregorianYear >= 2019) ? 'Reiwa' : (gregorianYear >= 1989) ? 'Heisei' : (gregorianYear >= 1926) ? 'Showa' : (gregorianYear >= 1912) ? 'Taisho' : (gregorianYear >= 1868) ? 'Meiji' : 'Unknown'",
-    "eraYear": "gregorianYear - eraStart + 1"
+    "eraYear": "gregorianYear - eraStart + 1",
+    "__gregorianYear_": "${gregorianYear}",
+    "__eraStart_": "${eraStart}"
   },
   "outputs": {
-    "primary": "${eraName} ${eraYear}",
+    "primary": "eraStart",
     "breakdown": [
       "Gregorian Year: ${gregorianYear}",
       "Era Start Year: ${eraStart}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

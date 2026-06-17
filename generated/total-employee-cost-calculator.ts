@@ -33,33 +33,19 @@ export const Total_employee_cost_calculatorInputSchema = z.object({
   include_hidden_costs: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Total_employee_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.base_salary * (1 + input.bonus_percent / 100); results["direct_compensation"] = Number.isFinite(v) ? v : 0; } catch { results["direct_compensation"] = 0; }
-  try { const v = input.base_salary * ((input.benefits_percent + input.payroll_tax_percent) / 100); results["benefits_and_taxes"] = Number.isFinite(v) ? v : 0; } catch { results["benefits_and_taxes"] = 0; }
-  try { const v = ((results["direct_compensation"] ?? 0) + (results["benefits_and_taxes"] ?? 0)) * (input.overhead_percent / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
-  try { const v = (input.base_salary / 2080) * input.overtime_hours_per_week * 52 * input.overtime_premium; results["overtime_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overtime_cost"] = 0; }
-  try { const v = input.base_salary * (input.turnover_rate / 100) * (input.replacement_cost_percent / 100); results["turnover_cost"] = Number.isFinite(v) ? v : 0; } catch { results["turnover_cost"] = 0; }
-  try { const v = ((input.include_hidden_costs) ? (((results["direct_compensation"] ?? 0) + (results["benefits_and_taxes"] ?? 0)) * 0.05) : (0)); results["hidden_loss_drivers"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_loss_drivers"] = 0; }
-  try { const v = (results["direct_compensation"] ?? 0) + (results["benefits_and_taxes"] ?? 0) + (results["overhead_cost"] ?? 0) + input.training_cost + (results["overtime_cost"] ?? 0) + (results["turnover_cost"] ?? 0) + (results["hidden_loss_drivers"] ?? 0); results["total_employee_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_employee_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Total_employee_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateTotal_employee_cost_calculator(input: Total_employee_cost_calculatorInput): Total_employee_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_employee_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    direct_compensation: values["direct_compensation"] ?? 0,
-    benefits_and_taxes: values["benefits_and_taxes"] ?? 0,
-    overhead_cost: values["overhead_cost"] ?? 0,
-    training_cost: values["training_cost"] ?? 0,
-    overtime_cost: values["overtime_cost"] ?? 0,
-    turnover_cost: values["turnover_cost"] ?? 0,
-    hidden_loss_drivers: values["hidden_loss_drivers"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Absenteeism Cost","Disengagement Cost","Quality Defect Cost"];
-  const suggestedActions: string[] = ["Reduce Overtime","Improve Retention","Optimize Benefits","Lean Productivity Improvement"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -78,7 +64,7 @@ export function calculateTotal_employee_cost_calculator(input: Total_employee_co
 
 export interface Total_employee_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { direct_compensation: number; benefits_and_taxes: number; overhead_cost: number; training_cost: number; overtime_cost: number; turnover_cost: number; hidden_loss_drivers: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

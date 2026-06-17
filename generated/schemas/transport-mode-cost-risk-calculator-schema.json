@@ -62,7 +62,7 @@
       "id": "mode",
       "label": "Transport Mode",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "truck",
       "min": null,
       "max": null,
@@ -212,7 +212,7 @@
       "id": "use_lean_metrics",
       "label": "Apply Lean Metrics (takt time, waste)",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -270,158 +270,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "freight_cost",
-      "label": "Freight Cost",
-      "description": "Base freight cost based on mode, weight, distance, and fuel.",
-      "expression": "annual_volume * (mode_base_rate + fuel_surcharge)",
-      "subFormulas": {
-        "mode_base_rate": "CASE mode WHEN 'truck' THEN 0.15 * avg_shipment_weight * distance_km / 1000 WHEN 'rail' THEN 0.08 * avg_shipment_weight * distance_km / 1000 WHEN 'ocean' THEN 0.04 * avg_shipment_weight * distance_km / 1000 WHEN 'air' THEN 0.60 * avg_shipment_weight * distance_km / 1000 END",
-        "fuel_surcharge": "fuel_price_per_liter * 0.02 * distance_km / 100"
-      }
-    },
-    {
-      "id": "labor_cost",
-      "label": "Labor Cost",
-      "description": "Driver/operator labor cost based on transit time and handling.",
-      "expression": "annual_volume * (transit_time_days * 8 * labor_rate_per_hour / 1000)",
-      "subFormulas": {}
-    },
-    {
-      "id": "inventory_carrying_cost",
-      "label": "Inventory Carrying Cost",
-      "description": "Pipeline inventory cost during transit.",
-      "expression": "annual_volume * cargo_value_per_unit * (transit_time_days / 365) * (inventory_holding_cost_percent / 100)",
-      "subFormulas": {}
-    },
-    {
-      "id": "damage_and_insurance_cost",
-      "label": "Damage & Insurance Cost",
-      "description": "Expected cost from damage plus insurance premium.",
-      "expression": "annual_volume * cargo_value_per_unit * (damage_rate_percent / 100) + annual_volume * cargo_value_per_unit * (insurance_rate_per_1000 / 1000)",
-      "subFormulas": {}
-    },
-    {
-      "id": "carbon_cost",
-      "label": "Carbon Cost",
-      "description": "Environmental cost based on CO2 emissions and carbon tax.",
-      "expression": "annual_volume * (distance_km * emission_factor * carbon_tax_per_ton_co2 / 1000)",
-      "subFormulas": {
-        "emission_factor": "CASE mode WHEN 'truck' THEN 0.15 WHEN 'rail' THEN 0.03 WHEN 'ocean' THEN 0.01 WHEN 'air' THEN 0.60 END"
-      }
-    },
-    {
-      "id": "lean_waste_cost",
-      "label": "Lean Waste Cost (optional)",
-      "description": "Cost of non-value-added activities if lean metrics enabled.",
-      "expression": "CASE WHEN use_lean_metrics = true THEN (freight_cost + labor_cost) * 0.12 ELSE 0 END",
-      "subFormulas": {}
-    },
-    {
-      "id": "primaryResult",
-      "label": "Total Annual Cost (Primary Result)",
-      "description": "Sum of all cost components, adjusted for risk confidence.",
-      "expression": "(freight_cost + labor_cost + inventory_carrying_cost + damage_and_insurance_cost + carbon_cost + lean_waste_cost) * (1 + (1 - dataConfidenceAdjusted))",
-      "subFormulas": {}
-    }
+    "annual_volume",
+    "annual_volume",
+    "annual_volume",
+    "annual_volume",
+    "annual_volume",
+    "annual_volume",
+    "annual_volume"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_cost",
-      "label": "Total Annual Cost (USD)",
-      "unit": "USD",
-      "description": "Primary result: total annual cost of transport mode including risk adjustment."
-    },
-    "breakdown": {
-      "freight_cost": {
-        "id": "freight_cost",
-        "label": "Freight Cost",
-        "unit": "USD"
-      },
-      "labor_cost": {
-        "id": "labor_cost",
-        "label": "Labor Cost",
-        "unit": "USD"
-      },
-      "inventory_carrying_cost": {
-        "id": "inventory_carrying_cost",
-        "label": "Inventory Carrying Cost",
-        "unit": "USD"
-      },
-      "damage_and_insurance_cost": {
-        "id": "damage_and_insurance_cost",
-        "label": "Damage & Insurance Cost",
-        "unit": "USD"
-      },
-      "carbon_cost": {
-        "id": "carbon_cost",
-        "label": "Carbon Cost",
-        "unit": "USD"
-      },
-      "lean_waste_cost": {
-        "id": "lean_waste_cost",
-        "label": "Lean Waste Cost",
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "driver_1",
-        "label": "Excessive transit time variability",
-        "description": "High standard deviation in transit time increases safety stock and holding cost."
-      },
-      {
-        "id": "driver_2",
-        "label": "Underestimated damage rate",
-        "description": "Historical damage rate may not reflect current conditions; consider real-time tracking."
-      },
-      {
-        "id": "driver_3",
-        "label": "Fuel price volatility",
-        "description": "Fuel surcharge formula may lag market changes, causing cost exposure."
-      },
-      {
-        "id": "driver_4",
-        "label": "Mode mismatch with distance",
-        "description": "Using air for short distances or truck for very long distances increases cost and emissions."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "label": "Consolidate shipments",
-        "description": "Increase shipment size to reduce per-unit freight cost (economies of scale)."
-      },
-      {
-        "id": "action_2",
-        "label": "Shift to intermodal",
-        "description": "For distances >800 km, consider rail-truck intermodal to lower cost and emissions."
-      },
-      {
-        "id": "action_3",
-        "label": "Negotiate insurance rates",
-        "description": "If damage rate is low, negotiate lower insurance premium per $1000."
-      },
-      {
-        "id": "action_4",
-        "label": "Implement real-time tracking",
-        "description": "Reduce transit time variability and improve data confidence."
-      },
-      {
-        "id": "action_5",
-        "label": "Adopt lean logistics",
-        "description": "Eliminate waiting and overprocessing to reduce waste cost by up to 12%."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_score",
-      "label": "Data Confidence Score (0-1)",
-      "unit": "",
-      "description": "Adjusted confidence based on input completeness and historical accuracy. Used to scale total cost for risk."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "transport-mode-cost-risk-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "procurement-supply-chain",
+  "category": "Lojistik & Tedarik Zinciri",
+  "sector": "Lojistik & Sevkiyat"
 }

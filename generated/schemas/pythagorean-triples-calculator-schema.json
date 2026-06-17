@@ -5,33 +5,65 @@
       "id": "m",
       "label": "m (m > n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Pisagor üçlüsü üretiminde büyük parametre"
+      "businessContext": "Pisagor üçlüsü üretiminde büyük parametre",
+      "label_i18n": {
+        "en": "m (m > n)",
+        "tr": "m (m > n)",
+        "de": "m (m > n)",
+        "fr": "m (m > n)",
+        "es": "m (m > n)",
+        "ar": "m (m > n)"
+      }
     },
     {
       "id": "n",
       "label": "n (n < m)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Pisagor üçlüsü üretiminde küçük parametre"
+      "businessContext": "Pisagor üçlüsü üretiminde küçük parametre",
+      "label_i18n": {
+        "en": "n (n < m)",
+        "tr": "n (n < m)",
+        "de": "n (n < m)",
+        "fr": "n (n < m)",
+        "es": "n (n < m)",
+        "ar": "n (n < m)"
+      }
     },
     {
       "id": "scaleFactor",
       "label": "Ölçek Çarpanı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Üçgen kenarlarını ölçeklemek için pozitif tamsayı"
+      "businessContext": "Üçgen kenarlarını ölçeklemek için pozitif tamsayı",
+      "label_i18n": {
+        "en": "Ölçek Çarpanı",
+        "tr": "Ölçek Çarpanı",
+        "de": "Ölçek Çarpanı",
+        "fr": "Ölçek Çarpanı",
+        "es": "Ölçek Çarpanı",
+        "ar": "Ölçek Çarpanı"
+      }
     },
     {
       "id": "maxHypotenuse",
       "label": "Maksimum Hipotenüs",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Opsiyonel: hipotenüsün maksimum değeri (0 ise sınırsız)"
+      "businessContext": "Opsiyonel: hipotenüsün maksimum değeri (0 ise sınırsız)",
+      "label_i18n": {
+        "en": "Maksimum Hipotenüs",
+        "tr": "Maksimum Hipotenüs",
+        "de": "Maksimum Hipotenüs",
+        "fr": "Maksimum Hipotenüs",
+        "es": "Maksimum Hipotenüs",
+        "ar": "Maksimum Hipotenüs"
+      }
     }
   ],
   "formulas": {
@@ -53,10 +85,10 @@
       "actualScale"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

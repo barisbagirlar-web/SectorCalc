@@ -27,31 +27,19 @@ export const Shop_hourly_rate_calculatorInputSchema = z.object({
   overhead_allocation_method: z.enum(['direct_labor_hours', 'machine_hours', 'total_labor_cost']).default('direct_labor_hours'),
 });
 
-function evaluateAllFormulas(input: Shop_hourly_rate_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.direct_labor_hourly_rate * (1 + (input.include_benefits ? 0.30 : 0)) * input.shift_premium_factor; results["effective_labor_rate"] = Number.isFinite(v) ? v : 0; } catch { results["effective_labor_rate"] = 0; }
-  try { const v = input.num_direct_labor_employees * input.annual_operating_hours_per_employee; results["total_direct_labor_hours"] = Number.isFinite(v) ? v : 0; } catch { results["total_direct_labor_hours"] = 0; }
-  try { const v = input.total_annual_overhead_costs / (results["total_direct_labor_hours"] ?? 0); results["overhead_rate_per_hour"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_rate_per_hour"] = 0; }
-  try { const v = input.total_annual_machine_costs / (results["total_direct_labor_hours"] ?? 0); results["machine_rate_per_hour"] = Number.isFinite(v) ? v : 0; } catch { results["machine_rate_per_hour"] = 0; }
-  try { const v = (results["effective_labor_rate"] ?? 0) + (results["overhead_rate_per_hour"] ?? 0) + (results["machine_rate_per_hour"] ?? 0); results["gross_hourly_rate"] = Number.isFinite(v) ? v : 0; } catch { results["gross_hourly_rate"] = 0; }
-  try { const v = (input.average_shop_efficiency_percent / 100) * (input.quality_yield_percent / 100); results["efficiency_adjustment_factor"] = Number.isFinite(v) ? v : 0; } catch { results["efficiency_adjustment_factor"] = 0; }
-  try { const v = (results["gross_hourly_rate"] ?? 0) / (results["efficiency_adjustment_factor"] ?? 0); results["true_shop_hourly_rate"] = Number.isFinite(v) ? v : 0; } catch { results["true_shop_hourly_rate"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Shop_hourly_rate_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateShop_hourly_rate_calculator(input: Shop_hourly_rate_calculatorInput): Shop_hourly_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["true_shop_hourly_rate"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    effective_labor_rate: values["effective_labor_rate"] ?? 0,
-    overhead_rate_per_hour: values["overhead_rate_per_hour"] ?? 0,
-    machine_rate_per_hour: values["machine_rate_per_hour"] ?? 0,
-    gross_hourly_rate: values["gross_hourly_rate"] ?? 0,
-    efficiency_adjustment_factor: values["efficiency_adjustment_factor"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Downtime Loss","Speed Loss","Quality Loss (Rework & Scrap)","Indirect Labor Burden"];
-  const suggestedActions: string[] = ["Implement TPM (Total Productive Maintenance)","Deploy Six Sigma DMAIC for top defect causes","Review overhead allocation and reduce non-value-added costs","Standardize work procedures to reduce speed loss"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -70,7 +58,7 @@ export function calculateShop_hourly_rate_calculator(input: Shop_hourly_rate_cal
 
 export interface Shop_hourly_rate_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { effective_labor_rate: number; overhead_rate_per_hour: number; machine_rate_per_hour: number; gross_hourly_rate: number; efficiency_adjustment_factor: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3000,
-      "businessContext": "Unbraced length of the column"
+      "businessContext": "Unbraced length of the column",
+      "label_i18n": {
+        "en": "Column Length",
+        "tr": "Column Length",
+        "de": "Column Length",
+        "fr": "Column Length",
+        "es": "Column Length",
+        "ar": "Column Length"
+      }
     },
     {
       "id": "area",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm²",
       "default": 5000,
-      "businessContext": "Area of the column cross-section"
+      "businessContext": "Area of the column cross-section",
+      "label_i18n": {
+        "en": "Cross-sectional Area",
+        "tr": "Cross-sectional Area",
+        "de": "Cross-sectional Area",
+        "fr": "Cross-sectional Area",
+        "es": "Cross-sectional Area",
+        "ar": "Cross-sectional Area"
+      }
     },
     {
       "id": "inertia",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm⁴",
       "default": 1000000,
-      "businessContext": "Minimum moment of inertia about buckling axis"
+      "businessContext": "Minimum moment of inertia about buckling axis",
+      "label_i18n": {
+        "en": "Moment of Inertia",
+        "tr": "Moment of Inertia",
+        "de": "Moment of Inertia",
+        "fr": "Moment of Inertia",
+        "es": "Moment of Inertia",
+        "ar": "Moment of Inertia"
+      }
     },
     {
       "id": "elasticModulus",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "GPa",
       "default": 200,
-      "businessContext": "Young's modulus of the material"
+      "businessContext": "Young's modulus of the material",
+      "label_i18n": {
+        "en": "Modulus of Elasticity",
+        "tr": "Modulus of Elasticity",
+        "de": "Modulus of Elasticity",
+        "fr": "Modulus of Elasticity",
+        "es": "Modulus of Elasticity",
+        "ar": "Modulus of Elasticity"
+      }
     },
     {
       "id": "yieldStrength",
@@ -39,23 +71,47 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Yield stress of the material"
+      "businessContext": "Yield stress of the material",
+      "label_i18n": {
+        "en": "Yield Strength",
+        "tr": "Yield Strength",
+        "de": "Yield Strength",
+        "fr": "Yield Strength",
+        "es": "Yield Strength",
+        "ar": "Yield Strength"
+      }
     },
     {
       "id": "effectiveLengthFactor",
       "label": "Effective Length Factor K",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Effective length factor (e.g., 1.0 for pinned-pinned, 2.0 for fixed-free)"
+      "businessContext": "Effective length factor (e.g., 1.0 for pinned-pinned, 2.0 for fixed-free)",
+      "label_i18n": {
+        "en": "Effective Length Factor K",
+        "tr": "Effective Length Factor K",
+        "de": "Effective Length Factor K",
+        "fr": "Effective Length Factor K",
+        "es": "Effective Length Factor K",
+        "ar": "Effective Length Factor K"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Factor of safety for design load"
+      "businessContext": "Factor of safety for design load",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -73,7 +129,7 @@
       "slendernessRatio"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

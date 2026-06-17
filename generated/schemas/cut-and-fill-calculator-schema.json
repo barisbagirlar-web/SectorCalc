@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 50,
-      "businessContext": "Cross-sectional area of cut at the first station."
+      "businessContext": "Cross-sectional area of cut at the first station.",
+      "label_i18n": {
+        "en": "Cut Area at Station 1",
+        "tr": "Cut Area at Station 1",
+        "de": "Cut Area at Station 1",
+        "fr": "Cut Area at Station 1",
+        "es": "Cut Area at Station 1",
+        "ar": "Cut Area at Station 1"
+      }
     },
     {
       "id": "cutArea2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²",
       "default": 60,
-      "businessContext": "Cross-sectional area of cut at the second station."
+      "businessContext": "Cross-sectional area of cut at the second station.",
+      "label_i18n": {
+        "en": "Cut Area at Station 2",
+        "tr": "Cut Area at Station 2",
+        "de": "Cut Area at Station 2",
+        "fr": "Cut Area at Station 2",
+        "es": "Cut Area at Station 2",
+        "ar": "Cut Area at Station 2"
+      }
     },
     {
       "id": "fillArea1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²",
       "default": 30,
-      "businessContext": "Cross-sectional area of fill at the first station."
+      "businessContext": "Cross-sectional area of fill at the first station.",
+      "label_i18n": {
+        "en": "Fill Area at Station 1",
+        "tr": "Fill Area at Station 1",
+        "de": "Fill Area at Station 1",
+        "fr": "Fill Area at Station 1",
+        "es": "Fill Area at Station 1",
+        "ar": "Fill Area at Station 1"
+      }
     },
     {
       "id": "fillArea2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m²",
       "default": 40,
-      "businessContext": "Cross-sectional area of fill at the second station."
+      "businessContext": "Cross-sectional area of fill at the second station.",
+      "label_i18n": {
+        "en": "Fill Area at Station 2",
+        "tr": "Fill Area at Station 2",
+        "de": "Fill Area at Station 2",
+        "fr": "Fill Area at Station 2",
+        "es": "Fill Area at Station 2",
+        "ar": "Fill Area at Station 2"
+      }
     },
     {
       "id": "distance",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "Distance along the alignment between the two cross-sections."
+      "businessContext": "Distance along the alignment between the two cross-sections.",
+      "label_i18n": {
+        "en": "Distance Between Stations",
+        "tr": "Distance Between Stations",
+        "de": "Distance Between Stations",
+        "fr": "Distance Between Stations",
+        "es": "Distance Between Stations",
+        "ar": "Distance Between Stations"
+      }
     },
     {
       "id": "shrinkageFactor",
       "label": "Shrinkage Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "Shrinkage factor (e.g., 0.9 for 10% shrinkage, 1.0 for no shrinkage)."
+      "businessContext": "Shrinkage factor (e.g., 0.9 for 10% shrinkage, 1.0 for no shrinkage).",
+      "label_i18n": {
+        "en": "Shrinkage Factor",
+        "tr": "Shrinkage Factor",
+        "de": "Shrinkage Factor",
+        "fr": "Shrinkage Factor",
+        "es": "Shrinkage Factor",
+        "ar": "Shrinkage Factor"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "adjustedFillVolume"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

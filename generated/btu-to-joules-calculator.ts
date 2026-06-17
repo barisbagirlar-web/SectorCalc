@@ -23,6 +23,10 @@ function evaluateAllFormulas(input: Btu_to_joules_calculatorInput): Record<strin
   try { const v = input.btuValue * (results["conversionFactor"] ?? 0); results["rawJoules"] = Number.isFinite(v) ? v : 0; } catch { results["rawJoules"] = 0; }
   try { const v = input.outputUnit === 2 ? (results["rawJoules"] ?? 0) / 1000 : (results["rawJoules"] ?? 0); results["joules"] = Number.isFinite(v) ? v : 0; } catch { results["joules"] = 0; }
   try { const v = Math.round((results["joules"] ?? 0) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["roundedJoules"] = Number.isFinite(v) ? v : 0; } catch { results["roundedJoules"] = 0; }
+  results["__conversionFactor__J_BTU_"] = 0;
+  results["__rawJoules____outputUnit_____2____kJ___"] = 0;
+  results["__btuStandard_____1____IT____btuStandard"] = 0;
+  results["__precision__decimal_places_"] = 0;
   return results;
 }
 

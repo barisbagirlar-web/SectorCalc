@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000000,
-      "businessContext": "Total sales revenue for the period"
+      "businessContext": "Total sales revenue for the period",
+      "label_i18n": {
+        "en": "Revenue",
+        "tr": "Revenue",
+        "de": "Revenue",
+        "fr": "Revenue",
+        "es": "Revenue",
+        "ar": "Revenue"
+      }
     },
     {
       "id": "operatingExpenses",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 600000,
-      "businessContext": "Total operating expenses including COGS, SG&A, etc."
+      "businessContext": "Total operating expenses including COGS, SG&A, etc.",
+      "label_i18n": {
+        "en": "Operating Expenses",
+        "tr": "Operating Expenses",
+        "de": "Operating Expenses",
+        "fr": "Operating Expenses",
+        "es": "Operating Expenses",
+        "ar": "Operating Expenses"
+      }
     },
     {
       "id": "taxRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Effective tax rate percentage"
+      "businessContext": "Effective tax rate percentage",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "depreciation",
@@ -31,17 +55,29 @@
       "type": "number",
       "unit": "$",
       "default": 50000,
-      "businessContext": "Depreciation and amortization expense (non-cash)"
+      "businessContext": "Depreciation and amortization expense (non-cash)",
+      "label_i18n": {
+        "en": "Depreciation",
+        "tr": "Depreciation",
+        "de": "Depreciation",
+        "fr": "Depreciation",
+        "es": "Depreciation",
+        "ar": "Depreciation"
+      }
     }
   ],
   "formulas": {
     "operatingCashFlow": "(revenue - operatingExpenses) * (1 - taxRate / 100) + depreciation",
     "ebit": "revenue - operatingExpenses",
     "taxAmount": "(revenue - operatingExpenses) * taxRate / 100",
-    "afterTaxEBIT": "(revenue - operatingExpenses) * (1 - taxRate / 100)"
+    "afterTaxEBIT": "(revenue - operatingExpenses) * (1 - taxRate / 100)",
+    "EBIT": "EBIT",
+    "Tax_Amount": "Tax Amount",
+    "After_Tax_EBIT": "After-Tax EBIT",
+    "Depreciation_Add_back": "Depreciation Add-back"
   },
   "outputs": {
-    "primary": "Operating Cash Flow",
+    "primary": "operatingCashFlow",
     "breakdown": [
       "EBIT",
       "Tax Amount",
@@ -49,10 +85,10 @@
       "Depreciation Add-back"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "process-chemical"
 }

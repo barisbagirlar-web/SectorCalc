@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cal",
       "default": 0,
-      "businessContext": "The amount of energy in calories to convert."
+      "businessContext": "The amount of energy in calories to convert.",
+      "label_i18n": {
+        "en": "Calorie Amount",
+        "tr": "Calorie Amount",
+        "de": "Calorie Amount",
+        "fr": "Calorie Amount",
+        "es": "Calorie Amount",
+        "ar": "Calorie Amount"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "J/cal",
       "default": 4.184,
-      "businessContext": "Standard thermochemical conversion factor. Adjust for specific calorie definitions."
+      "businessContext": "Standard thermochemical conversion factor. Adjust for specific calorie definitions.",
+      "label_i18n": {
+        "en": "Conversion Factor (J/cal)",
+        "tr": "Conversion Factor (J/cal)",
+        "de": "Conversion Factor (J/cal)",
+        "fr": "Conversion Factor (J/cal)",
+        "es": "Conversion Factor (J/cal)",
+        "ar": "Conversion Factor (J/cal)"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output."
+      "businessContext": "Number of decimal places for the output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "batchSize",
       "label": "Batch Size",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of identical items to convert total energy."
+      "businessContext": "Number of identical items to convert total energy.",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "kilojoules"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

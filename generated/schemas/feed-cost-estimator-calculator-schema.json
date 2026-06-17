@@ -79,7 +79,7 @@
       "id": "quality_grade",
       "label": "Quality grade",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "standard",
       "min": null,
       "max": null,
@@ -100,7 +100,7 @@
       "id": "include_transport_cost",
       "label": "Include transport cost?",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -151,160 +151,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "effective_raw_material_cost",
-      "label": "Effective raw material cost per kg",
-      "description": "Raw material cost adjusted for moisture and processing loss.",
-      "formula": "raw_material_cost_per_kg * moisture_adjustment_factor / (1 - processing_loss_percent / 100)",
-      "unit": "USD/kg"
-    },
-    {
-      "id": "transport_surcharge",
-      "label": "Transport surcharge per kg",
-      "description": "Fixed transport cost if included.",
-      "formula": "include_transport_cost ? 0.02 : 0",
-      "unit": "USD/kg"
-    },
-    {
-      "id": "quality_multiplier",
-      "label": "Quality grade multiplier",
-      "description": "Multiplier based on quality grade (premium=1.15, standard=1.0, economy=0.90).",
-      "formula": "quality_grade == 'premium' ? 1.15 : (quality_grade == 'economy' ? 0.90 : 1.0)",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "adjusted_feed_cost_per_kg",
-      "label": "Adjusted feed cost per kg",
-      "description": "Total cost per kg of feed delivered to animal, including quality adjustment.",
-      "formula": "(effective_raw_material_cost + transport_surcharge) * quality_multiplier",
-      "unit": "USD/kg"
-    },
-    {
-      "id": "total_feed_cost_per_animal_per_day",
-      "label": "Total feed cost per animal per day",
-      "description": "Primary result: daily feed cost for one animal.",
-      "formula": "adjusted_feed_cost_per_kg * feed_intake_kg",
-      "unit": "USD/day"
-    },
-    {
-      "id": "annual_feed_cost_per_animal",
-      "label": "Annual feed cost per animal",
-      "description": "Yearly feed cost assuming 365 days.",
-      "formula": "total_feed_cost_per_animal_per_day * 365",
-      "unit": "USD/year"
-    },
-    {
-      "id": "cost_per_kg_gain",
-      "label": "Cost per kg of weight gain",
-      "description": "Feed cost efficiency metric (assumes feed conversion ratio of 2.5).",
-      "formula": "adjusted_feed_cost_per_kg * 2.5",
-      "unit": "USD/kg gain"
-    }
+    "feed_intake_kg",
+    "feed_intake_kg",
+    "feed_intake_kg",
+    "feed_intake_kg",
+    "feed_intake_kg",
+    "feed_intake_kg",
+    "feed_intake_kg"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_feed_cost_per_animal_per_day",
-      "label": "Total feed cost per animal per day",
-      "value": null,
-      "unit": "USD/day"
-    },
-    "breakdown": {
-      "raw_material_base_cost": {
-        "id": "raw_material_base_cost",
-        "label": "Raw material base cost",
-        "value": null,
-        "unit": "USD/kg"
-      },
-      "moisture_adjusted_cost": {
-        "id": "moisture_adjusted_cost",
-        "label": "Moisture adjusted cost",
-        "value": null,
-        "unit": "USD/kg"
-      },
-      "processing_loss_cost": {
-        "id": "processing_loss_cost",
-        "label": "Processing loss cost",
-        "value": null,
-        "unit": "USD/kg"
-      },
-      "transport_cost": {
-        "id": "transport_cost",
-        "label": "Transport cost",
-        "value": null,
-        "unit": "USD/kg"
-      },
-      "quality_adjustment": {
-        "id": "quality_adjustment",
-        "label": "Quality adjustment",
-        "value": null,
-        "unit": "USD/kg"
-      },
-      "daily_feed_cost": {
-        "id": "daily_feed_cost",
-        "label": "Daily feed cost",
-        "value": null,
-        "unit": "USD/day"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excessive_processing_loss",
-        "label": "Excessive processing loss",
-        "description": "Processing loss above 5% indicates potential equipment wear or improper settings.",
-        "threshold": 5,
-        "currentValue": null,
-        "unit": "%"
-      },
-      {
-        "id": "moisture_variation",
-        "label": "Moisture variation",
-        "description": "Moisture adjustment factor outside 0.95-1.05 range suggests inconsistent raw material quality.",
-        "thresholdMin": 0.95,
-        "thresholdMax": 1.05,
-        "currentValue": null,
-        "unit": "dimensionless"
-      },
-      {
-        "id": "quality_grade_mismatch",
-        "label": "Quality grade mismatch",
-        "description": "Using premium grade when standard would suffice increases cost unnecessarily.",
-        "threshold": "premium",
-        "currentValue": null,
-        "unit": "grade"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_processing_loss",
-        "action": "Implement preventive maintenance on mills and pellet mills to reduce processing loss below 3%.",
-        "expectedImpact": "Savings of up to 2% on raw material cost."
-      },
-      {
-        "id": "optimize_moisture",
-        "action": "Negotiate with suppliers for consistent moisture content or install on-line moisture sensors.",
-        "expectedImpact": "Reduction in cost variability and improved feed consistency."
-      },
-      {
-        "id": "review_quality_grade",
-        "action": "Evaluate if standard grade feed meets animal performance targets before using premium.",
-        "expectedImpact": "Potential 10-15% reduction in feed cost per kg."
-      },
-      {
-        "id": "bulk_purchasing",
-        "action": "Consolidate raw material purchases to achieve volume discounts.",
-        "expectedImpact": "Reduction of raw material cost by 3-5%."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data confidence adjusted cost",
-      "description": "Total feed cost adjusted by a confidence factor (0.9) to account for input variability.",
-      "value": null,
-      "unit": "USD/day"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "feed-cost-estimator-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

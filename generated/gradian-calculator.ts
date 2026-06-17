@@ -18,13 +18,16 @@ export const Gradian_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Gradian_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.grad * 0.9 + input.deg + input.rad * (180/Math.PI)) * input.multiplier; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.grad; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Converted_Angle_in_Gradians"] = 0;
+  results["Converted_Angle_in_Radians"] = 0;
   return results;
 }
 
 
 export function calculateGradian_calculator(input: Gradian_calculatorInput): Gradian_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Converted"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

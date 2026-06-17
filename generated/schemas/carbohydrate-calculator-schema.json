@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Vücut ağırlığı"
+      "businessContext": "Vücut ağırlığı",
+      "label_i18n": {
+        "en": "Ağırlık",
+        "tr": "Ağırlık",
+        "de": "Ağırlık",
+        "fr": "Ağırlık",
+        "es": "Ağırlık",
+        "ar": "Ağırlık"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Boy uzunluğu"
+      "businessContext": "Boy uzunluğu",
+      "label_i18n": {
+        "en": "Boy",
+        "tr": "Boy",
+        "de": "Boy",
+        "fr": "Boy",
+        "es": "Boy",
+        "ar": "Boy"
+      }
     },
     {
       "id": "age",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Yaşınız"
+      "businessContext": "Yaşınız",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "gender",
       "label": "Cinsiyet",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Cinsiyet (1:Erkek, 0:Kadın)"
+      "businessContext": "Cinsiyet (1:Erkek, 0:Kadın)",
+      "label_i18n": {
+        "en": "Cinsiyet",
+        "tr": "Cinsiyet",
+        "de": "Cinsiyet",
+        "fr": "Cinsiyet",
+        "es": "Cinsiyet",
+        "ar": "Cinsiyet"
+      }
     },
     {
       "id": "activityLevel",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "PAL",
       "default": 1.55,
-      "businessContext": "Fiziksel aktivite düzeyi faktörü (1.2-2.5)"
+      "businessContext": "Fiziksel aktivite düzeyi faktörü (1.2-2.5)",
+      "label_i18n": {
+        "en": "Aktivite Seviyesi",
+        "tr": "Aktivite Seviyesi",
+        "de": "Aktivite Seviyesi",
+        "fr": "Aktivite Seviyesi",
+        "es": "Aktivite Seviyesi",
+        "ar": "Aktivite Seviyesi"
+      }
     },
     {
       "id": "carbPercentage",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Günlük kaloride karbonhidrat yüzdesi"
+      "businessContext": "Günlük kaloride karbonhidrat yüzdesi",
+      "label_i18n": {
+        "en": "Karbonhidrat Oranı",
+        "tr": "Karbonhidrat Oranı",
+        "de": "Karbonhidrat Oranı",
+        "fr": "Karbonhidrat Oranı",
+        "es": "Karbonhidrat Oranı",
+        "ar": "Karbonhidrat Oranı"
+      }
     }
   ],
   "formulas": {
@@ -65,10 +113,10 @@
       "dailyCarbs"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

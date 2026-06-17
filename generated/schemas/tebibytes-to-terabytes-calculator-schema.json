@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "TiB",
       "default": 1,
-      "businessContext": "The data volume in tebibytes (binary prefix, 2^40 bytes)."
+      "businessContext": "The data volume in tebibytes (binary prefix, 2^40 bytes).",
+      "label_i18n": {
+        "en": "Tebibytes (TiB)",
+        "tr": "Tebibytes (TiB)",
+        "de": "Tebibytes (TiB)",
+        "fr": "Tebibytes (TiB)",
+        "es": "Tebibytes (TiB)",
+        "ar": "Tebibytes (TiB)"
+      }
     },
     {
       "id": "conversionFactor",
       "label": "Conversion Factor (TiB to TB)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.099511627776,
-      "businessContext": "Exact conversion factor: 1 TiB = 2^40 bytes, 1 TB = 10^12 bytes, so factor = 2^40 / 10^12 = 1.099511627776. Adjust for custom conversion if needed."
+      "businessContext": "Exact conversion factor: 1 TiB = 2^40 bytes, 1 TB = 10^12 bytes, so factor = 2^40 / 10^12 = 1.099511627776. Adjust for custom conversion if needed.",
+      "label_i18n": {
+        "en": "Conversion Factor (TiB to TB)",
+        "tr": "Conversion Factor (TiB to TB)",
+        "de": "Conversion Factor (TiB to TB)",
+        "fr": "Conversion Factor (TiB to TB)",
+        "es": "Conversion Factor (TiB to TB)",
+        "ar": "Conversion Factor (TiB to TB)"
+      }
     },
     {
       "id": "precision",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "decimals",
       "default": 2,
-      "businessContext": "Number of decimal places to round the output terabytes."
+      "businessContext": "Number of decimal places to round the output terabytes.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "outputMultiplier",
       "label": "Output Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiply the converted terabytes by this factor for aggregated or scaled calculations."
+      "businessContext": "Multiply the converted terabytes by this factor for aggregated or scaled calculations.",
+      "label_i18n": {
+        "en": "Output Multiplier",
+        "tr": "Output Multiplier",
+        "de": "Output Multiplier",
+        "fr": "Output Multiplier",
+        "es": "Output Multiplier",
+        "ar": "Output Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "rawValueWithoutMultiplier"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

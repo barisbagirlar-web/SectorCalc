@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours (0-24)",
       "default": 6.5,
-      "businessContext": "Time of sunrise in decimal hours (e.g., 6.5 = 06:30). Used to compute blue hour start."
+      "businessContext": "Time of sunrise in decimal hours (e.g., 6.5 = 06:30). Used to compute blue hour start.",
+      "label_i18n": {
+        "en": "Sunrise Time (decimal hours)",
+        "tr": "Sunrise Time (decimal hours)",
+        "de": "Sunrise Time (decimal hours)",
+        "fr": "Sunrise Time (decimal hours)",
+        "es": "Sunrise Time (decimal hours)",
+        "ar": "Sunrise Time (decimal hours)"
+      }
     },
     {
       "id": "sunset_time",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours (0-24)",
       "default": 18,
-      "businessContext": "Time of sunset in decimal hours. Used to compute blue hour end."
+      "businessContext": "Time of sunset in decimal hours. Used to compute blue hour end.",
+      "label_i18n": {
+        "en": "Sunset Time (decimal hours)",
+        "tr": "Sunset Time (decimal hours)",
+        "de": "Sunset Time (decimal hours)",
+        "fr": "Sunset Time (decimal hours)",
+        "es": "Sunset Time (decimal hours)",
+        "ar": "Sunset Time (decimal hours)"
+      }
     },
     {
       "id": "latitude",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 40,
-      "businessContext": "Latitude of location in decimal degrees. Affects duration of twilight."
+      "businessContext": "Latitude of location in decimal degrees. Affects duration of twilight.",
+      "label_i18n": {
+        "en": "Latitude (degrees)",
+        "tr": "Latitude (degrees)",
+        "de": "Latitude (degrees)",
+        "fr": "Latitude (degrees)",
+        "es": "Latitude (degrees)",
+        "ar": "Latitude (degrees)"
+      }
     },
     {
       "id": "longitude",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°",
       "default": -74,
-      "businessContext": "Longitude of location in decimal degrees. Used for time zone correction."
+      "businessContext": "Longitude of location in decimal degrees. Used for time zone correction.",
+      "label_i18n": {
+        "en": "Longitude (degrees)",
+        "tr": "Longitude (degrees)",
+        "de": "Longitude (degrees)",
+        "fr": "Longitude (degrees)",
+        "es": "Longitude (degrees)",
+        "ar": "Longitude (degrees)"
+      }
     },
     {
       "id": "timezone_offset",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": -5,
-      "businessContext": "Time zone offset relative to UTC. Adjusts solar time to local time."
+      "businessContext": "Time zone offset relative to UTC. Adjusts solar time to local time.",
+      "label_i18n": {
+        "en": "Timezone Offset from UTC (hours)",
+        "tr": "Timezone Offset from UTC (hours)",
+        "de": "Timezone Offset from UTC (hours)",
+        "fr": "Timezone Offset from UTC (hours)",
+        "es": "Timezone Offset from UTC (hours)",
+        "ar": "Timezone Offset from UTC (hours)"
+      }
     },
     {
       "id": "day_of_year",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days",
       "default": 172,
-      "businessContext": "Day of the year (1 = Jan 1). Used for solar declination calculation."
+      "businessContext": "Day of the year (1 = Jan 1). Used for solar declination calculation.",
+      "label_i18n": {
+        "en": "Day of Year (1-365)",
+        "tr": "Day of Year (1-365)",
+        "de": "Day of Year (1-365)",
+        "fr": "Day of Year (1-365)",
+        "es": "Day of Year (1-365)",
+        "ar": "Day of Year (1-365)"
+      }
     }
   ],
   "formulas": {
@@ -61,10 +109,16 @@
     "blue_hour_evening_start": "sunset_solar",
     "blue_hour_evening_end": "sunset_solar + 0.5",
     "blue_hour_morning_duration": "blue_hour_morning_end - blue_hour_morning_start",
-    "blue_hour_evening_duration": "blue_hour_evening_end - blue_hour_evening_start"
+    "blue_hour_evening_duration": "blue_hour_evening_end - blue_hour_evening_start",
+    "_blue_hour_morning_start__hours": "{blue_hour_morning_start} hours",
+    "_blue_hour_morning_end__hours": "{blue_hour_morning_end} hours",
+    "_blue_hour_evening_start__hours": "{blue_hour_evening_start} hours",
+    "_blue_hour_evening_end__hours": "{blue_hour_evening_end} hours",
+    "_blue_hour_morning_duration__hours": "{blue_hour_morning_duration} hours",
+    "_blue_hour_evening_duration__hours": "{blue_hour_evening_duration} hours"
   },
   "outputs": {
-    "primary": "Blue hour morning start: {blue_hour_morning_start} hrs, evening end: {blue_hour_evening_end} hrs",
+    "primary": "solar_declination",
     "breakdown": [
       "Morning blue hour start (local time): {blue_hour_morning_start} hours",
       "Morning blue hour end (local time): {blue_hour_morning_end} hours",
@@ -74,8 +128,8 @@
       "Evening blue hour duration: {blue_hour_evening_duration} hours"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

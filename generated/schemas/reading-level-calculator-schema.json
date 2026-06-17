@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Metindeki toplam kelime sayısı"
+      "businessContext": "Metindeki toplam kelime sayısı",
+      "label_i18n": {
+        "en": "Toplam Kelime Sayısı",
+        "tr": "Toplam Kelime Sayısı",
+        "de": "Toplam Kelime Sayısı",
+        "fr": "Toplam Kelime Sayısı",
+        "es": "Toplam Kelime Sayısı",
+        "ar": "Toplam Kelime Sayısı"
+      }
     },
     {
       "id": "totalSentences",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Metindeki toplam cümle sayısı"
+      "businessContext": "Metindeki toplam cümle sayısı",
+      "label_i18n": {
+        "en": "Toplam Cümle Sayısı",
+        "tr": "Toplam Cümle Sayısı",
+        "de": "Toplam Cümle Sayısı",
+        "fr": "Toplam Cümle Sayısı",
+        "es": "Toplam Cümle Sayısı",
+        "ar": "Toplam Cümle Sayısı"
+      }
     },
     {
       "id": "totalSyllables",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 150,
-      "businessContext": "Metindeki toplam hece sayısı"
+      "businessContext": "Metindeki toplam hece sayısı",
+      "label_i18n": {
+        "en": "Toplam Hece Sayısı",
+        "tr": "Toplam Hece Sayısı",
+        "de": "Toplam Hece Sayısı",
+        "fr": "Toplam Hece Sayısı",
+        "es": "Toplam Hece Sayısı",
+        "ar": "Toplam Hece Sayısı"
+      }
     },
     {
       "id": "totalComplexWords",
@@ -31,23 +55,34 @@
       "type": "number",
       "unit": "adet",
       "default": 20,
-      "businessContext": "3 veya daha fazla heceli kelime sayısı"
+      "businessContext": "3 veya daha fazla heceli kelime sayısı",
+      "label_i18n": {
+        "en": "Çok Heceli Kelime Sayısı",
+        "tr": "Çok Heceli Kelime Sayısı",
+        "de": "Çok Heceli Kelime Sayısı",
+        "fr": "Çok Heceli Kelime Sayısı",
+        "es": "Çok Heceli Kelime Sayısı",
+        "ar": "Çok Heceli Kelime Sayısı"
+      }
     }
   ],
   "formulas": {
     "readingGradeLevel": "0.39 * (totalWords / totalSentences) + 11.8 * (totalSyllables / totalWords) - 15.59",
     "readingEase": "206.835 - 1.015 * (totalWords / totalSentences) - 84.6 * (totalSyllables / totalWords)",
-    "gunningFog": "0.4 * ((totalWords / totalSentences) + 100 * (totalComplexWords / totalWords))"
+    "gunningFog": "0.4 * ((totalWords / totalSentences) + 100 * (totalComplexWords / totalWords))",
+    "206_835___1_015____totalWords___totalSen": "206.835 - 1.015 * (totalWords / totalSentences) - 84.6 * (totalSyllables / totalWords)",
+    "0_4_____totalWords___totalSentences____1": "0.4 * ((totalWords / totalSentences) + 100 * (totalComplexWords / totalWords))",
+    "result": "0.39 * (totalWords / totalSentences) + 11.8 * (totalSyllables / totalWords) - 15.59"
   },
   "outputs": {
-    "primary": "0.39 * (totalWords / totalSentences) + 11.8 * (totalSyllables / totalWords) - 15.59",
+    "primary": "result",
     "breakdown": [
       "206.835 - 1.015 * (totalWords / totalSentences) - 84.6 * (totalSyllables / totalWords)",
       "0.4 * ((totalWords / totalSentences) + 100 * (totalComplexWords / totalWords))"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

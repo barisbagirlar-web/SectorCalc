@@ -18,13 +18,17 @@ export const Formula_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Formula_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.a + input.b) * (input.c - input.d); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.a; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = Toplam (A+B); results["Toplam__A_B_"] = Number.isFinite(v) ? v : 0; } catch { results["Toplam__A_B_"] = 0; }
+  try { const v = Fark (C-D); results["Fark__C_D_"] = Number.isFinite(v) ? v : 0; } catch { results["Fark__C_D_"] = 0; }
+  try { const v = Çarpım; results["_arp_m"] = Number.isFinite(v) ? v : 0; } catch { results["_arp_m"] = 0; }
   return results;
 }
 
 
 export function calculateFormula_calculator(input: Formula_calculatorInput): Formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Sonu"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

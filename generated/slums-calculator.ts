@@ -25,13 +25,16 @@ function evaluateAllFormulas(input: Slums_calculatorInput): Record<string, numbe
   try { const v = (results["volume"] ?? 0) / input.volumePerUnit; results["volumeUnits"] = Number.isFinite(v) ? v : 0; } catch { results["volumeUnits"] = 0; }
   try { const v = input.weight / input.unitLoadCapacity; results["weightUnits"] = Number.isFinite(v) ? v : 0; } catch { results["weightUnits"] = 0; }
   try { const v = Math.ceil(Math.max((results["volumeUnits"] ?? 0), (results["weightUnits"] ?? 0))); results["totalUnits"] = Number.isFinite(v) ? v : 0; } catch { results["totalUnits"] = 0; }
+  results["__volume__m_"] = 0;
+  try { const v = $(results["volumeUnits"] ?? 0); results["__volumeUnits_"] = Number.isFinite(v) ? v : 0; } catch { results["__volumeUnits_"] = 0; }
+  try { const v = $(results["weightUnits"] ?? 0); results["__weightUnits_"] = Number.isFinite(v) ? v : 0; } catch { results["__weightUnits_"] = 0; }
   return results;
 }
 
 
 export function calculateSlums_calculator(input: Slums_calculatorInput): Slums_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Toplam"] ?? 0;
+  const totalWasteCost = values["volume"] ?? 0;
   const breakdown = {
     
   };

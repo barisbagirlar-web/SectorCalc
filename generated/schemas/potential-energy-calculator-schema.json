@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Cismin kütlesi"
+      "businessContext": "Cismin kütlesi",
+      "label_i18n": {
+        "en": "Kütle",
+        "tr": "Kütle",
+        "de": "Kütle",
+        "fr": "Kütle",
+        "es": "Kütle",
+        "ar": "Kütle"
+      }
     },
     {
       "id": "gravity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Yerçekimi ivmesi, varsayılan 9.81 m/s²"
+      "businessContext": "Yerçekimi ivmesi, varsayılan 9.81 m/s²",
+      "label_i18n": {
+        "en": "Yerçekimi İvmesi",
+        "tr": "Yerçekimi İvmesi",
+        "de": "Yerçekimi İvmesi",
+        "fr": "Yerçekimi İvmesi",
+        "es": "Yerçekimi İvmesi",
+        "ar": "Yerçekimi İvmesi"
+      }
     },
     {
       "id": "initialHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Referans seviyesinden başlangıç yüksekliği"
+      "businessContext": "Referans seviyesinden başlangıç yüksekliği",
+      "label_i18n": {
+        "en": "Başlangıç Yüksekliği",
+        "tr": "Başlangıç Yüksekliği",
+        "de": "Başlangıç Yüksekliği",
+        "fr": "Başlangıç Yüksekliği",
+        "es": "Başlangıç Yüksekliği",
+        "ar": "Başlangıç Yüksekliği"
+      }
     },
     {
       "id": "finalHeight",
@@ -31,27 +55,34 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Referans seviyesinden bitiş yüksekliği"
+      "businessContext": "Referans seviyesinden bitiş yüksekliği",
+      "label_i18n": {
+        "en": "Bitiş Yüksekliği",
+        "tr": "Bitiş Yüksekliği",
+        "de": "Bitiş Yüksekliği",
+        "fr": "Bitiş Yüksekliği",
+        "es": "Bitiş Yüksekliği",
+        "ar": "Bitiş Yüksekliği"
+      }
     }
   ],
   "formulas": {
     "primary": "mass * gravity * (finalHeight - initialHeight)",
-    "breakdown": [
-      "mass * gravity * (finalHeight - initialHeight)",
-      "(mass * gravity * (finalHeight - initialHeight)) / 1000"
-    ]
+    "breakdown": "mass",
+    "joules": "joules",
+    "kilojoules": "kilojoules"
   },
   "outputs": {
-    "primary": "potentialEnergy",
+    "primary": "primary",
     "breakdown": [
       "joules",
       "kilojoules"
     ]
   },
-  "category": "Enerji & Karbon",
+  "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "sustainability-resource-esg"
 }

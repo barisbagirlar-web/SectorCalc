@@ -27,32 +27,19 @@ export const Seed_rate_calculatorInputSchema = z.object({
   irrigation_available: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Seed_rate_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.germination_rate / 100) * (input.field_emergence_factor / 100); results["adjusted_germination_rate"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_germination_rate"] = 0; }
-  try { const v = input.target_population / ((results["adjusted_germination_rate"] ?? 0) * (input.planter_efficiency / 100)); results["required_seeds_per_hectare"] = Number.isFinite(v) ? v : 0; } catch { results["required_seeds_per_hectare"] = 0; }
-  try { const v = ((results["required_seeds_per_hectare"] ?? 0) * input.seed_weight) / 1000000; results["seeding_rate_mass"] = Number.isFinite(v) ? v : 0; } catch { results["seeding_rate_mass"] = 0; }
-  try { const v = (input.row_spacing / 100) * 10000 / (results["required_seeds_per_hectare"] ?? 0) * 100; results["seed_spacing_in_row"] = Number.isFinite(v) ? v : 0; } catch { results["seed_spacing_in_row"] = 0; }
-  try { const v = (results["seeding_rate_mass"] ?? 0) * input.seed_cost_per_unit; results["total_seed_cost_per_hectare"] = Number.isFinite(v) ? v : 0; } catch { results["total_seed_cost_per_hectare"] = 0; }
-  try { const v = (input.target_population * 0.0005) * input.expected_yield_value; results["potential_yield_value_per_hectare"] = Number.isFinite(v) ? v : 0; } catch { results["potential_yield_value_per_hectare"] = 0; }
-  try { const v = (((results["potential_yield_value_per_hectare"] ?? 0) - (results["total_seed_cost_per_hectare"] ?? 0)) / (results["total_seed_cost_per_hectare"] ?? 0)) * 100; results["net_seed_roi"] = Number.isFinite(v) ? v : 0; } catch { results["net_seed_roi"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Seed_rate_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateSeed_rate_calculator(input: Seed_rate_calculatorInput): Seed_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["recommended_seeding_rate"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    adjusted_germination_rate: values["adjusted_germination_rate"] ?? 0,
-    required_seeds_per_hectare: values["required_seeds_per_hectare"] ?? 0,
-    seed_spacing_in_row: values["seed_spacing_in_row"] ?? 0,
-    total_seed_cost_per_hectare: values["total_seed_cost_per_hectare"] ?? 0,
-    potential_yield_value_per_hectare: values["potential_yield_value_per_hectare"] ?? 0,
-    net_seed_roi: values["net_seed_roi"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Germination Loss","Emergence Loss","Planter Inefficiency Loss","Combined Loss Factor"];
-  const suggestedActions: string[] = ["Use high-vigor seed lot or apply seed treatment to improve germination rate.","Conduct planter calibration and preventive maintenance per Six Sigma DMAIC to reduce skips and doubles.","Re-evaluate row spacing for optimal plant distribution; consider variable rate seeding.","Review seed cost vs. yield value; consider alternative seed varieties or reduced population."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -71,7 +58,7 @@ export function calculateSeed_rate_calculator(input: Seed_rate_calculatorInput):
 
 export interface Seed_rate_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { adjusted_germination_rate: number; required_seeds_per_hectare: number; seed_spacing_in_row: number; total_seed_cost_per_hectare: number; potential_yield_value_per_hectare: number; net_seed_roi: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

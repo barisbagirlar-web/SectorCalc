@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Concrete_strength_calculatorInput): Record<s
 
 export function calculateConcrete_strength_calculator(input: Concrete_strength_calculatorInput): Concrete_strength_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["compressiveStrength"] ?? 0;
+  const totalWasteCost = values["waterCementRatio"] ?? 0;
   const breakdown = {
     
   };

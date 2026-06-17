@@ -25,31 +25,19 @@ export const Iso_50001_energy_baseline_calculatorInputSchema = z.object({
   use_production_normalization: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Iso_50001_energy_baseline_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.total_energy_consumption / (1 + 0.02 * (input.heating_degree_days + input.cooling_degree_days) / 1000); results["weather_normalized_energy"] = Number.isFinite(v) ? v : 0; } catch { results["weather_normalized_energy"] = 0; }
-  try { const v = (results["weather_normalized_energy"] ?? 0) / input.production_volume; results["production_normalized_energy"] = Number.isFinite(v) ? v : 0; } catch { results["production_normalized_energy"] = 0; }
-  try { const v = (results["production_normalized_energy"] ?? 0); results["energy_intensity"] = Number.isFinite(v) ? v : 0; } catch { results["energy_intensity"] = 0; }
-  try { const v = baseline_energy_intensity_reference; results["baseline_energy_intensity"] = Number.isFinite(v) ? v : 0; } catch { results["baseline_energy_intensity"] = 0; }
-  try { const v = (((results["baseline_energy_intensity"] ?? 0) - (results["energy_intensity"] ?? 0)) / (results["baseline_energy_intensity"] ?? 0)) * 100; results["energy_performance_indicator"] = Number.isFinite(v) ? v : 0; } catch { results["energy_performance_indicator"] = 0; }
-  try { const v = (input.total_energy_consumption - ((results["energy_intensity"] ?? 0) * input.production_volume)) * 0.12; results["total_energy_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["total_energy_cost_savings"] = 0; }
-  try { const v = (results["energy_performance_indicator"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Iso_50001_energy_baseline_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateIso_50001_energy_baseline_calculator(input: Iso_50001_energy_baseline_calculatorInput): Iso_50001_energy_baseline_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["energy_performance_indicator"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    weather_normalized_energy: values["weather_normalized_energy"] ?? 0,
-    production_normalized_energy: values["production_normalized_energy"] ?? 0,
-    energy_intensity: values["energy_intensity"] ?? 0,
-    baseline_energy_intensity: values["baseline_energy_intensity"] ?? 0,
-    total_energy_cost_savings: values["total_energy_cost_savings"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Weather Variation Impact","Production Variation Impact","Residual Energy Change"];
-  const suggestedActions: string[] = ["Investigate residual energy increase","Optimize HVAC scheduling","Align production planning with energy tariffs","Implement energy monitoring system"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -68,7 +56,7 @@ export function calculateIso_50001_energy_baseline_calculator(input: Iso_50001_e
 
 export interface Iso_50001_energy_baseline_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { weather_normalized_energy: number; production_normalized_energy: number; energy_intensity: number; baseline_energy_intensity: number; total_energy_cost_savings: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

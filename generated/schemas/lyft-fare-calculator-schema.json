@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "miles",
       "default": 10,
-      "businessContext": "The total distance of the trip in miles."
+      "businessContext": "The total distance of the trip in miles.",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "time",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 15,
-      "businessContext": "The total duration of the trip in minutes."
+      "businessContext": "The total duration of the trip in minutes.",
+      "label_i18n": {
+        "en": "Duration",
+        "tr": "Duration",
+        "de": "Duration",
+        "fr": "Duration",
+        "es": "Duration",
+        "ar": "Duration"
+      }
     },
     {
       "id": "baseFare",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 2.5,
-      "businessContext": "The fixed pickup charge applied to every ride."
+      "businessContext": "The fixed pickup charge applied to every ride.",
+      "label_i18n": {
+        "en": "Base Fare",
+        "tr": "Base Fare",
+        "de": "Base Fare",
+        "fr": "Base Fare",
+        "es": "Base Fare",
+        "ar": "Base Fare"
+      }
     },
     {
       "id": "costPerMile",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$/mile",
       "default": 1.5,
-      "businessContext": "The rate charged per mile traveled."
+      "businessContext": "The rate charged per mile traveled.",
+      "label_i18n": {
+        "en": "Cost per Mile",
+        "tr": "Cost per Mile",
+        "de": "Cost per Mile",
+        "fr": "Cost per Mile",
+        "es": "Cost per Mile",
+        "ar": "Cost per Mile"
+      }
     },
     {
       "id": "costPerMinute",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/minute",
       "default": 0.25,
-      "businessContext": "The rate charged per minute of trip time."
+      "businessContext": "The rate charged per minute of trip time.",
+      "label_i18n": {
+        "en": "Cost per Minute",
+        "tr": "Cost per Minute",
+        "de": "Cost per Minute",
+        "fr": "Cost per Minute",
+        "es": "Cost per Minute",
+        "ar": "Cost per Minute"
+      }
     },
     {
       "id": "bookingFee",
@@ -47,22 +87,41 @@
       "type": "number",
       "unit": "$",
       "default": 1,
-      "businessContext": "A flat service fee added to every ride."
+      "businessContext": "A flat service fee added to every ride.",
+      "label_i18n": {
+        "en": "Booking Fee",
+        "tr": "Booking Fee",
+        "de": "Booking Fee",
+        "fr": "Booking Fee",
+        "es": "Booking Fee",
+        "ar": "Booking Fee"
+      }
     },
     {
       "id": "surge",
       "label": "Surge Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "A demand-based multiplier applied to the sum of base, distance, and time charges."
+      "businessContext": "A demand-based multiplier applied to the sum of base, distance, and time charges.",
+      "label_i18n": {
+        "en": "Surge Multiplier",
+        "tr": "Surge Multiplier",
+        "de": "Surge Multiplier",
+        "fr": "Surge Multiplier",
+        "es": "Surge Multiplier",
+        "ar": "Surge Multiplier"
+      }
     }
   ],
   "formulas": {
     "distanceCharge": "distance * costPerMile",
     "timeCharge": "time * costPerMinute",
     "subtotal": "(baseFare + distanceCharge + timeCharge) * surge",
-    "totalFare": "subtotal + bookingFee"
+    "totalFare": "subtotal + bookingFee",
+    "baseFare": "baseFare",
+    "bookingFee": "bookingFee",
+    "surge": "surge"
   },
   "outputs": {
     "primary": "totalFare",
@@ -75,10 +134,10 @@
       "surge"
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

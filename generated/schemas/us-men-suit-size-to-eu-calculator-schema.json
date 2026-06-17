@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "size",
       "default": 40,
-      "businessContext": "Enter the US men's suit jacket size (chest measurement in inches). Standard sizes: 36, 38, 40, 42, etc."
+      "businessContext": "Enter the US men's suit jacket size (chest measurement in inches). Standard sizes: 36, 38, 40, 42, etc.",
+      "label_i18n": {
+        "en": "US Jacket Size",
+        "tr": "US Jacket Size",
+        "de": "US Jacket Size",
+        "fr": "US Jacket Size",
+        "es": "US Jacket Size",
+        "ar": "US Jacket Size"
+      }
     },
     {
       "id": "usWaistSize",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "in",
       "default": 32,
-      "businessContext": "Optional: Enter the US pants waist size in inches for conversion."
+      "businessContext": "Optional: Enter the US pants waist size in inches for conversion.",
+      "label_i18n": {
+        "en": "US Pants Waist (inches)",
+        "tr": "US Pants Waist (inches)",
+        "de": "US Pants Waist (inches)",
+        "fr": "US Pants Waist (inches)",
+        "es": "US Pants Waist (inches)",
+        "ar": "US Pants Waist (inches)"
+      }
     },
     {
       "id": "usInseam",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 34,
-      "businessContext": "Optional: Enter the US pants inseam length in inches."
+      "businessContext": "Optional: Enter the US pants inseam length in inches.",
+      "label_i18n": {
+        "en": "US Pants Inseam (inches)",
+        "tr": "US Pants Inseam (inches)",
+        "de": "US Pants Inseam (inches)",
+        "fr": "US Pants Inseam (inches)",
+        "es": "US Pants Inseam (inches)",
+        "ar": "US Pants Inseam (inches)"
+      }
     },
     {
       "id": "conversionOffset",
@@ -31,25 +55,35 @@
       "type": "number",
       "unit": "size",
       "default": 10,
-      "businessContext": "The conversion offset from US to EU jacket size (EU = US + offset). Standard is 10. Adjust if needed."
+      "businessContext": "The conversion offset from US to EU jacket size (EU = US + offset). Standard is 10. Adjust if needed.",
+      "label_i18n": {
+        "en": "Jacket Size Offset",
+        "tr": "Jacket Size Offset",
+        "de": "Jacket Size Offset",
+        "fr": "Jacket Size Offset",
+        "es": "Jacket Size Offset",
+        "ar": "Jacket Size Offset"
+      }
     }
   ],
   "formulas": {
     "EUJacket": "usJacketSize + conversionOffset",
     "EUWaistCm": "usWaistSize * 2.54",
-    "EUInseamCm": "usInseam * 2.54"
+    "EUInseamCm": "usInseam * 2.54",
+    "__EUWaistCm__cm": "${EUWaistCm} cm",
+    "__EUInseamCm__cm": "${EUInseamCm} cm"
   },
   "outputs": {
-    "primary": "EU Jacket Size: ${EUJacket}",
+    "primary": "EUJacket",
     "breakdown": [
       "EU Waist: ${EUWaistCm} cm",
       "EU Inseam: ${EUInseamCm} cm"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

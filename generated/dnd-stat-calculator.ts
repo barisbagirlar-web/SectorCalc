@@ -29,13 +29,20 @@ function evaluateAllFormulas(input: Dnd_stat_calculatorInput): Record<string, nu
   try { const v = Math.floor((input.wisdom - 10) / 2); results["wisdomMod"] = Number.isFinite(v) ? v : 0; } catch { results["wisdomMod"] = 0; }
   try { const v = Math.floor((input.charisma - 10) / 2); results["charismaMod"] = Number.isFinite(v) ? v : 0; } catch { results["charismaMod"] = 0; }
   try { const v = input.strength + input.dexterity + input.constitution + input.intelligence + input.wisdom + input.charisma - 60; results["pointBuyCost"] = Number.isFinite(v) ? v : 0; } catch { results["pointBuyCost"] = 0; }
+  try { const v = (results["strengthMod"] ?? 0); results["_strengthMod_"] = Number.isFinite(v) ? v : 0; } catch { results["_strengthMod_"] = 0; }
+  try { const v = (results["dexterityMod"] ?? 0); results["_dexterityMod_"] = Number.isFinite(v) ? v : 0; } catch { results["_dexterityMod_"] = 0; }
+  try { const v = (results["constitutionMod"] ?? 0); results["_constitutionMod_"] = Number.isFinite(v) ? v : 0; } catch { results["_constitutionMod_"] = 0; }
+  try { const v = (results["intelligenceMod"] ?? 0); results["_intelligenceMod_"] = Number.isFinite(v) ? v : 0; } catch { results["_intelligenceMod_"] = 0; }
+  try { const v = (results["wisdomMod"] ?? 0); results["_wisdomMod_"] = Number.isFinite(v) ? v : 0; } catch { results["_wisdomMod_"] = 0; }
+  try { const v = (results["charismaMod"] ?? 0); results["_charismaMod_"] = Number.isFinite(v) ? v : 0; } catch { results["_charismaMod_"] = 0; }
+  try { const v = (results["pointBuyCost"] ?? 0); results["_pointBuyCost_"] = Number.isFinite(v) ? v : 0; } catch { results["_pointBuyCost_"] = 0; }
   return results;
 }
 
 
 export function calculateDnd_stat_calculator(input: Dnd_stat_calculatorInput): Dnd_stat_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Strength"] ?? 0;
+  const totalWasteCost = values["modifier"] ?? 0;
   const breakdown = {
     
   };

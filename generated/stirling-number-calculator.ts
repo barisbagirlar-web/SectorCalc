@@ -19,13 +19,16 @@ function evaluateAllFormulas(input: Stirling_number_calculatorInput): Record<str
   try { const v = (() => { function stirlingFirst(n,k){if(k===0||k>n)return 0;if(k===n)return 1;if(k===1)return fact(n-1);return stirlingFirst(n-1,k-1)+(n-1)*stirlingFirst(n-1,k)} })(); results["stirlingFirst"] = Number.isFinite(v) ? v : 0; } catch { results["stirlingFirst"] = 0; }
   try { const v = (() => { function fact(x){if(x<=1)return 1;let r=1;for(let i=2;i<=x;i++)r*=i;return r} })(); results["fact"] = Number.isFinite(v) ? v : 0; } catch { results["fact"] = 0; }
   try { const v = (() => { function comb(n,k){if(k<0||k>n)return 0;if(k===0||k===n)return 1;let r=1;for(let i=1;i<=k;i++){r=r*(n-i+1)/i}return r} })(); results["comb"] = Number.isFinite(v) ? v : 0; } catch { results["comb"] = 0; }
+  results["Combinatorial_interpretation"] = 0;
+  results["Intermediate_factorial_values"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateStirling_number_calculator(input: Stirling_number_calculatorInput): Stirling_number_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Stirling"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

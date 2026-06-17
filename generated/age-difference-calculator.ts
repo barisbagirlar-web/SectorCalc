@@ -27,7 +27,7 @@ function evaluateAllFormulas(input: Age_difference_calculatorInput): Record<stri
 
 export function calculateAge_difference_calculator(input: Age_difference_calculatorInput): Age_difference_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["diffYears"] ?? 0;
   const breakdown = {
     
   };

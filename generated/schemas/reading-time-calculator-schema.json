@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "words",
       "default": 1000,
-      "businessContext": "Total number of words in the document"
+      "businessContext": "Total number of words in the document",
+      "label_i18n": {
+        "en": "Word Count",
+        "tr": "Word Count",
+        "de": "Word Count",
+        "fr": "Word Count",
+        "es": "Word Count",
+        "ar": "Word Count"
+      }
     },
     {
       "id": "readingSpeed",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "wpm",
       "default": 200,
-      "businessContext": "Average reading speed in words per minute"
+      "businessContext": "Average reading speed in words per minute",
+      "label_i18n": {
+        "en": "Reading Speed",
+        "tr": "Reading Speed",
+        "de": "Reading Speed",
+        "fr": "Reading Speed",
+        "es": "Reading Speed",
+        "ar": "Reading Speed"
+      }
     },
     {
       "id": "complexityFactor",
       "label": "Complexity Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for text complexity (e.g., 1.2 for technical)"
+      "businessContext": "Multiplier for text complexity (e.g., 1.2 for technical)",
+      "label_i18n": {
+        "en": "Complexity Factor",
+        "tr": "Complexity Factor",
+        "de": "Complexity Factor",
+        "fr": "Complexity Factor",
+        "es": "Complexity Factor",
+        "ar": "Complexity Factor"
+      }
     },
     {
       "id": "pageCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pages",
       "default": 10,
-      "businessContext": "Number of pages in the document (for per-page pauses)"
+      "businessContext": "Number of pages in the document (for per-page pauses)",
+      "label_i18n": {
+        "en": "Page Count",
+        "tr": "Page Count",
+        "de": "Page Count",
+        "fr": "Page Count",
+        "es": "Page Count",
+        "ar": "Page Count"
+      }
     },
     {
       "id": "pauseTimePerPage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 15,
-      "businessContext": "Additional pause time per page for comprehension or notes"
+      "businessContext": "Additional pause time per page for comprehension or notes",
+      "label_i18n": {
+        "en": "Pause Per Page",
+        "tr": "Pause Per Page",
+        "de": "Pause Per Page",
+        "fr": "Pause Per Page",
+        "es": "Pause Per Page",
+        "ar": "Pause Per Page"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "pauseAdditionalMinutes"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

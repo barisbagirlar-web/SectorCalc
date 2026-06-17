@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Mal bedeli, sigorta ve navlun dahil ithal edilen malın toplam değeri (USD cinsinden)."
+      "businessContext": "Mal bedeli, sigorta ve navlun dahil ithal edilen malın toplam değeri (USD cinsinden).",
+      "label_i18n": {
+        "en": "CIF Değeri",
+        "tr": "CIF Değeri",
+        "de": "CIF Değeri",
+        "fr": "CIF Değeri",
+        "es": "CIF Değeri",
+        "ar": "CIF Değeri"
+      }
     },
     {
       "id": "customsDutyRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Gümrük tarife pozisyonuna göre uygulanan vergi oranı (yüzde)."
+      "businessContext": "Gümrük tarife pozisyonuna göre uygulanan vergi oranı (yüzde).",
+      "label_i18n": {
+        "en": "Gümrük Vergisi Oranı",
+        "tr": "Gümrük Vergisi Oranı",
+        "de": "Gümrük Vergisi Oranı",
+        "fr": "Gümrük Vergisi Oranı",
+        "es": "Gümrük Vergisi Oranı",
+        "ar": "Gümrük Vergisi Oranı"
+      }
     },
     {
       "id": "vatRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Katma değer vergisi oranı (yüzde)."
+      "businessContext": "Katma değer vergisi oranı (yüzde).",
+      "label_i18n": {
+        "en": "KDV Oranı",
+        "tr": "KDV Oranı",
+        "de": "KDV Oranı",
+        "fr": "KDV Oranı",
+        "es": "KDV Oranı",
+        "ar": "KDV Oranı"
+      }
     },
     {
       "id": "exchangeRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yerel/1 USD",
       "default": 1,
-      "businessContext": "USD'nin yerel para birimi karşısındaki değeri."
+      "businessContext": "USD'nin yerel para birimi karşısındaki değeri.",
+      "label_i18n": {
+        "en": "Döviz Kuru",
+        "tr": "Döviz Kuru",
+        "de": "Döviz Kuru",
+        "fr": "Döviz Kuru",
+        "es": "Döviz Kuru",
+        "ar": "Döviz Kuru"
+      }
     },
     {
       "id": "additionalTaxRate",
@@ -39,29 +71,37 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Özel tüketim vergisi veya ek gümrük vergisi oranı (varsa, yüzde)."
+      "businessContext": "Özel tüketim vergisi veya ek gümrük vergisi oranı (varsa, yüzde).",
+      "label_i18n": {
+        "en": "Ek Vergi Oranı",
+        "tr": "Ek Vergi Oranı",
+        "de": "Ek Vergi Oranı",
+        "fr": "Ek Vergi Oranı",
+        "es": "Ek Vergi Oranı",
+        "ar": "Ek Vergi Oranı"
+      }
     }
   ],
   "formulas": {
     "primary": "exchangeRate * (cifValue * customsDutyRate / 100 + (cifValue + cifValue * customsDutyRate / 100) * (vatRate + additionalTaxRate) / 100)",
-    "breakdown": [
-      "cifValue * customsDutyRate / 100 * exchangeRate",
-      "(cifValue + cifValue * customsDutyRate / 100) * vatRate / 100 * exchangeRate",
-      "(cifValue + cifValue * customsDutyRate / 100) * additionalTaxRate / 100 * exchangeRate"
-    ]
+    "breakdown": "cifValue",
+    "G_mr_k_Vergisi__Yerel_": "Gümrük Vergisi (Yerel)",
+    "KDV__Yerel_": "KDV (Yerel)",
+    "Ek_Vergi__Yerel_": "Ek Vergi (Yerel)",
+    "result": "Toplam İthalat Vergisi (Yerel)"
   },
   "outputs": {
-    "primary": "Toplam İthalat Vergisi (Yerel)",
+    "primary": "result",
     "breakdown": [
       "Gümrük Vergisi (Yerel)",
       "KDV (Yerel)",
       "Ek Vergi (Yerel)"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

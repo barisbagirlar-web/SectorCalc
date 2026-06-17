@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cup",
       "default": 1,
-      "businessContext": "Number of US cups of sugar"
+      "businessContext": "Number of US cups of sugar",
+      "label_i18n": {
+        "en": "Cups",
+        "tr": "Cups",
+        "de": "Cups",
+        "fr": "Cups",
+        "es": "Cups",
+        "ar": "Cups"
+      }
     },
     {
       "id": "tablespoons",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "tbsp",
       "default": 0,
-      "businessContext": "Additional tablespoons of sugar"
+      "businessContext": "Additional tablespoons of sugar",
+      "label_i18n": {
+        "en": "Tablespoons",
+        "tr": "Tablespoons",
+        "de": "Tablespoons",
+        "fr": "Tablespoons",
+        "es": "Tablespoons",
+        "ar": "Tablespoons"
+      }
     },
     {
       "id": "teaspoons",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "tsp",
       "default": 0,
-      "businessContext": "Additional teaspoons of sugar"
+      "businessContext": "Additional teaspoons of sugar",
+      "label_i18n": {
+        "en": "Teaspoons",
+        "tr": "Teaspoons",
+        "de": "Teaspoons",
+        "fr": "Teaspoons",
+        "es": "Teaspoons",
+        "ar": "Teaspoons"
+      }
     },
     {
       "id": "sugarType",
       "label": "Sugar Type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = Granulated, 1 = Powdered, 2 = Brown (packed)"
+      "businessContext": "0 = Granulated, 1 = Powdered, 2 = Brown (packed)",
+      "label_i18n": {
+        "en": "Sugar Type",
+        "tr": "Sugar Type",
+        "de": "Sugar Type",
+        "fr": "Sugar Type",
+        "es": "Sugar Type",
+        "ar": "Sugar Type"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "densityUsed"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

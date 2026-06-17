@@ -95,7 +95,7 @@
       "id": "payment_terms_suppliers",
       "label": "Supplier Payment Terms",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "net30",
       "options": [
         {
@@ -127,7 +127,7 @@
       "id": "customer_payment_behavior",
       "label": "Customer Payment Behavior",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "average",
       "options": [
         {
@@ -155,7 +155,7 @@
       "id": "lean_inventory_flag",
       "label": "Lean Inventory Practices Active",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "businessContext": "Indicates if Lean inventory methods (e.g., JIT) are in place to reduce inventory days.",
       "label_i18n": {
@@ -222,143 +222,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "effective_dso",
-      "name": "Effective Days Sales Outstanding",
-      "description": "Adjusts DSO based on customer payment behavior.",
-      "formula": "effective_dso = avg_days_receivable * (1 + (customer_payment_behavior == 'slow' ? 0.2 : customer_payment_behavior == 'fast' ? -0.1 : 0))",
-      "unit": "days"
-    },
-    {
-      "id": "effective_dpo",
-      "name": "Effective Days Payable Outstanding",
-      "description": "Uses supplier payment terms as DPO, capped by contractual terms.",
-      "formula": "effective_dpo = CASE payment_terms_suppliers WHEN 'net15' THEN 15 WHEN 'net30' THEN 30 WHEN 'net45' THEN 45 WHEN 'net60' THEN 60 ELSE 30 END",
-      "unit": "days"
-    },
-    {
-      "id": "adjusted_inventory_days",
-      "name": "Adjusted Inventory Days",
-      "description": "Reduces inventory days if Lean practices are active, with sigma adjustment.",
-      "formula": "adjusted_inventory_days = inventory_days * (lean_inventory_flag ? 0.7 : 1.0) * (1 - (six_sigma_quality_level - 3.0) * 0.05)",
-      "unit": "days"
-    },
-    {
-      "id": "cash_gap_days",
-      "name": "Cash Gap Days (Cash Conversion Cycle)",
-      "description": "Primary cash gap in days: DSO + Inventory Days - DPO.",
-      "formula": "cash_gap_days = effective_dso + adjusted_inventory_days - effective_dpo",
-      "unit": "days"
-    },
-    {
-      "id": "cash_gap_value",
-      "name": "Cash Gap Value",
-      "description": "Monetary value of the cash gap based on daily operating expenses.",
-      "formula": "cash_gap_value = cash_gap_days * operating_expenses_daily",
-      "unit": "currency"
-    },
-    {
-      "id": "revenue_adjustment_factor",
-      "name": "Revenue Adjustment Factor",
-      "description": "Factor to adjust for revenue variability (Six Sigma based).",
-      "formula": "revenue_adjustment_factor = 1 + (six_sigma_quality_level - 3.0) * 0.02",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "data_confidence_score",
-      "name": "Data Confidence Score",
-      "description": "Score from 0 to 1 indicating reliability of inputs based on sigma level and lean practices.",
-      "formula": "data_confidence_score = min(1.0, (six_sigma_quality_level / 6.0) * (lean_inventory_flag ? 1.1 : 1.0) * 0.9)",
-      "unit": "dimensionless"
-    }
+    "avg_days_receivable",
+    "avg_days_receivable",
+    "avg_days_receivable",
+    "avg_days_receivable",
+    "avg_days_receivable",
+    "avg_days_receivable",
+    "avg_days_receivable"
   ],
   "outputs": {
-    "primary": {
-      "id": "cash_gap_days",
-      "label": "Cash Gap (Days)",
-      "value": null,
-      "unit": "days",
-      "description": "Number of days the company must finance operations before receiving cash from sales."
-    },
-    "breakdown": {
-      "effective_dso": {
-        "label": "Effective DSO",
-        "value": null,
-        "unit": "days"
-      },
-      "effective_dpo": {
-        "label": "Effective DPO",
-        "value": null,
-        "unit": "days"
-      },
-      "adjusted_inventory_days": {
-        "label": "Adjusted Inventory Days",
-        "value": null,
-        "unit": "days"
-      },
-      "cash_gap_value": {
-        "label": "Cash Gap Value",
-        "value": null,
-        "unit": "currency"
-      },
-      "revenue_adjustment_factor": {
-        "label": "Revenue Adjustment Factor",
-        "value": null,
-        "unit": "dimensionless"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_inventory_holding",
-        "label": "Excess Inventory Holding",
-        "description": "Inventory days above industry benchmark (e.g., 30 days) ties up cash.",
-        "estimated_impact": "inventory_days > 30 ? (inventory_days - 30) * operating_expenses_daily * 0.1 : 0",
-        "unit": "currency"
-      },
-      {
-        "id": "late_payment_penalties",
-        "label": "Late Payment Penalties",
-        "description": "Costs from paying suppliers late or customer discounts for early payment.",
-        "estimated_impact": "customer_payment_behavior == 'slow' ? effective_dso * revenue_daily * 0.02 : 0",
-        "unit": "currency"
-      },
-      {
-        "id": "quality_defect_cost",
-        "label": "Quality Defect Cost",
-        "description": "Cash tied in rework, scrap, and warranty due to low sigma level.",
-        "estimated_impact": "(6.0 - six_sigma_quality_level) * 0.05 * operating_expenses_daily * 30",
-        "unit": "currency"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_dso",
-        "priority": "high",
-        "action": "Implement stricter credit policies and offer early payment discounts to reduce DSO.",
-        "expected_improvement": "Reduces cash gap by 5-15 days."
-      },
-      {
-        "id": "negotiate_dpo",
-        "priority": "medium",
-        "action": "Negotiate longer payment terms with key suppliers without damaging relationships.",
-        "expected_improvement": "Increases DPO by 10-20 days."
-      },
-      {
-        "id": "lean_inventory",
-        "priority": "high",
-        "action": "Adopt Lean inventory practices (JIT, Kanban) to reduce inventory days.",
-        "expected_improvement": "Reduces inventory days by 30-50%."
-      },
-      {
-        "id": "six_sigma_improvement",
-        "priority": "medium",
-        "action": "Invest in Six Sigma projects to improve quality level above 4.5 sigma.",
-        "expected_improvement": "Reduces defect-related cash tie-up by 20-40%."
-      }
-    ],
-    "dataConfidenceAdjusted": null
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "cash-flow-gap-calculator"
 }

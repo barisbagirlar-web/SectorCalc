@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Effective height of the lally column from base to top anchorage (unbraced length)."
+      "businessContext": "Effective height of the lally column from base to top anchorage (unbraced length).",
+      "label_i18n": {
+        "en": "Column Height",
+        "tr": "Column Height",
+        "de": "Column Height",
+        "fr": "Column Height",
+        "es": "Column Height",
+        "ar": "Column Height"
+      }
     },
     {
       "id": "outer_diameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 89,
-      "businessContext": "Outer diameter of the steel pipe column."
+      "businessContext": "Outer diameter of the steel pipe column.",
+      "label_i18n": {
+        "en": "Outer Diameter",
+        "tr": "Outer Diameter",
+        "de": "Outer Diameter",
+        "fr": "Outer Diameter",
+        "es": "Outer Diameter",
+        "ar": "Outer Diameter"
+      }
     },
     {
       "id": "wall_thickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3,
-      "businessContext": "Thickness of the steel pipe wall."
+      "businessContext": "Thickness of the steel pipe wall.",
+      "label_i18n": {
+        "en": "Wall Thickness",
+        "tr": "Wall Thickness",
+        "de": "Wall Thickness",
+        "fr": "Wall Thickness",
+        "es": "Wall Thickness",
+        "ar": "Wall Thickness"
+      }
     },
     {
       "id": "steel_yield_strength",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Minimum guaranteed yield stress of the steel material."
+      "businessContext": "Minimum guaranteed yield stress of the steel material.",
+      "label_i18n": {
+        "en": "Steel Yield Strength",
+        "tr": "Steel Yield Strength",
+        "de": "Steel Yield Strength",
+        "fr": "Steel Yield Strength",
+        "es": "Steel Yield Strength",
+        "ar": "Steel Yield Strength"
+      }
     },
     {
       "id": "effective_length_factor",
       "label": "Effective Length Factor K",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Buckling length coefficient depending on end conditions (1.0 for pinned-pinned, 0.5 for fixed-fixed, 2.0 for fixed-free)."
+      "businessContext": "Buckling length coefficient depending on end conditions (1.0 for pinned-pinned, 0.5 for fixed-fixed, 2.0 for fixed-free).",
+      "label_i18n": {
+        "en": "Effective Length Factor K",
+        "tr": "Effective Length Factor K",
+        "de": "Effective Length Factor K",
+        "fr": "Effective Length Factor K",
+        "es": "Effective Length Factor K",
+        "ar": "Effective Length Factor K"
+      }
     },
     {
       "id": "safety_factor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Design safety factor to ensure TÜV-compliant structural reliability."
+      "businessContext": "Design safety factor to ensure TÜV-compliant structural reliability.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "youngs_modulus",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 200000,
-      "businessContext": "Modulus of elasticity of the steel (typically 200,000 MPa for structural steel)."
+      "businessContext": "Modulus of elasticity of the steel (typically 200,000 MPa for structural steel).",
+      "label_i18n": {
+        "en": "Young's Modulus",
+        "tr": "Young's Modulus",
+        "de": "Young's Modulus",
+        "fr": "Young's Modulus",
+        "es": "Young's Modulus",
+        "ar": "Young's Modulus"
+      }
     }
   ],
   "formulas": {
@@ -72,7 +128,7 @@
       "slenderness_ratio"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

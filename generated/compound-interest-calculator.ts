@@ -21,31 +21,19 @@ export const Compound_interest_calculatorInputSchema = z.object({
   taxRate: z.number().min(0).max(100).default(0),
 });
 
-function evaluateAllFormulas(input: Compound_interest_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (1 + (input.annualInterestRate / 100) / input.compoundingFrequency) ^ input.compoundingFrequency - 1; results["effectiveRate"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveRate"] = 0; }
-  try { const v = input.principal * (1 + (input.annualInterestRate / 100) / input.compoundingFrequency) ^ (input.compoundingFrequency * input.timePeriod); results["futureValueWithoutContributions"] = Number.isFinite(v) ? v : 0; } catch { results["futureValueWithoutContributions"] = 0; }
-  try { const v = input.additionalContribution * (((1 + (input.annualInterestRate / 100) / input.compoundingFrequency) ^ (input.compoundingFrequency * input.timePeriod) - 1) / ((input.annualInterestRate / 100) / input.compoundingFrequency)); results["futureValueOfContributions"] = Number.isFinite(v) ? v : 0; } catch { results["futureValueOfContributions"] = 0; }
-  try { const v = FV_principal + FV_contributions; results["grossFutureValue"] = Number.isFinite(v) ? v : 0; } catch { results["grossFutureValue"] = 0; }
-  try { const v = 1 - (input.taxRate / 100); results["taxAdjustment"] = Number.isFinite(v) ? v : 0; } catch { results["taxAdjustment"] = 0; }
-  try { const v = input.principal + (grossFV - input.principal) * taxFactor; results["netFutureValue"] = Number.isFinite(v) ? v : 0; } catch { results["netFutureValue"] = 0; }
-  try { const v = netFV / (1 + (input.inflationRate / 100)) ^ input.timePeriod; results["realFutureValue"] = Number.isFinite(v) ? v : 0; } catch { results["realFutureValue"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Compound_interest_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateCompound_interest_calculator(input: Compound_interest_calculatorInput): Compound_interest_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["realFutureValue"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    totalContributions: values["totalContributions"] ?? 0,
-    totalInterestEarned: values["totalInterestEarned"] ?? 0,
-    totalTaxPaid: values["totalTaxPaid"] ?? 0,
-    inflationLoss: values["inflationLoss"] ?? 0,
-    effectiveAnnualRate: values["effectiveAnnualRate"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Inflation Erosion","Tax Drag","Opportunity Cost of Low Compounding Frequency"];
-  const suggestedActions: string[] = ["Increase Compounding Frequency","Tax-Efficient Investing","Inflation-Protected Investments","Increase Additional Contributions"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -64,7 +52,7 @@ export function calculateCompound_interest_calculator(input: Compound_interest_c
 
 export interface Compound_interest_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { totalContributions: number; totalInterestEarned: number; totalTaxPaid: number; inflationLoss: number; effectiveAnnualRate: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -18,6 +18,10 @@ export const Arccosine_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Arccosine_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = parseFloat((input.outputUnit == 1 ? (Math.acos(input.adjacent / input.hypotenuse) * (180 / Math.PI)) : Math.acos(input.adjacent / input.hypotenuse)).toFixed(input.precision)); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.adjacent; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = (results["breakdown"] ?? 0)[0]; results["breakdown_0_"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown_0_"] = 0; }
+  try { const v = (results["breakdown"] ?? 0)[1]; results["breakdown_1_"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown_1_"] = 0; }
+  try { const v = (results["breakdown"] ?? 0)[2]; results["breakdown_2_"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown_2_"] = 0; }
   return results;
 }
 

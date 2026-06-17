@@ -26,13 +26,17 @@ function evaluateAllFormulas(input: Cylindrical_coordinate_calculatorInput): Rec
   try { const v = input.r * Math.sin((results["thetaRad"] ?? 0)); results["yResult"] = Number.isFinite(v) ? v : 0; } catch { results["yResult"] = 0; }
   try { const v = Math.sqrt(input.x**2 + input.y**2); results["rResult"] = Number.isFinite(v) ? v : 0; } catch { results["rResult"] = 0; }
   try { const v = Math.atan2(input.y, input.x) * 180 / Math.PI; results["thetaDeg"] = Number.isFinite(v) ? v : 0; } catch { results["thetaDeg"] = 0; }
+  results["Convert___from_degrees_to_radians____rad"] = 0;
+  results["x___r_cos___rad______r____cos___thetaRad"] = 0;
+  results["y___r_sin___rad______r____sin___thetaRad"] = 0;
+  try { const v = input.direction === 0 ? `Cartesian: input.x = ${(results["xResult"] ?? 0).toFixed(4)}, input.y = ${(results["yResult"] ?? 0).toFixed(4)}, input.z = ${input.z.toFixed(4)}` : `Cylindrical: input.r = ${(results["rResult"] ?? 0).toFixed(4)}, θ = ${(results["thetaDeg"] ?? 0).toFixed(4)}°, input.z = ${input.z.toFixed(4)}`; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateCylindrical_coordinate_calculator(input: Cylindrical_coordinate_calculatorInput): Cylindrical_coordinate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["direction"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

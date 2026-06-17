@@ -19,13 +19,16 @@ function evaluateAllFormulas(input: Roman_numeral_calculatorInput): Record<strin
   const results: Record<string, number> = {};
   try { const v = (input.operation == 1 ? input.numberA + input.numberB : input.operation == 2 ? input.numberA - input.numberB : input.operation == 3 ? input.numberA * input.numberB : input.operation == 4 ? (input.numberB != 0 ? input.numberA / input.numberB : NaN) : NaN); results["rawResult"] = Number.isFinite(v) ? v : 0; } catch { results["rawResult"] = 0; }
   try { const v = input.precision == 0 ? Math.round((results["rawResult"] ?? 0)) : Number((results["rawResult"] ?? 0).toFixed(input.precision)); results["finalResult"] = Number.isFinite(v) ? v : 0; } catch { results["finalResult"] = 0; }
+  results["_numberA___operation__1_____operation__2"] = 0;
+  try { const v = (results["finalResult"] ?? 0); results["_finalResult_"] = Number.isFinite(v) ? v : 0; } catch { results["_finalResult_"] = 0; }
+  try { const v = {romanResult}; results["_romanResult_"] = Number.isFinite(v) ? v : 0; } catch { results["_romanResult_"] = 0; }
   return results;
 }
 
 
 export function calculateRoman_numeral_calculator(input: Roman_numeral_calculatorInput): Roman_numeral_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Roma"] ?? 0;
+  const totalWasteCost = values["rawResult"] ?? 0;
   const breakdown = {
     
   };

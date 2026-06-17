@@ -5,9 +5,17 @@
       "id": "pka",
       "label": "pKa",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4.76,
-      "businessContext": "Negative logarithm of the acid dissociation constant (Ka) of the weak acid."
+      "businessContext": "Negative logarithm of the acid dissociation constant (Ka) of the weak acid.",
+      "label_i18n": {
+        "en": "pKa",
+        "tr": "pKa",
+        "de": "pKa",
+        "fr": "pKa",
+        "es": "pKa",
+        "ar": "pKa"
+      }
     },
     {
       "id": "conc_acid",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "M",
       "default": 0.1,
-      "businessContext": "Molar concentration of the weak acid species in the buffer."
+      "businessContext": "Molar concentration of the weak acid species in the buffer.",
+      "label_i18n": {
+        "en": "Concentration of Acid (HA)",
+        "tr": "Concentration of Acid (HA)",
+        "de": "Concentration of Acid (HA)",
+        "fr": "Concentration of Acid (HA)",
+        "es": "Concentration of Acid (HA)",
+        "ar": "Concentration of Acid (HA)"
+      }
     },
     {
       "id": "conc_base",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "M",
       "default": 0.1,
-      "businessContext": "Molar concentration of the conjugate base species in the buffer."
+      "businessContext": "Molar concentration of the conjugate base species in the buffer.",
+      "label_i18n": {
+        "en": "Concentration of Conjugate Base (A⁻)",
+        "tr": "Concentration of Conjugate Base (A⁻)",
+        "de": "Concentration of Conjugate Base (A⁻)",
+        "fr": "Concentration of Conjugate Base (A⁻)",
+        "es": "Concentration of Conjugate Base (A⁻)",
+        "ar": "Concentration of Conjugate Base (A⁻)"
+      }
     },
     {
       "id": "temperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Temperature of the buffer solution; ensure the provided pKa corresponds to this temperature."
+      "businessContext": "Temperature of the buffer solution; ensure the provided pKa corresponds to this temperature.",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "log_ratio"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

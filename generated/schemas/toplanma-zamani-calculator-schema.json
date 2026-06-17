@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)"
+      "businessContext": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)",
+      "label_i18n": {
+        "en": "Akış Uzunluğu",
+        "tr": "Akış Uzunluğu",
+        "de": "Akış Uzunluğu",
+        "fr": "Akış Uzunluğu",
+        "es": "Akış Uzunluğu",
+        "ar": "Akış Uzunluğu"
+      }
     },
     {
       "id": "slopePercent",
@@ -15,7 +23,39 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Akış yolu boyunca ortalama eğim yüzdesi (%)"
+      "businessContext": "Akış yolu boyunca ortalama eğim yüzdesi (%)",
+      "label_i18n": {
+        "en": "Eğim (%)",
+        "tr": "Eğim (%)",
+        "de": "Eğim (%)",
+        "fr": "Eğim (%)",
+        "es": "Eğim (%)",
+        "ar": "Eğim (%)"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
@@ -25,22 +65,17 @@
     "tcMinutes": "0.0195 * flowLengthPower * slopePower"
   },
   "outputs": {
-    "primary": {
-      "id": "tcMinutes",
-      "label": "Toplanma Zamanı",
-      "unit": "dakika",
-      "description": "Kirpich formülü ile hesaplanan toplanma zamanı"
-    },
+    "primary": "slopeDecimal",
     "breakdown": [
       "slopeDecimal",
       "flowLengthPower",
       "slopePower"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

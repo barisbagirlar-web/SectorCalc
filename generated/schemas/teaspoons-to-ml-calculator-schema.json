@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "tsp",
       "default": 1,
-      "businessContext": "Amount of substance in teaspoons"
+      "businessContext": "Amount of substance in teaspoons",
+      "label_i18n": {
+        "en": "Teaspoons",
+        "tr": "Teaspoons",
+        "de": "Teaspoons",
+        "fr": "Teaspoons",
+        "es": "Teaspoons",
+        "ar": "Teaspoons"
+      }
     },
     {
       "id": "mlPerTeaspoon",
@@ -15,40 +23,67 @@
       "type": "number",
       "unit": "mL/tsp",
       "default": 5,
-      "businessContext": "Conversion factor; 5 for metric, 4.92892 for US customary, 5.91939 for UK imperial"
+      "businessContext": "Conversion factor; 5 for metric, 4.92892 for US customary, 5.91939 for UK imperial",
+      "label_i18n": {
+        "en": "Milliliters per Teaspoon",
+        "tr": "Milliliters per Teaspoon",
+        "de": "Milliliters per Teaspoon",
+        "fr": "Milliliters per Teaspoon",
+        "es": "Milliliters per Teaspoon",
+        "ar": "Milliliters per Teaspoon"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the result"
+      "businessContext": "Number of decimal places for rounding the result",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "numberOfConversions",
       "label": "Number of Conversions",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for batch scaling (e.g., number of identical portions)"
+      "businessContext": "Multiplier for batch scaling (e.g., number of identical portions)",
+      "label_i18n": {
+        "en": "Number of Conversions",
+        "tr": "Number of Conversions",
+        "de": "Number of Conversions",
+        "fr": "Number of Conversions",
+        "es": "Number of Conversions",
+        "ar": "Number of Conversions"
+      }
     }
   ],
   "formulas": {
-    "primary": "Math.round(teaspoons * mlPerTeaspoon * numberOfConversions * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "primary": "Math.round(teaspoons * mlPerTeaspoon * numberOfConversions * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "Convert_teaspoons_to_base_milliliters__t": "Convert teaspoons to base milliliters (teaspoons × milliliters per teaspoon).",
+    "Scale_by_the_number_of_conversions__batc": "Scale by the number of conversions (batch factor).",
+    "Round_the_result_to_the_specified_decima": "Round the result to the specified decimal places."
   },
   "outputs": {
-    "primary": "milliliters",
+    "primary": "primary",
     "breakdown": [
       "Step 1: Convert teaspoons to base milliliters (teaspoons × milliliters per teaspoon).",
       "Step 2: Scale by the number of conversions (batch factor).",
       "Step 3: Round the result to the specified decimal places."
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

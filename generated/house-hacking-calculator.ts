@@ -32,13 +32,16 @@ function evaluateAllFormulas(input: House_hacking_calculatorInput): Record<strin
   try { const v = (results["effectiveRentIncome"] ?? 0) - (results["monthlyMortgage"] ?? 0) - input.monthlyExpenses; results["netMonthlyCashFlow"] = Number.isFinite(v) ? v : 0; } catch { results["netMonthlyCashFlow"] = 0; }
   try { const v = (results["netMonthlyCashFlow"] ?? 0) * 12; results["annualCashFlow"] = Number.isFinite(v) ? v : 0; } catch { results["annualCashFlow"] = 0; }
   try { const v = ((results["annualCashFlow"] ?? 0) / input.downPayment) * 100; results["cashOnCashReturn"] = Number.isFinite(v) ? v : 0; } catch { results["cashOnCashReturn"] = 0; }
+  results["Monthly_Mortgage_Payment"] = 0;
+  results["Effective_Rental_Income"] = 0;
+  results["Cash_on_Cash_Return"] = 0;
   return results;
 }
 
 
 export function calculateHouse_hacking_calculator(input: House_hacking_calculatorInput): House_hacking_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Monthly"] ?? 0;
+  const totalWasteCost = values["loanAmount"] ?? 0;
   const breakdown = {
     
   };

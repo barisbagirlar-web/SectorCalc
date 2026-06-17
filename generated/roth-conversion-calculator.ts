@@ -30,7 +30,7 @@ function evaluateAllFormulas(input: Roth_conversion_calculatorInput): Record<str
 
 export function calculateRoth_conversion_calculator(input: Roth_conversion_calculatorInput): Roth_conversion_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["conversionBenefit"] ?? 0;
+  const totalWasteCost = values["convertAfterTaxValue"] ?? 0;
   const breakdown = {
     
   };

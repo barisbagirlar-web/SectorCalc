@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Toplam tüketilen alkol miktarı (gram)"
+      "businessContext": "Toplam tüketilen alkol miktarı (gram)",
+      "label_i18n": {
+        "en": "Alkol Miktarı",
+        "tr": "Alkol Miktarı",
+        "de": "Alkol Miktarı",
+        "fr": "Alkol Miktarı",
+        "es": "Alkol Miktarı",
+        "ar": "Alkol Miktarı"
+      }
     },
     {
       "id": "body_weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kişinin vücut ağırlığı"
+      "businessContext": "Kişinin vücut ağırlığı",
+      "label_i18n": {
+        "en": "Vücut Ağırlığı",
+        "tr": "Vücut Ağırlığı",
+        "de": "Vücut Ağırlığı",
+        "fr": "Vücut Ağırlığı",
+        "es": "Vücut Ağırlığı",
+        "ar": "Vücut Ağırlığı"
+      }
     },
     {
       "id": "hours",
@@ -23,31 +39,63 @@
       "type": "number",
       "unit": "saat",
       "default": 4,
-      "businessContext": "İçki içme süresi"
+      "businessContext": "İçki içme süresi",
+      "label_i18n": {
+        "en": "İçki Süresi",
+        "tr": "İçki Süresi",
+        "de": "İçki Süresi",
+        "fr": "İçki Süresi",
+        "es": "İçki Süresi",
+        "ar": "İçki Süresi"
+      }
     },
     {
       "id": "gender",
       "label": "Cinsiyet",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Cinsiyet (0: Kadın, 1: Erkek)"
+      "businessContext": "Cinsiyet (0: Kadın, 1: Erkek)",
+      "label_i18n": {
+        "en": "Cinsiyet",
+        "tr": "Cinsiyet",
+        "de": "Cinsiyet",
+        "fr": "Cinsiyet",
+        "es": "Cinsiyet",
+        "ar": "Cinsiyet"
+      }
     },
     {
       "id": "food_intake",
       "label": "Yemek Tüketimi",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Yemek tüketimi (0: aç karnına, 1: tok)"
+      "businessContext": "Yemek tüketimi (0: aç karnına, 1: tok)",
+      "label_i18n": {
+        "en": "Yemek Tüketimi",
+        "tr": "Yemek Tüketimi",
+        "de": "Yemek Tüketimi",
+        "fr": "Yemek Tüketimi",
+        "es": "Yemek Tüketimi",
+        "ar": "Yemek Tüketimi"
+      }
     },
     {
       "id": "hydration",
       "label": "Hidrasyon Durumu",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Hidrasyon seviyesi (0: susuz, 1: tam hidrasyon)"
+      "businessContext": "Hidrasyon seviyesi (0: susuz, 1: tam hidrasyon)",
+      "label_i18n": {
+        "en": "Hidrasyon Durumu",
+        "tr": "Hidrasyon Durumu",
+        "de": "Hidrasyon Durumu",
+        "fr": "Hidrasyon Durumu",
+        "es": "Hidrasyon Durumu",
+        "ar": "Hidrasyon Durumu"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "food_impact"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",
-  "categorySlug": "food-cold-chain-hygiene"
+  "categorySlug": "quality-six-sigma"
 }

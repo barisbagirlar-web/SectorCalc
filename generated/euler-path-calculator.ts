@@ -22,6 +22,11 @@ export const Euler_path_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Euler_path_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.isConnected == 1 ? (input.oddVertices == 0 ? 2 : (input.oddVertices == 2 ? 1 : 0)) : 0; results["eulerResult"] = Number.isFinite(v) ? v : 0; } catch { results["eulerResult"] = 0; }
+  results["_____eulerResult____2____Euler_Devresi__"] = 0;
+  results["_____isConnected____1____Ba_l______Ba_l_"] = 0;
+  results["____oddVertices"] = 0;
+  results["____minDegree______Max_Derece______maxDe"] = 0;
+  results["____totalVertices______Toplam_Kenar_____"] = 0;
   return results;
 }
 

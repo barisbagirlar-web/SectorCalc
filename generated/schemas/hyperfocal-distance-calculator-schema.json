@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "The focal length of the lens in millimeters."
+      "businessContext": "The focal length of the lens in millimeters.",
+      "label_i18n": {
+        "en": "Focal Length (f)",
+        "tr": "Focal Length (f)",
+        "de": "Focal Length (f)",
+        "fr": "Focal Length (f)",
+        "es": "Focal Length (f)",
+        "ar": "Focal Length (f)"
+      }
     },
     {
       "id": "aperture",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "f-number",
       "default": 8,
-      "businessContext": "The f-number of the lens aperture. Larger numbers indicate smaller apertures."
+      "businessContext": "The f-number of the lens aperture. Larger numbers indicate smaller apertures.",
+      "label_i18n": {
+        "en": "Aperture (N)",
+        "tr": "Aperture (N)",
+        "de": "Aperture (N)",
+        "fr": "Aperture (N)",
+        "es": "Aperture (N)",
+        "ar": "Aperture (N)"
+      }
     },
     {
       "id": "circleOfConfusion",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "mm",
       "default": 0.03,
-      "businessContext": "The acceptable circle of confusion diameter in mm. Common values: 0.03mm for full-frame, 0.02mm for APS-C, 0.015mm for Four Thirds."
+      "businessContext": "The acceptable circle of confusion diameter in mm. Common values: 0.03mm for full-frame, 0.02mm for APS-C, 0.015mm for Four Thirds.",
+      "label_i18n": {
+        "en": "Circle of Confusion (c)",
+        "tr": "Circle of Confusion (c)",
+        "de": "Circle of Confusion (c)",
+        "fr": "Circle of Confusion (c)",
+        "es": "Circle of Confusion (c)",
+        "ar": "Circle of Confusion (c)"
+      }
     },
     {
       "id": "outputUnitMultiplier",
       "label": "Output Unit Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier to convert the result to desired output unit. Use 1 for mm, 0.001 for meters, 0.03937 for inches."
+      "businessContext": "Multiplier to convert the result to desired output unit. Use 1 for mm, 0.001 for meters, 0.03937 for inches.",
+      "label_i18n": {
+        "en": "Output Unit Multiplier",
+        "tr": "Output Unit Multiplier",
+        "de": "Output Unit Multiplier",
+        "fr": "Output Unit Multiplier",
+        "es": "Output Unit Multiplier",
+        "ar": "Output Unit Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "farLimit"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -19,13 +19,17 @@ function evaluateAllFormulas(input: Lbtt_calculator_scotlandInput): Record<strin
   try { const v = tax; results["firstTimeBuyerRelief"] = Number.isFinite(v) ? v : 0; } catch { results["firstTimeBuyerRelief"] = 0; }
   try { const v = (() => { let p = input.purchasePrice; let surcharge = 0; if (p <= 145000) { surcharge = p * 0.04; } else if (p <= 250000) { surcharge = 145000 * 0.04 + (p - 145000) * 0.06; } else if (p <= 325000) { surcharge = 145000 * 0.04 + (250000 - 145000) * 0.06 + (p - 250000) * 0.09; } else if (p <= 750000) { surcharge = 145000 * 0.04 + (250000 - 145000) * 0.06 + (325000 - 250000) * 0.09 + (p - 325000) * 0.14; } else { surcharge = 145000 * 0.04 + (250000 - 145000) * 0.06 + (325000 - 250000) * 0.09 + (750000 - 325000) * 0.14 + (p - 750000) * 0.16; return } surcharge; })(); results["adsSurcharge"] = Number.isFinite(v) ? v : 0; } catch { results["adsSurcharge"] = 0; }
   try { const v = base + ads; results["totalTax"] = Number.isFinite(v) ? v : 0; } catch { results["totalTax"] = 0; }
+  results["Standard_Tax____"] = 0;
+  results["First_Time_Buyer_Relief____"] = 0;
+  results["ADS_Surcharge____"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateLbtt_calculator_scotland(input: Lbtt_calculator_scotlandInput): Lbtt_calculator_scotlandOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

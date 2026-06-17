@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Doğum günü (1–31 arası)"
+      "businessContext": "Doğum günü (1–31 arası)",
+      "label_i18n": {
+        "en": "Doğum Günü",
+        "tr": "Doğum Günü",
+        "de": "Doğum Günü",
+        "fr": "Doğum Günü",
+        "es": "Doğum Günü",
+        "ar": "Doğum Günü"
+      }
     },
     {
       "id": "birthMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Doğum ayı (1–12 arası)"
+      "businessContext": "Doğum ayı (1–12 arası)",
+      "label_i18n": {
+        "en": "Doğum Ayı",
+        "tr": "Doğum Ayı",
+        "de": "Doğum Ayı",
+        "fr": "Doğum Ayı",
+        "es": "Doğum Ayı",
+        "ar": "Doğum Ayı"
+      }
     },
     {
       "id": "birthYear",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 2000,
-      "businessContext": "Doğum yılı"
+      "businessContext": "Doğum yılı",
+      "label_i18n": {
+        "en": "Doğum Yılı",
+        "tr": "Doğum Yılı",
+        "de": "Doğum Yılı",
+        "fr": "Doğum Yılı",
+        "es": "Doğum Yılı",
+        "ar": "Doğum Yılı"
+      }
     },
     {
       "id": "monthOffset",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ay",
       "default": 6,
-      "businessContext": "İleri sarılacak ay sayısı (yarı doğum günü için 6)"
+      "businessContext": "İleri sarılacak ay sayısı (yarı doğum günü için 6)",
+      "label_i18n": {
+        "en": "Ay Farkı",
+        "tr": "Ay Farkı",
+        "de": "Ay Farkı",
+        "fr": "Ay Farkı",
+        "es": "Ay Farkı",
+        "ar": "Ay Farkı"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +86,8 @@
       "newDay"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

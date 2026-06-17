@@ -5,25 +5,49 @@
       "id": "value1",
       "label": "First Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First measurement value for comparison"
+      "businessContext": "First measurement value for comparison",
+      "label_i18n": {
+        "en": "First Value",
+        "tr": "First Value",
+        "de": "First Value",
+        "fr": "First Value",
+        "es": "First Value",
+        "ar": "First Value"
+      }
     },
     {
       "id": "value2",
       "label": "Second Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second measurement value for comparison"
+      "businessContext": "Second measurement value for comparison",
+      "label_i18n": {
+        "en": "Second Value",
+        "tr": "Second Value",
+        "de": "Second Value",
+        "fr": "Second Value",
+        "es": "Second Value",
+        "ar": "Second Value"
+      }
     },
     {
       "id": "referenceValue",
       "label": "Reference Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Optimal theoretical value; if >0, percent error is calculated instead of percent difference"
+      "businessContext": "Optimal theoretical value; if >0, percent error is calculated instead of percent difference",
+      "label_i18n": {
+        "en": "Reference Value",
+        "tr": "Reference Value",
+        "de": "Reference Value",
+        "fr": "Reference Value",
+        "es": "Reference Value",
+        "ar": "Reference Value"
+      }
     },
     {
       "id": "tolerance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Maximum acceptable percent deviation before flagging a quality issue"
+      "businessContext": "Maximum acceptable percent deviation before flagging a quality issue",
+      "label_i18n": {
+        "en": "Tolerance Threshold",
+        "tr": "Tolerance Threshold",
+        "de": "Tolerance Threshold",
+        "fr": "Tolerance Threshold",
+        "es": "Tolerance Threshold",
+        "ar": "Tolerance Threshold"
+      }
     }
   ],
   "formulas": {
@@ -52,10 +84,10 @@
       "withinTolerance"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "erg",
       "default": 1,
-      "businessContext": "The amount of energy in ergs to be converted to joules."
+      "businessContext": "The amount of energy in ergs to be converted to joules.",
+      "label_i18n": {
+        "en": "Energy in Ergs",
+        "tr": "Energy in Ergs",
+        "de": "Energy in Ergs",
+        "fr": "Energy in Ergs",
+        "es": "Energy in Ergs",
+        "ar": "Energy in Ergs"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "J/erg",
       "default": 1e-7,
-      "businessContext": "Fixed conversion factor: 1 erg = 1e-7 joules. Adjustable for system calibration."
+      "businessContext": "Fixed conversion factor: 1 erg = 1e-7 joules. Adjustable for system calibration.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "precision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimals",
       "default": 2,
-      "businessContext": "Number of decimal places for the output value."
+      "businessContext": "Number of decimal places for the output value.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "uncertaintyPercent",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Estimated measurement uncertainty percentage to calculate tolerance range."
+      "businessContext": "Estimated measurement uncertainty percentage to calculate tolerance range.",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (%)",
+        "tr": "Measurement Uncertainty (%)",
+        "de": "Measurement Uncertainty (%)",
+        "fr": "Measurement Uncertainty (%)",
+        "es": "Measurement Uncertainty (%)",
+        "ar": "Measurement Uncertainty (%)"
+      }
     },
     {
       "id": "batchNumber",
       "label": "Batch Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Production batch identifier for traceability."
+      "businessContext": "Production batch identifier for traceability.",
+      "label_i18n": {
+        "en": "Batch Number",
+        "tr": "Batch Number",
+        "de": "Batch Number",
+        "fr": "Batch Number",
+        "es": "Batch Number",
+        "ar": "Batch Number"
+      }
     },
     {
       "id": "operatorID",
       "label": "Operator ID",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Identifier of the operator performing the calculation."
+      "businessContext": "Identifier of the operator performing the calculation.",
+      "label_i18n": {
+        "en": "Operator ID",
+        "tr": "Operator ID",
+        "de": "Operator ID",
+        "fr": "Operator ID",
+        "es": "Operator ID",
+        "ar": "Operator ID"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "maxEnergy"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

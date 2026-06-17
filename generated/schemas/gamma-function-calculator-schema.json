@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Input value for which the Gamma function is evaluated. For positive integers, Gamma(n) = (n-1)!."
+      "businessContext": "Input value for which the Gamma function is evaluated. For positive integers, Gamma(n) = (n-1)!.",
+      "label_i18n": {
+        "en": "x (real number)",
+        "tr": "x (real number)",
+        "de": "x (real number)",
+        "fr": "x (real number)",
+        "es": "x (real number)",
+        "ar": "x (real number)"
+      }
     },
     {
       "id": "tolerance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1e-10,
-      "businessContext": "Convergence tolerance for the Lanczos approximation series."
+      "businessContext": "Convergence tolerance for the Lanczos approximation series.",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     },
     {
       "id": "maxIterations",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 100,
-      "businessContext": "Maximum number of iterations for the series summation."
+      "businessContext": "Maximum number of iterations for the series summation.",
+      "label_i18n": {
+        "en": "Max Iterations",
+        "tr": "Max Iterations",
+        "de": "Max Iterations",
+        "fr": "Max Iterations",
+        "es": "Max Iterations",
+        "ar": "Max Iterations"
+      }
     },
     {
       "id": "useStirling",
@@ -31,26 +55,38 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "If set to 1, use Stirling's approximation for large x (x > 10) for faster computation."
+      "businessContext": "If set to 1, use Stirling's approximation for large x (x > 10) for faster computation.",
+      "label_i18n": {
+        "en": "Use Stirling Approximation (0/1)",
+        "tr": "Use Stirling Approximation (0/1)",
+        "de": "Use Stirling Approximation (0/1)",
+        "fr": "Use Stirling Approximation (0/1)",
+        "es": "Use Stirling Approximation (0/1)",
+        "ar": "Use Stirling Approximation (0/1)"
+      }
     }
   ],
   "formulas": {
     "gammaLanczos": "function gammaLanczos(x, tol, maxIter) { if (x < 0.5) { return Math.PI / (Math.sin(Math.PI * x) * gammaLanczos(1 - x, tol, maxIter)); } x -= 1; const p = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313, -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7]; let g = 7; let z = x + 0.5; let sum = p[0]; for (let i = 1; i < p.length; i++) { sum += p[i] / (x + i); } const t = x + g + 0.5; return Math.sqrt(2 * Math.PI) * Math.pow(t, x + 0.5) * Math.exp(-t) * sum; }",
     "gammaStirling": "function gammaStirling(x) { return Math.sqrt(2 * Math.PI / x) * Math.pow(x / Math.E, x); }",
-    "gamma": "function gamma(x, tol, maxIter, useStirling) { if (x <= 0 && Number.isInteger(x)) { return NaN; } if (useStirling && x > 10) { return gammaStirling(x); } return gammaLanczos(x, tol, maxIter); }"
+    "gamma": "function gamma(x, tol, maxIter, useStirling) { if (x <= 0 && Number.isInteger(x)) { return NaN; } if (useStirling && x > 10) { return gammaStirling(x); } return gammaLanczos(x, tol, maxIter); }",
+    "Gamma_x__value": "Gamma(x) value",
+    "Natural_log_of_Gamma_x_": "Natural log of Gamma(x)",
+    "Factorial_equivalent__x_1___if_x_is_inte": "Factorial equivalent (x-1)! if x is integer",
+    "result": "Gamma(x)"
   },
   "outputs": {
-    "primary": "Gamma(x)",
+    "primary": "result",
     "breakdown": [
       "Gamma(x) value",
       "Natural log of Gamma(x)",
       "Factorial equivalent (x-1)! if x is integer"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

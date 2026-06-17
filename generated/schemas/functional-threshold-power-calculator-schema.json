@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W",
       "default": 250,
-      "businessContext": "20 dakikalık maksimum eforda üretilen ortalama güç (watt)"
+      "businessContext": "20 dakikalık maksimum eforda üretilen ortalama güç (watt)",
+      "label_i18n": {
+        "en": "20 Dakika Ortalama Güç",
+        "tr": "20 Dakika Ortalama Güç",
+        "de": "20 Dakika Ortalama Güç",
+        "fr": "20 Dakika Ortalama Güç",
+        "es": "20 Dakika Ortalama Güç",
+        "ar": "20 Dakika Ortalama Güç"
+      }
     },
     {
       "id": "weight",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Sürücünün ağırlığı (kilogram)"
+      "businessContext": "Sürücünün ağırlığı (kilogram)",
+      "label_i18n": {
+        "en": "Sürücü Ağırlığı",
+        "tr": "Sürücü Ağırlığı",
+        "de": "Sürücü Ağırlığı",
+        "fr": "Sürücü Ağırlığı",
+        "es": "Sürücü Ağırlığı",
+        "ar": "Sürücü Ağırlığı"
+      }
     },
     {
       "id": "factor",
       "label": "Ayarlama Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.95,
-      "businessContext": "FTP hesaplamak için kullanılan katsayı (standart 20 dk testi için 0.95)"
+      "businessContext": "FTP hesaplamak için kullanılan katsayı (standart 20 dk testi için 0.95)",
+      "label_i18n": {
+        "en": "Ayarlama Faktörü",
+        "tr": "Ayarlama Faktörü",
+        "de": "Ayarlama Faktörü",
+        "fr": "Ayarlama Faktörü",
+        "es": "Ayarlama Faktörü",
+        "ar": "Ayarlama Faktörü"
+      }
     },
     {
       "id": "testDuration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dk",
       "default": 20,
-      "businessContext": "Testin süresi (dakika), referans amaçlıdır, hesaplamayı etkilemez"
+      "businessContext": "Testin süresi (dakika), referans amaçlıdır, hesaplamayı etkilemez",
+      "label_i18n": {
+        "en": "Test Süresi",
+        "tr": "Test Süresi",
+        "de": "Test Süresi",
+        "fr": "Test Süresi",
+        "es": "Test Süresi",
+        "ar": "Test Süresi"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "powerToWeight"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

@@ -5,49 +5,97 @@
       "id": "a11",
       "label": "a11 (A row 1, col 1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "State matrix A element"
+      "businessContext": "State matrix A element",
+      "label_i18n": {
+        "en": "a11 (A row 1, col 1)",
+        "tr": "a11 (A row 1, col 1)",
+        "de": "a11 (A row 1, col 1)",
+        "fr": "a11 (A row 1, col 1)",
+        "es": "a11 (A row 1, col 1)",
+        "ar": "a11 (A row 1, col 1)"
+      }
     },
     {
       "id": "a12",
       "label": "a12 (A row 1, col 2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "State matrix A element"
+      "businessContext": "State matrix A element",
+      "label_i18n": {
+        "en": "a12 (A row 1, col 2)",
+        "tr": "a12 (A row 1, col 2)",
+        "de": "a12 (A row 1, col 2)",
+        "fr": "a12 (A row 1, col 2)",
+        "es": "a12 (A row 1, col 2)",
+        "ar": "a12 (A row 1, col 2)"
+      }
     },
     {
       "id": "a21",
       "label": "a21 (A row 2, col 1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -2,
-      "businessContext": "State matrix A element"
+      "businessContext": "State matrix A element",
+      "label_i18n": {
+        "en": "a21 (A row 2, col 1)",
+        "tr": "a21 (A row 2, col 1)",
+        "de": "a21 (A row 2, col 1)",
+        "fr": "a21 (A row 2, col 1)",
+        "es": "a21 (A row 2, col 1)",
+        "ar": "a21 (A row 2, col 1)"
+      }
     },
     {
       "id": "a22",
       "label": "a22 (A row 2, col 2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -3,
-      "businessContext": "State matrix A element"
+      "businessContext": "State matrix A element",
+      "label_i18n": {
+        "en": "a22 (A row 2, col 2)",
+        "tr": "a22 (A row 2, col 2)",
+        "de": "a22 (A row 2, col 2)",
+        "fr": "a22 (A row 2, col 2)",
+        "es": "a22 (A row 2, col 2)",
+        "ar": "a22 (A row 2, col 2)"
+      }
     },
     {
       "id": "b1",
       "label": "b1 (B row 1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Input matrix B element"
+      "businessContext": "Input matrix B element",
+      "label_i18n": {
+        "en": "b1 (B row 1)",
+        "tr": "b1 (B row 1)",
+        "de": "b1 (B row 1)",
+        "fr": "b1 (B row 1)",
+        "es": "b1 (B row 1)",
+        "ar": "b1 (B row 1)"
+      }
     },
     {
       "id": "b2",
       "label": "b2 (B row 2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Input matrix B element"
+      "businessContext": "Input matrix B element",
+      "label_i18n": {
+        "en": "b2 (B row 2)",
+        "tr": "b2 (B row 2)",
+        "de": "b2 (B row 2)",
+        "fr": "b2 (B row 2)",
+        "es": "b2 (B row 2)",
+        "ar": "b2 (B row 2)"
+      }
     }
   ],
   "formulas": {
@@ -66,10 +114,10 @@
       "c22"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

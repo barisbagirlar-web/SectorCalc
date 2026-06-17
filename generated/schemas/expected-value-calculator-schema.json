@@ -5,65 +5,129 @@
       "id": "outcome1_probability",
       "label": "Probability O1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.25,
-      "businessContext": "Probability of outcome 1 occurring (0 to 1)."
+      "businessContext": "Probability of outcome 1 occurring (0 to 1).",
+      "label_i18n": {
+        "en": "Probability O1",
+        "tr": "Probability O1",
+        "de": "Probability O1",
+        "fr": "Probability O1",
+        "es": "Probability O1",
+        "ar": "Probability O1"
+      }
     },
     {
       "id": "outcome1_value",
       "label": "Value O1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Value (payoff) of outcome 1."
+      "businessContext": "Value (payoff) of outcome 1.",
+      "label_i18n": {
+        "en": "Value O1",
+        "tr": "Value O1",
+        "de": "Value O1",
+        "fr": "Value O1",
+        "es": "Value O1",
+        "ar": "Value O1"
+      }
     },
     {
       "id": "outcome2_probability",
       "label": "Probability O2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.25,
-      "businessContext": "Probability of outcome 2 occurring (0 to 1)."
+      "businessContext": "Probability of outcome 2 occurring (0 to 1).",
+      "label_i18n": {
+        "en": "Probability O2",
+        "tr": "Probability O2",
+        "de": "Probability O2",
+        "fr": "Probability O2",
+        "es": "Probability O2",
+        "ar": "Probability O2"
+      }
     },
     {
       "id": "outcome2_value",
       "label": "Value O2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 200,
-      "businessContext": "Value (payoff) of outcome 2."
+      "businessContext": "Value (payoff) of outcome 2.",
+      "label_i18n": {
+        "en": "Value O2",
+        "tr": "Value O2",
+        "de": "Value O2",
+        "fr": "Value O2",
+        "es": "Value O2",
+        "ar": "Value O2"
+      }
     },
     {
       "id": "outcome3_probability",
       "label": "Probability O3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.25,
-      "businessContext": "Probability of outcome 3 occurring (0 to 1)."
+      "businessContext": "Probability of outcome 3 occurring (0 to 1).",
+      "label_i18n": {
+        "en": "Probability O3",
+        "tr": "Probability O3",
+        "de": "Probability O3",
+        "fr": "Probability O3",
+        "es": "Probability O3",
+        "ar": "Probability O3"
+      }
     },
     {
       "id": "outcome3_value",
       "label": "Value O3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 300,
-      "businessContext": "Value (payoff) of outcome 3."
+      "businessContext": "Value (payoff) of outcome 3.",
+      "label_i18n": {
+        "en": "Value O3",
+        "tr": "Value O3",
+        "de": "Value O3",
+        "fr": "Value O3",
+        "es": "Value O3",
+        "ar": "Value O3"
+      }
     },
     {
       "id": "outcome4_probability",
       "label": "Probability O4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.25,
-      "businessContext": "Probability of outcome 4 occurring (0 to 1)."
+      "businessContext": "Probability of outcome 4 occurring (0 to 1).",
+      "label_i18n": {
+        "en": "Probability O4",
+        "tr": "Probability O4",
+        "de": "Probability O4",
+        "fr": "Probability O4",
+        "es": "Probability O4",
+        "ar": "Probability O4"
+      }
     },
     {
       "id": "outcome4_value",
       "label": "Value O4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 400,
-      "businessContext": "Value (payoff) of outcome 4."
+      "businessContext": "Value (payoff) of outcome 4.",
+      "label_i18n": {
+        "en": "Value O4",
+        "tr": "Value O4",
+        "de": "Value O4",
+        "fr": "Value O4",
+        "es": "Value O4",
+        "ar": "Value O4"
+      }
     }
   ],
   "formulas": {
@@ -82,10 +146,10 @@
       "Outcome4_Contribution"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

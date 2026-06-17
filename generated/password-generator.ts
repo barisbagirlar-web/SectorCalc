@@ -23,13 +23,15 @@ function evaluateAllFormulas(input: Password_generatorInput): Record<string, num
   const results: Record<string, number> = {};
   try { const v = input.length * Math.log2(input.uppercase + input.lowercase + input.digits + input.special + (input.excludeSimilar ? 0 : 0)); results["entropy"] = Number.isFinite(v) ? v : 0; } catch { results["entropy"] = 0; }
   try { const v = (results["entropy"] ?? 0) >= 80 ? 'Strong' : (results["entropy"] ?? 0) >= 60 ? 'Moderate' : 'Weak'; results["strength"] = Number.isFinite(v) ? v : 0; } catch { results["strength"] = 0; }
+  results["_entropy__bits"] = 0;
+  try { const v = (results["strength"] ?? 0); results["_strength_"] = Number.isFinite(v) ? v : 0; } catch { results["_strength_"] = 0; }
   return results;
 }
 
 
 export function calculatePassword_generator(input: Password_generatorInput): Password_generatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Generated"] ?? 0;
+  const totalWasteCost = values["entropy"] ?? 0;
   const breakdown = {
     
   };

@@ -22,13 +22,14 @@ function evaluateAllFormulas(input: Resting_heart_rate_calculatorInput): Record<
   try { const v = ((results["restingHeartRate"] ?? 0) < 60 ? 'Athletic' : (results["restingHeartRate"] ?? 0) < 80 ? 'Normal' : 'Elevated'); results["classification"] = Number.isFinite(v) ? v : 0; } catch { results["classification"] = 0; }
   try { const v = `A resting heart rate of ${(results["restingHeartRateRounded"] ?? 0)} bpm is considered ${(results["classification"] ?? 0).toLowerCase()}.`; results["breakdown1"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown1"] = 0; }
   try { const v = 'Normal resting heart rate ranges from 60 to 100 bpm for adults. Athletes may have 40-60 bpm.'; results["breakdown2Text"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown2Text"] = 0; }
+  try { const v = (results["restingHeartRateRounded"] ?? 0) + ' bpm'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateResting_heart_rate_calculator(input: Resting_heart_rate_calculatorInput): Resting_heart_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["restingHeartRateRounded"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

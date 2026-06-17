@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "long tons",
       "default": 0,
-      "businessContext": "Weight per item in long tons (UK, 2240 lbs)"
+      "businessContext": "Weight per item in long tons (UK, 2240 lbs)",
+      "label_i18n": {
+        "en": "Long Tons",
+        "tr": "Long Tons",
+        "de": "Long Tons",
+        "fr": "Long Tons",
+        "es": "Long Tons",
+        "ar": "Long Tons"
+      }
     },
     {
       "id": "quantity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "items",
       "default": 1,
-      "businessContext": "Number of identical items"
+      "businessContext": "Number of identical items",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     },
     {
       "id": "conversionFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/long ton",
       "default": 1016.0469088,
-      "businessContext": "Exact conversion factor: 1 long ton = 1016.0469088 kg (based on 1 lb = 0.45359237 kg). Editable for traceability."
+      "businessContext": "Exact conversion factor: 1 long ton = 1016.0469088 kg (based on 1 lb = 0.45359237 kg). Editable for traceability.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "safetyMargin",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Additional safety margin percentage (e.g., 10 for 10% extra)"
+      "businessContext": "Additional safety margin percentage (e.g., 10 for 10% extra)",
+      "label_i18n": {
+        "en": "Safety Margin",
+        "tr": "Safety Margin",
+        "de": "Safety Margin",
+        "fr": "Safety Margin",
+        "es": "Safety Margin",
+        "ar": "Safety Margin"
+      }
     },
     {
       "id": "decimals",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for final result"
+      "businessContext": "Number of decimal places for final result",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "withSafetyKg"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

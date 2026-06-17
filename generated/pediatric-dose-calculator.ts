@@ -26,13 +26,16 @@ function evaluateAllFormulas(input: Pediatric_dose_calculatorInput): Record<stri
   try { const v = Math.round((results["youngDose"] ?? 0) / input.concentration * 100) / 100; results["volumeYoung"] = Number.isFinite(v) ? v : 0; } catch { results["volumeYoung"] = 0; }
   try { const v = (results["clarkDose"] ?? 0) <= (results["maxAllowedDose"] ?? 0); results["isClarkeSafe"] = Number.isFinite(v) ? v : 0; } catch { results["isClarkeSafe"] = 0; }
   try { const v = (results["youngDose"] ?? 0) <= (results["maxAllowedDose"] ?? 0); results["isYoungSafe"] = Number.isFinite(v) ? v : 0; } catch { results["isYoungSafe"] = 0; }
+  results["__youngDose__mg____volumeYoung__mL___G_v"] = 0;
+  results["__maxAllowedDose__mg"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculatePediatric_dose_calculator(input: Pediatric_dose_calculatorInput): Pediatric_dose_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Clark"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

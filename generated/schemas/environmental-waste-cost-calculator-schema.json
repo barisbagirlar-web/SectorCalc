@@ -13,7 +13,7 @@
       "id": "waste_type",
       "label": "Waste Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "mixed_solid",
       "options": [
         "mixed_solid",
@@ -260,132 +260,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "disposal_cost",
-      "label": "Disposal Cost",
-      "description": "Total cost for waste disposal based on volume and unit cost.",
-      "expression": "waste_volume_kg * disposal_cost_per_kg"
-    },
-    {
-      "id": "transport_cost",
-      "label": "Transport Cost",
-      "description": "Cost of transporting waste to disposal or recycling facility.",
-      "expression": "transport_distance_km * transport_cost_per_km * (waste_volume_kg / 1000)"
-    },
-    {
-      "id": "labor_cost",
-      "label": "Labor Cost",
-      "description": "Direct labor cost for waste handling.",
-      "expression": "(waste_volume_kg / 1000) * labor_hours_per_ton * labor_rate_per_hour"
-    },
-    {
-      "id": "recycling_revenue",
-      "label": "Recycling Revenue",
-      "description": "Revenue from recycled materials.",
-      "expression": "waste_volume_kg * (recycling_rate / 100) * recycling_revenue_per_kg"
-    },
-    {
-      "id": "carbon_cost",
-      "label": "Carbon Cost",
-      "description": "Monetary value of carbon emissions associated with waste.",
-      "expression": "waste_volume_kg * emission_factor_kg_co2_per_kg_waste * carbon_cost_per_kg_co2"
-    },
-    {
-      "id": "compliance_penalty",
-      "label": "Compliance Penalty",
-      "description": "Potential penalty if waste volume exceeds limit.",
-      "expression": "max(0, (waste_volume_kg - waste_volume_limit_kg)) * compliance_penalty_per_kg"
-    },
-    {
-      "id": "total_waste_cost",
-      "label": "Total Waste Cost",
-      "description": "Primary result – net cost of waste including all direct and indirect costs minus revenue.",
-      "expression": "disposal_cost + transport_cost + labor_cost + carbon_cost + compliance_penalty - recycling_revenue"
-    }
+    "waste_type",
+    "waste_type",
+    "waste_type",
+    "waste_type",
+    "waste_type",
+    "waste_type",
+    "waste_type"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_waste_cost",
-      "label": "Total Waste Cost",
-      "unit": "USD",
-      "description": "Net cost of waste generation for the reporting period."
-    },
-    "breakdown": {
-      "disposal_cost": {
-        "label": "Disposal Cost",
-        "unit": "USD"
-      },
-      "transport_cost": {
-        "label": "Transport Cost",
-        "unit": "USD"
-      },
-      "labor_cost": {
-        "label": "Labor Cost",
-        "unit": "USD"
-      },
-      "recycling_revenue": {
-        "label": "Recycling Revenue",
-        "unit": "USD"
-      },
-      "carbon_cost": {
-        "label": "Carbon Cost",
-        "unit": "USD"
-      },
-      "compliance_penalty": {
-        "label": "Compliance Penalty",
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "inefficient_sorting",
-        "label": "Inefficient Sorting",
-        "description": "Low recycling rate indicates missed revenue and higher disposal costs.",
-        "impact": "recycling_rate < 30"
-      },
-      {
-        "id": "excessive_transport",
-        "label": "Excessive Transport Distance",
-        "description": "Long transport distances increase cost and emissions.",
-        "impact": "transport_distance_km > 100"
-      },
-      {
-        "id": "high_emission_factor",
-        "label": "High Emission Factor",
-        "description": "Waste type or disposal method leads to high carbon cost.",
-        "impact": "emission_factor_kg_co2_per_kg_waste > 1"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_recycling",
-        "label": "Increase Recycling Rate",
-        "description": "Implement segregation programs to boost recycling rate above 30%.",
-        "expectedBenefit": "Reduces disposal cost and increases revenue."
-      },
-      {
-        "id": "optimize_transport",
-        "label": "Optimize Transport Routes",
-        "description": "Consolidate waste shipments to reduce distance and cost.",
-        "expectedBenefit": "Lowers transport cost and carbon footprint."
-      },
-      {
-        "id": "reduce_waste_volume",
-        "label": "Reduce Waste Volume",
-        "description": "Apply Lean and Six Sigma to minimize waste generation at source.",
-        "expectedBenefit": "Decreases all cost components and compliance risk."
-      },
-      {
-        "id": "audit_compliance",
-        "label": "Audit Compliance Limits",
-        "description": "Regularly review waste volume against limits to avoid penalties.",
-        "expectedBenefit": "Eliminates compliance penalty cost."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "environmental-waste-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik"
 }

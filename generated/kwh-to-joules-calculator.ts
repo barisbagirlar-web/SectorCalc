@@ -22,6 +22,7 @@ function evaluateAllFormulas(input: Kwh_to_joules_calculatorInput): Record<strin
   try { const v = input.kwh > 0 ? input.kwh : input.power_kw * input.time_h; results["energy_kwh"] = Number.isFinite(v) ? v : 0; } catch { results["energy_kwh"] = 0; }
   try { const v = (results["energy_kwh"] ?? 0) * input.conversion_factor; results["energy_joules"] = Number.isFinite(v) ? v : 0; } catch { results["energy_joules"] = 0; }
   try { const v = Math.round((results["energy_joules"] ?? 0) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["rounded_joules"] = Number.isFinite(v) ? v : 0; } catch { results["rounded_joules"] = 0; }
+  try { const v = input.conversion_factor; results["conversion_factor"] = Number.isFinite(v) ? v : 0; } catch { results["conversion_factor"] = 0; }
   return results;
 }
 

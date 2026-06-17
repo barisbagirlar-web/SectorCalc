@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "px",
       "default": 1920,
-      "businessContext": "Image width in pixels"
+      "businessContext": "Image width in pixels",
+      "label_i18n": {
+        "en": "Width (px)",
+        "tr": "Width (px)",
+        "de": "Width (px)",
+        "fr": "Width (px)",
+        "es": "Width (px)",
+        "ar": "Width (px)"
+      }
     },
     {
       "id": "heightPx",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "px",
       "default": 1080,
-      "businessContext": "Image height in pixels"
+      "businessContext": "Image height in pixels",
+      "label_i18n": {
+        "en": "Height (px)",
+        "tr": "Height (px)",
+        "de": "Height (px)",
+        "fr": "Height (px)",
+        "es": "Height (px)",
+        "ar": "Height (px)"
+      }
     },
     {
       "id": "bitDepth",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "bits/channel",
       "default": 8,
-      "businessContext": "Color depth per channel (e.g., 8, 16, 32)"
+      "businessContext": "Color depth per channel (e.g., 8, 16, 32)",
+      "label_i18n": {
+        "en": "Bit Depth",
+        "tr": "Bit Depth",
+        "de": "Bit Depth",
+        "fr": "Bit Depth",
+        "es": "Bit Depth",
+        "ar": "Bit Depth"
+      }
     },
     {
       "id": "channels",
       "label": "Color Channels",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of color channels (1 for grayscale, 3 for RGB, 4 for CMYK)"
+      "businessContext": "Number of color channels (1 for grayscale, 3 for RGB, 4 for CMYK)",
+      "label_i18n": {
+        "en": "Color Channels",
+        "tr": "Color Channels",
+        "de": "Color Channels",
+        "fr": "Color Channels",
+        "es": "Color Channels",
+        "ar": "Color Channels"
+      }
     },
     {
       "id": "dpi",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dpi",
       "default": 72,
-      "businessContext": "Dots per inch for print size calculation"
+      "businessContext": "Dots per inch for print size calculation",
+      "label_i18n": {
+        "en": "DPI",
+        "tr": "DPI",
+        "de": "DPI",
+        "fr": "DPI",
+        "es": "DPI",
+        "ar": "DPI"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "printHeightInches"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

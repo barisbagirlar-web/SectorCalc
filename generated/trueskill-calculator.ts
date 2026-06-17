@@ -32,13 +32,17 @@ function evaluateAllFormulas(input: Trueskill_calculatorInput): Record<string, n
   try { const v = Math.sqrt((results["sigma_winner_new"] ?? 0) * (results["sigma_winner_new"] ?? 0) + input.tau * input.tau); results["sigma_winner_new_with_dynamics"] = Number.isFinite(v) ? v : 0; } catch { results["sigma_winner_new_with_dynamics"] = 0; }
   try { const v = (results["mu_loser_new"] ?? 0) + input.tau * input.tau; results["mu_loser_new_with_dynamics"] = Number.isFinite(v) ? v : 0; } catch { results["mu_loser_new_with_dynamics"] = 0; }
   try { const v = Math.sqrt((results["sigma_loser_new"] ?? 0) * (results["sigma_loser_new"] ?? 0) + input.tau * input.tau); results["sigma_loser_new_with_dynamics"] = Number.isFinite(v) ? v : 0; } catch { results["sigma_loser_new_with_dynamics"] = 0; }
+  try { const v = (results["sigma_winner_new_with_dynamics"] ?? 0); results["_sigma_winner_new_with_dynamics_"] = Number.isFinite(v) ? v : 0; } catch { results["_sigma_winner_new_with_dynamics_"] = 0; }
+  try { const v = (results["mu_loser_new_with_dynamics"] ?? 0); results["_mu_loser_new_with_dynamics_"] = Number.isFinite(v) ? v : 0; } catch { results["_mu_loser_new_with_dynamics_"] = 0; }
+  try { const v = (results["sigma_loser_new_with_dynamics"] ?? 0); results["_sigma_loser_new_with_dynamics_"] = Number.isFinite(v) ? v : 0; } catch { results["_sigma_loser_new_with_dynamics_"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateTrueskill_calculator(input: Trueskill_calculatorInput): Trueskill_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Updated"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

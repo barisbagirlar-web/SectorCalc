@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Dipole_antenna_calculatorInput {
   frequency: number;
   velocityFactor: number;
+  auto_input_3: number;
 }
 
 export const Dipole_antenna_calculatorInputSchema = z.object({
   frequency: z.number().default(145.5),
   velocityFactor: z.number().default(0.95),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Dipole_antenna_calculatorInput): Record<string, number> {

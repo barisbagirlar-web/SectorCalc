@@ -19,13 +19,15 @@ function evaluateAllFormulas(input: Hours_to_minutes_calculatorInput): Record<st
   const results: Record<string, number> = {};
   try { const v = input.hours * 60; results["baseMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["baseMinutes"] = 0; }
   try { const v = (results["baseMinutes"] ?? 0) * input.batchSize * input.machineCount * (1 + input.adjustmentPercent / 100); results["totalMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["totalMinutes"] = 0; }
+  results["Saf_Dakika__Saatten_D_n___m_"] = 0;
+  results["Toplam_Dakika__Parti__Makine_ve_Ayarlama"] = 0;
   return results;
 }
 
 
 export function calculateHours_to_minutes_calculator(input: Hours_to_minutes_calculatorInput): Hours_to_minutes_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Toplam"] ?? 0;
+  const totalWasteCost = values["baseMinutes"] ?? 0;
   const breakdown = {
     
   };

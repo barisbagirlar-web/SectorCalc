@@ -66,7 +66,8 @@
       },
       "businessContext_i18n": {
         "en": "Select distribution based on sample size and data characteristics. Normal for large samples (n>30), t-distribution for small samples (n<30) to account for uncertainty."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "sampleSize",
@@ -110,7 +111,8 @@
       },
       "businessContext_i18n": {
         "en": "Confidence level for the confidence interval of the PPM estimate. Higher levels provide more conservative (wider) intervals."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "useConfidenceInterval",
@@ -123,7 +125,8 @@
       },
       "businessContext_i18n": {
         "en": "If enabled, the tool calculates lower and upper bounds for PPM based on the confidence level. Useful for risk assessment."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -182,197 +185,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "z_short",
-      "name": "Short-term Z-score",
-      "description": "Converts Cpk to short-term Z-score assuming centered process.",
-      "formula": "z_short = 3 * cpk",
-      "dependencies": [
-        "cpk"
-      ]
-    },
-    {
-      "id": "z_long",
-      "name": "Long-term Z-score",
-      "description": "Adjusts short-term Z-score for long-term sigma shift.",
-      "formula": "z_long = z_short - sigmaShift",
-      "dependencies": [
-        "z_short",
-        "sigmaShift"
-      ]
-    },
-    {
-      "id": "ppm_estimate",
-      "name": "PPM Estimate (Normal)",
-      "description": "Calculates PPM defect rate using standard normal cumulative distribution function (CDF).",
-      "formula": "ppm_estimate = (1 - normCdf(z_long)) * 1e6",
-      "dependencies": [
-        "z_long"
-      ]
-    },
-    {
-      "id": "ppm_t_adjustment",
-      "name": "PPM Adjustment for t-distribution",
-      "description": "Adjusts PPM estimate using t-distribution with n-1 degrees of freedom for small samples.",
-      "formula": "if distributionType == 't-distribution' then ppm_adjusted = (1 - tcdf(z_long, sampleSize - 1)) * 1e6 else ppm_adjusted = ppm_estimate",
-      "dependencies": [
-        "z_long",
-        "distributionType",
-        "sampleSize",
-        "ppm_estimate"
-      ]
-    },
-    {
-      "id": "confidence_interval",
-      "name": "Confidence Interval for PPM",
-      "description": "Calculates lower and upper bounds for PPM based on confidence level using chi-square distribution for variance.",
-      "formula": "if useConfidenceInterval then { lowerPPM = ppm_adjusted * (1 - z_alpha/2 * sqrt(1/sampleSize)), upperPPM = ppm_adjusted * (1 + z_alpha/2 * sqrt(1/sampleSize)) } else { lowerPPM = ppm_adjusted, upperPPM = ppm_adjusted }",
-      "dependencies": [
-        "ppm_adjusted",
-        "useConfidenceInterval",
-        "confidenceLevel",
-        "sampleSize"
-      ]
-    },
-    {
-      "id": "data_confidence_adjusted",
-      "name": "Data Confidence Adjusted PPM",
-      "description": "Adjusts PPM estimate based on sample size and confidence level to reflect data reliability.",
-      "formula": "dataConfidenceAdjusted = ppm_adjusted * (1 + (1 - confidenceLevel) * (1 / sqrt(sampleSize)))",
-      "dependencies": [
-        "ppm_adjusted",
-        "confidenceLevel",
-        "sampleSize"
-      ]
-    },
-    {
-      "id": "primary_result",
-      "name": "Primary Result (PPM)",
-      "description": "Final PPM value used as the primary output. Uses the upper bound if confidence interval is enabled, else the adjusted estimate.",
-      "formula": "primaryResult = if useConfidenceInterval then upperPPM else ppm_adjusted",
-      "dependencies": [
-        "ppm_adjusted",
-        "useConfidenceInterval",
-        "upperPPM"
-      ]
-    }
+    "cpk",
+    "cpk",
+    "cpk",
+    "cpk",
+    "cpk",
+    "cpk",
+    "cpk"
   ],
   "outputs": {
-    "primary": {
-      "id": "ppm",
-      "label": "Estimated PPM Defect Rate",
-      "unit": "parts per million",
-      "description": "Primary result: estimated number of defective parts per million opportunities."
-    },
-    "breakdown": {
-      "id": "breakdown",
-      "label": "Calculation Breakdown",
-      "type": "object",
-      "properties": {
-        "z_short": {
-          "label": "Short-term Z-score",
-          "unit": "sigma",
-          "description": "Z-score derived directly from Cpk."
-        },
-        "z_long": {
-          "label": "Long-term Z-score",
-          "unit": "sigma",
-          "description": "Z-score after applying sigma shift."
-        },
-        "ppm_estimate": {
-          "label": "PPM Estimate (Normal)",
-          "unit": "ppm",
-          "description": "PPM based on normal distribution."
-        },
-        "ppm_adjusted": {
-          "label": "PPM Adjusted (Distribution)",
-          "unit": "ppm",
-          "description": "PPM after t-distribution adjustment if applicable."
-        },
-        "lowerPPM": {
-          "label": "Lower Confidence Bound",
-          "unit": "ppm",
-          "description": "Lower bound of PPM confidence interval."
-        },
-        "upperPPM": {
-          "label": "Upper Confidence Bound",
-          "unit": "ppm",
-          "description": "Upper bound of PPM confidence interval."
-        },
-        "sigmaShift": {
-          "label": "Sigma Shift Used",
-          "unit": "sigma",
-          "description": "The sigma shift value applied."
-        },
-        "distributionType": {
-          "label": "Distribution Type",
-          "unit": "",
-          "description": "Distribution used for calculation."
-        },
-        "sampleSize": {
-          "label": "Sample Size",
-          "unit": "count",
-          "description": "Number of observations."
-        }
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "low_cpk",
-        "label": "Low Cpk",
-        "description": "Cpk below 1.33 indicates excessive variability or poor centering. Root causes: machine wear, operator error, material variation."
-      },
-      {
-        "id": "high_sigma_shift",
-        "label": "High Sigma Shift",
-        "description": "Sigma shift > 1.5 suggests significant long-term drift. Possible causes: temperature changes, tool degradation, batch-to-batch variation."
-      },
-      {
-        "id": "small_sample_size",
-        "label": "Small Sample Size",
-        "description": "Sample size < 30 reduces confidence in estimate. Consider increasing sample size for more reliable results."
-      },
-      {
-        "id": "non_normal_distribution",
-        "label": "Non-Normal Distribution",
-        "description": "If actual data is non-normal, PPM estimates may be inaccurate. Consider using distribution fitting or transformation."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "improve_cpk",
-        "priority": "high",
-        "action": "Implement process improvement (e.g., DOE, SMED, Poka-Yoke) to increase Cpk to at least 1.67.",
-        "expectedImpact": "Reduces PPM by 50-90% depending on current level."
-      },
-      {
-        "id": "reduce_sigma_shift",
-        "priority": "medium",
-        "action": "Stabilize process to reduce long-term drift. Use SPC control charts and preventive maintenance.",
-        "expectedImpact": "Can reduce PPM by 30-60%."
-      },
-      {
-        "id": "increase_sample_size",
-        "priority": "low",
-        "action": "Increase sample size to at least 30 for more accurate PPM estimates.",
-        "expectedImpact": "Improves confidence interval width by up to 50%."
-      },
-      {
-        "id": "validate_distribution",
-        "priority": "medium",
-        "action": "Perform normality test (e.g., Anderson-Darling) on actual data. If non-normal, use appropriate transformation or non-parametric methods.",
-        "expectedImpact": "Avoids misestimation of PPM by up to 100%."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted PPM",
-      "unit": "ppm",
-      "description": "PPM value adjusted for sample size and confidence level to reflect data reliability."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "cpk-ppm-converter-calculator",
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

@@ -93,7 +93,7 @@
       "id": "facility_type",
       "label": "Facility Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "manufacturing",
       "min": null,
       "max": null,
@@ -116,7 +116,7 @@
       "id": "include_renewable_offset",
       "label": "Include Renewable Energy Offset",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -196,141 +196,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "net_energy_kwh",
-      "description": "Net energy consumption after renewable offset",
-      "expression": "total_energy_kwh - (include_renewable_offset ? renewable_kwh : 0)",
-      "unit": "kWh"
-    },
-    {
-      "id": "energy_cost",
-      "description": "Total energy cost from consumption",
-      "expression": "net_energy_kwh * tariff_rate_per_kwh",
-      "unit": "$"
-    },
-    {
-      "id": "demand_cost",
-      "description": "Total demand cost",
-      "expression": "peak_demand_kw * demand_charge_per_kw",
-      "unit": "$"
-    },
-    {
-      "id": "total_cost",
-      "description": "Total energy cost (consumption + demand)",
-      "expression": "energy_cost + demand_cost",
-      "unit": "$"
-    },
-    {
-      "id": "energy_intensity_kwh_per_unit",
-      "description": "Energy consumption per production unit",
-      "expression": "total_energy_kwh / production_units",
-      "unit": "kWh/unit"
-    },
-    {
-      "id": "cost_per_unit",
-      "description": "Energy cost per production unit",
-      "expression": "total_cost / production_units",
-      "unit": "$/unit"
-    },
-    {
-      "id": "co2_emissions",
-      "description": "Total CO2 emissions from net energy consumption",
-      "expression": "net_energy_kwh * co2_emission_factor",
-      "unit": "kg CO2"
-    }
+    "total_energy_kwh",
+    "total_energy_kwh",
+    "total_energy_kwh",
+    "total_energy_kwh",
+    "total_energy_kwh",
+    "total_energy_kwh",
+    "total_energy_kwh"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_cost",
-      "label": "Total Energy Cost",
-      "value": null,
-      "unit": "$",
-      "description": "Sum of energy and demand charges for the period."
-    },
-    "breakdown": {
-      "energy_cost": {
-        "label": "Energy Consumption Cost",
-        "value": null,
-        "unit": "$",
-        "description": "Cost based on net kWh consumed."
-      },
-      "demand_cost": {
-        "label": "Demand Charge Cost",
-        "value": null,
-        "unit": "$",
-        "description": "Cost based on peak demand."
-      },
-      "energy_intensity": {
-        "label": "Energy Intensity",
-        "value": null,
-        "unit": "kWh/unit",
-        "description": "Energy used per production unit."
-      },
-      "cost_per_unit": {
-        "label": "Cost per Unit",
-        "value": null,
-        "unit": "$/unit",
-        "description": "Energy cost per production unit."
-      },
-      "co2_emissions": {
-        "label": "CO2 Emissions",
-        "value": null,
-        "unit": "kg CO2",
-        "description": "Estimated carbon footprint from net energy use."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excessive_peak_demand",
-        "label": "Excessive Peak Demand",
-        "description": "Peak demand significantly higher than average, causing high demand charges.",
-        "impact": "high"
-      },
-      {
-        "id": "low_production_efficiency",
-        "label": "Low Production Efficiency",
-        "description": "High energy intensity indicates inefficient processes or equipment.",
-        "impact": "medium"
-      },
-      {
-        "id": "renewable_underutilization",
-        "label": "Renewable Underutilization",
-        "description": "Renewable offset not applied or low generation relative to consumption.",
-        "impact": "low"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_peak_shaving",
-        "label": "Implement Peak Shaving",
-        "description": "Shift non-critical loads to off-peak hours or install battery storage to reduce peak demand."
-      },
-      {
-        "id": "action_energy_audit",
-        "label": "Conduct Energy Audit",
-        "description": "Identify major energy consumers and opportunities for efficiency improvements (ISO 50001)."
-      },
-      {
-        "id": "action_renewable_expansion",
-        "label": "Expand Renewable Generation",
-        "description": "Increase on-site solar or wind capacity to offset grid consumption and reduce costs."
-      },
-      {
-        "id": "action_lean_energy",
-        "label": "Apply Lean Energy Management",
-        "description": "Integrate energy KPIs into production dashboards and eliminate energy waste (Six Sigma)."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "adjusted_total_cost",
-      "label": "Data Confidence Adjusted Total Cost",
-      "value": null,
-      "unit": "$",
-      "description": "Total cost adjusted by a confidence factor (0.9-1.0) based on data quality and completeness."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "energy-consumption-cost-report-calculator",
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",
-  "categorySlug": "sustainability-resource-esg"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon"
 }

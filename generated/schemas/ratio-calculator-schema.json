@@ -5,25 +5,49 @@
       "id": "numerator",
       "label": "Numerator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The value to be divided (the top of the fraction)."
+      "businessContext": "The value to be divided (the top of the fraction).",
+      "label_i18n": {
+        "en": "Numerator",
+        "tr": "Numerator",
+        "de": "Numerator",
+        "fr": "Numerator",
+        "es": "Numerator",
+        "ar": "Numerator"
+      }
     },
     {
       "id": "denominator",
       "label": "Denominator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The value to divide by (the bottom of the fraction). Must not be zero."
+      "businessContext": "The value to divide by (the bottom of the fraction). Must not be zero.",
+      "label_i18n": {
+        "en": "Denominator",
+        "tr": "Denominator",
+        "de": "Denominator",
+        "fr": "Denominator",
+        "es": "Denominator",
+        "ar": "Denominator"
+      }
     },
     {
       "id": "multiplier",
       "label": "Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier to apply to the ratio, e.g., 100 for percentage, 1 for raw ratio."
+      "businessContext": "Multiplier to apply to the ratio, e.g., 100 for percentage, 1 for raw ratio.",
+      "label_i18n": {
+        "en": "Multiplier",
+        "tr": "Multiplier",
+        "de": "Multiplier",
+        "fr": "Multiplier",
+        "es": "Multiplier",
+        "ar": "Multiplier"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the final output."
+      "businessContext": "Number of decimal places for rounding the final output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "multipliedRatio"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

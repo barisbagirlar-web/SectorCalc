@@ -19,13 +19,15 @@ function evaluateAllFormulas(input: Ps_ratio_calculatorInput): Record<string, nu
   const results: Record<string, number> = {};
   try { const v = input.marketCap / input.totalSales; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   try { const v = input.pricePerShare / input.salesPerShare; results["psPerShare"] = Number.isFinite(v) ? v : 0; } catch { results["psPerShare"] = 0; }
+  results["P_S_Oran___Hisse_Ba__na_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculatePs_ratio_calculator(input: Ps_ratio_calculatorInput): Ps_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["P"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

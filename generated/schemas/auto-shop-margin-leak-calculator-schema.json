@@ -223,7 +223,7 @@
       "id": "include_hidden_loss_drivers",
       "label": "Include Hidden Loss Drivers in Calculation",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": 0,
       "max": 1,
@@ -285,155 +285,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "labor_margin_leak",
-      "label": "Labor Margin Leak",
-      "description": "Revenue lost due to difference between charged and effective labor rate, plus warranty under-reimbursement.",
-      "formula": "(labor_rate_charged - labor_rate_effective) * total_labor_hours_sold + (labor_rate_charged - warranty_labor_rate_reimbursed) * warranty_labor_hours",
-      "unit": "USD"
-    },
-    {
-      "id": "parts_margin_leak",
-      "label": "Parts Margin Leak",
-      "description": "Revenue lost due to difference between standard and realized parts markup.",
-      "formula": "(parts_markup_percent - parts_markup_realized) / 100 * total_parts_cost",
-      "unit": "USD"
-    },
-    {
-      "id": "shop_supply_margin_leak",
-      "label": "Shop Supply Margin Leak",
-      "description": "Loss from shop supplies where cost exceeds charge.",
-      "formula": "max(0, (shop_supply_cost_per_ro - shop_supply_charge_per_ro)) * number_of_repair_orders",
-      "unit": "USD"
-    },
-    {
-      "id": "utilization_gap",
-      "label": "Utilization Gap",
-      "description": "Percentage point gap between actual and target utilization.",
-      "formula": "target_utilization_rate - employee_utilization_rate",
-      "unit": "%"
-    },
-    {
-      "id": "utilization_loss",
-      "label": "Utilization Loss (Hidden)",
-      "description": "Estimated revenue loss from underutilization, assuming labor rate charged.",
-      "formula": "max(0, (target_utilization_rate - employee_utilization_rate) / 100 * total_labor_hours_sold * labor_rate_charged)",
-      "unit": "USD"
-    },
-    {
-      "id": "total_margin_leak",
-      "label": "Total Margin Leak (Primary Result)",
-      "description": "Aggregate of all identified margin leaks, adjusted for hidden drivers if enabled.",
-      "formula": "labor_margin_leak + parts_margin_leak + shop_supply_margin_leak + (include_hidden_loss_drivers ? utilization_loss : 0)",
-      "unit": "USD"
-    },
-    {
-      "id": "data_confidence_adjusted",
-      "label": "Data Confidence Adjusted Margin Leak",
-      "description": "Total margin leak adjusted by a confidence factor (0.8 to 1.0) based on data completeness and validation flags.",
-      "formula": "total_margin_leak * (1 - 0.05 * (number_of_validation_errors + number_of_warnings))",
-      "unit": "USD"
-    }
+    "labor_rate_charged",
+    "labor_rate_charged",
+    "labor_rate_charged",
+    "labor_rate_charged",
+    "labor_rate_charged",
+    "labor_rate_charged",
+    "labor_rate_charged"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_margin_leak",
-      "label": "Total Margin Leak",
-      "description": "Primary result: total estimated revenue leakage across labor, parts, supplies, and hidden drivers.",
-      "unit": "USD",
-      "dataConfidenceAdjusted": "data_confidence_adjusted"
-    },
-    "breakdown": {
-      "labor_margin_leak": {
-        "id": "labor_margin_leak",
-        "label": "Labor Margin Leak",
-        "unit": "USD"
-      },
-      "parts_margin_leak": {
-        "id": "parts_margin_leak",
-        "label": "Parts Margin Leak",
-        "unit": "USD"
-      },
-      "shop_supply_margin_leak": {
-        "id": "shop_supply_margin_leak",
-        "label": "Shop Supply Margin Leak",
-        "unit": "USD"
-      },
-      "utilization_loss": {
-        "id": "utilization_loss",
-        "label": "Utilization Loss (Hidden)",
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "warranty_underpayment",
-        "label": "Warranty Labor Underpayment",
-        "description": "Difference between standard labor rate and warranty reimbursement rate multiplied by warranty hours.",
-        "value": "(labor_rate_charged - warranty_labor_rate_reimbursed) * warranty_labor_hours",
-        "unit": "USD"
-      },
-      {
-        "id": "supply_cost_overrun",
-        "label": "Shop Supply Cost Overrun",
-        "description": "Excess of actual supply cost over charge per repair order.",
-        "value": "max(0, shop_supply_cost_per_ro - shop_supply_charge_per_ro) * number_of_repair_orders",
-        "unit": "USD"
-      },
-      {
-        "id": "idle_time_opportunity_cost",
-        "label": "Idle Time Opportunity Cost",
-        "description": "Revenue lost due to technician idle time (based on utilization gap).",
-        "value": "utilization_loss",
-        "unit": "USD"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_labor_pricing",
-        "label": "Review Labor Rate Discounting",
-        "description": "Analyze why effective labor rate is lower than charged. Implement stricter discount approval or adjust standard rate.",
-        "expectedImpact": "Reduce labor margin leak by up to 30%.",
-        "priority": "high"
-      },
-      {
-        "id": "action_parts_markup",
-        "label": "Optimize Parts Markup Strategy",
-        "description": "Align realized markup with standard markup. Reduce promotions or negotiate better supplier pricing.",
-        "expectedImpact": "Reduce parts margin leak by up to 25%.",
-        "priority": "high"
-      },
-      {
-        "id": "action_shop_supplies",
-        "label": "Reconcile Shop Supply Charges",
-        "description": "Increase shop supply fee to cover actual cost or negotiate bulk pricing with suppliers.",
-        "expectedImpact": "Eliminate supply margin leak entirely.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_utilization",
-        "label": "Improve Technician Utilization",
-        "description": "Implement lean scheduling, cross-training, and reduce non-billable activities to close utilization gap.",
-        "expectedImpact": "Recover utilization loss and increase revenue by 5-10%.",
-        "priority": "high"
-      },
-      {
-        "id": "action_warranty",
-        "label": "Negotiate Warranty Reimbursement Rates",
-        "description": "Engage with manufacturers to increase warranty labor rates closer to standard shop rate.",
-        "expectedImpact": "Reduce warranty labor leak by 20-40%.",
-        "priority": "medium"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted",
-      "label": "Data Confidence Adjusted Margin Leak",
-      "description": "Margin leak adjusted for data quality issues (validation errors/warnings).",
-      "unit": "USD"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "auto-shop-margin-leak-calculator",
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "maintenance-reliability",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Scalar function value on surface"
+      "businessContext": "Scalar function value on surface",
+      "label_i18n": {
+        "en": "Surface Function f(x,y)",
+        "tr": "Surface Function f(x,y)",
+        "de": "Surface Function f(x,y)",
+        "fr": "Surface Function f(x,y)",
+        "es": "Surface Function f(x,y)",
+        "ar": "Surface Function f(x,y)"
+      }
     },
     {
       "id": "xMin",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Lower limit of x integration"
+      "businessContext": "Lower limit of x integration",
+      "label_i18n": {
+        "en": "X Lower Bound",
+        "tr": "X Lower Bound",
+        "de": "X Lower Bound",
+        "fr": "X Lower Bound",
+        "es": "X Lower Bound",
+        "ar": "X Lower Bound"
+      }
     },
     {
       "id": "xMax",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Upper limit of x integration"
+      "businessContext": "Upper limit of x integration",
+      "label_i18n": {
+        "en": "X Upper Bound",
+        "tr": "X Upper Bound",
+        "de": "X Upper Bound",
+        "fr": "X Upper Bound",
+        "es": "X Upper Bound",
+        "ar": "X Upper Bound"
+      }
     },
     {
       "id": "yMin",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Lower limit of y integration"
+      "businessContext": "Lower limit of y integration",
+      "label_i18n": {
+        "en": "Y Lower Bound",
+        "tr": "Y Lower Bound",
+        "de": "Y Lower Bound",
+        "fr": "Y Lower Bound",
+        "es": "Y Lower Bound",
+        "ar": "Y Lower Bound"
+      }
     },
     {
       "id": "yMax",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Upper limit of y integration"
+      "businessContext": "Upper limit of y integration",
+      "label_i18n": {
+        "en": "Y Upper Bound",
+        "tr": "Y Upper Bound",
+        "de": "Y Upper Bound",
+        "fr": "Y Upper Bound",
+        "es": "Y Upper Bound",
+        "ar": "Y Upper Bound"
+      }
     },
     {
       "id": "dx",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Discretization step in x"
+      "businessContext": "Discretization step in x",
+      "label_i18n": {
+        "en": "Step Size dx",
+        "tr": "Step Size dx",
+        "de": "Step Size dx",
+        "fr": "Step Size dx",
+        "es": "Step Size dx",
+        "ar": "Step Size dx"
+      }
     },
     {
       "id": "dy",
@@ -55,23 +103,33 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Discretization step in y"
+      "businessContext": "Discretization step in y",
+      "label_i18n": {
+        "en": "Step Size dy",
+        "tr": "Step Size dy",
+        "de": "Step Size dy",
+        "fr": "Step Size dy",
+        "es": "Step Size dy",
+        "ar": "Step Size dy"
+      }
     }
   ],
   "formulas": {
-    "primary": "let sum = 0; for (let x = xMin; x <= xMax; x += dx) { for (let y = yMin; y <= yMax; y += dy) { sum += surfaceFunction * dx * dy; } } sum"
+    "primary": "let sum = 0; for (let x = xMin; x <= xMax; x += dx) { for (let y = yMin; y <= yMax; y += dy) { sum += surfaceFunction * dx * dy; } } sum",
+    "Math_round__xMax___xMin____dx_": "Math.round((xMax - xMin) / dx)",
+    "Math_round__yMax___yMin____dy_": "Math.round((yMax - yMin) / dy)"
   },
   "outputs": {
-    "primary": "Surface Integral Result",
+    "primary": "primary",
     "breakdown": [
       "Number of X steps: Math.round((xMax - xMin) / dx)",
       "Number of Y steps: Math.round((yMax - yMin) / dy)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

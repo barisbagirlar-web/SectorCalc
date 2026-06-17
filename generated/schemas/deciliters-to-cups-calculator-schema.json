@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dL",
       "default": 1,
-      "businessContext": "Volume in deciliters to convert."
+      "businessContext": "Volume in deciliters to convert.",
+      "label_i18n": {
+        "en": "Deciliters",
+        "tr": "Deciliters",
+        "de": "Deciliters",
+        "fr": "Deciliters",
+        "es": "Deciliters",
+        "ar": "Deciliters"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "cups/dL",
       "default": 0.422675,
-      "businessContext": "Conversion factor from deciliters to cups. Default is US customary cups."
+      "businessContext": "Conversion factor from deciliters to cups. Default is US customary cups.",
+      "label_i18n": {
+        "en": "Conversion Factor (cups/dL)",
+        "tr": "Conversion Factor (cups/dL)",
+        "de": "Conversion Factor (cups/dL)",
+        "fr": "Conversion Factor (cups/dL)",
+        "es": "Conversion Factor (cups/dL)",
+        "ar": "Conversion Factor (cups/dL)"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the result."
+      "businessContext": "Number of decimal places for the result.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "batchSize",
       "label": "Batch Size",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of batches or multiplier for total cups needed."
+      "businessContext": "Number of batches or multiplier for total cups needed.",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "precisionUsed"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

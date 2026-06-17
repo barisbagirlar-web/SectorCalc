@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 230,
-      "businessContext": "Supply voltage"
+      "businessContext": "Supply voltage",
+      "label_i18n": {
+        "en": "Voltage (V)",
+        "tr": "Voltage (V)",
+        "de": "Voltage (V)",
+        "fr": "Voltage (V)",
+        "es": "Voltage (V)",
+        "ar": "Voltage (V)"
+      }
     },
     {
       "id": "current",
@@ -15,39 +23,79 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "Load current"
+      "businessContext": "Load current",
+      "label_i18n": {
+        "en": "Current (A)",
+        "tr": "Current (A)",
+        "de": "Current (A)",
+        "fr": "Current (A)",
+        "es": "Current (A)",
+        "ar": "Current (A)"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Power Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "cos φ (0.8 inductive typically)"
+      "businessContext": "cos φ (0.8 inductive typically)",
+      "label_i18n": {
+        "en": "Power Factor",
+        "tr": "Power Factor",
+        "de": "Power Factor",
+        "fr": "Power Factor",
+        "es": "Power Factor",
+        "ar": "Power Factor"
+      }
     },
     {
       "id": "phaseCount",
       "label": "Phase Count",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for single-phase, 3 for three-phase"
+      "businessContext": "1 for single-phase, 3 for three-phase",
+      "label_i18n": {
+        "en": "Phase Count",
+        "tr": "Phase Count",
+        "de": "Phase Count",
+        "fr": "Phase Count",
+        "es": "Phase Count",
+        "ar": "Phase Count"
+      }
     },
     {
       "id": "efficiency",
       "label": "Efficiency",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "0 to 1"
+      "businessContext": "0 to 1",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     },
     {
       "id": "isAC",
       "label": "AC (1) or DC (0)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "0 for DC, 1 for AC"
+      "businessContext": "0 for DC, 1 for AC",
+      "label_i18n": {
+        "en": "AC (1) or DC (0)",
+        "tr": "AC (1) or DC (0)",
+        "de": "AC (1) or DC (0)",
+        "fr": "AC (1) or DC (0)",
+        "es": "AC (1) or DC (0)",
+        "ar": "AC (1) or DC (0)"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "reactivePower_VAR"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

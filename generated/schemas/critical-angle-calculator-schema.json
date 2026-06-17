@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.5,
-      "businessContext": "Refractive index of the incident medium. Must be greater than n2 for total internal reflection."
+      "businessContext": "Refractive index of the incident medium. Must be greater than n2 for total internal reflection.",
+      "label_i18n": {
+        "en": "Refractive Index of First Medium (n₁)",
+        "tr": "Refractive Index of First Medium (n₁)",
+        "de": "Refractive Index of First Medium (n₁)",
+        "fr": "Refractive Index of First Medium (n₁)",
+        "es": "Refractive Index of First Medium (n₁)",
+        "ar": "Refractive Index of First Medium (n₁)"
+      }
     },
     {
       "id": "n2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Refractive index of the transmitting medium. Must be less than n1."
+      "businessContext": "Refractive index of the transmitting medium. Must be less than n1.",
+      "label_i18n": {
+        "en": "Refractive Index of Second Medium (n₂)",
+        "tr": "Refractive Index of Second Medium (n₂)",
+        "de": "Refractive Index of Second Medium (n₂)",
+        "fr": "Refractive Index of Second Medium (n₂)",
+        "es": "Refractive Index of Second Medium (n₂)",
+        "ar": "Refractive Index of Second Medium (n₂)"
+      }
     },
     {
       "id": "outputUnit",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "option",
       "default": 0,
-      "businessContext": "Specify output angle unit. 0 for degrees, 1 for radians."
+      "businessContext": "Specify output angle unit. 0 for degrees, 1 for radians.",
+      "label_i18n": {
+        "en": "Angle Unit (0=degrees, 1=radians)",
+        "tr": "Angle Unit (0=degrees, 1=radians)",
+        "de": "Angle Unit (0=degrees, 1=radians)",
+        "fr": "Angle Unit (0=degrees, 1=radians)",
+        "es": "Angle Unit (0=degrees, 1=radians)",
+        "ar": "Angle Unit (0=degrees, 1=radians)"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for displayed output. (1-6)"
+      "businessContext": "Number of decimal places for displayed output. (1-6)",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -49,10 +81,10 @@
       "criticalAngleDeg"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

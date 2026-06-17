@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "The elevation at the starting point."
+      "businessContext": "The elevation at the starting point.",
+      "label_i18n": {
+        "en": "Initial Elevation",
+        "tr": "Initial Elevation",
+        "de": "Initial Elevation",
+        "fr": "Initial Elevation",
+        "es": "Initial Elevation",
+        "ar": "Initial Elevation"
+      }
     },
     {
       "id": "finalElevation",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 105,
-      "businessContext": "The elevation at the ending point."
+      "businessContext": "The elevation at the ending point.",
+      "label_i18n": {
+        "en": "Final Elevation",
+        "tr": "Final Elevation",
+        "de": "Final Elevation",
+        "fr": "Final Elevation",
+        "es": "Final Elevation",
+        "ar": "Final Elevation"
+      }
     },
     {
       "id": "horizontalDistance",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m",
       "default": 1000,
-      "businessContext": "The horizontal distance between the two points."
+      "businessContext": "The horizontal distance between the two points.",
+      "label_i18n": {
+        "en": "Horizontal Distance",
+        "tr": "Horizontal Distance",
+        "de": "Horizontal Distance",
+        "fr": "Horizontal Distance",
+        "es": "Horizontal Distance",
+        "ar": "Horizontal Distance"
+      }
     },
     {
       "id": "roundDecimals",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places to round the output values."
+      "businessContext": "Number of decimal places to round the output values.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "slopeRatio"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

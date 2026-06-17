@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "derece",
       "default": 41,
-      "businessContext": "Gözlem noktasının enlemi (-90 ile 90 arası)"
+      "businessContext": "Gözlem noktasının enlemi (-90 ile 90 arası)",
+      "label_i18n": {
+        "en": "Enlem",
+        "tr": "Enlem",
+        "de": "Enlem",
+        "fr": "Enlem",
+        "es": "Enlem",
+        "ar": "Enlem"
+      }
     },
     {
       "id": "year",
       "label": "Yıl",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2024,
-      "businessContext": "Gözlem yılı"
+      "businessContext": "Gözlem yılı",
+      "label_i18n": {
+        "en": "Yıl",
+        "tr": "Yıl",
+        "de": "Yıl",
+        "fr": "Yıl",
+        "es": "Yıl",
+        "ar": "Yıl"
+      }
     },
     {
       "id": "month",
       "label": "Ay",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "Gözlem ayı (1–12)"
+      "businessContext": "Gözlem ayı (1–12)",
+      "label_i18n": {
+        "en": "Ay",
+        "tr": "Ay",
+        "de": "Ay",
+        "fr": "Ay",
+        "es": "Ay",
+        "ar": "Ay"
+      }
     },
     {
       "id": "day",
       "label": "Gün",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 21,
-      "businessContext": "Gözlem günü (1–31)"
+      "businessContext": "Gözlem günü (1–31)",
+      "label_i18n": {
+        "en": "Gün",
+        "tr": "Gün",
+        "de": "Gün",
+        "fr": "Gün",
+        "es": "Gün",
+        "ar": "Gün"
+      }
     },
     {
       "id": "utcOffset",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "saat",
       "default": 3,
-      "businessContext": "Zaman dilimi UTC farkı (Türkiye için +3)"
+      "businessContext": "Zaman dilimi UTC farkı (Türkiye için +3)",
+      "label_i18n": {
+        "en": "UTC Sapması",
+        "tr": "UTC Sapması",
+        "de": "UTC Sapması",
+        "fr": "UTC Sapması",
+        "es": "UTC Sapması",
+        "ar": "UTC Sapması"
+      }
     }
   ],
   "formulas": {
@@ -55,8 +95,8 @@
       "hourAngle"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

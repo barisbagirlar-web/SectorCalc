@@ -60,12 +60,7 @@
     "costPerGuest": "totalCost / numberOfGuests"
   },
   "outputs": {
-    "primary": {
-      "id": "totalCost",
-      "label": "Toplam Maliyet",
-      "unit": "TRY",
-      "description": "Tüm vergiler, fire ve servis dahil nihai toplam maliyet"
-    },
+    "primary": "totalRawCost",
     "breakdown": [
       {
         "id": "costPerGuest",
@@ -89,10 +84,10 @@
       }
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Perakende & Gıda",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

@@ -5,49 +5,97 @@
       "id": "a_x",
       "label": "A x-component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "X component of vector A"
+      "businessContext": "X component of vector A",
+      "label_i18n": {
+        "en": "A x-component",
+        "tr": "A x-component",
+        "de": "A x-component",
+        "fr": "A x-component",
+        "es": "A x-component",
+        "ar": "A x-component"
+      }
     },
     {
       "id": "a_y",
       "label": "A y-component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Y component of vector A"
+      "businessContext": "Y component of vector A",
+      "label_i18n": {
+        "en": "A y-component",
+        "tr": "A y-component",
+        "de": "A y-component",
+        "fr": "A y-component",
+        "es": "A y-component",
+        "ar": "A y-component"
+      }
     },
     {
       "id": "a_z",
       "label": "A z-component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Z component of vector A"
+      "businessContext": "Z component of vector A",
+      "label_i18n": {
+        "en": "A z-component",
+        "tr": "A z-component",
+        "de": "A z-component",
+        "fr": "A z-component",
+        "es": "A z-component",
+        "ar": "A z-component"
+      }
     },
     {
       "id": "b_x",
       "label": "B x-component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "X component of vector B"
+      "businessContext": "X component of vector B",
+      "label_i18n": {
+        "en": "B x-component",
+        "tr": "B x-component",
+        "de": "B x-component",
+        "fr": "B x-component",
+        "es": "B x-component",
+        "ar": "B x-component"
+      }
     },
     {
       "id": "b_y",
       "label": "B y-component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Y component of vector B"
+      "businessContext": "Y component of vector B",
+      "label_i18n": {
+        "en": "B y-component",
+        "tr": "B y-component",
+        "de": "B y-component",
+        "fr": "B y-component",
+        "es": "B y-component",
+        "ar": "B y-component"
+      }
     },
     {
       "id": "b_z",
       "label": "B z-component",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Z component of vector B"
+      "businessContext": "Z component of vector B",
+      "label_i18n": {
+        "en": "B z-component",
+        "tr": "B z-component",
+        "de": "B z-component",
+        "fr": "B z-component",
+        "es": "B z-component",
+        "ar": "B z-component"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "product_z"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

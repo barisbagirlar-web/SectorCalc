@@ -4,17 +4,21 @@ import * as z from 'zod';
 export interface Abv_calculatorInput {
   og: number;
   fg: number;
+  auto_input_3: number;
 }
 
 export const Abv_calculatorInputSchema = z.object({
   og: z.number().default(1.05),
   fg: z.number().default(1.01),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Abv_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.og - input.fg; results["gravityPointsDrop"] = Number.isFinite(v) ? v : 0; } catch { results["gravityPointsDrop"] = 0; }
   try { const v = (input.og - input.fg) * 131.25; results["abv"] = Number.isFinite(v) ? v : 0; } catch { results["abv"] = 0; }
+  try { const v = input.og; results["og"] = Number.isFinite(v) ? v : 0; } catch { results["og"] = 0; }
+  try { const v = input.fg; results["fg"] = Number.isFinite(v) ? v : 0; } catch { results["fg"] = 0; }
   return results;
 }
 

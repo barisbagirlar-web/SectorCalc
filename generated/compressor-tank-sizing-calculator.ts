@@ -29,32 +29,19 @@ export const Compressor_tank_sizing_calculatorInputSchema = z.object({
   applicationType: z.enum(['General Manufacturing', 'Pneumatic Tools', 'Instrument Air', 'Process Air', 'HVAC Control']).default('General Manufacturing'),
 });
 
-function evaluateAllFormulas(input: Compressor_tank_sizing_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = ( (520 / (input.ambientTemperature + 460)) * ( (14.7) / (14.7 - (input.altitude * 0.0005)) ) ); results["airDensityCorrectionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["airDensityCorrectionFactor"] = 0; }
-  try { const v = input.compressorFlowRate * (1 - input.systemLeakagePercent/100) * K_density; results["effectiveCompressorFlow"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveCompressorFlow"] = 0; }
-  try { const v = Math.max(0, input.peakDemandFlowRate - (results["effectiveCompressorFlow"] ?? 0)); results["netPeakSurplus"] = Number.isFinite(v) ? v : 0; } catch { results["netPeakSurplus"] = 0; }
-  try { const v = (Q_peak_surplus * input.peakDuration * 14.7) / (input.pressureDifferential * 60); results["requiredTankVolumeStandard"] = Number.isFinite(v) ? v : 0; } catch { results["requiredTankVolumeStandard"] = 0; }
-  try { const v = (input.compressorControlType === 'Load/Unload' ? 1.25 : (input.compressorControlType === 'Variable Speed Drive (VSD)' ? 1.0 : (input.compressorControlType === 'Modulating' ? 1.15 : (input.compressorControlType === 'Start/Stop' ? 1.5 : 1.2)))); results["controlTypeFactor"] = Number.isFinite(v) ? v : 0; } catch { results["controlTypeFactor"] = 0; }
-  try { const v = (input.applicationType === 'Instrument Air' ? 1.5 : (input.applicationType === 'Process Air' ? 1.3 : (input.applicationType === 'Pneumatic Tools' ? 1.2 : (input.applicationType === 'General Manufacturing' ? 1.1 : (input.applicationType === 'HVAC Control' ? 1.0 : 1.15))))); results["applicationSafetyFactor"] = Number.isFinite(v) ? v : 0; } catch { results["applicationSafetyFactor"] = 0; }
-  try { const v = V_tank_std * F_ctrl * F_safe; results["calculatedTankSize"] = Number.isFinite(v) ? v : 0; } catch { results["calculatedTankSize"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Compressor_tank_sizing_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateCompressor_tank_sizing_calculator(input: Compressor_tank_sizing_calculatorInput): Compressor_tank_sizing_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["calculatedTankSize"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    airDensityCorrectionFactor: values["airDensityCorrectionFactor"] ?? 0,
-    effectiveCompressorFlow: values["effectiveCompressorFlow"] ?? 0,
-    netPeakSurplus: values["netPeakSurplus"] ?? 0,
-    requiredTankVolumeStandard: values["requiredTankVolumeStandard"] ?? 0,
-    controlTypeFactor: values["controlTypeFactor"] ?? 0,
-    applicationSafetyFactor: values["applicationSafetyFactor"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Leakage Loss","Pressure Drop Loss","Peak-to-Average Demand Ratio"];
-  const suggestedActions: string[] = ["Implement a leak detection and repair program to reduce leakage below 10%.","Consider upgrading to Variable Speed Drive (VSD) compressor to reduce tank size and energy costs.","If system allows, increase allowable pressure differential to reduce tank size.","Conduct a detailed demand study to confirm peak magnitude and duration."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -73,7 +60,7 @@ export function calculateCompressor_tank_sizing_calculator(input: Compressor_tan
 
 export interface Compressor_tank_sizing_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { airDensityCorrectionFactor: number; effectiveCompressorFlow: number; netPeakSurplus: number; requiredTankVolumeStandard: number; controlTypeFactor: number; applicationSafetyFactor: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

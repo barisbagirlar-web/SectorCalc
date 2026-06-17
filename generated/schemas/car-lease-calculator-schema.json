@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "€",
       "default": 30000,
-      "businessContext": "Net price of the vehicle"
+      "businessContext": "Net price of the vehicle",
+      "label_i18n": {
+        "en": "Car Price",
+        "tr": "Car Price",
+        "de": "Car Price",
+        "fr": "Car Price",
+        "es": "Car Price",
+        "ar": "Car Price"
+      }
     },
     {
       "id": "residualValue",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "€",
       "default": 15000,
-      "businessContext": "Estimated value at lease end"
+      "businessContext": "Estimated value at lease end",
+      "label_i18n": {
+        "en": "Residual Value",
+        "tr": "Residual Value",
+        "de": "Residual Value",
+        "fr": "Residual Value",
+        "es": "Residual Value",
+        "ar": "Residual Value"
+      }
     },
     {
       "id": "moneyFactor",
       "label": "Money Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.0025,
-      "businessContext": "Interest rate factor (money factor = APR / 2400)"
+      "businessContext": "Interest rate factor (money factor = APR / 2400)",
+      "label_i18n": {
+        "en": "Money Factor",
+        "tr": "Money Factor",
+        "de": "Money Factor",
+        "fr": "Money Factor",
+        "es": "Money Factor",
+        "ar": "Money Factor"
+      }
     },
     {
       "id": "leaseTerm",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "months",
       "default": 36,
-      "businessContext": "Duration of the lease"
+      "businessContext": "Duration of the lease",
+      "label_i18n": {
+        "en": "Lease Term",
+        "tr": "Lease Term",
+        "de": "Lease Term",
+        "fr": "Lease Term",
+        "es": "Lease Term",
+        "ar": "Lease Term"
+      }
     },
     {
       "id": "downPayment",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€",
       "default": 2000,
-      "businessContext": "Initial payment"
+      "businessContext": "Initial payment",
+      "label_i18n": {
+        "en": "Down Payment",
+        "tr": "Down Payment",
+        "de": "Down Payment",
+        "fr": "Down Payment",
+        "es": "Down Payment",
+        "ar": "Down Payment"
+      }
     },
     {
       "id": "salesTaxRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Tax rate applied to monthly payment"
+      "businessContext": "Tax rate applied to monthly payment",
+      "label_i18n": {
+        "en": "Sales Tax Rate",
+        "tr": "Sales Tax Rate",
+        "de": "Sales Tax Rate",
+        "fr": "Sales Tax Rate",
+        "es": "Sales Tax Rate",
+        "ar": "Sales Tax Rate"
+      }
     },
     {
       "id": "acquisitionFee",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "€",
       "default": 500,
-      "businessContext": "One-time fee at lease start"
+      "businessContext": "One-time fee at lease start",
+      "label_i18n": {
+        "en": "Acquisition Fee",
+        "tr": "Acquisition Fee",
+        "de": "Acquisition Fee",
+        "fr": "Acquisition Fee",
+        "es": "Acquisition Fee",
+        "ar": "Acquisition Fee"
+      }
     }
   ],
   "formulas": {
@@ -74,10 +130,10 @@
       "financeFee"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "maintenance-reliability"
 }

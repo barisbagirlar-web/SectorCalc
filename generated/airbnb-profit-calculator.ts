@@ -35,7 +35,7 @@ function evaluateAllFormulas(input: Airbnb_profit_calculatorInput): Record<strin
 
 export function calculateAirbnb_profit_calculator(input: Airbnb_profit_calculatorInput): Airbnb_profit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["monthlyProfit"] ?? 0;
+  const totalWasteCost = values["bookedNights"] ?? 0;
   const breakdown = {
     
   };

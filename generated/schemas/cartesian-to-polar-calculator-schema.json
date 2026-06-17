@@ -5,33 +5,65 @@
       "id": "pointX",
       "label": "Point X-coordinate",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "X coordinate of the point to convert"
+      "businessContext": "X coordinate of the point to convert",
+      "label_i18n": {
+        "en": "Point X-coordinate",
+        "tr": "Point X-coordinate",
+        "de": "Point X-coordinate",
+        "fr": "Point X-coordinate",
+        "es": "Point X-coordinate",
+        "ar": "Point X-coordinate"
+      }
     },
     {
       "id": "pointY",
       "label": "Point Y-coordinate",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Y coordinate of the point to convert"
+      "businessContext": "Y coordinate of the point to convert",
+      "label_i18n": {
+        "en": "Point Y-coordinate",
+        "tr": "Point Y-coordinate",
+        "de": "Point Y-coordinate",
+        "fr": "Point Y-coordinate",
+        "es": "Point Y-coordinate",
+        "ar": "Point Y-coordinate"
+      }
     },
     {
       "id": "originX",
       "label": "Origin X-coordinate",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "X coordinate of the polar origin"
+      "businessContext": "X coordinate of the polar origin",
+      "label_i18n": {
+        "en": "Origin X-coordinate",
+        "tr": "Origin X-coordinate",
+        "de": "Origin X-coordinate",
+        "fr": "Origin X-coordinate",
+        "es": "Origin X-coordinate",
+        "ar": "Origin X-coordinate"
+      }
     },
     {
       "id": "originY",
       "label": "Origin Y-coordinate",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Y coordinate of the polar origin"
+      "businessContext": "Y coordinate of the polar origin",
+      "label_i18n": {
+        "en": "Origin Y-coordinate",
+        "tr": "Origin Y-coordinate",
+        "de": "Origin Y-coordinate",
+        "fr": "Origin Y-coordinate",
+        "es": "Origin Y-coordinate",
+        "ar": "Origin Y-coordinate"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "theta_deg"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

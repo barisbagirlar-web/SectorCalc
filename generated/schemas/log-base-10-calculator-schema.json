@@ -5,41 +5,81 @@
       "id": "x",
       "label": "Value (x)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "The primary numeric value for which the base-10 logarithm is computed."
+      "businessContext": "The primary numeric value for which the base-10 logarithm is computed.",
+      "label_i18n": {
+        "en": "Value (x)",
+        "tr": "Value (x)",
+        "de": "Value (x)",
+        "fr": "Value (x)",
+        "es": "Value (x)",
+        "ar": "Value (x)"
+      }
     },
     {
       "id": "y",
       "label": "Second Value (y)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "A secondary numeric value used in product and quotient rule calculations to demonstrate logarithmic properties."
+      "businessContext": "A secondary numeric value used in product and quotient rule calculations to demonstrate logarithmic properties.",
+      "label_i18n": {
+        "en": "Second Value (y)",
+        "tr": "Second Value (y)",
+        "de": "Second Value (y)",
+        "fr": "Second Value (y)",
+        "es": "Second Value (y)",
+        "ar": "Second Value (y)"
+      }
     },
     {
       "id": "n",
       "label": "Exponent (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "The exponent applied to the primary value in the power rule (log10(x^n) = n·log10(x))."
+      "businessContext": "The exponent applied to the primary value in the power rule (log10(x^n) = n·log10(x)).",
+      "label_i18n": {
+        "en": "Exponent (n)",
+        "tr": "Exponent (n)",
+        "de": "Exponent (n)",
+        "fr": "Exponent (n)",
+        "es": "Exponent (n)",
+        "ar": "Exponent (n)"
+      }
     },
     {
       "id": "base",
       "label": "Custom Base (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "An alternative logarithm base for change-of-base demonstration (log_b(x) = log10(x)/log10(b))."
+      "businessContext": "An alternative logarithm base for change-of-base demonstration (log_b(x) = log10(x)/log10(b)).",
+      "label_i18n": {
+        "en": "Custom Base (b)",
+        "tr": "Custom Base (b)",
+        "de": "Custom Base (b)",
+        "fr": "Custom Base (b)",
+        "es": "Custom Base (b)",
+        "ar": "Custom Base (b)"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "The number of decimal places to which all outputs are rounded for readability and engineering precision."
+      "businessContext": "The number of decimal places to which all outputs are rounded for readability and engineering precision.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +100,8 @@
       "antilog10"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

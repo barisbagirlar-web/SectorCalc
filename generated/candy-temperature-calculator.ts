@@ -27,7 +27,7 @@ function evaluateAllFormulas(input: Candy_temperature_calculatorInput): Record<s
 
 export function calculateCandy_temperature_calculator(input: Candy_temperature_calculatorInput): Candy_temperature_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["baseTempF"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "steps",
       "default": 10000,
-      "businessContext": "Total step count from pedometer or manual tally."
+      "businessContext": "Total step count from pedometer or manual tally.",
+      "label_i18n": {
+        "en": "Number of Steps",
+        "tr": "Number of Steps",
+        "de": "Number of Steps",
+        "fr": "Number of Steps",
+        "es": "Number of Steps",
+        "ar": "Number of Steps"
+      }
     },
     {
       "id": "stepLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 70,
-      "businessContext": "Average step length in centimeters. Typical adult range: 60–80 cm."
+      "businessContext": "Average step length in centimeters. Typical adult range: 60–80 cm.",
+      "label_i18n": {
+        "en": "Step Length",
+        "tr": "Step Length",
+        "de": "Step Length",
+        "fr": "Step Length",
+        "es": "Step Length",
+        "ar": "Step Length"
+      }
     },
     {
       "id": "incline",
@@ -23,35 +39,55 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Slope percentage. Positive for uphill, negative for downhill. 0 for flat."
+      "businessContext": "Slope percentage. Positive for uphill, negative for downhill. 0 for flat.",
+      "label_i18n": {
+        "en": "Incline",
+        "tr": "Incline",
+        "de": "Incline",
+        "fr": "Incline",
+        "es": "Incline",
+        "ar": "Incline"
+      }
     },
     {
       "id": "terrainFactor",
       "label": "Terrain Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for terrain difficulty. 1.0 = pavement, >1 for rough ground."
+      "businessContext": "Multiplier for terrain difficulty. 1.0 = pavement, >1 for rough ground.",
+      "label_i18n": {
+        "en": "Terrain Factor",
+        "tr": "Terrain Factor",
+        "de": "Terrain Factor",
+        "fr": "Terrain Factor",
+        "es": "Terrain Factor",
+        "ar": "Terrain Factor"
+      }
     }
   ],
   "formulas": {
     "horizontalDistance": "stepCount * stepLength / 100000",
     "elevationGain": "stepCount * stepLength * incline / 10000",
     "pathDistance": "stepCount * stepLength / 100000 / Math.cos(Math.atan(incline/100))",
-    "totalDistance": "stepCount * stepLength / 100000 / Math.cos(Math.atan(incline/100)) * terrainFactor"
+    "totalDistance": "stepCount * stepLength / 100000 / Math.cos(Math.atan(incline/100)) * terrainFactor",
+    "Horizontal_Distance__km_": "Horizontal Distance (km)",
+    "Elevation_Gain__m_": "Elevation Gain (m)",
+    "Path_Distance_on_Slope__km_": "Path Distance on Slope (km)",
+    "result": "Total Walking Distance (km)"
   },
   "outputs": {
-    "primary": "Total Walking Distance (km)",
+    "primary": "result",
     "breakdown": [
       "Horizontal Distance (km)",
       "Elevation Gain (m)",
       "Path Distance on Slope (km)"
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

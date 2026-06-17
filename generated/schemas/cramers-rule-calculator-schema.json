@@ -5,97 +5,193 @@
       "id": "a11",
       "label": "a11 (Coefficient of x1 in eq1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "First coefficient of first equation"
+      "businessContext": "First coefficient of first equation",
+      "label_i18n": {
+        "en": "a11 (Coefficient of x1 in eq1)",
+        "tr": "a11 (Coefficient of x1 in eq1)",
+        "de": "a11 (Coefficient of x1 in eq1)",
+        "fr": "a11 (Coefficient of x1 in eq1)",
+        "es": "a11 (Coefficient of x1 in eq1)",
+        "ar": "a11 (Coefficient of x1 in eq1)"
+      }
     },
     {
       "id": "a12",
       "label": "a12 (Coefficient of x2 in eq1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Second coefficient of first equation"
+      "businessContext": "Second coefficient of first equation",
+      "label_i18n": {
+        "en": "a12 (Coefficient of x2 in eq1)",
+        "tr": "a12 (Coefficient of x2 in eq1)",
+        "de": "a12 (Coefficient of x2 in eq1)",
+        "fr": "a12 (Coefficient of x2 in eq1)",
+        "es": "a12 (Coefficient of x2 in eq1)",
+        "ar": "a12 (Coefficient of x2 in eq1)"
+      }
     },
     {
       "id": "a13",
       "label": "a13 (Coefficient of x3 in eq1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Third coefficient of first equation"
+      "businessContext": "Third coefficient of first equation",
+      "label_i18n": {
+        "en": "a13 (Coefficient of x3 in eq1)",
+        "tr": "a13 (Coefficient of x3 in eq1)",
+        "de": "a13 (Coefficient of x3 in eq1)",
+        "fr": "a13 (Coefficient of x3 in eq1)",
+        "es": "a13 (Coefficient of x3 in eq1)",
+        "ar": "a13 (Coefficient of x3 in eq1)"
+      }
     },
     {
       "id": "b1",
       "label": "b1 (Constant term of eq1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Right-hand side of first equation"
+      "businessContext": "Right-hand side of first equation",
+      "label_i18n": {
+        "en": "b1 (Constant term of eq1)",
+        "tr": "b1 (Constant term of eq1)",
+        "de": "b1 (Constant term of eq1)",
+        "fr": "b1 (Constant term of eq1)",
+        "es": "b1 (Constant term of eq1)",
+        "ar": "b1 (Constant term of eq1)"
+      }
     },
     {
       "id": "a21",
       "label": "a21 (Coefficient of x1 in eq2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "First coefficient of second equation"
+      "businessContext": "First coefficient of second equation",
+      "label_i18n": {
+        "en": "a21 (Coefficient of x1 in eq2)",
+        "tr": "a21 (Coefficient of x1 in eq2)",
+        "de": "a21 (Coefficient of x1 in eq2)",
+        "fr": "a21 (Coefficient of x1 in eq2)",
+        "es": "a21 (Coefficient of x1 in eq2)",
+        "ar": "a21 (Coefficient of x1 in eq2)"
+      }
     },
     {
       "id": "a22",
       "label": "a22 (Coefficient of x2 in eq2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Second coefficient of second equation"
+      "businessContext": "Second coefficient of second equation",
+      "label_i18n": {
+        "en": "a22 (Coefficient of x2 in eq2)",
+        "tr": "a22 (Coefficient of x2 in eq2)",
+        "de": "a22 (Coefficient of x2 in eq2)",
+        "fr": "a22 (Coefficient of x2 in eq2)",
+        "es": "a22 (Coefficient of x2 in eq2)",
+        "ar": "a22 (Coefficient of x2 in eq2)"
+      }
     },
     {
       "id": "a23",
       "label": "a23 (Coefficient of x3 in eq2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Third coefficient of second equation"
+      "businessContext": "Third coefficient of second equation",
+      "label_i18n": {
+        "en": "a23 (Coefficient of x3 in eq2)",
+        "tr": "a23 (Coefficient of x3 in eq2)",
+        "de": "a23 (Coefficient of x3 in eq2)",
+        "fr": "a23 (Coefficient of x3 in eq2)",
+        "es": "a23 (Coefficient of x3 in eq2)",
+        "ar": "a23 (Coefficient of x3 in eq2)"
+      }
     },
     {
       "id": "b2",
       "label": "b2 (Constant term of eq2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Right-hand side of second equation"
+      "businessContext": "Right-hand side of second equation",
+      "label_i18n": {
+        "en": "b2 (Constant term of eq2)",
+        "tr": "b2 (Constant term of eq2)",
+        "de": "b2 (Constant term of eq2)",
+        "fr": "b2 (Constant term of eq2)",
+        "es": "b2 (Constant term of eq2)",
+        "ar": "b2 (Constant term of eq2)"
+      }
     },
     {
       "id": "a31",
       "label": "a31 (Coefficient of x1 in eq3)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "First coefficient of third equation"
+      "businessContext": "First coefficient of third equation",
+      "label_i18n": {
+        "en": "a31 (Coefficient of x1 in eq3)",
+        "tr": "a31 (Coefficient of x1 in eq3)",
+        "de": "a31 (Coefficient of x1 in eq3)",
+        "fr": "a31 (Coefficient of x1 in eq3)",
+        "es": "a31 (Coefficient of x1 in eq3)",
+        "ar": "a31 (Coefficient of x1 in eq3)"
+      }
     },
     {
       "id": "a32",
       "label": "a32 (Coefficient of x2 in eq3)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Second coefficient of third equation"
+      "businessContext": "Second coefficient of third equation",
+      "label_i18n": {
+        "en": "a32 (Coefficient of x2 in eq3)",
+        "tr": "a32 (Coefficient of x2 in eq3)",
+        "de": "a32 (Coefficient of x2 in eq3)",
+        "fr": "a32 (Coefficient of x2 in eq3)",
+        "es": "a32 (Coefficient of x2 in eq3)",
+        "ar": "a32 (Coefficient of x2 in eq3)"
+      }
     },
     {
       "id": "a33",
       "label": "a33 (Coefficient of x3 in eq3)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Third coefficient of third equation"
+      "businessContext": "Third coefficient of third equation",
+      "label_i18n": {
+        "en": "a33 (Coefficient of x3 in eq3)",
+        "tr": "a33 (Coefficient of x3 in eq3)",
+        "de": "a33 (Coefficient of x3 in eq3)",
+        "fr": "a33 (Coefficient of x3 in eq3)",
+        "es": "a33 (Coefficient of x3 in eq3)",
+        "ar": "a33 (Coefficient of x3 in eq3)"
+      }
     },
     {
       "id": "b3",
       "label": "b3 (Constant term of eq3)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Right-hand side of third equation"
+      "businessContext": "Right-hand side of third equation",
+      "label_i18n": {
+        "en": "b3 (Constant term of eq3)",
+        "tr": "b3 (Constant term of eq3)",
+        "de": "b3 (Constant term of eq3)",
+        "fr": "b3 (Constant term of eq3)",
+        "es": "b3 (Constant term of eq3)",
+        "ar": "b3 (Constant term of eq3)"
+      }
     }
   ],
   "formulas": {
@@ -108,21 +204,20 @@
     "x3": "detA3 / detA"
   },
   "outputs": {
-    "primary": "x1 = detA1/detA, x2 = detA2/detA, x3 = detA3/detA",
+    "primary": "x1",
     "breakdown": [
-      "det(A) = a11*(a22*a33 - a23*a32) - a12*(a21*a33 - a23*a31) + a13*(a21*a32 - a22*a31)",
-      "det(A1) = b1*(a22*a33 - a23*a32) - a12*(b2*a33 - a23*b3) + a13*(b2*a32 - a22*b3)",
-      "det(A2) = a11*(b2*a33 - a23*b3) - b1*(a21*a33 - a23*a31) + a13*(a21*b3 - b2*a31)",
-      "det(A3) = a11*(a22*b3 - b2*a32) - a12*(a21*b3 - b2*a31) + b1*(a21*a32 - a22*a31)",
-      "x1 = det(A1) / det(A)",
-      "x2 = det(A2) / det(A)",
-      "x3 = det(A3) / det(A)"
+      "detA",
+      "detA1",
+      "detA2",
+      "detA3",
+      "x2",
+      "x3"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

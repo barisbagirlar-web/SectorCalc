@@ -22,13 +22,17 @@ function evaluateAllFormulas(input: Fertile_window_calculatorInput): Record<stri
   try { const v = input.cycleLength - input.lutealPhaseLength; results["ovulationDay"] = Number.isFinite(v) ? v : 0; } catch { results["ovulationDay"] = 0; }
   try { const v = (results["ovulationDay"] ?? 0) - input.spermLifeSpan; results["fertileStart"] = Number.isFinite(v) ? v : 0; } catch { results["fertileStart"] = 0; }
   try { const v = (results["ovulationDay"] ?? 0) + input.eggLifeSpan; results["fertileEnd"] = Number.isFinite(v) ? v : 0; } catch { results["fertileEnd"] = 0; }
+  try { const v = $(results["ovulationDay"] ?? 0); results["__ovulationDay_"] = Number.isFinite(v) ? v : 0; } catch { results["__ovulationDay_"] = 0; }
+  results["__fertileStart___based_on_sperm_lifespan"] = 0;
+  results["__fertileEnd___based_on_egg_lifespan_of_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateFertile_window_calculator(input: Fertile_window_calculatorInput): Fertile_window_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Fertile"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

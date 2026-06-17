@@ -36,7 +36,7 @@ function evaluateAllFormulas(input: U_value_calculatorInput): Record<string, num
 
 export function calculateU_value_calculator(input: U_value_calculatorInput): U_value_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["uValue"] ?? 0;
+  const totalWasteCost = values["r1"] ?? 0;
   const breakdown = {
     
   };

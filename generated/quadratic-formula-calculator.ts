@@ -17,31 +17,19 @@ export const Quadratic_formula_calculatorInputSchema = z.object({
   use_complex_roots: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Quadratic_formula_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.coefficient_b * input.coefficient_b - 4 * input.coefficient_a * input.coefficient_c; results["discriminant"] = Number.isFinite(v) ? v : 0; } catch { results["discriminant"] = 0; }
-  try { const v = Math.sqrt(Math.abs((results["discriminant"] ?? 0))); results["sqrt_discriminant"] = Number.isFinite(v) ? v : 0; } catch { results["sqrt_discriminant"] = 0; }
-  try { const v = (-input.coefficient_b + (results["sqrt_discriminant"] ?? 0)) / (2 * input.coefficient_a); results["root1"] = Number.isFinite(v) ? v : 0; } catch { results["root1"] = 0; }
-  try { const v = (-input.coefficient_b - (results["sqrt_discriminant"] ?? 0)) / (2 * input.coefficient_a); results["root2"] = Number.isFinite(v) ? v : 0; } catch { results["root2"] = 0; }
-  try { const v = -input.coefficient_b / (2 * input.coefficient_a); results["vertex_x"] = Number.isFinite(v) ? v : 0; } catch { results["vertex_x"] = 0; }
-  try { const v = input.coefficient_a * (results["vertex_x"] ?? 0) * (results["vertex_x"] ?? 0) + input.coefficient_b * (results["vertex_x"] ?? 0) + input.coefficient_c; results["vertex_y"] = Number.isFinite(v) ? v : 0; } catch { results["vertex_y"] = 0; }
-  try { const v = -input.coefficient_b / input.coefficient_a; results["sum_of_roots"] = Number.isFinite(v) ? v : 0; } catch { results["sum_of_roots"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Quadratic_formula_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateQuadratic_formula_calculator(input: Quadratic_formula_calculatorInput): Quadratic_formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["primary_result"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    id: values["id"] ?? 0,
-    label: values["label"] ?? 0,
-    description: values["description"] ?? 0,
-    type: values["type"] ?? 0,
-    properties: values["properties"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Loss of Significance Risk","Near-Zero Discriminant","Large |a| Coefficient"];
-  const suggestedActions: string[] = ["Scale Inputs","Verify Roots by Substitution","Switch to High Precision Mode","Enable Complex Roots for Negative Discriminant"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -60,7 +48,7 @@ export function calculateQuadratic_formula_calculator(input: Quadratic_formula_c
 
 export interface Quadratic_formula_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { id: number; label: number; description: number; type: number; properties: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "The highest frequency component in the signal"
+      "businessContext": "The highest frequency component in the signal",
+      "label_i18n": {
+        "en": "Bandwidth",
+        "tr": "Bandwidth",
+        "de": "Bandwidth",
+        "fr": "Bandwidth",
+        "es": "Bandwidth",
+        "ar": "Bandwidth"
+      }
     },
     {
       "id": "samplingFactor",
       "label": "Sampling Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Oversampling factor relative to bandwidth (minimum 2 for Nyquist)"
+      "businessContext": "Oversampling factor relative to bandwidth (minimum 2 for Nyquist)",
+      "label_i18n": {
+        "en": "Sampling Factor",
+        "tr": "Sampling Factor",
+        "de": "Sampling Factor",
+        "fr": "Sampling Factor",
+        "es": "Sampling Factor",
+        "ar": "Sampling Factor"
+      }
     },
     {
       "id": "bitDepth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bits",
       "default": 16,
-      "businessContext": "Number of bits per sample for quantization"
+      "businessContext": "Number of bits per sample for quantization",
+      "label_i18n": {
+        "en": "Bit Depth",
+        "tr": "Bit Depth",
+        "de": "Bit Depth",
+        "fr": "Bit Depth",
+        "es": "Bit Depth",
+        "ar": "Bit Depth"
+      }
     },
     {
       "id": "channels",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "channels",
       "default": 1,
-      "businessContext": "Number of independent signal channels"
+      "businessContext": "Number of independent signal channels",
+      "label_i18n": {
+        "en": "Number of Channels",
+        "tr": "Number of Channels",
+        "de": "Number of Channels",
+        "fr": "Number of Channels",
+        "es": "Number of Channels",
+        "ar": "Number of Channels"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "dataRate"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

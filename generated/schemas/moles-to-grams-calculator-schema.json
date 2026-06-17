@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol",
       "default": 1,
-      "businessContext": "Number of moles of substance"
+      "businessContext": "Number of moles of substance",
+      "label_i18n": {
+        "en": "Amount (mole)",
+        "tr": "Amount (mole)",
+        "de": "Amount (mole)",
+        "fr": "Amount (mole)",
+        "es": "Amount (mole)",
+        "ar": "Amount (mole)"
+      }
     },
     {
       "id": "molecularWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 18.015,
-      "businessContext": "Molar mass of the substance"
+      "businessContext": "Molar mass of the substance",
+      "label_i18n": {
+        "en": "Molecular Weight",
+        "tr": "Molecular Weight",
+        "de": "Molecular Weight",
+        "fr": "Molecular Weight",
+        "es": "Molecular Weight",
+        "ar": "Molecular Weight"
+      }
     },
     {
       "id": "purity",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Purity of the substance, 100 for pure"
+      "businessContext": "Purity of the substance, 100 for pure",
+      "label_i18n": {
+        "en": "Purity",
+        "tr": "Purity",
+        "de": "Purity",
+        "fr": "Purity",
+        "es": "Purity",
+        "ar": "Purity"
+      }
     },
     {
       "id": "scalingFactor",
       "label": "Scaling Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Factor for multiple batches or units"
+      "businessContext": "Factor for multiple batches or units",
+      "label_i18n": {
+        "en": "Scaling Factor",
+        "tr": "Scaling Factor",
+        "de": "Scaling Factor",
+        "fr": "Scaling Factor",
+        "es": "Scaling Factor",
+        "ar": "Scaling Factor"
+      }
     },
     {
       "id": "tolerance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Measurement tolerance in grams"
+      "businessContext": "Measurement tolerance in grams",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "purityEffect"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

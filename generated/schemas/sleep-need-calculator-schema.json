@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Worker's age in years"
+      "businessContext": "Worker's age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "shiftType",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "code (0: day, 1: night, 2: rotating)",
       "default": 0,
-      "businessContext": "Type of shift assignment"
+      "businessContext": "Type of shift assignment",
+      "label_i18n": {
+        "en": "Shift Type",
+        "tr": "Shift Type",
+        "de": "Shift Type",
+        "fr": "Shift Type",
+        "es": "Shift Type",
+        "ar": "Shift Type"
+      }
     },
     {
       "id": "sleepQuality",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "scale 1-10",
       "default": 5,
-      "businessContext": "Self-assessed sleep quality rating"
+      "businessContext": "Self-assessed sleep quality rating",
+      "label_i18n": {
+        "en": "Sleep Quality",
+        "tr": "Sleep Quality",
+        "de": "Sleep Quality",
+        "fr": "Sleep Quality",
+        "es": "Sleep Quality",
+        "ar": "Sleep Quality"
+      }
     },
     {
       "id": "desiredWakeUp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "minutes from midnight",
       "default": 420,
-      "businessContext": "Desired wake-up time in minutes past midnight"
+      "businessContext": "Desired wake-up time in minutes past midnight",
+      "label_i18n": {
+        "en": "Desired Wake-up Time",
+        "tr": "Desired Wake-up Time",
+        "de": "Desired Wake-up Time",
+        "fr": "Desired Wake-up Time",
+        "es": "Desired Wake-up Time",
+        "ar": "Desired Wake-up Time"
+      }
     },
     {
       "id": "sleepLatency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 15,
-      "businessContext": "Average time to fall asleep"
+      "businessContext": "Average time to fall asleep",
+      "label_i18n": {
+        "en": "Sleep Latency",
+        "tr": "Sleep Latency",
+        "de": "Sleep Latency",
+        "fr": "Sleep Latency",
+        "es": "Sleep Latency",
+        "ar": "Sleep Latency"
+      }
     },
     {
       "id": "physicalActivity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hours/week",
       "default": 2,
-      "businessContext": "Weekly physical activity hours"
+      "businessContext": "Weekly physical activity hours",
+      "label_i18n": {
+        "en": "Physical Activity",
+        "tr": "Physical Activity",
+        "de": "Physical Activity",
+        "fr": "Physical Activity",
+        "es": "Physical Activity",
+        "ar": "Physical Activity"
+      }
     }
   ],
   "formulas": {
@@ -57,19 +105,22 @@
     "activityAdjustment": "(physicalActivity > 5 ? -10 : 0)",
     "totalSleepMinutes": "baseSleepMinutes + shiftAdjustment + qualityAdjustment + activityAdjustment",
     "bedtimeMinutes": "(desiredWakeUp - totalSleepMinutes + 1440) % 1440",
-    "sleepDurationHours": "totalSleepMinutes / 60"
+    "sleepDurationHours": "totalSleepMinutes / 60",
+    "____Math_floor_bedtimeMinutes___60______": "' + Math.floor(bedtimeMinutes / 60) + ':' + ('0' + (bedtimeMinutes % 60)).slice(-2)",
+    "____Math_round_totalSleepMinutes______mi": "' + Math.round(totalSleepMinutes) + ' minutes (' + Math.round(totalSleepMinutes / 60 * 10) / 10 + ' hours)'",
+    "result": "'Recommended sleep: ' + Math.round(totalSleepMinutes / 60 * 10) / 10 + ' hours'"
   },
   "outputs": {
-    "primary": "'Recommended sleep: ' + Math.round(totalSleepMinutes / 60 * 10) / 10 + ' hours'",
+    "primary": "result",
     "breakdown": [
       "'Bedtime: ' + Math.floor(bedtimeMinutes / 60) + ':' + ('0' + (bedtimeMinutes % 60)).slice(-2)",
       "'Sleep duration: ' + Math.round(totalSleepMinutes) + ' minutes (' + Math.round(totalSleepMinutes / 60 * 10) / 10 + ' hours)'"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "workforce-hr"
 }

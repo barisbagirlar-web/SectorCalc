@@ -21,13 +21,16 @@ function evaluateAllFormulas(input: Ms_to_kmh_calculatorInput): Record<string, n
   const results: Record<string, number> = {};
   try { const v = input.speedMs * input.conversionFactor; results["rawValue"] = Number.isFinite(v) ? v : 0; } catch { results["rawValue"] = 0; }
   try { const v = (input.roundingMethod === 0 ? Math.round(input.speedMs * input.conversionFactor * Math.pow(10, input.decimalPlaces)) : input.roundingMethod === 1 ? Math.floor(input.speedMs * input.conversionFactor * Math.pow(10, input.decimalPlaces)) : input.roundingMethod === 2 ? Math.ceil(input.speedMs * input.conversionFactor * Math.pow(10, input.decimalPlaces)) : input.speedMs * input.conversionFactor) / Math.pow(10, input.decimalPlaces); results["kmh"] = Number.isFinite(v) ? v : 0; } catch { results["kmh"] = 0; }
+  results["__rawValue___km_h"] = 0;
+  results["Rounded_to___decimalPlaces___decimal_pla"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateMs_to_kmh_calculator(input: Ms_to_kmh_calculatorInput): Ms_to_kmh_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["{{kmh}} km/h"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

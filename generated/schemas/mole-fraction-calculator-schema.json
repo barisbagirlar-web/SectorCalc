@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol",
       "default": 0,
-      "businessContext": "Amount of substance of component A in moles"
+      "businessContext": "Amount of substance of component A in moles",
+      "label_i18n": {
+        "en": "Component A Moles",
+        "tr": "Component A Moles",
+        "de": "Component A Moles",
+        "fr": "Component A Moles",
+        "es": "Component A Moles",
+        "ar": "Component A Moles"
+      }
     },
     {
       "id": "moleB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol",
       "default": 0,
-      "businessContext": "Amount of substance of component B in moles"
+      "businessContext": "Amount of substance of component B in moles",
+      "label_i18n": {
+        "en": "Component B Moles",
+        "tr": "Component B Moles",
+        "de": "Component B Moles",
+        "fr": "Component B Moles",
+        "es": "Component B Moles",
+        "ar": "Component B Moles"
+      }
     },
     {
       "id": "moleC",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mol",
       "default": 0,
-      "businessContext": "Amount of substance of component C in moles"
+      "businessContext": "Amount of substance of component C in moles",
+      "label_i18n": {
+        "en": "Component C Moles",
+        "tr": "Component C Moles",
+        "de": "Component C Moles",
+        "fr": "Component C Moles",
+        "es": "Component C Moles",
+        "ar": "Component C Moles"
+      }
     },
     {
       "id": "moleD",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mol",
       "default": 0,
-      "businessContext": "Amount of substance of component D in moles"
+      "businessContext": "Amount of substance of component D in moles",
+      "label_i18n": {
+        "en": "Component D Moles",
+        "tr": "Component D Moles",
+        "de": "Component D Moles",
+        "fr": "Component D Moles",
+        "es": "Component D Moles",
+        "ar": "Component D Moles"
+      }
     },
     {
       "id": "selectedIndex",
       "label": "Component Index",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Index of the component for mole fraction calculation (1–4)"
+      "businessContext": "Index of the component for mole fraction calculation (1–4)",
+      "label_i18n": {
+        "en": "Component Index",
+        "tr": "Component Index",
+        "de": "Component Index",
+        "fr": "Component Index",
+        "es": "Component Index",
+        "ar": "Component Index"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "selectedMoles"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "quality-six-sigma"
 }

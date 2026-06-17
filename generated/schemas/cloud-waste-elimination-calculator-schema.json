@@ -125,7 +125,7 @@
       "id": "cloud_provider",
       "label": "Cloud Provider",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "AWS",
       "min": null,
       "max": null,
@@ -147,7 +147,7 @@
       "id": "include_network_waste",
       "label": "Include Network Waste Analysis",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -207,172 +207,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "compute_waste_cost",
-      "label": "Compute Waste Cost",
-      "description": "Cost of underutilized compute resources based on utilization gap.",
-      "formula": "total_cloud_spend * (1 - compute_utilization_rate / 100) * 0.6",
-      "unit": "USD"
-    },
-    {
-      "id": "storage_waste_cost",
-      "label": "Storage Waste Cost",
-      "description": "Cost of wasted storage based on estimated waste percentage.",
-      "formula": "total_cloud_spend * (storage_waste_percentage / 100) * 0.15",
-      "unit": "USD"
-    },
-    {
-      "id": "idle_resource_cost",
-      "label": "Idle Resource Cost",
-      "description": "Cost of idle compute instances assuming average instance cost.",
-      "formula": "idle_resource_count * 150",
-      "unit": "USD"
-    },
-    {
-      "id": "network_waste_cost",
-      "label": "Network Waste Cost",
-      "description": "Cost of unnecessary data transfer (if include_network_waste is true).",
-      "formula": "include_network_waste ? (data_transfer_out_gb * 0.08) : 0",
-      "unit": "USD"
-    },
-    {
-      "id": "rightsizing_savings_potential",
-      "label": "Rightsizing Savings Potential",
-      "description": "Potential savings from rightsizing based on opportunity score.",
-      "formula": "total_cloud_spend * (rightsizing_opportunity_score / 100) * 0.25",
-      "unit": "USD"
-    },
-    {
-      "id": "reserved_instance_savings_gap",
-      "label": "Reserved Instance Savings Gap",
-      "description": "Additional savings possible by increasing reserved coverage to 60%.",
-      "formula": "total_cloud_spend * (0.6 - reserved_instance_coverage / 100) * 0.3",
-      "unit": "USD"
-    },
-    {
-      "id": "total_waste_cost",
-      "label": "Total Waste Cost (Primary Result)",
-      "description": "Aggregate waste cost from all identified waste categories.",
-      "formula": "compute_waste_cost + storage_waste_cost + idle_resource_cost + network_waste_cost",
-      "unit": "USD"
-    }
+    "total_cloud_spend",
+    "total_cloud_spend",
+    "total_cloud_spend",
+    "total_cloud_spend",
+    "total_cloud_spend",
+    "total_cloud_spend",
+    "total_cloud_spend"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_waste_cost",
-      "label": "Total Cloud Waste Cost",
-      "value": null,
-      "unit": "USD",
-      "description": "Total estimated monthly waste cost across compute, storage, idle, and network."
-    },
-    "breakdown": {
-      "compute_waste_cost": {
-        "label": "Compute Waste Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "storage_waste_cost": {
-        "label": "Storage Waste Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "idle_resource_cost": {
-        "label": "Idle Resource Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "network_waste_cost": {
-        "label": "Network Waste Cost",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "rightsizing_savings_potential": {
-        "label": "Rightsizing Savings Potential",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      },
-      "reserved_instance_savings_gap": {
-        "label": "Reserved Instance Savings Gap",
-        "value": null,
-        "unit": "USD",
-        "percentage": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "driver": "Orphaned storage volumes",
-        "estimated_cost": null,
-        "description": "Unattached EBS volumes or orphaned snapshots incurring costs."
-      },
-      {
-        "driver": "Over-provisioned instances",
-        "estimated_cost": null,
-        "description": "Instances with CPU/memory far above actual workload requirements."
-      },
-      {
-        "driver": "Unused Elastic IPs",
-        "estimated_cost": null,
-        "description": "Allocated but unused public IP addresses."
-      },
-      {
-        "driver": "Inefficient data transfer patterns",
-        "estimated_cost": null,
-        "description": "Cross-region or inter-AZ traffic that could be optimized."
-      },
-      {
-        "driver": "Expired reserved instances",
-        "estimated_cost": null,
-        "description": "Reserved instances that have expired and are running on-demand."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "priority": 1,
-        "action": "Implement auto-scaling and rightsizing policies for compute instances.",
-        "expected_savings": null,
-        "effort": "Medium"
-      },
-      {
-        "priority": 2,
-        "action": "Set up lifecycle policies to delete or archive unused storage volumes.",
-        "expected_savings": null,
-        "effort": "Low"
-      },
-      {
-        "priority": 3,
-        "action": "Automate shutdown of idle resources using scheduling or idle detection.",
-        "expected_savings": null,
-        "effort": "Medium"
-      },
-      {
-        "priority": 4,
-        "action": "Increase reserved instance coverage to at least 60% of compute spend.",
-        "expected_savings": null,
-        "effort": "High"
-      },
-      {
-        "priority": 5,
-        "action": "Review and optimize data transfer paths; use CDN or direct connect where possible.",
-        "expected_savings": null,
-        "effort": "Medium"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "total_waste_cost_adjusted",
-      "label": "Total Waste Cost (Confidence Adjusted)",
-      "value": null,
-      "unit": "USD",
-      "description": "Total waste cost adjusted by a confidence factor based on input completeness and consistency.",
-      "confidence_factor": 0.85
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "cloud-waste-elimination-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik"
 }

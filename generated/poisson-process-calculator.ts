@@ -25,13 +25,17 @@ function evaluateAllFormulas(input: Poisson_process_calculatorInput): Record<str
   try { const v = Math.exp(-(results["mu3"] ?? 0)); results["p0_3"] = Number.isFinite(v) ? v : 0; } catch { results["p0_3"] = 0; }
   try { const v = 1 / input.rate; results["avg_wait"] = Number.isFinite(v) ? v : 0; } catch { results["avg_wait"] = 0; }
   try { const v = input.rate * input.t1; results["variance_example"] = Number.isFinite(v) ? v : 0; } catch { results["variance_example"] = 0; }
+  results["_mu2___P_X_0____p0_2_"] = 0;
+  results["_mu3___P_X_0____p0_3_"] = 0;
+  results["_avg_wait__saat"] = 0;
+  results["t_____variance_example_"] = 0;
   return results;
 }
 
 
 export function calculatePoisson_process_calculator(input: Poisson_process_calculatorInput): Poisson_process_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["t"] ?? 0;
+  const totalWasteCost = values["mu1"] ?? 0;
   const breakdown = {
     
   };

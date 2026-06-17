@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Miller_formula_calculatorInput): Record<stri
 
 export function calculateMiller_formula_calculator(input: Miller_formula_calculatorInput): Miller_formula_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalVolume"] ?? 0;
+  const totalWasteCost = values["diameterM"] ?? 0;
   const breakdown = {
     
   };

@@ -20,13 +20,16 @@ function evaluateAllFormulas(input: Reading_level_calculatorInput): Record<strin
   try { const v = 0.39 * (input.totalWords / input.totalSentences) + 11.8 * (input.totalSyllables / input.totalWords) - 15.59; results["readingGradeLevel"] = Number.isFinite(v) ? v : 0; } catch { results["readingGradeLevel"] = 0; }
   try { const v = 206.835 - 1.015 * (input.totalWords / input.totalSentences) - 84.6 * (input.totalSyllables / input.totalWords); results["readingEase"] = Number.isFinite(v) ? v : 0; } catch { results["readingEase"] = 0; }
   try { const v = 0.4 * ((input.totalWords / input.totalSentences) + 100 * (input.totalComplexWords / input.totalWords)); results["gunningFog"] = Number.isFinite(v) ? v : 0; } catch { results["gunningFog"] = 0; }
+  try { const v = 206.835 - 1.015 * (input.totalWords / input.totalSentences) - 84.6 * (input.totalSyllables / input.totalWords); results["206_835___1_015____totalWords___totalSen"] = Number.isFinite(v) ? v : 0; } catch { results["206_835___1_015____totalWords___totalSen"] = 0; }
+  try { const v = 0.4 * ((input.totalWords / input.totalSentences) + 100 * (input.totalComplexWords / input.totalWords)); results["0_4_____totalWords___totalSentences____1"] = Number.isFinite(v) ? v : 0; } catch { results["0_4_____totalWords___totalSentences____1"] = 0; }
+  try { const v = 0.39 * (input.totalWords / input.totalSentences) + 11.8 * (input.totalSyllables / input.totalWords) - 15.59; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateReading_level_calculator(input: Reading_level_calculatorInput): Reading_level_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["0"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

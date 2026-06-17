@@ -109,7 +109,7 @@
       "id": "vehicle_type",
       "label": "Vehicle Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "van",
       "min": null,
       "max": null,
@@ -131,7 +131,7 @@
       "id": "traffic_condition",
       "label": "Traffic Condition",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "moderate",
       "min": null,
       "max": null,
@@ -152,7 +152,7 @@
       "id": "use_optimization",
       "label": "Use Optimization Algorithm",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -213,132 +213,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "total_drive_time",
-      "label": "Total Drive Time",
-      "formula": "total_distance / avg_speed",
-      "unit": "hours",
-      "description": "Time spent driving the route."
-    },
-    {
-      "id": "total_dwell_time",
-      "label": "Total Dwell Time",
-      "formula": "num_stops * dwell_time_per_stop / 60",
-      "unit": "hours",
-      "description": "Total time spent at stops."
-    },
-    {
-      "id": "total_travel_time",
-      "label": "Total Travel Time",
-      "formula": "total_drive_time + total_dwell_time",
-      "unit": "hours",
-      "description": "Total time from start to finish including stops."
-    },
-    {
-      "id": "fuel_cost_total",
-      "label": "Fuel Cost Total",
-      "formula": "total_distance * fuel_cost_per_km",
-      "unit": "currency",
-      "description": "Total fuel cost for the route."
-    },
-    {
-      "id": "driver_cost_total",
-      "label": "Driver Cost Total",
-      "formula": "total_travel_time * driver_hourly_rate",
-      "unit": "currency",
-      "description": "Total driver wage cost."
-    },
-    {
-      "id": "stops_per_hour",
-      "label": "Stops per Hour",
-      "formula": "num_stops / total_travel_time",
-      "unit": "stops/hour",
-      "description": "Route efficiency metric: stops per hour of travel."
-    },
-    {
-      "id": "total_cost",
-      "label": "Total Cost",
-      "formula": "fuel_cost_total + driver_cost_total",
-      "unit": "currency",
-      "description": "Primary result: total route cost."
-    }
+    "num_stops",
+    "num_stops",
+    "num_stops",
+    "num_stops",
+    "num_stops",
+    "num_stops",
+    "num_stops"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_cost",
-      "label": "Total Route Cost",
-      "value": null,
-      "unit": "currency"
-    },
-    "breakdown": {
-      "fuel_cost_total": {
-        "label": "Fuel Cost",
-        "value": null,
-        "unit": "currency"
-      },
-      "driver_cost_total": {
-        "label": "Driver Cost",
-        "value": null,
-        "unit": "currency"
-      },
-      "total_travel_time": {
-        "label": "Total Travel Time",
-        "value": null,
-        "unit": "hours"
-      },
-      "stops_per_hour": {
-        "label": "Stops per Hour",
-        "value": null,
-        "unit": "stops/hour"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excess_dwell_time",
-        "label": "Excess Dwell Time",
-        "description": "Dwell time above industry benchmark of 8 minutes per stop.",
-        "value": null,
-        "unit": "minutes"
-      },
-      {
-        "id": "inefficient_route_factor",
-        "label": "Inefficient Route Factor",
-        "description": "Ratio of actual distance to optimal distance (if optimization not used).",
-        "value": null,
-        "unit": "ratio"
-      },
-      {
-        "id": "fuel_waste",
-        "label": "Fuel Waste",
-        "description": "Extra fuel cost due to traffic and suboptimal routing.",
-        "value": null,
-        "unit": "currency"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_consolidate_stops",
-        "label": "Consolidate Stops",
-        "description": "Merge stops within 2 km radius to reduce dwell time and distance.",
-        "impact": "Reduce total cost by up to 12%"
-      },
-      {
-        "id": "action_off_peak",
-        "label": "Schedule Off-Peak",
-        "description": "Shift route to off-peak hours to improve average speed.",
-        "impact": "Reduce travel time by up to 20%"
-      },
-      {
-        "id": "action_vehicle_upgrade",
-        "label": "Consider Fuel-Efficient Vehicle",
-        "description": "Use a vehicle with lower fuel consumption per km.",
-        "impact": "Reduce fuel cost by up to 15%"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "route-optimization-analyzer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "procurement-supply-chain",
+  "category": "Lojistik & Tedarik Zinciri",
+  "sector": "Lojistik & Sevkiyat"
 }

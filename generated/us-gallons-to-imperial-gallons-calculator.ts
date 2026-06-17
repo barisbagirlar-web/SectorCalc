@@ -23,13 +23,19 @@ function evaluateAllFormulas(input: Us_gallons_to_imperial_gallons_calculatorInp
   const results: Record<string, number> = {};
   try { const v = input.usGallons * input.conversionFactor * input.batchQuantity; results["imperialUnrounded"] = Number.isFinite(v) ? v : 0; } catch { results["imperialUnrounded"] = 0; }
   try { const v = Math.round((results["imperialUnrounded"] ?? 0) * 10**input.roundingPrecision) / 10**input.roundingPrecision; results["imperialRounded"] = Number.isFinite(v) ? v : 0; } catch { results["imperialRounded"] = 0; }
+  results["____usGallons_toFixed_2______gal__US__"] = 0;
+  results["____conversionFactor_toFixed_6______Impe"] = 0;
+  results["____batchQuantity"] = 0;
+  results["____imperialUnrounded_toFixed_10______Im"] = 0;
+  results["____imperialRounded_____Imperial_gallons"] = 0;
+  try { const v = (results["imperialRounded"] ?? 0) + ' Imperial gallons'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateUs_gallons_to_imperial_gallons_calculator(input: Us_gallons_to_imperial_gallons_calculatorInput): Us_gallons_to_imperial_gallons_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["imperialRounded"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

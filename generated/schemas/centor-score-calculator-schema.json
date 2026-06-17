@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 if fever present, 0 otherwise"
+      "businessContext": "1 if fever present, 0 otherwise",
+      "label_i18n": {
+        "en": "Fever >38°C",
+        "tr": "Fever >38°C",
+        "de": "Fever >38°C",
+        "fr": "Fever >38°C",
+        "es": "Fever >38°C",
+        "ar": "Fever >38°C"
+      }
     },
     {
       "id": "exudates",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 if exudates present, 0 otherwise"
+      "businessContext": "1 if exudates present, 0 otherwise",
+      "label_i18n": {
+        "en": "Tonsillar Exudates",
+        "tr": "Tonsillar Exudates",
+        "de": "Tonsillar Exudates",
+        "fr": "Tonsillar Exudates",
+        "es": "Tonsillar Exudates",
+        "ar": "Tonsillar Exudates"
+      }
     },
     {
       "id": "lymphadenopathy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 if lymphadenopathy present, 0 otherwise"
+      "businessContext": "1 if lymphadenopathy present, 0 otherwise",
+      "label_i18n": {
+        "en": "Tender Anterior Cervical Lymphadenopathy",
+        "tr": "Tender Anterior Cervical Lymphadenopathy",
+        "de": "Tender Anterior Cervical Lymphadenopathy",
+        "fr": "Tender Anterior Cervical Lymphadenopathy",
+        "es": "Tender Anterior Cervical Lymphadenopathy",
+        "ar": "Tender Anterior Cervical Lymphadenopathy"
+      }
     },
     {
       "id": "cough_absence",
@@ -31,11 +55,23 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 if cough absent, 0 if cough present"
+      "businessContext": "1 if cough absent, 0 if cough present",
+      "label_i18n": {
+        "en": "Absence of Cough",
+        "tr": "Absence of Cough",
+        "de": "Absence of Cough",
+        "fr": "Absence of Cough",
+        "es": "Absence of Cough",
+        "ar": "Absence of Cough"
+      }
     }
   ],
   "formulas": {
-    "score": "fever + exudates + lymphadenopathy + cough_absence"
+    "score": "fever + exudates + lymphadenopathy + cough_absence",
+    "fever": "fever",
+    "exudates": "exudates",
+    "lymphadenopathy": "lymphadenopathy",
+    "cough_absence": "cough_absence"
   },
   "outputs": {
     "primary": "score",
@@ -46,10 +82,10 @@
       "cough_absence"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

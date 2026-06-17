@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Anxiety screening question 1"
+      "businessContext": "Anxiety screening question 1",
+      "label_i18n": {
+        "en": "Feeling nervous, anxious, or on edge",
+        "tr": "Feeling nervous, anxious, or on edge",
+        "de": "Feeling nervous, anxious, or on edge",
+        "fr": "Feeling nervous, anxious, or on edge",
+        "es": "Feeling nervous, anxious, or on edge",
+        "ar": "Feeling nervous, anxious, or on edge"
+      }
     },
     {
       "id": "q2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Anxiety screening question 2"
+      "businessContext": "Anxiety screening question 2",
+      "label_i18n": {
+        "en": "Not being able to stop or control worrying",
+        "tr": "Not being able to stop or control worrying",
+        "de": "Not being able to stop or control worrying",
+        "fr": "Not being able to stop or control worrying",
+        "es": "Not being able to stop or control worrying",
+        "ar": "Not being able to stop or control worrying"
+      }
     },
     {
       "id": "q3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Anxiety screening question 3"
+      "businessContext": "Anxiety screening question 3",
+      "label_i18n": {
+        "en": "Worrying too much about different things",
+        "tr": "Worrying too much about different things",
+        "de": "Worrying too much about different things",
+        "fr": "Worrying too much about different things",
+        "es": "Worrying too much about different things",
+        "ar": "Worrying too much about different things"
+      }
     },
     {
       "id": "q4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Anxiety screening question 4"
+      "businessContext": "Anxiety screening question 4",
+      "label_i18n": {
+        "en": "Trouble relaxing",
+        "tr": "Trouble relaxing",
+        "de": "Trouble relaxing",
+        "fr": "Trouble relaxing",
+        "es": "Trouble relaxing",
+        "ar": "Trouble relaxing"
+      }
     },
     {
       "id": "q5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Anxiety screening question 5"
+      "businessContext": "Anxiety screening question 5",
+      "label_i18n": {
+        "en": "Being so restless that it is hard to sit still",
+        "tr": "Being so restless that it is hard to sit still",
+        "de": "Being so restless that it is hard to sit still",
+        "fr": "Being so restless that it is hard to sit still",
+        "es": "Being so restless that it is hard to sit still",
+        "ar": "Being so restless that it is hard to sit still"
+      }
     },
     {
       "id": "q6",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Anxiety screening question 6"
+      "businessContext": "Anxiety screening question 6",
+      "label_i18n": {
+        "en": "Becoming easily annoyed or irritable",
+        "tr": "Becoming easily annoyed or irritable",
+        "de": "Becoming easily annoyed or irritable",
+        "fr": "Becoming easily annoyed or irritable",
+        "es": "Becoming easily annoyed or irritable",
+        "ar": "Becoming easily annoyed or irritable"
+      }
     },
     {
       "id": "q7",
@@ -55,11 +103,20 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Anxiety screening question 7"
+      "businessContext": "Anxiety screening question 7",
+      "label_i18n": {
+        "en": "Feeling afraid as if something awful might happen",
+        "tr": "Feeling afraid as if something awful might happen",
+        "de": "Feeling afraid as if something awful might happen",
+        "fr": "Feeling afraid as if something awful might happen",
+        "es": "Feeling afraid as if something awful might happen",
+        "ar": "Feeling afraid as if something awful might happen"
+      }
     }
   ],
   "formulas": {
-    "totalScore": "q1 + q2 + q3 + q4 + q5 + q6 + q7"
+    "totalScore": "q1 + q2 + q3 + q4 + q5 + q6 + q7",
+    "0_4_minimal_anxiety__5_9_mild_anxiety__1": "0-4 minimal anxiety, 5-9 mild anxiety, 10-14 moderate anxiety, 15-21 severe anxiety"
   },
   "outputs": {
     "primary": "totalScore",
@@ -67,10 +124,10 @@
       "Severity interpretation based on totalScore: 0-4 minimal anxiety, 5-9 mild anxiety, 10-14 moderate anxiety, 15-21 severe anxiety"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

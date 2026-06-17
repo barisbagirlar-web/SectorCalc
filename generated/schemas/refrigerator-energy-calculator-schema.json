@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W",
       "default": 150,
-      "businessContext": "Rated power consumption of the refrigerator compressor when active"
+      "businessContext": "Rated power consumption of the refrigerator compressor when active",
+      "label_i18n": {
+        "en": "Compressor Power",
+        "tr": "Compressor Power",
+        "de": "Compressor Power",
+        "fr": "Compressor Power",
+        "es": "Compressor Power",
+        "ar": "Compressor Power"
+      }
     },
     {
       "id": "dutyCycle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Percentage of time the compressor runs"
+      "businessContext": "Percentage of time the compressor runs",
+      "label_i18n": {
+        "en": "Duty Cycle",
+        "tr": "Duty Cycle",
+        "de": "Duty Cycle",
+        "fr": "Duty Cycle",
+        "es": "Duty Cycle",
+        "ar": "Duty Cycle"
+      }
     },
     {
       "id": "daysPerYear",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "Number of days the refrigerator is in operation annually"
+      "businessContext": "Number of days the refrigerator is in operation annually",
+      "label_i18n": {
+        "en": "Operating Days per Year",
+        "tr": "Operating Days per Year",
+        "de": "Operating Days per Year",
+        "fr": "Operating Days per Year",
+        "es": "Operating Days per Year",
+        "ar": "Operating Days per Year"
+      }
     },
     {
       "id": "costPerKwh",
@@ -31,24 +55,36 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.15,
-      "businessContext": "Cost of electricity per kilowatt-hour"
+      "businessContext": "Cost of electricity per kilowatt-hour",
+      "label_i18n": {
+        "en": "Electricity Cost",
+        "tr": "Electricity Cost",
+        "de": "Electricity Cost",
+        "fr": "Electricity Cost",
+        "es": "Electricity Cost",
+        "ar": "Electricity Cost"
+      }
     }
   ],
   "formulas": {
     "annualEnergyKwh": "(compressorPower * dutyCycle / 100 * 24 * daysPerYear) / 1000",
     "annualCost": "annualEnergyKwh * costPerKwh",
     "monthlyCost": "annualCost / 12",
-    "dailyCost": "annualCost / daysPerYear"
+    "dailyCost": "annualCost / daysPerYear",
+    "__annualCost_toFixed_2__": "${annualCost.toFixed(2)}",
+    "__monthlyCost_toFixed_2__": "${monthlyCost.toFixed(2)}",
+    "__dailyCost_toFixed_4__": "${dailyCost.toFixed(4)}",
+    "result": "Annual Energy: ${annualEnergyKwh.toFixed(2)} kWh"
   },
   "outputs": {
-    "primary": "Annual Energy: ${annualEnergyKwh.toFixed(2)} kWh",
+    "primary": "result",
     "breakdown": [
       "Annual Cost: ${annualCost.toFixed(2)}",
       "Monthly Cost: ${monthlyCost.toFixed(2)}",
       "Daily Cost: ${dailyCost.toFixed(4)}"
     ]
   },
-  "category": "Enerji & Karbon",
+  "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "energy-carbon",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 230,
-      "businessContext": "Nominal system voltage (V)"
+      "businessContext": "Nominal system voltage (V)",
+      "label_i18n": {
+        "en": "Voltage",
+        "tr": "Voltage",
+        "de": "Voltage",
+        "fr": "Voltage",
+        "es": "Voltage",
+        "ar": "Voltage"
+      }
     },
     {
       "id": "current",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "Load current in amperes (A)"
+      "businessContext": "Load current in amperes (A)",
+      "label_i18n": {
+        "en": "Current",
+        "tr": "Current",
+        "de": "Current",
+        "fr": "Current",
+        "es": "Current",
+        "ar": "Current"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Power Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "Power factor of the load (0-1)"
+      "businessContext": "Power factor of the load (0-1)",
+      "label_i18n": {
+        "en": "Power Factor",
+        "tr": "Power Factor",
+        "de": "Power Factor",
+        "fr": "Power Factor",
+        "es": "Power Factor",
+        "ar": "Power Factor"
+      }
     },
     {
       "id": "phaseCount",
       "label": "Phase Count",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of phases (1 for single-phase, 3 for three-phase)"
+      "businessContext": "Number of phases (1 for single-phase, 3 for three-phase)",
+      "label_i18n": {
+        "en": "Phase Count",
+        "tr": "Phase Count",
+        "de": "Phase Count",
+        "fr": "Phase Count",
+        "es": "Phase Count",
+        "ar": "Phase Count"
+      }
     },
     {
       "id": "efficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Efficiency of the load equipment in percentage (%)"
+      "businessContext": "Efficiency of the load equipment in percentage (%)",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "outputPower"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

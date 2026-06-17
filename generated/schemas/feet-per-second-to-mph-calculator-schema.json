@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft/s",
       "default": 1,
-      "businessContext": "Dönüştürülecek hız değeri, feet/saniye cinsinden"
+      "businessContext": "Dönüştürülecek hız değeri, feet/saniye cinsinden",
+      "label_i18n": {
+        "en": "Hız (ft/s)",
+        "tr": "Hız (ft/s)",
+        "de": "Hız (ft/s)",
+        "fr": "Hız (ft/s)",
+        "es": "Hız (ft/s)",
+        "ar": "Hız (ft/s)"
+      }
     },
     {
       "id": "precision",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "basamak",
       "default": 2,
-      "businessContext": "Çıktıdaki ondalık basamak sayısı"
+      "businessContext": "Çıktıdaki ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Ondalık Hassasiyet",
+        "tr": "Ondalık Hassasiyet",
+        "de": "Ondalık Hassasiyet",
+        "fr": "Ondalık Hassasiyet",
+        "es": "Ondalık Hassasiyet",
+        "ar": "Ondalık Hassasiyet"
+      }
     },
     {
       "id": "calibrationOffset",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft/s",
       "default": 0,
-      "businessContext": "Girişe eklenecek sabit ofset (kalibrasyon için)"
+      "businessContext": "Girişe eklenecek sabit ofset (kalibrasyon için)",
+      "label_i18n": {
+        "en": "Kalibrasyon Ofseti",
+        "tr": "Kalibrasyon Ofseti",
+        "de": "Kalibrasyon Ofseti",
+        "fr": "Kalibrasyon Ofseti",
+        "es": "Kalibrasyon Ofseti",
+        "ar": "Kalibrasyon Ofseti"
+      }
     },
     {
       "id": "outputUnitScaling",
@@ -31,11 +55,22 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "mph'yi başka bir birime dönüştürmek için çarpan; mph için 1"
+      "businessContext": "mph'yi başka bir birime dönüştürmek için çarpan; mph için 1",
+      "label_i18n": {
+        "en": "Çıktı Birim Ölçekleme",
+        "tr": "Çıktı Birim Ölçekleme",
+        "de": "Çıktı Birim Ölçekleme",
+        "fr": "Çıktı Birim Ölçekleme",
+        "es": "Çıktı Birim Ölçekleme",
+        "ar": "Çıktı Birim Ölçekleme"
+      }
     }
   ],
   "formulas": {
-    "convertToMph": "const mph = (feetPerSecond + calibrationOffset) * (3600 / 5280) * outputUnitScaling; return +mph.toFixed(precision);"
+    "convertToMph": "const mph = (feetPerSecond + calibrationOffset) * (3600 / 5280) * outputUnitScaling; return +mph.toFixed(precision);",
+    "adjustedSpeed___feetPerSecond___calibrat": "adjustedSpeed = feetPerSecond + calibrationOffset",
+    "mphRaw___adjustedSpeed____3600___5280___": "mphRaw = adjustedSpeed * (3600 / 5280) * outputUnitScaling",
+    "round_mphRaw__precision_": "round(mphRaw, precision)"
   },
   "outputs": {
     "primary": "convertToMph",
@@ -45,10 +80,10 @@
       "round(mphRaw, precision)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

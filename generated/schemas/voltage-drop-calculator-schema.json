@@ -13,7 +13,7 @@
       "id": "conductor_material",
       "label": "Conductor Material",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "copper",
       "min": null,
       "max": null,
@@ -169,7 +169,7 @@
       "id": "phase_type",
       "label": "Phase Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "three_phase",
       "min": null,
       "max": null,
@@ -195,7 +195,7 @@
       "id": "power_factor",
       "label": "Power Factor (cos φ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
       "min": 0.5,
       "max": 1,
@@ -274,163 +274,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "resistance_per_unit",
-      "name": "Resistance per unit length at 20°C",
-      "description": "Base resistance from NEC Table 8 for copper and aluminum at 20°C.",
-      "formula": "R20 = lookup_resistance(conductor_material, conductor_size)",
-      "unit": "Ω/1000ft"
-    },
-    {
-      "id": "temperature_correction_factor",
-      "name": "Temperature correction factor",
-      "description": "Adjusts resistance for ambient temperature using copper/aluminum temperature coefficient α=0.00393 (Cu) or 0.00403 (Al).",
-      "formula": "TCF = 1 + α * (ambient_temperature - 20)",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "adjusted_resistance",
-      "name": "Adjusted resistance at operating temperature",
-      "description": "Resistance corrected for ambient temperature.",
-      "formula": "R_adj = R20 * TCF",
-      "unit": "Ω/1000ft"
-    },
-    {
-      "id": "effective_impedance",
-      "name": "Effective impedance per 1000 ft",
-      "description": "Includes resistance and reactance (X assumed 0.048 Ω/1000ft for typical conductors).",
-      "formula": "Z = sqrt(R_adj^2 + X^2)",
-      "unit": "Ω/1000ft"
-    },
-    {
-      "id": "voltage_drop_volts",
-      "name": "Voltage drop in volts",
-      "description": "Uses standard formula: Vd = (I * L * Z * K) / 1000, where K=2 for single-phase, K=√3 for three-phase.",
-      "formula": "Vd = (load_current * circuit_length * Z * phase_factor) / 1000",
-      "unit": "V"
-    },
-    {
-      "id": "voltage_drop_percent",
-      "name": "Voltage drop in percent",
-      "description": "Percentage of nominal system voltage.",
-      "formula": "Vd_percent = (Vd / system_voltage) * 100",
-      "unit": "%"
-    },
-    {
-      "id": "power_loss",
-      "name": "Power loss in conductor",
-      "description": "I²R losses in the conductor (total both ways).",
-      "formula": "P_loss = 2 * (load_current^2 * R_adj * circuit_length / 1000)",
-      "unit": "W"
-    }
+    "conductor_material",
+    "conductor_material",
+    "conductor_material",
+    "conductor_material",
+    "conductor_material",
+    "conductor_material",
+    "conductor_material"
   ],
   "outputs": {
-    "primary": {
-      "id": "voltage_drop_percent",
-      "label": "Voltage Drop (%)",
-      "value": null,
-      "unit": "%",
-      "description": "Calculated voltage drop as a percentage of system voltage."
-    },
-    "breakdown": {
-      "resistance_at_20C": {
-        "id": "resistance_at_20C",
-        "label": "Resistance at 20°C",
-        "value": null,
-        "unit": "Ω/1000ft"
-      },
-      "temperature_correction_factor": {
-        "id": "temperature_correction_factor",
-        "label": "Temperature Correction Factor",
-        "value": null,
-        "unit": ""
-      },
-      "adjusted_resistance": {
-        "id": "adjusted_resistance",
-        "label": "Adjusted Resistance",
-        "value": null,
-        "unit": "Ω/1000ft"
-      },
-      "effective_impedance": {
-        "id": "effective_impedance",
-        "label": "Effective Impedance",
-        "value": null,
-        "unit": "Ω/1000ft"
-      },
-      "voltage_drop_volts": {
-        "id": "voltage_drop_volts",
-        "label": "Voltage Drop (Volts)",
-        "value": null,
-        "unit": "V"
-      },
-      "power_loss": {
-        "id": "power_loss",
-        "label": "Power Loss (I²R)",
-        "value": null,
-        "unit": "W"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_high_resistance",
-        "label": "High conductor resistance",
-        "description": "Small conductor size or high-resistivity material increases I²R losses.",
-        "impact": "medium"
-      },
-      {
-        "id": "loss_long_run",
-        "label": "Excessive circuit length",
-        "description": "Longer runs increase total resistance and voltage drop.",
-        "impact": "high"
-      },
-      {
-        "id": "loss_low_power_factor",
-        "label": "Low power factor",
-        "description": "Reactive current increases effective current and losses.",
-        "impact": "medium"
-      },
-      {
-        "id": "loss_high_temperature",
-        "label": "High ambient temperature",
-        "description": "Increases conductor resistance and reduces ampacity.",
-        "impact": "low"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_increase_conductor",
-        "label": "Increase conductor size",
-        "description": "Select a larger AWG/kcmil to reduce resistance and voltage drop.",
-        "priority": 1
-      },
-      {
-        "id": "action_reduce_length",
-        "label": "Reduce circuit length",
-        "description": "Relocate load closer to source or use a sub-panel.",
-        "priority": 2
-      },
-      {
-        "id": "action_improve_pf",
-        "label": "Improve power factor",
-        "description": "Install power factor correction capacitors to reduce reactive current.",
-        "priority": 3
-      },
-      {
-        "id": "action_parallel_conductors",
-        "label": "Use parallel conductors",
-        "description": "Run multiple conductors per phase to halve effective resistance.",
-        "priority": 4
-      },
-      {
-        "id": "action_use_copper",
-        "label": "Switch to copper conductor",
-        "description": "If aluminum is used, copper offers lower resistivity.",
-        "priority": 5
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "electrical-power-systems",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
+  "toolName": "voltage-drop-calculator"
 }

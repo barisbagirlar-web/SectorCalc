@@ -5,41 +5,81 @@
       "id": "n1",
       "label": "Fraction 1 Numerator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Actual numerator (e.g., parts of component A in a batch)."
+      "businessContext": "Actual numerator (e.g., parts of component A in a batch).",
+      "label_i18n": {
+        "en": "Fraction 1 Numerator",
+        "tr": "Fraction 1 Numerator",
+        "de": "Fraction 1 Numerator",
+        "fr": "Fraction 1 Numerator",
+        "es": "Fraction 1 Numerator",
+        "ar": "Fraction 1 Numerator"
+      }
     },
     {
       "id": "d1",
       "label": "Fraction 1 Denominator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Actual denominator (e.g., total parts in the batch)."
+      "businessContext": "Actual denominator (e.g., total parts in the batch).",
+      "label_i18n": {
+        "en": "Fraction 1 Denominator",
+        "tr": "Fraction 1 Denominator",
+        "de": "Fraction 1 Denominator",
+        "fr": "Fraction 1 Denominator",
+        "es": "Fraction 1 Denominator",
+        "ar": "Fraction 1 Denominator"
+      }
     },
     {
       "id": "n2",
       "label": "Fraction 2 Numerator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Specified numerator (e.g., target parts of component A)."
+      "businessContext": "Specified numerator (e.g., target parts of component A).",
+      "label_i18n": {
+        "en": "Fraction 2 Numerator",
+        "tr": "Fraction 2 Numerator",
+        "de": "Fraction 2 Numerator",
+        "fr": "Fraction 2 Numerator",
+        "es": "Fraction 2 Numerator",
+        "ar": "Fraction 2 Numerator"
+      }
     },
     {
       "id": "d2",
       "label": "Fraction 2 Denominator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "Specified denominator (e.g., target total parts)."
+      "businessContext": "Specified denominator (e.g., target total parts).",
+      "label_i18n": {
+        "en": "Fraction 2 Denominator",
+        "tr": "Fraction 2 Denominator",
+        "de": "Fraction 2 Denominator",
+        "fr": "Fraction 2 Denominator",
+        "es": "Fraction 2 Denominator",
+        "ar": "Fraction 2 Denominator"
+      }
     },
     {
       "id": "tol",
       "label": "Tolerance",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.0001,
-      "businessContext": "Acceptable floating point deviation for equivalence check."
+      "businessContext": "Acceptable floating point deviation for equivalence check.",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "diff"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

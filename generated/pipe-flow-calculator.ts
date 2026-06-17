@@ -27,34 +27,19 @@ export const Pipe_flow_calculatorInputSchema = z.object({
   include_measurement_uncertainty: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Pipe_flow_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = 3.141592653589793 * (input.pipe_diameter / 2)**2; results["cross_sectional_area"] = Number.isFinite(v) ? v : 0; } catch { results["cross_sectional_area"] = 0; }
-  try { const v = input.flow_rate / (results["cross_sectional_area"] ?? 0); results["flow_velocity"] = Number.isFinite(v) ? v : 0; } catch { results["flow_velocity"] = 0; }
-  try { const v = input.fluid_density * (results["flow_velocity"] ?? 0) * input.pipe_diameter / input.fluid_viscosity; results["reynolds_number"] = Number.isFinite(v) ? v : 0; } catch { results["reynolds_number"] = 0; }
-  results["friction_factor"] = 0;
-  try { const v = (results["friction_factor"] ?? 0) * (input.pipe_length / input.pipe_diameter) * ((results["flow_velocity"] ?? 0)**2 / (2 * 9.80665)); results["major_loss"] = Number.isFinite(v) ? v : 0; } catch { results["major_loss"] = 0; }
-  try { const v = input.minor_loss_coefficient * ((results["flow_velocity"] ?? 0)**2 / (2 * 9.80665)); results["minor_loss"] = Number.isFinite(v) ? v : 0; } catch { results["minor_loss"] = 0; }
-  try { const v = (results["major_loss"] ?? 0) + (results["minor_loss"] ?? 0) + input.elevation_change; results["total_head_loss"] = Number.isFinite(v) ? v : 0; } catch { results["total_head_loss"] = 0; }
-  try { const v = input.fluid_density * 9.80665 * (results["total_head_loss"] ?? 0); results["pressure_drop"] = Number.isFinite(v) ? v : 0; } catch { results["pressure_drop"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Pipe_flow_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculatePipe_flow_calculator(input: Pipe_flow_calculatorInput): Pipe_flow_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["pressure_drop"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    cross_sectional_area: values["cross_sectional_area"] ?? 0,
-    flow_velocity: values["flow_velocity"] ?? 0,
-    reynolds_number: values["reynolds_number"] ?? 0,
-    friction_factor: values["friction_factor"] ?? 0,
-    major_loss: values["major_loss"] ?? 0,
-    minor_loss: values["minor_loss"] ?? 0,
-    total_head_loss: values["total_head_loss"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Velocity Squared Contribution","Relative Roughness","Viscous Damping Ratio"];
-  const suggestedActions: string[] = ["Increase pipe diameter to reduce velocity and friction losses.","Consider smoother pipe material (e.g., HDPE instead of steel) or internal lining.","Reduce number of fittings or use long-radius bends to lower minor loss coefficient.","Verify fluid viscosity; consider heating to reduce viscosity and achieve turbulent flow."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -73,7 +58,7 @@ export function calculatePipe_flow_calculator(input: Pipe_flow_calculatorInput):
 
 export interface Pipe_flow_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { cross_sectional_area: number; flow_velocity: number; reynolds_number: number; friction_factor: number; major_loss: number; minor_loss: number; total_head_loss: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

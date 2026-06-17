@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "oz",
       "default": 1,
-      "businessContext": "Enter weight in avoirdupois ounces"
+      "businessContext": "Enter weight in avoirdupois ounces",
+      "label_i18n": {
+        "en": "Weight (oz)",
+        "tr": "Weight (oz)",
+        "de": "Weight (oz)",
+        "fr": "Weight (oz)",
+        "es": "Weight (oz)",
+        "ar": "Weight (oz)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "g/oz",
       "default": 28.349523125,
-      "businessContext": "Grams per ounce. Default is avoirdupois ounce. For troy ounce, use 31.1034768"
+      "businessContext": "Grams per ounce. Default is avoirdupois ounce. For troy ounce, use 31.1034768",
+      "label_i18n": {
+        "en": "Conversion Factor (g/oz)",
+        "tr": "Conversion Factor (g/oz)",
+        "de": "Conversion Factor (g/oz)",
+        "fr": "Conversion Factor (g/oz)",
+        "es": "Conversion Factor (g/oz)",
+        "ar": "Conversion Factor (g/oz)"
+      }
     },
     {
       "id": "itemCount",
       "label": "Number of Items",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "If converting total weight of multiple identical items, enter quantity"
+      "businessContext": "If converting total weight of multiple identical items, enter quantity",
+      "label_i18n": {
+        "en": "Number of Items",
+        "tr": "Number of Items",
+        "de": "Number of Items",
+        "fr": "Number of Items",
+        "es": "Number of Items",
+        "ar": "Number of Items"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for result rounding"
+      "businessContext": "Number of decimal places for result rounding",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "unroundedGrams"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

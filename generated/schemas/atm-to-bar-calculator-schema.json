@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "atm",
       "default": 1,
-      "businessContext": "The pressure value in standard atmospheres to be converted."
+      "businessContext": "The pressure value in standard atmospheres to be converted.",
+      "label_i18n": {
+        "en": "Pressure (atm)",
+        "tr": "Pressure (atm)",
+        "de": "Pressure (atm)",
+        "fr": "Pressure (atm)",
+        "es": "Pressure (atm)",
+        "ar": "Pressure (atm)"
+      }
     },
     {
       "id": "conversion_factor",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "bar/atm",
       "default": 1.01325,
-      "businessContext": "Standard conversion factor from atm to bar. Adjustable for calibration or traceability."
+      "businessContext": "Standard conversion factor from atm to bar. Adjustable for calibration or traceability.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the primary output."
+      "businessContext": "Number of decimal places for rounding the primary output.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "temperature_celsius",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Reference temperature for potential gas law corrections (informational; not used in standard conversion)."
+      "businessContext": "Reference temperature for potential gas law corrections (informational; not used in standard conversion).",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "altitude_meters",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Altitude above sea level for atmospheric pressure estimation (informational; not directly used in atm to bar conversion)."
+      "businessContext": "Altitude above sea level for atmospheric pressure estimation (informational; not directly used in atm to bar conversion).",
+      "label_i18n": {
+        "en": "Altitude",
+        "tr": "Altitude",
+        "de": "Altitude",
+        "fr": "Altitude",
+        "es": "Altitude",
+        "ar": "Altitude"
+      }
     },
     {
       "id": "measurement_uncertainty",
@@ -47,29 +87,36 @@
       "type": "number",
       "unit": "%",
       "default": 0.5,
-      "businessContext": "Relative uncertainty percentage for TÜV-compliant documentation and error bounds."
+      "businessContext": "Relative uncertainty percentage for TÜV-compliant documentation and error bounds.",
+      "label_i18n": {
+        "en": "Measurement Uncertainty",
+        "tr": "Measurement Uncertainty",
+        "de": "Measurement Uncertainty",
+        "fr": "Measurement Uncertainty",
+        "es": "Measurement Uncertainty",
+        "ar": "Measurement Uncertainty"
+      }
     }
   ],
   "formulas": {
     "primary": "pressure_atm * conversion_factor",
-    "breakdown": [
-      "Math.round(pressure_atm * conversion_factor * Math.pow(10, precision)) / Math.pow(10, precision)",
-      "pressure_atm * conversion_factor * (1 + measurement_uncertainty / 100)",
-      "pressure_atm * conversion_factor * (1 - measurement_uncertainty / 100)"
-    ]
+    "breakdown": "pressure_atm",
+    "Rounded_pressure__bar__to_specified_prec": "Rounded pressure (bar) to specified precision",
+    "Upper_uncertainty_bound__bar_": "Upper uncertainty bound (bar)",
+    "Lower_uncertainty_bound__bar_": "Lower uncertainty bound (bar)"
   },
   "outputs": {
-    "primary": "Pressure in bar",
+    "primary": "primary",
     "breakdown": [
       "Rounded pressure (bar) to specified precision",
       "Upper uncertainty bound (bar)",
       "Lower uncertainty bound (bar)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

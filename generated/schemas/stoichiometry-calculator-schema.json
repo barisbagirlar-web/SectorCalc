@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "The mass of the substance whose amount is known."
+      "businessContext": "The mass of the substance whose amount is known.",
+      "label_i18n": {
+        "en": "Mass of Known Substance",
+        "tr": "Mass of Known Substance",
+        "de": "Mass of Known Substance",
+        "fr": "Mass of Known Substance",
+        "es": "Mass of Known Substance",
+        "ar": "Mass of Known Substance"
+      }
     },
     {
       "id": "knownMolarMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 1,
-      "businessContext": "Molar mass (molecular weight) of the known substance."
+      "businessContext": "Molar mass (molecular weight) of the known substance.",
+      "label_i18n": {
+        "en": "Molar Mass of Known Substance",
+        "tr": "Molar Mass of Known Substance",
+        "de": "Molar Mass of Known Substance",
+        "fr": "Molar Mass of Known Substance",
+        "es": "Molar Mass of Known Substance",
+        "ar": "Molar Mass of Known Substance"
+      }
     },
     {
       "id": "unknownMolarMass",
@@ -23,43 +39,67 @@
       "type": "number",
       "unit": "g/mol",
       "default": 1,
-      "businessContext": "Molar mass of the substance whose mass is to be calculated."
+      "businessContext": "Molar mass of the substance whose mass is to be calculated.",
+      "label_i18n": {
+        "en": "Molar Mass of Unknown Substance",
+        "tr": "Molar Mass of Unknown Substance",
+        "de": "Molar Mass of Unknown Substance",
+        "fr": "Molar Mass of Unknown Substance",
+        "es": "Molar Mass of Unknown Substance",
+        "ar": "Molar Mass of Unknown Substance"
+      }
     },
     {
       "id": "coefficientKnown",
       "label": "Coefficient of Known Substance",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Stoichiometric coefficient of the known substance in the balanced equation."
+      "businessContext": "Stoichiometric coefficient of the known substance in the balanced equation.",
+      "label_i18n": {
+        "en": "Coefficient of Known Substance",
+        "tr": "Coefficient of Known Substance",
+        "de": "Coefficient of Known Substance",
+        "fr": "Coefficient of Known Substance",
+        "es": "Coefficient of Known Substance",
+        "ar": "Coefficient of Known Substance"
+      }
     },
     {
       "id": "coefficientUnknown",
       "label": "Coefficient of Unknown Substance",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Stoichiometric coefficient of the unknown substance in the balanced equation."
+      "businessContext": "Stoichiometric coefficient of the unknown substance in the balanced equation.",
+      "label_i18n": {
+        "en": "Coefficient of Unknown Substance",
+        "tr": "Coefficient of Unknown Substance",
+        "de": "Coefficient of Unknown Substance",
+        "fr": "Coefficient of Unknown Substance",
+        "es": "Coefficient of Unknown Substance",
+        "ar": "Coefficient of Unknown Substance"
+      }
     }
   ],
   "formulas": {
     "primary": "(knownMass / knownMolarMass) * (coefficientUnknown / coefficientKnown) * unknownMolarMass",
-    "breakdown": [
-      "knownMass / knownMolarMass",
-      "(knownMass / knownMolarMass) * (coefficientUnknown / coefficientKnown)"
-    ]
+    "breakdown": "knownMass",
+    "Moles_of_Known_Substance__mol_": "Moles of Known Substance (mol)",
+    "Moles_of_Unknown_Substance__mol_": "Moles of Unknown Substance (mol)",
+    "result": "Mass of Unknown Substance (g)"
   },
   "outputs": {
-    "primary": "Mass of Unknown Substance (g)",
+    "primary": "result",
     "breakdown": [
       "Moles of Known Substance (mol)",
       "Moles of Unknown Substance (mol)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

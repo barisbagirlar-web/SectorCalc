@@ -32,7 +32,7 @@ function evaluateAllFormulas(input: Keplers_laws_calculatorInput): Record<string
 
 export function calculateKeplers_laws_calculator(input: Keplers_laws_calculatorInput): Keplers_laws_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Orbital"] ?? 0;
+  const totalWasteCost = values["keplerThirdLaw"] ?? 0;
   const breakdown = {
     
   };

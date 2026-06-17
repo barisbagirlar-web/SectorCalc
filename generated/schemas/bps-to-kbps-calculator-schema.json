@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "bps",
       "default": 1000,
-      "businessContext": "Data transfer rate in bits per second"
+      "businessContext": "Data transfer rate in bits per second",
+      "label_i18n": {
+        "en": "Bit rate (bps)",
+        "tr": "Bit rate (bps)",
+        "de": "Bit rate (bps)",
+        "fr": "Bit rate (bps)",
+        "es": "Bit rate (bps)",
+        "ar": "Bit rate (bps)"
+      }
     },
     {
       "id": "conversionFactor",
       "label": "Conversion factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.001,
-      "businessContext": "Factor to convert bps to kbps (0.001 for SI standard)"
+      "businessContext": "Factor to convert bps to kbps (0.001 for SI standard)",
+      "label_i18n": {
+        "en": "Conversion factor",
+        "tr": "Conversion factor",
+        "de": "Conversion factor",
+        "fr": "Conversion factor",
+        "es": "Conversion factor",
+        "ar": "Conversion factor"
+      }
     },
     {
       "id": "roundingDecimal",
       "label": "Rounding decimals",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of decimal places in the converted output"
+      "businessContext": "Number of decimal places in the converted output",
+      "label_i18n": {
+        "en": "Rounding decimals",
+        "tr": "Rounding decimals",
+        "de": "Rounding decimals",
+        "fr": "Rounding decimals",
+        "es": "Rounding decimals",
+        "ar": "Rounding decimals"
+      }
     },
     {
       "id": "confirmationBit",
       "label": "Confirmation bit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Integrity check: set to 1 to proceed with conversion"
+      "businessContext": "Integrity check: set to 1 to proceed with conversion",
+      "label_i18n": {
+        "en": "Confirmation bit",
+        "tr": "Confirmation bit",
+        "de": "Confirmation bit",
+        "fr": "Confirmation bit",
+        "es": "Confirmation bit",
+        "ar": "Confirmation bit"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "raw"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

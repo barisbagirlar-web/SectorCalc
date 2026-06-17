@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Fluoride_calculatorInput): Record<string, nu
 
 export function calculateFluoride_calculator(input: Fluoride_calculatorInput): Fluoride_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["compoundFeedRate_kg_per_day"] ?? 0;
+  const totalWasteCost = values["fluorideDemand_g_per_day"] ?? 0;
   const breakdown = {
     
   };

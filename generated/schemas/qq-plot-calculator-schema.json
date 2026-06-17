@@ -5,41 +5,81 @@
       "id": "sampleMean",
       "label": "Sample Mean",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The average value of the sample dataset"
+      "businessContext": "The average value of the sample dataset",
+      "label_i18n": {
+        "en": "Sample Mean",
+        "tr": "Sample Mean",
+        "de": "Sample Mean",
+        "fr": "Sample Mean",
+        "es": "Sample Mean",
+        "ar": "Sample Mean"
+      }
     },
     {
       "id": "sampleStdDev",
       "label": "Sample Standard Deviation",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The standard deviation of the sample dataset"
+      "businessContext": "The standard deviation of the sample dataset",
+      "label_i18n": {
+        "en": "Sample Standard Deviation",
+        "tr": "Sample Standard Deviation",
+        "de": "Sample Standard Deviation",
+        "fr": "Sample Standard Deviation",
+        "es": "Sample Standard Deviation",
+        "ar": "Sample Standard Deviation"
+      }
     },
     {
       "id": "sampleValue",
       "label": "Sample Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "A single data point from the sample to be plotted"
+      "businessContext": "A single data point from the sample to be plotted",
+      "label_i18n": {
+        "en": "Sample Value",
+        "tr": "Sample Value",
+        "de": "Sample Value",
+        "fr": "Sample Value",
+        "es": "Sample Value",
+        "ar": "Sample Value"
+      }
     },
     {
       "id": "referenceMean",
       "label": "Reference Mean",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The mean of the reference (theoretical) distribution"
+      "businessContext": "The mean of the reference (theoretical) distribution",
+      "label_i18n": {
+        "en": "Reference Mean",
+        "tr": "Reference Mean",
+        "de": "Reference Mean",
+        "fr": "Reference Mean",
+        "es": "Reference Mean",
+        "ar": "Reference Mean"
+      }
     },
     {
       "id": "referenceStdDev",
       "label": "Reference Standard Deviation",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The standard deviation of the reference distribution"
+      "businessContext": "The standard deviation of the reference distribution",
+      "label_i18n": {
+        "en": "Reference Standard Deviation",
+        "tr": "Reference Standard Deviation",
+        "de": "Reference Standard Deviation",
+        "fr": "Reference Standard Deviation",
+        "es": "Reference Standard Deviation",
+        "ar": "Reference Standard Deviation"
+      }
     }
   ],
   "formulas": {
@@ -53,10 +93,10 @@
       "referenceQuantile"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

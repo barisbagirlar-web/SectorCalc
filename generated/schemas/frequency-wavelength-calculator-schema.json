@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 100000000,
-      "businessContext": "Wave frequency in Hertz."
+      "businessContext": "Wave frequency in Hertz.",
+      "label_i18n": {
+        "en": "Frequency (f)",
+        "tr": "Frequency (f)",
+        "de": "Frequency (f)",
+        "fr": "Frequency (f)",
+        "es": "Frequency (f)",
+        "ar": "Frequency (f)"
+      }
     },
     {
       "id": "speedVacuum",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "m/s",
       "default": 299792458,
-      "businessContext": "Speed of light in vacuum."
+      "businessContext": "Speed of light in vacuum.",
+      "label_i18n": {
+        "en": "Speed in Vacuum (c)",
+        "tr": "Speed in Vacuum (c)",
+        "de": "Speed in Vacuum (c)",
+        "fr": "Speed in Vacuum (c)",
+        "es": "Speed in Vacuum (c)",
+        "ar": "Speed in Vacuum (c)"
+      }
     },
     {
       "id": "refractiveIndex",
       "label": "Refractive Index (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Refractive index of the medium. For vacuum, n=1."
+      "businessContext": "Refractive index of the medium. For vacuum, n=1.",
+      "label_i18n": {
+        "en": "Refractive Index (n)",
+        "tr": "Refractive Index (n)",
+        "de": "Refractive Index (n)",
+        "fr": "Refractive Index (n)",
+        "es": "Refractive Index (n)",
+        "ar": "Refractive Index (n)"
+      }
     },
     {
       "id": "planckConstant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "J·s",
       "default": 6.62607015e-34,
-      "businessContext": "Planck's constant for quantum energy calculation."
+      "businessContext": "Planck's constant for quantum energy calculation.",
+      "label_i18n": {
+        "en": "Planck's Constant (h)",
+        "tr": "Planck's Constant (h)",
+        "de": "Planck's Constant (h)",
+        "fr": "Planck's Constant (h)",
+        "es": "Planck's Constant (h)",
+        "ar": "Planck's Constant (h)"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "actualSpeed"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

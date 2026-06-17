@@ -72,11 +72,7 @@
     "hcg": "(mass1 * x1 + mass2 * x2 + mass3 * x3 + mass4 * x4) / (mass1 + mass2 + mass3 + mass4)"
   },
   "outputs": {
-    "primary": {
-      "id": "hcg",
-      "label": "Yatay Ağırlık Merkezi",
-      "unit": "m"
-    },
+    "primary": "totalMass",
     "breakdown": [
       {
         "id": "totalMass",
@@ -90,10 +86,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

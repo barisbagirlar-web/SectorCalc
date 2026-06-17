@@ -20,13 +20,15 @@ export const Square_root_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Square_root_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = Math.round(Math.sqrt(input.radicand) * 10**input.precision) / 10**input.precision; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  results["__primary__"] = 0;
+  results["Direct_calculation_using_Math_sqrt_funct"] = 0;
   return results;
 }
 
 
 export function calculateSquare_root_calculator(input: Square_root_calculatorInput): Square_root_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["{{primary}}"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

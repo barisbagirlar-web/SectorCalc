@@ -41,12 +41,7 @@
     "clickToOpenRateFormula": "(clickCount / openCount) * 100"
   },
   "outputs": {
-    "primary": {
-      "id": "openRate",
-      "label": "Email Open Rate",
-      "unit": "%",
-      "formula": "openRateFormula"
-    },
+    "primary": "deliveredFormula",
     "breakdown": [
       {
         "id": "deliveredCount",
@@ -74,10 +69,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Grafikteki toplam düğüm (node) sayısı."
+      "businessContext": "Grafikteki toplam düğüm (node) sayısı.",
+      "label_i18n": {
+        "en": "Düğüm Sayısı",
+        "tr": "Düğüm Sayısı",
+        "de": "Düğüm Sayısı",
+        "fr": "Düğüm Sayısı",
+        "es": "Düğüm Sayısı",
+        "ar": "Düğüm Sayısı"
+      }
     },
     {
       "id": "edgeCount",
@@ -15,7 +23,39 @@
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "Grafikteki toplam kenar (edge) sayısı."
+      "businessContext": "Grafikteki toplam kenar (edge) sayısı.",
+      "label_i18n": {
+        "en": "Kenar Sayısı",
+        "tr": "Kenar Sayısı",
+        "de": "Kenar Sayısı",
+        "fr": "Kenar Sayısı",
+        "es": "Kenar Sayısı",
+        "ar": "Kenar Sayısı"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
@@ -32,10 +72,10 @@
       "Max Possible Edges"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

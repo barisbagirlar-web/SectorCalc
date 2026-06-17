@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Buffer_calculatorInput): Record<string, numb
 
 export function calculateBuffer_calculator(input: Buffer_calculatorInput): Buffer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["bufferStock"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

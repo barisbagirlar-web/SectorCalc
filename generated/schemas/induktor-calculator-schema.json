@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Outer diameter of the inductor coil."
+      "businessContext": "Outer diameter of the inductor coil.",
+      "label_i18n": {
+        "en": "Coil Diameter",
+        "tr": "Coil Diameter",
+        "de": "Coil Diameter",
+        "fr": "Coil Diameter",
+        "es": "Coil Diameter",
+        "ar": "Coil Diameter"
+      }
     },
     {
       "id": "length",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Length of the coil along its axis."
+      "businessContext": "Length of the coil along its axis.",
+      "label_i18n": {
+        "en": "Coil Length",
+        "tr": "Coil Length",
+        "de": "Coil Length",
+        "fr": "Coil Length",
+        "es": "Coil Length",
+        "ar": "Coil Length"
+      }
     },
     {
       "id": "turns",
       "label": "Number of Turns",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Total number of wire turns in the coil."
+      "businessContext": "Total number of wire turns in the coil.",
+      "label_i18n": {
+        "en": "Number of Turns",
+        "tr": "Number of Turns",
+        "de": "Number of Turns",
+        "fr": "Number of Turns",
+        "es": "Number of Turns",
+        "ar": "Number of Turns"
+      }
     },
     {
       "id": "frequency",
@@ -31,24 +55,35 @@
       "type": "number",
       "unit": "kHz",
       "default": 100,
-      "businessContext": "Operating frequency of the AC signal in kilohertz."
+      "businessContext": "Operating frequency of the AC signal in kilohertz.",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
     }
   ],
   "formulas": {
     "inductance_uH": "Math.pow(diameter/25.4,2) * Math.pow(turns,2) / (18*(diameter/25.4) + 40*(length/25.4))",
-    "reactance_ohm": "2 * Math.PI * (frequency * 1000) * (inductance_uH * 1e-6)"
+    "reactance_ohm": "2 * Math.PI * (frequency * 1000) * (inductance_uH * 1e-6)",
+    "__reactance_ohm_toFixed_2____": "${reactance_ohm.toFixed(2)} Ω",
+    "__diameter__mm_______length__mm____turns": "${diameter} mm ⌀ × ${length} mm, ${turns} tur",
+    "result": "Endüktans: ${inductance_uH.toFixed(2)} μH"
   },
   "outputs": {
-    "primary": "Endüktans: ${inductance_uH.toFixed(2)} μH",
+    "primary": "result",
     "breakdown": [
       "Reaktans: ${reactance_ohm.toFixed(2)} Ω",
       "Bobin: ${diameter} mm ⌀ × ${length} mm, ${turns} tur"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

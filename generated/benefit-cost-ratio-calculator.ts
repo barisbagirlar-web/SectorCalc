@@ -31,7 +31,7 @@ function evaluateAllFormulas(input: Benefit_cost_ratio_calculatorInput): Record<
 
 export function calculateBenefit_cost_ratio_calculator(input: Benefit_cost_ratio_calculatorInput): Benefit_cost_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["benefitCostRatio"] ?? 0;
+  const totalWasteCost = values["r"] ?? 0;
   const breakdown = {
     
   };

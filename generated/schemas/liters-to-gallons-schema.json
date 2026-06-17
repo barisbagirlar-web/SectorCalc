@@ -7,15 +7,55 @@
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Enter the volume in liters to convert to gallons."
+      "businessContext": "Enter the volume in liters to convert to gallons.",
+      "label_i18n": {
+        "en": "Volume in Liters",
+        "tr": "Volume in Liters",
+        "de": "Volume in Liters",
+        "fr": "Volume in Liters",
+        "es": "Volume in Liters",
+        "ar": "Volume in Liters"
+      }
     },
     {
       "id": "conversion_type",
       "label": "Conversion Type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for US gallons, 2 for UK gallons."
+      "businessContext": "1 for US gallons, 2 for UK gallons.",
+      "label_i18n": {
+        "en": "Conversion Type",
+        "tr": "Conversion Type",
+        "de": "Conversion Type",
+        "fr": "Conversion Type",
+        "es": "Conversion Type",
+        "ar": "Conversion Type"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
@@ -30,10 +70,10 @@
       "gallons_uk"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -5,43 +5,79 @@
       "id": "octalInput1",
       "label": "Octal Number 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First octal number to convert"
+      "businessContext": "First octal number to convert",
+      "label_i18n": {
+        "en": "Octal Number 1",
+        "tr": "Octal Number 1",
+        "de": "Octal Number 1",
+        "fr": "Octal Number 1",
+        "es": "Octal Number 1",
+        "ar": "Octal Number 1"
+      }
     },
     {
       "id": "octalInput2",
       "label": "Octal Number 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second octal number to convert"
+      "businessContext": "Second octal number to convert",
+      "label_i18n": {
+        "en": "Octal Number 2",
+        "tr": "Octal Number 2",
+        "de": "Octal Number 2",
+        "fr": "Octal Number 2",
+        "es": "Octal Number 2",
+        "ar": "Octal Number 2"
+      }
     },
     {
       "id": "octalInput3",
       "label": "Octal Number 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third octal number to convert"
+      "businessContext": "Third octal number to convert",
+      "label_i18n": {
+        "en": "Octal Number 3",
+        "tr": "Octal Number 3",
+        "de": "Octal Number 3",
+        "fr": "Octal Number 3",
+        "es": "Octal Number 3",
+        "ar": "Octal Number 3"
+      }
     },
     {
       "id": "octalInput4",
       "label": "Octal Number 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth octal number to convert"
+      "businessContext": "Fourth octal number to convert",
+      "label_i18n": {
+        "en": "Octal Number 4",
+        "tr": "Octal Number 4",
+        "de": "Octal Number 4",
+        "fr": "Octal Number 4",
+        "es": "Octal Number 4",
+        "ar": "Octal Number 4"
+      }
     }
   ],
   "formulas": {
     "decimal1": "parseInt(String(octalInput1), 8)",
     "decimal2": "parseInt(String(octalInput2), 8)",
     "decimal3": "parseInt(String(octalInput3), 8)",
-    "decimal4": "parseInt(String(octalInput4), 8)"
+    "decimal4": "parseInt(String(octalInput4), 8)",
+    "__octalInput1_____Decimal____decimal1_": "${octalInput1} -> Decimal: ${decimal1}",
+    "__octalInput2_____Decimal____decimal2_": "${octalInput2} -> Decimal: ${decimal2}",
+    "__octalInput3_____Decimal____decimal3_": "${octalInput3} -> Decimal: ${decimal3}",
+    "__octalInput4_____Decimal____decimal4_": "${octalInput4} -> Decimal: ${decimal4}"
   },
   "outputs": {
-    "primary": "Conversions completed",
+    "primary": "decimal1",
     "breakdown": [
       "Octal Input 1: ${octalInput1} -> Decimal: ${decimal1}",
       "Octal Input 2: ${octalInput2} -> Decimal: ${decimal2}",
@@ -49,10 +85,10 @@
       "Octal Input 4: ${octalInput4} -> Decimal: ${decimal4}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

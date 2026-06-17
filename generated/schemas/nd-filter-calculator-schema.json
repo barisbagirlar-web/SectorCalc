@@ -5,17 +5,33 @@
       "id": "numerator",
       "label": "Enstantane Pay",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Enstantane hızının pay değeri (genellikle 1)."
+      "businessContext": "Enstantane hızının pay değeri (genellikle 1).",
+      "label_i18n": {
+        "en": "Enstantane Pay",
+        "tr": "Enstantane Pay",
+        "de": "Enstantane Pay",
+        "fr": "Enstantane Pay",
+        "es": "Enstantane Pay",
+        "ar": "Enstantane Pay"
+      }
     },
     {
       "id": "denominator",
       "label": "Enstantane Payda",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 125,
-      "businessContext": "Enstantane hızının payda değeri (örn. 125, 250, 500)."
+      "businessContext": "Enstantane hızının payda değeri (örn. 125, 250, 500).",
+      "label_i18n": {
+        "en": "Enstantane Payda",
+        "tr": "Enstantane Payda",
+        "de": "Enstantane Payda",
+        "fr": "Enstantane Payda",
+        "es": "Enstantane Payda",
+        "ar": "Enstantane Payda"
+      }
     },
     {
       "id": "ndStops",
@@ -23,34 +39,53 @@
       "type": "number",
       "unit": "stop",
       "default": 0,
-      "businessContext": "ND filtrenin ışık azaltma miktarı (stop cinsinden)."
+      "businessContext": "ND filtrenin ışık azaltma miktarı (stop cinsinden).",
+      "label_i18n": {
+        "en": "ND Stop Değeri",
+        "tr": "ND Stop Değeri",
+        "de": "ND Stop Değeri",
+        "fr": "ND Stop Değeri",
+        "es": "ND Stop Değeri",
+        "ar": "ND Stop Değeri"
+      }
     },
     {
       "id": "od",
       "label": "Optik Yoğunluk (OD)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "ND filtrenin optik yoğunluk değeri (örn. 0.3, 0.6, 0.9)."
+      "businessContext": "ND filtrenin optik yoğunluk değeri (örn. 0.3, 0.6, 0.9).",
+      "label_i18n": {
+        "en": "Optik Yoğunluk (OD)",
+        "tr": "Optik Yoğunluk (OD)",
+        "de": "Optik Yoğunluk (OD)",
+        "fr": "Optik Yoğunluk (OD)",
+        "es": "Optik Yoğunluk (OD)",
+        "ar": "Optik Yoğunluk (OD)"
+      }
     }
   ],
   "formulas": {
     "baseShutter": "numerator / denominator",
     "effectiveStops": "ndStops > 0 ? ndStops : (od > 0 ? od / 0.3 : 0)",
     "filterFactor": "Math.pow(2, effectiveStops)",
-    "newExposureTime": "baseShutter * filterFactor"
+    "newExposureTime": "baseShutter * filterFactor",
+    "__filterFactor_toFixed_2__x": "${filterFactor.toFixed(2)}x",
+    "__effectiveStops__stop": "${effectiveStops} stop",
+    "result": "Yeni enstantane süresi: ${newExposureTime.toFixed(6)} saniye"
   },
   "outputs": {
-    "primary": "Yeni enstantane süresi: ${newExposureTime.toFixed(6)} saniye",
+    "primary": "result",
     "breakdown": [
       "ND filtre faktörü (çarpan): ${filterFactor.toFixed(2)}x",
       "Kullanılan etkili stop: ${effectiveStops} stop"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

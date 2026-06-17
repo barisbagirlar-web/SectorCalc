@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Le_chatelier_denge_kaymasi_calculatorInput):
 
 export function calculateLe_chatelier_denge_kaymasi_calculator(input: Le_chatelier_denge_kaymasi_calculatorInput): Le_chatelier_denge_kaymasi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["x"] ?? 0;
   const breakdown = {
     
   };

@@ -19,6 +19,8 @@ function evaluateAllFormulas(input: Pint_to_liter_converter_calculatorInput): Re
   const results: Record<string, number> = {};
   try { const v = (() => { const factor = input.conversionType === 1 ? 0.56826125 : input.conversionType === 2 ? 0.473176473 : 0.5506104713575; return input.pints * factor; })(); results["liters"] = Number.isFinite(v) ? v : 0; } catch { results["liters"] = 0; }
   try { const v = (() => { const factor = input.conversionType === 1 ? 0.56826125 : input.conversionType === 2 ? 0.473176473 : 0.5506104713575; const typeName = input.conversionType === 1 ? 'UK' : input.conversionType === 2 ? 'US liquid' : 'US dry'; return [`Conversion factor: ${factor} L/pt (${typeName})`, `Pints converted: $input.pints pt`]; })(); results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = conversionFactorInfo; results["conversionFactorInfo"] = Number.isFinite(v) ? v : 0; } catch { results["conversionFactorInfo"] = 0; }
+  try { const v = pintsInfo; results["pintsInfo"] = Number.isFinite(v) ? v : 0; } catch { results["pintsInfo"] = 0; }
   return results;
 }
 

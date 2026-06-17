@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Distance from object to lens"
+      "businessContext": "Distance from object to lens",
+      "label_i18n": {
+        "en": "Object Distance",
+        "tr": "Object Distance",
+        "de": "Object Distance",
+        "fr": "Object Distance",
+        "es": "Object Distance",
+        "ar": "Object Distance"
+      }
     },
     {
       "id": "imageDistance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Distance from lens to image"
+      "businessContext": "Distance from lens to image",
+      "label_i18n": {
+        "en": "Image Distance",
+        "tr": "Image Distance",
+        "de": "Image Distance",
+        "fr": "Image Distance",
+        "es": "Image Distance",
+        "ar": "Image Distance"
+      }
     },
     {
       "id": "focalLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Focal length of the lens"
+      "businessContext": "Focal length of the lens",
+      "label_i18n": {
+        "en": "Focal Length",
+        "tr": "Focal Length",
+        "de": "Focal Length",
+        "fr": "Focal Length",
+        "es": "Focal Length",
+        "ar": "Focal Length"
+      }
     },
     {
       "id": "objectHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Height of the object"
+      "businessContext": "Height of the object",
+      "label_i18n": {
+        "en": "Object Height",
+        "tr": "Object Height",
+        "de": "Object Height",
+        "fr": "Object Height",
+        "es": "Object Height",
+        "ar": "Object Height"
+      }
     },
     {
       "id": "imageHeight",
@@ -39,29 +71,37 @@
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Height of the image"
+      "businessContext": "Height of the image",
+      "label_i18n": {
+        "en": "Image Height",
+        "tr": "Image Height",
+        "de": "Image Height",
+        "fr": "Image Height",
+        "es": "Image Height",
+        "ar": "Image Height"
+      }
     }
   ],
   "formulas": {
     "primary": "imageDistance / objectDistance",
-    "breakdown": [
-      "imageHeight / objectHeight",
-      "focalLength / (objectDistance - focalLength)",
-      "(imageDistance - focalLength) / focalLength"
-    ]
+    "breakdown": "objectDistance",
+    "imageHeight___objectHeight": "imageHeight / objectHeight",
+    "focalLength____objectDistance___focalLen": "focalLength / (objectDistance - focalLength)",
+    "_imageDistance___focalLength____focalLen": "(imageDistance - focalLength) / focalLength",
+    "result": "imageDistance / objectDistance"
   },
   "outputs": {
-    "primary": "imageDistance / objectDistance",
+    "primary": "result",
     "breakdown": [
       "imageHeight / objectHeight",
       "focalLength / (objectDistance - focalLength)",
       "(imageDistance - focalLength) / focalLength"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

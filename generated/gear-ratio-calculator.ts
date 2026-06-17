@@ -22,13 +22,16 @@ function evaluateAllFormulas(input: Gear_ratio_calculatorInput): Record<string, 
   try { const v = input.drivenTeeth / input.drivingTeeth; results["ratio"] = Number.isFinite(v) ? v : 0; } catch { results["ratio"] = 0; }
   try { const v = input.inputSpeed / (input.drivenTeeth / input.drivingTeeth); results["outputSpeed"] = Number.isFinite(v) ? v : 0; } catch { results["outputSpeed"] = 0; }
   try { const v = input.inputTorque * (input.drivenTeeth / input.drivingTeeth) * (Math.min(Math.max(input.efficiency, 0), 100) / 100); results["outputTorque"] = Number.isFinite(v) ? v : 0; } catch { results["outputTorque"] = 0; }
+  results["__outputSpeed__RPM"] = 0;
+  results["__outputTorque__Nm"] = 0;
+  results["__ratio__1"] = 0;
   return results;
 }
 
 
 export function calculateGear_ratio_calculator(input: Gear_ratio_calculatorInput): Gear_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Gear"] ?? 0;
+  const totalWasteCost = values["ratio"] ?? 0;
   const breakdown = {
     
   };

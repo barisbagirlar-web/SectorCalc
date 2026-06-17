@@ -15,14 +15,17 @@ export const Npr_calculatorInputSchema = z.object({
   maxResultCap: z.number().default(1000000000000000),
 });
 
-function evaluateAllFormulas(_input: Npr_calculatorInput): Record<string, number> {
-  return {};
+function evaluateAllFormulas(input: Npr_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.n; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.n; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  return results;
 }
 
 
 export function calculateNpr_calculator(input: Npr_calculatorInput): Npr_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["permutations"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

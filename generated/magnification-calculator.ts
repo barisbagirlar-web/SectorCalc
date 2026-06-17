@@ -20,13 +20,18 @@ export const Magnification_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Magnification_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.imageDistance / input.objectDistance; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.objectDistance; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = input.imageHeight / input.objectHeight; results["imageHeight___objectHeight"] = Number.isFinite(v) ? v : 0; } catch { results["imageHeight___objectHeight"] = 0; }
+  try { const v = input.focalLength / (input.objectDistance - input.focalLength); results["focalLength____objectDistance___focalLen"] = Number.isFinite(v) ? v : 0; } catch { results["focalLength____objectDistance___focalLen"] = 0; }
+  try { const v = (input.imageDistance - input.focalLength) / input.focalLength; results["_imageDistance___focalLength____focalLen"] = Number.isFinite(v) ? v : 0; } catch { results["_imageDistance___focalLength____focalLen"] = 0; }
+  try { const v = input.imageDistance / input.objectDistance; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateMagnification_calculator(input: Magnification_calculatorInput): Magnification_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["imageDistance"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

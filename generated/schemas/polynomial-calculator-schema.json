@@ -5,49 +5,97 @@
       "id": "a4",
       "label": "a4 (x^4)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of the 4th degree term"
+      "businessContext": "Coefficient of the 4th degree term",
+      "label_i18n": {
+        "en": "a4 (x^4)",
+        "tr": "a4 (x^4)",
+        "de": "a4 (x^4)",
+        "fr": "a4 (x^4)",
+        "es": "a4 (x^4)",
+        "ar": "a4 (x^4)"
+      }
     },
     {
       "id": "a3",
       "label": "a3 (x^3)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of the 3rd degree term"
+      "businessContext": "Coefficient of the 3rd degree term",
+      "label_i18n": {
+        "en": "a3 (x^3)",
+        "tr": "a3 (x^3)",
+        "de": "a3 (x^3)",
+        "fr": "a3 (x^3)",
+        "es": "a3 (x^3)",
+        "ar": "a3 (x^3)"
+      }
     },
     {
       "id": "a2",
       "label": "a2 (x^2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of the 2nd degree term"
+      "businessContext": "Coefficient of the 2nd degree term",
+      "label_i18n": {
+        "en": "a2 (x^2)",
+        "tr": "a2 (x^2)",
+        "de": "a2 (x^2)",
+        "fr": "a2 (x^2)",
+        "es": "a2 (x^2)",
+        "ar": "a2 (x^2)"
+      }
     },
     {
       "id": "a1",
       "label": "a1 (x)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of the 1st degree term"
+      "businessContext": "Coefficient of the 1st degree term",
+      "label_i18n": {
+        "en": "a1 (x)",
+        "tr": "a1 (x)",
+        "de": "a1 (x)",
+        "fr": "a1 (x)",
+        "es": "a1 (x)",
+        "ar": "a1 (x)"
+      }
     },
     {
       "id": "a0",
       "label": "a0 (constant)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term"
+      "businessContext": "Constant term",
+      "label_i18n": {
+        "en": "a0 (constant)",
+        "tr": "a0 (constant)",
+        "de": "a0 (constant)",
+        "fr": "a0 (constant)",
+        "es": "a0 (constant)",
+        "ar": "a0 (constant)"
+      }
     },
     {
       "id": "x",
       "label": "x",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Value at which to evaluate the polynomial"
+      "businessContext": "Value at which to evaluate the polynomial",
+      "label_i18n": {
+        "en": "x",
+        "tr": "x",
+        "de": "x",
+        "fr": "x",
+        "es": "x",
+        "ar": "x"
+      }
     }
   ],
   "formulas": {
@@ -68,10 +116,10 @@
       "term0"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

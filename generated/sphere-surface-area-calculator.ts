@@ -26,6 +26,10 @@ function evaluateAllFormulas(input: Sphere_surface_area_calculatorInput): Record
   try { const v = input.outputUnit === 0 ? 1 : input.outputUnit === 1 ? 10000 : input.outputUnit === 2 ? 1000000 : input.outputUnit === 3 ? 10.7639 : 1; results["conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
   try { const v = (results["areaM2"] ?? 0) * (results["conversionFactor"] ?? 0); results["convertedArea"] = Number.isFinite(v) ? v : 0; } catch { results["convertedArea"] = 0; }
   try { const v = (results["areaM2"] ?? 0) * input.costPerSquareMeter * (1 + input.wasteFactor / 100); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  results["_radiusUsed__m"] = 0;
+  try { const v = (results["areaM2"] ?? 0); results["_areaM2_"] = Number.isFinite(v) ? v : 0; } catch { results["_areaM2_"] = 0; }
+  try { const v = (results["convertedArea"] ?? 0); results["_convertedArea_"] = Number.isFinite(v) ? v : 0; } catch { results["_convertedArea_"] = 0; }
+  try { const v = (results["totalCost"] ?? 0); results["_totalCost_"] = Number.isFinite(v) ? v : 0; } catch { results["_totalCost_"] = 0; }
   return results;
 }
 

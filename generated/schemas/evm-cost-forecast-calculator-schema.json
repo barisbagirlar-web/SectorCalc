@@ -127,7 +127,7 @@
       "id": "useWeightedMethod",
       "label": "Use weighted CPI/SPI for EAC",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": 0,
       "max": 1,
@@ -230,202 +230,25 @@
     ]
   },
   "formulas": [
-    {
-      "id": "calculated_cpi",
-      "name": "Cost Performance Index (calculated)",
-      "description": "CPI = EV / AC. If AC=0, set to 1.",
-      "expression": "ac === 0 ? 1 : ev / ac",
-      "dependencies": [
-        "ev",
-        "ac"
-      ]
-    },
-    {
-      "id": "calculated_spi",
-      "name": "Schedule Performance Index (calculated)",
-      "description": "SPI = EV / PV. If PV=0, set to 1.",
-      "expression": "pv === 0 ? 1 : ev / pv",
-      "dependencies": [
-        "ev",
-        "pv"
-      ]
-    },
-    {
-      "id": "effective_cpi",
-      "name": "Effective CPI (override or calculated)",
-      "description": "Uses user override if provided, else calculated CPI.",
-      "expression": "cpi !== undefined && cpi !== null ? cpi : calculated_cpi",
-      "dependencies": [
-        "cpi",
-        "calculated_cpi"
-      ]
-    },
-    {
-      "id": "effective_spi",
-      "name": "Effective SPI (override or calculated)",
-      "description": "Uses user override if provided, else calculated SPI.",
-      "expression": "spi !== undefined && spi !== null ? spi : calculated_spi",
-      "dependencies": [
-        "spi",
-        "calculated_spi"
-      ]
-    },
-    {
-      "id": "weighted_performance_factor",
-      "name": "Weighted Performance Factor",
-      "description": "If useWeightedMethod true: 0.8*CPI + 0.2*SPI; else CPI.",
-      "expression": "useWeightedMethod ? (0.8 * effective_cpi + 0.2 * effective_spi) : effective_cpi",
-      "dependencies": [
-        "useWeightedMethod",
-        "effective_cpi",
-        "effective_spi"
-      ]
-    },
-    {
-      "id": "eac",
-      "name": "Estimate at Completion (EAC)",
-      "description": "EAC = BAC / weighted_performance_factor + managementReserve - contingencyDraw.",
-      "expression": "bac / weighted_performance_factor + managementReserve - contingencyDraw",
-      "dependencies": [
-        "bac",
-        "weighted_performance_factor",
-        "managementReserve",
-        "contingencyDraw"
-      ]
-    },
-    {
-      "id": "etc",
-      "name": "Estimate to Complete (ETC)",
-      "description": "ETC = EAC - AC.",
-      "expression": "eac - ac",
-      "dependencies": [
-        "eac",
-        "ac"
-      ]
-    },
-    {
-      "id": "variance_at_completion",
-      "name": "Variance at Completion (VAC)",
-      "description": "VAC = BAC - EAC.",
-      "expression": "bac - eac",
-      "dependencies": [
-        "bac",
-        "eac"
-      ]
-    },
-    {
-      "id": "tcpi_eac",
-      "name": "To-Complete Performance Index (based on EAC)",
-      "description": "TCPI = (BAC - EV) / (EAC - AC).",
-      "expression": "(bac - ev) / (eac - ac)",
-      "dependencies": [
-        "bac",
-        "ev",
-        "eac",
-        "ac"
-      ]
-    },
-    {
-      "id": "data_confidence_adjusted",
-      "name": "Data Confidence Adjusted EAC",
-      "description": "Applies a confidence factor based on data quality (simplified: 0.95 if CPI>0.8 else 0.85).",
-      "expression": "eac * (effective_cpi > 0.8 ? 0.95 : 0.85)",
-      "dependencies": [
-        "eac",
-        "effective_cpi"
-      ]
-    }
+    "bac",
+    "bac",
+    "bac",
+    "bac",
+    "bac",
+    "bac",
+    "bac",
+    "bac",
+    "bac",
+    "bac"
   ],
   "outputs": {
-    "primary": {
-      "id": "eac",
-      "label": "Estimate at Completion",
-      "unit": "currency",
-      "description": "Most likely total cost at project completion."
-    },
-    "breakdown": {
-      "eac": {
-        "id": "eac",
-        "label": "EAC (primary)",
-        "unit": "currency"
-      },
-      "etc": {
-        "id": "etc",
-        "label": "Estimate to Complete",
-        "unit": "currency"
-      },
-      "vac": {
-        "id": "vac",
-        "label": "Variance at Completion",
-        "unit": "currency"
-      },
-      "tcpi_eac": {
-        "id": "tcpi_eac",
-        "label": "To-Complete Performance Index (EAC)",
-        "unit": "ratio"
-      },
-      "effective_cpi": {
-        "id": "effective_cpi",
-        "label": "Effective CPI",
-        "unit": "ratio"
-      },
-      "effective_spi": {
-        "id": "effective_spi",
-        "label": "Effective SPI",
-        "unit": "ratio"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_cpi_degradation",
-        "label": "CPI degradation trend",
-        "value": "CPI has dropped 15% over last 3 periods – indicates systemic cost overrun.",
-        "severity": "high"
-      },
-      {
-        "id": "loss_rework",
-        "label": "Rework cost hidden in AC",
-        "value": "Estimated 8% of AC attributed to rework based on defect density.",
-        "severity": "medium"
-      },
-      {
-        "id": "loss_scope_creep",
-        "label": "Unapproved scope changes",
-        "value": "EV growth exceeds PV growth by 12% – possible scope creep not reflected in baseline.",
-        "severity": "high"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": 1,
-        "description": "Initiate formal root cause analysis for CPI < 0.8 – use Six Sigma DMAIC."
-      },
-      {
-        "id": "action_2",
-        "priority": 2,
-        "description": "Rebaseline schedule if SPI < 0.7 – apply critical chain buffer management."
-      },
-      {
-        "id": "action_3",
-        "priority": 3,
-        "description": "Request management reserve release if contingency draw > 80%."
-      },
-      {
-        "id": "action_4",
-        "priority": 4,
-        "description": "Implement Lean waste reduction (7 wastes) on top cost activities."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted",
-      "label": "Data Confidence Adjusted EAC",
-      "unit": "currency",
-      "description": "EAC adjusted for data reliability (lower confidence = higher buffer)."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "evm-cost-forecast-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK"
 }

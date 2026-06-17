@@ -5,33 +5,65 @@
       "id": "year",
       "label": "Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2025,
-      "businessContext": "The year for which to calculate Easter Sunday."
+      "businessContext": "The year for which to calculate Easter Sunday.",
+      "label_i18n": {
+        "en": "Year",
+        "tr": "Year",
+        "de": "Year",
+        "fr": "Year",
+        "es": "Year",
+        "ar": "Year"
+      }
     },
     {
       "id": "refYear",
       "label": "Reference Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2025,
-      "businessContext": "Year of the reference date to compute days until Easter."
+      "businessContext": "Year of the reference date to compute days until Easter.",
+      "label_i18n": {
+        "en": "Reference Year",
+        "tr": "Reference Year",
+        "de": "Reference Year",
+        "fr": "Reference Year",
+        "es": "Reference Year",
+        "ar": "Reference Year"
+      }
     },
     {
       "id": "refMonth",
       "label": "Reference Month",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Month of the reference date (1-12)."
+      "businessContext": "Month of the reference date (1-12).",
+      "label_i18n": {
+        "en": "Reference Month",
+        "tr": "Reference Month",
+        "de": "Reference Month",
+        "fr": "Reference Month",
+        "es": "Reference Month",
+        "ar": "Reference Month"
+      }
     },
     {
       "id": "refDay",
       "label": "Reference Day",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Day of the reference date (1-31)."
+      "businessContext": "Day of the reference date (1-31).",
+      "label_i18n": {
+        "en": "Reference Day",
+        "tr": "Reference Day",
+        "de": "Reference Day",
+        "fr": "Reference Day",
+        "es": "Reference Day",
+        "ar": "Reference Day"
+      }
     }
   ],
   "formulas": {
@@ -74,8 +106,8 @@
       "daysUntilEaster"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

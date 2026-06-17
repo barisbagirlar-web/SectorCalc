@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Overtime_calculatorInput): Record<string, nu
 
 export function calculateOvertime_calculator(input: Overtime_calculatorInput): Overtime_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalPay"] ?? 0;
+  const totalWasteCost = values["regularPay"] ?? 0;
   const breakdown = {
     
   };

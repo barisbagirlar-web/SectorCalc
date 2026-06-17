@@ -55,11 +55,7 @@
     "ageInSeconds": "totalDays * 86400"
   },
   "outputs": {
-    "primary": {
-      "id": "ageInSeconds",
-      "label": "Yaş (saniye)",
-      "unit": "saniye"
-    },
+    "primary": "totalDays",
     "breakdown": [
       {
         "id": "totalDays",
@@ -68,10 +64,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "electrical-power-systems"
 }

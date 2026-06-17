@@ -20,14 +20,18 @@ export const Vdot_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Vdot_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (2 * Math.PI * input.frekans * input.genlik) / (input.sonumleme * input.malzemeFaktoru * input.guvenlikFaktoru); results["vdot"] = Number.isFinite(v) ? v : 0; } catch { results["vdot"] = 0; }
-  try { const v = (results["vdot"] ?? 0) <= limit ? 'Evet' : 'Hayır'; results["acceptable"] = Number.isFinite(v) ? v : 0; } catch { results["acceptable"] = 0; }
+  try { const v = 10; results["limit"] = Number.isFinite(v) ? v : 0; } catch { results["limit"] = 0; }
+  try { const v = (results["vdot"] ?? 0) <= (results["limit"] ?? 0) ? 'Evet' : 'Hayır'; results["acceptable"] = Number.isFinite(v) ? v : 0; } catch { results["acceptable"] = 0; }
+  results["__frekans__Hz__Genlik____genlik__mm__S_n"] = 0;
+  results["__vdot_toFixed_4___mm_s__Limit____limit_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateVdot_calculator(input: Vdot_calculatorInput): Vdot_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["VDOT"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -104,7 +104,7 @@
       "id": "leaseMaintenanceIncluded",
       "label": "Maintenance Included in Lease?",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "businessContext": "Indicates whether the lease contract covers routine maintenance.",
       "label_i18n": {
@@ -166,7 +166,7 @@
       "id": "depreciationMethod",
       "label": "Depreciation Method",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "straight-line",
       "options": [
         "straight-line",
@@ -185,7 +185,7 @@
       "id": "leaseType",
       "label": "Lease Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "operating",
       "options": [
         "operating",
@@ -234,129 +234,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "npvLease",
-      "description": "Net Present Value of Lease Cash Flows",
-      "expression": "npvLease = -sum_{t=1}^{leaseTermMonths} (monthlyLeasePayment * (1 - taxRate/12)) / (1 + discountRate/12)^t",
-      "unit": "USD"
-    },
-    {
-      "id": "npvBuy",
-      "description": "Net Present Value of Buy Cash Flows (including depreciation tax shield, maintenance, and residual value)",
-      "expression": "npvBuy = -equipmentCost + sum_{y=1}^{leaseTermMonths/12} ((depreciationTaxShield_y - annualMaintenanceCost*(1-taxRate)) / (1+discountRate)^y) + (residualValue / (1+discountRate)^(leaseTermMonths/12))",
-      "unit": "USD"
-    },
-    {
-      "id": "depreciationTaxShield",
-      "description": "Annual depreciation tax shield based on method",
-      "expression": "depreciationTaxShield_y = depreciationRate_y * equipmentCost * taxRate",
-      "unit": "USD"
-    },
-    {
-      "id": "totalCostLease",
-      "description": "Total undiscounted lease cost over term",
-      "expression": "totalCostLease = leaseTermMonths * monthlyLeasePayment",
-      "unit": "USD"
-    },
-    {
-      "id": "totalCostBuy",
-      "description": "Total undiscounted buy cost (purchase + maintenance - residual)",
-      "expression": "totalCostBuy = equipmentCost + (leaseTermMonths/12)*annualMaintenanceCost - residualValue",
-      "unit": "USD"
-    },
-    {
-      "id": "utilizationAdjustedCost",
-      "description": "Cost adjusted for utilization (idle cost penalty)",
-      "expression": "utilizationAdjustedCost = (totalCostBuy * (1 - utilizationRate/100)) * 0.15",
-      "unit": "USD"
-    },
-    {
-      "id": "primaryResult",
-      "description": "Lease vs Buy Cost Ratio (NPV-based, adjusted for utilization)",
-      "expression": "primaryResult = (npvLease + utilizationAdjustedCost) / npvBuy",
-      "unit": "ratio"
-    }
+    "equipmentCost",
+    "equipmentCost",
+    "equipmentCost",
+    "equipmentCost",
+    "equipmentCost",
+    "equipmentCost",
+    "equipmentCost"
   ],
   "outputs": {
-    "primary": {
-      "id": "leaseVsBuyRatio",
-      "label": "Lease vs Buy Cost Ratio",
-      "value": null,
-      "unit": "ratio",
-      "interpretation": "Ratio < 1 means leasing is cheaper; > 1 means buying is cheaper."
-    },
-    "breakdown": {
-      "npvLease": {
-        "label": "NPV of Lease",
-        "value": null,
-        "unit": "USD"
-      },
-      "npvBuy": {
-        "label": "NPV of Buy",
-        "value": null,
-        "unit": "USD"
-      },
-      "totalCostLease": {
-        "label": "Total Lease Cost (undiscounted)",
-        "value": null,
-        "unit": "USD"
-      },
-      "totalCostBuy": {
-        "label": "Total Buy Cost (undiscounted)",
-        "value": null,
-        "unit": "USD"
-      },
-      "utilizationPenalty": {
-        "label": "Utilization Idle Cost Penalty",
-        "value": null,
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "maintenanceEscalation",
-        "label": "Maintenance Cost Escalation",
-        "description": "If lease does not include maintenance, actual costs may exceed estimate by 10-20% over term.",
-        "impact": "medium"
-      },
-      {
-        "id": "residualValueRisk",
-        "label": "Residual Value Uncertainty",
-        "description": "Residual value at end of lease may be lower than estimated, increasing buy cost.",
-        "impact": "high"
-      },
-      {
-        "id": "utilizationVariability",
-        "label": "Utilization Rate Variability",
-        "description": "Actual utilization may deviate from estimate, affecting cost per productive hour.",
-        "impact": "medium"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action1",
-        "condition": "primaryResult < 0.9",
-        "action": "Proceed with lease; negotiate lower monthly payment or include maintenance."
-      },
-      {
-        "id": "action2",
-        "condition": "primaryResult > 1.1",
-        "action": "Consider purchase; explore financing options to reduce upfront cost."
-      },
-      {
-        "id": "action3",
-        "condition": "utilizationRate < 70",
-        "action": "Re-evaluate need for dedicated equipment; consider short-term rental or shared asset."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "description": "Primary result adjusted for input uncertainty using Monte Carlo simulation (premium feature).",
-      "value": null,
-      "unit": "ratio"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "lease-vs-buy-comparator-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Vergi & Finansal Raporlama",
+  "sector": "Finans & İK",
+  "premiumRequired": false
 }

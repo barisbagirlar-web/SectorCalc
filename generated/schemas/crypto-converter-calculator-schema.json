@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000,
-      "businessContext": "Amount to convert"
+      "businessContext": "Amount to convert",
+      "label_i18n": {
+        "en": "Amount",
+        "tr": "Amount",
+        "de": "Amount",
+        "fr": "Amount",
+        "es": "Amount",
+        "ar": "Amount"
+      }
     },
     {
       "id": "exchangeRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "BTC/USD",
       "default": 0.000025,
-      "businessContext": "Current exchange rate"
+      "businessContext": "Current exchange rate",
+      "label_i18n": {
+        "en": "Exchange Rate",
+        "tr": "Exchange Rate",
+        "de": "Exchange Rate",
+        "fr": "Exchange Rate",
+        "es": "Exchange Rate",
+        "ar": "Exchange Rate"
+      }
     },
     {
       "id": "feePercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.5,
-      "businessContext": "Percentage fee for conversion"
+      "businessContext": "Percentage fee for conversion",
+      "label_i18n": {
+        "en": "Conversion Fee (%)",
+        "tr": "Conversion Fee (%)",
+        "de": "Conversion Fee (%)",
+        "fr": "Conversion Fee (%)",
+        "es": "Conversion Fee (%)",
+        "ar": "Conversion Fee (%)"
+      }
     },
     {
       "id": "spread",
@@ -31,17 +55,30 @@
       "type": "number",
       "unit": "%",
       "default": 0.1,
-      "businessContext": "Spread added to exchange rate"
+      "businessContext": "Spread added to exchange rate",
+      "label_i18n": {
+        "en": "Spread (%)",
+        "tr": "Spread (%)",
+        "de": "Spread (%)",
+        "fr": "Spread (%)",
+        "es": "Spread (%)",
+        "ar": "Spread (%)"
+      }
     }
   ],
   "formulas": {
     "rateAfterSpread": "exchangeRate * (1 + spread/100)",
     "convertedAmount": "amount * rateAfterSpread",
     "feeAmount": "convertedAmount * (feePercent/100)",
-    "finalAmount": "convertedAmount - feeAmount"
+    "finalAmount": "convertedAmount - feeAmount",
+    "__amount__USD": "${amount} USD",
+    "__rateAfterSpread_toFixed_8___BTC_USD": "${rateAfterSpread.toFixed(8)} BTC/USD",
+    "__feeAmount_toFixed_8___BTC": "${feeAmount.toFixed(8)} BTC",
+    "__finalAmount_toFixed_8___BTC": "${finalAmount.toFixed(8)} BTC",
+    "result": "Converted amount: ${finalAmount.toFixed(8)} BTC"
   },
   "outputs": {
-    "primary": "Converted amount: ${finalAmount.toFixed(8)} BTC",
+    "primary": "result",
     "breakdown": [
       "Entered amount: ${amount} USD",
       "Rate after spread: ${rateAfterSpread.toFixed(8)} BTC/USD",
@@ -49,10 +86,10 @@
       "Final amount: ${finalAmount.toFixed(8)} BTC"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

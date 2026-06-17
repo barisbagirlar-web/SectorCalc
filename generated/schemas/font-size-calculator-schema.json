@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Distance from the viewer to the text or display in meters."
+      "businessContext": "Distance from the viewer to the text or display in meters.",
+      "label_i18n": {
+        "en": "Viewing Distance",
+        "tr": "Viewing Distance",
+        "de": "Viewing Distance",
+        "fr": "Viewing Distance",
+        "es": "Viewing Distance",
+        "ar": "Viewing Distance"
+      }
     },
     {
       "id": "visualAcuity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "arcmin",
       "default": 5,
-      "businessContext": "Required visual angle for text height, in arcminutes (5 arcmin = 20/20 vision)."
+      "businessContext": "Required visual angle for text height, in arcminutes (5 arcmin = 20/20 vision).",
+      "label_i18n": {
+        "en": "Visual Acuity",
+        "tr": "Visual Acuity",
+        "de": "Visual Acuity",
+        "fr": "Visual Acuity",
+        "es": "Visual Acuity",
+        "ar": "Visual Acuity"
+      }
     },
     {
       "id": "safetyFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.2,
-      "businessContext": "Multiplication factor for non-ideal conditions (e.g., lighting, motion)."
+      "businessContext": "Multiplication factor for non-ideal conditions (e.g., lighting, motion).",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "pointConversion",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm/point",
       "default": 0.3528,
-      "businessContext": "Conversion factor from millimeters to typographic points (1 point = 0.3528 mm)."
+      "businessContext": "Conversion factor from millimeters to typographic points (1 point = 0.3528 mm).",
+      "label_i18n": {
+        "en": "Point Conversion",
+        "tr": "Point Conversion",
+        "de": "Point Conversion",
+        "fr": "Point Conversion",
+        "es": "Point Conversion",
+        "ar": "Point Conversion"
+      }
     },
     {
       "id": "pixelDensity",
@@ -39,25 +71,36 @@
       "type": "number",
       "unit": "ppi",
       "default": 96,
-      "businessContext": "Screen resolution in pixels per inch for pixel size estimation."
+      "businessContext": "Screen resolution in pixels per inch for pixel size estimation.",
+      "label_i18n": {
+        "en": "Pixel Density",
+        "tr": "Pixel Density",
+        "de": "Pixel Density",
+        "fr": "Pixel Density",
+        "es": "Pixel Density",
+        "ar": "Pixel Density"
+      }
     }
   ],
   "formulas": {
     "recommendedHeight_mm": "viewingDistance * 1000 * Math.tan((visualAcuity / 60) * Math.PI / 180) * safetyFactor",
     "fontSizePt": "recommendedHeight_mm / pointConversion",
-    "fontSizePx": "(recommendedHeight_mm / 25.4) * pixelDensity"
+    "fontSizePx": "(recommendedHeight_mm / 25.4) * pixelDensity",
+    "____recommendedHeight_mm_toFixed_2______": "' + recommendedHeight_mm.toFixed(2) + ' mm'",
+    "____fontSizePx_toFixed_2______px_": "' + fontSizePx.toFixed(2) + ' px'",
+    "result": "fontSizePt.toFixed(1) + ' pt'"
   },
   "outputs": {
-    "primary": "fontSizePt.toFixed(1) + ' pt'",
+    "primary": "result",
     "breakdown": [
       "'Text height: ' + recommendedHeight_mm.toFixed(2) + ' mm'",
       "'Pixel size: ' + fontSizePx.toFixed(2) + ' px'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

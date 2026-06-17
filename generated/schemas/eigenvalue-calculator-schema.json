@@ -5,33 +5,65 @@
       "id": "a",
       "label": "a11",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Top-left element of 2x2 matrix"
+      "businessContext": "Top-left element of 2x2 matrix",
+      "label_i18n": {
+        "en": "a11",
+        "tr": "a11",
+        "de": "a11",
+        "fr": "a11",
+        "es": "a11",
+        "ar": "a11"
+      }
     },
     {
       "id": "b",
       "label": "a12",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Top-right element of 2x2 matrix"
+      "businessContext": "Top-right element of 2x2 matrix",
+      "label_i18n": {
+        "en": "a12",
+        "tr": "a12",
+        "de": "a12",
+        "fr": "a12",
+        "es": "a12",
+        "ar": "a12"
+      }
     },
     {
       "id": "c",
       "label": "a21",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Bottom-left element of 2x2 matrix"
+      "businessContext": "Bottom-left element of 2x2 matrix",
+      "label_i18n": {
+        "en": "a21",
+        "tr": "a21",
+        "de": "a21",
+        "fr": "a21",
+        "es": "a21",
+        "ar": "a21"
+      }
     },
     {
       "id": "d",
       "label": "a22",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Bottom-right element of 2x2 matrix"
+      "businessContext": "Bottom-right element of 2x2 matrix",
+      "label_i18n": {
+        "en": "a22",
+        "tr": "a22",
+        "de": "a22",
+        "fr": "a22",
+        "es": "a22",
+        "ar": "a22"
+      }
     }
   ],
   "formulas": {
@@ -40,10 +72,15 @@
     "determinant": "a * d - b * c",
     "discriminant": "Math.pow(a + d, 2) - 4 * (a * d - b * c)",
     "eigenvalue1": "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
-    "eigenvalue2": "((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2"
+    "eigenvalue2": "((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
+    "a___d": "a + d",
+    "a___d___b___c": "a * d - b * c",
+    "Math_pow_a___d__2____4____a___d___b___c_": "Math.pow(a + d, 2) - 4 * (a * d - b * c)",
+    "__a___d____Math_sqrt_Math_pow_a___d__2__": "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
+    "result": "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2 + ', ' + ((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2"
   },
   "outputs": {
-    "primary": "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2 + ', ' + ((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
+    "primary": "result",
     "breakdown": [
       "a + d",
       "a * d - b * c",
@@ -52,10 +89,10 @@
       "((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "finance-sales-working-capital"
 }

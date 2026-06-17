@@ -19,6 +19,10 @@ function evaluateAllFormulas(input: Km_to_miles_calculatorInput): Record<string,
   const results: Record<string, number> = {};
   try { const v = (input.scientificNotation === 1) ? (Math.round(input.kilometers * input.conversionFactor * Math.pow(10, input.roundingDecimals)) / Math.pow(10, input.roundingDecimals)).toExponential(input.roundingDecimals) : Math.round(input.kilometers * input.conversionFactor * Math.pow(10, input.roundingDecimals)) / Math.pow(10, input.roundingDecimals); results["roundedMiles"] = Number.isFinite(v) ? v : 0; } catch { results["roundedMiles"] = 0; }
   results["breakdownSteps"] = 0;
+  try { const v = step1; results["step1"] = Number.isFinite(v) ? v : 0; } catch { results["step1"] = 0; }
+  try { const v = step2; results["step2"] = Number.isFinite(v) ? v : 0; } catch { results["step2"] = 0; }
+  try { const v = step3; results["step3"] = Number.isFinite(v) ? v : 0; } catch { results["step3"] = 0; }
+  try { const v = step4; results["step4"] = Number.isFinite(v) ? v : 0; } catch { results["step4"] = 0; }
   return results;
 }
 

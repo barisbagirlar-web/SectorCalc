@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 1000,
-      "businessContext": "The starting value before the decrease (e.g., previous period's revenue, original cost)."
+      "businessContext": "The starting value before the decrease (e.g., previous period's revenue, original cost).",
+      "label_i18n": {
+        "en": "Initial Value",
+        "tr": "Initial Value",
+        "de": "Initial Value",
+        "fr": "Initial Value",
+        "es": "Initial Value",
+        "ar": "Initial Value"
+      }
     },
     {
       "id": "finalValue",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "TRY",
       "default": 800,
-      "businessContext": "The resulting value after the decrease (e.g., current period's revenue, reduced cost)."
+      "businessContext": "The resulting value after the decrease (e.g., current period's revenue, reduced cost).",
+      "label_i18n": {
+        "en": "Final Value",
+        "tr": "Final Value",
+        "de": "Final Value",
+        "fr": "Final Value",
+        "es": "Final Value",
+        "ar": "Final Value"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output percentage values."
+      "businessContext": "Number of decimal places for the output percentage values.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "adjustmentFactor",
       "label": "Adjustment Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier to adjust the initial value for factors like inflation or normalization. Typically 1 if no adjustment needed."
+      "businessContext": "Multiplier to adjust the initial value for factors like inflation or normalization. Typically 1 if no adjustment needed.",
+      "label_i18n": {
+        "en": "Adjustment Factor",
+        "tr": "Adjustment Factor",
+        "de": "Adjustment Factor",
+        "fr": "Adjustment Factor",
+        "es": "Adjustment Factor",
+        "ar": "Adjustment Factor"
+      }
     },
     {
       "id": "targetDecreasePercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Optional business goal percentage decrease to compare against the actual decrease."
+      "businessContext": "Optional business goal percentage decrease to compare against the actual decrease.",
+      "label_i18n": {
+        "en": "Target Decrease (%)",
+        "tr": "Target Decrease (%)",
+        "de": "Target Decrease (%)",
+        "fr": "Target Decrease (%)",
+        "es": "Target Decrease (%)",
+        "ar": "Target Decrease (%)"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "targetVarianceRounded"
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Finans & Kredi",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

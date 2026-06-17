@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 1750,
-      "businessContext": "Pump shaft rotational speed in revolutions per minute (rpm)."
+      "businessContext": "Pump shaft rotational speed in revolutions per minute (rpm).",
+      "label_i18n": {
+        "en": "Rotational Speed (N)",
+        "tr": "Rotational Speed (N)",
+        "de": "Rotational Speed (N)",
+        "fr": "Rotational Speed (N)",
+        "es": "Rotational Speed (N)",
+        "ar": "Rotational Speed (N)"
+      }
     },
     {
       "id": "flowRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "gpm",
       "default": 500,
-      "businessContext": "Pump flow rate in US gallons per minute (gpm)."
+      "businessContext": "Pump flow rate in US gallons per minute (gpm).",
+      "label_i18n": {
+        "en": "Flow Rate (Q)",
+        "tr": "Flow Rate (Q)",
+        "de": "Flow Rate (Q)",
+        "fr": "Flow Rate (Q)",
+        "es": "Flow Rate (Q)",
+        "ar": "Flow Rate (Q)"
+      }
     },
     {
       "id": "suctionSpecificSpeed",
@@ -23,24 +39,35 @@
       "type": "number",
       "unit": "US units",
       "default": 10000,
-      "businessContext": "Pump suction specific speed (Nss) in US customary units (rpm, gpm, ft). Typical range 7000–12000."
+      "businessContext": "Pump suction specific speed (Nss) in US customary units (rpm, gpm, ft). Typical range 7000–12000.",
+      "label_i18n": {
+        "en": "Suction Specific Speed (S)",
+        "tr": "Suction Specific Speed (S)",
+        "de": "Suction Specific Speed (S)",
+        "fr": "Suction Specific Speed (S)",
+        "es": "Suction Specific Speed (S)",
+        "ar": "Suction Specific Speed (S)"
+      }
     }
   ],
   "formulas": {
     "npshFt": "Math.pow((speed * Math.sqrt(flowRate) / suctionSpecificSpeed), (4/3))",
-    "npshM": "npshFt * 0.3048"
+    "npshM": "npshFt * 0.3048",
+    "npshFt_toFixed_2______ft__US_customary__": "npshFt.toFixed(2) + ' ft (US customary)'",
+    "npshM_toFixed_2______m__metric__": "npshM.toFixed(2) + ' m (metric)'",
+    "result": "npshM.toFixed(2) + ' m'"
   },
   "outputs": {
-    "primary": "npshM.toFixed(2) + ' m'",
+    "primary": "result",
     "breakdown": [
       "npshFt.toFixed(2) + ' ft (US customary)'",
       "npshM.toFixed(2) + ' m (metric)'"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

@@ -20,13 +20,15 @@ function evaluateAllFormulas(input: Turbine_calculatorInput): Record<string, num
   try { const v = Math.PI * (input.rotorDiameter / 2) ** 2; results["sweptArea"] = Number.isFinite(v) ? v : 0; } catch { results["sweptArea"] = 0; }
   try { const v = 0.5 * input.airDensity * (results["sweptArea"] ?? 0) * Math.pow(input.windSpeed, 3) / 1000; results["rawPower"] = Number.isFinite(v) ? v : 0; } catch { results["rawPower"] = 0; }
   try { const v = (results["rawPower"] ?? 0) * input.efficiency / 100; results["power"] = Number.isFinite(v) ? v : 0; } catch { results["power"] = 0; }
+  results["__sweptArea__m_"] = 0;
+  results["__rawPower__kW"] = 0;
   return results;
 }
 
 
 export function calculateTurbine_calculator(input: Turbine_calculatorInput): Turbine_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["G"] ?? 0;
+  const totalWasteCost = values["sweptArea"] ?? 0;
   const breakdown = {
     
   };

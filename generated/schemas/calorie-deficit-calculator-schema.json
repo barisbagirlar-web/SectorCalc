@@ -27,7 +27,7 @@
       "id": "gender",
       "label": "Gender",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "male",
       "min": null,
       "max": null,
@@ -79,7 +79,7 @@
       "id": "activityLevel",
       "label": "Activity Level",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "moderate",
       "min": null,
       "max": null,
@@ -102,7 +102,7 @@
       "id": "goalRate",
       "label": "Weight Loss Rate",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "moderate",
       "min": null,
       "max": null,
@@ -139,7 +139,7 @@
       "id": "isPregnant",
       "label": "Pregnant",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -155,7 +155,7 @@
       "id": "isLactating",
       "label": "Lactating",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -210,169 +210,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "bmr_mifflin",
-      "name": "BMR (Mifflin-St Jeor)",
-      "description": "Basal metabolic rate using the Mifflin-St Jeor equation.",
-      "equation": "if gender == 'male': 10 * weight + 6.25 * height - 5 * age + 5; else: 10 * weight + 6.25 * height - 5 * age - 161",
-      "unit": "kcal/day"
-    },
-    {
-      "id": "bmr_katch",
-      "name": "BMR (Katch-McArdle)",
-      "description": "Basal metabolic rate using lean body mass (requires body fat %).",
-      "equation": "370 + 21.6 * (weight * (1 - bodyFatPercent/100))",
-      "unit": "kcal/day"
-    },
-    {
-      "id": "tdee",
-      "name": "Total Daily Energy Expenditure",
-      "description": "TDEE = BMR * activity multiplier.",
-      "equation": "bmr * activityMultiplier",
-      "unit": "kcal/day",
-      "activityMultipliers": {
-        "sedentary": 1.2,
-        "light": 1.375,
-        "moderate": 1.55,
-        "active": 1.725,
-        "very active": 1.9
-      }
-    },
-    {
-      "id": "deficit_target",
-      "name": "Daily Calorie Deficit",
-      "description": "Deficit based on goal rate (slow: 250, moderate: 500, aggressive: 1000 kcal/day).",
-      "equation": "goalRateDeficit",
-      "unit": "kcal/day",
-      "goalRateDeficits": {
-        "slow": 250,
-        "moderate": 500,
-        "aggressive": 1000
-      }
-    },
-    {
-      "id": "target_calories",
-      "name": "Target Daily Calorie Intake",
-      "description": "Calories to consume daily to achieve the deficit.",
-      "equation": "tdee - deficit",
-      "unit": "kcal/day"
-    },
-    {
-      "id": "weekly_weight_loss",
-      "name": "Projected Weekly Weight Loss",
-      "description": "Based on 7700 kcal per kg of body fat.",
-      "equation": "(deficit * 7) / 7700",
-      "unit": "kg/week"
-    },
-    {
-      "id": "bmi",
-      "name": "Body Mass Index",
-      "description": "BMI = weight (kg) / (height (m))^2.",
-      "equation": "weight / ((height/100)^2)",
-      "unit": "kg/m²"
-    }
+    "age",
+    "age",
+    "age",
+    "age",
+    "age",
+    "age",
+    "age"
   ],
   "outputs": {
-    "primary": {
-      "id": "targetCalories",
-      "label": "Target Daily Calorie Intake",
-      "value": null,
-      "unit": "kcal/day"
-    },
-    "breakdown": {
-      "bmr": {
-        "id": "bmr",
-        "label": "Basal Metabolic Rate",
-        "value": null,
-        "unit": "kcal/day"
-      },
-      "tdee": {
-        "id": "tdee",
-        "label": "Total Daily Energy Expenditure",
-        "value": null,
-        "unit": "kcal/day"
-      },
-      "deficit": {
-        "id": "deficit",
-        "label": "Daily Calorie Deficit",
-        "value": null,
-        "unit": "kcal/day"
-      },
-      "weeklyWeightLoss": {
-        "id": "weeklyWeightLoss",
-        "label": "Projected Weekly Weight Loss",
-        "value": null,
-        "unit": "kg/week"
-      },
-      "bmi": {
-        "id": "bmi",
-        "label": "Body Mass Index",
-        "value": null,
-        "unit": "kg/m²"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "metabolic_adaptation",
-        "label": "Metabolic Adaptation",
-        "description": "Prolonged deficit may reduce BMR by 5-15% beyond predicted values.",
-        "impact": "negative"
-      },
-      {
-        "id": "non_exercise_activity_thermogenesis",
-        "label": "NEAT reduction",
-        "description": "Spontaneous physical activity often decreases during calorie restriction.",
-        "impact": "negative"
-      },
-      {
-        "id": "water_weight_fluctuation",
-        "label": "Water Weight Fluctuation",
-        "description": "Initial rapid loss is often water, not fat, masking true fat loss rate.",
-        "impact": "noise"
-      },
-      {
-        "id": "glycogen_depletion",
-        "label": "Glycogen Depletion",
-        "description": "Glycogen stores (with water) can cause 1-2 kg drop unrelated to fat loss.",
-        "impact": "noise"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_protein",
-        "label": "Increase Protein Intake",
-        "description": "Aim for 1.6-2.2 g/kg of body weight to preserve lean mass during deficit."
-      },
-      {
-        "id": "strength_training",
-        "label": "Incorporate Resistance Training",
-        "description": "Strength training mitigates muscle loss and supports metabolic rate."
-      },
-      {
-        "id": "monitor_trend",
-        "label": "Track Weight Trend Over 2-4 Weeks",
-        "description": "Use moving average to filter daily fluctuations and assess true fat loss."
-      },
-      {
-        "id": "adjust_deficit_plateau",
-        "label": "Reassess After 4-6 Weeks",
-        "description": "Metabolic adaptation may require recalculation of TDEE and deficit."
-      },
-      {
-        "id": "ensure_micronutrients",
-        "label": "Prioritize Micronutrient Density",
-        "description": "Low-calorie diets risk deficiencies; include vegetables, lean proteins, and supplements if needed."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Target",
-      "value": null,
-      "unit": "kcal/day",
-      "description": "Target calories adjusted downward by 5% if body fat % is not provided (less accurate BMR)."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
+  "toolName": "calorie-deficit-calculator"
 }

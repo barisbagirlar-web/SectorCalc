@@ -24,13 +24,17 @@ function evaluateAllFormulas(input: Acute_chronic_workload_ratio_calculatorInput
   try { const v = (results["acuteDailyLoad"] ?? 0) / (results["chronicDailyLoad"] ?? 0); results["acwr"] = Number.isFinite(v) ? v : 0; } catch { results["acwr"] = 0; }
   try { const v = (results["acwr"] ?? 0) > input.acwrThreshold; results["isOverThreshold"] = Number.isFinite(v) ? v : 0; } catch { results["isOverThreshold"] = 0; }
   try { const v = (results["isOverThreshold"] ?? 0) ? 'YÜKSEK RİSK' : 'DÜŞÜK RİSK'; results["status"] = Number.isFinite(v) ? v : 0; } catch { results["status"] = 0; }
+  results["Akut_G_nl_k_Ortalama"] = 0;
+  results["Kronik_G_nl_k_Ortalama"] = 0;
+  results["ACWR_De_eri"] = 0;
+  results["Risk_Durumu"] = 0;
   return results;
 }
 
 
 export function calculateAcute_chronic_workload_ratio_calculator(input: Acute_chronic_workload_ratio_calculatorInput): Acute_chronic_workload_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Acute"] ?? 0;
+  const totalWasteCost = values["acuteDailyLoad"] ?? 0;
   const breakdown = {
     
   };

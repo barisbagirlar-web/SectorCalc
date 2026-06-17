@@ -127,7 +127,7 @@
       "id": "confidence_level",
       "label": "Data Confidence Level",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "medium",
       "options": [
         "low",
@@ -146,7 +146,7 @@
       "id": "apply_six_sigma_adjustment",
       "label": "Apply Six Sigma Process Adjustment",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "businessContext": "If true, applies a 1.5 sigma shift to account for process variation (DMAIC).",
       "label_i18n": {
@@ -206,175 +206,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "new_price",
-      "name": "New Price",
-      "description": "Calculated new price after applying percentage change.",
-      "formula": "current_price * (1 + price_change_percent / 100)",
-      "unit": "USD"
-    },
-    {
-      "id": "quantity_change_percent",
-      "name": "Quantity Change Percent",
-      "description": "Percentage change in quantity demanded using elasticity.",
-      "formula": "elasticity_coefficient * (price_change_percent / 100)",
-      "unit": "%"
-    },
-    {
-      "id": "new_quantity",
-      "name": "New Quantity",
-      "description": "Forecasted quantity after price change, adjusted for demand shift and optional Six Sigma adjustment.",
-      "formula": "current_quantity * (1 + quantity_change_percent / 100) * demand_shift_factor * (apply_six_sigma_adjustment ? 0.99865 : 1.0)",
-      "unit": "units"
-    },
-    {
-      "id": "revenue_current",
-      "name": "Current Revenue",
-      "description": "Revenue at current price and quantity.",
-      "formula": "current_price * current_quantity",
-      "unit": "USD"
-    },
-    {
-      "id": "revenue_new",
-      "name": "New Revenue",
-      "description": "Revenue at new price and forecasted quantity.",
-      "formula": "new_price * new_quantity",
-      "unit": "USD"
-    },
-    {
-      "id": "profit_current",
-      "name": "Current Profit",
-      "description": "Profit at current scenario.",
-      "formula": "(current_price - variable_cost_per_unit) * current_quantity - fixed_cost_monthly",
-      "unit": "USD"
-    },
-    {
-      "id": "profit_new",
-      "name": "New Profit",
-      "description": "Profit at new scenario.",
-      "formula": "(new_price - variable_cost_per_unit) * new_quantity - fixed_cost_monthly",
-      "unit": "USD"
-    },
-    {
-      "id": "primary_result",
-      "name": "Revenue Change Percent",
-      "description": "Primary result: percentage change in revenue.",
-      "formula": "((revenue_new - revenue_current) / revenue_current) * 100",
-      "unit": "%"
-    }
+    "current_price",
+    "current_price",
+    "current_price",
+    "current_price",
+    "current_price",
+    "current_price",
+    "current_price",
+    "current_price"
   ],
   "outputs": {
-    "primary": {
-      "id": "revenue_change_percent",
-      "label": "Revenue Change (%)",
-      "value": null,
-      "unit": "%",
-      "description": "Percentage change in total revenue after price adjustment."
-    },
-    "breakdown": {
-      "new_price": {
-        "label": "New Price",
-        "unit": "USD",
-        "description": "Adjusted price per unit."
-      },
-      "new_quantity": {
-        "label": "New Quantity",
-        "unit": "units",
-        "description": "Forecasted monthly sales volume."
-      },
-      "revenue_current": {
-        "label": "Current Revenue",
-        "unit": "USD",
-        "description": "Revenue before price change."
-      },
-      "revenue_new": {
-        "label": "New Revenue",
-        "unit": "USD",
-        "description": "Revenue after price change."
-      },
-      "profit_current": {
-        "label": "Current Profit",
-        "unit": "USD",
-        "description": "Profit before price change."
-      },
-      "profit_new": {
-        "label": "New Profit",
-        "unit": "USD",
-        "description": "Profit after price change."
-      },
-      "profit_margin_percent": {
-        "label": "Profit Margin (%)",
-        "unit": "%",
-        "description": "New profit as percentage of new revenue."
-      },
-      "contribution_margin_per_unit": {
-        "label": "Contribution Margin per Unit",
-        "unit": "USD",
-        "description": "New price minus variable cost."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_elasticity_misestimation",
-        "label": "Elasticity Misestimation",
-        "description": "If actual elasticity differs from input, revenue impact may be significantly worse.",
-        "severity": "high"
-      },
-      {
-        "id": "loss_fixed_cost_leverage",
-        "label": "Fixed Cost Leverage",
-        "description": "High fixed costs amplify profit swings from volume changes.",
-        "severity": "medium"
-      },
-      {
-        "id": "loss_competitive_response",
-        "label": "Competitive Response",
-        "description": "Price change may trigger competitor reactions, altering demand beyond model.",
-        "severity": "high"
-      },
-      {
-        "id": "loss_inventory_holding",
-        "label": "Inventory Holding Cost",
-        "description": "Unexpected demand shifts may increase inventory carrying costs (WERC DC metrics).",
-        "severity": "medium"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_validate_elasticity",
-        "label": "Validate Elasticity with A/B Test",
-        "description": "Run a controlled price experiment to confirm elasticity coefficient before full rollout.",
-        "priority": 1
-      },
-      {
-        "id": "action_segment_customers",
-        "label": "Segment Customers by Elasticity",
-        "description": "Apply differential pricing to low-elasticity segments to maximize revenue.",
-        "priority": 2
-      },
-      {
-        "id": "action_reduce_variable_cost",
-        "label": "Reduce Variable Cost via Lean",
-        "description": "Use Lean Six Sigma tools (VSM, Kaizen) to lower variable cost and protect margin.",
-        "priority": 3
-      },
-      {
-        "id": "action_monitor_competitive",
-        "label": "Monitor Competitive Pricing",
-        "description": "Set up alerts for competitor price changes to adjust strategy dynamically.",
-        "priority": 4
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_adjusted_revenue_change",
-      "label": "Confidence-Adjusted Revenue Change (%)",
-      "unit": "%",
-      "description": "Revenue change adjusted for data confidence level (low: ±20%, medium: ±10%, high: ±5%).",
-      "value": null
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "price-elasticity-simulator-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

@@ -67,11 +67,7 @@
     "monthlyProfit": "netRevenue - monthlyExpenses"
   },
   "outputs": {
-    "primary": {
-      "id": "monthlyProfit",
-      "label": "Monthly Profit",
-      "unit": "currency"
-    },
+    "primary": "bookedNights",
     "breakdown": [
       {
         "id": "grossRevenue",
@@ -100,7 +96,7 @@
       }
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

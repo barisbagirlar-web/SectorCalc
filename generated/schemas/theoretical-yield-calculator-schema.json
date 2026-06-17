@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 10,
-      "businessContext": "Reaktanın kütlesi, gram cinsinden."
+      "businessContext": "Reaktanın kütlesi, gram cinsinden.",
+      "label_i18n": {
+        "en": "Kütle (Reaktan)",
+        "tr": "Kütle (Reaktan)",
+        "de": "Kütle (Reaktan)",
+        "fr": "Kütle (Reaktan)",
+        "es": "Kütle (Reaktan)",
+        "ar": "Kütle (Reaktan)"
+      }
     },
     {
       "id": "molarMassReactant",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "g/mol",
       "default": 100,
-      "businessContext": "Reaktanın molar kütlesi."
+      "businessContext": "Reaktanın molar kütlesi.",
+      "label_i18n": {
+        "en": "Molar Kütle (Reaktan)",
+        "tr": "Molar Kütle (Reaktan)",
+        "de": "Molar Kütle (Reaktan)",
+        "fr": "Molar Kütle (Reaktan)",
+        "es": "Molar Kütle (Reaktan)",
+        "ar": "Molar Kütle (Reaktan)"
+      }
     },
     {
       "id": "stoichReactant",
       "label": "Stokiyometrik Katsayı (Reaktan)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Reaktanın denklemdeki katsayısı."
+      "businessContext": "Reaktanın denklemdeki katsayısı.",
+      "label_i18n": {
+        "en": "Stokiyometrik Katsayı (Reaktan)",
+        "tr": "Stokiyometrik Katsayı (Reaktan)",
+        "de": "Stokiyometrik Katsayı (Reaktan)",
+        "fr": "Stokiyometrik Katsayı (Reaktan)",
+        "es": "Stokiyometrik Katsayı (Reaktan)",
+        "ar": "Stokiyometrik Katsayı (Reaktan)"
+      }
     },
     {
       "id": "stoichProduct",
       "label": "Stokiyometrik Katsayı (Ürün)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Ürünün denklemdeki katsayısı."
+      "businessContext": "Ürünün denklemdeki katsayısı.",
+      "label_i18n": {
+        "en": "Stokiyometrik Katsayı (Ürün)",
+        "tr": "Stokiyometrik Katsayı (Ürün)",
+        "de": "Stokiyometrik Katsayı (Ürün)",
+        "fr": "Stokiyometrik Katsayı (Ürün)",
+        "es": "Stokiyometrik Katsayı (Ürün)",
+        "ar": "Stokiyometrik Katsayı (Ürün)"
+      }
     },
     {
       "id": "molarMassProduct",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 100,
-      "businessContext": "Ürünün molar kütlesi."
+      "businessContext": "Ürünün molar kütlesi.",
+      "label_i18n": {
+        "en": "Molar Kütle (Ürün)",
+        "tr": "Molar Kütle (Ürün)",
+        "de": "Molar Kütle (Ürün)",
+        "fr": "Molar Kütle (Ürün)",
+        "es": "Molar Kütle (Ürün)",
+        "ar": "Molar Kütle (Ürün)"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "molesProduct"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "quality-six-sigma"
 }

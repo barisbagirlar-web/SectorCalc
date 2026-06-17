@@ -15,14 +15,19 @@ export const Normality_calculatorInputSchema = z.object({
   volume: z.number().default(0.5),
 });
 
-function evaluateAllFormulas(_input: Normality_calculatorInput): Record<string, number> {
-  return {};
+function evaluateAllFormulas(input: Normality_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = Normality (N); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+  results["Equivalent_Weight__g_eq_"] = 0;
+  try { const v = Normality (N); results["Normality__N_"] = Number.isFinite(v) ? v : 0; } catch { results["Normality__N_"] = 0; }
+  try { const v = Normality (N); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
+  return results;
 }
 
 
 export function calculateNormality_calculator(input: Normality_calculatorInput): Normality_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Normality"] ?? 0;
+  const totalWasteCost = values["primary_result"] ?? 0;
   const breakdown = {
     
   };

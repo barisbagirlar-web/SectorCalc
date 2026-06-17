@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "The area in square meters to convert."
+      "businessContext": "The area in square meters to convert.",
+      "label_i18n": {
+        "en": "Area (m²)",
+        "tr": "Area (m²)",
+        "de": "Area (m²)",
+        "fr": "Area (m²)",
+        "es": "Area (m²)",
+        "ar": "Area (m²)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "ft²/m²",
       "default": 10.7639104,
-      "businessContext": "Standard conversion factor from m² to ft². 1 m² = 10.7639104 ft²."
+      "businessContext": "Standard conversion factor from m² to ft². 1 m² = 10.7639104 ft².",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "roundingPrecision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the output."
+      "businessContext": "Number of decimal places for rounding the output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "areaUnitPrice",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency/ft²",
       "default": 0,
-      "businessContext": "Optional: price per square foot for cost estimation."
+      "businessContext": "Optional: price per square foot for cost estimation.",
+      "label_i18n": {
+        "en": "Unit Price",
+        "tr": "Unit Price",
+        "de": "Unit Price",
+        "fr": "Unit Price",
+        "es": "Unit Price",
+        "ar": "Unit Price"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Optional: percentage of additional area for material waste."
+      "businessContext": "Optional: percentage of additional area for material waste.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "measurementTolerance",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Measurement uncertainty percentage for tolerance band."
+      "businessContext": "Measurement uncertainty percentage for tolerance band.",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     }
   ],
   "formulas": {
@@ -66,10 +114,10 @@
       "totalCost"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

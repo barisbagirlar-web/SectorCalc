@@ -40,11 +40,7 @@
     "speed": "(laps * poolLength) / time"
   },
   "outputs": {
-    "primary": {
-      "id": "strokeRate",
-      "label": "Stroke Rate",
-      "unit": "strokes/min"
-    },
+    "primary": "strokeRate",
     "breakdown": [
       {
         "id": "strokeCycleTime",
@@ -58,10 +54,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

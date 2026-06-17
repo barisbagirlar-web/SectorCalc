@@ -5,33 +5,65 @@
       "id": "n",
       "label": "Sample Size (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Number of data points in the sample or population"
+      "businessContext": "Number of data points in the sample or population",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "sumSquared",
       "label": "Sum of Squared Deviations",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Sum of (xi - mean)²"
+      "businessContext": "Sum of (xi - mean)²",
+      "label_i18n": {
+        "en": "Sum of Squared Deviations",
+        "tr": "Sum of Squared Deviations",
+        "de": "Sum of Squared Deviations",
+        "fr": "Sum of Squared Deviations",
+        "es": "Sum of Squared Deviations",
+        "ar": "Sum of Squared Deviations"
+      }
     },
     {
       "id": "sumFourth",
       "label": "Sum of Fourth Power Deviations",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Sum of (xi - mean)⁴"
+      "businessContext": "Sum of (xi - mean)⁴",
+      "label_i18n": {
+        "en": "Sum of Fourth Power Deviations",
+        "tr": "Sum of Fourth Power Deviations",
+        "de": "Sum of Fourth Power Deviations",
+        "fr": "Sum of Fourth Power Deviations",
+        "es": "Sum of Fourth Power Deviations",
+        "ar": "Sum of Fourth Power Deviations"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for output rounding"
+      "businessContext": "Number of decimal places for output rounding",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "excessKurtosis"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "electrical-power-systems"
 }

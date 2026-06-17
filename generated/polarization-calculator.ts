@@ -25,7 +25,7 @@ function evaluateAllFormulas(input: Polarization_calculatorInput): Record<string
 
 export function calculatePolarization_calculator(input: Polarization_calculatorInput): Polarization_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["final_intensity"] ?? 0;
+  const totalWasteCost = values["I1"] ?? 0;
   const breakdown = {
     
   };

@@ -74,11 +74,7 @@
     "heatLoss": "(inputs.area * inputs.deltaT) / totalRValue"
   },
   "outputs": {
-    "primary": {
-      "label": "Total R-Value",
-      "unit": "m²K/W",
-      "formulaRef": "totalRValue"
-    },
+    "primary": "r1",
     "breakdown": [
       {
         "label": "Layer 1 R-Value",
@@ -102,10 +98,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

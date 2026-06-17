@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 30,
-      "businessContext": "Strength of first test specimen"
+      "businessContext": "Strength of first test specimen",
+      "label_i18n": {
+        "en": "Specimen 1 Strength",
+        "tr": "Specimen 1 Strength",
+        "de": "Specimen 1 Strength",
+        "fr": "Specimen 1 Strength",
+        "es": "Specimen 1 Strength",
+        "ar": "Specimen 1 Strength"
+      }
     },
     {
       "id": "s2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 32,
-      "businessContext": "Strength of second test specimen"
+      "businessContext": "Strength of second test specimen",
+      "label_i18n": {
+        "en": "Specimen 2 Strength",
+        "tr": "Specimen 2 Strength",
+        "de": "Specimen 2 Strength",
+        "fr": "Specimen 2 Strength",
+        "es": "Specimen 2 Strength",
+        "ar": "Specimen 2 Strength"
+      }
     },
     {
       "id": "s3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 31,
-      "businessContext": "Strength of third test specimen"
+      "businessContext": "Strength of third test specimen",
+      "label_i18n": {
+        "en": "Specimen 3 Strength",
+        "tr": "Specimen 3 Strength",
+        "de": "Specimen 3 Strength",
+        "fr": "Specimen 3 Strength",
+        "es": "Specimen 3 Strength",
+        "ar": "Specimen 3 Strength"
+      }
     },
     {
       "id": "target",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 30,
-      "businessContext": "Required minimum mean strength"
+      "businessContext": "Required minimum mean strength",
+      "label_i18n": {
+        "en": "Target Strength",
+        "tr": "Target Strength",
+        "de": "Target Strength",
+        "fr": "Target Strength",
+        "es": "Target Strength",
+        "ar": "Target Strength"
+      }
     },
     {
       "id": "cv_limit",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Maximum allowed coefficient of variation"
+      "businessContext": "Maximum allowed coefficient of variation",
+      "label_i18n": {
+        "en": "Acceptance CV Limit",
+        "tr": "Acceptance CV Limit",
+        "de": "Acceptance CV Limit",
+        "fr": "Acceptance CV Limit",
+        "es": "Acceptance CV Limit",
+        "ar": "Acceptance CV Limit"
+      }
     },
     {
       "id": "min_individual",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 25,
-      "businessContext": "Lower tolerance for any single specimen"
+      "businessContext": "Lower tolerance for any single specimen",
+      "label_i18n": {
+        "en": "Minimum Individual Strength",
+        "tr": "Minimum Individual Strength",
+        "de": "Minimum Individual Strength",
+        "fr": "Minimum Individual Strength",
+        "es": "Minimum Individual Strength",
+        "ar": "Minimum Individual Strength"
+      }
     },
     {
       "id": "max_individual",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 45,
-      "businessContext": "Upper tolerance for any single specimen"
+      "businessContext": "Upper tolerance for any single specimen",
+      "label_i18n": {
+        "en": "Maximum Individual Strength",
+        "tr": "Maximum Individual Strength",
+        "de": "Maximum Individual Strength",
+        "fr": "Maximum Individual Strength",
+        "es": "Maximum Individual Strength",
+        "ar": "Maximum Individual Strength"
+      }
     }
   ],
   "formulas": {
@@ -80,10 +136,10 @@
       "max_ok"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

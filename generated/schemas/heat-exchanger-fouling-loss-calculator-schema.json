@@ -188,7 +188,8 @@
       },
       "businessContext_i18n": {
         "en": "Type of heat exchanger; affects fouling factors and cleaning intervals."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "fouling_factor_known",
@@ -201,7 +202,8 @@
       },
       "businessContext_i18n": {
         "en": "If true, user provides measured fouling factor directly; otherwise calculated from UA ratio."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "measured_fouling_factor",
@@ -263,159 +265,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "fouling_resistance",
-      "label": "Fouling Resistance (R_f)",
-      "description": "Calculated from UA ratio or directly from user input.",
-      "formula": "if (fouling_factor_known) then measured_fouling_factor else (1/actual_ua - 1/design_ua)",
-      "unit": "m²·K/kW",
-      "intermediate": true
-    },
-    {
-      "id": "heat_duty_design",
-      "label": "Design Heat Duty (Q_design)",
-      "description": "Maximum heat transfer capacity under clean conditions using LMTD method (simplified).",
-      "formula": "design_ua * ((hot_inlet_temp - cold_inlet_temp) / 2)",
-      "unit": "kW",
-      "intermediate": true
-    },
-    {
-      "id": "heat_duty_actual",
-      "label": "Actual Heat Duty (Q_actual)",
-      "description": "Current heat transfer based on actual UA and LMTD approximation.",
-      "formula": "actual_ua * ((hot_inlet_temp - cold_inlet_temp) / 2)",
-      "unit": "kW",
-      "intermediate": true
-    },
-    {
-      "id": "energy_loss",
-      "label": "Energy Loss (ΔQ)",
-      "description": "Reduction in heat duty due to fouling.",
-      "formula": "heat_duty_design - heat_duty_actual",
-      "unit": "kW",
-      "intermediate": true
-    },
-    {
-      "id": "energy_loss_cost",
-      "label": "Annual Energy Loss Cost",
-      "description": "Monetary value of lost thermal energy over a year.",
-      "formula": "energy_loss * energy_cost * operating_hours_per_year",
-      "unit": "$/yr",
-      "intermediate": true
-    },
-    {
-      "id": "production_loss_cost",
-      "label": "Annual Production Loss Cost",
-      "description": "Revenue lost due to reduced throughput caused by fouling.",
-      "formula": "(production_loss_factor / 100) * hot_flow_rate * revenue_per_unit_product * operating_hours_per_year * 3600",
-      "unit": "$/yr",
-      "intermediate": true
-    },
-    {
-      "id": "total_fouling_loss",
-      "label": "Total Annual Fouling Loss",
-      "description": "Primary result: sum of energy and production losses.",
-      "formula": "energy_loss_cost + production_loss_cost",
-      "unit": "$/yr",
-      "primary": true
-    }
+    "design_ua",
+    "design_ua",
+    "design_ua",
+    "design_ua",
+    "design_ua",
+    "design_ua",
+    "design_ua"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_fouling_loss",
-      "label": "Total Annual Fouling Loss",
-      "value": null,
-      "unit": "$/yr",
-      "description": "Combined annual cost of energy loss and production loss due to fouling."
-    },
-    "breakdown": {
-      "fouling_resistance": {
-        "id": "fouling_resistance",
-        "label": "Fouling Resistance",
-        "value": null,
-        "unit": "m²·K/kW"
-      },
-      "heat_duty_design": {
-        "id": "heat_duty_design",
-        "label": "Design Heat Duty",
-        "value": null,
-        "unit": "kW"
-      },
-      "heat_duty_actual": {
-        "id": "heat_duty_actual",
-        "label": "Actual Heat Duty",
-        "value": null,
-        "unit": "kW"
-      },
-      "energy_loss": {
-        "id": "energy_loss",
-        "label": "Energy Loss",
-        "value": null,
-        "unit": "kW"
-      },
-      "energy_loss_cost": {
-        "id": "energy_loss_cost",
-        "label": "Annual Energy Loss Cost",
-        "value": null,
-        "unit": "$/yr"
-      },
-      "production_loss_cost": {
-        "id": "production_loss_cost",
-        "label": "Annual Production Loss Cost",
-        "value": null,
-        "unit": "$/yr"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "increased_pumping_cost",
-        "label": "Increased Pumping Cost",
-        "description": "Additional energy for pumps due to higher pressure drop across fouled exchanger.",
-        "estimated_impact": "5-15% of energy loss cost"
-      },
-      {
-        "id": "maintenance_downtime",
-        "label": "Maintenance Downtime",
-        "description": "Lost production during cleaning or replacement.",
-        "estimated_impact": "varies with cleaning frequency"
-      },
-      {
-        "id": "reduced_equipment_life",
-        "label": "Reduced Equipment Life",
-        "description": "Accelerated corrosion or erosion under fouling deposits.",
-        "estimated_impact": "10-20% reduction in lifespan"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": 1,
-        "action": "Schedule chemical cleaning or mechanical brushing within next 2 weeks.",
-        "expected_savings": "Restore 70-90% of lost UA"
-      },
-      {
-        "id": "action_2",
-        "priority": 2,
-        "action": "Install online fouling monitoring system (e.g., thermal resistance sensors).",
-        "expected_savings": "Reduce unplanned downtime by 30%"
-      },
-      {
-        "id": "action_3",
-        "priority": 3,
-        "action": "Evaluate anti-fouling coatings or surface modifications for future replacement.",
-        "expected_savings": "Extend cleaning interval by 50%"
-      },
-      {
-        "id": "action_4",
-        "priority": 4,
-        "action": "Review process conditions (velocity, temperature) to minimize fouling rate.",
-        "expected_savings": "Reduce fouling rate by 20%"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "heat-exchanger-fouling-loss-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik"
 }

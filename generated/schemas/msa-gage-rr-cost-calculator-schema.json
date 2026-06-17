@@ -175,7 +175,7 @@
       "id": "measurement_system_type",
       "label": "Measurement System Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "variable",
       "options": [
         "variable",
@@ -193,7 +193,7 @@
       "id": "include_hidden_losses",
       "label": "Include Hidden Losses (False Positives/Negatives)",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "businessContext": "If true, calculates costs from misclassifications due to measurement error.",
       "label_i18n": {
@@ -260,196 +260,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "grr_variation",
-      "name": "Gage R&R Variation",
-      "description": "Combined repeatability and reproducibility variation (pooled standard deviation).",
-      "formula": "sqrt(repeatability_variation^2 + reproducibility_variation^2)",
-      "inputs": [
-        "repeatability_variation",
-        "reproducibility_variation"
-      ],
-      "unit": "mm"
-    },
-    {
-      "id": "pct_grr",
-      "name": "%GRR (Percent Gage R&R)",
-      "description": "Percentage of total variation consumed by measurement system error.",
-      "formula": "(grr_variation / total_variation) * 100",
-      "inputs": [
-        "grr_variation",
-        "total_variation"
-      ],
-      "unit": "%"
-    },
-    {
-      "id": "ndc",
-      "name": "Number of Distinct Categories",
-      "description": "Number of distinct part categories the measurement system can reliably distinguish.",
-      "formula": "floor((total_variation / grr_variation) * sqrt(2))",
-      "inputs": [
-        "total_variation",
-        "grr_variation"
-      ],
-      "unit": "categories"
-    },
-    {
-      "id": "misclassification_rate",
-      "name": "Misclassification Rate",
-      "description": "Estimated rate of false positives and false negatives due to measurement error (based on GRR and defect rate).",
-      "formula": "defect_rate * (pct_grr / 100) * 0.5",
-      "inputs": [
-        "defect_rate",
-        "pct_grr"
-      ],
-      "unit": "ppm"
-    },
-    {
-      "id": "annual_internal_failure_cost",
-      "name": "Annual Internal Failure Cost",
-      "description": "Cost of defects detected internally (scrap, rework).",
-      "formula": "(defect_rate / 1e6) * annual_production_volume * cost_per_defect",
-      "inputs": [
-        "defect_rate",
-        "annual_production_volume",
-        "cost_per_defect"
-      ],
-      "unit": "USD"
-    },
-    {
-      "id": "annual_external_failure_cost",
-      "name": "Annual External Failure Cost",
-      "description": "Cost of defects that escape to the customer.",
-      "formula": "(defect_rate / 1e6) * annual_production_volume * cost_per_escaped_defect * 0.1",
-      "inputs": [
-        "defect_rate",
-        "annual_production_volume",
-        "cost_per_escaped_defect"
-      ],
-      "unit": "USD"
-    },
-    {
-      "id": "annual_hidden_loss_cost",
-      "name": "Annual Hidden Loss Cost (Misclassification)",
-      "description": "Additional cost from false positives/negatives due to measurement error.",
-      "formula": "(misclassification_rate / 1e6) * annual_production_volume * (cost_per_defect + cost_per_escaped_defect) * 0.5",
-      "inputs": [
-        "misclassification_rate",
-        "annual_production_volume",
-        "cost_per_defect",
-        "cost_per_escaped_defect"
-      ],
-      "unit": "USD"
-    },
-    {
-      "id": "total_annual_cost",
-      "name": "Total Annual Cost of Measurement Error",
-      "description": "Primary result: sum of all failure costs and hidden losses.",
-      "formula": "annual_internal_failure_cost + annual_external_failure_cost + (include_hidden_losses ? annual_hidden_loss_cost : 0)",
-      "inputs": [
-        "annual_internal_failure_cost",
-        "annual_external_failure_cost",
-        "annual_hidden_loss_cost",
-        "include_hidden_losses"
-      ],
-      "unit": "USD"
-    }
+    "num_parts",
+    "num_parts",
+    "num_parts",
+    "num_parts",
+    "num_parts",
+    "num_parts",
+    "num_parts",
+    "num_parts"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_cost",
-      "label": "Total Annual Cost of Measurement Error",
-      "value": null,
-      "unit": "USD",
-      "description": "Primary result: total annual cost attributable to measurement system variation."
-    },
-    "breakdown": {
-      "id": "cost_breakdown",
-      "label": "Cost Breakdown",
-      "components": [
-        {
-          "id": "internal_failure_cost",
-          "label": "Internal Failure Cost",
-          "value": null,
-          "unit": "USD",
-          "description": "Cost of defects caught internally."
-        },
-        {
-          "id": "external_failure_cost",
-          "label": "External Failure Cost",
-          "value": null,
-          "unit": "USD",
-          "description": "Cost of defects that reach the customer."
-        },
-        {
-          "id": "hidden_loss_cost",
-          "label": "Hidden Loss Cost (Misclassification)",
-          "value": null,
-          "unit": "USD",
-          "description": "Cost from false positives/negatives due to measurement error."
-        }
-      ]
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "pct_grr",
-        "label": "%GRR",
-        "value": null,
-        "unit": "%",
-        "impact": "High %GRR increases misclassification rates and hidden costs."
-      },
-      {
-        "id": "ndc",
-        "label": "Number of Distinct Categories",
-        "value": null,
-        "unit": "categories",
-        "impact": "Low ndc reduces ability to detect process shifts, increasing risk."
-      },
-      {
-        "id": "misclassification_rate",
-        "label": "Misclassification Rate",
-        "value": null,
-        "unit": "ppm",
-        "impact": "Directly drives hidden loss costs."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_improve_gage",
-        "label": "Improve Gage Repeatability",
-        "description": "Calibrate or replace measurement equipment to reduce repeatability variation.",
-        "expectedImpact": "Reduces %GRR and misclassification rate."
-      },
-      {
-        "id": "action_standardize_procedure",
-        "label": "Standardize Measurement Procedure",
-        "description": "Provide training and clear work instructions to reduce reproducibility variation.",
-        "expectedImpact": "Lowers operator-to-operator variation."
-      },
-      {
-        "id": "action_increase_ndc",
-        "label": "Increase Number of Distinct Categories",
-        "description": "Use a more precise measurement system or increase part range in study.",
-        "expectedImpact": "Improves process control capability."
-      },
-      {
-        "id": "action_review_tolerances",
-        "label": "Review Tolerances and Specifications",
-        "description": "Ensure measurement system is adequate for tolerance (P/T ratio).",
-        "expectedImpact": "Reduces false acceptance/rejection."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_adjusted_cost",
-      "label": "Data Confidence Adjusted Total Cost",
-      "value": null,
-      "unit": "USD",
-      "description": "Total cost adjusted for measurement system uncertainty (95% confidence interval upper bound).",
-      "formula": "total_annual_cost * (1 + (pct_grr / 100) * 0.5)"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "msa-gage-rr-cost-calculator",
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

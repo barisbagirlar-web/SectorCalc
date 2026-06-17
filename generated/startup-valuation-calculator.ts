@@ -23,13 +23,17 @@ function evaluateAllFormulas(input: Startup_valuation_calculatorInput): Record<s
   try { const v = (results["exitValue"] ?? 0) / input.requiredROI; results["postMoney"] = Number.isFinite(v) ? v : 0; } catch { results["postMoney"] = 0; }
   try { const v = (results["postMoney"] ?? 0) - input.investmentAmount; results["preMoney"] = Number.isFinite(v) ? v : 0; } catch { results["preMoney"] = 0; }
   try { const v = (input.investmentAmount / (results["postMoney"] ?? 0)) * 100; results["ownershipPercent"] = Number.isFinite(v) ? v : 0; } catch { results["ownershipPercent"] = 0; }
+  results["Pre_Money_Valuation"] = 0;
+  results["Exit_Value"] = 0;
+  results["Investor_Ownership__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateStartup_valuation_calculator(input: Startup_valuation_calculatorInput): Startup_valuation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Post"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

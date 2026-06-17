@@ -37,7 +37,7 @@ function evaluateAllFormulas(input: Shopify_profit_calculatorInput): Record<stri
 
 export function calculateShopify_profit_calculator(input: Shopify_profit_calculatorInput): Shopify_profit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["netProfit"] ?? 0;
+  const totalWasteCost = values["totalRevenue"] ?? 0;
   const breakdown = {
     
   };

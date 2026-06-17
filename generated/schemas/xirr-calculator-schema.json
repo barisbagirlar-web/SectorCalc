@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": -10000,
-      "businessContext": "Initial amount invested (negative for outflow)."
+      "businessContext": "Initial amount invested (negative for outflow).",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "initialDate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Number of days from the start date to the initial investment date."
+      "businessContext": "Number of days from the start date to the initial investment date.",
+      "label_i18n": {
+        "en": "Initial Date (days from start)",
+        "tr": "Initial Date (days from start)",
+        "de": "Initial Date (days from start)",
+        "fr": "Initial Date (days from start)",
+        "es": "Initial Date (days from start)",
+        "ar": "Initial Date (days from start)"
+      }
     },
     {
       "id": "cf1Amount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Amount of the first intermediate cash flow (positive for inflow, negative for outflow)."
+      "businessContext": "Amount of the first intermediate cash flow (positive for inflow, negative for outflow).",
+      "label_i18n": {
+        "en": "Cash Flow 1 Amount",
+        "tr": "Cash Flow 1 Amount",
+        "de": "Cash Flow 1 Amount",
+        "fr": "Cash Flow 1 Amount",
+        "es": "Cash Flow 1 Amount",
+        "ar": "Cash Flow 1 Amount"
+      }
     },
     {
       "id": "cf1Days",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Number of days to the first intermediate cash flow."
+      "businessContext": "Number of days to the first intermediate cash flow.",
+      "label_i18n": {
+        "en": "Cash Flow 1 Days",
+        "tr": "Cash Flow 1 Days",
+        "de": "Cash Flow 1 Days",
+        "fr": "Cash Flow 1 Days",
+        "es": "Cash Flow 1 Days",
+        "ar": "Cash Flow 1 Days"
+      }
     },
     {
       "id": "cf2Amount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Amount of the second intermediate cash flow."
+      "businessContext": "Amount of the second intermediate cash flow.",
+      "label_i18n": {
+        "en": "Cash Flow 2 Amount",
+        "tr": "Cash Flow 2 Amount",
+        "de": "Cash Flow 2 Amount",
+        "fr": "Cash Flow 2 Amount",
+        "es": "Cash Flow 2 Amount",
+        "ar": "Cash Flow 2 Amount"
+      }
     },
     {
       "id": "cf2Days",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Number of days to the second intermediate cash flow."
+      "businessContext": "Number of days to the second intermediate cash flow.",
+      "label_i18n": {
+        "en": "Cash Flow 2 Days",
+        "tr": "Cash Flow 2 Days",
+        "de": "Cash Flow 2 Days",
+        "fr": "Cash Flow 2 Days",
+        "es": "Cash Flow 2 Days",
+        "ar": "Cash Flow 2 Days"
+      }
     },
     {
       "id": "finalValue",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "currency",
       "default": 11000,
-      "businessContext": "Final value or cash flow at the end of the investment (typically positive)."
+      "businessContext": "Final value or cash flow at the end of the investment (typically positive).",
+      "label_i18n": {
+        "en": "Final Value",
+        "tr": "Final Value",
+        "de": "Final Value",
+        "fr": "Final Value",
+        "es": "Final Value",
+        "ar": "Final Value"
+      }
     },
     {
       "id": "finalDays",
@@ -63,12 +119,21 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "Number of days from start to the final cash flow."
+      "businessContext": "Number of days from start to the final cash flow.",
+      "label_i18n": {
+        "en": "Final Days",
+        "tr": "Final Days",
+        "de": "Final Days",
+        "fr": "Final Days",
+        "es": "Final Days",
+        "ar": "Final Days"
+      }
     }
   ],
   "formulas": {
     "npv": "function(r){var c=[initialInvestment,cf1Amount,cf2Amount,finalValue],d=[initialDate,cf1Days,cf2Days,finalDays],d0=d[0],n=0;for(var i=0;i<c.length;i++){n+=c[i]/Math.pow(1+r,(d[i]-d0)/365);}return n;}",
-    "xirr": "function(){var r=0.1;for(var i=0;i<100;i++){var f=npv(r);var df=0;var c=[initialInvestment,cf1Amount,cf2Amount,finalValue],d=[initialDate,cf1Days,cf2Days,finalDays],d0=d[0];for(var j=0;j<c.length;j++){var t=(d[j]-d0)/365;df-=t*c[j]/Math.pow(1+r,t+1);}if(Math.abs(f)<1e-6)break;r-=f/df;}return r;}"
+    "xirr": "function(){var r=0.1;for(var i=0;i<100;i++){var f=npv(r);var df=0;var c=[initialInvestment,cf1Amount,cf2Amount,finalValue],d=[initialDate,cf1Days,cf2Days,finalDays],d0=d[0];for(var j=0;j<c.length;j++){var t=(d[j]-d0)/365;df-=t*c[j]/Math.pow(1+r,t+1);}if(Math.abs(f)<1e-6)break;r-=f/df;}return r;}",
+    "npv_xirr_": "npv(xirr)"
   },
   "outputs": {
     "primary": "xirr",
@@ -76,10 +141,10 @@
       "npv(xirr)"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "process-chemical"
 }

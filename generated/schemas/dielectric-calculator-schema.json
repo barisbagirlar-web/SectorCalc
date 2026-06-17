@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 4,
-      "businessContext": "Dielectric constant of material"
+      "businessContext": "Dielectric constant of material",
+      "label_i18n": {
+        "en": "Relative Permittivity (εr)",
+        "tr": "Relative Permittivity (εr)",
+        "de": "Relative Permittivity (εr)",
+        "fr": "Relative Permittivity (εr)",
+        "es": "Relative Permittivity (εr)",
+        "ar": "Relative Permittivity (εr)"
+      }
     },
     {
       "id": "plate_area",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.01,
-      "businessContext": "Overlapping area of capacitor plates"
+      "businessContext": "Overlapping area of capacitor plates",
+      "label_i18n": {
+        "en": "Plate Area (A)",
+        "tr": "Plate Area (A)",
+        "de": "Plate Area (A)",
+        "fr": "Plate Area (A)",
+        "es": "Plate Area (A)",
+        "ar": "Plate Area (A)"
+      }
     },
     {
       "id": "plate_distance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.001,
-      "businessContext": "Thickness of dielectric between plates"
+      "businessContext": "Thickness of dielectric between plates",
+      "label_i18n": {
+        "en": "Distance Between Plates (d)",
+        "tr": "Distance Between Plates (d)",
+        "de": "Distance Between Plates (d)",
+        "fr": "Distance Between Plates (d)",
+        "es": "Distance Between Plates (d)",
+        "ar": "Distance Between Plates (d)"
+      }
     },
     {
       "id": "frequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000000,
-      "businessContext": "Operating frequency"
+      "businessContext": "Operating frequency",
+      "label_i18n": {
+        "en": "Frequency (f)",
+        "tr": "Frequency (f)",
+        "de": "Frequency (f)",
+        "fr": "Frequency (f)",
+        "es": "Frequency (f)",
+        "ar": "Frequency (f)"
+      }
     },
     {
       "id": "loss_tangent",
@@ -39,11 +71,19 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.001,
-      "businessContext": "Dielectric dissipation factor"
+      "businessContext": "Dielectric dissipation factor",
+      "label_i18n": {
+        "en": "Loss Tangent (tanδ)",
+        "tr": "Loss Tangent (tanδ)",
+        "de": "Loss Tangent (tanδ)",
+        "fr": "Loss Tangent (tanδ)",
+        "es": "Loss Tangent (tanδ)",
+        "ar": "Loss Tangent (tanδ)"
+      }
     }
   ],
   "formulas": {
-    "epsilon0": 8.854e-12,
+    "epsilon0": "8.854e-12",
     "capacitance": "epsilon0 * relative_permittivity * plate_area / plate_distance",
     "impedance": "1 / (2 * Math.PI * frequency * capacitance)",
     "quality_factor": "1 / loss_tangent",
@@ -57,8 +97,8 @@
       "loss"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

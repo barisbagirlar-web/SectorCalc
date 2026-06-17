@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Number of full years to convert"
+      "businessContext": "Number of full years to convert",
+      "label_i18n": {
+        "en": "Years",
+        "tr": "Years",
+        "de": "Years",
+        "fr": "Years",
+        "es": "Years",
+        "ar": "Years"
+      }
     },
     {
       "id": "months",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "months",
       "default": 0,
-      "businessContext": "Additional months (12 months = 1 year)"
+      "businessContext": "Additional months (12 months = 1 year)",
+      "label_i18n": {
+        "en": "Months",
+        "tr": "Months",
+        "de": "Months",
+        "fr": "Months",
+        "es": "Months",
+        "ar": "Months"
+      }
     },
     {
       "id": "weeks",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 0,
-      "businessContext": "Additional weeks (52.1429 weeks ≈ 1 year)"
+      "businessContext": "Additional weeks (52.1429 weeks ≈ 1 year)",
+      "label_i18n": {
+        "en": "Weeks",
+        "tr": "Weeks",
+        "de": "Weeks",
+        "fr": "Weeks",
+        "es": "Weeks",
+        "ar": "Weeks"
+      }
     },
     {
       "id": "days",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Additional days (365.25 days ≈ 1 year)"
+      "businessContext": "Additional days (365.25 days ≈ 1 year)",
+      "label_i18n": {
+        "en": "Days",
+        "tr": "Days",
+        "de": "Days",
+        "fr": "Days",
+        "es": "Days",
+        "ar": "Days"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output"
+      "businessContext": "Number of decimal places for the output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "rawDecades"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

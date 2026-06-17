@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "km/h",
       "default": 0,
-      "businessContext": "User-provided speed in kilometers per hour for conversion."
+      "businessContext": "User-provided speed in kilometers per hour for conversion.",
+      "label_i18n": {
+        "en": "Speed Value (km/h)",
+        "tr": "Speed Value (km/h)",
+        "de": "Speed Value (km/h)",
+        "fr": "Speed Value (km/h)",
+        "es": "Speed Value (km/h)",
+        "ar": "Speed Value (km/h)"
+      }
     },
     {
       "id": "decimal_places",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places to round the output value."
+      "businessContext": "Number of decimal places to round the output value.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "conversion_factor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m·h / km·s",
       "default": 3.6,
-      "businessContext": "Standard factor for converting km/h to m/s (1 km/h = 1/3.6 m/s). Fixed."
+      "businessContext": "Standard factor for converting km/h to m/s (1 km/h = 1/3.6 m/s). Fixed.",
+      "label_i18n": {
+        "en": "Conversion Factor (km/h to m/s)",
+        "tr": "Conversion Factor (km/h to m/s)",
+        "de": "Conversion Factor (km/h to m/s)",
+        "fr": "Conversion Factor (km/h to m/s)",
+        "es": "Conversion Factor (km/h to m/s)",
+        "ar": "Conversion Factor (km/h to m/s)"
+      }
     },
     {
       "id": "measurement_uncertainty_percent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.1,
-      "businessContext": "Estimated percentage uncertainty in the speed measurement for error propagation."
+      "businessContext": "Estimated percentage uncertainty in the speed measurement for error propagation.",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (%)",
+        "tr": "Measurement Uncertainty (%)",
+        "de": "Measurement Uncertainty (%)",
+        "fr": "Measurement Uncertainty (%)",
+        "es": "Measurement Uncertainty (%)",
+        "ar": "Measurement Uncertainty (%)"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "breakdown_step3"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

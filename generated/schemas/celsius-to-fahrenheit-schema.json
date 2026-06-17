@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 0,
-      "businessContext": "Temperature in Celsius scale"
+      "businessContext": "Temperature in Celsius scale",
+      "label_i18n": {
+        "en": "Celsius",
+        "tr": "Celsius",
+        "de": "Celsius",
+        "fr": "Celsius",
+        "es": "Celsius",
+        "ar": "Celsius"
+      }
     },
     {
       "id": "precision",
@@ -15,12 +23,46 @@
       "type": "number",
       "unit": "digits",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding"
+      "businessContext": "Number of decimal places for rounding",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
     "fahrenheit": "celsius * 9 / 5 + 32",
-    "roundedFahrenheit": "Math.round(fahrenheit * 10 ** precision) / 10 ** precision"
+    "roundedFahrenheit": "Math.round(fahrenheit * 10 ** precision) / 10 ** precision",
+    "fahrenheit___celsius___9___5___32": "fahrenheit = celsius * 9 / 5 + 32",
+    "roundedFahrenheit___Math_round_fahrenhei": "roundedFahrenheit = Math.round(fahrenheit * 10 ** precision) / 10 ** precision"
   },
   "outputs": {
     "primary": "roundedFahrenheit",
@@ -29,8 +71,8 @@
       "roundedFahrenheit = Math.round(fahrenheit * 10 ** precision) / 10 ** precision"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

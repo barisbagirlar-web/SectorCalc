@@ -5,33 +5,65 @@
       "id": "numberOfFlips",
       "label": "Number of Flips (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Total number of independent coin flips"
+      "businessContext": "Total number of independent coin flips",
+      "label_i18n": {
+        "en": "Number of Flips (n)",
+        "tr": "Number of Flips (n)",
+        "de": "Number of Flips (n)",
+        "fr": "Number of Flips (n)",
+        "es": "Number of Flips (n)",
+        "ar": "Number of Flips (n)"
+      }
     },
     {
       "id": "numberOfHeads",
       "label": "Number of Heads (k)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Number of heads observed or desired"
+      "businessContext": "Number of heads observed or desired",
+      "label_i18n": {
+        "en": "Number of Heads (k)",
+        "tr": "Number of Heads (k)",
+        "de": "Number of Heads (k)",
+        "fr": "Number of Heads (k)",
+        "es": "Number of Heads (k)",
+        "ar": "Number of Heads (k)"
+      }
     },
     {
       "id": "probabilityOfHead",
       "label": "Probability of Head (p)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Probability of getting a head in a single flip (0.5 for fair coin)"
+      "businessContext": "Probability of getting a head in a single flip (0.5 for fair coin)",
+      "label_i18n": {
+        "en": "Probability of Head (p)",
+        "tr": "Probability of Head (p)",
+        "de": "Probability of Head (p)",
+        "fr": "Probability of Head (p)",
+        "es": "Probability of Head (p)",
+        "ar": "Probability of Head (p)"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for rounding results"
+      "businessContext": "Number of decimal places for rounding results",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "standardDeviation"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

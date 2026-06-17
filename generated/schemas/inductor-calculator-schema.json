@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Diameter of the magnetic core"
+      "businessContext": "Diameter of the magnetic core",
+      "label_i18n": {
+        "en": "Core Diameter",
+        "tr": "Core Diameter",
+        "de": "Core Diameter",
+        "fr": "Core Diameter",
+        "es": "Core Diameter",
+        "ar": "Core Diameter"
+      }
     },
     {
       "id": "coreLength",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Length of the magnetic core"
+      "businessContext": "Length of the magnetic core",
+      "label_i18n": {
+        "en": "Core Length",
+        "tr": "Core Length",
+        "de": "Core Length",
+        "fr": "Core Length",
+        "es": "Core Length",
+        "ar": "Core Length"
+      }
     },
     {
       "id": "turns",
       "label": "Number of Turns",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Number of wire turns around the core"
+      "businessContext": "Number of wire turns around the core",
+      "label_i18n": {
+        "en": "Number of Turns",
+        "tr": "Number of Turns",
+        "de": "Number of Turns",
+        "fr": "Number of Turns",
+        "es": "Number of Turns",
+        "ar": "Number of Turns"
+      }
     },
     {
       "id": "relativePermeability",
       "label": "Relative Permeability",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2000,
-      "businessContext": "Relative magnetic permeability of core material"
+      "businessContext": "Relative magnetic permeability of core material",
+      "label_i18n": {
+        "en": "Relative Permeability",
+        "tr": "Relative Permeability",
+        "de": "Relative Permeability",
+        "fr": "Relative Permeability",
+        "es": "Relative Permeability",
+        "ar": "Relative Permeability"
+      }
     },
     {
       "id": "wireDiameter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.5,
-      "businessContext": "Diameter of the copper wire"
+      "businessContext": "Diameter of the copper wire",
+      "label_i18n": {
+        "en": "Wire Diameter",
+        "tr": "Wire Diameter",
+        "de": "Wire Diameter",
+        "fr": "Wire Diameter",
+        "es": "Wire Diameter",
+        "ar": "Wire Diameter"
+      }
     },
     {
       "id": "resistivity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "ohm·mm²/m",
       "default": 0.0172,
-      "businessContext": "Electrical resistivity of copper at 20°C"
+      "businessContext": "Electrical resistivity of copper at 20°C",
+      "label_i18n": {
+        "en": "Copper Resistivity",
+        "tr": "Copper Resistivity",
+        "de": "Copper Resistivity",
+        "fr": "Copper Resistivity",
+        "es": "Copper Resistivity",
+        "ar": "Copper Resistivity"
+      }
     }
   ],
   "formulas": {
@@ -63,10 +111,10 @@
       "saturationCurrent"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "electrical-power-systems"
 }

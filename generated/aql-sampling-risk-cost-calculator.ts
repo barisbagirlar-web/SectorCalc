@@ -25,33 +25,19 @@ export const Aql_sampling_risk_cost_calculatorInputSchema = z.object({
   confidence_level: z.enum(['90', '95', '99']).default('95'),
 });
 
-function evaluateAllFormulas(input: Aql_sampling_risk_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = f(input.lot_size, input.inspection_level, input.sampling_plan_type); results["sample_size"] = Number.isFinite(v) ? v : 0; } catch { results["sample_size"] = 0; }
-  try { const v = g(n, input.aql_percent); results["accept_number"] = Number.isFinite(v) ? v : 0; } catch { results["accept_number"] = 0; }
-  results["probability_acceptance"] = 0;
-  try { const v = 1 - Pa(p = AQL); results["producer_risk"] = Number.isFinite(v) ? v : 0; } catch { results["producer_risk"] = 0; }
-  results["consumer_risk"] = 0;
-  try { const v = (1 - Pa) * input.lot_size * input.defect_rate_actual * input.defect_cost_per_unit + Pa * input.lot_size * input.defect_rate_actual * input.defect_cost_per_unit * (1 - inspection_effectiveness); results["expected_defect_cost"] = Number.isFinite(v) ? v : 0; } catch { results["expected_defect_cost"] = 0; }
-  try { const v = ((results["sample_size"] ?? 0) * input.inspection_cost_per_unit) + ExpectedDefectCost + ((results["producer_risk"] ?? 0) * input.lot_size * input.unit_cost * 0.1) + ((results["consumer_risk"] ?? 0) * input.lot_size * input.defect_cost_per_unit * 0.2); results["total_risk_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_risk_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Aql_sampling_risk_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateAql_sampling_risk_cost_calculator(input: Aql_sampling_risk_cost_calculatorInput): Aql_sampling_risk_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_risk_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    inspection_cost: values["inspection_cost"] ?? 0,
-    expected_defect_cost: values["expected_defect_cost"] ?? 0,
-    producer_risk_cost: values["producer_risk_cost"] ?? 0,
-    consumer_risk_cost: values["consumer_risk_cost"] ?? 0,
-    sample_size: values["sample_size"] ?? 0,
-    accept_number: values["accept_number"] ?? 0,
-    probability_acceptance: values["probability_acceptance"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["High Actual Defect Rate","Low Inspection Effectiveness","Sampling Plan Mismatch"];
-  const suggestedActions: string[] = ["Reduce Actual Defect Rate","Switch to Tightened Inspection","Increase Sample Size","Automate Inspection"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -70,7 +56,7 @@ export function calculateAql_sampling_risk_cost_calculator(input: Aql_sampling_r
 
 export interface Aql_sampling_risk_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { inspection_cost: number; expected_defect_cost: number; producer_risk_cost: number; consumer_risk_cost: number; sample_size: number; accept_number: number; probability_acceptance: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -20,13 +20,16 @@ function evaluateAllFormulas(input: Tons_refrigeration_to_kw_calculatorInput): R
   try { const v = input.tons * input.conversionFactor; results["baseKW"] = Number.isFinite(v) ? v : 0; } catch { results["baseKW"] = 0; }
   try { const v = (results["baseKW"] ?? 0) * input.safetyFactor; results["withSafety"] = Number.isFinite(v) ? v : 0; } catch { results["withSafety"] = 0; }
   try { const v = Math.round((results["withSafety"] ?? 0) * Math.pow(10, input.decimals)) / Math.pow(10, input.decimals); results["finalKW"] = Number.isFinite(v) ? v : 0; } catch { results["finalKW"] = 0; }
+  results["____baseKW_toFixed_decimals______kW_"] = 0;
+  results["____finalKW_____kW_"] = 0;
+  try { const v = (results["finalKW"] ?? 0) + ' kW'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateTons_refrigeration_to_kw_calculator(input: Tons_refrigeration_to_kw_calculatorInput): Tons_refrigeration_to_kw_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["finalKW"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

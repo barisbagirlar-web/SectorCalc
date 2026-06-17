@@ -43,32 +43,19 @@ export const Weld_volume_cost_calculatorInputSchema = z.object({
   use_premium_data: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Weld_volume_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = ((input.joint_type == 'double_bevel') ? (0) : (0)); results["cross_sectional_area"] = Number.isFinite(v) ? v : 0; } catch { results["cross_sectional_area"] = 0; }
-  try { const v = (results["cross_sectional_area"] ?? 0) * input.weld_length; results["weld_volume"] = Number.isFinite(v) ? v : 0; } catch { results["weld_volume"] = 0; }
-  try { const v = (results["weld_volume"] ?? 0) * input.material_density / 1000; results["weld_mass"] = Number.isFinite(v) ? v : 0; } catch { results["weld_mass"] = 0; }
-  try { const v = (results["weld_mass"] ?? 0) / (input.deposition_efficiency / 100); results["consumable_mass"] = Number.isFinite(v) ? v : 0; } catch { results["consumable_mass"] = 0; }
-  try { const v = input.weld_length / input.weld_speed; results["arc_time"] = Number.isFinite(v) ? v : 0; } catch { results["arc_time"] = 0; }
-  try { const v = (results["arc_time"] ?? 0) / (input.operator_factor / 100); results["total_labor_time"] = Number.isFinite(v) ? v : 0; } catch { results["total_labor_time"] = 0; }
-  try { const v = ((results["total_labor_time"] ?? 0) / 60) * input.labor_rate * (1 + input.overhead_rate/100) + ((results["consumable_mass"] ?? 0) / 1000) * input.consumable_cost_per_kg; results["total_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Weld_volume_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateWeld_volume_cost_calculator(input: Weld_volume_cost_calculatorInput): Weld_volume_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    labor_cost: values["labor_cost"] ?? 0,
-    consumable_cost: values["consumable_cost"] ?? 0,
-    weld_volume: values["weld_volume"] ?? 0,
-    weld_mass: values["weld_mass"] ?? 0,
-    arc_time: values["arc_time"] ?? 0,
-    total_labor_time: values["total_labor_time"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excess Weld Metal","Deposition Inefficiency Loss","Non-Arc Time Loss"];
-  const suggestedActions: string[] = ["Reduce groove angle or root gap to minimize weld volume. Consider double-V joint for thicker plates.","Switch to a process with higher deposition efficiency (e.g., GMAW or SAW) to reduce consumable waste.","Implement Lean techniques: reduce setup time, use quick-change fixtures, and improve work cell layout.","Perform a cost-benefit analysis for robotic welding or automation to reduce labor cost.","Review weld procedure specifications (WPS) to ensure parameters are optimized per AWS D1.1."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -87,7 +74,7 @@ export function calculateWeld_volume_cost_calculator(input: Weld_volume_cost_cal
 
 export interface Weld_volume_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { labor_cost: number; consumable_cost: number; weld_volume: number; weld_mass: number; arc_time: number; total_labor_time: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

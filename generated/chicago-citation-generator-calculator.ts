@@ -24,13 +24,17 @@ function evaluateAllFormulas(input: Chicago_citation_generator_calculatorInput):
   try { const v = Math.sqrt(input.pageCount) * 1.5; results["pageContrib"] = Number.isFinite(v) ? v : 0; } catch { results["pageContrib"] = 0; }
   try { const v = input.citationFreq * input.relevance * 3; results["citationContrib"] = Number.isFinite(v) ? v : 0; } catch { results["citationContrib"] = 0; }
   try { const v = (results["authorContrib"] ?? 0) + (results["yearContrib"] ?? 0) + (results["pageContrib"] ?? 0) + (results["citationContrib"] ?? 0); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.numAuthors * 2.5; results["numAuthors___2_5"] = Number.isFinite(v) ? v : 0; } catch { results["numAuthors___2_5"] = 0; }
+  try { const v = Math.log(input.pubYear) * 10; results["log_pubYear____10"] = Number.isFinite(v) ? v : 0; } catch { results["log_pubYear____10"] = 0; }
+  try { const v = Math.sqrt(input.pageCount) * 1.5; results["sqrt_pageCount____1_5"] = Number.isFinite(v) ? v : 0; } catch { results["sqrt_pageCount____1_5"] = 0; }
+  try { const v = input.citationFreq * input.relevance * 3; results["citationFreq___relevance___3"] = Number.isFinite(v) ? v : 0; } catch { results["citationFreq___relevance___3"] = 0; }
   return results;
 }
 
 
 export function calculateChicago_citation_generator_calculator(input: Chicago_citation_generator_calculatorInput): Chicago_citation_generator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Citation"] ?? 0;
+  const totalWasteCost = values["authorContrib"] ?? 0;
   const breakdown = {
     
   };

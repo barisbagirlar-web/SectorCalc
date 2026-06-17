@@ -40,13 +40,7 @@
     "roundedMilliliters": "Math.round(baseMilliliters * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
   },
   "outputs": {
-    "primary": {
-      "id": "milliliters",
-      "label": "Milliliters",
-      "formula": "roundedMilliliters",
-      "unit": "ml",
-      "businessContext": "Converted volume in milliliters, rounded to specified decimal places"
-    },
+    "primary": "conversionFactor",
     "breakdown": [
       {
         "id": "baseMilliliters",
@@ -64,10 +58,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

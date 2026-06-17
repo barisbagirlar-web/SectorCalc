@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 12,
-      "businessContext": "Average lifespan for species"
+      "businessContext": "Average lifespan for species",
+      "label_i18n": {
+        "en": "Base Lifespan",
+        "tr": "Base Lifespan",
+        "de": "Base Lifespan",
+        "fr": "Base Lifespan",
+        "es": "Base Lifespan",
+        "ar": "Base Lifespan"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Current weight"
+      "businessContext": "Current weight",
+      "label_i18n": {
+        "en": "Pet Weight",
+        "tr": "Pet Weight",
+        "de": "Pet Weight",
+        "fr": "Pet Weight",
+        "es": "Pet Weight",
+        "ar": "Pet Weight"
+      }
     },
     {
       "id": "idealWeight",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Ideal weight for breed/species"
+      "businessContext": "Ideal weight for breed/species",
+      "label_i18n": {
+        "en": "Ideal Weight",
+        "tr": "Ideal Weight",
+        "de": "Ideal Weight",
+        "fr": "Ideal Weight",
+        "es": "Ideal Weight",
+        "ar": "Ideal Weight"
+      }
     },
     {
       "id": "activityLevel",
       "label": "Activity Level (0-10)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Daily activity score"
+      "businessContext": "Daily activity score",
+      "label_i18n": {
+        "en": "Activity Level (0-10)",
+        "tr": "Activity Level (0-10)",
+        "de": "Activity Level (0-10)",
+        "fr": "Activity Level (0-10)",
+        "es": "Activity Level (0-10)",
+        "ar": "Activity Level (0-10)"
+      }
     },
     {
       "id": "dietQuality",
       "label": "Diet Quality (0-10)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 7,
-      "businessContext": "Quality of nutrition"
+      "businessContext": "Quality of nutrition",
+      "label_i18n": {
+        "en": "Diet Quality (0-10)",
+        "tr": "Diet Quality (0-10)",
+        "de": "Diet Quality (0-10)",
+        "fr": "Diet Quality (0-10)",
+        "es": "Diet Quality (0-10)",
+        "ar": "Diet Quality (0-10)"
+      }
     },
     {
       "id": "vetVisits",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "visits",
       "default": 2,
-      "businessContext": "Annual veterinary check-ups"
+      "businessContext": "Annual veterinary check-ups",
+      "label_i18n": {
+        "en": "Vet Visits per Year",
+        "tr": "Vet Visits per Year",
+        "de": "Vet Visits per Year",
+        "fr": "Vet Visits per Year",
+        "es": "Vet Visits per Year",
+        "ar": "Vet Visits per Year"
+      }
     },
     {
       "id": "sterilized",
       "label": "Sterilized (0/1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 if sterilized, 0 otherwise"
+      "businessContext": "1 if sterilized, 0 otherwise",
+      "label_i18n": {
+        "en": "Sterilized (0/1)",
+        "tr": "Sterilized (0/1)",
+        "de": "Sterilized (0/1)",
+        "fr": "Sterilized (0/1)",
+        "es": "Sterilized (0/1)",
+        "ar": "Sterilized (0/1)"
+      }
     }
   ],
   "formulas": {
@@ -76,10 +132,10 @@
       "sterilizationMultiplier"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

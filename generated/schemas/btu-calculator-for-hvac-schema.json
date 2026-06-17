@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 10,
-      "businessContext": "Length of the room to be cooled or heated."
+      "businessContext": "Length of the room to be cooled or heated.",
+      "label_i18n": {
+        "en": "Room Length",
+        "tr": "Room Length",
+        "de": "Room Length",
+        "fr": "Room Length",
+        "es": "Room Length",
+        "ar": "Room Length"
+      }
     },
     {
       "id": "room_width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 10,
-      "businessContext": "Width of the room to be cooled or heated."
+      "businessContext": "Width of the room to be cooled or heated.",
+      "label_i18n": {
+        "en": "Room Width",
+        "tr": "Room Width",
+        "de": "Room Width",
+        "fr": "Room Width",
+        "es": "Room Width",
+        "ar": "Room Width"
+      }
     },
     {
       "id": "ceiling_height",
@@ -23,39 +39,79 @@
       "type": "number",
       "unit": "ft",
       "default": 8,
-      "businessContext": "Height of the ceiling from floor."
+      "businessContext": "Height of the ceiling from floor.",
+      "label_i18n": {
+        "en": "Ceiling Height",
+        "tr": "Ceiling Height",
+        "de": "Ceiling Height",
+        "fr": "Ceiling Height",
+        "es": "Ceiling Height",
+        "ar": "Ceiling Height"
+      }
     },
     {
       "id": "insulation_factor",
       "label": "Insulation Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Insulation quality: 0.5 (excellent), 1.0 (average), 1.5 (poor)."
+      "businessContext": "Insulation quality: 0.5 (excellent), 1.0 (average), 1.5 (poor).",
+      "label_i18n": {
+        "en": "Insulation Factor",
+        "tr": "Insulation Factor",
+        "de": "Insulation Factor",
+        "fr": "Insulation Factor",
+        "es": "Insulation Factor",
+        "ar": "Insulation Factor"
+      }
     },
     {
       "id": "sun_exposure",
       "label": "Sun Exposure",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Additional BTU per square foot due to sun: 0 (none), 10 (moderate), 20 (high)."
+      "businessContext": "Additional BTU per square foot due to sun: 0 (none), 10 (moderate), 20 (high).",
+      "label_i18n": {
+        "en": "Sun Exposure",
+        "tr": "Sun Exposure",
+        "de": "Sun Exposure",
+        "fr": "Sun Exposure",
+        "es": "Sun Exposure",
+        "ar": "Sun Exposure"
+      }
     },
     {
       "id": "num_occupants",
       "label": "Number of Occupants",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Typical number of people in the room."
+      "businessContext": "Typical number of people in the room.",
+      "label_i18n": {
+        "en": "Number of Occupants",
+        "tr": "Number of Occupants",
+        "de": "Number of Occupants",
+        "fr": "Number of Occupants",
+        "es": "Number of Occupants",
+        "ar": "Number of Occupants"
+      }
     },
     {
       "id": "num_windows",
       "label": "Number of Windows",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of windows in the room."
+      "businessContext": "Number of windows in the room.",
+      "label_i18n": {
+        "en": "Number of Windows",
+        "tr": "Number of Windows",
+        "de": "Number of Windows",
+        "fr": "Number of Windows",
+        "es": "Number of Windows",
+        "ar": "Number of Windows"
+      }
     }
   ],
   "formulas": {
@@ -77,10 +133,10 @@
       "window_adjustment"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "process-chemical"
 }

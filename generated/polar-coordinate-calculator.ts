@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Polar_coordinate_calculatorInput {
   radius: number;
   angle: number;
+  auto_input_3: number;
 }
 
 export const Polar_coordinate_calculatorInputSchema = z.object({
   radius: z.number().default(1),
   angle: z.number().default(45),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Polar_coordinate_calculatorInput): Record<string, number> {
@@ -16,13 +18,16 @@ function evaluateAllFormulas(input: Polar_coordinate_calculatorInput): Record<st
   try { const v = input.radius * Math.cos(input.angle * Math.PI / 180); results["x"] = Number.isFinite(v) ? v : 0; } catch { results["x"] = 0; }
   try { const v = input.radius * Math.sin(input.angle * Math.PI / 180); results["y"] = Number.isFinite(v) ? v : 0; } catch { results["y"] = 0; }
   try { const v = input.angle * Math.PI / 180; results["angleRad"] = Number.isFinite(v) ? v : 0; } catch { results["angleRad"] = 0; }
+  try { const v = input.radius * cos(θ); results["x___radius___cos___"] = Number.isFinite(v) ? v : 0; } catch { results["x___radius___cos___"] = 0; }
+  try { const v = input.radius * sin(θ); results["y___radius___sin___"] = Number.isFinite(v) ? v : 0; } catch { results["y___radius___sin___"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculatePolar_coordinate_calculator(input: Polar_coordinate_calculatorInput): Polar_coordinate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Cartesian"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

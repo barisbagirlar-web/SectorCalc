@@ -25,13 +25,17 @@ function evaluateAllFormulas(input: Bouldering_calculatorInput): Record<string, 
   try { const v = Math.sqrt((results["mg"] ?? 0)**2 + 2 * (results["mg"] ?? 0) * (results["matStiffnessNm"] ?? 0) * input.fallHeight); results["discriminant"] = Number.isFinite(v) ? v : 0; } catch { results["discriminant"] = 0; }
   try { const v = ((results["mg"] ?? 0) + (results["discriminant"] ?? 0)) / (results["matStiffnessNm"] ?? 0); results["matCompression"] = Number.isFinite(v) ? v : 0; } catch { results["matCompression"] = 0; }
   try { const v = (results["matStiffnessNm"] ?? 0) * (results["matCompression"] ?? 0); results["maxForce"] = Number.isFinite(v) ? v : 0; } catch { results["maxForce"] = 0; }
+  try { const v = (results["matCompression"] ?? 0) * 100; results["matCompression___100"] = Number.isFinite(v) ? v : 0; } catch { results["matCompression___100"] = 0; }
+  try { const v = ((results["maxForce"] ?? 0) - (results["mg"] ?? 0)) / (input.bodyMass * input.g); results["_maxForce___mg_____bodyMass___g_"] = Number.isFinite(v) ? v : 0; } catch { results["_maxForce___mg_____bodyMass___g_"] = 0; }
+  try { const v = 12000 / (results["maxForce"] ?? 0); results["12000___maxForce"] = Number.isFinite(v) ? v : 0; } catch { results["12000___maxForce"] = 0; }
+  try { const v = (results["maxForce"] ?? 0) / 1000; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateBouldering_calculator(input: Bouldering_calculatorInput): Bouldering_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["maxForce"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

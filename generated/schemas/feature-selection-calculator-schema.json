@@ -5,17 +5,33 @@
       "id": "correlation",
       "label": "Correlation Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Pearson correlation between feature and target"
+      "businessContext": "Pearson correlation between feature and target",
+      "label_i18n": {
+        "en": "Correlation Coefficient",
+        "tr": "Correlation Coefficient",
+        "de": "Correlation Coefficient",
+        "fr": "Correlation Coefficient",
+        "es": "Correlation Coefficient",
+        "ar": "Correlation Coefficient"
+      }
     },
     {
       "id": "variance",
       "label": "Normalized Variance",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.3,
-      "businessContext": "Measure of spread (0-1 scale)"
+      "businessContext": "Measure of spread (0-1 scale)",
+      "label_i18n": {
+        "en": "Normalized Variance",
+        "tr": "Normalized Variance",
+        "de": "Normalized Variance",
+        "fr": "Normalized Variance",
+        "es": "Normalized Variance",
+        "ar": "Normalized Variance"
+      }
     },
     {
       "id": "cost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 100,
-      "businessContext": "Cost to collect this feature data"
+      "businessContext": "Cost to collect this feature data",
+      "label_i18n": {
+        "en": "Measurement Cost",
+        "tr": "Measurement Cost",
+        "de": "Measurement Cost",
+        "fr": "Measurement Cost",
+        "es": "Measurement Cost",
+        "ar": "Measurement Cost"
+      }
     },
     {
       "id": "accuracy_impact",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected accuracy gain from including this feature"
+      "businessContext": "Expected accuracy gain from including this feature",
+      "label_i18n": {
+        "en": "Accuracy Impact",
+        "tr": "Accuracy Impact",
+        "de": "Accuracy Impact",
+        "fr": "Accuracy Impact",
+        "es": "Accuracy Impact",
+        "ar": "Accuracy Impact"
+      }
     },
     {
       "id": "stability",
       "label": "Stability Index",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Reliability of measurement over time (1 = stable)"
+      "businessContext": "Reliability of measurement over time (1 = stable)",
+      "label_i18n": {
+        "en": "Stability Index",
+        "tr": "Stability Index",
+        "de": "Stability Index",
+        "fr": "Stability Index",
+        "es": "Stability Index",
+        "ar": "Stability Index"
+      }
     },
     {
       "id": "compliance_score",
       "label": "Compliance Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Regulatory or compliance importance (1 = compliant)"
+      "businessContext": "Regulatory or compliance importance (1 = compliant)",
+      "label_i18n": {
+        "en": "Compliance Score",
+        "tr": "Compliance Score",
+        "de": "Compliance Score",
+        "fr": "Compliance Score",
+        "es": "Compliance Score",
+        "ar": "Compliance Score"
+      }
     }
   ],
   "formulas": {
@@ -66,10 +114,10 @@
       "compliance_factor"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

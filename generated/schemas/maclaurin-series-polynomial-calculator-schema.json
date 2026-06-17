@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Point of evaluation"
+      "businessContext": "Point of evaluation",
+      "label_i18n": {
+        "en": "x",
+        "tr": "x",
+        "de": "x",
+        "fr": "x",
+        "es": "x",
+        "ar": "x"
+      }
     },
     {
       "id": "a0",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Coefficient for x⁰"
+      "businessContext": "Coefficient for x⁰",
+      "label_i18n": {
+        "en": "a₀",
+        "tr": "a₀",
+        "de": "a₀",
+        "fr": "a₀",
+        "es": "a₀",
+        "ar": "a₀"
+      }
     },
     {
       "id": "a1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Coefficient for x¹"
+      "businessContext": "Coefficient for x¹",
+      "label_i18n": {
+        "en": "a₁",
+        "tr": "a₁",
+        "de": "a₁",
+        "fr": "a₁",
+        "es": "a₁",
+        "ar": "a₁"
+      }
     },
     {
       "id": "a2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Coefficient for x²"
+      "businessContext": "Coefficient for x²",
+      "label_i18n": {
+        "en": "a₂",
+        "tr": "a₂",
+        "de": "a₂",
+        "fr": "a₂",
+        "es": "a₂",
+        "ar": "a₂"
+      }
     },
     {
       "id": "a3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Coefficient for x³"
+      "businessContext": "Coefficient for x³",
+      "label_i18n": {
+        "en": "a₃",
+        "tr": "a₃",
+        "de": "a₃",
+        "fr": "a₃",
+        "es": "a₃",
+        "ar": "a₃"
+      }
     },
     {
       "id": "a4",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Coefficient for x⁴"
+      "businessContext": "Coefficient for x⁴",
+      "label_i18n": {
+        "en": "a₄",
+        "tr": "a₄",
+        "de": "a₄",
+        "fr": "a₄",
+        "es": "a₄",
+        "ar": "a₄"
+      }
     },
     {
       "id": "a5",
@@ -55,22 +103,29 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Coefficient for x⁵"
+      "businessContext": "Coefficient for x⁵",
+      "label_i18n": {
+        "en": "a₅",
+        "tr": "a₅",
+        "de": "a₅",
+        "fr": "a₅",
+        "es": "a₅",
+        "ar": "a₅"
+      }
     }
   ],
   "formulas": {
     "primary": "a0 + a1*x + a2*Math.pow(x,2) + a3*Math.pow(x,3) + a4*Math.pow(x,4) + a5*Math.pow(x,5)",
-    "breakdown": [
-      "a0",
-      "a1*x",
-      "a2*Math.pow(x,2)",
-      "a3*Math.pow(x,3)",
-      "a4*Math.pow(x,4)",
-      "a5*Math.pow(x,5)"
-    ]
+    "breakdown": "x",
+    "Term_0__constant_": "Term 0 (constant)",
+    "Term_1__linear_": "Term 1 (linear)",
+    "Term_2__quadratic_": "Term 2 (quadratic)",
+    "Term_3__cubic_": "Term 3 (cubic)",
+    "Term_4__quartic_": "Term 4 (quartic)",
+    "Term_5__quintic_": "Term 5 (quintic)"
   },
   "outputs": {
-    "primary": "Maclaurin series approximation value",
+    "primary": "primary",
     "breakdown": [
       "Term 0 (constant)",
       "Term 1 (linear)",
@@ -80,10 +135,10 @@
       "Term 5 (quintic)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

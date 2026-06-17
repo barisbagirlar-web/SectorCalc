@@ -23,13 +23,17 @@ function evaluateAllFormulas(input: Cost_of_living_comparison_calculatorInput): 
   const results: Record<string, number> = {};
   try { const v = input.baseRent + input.baseUtilities + input.baseGroceries + input.baseTransport + input.baseMisc; results["totalBaseCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalBaseCost"] = 0; }
   try { const v = (results["totalBaseCost"] ?? 0) * input.targetIndex / 100; results["totalTargetCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalTargetCost"] = 0; }
+  results["___totalBaseCost_toFixed_2__"] = 0;
+  try { const v = $input.targetIndex; results["__targetIndex_"] = Number.isFinite(v) ? v : 0; } catch { results["__targetIndex_"] = 0; }
+  results["___totalTargetCost_toFixed_2__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateCost_of_living_comparison_calculator(input: Cost_of_living_comparison_calculatorInput): Cost_of_living_comparison_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Equivalent"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

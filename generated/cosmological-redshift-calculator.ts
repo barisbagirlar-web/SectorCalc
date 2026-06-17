@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Cosmological_redshift_calculatorInput): Reco
 
 export function calculateCosmological_redshift_calculator(input: Cosmological_redshift_calculatorInput): Cosmological_redshift_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["redshift"] ?? 0;
+  const totalWasteCost = values["z"] ?? 0;
   const breakdown = {
     
   };

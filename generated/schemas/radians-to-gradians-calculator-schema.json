@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "rad",
       "default": 0,
-      "businessContext": "The angle measurement in radians to be converted."
+      "businessContext": "The angle measurement in radians to be converted.",
+      "label_i18n": {
+        "en": "Angle in Radians",
+        "tr": "Angle in Radians",
+        "de": "Angle in Radians",
+        "fr": "Angle in Radians",
+        "es": "Angle in Radians",
+        "ar": "Angle in Radians"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "grad/rad",
       "default": 63.66197723675813,
-      "businessContext": "Gradians per radian. Standard is 200/π. Adjust for custom units."
+      "businessContext": "Gradians per radian. Standard is 200/π. Adjust for custom units.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "precision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "digits",
       "default": 4,
-      "businessContext": "Number of decimal places for the output."
+      "businessContext": "Number of decimal places for the output.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "offset",
@@ -31,24 +55,35 @@
       "type": "number",
       "unit": "grad",
       "default": 0,
-      "businessContext": "Additive offset in gradians for calibration purposes."
+      "businessContext": "Additive offset in gradians for calibration purposes.",
+      "label_i18n": {
+        "en": "Calibration Offset",
+        "tr": "Calibration Offset",
+        "de": "Calibration Offset",
+        "fr": "Calibration Offset",
+        "es": "Calibration Offset",
+        "ar": "Calibration Offset"
+      }
     }
   ],
   "formulas": {
-    "converted": "Math.round((angleRadians * conversionFactor + offset) * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "converted": "Math.round((angleRadians * conversionFactor + offset) * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "angleRadians___conversionFactor": "angleRadians * conversionFactor",
+    "result___offset": "result + offset",
+    "Math_round_value___10_precision____10_pr": "Math.round(value * 10^precision) / 10^precision"
   },
   "outputs": {
-    "primary": "convertedGradians",
+    "primary": "converted",
     "breakdown": [
       "Multiply radians by conversion factor: angleRadians * conversionFactor",
       "Add calibration offset: result + offset",
       "Round to precision: Math.round(value * 10^precision) / 10^precision"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

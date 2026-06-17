@@ -24,6 +24,9 @@ function evaluateAllFormulas(input: State_space_calculatorInput): Record<string,
   try { const v = input.rewardPerState * (1 - Math.pow(input.discountFactor, input.timeSteps)) / (1 - input.discountFactor); results["expectedReward"] = Number.isFinite(v) ? v : 0; } catch { results["expectedReward"] = 0; }
   try { const v = 1 / input.numStates; results["steadyStateProb"] = Number.isFinite(v) ? v : 0; } catch { results["steadyStateProb"] = 0; }
   try { const v = Array.from({length: input.numStates}, (_, i) => i === input.initialState ? 1 : 0); results["stateDistribution"] = Number.isFinite(v) ? v : 0; } catch { results["stateDistribution"] = 0; }
+  results["Expected_total_discounted_reward_over_ti"] = 0;
+  results["Steady_state_probability_per_state"] = 0;
+  results["Initial_state_distribution_vector"] = 0;
   return results;
 }
 

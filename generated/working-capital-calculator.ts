@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Working_capital_calculatorInput): Record<str
 
 export function calculateWorking_capital_calculator(input: Working_capital_calculatorInput): Working_capital_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["workingCapital"] ?? 0;
+  const totalWasteCost = values["currentAssets"] ?? 0;
   const breakdown = {
     
   };

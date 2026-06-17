@@ -18,6 +18,8 @@ export const Ideal_gas_law_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Ideal_gas_law_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.moles * input.gasConstant * input.temperature) / input.volume; results["pressure"] = Number.isFinite(v) ? v : 0; } catch { results["pressure"] = 0; }
+  try { const v = nRT/V; results["P___nRT_V"] = Number.isFinite(v) ? v : 0; } catch { results["P___nRT_V"] = 0; }
+  try { const v = nRT; results["PV___nRT"] = Number.isFinite(v) ? v : 0; } catch { results["PV___nRT"] = 0; }
   return results;
 }
 

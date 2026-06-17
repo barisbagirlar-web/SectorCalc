@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Nominal side length of the square in base units (typically meters)."
+      "businessContext": "Nominal side length of the square in base units (typically meters).",
+      "label_i18n": {
+        "en": "Side Length",
+        "tr": "Side Length",
+        "de": "Side Length",
+        "fr": "Side Length",
+        "es": "Side Length",
+        "ar": "Side Length"
+      }
     },
     {
       "id": "tolerancePlus",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Positive tolerance on side length (added to nominal)."
+      "businessContext": "Positive tolerance on side length (added to nominal).",
+      "label_i18n": {
+        "en": "Tolerance (+)",
+        "tr": "Tolerance (+)",
+        "de": "Tolerance (+)",
+        "fr": "Tolerance (+)",
+        "es": "Tolerance (+)",
+        "ar": "Tolerance (+)"
+      }
     },
     {
       "id": "toleranceMinus",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Negative tolerance on side length (subtracted from nominal, entered as positive number)."
+      "businessContext": "Negative tolerance on side length (subtracted from nominal, entered as positive number).",
+      "label_i18n": {
+        "en": "Tolerance (-)",
+        "tr": "Tolerance (-)",
+        "de": "Tolerance (-)",
+        "fr": "Tolerance (-)",
+        "es": "Tolerance (-)",
+        "ar": "Tolerance (-)"
+      }
     },
     {
       "id": "unitMultiplier",
       "label": "Output Unit Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier to convert square base units to desired output unit (e.g., 1 for m², 10000 for cm², 10.7639 for ft²)."
+      "businessContext": "Multiplier to convert square base units to desired output unit (e.g., 1 for m², 10000 for cm², 10.7639 for ft²).",
+      "label_i18n": {
+        "en": "Output Unit Multiplier",
+        "tr": "Output Unit Multiplier",
+        "de": "Output Unit Multiplier",
+        "fr": "Output Unit Multiplier",
+        "es": "Output Unit Multiplier",
+        "ar": "Output Unit Multiplier"
+      }
     },
     {
       "id": "decimals",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding results."
+      "businessContext": "Number of decimal places for rounding results.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "maxArea"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

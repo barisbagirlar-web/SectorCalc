@@ -21,33 +21,19 @@ export const Hp_to_kw_converter_calculatorInputSchema = z.object({
   electricity_cost_per_kwh: z.number().min(0.01).max(1).default(0.12),
 });
 
-function evaluateAllFormulas(input: Hp_to_kw_converter_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.hp_type === 'mechanical' ? 0.7457 : (input.hp_type === 'metric' ? 0.7355 : (input.hp_type === 'electrical' ? 0.746 : 0))); results["conversion_factor"] = Number.isFinite(v) ? v : 0; } catch { results["conversion_factor"] = 0; }
-  try { const v = input.horsepower * (results["conversion_factor"] ?? 0); results["input_power_kw"] = Number.isFinite(v) ? v : 0; } catch { results["input_power_kw"] = 0; }
-  try { const v = ((results["input_power_kw"] ?? 0) / (input.motor_efficiency / 100)) * (input.load_factor / 100); results["electrical_input_power"] = Number.isFinite(v) ? v : 0; } catch { results["electrical_input_power"] = 0; }
-  try { const v = (results["electrical_input_power"] ?? 0) / input.power_factor; results["apparent_power_kva"] = Number.isFinite(v) ? v : 0; } catch { results["apparent_power_kva"] = 0; }
-  try { const v = (results["electrical_input_power"] ?? 0) * input.operating_hours_per_year; results["annual_energy_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_consumption"] = 0; }
-  try { const v = (results["annual_energy_consumption"] ?? 0) * input.electricity_cost_per_kwh; results["annual_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
-  try { const v = (results["input_power_kw"] ?? 0) * (input.load_factor / 100); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Hp_to_kw_converter_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateHp_to_kw_converter_calculator(input: Hp_to_kw_converter_calculatorInput): Hp_to_kw_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["equivalent_kw"] ?? values["primary_result"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    input_hp: values["input_hp"] ?? 0,
-    conversion_factor_used: values["conversion_factor_used"] ?? 0,
-    shaft_power_kw: values["shaft_power_kw"] ?? 0,
-    electrical_input_power: values["electrical_input_power"] ?? 0,
-    apparent_power: values["apparent_power"] ?? 0,
-    annual_energy_consumption: values["annual_energy_consumption"] ?? 0,
-    annual_energy_cost: values["annual_energy_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["I²R losses in stator and rotor windings","Hysteresis and eddy current losses in iron core","Bearing friction and air resistance","Leakage flux and harmonic losses"];
-  const suggestedActions: string[] = ["Consider replacing motor with a smaller, more efficient unit to match actual load.","Install power factor correction capacitors to reduce reactive power and avoid utility penalties.","Replace motor with IE4 (Super Premium Efficiency) class motor.","Install variable frequency drive to match motor speed to load requirements."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -66,7 +52,7 @@ export function calculateHp_to_kw_converter_calculator(input: Hp_to_kw_converter
 
 export interface Hp_to_kw_converter_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { input_hp: number; conversion_factor_used: number; shaft_power_kw: number; electrical_input_power: number; apparent_power: number; annual_energy_consumption: number; annual_energy_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

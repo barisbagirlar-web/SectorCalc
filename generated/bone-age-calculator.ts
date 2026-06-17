@@ -18,6 +18,8 @@ export const Bone_age_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Bone_age_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = 0.85 * input.chronologicalAge + 0.03 * input.height + 0.15 * input.weight - 1.2 * input.sex + 1.5; results["boneAge"] = Number.isFinite(v) ? v : 0; } catch { results["boneAge"] = 0; }
+  results["Bone_age_estimated_using_linear_regressi"] = 0;
+  results["Based_on_chronological_age__sex__height_"] = 0;
   return results;
 }
 

@@ -25,13 +25,19 @@ function evaluateAllFormulas(input: Svd_calculatorInput): Record<string, number>
   try { const v = Math.sqrt((results["lambda1"] ?? 0)); results["sigma1"] = Number.isFinite(v) ? v : 0; } catch { results["sigma1"] = 0; }
   try { const v = Math.sqrt((results["lambda2"] ?? 0)); results["sigma2"] = Number.isFinite(v) ? v : 0; } catch { results["sigma2"] = 0; }
   try { const v = (results["sigma2"] ?? 0) > 0 ? (results["sigma1"] ?? 0) / (results["sigma2"] ?? 0) : Infinity; results["condNumber"] = Number.isFinite(v) ? v : 0; } catch { results["condNumber"] = 0; }
+  results["__sigma1_toFixed_4__"] = 0;
+  results["__sigma2_toFixed_4__"] = 0;
+  results["__condNumber_toFixed_4__"] = 0;
+  results["__detA_toFixed_4__"] = 0;
+  results["__traceATA_toFixed_4__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateSvd_calculator(input: Svd_calculatorInput): Svd_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["σ₁ = ${sigma1.toFixed(4)}, σ₂ = ${sigma2.toFixed(4)}"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

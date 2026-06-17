@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 500000,
-      "businessContext": "Ev sigortası için evin toplam değeri."
+      "businessContext": "Ev sigortası için evin toplam değeri.",
+      "label_i18n": {
+        "en": "Ev Değeri",
+        "tr": "Ev Değeri",
+        "de": "Ev Değeri",
+        "fr": "Ev Değeri",
+        "es": "Ev Değeri",
+        "ar": "Ev Değeri"
+      }
     },
     {
       "id": "coverageAmount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL",
       "default": 400000,
-      "businessContext": "Sigorta kapsamı altındaki tutar."
+      "businessContext": "Sigorta kapsamı altındaki tutar.",
+      "label_i18n": {
+        "en": "Teminat Tutarı",
+        "tr": "Teminat Tutarı",
+        "de": "Teminat Tutarı",
+        "fr": "Teminat Tutarı",
+        "es": "Teminat Tutarı",
+        "ar": "Teminat Tutarı"
+      }
     },
     {
       "id": "deductible",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "TL",
       "default": 1000,
-      "businessContext": "Hasar durumunda sigortalının ödeyeceği kısım."
+      "businessContext": "Hasar durumunda sigortalının ödeyeceği kısım.",
+      "label_i18n": {
+        "en": "Muafiyet",
+        "tr": "Muafiyet",
+        "de": "Muafiyet",
+        "fr": "Muafiyet",
+        "es": "Muafiyet",
+        "ar": "Muafiyet"
+      }
     },
     {
       "id": "locationRisk",
       "label": "Bölge Risk Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Deprem, sel vs. riskine göre bölge katsayısı."
+      "businessContext": "Deprem, sel vs. riskine göre bölge katsayısı.",
+      "label_i18n": {
+        "en": "Bölge Risk Faktörü",
+        "tr": "Bölge Risk Faktörü",
+        "de": "Bölge Risk Faktörü",
+        "fr": "Bölge Risk Faktörü",
+        "es": "Bölge Risk Faktörü",
+        "ar": "Bölge Risk Faktörü"
+      }
     },
     {
       "id": "homeAge",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 5,
-      "businessContext": "Evin inşa yılından itibaren geçen süre."
+      "businessContext": "Evin inşa yılından itibaren geçen süre.",
+      "label_i18n": {
+        "en": "Bina Yaşı",
+        "tr": "Bina Yaşı",
+        "de": "Bina Yaşı",
+        "fr": "Bina Yaşı",
+        "es": "Bina Yaşı",
+        "ar": "Bina Yaşı"
+      }
     },
     {
       "id": "safetyDiscount",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Alarm, yangın söndürme gibi güvenlik önlemlerinden alınan indirim oranı."
+      "businessContext": "Alarm, yangın söndürme gibi güvenlik önlemlerinden alınan indirim oranı.",
+      "label_i18n": {
+        "en": "Güvenlik İndirimi",
+        "tr": "Güvenlik İndirimi",
+        "de": "Güvenlik İndirimi",
+        "fr": "Güvenlik İndirimi",
+        "es": "Güvenlik İndirimi",
+        "ar": "Güvenlik İndirimi"
+      }
     }
   ],
   "formulas": {
@@ -63,10 +111,10 @@
       "finalPremium"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "hse-ergonomics"
 }

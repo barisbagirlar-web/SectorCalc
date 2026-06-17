@@ -18,6 +18,7 @@ export const Act_score_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Act_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = Math.round((input.englishScore + input.mathScore + input.readingScore + input.scienceScore) / 4); results["compositeScore"] = Number.isFinite(v) ? v : 0; } catch { results["compositeScore"] = 0; }
+  try { const v = Math.round((input.englishScore + input.mathScore + input.readingScore + input.scienceScore) / 4); results["compositeScore_copy"] = Number.isFinite(v) ? v : 0; } catch { results["compositeScore_copy"] = 0; }
   return results;
 }
 

@@ -173,7 +173,7 @@
       "id": "currency",
       "label": "Currency",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "USD",
       "min": null,
       "max": null,
@@ -189,7 +189,7 @@
       "id": "include_environmental_cost",
       "label": "Include Environmental Cost",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -240,148 +240,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "material_cost_total",
-      "label": "Total Material Cost",
-      "description": "Total direct material cost for the batch.",
-      "expression": "material_cost_per_kg * batch_size_kg",
-      "unit": "USD"
-    },
-    {
-      "id": "labor_cost_total",
-      "label": "Total Labor Cost",
-      "description": "Direct labor cost for the batch based on processing time.",
-      "expression": "labor_rate_per_hour * (processing_time_minutes / 60)",
-      "unit": "USD"
-    },
-    {
-      "id": "energy_cost_total",
-      "label": "Total Energy Cost",
-      "description": "Energy cost for the batch.",
-      "expression": "energy_cost_per_kwh * energy_consumption_kwh",
-      "unit": "USD"
-    },
-    {
-      "id": "waste_cost_total",
-      "label": "Total Waste Disposal Cost",
-      "description": "Cost to dispose of waste generated from the batch.",
-      "expression": "waste_disposal_cost_per_kg * (batch_size_kg * (1 - recipe_yield_percent / 100))",
-      "unit": "USD"
-    },
-    {
-      "id": "rework_cost_total",
-      "label": "Total Rework Cost",
-      "description": "Additional cost due to quality rework, estimated as a percentage of material and labor.",
-      "expression": "(material_cost_total + labor_cost_total) * (quality_rework_rate / 100)",
-      "unit": "USD"
-    },
-    {
-      "id": "overhead_cost_total",
-      "label": "Total Overhead Cost",
-      "description": "Allocated manufacturing overhead based on direct costs.",
-      "expression": "(material_cost_total + labor_cost_total + energy_cost_total) * (overhead_rate_percent / 100)",
-      "unit": "USD"
-    },
-    {
-      "id": "total_cost_per_kg",
-      "label": "Total Cost per kg (Primary Result)",
-      "description": "Primary result: total cost per kilogram of usable output.",
-      "expression": "(material_cost_total + labor_cost_total + energy_cost_total + waste_cost_total + rework_cost_total + overhead_cost_total) / (batch_size_kg * (recipe_yield_percent / 100))",
-      "unit": "USD/kg"
-    }
+    "material_cost_per_kg",
+    "material_cost_per_kg",
+    "material_cost_per_kg",
+    "material_cost_per_kg",
+    "material_cost_per_kg",
+    "material_cost_per_kg",
+    "material_cost_per_kg"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_cost_per_kg",
-      "label": "Total Cost per kg",
-      "unit": "USD/kg",
-      "description": "Fully loaded cost per kilogram of finished product, including material, labor, energy, waste, rework, and overhead."
-    },
-    "breakdown": {
-      "material_cost_per_kg": {
-        "label": "Material Cost per kg",
-        "unit": "USD/kg",
-        "value": null
-      },
-      "labor_cost_per_kg": {
-        "label": "Labor Cost per kg",
-        "unit": "USD/kg",
-        "value": null
-      },
-      "energy_cost_per_kg": {
-        "label": "Energy Cost per kg",
-        "unit": "USD/kg",
-        "value": null
-      },
-      "waste_cost_per_kg": {
-        "label": "Waste Disposal Cost per kg",
-        "unit": "USD/kg",
-        "value": null
-      },
-      "rework_cost_per_kg": {
-        "label": "Rework Cost per kg",
-        "unit": "USD/kg",
-        "value": null
-      },
-      "overhead_cost_per_kg": {
-        "label": "Overhead Cost per kg",
-        "unit": "USD/kg",
-        "value": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "yield_loss",
-        "label": "Yield Loss",
-        "description": "Cost impact of material lost due to yield less than 100%.",
-        "formula": "material_cost_per_kg * batch_size_kg * (1 - recipe_yield_percent / 100) / (batch_size_kg * (recipe_yield_percent / 100))",
-        "unit": "USD/kg"
-      },
-      {
-        "id": "rework_loss",
-        "label": "Rework Loss",
-        "description": "Cost impact of quality rework on total cost per kg.",
-        "formula": "rework_cost_total / (batch_size_kg * (recipe_yield_percent / 100))",
-        "unit": "USD/kg"
-      },
-      {
-        "id": "energy_inefficiency",
-        "label": "Energy Inefficiency",
-        "description": "Excess energy cost compared to a benchmark of 0.10 USD/kWh.",
-        "formula": "max(0, (energy_cost_per_kwh - 0.10) * energy_consumption_kwh) / (batch_size_kg * (recipe_yield_percent / 100))",
-        "unit": "USD/kg"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_improve_yield",
-        "label": "Improve Recipe Yield",
-        "description": "Target yield improvement to 98% through process optimization (e.g., reduce evaporation, trim losses). Estimated savings: X USD/kg.",
-        "condition": "recipe_yield_percent < 95"
-      },
-      {
-        "id": "action_reduce_rework",
-        "label": "Reduce Quality Rework",
-        "description": "Implement SPC and root cause analysis to lower rework rate below 1%. Estimated savings: Y USD/kg.",
-        "condition": "quality_rework_rate > 2"
-      },
-      {
-        "id": "action_energy_audit",
-        "label": "Conduct Energy Audit",
-        "description": "Audit energy consumption to identify savings opportunities (e.g., insulation, efficient motors). Estimated savings: Z USD/kg.",
-        "condition": "energy_cost_per_kg > 0.05"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "total_cost_per_kg_adjusted",
-      "label": "Total Cost per kg (Confidence Adjusted)",
-      "unit": "USD/kg",
-      "description": "Primary result adjusted by a confidence factor based on data quality (e.g., 0.9 for estimated inputs, 1.0 for measured).",
-      "value": null
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "recipe-cost-check-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK"
 }

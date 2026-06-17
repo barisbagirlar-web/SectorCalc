@@ -19,13 +19,15 @@ function evaluateAllFormulas(input: Swimming_critical_swim_speed_calculatorInput
   const results: Record<string, number> = {};
   try { const v = (input.distance2 - input.distance1) / (input.time2 - input.time1); results["css_mps"] = Number.isFinite(v) ? v : 0; } catch { results["css_mps"] = 0; }
   try { const v = 100 / (results["css_mps"] ?? 0); results["pace_100m_s"] = Number.isFinite(v) ? v : 0; } catch { results["pace_100m_s"] = 0; }
+  results["Pace_per_100m__s_100m_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateSwimming_critical_swim_speed_calculator(input: Swimming_critical_swim_speed_calculatorInput): Swimming_critical_swim_speed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Critical"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

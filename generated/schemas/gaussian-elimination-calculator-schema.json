@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Coefficient of x1 in first equation"
+      "businessContext": "Coefficient of x1 in first equation",
+      "label_i18n": {
+        "en": "A[1,1]",
+        "tr": "A[1,1]",
+        "de": "A[1,1]",
+        "fr": "A[1,1]",
+        "es": "A[1,1]",
+        "ar": "A[1,1]"
+      }
     },
     {
       "id": "a12",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "Coefficient of x2 in first equation"
+      "businessContext": "Coefficient of x2 in first equation",
+      "label_i18n": {
+        "en": "A[1,2]",
+        "tr": "A[1,2]",
+        "de": "A[1,2]",
+        "fr": "A[1,2]",
+        "es": "A[1,2]",
+        "ar": "A[1,2]"
+      }
     },
     {
       "id": "b1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "Right-hand side of first equation"
+      "businessContext": "Right-hand side of first equation",
+      "label_i18n": {
+        "en": "b1",
+        "tr": "b1",
+        "de": "b1",
+        "fr": "b1",
+        "es": "b1",
+        "ar": "b1"
+      }
     },
     {
       "id": "a21",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "Coefficient of x1 in second equation"
+      "businessContext": "Coefficient of x1 in second equation",
+      "label_i18n": {
+        "en": "A[2,1]",
+        "tr": "A[2,1]",
+        "de": "A[2,1]",
+        "fr": "A[2,1]",
+        "es": "A[2,1]",
+        "ar": "A[2,1]"
+      }
     },
     {
       "id": "a22",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Coefficient of x2 in second equation"
+      "businessContext": "Coefficient of x2 in second equation",
+      "label_i18n": {
+        "en": "A[2,2]",
+        "tr": "A[2,2]",
+        "de": "A[2,2]",
+        "fr": "A[2,2]",
+        "es": "A[2,2]",
+        "ar": "A[2,2]"
+      }
     },
     {
       "id": "b2",
@@ -47,26 +87,37 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "Right-hand side of second equation"
+      "businessContext": "Right-hand side of second equation",
+      "label_i18n": {
+        "en": "b2",
+        "tr": "b2",
+        "de": "b2",
+        "fr": "b2",
+        "es": "b2",
+        "ar": "b2"
+      }
     }
   ],
   "formulas": {
     "det": "a11*a22 - a12*a21",
     "x1": "(b1*a22 - a12*b2) / det",
-    "x2": "(a11*b2 - b1*a21) / det"
+    "x2": "(a11*b2 - b1*a21) / det",
+    "__det__": "{{det}}",
+    "x1_____x1__": "x1 = {{x1}}",
+    "x2_____x2__": "x2 = {{x2}}"
   },
   "outputs": {
-    "primary": "Solution: x1 = {{x1}}, x2 = {{x2}}",
+    "primary": "det",
     "breakdown": [
       "Determinant: {{det}}",
       "x1 = {{x1}}",
       "x2 = {{x2}}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

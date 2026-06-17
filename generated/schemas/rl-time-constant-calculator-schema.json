@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1000,
-      "businessContext": "Resistance value of the resistor"
+      "businessContext": "Resistance value of the resistor",
+      "label_i18n": {
+        "en": "Nominal Resistance",
+        "tr": "Nominal Resistance",
+        "de": "Nominal Resistance",
+        "fr": "Nominal Resistance",
+        "es": "Nominal Resistance",
+        "ar": "Nominal Resistance"
+      }
     },
     {
       "id": "resistanceTolerance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Tolerance of the resistor in percent"
+      "businessContext": "Tolerance of the resistor in percent",
+      "label_i18n": {
+        "en": "Resistance Tolerance",
+        "tr": "Resistance Tolerance",
+        "de": "Resistance Tolerance",
+        "fr": "Resistance Tolerance",
+        "es": "Resistance Tolerance",
+        "ar": "Resistance Tolerance"
+      }
     },
     {
       "id": "inductance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "H",
       "default": 0.001,
-      "businessContext": "Inductance value of the inductor"
+      "businessContext": "Inductance value of the inductor",
+      "label_i18n": {
+        "en": "Nominal Inductance",
+        "tr": "Nominal Inductance",
+        "de": "Nominal Inductance",
+        "fr": "Nominal Inductance",
+        "es": "Nominal Inductance",
+        "ar": "Nominal Inductance"
+      }
     },
     {
       "id": "inductanceTolerance",
@@ -31,26 +55,38 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Tolerance of the inductor in percent"
+      "businessContext": "Tolerance of the inductor in percent",
+      "label_i18n": {
+        "en": "Inductance Tolerance",
+        "tr": "Inductance Tolerance",
+        "de": "Inductance Tolerance",
+        "fr": "Inductance Tolerance",
+        "es": "Inductance Tolerance",
+        "ar": "Inductance Tolerance"
+      }
     }
   ],
   "formulas": {
     "tauNominal": "inductance / resistance",
     "tauMax": "(inductance * (1 + inductanceTolerance / 100)) / (resistance * (1 - resistanceTolerance / 100))",
-    "tauMin": "(inductance * (1 - inductanceTolerance / 100)) / (resistance * (1 + resistanceTolerance / 100))"
+    "tauMin": "(inductance * (1 - inductanceTolerance / 100)) / (resistance * (1 + resistanceTolerance / 100))",
+    "__tauMax_toFixed_6___s": "${tauMax.toFixed(6)} s",
+    "__tauMin_toFixed_6___s": "${tauMin.toFixed(6)} s",
+    "_____tauMax___tauMin_____2___tauNominal_": "±${((tauMax - tauMin) / (2 * tauNominal) * 100).toFixed(2)}%",
+    "result": "Time Constant (Nominal): ${tauNominal.toFixed(6)} s"
   },
   "outputs": {
-    "primary": "Time Constant (Nominal): ${tauNominal.toFixed(6)} s",
+    "primary": "result",
     "breakdown": [
       "Maximum Time Constant: ${tauMax.toFixed(6)} s",
       "Minimum Time Constant: ${tauMin.toFixed(6)} s",
       "Tolerance Range: ±${((tauMax - tauMin) / (2 * tauNominal) * 100).toFixed(2)}%"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

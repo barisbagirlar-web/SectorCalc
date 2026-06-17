@@ -39,12 +39,7 @@
     "I2": "I1 * Math.cos((polarizer1_angle - polarizer2_angle) * Math.PI / 180) ** 2"
   },
   "outputs": {
-    "primary": {
-      "id": "final_intensity",
-      "label": "Final Intensity",
-      "unit": "W/m²",
-      "formula": "I2"
-    },
+    "primary": "I1",
     "breakdown": [
       {
         "id": "first_intensity",
@@ -60,8 +55,8 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

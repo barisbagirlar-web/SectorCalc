@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "barrels",
       "default": 1,
-      "businessContext": "Number of barrels to convert"
+      "businessContext": "Number of barrels to convert",
+      "label_i18n": {
+        "en": "Barrel Count",
+        "tr": "Barrel Count",
+        "de": "Barrel Count",
+        "fr": "Barrel Count",
+        "es": "Barrel Count",
+        "ar": "Barrel Count"
+      }
     },
     {
       "id": "conversionRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/bbl",
       "default": 158.9873,
-      "businessContext": "Default is for US oil barrel (42 US gallons). Adjust for other barrel types."
+      "businessContext": "Default is for US oil barrel (42 US gallons). Adjust for other barrel types.",
+      "label_i18n": {
+        "en": "Liter per Barrel",
+        "tr": "Liter per Barrel",
+        "de": "Liter per Barrel",
+        "fr": "Liter per Barrel",
+        "es": "Liter per Barrel",
+        "ar": "Liter per Barrel"
+      }
     },
     {
       "id": "temperature",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "°C",
       "default": 15,
-      "businessContext": "Temperature for volume correction (optional)"
+      "businessContext": "Temperature for volume correction (optional)",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "correctionFactor",
       "label": "Volume Correction Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for temperature correction. Use 1 if no correction."
+      "businessContext": "Multiplier for temperature correction. Use 1 if no correction.",
+      "label_i18n": {
+        "en": "Volume Correction Factor",
+        "tr": "Volume Correction Factor",
+        "de": "Volume Correction Factor",
+        "fr": "Volume Correction Factor",
+        "es": "Volume Correction Factor",
+        "ar": "Volume Correction Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "correctionDelta"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Enerji & Karbon",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

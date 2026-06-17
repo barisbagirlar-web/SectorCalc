@@ -20,13 +20,18 @@ export const Import_tax_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Import_tax_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.exchangeRate * (input.cifValue * input.customsDutyRate / 100 + (input.cifValue + input.cifValue * input.customsDutyRate / 100) * (input.vatRate + input.additionalTaxRate) / 100); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.cifValue; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["G_mr_k_Vergisi__Yerel_"] = 0;
+  try { const v = KDV (Yerel); results["KDV__Yerel_"] = Number.isFinite(v) ? v : 0; } catch { results["KDV__Yerel_"] = 0; }
+  results["Ek_Vergi__Yerel_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateImport_tax_calculator(input: Import_tax_calculatorInput): Import_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Toplam"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

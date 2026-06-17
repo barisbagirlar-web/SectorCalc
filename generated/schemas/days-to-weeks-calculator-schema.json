@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Total number of days to be converted into weeks."
+      "businessContext": "Total number of days to be converted into weeks.",
+      "label_i18n": {
+        "en": "Total Days",
+        "tr": "Total Days",
+        "de": "Total Days",
+        "fr": "Total Days",
+        "es": "Total Days",
+        "ar": "Total Days"
+      }
     },
     {
       "id": "daysPerWeek",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 7,
-      "businessContext": "Standard number of days per week for the conversion (e.g., 7 for calendar weeks, 5 for work weeks)."
+      "businessContext": "Standard number of days per week for the conversion (e.g., 7 for calendar weeks, 5 for work weeks).",
+      "label_i18n": {
+        "en": "Days per Week",
+        "tr": "Days per Week",
+        "de": "Days per Week",
+        "fr": "Days per Week",
+        "es": "Days per Week",
+        "ar": "Days per Week"
+      }
     },
     {
       "id": "precision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for the primary output (weeks)."
+      "businessContext": "Number of decimal places for the primary output (weeks).",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "showRemainder",
@@ -31,23 +55,33 @@
       "type": "number",
       "unit": "flag",
       "default": 1,
-      "businessContext": "Set to 1 to include the breakdown of full weeks and remainder days; 0 to output only decimal weeks."
+      "businessContext": "Set to 1 to include the breakdown of full weeks and remainder days; 0 to output only decimal weeks.",
+      "label_i18n": {
+        "en": "Show Remainder Days",
+        "tr": "Show Remainder Days",
+        "de": "Show Remainder Days",
+        "fr": "Show Remainder Days",
+        "es": "Show Remainder Days",
+        "ar": "Show Remainder Days"
+      }
     }
   ],
   "formulas": {
-    "compute": "function(inputs) { const totalDays = inputs.totalDays; let daysPerWeek = inputs.daysPerWeek; if (daysPerWeek <= 0) daysPerWeek = 7; const precision = inputs.precision; const showRemainder = inputs.showRemainder; const weeks = totalDays / daysPerWeek; const roundedWeeks = Math.round(weeks * Math.pow(10, precision)) / Math.pow(10, precision); const fullWeeks = Math.floor(totalDays / daysPerWeek); let remainderDays = totalDays - fullWeeks * daysPerWeek; remainderDays = Math.round(remainderDays * 1e6) / 1e6; return { primary: roundedWeeks, breakdown: showRemainder === 1 ? [fullWeeks, remainderDays] : [] }; }"
+    "compute": "function(inputs) { const totalDays = inputs.totalDays; let daysPerWeek = inputs.daysPerWeek; if (daysPerWeek <= 0) daysPerWeek = 7; const precision = inputs.precision; const showRemainder = inputs.showRemainder; const weeks = totalDays / daysPerWeek; const roundedWeeks = Math.round(weeks * Math.pow(10, precision)) / Math.pow(10, precision); const fullWeeks = Math.floor(totalDays / daysPerWeek); let remainderDays = totalDays - fullWeeks * daysPerWeek; remainderDays = Math.round(remainderDays * 1e6) / 1e6; return { primary: roundedWeeks, breakdown: showRemainder === 1 ? [fullWeeks, remainderDays] : [] }; }",
+    "fullWeeks": "fullWeeks",
+    "remainderDays": "remainderDays"
   },
   "outputs": {
-    "primary": "weeks",
+    "primary": "compute",
     "breakdown": [
       "fullWeeks",
       "remainderDays"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

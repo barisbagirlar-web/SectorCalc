@@ -5,49 +5,97 @@
       "id": "year",
       "label": "Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2000,
-      "businessContext": "Gregorian year (e.g., 2023)"
+      "businessContext": "Gregorian year (e.g., 2023)",
+      "label_i18n": {
+        "en": "Year",
+        "tr": "Year",
+        "de": "Year",
+        "fr": "Year",
+        "es": "Year",
+        "ar": "Year"
+      }
     },
     {
       "id": "month",
       "label": "Month",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Month (1-12)"
+      "businessContext": "Month (1-12)",
+      "label_i18n": {
+        "en": "Month",
+        "tr": "Month",
+        "de": "Month",
+        "fr": "Month",
+        "es": "Month",
+        "ar": "Month"
+      }
     },
     {
       "id": "day",
       "label": "Day",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Day of month (1-31)"
+      "businessContext": "Day of month (1-31)",
+      "label_i18n": {
+        "en": "Day",
+        "tr": "Day",
+        "de": "Day",
+        "fr": "Day",
+        "es": "Day",
+        "ar": "Day"
+      }
     },
     {
       "id": "hour",
       "label": "Hour",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12,
-      "businessContext": "Hour in UT (0-23)"
+      "businessContext": "Hour in UT (0-23)",
+      "label_i18n": {
+        "en": "Hour",
+        "tr": "Hour",
+        "de": "Hour",
+        "fr": "Hour",
+        "es": "Hour",
+        "ar": "Hour"
+      }
     },
     {
       "id": "minute",
       "label": "Minute",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Minute (0-59)"
+      "businessContext": "Minute (0-59)",
+      "label_i18n": {
+        "en": "Minute",
+        "tr": "Minute",
+        "de": "Minute",
+        "fr": "Minute",
+        "es": "Minute",
+        "ar": "Minute"
+      }
     },
     {
       "id": "second",
       "label": "Second",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second (0-59, decimal allowed)"
+      "businessContext": "Second (0-59, decimal allowed)",
+      "label_i18n": {
+        "en": "Second",
+        "tr": "Second",
+        "de": "Second",
+        "fr": "Second",
+        "es": "Second",
+        "ar": "Second"
+      }
     }
   ],
   "formulas": {
@@ -65,8 +113,8 @@
       "fractionOfDay"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

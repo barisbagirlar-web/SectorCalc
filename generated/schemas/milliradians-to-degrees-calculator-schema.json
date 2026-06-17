@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "mrad",
       "default": 0,
-      "businessContext": "Input angular measurement in milliradians."
+      "businessContext": "Input angular measurement in milliradians.",
+      "label_i18n": {
+        "en": "Milliradians",
+        "tr": "Milliradians",
+        "de": "Milliradians",
+        "fr": "Milliradians",
+        "es": "Milliradians",
+        "ar": "Milliradians"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Desired number of decimal places for output (not applied in formula due to operation constraints, for display)."
+      "businessContext": "Desired number of decimal places for output (not applied in formula due to operation constraints, for display).",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "conversionFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "deg/mrad",
       "default": 0.05729577951308232,
-      "businessContext": "Conversion factor from milliradians to degrees. Default: 180/(π×1000)."
+      "businessContext": "Conversion factor from milliradians to degrees. Default: 180/(π×1000).",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "angleOffset",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "deg",
       "default": 0,
-      "businessContext": "Constant offset added to the converted angle (e.g., for calibration)."
+      "businessContext": "Constant offset added to the converted angle (e.g., for calibration).",
+      "label_i18n": {
+        "en": "Angle Offset",
+        "tr": "Angle Offset",
+        "de": "Angle Offset",
+        "fr": "Angle Offset",
+        "es": "Angle Offset",
+        "ar": "Angle Offset"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "conversionFactor"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

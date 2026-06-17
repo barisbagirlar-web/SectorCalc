@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ha",
       "default": 1,
-      "businessContext": "Irrigated land area in hectares"
+      "businessContext": "Irrigated land area in hectares",
+      "label_i18n": {
+        "en": "Area",
+        "tr": "Area",
+        "de": "Area",
+        "fr": "Area",
+        "es": "Area",
+        "ar": "Area"
+      }
     },
     {
       "id": "cropWater",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm/day",
       "default": 5,
-      "businessContext": "Daily water need of the crop from evapotranspiration data"
+      "businessContext": "Daily water need of the crop from evapotranspiration data",
+      "label_i18n": {
+        "en": "Crop Water Requirement",
+        "tr": "Crop Water Requirement",
+        "de": "Crop Water Requirement",
+        "fr": "Crop Water Requirement",
+        "es": "Crop Water Requirement",
+        "ar": "Crop Water Requirement"
+      }
     },
     {
       "id": "efficiency",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "%",
       "default": 75,
-      "businessContext": "Application efficiency of the irrigation system (sprinkler, drip, etc.)"
+      "businessContext": "Application efficiency of the irrigation system (sprinkler, drip, etc.)",
+      "label_i18n": {
+        "en": "Application Efficiency",
+        "tr": "Application Efficiency",
+        "de": "Application Efficiency",
+        "fr": "Application Efficiency",
+        "es": "Application Efficiency",
+        "ar": "Application Efficiency"
+      }
     },
     {
       "id": "peakFactor",
       "label": "Peak Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Peak multiplier for hot/dry periods"
+      "businessContext": "Peak multiplier for hot/dry periods",
+      "label_i18n": {
+        "en": "Peak Factor",
+        "tr": "Peak Factor",
+        "de": "Peak Factor",
+        "fr": "Peak Factor",
+        "es": "Peak Factor",
+        "ar": "Peak Factor"
+      }
     },
     {
       "id": "systemLosses",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percent water loss due to leaks, evaporation, etc."
+      "businessContext": "Percent water loss due to leaks, evaporation, etc.",
+      "label_i18n": {
+        "en": "System Losses",
+        "tr": "System Losses",
+        "de": "System Losses",
+        "fr": "System Losses",
+        "es": "System Losses",
+        "ar": "System Losses"
+      }
     },
     {
       "id": "operatingHours",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "h",
       "default": 12,
-      "businessContext": "Hours per day the irrigation system operates"
+      "businessContext": "Hours per day the irrigation system operates",
+      "label_i18n": {
+        "en": "Operating Hours",
+        "tr": "Operating Hours",
+        "de": "Operating Hours",
+        "fr": "Operating Hours",
+        "es": "Operating Hours",
+        "ar": "Operating Hours"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "rawWaterRequirement"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg"
 }

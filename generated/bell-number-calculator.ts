@@ -20,13 +20,15 @@ function evaluateAllFormulas(input: Bell_number_calculatorInput): Record<string,
   try { const v = input.envFactor * (Math.log(input.power1 / input.power2) / Math.log(10)) + input.calibrationOffset; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   try { const v = input.power1 / input.power2; results["powerRatio"] = Number.isFinite(v) ? v : 0; } catch { results["powerRatio"] = 0; }
   try { const v = 10 * input.envFactor * (Math.log(input.power1 / input.power2) / Math.log(10)) + 10 * input.calibrationOffset; results["decibelValue"] = Number.isFinite(v) ? v : 0; } catch { results["decibelValue"] = 0; }
+  results["Power_Ratio"] = 0;
+  results["Decibel_Value"] = 0;
   return results;
 }
 
 
 export function calculateBell_number_calculator(input: Bell_number_calculatorInput): Bell_number_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Bel"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

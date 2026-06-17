@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "thou",
       "default": 0,
-      "businessContext": "Nominal dimension in thou (thousandths of an inch) to be converted"
+      "businessContext": "Nominal dimension in thou (thousandths of an inch) to be converted",
+      "label_i18n": {
+        "en": "Nominal Dimension",
+        "tr": "Nominal Dimension",
+        "de": "Nominal Dimension",
+        "fr": "Nominal Dimension",
+        "es": "Nominal Dimension",
+        "ar": "Nominal Dimension"
+      }
     },
     {
       "id": "upperToleranceThou",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "thou",
       "default": 0,
-      "businessContext": "Upper tolerance limit in thou"
+      "businessContext": "Upper tolerance limit in thou",
+      "label_i18n": {
+        "en": "Upper Tolerance",
+        "tr": "Upper Tolerance",
+        "de": "Upper Tolerance",
+        "fr": "Upper Tolerance",
+        "es": "Upper Tolerance",
+        "ar": "Upper Tolerance"
+      }
     },
     {
       "id": "lowerToleranceThou",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "thou",
       "default": 0,
-      "businessContext": "Lower tolerance limit in thou (use negative value if below nominal)"
+      "businessContext": "Lower tolerance limit in thou (use negative value if below nominal)",
+      "label_i18n": {
+        "en": "Lower Tolerance",
+        "tr": "Lower Tolerance",
+        "de": "Lower Tolerance",
+        "fr": "Lower Tolerance",
+        "es": "Lower Tolerance",
+        "ar": "Lower Tolerance"
+      }
     },
     {
       "id": "conversionFactor",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mm/thou",
       "default": 0.0254,
-      "businessContext": "Fixed conversion factor from thou to millimeters (1 thou = 0.0254 mm)"
+      "businessContext": "Fixed conversion factor from thou to millimeters (1 thou = 0.0254 mm)",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of decimal places for rounding results"
+      "businessContext": "Number of decimal places for rounding results",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "lowerMM"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

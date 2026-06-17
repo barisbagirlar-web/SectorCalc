@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Bond_yield_calculatorInput): Record<string, 
 
 export function calculateBond_yield_calculator(input: Bond_yield_calculatorInput): Bond_yield_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["approxYTM"] ?? 0;
+  const totalWasteCost = values["annualCoupon"] ?? 0;
   const breakdown = {
     
   };

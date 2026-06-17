@@ -30,7 +30,7 @@ function evaluateAllFormulas(input: Fixed_annuity_calculatorInput): Record<strin
 
 export function calculateFixed_annuity_calculator(input: Fixed_annuity_calculatorInput): Fixed_annuity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["absPayment"] ?? 0;
+  const totalWasteCost = values["periodicRate"] ?? 0;
   const breakdown = {
     
   };

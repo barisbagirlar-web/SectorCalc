@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1000,
-      "businessContext": "Total land area of the plot"
+      "businessContext": "Total land area of the plot",
+      "label_i18n": {
+        "en": "Land Area",
+        "tr": "Land Area",
+        "de": "Land Area",
+        "fr": "Land Area",
+        "es": "Land Area",
+        "ar": "Land Area"
+      }
     },
     {
       "id": "totalFloorArea",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²",
       "default": 2000,
-      "businessContext": "Sum of floor areas of all floors"
+      "businessContext": "Sum of floor areas of all floors",
+      "label_i18n": {
+        "en": "Total Floor Area",
+        "tr": "Total Floor Area",
+        "de": "Total Floor Area",
+        "fr": "Total Floor Area",
+        "es": "Total Floor Area",
+        "ar": "Total Floor Area"
+      }
     },
     {
       "id": "builtAreaFootprint",
@@ -23,35 +39,51 @@
       "type": "number",
       "unit": "m²",
       "default": 500,
-      "businessContext": "Area covered by building footprint on the ground"
+      "businessContext": "Area covered by building footprint on the ground",
+      "label_i18n": {
+        "en": "Built Area Footprint",
+        "tr": "Built Area Footprint",
+        "de": "Built Area Footprint",
+        "fr": "Built Area Footprint",
+        "es": "Built Area Footprint",
+        "ar": "Built Area Footprint"
+      }
     },
     {
       "id": "maxFar",
       "label": "Maximum Allowed FAR",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Maximum allowable Floor Area Ratio per local regulations"
+      "businessContext": "Maximum allowable Floor Area Ratio per local regulations",
+      "label_i18n": {
+        "en": "Maximum Allowed FAR",
+        "tr": "Maximum Allowed FAR",
+        "de": "Maximum Allowed FAR",
+        "fr": "Maximum Allowed FAR",
+        "es": "Maximum Allowed FAR",
+        "ar": "Maximum Allowed FAR"
+      }
     }
   ],
   "formulas": {
     "primary": "totalFloorArea / landArea",
-    "breakdown": [
-      "builtAreaFootprint / landArea",
-      "(totalFloorArea / landArea) / maxFar"
-    ]
+    "breakdown": "landArea",
+    "Building_Coverage_Ratio__BCR_": "Building Coverage Ratio (BCR)",
+    "Floor_Area_Compliance_Ratio": "Floor Area Compliance Ratio",
+    "result": "Building Area Index (FAR)"
   },
   "outputs": {
-    "primary": "Building Area Index (FAR)",
+    "primary": "result",
     "breakdown": [
       "Building Coverage Ratio (BCR)",
       "Floor Area Compliance Ratio"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "sustainability-resource-esg"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bits",
       "default": 0,
-      "businessContext": "Least significant 32 bits of the timestamp (100-nanosecond intervals since UUID epoch)"
+      "businessContext": "Least significant 32 bits of the timestamp (100-nanosecond intervals since UUID epoch)",
+      "label_i18n": {
+        "en": "Time Low",
+        "tr": "Time Low",
+        "de": "Time Low",
+        "fr": "Time Low",
+        "es": "Time Low",
+        "ar": "Time Low"
+      }
     },
     {
       "id": "timeMid",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bits",
       "default": 0,
-      "businessContext": "Middle 16 bits of the timestamp"
+      "businessContext": "Middle 16 bits of the timestamp",
+      "label_i18n": {
+        "en": "Time Mid",
+        "tr": "Time Mid",
+        "de": "Time Mid",
+        "fr": "Time Mid",
+        "es": "Time Mid",
+        "ar": "Time Mid"
+      }
     },
     {
       "id": "timeHiAndVersion",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bits",
       "default": 4096,
-      "businessContext": "12 bits time high (most significant) + 4 bits UUID version (0001 for v1)"
+      "businessContext": "12 bits time high (most significant) + 4 bits UUID version (0001 for v1)",
+      "label_i18n": {
+        "en": "Time High & Version",
+        "tr": "Time High & Version",
+        "de": "Time High & Version",
+        "fr": "Time High & Version",
+        "es": "Time High & Version",
+        "ar": "Time High & Version"
+      }
     },
     {
       "id": "clockSeqAndVariant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "bits",
       "default": 32768,
-      "businessContext": "14-bit clock sequence + 2-bit variant (10 for standard DCE)"
+      "businessContext": "14-bit clock sequence + 2-bit variant (10 for standard DCE)",
+      "label_i18n": {
+        "en": "Clock Sequence & Variant",
+        "tr": "Clock Sequence & Variant",
+        "de": "Clock Sequence & Variant",
+        "fr": "Clock Sequence & Variant",
+        "es": "Clock Sequence & Variant",
+        "ar": "Clock Sequence & Variant"
+      }
     },
     {
       "id": "node",
@@ -39,21 +71,29 @@
       "type": "number",
       "unit": "bits",
       "default": 0,
-      "businessContext": "48-bit node identifier, typically the MAC address"
+      "businessContext": "48-bit node identifier, typically the MAC address",
+      "label_i18n": {
+        "en": "Node (MAC)",
+        "tr": "Node (MAC)",
+        "de": "Node (MAC)",
+        "fr": "Node (MAC)",
+        "es": "Node (MAC)",
+        "ar": "Node (MAC)"
+      }
     }
   ],
   "formulas": {
     "primary": "timeLow.toString(16).padStart(8,'0') + '-' + timeMid.toString(16).padStart(4,'0') + '-' + (timeHiAndVersion >> 12).toString(16) + (timeHiAndVersion & 0xFFF).toString(16).padStart(3,'0') + '-' + ((clockSeqAndVariant >> 8) & 0xFF).toString(16).padStart(2,'0') + (clockSeqAndVariant & 0xFF).toString(16).padStart(2,'0') + '-' + node.toString(16).padStart(12,'0')",
-    "breakdown": [
-      "timeLow.toString(16).padStart(8,'0')",
-      "timeMid.toString(16).padStart(4,'0')",
-      "(timeHiAndVersion >> 12).toString(16) + (timeHiAndVersion & 0xFFF).toString(16).padStart(3,'0')",
-      "((clockSeqAndVariant >> 8) & 0xFF).toString(16).padStart(2,'0') + (clockSeqAndVariant & 0xFF).toString(16).padStart(2,'0')",
-      "node.toString(16).padStart(12,'0')"
-    ]
+    "breakdown": "timeLow",
+    "timeLow_hex": "timeLow hex",
+    "timeMid_hex": "timeMid hex",
+    "timeHigh_and_version_hex": "timeHigh and version hex",
+    "clockSeq_and_variant_hex": "clockSeq and variant hex",
+    "node_hex": "node hex",
+    "result": "Generated UUID (v1 format)"
   },
   "outputs": {
-    "primary": "Generated UUID (v1 format)",
+    "primary": "result",
     "breakdown": [
       "timeLow hex",
       "timeMid hex",
@@ -62,10 +102,10 @@
       "node hex"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

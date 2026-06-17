@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the substance undergoing phase change"
+      "businessContext": "Mass of the substance undergoing phase change",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "specificLatentHeat",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "kJ/kg",
       "default": 334,
-      "businessContext": "Energy required per kilogram to change phase at constant temperature"
+      "businessContext": "Energy required per kilogram to change phase at constant temperature",
+      "label_i18n": {
+        "en": "Specific Latent Heat",
+        "tr": "Specific Latent Heat",
+        "de": "Specific Latent Heat",
+        "fr": "Specific Latent Heat",
+        "es": "Specific Latent Heat",
+        "ar": "Specific Latent Heat"
+      }
     },
     {
       "id": "numberOfCycles",
       "label": "Number of Cycles",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of complete phase change cycles (e.g., melt-freeze)"
+      "businessContext": "Number of complete phase change cycles (e.g., melt-freeze)",
+      "label_i18n": {
+        "en": "Number of Cycles",
+        "tr": "Number of Cycles",
+        "de": "Number of Cycles",
+        "fr": "Number of Cycles",
+        "es": "Number of Cycles",
+        "ar": "Number of Cycles"
+      }
     },
     {
       "id": "efficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Heat transfer efficiency (0–100%) accounting for losses"
+      "businessContext": "Heat transfer efficiency (0–100%) accounting for losses",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "energy_per_cycle"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "process-chemical"
 }

@@ -18,13 +18,17 @@ export const Bai_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Bai_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.totalFloorArea / input.landArea; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.landArea; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Building_Coverage_Ratio__BCR_"] = 0;
+  results["Floor_Area_Compliance_Ratio"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateBai_calculator(input: Bai_calculatorInput): Bai_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Building"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

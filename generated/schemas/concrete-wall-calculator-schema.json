@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Horizontal dimension of the wall"
+      "businessContext": "Horizontal dimension of the wall",
+      "label_i18n": {
+        "en": "Wall Length",
+        "tr": "Wall Length",
+        "de": "Wall Length",
+        "fr": "Wall Length",
+        "es": "Wall Length",
+        "ar": "Wall Length"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Vertical dimension of the wall"
+      "businessContext": "Vertical dimension of the wall",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "thickness",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "Cross-sectional thickness of the wall"
+      "businessContext": "Cross-sectional thickness of the wall",
+      "label_i18n": {
+        "en": "Wall Thickness",
+        "tr": "Wall Thickness",
+        "de": "Wall Thickness",
+        "fr": "Wall Thickness",
+        "es": "Wall Thickness",
+        "ar": "Wall Thickness"
+      }
     },
     {
       "id": "quantity",
       "label": "Number of Walls",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "How many identical walls to cast"
+      "businessContext": "How many identical walls to cast",
+      "label_i18n": {
+        "en": "Number of Walls",
+        "tr": "Number of Walls",
+        "de": "Number of Walls",
+        "fr": "Number of Walls",
+        "es": "Number of Walls",
+        "ar": "Number of Walls"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Additional concrete to account for spillage, over-excavation, etc."
+      "businessContext": "Additional concrete to account for spillage, over-excavation, etc.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "costPerCubicMeter",
@@ -47,24 +87,36 @@
       "type": "number",
       "unit": "EUR/m³",
       "default": 100,
-      "businessContext": "Unit price of ready-mix concrete"
+      "businessContext": "Unit price of ready-mix concrete",
+      "label_i18n": {
+        "en": "Concrete Cost per m³",
+        "tr": "Concrete Cost per m³",
+        "de": "Concrete Cost per m³",
+        "fr": "Concrete Cost per m³",
+        "es": "Concrete Cost per m³",
+        "ar": "Concrete Cost per m³"
+      }
     }
   ],
   "formulas": {
     "netVolume": "length * height * thickness * quantity",
     "totalVolume": "netVolume * (1 + wasteFactor / 100)",
     "wasteVolume": "totalVolume - netVolume",
-    "totalCost": "totalVolume * costPerCubicMeter"
+    "totalCost": "totalVolume * costPerCubicMeter",
+    "Net_Volume__m__": "Net Volume (m³)",
+    "Waste_Volume__m__": "Waste Volume (m³)",
+    "Total_Cost": "Total Cost",
+    "result": "Total Concrete Volume (m³)"
   },
   "outputs": {
-    "primary": "Total Concrete Volume (m³)",
+    "primary": "result",
     "breakdown": [
       "Net Volume (m³)",
       "Waste Volume (m³)",
       "Total Cost"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Zayıf asidin başlangıç konsantrasyonu"
+      "businessContext": "Zayıf asidin başlangıç konsantrasyonu",
+      "label_i18n": {
+        "en": "Asit Konsantrasyonu",
+        "tr": "Asit Konsantrasyonu",
+        "de": "Asit Konsantrasyonu",
+        "fr": "Asit Konsantrasyonu",
+        "es": "Asit Konsantrasyonu",
+        "ar": "Asit Konsantrasyonu"
+      }
     },
     {
       "id": "measuredpH",
       "label": "Ölçülen pH",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Çözeltinin ölçülen pH değeri"
+      "businessContext": "Çözeltinin ölçülen pH değeri",
+      "label_i18n": {
+        "en": "Ölçülen pH",
+        "tr": "Ölçülen pH",
+        "de": "Ölçülen pH",
+        "fr": "Ölçülen pH",
+        "es": "Ölçülen pH",
+        "ar": "Ölçülen pH"
+      }
     },
     {
       "id": "knownKa",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0,
-      "businessContext": "Asit ayrışma sabiti biliniyorsa, doğrudan hesaplama için girin (opsiyonel)"
+      "businessContext": "Asit ayrışma sabiti biliniyorsa, doğrudan hesaplama için girin (opsiyonel)",
+      "label_i18n": {
+        "en": "Bilinen Ka Değeri",
+        "tr": "Bilinen Ka Değeri",
+        "de": "Bilinen Ka Değeri",
+        "fr": "Bilinen Ka Değeri",
+        "es": "Bilinen Ka Değeri",
+        "ar": "Bilinen Ka Değeri"
+      }
     },
     {
       "id": "temperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Çözelti sıcaklığı (hesaplamayı etkilemez, kayıt amaçlı)"
+      "businessContext": "Çözelti sıcaklığı (hesaplamayı etkilemez, kayıt amaçlı)",
+      "label_i18n": {
+        "en": "Sıcaklık",
+        "tr": "Sıcaklık",
+        "de": "Sıcaklık",
+        "fr": "Sıcaklık",
+        "es": "Sıcaklık",
+        "ar": "Sıcaklık"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "computedPka"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "quality-six-sigma"
 }

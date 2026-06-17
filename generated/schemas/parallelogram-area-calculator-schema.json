@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of the base of the parallelogram."
+      "businessContext": "Length of the base of the parallelogram.",
+      "label_i18n": {
+        "en": "Base length",
+        "tr": "Base length",
+        "de": "Base length",
+        "fr": "Base length",
+        "es": "Base length",
+        "ar": "Base length"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Perpendicular distance between bases."
+      "businessContext": "Perpendicular distance between bases.",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "side",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Length of the adjacent side. Used if base and height not provided."
+      "businessContext": "Length of the adjacent side. Used if base and height not provided.",
+      "label_i18n": {
+        "en": "Side length",
+        "tr": "Side length",
+        "de": "Side length",
+        "fr": "Side length",
+        "es": "Side length",
+        "ar": "Side length"
+      }
     },
     {
       "id": "angle",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "degrees",
       "default": 0,
-      "businessContext": "Angle between base and side. Used for alternative area calculation."
+      "businessContext": "Angle between base and side. Used for alternative area calculation.",
+      "label_i18n": {
+        "en": "Angle between base and side",
+        "tr": "Angle between base and side",
+        "de": "Angle between base and side",
+        "fr": "Angle between base and side",
+        "es": "Angle between base and side",
+        "ar": "Angle between base and side"
+      }
     },
     {
       "id": "diagonal1",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "First diagonal length."
+      "businessContext": "First diagonal length.",
+      "label_i18n": {
+        "en": "Diagonal 1",
+        "tr": "Diagonal 1",
+        "de": "Diagonal 1",
+        "fr": "Diagonal 1",
+        "es": "Diagonal 1",
+        "ar": "Diagonal 1"
+      }
     },
     {
       "id": "diagonal2",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Second diagonal length."
+      "businessContext": "Second diagonal length.",
+      "label_i18n": {
+        "en": "Diagonal 2",
+        "tr": "Diagonal 2",
+        "de": "Diagonal 2",
+        "fr": "Diagonal 2",
+        "es": "Diagonal 2",
+        "ar": "Diagonal 2"
+      }
     },
     {
       "id": "angleDiagonals",
@@ -55,19 +103,26 @@
       "type": "number",
       "unit": "degrees",
       "default": 0,
-      "businessContext": "Angle between the diagonals. Used for alternative area calculation."
+      "businessContext": "Angle between the diagonals. Used for alternative area calculation.",
+      "label_i18n": {
+        "en": "Angle between diagonals",
+        "tr": "Angle between diagonals",
+        "de": "Angle between diagonals",
+        "fr": "Angle between diagonals",
+        "es": "Angle between diagonals",
+        "ar": "Angle between diagonals"
+      }
     }
   ],
   "formulas": {
-    "area": "(base > 0 && height > 0) ? (base * height) : ((base > 0 && side > 0 && angle > 0) ? (base * side * Math.sin(angle * Math.PI / 180)) : ((diagonal1 > 0 && diagonal2 > 0 && angleDiagonals > 0) ? (0.5 * diagonal1 * diagonal2 * Math.sin(angleDiagonals * Math.PI / 180)) : 0))"
+    "area": "(base > 0 && height > 0) ? (base * height) : ((base > 0 && side > 0 && angle > 0) ? (base * side * Math.sin(angle * Math.PI / 180)) : ((diagonal1 > 0 && diagonal2 > 0 && angleDiagonals > 0) ? (0.5 * diagonal1 * diagonal2 * Math.sin(angleDiagonals * Math.PI / 180)) : 0))",
+    "area___base___height_": "area = base × height.",
+    "area___base___side___sin_angle__": "area = base × side × sin(angle).",
+    "area___0_5___diagonal1___diagonal2___sin": "area = 0.5 × diagonal1 × diagonal2 × sin(angle).",
+    "Result_in_square_meters__m___": "Result in square meters (m²)."
   },
   "outputs": {
-    "primary": {
-      "id": "area",
-      "label": "Parallelogram Area",
-      "unit": "m²",
-      "type": "number"
-    },
+    "primary": "area",
     "breakdown": [
       "Calculate area using available inputs:",
       "If base and height provided: area = base × height.",
@@ -76,10 +131,10 @@
       "Result in square meters (m²)."
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

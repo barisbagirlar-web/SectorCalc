@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Total number of months to convert to years"
+      "businessContext": "Total number of months to convert to years",
+      "label_i18n": {
+        "en": "Months",
+        "tr": "Months",
+        "de": "Months",
+        "fr": "Months",
+        "es": "Months",
+        "ar": "Months"
+      }
     },
     {
       "id": "monthsPerYear",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "months/year",
       "default": 12,
-      "businessContext": "Number of months in a year (typically 12)"
+      "businessContext": "Number of months in a year (typically 12)",
+      "label_i18n": {
+        "en": "Months per Year",
+        "tr": "Months per Year",
+        "de": "Months per Year",
+        "fr": "Months per Year",
+        "es": "Months per Year",
+        "ar": "Months per Year"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for the years output"
+      "businessContext": "Number of decimal places for the years output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "outputMode",
       "label": "Output Mode",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = decimal years only, 1 = years and months breakdown (not used in primary)"
+      "businessContext": "0 = decimal years only, 1 = years and months breakdown (not used in primary)",
+      "label_i18n": {
+        "en": "Output Mode",
+        "tr": "Output Mode",
+        "de": "Output Mode",
+        "fr": "Output Mode",
+        "es": "Output Mode",
+        "ar": "Output Mode"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "monthsPart"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

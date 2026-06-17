@@ -3,15 +3,20 @@ import * as z from 'zod';
 
 export interface Mph_to_kmhInput {
   speed_mph: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Mph_to_kmhInputSchema = z.object({
   speed_mph: z.number().default(60),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Mph_to_kmhInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.speed_mph * 1.609344; results["speed_kmh"] = Number.isFinite(v) ? v : 0; } catch { results["speed_kmh"] = 0; }
+  results["speed_mph___1_609344___speed_kmh"] = 0;
   return results;
 }
 

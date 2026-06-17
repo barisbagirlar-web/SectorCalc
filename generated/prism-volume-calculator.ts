@@ -20,6 +20,7 @@ function evaluateAllFormulas(input: Prism_volume_calculatorInput): Record<string
   try { const v = (input.sides >= 3) ? (input.sides * input.sideLength * input.sideLength) / (4 * Math.tan(Math.PI / input.sides)) : (input.sideLength * input.sideLength); results["computedBaseArea"] = Number.isFinite(v) ? v : 0; } catch { results["computedBaseArea"] = 0; }
   try { const v = input.baseArea > 0 ? input.baseArea : (results["computedBaseArea"] ?? 0); results["finalBaseArea"] = Number.isFinite(v) ? v : 0; } catch { results["finalBaseArea"] = 0; }
   try { const v = (results["finalBaseArea"] ?? 0) * input.height; results["volume"] = Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
+  try { const v = input.height; results["height"] = Number.isFinite(v) ? v : 0; } catch { results["height"] = 0; }
   return results;
 }
 

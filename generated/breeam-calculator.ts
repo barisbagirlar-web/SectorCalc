@@ -26,13 +26,17 @@ function evaluateAllFormulas(input: Breeam_calculatorInput): Record<string, numb
   try { const v = (input.recycled_waste / input.waste_generated) * 100; results["waste_recycling_rate"] = Number.isFinite(v) ? v : 0; } catch { results["waste_recycling_rate"] = 0; }
   try { const v = input.co2_emissions / input.floor_area; results["carbon_intensity"] = Number.isFinite(v) ? v : 0; } catch { results["carbon_intensity"] = 0; }
   try { const v = Math.min(100, ((results["energy_intensity"] ?? 0) * 0.3 + (results["water_intensity"] ?? 0) * 0.2 + (100 - (results["waste_recycling_rate"] ?? 0)) * 0.2 + (results["carbon_intensity"] ?? 0) * 0.3) / 10); results["breeam_score"] = Number.isFinite(v) ? v : 0; } catch { results["breeam_score"] = 0; }
+  results["Energy_Intensity__kWh_m__"] = 0;
+  results["Water_Intensity__m__m__"] = 0;
+  results["Waste_Recycling_Rate____"] = 0;
+  results["Carbon_Intensity__tonnes_m__"] = 0;
   return results;
 }
 
 
 export function calculateBreeam_calculator(input: Breeam_calculatorInput): Breeam_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["BREEAM"] ?? 0;
+  const totalWasteCost = values["energy_intensity"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Total 24-hour rainfall depth in millimeters."
+      "businessContext": "Total 24-hour rainfall depth in millimeters.",
+      "label_i18n": {
+        "en": "Rainfall Depth (P)",
+        "tr": "Rainfall Depth (P)",
+        "de": "Rainfall Depth (P)",
+        "fr": "Rainfall Depth (P)",
+        "es": "Rainfall Depth (P)",
+        "ar": "Rainfall Depth (P)"
+      }
     },
     {
       "id": "curveNumber",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 75,
-      "businessContext": "SCS Curve Number for normal (AMC II) conditions. Range 30-100."
+      "businessContext": "SCS Curve Number for normal (AMC II) conditions. Range 30-100.",
+      "label_i18n": {
+        "en": "Curve Number (CN2)",
+        "tr": "Curve Number (CN2)",
+        "de": "Curve Number (CN2)",
+        "fr": "Curve Number (CN2)",
+        "es": "Curve Number (CN2)",
+        "ar": "Curve Number (CN2)"
+      }
     },
     {
       "id": "amc",
       "label": "Antecedent Moisture Condition",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "1 = Dry (AMC I), 2 = Normal (AMC II), 3 = Wet (AMC III)."
+      "businessContext": "1 = Dry (AMC I), 2 = Normal (AMC II), 3 = Wet (AMC III).",
+      "label_i18n": {
+        "en": "Antecedent Moisture Condition",
+        "tr": "Antecedent Moisture Condition",
+        "de": "Antecedent Moisture Condition",
+        "fr": "Antecedent Moisture Condition",
+        "es": "Antecedent Moisture Condition",
+        "ar": "Antecedent Moisture Condition"
+      }
     },
     {
       "id": "iaRatio",
       "label": "Initial Abstraction Ratio",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.2,
-      "businessContext": "Ratio of initial abstraction to potential maximum retention (commonly 0.2)."
+      "businessContext": "Ratio of initial abstraction to potential maximum retention (commonly 0.2).",
+      "label_i18n": {
+        "en": "Initial Abstraction Ratio",
+        "tr": "Initial Abstraction Ratio",
+        "de": "Initial Abstraction Ratio",
+        "fr": "Initial Abstraction Ratio",
+        "es": "Initial Abstraction Ratio",
+        "ar": "Initial Abstraction Ratio"
+      }
     }
   ],
   "formulas": {
@@ -49,10 +81,10 @@
       "runoff"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

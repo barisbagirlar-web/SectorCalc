@@ -5,41 +5,81 @@
       "id": "measurement",
       "label": "Measurement Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "The child's measurement (e.g., weight, length, or head circumference)."
+      "businessContext": "The child's measurement (e.g., weight, length, or head circumference).",
+      "label_i18n": {
+        "en": "Measurement Value",
+        "tr": "Measurement Value",
+        "de": "Measurement Value",
+        "fr": "Measurement Value",
+        "es": "Measurement Value",
+        "ar": "Measurement Value"
+      }
     },
     {
       "id": "L",
       "label": "L (Lambda)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "L parameter from the LMS growth reference (e.g., WHO/CDC) for the specific age, gender, and measurement type."
+      "businessContext": "L parameter from the LMS growth reference (e.g., WHO/CDC) for the specific age, gender, and measurement type.",
+      "label_i18n": {
+        "en": "L (Lambda)",
+        "tr": "L (Lambda)",
+        "de": "L (Lambda)",
+        "fr": "L (Lambda)",
+        "es": "L (Lambda)",
+        "ar": "L (Lambda)"
+      }
     },
     {
       "id": "M",
       "label": "M (Median)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 7,
-      "businessContext": "M parameter (median) from the LMS growth reference, in the same unit as the measurement."
+      "businessContext": "M parameter (median) from the LMS growth reference, in the same unit as the measurement.",
+      "label_i18n": {
+        "en": "M (Median)",
+        "tr": "M (Median)",
+        "de": "M (Median)",
+        "fr": "M (Median)",
+        "es": "M (Median)",
+        "ar": "M (Median)"
+      }
     },
     {
       "id": "S",
       "label": "S (Coefficient of Variation)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.1,
-      "businessContext": "S parameter (generalized coefficient of variation) from the LMS growth reference."
+      "businessContext": "S parameter (generalized coefficient of variation) from the LMS growth reference.",
+      "label_i18n": {
+        "en": "S (Coefficient of Variation)",
+        "tr": "S (Coefficient of Variation)",
+        "de": "S (Coefficient of Variation)",
+        "fr": "S (Coefficient of Variation)",
+        "es": "S (Coefficient of Variation)",
+        "ar": "S (Coefficient of Variation)"
+      }
     },
     {
       "id": "measurementType",
       "label": "Measurement Type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Indicator: 1 = Weight, 2 = Length, 3 = Head circumference. Used only for contextual clarity."
+      "businessContext": "Indicator: 1 = Weight, 2 = Length, 3 = Head circumference. Used only for contextual clarity.",
+      "label_i18n": {
+        "en": "Measurement Type",
+        "tr": "Measurement Type",
+        "de": "Measurement Type",
+        "fr": "Measurement Type",
+        "es": "Measurement Type",
+        "ar": "Measurement Type"
+      }
     }
   ],
   "formulas": {
@@ -52,10 +92,10 @@
       "zscore"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

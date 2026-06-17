@@ -23,13 +23,18 @@ function evaluateAllFormulas(input: Hamilton_norwood_calculatorInput): Record<st
   try { const v = input.crownThinningArea / 50; results["crownThinningScore"] = Number.isFinite(v) ? v : 0; } catch { results["crownThinningScore"] = 0; }
   try { const v = (results["recessionScore"] ?? 0) + (results["vertexScore"] ?? 0) + (results["frontalThinningScore"] ?? 0) + (results["crownThinningScore"] ?? 0); results["totalScore"] = Number.isFinite(v) ? v : 0; } catch { results["totalScore"] = 0; }
   try { const v = Math.min(7, Math.max(1, Math.round((results["totalScore"] ?? 0)))); results["norwoodStage"] = Number.isFinite(v) ? v : 0; } catch { results["norwoodStage"] = 0; }
+  try { const v = (results["recessionScore"] ?? 0); results["_recessionScore_"] = Number.isFinite(v) ? v : 0; } catch { results["_recessionScore_"] = 0; }
+  try { const v = (results["vertexScore"] ?? 0); results["_vertexScore_"] = Number.isFinite(v) ? v : 0; } catch { results["_vertexScore_"] = 0; }
+  try { const v = (results["frontalThinningScore"] ?? 0); results["_frontalThinningScore_"] = Number.isFinite(v) ? v : 0; } catch { results["_frontalThinningScore_"] = 0; }
+  try { const v = (results["crownThinningScore"] ?? 0); results["_crownThinningScore_"] = Number.isFinite(v) ? v : 0; } catch { results["_crownThinningScore_"] = 0; }
+  try { const v = (results["totalScore"] ?? 0); results["_totalScore_"] = Number.isFinite(v) ? v : 0; } catch { results["_totalScore_"] = 0; }
   return results;
 }
 
 
 export function calculateHamilton_norwood_calculator(input: Hamilton_norwood_calculatorInput): Hamilton_norwood_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Norwood"] ?? 0;
+  const totalWasteCost = values["recessionScore"] ?? 0;
   const breakdown = {
     
   };

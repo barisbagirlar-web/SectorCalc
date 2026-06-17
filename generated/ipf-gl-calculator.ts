@@ -2,37 +2,35 @@
 import * as z from 'zod';
 
 export interface Ipf_gl_calculatorInput {
-  productionVolume: number;
-  materialCostPerUnit: number;
-  laborCostPerUnit: number;
-  overheadCostPerUnit: number;
-  defectRate: number;
-  sellingPricePerUnit: number;
+  thermal_conductivity: number;
+  thickness: number;
+  area: number;
+  temp_hot: number;
+  temp_cold: number;
+  u_target: number;
 }
 
 export const Ipf_gl_calculatorInputSchema = z.object({
-  productionVolume: z.number().default(1000),
-  materialCostPerUnit: z.number().default(5),
-  laborCostPerUnit: z.number().default(3),
-  overheadCostPerUnit: z.number().default(2),
-  defectRate: z.number().default(5),
-  sellingPricePerUnit: z.number().default(15),
+  thermal_conductivity: z.number().default(0.04),
+  thickness: z.number().default(100),
+  area: z.number().default(10),
+  temp_hot: z.number().default(80),
+  temp_cold: z.number().default(20),
+  u_target: z.number().default(0.5),
 });
 
 function evaluateAllFormulas(input: Ipf_gl_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.productionVolume * (input.materialCostPerUnit + input.laborCostPerUnit + input.overheadCostPerUnit); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
-  try { const v = input.productionVolume * input.defectRate / 100; results["defectiveUnits"] = Number.isFinite(v) ? v : 0; } catch { results["defectiveUnits"] = 0; }
-  try { const v = (results["defectiveUnits"] ?? 0) * (input.materialCostPerUnit + input.laborCostPerUnit + input.overheadCostPerUnit); results["defectLoss"] = Number.isFinite(v) ? v : 0; } catch { results["defectLoss"] = 0; }
-  try { const v = input.productionVolume * input.sellingPricePerUnit; results["grossRevenue"] = Number.isFinite(v) ? v : 0; } catch { results["grossRevenue"] = 0; }
-  try { const v = (results["totalCost"] ?? 0) + (results["defectLoss"] ?? 0) - (results["grossRevenue"] ?? 0); results["grossLoss"] = Number.isFinite(v) ? v : 0; } catch { results["grossLoss"] = 0; }
+  try { const v = (input.thermal_conductivity * 1000) / input.thickness; results["u_actual"] = Number.isFinite(v) ? v : 0; } catch { results["u_actual"] = 0; }
+  try { const v = input.u_target / ((input.thermal_conductivity * 1000) / input.thickness); results["ipf"] = Number.isFinite(v) ? v : 0; } catch { results["ipf"] = 0; }
+  try { const v = ((input.thermal_conductivity * 1000) / input.thickness) * input.area * (input.temp_hot - input.temp_cold); results["heat_loss"] = Number.isFinite(v) ? v : 0; } catch { results["heat_loss"] = 0; }
   return results;
 }
 
 
 export function calculateIpf_gl_calculator(input: Ipf_gl_calculatorInput): Ipf_gl_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["grossLoss"] ?? 0;
+  const totalWasteCost = values["ipf"] ?? 0;
   const breakdown = {
     
   };

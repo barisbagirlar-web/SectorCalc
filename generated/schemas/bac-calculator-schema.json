@@ -5,9 +5,17 @@
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for male, 1 for female"
+      "businessContext": "0 for male, 1 for female",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "weight",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms"
+      "businessContext": "Body weight in kilograms",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "drinks",
       "label": "Number of Drinks",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Standard drinks (14g ethanol each)"
+      "businessContext": "Standard drinks (14g ethanol each)",
+      "label_i18n": {
+        "en": "Number of Drinks",
+        "tr": "Number of Drinks",
+        "de": "Number of Drinks",
+        "fr": "Number of Drinks",
+        "es": "Number of Drinks",
+        "ar": "Number of Drinks"
+      }
     },
     {
       "id": "hours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1,
-      "businessContext": "Time elapsed since start of drinking"
+      "businessContext": "Time elapsed since start of drinking",
+      "label_i18n": {
+        "en": "Hours Since First Drink",
+        "tr": "Hours Since First Drink",
+        "de": "Hours Since First Drink",
+        "fr": "Hours Since First Drink",
+        "es": "Hours Since First Drink",
+        "ar": "Hours Since First Drink"
+      }
     },
     {
       "id": "alcoholPercentage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Alcohol by volume (ABV) per drink"
+      "businessContext": "Alcohol by volume (ABV) per drink",
+      "label_i18n": {
+        "en": "Alcohol Percentage per Drink",
+        "tr": "Alcohol Percentage per Drink",
+        "de": "Alcohol Percentage per Drink",
+        "fr": "Alcohol Percentage per Drink",
+        "es": "Alcohol Percentage per Drink",
+        "ar": "Alcohol Percentage per Drink"
+      }
     },
     {
       "id": "volumePerDrink",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "ml",
       "default": 355,
-      "businessContext": "Volume of one drink in milliliters"
+      "businessContext": "Volume of one drink in milliliters",
+      "label_i18n": {
+        "en": "Volume per Drink",
+        "tr": "Volume per Drink",
+        "de": "Volume per Drink",
+        "fr": "Volume per Drink",
+        "es": "Volume per Drink",
+        "ar": "Volume per Drink"
+      }
     }
   ],
   "formulas": {
@@ -65,10 +113,10 @@
       "bacMetabolized"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",
-  "categorySlug": "food-cold-chain-hygiene"
+  "categorySlug": "quality-six-sigma"
 }

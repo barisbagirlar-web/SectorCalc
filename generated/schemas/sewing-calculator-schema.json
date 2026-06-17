@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2.5,
-      "businessContext": "Length of each stitch in millimeters"
+      "businessContext": "Length of each stitch in millimeters",
+      "label_i18n": {
+        "en": "Stitch Length",
+        "tr": "Stitch Length",
+        "de": "Stitch Length",
+        "fr": "Stitch Length",
+        "es": "Stitch Length",
+        "ar": "Stitch Length"
+      }
     },
     {
       "id": "seamLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Total length of the seam to be sewn"
+      "businessContext": "Total length of the seam to be sewn",
+      "label_i18n": {
+        "en": "Seam Length",
+        "tr": "Seam Length",
+        "de": "Seam Length",
+        "fr": "Seam Length",
+        "es": "Seam Length",
+        "ar": "Seam Length"
+      }
     },
     {
       "id": "sewingSpeed",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "stitches/min",
       "default": 1000,
-      "businessContext": "Machine speed in stitches per minute"
+      "businessContext": "Machine speed in stitches per minute",
+      "label_i18n": {
+        "en": "Sewing Speed",
+        "tr": "Sewing Speed",
+        "de": "Sewing Speed",
+        "fr": "Sewing Speed",
+        "es": "Sewing Speed",
+        "ar": "Sewing Speed"
+      }
     },
     {
       "id": "threadConsumptionFactor",
       "label": "Thread Consumption Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2.5,
-      "businessContext": "Factor to estimate thread usage (typically 2.5-3.0)"
+      "businessContext": "Factor to estimate thread usage (typically 2.5-3.0)",
+      "label_i18n": {
+        "en": "Thread Consumption Factor",
+        "tr": "Thread Consumption Factor",
+        "de": "Thread Consumption Factor",
+        "fr": "Thread Consumption Factor",
+        "es": "Thread Consumption Factor",
+        "ar": "Thread Consumption Factor"
+      }
     },
     {
       "id": "laborCostPerHour",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 15,
-      "businessContext": "Hourly wage of the operator"
+      "businessContext": "Hourly wage of the operator",
+      "label_i18n": {
+        "en": "Labor Cost per Hour",
+        "tr": "Labor Cost per Hour",
+        "de": "Labor Cost per Hour",
+        "fr": "Labor Cost per Hour",
+        "es": "Labor Cost per Hour",
+        "ar": "Labor Cost per Hour"
+      }
     },
     {
       "id": "machineCostPerHour",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5,
-      "businessContext": "Hourly cost of machine operation (depreciation, maintenance, energy)"
+      "businessContext": "Hourly cost of machine operation (depreciation, maintenance, energy)",
+      "label_i18n": {
+        "en": "Machine Cost per Hour",
+        "tr": "Machine Cost per Hour",
+        "de": "Machine Cost per Hour",
+        "fr": "Machine Cost per Hour",
+        "es": "Machine Cost per Hour",
+        "ar": "Machine Cost per Hour"
+      }
     }
   ],
   "formulas": {
@@ -70,10 +118,10 @@
       "machineCost"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Tekstil & Moda",
+  "sector": "Perakende & Gıda",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "textile-print-lab"
 }

@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Weight of the object to be lifted."
+      "businessContext": "Weight of the object to be lifted.",
+      "label_i18n": {
+        "en": "Load Weight (kg)",
+        "tr": "Load Weight (kg)",
+        "de": "Load Weight (kg)",
+        "fr": "Load Weight (kg)",
+        "es": "Load Weight (kg)",
+        "ar": "Load Weight (kg)"
+      }
     },
     {
       "id": "mechanicalAdvantage",
       "label": "Mechanical Advantage",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Mechanical advantage from pulley or lever system."
+      "businessContext": "Mechanical advantage from pulley or lever system.",
+      "label_i18n": {
+        "en": "Mechanical Advantage",
+        "tr": "Mechanical Advantage",
+        "de": "Mechanical Advantage",
+        "fr": "Mechanical Advantage",
+        "es": "Mechanical Advantage",
+        "ar": "Mechanical Advantage"
+      }
     },
     {
       "id": "frictionCoeff",
       "label": "Friction Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.05,
-      "businessContext": "Friction in the system (0-1)."
+      "businessContext": "Friction in the system (0-1).",
+      "label_i18n": {
+        "en": "Friction Coefficient",
+        "tr": "Friction Coefficient",
+        "de": "Friction Coefficient",
+        "fr": "Friction Coefficient",
+        "es": "Friction Coefficient",
+        "ar": "Friction Coefficient"
+      }
     },
     {
       "id": "pullAngle",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "degrees",
       "default": 10,
-      "businessContext": "Angle at which the force is applied relative to vertical."
+      "businessContext": "Angle at which the force is applied relative to vertical.",
+      "label_i18n": {
+        "en": "Pull Angle from Vertical",
+        "tr": "Pull Angle from Vertical",
+        "de": "Pull Angle from Vertical",
+        "fr": "Pull Angle from Vertical",
+        "es": "Pull Angle from Vertical",
+        "ar": "Pull Angle from Vertical"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,10 @@
       "frictionAddedForce"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
-  "premiumRequired": false
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "categorySlug": "cnc-additive-manufacturing",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

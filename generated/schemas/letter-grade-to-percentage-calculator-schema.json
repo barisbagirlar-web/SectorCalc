@@ -5,17 +5,33 @@
       "id": "gradePoint",
       "label": "Grade Point (4.0 Scale)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "The numeric grade point on a 4.0 scale, e.g., 4.0 for A, 3.0 for B, etc."
+      "businessContext": "The numeric grade point on a 4.0 scale, e.g., 4.0 for A, 3.0 for B, etc.",
+      "label_i18n": {
+        "en": "Grade Point (4.0 Scale)",
+        "tr": "Grade Point (4.0 Scale)",
+        "de": "Grade Point (4.0 Scale)",
+        "fr": "Grade Point (4.0 Scale)",
+        "es": "Grade Point (4.0 Scale)",
+        "ar": "Grade Point (4.0 Scale)"
+      }
     },
     {
       "id": "slope",
       "label": "Slope",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Points per grade point."
+      "businessContext": "Points per grade point.",
+      "label_i18n": {
+        "en": "Slope",
+        "tr": "Slope",
+        "de": "Slope",
+        "fr": "Slope",
+        "es": "Slope",
+        "ar": "Slope"
+      }
     },
     {
       "id": "intercept",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 55,
-      "businessContext": "Base percentage when grade point is 0."
+      "businessContext": "Base percentage when grade point is 0.",
+      "label_i18n": {
+        "en": "Intercept",
+        "tr": "Intercept",
+        "de": "Intercept",
+        "fr": "Intercept",
+        "es": "Intercept",
+        "ar": "Intercept"
+      }
     },
     {
       "id": "clampMin",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Lower clamp limit for the output percentage."
+      "businessContext": "Lower clamp limit for the output percentage.",
+      "label_i18n": {
+        "en": "Minimum Percentage",
+        "tr": "Minimum Percentage",
+        "de": "Minimum Percentage",
+        "fr": "Minimum Percentage",
+        "es": "Minimum Percentage",
+        "ar": "Minimum Percentage"
+      }
     },
     {
       "id": "clampMax",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Upper clamp limit for the output percentage."
+      "businessContext": "Upper clamp limit for the output percentage.",
+      "label_i18n": {
+        "en": "Maximum Percentage",
+        "tr": "Maximum Percentage",
+        "de": "Maximum Percentage",
+        "fr": "Maximum Percentage",
+        "es": "Maximum Percentage",
+        "ar": "Maximum Percentage"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "letterGradeNumeric"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

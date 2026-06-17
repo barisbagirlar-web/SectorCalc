@@ -7,37 +7,72 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Distance from flash to subject"
+      "businessContext": "Distance from flash to subject",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "aperture",
       "label": "Aperture",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 8,
-      "businessContext": "Lens aperture f-number"
+      "businessContext": "Lens aperture f-number",
+      "label_i18n": {
+        "en": "Aperture",
+        "tr": "Aperture",
+        "de": "Aperture",
+        "fr": "Aperture",
+        "es": "Aperture",
+        "ar": "Aperture"
+      }
     },
     {
       "id": "iso",
       "label": "ISO",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "ISO sensitivity"
+      "businessContext": "ISO sensitivity",
+      "label_i18n": {
+        "en": "ISO",
+        "tr": "ISO",
+        "de": "ISO",
+        "fr": "ISO",
+        "es": "ISO",
+        "ar": "ISO"
+      }
     },
     {
       "id": "flashPower",
       "label": "Flash Power Fraction",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Flash power fraction (1 = full, 0.5 = half)"
+      "businessContext": "Flash power fraction (1 = full, 0.5 = half)",
+      "label_i18n": {
+        "en": "Flash Power Fraction",
+        "tr": "Flash Power Fraction",
+        "de": "Flash Power Fraction",
+        "fr": "Flash Power Fraction",
+        "es": "Flash Power Fraction",
+        "ar": "Flash Power Fraction"
+      }
     }
   ],
   "formulas": {
     "effectiveGN": "distance * aperture",
     "fullPowerGN": "effectiveGN / Math.sqrt(flashPower)",
-    "requiredGuideNumberISO100": "fullPowerGN / Math.sqrt(iso / 100)"
+    "requiredGuideNumberISO100": "fullPowerGN / Math.sqrt(iso / 100)",
+    "distance___aperture_____effectiveGN_": "distance * aperture = ${effectiveGN}",
+    "__effectiveGN____sqrt___flashPower______": "${effectiveGN} / sqrt(${flashPower}) = ${fullPowerGN}",
+    "__fullPowerGN____sqrt___iso__100______re": "${fullPowerGN} / sqrt(${iso}/100) = ${requiredGuideNumberISO100}"
   },
   "outputs": {
     "primary": "requiredGuideNumberISO100",
@@ -47,10 +82,10 @@
       "ISO 100 Guide Number: ${fullPowerGN} / sqrt(${iso}/100) = ${requiredGuideNumberISO100}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

@@ -3,15 +3,20 @@ import * as z from 'zod';
 
 export interface Meters_per_second_to_mphInput {
   speed_mps: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Meters_per_second_to_mphInputSchema = z.object({
   speed_mps: z.number().default(10),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Meters_per_second_to_mphInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.speed_mps * 2.23694; results["speed_mph"] = Number.isFinite(v) ? v : 0; } catch { results["speed_mph"] = 0; }
+  results["speed_mps___2_23694___speed_mph"] = 0;
   return results;
 }
 

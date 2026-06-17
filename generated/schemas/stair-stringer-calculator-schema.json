@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2800,
-      "businessContext": "Zemin kattan bir üst katın bitmiş yüzeyine olan dikey mesafe (mm cinsinden)"
+      "businessContext": "Zemin kattan bir üst katın bitmiş yüzeyine olan dikey mesafe (mm cinsinden)",
+      "label_i18n": {
+        "en": "Total Rise",
+        "tr": "Total Rise",
+        "de": "Total Rise",
+        "fr": "Total Rise",
+        "es": "Total Rise",
+        "ar": "Total Rise"
+      }
     },
     {
       "id": "numberRisers",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 15,
-      "businessContext": "Basamak sayısı (yükselen sayısı)"
+      "businessContext": "Basamak sayısı (yükselen sayısı)",
+      "label_i18n": {
+        "en": "Number of Risers",
+        "tr": "Number of Risers",
+        "de": "Number of Risers",
+        "fr": "Number of Risers",
+        "es": "Number of Risers",
+        "ar": "Number of Risers"
+      }
     },
     {
       "id": "treadDepth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 280,
-      "businessContext": "Her bir basamağın yatay derinliği (mm cinsinden)"
+      "businessContext": "Her bir basamağın yatay derinliği (mm cinsinden)",
+      "label_i18n": {
+        "en": "Tread Depth",
+        "tr": "Tread Depth",
+        "de": "Tread Depth",
+        "fr": "Tread Depth",
+        "es": "Tread Depth",
+        "ar": "Tread Depth"
+      }
     },
     {
       "id": "stringerWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 286,
-      "businessContext": "Kiriş genişliği (örneğin 2x12 inç nominal kereste için gerçek genişlik ~286 mm)"
+      "businessContext": "Kiriş genişliği (örneğin 2x12 inç nominal kereste için gerçek genişlik ~286 mm)",
+      "label_i18n": {
+        "en": "Stringer Width",
+        "tr": "Stringer Width",
+        "de": "Stringer Width",
+        "fr": "Stringer Width",
+        "es": "Stringer Width",
+        "ar": "Stringer Width"
+      }
     },
     {
       "id": "nosing",
@@ -39,33 +71,32 @@
       "type": "number",
       "unit": "mm",
       "default": 25,
-      "businessContext": "Basamağın yükselen ön yüzeyinden taşma miktarı (mm cinsinden)"
+      "businessContext": "Basamağın yükselen ön yüzeyinden taşma miktarı (mm cinsinden)",
+      "label_i18n": {
+        "en": "Nosing Overhang",
+        "tr": "Nosing Overhang",
+        "de": "Nosing Overhang",
+        "fr": "Nosing Overhang",
+        "es": "Nosing Overhang",
+        "ar": "Nosing Overhang"
+      }
     }
   ],
   "formulas": {
-    "riserHeight": {
-      "expression": "totalRise / numberRisers",
-      "unit": "mm"
-    },
-    "totalRun": {
-      "expression": "treadDepth * (numberRisers - 1)",
-      "unit": "mm"
-    },
-    "stringerLength": {
-      "expression": "Math.sqrt(Math.pow(totalRise, 2) + Math.pow(totalRun, 2))",
-      "unit": "mm"
-    },
-    "angle": {
-      "expression": "Math.atan(totalRise / totalRun) * (180 / Math.PI)",
-      "unit": "°"
-    },
-    "numberTreads": {
-      "expression": "numberRisers - 1",
-      "unit": "adet"
-    }
+    "riserHeight": "totalRise",
+    "totalRun": "totalRise",
+    "stringerLength": "totalRise",
+    "angle": "totalRise",
+    "numberTreads": "totalRise",
+    "_riserHeight_toFixed_1___mm": "{riserHeight.toFixed(1)} mm",
+    "_totalRun_toFixed_1___mm": "{totalRun.toFixed(1)} mm",
+    "_numberTreads_": "{numberTreads}",
+    "_stringerLength_toFixed_1___mm": "{stringerLength.toFixed(1)} mm",
+    "_angle_toFixed_1___": "{angle.toFixed(1)}°",
+    "result": "Cutting Stringer: {stringerLength.toFixed(1)} mm at {angle.toFixed(1)}°"
   },
   "outputs": {
-    "primary": "Cutting Stringer: {stringerLength.toFixed(1)} mm at {angle.toFixed(1)}°",
+    "primary": "result",
     "breakdown": [
       "Riser Height: {riserHeight.toFixed(1)} mm",
       "Total Run: {totalRun.toFixed(1)} mm",
@@ -74,10 +105,10 @@
       "Inclination Angle: {angle.toFixed(1)}°"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

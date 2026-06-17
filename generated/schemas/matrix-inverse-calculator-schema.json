@@ -5,33 +5,65 @@
       "id": "a11",
       "label": "a₁₁ (1,1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Matrix element at row 1, column 1"
+      "businessContext": "Matrix element at row 1, column 1",
+      "label_i18n": {
+        "en": "a₁₁ (1,1)",
+        "tr": "a₁₁ (1,1)",
+        "de": "a₁₁ (1,1)",
+        "fr": "a₁₁ (1,1)",
+        "es": "a₁₁ (1,1)",
+        "ar": "a₁₁ (1,1)"
+      }
     },
     {
       "id": "a12",
       "label": "a₁₂ (1,2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrix element at row 1, column 2"
+      "businessContext": "Matrix element at row 1, column 2",
+      "label_i18n": {
+        "en": "a₁₂ (1,2)",
+        "tr": "a₁₂ (1,2)",
+        "de": "a₁₂ (1,2)",
+        "fr": "a₁₂ (1,2)",
+        "es": "a₁₂ (1,2)",
+        "ar": "a₁₂ (1,2)"
+      }
     },
     {
       "id": "a21",
       "label": "a₂₁ (2,1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrix element at row 2, column 1"
+      "businessContext": "Matrix element at row 2, column 1",
+      "label_i18n": {
+        "en": "a₂₁ (2,1)",
+        "tr": "a₂₁ (2,1)",
+        "de": "a₂₁ (2,1)",
+        "fr": "a₂₁ (2,1)",
+        "es": "a₂₁ (2,1)",
+        "ar": "a₂₁ (2,1)"
+      }
     },
     {
       "id": "a22",
       "label": "a₂₂ (2,2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Matrix element at row 2, column 2"
+      "businessContext": "Matrix element at row 2, column 2",
+      "label_i18n": {
+        "en": "a₂₂ (2,2)",
+        "tr": "a₂₂ (2,2)",
+        "de": "a₂₂ (2,2)",
+        "fr": "a₂₂ (2,2)",
+        "es": "a₂₂ (2,2)",
+        "ar": "a₂₂ (2,2)"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "inv22"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -5,33 +5,65 @@
       "id": "numberOfConditions",
       "label": "Number of Conditions (k)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of repeated measurement levels or conditions."
+      "businessContext": "Number of repeated measurement levels or conditions.",
+      "label_i18n": {
+        "en": "Number of Conditions (k)",
+        "tr": "Number of Conditions (k)",
+        "de": "Number of Conditions (k)",
+        "fr": "Number of Conditions (k)",
+        "es": "Number of Conditions (k)",
+        "ar": "Number of Conditions (k)"
+      }
     },
     {
       "id": "numberOfSubjects",
       "label": "Number of Subjects (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Total number of subjects (participants)."
+      "businessContext": "Total number of subjects (participants).",
+      "label_i18n": {
+        "en": "Number of Subjects (n)",
+        "tr": "Number of Subjects (n)",
+        "de": "Number of Subjects (n)",
+        "fr": "Number of Subjects (n)",
+        "es": "Number of Subjects (n)",
+        "ar": "Number of Subjects (n)"
+      }
     },
     {
       "id": "ssCondition",
       "label": "SS Condition",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Sum of squares due to the within-subjects factor (condition)."
+      "businessContext": "Sum of squares due to the within-subjects factor (condition).",
+      "label_i18n": {
+        "en": "SS Condition",
+        "tr": "SS Condition",
+        "de": "SS Condition",
+        "fr": "SS Condition",
+        "es": "SS Condition",
+        "ar": "SS Condition"
+      }
     },
     {
       "id": "ssError",
       "label": "SS Error",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 50,
-      "businessContext": "Sum of squares error (residual) for the within-subjects factor."
+      "businessContext": "Sum of squares error (residual) for the within-subjects factor.",
+      "label_i18n": {
+        "en": "SS Error",
+        "tr": "SS Error",
+        "de": "SS Error",
+        "fr": "SS Error",
+        "es": "SS Error",
+        "ar": "SS Error"
+      }
     }
   ],
   "formulas": {
@@ -52,10 +84,10 @@
       "msError"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

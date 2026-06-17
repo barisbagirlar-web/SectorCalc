@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 50,
-      "businessContext": "Patient age"
+      "businessContext": "Patient age",
+      "label_i18n": {
+        "en": "Age (years)",
+        "tr": "Age (years)",
+        "de": "Age (years)",
+        "fr": "Age (years)",
+        "es": "Age (years)",
+        "ar": "Age (years)"
+      }
     },
     {
       "id": "systolicBP",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Systolic blood pressure reading"
+      "businessContext": "Systolic blood pressure reading",
+      "label_i18n": {
+        "en": "Systolic Blood Pressure",
+        "tr": "Systolic Blood Pressure",
+        "de": "Systolic Blood Pressure",
+        "fr": "Systolic Blood Pressure",
+        "es": "Systolic Blood Pressure",
+        "ar": "Systolic Blood Pressure"
+      }
     },
     {
       "id": "totalCholesterol",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Total cholesterol level"
+      "businessContext": "Total cholesterol level",
+      "label_i18n": {
+        "en": "Total Cholesterol",
+        "tr": "Total Cholesterol",
+        "de": "Total Cholesterol",
+        "fr": "Total Cholesterol",
+        "es": "Total Cholesterol",
+        "ar": "Total Cholesterol"
+      }
     },
     {
       "id": "hdlCholesterol",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "High-density lipoprotein cholesterol"
+      "businessContext": "High-density lipoprotein cholesterol",
+      "label_i18n": {
+        "en": "HDL Cholesterol",
+        "tr": "HDL Cholesterol",
+        "de": "HDL Cholesterol",
+        "fr": "HDL Cholesterol",
+        "es": "HDL Cholesterol",
+        "ar": "HDL Cholesterol"
+      }
     },
     {
       "id": "smoker",
       "label": "Smoking Status (0/1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Current smoker (yes=1, no=0)"
+      "businessContext": "Current smoker (yes=1, no=0)",
+      "label_i18n": {
+        "en": "Smoking Status (0/1)",
+        "tr": "Smoking Status (0/1)",
+        "de": "Smoking Status (0/1)",
+        "fr": "Smoking Status (0/1)",
+        "es": "Smoking Status (0/1)",
+        "ar": "Smoking Status (0/1)"
+      }
     },
     {
       "id": "diabetes",
       "label": "Diabetes Status (0/1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Diabetes diagnosis (yes=1, no=0)"
+      "businessContext": "Diabetes diagnosis (yes=1, no=0)",
+      "label_i18n": {
+        "en": "Diabetes Status (0/1)",
+        "tr": "Diabetes Status (0/1)",
+        "de": "Diabetes Status (0/1)",
+        "fr": "Diabetes Status (0/1)",
+        "es": "Diabetes Status (0/1)",
+        "ar": "Diabetes Status (0/1)"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "percentage"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

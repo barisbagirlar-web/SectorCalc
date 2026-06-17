@@ -35,7 +35,7 @@ function evaluateAllFormulas(input: Mirr_calculatorInput): Record<string, number
 
 export function calculateMirr_calculator(input: Mirr_calculatorInput): Mirr_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["mirrPercent"] ?? 0;
+  const totalWasteCost = values["pvNeg"] ?? 0;
   const breakdown = {
     
   };

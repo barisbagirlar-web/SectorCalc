@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "RPM",
       "default": 1500,
-      "businessContext": "Rotational speed of the shaft in revolutions per minute"
+      "businessContext": "Rotational speed of the shaft in revolutions per minute",
+      "label_i18n": {
+        "en": "Shaft Speed",
+        "tr": "Shaft Speed",
+        "de": "Shaft Speed",
+        "fr": "Shaft Speed",
+        "es": "Shaft Speed",
+        "ar": "Shaft Speed"
+      }
     },
     {
       "id": "frictionCoeff",
       "label": "Friction Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.001,
-      "businessContext": "Coefficient of friction between bearing surfaces"
+      "businessContext": "Coefficient of friction between bearing surfaces",
+      "label_i18n": {
+        "en": "Friction Coefficient",
+        "tr": "Friction Coefficient",
+        "de": "Friction Coefficient",
+        "fr": "Friction Coefficient",
+        "es": "Friction Coefficient",
+        "ar": "Friction Coefficient"
+      }
     },
     {
       "id": "load",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "Radial load applied on the bearing"
+      "businessContext": "Radial load applied on the bearing",
+      "label_i18n": {
+        "en": "Radial Load",
+        "tr": "Radial Load",
+        "de": "Radial Load",
+        "fr": "Radial Load",
+        "es": "Radial Load",
+        "ar": "Radial Load"
+      }
     },
     {
       "id": "boreDiameter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Inner diameter of the bearing bore"
+      "businessContext": "Inner diameter of the bearing bore",
+      "label_i18n": {
+        "en": "Bore Diameter",
+        "tr": "Bore Diameter",
+        "de": "Bore Diameter",
+        "fr": "Bore Diameter",
+        "es": "Bore Diameter",
+        "ar": "Bore Diameter"
+      }
     },
     {
       "id": "ambientTemp",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Surrounding ambient temperature"
+      "businessContext": "Surrounding ambient temperature",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "coolingCoeff",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "W/°C",
       "default": 5,
-      "businessContext": "Thermal dissipation capacity of the bearing housing"
+      "businessContext": "Thermal dissipation capacity of the bearing housing",
+      "label_i18n": {
+        "en": "Cooling Coefficient",
+        "tr": "Cooling Coefficient",
+        "de": "Cooling Coefficient",
+        "fr": "Cooling Coefficient",
+        "es": "Cooling Coefficient",
+        "ar": "Cooling Coefficient"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "tempRise"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "cnc-additive-manufacturing"
 }

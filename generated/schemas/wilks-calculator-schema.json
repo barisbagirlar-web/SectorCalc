@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 83,
-      "businessContext": "The body weight of the lifter in kilograms."
+      "businessContext": "The body weight of the lifter in kilograms.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "liftedWeight",
@@ -15,12 +23,46 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The weight lifted in the competition lift."
+      "businessContext": "The weight lifted in the competition lift.",
+      "label_i18n": {
+        "en": "Lifted Weight",
+        "tr": "Lifted Weight",
+        "de": "Lifted Weight",
+        "fr": "Lifted Weight",
+        "es": "Lifted Weight",
+        "ar": "Lifted Weight"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
     "coefficient": "500 / (-216.0475144 + 16.2606339 * bodyWeight - 0.002388645 * bodyWeight**2 - 0.00113732 * bodyWeight**3 + 7.01863e-6 * bodyWeight**4 - 1.291e-8 * bodyWeight**5)",
-    "wilksScore": "coefficient * liftedWeight"
+    "wilksScore": "coefficient * liftedWeight",
+    "bodyWeight": "bodyWeight",
+    "liftedWeight": "liftedWeight"
   },
   "outputs": {
     "primary": "wilksScore",
@@ -30,7 +72,10 @@
       "liftedWeight"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "categorySlug": "technology-ai-cloud-cyber",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

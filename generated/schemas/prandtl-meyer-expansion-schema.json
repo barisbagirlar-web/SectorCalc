@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2,
-      "businessContext": "Mach number before the expansion fan"
+      "businessContext": "Mach number before the expansion fan",
+      "label_i18n": {
+        "en": "Upstream Mach Number (M1)",
+        "tr": "Upstream Mach Number (M1)",
+        "de": "Upstream Mach Number (M1)",
+        "fr": "Upstream Mach Number (M1)",
+        "es": "Upstream Mach Number (M1)",
+        "ar": "Upstream Mach Number (M1)"
+      }
     },
     {
       "id": "gamma",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.4,
-      "businessContext": "Ratio of specific heats for the gas (e.g., 1.4 for air)"
+      "businessContext": "Ratio of specific heats for the gas (e.g., 1.4 for air)",
+      "label_i18n": {
+        "en": "Specific Heat Ratio (γ)",
+        "tr": "Specific Heat Ratio (γ)",
+        "de": "Specific Heat Ratio (γ)",
+        "fr": "Specific Heat Ratio (γ)",
+        "es": "Specific Heat Ratio (γ)",
+        "ar": "Specific Heat Ratio (γ)"
+      }
     },
     {
       "id": "deflectionAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "degrees",
       "default": 10,
-      "businessContext": "Angle through which the flow is turned (positive for expansion)"
+      "businessContext": "Angle through which the flow is turned (positive for expansion)",
+      "label_i18n": {
+        "en": "Flow Deflection Angle (θ)",
+        "tr": "Flow Deflection Angle (θ)",
+        "de": "Flow Deflection Angle (θ)",
+        "fr": "Flow Deflection Angle (θ)",
+        "es": "Flow Deflection Angle (θ)",
+        "ar": "Flow Deflection Angle (θ)"
+      }
     }
   ],
   "formulas": {
@@ -31,20 +55,24 @@
     "mach2": "let f = (mach) => Math.sqrt((gamma+1)/(gamma-1))*Math.atan(Math.sqrt((gamma-1)/(gamma+1)*(mach**2-1)))-Math.atan(Math.sqrt(mach**2-1)); let target = f(mach1) + deflectionAngle * Math.PI / 180; let low = 1.001, high = 100, mid; for(let i=0;i<100;i++){ mid=(low+high)/2; if(f(mid)<target) low=mid; else high=mid; } return mid;",
     "pressureRatio": "( (1+(gamma-1)/2*mach1**2) / (1+(gamma-1)/2*mach2**2) )**(gamma/(gamma-1))",
     "temperatureRatio": "(1+(gamma-1)/2*mach1**2)/(1+(gamma-1)/2*mach2**2)",
-    "densityRatio": "( (1+(gamma-1)/2*mach1**2) / (1+(gamma-1)/2*mach2**2) )**(1/(gamma-1))"
+    "densityRatio": "( (1+(gamma-1)/2*mach1**2) / (1+(gamma-1)/2*mach2**2) )**(1/(gamma-1))",
+    "Pressure_Ratio__P2_P1_": "Pressure Ratio (P2/P1)",
+    "Temperature_Ratio__T2_T1_": "Temperature Ratio (T2/T1)",
+    "Density_Ratio___2__1_": "Density Ratio (ρ2/ρ1)",
+    "result": "Downstream Mach Number (M2)"
   },
   "outputs": {
-    "primary": "Downstream Mach Number (M2)",
+    "primary": "result",
     "breakdown": [
       "Pressure Ratio (P2/P1)",
       "Temperature Ratio (T2/T1)",
       "Density Ratio (ρ2/ρ1)"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "process-chemical"
 }

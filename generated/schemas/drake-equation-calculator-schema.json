@@ -7,47 +7,95 @@
       "type": "number",
       "unit": "stars/year",
       "default": 1,
-      "businessContext": "Average rate of star formation in our galaxy"
+      "businessContext": "Average rate of star formation in our galaxy",
+      "label_i18n": {
+        "en": "Star Formation Rate (R*)",
+        "tr": "Star Formation Rate (R*)",
+        "de": "Star Formation Rate (R*)",
+        "fr": "Star Formation Rate (R*)",
+        "es": "Star Formation Rate (R*)",
+        "ar": "Star Formation Rate (R*)"
+      }
     },
     {
       "id": "fp",
       "label": "Fraction with Planets (fp)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Fraction of stars that have planetary systems"
+      "businessContext": "Fraction of stars that have planetary systems",
+      "label_i18n": {
+        "en": "Fraction with Planets (fp)",
+        "tr": "Fraction with Planets (fp)",
+        "de": "Fraction with Planets (fp)",
+        "fr": "Fraction with Planets (fp)",
+        "es": "Fraction with Planets (fp)",
+        "ar": "Fraction with Planets (fp)"
+      }
     },
     {
       "id": "ne",
       "label": "Habitable Planets per Star (ne)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Average number of planets that can support life per star with planets"
+      "businessContext": "Average number of planets that can support life per star with planets",
+      "label_i18n": {
+        "en": "Habitable Planets per Star (ne)",
+        "tr": "Habitable Planets per Star (ne)",
+        "de": "Habitable Planets per Star (ne)",
+        "fr": "Habitable Planets per Star (ne)",
+        "es": "Habitable Planets per Star (ne)",
+        "ar": "Habitable Planets per Star (ne)"
+      }
     },
     {
       "id": "fl",
       "label": "Fraction where Life Appears (fl)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Fraction of habitable planets where life actually emerges"
+      "businessContext": "Fraction of habitable planets where life actually emerges",
+      "label_i18n": {
+        "en": "Fraction where Life Appears (fl)",
+        "tr": "Fraction where Life Appears (fl)",
+        "de": "Fraction where Life Appears (fl)",
+        "fr": "Fraction where Life Appears (fl)",
+        "es": "Fraction where Life Appears (fl)",
+        "ar": "Fraction where Life Appears (fl)"
+      }
     },
     {
       "id": "fi",
       "label": "Fraction where Intelligence Evolves (fi)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.01,
-      "businessContext": "Fraction of life-bearing planets where intelligent life develops"
+      "businessContext": "Fraction of life-bearing planets where intelligent life develops",
+      "label_i18n": {
+        "en": "Fraction where Intelligence Evolves (fi)",
+        "tr": "Fraction where Intelligence Evolves (fi)",
+        "de": "Fraction where Intelligence Evolves (fi)",
+        "fr": "Fraction where Intelligence Evolves (fi)",
+        "es": "Fraction where Intelligence Evolves (fi)",
+        "ar": "Fraction where Intelligence Evolves (fi)"
+      }
     },
     {
       "id": "fc",
       "label": "Fraction that Develop Technology (fc)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.01,
-      "businessContext": "Fraction of civilizations that develop detectable technology"
+      "businessContext": "Fraction of civilizations that develop detectable technology",
+      "label_i18n": {
+        "en": "Fraction that Develop Technology (fc)",
+        "tr": "Fraction that Develop Technology (fc)",
+        "de": "Fraction that Develop Technology (fc)",
+        "fr": "Fraction that Develop Technology (fc)",
+        "es": "Fraction that Develop Technology (fc)",
+        "ar": "Fraction that Develop Technology (fc)"
+      }
     },
     {
       "id": "L",
@@ -55,11 +103,20 @@
       "type": "number",
       "unit": "years",
       "default": 10000,
-      "businessContext": "Length of time such civilizations release detectable signals"
+      "businessContext": "Length of time such civilizations release detectable signals",
+      "label_i18n": {
+        "en": "Lifetime of Civilization (L)",
+        "tr": "Lifetime of Civilization (L)",
+        "de": "Lifetime of Civilization (L)",
+        "fr": "Lifetime of Civilization (L)",
+        "es": "Lifetime of Civilization (L)",
+        "ar": "Lifetime of Civilization (L)"
+      }
     }
   ],
   "formulas": {
-    "N": "R * fp * ne * fl * fi * fc * L"
+    "N": "R * fp * ne * fl * fi * fc * L",
+    "N___R___fp___ne___fl___fi___fc___L": "N = R * fp * ne * fl * fi * fc * L"
   },
   "outputs": {
     "primary": "N",
@@ -67,10 +124,10 @@
       "N = R * fp * ne * fl * fi * fc * L"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

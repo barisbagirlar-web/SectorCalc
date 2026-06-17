@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yıl cinsinden yaşı"
+      "businessContext": "Kullanıcının yıl cinsinden yaşı",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "gender",
       "label": "Cinsiyet (0: Kadın, 1: Erkek)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Cinsiyet: 0 kadın, 1 erkek"
+      "businessContext": "Cinsiyet: 0 kadın, 1 erkek",
+      "label_i18n": {
+        "en": "Cinsiyet (0: Kadın, 1: Erkek)",
+        "tr": "Cinsiyet (0: Kadın, 1: Erkek)",
+        "de": "Cinsiyet (0: Kadın, 1: Erkek)",
+        "fr": "Cinsiyet (0: Kadın, 1: Erkek)",
+        "es": "Cinsiyet (0: Kadın, 1: Erkek)",
+        "ar": "Cinsiyet (0: Kadın, 1: Erkek)"
+      }
     },
     {
       "id": "weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı"
+      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı",
+      "label_i18n": {
+        "en": "Ağırlık",
+        "tr": "Ağırlık",
+        "de": "Ağırlık",
+        "fr": "Ağırlık",
+        "es": "Ağırlık",
+        "ar": "Ağırlık"
+      }
     },
     {
       "id": "height",
@@ -31,20 +55,37 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kullanıcının santimetre cinsinden boyu"
+      "businessContext": "Kullanıcının santimetre cinsinden boyu",
+      "label_i18n": {
+        "en": "Boy",
+        "tr": "Boy",
+        "de": "Boy",
+        "fr": "Boy",
+        "es": "Boy",
+        "ar": "Boy"
+      }
     },
     {
       "id": "activityFactor",
       "label": "Aktivite Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Sedanter:1.2, Hafif aktif:1.375, Orta aktif:1.55, Çok aktif:1.725, Ekstra aktif:1.9"
+      "businessContext": "Sedanter:1.2, Hafif aktif:1.375, Orta aktif:1.55, Çok aktif:1.725, Ekstra aktif:1.9",
+      "label_i18n": {
+        "en": "Aktivite Faktörü",
+        "tr": "Aktivite Faktörü",
+        "de": "Aktivite Faktörü",
+        "fr": "Aktivite Faktörü",
+        "es": "Aktivite Faktörü",
+        "ar": "Aktivite Faktörü"
+      }
     }
   ],
   "formulas": {
     "bmr": "(gender === 1 ? (10*weight + 6.25*height - 5*age + 5) : (10*weight + 6.25*height - 5*age - 161))",
-    "tdee": "bmr * activityFactor"
+    "tdee": "bmr * activityFactor",
+    "activityFactor": "activityFactor"
   },
   "outputs": {
     "primary": "tdee",
@@ -53,7 +94,10 @@
       "activityFactor"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
-  "premiumRequired": false
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
+  "premiumRequired": false,
+  "categorySlug": "hse-ergonomics",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

@@ -24,6 +24,7 @@ export const Gad_7_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Gad_7_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.q1 + input.q2 + input.q3 + input.q4 + input.q5 + input.q6 + input.q7; results["totalScore"] = Number.isFinite(v) ? v : 0; } catch { results["totalScore"] = 0; }
+  results["0_4_minimal_anxiety__5_9_mild_anxiety__1"] = 0;
   return results;
 }
 

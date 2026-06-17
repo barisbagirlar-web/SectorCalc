@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.5,
-      "businessContext": "Significant wave height measured by buoy or wave radar."
+      "businessContext": "Significant wave height measured by buoy or wave radar.",
+      "label_i18n": {
+        "en": "Wave Height (H)",
+        "tr": "Wave Height (H)",
+        "de": "Wave Height (H)",
+        "fr": "Wave Height (H)",
+        "es": "Wave Height (H)",
+        "ar": "Wave Height (H)"
+      }
     },
     {
       "id": "wavePeriod",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 8,
-      "businessContext": "Peak wave period from spectral analysis."
+      "businessContext": "Peak wave period from spectral analysis.",
+      "label_i18n": {
+        "en": "Wave Period (T)",
+        "tr": "Wave Period (T)",
+        "de": "Wave Period (T)",
+        "fr": "Wave Period (T)",
+        "es": "Wave Period (T)",
+        "ar": "Wave Period (T)"
+      }
     },
     {
       "id": "waterDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1025,
-      "businessContext": "Density of seawater, typically 1025 kg/m³."
+      "businessContext": "Density of seawater, typically 1025 kg/m³.",
+      "label_i18n": {
+        "en": "Water Density (ρ)",
+        "tr": "Water Density (ρ)",
+        "de": "Water Density (ρ)",
+        "fr": "Water Density (ρ)",
+        "es": "Water Density (ρ)",
+        "ar": "Water Density (ρ)"
+      }
     },
     {
       "id": "gravity",
@@ -31,14 +55,28 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Standard gravitational acceleration."
+      "businessContext": "Standard gravitational acceleration.",
+      "label_i18n": {
+        "en": "Gravity (g)",
+        "tr": "Gravity (g)",
+        "de": "Gravity (g)",
+        "fr": "Gravity (g)",
+        "es": "Gravity (g)",
+        "ar": "Gravity (g)"
+      }
     }
   ],
   "formulas": {
-    "wavePowerPerMeter": "(waterDensity * gravity ** 2 * waveHeight ** 2 * wavePeriod) / (16 * Math.PI)"
+    "wavePowerPerMeter": "(waterDensity * gravity ** 2 * waveHeight ** 2 * wavePeriod) / (16 * Math.PI)",
+    "H_squared___waveHeight_": "H_squared = waveHeight²",
+    "g_squared___gravity_": "g_squared = gravity²",
+    "numerator___waterDensity___g_squared___H": "numerator = waterDensity * g_squared * H_squared * wavePeriod",
+    "denominator___16____": "denominator = 16 * π",
+    "wave_power_per_meter___numerator___denom": "wave_power_per_meter = numerator / denominator",
+    "result": "wave_power_per_meter = (ρ * g² * H² * T) / (16π) [W/m]"
   },
   "outputs": {
-    "primary": "wave_power_per_meter = (ρ * g² * H² * T) / (16π) [W/m]",
+    "primary": "result",
     "breakdown": [
       "H_squared = waveHeight²",
       "g_squared = gravity²",
@@ -47,10 +85,10 @@
       "wave_power_per_meter = numerator / denominator"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

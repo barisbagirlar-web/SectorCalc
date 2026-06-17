@@ -18,13 +18,17 @@ function evaluateAllFormulas(input: Equivalent_fractionsInput): Record<string, n
   try { const v = input.numerator * input.multiplier; results["equivalentNumerator"] = Number.isFinite(v) ? v : 0; } catch { results["equivalentNumerator"] = 0; }
   try { const v = input.denominator * input.multiplier; results["equivalentDenominator"] = Number.isFinite(v) ? v : 0; } catch { results["equivalentDenominator"] = 0; }
   try { const v = input.numerator / input.denominator; results["decimalValue"] = Number.isFinite(v) ? v : 0; } catch { results["decimalValue"] = 0; }
+  try { const v = $input.numerator/$input.denominator; results["__numerator____denominator_"] = Number.isFinite(v) ? v : 0; } catch { results["__numerator____denominator_"] = 0; }
+  try { const v = $input.multiplier; results["__multiplier_"] = Number.isFinite(v) ? v : 0; } catch { results["__multiplier_"] = 0; }
+  try { const v = $(results["decimalValue"] ?? 0); results["__decimalValue_"] = Number.isFinite(v) ? v : 0; } catch { results["__decimalValue_"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateEquivalent_fractions(input: Equivalent_fractionsInput): Equivalent_fractionsOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["E"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

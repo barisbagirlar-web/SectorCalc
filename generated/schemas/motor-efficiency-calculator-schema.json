@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 400,
-      "businessContext": "Nominal line-to-line voltage (RMS) for AC motor supply"
+      "businessContext": "Nominal line-to-line voltage (RMS) for AC motor supply",
+      "label_i18n": {
+        "en": "Supply Voltage",
+        "tr": "Supply Voltage",
+        "de": "Supply Voltage",
+        "fr": "Supply Voltage",
+        "es": "Supply Voltage",
+        "ar": "Supply Voltage"
+      }
     },
     {
       "id": "current",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "Measured RMS current per phase"
+      "businessContext": "Measured RMS current per phase",
+      "label_i18n": {
+        "en": "Line Current",
+        "tr": "Line Current",
+        "de": "Line Current",
+        "fr": "Line Current",
+        "es": "Line Current",
+        "ar": "Line Current"
+      }
     },
     {
       "id": "powerFactor",
       "label": "Power Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
-      "businessContext": "Motor operating power factor (cos φ), typical 0.8–0.95"
+      "businessContext": "Motor operating power factor (cos φ), typical 0.8–0.95",
+      "label_i18n": {
+        "en": "Power Factor",
+        "tr": "Power Factor",
+        "de": "Power Factor",
+        "fr": "Power Factor",
+        "es": "Power Factor",
+        "ar": "Power Factor"
+      }
     },
     {
       "id": "phases",
       "label": "Number of Phases",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "1 for single-phase, 3 for three-phase motor"
+      "businessContext": "1 for single-phase, 3 for three-phase motor",
+      "label_i18n": {
+        "en": "Number of Phases",
+        "tr": "Number of Phases",
+        "de": "Number of Phases",
+        "fr": "Number of Phases",
+        "es": "Number of Phases",
+        "ar": "Number of Phases"
+      }
     },
     {
       "id": "torque",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "Nm",
       "default": 50,
-      "businessContext": "Mechanical torque at motor shaft"
+      "businessContext": "Mechanical torque at motor shaft",
+      "label_i18n": {
+        "en": "Output Torque",
+        "tr": "Output Torque",
+        "de": "Output Torque",
+        "fr": "Output Torque",
+        "es": "Output Torque",
+        "ar": "Output Torque"
+      }
     },
     {
       "id": "speed",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "RPM",
       "default": 1450,
-      "businessContext": "Shaft rotational speed in revolutions per minute"
+      "businessContext": "Shaft rotational speed in revolutions per minute",
+      "label_i18n": {
+        "en": "Rotational Speed",
+        "tr": "Rotational Speed",
+        "de": "Rotational Speed",
+        "fr": "Rotational Speed",
+        "es": "Rotational Speed",
+        "ar": "Rotational Speed"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "losses"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

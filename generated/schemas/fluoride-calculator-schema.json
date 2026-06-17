@@ -48,12 +48,7 @@
     "compoundFeedRate_kg_per_day": "compoundMass_g_per_day / 1000"
   },
   "outputs": {
-    "primary": {
-      "id": "compoundFeedRate_kg_per_day",
-      "label": "Required Compound Feed Rate",
-      "unit": "kg/day",
-      "description": "Mass of fluoride compound to dose per day"
-    },
+    "primary": "fluorideDemand_g_per_day",
     "breakdown": [
       {
         "id": "fluorideDemand_g_per_day",
@@ -67,10 +62,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

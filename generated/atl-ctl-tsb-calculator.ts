@@ -22,13 +22,16 @@ function evaluateAllFormulas(input: Atl_ctl_tsb_calculatorInput): Record<string,
   try { const v = input.t1 + input.t2 + input.t3 + input.t4; results["atl"] = Number.isFinite(v) ? v : 0; } catch { results["atl"] = 0; }
   try { const v = Math.sqrt(Math.pow(input.t1,2) + Math.pow(input.t2,2) + Math.pow(input.t3,2) + Math.pow(input.t4,2)); results["ctl"] = Number.isFinite(v) ? v : 0; } catch { results["ctl"] = 0; }
   try { const v = (input.t1 + input.t2 + input.t3 + input.t4) / Math.sqrt(Math.pow(input.t1,2) + Math.pow(input.t2,2) + Math.pow(input.t3,2) + Math.pow(input.t4,2)); results["tsb"] = Number.isFinite(v) ? v : 0; } catch { results["tsb"] = 0; }
+  results["__atl_toFixed_3___mm_"] = 0;
+  results["__tsb_toFixed_2___"] = 0;
+  try { const v = `Statistical Tolerance (CTL): ${(results["ctl"] ?? 0).toFixed(3)} mm`; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateAtl_ctl_tsb_calculator(input: Atl_ctl_tsb_calculatorInput): Atl_ctl_tsb_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["`Statistical Tolerance (CTL): ${ctl.toFixed(3)} mm`"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

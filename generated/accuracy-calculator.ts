@@ -30,7 +30,7 @@ function evaluateAllFormulas(input: Accuracy_calculatorInput): Record<string, nu
 
 export function calculateAccuracy_calculator(input: Accuracy_calculatorInput): Accuracy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["accuracy_percent"] ?? 0;
+  const totalWasteCost = values["absolute_error"] ?? 0;
   const breakdown = {
     
   };

@@ -31,7 +31,7 @@ function evaluateAllFormulas(input: Percentage_to_letter_grade_calculatorInput):
 
 export function calculatePercentage_to_letter_grade_calculator(input: Percentage_to_letter_grade_calculatorInput): Percentage_to_letter_grade_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["letterGrade"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

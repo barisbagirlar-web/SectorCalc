@@ -5,68 +5,113 @@
       "id": "a",
       "label": "Coefficient a",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of x in the linear Diophantine equation ax + by = c"
+      "businessContext": "Coefficient of x in the linear Diophantine equation ax + by = c",
+      "label_i18n": {
+        "en": "Coefficient a",
+        "tr": "Coefficient a",
+        "de": "Coefficient a",
+        "fr": "Coefficient a",
+        "es": "Coefficient a",
+        "ar": "Coefficient a"
+      }
     },
     {
       "id": "b",
       "label": "Coefficient b",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of y in the linear Diophantine equation ax + by = c"
+      "businessContext": "Coefficient of y in the linear Diophantine equation ax + by = c",
+      "label_i18n": {
+        "en": "Coefficient b",
+        "tr": "Coefficient b",
+        "de": "Coefficient b",
+        "fr": "Coefficient b",
+        "es": "Coefficient b",
+        "ar": "Coefficient b"
+      }
     },
     {
       "id": "c",
       "label": "Constant c",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Right-hand side constant of the equation ax + by = c"
+      "businessContext": "Right-hand side constant of the equation ax + by = c",
+      "label_i18n": {
+        "en": "Constant c",
+        "tr": "Constant c",
+        "de": "Constant c",
+        "fr": "Constant c",
+        "es": "Constant c",
+        "ar": "Constant c"
+      }
     },
     {
       "id": "x0",
       "label": "Initial x (particular solution)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "A particular integer solution for x, used to generate general solution"
+      "businessContext": "A particular integer solution for x, used to generate general solution",
+      "label_i18n": {
+        "en": "Initial x (particular solution)",
+        "tr": "Initial x (particular solution)",
+        "de": "Initial x (particular solution)",
+        "fr": "Initial x (particular solution)",
+        "es": "Initial x (particular solution)",
+        "ar": "Initial x (particular solution)"
+      }
     },
     {
       "id": "y0",
       "label": "Initial y (particular solution)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "A particular integer solution for y, used to generate general solution"
+      "businessContext": "A particular integer solution for y, used to generate general solution",
+      "label_i18n": {
+        "en": "Initial y (particular solution)",
+        "tr": "Initial y (particular solution)",
+        "de": "Initial y (particular solution)",
+        "fr": "Initial y (particular solution)",
+        "es": "Initial y (particular solution)",
+        "ar": "Initial y (particular solution)"
+      }
     },
     {
       "id": "k",
       "label": "Parameter k",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Integer parameter to generate infinite family of solutions"
+      "businessContext": "Integer parameter to generate infinite family of solutions",
+      "label_i18n": {
+        "en": "Parameter k",
+        "tr": "Parameter k",
+        "de": "Parameter k",
+        "fr": "Parameter k",
+        "es": "Parameter k",
+        "ar": "Parameter k"
+      }
     }
   ],
   "formulas": {
-    "gcd": "function gcd(a,b){return b===0?Math.abs(a):gcd(b,a%b)}",
-    "checkSolvability": "let g=gcd(a,b); return c%g===0",
-    "generalX": "x0 + (b/gcd(a,b))*k",
-    "generalY": "y0 - (a/gcd(a,b))*k"
+    "generalX": "x0 + b * k",
+    "generalY": "y0 - a * k",
+    "solutionSum": "generalX + generalY"
   },
   "outputs": {
-    "primary": "General solution: x = x0 + (b/g)*k, y = y0 - (a/g)*k",
+    "primary": "solutionSum",
     "breakdown": [
-      "gcd(a,b) = g",
-      "Solvable: c % g == 0",
-      "Particular solution: (x0, y0)",
-      "General solution: x = x0 + (b/g)*k, y = y0 - (a/g)*k"
+      "generalX",
+      "generalY"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

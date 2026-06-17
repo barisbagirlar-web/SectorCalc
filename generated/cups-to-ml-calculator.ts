@@ -29,7 +29,7 @@ function evaluateAllFormulas(input: Cups_to_ml_calculatorInput): Record<string, 
 
 export function calculateCups_to_ml_calculator(input: Cups_to_ml_calculatorInput): Cups_to_ml_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["milliliters"] ?? 0;
+  const totalWasteCost = values["millilitersUnrounded"] ?? 0;
   const breakdown = {
     
   };

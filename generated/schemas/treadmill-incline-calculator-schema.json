@@ -48,12 +48,7 @@
     "equivalentFlatDistance": "(( (0.2 * (speed * 26.8224) + 0.9 * (speed * 26.8224) * (inclinePercent / 100) + 3.5) * (weight / 2.20462) * time * 5 ) / 1000) / (((0.2 * (speed * 26.8224) + 3.5) * (weight / 2.20462) * 5 ) / 1000 * (60 / speed))"
   },
   "outputs": {
-    "primary": {
-      "id": "elevationGain",
-      "label": "Elevation Gain",
-      "unit": "ft",
-      "decimals": 2
-    },
+    "primary": "elevationGain",
     "breakdown": [
       {
         "id": "caloriesBurned",
@@ -69,10 +64,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

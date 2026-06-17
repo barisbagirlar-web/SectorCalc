@@ -20,6 +20,8 @@ export const Adult_height_predictor_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Adult_height_predictor_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.childGender === 0 ? (input.fatherHeightCm + input.motherHeightCm + 13) / 2 : (input.fatherHeightCm - 13 + input.motherHeightCm) / 2; results["predictedHeight"] = Number.isFinite(v) ? v : 0; } catch { results["predictedHeight"] = 0; }
+  results["For_boys___fatherHeight___motherHeight__"] = 0;
+  results["The_child_s_current_height_and_age_are_n"] = 0;
   return results;
 }
 

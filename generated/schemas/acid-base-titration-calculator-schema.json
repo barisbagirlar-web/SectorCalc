@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mL",
       "default": 25,
-      "businessContext": "Volume of titrant used to reach the equivalence point"
+      "businessContext": "Volume of titrant used to reach the equivalence point",
+      "label_i18n": {
+        "en": "Titrant Volume (mL)",
+        "tr": "Titrant Volume (mL)",
+        "de": "Titrant Volume (mL)",
+        "fr": "Titrant Volume (mL)",
+        "es": "Titrant Volume (mL)",
+        "ar": "Titrant Volume (mL)"
+      }
     },
     {
       "id": "titrantConcentration",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Concentration of the standard titrant solution"
+      "businessContext": "Concentration of the standard titrant solution",
+      "label_i18n": {
+        "en": "Titrant Concentration (mol/L)",
+        "tr": "Titrant Concentration (mol/L)",
+        "de": "Titrant Concentration (mol/L)",
+        "fr": "Titrant Concentration (mol/L)",
+        "es": "Titrant Concentration (mol/L)",
+        "ar": "Titrant Concentration (mol/L)"
+      }
     },
     {
       "id": "titrantProticity",
       "label": "Titrant Proticity",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of reactive H+ or OH- per titrant molecule"
+      "businessContext": "Number of reactive H+ or OH- per titrant molecule",
+      "label_i18n": {
+        "en": "Titrant Proticity",
+        "tr": "Titrant Proticity",
+        "de": "Titrant Proticity",
+        "fr": "Titrant Proticity",
+        "es": "Titrant Proticity",
+        "ar": "Titrant Proticity"
+      }
     },
     {
       "id": "analyteVolume",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mL",
       "default": 50,
-      "businessContext": "Volume of the analyte sample taken for titration"
+      "businessContext": "Volume of the analyte sample taken for titration",
+      "label_i18n": {
+        "en": "Analyte Volume (mL)",
+        "tr": "Analyte Volume (mL)",
+        "de": "Analyte Volume (mL)",
+        "fr": "Analyte Volume (mL)",
+        "es": "Analyte Volume (mL)",
+        "ar": "Analyte Volume (mL)"
+      }
     },
     {
       "id": "analyteProticity",
       "label": "Analyte Proticity",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of reactive H+ or OH- per analyte molecule"
+      "businessContext": "Number of reactive H+ or OH- per analyte molecule",
+      "label_i18n": {
+        "en": "Analyte Proticity",
+        "tr": "Analyte Proticity",
+        "de": "Analyte Proticity",
+        "fr": "Analyte Proticity",
+        "es": "Analyte Proticity",
+        "ar": "Analyte Proticity"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "molesAnalyteEquivalent"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

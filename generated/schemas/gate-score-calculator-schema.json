@@ -5,33 +5,65 @@
       "id": "scoreG",
       "label": "G Puanı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Good (İyi) kriter puanı"
+      "businessContext": "Good (İyi) kriter puanı",
+      "label_i18n": {
+        "en": "G Puanı",
+        "tr": "G Puanı",
+        "de": "G Puanı",
+        "fr": "G Puanı",
+        "es": "G Puanı",
+        "ar": "G Puanı"
+      }
     },
     {
       "id": "scoreA",
       "label": "A Puanı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Average (Ortalama) kriter puanı"
+      "businessContext": "Average (Ortalama) kriter puanı",
+      "label_i18n": {
+        "en": "A Puanı",
+        "tr": "A Puanı",
+        "de": "A Puanı",
+        "fr": "A Puanı",
+        "es": "A Puanı",
+        "ar": "A Puanı"
+      }
     },
     {
       "id": "scoreT",
       "label": "T Puanı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Tolerable (Kabul Edilebilir) kriter puanı"
+      "businessContext": "Tolerable (Kabul Edilebilir) kriter puanı",
+      "label_i18n": {
+        "en": "T Puanı",
+        "tr": "T Puanı",
+        "de": "T Puanı",
+        "fr": "T Puanı",
+        "es": "T Puanı",
+        "ar": "T Puanı"
+      }
     },
     {
       "id": "scoreE",
       "label": "E Puanı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Excellent (Mükemmel) kriter puanı"
+      "businessContext": "Excellent (Mükemmel) kriter puanı",
+      "label_i18n": {
+        "en": "E Puanı",
+        "tr": "E Puanı",
+        "de": "E Puanı",
+        "fr": "E Puanı",
+        "es": "E Puanı",
+        "ar": "E Puanı"
+      }
     },
     {
       "id": "weightG",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "G kategorisi ağırlık yüzdesi"
+      "businessContext": "G kategorisi ağırlık yüzdesi",
+      "label_i18n": {
+        "en": "G Ağırlığı",
+        "tr": "G Ağırlığı",
+        "de": "G Ağırlığı",
+        "fr": "G Ağırlığı",
+        "es": "G Ağırlığı",
+        "ar": "G Ağırlığı"
+      }
     },
     {
       "id": "weightA",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "A kategorisi ağırlık yüzdesi"
+      "businessContext": "A kategorisi ağırlık yüzdesi",
+      "label_i18n": {
+        "en": "A Ağırlığı",
+        "tr": "A Ağırlığı",
+        "de": "A Ağırlığı",
+        "fr": "A Ağırlığı",
+        "es": "A Ağırlığı",
+        "ar": "A Ağırlığı"
+      }
     },
     {
       "id": "weightT",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "T kategorisi ağırlık yüzdesi"
+      "businessContext": "T kategorisi ağırlık yüzdesi",
+      "label_i18n": {
+        "en": "T Ağırlığı",
+        "tr": "T Ağırlığı",
+        "de": "T Ağırlığı",
+        "fr": "T Ağırlığı",
+        "es": "T Ağırlığı",
+        "ar": "T Ağırlığı"
+      }
     },
     {
       "id": "weightE",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "E kategorisi ağırlık yüzdesi"
+      "businessContext": "E kategorisi ağırlık yüzdesi",
+      "label_i18n": {
+        "en": "E Ağırlığı",
+        "tr": "E Ağırlığı",
+        "de": "E Ağırlığı",
+        "fr": "E Ağırlığı",
+        "es": "E Ağırlığı",
+        "ar": "E Ağırlığı"
+      }
     }
   ],
   "formulas": {
@@ -83,8 +147,8 @@
       "eContribution"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

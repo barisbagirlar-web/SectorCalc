@@ -5,25 +5,49 @@
       "id": "atomicNumber",
       "label": "Atomic Number (Z)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of protons in the nucleus."
+      "businessContext": "Number of protons in the nucleus.",
+      "label_i18n": {
+        "en": "Atomic Number (Z)",
+        "tr": "Atomic Number (Z)",
+        "de": "Atomic Number (Z)",
+        "fr": "Atomic Number (Z)",
+        "es": "Atomic Number (Z)",
+        "ar": "Atomic Number (Z)"
+      }
     },
     {
       "id": "principalQuantumNumber",
       "label": "Principal Quantum Number (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Principal quantum number of the electron being removed (1 for ground state)."
+      "businessContext": "Principal quantum number of the electron being removed (1 for ground state).",
+      "label_i18n": {
+        "en": "Principal Quantum Number (n)",
+        "tr": "Principal Quantum Number (n)",
+        "de": "Principal Quantum Number (n)",
+        "fr": "Principal Quantum Number (n)",
+        "es": "Principal Quantum Number (n)",
+        "ar": "Principal Quantum Number (n)"
+      }
     },
     {
       "id": "screeningConstant",
       "label": "Screening Constant (S)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Shielding constant from inner electrons (0 for hydrogen-like atoms)."
+      "businessContext": "Shielding constant from inner electrons (0 for hydrogen-like atoms).",
+      "label_i18n": {
+        "en": "Screening Constant (S)",
+        "tr": "Screening Constant (S)",
+        "de": "Screening Constant (S)",
+        "fr": "Screening Constant (S)",
+        "es": "Screening Constant (S)",
+        "ar": "Screening Constant (S)"
+      }
     },
     {
       "id": "rydbergEnergy",
@@ -31,21 +55,39 @@
       "type": "number",
       "unit": "eV",
       "default": 13.6,
-      "businessContext": "Rydberg energy constant (energy required to ionize a hydrogen atom from ground state)."
+      "businessContext": "Rydberg energy constant (energy required to ionize a hydrogen atom from ground state).",
+      "label_i18n": {
+        "en": "Rydberg Energy",
+        "tr": "Rydberg Energy",
+        "de": "Rydberg Energy",
+        "fr": "Rydberg Energy",
+        "es": "Rydberg Energy",
+        "ar": "Rydberg Energy"
+      }
     },
     {
       "id": "conversionFactor",
       "label": "Conversion Factor (eV to kJ/mol)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 96.485,
-      "businessContext": "Factor to convert electronvolts to kilojoules per mole (1 eV = 96.485 kJ/mol)."
+      "businessContext": "Factor to convert electronvolts to kilojoules per mole (1 eV = 96.485 kJ/mol).",
+      "label_i18n": {
+        "en": "Conversion Factor (eV to kJ/mol)",
+        "tr": "Conversion Factor (eV to kJ/mol)",
+        "de": "Conversion Factor (eV to kJ/mol)",
+        "fr": "Conversion Factor (eV to kJ/mol)",
+        "es": "Conversion Factor (eV to kJ/mol)",
+        "ar": "Conversion Factor (eV to kJ/mol)"
+      }
     }
   ],
   "formulas": {
     "effectiveNuclearCharge": "atomicNumber - screeningConstant",
     "ionizationEnergy_eV": "rydbergEnergy * (effectiveNuclearCharge ** 2) / (principalQuantumNumber ** 2)",
-    "ionizationEnergy_kJ_per_mol": "ionizationEnergy_eV * conversionFactor"
+    "ionizationEnergy_kJ_per_mol": "ionizationEnergy_eV * conversionFactor",
+    "_ionizationEnergy_eV__eV": "{ionizationEnergy_eV} eV",
+    "_ionizationEnergy_kJ_per_mol__kJ_mol": "{ionizationEnergy_kJ_per_mol} kJ/mol"
   },
   "outputs": {
     "primary": "ionizationEnergy_eV",
@@ -54,8 +96,8 @@
       "Equivalent: {ionizationEnergy_kJ_per_mol} kJ/mol"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",

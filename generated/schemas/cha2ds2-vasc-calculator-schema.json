@@ -5,72 +5,145 @@
       "id": "chf",
       "label": "Congestive Heart Failure (1 point)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "History of CHF"
+      "businessContext": "History of CHF",
+      "label_i18n": {
+        "en": "Congestive Heart Failure (1 point)",
+        "tr": "Congestive Heart Failure (1 point)",
+        "de": "Congestive Heart Failure (1 point)",
+        "fr": "Congestive Heart Failure (1 point)",
+        "es": "Congestive Heart Failure (1 point)",
+        "ar": "Congestive Heart Failure (1 point)"
+      }
     },
     {
       "id": "hypertension",
       "label": "Hypertension (1 point)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Diagnosed hypertension"
+      "businessContext": "Diagnosed hypertension",
+      "label_i18n": {
+        "en": "Hypertension (1 point)",
+        "tr": "Hypertension (1 point)",
+        "de": "Hypertension (1 point)",
+        "fr": "Hypertension (1 point)",
+        "es": "Hypertension (1 point)",
+        "ar": "Hypertension (1 point)"
+      }
     },
     {
       "id": "age75",
       "label": "Age ≥75 years (2 points)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Patient age 75 or older"
+      "businessContext": "Patient age 75 or older",
+      "label_i18n": {
+        "en": "Age ≥75 years (2 points)",
+        "tr": "Age ≥75 years (2 points)",
+        "de": "Age ≥75 years (2 points)",
+        "fr": "Age ≥75 years (2 points)",
+        "es": "Age ≥75 years (2 points)",
+        "ar": "Age ≥75 years (2 points)"
+      }
     },
     {
       "id": "diabetes",
       "label": "Diabetes Mellitus (1 point)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Diagnosed diabetes"
+      "businessContext": "Diagnosed diabetes",
+      "label_i18n": {
+        "en": "Diabetes Mellitus (1 point)",
+        "tr": "Diabetes Mellitus (1 point)",
+        "de": "Diabetes Mellitus (1 point)",
+        "fr": "Diabetes Mellitus (1 point)",
+        "es": "Diabetes Mellitus (1 point)",
+        "ar": "Diabetes Mellitus (1 point)"
+      }
     },
     {
       "id": "stroke",
       "label": "Prior Stroke/TIA/Thromboembolism (2 points)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "History of stroke, TIA, or systemic embolism"
+      "businessContext": "History of stroke, TIA, or systemic embolism",
+      "label_i18n": {
+        "en": "Prior Stroke/TIA/Thromboembolism (2 points)",
+        "tr": "Prior Stroke/TIA/Thromboembolism (2 points)",
+        "de": "Prior Stroke/TIA/Thromboembolism (2 points)",
+        "fr": "Prior Stroke/TIA/Thromboembolism (2 points)",
+        "es": "Prior Stroke/TIA/Thromboembolism (2 points)",
+        "ar": "Prior Stroke/TIA/Thromboembolism (2 points)"
+      }
     },
     {
       "id": "vascular",
       "label": "Vascular Disease (1 point)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Prior MI, peripheral artery disease, or aortic plaque"
+      "businessContext": "Prior MI, peripheral artery disease, or aortic plaque",
+      "label_i18n": {
+        "en": "Vascular Disease (1 point)",
+        "tr": "Vascular Disease (1 point)",
+        "de": "Vascular Disease (1 point)",
+        "fr": "Vascular Disease (1 point)",
+        "es": "Vascular Disease (1 point)",
+        "ar": "Vascular Disease (1 point)"
+      }
     },
     {
       "id": "age65to74",
       "label": "Age 65-74 years (1 point)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Patient age between 65 and 74"
+      "businessContext": "Patient age between 65 and 74",
+      "label_i18n": {
+        "en": "Age 65-74 years (1 point)",
+        "tr": "Age 65-74 years (1 point)",
+        "de": "Age 65-74 years (1 point)",
+        "fr": "Age 65-74 years (1 point)",
+        "es": "Age 65-74 years (1 point)",
+        "ar": "Age 65-74 years (1 point)"
+      }
     },
     {
       "id": "sexFemale",
       "label": "Female Sex (1 point)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Patient is female"
+      "businessContext": "Patient is female",
+      "label_i18n": {
+        "en": "Female Sex (1 point)",
+        "tr": "Female Sex (1 point)",
+        "de": "Female Sex (1 point)",
+        "fr": "Female Sex (1 point)",
+        "es": "Female Sex (1 point)",
+        "ar": "Female Sex (1 point)"
+      }
     }
   ],
   "formulas": {
-    "score": "chf + hypertension + age75 * 2 + diabetes + stroke * 2 + vascular + age65to74 + sexFemale"
+    "score": "chf + hypertension + age75 * 2 + diabetes + stroke * 2 + vascular + age65to74 + sexFemale",
+    "__chf___point_s_": "{{chf}} point(s)",
+    "__hypertension___point_s_": "{{hypertension}} point(s)",
+    "__age75___2___point_s_": "{{age75 * 2}} point(s)",
+    "__diabetes___point_s_": "{{diabetes}} point(s)",
+    "__stroke___2___point_s_": "{{stroke * 2}} point(s)",
+    "__vascular___point_s_": "{{vascular}} point(s)",
+    "__age65to74___point_s_": "{{age65to74}} point(s)",
+    "__sexFemale___point_s_": "{{sexFemale}} point(s)",
+    "result": "CHA2DS2-VASc Score: {{score}}"
   },
   "outputs": {
-    "primary": "CHA2DS2-VASc Score: {{score}}",
+    "primary": "result",
     "breakdown": [
       "CHF: {{chf}} point(s)",
       "Hypertension: {{hypertension}} point(s)",
@@ -82,10 +155,10 @@
       "Female: {{sexFemale}} point(s)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Bakım & Güvenilirlik",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "maintenance-reliability"
 }

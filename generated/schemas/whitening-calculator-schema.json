@@ -5,49 +5,97 @@
       "id": "initialL",
       "label": "Başlangıç L*",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 90,
-      "businessContext": "Ilk L* değeri (açıklık-koyuluk)"
+      "businessContext": "Ilk L* değeri (açıklık-koyuluk)",
+      "label_i18n": {
+        "en": "Başlangıç L*",
+        "tr": "Başlangıç L*",
+        "de": "Başlangıç L*",
+        "fr": "Başlangıç L*",
+        "es": "Başlangıç L*",
+        "ar": "Başlangıç L*"
+      }
     },
     {
       "id": "initiala",
       "label": "Başlangıç a*",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Ilk a* değeri (kırmızı-yeşil)"
+      "businessContext": "Ilk a* değeri (kırmızı-yeşil)",
+      "label_i18n": {
+        "en": "Başlangıç a*",
+        "tr": "Başlangıç a*",
+        "de": "Başlangıç a*",
+        "fr": "Başlangıç a*",
+        "es": "Başlangıç a*",
+        "ar": "Başlangıç a*"
+      }
     },
     {
       "id": "initialb",
       "label": "Başlangıç b*",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Ilk b* değeri (sarı-mavi)"
+      "businessContext": "Ilk b* değeri (sarı-mavi)",
+      "label_i18n": {
+        "en": "Başlangıç b*",
+        "tr": "Başlangıç b*",
+        "de": "Başlangıç b*",
+        "fr": "Başlangıç b*",
+        "es": "Başlangıç b*",
+        "ar": "Başlangıç b*"
+      }
     },
     {
       "id": "finalL",
       "label": "Sonuç L*",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 95,
-      "businessContext": "Sonuç L* değeri"
+      "businessContext": "Sonuç L* değeri",
+      "label_i18n": {
+        "en": "Sonuç L*",
+        "tr": "Sonuç L*",
+        "de": "Sonuç L*",
+        "fr": "Sonuç L*",
+        "es": "Sonuç L*",
+        "ar": "Sonuç L*"
+      }
     },
     {
       "id": "finala",
       "label": "Sonuç a*",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": -0.5,
-      "businessContext": "Sonuç a* değeri"
+      "businessContext": "Sonuç a* değeri",
+      "label_i18n": {
+        "en": "Sonuç a*",
+        "tr": "Sonuç a*",
+        "de": "Sonuç a*",
+        "fr": "Sonuç a*",
+        "es": "Sonuç a*",
+        "ar": "Sonuç a*"
+      }
     },
     {
       "id": "finalb",
       "label": "Sonuç b*",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuç b* değeri"
+      "businessContext": "Sonuç b* değeri",
+      "label_i18n": {
+        "en": "Sonuç b*",
+        "tr": "Sonuç b*",
+        "de": "Sonuç b*",
+        "fr": "Sonuç b*",
+        "es": "Sonuç b*",
+        "ar": "Sonuç b*"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "yellowBlueShift"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

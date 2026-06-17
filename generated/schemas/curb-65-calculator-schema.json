@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "years",
       "default": 0,
-      "businessContext": "Patient age in years"
+      "businessContext": "Patient age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "confusion",
       "label": "Confusion",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "New onset confusion (1=Yes, 0=No)"
+      "businessContext": "New onset confusion (1=Yes, 0=No)",
+      "label_i18n": {
+        "en": "Confusion",
+        "tr": "Confusion",
+        "de": "Confusion",
+        "fr": "Confusion",
+        "es": "Confusion",
+        "ar": "Confusion"
+      }
     },
     {
       "id": "urea",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mmol/L",
       "default": 0,
-      "businessContext": "Serum urea level in mmol/L"
+      "businessContext": "Serum urea level in mmol/L",
+      "label_i18n": {
+        "en": "Blood Urea Nitrogen",
+        "tr": "Blood Urea Nitrogen",
+        "de": "Blood Urea Nitrogen",
+        "fr": "Blood Urea Nitrogen",
+        "es": "Blood Urea Nitrogen",
+        "ar": "Blood Urea Nitrogen"
+      }
     },
     {
       "id": "respiratoryRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "breaths/min",
       "default": 0,
-      "businessContext": "Respiratory rate in breaths per minute"
+      "businessContext": "Respiratory rate in breaths per minute",
+      "label_i18n": {
+        "en": "Respiratory Rate",
+        "tr": "Respiratory Rate",
+        "de": "Respiratory Rate",
+        "fr": "Respiratory Rate",
+        "es": "Respiratory Rate",
+        "ar": "Respiratory Rate"
+      }
     },
     {
       "id": "systolicBP",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 0,
-      "businessContext": "Systolic blood pressure in mmHg"
+      "businessContext": "Systolic blood pressure in mmHg",
+      "label_i18n": {
+        "en": "Systolic Blood Pressure",
+        "tr": "Systolic Blood Pressure",
+        "de": "Systolic Blood Pressure",
+        "fr": "Systolic Blood Pressure",
+        "es": "Systolic Blood Pressure",
+        "ar": "Systolic Blood Pressure"
+      }
     },
     {
       "id": "diastolicBP",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 0,
-      "businessContext": "Diastolic blood pressure in mmHg"
+      "businessContext": "Diastolic blood pressure in mmHg",
+      "label_i18n": {
+        "en": "Diastolic Blood Pressure",
+        "tr": "Diastolic Blood Pressure",
+        "de": "Diastolic Blood Pressure",
+        "fr": "Diastolic Blood Pressure",
+        "es": "Diastolic Blood Pressure",
+        "ar": "Diastolic Blood Pressure"
+      }
     }
   ],
   "formulas": {
@@ -68,10 +116,10 @@
       "bpScore"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

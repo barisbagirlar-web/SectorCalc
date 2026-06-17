@@ -5,33 +5,65 @@
       "id": "a11",
       "label": "a₁₁",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Matrisin 1. satır 1. sütun elemanı"
+      "businessContext": "Matrisin 1. satır 1. sütun elemanı",
+      "label_i18n": {
+        "en": "a₁₁",
+        "tr": "a₁₁",
+        "de": "a₁₁",
+        "fr": "a₁₁",
+        "es": "a₁₁",
+        "ar": "a₁₁"
+      }
     },
     {
       "id": "a12",
       "label": "a₁₂",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrisin 1. satır 2. sütun elemanı"
+      "businessContext": "Matrisin 1. satır 2. sütun elemanı",
+      "label_i18n": {
+        "en": "a₁₂",
+        "tr": "a₁₂",
+        "de": "a₁₂",
+        "fr": "a₁₂",
+        "es": "a₁₂",
+        "ar": "a₁₂"
+      }
     },
     {
       "id": "a21",
       "label": "a₂₁",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrisin 2. satır 1. sütun elemanı"
+      "businessContext": "Matrisin 2. satır 1. sütun elemanı",
+      "label_i18n": {
+        "en": "a₂₁",
+        "tr": "a₂₁",
+        "de": "a₂₁",
+        "fr": "a₂₁",
+        "es": "a₂₁",
+        "ar": "a₂₁"
+      }
     },
     {
       "id": "a22",
       "label": "a₂₂",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Matrisin 2. satır 2. sütun elemanı"
+      "businessContext": "Matrisin 2. satır 2. sütun elemanı",
+      "label_i18n": {
+        "en": "a₂₂",
+        "tr": "a₂₂",
+        "de": "a₂₂",
+        "fr": "a₂₂",
+        "es": "a₂₂",
+        "ar": "a₂₂"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "eigenvalue2"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

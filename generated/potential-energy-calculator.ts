@@ -18,13 +18,16 @@ export const Potential_energy_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Potential_energy_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.mass * input.gravity * (input.finalHeight - input.initialHeight); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.mass; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = joules; results["joules"] = Number.isFinite(v) ? v : 0; } catch { results["joules"] = 0; }
+  try { const v = kilojoules; results["kilojoules"] = Number.isFinite(v) ? v : 0; } catch { results["kilojoules"] = 0; }
   return results;
 }
 
 
 export function calculatePotential_energy_calculator(input: Potential_energy_calculatorInput): Potential_energy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["potentialEnergy"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

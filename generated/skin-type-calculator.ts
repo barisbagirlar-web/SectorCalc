@@ -23,13 +23,17 @@ function evaluateAllFormulas(input: Skin_type_calculatorInput): Record<string, n
   try { const v = input.sensitivity * 25; results["sensitivityIndex"] = Number.isFinite(v) ? v : 0; } catch { results["sensitivityIndex"] = 0; }
   try { const v = input.pigmentation * 25; results["pigmentationIndex"] = Number.isFinite(v) ? v : 0; } catch { results["pigmentationIndex"] = 0; }
   try { const v = (4 - input.elasticity) * 25; results["agingIndex"] = Number.isFinite(v) ? v : 0; } catch { results["agingIndex"] = 0; }
+  results["__sensitivityIndex_toFixed_0__"] = 0;
+  results["__pigmentationIndex_toFixed_0__"] = 0;
+  results["__agingIndex_toFixed_0__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateSkin_type_calculator(input: Skin_type_calculatorInput): Skin_type_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Skin"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

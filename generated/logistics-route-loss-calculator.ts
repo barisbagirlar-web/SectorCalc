@@ -31,34 +31,19 @@ export const Logistics_route_loss_calculatorInputSchema = z.object({
   use_real_time_traffic: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Logistics_route_loss_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.route_distance_km / input.average_speed_kmh; results["ideal_driving_time_hours"] = Number.isFinite(v) ? v : 0; } catch { results["ideal_driving_time_hours"] = 0; }
-  try { const v = input.planned_stops * (input.average_stop_time_min / 60); results["total_stop_time_hours"] = Number.isFinite(v) ? v : 0; } catch { results["total_stop_time_hours"] = 0; }
-  try { const v = (results["ideal_driving_time_hours"] ?? 0) * input.traffic_delay_factor; results["traffic_loss_hours"] = Number.isFinite(v) ? v : 0; } catch { results["traffic_loss_hours"] = 0; }
-  try { const v = (results["ideal_driving_time_hours"] ?? 0) + (results["total_stop_time_hours"] ?? 0) + (results["traffic_loss_hours"] ?? 0); results["total_transit_time_hours"] = Number.isFinite(v) ? v : 0; } catch { results["total_transit_time_hours"] = 0; }
-  try { const v = ((results["total_stop_time_hours"] ?? 0) + (results["traffic_loss_hours"] ?? 0)) * input.driver_wage_per_hour; results["time_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["time_loss_cost"] = 0; }
-  try { const v = input.route_distance_km * (input.fuel_cost_per_km + input.vehicle_operating_cost_per_km); results["fuel_and_operating_cost"] = Number.isFinite(v) ? v : 0; } catch { results["fuel_and_operating_cost"] = 0; }
-  try { const v = input.load_value_currency * 0.05 * ((results["total_transit_time_hours"] ?? 0) - input.transit_time_target_hours) / 8760; results["cargo_time_value_loss"] = Number.isFinite(v) ? v : 0; } catch { results["cargo_time_value_loss"] = 0; }
-  try { const v = (results["time_loss_cost"] ?? 0) + (results["fuel_and_operating_cost"] ?? 0) + (results["cargo_time_value_loss"] ?? 0); results["total_route_loss"] = Number.isFinite(v) ? v : 0; } catch { results["total_route_loss"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Logistics_route_loss_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateLogistics_route_loss_calculator(input: Logistics_route_loss_calculatorInput): Logistics_route_loss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_route_loss"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    time_loss_cost: values["time_loss_cost"] ?? 0,
-    fuel_and_operating_cost: values["fuel_and_operating_cost"] ?? 0,
-    cargo_time_value_loss: values["cargo_time_value_loss"] ?? 0,
-    ideal_driving_time_hours: values["ideal_driving_time_hours"] ?? 0,
-    total_stop_time_hours: values["total_stop_time_hours"] ?? 0,
-    traffic_loss_hours: values["traffic_loss_hours"] ?? 0,
-    total_transit_time_hours: values["total_transit_time_hours"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excessive Stop Time","High Traffic Impact","Cargo Value at Risk","Fuel Inefficiency"];
-  const suggestedActions: string[] = ["Consolidate Stops","Optimize Route for Traffic","Increase Average Speed","Streamline Loading/Unloading","Review Fuel Efficiency"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -77,7 +62,7 @@ export function calculateLogistics_route_loss_calculator(input: Logistics_route_
 
 export interface Logistics_route_loss_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { time_loss_cost: number; fuel_and_operating_cost: number; cargo_time_value_loss: number; ideal_driving_time_hours: number; total_stop_time_hours: number; traffic_loss_hours: number; total_transit_time_hours: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -141,7 +141,7 @@
       "id": "industryType",
       "label": "Industry Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "manufacturing",
       "min": null,
       "max": null,
@@ -202,151 +202,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "f1",
-      "name": "Domestic Water Use",
-      "description": "Water used by employees for domestic purposes (drinking, sanitation, cleaning).",
-      "formula": "domesticWater = numEmployees * workDaysPerYear * avgWaterUsePerPersonPerDay * seasonalFactor",
-      "unit": "liters/year"
-    },
-    {
-      "id": "f2",
-      "name": "Process Water Use (Gross)",
-      "description": "Total water used in production before recycling.",
-      "formula": "processWaterGross = annualProductionUnits * processWaterIntensity * seasonalFactor",
-      "unit": "liters/year"
-    },
-    {
-      "id": "f3",
-      "name": "Recycled Water",
-      "description": "Water recovered and reused from process.",
-      "formula": "recycledWater = processWaterGross * (recyclingRate / 100)",
-      "unit": "liters/year"
-    },
-    {
-      "id": "f4",
-      "name": "Net Process Water",
-      "description": "Fresh water needed for process after recycling.",
-      "formula": "netProcessWater = processWaterGross - recycledWater",
-      "unit": "liters/year"
-    },
-    {
-      "id": "f5",
-      "name": "Leakage Losses",
-      "description": "Water lost due to leaks in the distribution system.",
-      "formula": "leakageLosses = (domesticWater + netProcessWater) * (leakageFactor / 100)",
-      "unit": "liters/year"
-    },
-    {
-      "id": "f6",
-      "name": "Total Water Intake",
-      "description": "Primary result: total fresh water withdrawn from source.",
-      "formula": "totalWaterIntake = domesticWater + netProcessWater + leakageLosses",
-      "unit": "liters/year"
-    },
-    {
-      "id": "f7",
-      "name": "Water Intensity Index",
-      "description": "Water used per unit of production (including domestic and losses).",
-      "formula": "waterIntensityIndex = totalWaterIntake / annualProductionUnits",
-      "unit": "L/unit"
-    }
+    "numEmployees",
+    "numEmployees",
+    "numEmployees",
+    "numEmployees",
+    "numEmployees",
+    "numEmployees",
+    "numEmployees"
   ],
   "outputs": {
-    "primary": {
-      "id": "totalWaterIntake",
-      "label": "Total Water Intake",
-      "value": null,
-      "unit": "liters/year",
-      "description": "Total fresh water withdrawn from source per year."
-    },
-    "breakdown": {
-      "domesticWater": {
-        "label": "Domestic Water Use",
-        "value": null,
-        "unit": "liters/year"
-      },
-      "processWaterGross": {
-        "label": "Process Water Use (Gross)",
-        "value": null,
-        "unit": "liters/year"
-      },
-      "recycledWater": {
-        "label": "Recycled Water",
-        "value": null,
-        "unit": "liters/year"
-      },
-      "netProcessWater": {
-        "label": "Net Process Water",
-        "value": null,
-        "unit": "liters/year"
-      },
-      "leakageLosses": {
-        "label": "Leakage Losses",
-        "value": null,
-        "unit": "liters/year"
-      },
-      "waterIntensityIndex": {
-        "label": "Water Intensity Index",
-        "value": null,
-        "unit": "L/unit"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "driver1",
-        "label": "Unaccounted Leakage",
-        "description": "Leakage losses exceeding 10% of total intake indicate hidden waste.",
-        "condition": "leakageFactor > 10"
-      },
-      {
-        "id": "driver2",
-        "label": "Low Recycling Efficiency",
-        "description": "Recycling rate below 20% suggests process water is not being reused effectively.",
-        "condition": "recyclingRate < 20"
-      },
-      {
-        "id": "driver3",
-        "label": "High Seasonal Variation",
-        "description": "Seasonal factor above 1.5 may indicate inefficient peak demand management.",
-        "condition": "seasonalFactor > 1.5"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action1",
-        "label": "Conduct Leak Detection Survey",
-        "description": "Implement regular leak detection and repair program to reduce leakage losses.",
-        "priority": "high"
-      },
-      {
-        "id": "action2",
-        "label": "Increase Water Recycling",
-        "description": "Invest in treatment and reuse systems to raise recycling rate above 20%.",
-        "priority": "high"
-      },
-      {
-        "id": "action3",
-        "label": "Install Water-Efficient Fixtures",
-        "description": "Replace old fixtures with low-flow alternatives to reduce domestic water use.",
-        "priority": "medium"
-      },
-      {
-        "id": "action4",
-        "label": "Optimize Process Water Use",
-        "description": "Review production processes to reduce water intensity per unit.",
-        "priority": "medium"
-      },
-      {
-        "id": "action5",
-        "label": "Implement Seasonal Demand Planning",
-        "description": "Adjust operations and storage to smooth out seasonal peaks.",
-        "priority": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": 0.85
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "water-intake-calculator"
 }

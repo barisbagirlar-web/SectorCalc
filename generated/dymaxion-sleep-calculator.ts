@@ -22,13 +22,17 @@ function evaluateAllFormulas(input: Dymaxion_sleep_calculatorInput): Record<stri
   try { const v = (results["totalNaps"] ?? 0) * input.napDurationMinutes; results["totalSleepMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["totalSleepMinutes"] = 0; }
   try { const v = (results["totalSleepMinutes"] ?? 0) / 60; results["totalSleepHours"] = Number.isFinite(v) ? v : 0; } catch { results["totalSleepHours"] = 0; }
   try { const v = ((results["totalSleepMinutes"] ?? 0) / (input.baseSleepHours * 60)) * 100; results["efficiencyPercent"] = Number.isFinite(v) ? v : 0; } catch { results["efficiencyPercent"] = 0; }
+  results["__napsPerDay_toFixed_1____standard_Dymax"] = 0;
+  results["__totalNaps_toFixed_1___"] = 0;
+  results["__efficiencyPercent_toFixed_1_____lower_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateDymaxion_sleep_calculator(input: Dymaxion_sleep_calculatorInput): Dymaxion_sleep_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

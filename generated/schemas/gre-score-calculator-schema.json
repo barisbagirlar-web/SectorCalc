@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "correct",
       "default": 20,
-      "businessContext": "Number of correct answers in the Verbal Reasoning section (out of 40)."
+      "businessContext": "Number of correct answers in the Verbal Reasoning section (out of 40).",
+      "label_i18n": {
+        "en": "Verbal Correct Answers",
+        "tr": "Verbal Correct Answers",
+        "de": "Verbal Correct Answers",
+        "fr": "Verbal Correct Answers",
+        "es": "Verbal Correct Answers",
+        "ar": "Verbal Correct Answers"
+      }
     },
     {
       "id": "verbalTotal",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "questions",
       "default": 40,
-      "businessContext": "Total number of questions in the Verbal Reasoning section (typically 40)."
+      "businessContext": "Total number of questions in the Verbal Reasoning section (typically 40).",
+      "label_i18n": {
+        "en": "Verbal Total Questions",
+        "tr": "Verbal Total Questions",
+        "de": "Verbal Total Questions",
+        "fr": "Verbal Total Questions",
+        "es": "Verbal Total Questions",
+        "ar": "Verbal Total Questions"
+      }
     },
     {
       "id": "quantCorrect",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "correct",
       "default": 20,
-      "businessContext": "Number of correct answers in the Quantitative Reasoning section (out of 40)."
+      "businessContext": "Number of correct answers in the Quantitative Reasoning section (out of 40).",
+      "label_i18n": {
+        "en": "Quantitative Correct Answers",
+        "tr": "Quantitative Correct Answers",
+        "de": "Quantitative Correct Answers",
+        "fr": "Quantitative Correct Answers",
+        "es": "Quantitative Correct Answers",
+        "ar": "Quantitative Correct Answers"
+      }
     },
     {
       "id": "quantTotal",
@@ -31,23 +55,34 @@
       "type": "number",
       "unit": "questions",
       "default": 40,
-      "businessContext": "Total number of questions in the Quantitative Reasoning section (typically 40)."
+      "businessContext": "Total number of questions in the Quantitative Reasoning section (typically 40).",
+      "label_i18n": {
+        "en": "Quantitative Total Questions",
+        "tr": "Quantitative Total Questions",
+        "de": "Quantitative Total Questions",
+        "fr": "Quantitative Total Questions",
+        "es": "Quantitative Total Questions",
+        "ar": "Quantitative Total Questions"
+      }
     }
   ],
   "formulas": {
     "verbalScaled": "130 + (verbalCorrect/verbalTotal)*40",
     "quantScaled": "130 + (quantCorrect/quantTotal)*40",
-    "totalScore": "verbalScaled + quantScaled"
+    "totalScore": "verbalScaled + quantScaled",
+    "____verbalScaled_____170_": "' + verbalScaled + '/170'",
+    "____quantScaled_____170_": "' + quantScaled + '/170'",
+    "result": "'Total GRE Score: ' + totalScore"
   },
   "outputs": {
-    "primary": "'Total GRE Score: ' + totalScore",
+    "primary": "result",
     "breakdown": [
       "'Verbal Reasoning: ' + verbalScaled + '/170'",
       "'Quantitative Reasoning: ' + quantScaled + '/170'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

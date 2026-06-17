@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Effective particle size at 10% passing"
+      "businessContext": "Effective particle size at 10% passing",
+      "label_i18n": {
+        "en": "D10 (mm)",
+        "tr": "D10 (mm)",
+        "de": "D10 (mm)",
+        "fr": "D10 (mm)",
+        "es": "D10 (mm)",
+        "ar": "D10 (mm)"
+      }
     },
     {
       "id": "d30",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.5,
-      "businessContext": "Particle size at 30% passing"
+      "businessContext": "Particle size at 30% passing",
+      "label_i18n": {
+        "en": "D30 (mm)",
+        "tr": "D30 (mm)",
+        "de": "D30 (mm)",
+        "fr": "D30 (mm)",
+        "es": "D30 (mm)",
+        "ar": "D30 (mm)"
+      }
     },
     {
       "id": "d60",
@@ -23,25 +39,36 @@
       "type": "number",
       "unit": "mm",
       "default": 1,
-      "businessContext": "Particle size at 60% passing"
+      "businessContext": "Particle size at 60% passing",
+      "label_i18n": {
+        "en": "D60 (mm)",
+        "tr": "D60 (mm)",
+        "de": "D60 (mm)",
+        "fr": "D60 (mm)",
+        "es": "D60 (mm)",
+        "ar": "D60 (mm)"
+      }
     }
   ],
   "formulas": {
     "primary": "(d30 ** 2) / (d10 * d60)",
     "numerator": "d30 ** 2",
-    "denominator": "d10 * d60"
+    "denominator": "d10 * d60",
+    "Numerator__D30__": "Numerator (D30²)",
+    "Denominator__D10___D60_": "Denominator (D10 × D60)",
+    "result": "Kc (Coefficient of Curvature)"
   },
   "outputs": {
-    "primary": "Kc (Coefficient of Curvature)",
+    "primary": "result",
     "breakdown": [
       "Numerator (D30²)",
       "Denominator (D10 × D60)"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

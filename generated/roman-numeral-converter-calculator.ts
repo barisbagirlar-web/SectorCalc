@@ -26,6 +26,9 @@ export const Roman_numeral_converter_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Roman_numeral_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = ((input.s1 < input.s2 ? -input.s1 : input.s1) + (input.s2 < input.s3 ? -input.s2 : input.s2) + (input.s3 < input.s4 ? -input.s3 : input.s3) + (input.s4 < input.s5 ? -input.s4 : input.s4) + (input.s5 < input.s6 ? -input.s5 : input.s5) + (input.s6 < input.s7 ? -input.s6 : input.s6) + (input.s7 < input.s8 ? -input.s7 : input.s7) + input.s8); results["arabic"] = Number.isFinite(v) ? v : 0; } catch { results["arabic"] = 0; }
+  results["Enter_the_values_of_Roman_numeral_symbol"] = 0;
+  results["The_calculator_applies_subtractive_notat"] = 0;
+  results["The_final_result_is_the_equivalent_Arabi"] = 0;
   return results;
 }
 

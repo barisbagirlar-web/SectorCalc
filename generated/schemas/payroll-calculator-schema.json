@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 160,
-      "businessContext": "Regular monthly working hours"
+      "businessContext": "Regular monthly working hours",
+      "label_i18n": {
+        "en": "Hours Worked",
+        "tr": "Hours Worked",
+        "de": "Hours Worked",
+        "fr": "Hours Worked",
+        "es": "Hours Worked",
+        "ar": "Hours Worked"
+      }
     },
     {
       "id": "hourlyRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR/h",
       "default": 20,
-      "businessContext": "Regular hourly pay rate"
+      "businessContext": "Regular hourly pay rate",
+      "label_i18n": {
+        "en": "Hourly Rate",
+        "tr": "Hourly Rate",
+        "de": "Hourly Rate",
+        "fr": "Hourly Rate",
+        "es": "Hourly Rate",
+        "ar": "Hourly Rate"
+      }
     },
     {
       "id": "overtimeHours",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Overtime hours worked"
+      "businessContext": "Overtime hours worked",
+      "label_i18n": {
+        "en": "Overtime Hours",
+        "tr": "Overtime Hours",
+        "de": "Overtime Hours",
+        "fr": "Overtime Hours",
+        "es": "Overtime Hours",
+        "ar": "Overtime Hours"
+      }
     },
     {
       "id": "overtimeMultiplier",
       "label": "Overtime Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Multiplier for overtime pay"
+      "businessContext": "Multiplier for overtime pay",
+      "label_i18n": {
+        "en": "Overtime Multiplier",
+        "tr": "Overtime Multiplier",
+        "de": "Overtime Multiplier",
+        "fr": "Overtime Multiplier",
+        "es": "Overtime Multiplier",
+        "ar": "Overtime Multiplier"
+      }
     },
     {
       "id": "taxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Income tax rate"
+      "businessContext": "Income tax rate",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "insuranceRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Social insurance contribution rate"
+      "businessContext": "Social insurance contribution rate",
+      "label_i18n": {
+        "en": "Insurance Rate",
+        "tr": "Insurance Rate",
+        "de": "Insurance Rate",
+        "fr": "Insurance Rate",
+        "es": "Insurance Rate",
+        "ar": "Insurance Rate"
+      }
     },
     {
       "id": "otherDeductions",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Additional deductions (e.g., union fees, advances)"
+      "businessContext": "Additional deductions (e.g., union fees, advances)",
+      "label_i18n": {
+        "en": "Other Deductions",
+        "tr": "Other Deductions",
+        "de": "Other Deductions",
+        "fr": "Other Deductions",
+        "es": "Other Deductions",
+        "ar": "Other Deductions"
+      }
     }
   ],
   "formulas": {
@@ -74,10 +130,10 @@
       "insuranceAmount"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "İK & Personel",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "workforce-hr"
 }

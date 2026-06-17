@@ -22,15 +22,18 @@ function evaluateAllFormulas(input: Fertility_calculatorInput): Record<string, n
   try { const v = (results["ovulationDay"] ?? 0) + 1; results["fertileEndDay"] = Number.isFinite(v) ? v : 0; } catch { results["fertileEndDay"] = 0; }
   try { const v = input.age <= 30 ? 1 : Math.max(0.1, 1 - (input.age - 30) * 0.02); results["ageFactor"] = Number.isFinite(v) ? v : 0; } catch { results["ageFactor"] = 0; }
   try { const v = (input.cycleLength >= 26 && input.cycleLength <= 32) ? 1 : 0.8; results["cycleFactor"] = Number.isFinite(v) ? v : 0; } catch { results["cycleFactor"] = 0; }
-  try { const v = baseProb * (results["ageFactor"] ?? 0) * (results["cycleFactor"] ?? 0); results["probabilityPerCycle"] = Number.isFinite(v) ? v : 0; } catch { results["probabilityPerCycle"] = 0; }
+  try { const v = 0.2; results["baseProb"] = Number.isFinite(v) ? v : 0; } catch { results["baseProb"] = 0; }
+  try { const v = (results["baseProb"] ?? 0) * (results["ageFactor"] ?? 0) * (results["cycleFactor"] ?? 0); results["probabilityPerCycle"] = Number.isFinite(v) ? v : 0; } catch { results["probabilityPerCycle"] = 0; }
   try { const v = 1 - Math.pow(1 - (results["probabilityPerCycle"] ?? 0), input.monthsTrying); results["cumulativeProbability"] = Number.isFinite(v) ? v : 0; } catch { results["cumulativeProbability"] = 0; }
+  try { const v = (results["cumulativeProbability"] ?? 0) * 100; results["cumulativeProbability___100"] = Number.isFinite(v) ? v : 0; } catch { results["cumulativeProbability___100"] = 0; }
+  try { const v = (results["probabilityPerCycle"] ?? 0) * 100; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateFertility_calculator(input: Fertility_calculatorInput): Fertility_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["probabilityPerCycle"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

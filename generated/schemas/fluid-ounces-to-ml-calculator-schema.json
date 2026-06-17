@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "fl oz",
       "default": 1,
-      "businessContext": "Amount of fluid ounces to convert to milliliters"
+      "businessContext": "Amount of fluid ounces to convert to milliliters",
+      "label_i18n": {
+        "en": "Fluid Ounces",
+        "tr": "Fluid Ounces",
+        "de": "Fluid Ounces",
+        "fr": "Fluid Ounces",
+        "es": "Fluid Ounces",
+        "ar": "Fluid Ounces"
+      }
     },
     {
       "id": "ounceStandard",
       "label": "Ounce Standard (0=US, 1=UK)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Select the fluid ounce standard: 0 for US customary (29.5735 ml), 1 for Imperial (28.4131 ml)"
+      "businessContext": "Select the fluid ounce standard: 0 for US customary (29.5735 ml), 1 for Imperial (28.4131 ml)",
+      "label_i18n": {
+        "en": "Ounce Standard (0=US, 1=UK)",
+        "tr": "Ounce Standard (0=US, 1=UK)",
+        "de": "Ounce Standard (0=US, 1=UK)",
+        "fr": "Ounce Standard (0=US, 1=UK)",
+        "es": "Ounce Standard (0=US, 1=UK)",
+        "ar": "Ounce Standard (0=US, 1=UK)"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Round the output to this many decimal places"
+      "businessContext": "Round the output to this many decimal places",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "batchSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "items",
       "default": 1,
-      "businessContext": "Number of identical volumes to convert (for total mL)"
+      "businessContext": "Number of identical volumes to convert (for total mL)",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     }
   ],
   "formulas": {
@@ -49,10 +81,10 @@
       "roundedMl"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

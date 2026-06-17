@@ -15,8 +15,14 @@ export const Social_security_early_retirement_calculatorInputSchema = z.object({
   scalingFactor: z.number().default(1),
 });
 
-function evaluateAllFormulas(_input: Social_security_early_retirement_calculatorInput): Record<string, number> {
-  return {};
+function evaluateAllFormulas(input: Social_security_early_retirement_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.birthYear; results["fullRetirementAge"] = Number.isFinite(v) ? v : 0; } catch { results["fullRetirementAge"] = 0; }
+  try { const v = input.birthYear; results["monthsEarly"] = Number.isFinite(v) ? v : 0; } catch { results["monthsEarly"] = 0; }
+  try { const v = input.birthYear; results["reductionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["reductionFactor"] = 0; }
+  try { const v = input.birthYear; results["reducedMonthlyBenefit"] = Number.isFinite(v) ? v : 0; } catch { results["reducedMonthlyBenefit"] = 0; }
+  try { const v = input.birthYear; results["reductionPercentage"] = Number.isFinite(v) ? v : 0; } catch { results["reductionPercentage"] = 0; }
+  return results;
 }
 
 

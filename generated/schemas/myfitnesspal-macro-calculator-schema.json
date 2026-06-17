@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User body weight in kilograms"
+      "businessContext": "User body weight in kilograms",
+      "label_i18n": {
+        "en": "Weight (kg)",
+        "tr": "Weight (kg)",
+        "de": "Weight (kg)",
+        "fr": "Weight (kg)",
+        "es": "Weight (kg)",
+        "ar": "Weight (kg)"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "User height in centimeters"
+      "businessContext": "User height in centimeters",
+      "label_i18n": {
+        "en": "Height (cm)",
+        "tr": "Height (cm)",
+        "de": "Height (cm)",
+        "fr": "Height (cm)",
+        "es": "Height (cm)",
+        "ar": "Height (cm)"
+      }
     },
     {
       "id": "age",
@@ -23,31 +39,63 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User age in years"
+      "businessContext": "User age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
       "label": "Gender (0: Female, 1: Male)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Biological gender for BMR formula (0 for female, 1 for male)"
+      "businessContext": "Biological gender for BMR formula (0 for female, 1 for male)",
+      "label_i18n": {
+        "en": "Gender (0: Female, 1: Male)",
+        "tr": "Gender (0: Female, 1: Male)",
+        "de": "Gender (0: Female, 1: Male)",
+        "fr": "Gender (0: Female, 1: Male)",
+        "es": "Gender (0: Female, 1: Male)",
+        "ar": "Gender (0: Female, 1: Male)"
+      }
     },
     {
       "id": "activityLevel",
       "label": "Activity Level",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.55,
-      "businessContext": "Physical activity multiplier: 1.2=sedentary, 1.375=light, 1.55=moderate, 1.725=very active, 1.9=extra active"
+      "businessContext": "Physical activity multiplier: 1.2=sedentary, 1.375=light, 1.55=moderate, 1.725=very active, 1.9=extra active",
+      "label_i18n": {
+        "en": "Activity Level",
+        "tr": "Activity Level",
+        "de": "Activity Level",
+        "fr": "Activity Level",
+        "es": "Activity Level",
+        "ar": "Activity Level"
+      }
     },
     {
       "id": "goalFactor",
       "label": "Goal Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Calorie adjustment factor: 0.8 for weight loss, 1.0 for maintenance, 1.2 for muscle gain"
+      "businessContext": "Calorie adjustment factor: 0.8 for weight loss, 1.0 for maintenance, 1.2 for muscle gain",
+      "label_i18n": {
+        "en": "Goal Factor",
+        "tr": "Goal Factor",
+        "de": "Goal Factor",
+        "fr": "Goal Factor",
+        "es": "Goal Factor",
+        "ar": "Goal Factor"
+      }
     }
   ],
   "formulas": {
@@ -66,7 +114,10 @@
       "fat"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
-  "premiumRequired": false
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
+  "premiumRequired": false,
+  "categorySlug": "hse-ergonomics",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

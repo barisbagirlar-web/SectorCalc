@@ -5,55 +5,106 @@
       "id": "numStates",
       "label": "Number of States",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of discrete states in the system"
+      "businessContext": "Number of discrete states in the system",
+      "label_i18n": {
+        "en": "Number of States",
+        "tr": "Number of States",
+        "de": "Number of States",
+        "fr": "Number of States",
+        "es": "Number of States",
+        "ar": "Number of States"
+      }
     },
     {
       "id": "transitionProb",
       "label": "Transition Probability",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Probability of transitioning from one state to another"
+      "businessContext": "Probability of transitioning from one state to another",
+      "label_i18n": {
+        "en": "Transition Probability",
+        "tr": "Transition Probability",
+        "de": "Transition Probability",
+        "fr": "Transition Probability",
+        "es": "Transition Probability",
+        "ar": "Transition Probability"
+      }
     },
     {
       "id": "initialState",
       "label": "Initial State Index",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Starting state index (0-based)"
+      "businessContext": "Starting state index (0-based)",
+      "label_i18n": {
+        "en": "Initial State Index",
+        "tr": "Initial State Index",
+        "de": "Initial State Index",
+        "fr": "Initial State Index",
+        "es": "Initial State Index",
+        "ar": "Initial State Index"
+      }
     },
     {
       "id": "timeSteps",
       "label": "Time Steps",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Number of time steps to simulate"
+      "businessContext": "Number of time steps to simulate",
+      "label_i18n": {
+        "en": "Time Steps",
+        "tr": "Time Steps",
+        "de": "Time Steps",
+        "fr": "Time Steps",
+        "es": "Time Steps",
+        "ar": "Time Steps"
+      }
     },
     {
       "id": "rewardPerState",
       "label": "Reward per State",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Reward obtained when in a state"
+      "businessContext": "Reward obtained when in a state",
+      "label_i18n": {
+        "en": "Reward per State",
+        "tr": "Reward per State",
+        "de": "Reward per State",
+        "fr": "Reward per State",
+        "es": "Reward per State",
+        "ar": "Reward per State"
+      }
     },
     {
       "id": "discountFactor",
       "label": "Discount Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "Discount factor for future rewards (0-1)"
+      "businessContext": "Discount factor for future rewards (0-1)",
+      "label_i18n": {
+        "en": "Discount Factor",
+        "tr": "Discount Factor",
+        "de": "Discount Factor",
+        "fr": "Discount Factor",
+        "es": "Discount Factor",
+        "ar": "Discount Factor"
+      }
     }
   ],
   "formulas": {
     "expectedReward": "rewardPerState * (1 - Math.pow(discountFactor, timeSteps)) / (1 - discountFactor)",
     "steadyStateProb": "1 / numStates",
-    "stateDistribution": "Array.from({length: numStates}, (_, i) => i === initialState ? 1 : 0)"
+    "stateDistribution": "Array.from({length: numStates}, (_, i) => i === initialState ? 1 : 0)",
+    "Expected_total_discounted_reward_over_ti": "Expected total discounted reward over time steps",
+    "Steady_state_probability_per_state": "Steady-state probability per state",
+    "Initial_state_distribution_vector": "Initial state distribution vector"
   },
   "outputs": {
     "primary": "expectedReward",
@@ -63,10 +114,10 @@
       "Initial state distribution vector"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "D",
       "default": 0,
-      "businessContext": "The spherical refractive error in diopters. Negative for myopia, positive for hyperopia."
+      "businessContext": "The spherical refractive error in diopters. Negative for myopia, positive for hyperopia.",
+      "label_i18n": {
+        "en": "Sphere (D)",
+        "tr": "Sphere (D)",
+        "de": "Sphere (D)",
+        "fr": "Sphere (D)",
+        "es": "Sphere (D)",
+        "ar": "Sphere (D)"
+      }
     },
     {
       "id": "cylinder",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "D",
       "default": 0,
-      "businessContext": "The cylindrical component in diopters, typically in minus cylinder notation. Represents astigmatism."
+      "businessContext": "The cylindrical component in diopters, typically in minus cylinder notation. Represents astigmatism.",
+      "label_i18n": {
+        "en": "Cylinder (D)",
+        "tr": "Cylinder (D)",
+        "de": "Cylinder (D)",
+        "fr": "Cylinder (D)",
+        "es": "Cylinder (D)",
+        "ar": "Cylinder (D)"
+      }
     },
     {
       "id": "axis",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "The orientation of the cylinder axis in degrees, from 0 to 180."
+      "businessContext": "The orientation of the cylinder axis in degrees, from 0 to 180.",
+      "label_i18n": {
+        "en": "Axis (deg)",
+        "tr": "Axis (deg)",
+        "de": "Axis (deg)",
+        "fr": "Axis (deg)",
+        "es": "Axis (deg)",
+        "ar": "Axis (deg)"
+      }
     },
     {
       "id": "vertexDistance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 12,
-      "businessContext": "The distance from the back vertex of the spectacle lens to the cornea, typically 12-14 mm. Used to correct the prescription for the spectacle plane."
+      "businessContext": "The distance from the back vertex of the spectacle lens to the cornea, typically 12-14 mm. Used to correct the prescription for the spectacle plane.",
+      "label_i18n": {
+        "en": "Vertex Distance (mm)",
+        "tr": "Vertex Distance (mm)",
+        "de": "Vertex Distance (mm)",
+        "fr": "Vertex Distance (mm)",
+        "es": "Vertex Distance (mm)",
+        "ar": "Vertex Distance (mm)"
+      }
     }
   ],
   "formulas": {
@@ -42,20 +74,24 @@
     "S2_eff": "S2 / (1 - d * S2)",
     "newSphere": "S1_eff",
     "newCylinder": "S2_eff - S1_eff",
-    "newAxis": "axis"
+    "newAxis": "axis",
+    "__newSphere_toFixed_2___D": "${newSphere.toFixed(2)} D",
+    "__newCylinder_toFixed_2___D": "${newCylinder.toFixed(2)} D",
+    "__newAxis__": "${newAxis}°",
+    "result": "Effective Prescription: Sphere ${newSphere.toFixed(2)} D, Cylinder ${newCylinder.toFixed(2)} D, Axis ${newAxis}°"
   },
   "outputs": {
-    "primary": "Effective Prescription: Sphere ${newSphere.toFixed(2)} D, Cylinder ${newCylinder.toFixed(2)} D, Axis ${newAxis}°",
+    "primary": "result",
     "breakdown": [
       "Effective Sphere: ${newSphere.toFixed(2)} D",
       "Effective Cylinder: ${newCylinder.toFixed(2)} D",
       "Axis: ${newAxis}°"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

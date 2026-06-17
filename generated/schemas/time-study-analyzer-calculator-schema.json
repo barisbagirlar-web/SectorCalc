@@ -90,7 +90,8 @@
       },
       "businessContext_i18n": {
         "en": "The technique used to obtain the observed time; affects confidence and adjustment factors."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "include_learning_curve",
@@ -103,7 +104,8 @@
       },
       "businessContext_i18n": {
         "en": "If true, applies a learning curve factor (80% slope) for new or changed processes."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -151,165 +153,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "normal_time",
-      "name": "Normal Time",
-      "description": "Observed time adjusted by performance rating.",
-      "formula": "observed_time * (performance_rating / 100)",
-      "unit": "s"
-    },
-    {
-      "id": "allowance_factor",
-      "name": "Allowance Factor",
-      "description": "Factor to convert normal time to standard time including allowances.",
-      "formula": "1 / (1 - (allowance_percentage / 100))",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "standard_time_per_occurrence",
-      "name": "Standard Time per Occurrence",
-      "description": "Normal time multiplied by allowance factor.",
-      "formula": "normal_time * allowance_factor",
-      "unit": "s"
-    },
-    {
-      "id": "standard_time_per_cycle",
-      "name": "Standard Time per Cycle",
-      "description": "Standard time per occurrence multiplied by frequency per cycle.",
-      "formula": "standard_time_per_occurrence * frequency_per_cycle",
-      "unit": "s"
-    },
-    {
-      "id": "learning_curve_factor",
-      "name": "Learning Curve Factor",
-      "description": "If learning curve is enabled, applies an 80% learning curve for the first 100 units (simplified).",
-      "formula": "include_learning_curve ? (1 / (1 + 0.2 * log10(100))) : 1",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "adjusted_standard_time",
-      "name": "Adjusted Standard Time",
-      "description": "Standard time per cycle adjusted for learning curve.",
-      "formula": "standard_time_per_cycle * learning_curve_factor",
-      "unit": "s"
-    },
-    {
-      "id": "data_confidence_adjustment",
-      "name": "Data Confidence Adjustment",
-      "description": "Adjusts standard time based on measurement method reliability (ISO 9001:2015 clause 7.1.5).",
-      "formula": "CASE work_measurement_method WHEN 'Stopwatch' THEN 1.05 WHEN 'Predetermined Motion Time' THEN 1.02 WHEN 'Work Sampling' THEN 1.10 WHEN 'Standard Data' THEN 1.03 ELSE 1.05 END",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "primary_result",
-      "name": "Standard Time (Primary Result)",
-      "description": "Final standard time for the work element, adjusted for confidence.",
-      "formula": "adjusted_standard_time * data_confidence_adjustment",
-      "unit": "s"
-    }
+    "observed_time",
+    "observed_time",
+    "observed_time",
+    "observed_time",
+    "observed_time",
+    "observed_time",
+    "observed_time",
+    "observed_time"
   ],
   "outputs": {
-    "primary": {
-      "id": "standard_time",
-      "label": "Standard Time",
-      "value": null,
-      "unit": "s",
-      "description": "The final standard time for the work element, incorporating all adjustments."
-    },
-    "breakdown": {
-      "normal_time": {
-        "label": "Normal Time",
-        "value": null,
-        "unit": "s"
-      },
-      "allowance_factor": {
-        "label": "Allowance Factor",
-        "value": null,
-        "unit": "dimensionless"
-      },
-      "standard_time_per_occurrence": {
-        "label": "Standard Time per Occurrence",
-        "value": null,
-        "unit": "s"
-      },
-      "standard_time_per_cycle": {
-        "label": "Standard Time per Cycle",
-        "value": null,
-        "unit": "s"
-      },
-      "learning_curve_factor": {
-        "label": "Learning Curve Factor",
-        "value": null,
-        "unit": "dimensionless"
-      },
-      "adjusted_standard_time": {
-        "label": "Adjusted Standard Time",
-        "value": null,
-        "unit": "s"
-      },
-      "data_confidence_adjustment": {
-        "label": "Data Confidence Adjustment",
-        "value": null,
-        "unit": "dimensionless"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excessive_allowance",
-        "label": "Excessive Allowance",
-        "condition": "allowance_percentage > 20",
-        "description": "Allowance above 20% may indicate hidden losses due to poor workplace layout or ergonomic issues."
-      },
-      {
-        "id": "low_performance_rating",
-        "label": "Low Performance Rating",
-        "condition": "performance_rating < 80",
-        "description": "Rating below 80% suggests operator training gaps or process instability."
-      },
-      {
-        "id": "high_frequency_low_time",
-        "label": "High Frequency with Low Observed Time",
-        "condition": "frequency_per_cycle > 5 && observed_time < 10",
-        "description": "Frequent short elements may be prone to measurement error and cumulative fatigue."
-      },
-      {
-        "id": "work_sampling_uncertainty",
-        "label": "Work Sampling Uncertainty",
-        "condition": "work_measurement_method == 'Work Sampling'",
-        "description": "Work Sampling has inherent statistical uncertainty; consider increasing sample size."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_allowance",
-        "condition": "allowance_percentage > 20",
-        "action": "Conduct ergonomic assessment to reduce physical strain and lower allowance."
-      },
-      {
-        "id": "improve_training",
-        "condition": "performance_rating < 80",
-        "action": "Implement standardized work instructions and operator training program."
-      },
-      {
-        "id": "break_down_element",
-        "condition": "observed_time > 300",
-        "action": "Decompose the work element into smaller sub-elements for more accurate measurement."
-      },
-      {
-        "id": "increase_sample_size",
-        "condition": "work_measurement_method == 'Work Sampling'",
-        "action": "Increase number of observations to reduce confidence interval width."
-      },
-      {
-        "id": "use_predetermined_times",
-        "condition": "work_measurement_method == 'Stopwatch' && performance_rating > 130",
-        "action": "Consider using Predetermined Motion Time Systems (e.g., MTM, MOST) to reduce rating bias."
-      }
-    ],
-    "dataConfidenceAdjusted": null
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "time-study-analyzer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma"
 }

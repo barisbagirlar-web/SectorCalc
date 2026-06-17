@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Patient age for risk assessment"
+      "businessContext": "Patient age for risk assessment",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "frontal_recession_mm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Measured from original hairline"
+      "businessContext": "Measured from original hairline",
+      "label_i18n": {
+        "en": "Frontal Recession",
+        "tr": "Frontal Recession",
+        "de": "Frontal Recession",
+        "fr": "Frontal Recession",
+        "es": "Frontal Recession",
+        "ar": "Frontal Recession"
+      }
     },
     {
       "id": "vertex_thinning_percent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of visible scalp on crown"
+      "businessContext": "Percentage of visible scalp on crown",
+      "label_i18n": {
+        "en": "Vertex Thinning",
+        "tr": "Vertex Thinning",
+        "de": "Vertex Thinning",
+        "fr": "Vertex Thinning",
+        "es": "Vertex Thinning",
+        "ar": "Vertex Thinning"
+      }
     },
     {
       "id": "temporal_thinning_percent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage thinning at temples"
+      "businessContext": "Percentage thinning at temples",
+      "label_i18n": {
+        "en": "Temporal Thinning",
+        "tr": "Temporal Thinning",
+        "de": "Temporal Thinning",
+        "fr": "Temporal Thinning",
+        "es": "Temporal Thinning",
+        "ar": "Temporal Thinning"
+      }
     },
     {
       "id": "family_history_score",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "0-3",
       "default": 1,
-      "businessContext": "0=none, 1=mild, 2=moderate, 3=strong"
+      "businessContext": "0=none, 1=mild, 2=moderate, 3=strong",
+      "label_i18n": {
+        "en": "Family History Score",
+        "tr": "Family History Score",
+        "de": "Family History Score",
+        "fr": "Family History Score",
+        "es": "Family History Score",
+        "ar": "Family History Score"
+      }
     },
     {
       "id": "duration_years",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Years since onset"
+      "businessContext": "Years since onset",
+      "label_i18n": {
+        "en": "Duration of Hair Loss",
+        "tr": "Duration of Hair Loss",
+        "de": "Duration of Hair Loss",
+        "fr": "Duration of Hair Loss",
+        "es": "Duration of Hair Loss",
+        "ar": "Duration of Hair Loss"
+      }
     }
   ],
   "formulas": {
@@ -59,10 +107,18 @@
     "age_score": "Math.min(2, Math.floor((age - 20) / 10))",
     "raw_score": "frontal_score + vertex_score + temporal_score + family_score + duration_score + age_score",
     "norwood_stage": "Math.min(7, Math.max(1, Math.round(raw_score / 2)))",
-    "progression_risk": "raw_score > 10 ? 'High' : (raw_score > 6 ? 'Moderate' : 'Low')"
+    "progression_risk": "raw_score > 10 ? 'High' : (raw_score > 6 ? 'Moderate' : 'Low')",
+    "_frontal_score_": "{frontal_score}",
+    "_vertex_score_": "{vertex_score}",
+    "_temporal_score_": "{temporal_score}",
+    "_family_score_": "{family_score}",
+    "_duration_score_": "{duration_score}",
+    "_age_score_": "{age_score}",
+    "_raw_score_": "{raw_score}",
+    "_progression_risk_": "{progression_risk}"
   },
   "outputs": {
-    "primary": "Norwood Stage: {norwood_stage}",
+    "primary": "frontal_score",
     "breakdown": [
       "Frontal Score: {frontal_score}",
       "Vertex Score: {vertex_score}",
@@ -74,10 +130,10 @@
       "Progression Risk: {progression_risk}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

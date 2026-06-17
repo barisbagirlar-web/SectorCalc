@@ -5,53 +5,84 @@
       "id": "n",
       "label": "Sayı (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Bölme sayısı hesaplanacak pozitif tamsayı."
+      "businessContext": "Bölme sayısı hesaplanacak pozitif tamsayı.",
+      "label_i18n": {
+        "en": "Sayı (n)",
+        "tr": "Sayı (n)",
+        "de": "Sayı (n)",
+        "fr": "Sayı (n)",
+        "es": "Sayı (n)",
+        "ar": "Sayı (n)"
+      }
     },
     {
       "id": "pi",
       "label": "Pi Sayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3.141592653589793,
-      "businessContext": "Matematiksel sabit pi."
+      "businessContext": "Matematiksel sabit pi.",
+      "label_i18n": {
+        "en": "Pi Sayısı",
+        "tr": "Pi Sayısı",
+        "de": "Pi Sayısı",
+        "fr": "Pi Sayısı",
+        "es": "Pi Sayısı",
+        "ar": "Pi Sayısı"
+      }
     },
     {
       "id": "sqrt3",
       "label": "Karekök 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.7320508075688772,
-      "businessContext": "3'ün karekökü (√3)."
+      "businessContext": "3'ün karekökü (√3).",
+      "label_i18n": {
+        "en": "Karekök 3",
+        "tr": "Karekök 3",
+        "de": "Karekök 3",
+        "fr": "Karekök 3",
+        "es": "Karekök 3",
+        "ar": "Karekök 3"
+      }
     },
     {
       "id": "divisor",
       "label": "Bölen Sabiti",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Hardy-Ramanujan yaklaşımındaki bölen sabiti."
+      "businessContext": "Hardy-Ramanujan yaklaşımındaki bölen sabiti.",
+      "label_i18n": {
+        "en": "Bölen Sabiti",
+        "tr": "Bölen Sabiti",
+        "de": "Bölen Sabiti",
+        "fr": "Bölen Sabiti",
+        "es": "Bölen Sabiti",
+        "ar": "Bölen Sabiti"
+      }
     }
   ],
   "formulas": {
     "primary": "1 / (divisor * n * sqrt3) * Math.exp(pi * Math.sqrt(2 * n / 3))",
-    "breakdown": [
-      "pi * Math.sqrt(2 * n / 3)",
-      "divisor * n * sqrt3"
-    ]
+    "breakdown": "n",
+    "exponentValue": "exponentValue",
+    "denominatorValue": "denominatorValue"
   },
   "outputs": {
-    "primary": "approxPartitionNumber",
+    "primary": "primary",
     "breakdown": [
       "exponentValue",
       "denominatorValue"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "Total distance to be traveled"
+      "businessContext": "Total distance to be traveled",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Distance (km)",
+        "de": "Distance (km)",
+        "fr": "Distance (km)",
+        "es": "Distance (km)",
+        "ar": "Distance (km)"
+      }
     },
     {
       "id": "fuelConsumption",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/100km",
       "default": 7,
-      "businessContext": "Vehicle's fuel consumption rate per 100 km"
+      "businessContext": "Vehicle's fuel consumption rate per 100 km",
+      "label_i18n": {
+        "en": "Fuel Consumption (L/100km)",
+        "tr": "Fuel Consumption (L/100km)",
+        "de": "Fuel Consumption (L/100km)",
+        "fr": "Fuel Consumption (L/100km)",
+        "es": "Fuel Consumption (L/100km)",
+        "ar": "Fuel Consumption (L/100km)"
+      }
     },
     {
       "id": "fuelPrice",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "currency/L",
       "default": 1.5,
-      "businessContext": "Current fuel price per liter"
+      "businessContext": "Current fuel price per liter",
+      "label_i18n": {
+        "en": "Fuel Price (per L)",
+        "tr": "Fuel Price (per L)",
+        "de": "Fuel Price (per L)",
+        "fr": "Fuel Price (per L)",
+        "es": "Fuel Price (per L)",
+        "ar": "Fuel Price (per L)"
+      }
     },
     {
       "id": "trips",
       "label": "Number of Trips",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiply by number of trips to obtain total cost"
+      "businessContext": "Multiply by number of trips to obtain total cost",
+      "label_i18n": {
+        "en": "Number of Trips",
+        "tr": "Number of Trips",
+        "de": "Number of Trips",
+        "fr": "Number of Trips",
+        "es": "Number of Trips",
+        "ar": "Number of Trips"
+      }
     },
     {
       "id": "extraCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Any fixed additional cost per trip (e.g., tolls, maintenance)"
+      "businessContext": "Any fixed additional cost per trip (e.g., tolls, maintenance)",
+      "label_i18n": {
+        "en": "Additional Cost per Trip",
+        "tr": "Additional Cost per Trip",
+        "de": "Additional Cost per Trip",
+        "fr": "Additional Cost per Trip",
+        "es": "Additional Cost per Trip",
+        "ar": "Additional Cost per Trip"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "totalFuelConsumed"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

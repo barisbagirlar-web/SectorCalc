@@ -18,13 +18,16 @@ export const Bar_to_atm_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Bar_to_atm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = ((input.pressure_bar + input.calibration_offset_bar) * 0.9869232667160128).toFixed(input.decimal_places); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.pressure_bar; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Adjusted_pressure_after_calibration_offs"] = 0;
+  results["Final_converted_value_with_uncertainty_r"] = 0;
   return results;
 }
 
 
 export function calculateBar_to_atm_calculator(input: Bar_to_atm_calculatorInput): Bar_to_atm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Converted"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

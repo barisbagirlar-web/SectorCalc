@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "score (0-10)",
       "default": 5,
-      "businessContext": "Self-assessed physical health and energy levels on a scale of 0 to 10"
+      "businessContext": "Self-assessed physical health and energy levels on a scale of 0 to 10",
+      "label_i18n": {
+        "en": "Physical Well-being",
+        "tr": "Physical Well-being",
+        "de": "Physical Well-being",
+        "fr": "Physical Well-being",
+        "es": "Physical Well-being",
+        "ar": "Physical Well-being"
+      }
     },
     {
       "id": "mental",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "score (0-10)",
       "default": 5,
-      "businessContext": "Self-assessed mental clarity, focus, and stress levels on a scale of 0 to 10"
+      "businessContext": "Self-assessed mental clarity, focus, and stress levels on a scale of 0 to 10",
+      "label_i18n": {
+        "en": "Mental Well-being",
+        "tr": "Mental Well-being",
+        "de": "Mental Well-being",
+        "fr": "Mental Well-being",
+        "es": "Mental Well-being",
+        "ar": "Mental Well-being"
+      }
     },
     {
       "id": "social",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "score (0-10)",
       "default": 5,
-      "businessContext": "Self-assessed quality of relationships and social support on a scale of 0 to 10"
+      "businessContext": "Self-assessed quality of relationships and social support on a scale of 0 to 10",
+      "label_i18n": {
+        "en": "Social Well-being",
+        "tr": "Social Well-being",
+        "de": "Social Well-being",
+        "fr": "Social Well-being",
+        "es": "Social Well-being",
+        "ar": "Social Well-being"
+      }
     },
     {
       "id": "emotional",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "score (0-10)",
       "default": 5,
-      "businessContext": "Self-assessed emotional stability and positive affect on a scale of 0 to 10"
+      "businessContext": "Self-assessed emotional stability and positive affect on a scale of 0 to 10",
+      "label_i18n": {
+        "en": "Emotional Well-being",
+        "tr": "Emotional Well-being",
+        "de": "Emotional Well-being",
+        "fr": "Emotional Well-being",
+        "es": "Emotional Well-being",
+        "ar": "Emotional Well-being"
+      }
     },
     {
       "id": "spiritual",
@@ -39,11 +71,24 @@
       "type": "number",
       "unit": "score (0-10)",
       "default": 5,
-      "businessContext": "Self-assessed sense of purpose and meaning on a scale of 0 to 10"
+      "businessContext": "Self-assessed sense of purpose and meaning on a scale of 0 to 10",
+      "label_i18n": {
+        "en": "Spiritual Well-being",
+        "tr": "Spiritual Well-being",
+        "de": "Spiritual Well-being",
+        "fr": "Spiritual Well-being",
+        "es": "Spiritual Well-being",
+        "ar": "Spiritual Well-being"
+      }
     }
   ],
   "formulas": {
-    "overallScore": "(physical + mental + social + emotional + spiritual) / 5"
+    "overallScore": "(physical + mental + social + emotional + spiritual) / 5",
+    "physical": "physical",
+    "mental": "mental",
+    "social": "social",
+    "emotional": "emotional",
+    "spiritual": "spiritual"
   },
   "outputs": {
     "primary": "overallScore",
@@ -55,10 +100,10 @@
       "spiritual"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

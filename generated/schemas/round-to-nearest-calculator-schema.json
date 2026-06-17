@@ -5,33 +5,65 @@
       "id": "value",
       "label": "Value to Round",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 123.456,
-      "businessContext": "The input value that needs to be rounded to a specified multiple."
+      "businessContext": "The input value that needs to be rounded to a specified multiple.",
+      "label_i18n": {
+        "en": "Value to Round",
+        "tr": "Value to Round",
+        "de": "Value to Round",
+        "fr": "Value to Round",
+        "es": "Value to Round",
+        "ar": "Value to Round"
+      }
     },
     {
       "id": "nearest",
       "label": "Round to Nearest",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "The multiple to round to, e.g., 0.5 for half-unit rounding, 5 for nearest 5, etc."
+      "businessContext": "The multiple to round to, e.g., 0.5 for half-unit rounding, 5 for nearest 5, etc.",
+      "label_i18n": {
+        "en": "Round to Nearest",
+        "tr": "Round to Nearest",
+        "de": "Round to Nearest",
+        "fr": "Round to Nearest",
+        "es": "Round to Nearest",
+        "ar": "Round to Nearest"
+      }
     },
     {
       "id": "offset",
       "label": "Offset",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Optional offset applied before rounding. The value is shifted by this amount, rounded, then shifted back."
+      "businessContext": "Optional offset applied before rounding. The value is shifted by this amount, rounded, then shifted back.",
+      "label_i18n": {
+        "en": "Offset",
+        "tr": "Offset",
+        "de": "Offset",
+        "fr": "Offset",
+        "es": "Offset",
+        "ar": "Offset"
+      }
     },
     {
       "id": "decimals",
       "label": "Decimal Places in Output",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the rounded output. Ensures precision and readability."
+      "businessContext": "Number of decimal places for the rounded output. Ensures precision and readability.",
+      "label_i18n": {
+        "en": "Decimal Places in Output",
+        "tr": "Decimal Places in Output",
+        "de": "Decimal Places in Output",
+        "fr": "Decimal Places in Output",
+        "es": "Decimal Places in Output",
+        "ar": "Decimal Places in Output"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "roundedMultiple"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

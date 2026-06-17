@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "Maximum length of overland flow path in the catchment"
+      "businessContext": "Maximum length of overland flow path in the catchment",
+      "label_i18n": {
+        "en": "Flow Length (L)",
+        "tr": "Flow Length (L)",
+        "de": "Flow Length (L)",
+        "fr": "Flow Length (L)",
+        "es": "Flow Length (L)",
+        "ar": "Flow Length (L)"
+      }
     },
     {
       "id": "slope",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "m/m",
       "default": 0.01,
-      "businessContext": "Average slope of the flow path"
+      "businessContext": "Average slope of the flow path",
+      "label_i18n": {
+        "en": "Average Slope (S)",
+        "tr": "Average Slope (S)",
+        "de": "Average Slope (S)",
+        "fr": "Average Slope (S)",
+        "es": "Average Slope (S)",
+        "ar": "Average Slope (S)"
+      }
     },
     {
       "id": "manningN",
       "label": "Manning's Roughness (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.035,
-      "businessContext": "Surface roughness coefficient for overland flow"
+      "businessContext": "Surface roughness coefficient for overland flow",
+      "label_i18n": {
+        "en": "Manning's Roughness (n)",
+        "tr": "Manning's Roughness (n)",
+        "de": "Manning's Roughness (n)",
+        "fr": "Manning's Roughness (n)",
+        "es": "Manning's Roughness (n)",
+        "ar": "Manning's Roughness (n)"
+      }
     },
     {
       "id": "rainfallIntensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm/hr",
       "default": 50,
-      "businessContext": "Design rainfall intensity for the catchment"
+      "businessContext": "Design rainfall intensity for the catchment",
+      "label_i18n": {
+        "en": "Rainfall Intensity (I)",
+        "tr": "Rainfall Intensity (I)",
+        "de": "Rainfall Intensity (I)",
+        "fr": "Rainfall Intensity (I)",
+        "es": "Rainfall Intensity (I)",
+        "ar": "Rainfall Intensity (I)"
+      }
     },
     {
       "id": "catchmentArea",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ha",
       "default": 10,
-      "businessContext": "Total drainage area contributing to the point of interest"
+      "businessContext": "Total drainage area contributing to the point of interest",
+      "label_i18n": {
+        "en": "Catchment Area (A)",
+        "tr": "Catchment Area (A)",
+        "de": "Catchment Area (A)",
+        "fr": "Catchment Area (A)",
+        "es": "Catchment Area (A)",
+        "ar": "Catchment Area (A)"
+      }
     },
     {
       "id": "percentImpervious",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Percentage of impervious area in the catchment"
+      "businessContext": "Percentage of impervious area in the catchment",
+      "label_i18n": {
+        "en": "Percent Impervious",
+        "tr": "Percent Impervious",
+        "de": "Percent Impervious",
+        "fr": "Percent Impervious",
+        "es": "Percent Impervious",
+        "ar": "Percent Impervious"
+      }
     }
   ],
   "formulas": {
@@ -67,10 +115,10 @@
       "Adjusted Tc (min): adjustedTc"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "quality-six-sigma"
 }

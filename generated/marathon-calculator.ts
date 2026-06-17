@@ -26,13 +26,17 @@ function evaluateAllFormulas(input: Marathon_calculatorInput): Record<string, nu
   try { const v = (results["total_time_sec"] ?? 0) / (results["distance_miles"] ?? 0); results["pace_per_mile_sec"] = Number.isFinite(v) ? v : 0; } catch { results["pace_per_mile_sec"] = 0; }
   try { const v = Math.floor((results["pace_per_mile_sec"] ?? 0) / 60); results["pace_per_mile_min"] = Number.isFinite(v) ? v : 0; } catch { results["pace_per_mile_min"] = 0; }
   try { const v = Math.round((results["pace_per_mile_sec"] ?? 0) % 60); results["pace_per_mile_rem_sec"] = Number.isFinite(v) ? v : 0; } catch { results["pace_per_mile_rem_sec"] = 0; }
+  results["______0____pace_per_mile_rem_sec__slice_"] = 0;
+  try { const v = (results["speed_kmh"] ?? 0).toFixed(2) + ' km/h'; results["speed_kmh_toFixed_2______km_h_"] = Number.isFinite(v) ? v : 0; } catch { results["speed_kmh_toFixed_2______km_h_"] = 0; }
+  results["____hours___________0____minutes__slice_"] = 0;
+  try { const v = (results["pace_per_km_min"] ?? 0) + ':' + ('0' + (results["pace_per_km_rem_sec"] ?? 0)).slice(-2) + ' min/km'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateMarathon_calculator(input: Marathon_calculatorInput): Marathon_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["pace_per_km_min"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

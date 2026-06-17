@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 300,
-      "businessContext": "Height difference between start and end of ski slope in meters"
+      "businessContext": "Height difference between start and end of ski slope in meters",
+      "label_i18n": {
+        "en": "Vertical Drop",
+        "tr": "Vertical Drop",
+        "de": "Vertical Drop",
+        "fr": "Vertical Drop",
+        "es": "Vertical Drop",
+        "ar": "Vertical Drop"
+      }
     },
     {
       "id": "horizontalDistance",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "m",
       "default": 1000,
-      "businessContext": "Horizontal length of the ski slope in meters"
+      "businessContext": "Horizontal length of the ski slope in meters",
+      "label_i18n": {
+        "en": "Horizontal Distance",
+        "tr": "Horizontal Distance",
+        "de": "Horizontal Distance",
+        "fr": "Horizontal Distance",
+        "es": "Horizontal Distance",
+        "ar": "Horizontal Distance"
+      }
     },
     {
       "id": "frictionCoeff",
       "label": "Friction Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.05,
-      "businessContext": "Snow friction coefficient (0.02-0.1), depending on snow conditions"
+      "businessContext": "Snow friction coefficient (0.02-0.1), depending on snow conditions",
+      "label_i18n": {
+        "en": "Friction Coefficient",
+        "tr": "Friction Coefficient",
+        "de": "Friction Coefficient",
+        "fr": "Friction Coefficient",
+        "es": "Friction Coefficient",
+        "ar": "Friction Coefficient"
+      }
     },
     {
       "id": "initialSpeed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Initial speed at start of slope in meters per second"
+      "businessContext": "Initial speed at start of slope in meters per second",
+      "label_i18n": {
+        "en": "Initial Speed",
+        "tr": "Initial Speed",
+        "de": "Initial Speed",
+        "fr": "Initial Speed",
+        "es": "Initial Speed",
+        "ar": "Initial Speed"
+      }
     }
   ],
   "formulas": {
@@ -49,10 +81,10 @@
       "time"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

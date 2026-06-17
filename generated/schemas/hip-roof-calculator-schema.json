@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the building along the ridge"
+      "businessContext": "Length of the building along the ridge",
+      "label_i18n": {
+        "en": "Building Length",
+        "tr": "Building Length",
+        "de": "Building Length",
+        "fr": "Building Length",
+        "es": "Building Length",
+        "ar": "Building Length"
+      }
     },
     {
       "id": "building_width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 8,
-      "businessContext": "Width of the building perpendicular to ridge"
+      "businessContext": "Width of the building perpendicular to ridge",
+      "label_i18n": {
+        "en": "Building Width",
+        "tr": "Building Width",
+        "de": "Building Width",
+        "fr": "Building Width",
+        "es": "Building Width",
+        "ar": "Building Width"
+      }
     },
     {
       "id": "roof_pitch",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Angle of roof slope in degrees"
+      "businessContext": "Angle of roof slope in degrees",
+      "label_i18n": {
+        "en": "Roof Pitch",
+        "tr": "Roof Pitch",
+        "de": "Roof Pitch",
+        "fr": "Roof Pitch",
+        "es": "Roof Pitch",
+        "ar": "Roof Pitch"
+      }
     },
     {
       "id": "overhang",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Eave overhang beyond walls"
+      "businessContext": "Eave overhang beyond walls",
+      "label_i18n": {
+        "en": "Overhang",
+        "tr": "Overhang",
+        "de": "Overhang",
+        "fr": "Overhang",
+        "es": "Overhang",
+        "ar": "Overhang"
+      }
     },
     {
       "id": "ridge_beam_width",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.15,
-      "businessContext": "Width of ridge beam"
+      "businessContext": "Width of ridge beam",
+      "label_i18n": {
+        "en": "Ridge Beam Width",
+        "tr": "Ridge Beam Width",
+        "de": "Ridge Beam Width",
+        "fr": "Ridge Beam Width",
+        "es": "Ridge Beam Width",
+        "ar": "Ridge Beam Width"
+      }
     }
   ],
   "formulas": {
@@ -50,11 +90,17 @@
     "jack_rafter_length": "common_rafter_length - ridge_beam_width / 2 * Math.tan(roof_angle_rad)",
     "total_roof_area": "2 * (building_length + 2 * overhang) * common_rafter_length + 2 * (building_width + 2 * overhang) * common_rafter_length",
     "number_of_common_rafters": "Math.ceil((building_length + 2 * overhang) / 0.6) + 1",
-    "number_of_hip_rafters": 4,
-    "number_of_jack_rafters": "2 * (Math.ceil((building_length + 2 * overhang) / 0.6) - 1)"
+    "number_of_hip_rafters": "4",
+    "number_of_jack_rafters": "2 * (Math.ceil((building_length + 2 * overhang) / 0.6) - 1)",
+    "Common_Rafter_Length": "Common Rafter Length",
+    "Hip_Rafter_Length": "Hip Rafter Length",
+    "Jack_Rafter_Length": "Jack Rafter Length",
+    "Number_of_Common_Rafters": "Number of Common Rafters",
+    "Number_of_Hip_Rafters": "Number of Hip Rafters",
+    "Number_of_Jack_Rafters": "Number of Jack Rafters"
   },
   "outputs": {
-    "primary": "Total Roof Area",
+    "primary": "roof_angle_rad",
     "breakdown": [
       "Common Rafter Length",
       "Hip Rafter Length",
@@ -64,7 +110,7 @@
       "Number of Jack Rafters"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

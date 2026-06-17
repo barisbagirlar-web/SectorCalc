@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "beats",
       "default": 20,
-      "businessContext": "Number of pulse beats counted over the measurement period."
+      "businessContext": "Number of pulse beats counted over the measurement period.",
+      "label_i18n": {
+        "en": "Heartbeats Counted",
+        "tr": "Heartbeats Counted",
+        "de": "Heartbeats Counted",
+        "fr": "Heartbeats Counted",
+        "es": "Heartbeats Counted",
+        "ar": "Heartbeats Counted"
+      }
     },
     {
       "id": "seconds",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 15,
-      "businessContext": "Time in seconds over which the beats were counted."
+      "businessContext": "Time in seconds over which the beats were counted.",
+      "label_i18n": {
+        "en": "Measurement Duration",
+        "tr": "Measurement Duration",
+        "de": "Measurement Duration",
+        "fr": "Measurement Duration",
+        "es": "Measurement Duration",
+        "ar": "Measurement Duration"
+      }
     },
     {
       "id": "age",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the person for reference comparison."
+      "businessContext": "Age of the person for reference comparison.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "fitnessLevel",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "1-10",
       "default": 5,
-      "businessContext": "Self-assessed fitness level from 1 (sedentary) to 10 (elite athlete). Used for interpretation."
+      "businessContext": "Self-assessed fitness level from 1 (sedentary) to 10 (elite athlete). Used for interpretation.",
+      "label_i18n": {
+        "en": "Fitness Level",
+        "tr": "Fitness Level",
+        "de": "Fitness Level",
+        "fr": "Fitness Level",
+        "es": "Fitness Level",
+        "ar": "Fitness Level"
+      }
     }
   ],
   "formulas": {
@@ -39,19 +71,20 @@
     "restingHeartRateRounded": "Math.round(restingHeartRate)",
     "classification": "(restingHeartRate < 60 ? 'Athletic' : restingHeartRate < 80 ? 'Normal' : 'Elevated')",
     "breakdown1": "`A resting heart rate of ${restingHeartRateRounded} bpm is considered ${classification.toLowerCase()}.`",
-    "breakdown2Text": "'Normal resting heart rate ranges from 60 to 100 bpm for adults. Athletes may have 40-60 bpm.'"
+    "breakdown2Text": "'Normal resting heart rate ranges from 60 to 100 bpm for adults. Athletes may have 40-60 bpm.'",
+    "result": "restingHeartRateRounded + ' bpm'"
   },
   "outputs": {
-    "primary": "restingHeartRateRounded + ' bpm'",
+    "primary": "result",
     "breakdown": [
       "breakdown1",
       "breakdown2Text"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

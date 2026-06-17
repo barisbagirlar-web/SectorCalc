@@ -27,7 +27,7 @@ function evaluateAllFormulas(input: Matrix_transpose_calculatorInput): Record<st
 
 export function calculateMatrix_transpose_calculator(input: Matrix_transpose_calculatorInput): Matrix_transpose_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Transposed"] ?? 0;
+  const totalWasteCost = values["transposed_11"] ?? 0;
   const breakdown = {
     
   };

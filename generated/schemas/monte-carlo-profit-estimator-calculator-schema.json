@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unit",
       "default": 100000,
-      "businessContext": "Expected average revenue (e.g., from Monte Carlo distribution mean)."
+      "businessContext": "Expected average revenue (e.g., from Monte Carlo distribution mean).",
+      "label_i18n": {
+        "en": "Revenue Mean (μR)",
+        "tr": "Revenue Mean (μR)",
+        "de": "Revenue Mean (μR)",
+        "fr": "Revenue Mean (μR)",
+        "es": "Revenue Mean (μR)",
+        "ar": "Revenue Mean (μR)"
+      }
     },
     {
       "id": "revenueStd",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "unit",
       "default": 10000,
-      "businessContext": "Standard deviation of revenue (uncertainty measure)."
+      "businessContext": "Standard deviation of revenue (uncertainty measure).",
+      "label_i18n": {
+        "en": "Revenue Std Dev (σR)",
+        "tr": "Revenue Std Dev (σR)",
+        "de": "Revenue Std Dev (σR)",
+        "fr": "Revenue Std Dev (σR)",
+        "es": "Revenue Std Dev (σR)",
+        "ar": "Revenue Std Dev (σR)"
+      }
     },
     {
       "id": "costMean",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "unit",
       "default": 70000,
-      "businessContext": "Expected average cost."
+      "businessContext": "Expected average cost.",
+      "label_i18n": {
+        "en": "Cost Mean (μC)",
+        "tr": "Cost Mean (μC)",
+        "de": "Cost Mean (μC)",
+        "fr": "Cost Mean (μC)",
+        "es": "Cost Mean (μC)",
+        "ar": "Cost Mean (μC)"
+      }
     },
     {
       "id": "costStd",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "unit",
       "default": 5000,
-      "businessContext": "Standard deviation of cost."
+      "businessContext": "Standard deviation of cost.",
+      "label_i18n": {
+        "en": "Cost Std Dev (σC)",
+        "tr": "Cost Std Dev (σC)",
+        "de": "Cost Std Dev (σC)",
+        "fr": "Cost Std Dev (σC)",
+        "es": "Cost Std Dev (σC)",
+        "ar": "Cost Std Dev (σC)"
+      }
     },
     {
       "id": "correlation",
       "label": "Correlation (R,C)",
       "type": "number",
-      "unit": " ",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Correlation coefficient between revenue and cost (-1 to 1). 0 for independence."
+      "businessContext": "Correlation coefficient between revenue and cost (-1 to 1). 0 for independence.",
+      "label_i18n": {
+        "en": "Correlation (R,C)",
+        "tr": "Correlation (R,C)",
+        "de": "Correlation (R,C)",
+        "fr": "Correlation (R,C)",
+        "es": "Correlation (R,C)",
+        "ar": "Correlation (R,C)"
+      }
     },
     {
       "id": "zScore",
       "label": "Z-Score for CI",
       "type": "number",
-      "unit": " ",
+      "unit": "unit",
       "default": 1.96,
-      "businessContext": "Z-score for confidence interval (1.96 for 95%, 2.58 for 99%)."
+      "businessContext": "Z-score for confidence interval (1.96 for 95%, 2.58 for 99%).",
+      "label_i18n": {
+        "en": "Z-Score for CI",
+        "tr": "Z-Score for CI",
+        "de": "Z-Score for CI",
+        "fr": "Z-Score for CI",
+        "es": "Z-Score for CI",
+        "ar": "Z-Score for CI"
+      }
     }
   ],
   "formulas": {
@@ -63,10 +111,10 @@
       "upper"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

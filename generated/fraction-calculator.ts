@@ -25,13 +25,15 @@ function evaluateAllFormulas(input: Fraction_calculatorInput): Record<string, nu
   try { const v = (results["resultNumerator"] ?? 0) / (results["gcd"] ?? 0); results["simplifiedNumerator"] = Number.isFinite(v) ? v : 0; } catch { results["simplifiedNumerator"] = 0; }
   try { const v = (results["resultDenominator"] ?? 0) / (results["gcd"] ?? 0); results["simplifiedDenominator"] = Number.isFinite(v) ? v : 0; } catch { results["simplifiedDenominator"] = 0; }
   try { const v = (results["resultNumerator"] ?? 0) / (results["resultDenominator"] ?? 0); results["decimal"] = Number.isFinite(v) ? v : 0; } catch { results["decimal"] = 0; }
+  try { const v = (results["simplifiedNumerator"] ?? 0) / (results["simplifiedDenominator"] ?? 0); results["simplifiedNumerator___simplifiedDenomina"] = Number.isFinite(v) ? v : 0; } catch { results["simplifiedNumerator___simplifiedDenomina"] = 0; }
+  try { const v = (results["simplifiedNumerator"] ?? 0) / (results["simplifiedDenominator"] ?? 0); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateFraction_calculator(input: Fraction_calculatorInput): Fraction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["simplifiedNumerator"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

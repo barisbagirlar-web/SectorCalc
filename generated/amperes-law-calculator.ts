@@ -19,13 +19,15 @@ function evaluateAllFormulas(input: Amperes_law_calculatorInput): Record<string,
   const results: Record<string, number> = {};
   try { const v = input.permeability * input.current * input.wireCount / (2 * Math.PI * input.distance); results["magneticField"] = Number.isFinite(v) ? v : 0; } catch { results["magneticField"] = 0; }
   try { const v = T; results["magneticFieldUnit"] = Number.isFinite(v) ? v : 0; } catch { results["magneticFieldUnit"] = 0; }
+  results["Magnetic_field_________I___N_____2____r_"] = 0;
+  try { const v = Result in Tesla (T); results["Result_in_Tesla__T_"] = Number.isFinite(v) ? v : 0; } catch { results["Result_in_Tesla__T_"] = 0; }
   return results;
 }
 
 
 export function calculateAmperes_law_calculator(input: Amperes_law_calculatorInput): Amperes_law_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Magnetic"] ?? 0;
+  const totalWasteCost = values["magneticField"] ?? 0;
   const breakdown = {
     
   };

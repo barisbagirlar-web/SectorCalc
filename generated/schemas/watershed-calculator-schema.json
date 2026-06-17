@@ -48,12 +48,7 @@
     "runoffVolumePerHour": "rainfallIntensity * drainageArea * 10"
   },
   "outputs": {
-    "primary": {
-      "id": "peakDischarge",
-      "label": "Peak Discharge",
-      "unit": "m³/s",
-      "businessContext": "Maximum rate of runoff at the outlet."
-    },
+    "primary": "peakDischarge",
     "breakdown": [
       {
         "id": "timeOfConcentration",
@@ -69,8 +64,8 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "ecology-environment",
   "sectorSlug": "energy-carbon",

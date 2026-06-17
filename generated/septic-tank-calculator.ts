@@ -23,13 +23,16 @@ function evaluateAllFormulas(input: Septic_tank_calculatorInput): Record<string,
   try { const v = input.sludgeAccumulationRate * input.numberOfUsers * input.desludgingIntervalYears; results["sludgeVolumeL"] = Number.isFinite(v) ? v : 0; } catch { results["sludgeVolumeL"] = 0; }
   try { const v = (results["wastewaterVolumeL"] ?? 0) + (results["sludgeVolumeL"] ?? 0); results["totalVolumeL"] = Number.isFinite(v) ? v : 0; } catch { results["totalVolumeL"] = 0; }
   try { const v = (results["totalVolumeL"] ?? 0) / 1000; results["totalVolumeM3"] = Number.isFinite(v) ? v : 0; } catch { results["totalVolumeM3"] = 0; }
+  try { const v = (results["wastewaterVolumeL"] ?? 0).toFixed(0) + ' L (wastewater)'; results["wastewaterVolumeL_toFixed_0______L__wast"] = Number.isFinite(v) ? v : 0; } catch { results["wastewaterVolumeL_toFixed_0______L__wast"] = 0; }
+  try { const v = (results["sludgeVolumeL"] ?? 0).toFixed(0) + ' L (sludge storage)'; results["sludgeVolumeL_toFixed_0______L__sludge_s"] = Number.isFinite(v) ? v : 0; } catch { results["sludgeVolumeL_toFixed_0______L__sludge_s"] = 0; }
+  try { const v = (results["totalVolumeM3"] ?? 0).toFixed(2) + ' m³'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateSeptic_tank_calculator(input: Septic_tank_calculatorInput): Septic_tank_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalVolumeM3"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

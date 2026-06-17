@@ -96,7 +96,7 @@
       "id": "shift_type",
       "label": "Shift Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "day",
       "options": [
         "day",
@@ -115,7 +115,7 @@
       "id": "include_micro_stops",
       "label": "Include Micro-Stops (< 2 min) in Downtime",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "businessContext": "If true, small stops are counted as downtime per Six Sigma guidelines.",
       "label_i18n": {
@@ -178,169 +178,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "operating_time",
-      "label": "Operating Time",
-      "description": "Time actually available for production after deducting downtime.",
-      "formula": "planned_production_time - downtime_minutes",
-      "unit": "minutes"
-    },
-    {
-      "id": "availability",
-      "label": "Availability",
-      "description": "Ratio of operating time to planned production time.",
-      "formula": "operating_time / planned_production_time",
-      "unit": "ratio (0-1)"
-    },
-    {
-      "id": "net_operating_time",
-      "label": "Net Operating Time",
-      "description": "Theoretical time required to produce total parts at ideal cycle time.",
-      "formula": "total_parts_produced * ideal_cycle_time",
-      "unit": "minutes"
-    },
-    {
-      "id": "performance",
-      "label": "Performance",
-      "description": "Ratio of net operating time to actual operating time (speed efficiency).",
-      "formula": "net_operating_time / operating_time",
-      "unit": "ratio (0-1)"
-    },
-    {
-      "id": "good_parts",
-      "label": "Good Parts",
-      "description": "Parts that meet quality standards.",
-      "formula": "total_parts_produced - defective_parts",
-      "unit": "units"
-    },
-    {
-      "id": "quality",
-      "label": "Quality",
-      "description": "Ratio of good parts to total parts produced.",
-      "formula": "good_parts / total_parts_produced",
-      "unit": "ratio (0-1)"
-    },
-    {
-      "id": "oee",
-      "label": "Overall Equipment Effectiveness (OEE)",
-      "description": "Primary metric combining availability, performance, and quality.",
-      "formula": "availability * performance * quality",
-      "unit": "ratio (0-1)"
-    }
+    "planned_production_time",
+    "planned_production_time",
+    "planned_production_time",
+    "planned_production_time",
+    "planned_production_time",
+    "planned_production_time",
+    "planned_production_time"
   ],
   "outputs": {
-    "primary": {
-      "id": "oee",
-      "label": "Overall Equipment Effectiveness (OEE)",
-      "unit": "percentage",
-      "value": null,
-      "description": "Primary result calculated as Availability × Performance × Quality."
-    },
-    "breakdown": {
-      "availability": {
-        "id": "availability",
-        "label": "Availability",
-        "unit": "percentage",
-        "value": null,
-        "description": "Time-based efficiency."
-      },
-      "performance": {
-        "id": "performance",
-        "label": "Performance",
-        "unit": "percentage",
-        "value": null,
-        "description": "Speed efficiency."
-      },
-      "quality": {
-        "id": "quality",
-        "label": "Quality",
-        "unit": "percentage",
-        "value": null,
-        "description": "Quality efficiency."
-      },
-      "operating_time": {
-        "id": "operating_time",
-        "label": "Operating Time",
-        "unit": "minutes",
-        "value": null,
-        "description": "Actual production time."
-      },
-      "net_operating_time": {
-        "id": "net_operating_time",
-        "label": "Net Operating Time",
-        "unit": "minutes",
-        "value": null,
-        "description": "Theoretical time for good parts."
-      },
-      "good_parts": {
-        "id": "good_parts",
-        "label": "Good Parts",
-        "unit": "units",
-        "value": null,
-        "description": "Defect-free output."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "speed_loss",
-        "label": "Speed Loss",
-        "description": "Loss due to running slower than ideal cycle time.",
-        "formula": "operating_time - net_operating_time",
-        "unit": "minutes",
-        "value": null
-      },
-      {
-        "id": "downtime_loss",
-        "label": "Downtime Loss",
-        "description": "Loss due to planned and unplanned stops.",
-        "formula": "downtime_minutes",
-        "unit": "minutes",
-        "value": null
-      },
-      {
-        "id": "quality_loss",
-        "label": "Quality Loss",
-        "description": "Loss due to defective parts (scrap and rework).",
-        "formula": "defective_parts * ideal_cycle_time",
-        "unit": "minutes",
-        "value": null
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_downtime",
-        "condition": "availability < 0.90",
-        "action": "Implement Total Productive Maintenance (TPM) and SMED to reduce setup and breakdown times.",
-        "priority": "high"
-      },
-      {
-        "id": "improve_speed",
-        "condition": "performance < 0.95",
-        "action": "Analyze cycle time variances, reduce micro-stops, and standardize operator methods.",
-        "priority": "medium"
-      },
-      {
-        "id": "improve_quality",
-        "condition": "quality < 0.99",
-        "action": "Apply Six Sigma DMAIC to identify root causes of defects and implement poka-yoke (mistake-proofing).",
-        "priority": "high"
-      },
-      {
-        "id": "overall_oee",
-        "condition": "oee < 0.60",
-        "action": "Conduct a full OEE improvement kaizen event focusing on all three loss categories.",
-        "priority": "critical"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_oee",
-      "label": "Data Confidence Adjusted OEE",
-      "unit": "percentage",
-      "value": null,
-      "description": "OEE adjusted for data quality (e.g., manual entry errors, sensor accuracy). Uses a confidence factor of 0.95 by default."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "cnc-additive-manufacturing",
+  "category": "İmalat & Üretim",
+  "sector": "Üretim & İmalat",
+  "toolName": "oee-downtime-calculator"
 }

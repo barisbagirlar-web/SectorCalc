@@ -5,9 +5,17 @@
       "id": "x1",
       "label": "Mole fraction component 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Mole fraction of the first component in the binary mixture (dimensionless)."
+      "businessContext": "Mole fraction of the first component in the binary mixture (dimensionless).",
+      "label_i18n": {
+        "en": "Mole fraction component 1",
+        "tr": "Mole fraction component 1",
+        "de": "Mole fraction component 1",
+        "fr": "Mole fraction component 1",
+        "es": "Mole fraction component 1",
+        "ar": "Mole fraction component 1"
+      }
     },
     {
       "id": "T",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "System temperature in Kelvin."
+      "businessContext": "System temperature in Kelvin.",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "T0",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Reference temperature at which the Margules parameter is defined."
+      "businessContext": "Reference temperature at which the Margules parameter is defined.",
+      "label_i18n": {
+        "en": "Reference temperature",
+        "tr": "Reference temperature",
+        "de": "Reference temperature",
+        "fr": "Reference temperature",
+        "es": "Reference temperature",
+        "ar": "Reference temperature"
+      }
     },
     {
       "id": "A",
       "label": "Margules parameter A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Two-suffix Margules interaction parameter (dimensionless)."
+      "businessContext": "Two-suffix Margules interaction parameter (dimensionless).",
+      "label_i18n": {
+        "en": "Margules parameter A",
+        "tr": "Margules parameter A",
+        "de": "Margules parameter A",
+        "fr": "Margules parameter A",
+        "es": "Margules parameter A",
+        "ar": "Margules parameter A"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "gamma2"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -5,51 +5,85 @@
       "id": "slope",
       "label": "Eğim (m)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Doğrunun eğimi, y = mx + b denklemindeki m katsayısı."
+      "businessContext": "Doğrunun eğimi, y = mx + b denklemindeki m katsayısı.",
+      "label_i18n": {
+        "en": "Eğim (m)",
+        "tr": "Eğim (m)",
+        "de": "Eğim (m)",
+        "fr": "Eğim (m)",
+        "es": "Eğim (m)",
+        "ar": "Eğim (m)"
+      }
     },
     {
       "id": "yIntercept",
       "label": "y Kesişimi (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Doğrunun y eksenini kestiği nokta."
+      "businessContext": "Doğrunun y eksenini kestiği nokta.",
+      "label_i18n": {
+        "en": "y Kesişimi (b)",
+        "tr": "y Kesişimi (b)",
+        "de": "y Kesişimi (b)",
+        "fr": "y Kesişimi (b)",
+        "es": "y Kesişimi (b)",
+        "ar": "y Kesişimi (b)"
+      }
     },
     {
       "id": "xValue",
       "label": "x Değeri",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "y değerini hesaplamak için verilen x koordinatı."
+      "businessContext": "y değerini hesaplamak için verilen x koordinatı.",
+      "label_i18n": {
+        "en": "x Değeri",
+        "tr": "x Değeri",
+        "de": "x Değeri",
+        "fr": "x Değeri",
+        "es": "x Değeri",
+        "ar": "x Değeri"
+      }
     },
     {
       "id": "yValue",
       "label": "y Değeri",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "x değerini hesaplamak için verilen y koordinatı."
+      "businessContext": "x değerini hesaplamak için verilen y koordinatı.",
+      "label_i18n": {
+        "en": "y Değeri",
+        "tr": "y Değeri",
+        "de": "y Değeri",
+        "fr": "y Değeri",
+        "es": "y Değeri",
+        "ar": "y Değeri"
+      }
     }
   ],
   "formulas": {
     "equation": "`y = ${slope}x + ${yIntercept}`",
     "y_calc": "slope * xValue + yIntercept",
-    "x_calc": "(yValue - yIntercept) / slope"
+    "x_calc": "(yValue - yIntercept) / slope",
+    "Verilen_x_____xValue__i_in_y_____y_calc_": "Verilen x = ${xValue} için y = ${y_calc}",
+    "Verilen_y_____yValue__i_in_x_____x_calc_": "Verilen y = ${yValue} için x = ${x_calc}"
   },
   "outputs": {
-    "primary": "${equation}",
+    "primary": "equation",
     "breakdown": [
       "Verilen x = ${xValue} için y = ${y_calc}",
       "Verilen y = ${yValue} için x = ${x_calc}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

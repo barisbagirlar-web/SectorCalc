@@ -5,49 +5,97 @@
       "id": "x1",
       "label": "Data Point 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Measurement value"
+      "businessContext": "Measurement value",
+      "label_i18n": {
+        "en": "Data Point 1",
+        "tr": "Data Point 1",
+        "de": "Data Point 1",
+        "fr": "Data Point 1",
+        "es": "Data Point 1",
+        "ar": "Data Point 1"
+      }
     },
     {
       "id": "x2",
       "label": "Data Point 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Measurement value"
+      "businessContext": "Measurement value",
+      "label_i18n": {
+        "en": "Data Point 2",
+        "tr": "Data Point 2",
+        "de": "Data Point 2",
+        "fr": "Data Point 2",
+        "es": "Data Point 2",
+        "ar": "Data Point 2"
+      }
     },
     {
       "id": "x3",
       "label": "Data Point 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Measurement value"
+      "businessContext": "Measurement value",
+      "label_i18n": {
+        "en": "Data Point 3",
+        "tr": "Data Point 3",
+        "de": "Data Point 3",
+        "fr": "Data Point 3",
+        "es": "Data Point 3",
+        "ar": "Data Point 3"
+      }
     },
     {
       "id": "x4",
       "label": "Data Point 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Measurement value"
+      "businessContext": "Measurement value",
+      "label_i18n": {
+        "en": "Data Point 4",
+        "tr": "Data Point 4",
+        "de": "Data Point 4",
+        "fr": "Data Point 4",
+        "es": "Data Point 4",
+        "ar": "Data Point 4"
+      }
     },
     {
       "id": "x5",
       "label": "Data Point 5",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Measurement value"
+      "businessContext": "Measurement value",
+      "label_i18n": {
+        "en": "Data Point 5",
+        "tr": "Data Point 5",
+        "de": "Data Point 5",
+        "fr": "Data Point 5",
+        "es": "Data Point 5",
+        "ar": "Data Point 5"
+      }
     },
     {
       "id": "x6",
       "label": "Data Point 6",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Measurement value"
+      "businessContext": "Measurement value",
+      "label_i18n": {
+        "en": "Data Point 6",
+        "tr": "Data Point 6",
+        "de": "Data Point 6",
+        "fr": "Data Point 6",
+        "es": "Data Point 6",
+        "ar": "Data Point 6"
+      }
     },
     {
       "id": "winPercent",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of extreme values to winsorize on each tail (0-50)"
+      "businessContext": "Percentage of extreme values to winsorize on each tail (0-50)",
+      "label_i18n": {
+        "en": "Winsorization Percentage",
+        "tr": "Winsorization Percentage",
+        "de": "Winsorization Percentage",
+        "fr": "Winsorization Percentage",
+        "es": "Winsorization Percentage",
+        "ar": "Winsorization Percentage"
+      }
     }
   ],
   "formulas": {
@@ -72,10 +128,10 @@
       "k"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

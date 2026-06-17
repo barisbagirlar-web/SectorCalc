@@ -18,6 +18,10 @@ export const Pin_generator_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Pin_generator_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = Math.floor(Math.abs(Math.sin(input.seed * input.multiplier + input.shiftFactor)) * Math.pow(10, input.pinLength + 3)) % Math.pow(10, input.pinLength); results["pinCalculation"] = Number.isFinite(v) ? v : 0; } catch { results["pinCalculation"] = 0; }
+  results["Calculate_absolute_sine_of__seed___multi"] = 0;
+  results["Multiply_by_10__pinLength_3_"] = 0;
+  results["Take_integer_part__floor_"] = 0;
+  results["Modulo_10_pinLength_to_constrain_to_desi"] = 0;
   return results;
 }
 

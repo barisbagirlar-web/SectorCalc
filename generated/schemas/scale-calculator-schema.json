@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "Length of the real object in the same units as other dimensions."
+      "businessContext": "Length of the real object in the same units as other dimensions.",
+      "label_i18n": {
+        "en": "Real Length",
+        "tr": "Real Length",
+        "de": "Real Length",
+        "fr": "Real Length",
+        "es": "Real Length",
+        "ar": "Real Length"
+      }
     },
     {
       "id": "realWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "Width of the real object."
+      "businessContext": "Width of the real object.",
+      "label_i18n": {
+        "en": "Real Width",
+        "tr": "Real Width",
+        "de": "Real Width",
+        "fr": "Real Width",
+        "es": "Real Width",
+        "ar": "Real Width"
+      }
     },
     {
       "id": "realHeight",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Height of the real object."
+      "businessContext": "Height of the real object.",
+      "label_i18n": {
+        "en": "Real Height",
+        "tr": "Real Height",
+        "de": "Real Height",
+        "fr": "Real Height",
+        "es": "Real Height",
+        "ar": "Real Height"
+      }
     },
     {
       "id": "scaleNumerator",
       "label": "Scale Numerator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Numerator of the scale ratio (usually 1 for standard scales like 1:100)."
+      "businessContext": "Numerator of the scale ratio (usually 1 for standard scales like 1:100).",
+      "label_i18n": {
+        "en": "Scale Numerator",
+        "tr": "Scale Numerator",
+        "de": "Scale Numerator",
+        "fr": "Scale Numerator",
+        "es": "Scale Numerator",
+        "ar": "Scale Numerator"
+      }
     },
     {
       "id": "scaleDenominator",
       "label": "Scale Denominator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Denominator of the scale ratio (e.g., 100 for 1:100)."
+      "businessContext": "Denominator of the scale ratio (e.g., 100 for 1:100).",
+      "label_i18n": {
+        "en": "Scale Denominator",
+        "tr": "Scale Denominator",
+        "de": "Scale Denominator",
+        "fr": "Scale Denominator",
+        "es": "Scale Denominator",
+        "ar": "Scale Denominator"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "scaleRatio"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -93,7 +93,7 @@
       "id": "project_risk",
       "label": "Project Risk Level",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "medium",
       "min": null,
       "max": null,
@@ -201,142 +201,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "current_defects",
-      "name": "Current Annual Defects",
-      "description": "Total number of defects per year based on defect rate and volume.",
-      "expression": "annual_volume * (defect_rate / 1000000)",
-      "unit": "defects/year"
-    },
-    {
-      "id": "current_copq",
-      "name": "Current Cost of Poor Quality (COPQ)",
-      "description": "Annual financial loss due to defects.",
-      "expression": "current_defects * cost_per_defect",
-      "unit": "USD/year"
-    },
-    {
-      "id": "target_defects",
-      "name": "Target Defects at 4.5 Sigma",
-      "description": "Defects per year if process improves to 4.5 sigma (3.4 DPMO).",
-      "expression": "annual_volume * (3.4 / 1000000)",
-      "unit": "defects/year"
-    },
-    {
-      "id": "target_copq",
-      "name": "Target Cost of Poor Quality",
-      "description": "Expected COPQ after improvement to 4.5 sigma.",
-      "expression": "target_defects * cost_per_defect",
-      "unit": "USD/year"
-    },
-    {
-      "id": "annual_savings",
-      "name": "Annual Savings",
-      "description": "Reduction in COPQ from current to target.",
-      "expression": "current_copq - target_copq",
-      "unit": "USD/year"
-    },
-    {
-      "id": "roi",
-      "name": "Return on Investment (ROI)",
-      "description": "Ratio of annual savings to implementation cost, expressed as a percentage.",
-      "expression": "((annual_savings - implementation_cost) / implementation_cost) * 100",
-      "unit": "percent"
-    },
-    {
-      "id": "priority_score",
-      "name": "Project Priority Score",
-      "description": "Weighted composite score incorporating financial, strategic, and customer factors, adjusted for risk and data confidence.",
-      "expression": "((annual_savings / 10000) * 0.4 + strategic_alignment * 0.2 + customer_impact * 0.2) * (1 - (case when project_risk = 'high' then 0.3 when project_risk = 'medium' then 0.15 else 0 end)) * (data_confidence / 100)",
-      "unit": "score"
-    }
+    "defect_rate",
+    "defect_rate",
+    "defect_rate",
+    "defect_rate",
+    "defect_rate",
+    "defect_rate",
+    "defect_rate"
   ],
   "outputs": {
-    "primary": {
-      "id": "priority_score",
-      "label": "Project Priority Score",
-      "description": "Overall priority score for the Six Sigma project (higher is better).",
-      "unit": "score",
-      "value": null
-    },
-    "breakdown": {
-      "current_defects": {
-        "label": "Current Annual Defects",
-        "unit": "defects/year",
-        "value": null
-      },
-      "current_copq": {
-        "label": "Current Cost of Poor Quality",
-        "unit": "USD/year",
-        "value": null
-      },
-      "target_defects": {
-        "label": "Target Defects at 4.5 Sigma",
-        "unit": "defects/year",
-        "value": null
-      },
-      "target_copq": {
-        "label": "Target Cost of Poor Quality",
-        "unit": "USD/year",
-        "value": null
-      },
-      "annual_savings": {
-        "label": "Annual Savings",
-        "unit": "USD/year",
-        "value": null
-      },
-      "roi": {
-        "label": "Return on Investment",
-        "unit": "percent",
-        "value": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "high_defect_rate",
-        "label": "High Defect Rate",
-        "description": "Current defect rate is above 100,000 DPMO, indicating significant hidden factory losses.",
-        "condition": "defect_rate > 100000"
-      },
-      {
-        "id": "low_sigma",
-        "label": "Low Sigma Level",
-        "description": "Process sigma below 2.0 suggests excessive variation and waste.",
-        "condition": "process_sigma < 2.0"
-      },
-      {
-        "id": "high_copq",
-        "label": "High Cost of Poor Quality",
-        "description": "COPQ exceeds 10% of revenue (estimated from volume and average unit price).",
-        "condition": "current_copq > (annual_volume * 10)"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_variation",
-        "label": "Implement SPC and DMAIC",
-        "description": "Use statistical process control and a structured DMAIC approach to reduce variation and defect rate."
-      },
-      {
-        "id": "root_cause_analysis",
-        "label": "Conduct Root Cause Analysis",
-        "description": "Perform a thorough root cause analysis (e.g., fishbone, 5 Whys) to identify primary sources of defects."
-      },
-      {
-        "id": "training",
-        "label": "Six Sigma Training for Team",
-        "description": "Invest in Green Belt or Black Belt training for project team members to ensure effective execution."
-      },
-      {
-        "id": "pilot",
-        "label": "Run Pilot Project",
-        "description": "Start with a small-scale pilot to validate improvements before full rollout, especially for high-risk projects."
-      }
-    ],
-    "dataConfidenceAdjusted": null
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "six-sigma-project-prioritizer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

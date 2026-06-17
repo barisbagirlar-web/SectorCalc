@@ -48,12 +48,7 @@
     "totalFee": "monthlyBaseFee + transactionsPerMonth * flatFeePerTransaction + totalMonthlyVolume * percentageFeeRate / 100"
   },
   "outputs": {
-    "primary": {
-      "id": "totalFee",
-      "label": "Toplam Aylık ACH Ücreti",
-      "unit": "TL",
-      "formula": "totalFee"
-    },
+    "primary": "flatFeeTotal",
     "breakdown": [
       {
         "id": "monthlyBaseFee",
@@ -75,10 +70,10 @@
       }
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "quality-six-sigma"
 }

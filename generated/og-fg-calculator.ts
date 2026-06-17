@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Og_fg_calculatorInput): Record<string, numbe
 
 export function calculateOg_fg_calculator(input: Og_fg_calculatorInput): Og_fg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["correctedOg"] ?? 0;
   const breakdown = {
     
   };

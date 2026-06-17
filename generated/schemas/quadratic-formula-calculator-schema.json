@@ -138,186 +138,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "discriminant",
-      "name": "Discriminant (Δ)",
-      "description": "Determines the nature of roots: Δ > 0 (two distinct real roots), Δ = 0 (one real double root), Δ < 0 (complex roots).",
-      "expression": "coefficient_b * coefficient_b - 4 * coefficient_a * coefficient_c",
-      "unit": "dimensionless",
-      "order": 1
-    },
-    {
-      "id": "sqrt_discriminant",
-      "name": "Square Root of Discriminant",
-      "description": "Square root of the discriminant, used in the quadratic formula. For negative Δ, returns imaginary component.",
-      "expression": "Math.sqrt(Math.abs(discriminant))",
-      "unit": "dimensionless",
-      "order": 2
-    },
-    {
-      "id": "root1",
-      "name": "First Root (x₁)",
-      "description": "First solution of the quadratic equation using the positive square root.",
-      "expression": "(-coefficient_b + sqrt_discriminant) / (2 * coefficient_a)",
-      "unit": "dimensionless",
-      "order": 3
-    },
-    {
-      "id": "root2",
-      "name": "Second Root (x₂)",
-      "description": "Second solution of the quadratic equation using the negative square root.",
-      "expression": "(-coefficient_b - sqrt_discriminant) / (2 * coefficient_a)",
-      "unit": "dimensionless",
-      "order": 4
-    },
-    {
-      "id": "vertex_x",
-      "name": "Vertex x-coordinate",
-      "description": "x-coordinate of the parabola vertex, representing the axis of symmetry.",
-      "expression": "-coefficient_b / (2 * coefficient_a)",
-      "unit": "dimensionless",
-      "order": 5
-    },
-    {
-      "id": "vertex_y",
-      "name": "Vertex y-coordinate",
-      "description": "y-coordinate of the parabola vertex, representing the minimum or maximum value.",
-      "expression": "coefficient_a * vertex_x * vertex_x + coefficient_b * vertex_x + coefficient_c",
-      "unit": "dimensionless",
-      "order": 6
-    },
-    {
-      "id": "sum_of_roots",
-      "name": "Sum of Roots (Vieta)",
-      "description": "Sum of the two roots, equal to -b/a per Vieta's formulas.",
-      "expression": "-coefficient_b / coefficient_a",
-      "unit": "dimensionless",
-      "order": 7
-    }
+    "coefficient_a",
+    "coefficient_a",
+    "coefficient_a",
+    "coefficient_a",
+    "coefficient_a",
+    "coefficient_a",
+    "coefficient_a"
   ],
   "outputs": {
-    "primary": {
-      "id": "primary_result",
-      "label": "Primary Roots",
-      "description": "The main calculated roots of the quadratic equation. If complex, displayed as a+bi.",
-      "type": "object",
-      "unit": "dimensionless",
-      "value": {
-        "root1": "calculated_root1",
-        "root2": "calculated_root2"
-      }
-    },
-    "breakdown": {
-      "id": "breakdown",
-      "label": "Detailed Breakdown",
-      "description": "Component values of the quadratic formula calculation.",
-      "type": "object",
-      "properties": {
-        "discriminant": {
-          "label": "Discriminant (Δ)",
-          "value": "calculated_discriminant",
-          "unit": "dimensionless"
-        },
-        "sqrt_discriminant": {
-          "label": "√|Δ|",
-          "value": "calculated_sqrt_discriminant",
-          "unit": "dimensionless"
-        },
-        "vertex": {
-          "label": "Vertex (h, k)",
-          "value": {
-            "h": "calculated_vertex_x",
-            "k": "calculated_vertex_y"
-          },
-          "unit": "dimensionless"
-        },
-        "sum_of_roots": {
-          "label": "Sum of Roots (Vieta)",
-          "value": "calculated_sum_of_roots",
-          "unit": "dimensionless"
-        },
-        "product_of_roots": {
-          "label": "Product of Roots (Vieta)",
-          "value": "calculated_product_of_roots",
-          "unit": "dimensionless"
-        }
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_of_significance",
-        "label": "Loss of Significance Risk",
-        "description": "When coefficients differ by orders of magnitude, floating-point precision may cause inaccurate roots.",
-        "severity": "medium",
-        "mitigation": "Use high precision mode or scale inputs."
-      },
-      {
-        "id": "near_zero_discriminant",
-        "label": "Near-Zero Discriminant",
-        "description": "Discriminant close to zero may indicate a double root but numerical rounding can cause small imaginary parts.",
-        "severity": "low",
-        "mitigation": "Check discriminant threshold and consider symbolic simplification."
-      },
-      {
-        "id": "coefficient_a_magnitude",
-        "label": "Large |a| Coefficient",
-        "description": "Large absolute value of 'a' can amplify rounding errors in root calculation.",
-        "severity": "medium",
-        "mitigation": "Normalize equation by dividing by a if possible."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_scale_inputs",
-        "label": "Scale Inputs",
-        "description": "If coefficients are very large or small, divide the entire equation by a common factor to improve numerical stability.",
-        "priority": 1
-      },
-      {
-        "id": "action_verify_roots",
-        "label": "Verify Roots by Substitution",
-        "description": "Substitute calculated roots back into the original equation to verify correctness within tolerance.",
-        "priority": 2
-      },
-      {
-        "id": "action_use_high_precision",
-        "label": "Switch to High Precision Mode",
-        "description": "Enable high precision mode to reduce rounding errors in critical applications.",
-        "priority": 3
-      },
-      {
-        "id": "action_complex_analysis",
-        "label": "Enable Complex Roots for Negative Discriminant",
-        "description": "If the discriminant is negative, enable complex roots to obtain full solution set.",
-        "priority": 4
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence",
-      "label": "Data Confidence Score",
-      "description": "Adjusted confidence level based on input quality and numerical stability (0 to 1).",
-      "value": 0.95,
-      "unit": "dimensionless",
-      "adjustmentFactors": [
-        {
-          "factor": "coefficient_magnitude_ratio",
-          "impact": -0.05,
-          "condition": "Math.abs(coefficient_b / coefficient_a) > 1000 || Math.abs(coefficient_c / coefficient_a) > 1000"
-        },
-        {
-          "factor": "discriminant_near_zero",
-          "impact": -0.02,
-          "condition": "Math.abs(discriminant) < 1e-6"
-        },
-        {
-          "factor": "precision_mode_high",
-          "impact": 0.03,
-          "condition": "precision_mode === 'high'"
-        }
-      ]
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "quadratic-formula-calculator"
 }

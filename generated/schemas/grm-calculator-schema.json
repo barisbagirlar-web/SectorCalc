@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 500000,
-      "businessContext": "Total purchase price of the property"
+      "businessContext": "Total purchase price of the property",
+      "label_i18n": {
+        "en": "Property Price",
+        "tr": "Property Price",
+        "de": "Property Price",
+        "fr": "Property Price",
+        "es": "Property Price",
+        "ar": "Property Price"
+      }
     },
     {
       "id": "annualRentalIncome",
@@ -15,11 +23,44 @@
       "type": "number",
       "unit": "currency",
       "default": 60000,
-      "businessContext": "Total annual rental income from the property"
+      "businessContext": "Total annual rental income from the property",
+      "label_i18n": {
+        "en": "Annual Rental Income",
+        "tr": "Annual Rental Income",
+        "de": "Annual Rental Income",
+        "fr": "Annual Rental Income",
+        "es": "Annual Rental Income",
+        "ar": "Annual Rental Income"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
-    "grm": "propertyPrice / annualRentalIncome"
+    "grm": "propertyPrice / annualRentalIncome",
+    "propertyPrice___annualRentalIncome___grm": "propertyPrice / annualRentalIncome = grm"
   },
   "outputs": {
     "primary": "grm",
@@ -27,10 +68,10 @@
       "propertyPrice / annualRentalIncome = grm"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

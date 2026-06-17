@@ -5,9 +5,17 @@
       "id": "decimalValue",
       "label": "Decimal Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 42,
-      "businessContext": "The integer number to convert to binary, octal, and hexadecimal."
+      "businessContext": "The integer number to convert to binary, octal, and hexadecimal.",
+      "label_i18n": {
+        "en": "Decimal Number",
+        "tr": "Decimal Number",
+        "de": "Decimal Number",
+        "fr": "Decimal Number",
+        "es": "Decimal Number",
+        "ar": "Decimal Number"
+      }
     },
     {
       "id": "binaryBits",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bits",
       "default": 8,
-      "businessContext": "Number of bits for binary output (padded with leading zeros)."
+      "businessContext": "Number of bits for binary output (padded with leading zeros).",
+      "label_i18n": {
+        "en": "Binary Bits",
+        "tr": "Binary Bits",
+        "de": "Binary Bits",
+        "fr": "Binary Bits",
+        "es": "Binary Bits",
+        "ar": "Binary Bits"
+      }
     },
     {
       "id": "octalDigits",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "digits",
       "default": 3,
-      "businessContext": "Number of digits for octal output."
+      "businessContext": "Number of digits for octal output.",
+      "label_i18n": {
+        "en": "Octal Digits",
+        "tr": "Octal Digits",
+        "de": "Octal Digits",
+        "fr": "Octal Digits",
+        "es": "Octal Digits",
+        "ar": "Octal Digits"
+      }
     },
     {
       "id": "hexDigits",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "digits",
       "default": 4,
-      "businessContext": "Number of digits for hexadecimal output."
+      "businessContext": "Number of digits for hexadecimal output.",
+      "label_i18n": {
+        "en": "Hexadecimal Digits",
+        "tr": "Hexadecimal Digits",
+        "de": "Hexadecimal Digits",
+        "fr": "Hexadecimal Digits",
+        "es": "Hexadecimal Digits",
+        "ar": "Hexadecimal Digits"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "decimal"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

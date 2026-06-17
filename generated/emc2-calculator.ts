@@ -4,23 +4,28 @@ import * as z from 'zod';
 export interface Emc2_calculatorInput {
   mass: number;
   speedOfLight: number;
+  auto_input_3: number;
 }
 
 export const Emc2_calculatorInputSchema = z.object({
   mass: z.number().default(1),
   speedOfLight: z.number().default(299792458),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Emc2_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.mass * input.speedOfLight ** 2; results["energy"] = Number.isFinite(v) ? v : 0; } catch { results["energy"] = 0; }
+  results["Energy___mass___c_"] = 0;
+  results["Energy_____mass________speedOfLight_____"] = 0;
+  try { const v = Energy (J); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateEmc2_calculator(input: Emc2_calculatorInput): Emc2_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Energy"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

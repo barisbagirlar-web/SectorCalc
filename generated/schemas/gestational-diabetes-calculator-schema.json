@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Anne adayının yaşı, gestasyonel diyabet riskini etkileyen faktörlerden biridir."
+      "businessContext": "Anne adayının yaşı, gestasyonel diyabet riskini etkileyen faktörlerden biridir.",
+      "label_i18n": {
+        "en": "Anne Yaşı",
+        "tr": "Anne Yaşı",
+        "de": "Anne Yaşı",
+        "fr": "Anne Yaşı",
+        "es": "Anne Yaşı",
+        "ar": "Anne Yaşı"
+      }
     },
     {
       "id": "bmi",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/m²",
       "default": 25,
-      "businessContext": "Gebelik öncesi BMI, gestasyonel diyabet riskini belirlemede önemli bir parametredir."
+      "businessContext": "Gebelik öncesi BMI, gestasyonel diyabet riskini belirlemede önemli bir parametredir.",
+      "label_i18n": {
+        "en": "Vücut Kitle İndeksi (BMI)",
+        "tr": "Vücut Kitle İndeksi (BMI)",
+        "de": "Vücut Kitle İndeksi (BMI)",
+        "fr": "Vücut Kitle İndeksi (BMI)",
+        "es": "Vücut Kitle İndeksi (BMI)",
+        "ar": "Vücut Kitle İndeksi (BMI)"
+      }
     },
     {
       "id": "previousGDM",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "0=Hayır, 1=Evet",
       "default": 0,
-      "businessContext": "Daha önce gestasyonel diyabet geçirmiş olmak, tekrarlama riskini artırır."
+      "businessContext": "Daha önce gestasyonel diyabet geçirmiş olmak, tekrarlama riskini artırır.",
+      "label_i18n": {
+        "en": "Önceki Gebelikte GDM Öyküsü",
+        "tr": "Önceki Gebelikte GDM Öyküsü",
+        "de": "Önceki Gebelikte GDM Öyküsü",
+        "fr": "Önceki Gebelikte GDM Öyküsü",
+        "es": "Önceki Gebelikte GDM Öyküsü",
+        "ar": "Önceki Gebelikte GDM Öyküsü"
+      }
     },
     {
       "id": "familyDiabetes",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "0=Hayır, 1=Evet",
       "default": 0,
-      "businessContext": "Birinci derece akrabalarda diyabet varlığı risk faktörüdür."
+      "businessContext": "Birinci derece akrabalarda diyabet varlığı risk faktörüdür.",
+      "label_i18n": {
+        "en": "Ailede Diyabet Öyküsü",
+        "tr": "Ailede Diyabet Öyküsü",
+        "de": "Ailede Diyabet Öyküsü",
+        "fr": "Ailede Diyabet Öyküsü",
+        "es": "Ailede Diyabet Öyküsü",
+        "ar": "Ailede Diyabet Öyküsü"
+      }
     },
     {
       "id": "fastingGlucose",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 90,
-      "businessContext": "Gebelikte açlık kan şekeri düzeyi, diyabet taramasında kullanılır."
+      "businessContext": "Gebelikte açlık kan şekeri düzeyi, diyabet taramasında kullanılır.",
+      "label_i18n": {
+        "en": "Açlık Kan Şekeri",
+        "tr": "Açlık Kan Şekeri",
+        "de": "Açlık Kan Şekeri",
+        "fr": "Açlık Kan Şekeri",
+        "es": "Açlık Kan Şekeri",
+        "ar": "Açlık Kan Şekeri"
+      }
     },
     {
       "id": "ogtt1h",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 140,
-      "businessContext": "Oral glukoz tolerans testi 1. saat değeri, tanı kriterlerinden biridir."
+      "businessContext": "Oral glukoz tolerans testi 1. saat değeri, tanı kriterlerinden biridir.",
+      "label_i18n": {
+        "en": "OGTT 1. Saat Kan Şekeri",
+        "tr": "OGTT 1. Saat Kan Şekeri",
+        "de": "OGTT 1. Saat Kan Şekeri",
+        "fr": "OGTT 1. Saat Kan Şekeri",
+        "es": "OGTT 1. Saat Kan Şekeri",
+        "ar": "OGTT 1. Saat Kan Şekeri"
+      }
     },
     {
       "id": "ogtt2h",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 120,
-      "businessContext": "Oral glukoz tolerans testi 2. saat değeri, tanı kriterlerinden biridir."
+      "businessContext": "Oral glukoz tolerans testi 2. saat değeri, tanı kriterlerinden biridir.",
+      "label_i18n": {
+        "en": "OGTT 2. Saat Kan Şekeri",
+        "tr": "OGTT 2. Saat Kan Şekeri",
+        "de": "OGTT 2. Saat Kan Şekeri",
+        "fr": "OGTT 2. Saat Kan Şekeri",
+        "es": "OGTT 2. Saat Kan Şekeri",
+        "ar": "OGTT 2. Saat Kan Şekeri"
+      }
     },
     {
       "id": "gestationalWeek",
@@ -63,25 +119,36 @@
       "type": "number",
       "unit": "hafta",
       "default": 24,
-      "businessContext": "Tarama genellikle 24-28. haftalar arasında yapılır."
+      "businessContext": "Tarama genellikle 24-28. haftalar arasında yapılır.",
+      "label_i18n": {
+        "en": "Gebelik Haftası",
+        "tr": "Gebelik Haftası",
+        "de": "Gebelik Haftası",
+        "fr": "Gebelik Haftası",
+        "es": "Gebelik Haftası",
+        "ar": "Gebelik Haftası"
+      }
     }
   ],
   "formulas": {
     "riskScore": "((age - 25) * 0.1 + (bmi - 25) * 0.2 + previousGDM * 2 + familyDiabetes * 1.5 + (fastingGlucose - 92) * 0.05 + (ogtt1h - 180) * 0.02 + (ogtt2h - 153) * 0.02 + (gestationalWeek - 24) * 0.01)",
     "gdmProbability": "1 / (1 + Math.exp(-riskScore))",
-    "diagnosis": "((fastingGlucose >= 92 || ogtt1h >= 180 || ogtt2h >= 153) ? 1 : 0)"
+    "diagnosis": "((fastingGlucose >= 92 || ogtt1h >= 180 || ogtt2h >= 153) ? 1 : 0)",
+    "Risk_Skoru": "Risk Skoru",
+    "Tan__Kriteri__0_Negatif__1_Pozitif_": "Tanı Kriteri (0=Negatif, 1=Pozitif)",
+    "result": "GDM Olasılığı (%)"
   },
   "outputs": {
-    "primary": "GDM Olasılığı (%)",
+    "primary": "result",
     "breakdown": [
       "Risk Skoru",
       "Tanı Kriteri (0=Negatif, 1=Pozitif)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

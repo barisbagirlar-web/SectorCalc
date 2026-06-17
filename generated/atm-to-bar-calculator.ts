@@ -22,13 +22,17 @@ export const Atm_to_bar_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Atm_to_bar_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.pressure_atm * input.conversion_factor; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.pressure_atm; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Rounded_pressure__bar__to_specified_prec"] = 0;
+  results["Upper_uncertainty_bound__bar_"] = 0;
+  results["Lower_uncertainty_bound__bar_"] = 0;
   return results;
 }
 
 
 export function calculateAtm_to_bar_calculator(input: Atm_to_bar_calculatorInput): Atm_to_bar_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Pressure"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

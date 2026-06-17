@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "saat",
       "default": 3.5,
-      "businessContext": "Çekirdek uyku süresinin saat kısmı."
+      "businessContext": "Çekirdek uyku süresinin saat kısmı.",
+      "label_i18n": {
+        "en": "Çekirdek Uyku (saat)",
+        "tr": "Çekirdek Uyku (saat)",
+        "de": "Çekirdek Uyku (saat)",
+        "fr": "Çekirdek Uyku (saat)",
+        "es": "Çekirdek Uyku (saat)",
+        "ar": "Çekirdek Uyku (saat)"
+      }
     },
     {
       "id": "coreMinutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dakika",
       "default": 0,
-      "businessContext": "Çekirdek uyku süresinin dakika kısmı."
+      "businessContext": "Çekirdek uyku süresinin dakika kısmı.",
+      "label_i18n": {
+        "en": "Çekirdek Uyku (dakika)",
+        "tr": "Çekirdek Uyku (dakika)",
+        "de": "Çekirdek Uyku (dakika)",
+        "fr": "Çekirdek Uyku (dakika)",
+        "es": "Çekirdek Uyku (dakika)",
+        "ar": "Çekirdek Uyku (dakika)"
+      }
     },
     {
       "id": "napCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Günlük şekerleme sayısı."
+      "businessContext": "Günlük şekerleme sayısı.",
+      "label_i18n": {
+        "en": "Şekerleme Sayısı",
+        "tr": "Şekerleme Sayısı",
+        "de": "Şekerleme Sayısı",
+        "fr": "Şekerleme Sayısı",
+        "es": "Şekerleme Sayısı",
+        "ar": "Şekerleme Sayısı"
+      }
     },
     {
       "id": "napDuration",
@@ -31,27 +55,38 @@
       "type": "number",
       "unit": "dakika",
       "default": 20,
-      "businessContext": "Her bir şekerlemenin dakika cinsinden süresi."
+      "businessContext": "Her bir şekerlemenin dakika cinsinden süresi.",
+      "label_i18n": {
+        "en": "Şekerleme Süresi (dakika)",
+        "tr": "Şekerleme Süresi (dakika)",
+        "de": "Şekerleme Süresi (dakika)",
+        "fr": "Şekerleme Süresi (dakika)",
+        "es": "Şekerleme Süresi (dakika)",
+        "ar": "Şekerleme Süresi (dakika)"
+      }
     }
   ],
   "formulas": {
     "totalCoreMinutes": "coreHours * 60 + coreMinutes",
     "totalNapMinutes": "napCount * napDuration",
     "totalMinutes": "coreHours * 60 + coreMinutes + napCount * napDuration",
-    "totalHours": "(coreHours * 60 + coreMinutes + napCount * napDuration) / 60"
+    "totalHours": "(coreHours * 60 + coreMinutes + napCount * napDuration) / 60",
+    "_totalCoreMinutes___60__saat": "{totalCoreMinutes / 60} saat",
+    "_totalNapMinutes___60__saat": "{totalNapMinutes / 60} saat",
+    "_napCount_": "{napCount}"
   },
   "outputs": {
-    "primary": "Toplam Uyku Süresi: {totalHours} saat",
+    "primary": "totalCoreMinutes",
     "breakdown": [
       "Çekirdek Uyku: {totalCoreMinutes / 60} saat",
       "Toplam Şekerleme: {totalNapMinutes / 60} saat",
       "Şekerleme Sayısı: {napCount}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

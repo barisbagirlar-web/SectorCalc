@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "h",
       "default": 1,
-      "businessContext": "Süre girdisi (saat)"
+      "businessContext": "Süre girdisi (saat)",
+      "label_i18n": {
+        "en": "Saat",
+        "tr": "Saat",
+        "de": "Saat",
+        "fr": "Saat",
+        "es": "Saat",
+        "ar": "Saat"
+      }
     },
     {
       "id": "batchSize",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "İşlenen parti miktarı"
+      "businessContext": "İşlenen parti miktarı",
+      "label_i18n": {
+        "en": "Parti Büyüklüğü",
+        "tr": "Parti Büyüklüğü",
+        "de": "Parti Büyüklüğü",
+        "fr": "Parti Büyüklüğü",
+        "es": "Parti Büyüklüğü",
+        "ar": "Parti Büyüklüğü"
+      }
     },
     {
       "id": "machineCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Operasyondaki makine adedi"
+      "businessContext": "Operasyondaki makine adedi",
+      "label_i18n": {
+        "en": "Makine Sayısı",
+        "tr": "Makine Sayısı",
+        "de": "Makine Sayısı",
+        "fr": "Makine Sayısı",
+        "es": "Makine Sayısı",
+        "ar": "Makine Sayısı"
+      }
     },
     {
       "id": "adjustmentPercent",
@@ -31,24 +55,34 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Kayıp veya kazanç faktörü (%)"
+      "businessContext": "Kayıp veya kazanç faktörü (%)",
+      "label_i18n": {
+        "en": "Ayarlama Yüzdesi",
+        "tr": "Ayarlama Yüzdesi",
+        "de": "Ayarlama Yüzdesi",
+        "fr": "Ayarlama Yüzdesi",
+        "es": "Ayarlama Yüzdesi",
+        "ar": "Ayarlama Yüzdesi"
+      }
     }
   ],
   "formulas": {
     "baseMinutes": "inputs.hours * 60",
-    "totalMinutes": "baseMinutes * inputs.batchSize * inputs.machineCount * (1 + inputs.adjustmentPercent / 100)"
+    "totalMinutes": "baseMinutes * inputs.batchSize * inputs.machineCount * (1 + inputs.adjustmentPercent / 100)",
+    "Saf_Dakika__Saatten_D_n___m_": "Saf Dakika (Saatten Dönüşüm)",
+    "Toplam_Dakika__Parti__Makine_ve_Ayarlama": "Toplam Dakika (Parti, Makine ve Ayarlama Dahil)"
   },
   "outputs": {
-    "primary": "Toplam Dakika",
+    "primary": "baseMinutes",
     "breakdown": [
       "Saf Dakika (Saatten Dönüşüm)",
       "Toplam Dakika (Parti, Makine ve Ayarlama Dahil)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

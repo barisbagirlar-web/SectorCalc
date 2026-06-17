@@ -25,13 +25,17 @@ function evaluateAllFormulas(input: Depth_of_field_calculatorInput): Record<stri
   try { const v = (results["nearLimitMM"] ?? 0) / 1000; results["nearLimit"] = Number.isFinite(v) ? v : 0; } catch { results["nearLimit"] = 0; }
   try { const v = (results["farLimitMM"] ?? 0) / 1000; results["farLimit"] = Number.isFinite(v) ? v : 0; } catch { results["farLimit"] = 0; }
   try { const v = (results["totalDoFMM"] ?? 0) / 1000; results["totalDoF"] = Number.isFinite(v) ? v : 0; } catch { results["totalDoF"] = 0; }
+  results["Near_Focus_Limit__m_"] = 0;
+  results["Far_Focus_Limit__m_"] = 0;
+  results["Hyperfocal_Distance__m_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateDepth_of_field_calculator(input: Depth_of_field_calculatorInput): Depth_of_field_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

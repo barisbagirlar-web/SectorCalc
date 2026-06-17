@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "value",
       "default": 0,
-      "businessContext": "Measurements before intervention (comma-separated)"
+      "businessContext": "Measurements before intervention (comma-separated)",
+      "label_i18n": {
+        "en": "Before Measurements",
+        "tr": "Before Measurements",
+        "de": "Before Measurements",
+        "fr": "Before Measurements",
+        "es": "Before Measurements",
+        "ar": "Before Measurements"
+      }
     },
     {
       "id": "after",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "value",
       "default": 0,
-      "businessContext": "Measurements after intervention (comma-separated)"
+      "businessContext": "Measurements after intervention (comma-separated)",
+      "label_i18n": {
+        "en": "After Measurements",
+        "tr": "After Measurements",
+        "de": "After Measurements",
+        "fr": "After Measurements",
+        "es": "After Measurements",
+        "ar": "After Measurements"
+      }
     },
     {
       "id": "alpha",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "probability",
       "default": 0.05,
-      "businessContext": "Type I error rate for hypothesis test"
+      "businessContext": "Type I error rate for hypothesis test",
+      "label_i18n": {
+        "en": "Significance Level (α)",
+        "tr": "Significance Level (α)",
+        "de": "Significance Level (α)",
+        "fr": "Significance Level (α)",
+        "es": "Significance Level (α)",
+        "ar": "Significance Level (α)"
+      }
     },
     {
       "id": "hypothesis",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "code",
       "default": 0,
-      "businessContext": "0=two-sided, 1=one-sided greater, -1=one-sided less"
+      "businessContext": "0=two-sided, 1=one-sided greater, -1=one-sided less",
+      "label_i18n": {
+        "en": "Hypothesis Direction",
+        "tr": "Hypothesis Direction",
+        "de": "Hypothesis Direction",
+        "fr": "Hypothesis Direction",
+        "es": "Hypothesis Direction",
+        "ar": "Hypothesis Direction"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,16 @@
     "stdW": "Math.sqrt(n * (n + 1) * (2 * n + 1) / 24)",
     "z": "(W - expectedW) / stdW",
     "pValue": "2 * (1 - normalCDF(Math.abs(z)))",
-    "rejectNull": "pValue < alpha"
+    "rejectNull": "pValue < alpha",
+    "W___sum_of_positive_ranks_": "W+ (sum of positive ranks)",
+    "W___sum_of_negative_ranks_": "W- (sum of negative ranks)",
+    "n__number_of_non_zero_differences_": "n (number of non-zero differences)",
+    "z_score": "z-score",
+    "p_value": "p-value",
+    "Reject_null_hypothesis_": "Reject null hypothesis?"
   },
   "outputs": {
-    "primary": "W statistic",
+    "primary": "differences",
     "breakdown": [
       "W+ (sum of positive ranks)",
       "W- (sum of negative ranks)",
@@ -60,10 +98,10 @@
       "Reject null hypothesis?"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 100,
-      "businessContext": "The sustained mechanical stress acting on the material, in megapascals."
+      "businessContext": "The sustained mechanical stress acting on the material, in megapascals.",
+      "label_i18n": {
+        "en": "Applied Stress",
+        "tr": "Applied Stress",
+        "de": "Applied Stress",
+        "fr": "Applied Stress",
+        "es": "Applied Stress",
+        "ar": "Applied Stress"
+      }
     },
     {
       "id": "temperature",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "K",
       "default": 873,
-      "businessContext": "Absolute operating temperature of the component in Kelvin."
+      "businessContext": "Absolute operating temperature of the component in Kelvin.",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "A",
       "label": "Material Constant A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1e-12,
-      "businessContext": "Pre‑exponential factor, a material‑dependent strength parameter (units: MPa⁻ⁿ s⁻¹)."
+      "businessContext": "Pre‑exponential factor, a material‑dependent strength parameter (units: MPa⁻ⁿ s⁻¹).",
+      "label_i18n": {
+        "en": "Material Constant A",
+        "tr": "Material Constant A",
+        "de": "Material Constant A",
+        "fr": "Material Constant A",
+        "es": "Material Constant A",
+        "ar": "Material Constant A"
+      }
     },
     {
       "id": "n",
       "label": "Stress Exponent",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Dimensionless exponent describing the stress sensitivity of the creep rate (typically 3–8 for metals)."
+      "businessContext": "Dimensionless exponent describing the stress sensitivity of the creep rate (typically 3–8 for metals).",
+      "label_i18n": {
+        "en": "Stress Exponent",
+        "tr": "Stress Exponent",
+        "de": "Stress Exponent",
+        "fr": "Stress Exponent",
+        "es": "Stress Exponent",
+        "ar": "Stress Exponent"
+      }
     },
     {
       "id": "Q",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "J/mol",
       "default": 280000,
-      "businessContext": "Activation energy for creep deformation, material property in joules per mole."
+      "businessContext": "Activation energy for creep deformation, material property in joules per mole.",
+      "label_i18n": {
+        "en": "Activation Energy",
+        "tr": "Activation Energy",
+        "de": "Activation Energy",
+        "fr": "Activation Energy",
+        "es": "Activation Energy",
+        "ar": "Activation Energy"
+      }
     },
     {
       "id": "R",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "J/(mol·K)",
       "default": 8.314,
-      "businessContext": "Universal gas constant; may be adjusted for different unit systems."
+      "businessContext": "Universal gas constant; may be adjusted for different unit systems.",
+      "label_i18n": {
+        "en": "Gas Constant",
+        "tr": "Gas Constant",
+        "de": "Gas Constant",
+        "fr": "Gas Constant",
+        "es": "Gas Constant",
+        "ar": "Gas Constant"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,7 @@
       "exponentialTerm"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

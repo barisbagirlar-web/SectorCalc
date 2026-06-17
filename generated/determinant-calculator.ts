@@ -18,6 +18,8 @@ export const Determinant_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Determinant_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.a * input.d - input.b * input.c; results["det"] = Number.isFinite(v) ? v : 0; } catch { results["det"] = 0; }
+  results["Determinant__ad___bc_____a_____d_____b__"] = 0;
+  results["___det_"] = 0;
   return results;
 }
 

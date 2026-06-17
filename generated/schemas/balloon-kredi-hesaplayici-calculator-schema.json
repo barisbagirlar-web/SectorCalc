@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 100000,
-      "businessContext": "Anapara"
+      "businessContext": "Anapara",
+      "label_i18n": {
+        "en": "Kredi Tutarı",
+        "tr": "Kredi Tutarı",
+        "de": "Kredi Tutarı",
+        "fr": "Kredi Tutarı",
+        "es": "Kredi Tutarı",
+        "ar": "Kredi Tutarı"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Faiz"
+      "businessContext": "Faiz",
+      "label_i18n": {
+        "en": "Yıllık Faiz Oranı",
+        "tr": "Yıllık Faiz Oranı",
+        "de": "Yıllık Faiz Oranı",
+        "fr": "Yıllık Faiz Oranı",
+        "es": "Yıllık Faiz Oranı",
+        "ar": "Yıllık Faiz Oranı"
+      }
     },
     {
       "id": "termMonths",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ay",
       "default": 60,
-      "businessContext": "Vade"
+      "businessContext": "Vade",
+      "label_i18n": {
+        "en": "Vade (Ay)",
+        "tr": "Vade (Ay)",
+        "de": "Vade (Ay)",
+        "fr": "Vade (Ay)",
+        "es": "Vade (Ay)",
+        "ar": "Vade (Ay)"
+      }
     },
     {
       "id": "balloonPercent",
@@ -31,23 +55,33 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Balon ödeme, anaparanın yüzdesi"
+      "businessContext": "Balon ödeme, anaparanın yüzdesi",
+      "label_i18n": {
+        "en": "Balon Ödeme Yüzdesi",
+        "tr": "Balon Ödeme Yüzdesi",
+        "de": "Balon Ödeme Yüzdesi",
+        "fr": "Balon Ödeme Yüzdesi",
+        "es": "Balon Ödeme Yüzdesi",
+        "ar": "Balon Ödeme Yüzdesi"
+      }
     }
   ],
   "formulas": {
-    "compute": "function(inputs) { var P = inputs.principal; var r = inputs.annualInterestRate / 100 / 12; var n = inputs.termMonths; var B = (inputs.balloonPercent / 100) * P; var monthlyPayment = (P - B / Math.pow(1 + r, n)) * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1); var totalInterest = monthlyPayment * n + B - P; return { monthlyPayment: monthlyPayment, totalInterest: totalInterest, balloonAmount: B }; }"
+    "compute": "function(inputs) { var P = inputs.principal; var r = inputs.annualInterestRate / 100 / 12; var n = inputs.termMonths; var B = (inputs.balloonPercent / 100) * P; var monthlyPayment = (P - B / Math.pow(1 + r, n)) * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1); var totalInterest = monthlyPayment * n + B - P; return { monthlyPayment: monthlyPayment, totalInterest: totalInterest, balloonAmount: B }; }",
+    "totalInterest": "totalInterest",
+    "balloonAmount": "balloonAmount"
   },
   "outputs": {
-    "primary": "monthlyPayment",
+    "primary": "compute",
     "breakdown": [
       "totalInterest",
       "balloonAmount"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

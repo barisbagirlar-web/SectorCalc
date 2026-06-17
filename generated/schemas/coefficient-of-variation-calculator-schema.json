@@ -5,33 +5,65 @@
       "id": "measurement1",
       "label": "Measurement 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "First measurement value"
+      "businessContext": "First measurement value",
+      "label_i18n": {
+        "en": "Measurement 1",
+        "tr": "Measurement 1",
+        "de": "Measurement 1",
+        "fr": "Measurement 1",
+        "es": "Measurement 1",
+        "ar": "Measurement 1"
+      }
     },
     {
       "id": "measurement2",
       "label": "Measurement 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12,
-      "businessContext": "Second measurement value"
+      "businessContext": "Second measurement value",
+      "label_i18n": {
+        "en": "Measurement 2",
+        "tr": "Measurement 2",
+        "de": "Measurement 2",
+        "fr": "Measurement 2",
+        "es": "Measurement 2",
+        "ar": "Measurement 2"
+      }
     },
     {
       "id": "measurement3",
       "label": "Measurement 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 9,
-      "businessContext": "Third measurement value"
+      "businessContext": "Third measurement value",
+      "label_i18n": {
+        "en": "Measurement 3",
+        "tr": "Measurement 3",
+        "de": "Measurement 3",
+        "fr": "Measurement 3",
+        "es": "Measurement 3",
+        "ar": "Measurement 3"
+      }
     },
     {
       "id": "measurement4",
       "label": "Measurement 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 11,
-      "businessContext": "Fourth measurement value"
+      "businessContext": "Fourth measurement value",
+      "label_i18n": {
+        "en": "Measurement 4",
+        "tr": "Measurement 4",
+        "de": "Measurement 4",
+        "fr": "Measurement 4",
+        "es": "Measurement 4",
+        "ar": "Measurement 4"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "standard_deviation"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -27,13 +27,20 @@ function evaluateAllFormulas(input: Life_insurance_calculatorInput): Record<stri
   try { const v = (100 - input.healthScore) * 0.05; results["healthLoading"] = Number.isFinite(v) ? v : 0; } catch { results["healthLoading"] = 0; }
   try { const v = (input.coverageAmount / 1000) * ((results["baseRate"] ?? 0) + (results["ageLoading"] ?? 0) + (results["smokerLoading"] ?? 0) + (results["healthLoading"] ?? 0)); results["annualPremium"] = Number.isFinite(v) ? v : 0; } catch { results["annualPremium"] = 0; }
   try { const v = (results["annualPremium"] ?? 0) / 12; results["monthlyPremium"] = Number.isFinite(v) ? v : 0; } catch { results["monthlyPremium"] = 0; }
+  results["_____coverageAmount___1000____baseRate__"] = 0;
+  results["_____coverageAmount___1000____ageLoading"] = 0;
+  results["_____coverageAmount___1000____smokerLoad"] = 0;
+  results["_____coverageAmount___1000____healthLoad"] = 0;
+  results["___annualPremium_toFixed_2___year"] = 0;
+  results["___monthlyPremium_toFixed_2___month"] = 0;
+  try { const v = `$${(results["monthlyPremium"] ?? 0).toFixed(2)}/month`; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateLife_insurance_calculator(input: Life_insurance_calculatorInput): Life_insurance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["`$${monthlyPremium.toFixed(2)}/month`"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

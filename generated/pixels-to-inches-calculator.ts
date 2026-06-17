@@ -20,13 +20,17 @@ function evaluateAllFormulas(input: Pixels_to_inches_calculatorInput): Record<st
   try { const v = input.widthPixels / input.ppi; results["widthInches"] = Number.isFinite(v) ? v : 0; } catch { results["widthInches"] = 0; }
   try { const v = input.heightPixels / input.ppi; results["heightInches"] = Number.isFinite(v) ? v : 0; } catch { results["heightInches"] = 0; }
   try { const v = Math.sqrt(Math.pow(input.widthPixels / input.ppi, 2) + Math.pow(input.heightPixels / input.ppi, 2)); results["diagonalInches"] = Number.isFinite(v) ? v : 0; } catch { results["diagonalInches"] = 0; }
+  results["____widthInches_toFixed_decimals______in"] = 0;
+  results["____heightInches_toFixed_decimals______i"] = 0;
+  results["____diagonalInches_toFixed_decimals_____"] = 0;
+  try { const v = "Width: " + (results["widthInches"] ?? 0).toFixed(input.decimals) + " in, Height: " + (results["heightInches"] ?? 0).toFixed(input.decimals) + " in"; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculatePixels_to_inches_calculator(input: Pixels_to_inches_calculatorInput): Pixels_to_inches_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["\"Width: \" + widthInches.toFixed(decimals) + \" in, Height: \" + heightInches.toFixed(decimals) + \" in\""] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

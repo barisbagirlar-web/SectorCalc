@@ -7,35 +7,71 @@
       "type": "number",
       "unit": "digits",
       "default": 4,
-      "businessContext": "Number of digits in the generated PIN"
+      "businessContext": "Number of digits in the generated PIN",
+      "label_i18n": {
+        "en": "PIN Length",
+        "tr": "PIN Length",
+        "de": "PIN Length",
+        "fr": "PIN Length",
+        "es": "PIN Length",
+        "ar": "PIN Length"
+      }
     },
     {
       "id": "seed",
       "label": "Seed Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 123456,
-      "businessContext": "Unique numeric seed for PIN derivation"
+      "businessContext": "Unique numeric seed for PIN derivation",
+      "label_i18n": {
+        "en": "Seed Number",
+        "tr": "Seed Number",
+        "de": "Seed Number",
+        "fr": "Seed Number",
+        "es": "Seed Number",
+        "ar": "Seed Number"
+      }
     },
     {
       "id": "multiplier",
       "label": "Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 7919,
-      "businessContext": "Prime multiplier for pseudo-random extraction"
+      "businessContext": "Prime multiplier for pseudo-random extraction",
+      "label_i18n": {
+        "en": "Multiplier",
+        "tr": "Multiplier",
+        "de": "Multiplier",
+        "fr": "Multiplier",
+        "es": "Multiplier",
+        "ar": "Multiplier"
+      }
     },
     {
       "id": "shiftFactor",
       "label": "Shift Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Offset to create different PINs from same seed"
+      "businessContext": "Offset to create different PINs from same seed",
+      "label_i18n": {
+        "en": "Shift Factor",
+        "tr": "Shift Factor",
+        "de": "Shift Factor",
+        "fr": "Shift Factor",
+        "es": "Shift Factor",
+        "ar": "Shift Factor"
+      }
     }
   ],
   "formulas": {
-    "pinCalculation": "Math.floor(Math.abs(Math.sin(seed * multiplier + shiftFactor)) * Math.pow(10, pinLength + 3)) % Math.pow(10, pinLength)"
+    "pinCalculation": "Math.floor(Math.abs(Math.sin(seed * multiplier + shiftFactor)) * Math.pow(10, pinLength + 3)) % Math.pow(10, pinLength)",
+    "Calculate_absolute_sine_of__seed___multi": "Calculate absolute sine of (seed * multiplier + shiftFactor)",
+    "Multiply_by_10__pinLength_3_": "Multiply by 10^(pinLength+3)",
+    "Take_integer_part__floor_": "Take integer part (floor)",
+    "Modulo_10_pinLength_to_constrain_to_desi": "Modulo 10^pinLength to constrain to desired digit range"
   },
   "outputs": {
     "primary": "pinCalculation",
@@ -46,10 +82,10 @@
       "Modulo 10^pinLength to constrain to desired digit range"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "workforce-hr"
 }

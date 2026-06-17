@@ -23,30 +23,19 @@ export const Transfer_pricing_optimizer_calculatorInputSchema = z.object({
   include_lean_waste_factor: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Transfer_pricing_optimizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = ((input.include_lean_waste_factor) ? (input.production_cost_per_unit * 0.9) : (input.production_cost_per_unit)); results["adjusted_production_cost"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_production_cost"] = 0; }
-  try { const v = (results["adjusted_production_cost"] ?? 0) * 1.05; results["arm_length_range_lower"] = Number.isFinite(v) ? v : 0; } catch { results["arm_length_range_lower"] = 0; }
-  try { const v = input.market_price_per_unit * 0.90; results["arm_length_range_upper"] = Number.isFinite(v) ? v : 0; } catch { results["arm_length_range_upper"] = 0; }
-  try { const v = (input.compliance_risk_tolerance === 'Low' ? ((results["arm_length_range_lower"] ?? 0) + (results["arm_length_range_upper"] ?? 0))/2 : (input.compliance_risk_tolerance === 'Medium' ? ((results["arm_length_range_lower"] ?? 0) * 0.4 + (results["arm_length_range_upper"] ?? 0) * 0.6) : (input.compliance_risk_tolerance === 'High' ? ((results["arm_length_range_lower"] ?? 0) * 0.3 + (results["arm_length_range_upper"] ?? 0) * 0.7) : 0))); results["optimal_transfer_price"] = Number.isFinite(v) ? v : 0; } catch { results["optimal_transfer_price"] = 0; }
-  try { const v = (input.transfer_price_current - (results["optimal_transfer_price"] ?? 0)) * input.volume_units * (input.tax_rate_distributor - input.tax_rate_producer) / 100; results["total_tax_savings"] = Number.isFinite(v) ? v : 0; } catch { results["total_tax_savings"] = 0; }
-  try { const v = ((results["optimal_transfer_price"] ?? 0) - input.transfer_price_current) * input.volume_units; results["net_profit_shift"] = Number.isFinite(v) ? v : 0; } catch { results["net_profit_shift"] = 0; }
-  try { const v = (results["total_tax_savings"] ?? 0) - ((input.compliance_risk_tolerance === 'Low' ? Math.abs((results["net_profit_shift"] ?? 0))*0.05 : 0)); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Transfer_pricing_optimizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateTransfer_pricing_optimizer_calculator(input: Transfer_pricing_optimizer_calculatorInput): Transfer_pricing_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["adjusted_net_benefit"] ?? values["primary_result"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    id: values["id"] ?? 0,
-    label: values["label"] ?? 0,
-    type: values["type"] ?? 0,
-    properties: values["properties"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excessive Waste in Production","Tax Rate Disparity Underutilized","Compliance Risk Penalty Eroding Benefit"];
-  const suggestedActions: string[] = ["Implement Lean Six Sigma to reduce production cost","Adjust transfer price to optimal level","Review compliance risk tolerance policy","Document arm's length analysis thoroughly"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -65,7 +54,7 @@ export function calculateTransfer_pricing_optimizer_calculator(input: Transfer_p
 
 export interface Transfer_pricing_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { id: number; label: number; type: number; properties: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

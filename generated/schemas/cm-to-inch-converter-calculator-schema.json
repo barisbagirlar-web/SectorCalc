@@ -45,7 +45,7 @@
       "id": "conversion_precision",
       "label": "Conversion Precision",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "standard",
       "options": [
         {
@@ -73,7 +73,7 @@
       "id": "tolerance_class",
       "label": "Tolerance Class",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "general",
       "options": [
         {
@@ -170,143 +170,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "conversion_factor",
-      "label": "Conversion Factor",
-      "description": "Selects the appropriate conversion factor based on precision setting.",
-      "formula": "CASE conversion_precision WHEN 'standard' THEN 2.54 WHEN 'high' THEN 2.540005 WHEN 'survey' THEN 2.54000508 END",
-      "unit": "cm/in"
-    },
-    {
-      "id": "converted_inches",
-      "label": "Converted Inches (Exact)",
-      "description": "Exact conversion from centimeters to inches.",
-      "formula": "length_cm / conversion_factor",
-      "unit": "in"
-    },
-    {
-      "id": "converted_inches_rounded",
-      "label": "Converted Inches (Rounded)",
-      "description": "Rounded to 4 decimal places for practical use.",
-      "formula": "ROUND(converted_inches, 4)",
-      "unit": "in"
-    },
-    {
-      "id": "tolerance_limit",
-      "label": "Tolerance Limit",
-      "description": "Maximum allowable deviation based on tolerance class (ISO 2768).",
-      "formula": "CASE tolerance_class WHEN 'general' THEN 0.1 WHEN 'fine' THEN 0.05 WHEN 'very_fine' THEN 0.02 END",
-      "unit": "in"
-    },
-    {
-      "id": "total_cost",
-      "label": "Total Batch Cost",
-      "description": "Total material cost for the batch based on converted length.",
-      "formula": "converted_inches_rounded * unit_cost_per_inch * batch_quantity",
-      "unit": "USD"
-    },
-    {
-      "id": "data_confidence",
-      "label": "Data Confidence Score",
-      "description": "Confidence score based on measurement uncertainty relative to length (0-1).",
-      "formula": "MAX(0, 1 - (measurement_uncertainty / (length_cm + 0.001)))",
-      "unit": ""
-    },
-    {
-      "id": "primary_result",
-      "label": "Primary Result: Converted Length",
-      "description": "Final converted length in inches with rounding and tolerance check.",
-      "formula": "converted_inches_rounded",
-      "unit": "in"
-    }
+    "length_cm",
+    "length_cm",
+    "length_cm",
+    "length_cm",
+    "length_cm",
+    "length_cm",
+    "length_cm"
   ],
   "outputs": {
-    "primary": {
-      "id": "converted_length_inches",
-      "label": "Converted Length (inches)",
-      "value": "converted_inches_rounded",
-      "unit": "in"
-    },
-    "breakdown": {
-      "exact_inches": {
-        "label": "Exact Inches",
-        "value": "converted_inches",
-        "unit": "in"
-      },
-      "conversion_factor_used": {
-        "label": "Conversion Factor Used",
-        "value": "conversion_factor",
-        "unit": "cm/in"
-      },
-      "tolerance_limit": {
-        "label": "Tolerance Limit",
-        "value": "tolerance_limit",
-        "unit": "in"
-      },
-      "total_batch_cost": {
-        "label": "Total Batch Cost",
-        "value": "total_cost",
-        "unit": "USD"
-      },
-      "data_confidence_score": {
-        "label": "Data Confidence Score",
-        "value": "data_confidence",
-        "unit": ""
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "rounding_error",
-        "label": "Rounding Error",
-        "description": "Difference between exact and rounded inches, multiplied by batch quantity and unit cost.",
-        "value": "ABS(converted_inches - converted_inches_rounded) * unit_cost_per_inch * batch_quantity",
-        "unit": "USD"
-      },
-      {
-        "id": "uncertainty_loss",
-        "label": "Uncertainty Loss",
-        "description": "Potential cost impact due to measurement uncertainty.",
-        "value": "measurement_uncertainty * unit_cost_per_inch * batch_quantity / conversion_factor",
-        "unit": "USD"
-      },
-      {
-        "id": "tolerance_noncompliance_risk",
-        "label": "Tolerance Noncompliance Risk",
-        "description": "Risk cost if rounding exceeds tolerance (estimated as 10% of batch cost).",
-        "value": "IF(ABS(converted_inches_rounded - converted_inches) > tolerance_limit, total_cost * 0.1, 0)",
-        "unit": "USD"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_precision",
-        "label": "Increase Conversion Precision",
-        "description": "Switch to 'High' or 'Survey' precision if tolerance is critical.",
-        "condition": "ABS(converted_inches_rounded - converted_inches) > tolerance_limit"
-      },
-      {
-        "id": "reduce_uncertainty",
-        "label": "Reduce Measurement Uncertainty",
-        "description": "Use calibrated instruments or multiple measurements to lower uncertainty below 5% of length.",
-        "condition": "measurement_uncertainty > 0.05 * length_cm"
-      },
-      {
-        "id": "review_batch_cost",
-        "label": "Review Batch Cost",
-        "description": "Total cost exceeds $10,000. Consider value engineering or supplier negotiation.",
-        "condition": "total_cost > 10000"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_adjusted_length",
-      "label": "Confidence-Adjusted Length",
-      "description": "Length adjusted by data confidence for risk-aware decision making.",
-      "value": "converted_inches_rounded * data_confidence",
-      "unit": "in"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "cm-to-inch-converter-calculator",
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma"
 }

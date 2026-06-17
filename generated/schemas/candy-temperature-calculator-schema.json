@@ -5,9 +5,17 @@
       "id": "stageIndex",
       "label": "Candy Stage",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "Select candy cooking stage: 1=Thread (230°F), 2=Soft Ball (238°F), 3=Firm Ball (245°F), 4=Hard Ball (255°F), 5=Soft Crack (280°F), 6=Hard Crack (305°F), 7=Caramel (335°F), 0=Custom"
+      "businessContext": "Select candy cooking stage: 1=Thread (230°F), 2=Soft Ball (238°F), 3=Firm Ball (245°F), 4=Hard Ball (255°F), 5=Soft Crack (280°F), 6=Hard Crack (305°F), 7=Caramel (335°F), 0=Custom",
+      "label_i18n": {
+        "en": "Candy Stage",
+        "tr": "Candy Stage",
+        "de": "Candy Stage",
+        "fr": "Candy Stage",
+        "es": "Candy Stage",
+        "ar": "Candy Stage"
+      }
     },
     {
       "id": "altitudeFt",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Elevation above sea level; for every 500 ft, boiling point drops ~1°F"
+      "businessContext": "Elevation above sea level; for every 500 ft, boiling point drops ~1°F",
+      "label_i18n": {
+        "en": "Altitude (feet)",
+        "tr": "Altitude (feet)",
+        "de": "Altitude (feet)",
+        "fr": "Altitude (feet)",
+        "es": "Altitude (feet)",
+        "ar": "Altitude (feet)"
+      }
     },
     {
       "id": "customTempF",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°F",
       "default": 300,
-      "businessContext": "Target temperature when using custom stage (stage = 0)"
+      "businessContext": "Target temperature when using custom stage (stage = 0)",
+      "label_i18n": {
+        "en": "Custom Target Temp (°F)",
+        "tr": "Custom Target Temp (°F)",
+        "de": "Custom Target Temp (°F)",
+        "fr": "Custom Target Temp (°F)",
+        "es": "Custom Target Temp (°F)",
+        "ar": "Custom Target Temp (°F)"
+      }
     },
     {
       "id": "thermometerOffsetF",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°F",
       "default": 0,
-      "businessContext": "Correction if your thermometer is inaccurate (e.g., +2°F if it reads low)"
+      "businessContext": "Correction if your thermometer is inaccurate (e.g., +2°F if it reads low)",
+      "label_i18n": {
+        "en": "Thermometer Offset (°F)",
+        "tr": "Thermometer Offset (°F)",
+        "de": "Thermometer Offset (°F)",
+        "fr": "Thermometer Offset (°F)",
+        "es": "Thermometer Offset (°F)",
+        "ar": "Thermometer Offset (°F)"
+      }
     }
   ],
   "formulas": {
@@ -41,11 +73,7 @@
     "adjustedC": "(adjustedF - 32) * 5 / 9"
   },
   "outputs": {
-    "primary": {
-      "label": "Adjusted Cooking Temperature (°F)",
-      "value": "adjustedF",
-      "unit": "°F"
-    },
+    "primary": "baseTempF",
     "breakdown": [
       {
         "label": "Base Temperature at Sea Level (°F)",
@@ -64,10 +92,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

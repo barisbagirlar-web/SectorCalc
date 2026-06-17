@@ -5,63 +5,72 @@
       "id": "sampleMean",
       "label": "Sample Mean",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The average value of the sample data collected from the process."
+      "businessContext": "The average value of the sample data collected from the process.",
+      "label_i18n": {
+        "en": "Sample Mean",
+        "tr": "Sample Mean",
+        "de": "Sample Mean",
+        "fr": "Sample Mean",
+        "es": "Sample Mean",
+        "ar": "Sample Mean"
+      }
     },
     {
       "id": "populationMean",
       "label": "Hypothesized Mean",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The value of the population mean under the null hypothesis."
+      "businessContext": "The value of the population mean under the null hypothesis.",
+      "label_i18n": {
+        "en": "Hypothesized Mean",
+        "tr": "Hypothesized Mean",
+        "de": "Hypothesized Mean",
+        "fr": "Hypothesized Mean",
+        "es": "Hypothesized Mean",
+        "ar": "Hypothesized Mean"
+      }
     },
     {
       "id": "standardDeviation",
       "label": "Sample Standard Deviation",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The standard deviation of the sample data, measuring variability."
+      "businessContext": "The standard deviation of the sample data, measuring variability.",
+      "label_i18n": {
+        "en": "Sample Standard Deviation",
+        "tr": "Sample Standard Deviation",
+        "de": "Sample Standard Deviation",
+        "fr": "Sample Standard Deviation",
+        "es": "Sample Standard Deviation",
+        "ar": "Sample Standard Deviation"
+      }
     },
     {
       "id": "sampleSize",
       "label": "Sample Size",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "The number of observations in the sample (must be >1)."
+      "businessContext": "The number of observations in the sample (must be >1).",
+      "label_i18n": {
+        "en": "Sample Size",
+        "tr": "Sample Size",
+        "de": "Sample Size",
+        "fr": "Sample Size",
+        "es": "Sample Size",
+        "ar": "Sample Size"
+      }
     }
   ],
   "formulas": {
-    "meanDifference": {
-      "expression": "sampleMean - populationMean",
-      "dependencies": [
-        "sampleMean",
-        "populationMean"
-      ]
-    },
-    "standardError": {
-      "expression": "standardDeviation / Math.sqrt(sampleSize)",
-      "dependencies": [
-        "standardDeviation",
-        "sampleSize"
-      ]
-    },
-    "tStatistic": {
-      "expression": "meanDifference / standardError",
-      "dependencies": [
-        "meanDifference",
-        "standardError"
-      ]
-    },
-    "degreesOfFreedom": {
-      "expression": "sampleSize - 1",
-      "dependencies": [
-        "sampleSize"
-      ]
-    }
+    "meanDifference": "sampleMean",
+    "standardError": "sampleMean",
+    "tStatistic": "sampleMean",
+    "degreesOfFreedom": "sampleMean"
   },
   "outputs": {
     "primary": "tStatistic",
@@ -71,10 +80,10 @@
       "degreesOfFreedom"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

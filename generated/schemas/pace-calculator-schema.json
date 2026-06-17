@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 1,
-      "businessContext": "Enter the distance covered in kilometers."
+      "businessContext": "Enter the distance covered in kilometers.",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Distance (km)",
+        "de": "Distance (km)",
+        "fr": "Distance (km)",
+        "es": "Distance (km)",
+        "ar": "Distance (km)"
+      }
     },
     {
       "id": "hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Number of hours taken."
+      "businessContext": "Number of hours taken.",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "Hours",
+        "fr": "Hours",
+        "es": "Hours",
+        "ar": "Hours"
+      }
     },
     {
       "id": "minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 0,
-      "businessContext": "Number of minutes taken."
+      "businessContext": "Number of minutes taken.",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "seconds",
@@ -31,27 +55,34 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Number of seconds taken."
+      "businessContext": "Number of seconds taken.",
+      "label_i18n": {
+        "en": "Seconds",
+        "tr": "Seconds",
+        "de": "Seconds",
+        "fr": "Seconds",
+        "es": "Seconds",
+        "ar": "Seconds"
+      }
     }
   ],
   "formulas": {
     "primary": "`Pace: ${(hours*60+minutes+seconds/60)/distanceKm} min/km`",
-    "breakdown": [
-      "`Speed: ${distanceKm/(hours + minutes/60 + seconds/3600)} km/h`",
-      "`Pace per mile: ${(hours*60+minutes+seconds/60)*1.60934/distanceKm} min/mi`"
-    ]
+    "breakdown": "distanceKm",
+    "Speed_in_km_h": "Speed in km/h",
+    "Pace_per_mile": "Pace per mile"
   },
   "outputs": {
-    "primary": "Pace per km",
+    "primary": "primary",
     "breakdown": [
       "Speed in km/h",
       "Pace per mile"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

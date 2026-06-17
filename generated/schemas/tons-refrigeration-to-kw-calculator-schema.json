@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ton",
       "default": 1,
-      "businessContext": "Cooling capacity in tons of refrigeration (1 ton = 12000 BTU/hr)"
+      "businessContext": "Cooling capacity in tons of refrigeration (1 ton = 12000 BTU/hr)",
+      "label_i18n": {
+        "en": "Tons of Refrigeration",
+        "tr": "Tons of Refrigeration",
+        "de": "Tons of Refrigeration",
+        "fr": "Tons of Refrigeration",
+        "es": "Tons of Refrigeration",
+        "ar": "Tons of Refrigeration"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,41 +23,68 @@
       "type": "number",
       "unit": "kW/ton",
       "default": 3.51685,
-      "businessContext": "Standard conversion factor from tons to kilowatts (1 ton ≈ 3.51685 kW). Adjust for regional standards if needed."
+      "businessContext": "Standard conversion factor from tons to kilowatts (1 ton ≈ 3.51685 kW). Adjust for regional standards if needed.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Design safety margin multiplier, typically 1.0–1.2"
+      "businessContext": "Design safety margin multiplier, typically 1.0–1.2",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "decimals",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding output"
+      "businessContext": "Number of decimal places for rounding output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "baseKW": "tons * conversionFactor",
     "withSafety": "baseKW * safetyFactor",
-    "finalKW": "Math.round(withSafety * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+    "finalKW": "Math.round(withSafety * Math.pow(10, decimals)) / Math.pow(10, decimals)",
+    "____baseKW_toFixed_decimals______kW_": "' + baseKW.toFixed(decimals) + ' kW'",
+    "____finalKW_____kW_": "' + finalKW + ' kW'",
+    "result": "finalKW + ' kW'"
   },
   "outputs": {
-    "primary": "finalKW + ' kW'",
+    "primary": "result",
     "breakdown": [
       "'Base: ' + baseKW.toFixed(decimals) + ' kW'",
       "'With safety factor (' + safetyFactor + '): ' + finalKW + ' kW'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

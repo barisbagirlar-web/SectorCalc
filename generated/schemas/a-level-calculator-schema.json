@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 1,
-      "businessContext": "The measured physical quantity (e.g., sound pressure in Pascals)."
+      "businessContext": "The measured physical quantity (e.g., sound pressure in Pascals).",
+      "label_i18n": {
+        "en": "Measured Value",
+        "tr": "Measured Value",
+        "de": "Measured Value",
+        "fr": "Measured Value",
+        "es": "Measured Value",
+        "ar": "Measured Value"
+      }
     },
     {
       "id": "reference",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "Pa",
       "default": 0.00002,
-      "businessContext": "The reference quantity for the level calculation. Typical reference for sound pressure is 20 µPa."
+      "businessContext": "The reference quantity for the level calculation. Typical reference for sound pressure is 20 µPa.",
+      "label_i18n": {
+        "en": "Reference Value",
+        "tr": "Reference Value",
+        "de": "Reference Value",
+        "fr": "Reference Value",
+        "es": "Reference Value",
+        "ar": "Reference Value"
+      }
     },
     {
       "id": "dbMultiplier",
       "label": "dB Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 20,
-      "businessContext": "20 for amplitude quantities (pressure, voltage), 10 for power quantities."
+      "businessContext": "20 for amplitude quantities (pressure, voltage), 10 for power quantities.",
+      "label_i18n": {
+        "en": "dB Multiplier",
+        "tr": "dB Multiplier",
+        "de": "dB Multiplier",
+        "fr": "dB Multiplier",
+        "es": "dB Multiplier",
+        "ar": "dB Multiplier"
+      }
     },
     {
       "id": "systemGain",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dB",
       "default": 0,
-      "businessContext": "Additional gain or attenuation in the system, in decibels. Positive for amplification, negative for attenuation."
+      "businessContext": "Additional gain or attenuation in the system, in decibels. Positive for amplification, negative for attenuation.",
+      "label_i18n": {
+        "en": "System Gain (dB)",
+        "tr": "System Gain (dB)",
+        "de": "System Gain (dB)",
+        "fr": "System Gain (dB)",
+        "es": "System Gain (dB)",
+        "ar": "System Gain (dB)"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "preGainLevel"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

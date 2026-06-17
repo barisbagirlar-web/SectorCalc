@@ -55,11 +55,7 @@
     "milliliters": "Math.round(millilitersUnrounded * Math.pow(10, precision)) / Math.pow(10, precision)"
   },
   "outputs": {
-    "primary": {
-      "id": "milliliters",
-      "label": "Converted volume",
-      "unit": "ml"
-    },
+    "primary": "millilitersUnrounded",
     "breakdown": [
       "Input: {cups} cups",
       "Cup size: {cupSize} ml/cup",
@@ -68,10 +64,10 @@
       "Rounded to {precision} decimal(s): {milliliters} ml"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

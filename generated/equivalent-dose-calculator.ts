@@ -25,6 +25,9 @@ function evaluateAllFormulas(input: Equivalent_dose_calculatorInput): Record<str
   try { const v = input.betaGammaDose * input.wR_betaGamma; results["betaGammaContrib"] = Number.isFinite(v) ? v : 0; } catch { results["betaGammaContrib"] = 0; }
   try { const v = input.alphaDose * input.wR_alpha; results["alphaContrib"] = Number.isFinite(v) ? v : 0; } catch { results["alphaContrib"] = 0; }
   try { const v = input.neutronDose * input.wR_neutron; results["neutronContrib"] = Number.isFinite(v) ? v : 0; } catch { results["neutronContrib"] = 0; }
+  results["_betaGammaContrib__Sv"] = 0;
+  results["_alphaContrib__Sv"] = 0;
+  results["_neutronContrib__Sv"] = 0;
   return results;
 }
 

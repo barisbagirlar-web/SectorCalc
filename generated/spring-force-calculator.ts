@@ -23,6 +23,7 @@ function evaluateAllFormulas(input: Spring_force_calculatorInput): Record<string
   const results: Record<string, number> = {};
   try { const v = (input.springConstant > 0 ? input.springConstant : (input.shearModulus * Math.pow(input.wireDiameter, 4)) / (8 * Math.pow(input.coilDiameter, 3) * input.activeCoils)) * input.displacement; results["force"] = Number.isFinite(v) ? v : 0; } catch { results["force"] = 0; }
   try { const v = input.springConstant > 0 ? input.springConstant : (input.shearModulus * Math.pow(input.wireDiameter, 4)) / (8 * Math.pow(input.coilDiameter, 3) * input.activeCoils); results["effectiveSpringConstant"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveSpringConstant"] = 0; }
+  try { const v = input.displacement; results["displacement"] = Number.isFinite(v) ? v : 0; } catch { results["displacement"] = 0; }
   return results;
 }
 

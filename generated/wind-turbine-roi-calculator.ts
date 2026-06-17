@@ -31,29 +31,19 @@ export const Wind_turbine_roi_calculatorInputSchema = z.object({
   maintenance_strategy: z.enum(['Corrective', 'Preventive', 'Condition-Based', 'Predictive']).default('Preventive'),
 });
 
-function evaluateAllFormulas(input: Wind_turbine_roi_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.turbine_capacity * 8760 * (input.capacity_factor / 100) * (input.grid_availability / 100); results["annual_energy_production"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_production"] = 0; }
-  try { const v = (results["annual_energy_production"] ?? 0) * ((1 - input.degradation_rate / 100) ^ (n - 1)); results["degraded_energy_year_n"] = Number.isFinite(v) ? v : 0; } catch { results["degraded_energy_year_n"] = 0; }
-  try { const v = (results["degraded_energy_year_n"] ?? 0) * (input.electricity_price + input.incentive_tax_credit); results["annual_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["annual_revenue"] = 0; }
-  try { const v = (results["degraded_energy_year_n"] ?? 0) * input.opex_per_mwh; results["annual_opex"] = Number.isFinite(v) ? v : 0; } catch { results["annual_opex"] = 0; }
-  try { const v = (results["annual_revenue"] ?? 0) - (results["annual_opex"] ?? 0); results["net_cash_flow_year_n"] = Number.isFinite(v) ? v : 0; } catch { results["net_cash_flow_year_n"] = 0; }
-  results["npv"] = 0;
-  try { const v = IRR(net_cash_flow_array, initial_investment); results["irr"] = Number.isFinite(v) ? v : 0; } catch { results["irr"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Wind_turbine_roi_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateWind_turbine_roi_calculator(input: Wind_turbine_roi_calculatorInput): Wind_turbine_roi_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["primary_result"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    id: values["id"] ?? 0,
-    label: values["label"] ?? 0,
-    components: values["components"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Grid Curtailment Loss (MWh)","Degradation Loss (MWh)","OPEX Efficiency Gap (USD)"];
-  const suggestedActions: string[] = ["Negotiate improved grid connection agreements or invest in on-site storage to reduce curtailment.","Implement predictive maintenance and blade leading-edge protection to lower degradation rate.","Adopt condition-based maintenance and remote monitoring to reduce O&M costs (Lean/Six Sigma DMAIC).","Explore power purchase agreement renegotiation or merchant price hedging."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -72,7 +62,7 @@ export function calculateWind_turbine_roi_calculator(input: Wind_turbine_roi_cal
 
 export interface Wind_turbine_roi_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { id: number; label: number; components: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

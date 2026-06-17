@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 6,
-      "businessContext": "Teknik çizimde belirtilen köşe kaynak dikiş kalınlığı"
+      "businessContext": "Teknik çizimde belirtilen köşe kaynak dikiş kalınlığı",
+      "label_i18n": {
+        "en": "Köşe Kaynak Kalınlığı (a)",
+        "tr": "Köşe Kaynak Kalınlığı (a)",
+        "de": "Köşe Kaynak Kalınlığı (a)",
+        "fr": "Köşe Kaynak Kalınlığı (a)",
+        "es": "Köşe Kaynak Kalınlığı (a)",
+        "ar": "Köşe Kaynak Kalınlığı (a)"
+      }
     },
     {
       "id": "weldLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Köşe kaynağının toplam uzunluğu"
+      "businessContext": "Köşe kaynağının toplam uzunluğu",
+      "label_i18n": {
+        "en": "Kaynak Boyu",
+        "tr": "Kaynak Boyu",
+        "de": "Kaynak Boyu",
+        "fr": "Kaynak Boyu",
+        "es": "Kaynak Boyu",
+        "ar": "Kaynak Boyu"
+      }
     },
     {
       "id": "yieldStrength",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 235,
-      "businessContext": "Kullanılan elektrot malzemesinin akma dayanımı (örneğin E42)"
+      "businessContext": "Kullanılan elektrot malzemesinin akma dayanımı (örneğin E42)",
+      "label_i18n": {
+        "en": "Elektrot Akma Dayanımı",
+        "tr": "Elektrot Akma Dayanımı",
+        "de": "Elektrot Akma Dayanımı",
+        "fr": "Elektrot Akma Dayanımı",
+        "es": "Elektrot Akma Dayanımı",
+        "ar": "Elektrot Akma Dayanımı"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Güvenlik Katsayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Emniyet gerilmesi hesaplaması için yapısal güvenlik kat sayısı"
+      "businessContext": "Emniyet gerilmesi hesaplaması için yapısal güvenlik kat sayısı",
+      "label_i18n": {
+        "en": "Güvenlik Katsayısı",
+        "tr": "Güvenlik Katsayısı",
+        "de": "Güvenlik Katsayısı",
+        "fr": "Güvenlik Katsayısı",
+        "es": "Güvenlik Katsayısı",
+        "ar": "Güvenlik Katsayısı"
+      }
     },
     {
       "id": "designLoad",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kN",
       "default": 50,
-      "businessContext": "Kaynak bağlantısına etkiyen tasarım yükü"
+      "businessContext": "Kaynak bağlantısına etkiyen tasarım yükü",
+      "label_i18n": {
+        "en": "Tasarım Yükü",
+        "tr": "Tasarım Yükü",
+        "de": "Tasarım Yükü",
+        "fr": "Tasarım Yükü",
+        "es": "Tasarım Yükü",
+        "ar": "Tasarım Yükü"
+      }
     }
   ],
   "formulas": {
@@ -63,8 +103,8 @@
       "weldVolume"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

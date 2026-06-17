@@ -5,33 +5,65 @@
       "id": "item1",
       "label": "In the last month, how often have you felt that you were unable to control the important things in your life?",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Response scale: 0=Never, 1=Almost Never, 2=Sometimes, 3=Fairly Often, 4=Very Often"
+      "businessContext": "Response scale: 0=Never, 1=Almost Never, 2=Sometimes, 3=Fairly Often, 4=Very Often",
+      "label_i18n": {
+        "en": "In the last month, how often have you felt that you were unable to control the important things in your life?",
+        "tr": "In the last month, how often have you felt that you were unable to control the important things in your life?",
+        "de": "In the last month, how often have you felt that you were unable to control the important things in your life?",
+        "fr": "In the last month, how often have you felt that you were unable to control the important things in your life?",
+        "es": "In the last month, how often have you felt that you were unable to control the important things in your life?",
+        "ar": "In the last month, how often have you felt that you were unable to control the important things in your life?"
+      }
     },
     {
       "id": "item2",
       "label": "In the last month, how often have you felt confident about your ability to handle your personal problems?",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Response scale: 0=Never, 1=Almost Never, 2=Sometimes, 3=Fairly Often, 4=Very Often (reversed item)"
+      "businessContext": "Response scale: 0=Never, 1=Almost Never, 2=Sometimes, 3=Fairly Often, 4=Very Often (reversed item)",
+      "label_i18n": {
+        "en": "In the last month, how often have you felt confident about your ability to handle your personal problems?",
+        "tr": "In the last month, how often have you felt confident about your ability to handle your personal problems?",
+        "de": "In the last month, how often have you felt confident about your ability to handle your personal problems?",
+        "fr": "In the last month, how often have you felt confident about your ability to handle your personal problems?",
+        "es": "In the last month, how often have you felt confident about your ability to handle your personal problems?",
+        "ar": "In the last month, how often have you felt confident about your ability to handle your personal problems?"
+      }
     },
     {
       "id": "item3",
       "label": "In the last month, how often have you felt that things were going your way?",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Response scale: 0=Never, 1=Almost Never, 2=Sometimes, 3=Fairly Often, 4=Very Often (reversed item)"
+      "businessContext": "Response scale: 0=Never, 1=Almost Never, 2=Sometimes, 3=Fairly Often, 4=Very Often (reversed item)",
+      "label_i18n": {
+        "en": "In the last month, how often have you felt that things were going your way?",
+        "tr": "In the last month, how often have you felt that things were going your way?",
+        "de": "In the last month, how often have you felt that things were going your way?",
+        "fr": "In the last month, how often have you felt that things were going your way?",
+        "es": "In the last month, how often have you felt that things were going your way?",
+        "ar": "In the last month, how often have you felt that things were going your way?"
+      }
     },
     {
       "id": "item4",
       "label": "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Response scale: 0=Never, 1=Almost Never, 2=Sometimes, 3=Fairly Often, 4=Very Often"
+      "businessContext": "Response scale: 0=Never, 1=Almost Never, 2=Sometimes, 3=Fairly Often, 4=Very Often",
+      "label_i18n": {
+        "en": "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?",
+        "tr": "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?",
+        "de": "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?",
+        "fr": "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?",
+        "es": "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?",
+        "ar": "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "reversedSum"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Finans & İK",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

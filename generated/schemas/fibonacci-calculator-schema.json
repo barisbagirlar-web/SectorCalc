@@ -5,57 +5,113 @@
       "id": "startIndex",
       "label": "Başlangıç İndeksi",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Dizinin ilk teriminin indeksi."
+      "businessContext": "Dizinin ilk teriminin indeksi.",
+      "label_i18n": {
+        "en": "Başlangıç İndeksi",
+        "tr": "Başlangıç İndeksi",
+        "de": "Başlangıç İndeksi",
+        "fr": "Başlangıç İndeksi",
+        "es": "Başlangıç İndeksi",
+        "ar": "Başlangıç İndeksi"
+      }
     },
     {
       "id": "firstTerm",
       "label": "İlk Terim (F₀)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Dizinin başlangıç indeksindeki değeri."
+      "businessContext": "Dizinin başlangıç indeksindeki değeri.",
+      "label_i18n": {
+        "en": "İlk Terim (F₀)",
+        "tr": "İlk Terim (F₀)",
+        "de": "İlk Terim (F₀)",
+        "fr": "İlk Terim (F₀)",
+        "es": "İlk Terim (F₀)",
+        "ar": "İlk Terim (F₀)"
+      }
     },
     {
       "id": "secondTerm",
       "label": "İkinci Terim (F₁)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Dizinin başlangıç indeksi + 1'deki değeri."
+      "businessContext": "Dizinin başlangıç indeksi + 1'deki değeri.",
+      "label_i18n": {
+        "en": "İkinci Terim (F₁)",
+        "tr": "İkinci Terim (F₁)",
+        "de": "İkinci Terim (F₁)",
+        "fr": "İkinci Terim (F₁)",
+        "es": "İkinci Terim (F₁)",
+        "ar": "İkinci Terim (F₁)"
+      }
     },
     {
       "id": "multiplierA",
       "label": "Çarpan a",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Bir önceki terim için katsayı (F(n-1))."
+      "businessContext": "Bir önceki terim için katsayı (F(n-1)).",
+      "label_i18n": {
+        "en": "Çarpan a",
+        "tr": "Çarpan a",
+        "de": "Çarpan a",
+        "fr": "Çarpan a",
+        "es": "Çarpan a",
+        "ar": "Çarpan a"
+      }
     },
     {
       "id": "multiplierB",
       "label": "Çarpan b",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "İki önceki terim için katsayı (F(n-2))."
+      "businessContext": "İki önceki terim için katsayı (F(n-2)).",
+      "label_i18n": {
+        "en": "Çarpan b",
+        "tr": "Çarpan b",
+        "de": "Çarpan b",
+        "fr": "Çarpan b",
+        "es": "Çarpan b",
+        "ar": "Çarpan b"
+      }
     },
     {
       "id": "termCount",
       "label": "Terim Sayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Oluşturulacak toplam terim sayısı."
+      "businessContext": "Oluşturulacak toplam terim sayısı.",
+      "label_i18n": {
+        "en": "Terim Sayısı",
+        "tr": "Terim Sayısı",
+        "de": "Terim Sayısı",
+        "fr": "Terim Sayısı",
+        "es": "Terim Sayısı",
+        "ar": "Terim Sayısı"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Ondalık Basamak",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Yuvarlama için ondalık basamak sayısı (0 tam sayı)."
+      "businessContext": "Yuvarlama için ondalık basamak sayısı (0 tam sayı).",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
@@ -68,8 +124,8 @@
       "sequence"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

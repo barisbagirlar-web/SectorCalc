@@ -20,13 +20,18 @@ function evaluateAllFormulas(input: Rigging_calculatorInput): Record<string, num
   try { const v = Math.sin(input.slingAngle * Math.PI / 180); results["sinAngle"] = Number.isFinite(v) ? v : 0; } catch { results["sinAngle"] = 0; }
   try { const v = input.loadWeight / (input.numberOfLegs * (results["sinAngle"] ?? 0)); results["tensionGross"] = Number.isFinite(v) ? v : 0; } catch { results["tensionGross"] = 0; }
   try { const v = (results["tensionGross"] ?? 0) * input.safetyFactor; results["tensionDesign"] = Number.isFinite(v) ? v : 0; } catch { results["tensionDesign"] = 0; }
+  results["__tensionGross_toFixed_2___kg"] = 0;
+  try { const v = $input.safetyFactor; results["__safetyFactor_"] = Number.isFinite(v) ? v : 0; } catch { results["__safetyFactor_"] = 0; }
+  results["__slingAngle__"] = 0;
+  results["__sinAngle_toFixed_4__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateRigging_calculator(input: Rigging_calculatorInput): Rigging_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Ask"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

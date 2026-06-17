@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The weight used for the lift, in kilograms."
+      "businessContext": "The weight used for the lift, in kilograms.",
+      "label_i18n": {
+        "en": "Weight Lifted",
+        "tr": "Weight Lifted",
+        "de": "Weight Lifted",
+        "fr": "Weight Lifted",
+        "es": "Weight Lifted",
+        "ar": "Weight Lifted"
+      }
     },
     {
       "id": "reps",
@@ -15,7 +23,39 @@
       "type": "number",
       "unit": "reps",
       "default": 10,
-      "businessContext": "Number of repetitions performed to failure or near failure."
+      "businessContext": "Number of repetitions performed to failure or near failure.",
+      "label_i18n": {
+        "en": "Repetitions",
+        "tr": "Repetitions",
+        "de": "Repetitions",
+        "fr": "Repetitions",
+        "es": "Repetitions",
+        "ar": "Repetitions"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
@@ -32,7 +72,10 @@
       "multiplier"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "categorySlug": "technology-ai-cloud-cyber",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

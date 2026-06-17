@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 70,
-      "businessContext": "Patient's chronological age"
+      "businessContext": "Patient's chronological age",
+      "label_i18n": {
+        "en": "Age (years)",
+        "tr": "Age (years)",
+        "de": "Age (years)",
+        "fr": "Age (years)",
+        "es": "Age (years)",
+        "ar": "Age (years)"
+      }
     },
     {
       "id": "walking_speed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 1,
-      "businessContext": "Self-selected walking speed over 4 meters"
+      "businessContext": "Self-selected walking speed over 4 meters",
+      "label_i18n": {
+        "en": "Walking Speed (m/s)",
+        "tr": "Walking Speed (m/s)",
+        "de": "Walking Speed (m/s)",
+        "fr": "Walking Speed (m/s)",
+        "es": "Walking Speed (m/s)",
+        "ar": "Walking Speed (m/s)"
+      }
     },
     {
       "id": "grip_strength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 25,
-      "businessContext": "Maximum handgrip strength in dominant hand"
+      "businessContext": "Maximum handgrip strength in dominant hand",
+      "label_i18n": {
+        "en": "Grip Strength (kg)",
+        "tr": "Grip Strength (kg)",
+        "de": "Grip Strength (kg)",
+        "fr": "Grip Strength (kg)",
+        "es": "Grip Strength (kg)",
+        "ar": "Grip Strength (kg)"
+      }
     },
     {
       "id": "comorbidities",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "count",
       "default": 2,
-      "businessContext": "Count of significant chronic conditions"
+      "businessContext": "Count of significant chronic conditions",
+      "label_i18n": {
+        "en": "Number of Comorbidities",
+        "tr": "Number of Comorbidities",
+        "de": "Number of Comorbidities",
+        "fr": "Number of Comorbidities",
+        "es": "Number of Comorbidities",
+        "ar": "Number of Comorbidities"
+      }
     },
     {
       "id": "exhaustion",
       "label": "Exhaustion (0/1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Self-reported exhaustion (0=No, 1=Yes)"
+      "businessContext": "Self-reported exhaustion (0=No, 1=Yes)",
+      "label_i18n": {
+        "en": "Exhaustion (0/1)",
+        "tr": "Exhaustion (0/1)",
+        "de": "Exhaustion (0/1)",
+        "fr": "Exhaustion (0/1)",
+        "es": "Exhaustion (0/1)",
+        "ar": "Exhaustion (0/1)"
+      }
     },
     {
       "id": "weight_loss",
@@ -47,24 +87,35 @@
       "type": "number",
       "unit": "kg",
       "default": 2,
-      "businessContext": "Weight loss over past year not due to diet"
+      "businessContext": "Weight loss over past year not due to diet",
+      "label_i18n": {
+        "en": "Unintentional Weight Loss (kg)",
+        "tr": "Unintentional Weight Loss (kg)",
+        "de": "Unintentional Weight Loss (kg)",
+        "fr": "Unintentional Weight Loss (kg)",
+        "es": "Unintentional Weight Loss (kg)",
+        "ar": "Unintentional Weight Loss (kg)"
+      }
     }
   ],
   "formulas": {
     "score": "Math.min(9, 1 + (age > 75 ? 1 : 0) + (walking_speed < 0.8 ? 1 : 0) + (grip_strength < 20 ? 1 : 0) + (comorbidities >= 3 ? 1 : 0) + exhaustion + (weight_loss > 5 ? 1 : 0))",
-    "classification": "score === 9 ? 'Terminally Ill' : score >= 8 ? 'Very Severely Frail' : score >= 7 ? 'Severely Frail' : score >= 6 ? 'Moderately Frail' : score >= 5 ? 'Mildly Frail' : score >= 4 ? 'Vulnerable' : 'Well or Managing Well'"
+    "classification": "score === 9 ? 'Terminally Ill' : score >= 8 ? 'Very Severely Frail' : score >= 7 ? 'Severely Frail' : score >= 6 ? 'Moderately Frail' : score >= 5 ? 'Mildly Frail' : score >= 4 ? 'Vulnerable' : 'Well or Managing Well'",
+    "__score__": "{{score}}",
+    "__classification__": "{{classification}}",
+    "result": "Rockwood Frailty Scale: {{score}} - {{classification}}"
   },
   "outputs": {
-    "primary": "Rockwood Frailty Scale: {{score}} - {{classification}}",
+    "primary": "result",
     "breakdown": [
       "Score: {{score}}",
       "Classification: {{classification}}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

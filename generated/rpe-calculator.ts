@@ -18,13 +18,18 @@ export const Rpe_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Rpe_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.coRev / input.coEmp; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.coRev; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Industry_Revenue_Per_Employee"] = 0;
+  results["RPE_Difference__Your___Industry_"] = 0;
+  results["RPE_Ratio__Your___Industry_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateRpe_calculator(input: Rpe_calculatorInput): Rpe_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Your"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

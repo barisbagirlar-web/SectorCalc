@@ -20,13 +20,20 @@ export const Uuid_generator_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Uuid_generator_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.timeLow.toString(16).padStart(8,'0') + '-' + input.timeMid.toString(16).padStart(4,'0') + '-' + (input.timeHiAndVersion >> 12).toString(16) + (input.timeHiAndVersion & 0xFFF).toString(16).padStart(3,'0') + '-' + ((input.clockSeqAndVariant >> 8) & 0xFF).toString(16).padStart(2,'0') + (input.clockSeqAndVariant & 0xFF).toString(16).padStart(2,'0') + '-' + input.node.toString(16).padStart(12,'0'); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.timeLow; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["timeLow_hex"] = 0;
+  results["timeMid_hex"] = 0;
+  results["timeHigh_and_version_hex"] = 0;
+  results["clockSeq_and_variant_hex"] = 0;
+  results["node_hex"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateUuid_generator_calculator(input: Uuid_generator_calculatorInput): Uuid_generator_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Generated"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

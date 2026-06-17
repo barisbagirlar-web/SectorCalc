@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1,
-      "businessContext": "The absolute pressure at compressor inlet, typically atmospheric pressure (1 bar)."
+      "businessContext": "The absolute pressure at compressor inlet, typically atmospheric pressure (1 bar).",
+      "label_i18n": {
+        "en": "Inlet Pressure",
+        "tr": "Inlet Pressure",
+        "de": "Inlet Pressure",
+        "fr": "Inlet Pressure",
+        "es": "Inlet Pressure",
+        "ar": "Inlet Pressure"
+      }
     },
     {
       "id": "outletPressure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bar",
       "default": 8,
-      "businessContext": "The desired discharge pressure after compression."
+      "businessContext": "The desired discharge pressure after compression.",
+      "label_i18n": {
+        "en": "Outlet Pressure",
+        "tr": "Outlet Pressure",
+        "de": "Outlet Pressure",
+        "fr": "Outlet Pressure",
+        "es": "Outlet Pressure",
+        "ar": "Outlet Pressure"
+      }
     },
     {
       "id": "flowRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m³/min",
       "default": 10,
-      "businessContext": "Volumetric flow rate at inlet pressure and temperature."
+      "businessContext": "Volumetric flow rate at inlet pressure and temperature.",
+      "label_i18n": {
+        "en": "Flow Rate (Inlet Conditions)",
+        "tr": "Flow Rate (Inlet Conditions)",
+        "de": "Flow Rate (Inlet Conditions)",
+        "fr": "Flow Rate (Inlet Conditions)",
+        "es": "Flow Rate (Inlet Conditions)",
+        "ar": "Flow Rate (Inlet Conditions)"
+      }
     },
     {
       "id": "adiabaticIndex",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.4,
-      "businessContext": "Ratio of specific heats (Cp/Cv) for the gas, typically 1.4 for air."
+      "businessContext": "Ratio of specific heats (Cp/Cv) for the gas, typically 1.4 for air.",
+      "label_i18n": {
+        "en": "Adiabatic Index (k)",
+        "tr": "Adiabatic Index (k)",
+        "de": "Adiabatic Index (k)",
+        "fr": "Adiabatic Index (k)",
+        "es": "Adiabatic Index (k)",
+        "ar": "Adiabatic Index (k)"
+      }
     },
     {
       "id": "compressorEfficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Efficiency of the compressor in converting adiabatic work to shaft work."
+      "businessContext": "Efficiency of the compressor in converting adiabatic work to shaft work.",
+      "label_i18n": {
+        "en": "Compressor Isentropic Efficiency",
+        "tr": "Compressor Isentropic Efficiency",
+        "de": "Compressor Isentropic Efficiency",
+        "fr": "Compressor Isentropic Efficiency",
+        "es": "Compressor Isentropic Efficiency",
+        "ar": "Compressor Isentropic Efficiency"
+      }
     },
     {
       "id": "motorEfficiency",
@@ -47,27 +87,39 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Efficiency of the electric motor driving the compressor."
+      "businessContext": "Efficiency of the electric motor driving the compressor.",
+      "label_i18n": {
+        "en": "Motor Efficiency",
+        "tr": "Motor Efficiency",
+        "de": "Motor Efficiency",
+        "fr": "Motor Efficiency",
+        "es": "Motor Efficiency",
+        "ar": "Motor Efficiency"
+      }
     }
   ],
   "formulas": {
     "adiabaticPower": "((inletPressure * 100000) * (flowRate / 60) * (adiabaticIndex / (adiabaticIndex - 1)) * (Math.pow(outletPressure / inletPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / 1000",
     "shaftPower": "(((inletPressure * 100000) * (flowRate / 60) * (adiabaticIndex / (adiabaticIndex - 1)) * (Math.pow(outletPressure / inletPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / 1000) / (compressorEfficiency / 100)",
     "motorInputPower": "((((inletPressure * 100000) * (flowRate / 60) * (adiabaticIndex / (adiabaticIndex - 1)) * (Math.pow(outletPressure / inletPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / 1000) / (compressorEfficiency / 100)) / (motorEfficiency / 100)",
-    "pressureRatio": "outletPressure / inletPressure"
+    "pressureRatio": "outletPressure / inletPressure",
+    "Adiabatic_Power__kW_": "Adiabatic Power (kW)",
+    "Shaft_Power__kW_": "Shaft Power (kW)",
+    "Pressure_Ratio": "Pressure Ratio",
+    "result": "Motor Input Power (kW)"
   },
   "outputs": {
-    "primary": "Motor Input Power (kW)",
+    "primary": "result",
     "breakdown": [
       "Adiabatic Power (kW)",
       "Shaft Power (kW)",
       "Pressure Ratio"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "process-chemical"
 }

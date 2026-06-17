@@ -5,33 +5,65 @@
       "id": "ip1",
       "label": "IP Address Octet 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 192,
-      "businessContext": "First octet of the IP address (0-255)"
+      "businessContext": "First octet of the IP address (0-255)",
+      "label_i18n": {
+        "en": "IP Address Octet 1",
+        "tr": "IP Address Octet 1",
+        "de": "IP Address Octet 1",
+        "fr": "IP Address Octet 1",
+        "es": "IP Address Octet 1",
+        "ar": "IP Address Octet 1"
+      }
     },
     {
       "id": "ip2",
       "label": "IP Address Octet 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 168,
-      "businessContext": "Second octet of the IP address (0-255)"
+      "businessContext": "Second octet of the IP address (0-255)",
+      "label_i18n": {
+        "en": "IP Address Octet 2",
+        "tr": "IP Address Octet 2",
+        "de": "IP Address Octet 2",
+        "fr": "IP Address Octet 2",
+        "es": "IP Address Octet 2",
+        "ar": "IP Address Octet 2"
+      }
     },
     {
       "id": "ip3",
       "label": "IP Address Octet 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Third octet of the IP address (0-255)"
+      "businessContext": "Third octet of the IP address (0-255)",
+      "label_i18n": {
+        "en": "IP Address Octet 3",
+        "tr": "IP Address Octet 3",
+        "de": "IP Address Octet 3",
+        "fr": "IP Address Octet 3",
+        "es": "IP Address Octet 3",
+        "ar": "IP Address Octet 3"
+      }
     },
     {
       "id": "ip4",
       "label": "IP Address Octet 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Fourth octet of the IP address (0-255)"
+      "businessContext": "Fourth octet of the IP address (0-255)",
+      "label_i18n": {
+        "en": "IP Address Octet 4",
+        "tr": "IP Address Octet 4",
+        "de": "IP Address Octet 4",
+        "fr": "IP Address Octet 4",
+        "es": "IP Address Octet 4",
+        "ar": "IP Address Octet 4"
+      }
     },
     {
       "id": "cidr",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "bits",
       "default": 24,
-      "businessContext": "Subnet mask length in CIDR notation (0-32)"
+      "businessContext": "Subnet mask length in CIDR notation (0-32)",
+      "label_i18n": {
+        "en": "CIDR Prefix Length",
+        "tr": "CIDR Prefix Length",
+        "de": "CIDR Prefix Length",
+        "fr": "CIDR Prefix Length",
+        "es": "CIDR Prefix Length",
+        "ar": "CIDR Prefix Length"
+      }
     }
   ],
   "formulas": {
@@ -57,8 +97,8 @@
       "hostCount"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

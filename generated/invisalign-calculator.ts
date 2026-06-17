@@ -25,13 +25,18 @@ function evaluateAllFormulas(input: Invisalign_calculatorInput): Record<string, 
   try { const v = input.sellingPricePerAligner * input.numberOfAligners; results["totalRevenue"] = Number.isFinite(v) ? v : 0; } catch { results["totalRevenue"] = 0; }
   try { const v = (results["totalRevenue"] ?? 0) - (results["totalCost"] ?? 0); results["profit"] = Number.isFinite(v) ? v : 0; } catch { results["profit"] = 0; }
   try { const v = ((results["profit"] ?? 0) / (results["totalRevenue"] ?? 0)) * 100; results["marginPercentage"] = Number.isFinite(v) ? v : 0; } catch { results["marginPercentage"] = 0; }
+  try { const v = $$(results["totalCost"] ?? 0); results["___totalCost_"] = Number.isFinite(v) ? v : 0; } catch { results["___totalCost_"] = 0; }
+  try { const v = $$(results["totalRevenue"] ?? 0); results["___totalRevenue_"] = Number.isFinite(v) ? v : 0; } catch { results["___totalRevenue_"] = 0; }
+  try { const v = $$(results["profit"] ?? 0); results["___profit_"] = Number.isFinite(v) ? v : 0; } catch { results["___profit_"] = 0; }
+  results["__marginPercentage__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateInvisalign_calculator(input: Invisalign_calculatorInput): Invisalign_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Net"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "rods",
       "default": 1,
-      "businessContext": "The quantity to convert from rods to feet."
+      "businessContext": "The quantity to convert from rods to feet.",
+      "label_i18n": {
+        "en": "Number of Rods",
+        "tr": "Number of Rods",
+        "de": "Number of Rods",
+        "fr": "Number of Rods",
+        "es": "Number of Rods",
+        "ar": "Number of Rods"
+      }
     },
     {
       "id": "feetPerRod",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "ft/rod",
       "default": 16.5,
-      "businessContext": "Conversion factor. Standard US survey rod is 16.5 feet. Adjust if using a different definition."
+      "businessContext": "Conversion factor. Standard US survey rod is 16.5 feet. Adjust if using a different definition.",
+      "label_i18n": {
+        "en": "Feet per Rod",
+        "tr": "Feet per Rod",
+        "de": "Feet per Rod",
+        "fr": "Feet per Rod",
+        "es": "Feet per Rod",
+        "ar": "Feet per Rod"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output."
+      "businessContext": "Number of decimal places for the output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "safetyFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Additional percentage to add for safety margin in engineering calculations."
+      "businessContext": "Additional percentage to add for safety margin in engineering calculations.",
+      "label_i18n": {
+        "en": "Safety Factor (%)",
+        "tr": "Safety Factor (%)",
+        "de": "Safety Factor (%)",
+        "fr": "Safety Factor (%)",
+        "es": "Safety Factor (%)",
+        "ar": "Safety Factor (%)"
+      }
     },
     {
       "id": "tolerance",
@@ -39,13 +71,25 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Tolerance band for the converted length."
+      "businessContext": "Tolerance band for the converted length.",
+      "label_i18n": {
+        "en": "Tolerance (± ft)",
+        "tr": "Tolerance (± ft)",
+        "de": "Tolerance (± ft)",
+        "fr": "Tolerance (± ft)",
+        "es": "Tolerance (± ft)",
+        "ar": "Tolerance (± ft)"
+      }
     }
   ],
   "formulas": {
     "baseFeet": "rods * feetPerRod",
     "safetyFeet": "baseFeet * (1 + safetyFactor / 100)",
-    "totalFeet": "Math.round(safetyFeet * 10 ** decimalPlaces) / 10 ** decimalPlaces"
+    "totalFeet": "Math.round(safetyFeet * 10 ** decimalPlaces) / 10 ** decimalPlaces",
+    "_rods__rods____feetPerRod__ft_rod____bas": "{rods} rods × {feetPerRod} ft/rod = {baseFeet} ft",
+    "_safetyFeet__ft": "{safetyFeet} ft",
+    "_totalFeet__ft": "{totalFeet} ft",
+    "__tolerance__ft": "±{tolerance} ft"
   },
   "outputs": {
     "primary": "totalFeet",
@@ -56,10 +100,10 @@
       "Tolerance: ±{tolerance} ft"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "İnşaat & Saha",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

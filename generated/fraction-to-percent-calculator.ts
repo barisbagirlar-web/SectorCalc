@@ -24,6 +24,9 @@ function evaluateAllFormulas(input: Fraction_to_percent_calculatorInput): Record
   try { const v = Math.pow(10, input.decimalPlaces); results["factor"] = Number.isFinite(v) ? v : 0; } catch { results["factor"] = 0; }
   try { const v = (results["rawPercent"] ?? 0) * (results["factor"] ?? 0); results["scaled"] = Number.isFinite(v) ? v : 0; } catch { results["scaled"] = 0; }
   try { const v = input.roundingMode === 0 ? Math.round((results["scaled"] ?? 0)) / (results["factor"] ?? 0) : input.roundingMode === 1 ? Math.floor((results["scaled"] ?? 0)) / (results["factor"] ?? 0) : input.roundingMode === 2 ? Math.ceil((results["scaled"] ?? 0)) / (results["factor"] ?? 0) : Math.trunc((results["scaled"] ?? 0)) / (results["factor"] ?? 0); results["primaryPercent"] = Number.isFinite(v) ? v : 0; } catch { results["primaryPercent"] = 0; }
+  results["Fraction_to_decimal_conversion"] = 0;
+  results["Raw_percentage__before_rounding_"] = 0;
+  results["Final_percentage__rounded_"] = 0;
   return results;
 }
 

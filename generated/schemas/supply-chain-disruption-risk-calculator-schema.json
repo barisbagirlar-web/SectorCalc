@@ -160,7 +160,7 @@
       "id": "use_advanced_hedging",
       "label": "Enable Advanced Hedging Strategies",
       "type": "boolean",
-      "unit": null,
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -233,144 +233,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "supplier_risk_factor",
-      "description": "Normalized supplier risk based on reliability and single source dependency.",
-      "expression": "((100 - supplier_reliability_score) / 100) * (single_source_dependency / 100)",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "inventory_risk_factor",
-      "description": "Risk from insufficient inventory buffer relative to lead time variability.",
-      "expression": "max(0, (lead_time_variability * 100) / (inventory_buffer_days + 1))",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "external_risk_factor",
-      "description": "Combined external risks from geopolitical, transportation, and cyber sources.",
-      "expression": "(geopolitical_risk_index / 100) * 0.4 + transportation_disruption_probability * 0.35 + (cyber_risk_score / 100) * 0.25",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "demand_quality_risk_factor",
-      "description": "Risk from demand volatility and quality defects (scaled to ppm).",
-      "expression": "demand_volatility * 0.5 + (quality_defect_rate / 100000) * 0.5",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "hedging_adjustment",
-      "description": "Reduction in risk if advanced hedging is enabled (applies only if condition met).",
-      "expression": "use_advanced_hedging ? 0.85 : 1.0",
-      "unit": "multiplier"
-    },
-    {
-      "id": "raw_disruption_risk",
-      "description": "Unadjusted composite disruption risk score (0-100).",
-      "expression": "(supplier_risk_factor * 30 + inventory_risk_factor * 20 + external_risk_factor * 25 + demand_quality_risk_factor * 25) * hedging_adjustment",
-      "unit": "score"
-    },
-    {
-      "id": "primary_result",
-      "description": "Final disruption risk score clamped between 0 and 100.",
-      "expression": "min(100, max(0, raw_disruption_risk))",
-      "unit": "score"
-    }
+    "supplier_reliability_score",
+    "supplier_reliability_score",
+    "supplier_reliability_score",
+    "supplier_reliability_score",
+    "supplier_reliability_score",
+    "supplier_reliability_score",
+    "supplier_reliability_score"
   ],
   "outputs": {
-    "primary": {
-      "id": "disruption_risk_score",
-      "label": "Supply Chain Disruption Risk Score",
-      "description": "Overall risk score from 0 (low) to 100 (critical).",
-      "unit": "score",
-      "sourceFormula": "primary_result"
-    },
-    "breakdown": {
-      "supplierRiskComponent": {
-        "label": "Supplier Risk Component",
-        "value": "supplier_risk_factor * 30",
-        "unit": "score"
-      },
-      "inventoryRiskComponent": {
-        "label": "Inventory Risk Component",
-        "value": "inventory_risk_factor * 20",
-        "unit": "score"
-      },
-      "externalRiskComponent": {
-        "label": "External Risk Component",
-        "value": "external_risk_factor * 25",
-        "unit": "score"
-      },
-      "demandQualityRiskComponent": {
-        "label": "Demand & Quality Risk Component",
-        "value": "demand_quality_risk_factor * 25",
-        "unit": "score"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_due_to_single_source",
-        "label": "Single Source Dependency Loss",
-        "description": "Estimated financial loss (in $) due to lack of alternative suppliers.",
-        "value": "single_source_dependency * 10000",
-        "unit": "USD"
-      },
-      {
-        "id": "loss_due_to_quality_defects",
-        "label": "Quality Defect Loss",
-        "description": "Estimated cost of rework, scrap, and warranty from defects.",
-        "value": "quality_defect_rate * 50",
-        "unit": "USD"
-      },
-      {
-        "id": "loss_due_to_transport_disruption",
-        "label": "Transportation Disruption Loss",
-        "description": "Expected loss from transportation interruptions per quarter.",
-        "value": "transportation_disruption_probability * 500000",
-        "unit": "USD"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_diversify_suppliers",
-        "condition": "single_source_dependency > 50",
-        "action": "Implement supplier diversification program to reduce single source dependency below 30%.",
-        "priority": "high"
-      },
-      {
-        "id": "action_increase_buffer",
-        "condition": "inventory_buffer_days < 15",
-        "action": "Increase inventory buffer to at least 30 days to absorb lead time variability.",
-        "priority": "high"
-      },
-      {
-        "id": "action_improve_quality",
-        "condition": "quality_defect_rate > 1000",
-        "action": "Initiate Six Sigma DMAIC project to reduce defect rate below 500 ppm.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_cyber_audit",
-        "condition": "cyber_risk_score > 30",
-        "action": "Conduct comprehensive cybersecurity audit and implement NIST framework controls.",
-        "priority": "medium"
-      },
-      {
-        "id": "action_hedging",
-        "condition": "use_advanced_hedging == false && (single_source_dependency > 20 || geopolitical_risk_index > 10)",
-        "action": "Enable advanced hedging strategies to mitigate currency and commodity risks.",
-        "priority": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_adjusted_score",
-      "label": "Confidence-Adjusted Risk Score",
-      "description": "Risk score adjusted for data quality and completeness (0-100).",
-      "value": "primary_result * (1 - 0.1 * (1 - min(1, (supplier_reliability_score + inventory_buffer_days + lead_time_variability + single_source_dependency + geopolitical_risk_index + demand_volatility + transportation_disruption_probability + quality_defect_rate + cyber_risk_score) / 900)))",
-      "unit": "score"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "supply-chain-disruption-risk-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

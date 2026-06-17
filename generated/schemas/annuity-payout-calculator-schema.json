@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "The present value or lump sum used to purchase the annuity."
+      "businessContext": "The present value or lump sum used to purchase the annuity.",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "annualRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual nominal interest rate."
+      "businessContext": "Annual nominal interest rate.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "years",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Total number of years over which payments are made."
+      "businessContext": "Total number of years over which payments are made.",
+      "label_i18n": {
+        "en": "Number of Years",
+        "tr": "Number of Years",
+        "de": "Number of Years",
+        "fr": "Number of Years",
+        "es": "Number of Years",
+        "ar": "Number of Years"
+      }
     },
     {
       "id": "paymentsPerYear",
       "label": "Payments Per Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12,
-      "businessContext": "Frequency of payments: 12 for monthly, 4 for quarterly, 1 for annually."
+      "businessContext": "Frequency of payments: 12 for monthly, 4 for quarterly, 1 for annually.",
+      "label_i18n": {
+        "en": "Payments Per Year",
+        "tr": "Payments Per Year",
+        "de": "Payments Per Year",
+        "fr": "Payments Per Year",
+        "es": "Payments Per Year",
+        "ar": "Payments Per Year"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,7 @@
       "totalInterest"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Proje & Yatırım",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

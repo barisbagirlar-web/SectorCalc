@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Total area of the lawn to be fertilized"
+      "businessContext": "Total area of the lawn to be fertilized",
+      "label_i18n": {
+        "en": "Lawn Area",
+        "tr": "Lawn Area",
+        "de": "Lawn Area",
+        "fr": "Lawn Area",
+        "es": "Lawn Area",
+        "ar": "Lawn Area"
+      }
     },
     {
       "id": "nitrogenPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of nitrogen by weight in the fertilizer product (N-P-K first number)"
+      "businessContext": "Percentage of nitrogen by weight in the fertilizer product (N-P-K first number)",
+      "label_i18n": {
+        "en": "Nitrogen Content (N%)",
+        "tr": "Nitrogen Content (N%)",
+        "de": "Nitrogen Content (N%)",
+        "fr": "Nitrogen Content (N%)",
+        "es": "Nitrogen Content (N%)",
+        "ar": "Nitrogen Content (N%)"
+      }
     },
     {
       "id": "nitrogenRatePerSqM",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "g/m²",
       "default": 25,
-      "businessContext": "Target application rate of pure nitrogen per square meter per application"
+      "businessContext": "Target application rate of pure nitrogen per square meter per application",
+      "label_i18n": {
+        "en": "Desired Nitrogen Rate",
+        "tr": "Desired Nitrogen Rate",
+        "de": "Desired Nitrogen Rate",
+        "fr": "Desired Nitrogen Rate",
+        "es": "Desired Nitrogen Rate",
+        "ar": "Desired Nitrogen Rate"
+      }
     },
     {
       "id": "applicationsPerYear",
       "label": "Applications per Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of fertilizer applications planned per year"
+      "businessContext": "Number of fertilizer applications planned per year",
+      "label_i18n": {
+        "en": "Applications per Year",
+        "tr": "Applications per Year",
+        "de": "Applications per Year",
+        "fr": "Applications per Year",
+        "es": "Applications per Year",
+        "ar": "Applications per Year"
+      }
     },
     {
       "id": "bagWeight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Weight of a single fertilizer bag"
+      "businessContext": "Weight of a single fertilizer bag",
+      "label_i18n": {
+        "en": "Bag Weight",
+        "tr": "Bag Weight",
+        "de": "Bag Weight",
+        "fr": "Bag Weight",
+        "es": "Bag Weight",
+        "ar": "Bag Weight"
+      }
     },
     {
       "id": "bagCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Purchase cost of one fertilizer bag (optional, set to 0 for no cost calculation)"
+      "businessContext": "Purchase cost of one fertilizer bag (optional, set to 0 for no cost calculation)",
+      "label_i18n": {
+        "en": "Cost per Bag",
+        "tr": "Cost per Bag",
+        "de": "Cost per Bag",
+        "fr": "Cost per Bag",
+        "es": "Cost per Bag",
+        "ar": "Cost per Bag"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "totalCost"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Gıda & Tarım",
+  "sector": "Perakende & Gıda",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "food-cold-chain-hygiene"
 }

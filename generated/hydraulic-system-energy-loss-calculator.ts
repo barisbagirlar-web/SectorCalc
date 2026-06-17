@@ -27,31 +27,19 @@ export const Hydraulic_system_energy_loss_calculatorInputSchema = z.object({
   is_new_system: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Hydraulic_system_energy_loss_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  results["flow_velocity"] = 0;
-  try { const v = (v * D) / ν; results["reynolds_number"] = Number.isFinite(v) ? v : 0; } catch { results["reynolds_number"] = 0; }
-  results["darcy_friction_factor"] = 0;
-  results["pipe_friction_loss"] = 0;
-  results["minor_losses"] = 0;
-  try { const v = ΔP_pipe + ΔP_minor; results["total_pressure_loss"] = Number.isFinite(v) ? v : 0; } catch { results["total_pressure_loss"] = 0; }
-  try { const v = ΔP_total * Q; results["primary_energy_loss"] = Number.isFinite(v) ? v : 0; } catch { results["primary_energy_loss"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Hydraulic_system_energy_loss_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateHydraulic_system_energy_loss_calculator(input: Hydraulic_system_energy_loss_calculatorInput): Hydraulic_system_energy_loss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_energy_loss"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    pipe_friction_loss_watts: values["pipe_friction_loss_watts"] ?? 0,
-    minor_losses_watts: values["minor_losses_watts"] ?? 0,
-    flow_velocity: values["flow_velocity"] ?? 0,
-    reynolds_number: values["reynolds_number"] ?? 0,
-    darcy_friction_factor: values["darcy_friction_factor"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["High Friction Factor","Laminar Flow Regime","Excessive Valve Loss"];
-  const suggestedActions: string[] = ["Increase Pipe Diameter","Reduce Valve Count or Use Low-Loss Valves","Optimize Fluid Viscosity","Clean or Replace Pipes"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -70,7 +58,7 @@ export function calculateHydraulic_system_energy_loss_calculator(input: Hydrauli
 
 export interface Hydraulic_system_energy_loss_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { pipe_friction_loss_watts: number; minor_losses_watts: number; flow_velocity: number; reynolds_number: number; darcy_friction_factor: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

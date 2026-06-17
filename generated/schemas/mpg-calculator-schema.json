@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mi",
       "default": 100,
-      "businessContext": "Total distance driven in miles between fill-ups or over a period."
+      "businessContext": "Total distance driven in miles between fill-ups or over a period.",
+      "label_i18n": {
+        "en": "Distance Traveled",
+        "tr": "Distance Traveled",
+        "de": "Distance Traveled",
+        "fr": "Distance Traveled",
+        "es": "Distance Traveled",
+        "ar": "Distance Traveled"
+      }
     },
     {
       "id": "fuelUsed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "gal",
       "default": 5,
-      "businessContext": "Total fuel consumed in gallons over the same distance."
+      "businessContext": "Total fuel consumed in gallons over the same distance.",
+      "label_i18n": {
+        "en": "Fuel Used",
+        "tr": "Fuel Used",
+        "de": "Fuel Used",
+        "fr": "Fuel Used",
+        "es": "Fuel Used",
+        "ar": "Fuel Used"
+      }
     },
     {
       "id": "fuelCostPerGallon",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "USD/gal",
       "default": 3.5,
-      "businessContext": "Current price of fuel per gallon for cost calculations."
+      "businessContext": "Current price of fuel per gallon for cost calculations.",
+      "label_i18n": {
+        "en": "Fuel Cost per Gallon",
+        "tr": "Fuel Cost per Gallon",
+        "de": "Fuel Cost per Gallon",
+        "fr": "Fuel Cost per Gallon",
+        "es": "Fuel Cost per Gallon",
+        "ar": "Fuel Cost per Gallon"
+      }
     },
     {
       "id": "numberOfTrips",
       "label": "Number of Trips",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of trips or fill-ups this calculation averages over."
+      "businessContext": "Number of trips or fill-ups this calculation averages over.",
+      "label_i18n": {
+        "en": "Number of Trips",
+        "tr": "Number of Trips",
+        "de": "Number of Trips",
+        "fr": "Number of Trips",
+        "es": "Number of Trips",
+        "ar": "Number of Trips"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "costPerMile"
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "maintenance-reliability"
 }

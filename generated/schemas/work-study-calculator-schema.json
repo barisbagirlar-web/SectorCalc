@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "minute",
       "default": 1,
-      "businessContext": "Average observed time per cycle from time study"
+      "businessContext": "Average observed time per cycle from time study",
+      "label_i18n": {
+        "en": "Observed Time (OT)",
+        "tr": "Observed Time (OT)",
+        "de": "Observed Time (OT)",
+        "fr": "Observed Time (OT)",
+        "es": "Observed Time (OT)",
+        "ar": "Observed Time (OT)"
+      }
     },
     {
       "id": "ratingFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Performance rating to adjust pace (100% = normal)"
+      "businessContext": "Performance rating to adjust pace (100% = normal)",
+      "label_i18n": {
+        "en": "Rating Factor",
+        "tr": "Rating Factor",
+        "de": "Rating Factor",
+        "fr": "Rating Factor",
+        "es": "Rating Factor",
+        "ar": "Rating Factor"
+      }
     },
     {
       "id": "allowanceFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Allowance for personal, fatigue, delays (percentage of normal time)"
+      "businessContext": "Allowance for personal, fatigue, delays (percentage of normal time)",
+      "label_i18n": {
+        "en": "Allowance Factor",
+        "tr": "Allowance Factor",
+        "de": "Allowance Factor",
+        "fr": "Allowance Factor",
+        "es": "Allowance Factor",
+        "ar": "Allowance Factor"
+      }
     },
     {
       "id": "cycleCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cycles",
       "default": 5,
-      "businessContext": "Number of cycles timed to compute average; used for standard deviation"
+      "businessContext": "Number of cycles timed to compute average; used for standard deviation",
+      "label_i18n": {
+        "en": "Number of Cycles Observed",
+        "tr": "Number of Cycles Observed",
+        "de": "Number of Cycles Observed",
+        "fr": "Number of Cycles Observed",
+        "es": "Number of Cycles Observed",
+        "ar": "Number of Cycles Observed"
+      }
     },
     {
       "id": "standardDeviation",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "minute",
       "default": 0.1,
-      "businessContext": "Standard deviation of the observed cycle times (minutes)"
+      "businessContext": "Standard deviation of the observed cycle times (minutes)",
+      "label_i18n": {
+        "en": "Standard Deviation of Observed Times",
+        "tr": "Standard Deviation of Observed Times",
+        "de": "Standard Deviation of Observed Times",
+        "fr": "Standard Deviation of Observed Times",
+        "es": "Standard Deviation of Observed Times",
+        "ar": "Standard Deviation of Observed Times"
+      }
     },
     {
       "id": "precision",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Desired precision (accuracy) as percentage (e.g., 5 for ±5%)"
+      "businessContext": "Desired precision (accuracy) as percentage (e.g., 5 for ±5%)",
+      "label_i18n": {
+        "en": "Precision",
+        "tr": "Precision",
+        "de": "Precision",
+        "fr": "Precision",
+        "es": "Precision",
+        "ar": "Precision"
+      }
     },
     {
       "id": "zScore",
       "label": "Z-score for Confidence Level",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.96,
-      "businessContext": "Standard normal deviate for desired confidence (e.g., 1.96 for 95%)"
+      "businessContext": "Standard normal deviate for desired confidence (e.g., 1.96 for 95%)",
+      "label_i18n": {
+        "en": "Z-score for Confidence Level",
+        "tr": "Z-score for Confidence Level",
+        "de": "Z-score for Confidence Level",
+        "fr": "Z-score for Confidence Level",
+        "es": "Z-score for Confidence Level",
+        "ar": "Z-score for Confidence Level"
+      }
     }
   ],
   "formulas": {
@@ -73,10 +129,10 @@
       "actualPrecision"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

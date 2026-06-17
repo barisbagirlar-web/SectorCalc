@@ -63,7 +63,7 @@
       "id": "distribution_type",
       "label": "Distribution Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "binomial",
       "min": null,
       "max": null,
@@ -105,7 +105,7 @@
       "id": "use_historical_bias",
       "label": "Apply Historical Bias Correction",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -155,156 +155,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "defect_rate",
-      "label": "Defect Rate (p)",
-      "description": "Observed proportion of defects in the sample.",
-      "formula": "defect_count / sample_size",
-      "unit": "ratio",
-      "order": 1
-    },
-    {
-      "id": "standard_error",
-      "label": "Standard Error of p",
-      "description": "Standard error of the defect proportion.",
-      "formula": "sqrt( (defect_rate * (1 - defect_rate)) / sample_size )",
-      "unit": "ratio",
-      "order": 2
-    },
-    {
-      "id": "z_score",
-      "label": "Z-Score for Confidence Level",
-      "description": "Z-value corresponding to the selected confidence level.",
-      "formula": "if(confidence_level == '90', 1.645, if(confidence_level == '95', 1.96, 2.576))",
-      "unit": "dimensionless",
-      "order": 3
-    },
-    {
-      "id": "confidence_interval",
-      "label": "Confidence Interval (Lower, Upper)",
-      "description": "Two-sided confidence interval for the true defect rate.",
-      "formula": "defect_rate ± z_score * standard_error",
-      "unit": "ratio",
-      "order": 4
-    },
-    {
-      "id": "dpm",
-      "label": "Defects Per Million (DPM)",
-      "description": "Scaled defect rate to parts per million.",
-      "formula": "defect_rate * 1000000",
-      "unit": "ppm",
-      "order": 5
-    },
-    {
-      "id": "sigma_level",
-      "label": "Process Sigma Level (Long-Term)",
-      "description": "Long-term sigma level including shift.",
-      "formula": "normsinv(1 - defect_rate) + sigma_shift",
-      "unit": "sigma",
-      "order": 6
-    },
-    {
-      "id": "cpk",
-      "label": "Process Capability Index (Cpk)",
-      "description": "Capability index assuming defect rate corresponds to tail area beyond specification limits.",
-      "formula": "min( (sigma_level - sigma_shift) / 3, (sigma_level + sigma_shift) / 3 )",
-      "unit": "dimensionless",
-      "order": 7
-    }
+    "defect_count",
+    "defect_count",
+    "defect_count",
+    "defect_count",
+    "defect_count",
+    "defect_count",
+    "defect_count"
   ],
   "outputs": {
-    "primary": {
-      "id": "failure_probability",
-      "label": "Failure Probability (Long-Term)",
-      "description": "Estimated probability of a defect occurring in the long-term process.",
-      "value": null,
-      "unit": "ratio"
-    },
-    "breakdown": {
-      "defect_rate": {
-        "label": "Defect Rate (p)",
-        "value": null,
-        "unit": "ratio"
-      },
-      "standard_error": {
-        "label": "Standard Error",
-        "value": null,
-        "unit": "ratio"
-      },
-      "confidence_interval_lower": {
-        "label": "CI Lower Bound",
-        "value": null,
-        "unit": "ratio"
-      },
-      "confidence_interval_upper": {
-        "label": "CI Upper Bound",
-        "value": null,
-        "unit": "ratio"
-      },
-      "dpm": {
-        "label": "Defects Per Million",
-        "value": null,
-        "unit": "ppm"
-      },
-      "sigma_level": {
-        "label": "Sigma Level (Long-Term)",
-        "value": null,
-        "unit": "sigma"
-      },
-      "cpk": {
-        "label": "Cpk",
-        "value": null,
-        "unit": "dimensionless"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "sampling_error",
-        "label": "Sampling Error Contribution",
-        "description": "Portion of uncertainty due to sample size limitations.",
-        "value": null,
-        "unit": "ratio"
-      },
-      {
-        "id": "distribution_mismatch",
-        "label": "Distribution Mismatch Risk",
-        "description": "Risk that the assumed distribution does not fit the data.",
-        "value": null,
-        "unit": "dimensionless"
-      },
-      {
-        "id": "historical_bias_effect",
-        "label": "Historical Bias Effect",
-        "description": "Adjustment factor if historical bias correction is applied.",
-        "value": null,
-        "unit": "ratio"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_sample",
-        "condition": "standard_error > 0.05",
-        "action": "Increase sample size to reduce standard error below 0.05."
-      },
-      {
-        "id": "reduce_defects",
-        "condition": "defect_rate > 0.05",
-        "action": "Initiate root cause analysis and implement corrective actions to lower defect rate."
-      },
-      {
-        "id": "capability_improvement",
-        "condition": "cpk < 1.33",
-        "action": "Apply DMAIC methodology to improve process capability to Cpk >= 1.33."
-      },
-      {
-        "id": "distribution_review",
-        "condition": "distribution_type != 'binomial' AND sample_size < 30",
-        "action": "Re-evaluate distribution assumption; consider non-parametric methods for small samples."
-      }
-    ],
-    "dataConfidenceAdjusted": null
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "probability-calculator"
 }

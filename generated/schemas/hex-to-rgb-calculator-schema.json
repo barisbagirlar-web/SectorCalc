@@ -5,49 +5,97 @@
       "id": "rHigh",
       "label": "Red High (0-15)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "High nibble of red component (0-F in hex)"
+      "businessContext": "High nibble of red component (0-F in hex)",
+      "label_i18n": {
+        "en": "Red High (0-15)",
+        "tr": "Red High (0-15)",
+        "de": "Red High (0-15)",
+        "fr": "Red High (0-15)",
+        "es": "Red High (0-15)",
+        "ar": "Red High (0-15)"
+      }
     },
     {
       "id": "rLow",
       "label": "Red Low (0-15)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Low nibble of red component (0-F in hex)"
+      "businessContext": "Low nibble of red component (0-F in hex)",
+      "label_i18n": {
+        "en": "Red Low (0-15)",
+        "tr": "Red Low (0-15)",
+        "de": "Red Low (0-15)",
+        "fr": "Red Low (0-15)",
+        "es": "Red Low (0-15)",
+        "ar": "Red Low (0-15)"
+      }
     },
     {
       "id": "gHigh",
       "label": "Green High (0-15)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "High nibble of green component (0-F in hex)"
+      "businessContext": "High nibble of green component (0-F in hex)",
+      "label_i18n": {
+        "en": "Green High (0-15)",
+        "tr": "Green High (0-15)",
+        "de": "Green High (0-15)",
+        "fr": "Green High (0-15)",
+        "es": "Green High (0-15)",
+        "ar": "Green High (0-15)"
+      }
     },
     {
       "id": "gLow",
       "label": "Green Low (0-15)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Low nibble of green component (0-F in hex)"
+      "businessContext": "Low nibble of green component (0-F in hex)",
+      "label_i18n": {
+        "en": "Green Low (0-15)",
+        "tr": "Green Low (0-15)",
+        "de": "Green Low (0-15)",
+        "fr": "Green Low (0-15)",
+        "es": "Green Low (0-15)",
+        "ar": "Green Low (0-15)"
+      }
     },
     {
       "id": "bHigh",
       "label": "Blue High (0-15)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "High nibble of blue component (0-F in hex)"
+      "businessContext": "High nibble of blue component (0-F in hex)",
+      "label_i18n": {
+        "en": "Blue High (0-15)",
+        "tr": "Blue High (0-15)",
+        "de": "Blue High (0-15)",
+        "fr": "Blue High (0-15)",
+        "es": "Blue High (0-15)",
+        "ar": "Blue High (0-15)"
+      }
     },
     {
       "id": "bLow",
       "label": "Blue Low (0-15)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Low nibble of blue component (0-F in hex)"
+      "businessContext": "Low nibble of blue component (0-F in hex)",
+      "label_i18n": {
+        "en": "Blue Low (0-15)",
+        "tr": "Blue Low (0-15)",
+        "de": "Blue Low (0-15)",
+        "fr": "Blue Low (0-15)",
+        "es": "Blue Low (0-15)",
+        "ar": "Blue Low (0-15)"
+      }
     }
   ],
   "formulas": {
@@ -57,11 +105,7 @@
     "rgbString": "'rgb(' + red + ', ' + green + ', ' + blue + ')'"
   },
   "outputs": {
-    "primary": {
-      "formula": "rgbString",
-      "label": "RGB Color",
-      "unit": ""
-    },
+    "primary": "red",
     "breakdown": [
       {
         "formula": "red",
@@ -80,10 +124,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg"
 }

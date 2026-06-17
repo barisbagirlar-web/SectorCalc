@@ -5,70 +5,136 @@
       "id": "bit7",
       "label": "Bit 7 (MSB)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary digit value (0 or 1)"
+      "businessContext": "Binary digit value (0 or 1)",
+      "label_i18n": {
+        "en": "Bit 7 (MSB)",
+        "tr": "Bit 7 (MSB)",
+        "de": "Bit 7 (MSB)",
+        "fr": "Bit 7 (MSB)",
+        "es": "Bit 7 (MSB)",
+        "ar": "Bit 7 (MSB)"
+      }
     },
     {
       "id": "bit6",
       "label": "Bit 6",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary digit value (0 or 1)"
+      "businessContext": "Binary digit value (0 or 1)",
+      "label_i18n": {
+        "en": "Bit 6",
+        "tr": "Bit 6",
+        "de": "Bit 6",
+        "fr": "Bit 6",
+        "es": "Bit 6",
+        "ar": "Bit 6"
+      }
     },
     {
       "id": "bit5",
       "label": "Bit 5",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary digit value (0 or 1)"
+      "businessContext": "Binary digit value (0 or 1)",
+      "label_i18n": {
+        "en": "Bit 5",
+        "tr": "Bit 5",
+        "de": "Bit 5",
+        "fr": "Bit 5",
+        "es": "Bit 5",
+        "ar": "Bit 5"
+      }
     },
     {
       "id": "bit4",
       "label": "Bit 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary digit value (0 or 1)"
+      "businessContext": "Binary digit value (0 or 1)",
+      "label_i18n": {
+        "en": "Bit 4",
+        "tr": "Bit 4",
+        "de": "Bit 4",
+        "fr": "Bit 4",
+        "es": "Bit 4",
+        "ar": "Bit 4"
+      }
     },
     {
       "id": "bit3",
       "label": "Bit 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary digit value (0 or 1)"
+      "businessContext": "Binary digit value (0 or 1)",
+      "label_i18n": {
+        "en": "Bit 3",
+        "tr": "Bit 3",
+        "de": "Bit 3",
+        "fr": "Bit 3",
+        "es": "Bit 3",
+        "ar": "Bit 3"
+      }
     },
     {
       "id": "bit2",
       "label": "Bit 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary digit value (0 or 1)"
+      "businessContext": "Binary digit value (0 or 1)",
+      "label_i18n": {
+        "en": "Bit 2",
+        "tr": "Bit 2",
+        "de": "Bit 2",
+        "fr": "Bit 2",
+        "es": "Bit 2",
+        "ar": "Bit 2"
+      }
     },
     {
       "id": "bit1",
       "label": "Bit 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary digit value (0 or 1)"
+      "businessContext": "Binary digit value (0 or 1)",
+      "label_i18n": {
+        "en": "Bit 1",
+        "tr": "Bit 1",
+        "de": "Bit 1",
+        "fr": "Bit 1",
+        "es": "Bit 1",
+        "ar": "Bit 1"
+      }
     },
     {
       "id": "bit0",
       "label": "Bit 0 (LSB)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Binary digit value (0 or 1)"
+      "businessContext": "Binary digit value (0 or 1)",
+      "label_i18n": {
+        "en": "Bit 0 (LSB)",
+        "tr": "Bit 0 (LSB)",
+        "de": "Bit 0 (LSB)",
+        "fr": "Bit 0 (LSB)",
+        "es": "Bit 0 (LSB)",
+        "ar": "Bit 0 (LSB)"
+      }
     }
   ],
   "formulas": {
     "decimal": "bit7 * Math.pow(2, 7) + bit6 * Math.pow(2, 6) + bit5 * Math.pow(2, 5) + bit4 * Math.pow(2, 4) + bit3 * Math.pow(2, 3) + bit2 * Math.pow(2, 2) + bit1 * Math.pow(2, 1) + bit0 * Math.pow(2, 0)",
-    "binaryString": "'' + bit7 + bit6 + bit5 + bit4 + bit3 + bit2 + bit1 + bit0"
+    "binaryString": "'' + bit7 + bit6 + bit5 + bit4 + bit3 + bit2 + bit1 + bit0",
+    "____binaryString": "' + binaryString",
+    "____decimal": "' + decimal"
   },
   "outputs": {
     "primary": "decimal",
@@ -77,10 +143,10 @@
       "'Decimal Output: ' + decimal"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

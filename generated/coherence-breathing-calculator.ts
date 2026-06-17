@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Coherence_breathing_calculatorInput): Record
 
 export function calculateCoherence_breathing_calculator(input: Coherence_breathing_calculatorInput): Coherence_breathing_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["coherenceScore"] ?? 0;
+  const totalWasteCost = values["breathCycle"] ?? 0;
   const breakdown = {
     
   };

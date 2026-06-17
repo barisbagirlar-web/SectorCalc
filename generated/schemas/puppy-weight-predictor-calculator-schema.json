@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "The puppy's current weight in kilograms."
+      "businessContext": "The puppy's current weight in kilograms.",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "currentAgeWeeks",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 12,
-      "businessContext": "The puppy's current age in weeks."
+      "businessContext": "The puppy's current age in weeks.",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "breedMaturityAgeMonths",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Typical age in months when this breed reaches adult size (e.g., small: 9-12, medium: 12-15, large: 18-24)."
+      "businessContext": "Typical age in months when this breed reaches adult size (e.g., small: 9-12, medium: 12-15, large: 18-24).",
+      "label_i18n": {
+        "en": "Breed Maturity Age",
+        "tr": "Breed Maturity Age",
+        "de": "Breed Maturity Age",
+        "fr": "Breed Maturity Age",
+        "es": "Breed Maturity Age",
+        "ar": "Breed Maturity Age"
+      }
     },
     {
       "id": "adjustmentFactor",
       "label": "Adjustment Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier to adjust for individual variation (e.g., 0.9 for smaller, 1.1 for larger)."
+      "businessContext": "Multiplier to adjust for individual variation (e.g., 0.9 for smaller, 1.1 for larger).",
+      "label_i18n": {
+        "en": "Adjustment Factor",
+        "tr": "Adjustment Factor",
+        "de": "Adjustment Factor",
+        "fr": "Adjustment Factor",
+        "es": "Adjustment Factor",
+        "ar": "Adjustment Factor"
+      }
     }
   ],
   "formulas": {
@@ -39,7 +71,8 @@
     "estimatedAdultWeight": "round((currentWeight / currentAgeMonths) * breedMaturityAgeMonths * adjustmentFactor, 2)",
     "monthlyGrowthRate": "round(estimatedAdultWeight / breedMaturityAgeMonths, 2)",
     "weightRangeLow": "round(estimatedAdultWeight * 0.9, 2)",
-    "weightRangeHigh": "round(estimatedAdultWeight * 1.1, 2)"
+    "weightRangeHigh": "round(estimatedAdultWeight * 1.1, 2)",
+    "weightRangeLow___________weightRangeHigh": "weightRangeLow + ' - ' + weightRangeHigh + ' kg'"
   },
   "outputs": {
     "primary": "estimatedAdultWeight",
@@ -48,10 +81,10 @@
       "weightRangeLow + ' - ' + weightRangeHigh + ' kg'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "psi",
       "default": 100,
-      "businessContext": "Indicated mean effective pressure inside the cylinder during the power stroke."
+      "businessContext": "Indicated mean effective pressure inside the cylinder during the power stroke.",
+      "label_i18n": {
+        "en": "Mean Effective Pressure (IMEP)",
+        "tr": "Mean Effective Pressure (IMEP)",
+        "de": "Mean Effective Pressure (IMEP)",
+        "fr": "Mean Effective Pressure (IMEP)",
+        "es": "Mean Effective Pressure (IMEP)",
+        "ar": "Mean Effective Pressure (IMEP)"
+      }
     },
     {
       "id": "bore",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "in",
       "default": 4,
-      "businessContext": "Internal diameter of the engine cylinder."
+      "businessContext": "Internal diameter of the engine cylinder.",
+      "label_i18n": {
+        "en": "Cylinder Bore Diameter",
+        "tr": "Cylinder Bore Diameter",
+        "de": "Cylinder Bore Diameter",
+        "fr": "Cylinder Bore Diameter",
+        "es": "Cylinder Bore Diameter",
+        "ar": "Cylinder Bore Diameter"
+      }
     },
     {
       "id": "stroke",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 4,
-      "businessContext": "Distance the piston travels from top dead center to bottom dead center."
+      "businessContext": "Distance the piston travels from top dead center to bottom dead center.",
+      "label_i18n": {
+        "en": "Stroke Length",
+        "tr": "Stroke Length",
+        "de": "Stroke Length",
+        "fr": "Stroke Length",
+        "es": "Stroke Length",
+        "ar": "Stroke Length"
+      }
     },
     {
       "id": "speed",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "rpm",
       "default": 3000,
-      "businessContext": "Crankshaft rotational speed in revolutions per minute."
+      "businessContext": "Crankshaft rotational speed in revolutions per minute.",
+      "label_i18n": {
+        "en": "Engine Speed",
+        "tr": "Engine Speed",
+        "de": "Engine Speed",
+        "fr": "Engine Speed",
+        "es": "Engine Speed",
+        "ar": "Engine Speed"
+      }
     },
     {
       "id": "cylinders",
       "label": "Number of Cylinders",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Total number of cylinders in the engine."
+      "businessContext": "Total number of cylinders in the engine.",
+      "label_i18n": {
+        "en": "Number of Cylinders",
+        "tr": "Number of Cylinders",
+        "de": "Number of Cylinders",
+        "fr": "Number of Cylinders",
+        "es": "Number of Cylinders",
+        "ar": "Number of Cylinders"
+      }
     },
     {
       "id": "cycles",
       "label": "Strokes per Cycle",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of strokes to complete a cycle: 2 for two-stroke, 4 for four-stroke engine."
+      "businessContext": "Number of strokes to complete a cycle: 2 for two-stroke, 4 for four-stroke engine.",
+      "label_i18n": {
+        "en": "Strokes per Cycle",
+        "tr": "Strokes per Cycle",
+        "de": "Strokes per Cycle",
+        "fr": "Strokes per Cycle",
+        "es": "Strokes per Cycle",
+        "ar": "Strokes per Cycle"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "powerStrokesPerMinute"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ng",
       "default": 0,
-      "businessContext": "Per-item mass in nanograms (1 ng = 1e-9 g)"
+      "businessContext": "Per-item mass in nanograms (1 ng = 1e-9 g)",
+      "label_i18n": {
+        "en": "Nanograms",
+        "tr": "Nanograms",
+        "de": "Nanograms",
+        "fr": "Nanograms",
+        "es": "Nanograms",
+        "ar": "Nanograms"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "ng/µg",
       "default": 1000,
-      "businessContext": "Number of nanograms in one microgram (standard: 1000)"
+      "businessContext": "Number of nanograms in one microgram (standard: 1000)",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for the final result"
+      "businessContext": "Number of decimal places for the final result",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "batchSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "items",
       "default": 1,
-      "businessContext": "Number of items in the batch (total mass = per-item mass × batch size)"
+      "businessContext": "Number of items in the batch (total mass = per-item mass × batch size)",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "rawMicrograms"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

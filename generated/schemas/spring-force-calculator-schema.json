@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N/mm",
       "default": 0,
-      "businessContext": "Doğrudan yay sabiti değeri. Sıfır bırakılırsa geometriden hesaplanır."
+      "businessContext": "Doğrudan yay sabiti değeri. Sıfır bırakılırsa geometriden hesaplanır.",
+      "label_i18n": {
+        "en": "Yay Sabiti (k)",
+        "tr": "Yay Sabiti (k)",
+        "de": "Yay Sabiti (k)",
+        "fr": "Yay Sabiti (k)",
+        "es": "Yay Sabiti (k)",
+        "ar": "Yay Sabiti (k)"
+      }
     },
     {
       "id": "displacement",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Yayın sıkıştırma veya uzama miktarı."
+      "businessContext": "Yayın sıkıştırma veya uzama miktarı.",
+      "label_i18n": {
+        "en": "Sıkıştırma Miktarı (x)",
+        "tr": "Sıkıştırma Miktarı (x)",
+        "de": "Sıkıştırma Miktarı (x)",
+        "fr": "Sıkıştırma Miktarı (x)",
+        "es": "Sıkıştırma Miktarı (x)",
+        "ar": "Sıkıştırma Miktarı (x)"
+      }
     },
     {
       "id": "wireDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "Yay telinin çapı."
+      "businessContext": "Yay telinin çapı.",
+      "label_i18n": {
+        "en": "Tel Çapı (d)",
+        "tr": "Tel Çapı (d)",
+        "de": "Tel Çapı (d)",
+        "fr": "Tel Çapı (d)",
+        "es": "Tel Çapı (d)",
+        "ar": "Tel Çapı (d)"
+      }
     },
     {
       "id": "coilDiameter",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Yayın ortalama bobin çapı."
+      "businessContext": "Yayın ortalama bobin çapı.",
+      "label_i18n": {
+        "en": "Bobin Çapı (D)",
+        "tr": "Bobin Çapı (D)",
+        "de": "Bobin Çapı (D)",
+        "fr": "Bobin Çapı (D)",
+        "es": "Bobin Çapı (D)",
+        "ar": "Bobin Çapı (D)"
+      }
     },
     {
       "id": "activeCoils",
       "label": "Aktif Sarım Sayısı (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Yaydaki aktif sarım sayısı."
+      "businessContext": "Yaydaki aktif sarım sayısı.",
+      "label_i18n": {
+        "en": "Aktif Sarım Sayısı (n)",
+        "tr": "Aktif Sarım Sayısı (n)",
+        "de": "Aktif Sarım Sayısı (n)",
+        "fr": "Aktif Sarım Sayısı (n)",
+        "es": "Aktif Sarım Sayısı (n)",
+        "ar": "Aktif Sarım Sayısı (n)"
+      }
     },
     {
       "id": "shearModulus",
@@ -47,12 +87,21 @@
       "type": "number",
       "unit": "MPa",
       "default": 80000,
-      "businessContext": "Malzemenin kayma modülü. Çelik için yaklaşık 80 GPa."
+      "businessContext": "Malzemenin kayma modülü. Çelik için yaklaşık 80 GPa.",
+      "label_i18n": {
+        "en": "Kayma Modülü (G)",
+        "tr": "Kayma Modülü (G)",
+        "de": "Kayma Modülü (G)",
+        "fr": "Kayma Modülü (G)",
+        "es": "Kayma Modülü (G)",
+        "ar": "Kayma Modülü (G)"
+      }
     }
   ],
   "formulas": {
     "force": "(springConstant > 0 ? springConstant : (shearModulus * Math.pow(wireDiameter, 4)) / (8 * Math.pow(coilDiameter, 3) * activeCoils)) * displacement",
-    "effectiveSpringConstant": "springConstant > 0 ? springConstant : (shearModulus * Math.pow(wireDiameter, 4)) / (8 * Math.pow(coilDiameter, 3) * activeCoils)"
+    "effectiveSpringConstant": "springConstant > 0 ? springConstant : (shearModulus * Math.pow(wireDiameter, 4)) / (8 * Math.pow(coilDiameter, 3) * activeCoils)",
+    "displacement": "displacement"
   },
   "outputs": {
     "primary": "force",
@@ -61,10 +110,10 @@
       "displacement"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "cnc-additive-manufacturing"
 }

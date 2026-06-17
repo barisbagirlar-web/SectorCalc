@@ -25,13 +25,17 @@ function evaluateAllFormulas(input: Compressor_calculatorInput): Record<string, 
   try { const v = (((input.inletPressure * 100000) * (input.flowRate / 60) * (input.adiabaticIndex / (input.adiabaticIndex - 1)) * (Math.pow(input.outletPressure / input.inletPressure, (input.adiabaticIndex - 1) / input.adiabaticIndex) - 1)) / 1000) / (input.compressorEfficiency / 100); results["shaftPower"] = Number.isFinite(v) ? v : 0; } catch { results["shaftPower"] = 0; }
   try { const v = ((((input.inletPressure * 100000) * (input.flowRate / 60) * (input.adiabaticIndex / (input.adiabaticIndex - 1)) * (Math.pow(input.outletPressure / input.inletPressure, (input.adiabaticIndex - 1) / input.adiabaticIndex) - 1)) / 1000) / (input.compressorEfficiency / 100)) / (input.motorEfficiency / 100); results["motorInputPower"] = Number.isFinite(v) ? v : 0; } catch { results["motorInputPower"] = 0; }
   try { const v = input.outletPressure / input.inletPressure; results["pressureRatio"] = Number.isFinite(v) ? v : 0; } catch { results["pressureRatio"] = 0; }
+  results["Adiabatic_Power__kW_"] = 0;
+  results["Shaft_Power__kW_"] = 0;
+  results["Pressure_Ratio"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateCompressor_calculator(input: Compressor_calculatorInput): Compressor_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Motor"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -27,13 +27,16 @@ function evaluateAllFormulas(input: Aquarium_volume_calculatorInput): Record<str
   try { const v = (results["interiorLength"] ?? 0) * (results["interiorWidth"] ?? 0) * (results["effectiveWaterDepth"] ?? 0); results["volume_cm3"] = Number.isFinite(v) ? v : 0; } catch { results["volume_cm3"] = 0; }
   try { const v = (results["volume_cm3"] ?? 0) / 1000; results["waterVolume_L"] = Number.isFinite(v) ? v : 0; } catch { results["waterVolume_L"] = 0; }
   try { const v = (results["waterVolume_L"] ?? 0) * 0.264172; results["waterVolume_gal"] = Number.isFinite(v) ? v : 0; } catch { results["waterVolume_gal"] = 0; }
+  results["____volume_cm3_toFixed_0______cm___"] = 0;
+  try { const v = (results["waterVolume_gal"] ?? 0).toFixed(2) + ' US gallons'; results["waterVolume_gal_toFixed_2______US_gallon"] = Number.isFinite(v) ? v : 0; } catch { results["waterVolume_gal_toFixed_2______US_gallon"] = 0; }
+  try { const v = (results["waterVolume_L"] ?? 0).toFixed(2) + ' L'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateAquarium_volume_calculator(input: Aquarium_volume_calculatorInput): Aquarium_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["waterVolume_L"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

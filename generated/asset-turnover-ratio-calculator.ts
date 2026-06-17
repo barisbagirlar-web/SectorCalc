@@ -19,6 +19,7 @@ function evaluateAllFormulas(input: Asset_turnover_ratio_calculatorInput): Recor
   const results: Record<string, number> = {};
   try { const v = (input.totalAssetsBeginning + input.totalAssetsEnding) / 2; results["averageTotalAssets"] = Number.isFinite(v) ? v : 0; } catch { results["averageTotalAssets"] = 0; }
   try { const v = input.netSales / ((input.totalAssetsBeginning + input.totalAssetsEnding) / 2); results["assetTurnoverRatio"] = Number.isFinite(v) ? v : 0; } catch { results["assetTurnoverRatio"] = 0; }
+  try { const v = input.netSales; results["netSales"] = Number.isFinite(v) ? v : 0; } catch { results["netSales"] = 0; }
   return results;
 }
 

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ns",
       "default": 0,
-      "businessContext": "Input time value in nanoseconds, e.g., from an oscilloscope measurement or timing circuit."
+      "businessContext": "Input time value in nanoseconds, e.g., from an oscilloscope measurement or timing circuit.",
+      "label_i18n": {
+        "en": "Nanoseconds (ns)",
+        "tr": "Nanoseconds (ns)",
+        "de": "Nanoseconds (ns)",
+        "fr": "Nanoseconds (ns)",
+        "es": "Nanoseconds (ns)",
+        "ar": "Nanoseconds (ns)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "ps/ns",
       "default": 1000,
-      "businessContext": "Number of picoseconds per nanosecond. Standard is 1000 ps/ns."
+      "businessContext": "Number of picoseconds per nanosecond. Standard is 1000 ps/ns.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of decimal places for the formatted output. Set according to measurement precision."
+      "businessContext": "Number of decimal places for the formatted output. Set according to measurement precision.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "scale",
       "label": "Scale Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for the converted value, e.g., for array measurements or normalization."
+      "businessContext": "Multiplier for the converted value, e.g., for array measurements or normalization.",
+      "label_i18n": {
+        "en": "Scale Factor",
+        "tr": "Scale Factor",
+        "de": "Scale Factor",
+        "fr": "Scale Factor",
+        "es": "Scale Factor",
+        "ar": "Scale Factor"
+      }
     },
     {
       "id": "offset",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "ps",
       "default": 0,
-      "businessContext": "Additive offset applied after conversion and scaling. Useful for calibration adjustments."
+      "businessContext": "Additive offset applied after conversion and scaling. Useful for calibration adjustments.",
+      "label_i18n": {
+        "en": "Offset (ps)",
+        "tr": "Offset (ps)",
+        "de": "Offset (ps)",
+        "fr": "Offset (ps)",
+        "es": "Offset (ps)",
+        "ar": "Offset (ps)"
+      }
     },
     {
       "id": "scientificNotation",
       "label": "Scientific Notation (0/1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Toggle scientific notation for the formatted output: 0 = off (fixed), 1 = on."
+      "businessContext": "Toggle scientific notation for the formatted output: 0 = off (fixed), 1 = on.",
+      "label_i18n": {
+        "en": "Scientific Notation (0/1)",
+        "tr": "Scientific Notation (0/1)",
+        "de": "Scientific Notation (0/1)",
+        "fr": "Scientific Notation (0/1)",
+        "es": "Scientific Notation (0/1)",
+        "ar": "Scientific Notation (0/1)"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +112,10 @@
       "formattedResult"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

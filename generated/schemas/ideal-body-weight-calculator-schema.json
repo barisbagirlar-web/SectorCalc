@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 5,
-      "businessContext": "User's height in feet, whole number part"
+      "businessContext": "User's height in feet, whole number part",
+      "label_i18n": {
+        "en": "Height (feet)",
+        "tr": "Height (feet)",
+        "de": "Height (feet)",
+        "fr": "Height (feet)",
+        "es": "Height (feet)",
+        "ar": "Height (feet)"
+      }
     },
     {
       "id": "heightInches",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Additional inches beyond feet"
+      "businessContext": "Additional inches beyond feet",
+      "label_i18n": {
+        "en": "Height (inches)",
+        "tr": "Height (inches)",
+        "de": "Height (inches)",
+        "fr": "Height (inches)",
+        "es": "Height (inches)",
+        "ar": "Height (inches)"
+      }
     },
     {
       "id": "genderCode",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for male, 2 for female"
+      "businessContext": "1 for male, 2 for female",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "frameFactor",
       "label": "Frame Adjustment",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Body frame multiplier: 0.9 for small, 1.0 for medium, 1.1 for large"
+      "businessContext": "Body frame multiplier: 0.9 for small, 1.0 for medium, 1.1 for large",
+      "label_i18n": {
+        "en": "Frame Adjustment",
+        "tr": "Frame Adjustment",
+        "de": "Frame Adjustment",
+        "fr": "Frame Adjustment",
+        "es": "Frame Adjustment",
+        "ar": "Frame Adjustment"
+      }
     }
   ],
   "formulas": {
@@ -49,10 +81,10 @@
       "heightCm"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

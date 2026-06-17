@@ -20,6 +20,9 @@ function evaluateAllFormulas(input: Typography_converter_pt_to_pxInput): Record<
   try { const v = input.pointSize * input.ppi / 72; results["pxFromPt"] = Number.isFinite(v) ? v : 0; } catch { results["pxFromPt"] = 0; }
   try { const v = (results["pxFromPt"] ?? 0) * input.scaleFactor; results["scaledPx"] = Number.isFinite(v) ? v : 0; } catch { results["scaledPx"] = 0; }
   try { const v = (results["scaledPx"] ?? 0) / input.baseFontSize; results["remValue"] = Number.isFinite(v) ? v : 0; } catch { results["remValue"] = 0; }
+  try { const v = input.pointSize * input.ppi / 72; results["pxFromPt___pointSize___ppi___72"] = Number.isFinite(v) ? v : 0; } catch { results["pxFromPt___pointSize___ppi___72"] = 0; }
+  try { const v = (results["pxFromPt"] ?? 0) * input.scaleFactor; results["scaledPx___pxFromPt___scaleFactor"] = Number.isFinite(v) ? v : 0; } catch { results["scaledPx___pxFromPt___scaleFactor"] = 0; }
+  try { const v = (results["scaledPx"] ?? 0) / input.baseFontSize; results["remValue___scaledPx___baseFontSize"] = Number.isFinite(v) ? v : 0; } catch { results["remValue___scaledPx___baseFontSize"] = 0; }
   return results;
 }
 

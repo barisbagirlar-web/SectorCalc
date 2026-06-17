@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "The inner diameter of the ring in millimeters."
+      "businessContext": "The inner diameter of the ring in millimeters.",
+      "label_i18n": {
+        "en": "Inside Diameter (mm)",
+        "tr": "Inside Diameter (mm)",
+        "de": "Inside Diameter (mm)",
+        "fr": "Inside Diameter (mm)",
+        "es": "Inside Diameter (mm)",
+        "ar": "Inside Diameter (mm)"
+      }
     },
     {
       "id": "circumference_mm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "The inner circumference of the ring in millimeters."
+      "businessContext": "The inner circumference of the ring in millimeters.",
+      "label_i18n": {
+        "en": "Inside Circumference (mm)",
+        "tr": "Inside Circumference (mm)",
+        "de": "Inside Circumference (mm)",
+        "fr": "Inside Circumference (mm)",
+        "es": "Inside Circumference (mm)",
+        "ar": "Inside Circumference (mm)"
+      }
     },
     {
       "id": "diameter_inches",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "inches",
       "default": 0,
-      "businessContext": "The inner diameter of the ring in inches."
+      "businessContext": "The inner diameter of the ring in inches.",
+      "label_i18n": {
+        "en": "Inside Diameter (inches)",
+        "tr": "Inside Diameter (inches)",
+        "de": "Inside Diameter (inches)",
+        "fr": "Inside Diameter (inches)",
+        "es": "Inside Diameter (inches)",
+        "ar": "Inside Diameter (inches)"
+      }
     },
     {
       "id": "circumference_inches",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "inches",
       "default": 0,
-      "businessContext": "The inner circumference of the ring in inches."
+      "businessContext": "The inner circumference of the ring in inches.",
+      "label_i18n": {
+        "en": "Inside Circumference (inches)",
+        "tr": "Inside Circumference (inches)",
+        "de": "Inside Circumference (inches)",
+        "fr": "Inside Circumference (inches)",
+        "es": "Inside Circumference (inches)",
+        "ar": "Inside Circumference (inches)"
+      }
     },
     {
       "id": "calibration_factor",
       "label": "Calibration Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "A multiplier to adjust the calculated size (e.g., for different temperature or manufacturing tolerance)."
+      "businessContext": "A multiplier to adjust the calculated size (e.g., for different temperature or manufacturing tolerance).",
+      "label_i18n": {
+        "en": "Calibration Factor",
+        "tr": "Calibration Factor",
+        "de": "Calibration Factor",
+        "fr": "Calibration Factor",
+        "es": "Calibration Factor",
+        "ar": "Calibration Factor"
+      }
     }
   ],
   "formulas": {
@@ -57,10 +97,10 @@
       "diameter_inches_used"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Atölye & Tamir",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

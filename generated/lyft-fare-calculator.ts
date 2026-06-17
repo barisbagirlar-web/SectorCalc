@@ -27,6 +27,9 @@ function evaluateAllFormulas(input: Lyft_fare_calculatorInput): Record<string, n
   try { const v = input.time * input.costPerMinute; results["timeCharge"] = Number.isFinite(v) ? v : 0; } catch { results["timeCharge"] = 0; }
   try { const v = (input.baseFare + (results["distanceCharge"] ?? 0) + (results["timeCharge"] ?? 0)) * input.surge; results["subtotal"] = Number.isFinite(v) ? v : 0; } catch { results["subtotal"] = 0; }
   try { const v = (results["subtotal"] ?? 0) + input.bookingFee; results["totalFare"] = Number.isFinite(v) ? v : 0; } catch { results["totalFare"] = 0; }
+  try { const v = input.baseFare; results["baseFare"] = Number.isFinite(v) ? v : 0; } catch { results["baseFare"] = 0; }
+  try { const v = input.bookingFee; results["bookingFee"] = Number.isFinite(v) ? v : 0; } catch { results["bookingFee"] = 0; }
+  try { const v = input.surge; results["surge"] = Number.isFinite(v) ? v : 0; } catch { results["surge"] = 0; }
   return results;
 }
 

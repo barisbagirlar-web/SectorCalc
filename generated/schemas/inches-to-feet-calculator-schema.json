@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Enter the first measurement in inches."
+      "businessContext": "Enter the first measurement in inches.",
+      "label_i18n": {
+        "en": "Measurement 1 (inches)",
+        "tr": "Measurement 1 (inches)",
+        "de": "Measurement 1 (inches)",
+        "fr": "Measurement 1 (inches)",
+        "es": "Measurement 1 (inches)",
+        "ar": "Measurement 1 (inches)"
+      }
     },
     {
       "id": "inch2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Enter the second measurement (optional)."
+      "businessContext": "Enter the second measurement (optional).",
+      "label_i18n": {
+        "en": "Measurement 2 (inches)",
+        "tr": "Measurement 2 (inches)",
+        "de": "Measurement 2 (inches)",
+        "fr": "Measurement 2 (inches)",
+        "es": "Measurement 2 (inches)",
+        "ar": "Measurement 2 (inches)"
+      }
     },
     {
       "id": "inch3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Enter the third measurement (optional)."
+      "businessContext": "Enter the third measurement (optional).",
+      "label_i18n": {
+        "en": "Measurement 3 (inches)",
+        "tr": "Measurement 3 (inches)",
+        "de": "Measurement 3 (inches)",
+        "fr": "Measurement 3 (inches)",
+        "es": "Measurement 3 (inches)",
+        "ar": "Measurement 3 (inches)"
+      }
     },
     {
       "id": "inch4",
@@ -31,28 +55,44 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Enter the fourth measurement (optional)."
+      "businessContext": "Enter the fourth measurement (optional).",
+      "label_i18n": {
+        "en": "Measurement 4 (inches)",
+        "tr": "Measurement 4 (inches)",
+        "de": "Measurement 4 (inches)",
+        "fr": "Measurement 4 (inches)",
+        "es": "Measurement 4 (inches)",
+        "ar": "Measurement 4 (inches)"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output."
+      "businessContext": "Number of decimal places for the output.",
+      "label_i18n": {
+        "en": "Decimal places",
+        "tr": "Decimal places",
+        "de": "Decimal places",
+        "fr": "Decimal places",
+        "es": "Decimal places",
+        "ar": "Decimal places"
+      }
     }
   ],
   "formulas": {
     "primary": "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
-    "breakdown": [
-      "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
-      "Math.round((inch2 / 12) * 10 ** precision) / 10 ** precision",
-      "Math.round((inch3 / 12) * 10 ** precision) / 10 ** precision",
-      "Math.round((inch4 / 12) * 10 ** precision) / 10 ** precision"
-    ]
+    "breakdown": "inch1",
+    "Math_round__inch1___12____10____precisio": "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
+    "Math_round__inch2___12____10____precisio": "Math.round((inch2 / 12) * 10 ** precision) / 10 ** precision",
+    "Math_round__inch3___12____10____precisio": "Math.round((inch3 / 12) * 10 ** precision) / 10 ** precision",
+    "Math_round__inch4___12____10____precisio": "Math.round((inch4 / 12) * 10 ** precision) / 10 ** precision",
+    "result": "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision"
   },
   "outputs": {
-    "primary": "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
+    "primary": "result",
     "breakdown": [
       "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
       "Math.round((inch2 / 12) * 10 ** precision) / 10 ** precision",
@@ -60,10 +100,10 @@
       "Math.round((inch4 / 12) * 10 ** precision) / 10 ** precision"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

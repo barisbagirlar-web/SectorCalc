@@ -18,6 +18,10 @@ export const Cubits_to_meters_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Cubits_to_meters_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.cubits * input.conversionFactor; results["rawMeters"] = Number.isFinite(v) ? v : 0; } catch { results["rawMeters"] = 0; }
+  try { const v = input.cubits; results["cubits"] = Number.isFinite(v) ? v : 0; } catch { results["cubits"] = 0; }
+  try { const v = input.conversionFactor; results["conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
+  try { const v = input.decimalPlaces; results["decimalPlaces"] = Number.isFinite(v) ? v : 0; } catch { results["decimalPlaces"] = 0; }
+  try { const v = input.roundingMethod; results["roundingMethod"] = Number.isFinite(v) ? v : 0; } catch { results["roundingMethod"] = 0; }
   return results;
 }
 

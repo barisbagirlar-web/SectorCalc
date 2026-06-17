@@ -175,7 +175,7 @@
       "id": "region",
       "label": "Region",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "US",
       "min": null,
       "max": null,
@@ -197,7 +197,7 @@
       "id": "include_insurance",
       "label": "Include Insurance Cost",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -247,147 +247,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "net_scaffold_area",
-      "label": "Net Scaffold Area",
-      "description": "Area adjusted for waste factor.",
-      "formula": "total_scaffold_area_sqm * (1 + waste_factor / 100)",
-      "unit": "sqm"
-    },
-    {
-      "id": "rental_cost",
-      "label": "Rental Cost",
-      "description": "Total rental cost for the project duration.",
-      "formula": "net_scaffold_area * rental_rate_per_sqm_per_day * project_duration_days",
-      "unit": "currency"
-    },
-    {
-      "id": "transport_cost",
-      "label": "Transport Cost",
-      "description": "Total cost for all transport trips.",
-      "formula": "transport_cost_per_trip * number_of_trips",
-      "unit": "currency"
-    },
-    {
-      "id": "labor_cost",
-      "label": "Labor Cost",
-      "description": "Total labor cost for erection and dismantle.",
-      "formula": "total_scaffold_area_sqm * (erection_hours_per_sqm + dismantle_hours_per_sqm) * labor_cost_per_hour",
-      "unit": "currency"
-    },
-    {
-      "id": "insurance_cost",
-      "label": "Insurance Cost",
-      "description": "Insurance cost if included (estimated as 2% of rental cost).",
-      "formula": "include_insurance ? rental_cost * 0.02 : 0",
-      "unit": "currency"
-    },
-    {
-      "id": "total_cost",
-      "label": "Total Cost",
-      "description": "Sum of all direct costs.",
-      "formula": "rental_cost + transport_cost + labor_cost + insurance_cost",
-      "unit": "currency"
-    },
-    {
-      "id": "cost_per_sqm",
-      "label": "Cost per sqm",
-      "description": "Total cost normalized per square meter.",
-      "formula": "total_cost / total_scaffold_area_sqm",
-      "unit": "currency/sqm"
-    }
+    "project_duration_days",
+    "project_duration_days",
+    "project_duration_days",
+    "project_duration_days",
+    "project_duration_days",
+    "project_duration_days",
+    "project_duration_days"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_cost",
-      "label": "Total Scaffolding Rental Cost",
-      "value": null,
-      "unit": "currency",
-      "description": "Optimized total cost considering utilization and waste."
-    },
-    "breakdown": {
-      "rental_cost": {
-        "label": "Rental Cost",
-        "value": null,
-        "unit": "currency"
-      },
-      "transport_cost": {
-        "label": "Transport Cost",
-        "value": null,
-        "unit": "currency"
-      },
-      "labor_cost": {
-        "label": "Labor Cost",
-        "value": null,
-        "unit": "currency"
-      },
-      "insurance_cost": {
-        "label": "Insurance Cost",
-        "value": null,
-        "unit": "currency"
-      },
-      "cost_per_sqm": {
-        "label": "Cost per sqm",
-        "value": null,
-        "unit": "currency/sqm"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "idle_time_loss",
-        "label": "Idle Time Loss",
-        "description": "Cost of unused scaffolding due to low utilization.",
-        "formula": "rental_cost * (1 - utilization_rate / 100)",
-        "unit": "currency"
-      },
-      {
-        "id": "waste_loss",
-        "label": "Waste Loss",
-        "description": "Cost of material waste.",
-        "formula": "rental_cost * (waste_factor / 100)",
-        "unit": "currency"
-      },
-      {
-        "id": "inefficiency_loss",
-        "label": "Inefficiency Loss",
-        "description": "Additional labor cost if erection hours exceed benchmark (0.25 hrs/sqm).",
-        "formula": "total_scaffold_area_sqm * max(0, erection_hours_per_sqm - 0.25) * labor_cost_per_hour",
-        "unit": "currency"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_utilization",
-        "action": "Increase utilization rate to above 80% by consolidating work schedules.",
-        "expected_savings": "Up to 20% of rental cost"
-      },
-      {
-        "id": "reduce_waste",
-        "action": "Implement 5S methodology to reduce waste factor below 5%.",
-        "expected_savings": "Up to 10% of rental cost"
-      },
-      {
-        "id": "optimize_transport",
-        "action": "Combine deliveries to reduce number of trips by 25%.",
-        "expected_savings": "Up to 25% of transport cost"
-      },
-      {
-        "id": "prefabrication",
-        "action": "Consider prefabricated scaffolding modules to reduce labor hours.",
-        "expected_savings": "Up to 15% of labor cost"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Score",
-      "value": null,
-      "unit": "%",
-      "description": "Adjusted confidence based on input variability and completeness (ISO 9001:2015 data quality).",
-      "calculation": "min(100, 100 - (waste_factor * 2) - (5 * (1 - utilization_rate/100)) - (10 * (erection_hours_per_sqm > 0.4 ? 1 : 0)))"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "scaffolding-rental-optimizer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat"
 }

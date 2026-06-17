@@ -5,33 +5,65 @@
       "id": "a",
       "label": "a (quadratic coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of x². Must be non-zero for a quadratic equation."
+      "businessContext": "Coefficient of x². Must be non-zero for a quadratic equation.",
+      "label_i18n": {
+        "en": "a (quadratic coefficient)",
+        "tr": "a (quadratic coefficient)",
+        "de": "a (quadratic coefficient)",
+        "fr": "a (quadratic coefficient)",
+        "es": "a (quadratic coefficient)",
+        "ar": "a (quadratic coefficient)"
+      }
     },
     {
       "id": "b",
       "label": "b (linear coefficient)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of x."
+      "businessContext": "Coefficient of x.",
+      "label_i18n": {
+        "en": "b (linear coefficient)",
+        "tr": "b (linear coefficient)",
+        "de": "b (linear coefficient)",
+        "fr": "b (linear coefficient)",
+        "es": "b (linear coefficient)",
+        "ar": "b (linear coefficient)"
+      }
     },
     {
       "id": "c",
       "label": "c (constant)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term."
+      "businessContext": "Constant term.",
+      "label_i18n": {
+        "en": "c (constant)",
+        "tr": "c (constant)",
+        "de": "c (constant)",
+        "fr": "c (constant)",
+        "es": "c (constant)",
+        "ar": "c (constant)"
+      }
     },
     {
       "id": "x",
       "label": "x (evaluation point)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Point at which to evaluate the polynomial."
+      "businessContext": "Point at which to evaluate the polynomial.",
+      "label_i18n": {
+        "en": "x (evaluation point)",
+        "tr": "x (evaluation point)",
+        "de": "x (evaluation point)",
+        "fr": "x (evaluation point)",
+        "es": "x (evaluation point)",
+        "ar": "x (evaluation point)"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "evaluated"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

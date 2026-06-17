@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Çalışanın ortalama aylık kazancı"
+      "businessContext": "Çalışanın ortalama aylık kazancı",
+      "label_i18n": {
+        "en": "Ortalama Aylık Kazanç",
+        "tr": "Ortalama Aylık Kazanç",
+        "de": "Ortalama Aylık Kazanç",
+        "fr": "Ortalama Aylık Kazanç",
+        "es": "Ortalama Aylık Kazanç",
+        "ar": "Ortalama Aylık Kazanç"
+      }
     },
     {
       "id": "yearsOfCoverage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 0,
-      "businessContext": "Çalışanın toplam sigortalılık süresi"
+      "businessContext": "Çalışanın toplam sigortalılık süresi",
+      "label_i18n": {
+        "en": "Sigortalılık Süresi (Yıl)",
+        "tr": "Sigortalılık Süresi (Yıl)",
+        "de": "Sigortalılık Süresi (Yıl)",
+        "fr": "Sigortalılık Süresi (Yıl)",
+        "es": "Sigortalılık Süresi (Yıl)",
+        "ar": "Sigortalılık Süresi (Yıl)"
+      }
     },
     {
       "id": "survivorAge",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yaş",
       "default": 0,
-      "businessContext": "Hak sahibinin yaşı (eş veya çocuk)"
+      "businessContext": "Hak sahibinin yaşı (eş veya çocuk)",
+      "label_i18n": {
+        "en": "Hak Sahibi Yaşı",
+        "tr": "Hak Sahibi Yaşı",
+        "de": "Hak Sahibi Yaşı",
+        "fr": "Hak Sahibi Yaşı",
+        "es": "Hak Sahibi Yaşı",
+        "ar": "Hak Sahibi Yaşı"
+      }
     },
     {
       "id": "numberOfChildren",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Ölen sigortalının hak sahibi çocuk sayısı"
+      "businessContext": "Ölen sigortalının hak sahibi çocuk sayısı",
+      "label_i18n": {
+        "en": "Hak Sahibi Çocuk Sayısı",
+        "tr": "Hak Sahibi Çocuk Sayısı",
+        "de": "Hak Sahibi Çocuk Sayısı",
+        "fr": "Hak Sahibi Çocuk Sayısı",
+        "es": "Hak Sahibi Çocuk Sayısı",
+        "ar": "Hak Sahibi Çocuk Sayısı"
+      }
     },
     {
       "id": "isSpouse",
       "label": "Eş Hak Sahibi mi?",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Hak sahibinin eş olup olmadığı (1: Evet, 0: Hayır)"
+      "businessContext": "Hak sahibinin eş olup olmadığı (1: Evet, 0: Hayır)",
+      "label_i18n": {
+        "en": "Eş Hak Sahibi mi?",
+        "tr": "Eş Hak Sahibi mi?",
+        "de": "Eş Hak Sahibi mi?",
+        "fr": "Eş Hak Sahibi mi?",
+        "es": "Eş Hak Sahibi mi?",
+        "ar": "Eş Hak Sahibi mi?"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "spouseExtra"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

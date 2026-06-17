@@ -5,9 +5,17 @@
       "id": "childGender",
       "label": "Child Gender (0=Boy, 1=Girl)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Select 0 for a boy, 1 for a girl. Used to apply correct formula (+13 cm for boys, -13 cm for girls)."
+      "businessContext": "Select 0 for a boy, 1 for a girl. Used to apply correct formula (+13 cm for boys, -13 cm for girls).",
+      "label_i18n": {
+        "en": "Child Gender (0=Boy, 1=Girl)",
+        "tr": "Child Gender (0=Boy, 1=Girl)",
+        "de": "Child Gender (0=Boy, 1=Girl)",
+        "fr": "Child Gender (0=Boy, 1=Girl)",
+        "es": "Child Gender (0=Boy, 1=Girl)",
+        "ar": "Child Gender (0=Boy, 1=Girl)"
+      }
     },
     {
       "id": "fatherHeightCm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 175,
-      "businessContext": "Biological father's adult height in centimeters."
+      "businessContext": "Biological father's adult height in centimeters.",
+      "label_i18n": {
+        "en": "Father's Height (cm)",
+        "tr": "Father's Height (cm)",
+        "de": "Father's Height (cm)",
+        "fr": "Father's Height (cm)",
+        "es": "Father's Height (cm)",
+        "ar": "Father's Height (cm)"
+      }
     },
     {
       "id": "motherHeightCm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 165,
-      "businessContext": "Biological mother's adult height in centimeters."
+      "businessContext": "Biological mother's adult height in centimeters.",
+      "label_i18n": {
+        "en": "Mother's Height (cm)",
+        "tr": "Mother's Height (cm)",
+        "de": "Mother's Height (cm)",
+        "fr": "Mother's Height (cm)",
+        "es": "Mother's Height (cm)",
+        "ar": "Mother's Height (cm)"
+      }
     },
     {
       "id": "childHeightCm",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 120,
-      "businessContext": "Optional: current measured height of the child. Not used in prediction formula."
+      "businessContext": "Optional: current measured height of the child. Not used in prediction formula.",
+      "label_i18n": {
+        "en": "Child's Current Height (cm)",
+        "tr": "Child's Current Height (cm)",
+        "de": "Child's Current Height (cm)",
+        "fr": "Child's Current Height (cm)",
+        "es": "Child's Current Height (cm)",
+        "ar": "Child's Current Height (cm)"
+      }
     },
     {
       "id": "childAgeYrs",
@@ -39,11 +71,21 @@
       "type": "number",
       "unit": "years",
       "default": 8,
-      "businessContext": "Optional: exact age of the child in years. Not used in prediction formula."
+      "businessContext": "Optional: exact age of the child in years. Not used in prediction formula.",
+      "label_i18n": {
+        "en": "Child's Age (years)",
+        "tr": "Child's Age (years)",
+        "de": "Child's Age (years)",
+        "fr": "Child's Age (years)",
+        "es": "Child's Age (years)",
+        "ar": "Child's Age (years)"
+      }
     }
   ],
   "formulas": {
-    "predictedHeight": "childGender === 0 ? (fatherHeightCm + motherHeightCm + 13) / 2 : (fatherHeightCm - 13 + motherHeightCm) / 2"
+    "predictedHeight": "childGender === 0 ? (fatherHeightCm + motherHeightCm + 13) / 2 : (fatherHeightCm - 13 + motherHeightCm) / 2",
+    "For_boys___fatherHeight___motherHeight__": "For boys: (fatherHeight + motherHeight + 13)/2; for girls: (fatherHeight - 13 + motherHeight)/2. This gives an estimate of adult height potential based on parental heights.",
+    "The_child_s_current_height_and_age_are_n": "The child's current height and age are not part of this formula. Growth plate maturity, nutrition, and health can affect final height. Consult a pediatrician for a personalized prediction."
   },
   "outputs": {
     "primary": "predictedHeight",
@@ -52,10 +94,10 @@
       "Note: The child's current height and age are not part of this formula. Growth plate maturity, nutrition, and health can affect final height. Consult a pediatrician for a personalized prediction."
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

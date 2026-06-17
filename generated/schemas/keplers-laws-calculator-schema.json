@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "AU",
       "default": 1,
-      "businessContext": "Average distance from the Sun in astronomical units."
+      "businessContext": "Average distance from the Sun in astronomical units.",
+      "label_i18n": {
+        "en": "Semi-Major Axis (a)",
+        "tr": "Semi-Major Axis (a)",
+        "de": "Semi-Major Axis (a)",
+        "fr": "Semi-Major Axis (a)",
+        "es": "Semi-Major Axis (a)",
+        "ar": "Semi-Major Axis (a)"
+      }
     },
     {
       "id": "orbitalPeriod",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "Time to complete one orbit in Earth years."
+      "businessContext": "Time to complete one orbit in Earth years.",
+      "label_i18n": {
+        "en": "Orbital Period (T)",
+        "tr": "Orbital Period (T)",
+        "de": "Orbital Period (T)",
+        "fr": "Orbital Period (T)",
+        "es": "Orbital Period (T)",
+        "ar": "Orbital Period (T)"
+      }
     },
     {
       "id": "eccentricity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Orbital shape parameter (0=circle, <1=ellipse)."
+      "businessContext": "Orbital shape parameter (0=circle, <1=ellipse).",
+      "label_i18n": {
+        "en": "Eccentricity (e)",
+        "tr": "Eccentricity (e)",
+        "de": "Eccentricity (e)",
+        "fr": "Eccentricity (e)",
+        "es": "Eccentricity (e)",
+        "ar": "Eccentricity (e)"
+      }
     },
     {
       "id": "massCentralBody",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "solar masses",
       "default": 1,
-      "businessContext": "Mass of the central object in solar masses."
+      "businessContext": "Mass of the central object in solar masses.",
+      "label_i18n": {
+        "en": "Mass of Central Body (M)",
+        "tr": "Mass of Central Body (M)",
+        "de": "Mass of Central Body (M)",
+        "fr": "Mass of Central Body (M)",
+        "es": "Mass of Central Body (M)",
+        "ar": "Mass of Central Body (M)"
+      }
     },
     {
       "id": "distanceAtPerihelion",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "AU",
       "default": 0.5,
-      "businessContext": "Closest approach distance to the Sun."
+      "businessContext": "Closest approach distance to the Sun.",
+      "label_i18n": {
+        "en": "Distance at Perihelion (r_p)",
+        "tr": "Distance at Perihelion (r_p)",
+        "de": "Distance at Perihelion (r_p)",
+        "fr": "Distance at Perihelion (r_p)",
+        "es": "Distance at Perihelion (r_p)",
+        "ar": "Distance at Perihelion (r_p)"
+      }
     },
     {
       "id": "distanceAtAphelion",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "AU",
       "default": 1.5,
-      "businessContext": "Farthest distance from the Sun."
+      "businessContext": "Farthest distance from the Sun.",
+      "label_i18n": {
+        "en": "Distance at Aphelion (r_a)",
+        "tr": "Distance at Aphelion (r_a)",
+        "de": "Distance at Aphelion (r_a)",
+        "fr": "Distance at Aphelion (r_a)",
+        "es": "Distance at Aphelion (r_a)",
+        "ar": "Distance at Aphelion (r_a)"
+      }
     }
   ],
   "formulas": {
@@ -58,20 +106,18 @@
     "areaSweptPerTime": "0.5 * Math.sqrt(massCentralBody * semiMajorAxis * (1 - eccentricity**2))"
   },
   "outputs": {
-    "primary": "Orbital Period (T) = {keplerThirdLaw} years",
+    "primary": "keplerThirdLaw",
     "breakdown": [
-      "Semi-Major Axis (a) = {semiMajorAxis} AU",
-      "Eccentricity (e) = {eccentricity}",
-      "Mass of Central Body (M) = {massCentralBody} solar masses",
-      "Distance at Perihelion (r_p) = {distanceAtPerihelion} AU",
-      "Distance at Aphelion (r_a) = {distanceAtAphelion} AU",
-      "Area Swept per Time = {areaSweptPerTime} AU²/year"
+      "orbitalPeriodFromSemiMajorAxis",
+      "semiMajorAxisFromPeriod",
+      "eccentricityFromDistances",
+      "areaSweptPerTime"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

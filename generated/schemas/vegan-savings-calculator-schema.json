@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "meals/week",
       "default": 10,
-      "businessContext": "Total number of meals that are being switched from meat-based to vegan."
+      "businessContext": "Total number of meals that are being switched from meat-based to vegan.",
+      "label_i18n": {
+        "en": "Number of Meals per Week",
+        "tr": "Number of Meals per Week",
+        "de": "Number of Meals per Week",
+        "fr": "Number of Meals per Week",
+        "es": "Number of Meals per Week",
+        "ar": "Number of Meals per Week"
+      }
     },
     {
       "id": "co2MeatPerMeal",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg CO2/meal",
       "default": 5,
-      "businessContext": "Average carbon footprint of a meat-based meal."
+      "businessContext": "Average carbon footprint of a meat-based meal.",
+      "label_i18n": {
+        "en": "Average CO2 per Meat Meal",
+        "tr": "Average CO2 per Meat Meal",
+        "de": "Average CO2 per Meat Meal",
+        "fr": "Average CO2 per Meat Meal",
+        "es": "Average CO2 per Meat Meal",
+        "ar": "Average CO2 per Meat Meal"
+      }
     },
     {
       "id": "co2VeganPerMeal",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg CO2/meal",
       "default": 2,
-      "businessContext": "Average carbon footprint of a vegan meal."
+      "businessContext": "Average carbon footprint of a vegan meal.",
+      "label_i18n": {
+        "en": "Average CO2 per Vegan Meal",
+        "tr": "Average CO2 per Vegan Meal",
+        "de": "Average CO2 per Vegan Meal",
+        "fr": "Average CO2 per Vegan Meal",
+        "es": "Average CO2 per Vegan Meal",
+        "ar": "Average CO2 per Vegan Meal"
+      }
     },
     {
       "id": "costMeatPerMeal",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD/meal",
       "default": 8,
-      "businessContext": "Average cost of a meat-based meal."
+      "businessContext": "Average cost of a meat-based meal.",
+      "label_i18n": {
+        "en": "Cost per Meat Meal",
+        "tr": "Cost per Meat Meal",
+        "de": "Cost per Meat Meal",
+        "fr": "Cost per Meat Meal",
+        "es": "Cost per Meat Meal",
+        "ar": "Cost per Meat Meal"
+      }
     },
     {
       "id": "costVeganPerMeal",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD/meal",
       "default": 5.5,
-      "businessContext": "Average cost of a vegan meal."
+      "businessContext": "Average cost of a vegan meal.",
+      "label_i18n": {
+        "en": "Cost per Vegan Meal",
+        "tr": "Cost per Vegan Meal",
+        "de": "Cost per Vegan Meal",
+        "fr": "Cost per Vegan Meal",
+        "es": "Cost per Vegan Meal",
+        "ar": "Cost per Vegan Meal"
+      }
     },
     {
       "id": "weeks",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 52,
-      "businessContext": "Period in weeks for the calculation."
+      "businessContext": "Period in weeks for the calculation.",
+      "label_i18n": {
+        "en": "Number of Weeks",
+        "tr": "Number of Weeks",
+        "de": "Number of Weeks",
+        "fr": "Number of Weeks",
+        "es": "Number of Weeks",
+        "ar": "Number of Weeks"
+      }
     }
   ],
   "formulas": {
@@ -56,19 +104,21 @@
     "costSavings": "totalMeals * (costMeatPerMeal - costVeganPerMeal)",
     "primary": "'Total CO2 Savings: ' + co2Savings + ' kg CO2, Total Cost Savings: $' + costSavings",
     "breakdown1": "'Meat-based total CO2: ' + (numMeals * weeks * co2MeatPerMeal) + ' kg CO2, Cost: $' + (numMeals * weeks * costMeatPerMeal)",
-    "breakdown2": "'Vegan total CO2: ' + (numMeals * weeks * co2VeganPerMeal) + ' kg CO2, Cost: $' + (numMeals * weeks * costVeganPerMeal)"
+    "breakdown2": "'Vegan total CO2: ' + (numMeals * weeks * co2VeganPerMeal) + ' kg CO2, Cost: $' + (numMeals * weeks * costVeganPerMeal)",
+    "_formulas_breakdown1_": "{formulas.breakdown1}",
+    "_formulas_breakdown2_": "{formulas.breakdown2}"
   },
   "outputs": {
-    "primary": "{formulas.primary}",
+    "primary": "totalMeals",
     "breakdown": [
       "{formulas.breakdown1}",
       "{formulas.breakdown2}"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Perakende & Gıda",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

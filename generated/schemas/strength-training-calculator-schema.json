@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The load lifted during training, representing the external force applied."
+      "businessContext": "The load lifted during training, representing the external force applied.",
+      "label_i18n": {
+        "en": "Weight Lifted",
+        "tr": "Weight Lifted",
+        "de": "Weight Lifted",
+        "fr": "Weight Lifted",
+        "es": "Weight Lifted",
+        "ar": "Weight Lifted"
+      }
     },
     {
       "id": "repetitions",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "reps",
       "default": 10,
-      "businessContext": "Number of consecutive repetitions performed with the given weight, indicating muscular endurance."
+      "businessContext": "Number of consecutive repetitions performed with the given weight, indicating muscular endurance.",
+      "label_i18n": {
+        "en": "Repetitions",
+        "tr": "Repetitions",
+        "de": "Repetitions",
+        "fr": "Repetitions",
+        "es": "Repetitions",
+        "ar": "Repetitions"
+      }
     },
     {
       "id": "bodyWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 75,
-      "businessContext": "Lifter's body weight for relative strength calculations."
+      "businessContext": "Lifter's body weight for relative strength calculations.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "sets",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "sets",
       "default": 3,
-      "businessContext": "Number of sets performed, influencing total training volume."
+      "businessContext": "Number of sets performed, influencing total training volume.",
+      "label_i18n": {
+        "en": "Sets",
+        "tr": "Sets",
+        "de": "Sets",
+        "fr": "Sets",
+        "es": "Sets",
+        "ar": "Sets"
+      }
     },
     {
       "id": "restPeriod",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "s",
       "default": 60,
-      "businessContext": "Rest interval between sets, affecting recovery and subsequent performance."
+      "businessContext": "Rest interval between sets, affecting recovery and subsequent performance.",
+      "label_i18n": {
+        "en": "Rest Period",
+        "tr": "Rest Period",
+        "de": "Rest Period",
+        "fr": "Rest Period",
+        "es": "Rest Period",
+        "ar": "Rest Period"
+      }
     },
     {
       "id": "fatigueFactor",
@@ -47,26 +87,37 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Estimated fatigue accumulation per set, affecting effective load capacity."
+      "businessContext": "Estimated fatigue accumulation per set, affecting effective load capacity.",
+      "label_i18n": {
+        "en": "Fatigue Factor",
+        "tr": "Fatigue Factor",
+        "de": "Fatigue Factor",
+        "fr": "Fatigue Factor",
+        "es": "Fatigue Factor",
+        "ar": "Fatigue Factor"
+      }
     }
   ],
   "formulas": {
     "primary": "weightLifted * (1 + repetitions / 30)",
-    "breakdown": [
-      "(weightLifted * (1 + repetitions / 30)) / bodyWeight",
-      "weightLifted * repetitions * sets",
-      "weightLifted * (1 + repetitions / 30) * (1 - fatigueFactor/100 * sets)"
-    ]
+    "breakdown": "weightLifted",
+    "Relative_Strength__kg_per_kg_BW_": "Relative Strength (kg per kg BW)",
+    "Volume_Load__kg_reps_": "Volume Load (kg*reps)",
+    "Effective_Training_Load__kg_": "Effective Training Load (kg)",
+    "result": "Estimated 1RM (kg)"
   },
   "outputs": {
-    "primary": "Estimated 1RM (kg)",
+    "primary": "result",
     "breakdown": [
       "Relative Strength (kg per kg BW)",
       "Volume Load (kg*reps)",
       "Effective Training Load (kg)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
-  "premiumRequired": false
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "categorySlug": "cnc-additive-manufacturing",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

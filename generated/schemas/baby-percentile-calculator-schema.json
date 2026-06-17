@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Baby's age in months, 0-36"
+      "businessContext": "Baby's age in months, 0-36",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 9.5,
-      "businessContext": "Body weight in kilograms"
+      "businessContext": "Body weight in kilograms",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "length",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 74,
-      "businessContext": "Body length in centimeters"
+      "businessContext": "Body length in centimeters",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "head",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "cm",
       "default": 44,
-      "businessContext": "Head circumference in centimeters"
+      "businessContext": "Head circumference in centimeters",
+      "label_i18n": {
+        "en": "Head Circumference",
+        "tr": "Head Circumference",
+        "de": "Head Circumference",
+        "fr": "Head Circumference",
+        "es": "Head Circumference",
+        "ar": "Head Circumference"
+      }
     },
     {
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for boy, 1 for girl"
+      "businessContext": "0 for boy, 1 for girl",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "headPercentile"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

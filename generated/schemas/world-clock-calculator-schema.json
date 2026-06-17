@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 12,
-      "businessContext": "The hour component of the local time (24-hour format)"
+      "businessContext": "The hour component of the local time (24-hour format)",
+      "label_i18n": {
+        "en": "Local Hour (0-23)",
+        "tr": "Local Hour (0-23)",
+        "de": "Local Hour (0-23)",
+        "fr": "Local Hour (0-23)",
+        "es": "Local Hour (0-23)",
+        "ar": "Local Hour (0-23)"
+      }
     },
     {
       "id": "localMinute",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 0,
-      "businessContext": "The minute component of the local time"
+      "businessContext": "The minute component of the local time",
+      "label_i18n": {
+        "en": "Local Minute (0-59)",
+        "tr": "Local Minute (0-59)",
+        "de": "Local Minute (0-59)",
+        "fr": "Local Minute (0-59)",
+        "es": "Local Minute (0-59)",
+        "ar": "Local Minute (0-59)"
+      }
     },
     {
       "id": "sourceUTCOffset",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "UTC offset of the source location in hours (e.g., 3 for UTC+3, -5 for UTC-5)"
+      "businessContext": "UTC offset of the source location in hours (e.g., 3 for UTC+3, -5 for UTC-5)",
+      "label_i18n": {
+        "en": "Source UTC Offset (hours)",
+        "tr": "Source UTC Offset (hours)",
+        "de": "Source UTC Offset (hours)",
+        "fr": "Source UTC Offset (hours)",
+        "es": "Source UTC Offset (hours)",
+        "ar": "Source UTC Offset (hours)"
+      }
     },
     {
       "id": "targetUTCOffset",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1,
-      "businessContext": "UTC offset of the target location in hours"
+      "businessContext": "UTC offset of the target location in hours",
+      "label_i18n": {
+        "en": "Target UTC Offset (hours)",
+        "tr": "Target UTC Offset (hours)",
+        "de": "Target UTC Offset (hours)",
+        "fr": "Target UTC Offset (hours)",
+        "es": "Target UTC Offset (hours)",
+        "ar": "Target UTC Offset (hours)"
+      }
     }
   ],
   "formulas": {
@@ -45,18 +77,22 @@
     "dayChange": "dayDiff > 0 ? '+' + dayDiff + ' day(s)' : dayDiff < 0 ? dayDiff + ' day(s)' : 'Same day'",
     "targetTimeString": "targetHour.toString().padStart(2,'0') + ':' + targetMinute.toString().padStart(2,'0')",
     "sourceString": "localHour.toString().padStart(2,'0') + ':' + localMinute.toString().padStart(2,'0') + ' (UTC' + (sourceUTCOffset >= 0 ? '+' + sourceUTCOffset : sourceUTCOffset) + ')'",
-    "targetString": "targetTimeString + ' (UTC' + (targetUTCOffset >= 0 ? '+' + targetUTCOffset : targetUTCOffset) + ')'"
+    "targetString": "targetTimeString + ' (UTC' + (targetUTCOffset >= 0 ? '+' + targetUTCOffset : targetUTCOffset) + ')'",
+    "____sourceString": "' + sourceString",
+    "____targetString": "' + targetString",
+    "____dayChange": "' + dayChange",
+    "result": "targetTimeString + ' (' + dayChange + ')'"
   },
   "outputs": {
-    "primary": "targetTimeString + ' (' + dayChange + ')'",
+    "primary": "result",
     "breakdown": [
       "'Source: ' + sourceString",
       "'Target: ' + targetString",
       "'Day Change: ' + dayChange"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

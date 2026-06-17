@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "km",
       "default": 7000,
-      "businessContext": "The semi-major axis of the orbit."
+      "businessContext": "The semi-major axis of the orbit.",
+      "label_i18n": {
+        "en": "Semi-Major Axis",
+        "tr": "Semi-Major Axis",
+        "de": "Semi-Major Axis",
+        "fr": "Semi-Major Axis",
+        "es": "Semi-Major Axis",
+        "ar": "Semi-Major Axis"
+      }
     },
     {
       "id": "eccentricity",
       "label": "Eccentricity",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.001,
-      "businessContext": "Orbit eccentricity (0 ≤ e < 1 for elliptical)."
+      "businessContext": "Orbit eccentricity (0 ≤ e < 1 for elliptical).",
+      "label_i18n": {
+        "en": "Eccentricity",
+        "tr": "Eccentricity",
+        "de": "Eccentricity",
+        "fr": "Eccentricity",
+        "es": "Eccentricity",
+        "ar": "Eccentricity"
+      }
     },
     {
       "id": "mu",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km³/s²",
       "default": 398600.4418,
-      "businessContext": "Standard gravitational parameter of central body."
+      "businessContext": "Standard gravitational parameter of central body.",
+      "label_i18n": {
+        "en": "Gravitational Parameter",
+        "tr": "Gravitational Parameter",
+        "de": "Gravitational Parameter",
+        "fr": "Gravitational Parameter",
+        "es": "Gravitational Parameter",
+        "ar": "Gravitational Parameter"
+      }
     },
     {
       "id": "trueAnomaly",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "deg",
       "default": 0,
-      "businessContext": "Angle from periapsis to current position."
+      "businessContext": "Angle from periapsis to current position.",
+      "label_i18n": {
+        "en": "True Anomaly",
+        "tr": "True Anomaly",
+        "de": "True Anomaly",
+        "fr": "True Anomaly",
+        "es": "True Anomaly",
+        "ar": "True Anomaly"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +86,10 @@
       "currentVelocity"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

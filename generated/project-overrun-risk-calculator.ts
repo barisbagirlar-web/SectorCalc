@@ -27,31 +27,19 @@ export const Project_overrun_risk_calculatorInputSchema = z.object({
   riskExposure: z.number().min(0).max(100000000).default(200000),
 });
 
-function evaluateAllFormulas(input: Project_overrun_risk_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.percentComplete / (input.actualDuration / input.plannedDuration * 100); results["schedulePerformanceIndex"] = Number.isFinite(v) ? v : 0; } catch { results["schedulePerformanceIndex"] = 0; }
-  try { const v = (input.percentComplete / 100 * input.plannedCost) / input.actualCost; results["costPerformanceIndex"] = Number.isFinite(v) ? v : 0; } catch { results["costPerformanceIndex"] = 0; }
-  try { const v = (input.scopeChangeFrequency === 'low' ? 0.8 : (input.scopeChangeFrequency === 'moderate' ? 1.0 : (input.scopeChangeFrequency === 'high' ? 1.3 : 0))); results["scopeChangeFactor"] = Number.isFinite(v) ? v : 0; } catch { results["scopeChangeFactor"] = 0; }
-  try { const v = (input.teamExperience === 'junior' ? 1.3 : (input.teamExperience === 'intermediate' ? 1.0 : (input.teamExperience === 'senior' ? 0.8 : 0))); results["teamExperienceFactor"] = Number.isFinite(v) ? v : 0; } catch { results["teamExperienceFactor"] = 0; }
-  try { const v = (1 + input.qualityDefectRate) * (2 - input.supplierReliability); results["qualityAndSupplyRisk"] = Number.isFinite(v) ? v : 0; } catch { results["qualityAndSupplyRisk"] = 0; }
-  try { const v = ( (1 - (results["schedulePerformanceIndex"] ?? 0)) + (1 - (results["costPerformanceIndex"] ?? 0)) ) / 2 * (results["scopeChangeFactor"] ?? 0) * (results["teamExperienceFactor"] ?? 0) * (results["qualityAndSupplyRisk"] ?? 0) + (input.riskExposure / input.plannedCost); results["overrunRiskIndex"] = Number.isFinite(v) ? v : 0; } catch { results["overrunRiskIndex"] = 0; }
-  try { const v = (results["overrunRiskIndex"] ?? 0) * (1 - 0.1 * (1 - input.supplierReliability)); results["dataConfidenceAdjusted"] = Number.isFinite(v) ? v : 0; } catch { results["dataConfidenceAdjusted"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Project_overrun_risk_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateProject_overrun_risk_calculator(input: Project_overrun_risk_calculatorInput): Project_overrun_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["overrunRiskIndex"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    schedulePerformanceIndex: values["schedulePerformanceIndex"] ?? 0,
-    costPerformanceIndex: values["costPerformanceIndex"] ?? 0,
-    scopeChangeFactor: values["scopeChangeFactor"] ?? 0,
-    teamExperienceFactor: values["teamExperienceFactor"] ?? 0,
-    qualityAndSupplyRisk: values["qualityAndSupplyRisk"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Schedule Slippage","Rework Cost","Scope Creep","Resource Attrition"];
-  const suggestedActions: string[] = ["Implement Earned Value Management (EVM)","Scope Change Control Board","Quality Improvement Program","Supplier Development Initiative","Risk Mitigation Reserve"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -70,7 +58,7 @@ export function calculateProject_overrun_risk_calculator(input: Project_overrun_
 
 export interface Project_overrun_risk_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { schedulePerformanceIndex: number; costPerformanceIndex: number; scopeChangeFactor: number; teamExperienceFactor: number; qualityAndSupplyRisk: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

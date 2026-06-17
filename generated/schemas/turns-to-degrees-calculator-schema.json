@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "turns",
       "default": 1,
-      "businessContext": "The angle measured in full rotations."
+      "businessContext": "The angle measured in full rotations.",
+      "label_i18n": {
+        "en": "Number of Turns",
+        "tr": "Number of Turns",
+        "de": "Number of Turns",
+        "fr": "Number of Turns",
+        "es": "Number of Turns",
+        "ar": "Number of Turns"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Precision of output for quality control documentation."
+      "businessContext": "Precision of output for quality control documentation.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "operatorId",
       "label": "Operator ID",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Identifier of the operator performing the measurement for traceability."
+      "businessContext": "Identifier of the operator performing the measurement for traceability.",
+      "label_i18n": {
+        "en": "Operator ID",
+        "tr": "Operator ID",
+        "de": "Operator ID",
+        "fr": "Operator ID",
+        "es": "Operator ID",
+        "ar": "Operator ID"
+      }
     },
     {
       "id": "measurementDate",
@@ -31,28 +55,54 @@
       "type": "number",
       "unit": "YYYYMMDD",
       "default": 20230101,
-      "businessContext": "Date of measurement for ISO 9001 records."
+      "businessContext": "Date of measurement for ISO 9001 records.",
+      "label_i18n": {
+        "en": "Measurement Date (YYYYMMDD)",
+        "tr": "Measurement Date (YYYYMMDD)",
+        "de": "Measurement Date (YYYYMMDD)",
+        "fr": "Measurement Date (YYYYMMDD)",
+        "es": "Measurement Date (YYYYMMDD)",
+        "ar": "Measurement Date (YYYYMMDD)"
+      }
     },
     {
       "id": "machineId",
       "label": "Machine ID",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Machine used for measurement if automated."
+      "businessContext": "Machine used for measurement if automated.",
+      "label_i18n": {
+        "en": "Machine ID",
+        "tr": "Machine ID",
+        "de": "Machine ID",
+        "fr": "Machine ID",
+        "es": "Machine ID",
+        "ar": "Machine ID"
+      }
     },
     {
       "id": "batchNumber",
       "label": "Batch Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Production batch for traceability."
+      "businessContext": "Production batch for traceability.",
+      "label_i18n": {
+        "en": "Batch Number",
+        "tr": "Batch Number",
+        "de": "Batch Number",
+        "fr": "Batch Number",
+        "es": "Batch Number",
+        "ar": "Batch Number"
+      }
     }
   ],
   "formulas": {
     "rawDegrees": "turns * 360",
-    "roundedDegrees": "Math.round(rawDegrees * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "roundedDegrees": "Math.round(rawDegrees * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "turns": "turns",
+    "decimalPlaces": "decimalPlaces"
   },
   "outputs": {
     "primary": "roundedDegrees",
@@ -62,10 +112,10 @@
       "decimalPlaces"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

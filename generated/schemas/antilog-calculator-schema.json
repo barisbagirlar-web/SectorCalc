@@ -5,17 +5,33 @@
       "id": "logValue",
       "label": "Logarithm Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The logarithm value (exponent) to compute the antilogarithm for."
+      "businessContext": "The logarithm value (exponent) to compute the antilogarithm for.",
+      "label_i18n": {
+        "en": "Logarithm Value",
+        "tr": "Logarithm Value",
+        "de": "Logarithm Value",
+        "fr": "Logarithm Value",
+        "es": "Logarithm Value",
+        "ar": "Logarithm Value"
+      }
     },
     {
       "id": "base",
       "label": "Base",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "The base of the logarithm for the primary antilogarithm calculation."
+      "businessContext": "The base of the logarithm for the primary antilogarithm calculation.",
+      "label_i18n": {
+        "en": "Base",
+        "tr": "Base",
+        "de": "Base",
+        "fr": "Base",
+        "es": "Base",
+        "ar": "Base"
+      }
     },
     {
       "id": "precision",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "places",
       "default": 4,
-      "businessContext": "Number of decimal places to round the computed results."
+      "businessContext": "Number of decimal places to round the computed results.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "scaleFactor",
       "label": "Scale Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier applied to the primary antilogarithm result for scaling purposes."
+      "businessContext": "Multiplier applied to the primary antilogarithm result for scaling purposes.",
+      "label_i18n": {
+        "en": "Scale Factor",
+        "tr": "Scale Factor",
+        "de": "Scale Factor",
+        "fr": "Scale Factor",
+        "es": "Scale Factor",
+        "ar": "Scale Factor"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "antilogBase2"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Taşınacak yükün kütlesi (kg)"
+      "businessContext": "Taşınacak yükün kütlesi (kg)",
+      "label_i18n": {
+        "en": "Yük Kütlesi",
+        "tr": "Yük Kütlesi",
+        "de": "Yük Kütlesi",
+        "fr": "Yük Kütlesi",
+        "es": "Yük Kütlesi",
+        "ar": "Yük Kütlesi"
+      }
     },
     {
       "id": "slope_percent",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Yolun eğim yüzdesi"
+      "businessContext": "Yolun eğim yüzdesi",
+      "label_i18n": {
+        "en": "Eğim (%)",
+        "tr": "Eğim (%)",
+        "de": "Eğim (%)",
+        "fr": "Eğim (%)",
+        "es": "Eğim (%)",
+        "ar": "Eğim (%)"
+      }
     },
     {
       "id": "rolling_resistance",
       "label": "Yuvarlanma Direnci Katsayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.02,
-      "businessContext": "Yol yüzeyi yuvarlanma direnci katsayısı (ör: 0.01-0.05)"
+      "businessContext": "Yol yüzeyi yuvarlanma direnci katsayısı (ör: 0.01-0.05)",
+      "label_i18n": {
+        "en": "Yuvarlanma Direnci Katsayısı",
+        "tr": "Yuvarlanma Direnci Katsayısı",
+        "de": "Yuvarlanma Direnci Katsayısı",
+        "fr": "Yuvarlanma Direnci Katsayısı",
+        "es": "Yuvarlanma Direnci Katsayısı",
+        "ar": "Yuvarlanma Direnci Katsayısı"
+      }
     },
     {
       "id": "desired_speed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 1.5,
-      "businessContext": "Hedef hareket hızı (m/s)"
+      "businessContext": "Hedef hareket hızı (m/s)",
+      "label_i18n": {
+        "en": "İstenen Hız",
+        "tr": "İstenen Hız",
+        "de": "İstenen Hız",
+        "fr": "İstenen Hız",
+        "es": "İstenen Hız",
+        "ar": "İstenen Hız"
+      }
     },
     {
       "id": "horse_pull_force",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "Bir atın sürekli çekebileceği ortalama kuvvet (N)"
+      "businessContext": "Bir atın sürekli çekebileceği ortalama kuvvet (N)",
+      "label_i18n": {
+        "en": "At Başına Çekme Kuvveti",
+        "tr": "At Başına Çekme Kuvveti",
+        "de": "At Başına Çekme Kuvveti",
+        "fr": "At Başına Çekme Kuvveti",
+        "es": "At Başına Çekme Kuvveti",
+        "ar": "At Başına Çekme Kuvveti"
+      }
     },
     {
       "id": "efficiency",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Koşum ve aktarma sistemi verimliliği (%)"
+      "businessContext": "Koşum ve aktarma sistemi verimliliği (%)",
+      "label_i18n": {
+        "en": "Verimlilik",
+        "tr": "Verimlilik",
+        "de": "Verimlilik",
+        "fr": "Verimlilik",
+        "es": "Verimlilik",
+        "ar": "Verimlilik"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +104,14 @@
     "effective_force": "tractive_force / (efficiency / 100)",
     "required_power": "effective_force * desired_speed",
     "total_horsepower": "required_power / 745.7",
-    "number_of_horses": "Math.ceil(effective_force / horse_pull_force)"
+    "number_of_horses": "Math.ceil(effective_force / horse_pull_force)",
+    "_tractive_force_toFixed_2___N": "{tractive_force.toFixed(2)} N",
+    "_effective_force_toFixed_2___N": "{effective_force.toFixed(2)} N",
+    "_required_power_toFixed_2___W": "{required_power.toFixed(2)} W",
+    "_total_horsepower_toFixed_2___hp": "{total_horsepower.toFixed(2)} hp"
   },
   "outputs": {
-    "primary": "Gereken At Sayısı: {number_of_horses}",
+    "primary": "angle_rad",
     "breakdown": [
       "Çekme Kuvveti: {tractive_force.toFixed(2)} N",
       "Etkin Kuvvet: {effective_force.toFixed(2)} N",
@@ -67,10 +119,10 @@
       "Beygir Gücü: {total_horsepower.toFixed(2)} hp"
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

@@ -23,7 +23,7 @@ function evaluateAllFormulas(input: Poisson_probabilityInput): Record<string, nu
 
 export function calculatePoisson_probability(input: Poisson_probabilityInput): Poisson_probabilityOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["P"] ?? 0;
+  const totalWasteCost = values["tamOlasilik"] ?? 0;
   const breakdown = {
     
   };

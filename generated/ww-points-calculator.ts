@@ -4,31 +4,30 @@ import * as z from 'zod';
 export interface Ww_points_calculatorInput {
   calories: number;
   saturatedFat: number;
-  sugar: number;
   protein: number;
+  fiber: number;
 }
 
 export const Ww_points_calculatorInputSchema = z.object({
   calories: z.number().default(0),
   saturatedFat: z.number().default(0),
-  sugar: z.number().default(0),
   protein: z.number().default(0),
+  fiber: z.number().default(0),
 });
 
 function evaluateAllFormulas(input: Ww_points_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.calories/50 + input.saturatedFat/12 + input.sugar/12 - input.protein/10; results["wwPoints"] = Number.isFinite(v) ? v : 0; } catch { results["wwPoints"] = 0; }
-  try { const v = input.calories/50; results["calorieComponent"] = Number.isFinite(v) ? v : 0; } catch { results["calorieComponent"] = 0; }
-  try { const v = input.saturatedFat/12; results["saturatedFatComponent"] = Number.isFinite(v) ? v : 0; } catch { results["saturatedFatComponent"] = 0; }
-  try { const v = input.sugar/12; results["sugarComponent"] = Number.isFinite(v) ? v : 0; } catch { results["sugarComponent"] = 0; }
-  try { const v = -input.protein/10; results["proteinComponent"] = Number.isFinite(v) ? v : 0; } catch { results["proteinComponent"] = 0; }
+  try { const v = input.calories/50 + input.saturatedFat/12 - input.protein/10; results["points"] = Number.isFinite(v) ? v : 0; } catch { results["points"] = 0; }
+  try { const v = input.calories/50; results["energyComponent"] = Number.isFinite(v) ? v : 0; } catch { results["energyComponent"] = 0; }
+  try { const v = input.saturatedFat/12; results["fatComponent"] = Number.isFinite(v) ? v : 0; } catch { results["fatComponent"] = 0; }
+  try { const v = input.protein/10; results["proteinComponent"] = Number.isFinite(v) ? v : 0; } catch { results["proteinComponent"] = 0; }
   return results;
 }
 
 
 export function calculateWw_points_calculator(input: Ww_points_calculatorInput): Ww_points_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["wwPoints"] ?? 0;
+  const totalWasteCost = values["points"] ?? 0;
   const breakdown = {
     
   };

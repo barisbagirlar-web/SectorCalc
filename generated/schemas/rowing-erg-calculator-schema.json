@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "sec",
       "default": 0,
-      "businessContext": "Total workout time in seconds"
+      "businessContext": "Total workout time in seconds",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     },
     {
       "id": "distance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Total distance rowed in meters"
+      "businessContext": "Total distance rowed in meters",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Rower's body weight in kilograms"
+      "businessContext": "Rower's body weight in kilograms",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "strokeRate",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "spm",
       "default": 20,
-      "businessContext": "Average strokes per minute during the session"
+      "businessContext": "Average strokes per minute during the session",
+      "label_i18n": {
+        "en": "Stroke Rate",
+        "tr": "Stroke Rate",
+        "de": "Stroke Rate",
+        "fr": "Stroke Rate",
+        "es": "Stroke Rate",
+        "ar": "Stroke Rate"
+      }
     },
     {
       "id": "dragFactor",
       "label": "Drag Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 120,
-      "businessContext": "The damper setting and overall drag factor of the rowing ergometer"
+      "businessContext": "The damper setting and overall drag factor of the rowing ergometer",
+      "label_i18n": {
+        "en": "Drag Factor",
+        "tr": "Drag Factor",
+        "de": "Drag Factor",
+        "fr": "Drag Factor",
+        "es": "Drag Factor",
+        "ar": "Drag Factor"
+      }
     }
   ],
   "formulas": {
@@ -60,10 +100,10 @@
       "powerPerWeight"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -5,40 +5,75 @@
       "id": "rSquared",
       "label": "R-squared (R²)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "The coefficient of determination from the regression model, ranging from 0 to 1."
+      "businessContext": "The coefficient of determination from the regression model, ranging from 0 to 1.",
+      "label_i18n": {
+        "en": "R-squared (R²)",
+        "tr": "R-squared (R²)",
+        "de": "R-squared (R²)",
+        "fr": "R-squared (R²)",
+        "es": "R-squared (R²)",
+        "ar": "R-squared (R²)"
+      }
     },
     {
       "id": "sampleSize",
       "label": "Sample Size (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 50,
-      "businessContext": "Total number of observations in the dataset."
+      "businessContext": "Total number of observations in the dataset.",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "predictors",
       "label": "Number of Predictors (p)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of independent variables in the regression model, excluding the constant term."
+      "businessContext": "Number of independent variables in the regression model, excluding the constant term.",
+      "label_i18n": {
+        "en": "Number of Predictors (p)",
+        "tr": "Number of Predictors (p)",
+        "de": "Number of Predictors (p)",
+        "fr": "Number of Predictors (p)",
+        "es": "Number of Predictors (p)",
+        "ar": "Number of Predictors (p)"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for rounding the final result."
+      "businessContext": "Number of decimal places for rounding the final result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "numerator": "(1 - rSquared) * (sampleSize - 1)",
     "denominator": "sampleSize - predictors - 1",
     "adjustedRSquared": "denominator > 0 ? 1 - (numerator / denominator) : NaN",
-    "adjustedRSquaredFormatted": "Number.isFinite(adjustedRSquared) ? Math.round(adjustedRSquared * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : NaN"
+    "adjustedRSquaredFormatted": "Number.isFinite(adjustedRSquared) ? Math.round(adjustedRSquared * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : NaN",
+    "rSquared": "rSquared",
+    "sampleSize": "sampleSize",
+    "predictors": "predictors"
   },
   "outputs": {
     "primary": "adjustedRSquaredFormatted",
@@ -51,10 +86,10 @@
       "adjustedRSquared"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

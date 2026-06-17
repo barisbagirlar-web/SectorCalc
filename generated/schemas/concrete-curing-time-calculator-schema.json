@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Beton kürleme ortamının ortalama sıcaklığı"
+      "businessContext": "Beton kürleme ortamının ortalama sıcaklığı",
+      "label_i18n": {
+        "en": "Ortam Sıcaklığı",
+        "tr": "Ortam Sıcaklığı",
+        "de": "Ortam Sıcaklığı",
+        "fr": "Ortam Sıcaklığı",
+        "es": "Ortam Sıcaklığı",
+        "ar": "Ortam Sıcaklığı"
+      }
     },
     {
       "id": "humidity",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Ortam bağıl nemi"
+      "businessContext": "Ortam bağıl nemi",
+      "label_i18n": {
+        "en": "Bağıl Nem",
+        "tr": "Bağıl Nem",
+        "de": "Bağıl Nem",
+        "fr": "Bağıl Nem",
+        "es": "Bağıl Nem",
+        "ar": "Bağıl Nem"
+      }
     },
     {
       "id": "cementType",
       "label": "Çimento Tipi Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Çimento tipine bağlı kür süresi faktörü (Örn: Tip I: 1.0, Tip II: 1.1, Tip III: 0.8)"
+      "businessContext": "Çimento tipine bağlı kür süresi faktörü (Örn: Tip I: 1.0, Tip II: 1.1, Tip III: 0.8)",
+      "label_i18n": {
+        "en": "Çimento Tipi Faktörü",
+        "tr": "Çimento Tipi Faktörü",
+        "de": "Çimento Tipi Faktörü",
+        "fr": "Çimento Tipi Faktörü",
+        "es": "Çimento Tipi Faktörü",
+        "ar": "Çimento Tipi Faktörü"
+      }
     },
     {
       "id": "baseDays",
@@ -31,14 +55,23 @@
       "type": "number",
       "unit": "gün",
       "default": 7,
-      "businessContext": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi"
+      "businessContext": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi",
+      "label_i18n": {
+        "en": "Baz Kür Süresi",
+        "tr": "Baz Kür Süresi",
+        "de": "Baz Kür Süresi",
+        "fr": "Baz Kür Süresi",
+        "es": "Baz Kür Süresi",
+        "ar": "Baz Kür Süresi"
+      }
     }
   ],
   "formulas": {
     "tempFactor": "Math.pow(23/(temp+10), 1.5)",
     "humidityFactor": "100/humidity",
     "cementAdjust": "cementType",
-    "curingTime": "baseDays * tempFactor * humidityFactor * cementAdjust"
+    "curingTime": "baseDays * tempFactor * humidityFactor * cementAdjust",
+    "baseDays": "baseDays"
   },
   "outputs": {
     "primary": "curingTime",
@@ -49,7 +82,7 @@
       "cementAdjust"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

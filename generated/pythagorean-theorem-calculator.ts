@@ -18,13 +18,18 @@ export const Pythagorean_theorem_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Pythagorean_theorem_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = parseFloat(Math.sqrt(input.legA**2 + input.legB**2).toFixed(input.precision)); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.legA; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["legA_"] = 0;
+  results["legB_"] = 0;
+  results["legA____legB_"] = 0;
+  results["__legA____legB__"] = 0;
   return results;
 }
 
 
 export function calculatePythagorean_theorem_calculator(input: Pythagorean_theorem_calculatorInput): Pythagorean_theorem_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["hypotenuse"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

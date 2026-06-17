@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 200000,
-      "businessContext": "Material modulus of elasticity, e.g., 200000 MPa for steel."
+      "businessContext": "Material modulus of elasticity, e.g., 200000 MPa for steel.",
+      "label_i18n": {
+        "en": "Young's Modulus (E)",
+        "tr": "Young's Modulus (E)",
+        "de": "Young's Modulus (E)",
+        "fr": "Young's Modulus (E)",
+        "es": "Young's Modulus (E)",
+        "ar": "Young's Modulus (E)"
+      }
     },
     {
       "id": "I",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "mm⁴",
       "default": 1000000,
-      "businessContext": "Second moment of area of the column cross-section."
+      "businessContext": "Second moment of area of the column cross-section.",
+      "label_i18n": {
+        "en": "Area Moment of Inertia (I)",
+        "tr": "Area Moment of Inertia (I)",
+        "de": "Area Moment of Inertia (I)",
+        "fr": "Area Moment of Inertia (I)",
+        "es": "Area Moment of Inertia (I)",
+        "ar": "Area Moment of Inertia (I)"
+      }
     },
     {
       "id": "K",
       "label": "Effective Length Factor (K)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Depends on end conditions: 1.0 for pinned-pinned, 0.5 for fixed-fixed, etc."
+      "businessContext": "Depends on end conditions: 1.0 for pinned-pinned, 0.5 for fixed-fixed, etc.",
+      "label_i18n": {
+        "en": "Effective Length Factor (K)",
+        "tr": "Effective Length Factor (K)",
+        "de": "Effective Length Factor (K)",
+        "fr": "Effective Length Factor (K)",
+        "es": "Effective Length Factor (K)",
+        "ar": "Effective Length Factor (K)"
+      }
     },
     {
       "id": "L",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3000,
-      "businessContext": "Unsupported length of the column."
+      "businessContext": "Unsupported length of the column.",
+      "label_i18n": {
+        "en": "Column Length (L)",
+        "tr": "Column Length (L)",
+        "de": "Column Length (L)",
+        "fr": "Column Length (L)",
+        "es": "Column Length (L)",
+        "ar": "Column Length (L)"
+      }
     },
     {
       "id": "A",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm²",
       "default": 1000,
-      "businessContext": "Cross-sectional area of the column for stress calculation."
+      "businessContext": "Cross-sectional area of the column for stress calculation.",
+      "label_i18n": {
+        "en": "Cross-sectional Area (A)",
+        "tr": "Cross-sectional Area (A)",
+        "de": "Cross-sectional Area (A)",
+        "fr": "Cross-sectional Area (A)",
+        "es": "Cross-sectional Area (A)",
+        "ar": "Cross-sectional Area (A)"
+      }
     }
   ],
   "formulas": {
@@ -55,10 +95,10 @@
       "slenderness"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "project-construction-management"
 }

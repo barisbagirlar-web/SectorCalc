@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Height of the mast from base to top."
+      "businessContext": "Height of the mast from base to top.",
+      "label_i18n": {
+        "en": "Mast Height",
+        "tr": "Mast Height",
+        "de": "Mast Height",
+        "fr": "Mast Height",
+        "es": "Mast Height",
+        "ar": "Mast Height"
+      }
     },
     {
       "id": "mastDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Outer diameter of the cylindrical mast."
+      "businessContext": "Outer diameter of the cylindrical mast.",
+      "label_i18n": {
+        "en": "Mast Diameter",
+        "tr": "Mast Diameter",
+        "de": "Mast Diameter",
+        "fr": "Mast Diameter",
+        "es": "Mast Diameter",
+        "ar": "Mast Diameter"
+      }
     },
     {
       "id": "windSpeed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 30,
-      "businessContext": "Design wind speed."
+      "businessContext": "Design wind speed.",
+      "label_i18n": {
+        "en": "Wind Speed",
+        "tr": "Wind Speed",
+        "de": "Wind Speed",
+        "fr": "Wind Speed",
+        "es": "Wind Speed",
+        "ar": "Wind Speed"
+      }
     },
     {
       "id": "materialYieldStrength",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Yield strength of the mast material."
+      "businessContext": "Yield strength of the mast material.",
+      "label_i18n": {
+        "en": "Material Yield Strength",
+        "tr": "Material Yield Strength",
+        "de": "Material Yield Strength",
+        "fr": "Material Yield Strength",
+        "es": "Material Yield Strength",
+        "ar": "Material Yield Strength"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Design safety factor."
+      "businessContext": "Design safety factor.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -59,10 +99,10 @@
       "allowableStress"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "metal-plastics-forming"
 }

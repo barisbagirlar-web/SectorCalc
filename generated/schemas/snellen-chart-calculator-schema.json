@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 6,
-      "businessContext": "Hastanın test edildiği mesafe, genellikle 6 m."
+      "businessContext": "Hastanın test edildiği mesafe, genellikle 6 m.",
+      "label_i18n": {
+        "en": "Test Mesafesi (m)",
+        "tr": "Test Mesafesi (m)",
+        "de": "Test Mesafesi (m)",
+        "fr": "Test Mesafesi (m)",
+        "es": "Test Mesafesi (m)",
+        "ar": "Test Mesafesi (m)"
+      }
     },
     {
       "id": "optotypeHeight",
@@ -15,7 +23,39 @@
       "type": "number",
       "unit": "mm",
       "default": 8.73,
-      "businessContext": "En küçük okunabilen harf veya sembolün tam yüksekliği."
+      "businessContext": "En küçük okunabilen harf veya sembolün tam yüksekliği.",
+      "label_i18n": {
+        "en": "Optotip Yüksekliği (mm)",
+        "tr": "Optotip Yüksekliği (mm)",
+        "de": "Optotip Yüksekliği (mm)",
+        "fr": "Optotip Yüksekliği (mm)",
+        "es": "Optotip Yüksekliği (mm)",
+        "ar": "Optotip Yüksekliği (mm)"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
@@ -31,10 +71,10 @@
       "logMAR"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

@@ -32,10 +32,7 @@
     "surplus": "(grossTurnover * standardVatRate / (100 + standardVatRate)) - (grossTurnover * flatRatePercentage / 100)"
   },
   "outputs": {
-    "primary": {
-      "label": "Flat Rate VAT Payable",
-      "formula": "vatPayable"
-    },
+    "primary": "vatPayable",
     "breakdown": [
       {
         "label": "VAT Charged to Customers",
@@ -47,10 +44,10 @@
       }
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg",
       "default": 0,
-      "businessContext": "Quantity of substance in milligrams"
+      "businessContext": "Quantity of substance in milligrams",
+      "label_i18n": {
+        "en": "Mass (mg)",
+        "tr": "Mass (mg)",
+        "de": "Mass (mg)",
+        "fr": "Mass (mg)",
+        "es": "Mass (mg)",
+        "ar": "Mass (mg)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,36 +23,71 @@
       "type": "number",
       "unit": "g/mg",
       "default": 0.001,
-      "businessContext": "Standard conversion factor from mg to g, may be adjusted for traceability"
+      "businessContext": "Standard conversion factor from mg to g, may be adjusted for traceability",
+      "label_i18n": {
+        "en": "Conversion Factor (g/mg)",
+        "tr": "Conversion Factor (g/mg)",
+        "de": "Conversion Factor (g/mg)",
+        "fr": "Conversion Factor (g/mg)",
+        "es": "Conversion Factor (g/mg)",
+        "ar": "Conversion Factor (g/mg)"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of decimal places for the output to meet precision requirements"
+      "businessContext": "Number of decimal places for the output to meet precision requirements",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "batchMultiplier",
       "label": "Batch Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for batch scaling, e.g., number of units"
+      "businessContext": "Multiplier for batch scaling, e.g., number of units",
+      "label_i18n": {
+        "en": "Batch Multiplier",
+        "tr": "Batch Multiplier",
+        "de": "Batch Multiplier",
+        "fr": "Batch Multiplier",
+        "es": "Batch Multiplier",
+        "ar": "Batch Multiplier"
+      }
     },
     {
       "id": "roundingMode",
       "label": "Rounding Mode (0=round,1=floor,2=ceil)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Rounding mode for compliance with rounding rules"
+      "businessContext": "Rounding mode for compliance with rounding rules",
+      "label_i18n": {
+        "en": "Rounding Mode (0=round,1=floor,2=ceil)",
+        "tr": "Rounding Mode (0=round,1=floor,2=ceil)",
+        "de": "Rounding Mode (0=round,1=floor,2=ceil)",
+        "fr": "Rounding Mode (0=round,1=floor,2=ceil)",
+        "es": "Rounding Mode (0=round,1=floor,2=ceil)",
+        "ar": "Rounding Mode (0=round,1=floor,2=ceil)"
+      }
     }
   ],
   "formulas": {
     "rawGrams": "inputMilligrams * conversionFactor * batchMultiplier",
-    "grams": "roundingMode == 0 ? Math.round(rawGrams * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : roundingMode == 1 ? Math.floor(rawGrams * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : Math.ceil(rawGrams * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "grams": "roundingMode == 0 ? Math.round(rawGrams * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : roundingMode == 1 ? Math.floor(rawGrams * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : Math.ceil(rawGrams * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "inputMilligrams": "inputMilligrams",
+    "conversionFactor": "conversionFactor",
+    "batchMultiplier": "batchMultiplier"
   },
   "outputs": {
     "primary": "grams",
@@ -56,10 +99,10 @@
       "grams"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

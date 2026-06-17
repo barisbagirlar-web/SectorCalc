@@ -24,13 +24,18 @@ function evaluateAllFormulas(input: Box_plot_calculatorInput): Record<string, nu
   try { const v = input.q3 + 1.5 * (input.q3 - input.q1); results["upperFence"] = Number.isFinite(v) ? v : 0; } catch { results["upperFence"] = 0; }
   try { const v = input.min < (input.q1 - 1.5 * (input.q3 - input.q1)); results["minOutlier"] = Number.isFinite(v) ? v : 0; } catch { results["minOutlier"] = 0; }
   try { const v = input.max > (input.q3 + 1.5 * (input.q3 - input.q1)); results["maxOutlier"] = Number.isFinite(v) ? v : 0; } catch { results["maxOutlier"] = 0; }
+  try { const v = input.q1 - 1.5 * (input.q3 - input.q1); results["q1___1_5____q3___q1_"] = Number.isFinite(v) ? v : 0; } catch { results["q1___1_5____q3___q1_"] = 0; }
+  try { const v = input.q3 + 1.5 * (input.q3 - input.q1); results["q3___1_5____q3___q1_"] = Number.isFinite(v) ? v : 0; } catch { results["q3___1_5____q3___q1_"] = 0; }
+  try { const v = input.min < (input.q1 - 1.5 * (input.q3 - input.q1)); results["min____q1___1_5____q3___q1__"] = Number.isFinite(v) ? v : 0; } catch { results["min____q1___1_5____q3___q1__"] = 0; }
+  try { const v = input.max > (input.q3 + 1.5 * (input.q3 - input.q1)); results["max____q3___1_5____q3___q1__"] = Number.isFinite(v) ? v : 0; } catch { results["max____q3___1_5____q3___q1__"] = 0; }
+  try { const v = input.q3 - input.q1; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateBox_plot_calculator(input: Box_plot_calculatorInput): Box_plot_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["q3"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

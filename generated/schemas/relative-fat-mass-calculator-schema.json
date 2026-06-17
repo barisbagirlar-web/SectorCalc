@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kişinin boy uzunluğu santimetre cinsinden"
+      "businessContext": "Kişinin boy uzunluğu santimetre cinsinden",
+      "label_i18n": {
+        "en": "Boy (cm)",
+        "tr": "Boy (cm)",
+        "de": "Boy (cm)",
+        "fr": "Boy (cm)",
+        "es": "Boy (cm)",
+        "ar": "Boy (cm)"
+      }
     },
     {
       "id": "waist",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "cm",
       "default": 80,
-      "businessContext": "Bel çevresi ölçümü santimetre cinsinden"
+      "businessContext": "Bel çevresi ölçümü santimetre cinsinden",
+      "label_i18n": {
+        "en": "Bel Çevresi (cm)",
+        "tr": "Bel Çevresi (cm)",
+        "de": "Bel Çevresi (cm)",
+        "fr": "Bel Çevresi (cm)",
+        "es": "Bel Çevresi (cm)",
+        "ar": "Bel Çevresi (cm)"
+      }
     },
     {
       "id": "sex",
       "label": "Cinsiyet (0: Erkek, 1: Kadın)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Cinsiyet göstergesi: 0 erkek, 1 kadın"
+      "businessContext": "Cinsiyet göstergesi: 0 erkek, 1 kadın",
+      "label_i18n": {
+        "en": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "tr": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "de": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "fr": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "es": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "ar": "Cinsiyet (0: Erkek, 1: Kadın)"
+      }
     }
   ],
   "formulas": {
@@ -40,10 +64,10 @@
       "constant"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

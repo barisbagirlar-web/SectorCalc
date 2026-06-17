@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N",
       "default": 100,
-      "businessContext": "Constant force applied"
+      "businessContext": "Constant force applied",
+      "label_i18n": {
+        "en": "Force",
+        "tr": "Force",
+        "de": "Force",
+        "fr": "Force",
+        "es": "Force",
+        "ar": "Force"
+      }
     },
     {
       "id": "time",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 0.5,
-      "businessContext": "Time duration of force application"
+      "businessContext": "Time duration of force application",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     },
     {
       "id": "mass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Mass of the object"
+      "businessContext": "Mass of the object",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "initialVelocity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Velocity before impulse"
+      "businessContext": "Velocity before impulse",
+      "label_i18n": {
+        "en": "Initial Velocity",
+        "tr": "Initial Velocity",
+        "de": "Initial Velocity",
+        "fr": "Initial Velocity",
+        "es": "Initial Velocity",
+        "ar": "Initial Velocity"
+      }
     },
     {
       "id": "finalVelocity",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "m/s",
       "default": 5,
-      "businessContext": "Velocity after impulse"
+      "businessContext": "Velocity after impulse",
+      "label_i18n": {
+        "en": "Final Velocity",
+        "tr": "Final Velocity",
+        "de": "Final Velocity",
+        "fr": "Final Velocity",
+        "es": "Final Velocity",
+        "ar": "Final Velocity"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Design safety factor for impulse load"
+      "businessContext": "Design safety factor for impulse load",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "designImpulse"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "hse-ergonomics"
 }

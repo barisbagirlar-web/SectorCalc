@@ -22,6 +22,8 @@ function evaluateAllFormulas(input: Ionization_energy_calculatorInput): Record<s
   try { const v = input.atomicNumber - input.screeningConstant; results["effectiveNuclearCharge"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveNuclearCharge"] = 0; }
   try { const v = input.rydbergEnergy * ((results["effectiveNuclearCharge"] ?? 0) ** 2) / (input.principalQuantumNumber ** 2); results["ionizationEnergy_eV"] = Number.isFinite(v) ? v : 0; } catch { results["ionizationEnergy_eV"] = 0; }
   try { const v = (results["ionizationEnergy_eV"] ?? 0) * input.conversionFactor; results["ionizationEnergy_kJ_per_mol"] = Number.isFinite(v) ? v : 0; } catch { results["ionizationEnergy_kJ_per_mol"] = 0; }
+  results["_ionizationEnergy_eV__eV"] = 0;
+  results["_ionizationEnergy_kJ_per_mol__kJ_mol"] = 0;
   return results;
 }
 

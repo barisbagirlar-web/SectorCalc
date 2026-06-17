@@ -5,33 +5,65 @@
       "id": "A",
       "label": "A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of x in Ax + By = C"
+      "businessContext": "Coefficient of x in Ax + By = C",
+      "label_i18n": {
+        "en": "A",
+        "tr": "A",
+        "de": "A",
+        "fr": "A",
+        "es": "A",
+        "ar": "A"
+      }
     },
     {
       "id": "B",
       "label": "B",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of y in Ax + By = C"
+      "businessContext": "Coefficient of y in Ax + By = C",
+      "label_i18n": {
+        "en": "B",
+        "tr": "B",
+        "de": "B",
+        "fr": "B",
+        "es": "B",
+        "ar": "B"
+      }
     },
     {
       "id": "C",
       "label": "C",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term in Ax + By = C"
+      "businessContext": "Constant term in Ax + By = C",
+      "label_i18n": {
+        "en": "C",
+        "tr": "C",
+        "de": "C",
+        "fr": "C",
+        "es": "C",
+        "ar": "C"
+      }
     },
     {
       "id": "x",
       "label": "x",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Value of x to compute corresponding y"
+      "businessContext": "Value of x to compute corresponding y",
+      "label_i18n": {
+        "en": "x",
+        "tr": "x",
+        "de": "x",
+        "fr": "x",
+        "es": "x",
+        "ar": "x"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "y_intercept"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

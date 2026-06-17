@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Initial absolute pressure of the gas. Enter 0 if unknown."
+      "businessContext": "Initial absolute pressure of the gas. Enter 0 if unknown.",
+      "label_i18n": {
+        "en": "Initial Pressure (P₁)",
+        "tr": "Initial Pressure (P₁)",
+        "de": "Initial Pressure (P₁)",
+        "fr": "Initial Pressure (P₁)",
+        "es": "Initial Pressure (P₁)",
+        "ar": "Initial Pressure (P₁)"
+      }
     },
     {
       "id": "t1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "K",
       "default": 273.15,
-      "businessContext": "Initial absolute temperature of the gas. Enter 0 if unknown."
+      "businessContext": "Initial absolute temperature of the gas. Enter 0 if unknown.",
+      "label_i18n": {
+        "en": "Initial Temperature (T₁)",
+        "tr": "Initial Temperature (T₁)",
+        "de": "Initial Temperature (T₁)",
+        "fr": "Initial Temperature (T₁)",
+        "es": "Initial Temperature (T₁)",
+        "ar": "Initial Temperature (T₁)"
+      }
     },
     {
       "id": "p2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 0,
-      "businessContext": "Final absolute pressure of the gas. Enter 0 if unknown."
+      "businessContext": "Final absolute pressure of the gas. Enter 0 if unknown.",
+      "label_i18n": {
+        "en": "Final Pressure (P₂)",
+        "tr": "Final Pressure (P₂)",
+        "de": "Final Pressure (P₂)",
+        "fr": "Final Pressure (P₂)",
+        "es": "Final Pressure (P₂)",
+        "ar": "Final Pressure (P₂)"
+      }
     },
     {
       "id": "t2",
@@ -31,11 +55,23 @@
       "type": "number",
       "unit": "K",
       "default": 373.15,
-      "businessContext": "Final absolute temperature of the gas. Enter 0 if unknown."
+      "businessContext": "Final absolute temperature of the gas. Enter 0 if unknown.",
+      "label_i18n": {
+        "en": "Final Temperature (T₂)",
+        "tr": "Final Temperature (T₂)",
+        "de": "Final Temperature (T₂)",
+        "fr": "Final Temperature (T₂)",
+        "es": "Final Temperature (T₂)",
+        "ar": "Final Temperature (T₂)"
+      }
     }
   ],
   "formulas": {
-    "calculated_value": "p1 === 0 ? (p2 * t1 / t2) : (t1 === 0 ? (p1 * t2 / p2) : (p2 === 0 ? (p1 * t2 / t1) : (p2 * t1 / p1)))"
+    "calculated_value": "p1 === 0 ? (p2 * t1 / t2) : (t1 === 0 ? (p1 * t2 / p2) : (p2 === 0 ? (p1 * t2 / t1) : (p2 * t1 / p1)))",
+    "P__T____P__T___constant_volume_and_mass_": "P₁/T₁ = P₂/T₂ (constant volume and mass)",
+    "Substitute_known_values_and_solve_for_th": "Substitute known values and solve for the unknown.",
+    "P____P____T____T_": "P₁ = P₂ * T₁ / T₂",
+    "T____P____T____P_": "T₁ = P₁ * T₂ / P₂"
   },
   "outputs": {
     "primary": "calculated_value",
@@ -48,10 +84,10 @@
       "If solving for T₂: T₂ = P₂ * T₁ / P₁"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -5,25 +5,49 @@
       "id": "decimalNumber",
       "label": "Decimal Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12345.67,
-      "businessContext": "Number to convert to scientific notation (when converting from decimal)."
+      "businessContext": "Number to convert to scientific notation (when converting from decimal).",
+      "label_i18n": {
+        "en": "Decimal Number",
+        "tr": "Decimal Number",
+        "de": "Decimal Number",
+        "fr": "Decimal Number",
+        "es": "Decimal Number",
+        "ar": "Decimal Number"
+      }
     },
     {
       "id": "scientificCoefficient",
       "label": "Scientific Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.234567,
-      "businessContext": "Coefficient in scientific notation (when converting from scientific)."
+      "businessContext": "Coefficient in scientific notation (when converting from scientific).",
+      "label_i18n": {
+        "en": "Scientific Coefficient",
+        "tr": "Scientific Coefficient",
+        "de": "Scientific Coefficient",
+        "fr": "Scientific Coefficient",
+        "es": "Scientific Coefficient",
+        "ar": "Scientific Coefficient"
+      }
     },
     {
       "id": "scientificExponent",
       "label": "Scientific Exponent",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Exponent in scientific notation (when converting from scientific)."
+      "businessContext": "Exponent in scientific notation (when converting from scientific).",
+      "label_i18n": {
+        "en": "Scientific Exponent",
+        "tr": "Scientific Exponent",
+        "de": "Scientific Exponent",
+        "fr": "Scientific Exponent",
+        "es": "Scientific Exponent",
+        "ar": "Scientific Exponent"
+      }
     },
     {
       "id": "conversionMode",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "0=Decimal to Sci, 1=Sci to Decimal",
       "default": 0,
-      "businessContext": "Select conversion direction."
+      "businessContext": "Select conversion direction.",
+      "label_i18n": {
+        "en": "Conversion Mode",
+        "tr": "Conversion Mode",
+        "de": "Conversion Mode",
+        "fr": "Conversion Mode",
+        "es": "Conversion Mode",
+        "ar": "Conversion Mode"
+      }
     },
     {
       "id": "precision",
@@ -39,25 +71,36 @@
       "type": "number",
       "unit": "places",
       "default": 6,
-      "businessContext": "Number of decimal places in output."
+      "businessContext": "Number of decimal places in output.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
     "primary": "conversionMode === 0 ? (decimalNumber === 0 ? '0' : (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision) + 'e' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
     "breakdown0": "conversionMode === 0 ? (decimalNumber === 0 ? 'Coefficient: 0' : 'Coefficient: ' + (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision)) : 'Decimal: ' + (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
-    "breakdown1": "conversionMode === 0 ? (decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent"
+    "breakdown1": "conversionMode === 0 ? (decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent",
+    "0_____Coefficient_______decimalNumber___": "0' : 'Coefficient: ' + (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision)) : 'Decimal: ' + (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
+    "0_____Exponent______Math_floor_Math_log1": "0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent",
+    "result": "conversionMode === 0 ? (decimalNumber === 0 ? '0' : (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision) + 'e' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)"
   },
   "outputs": {
-    "primary": "conversionMode === 0 ? (decimalNumber === 0 ? '0' : (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision) + 'e' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
+    "primary": "result",
     "breakdown": [
       "conversionMode === 0 ? (decimalNumber === 0 ? 'Coefficient: 0' : 'Coefficient: ' + (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision)) : 'Decimal: ' + (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
       "conversionMode === 0 ? (decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

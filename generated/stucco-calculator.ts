@@ -21,13 +21,16 @@ function evaluateAllFormulas(input: Stucco_calculatorInput): Record<string, numb
   const results: Record<string, number> = {};
   try { const v = input.wallArea * input.thickness * input.kgPerSqmPerMm * (1 + input.wasteFactor / 100); results["totalDryMix"] = Number.isFinite(v) ? v : 0; } catch { results["totalDryMix"] = 0; }
   try { const v = Math.ceil((results["totalDryMix"] ?? 0) / input.bagWeight); results["totalBags"] = Number.isFinite(v) ? v : 0; } catch { results["totalBags"] = 0; }
+  results["__totalDryMix_toFixed_2____kg"] = 0;
+  results["___wasteFactor__"] = 0;
+  results["__bagWeight___kg"] = 0;
   return results;
 }
 
 
 export function calculateStucco_calculator(input: Stucco_calculatorInput): Stucco_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Gerekli"] ?? 0;
+  const totalWasteCost = values["totalDryMix"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "breaths/min",
       "default": 12,
-      "businessContext": "Average respiratory rate for a person at rest"
+      "businessContext": "Average respiratory rate for a person at rest",
+      "label_i18n": {
+        "en": "Breathing Rate",
+        "tr": "Breathing Rate",
+        "de": "Breathing Rate",
+        "fr": "Breathing Rate",
+        "es": "Breathing Rate",
+        "ar": "Breathing Rate"
+      }
     },
     {
       "id": "tidalVolume",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L",
       "default": 0.5,
-      "businessContext": "Volume of air displaced per breath"
+      "businessContext": "Volume of air displaced per breath",
+      "label_i18n": {
+        "en": "Tidal Volume",
+        "tr": "Tidal Volume",
+        "de": "Tidal Volume",
+        "fr": "Tidal Volume",
+        "es": "Tidal Volume",
+        "ar": "Tidal Volume"
+      }
     },
     {
       "id": "cylinderVolume",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 6,
-      "businessContext": "Internal water volume of the SCBA cylinder"
+      "businessContext": "Internal water volume of the SCBA cylinder",
+      "label_i18n": {
+        "en": "Cylinder Water Volume",
+        "tr": "Cylinder Water Volume",
+        "de": "Cylinder Water Volume",
+        "fr": "Cylinder Water Volume",
+        "es": "Cylinder Water Volume",
+        "ar": "Cylinder Water Volume"
+      }
     },
     {
       "id": "cylinderPressure",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "bar",
       "default": 200,
-      "businessContext": "Filled pressure of the cylinder"
+      "businessContext": "Filled pressure of the cylinder",
+      "label_i18n": {
+        "en": "Cylinder Pressure",
+        "tr": "Cylinder Pressure",
+        "de": "Cylinder Pressure",
+        "fr": "Cylinder Pressure",
+        "es": "Cylinder Pressure",
+        "ar": "Cylinder Pressure"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.8,
-      "businessContext": "Safety margin to ensure sufficient air reserve"
+      "businessContext": "Safety margin to ensure sufficient air reserve",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "ambientPressure",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "atm",
       "default": 1,
-      "businessContext": "Atmospheric pressure at the working location (1 atm at sea level)"
+      "businessContext": "Atmospheric pressure at the working location (1 atm at sea level)",
+      "label_i18n": {
+        "en": "Ambient Pressure",
+        "tr": "Ambient Pressure",
+        "de": "Ambient Pressure",
+        "fr": "Ambient Pressure",
+        "es": "Ambient Pressure",
+        "ar": "Ambient Pressure"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "minuteVentilation"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

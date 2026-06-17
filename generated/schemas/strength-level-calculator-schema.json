@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "Parçaya uygulanan kuvvet"
+      "businessContext": "Parçaya uygulanan kuvvet",
+      "label_i18n": {
+        "en": "Uygulanan Kuvvet",
+        "tr": "Uygulanan Kuvvet",
+        "de": "Uygulanan Kuvvet",
+        "fr": "Uygulanan Kuvvet",
+        "es": "Uygulanan Kuvvet",
+        "ar": "Uygulanan Kuvvet"
+      }
     },
     {
       "id": "crossSectionArea",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm²",
       "default": 50,
-      "businessContext": "Parçanın yükü taşıyan kesit alanı"
+      "businessContext": "Parçanın yükü taşıyan kesit alanı",
+      "label_i18n": {
+        "en": "Kesit Alanı",
+        "tr": "Kesit Alanı",
+        "de": "Kesit Alanı",
+        "fr": "Kesit Alanı",
+        "es": "Kesit Alanı",
+        "ar": "Kesit Alanı"
+      }
     },
     {
       "id": "yieldStrength",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Malzemenin akma dayanımı"
+      "businessContext": "Malzemenin akma dayanımı",
+      "label_i18n": {
+        "en": "Akma Dayanımı",
+        "tr": "Akma Dayanımı",
+        "de": "Akma Dayanımı",
+        "fr": "Akma Dayanımı",
+        "es": "Akma Dayanımı",
+        "ar": "Akma Dayanımı"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Emniyet Katsayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Tasarım emniyet katsayısı"
+      "businessContext": "Tasarım emniyet katsayısı",
+      "label_i18n": {
+        "en": "Emniyet Katsayısı",
+        "tr": "Emniyet Katsayısı",
+        "de": "Emniyet Katsayısı",
+        "fr": "Emniyet Katsayısı",
+        "es": "Emniyet Katsayısı",
+        "ar": "Emniyet Katsayısı"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,10 @@
       "allowableStress"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "categorySlug": "quality-six-sigma",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

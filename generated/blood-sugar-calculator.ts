@@ -21,13 +21,17 @@ function evaluateAllFormulas(input: Blood_sugar_calculatorInput): Record<string,
   try { const v = (results["avg_bs_mgdl"] ?? 0) / 18.0182; results["avg_bs_mmol"] = Number.isFinite(v) ? v : 0; } catch { results["avg_bs_mmol"] = 0; }
   try { const v = ((results["avg_bs_mgdl"] ?? 0) + 46.7) / 28.7; results["estimated_a1c"] = Number.isFinite(v) ? v : 0; } catch { results["estimated_a1c"] = 0; }
   try { const v = 28.7 * input.a1c - 46.7; results["eag_from_a1c"] = Number.isFinite(v) ? v : 0; } catch { results["eag_from_a1c"] = 0; }
+  results["__estimated_a1c__"] = 0;
+  results["__eag_from_a1c__mg_dL"] = 0;
+  results["__avg_bs_mmol__mmol_L"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateBlood_sugar_calculator(input: Blood_sugar_calculatorInput): Blood_sugar_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Average"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

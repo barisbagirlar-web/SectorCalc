@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 3000,
-      "businessContext": "Velocity of exhaust gases relative to the rocket, typically 2000-4500 m/s for chemical rockets."
+      "businessContext": "Velocity of exhaust gases relative to the rocket, typically 2000-4500 m/s for chemical rockets.",
+      "label_i18n": {
+        "en": "Effective Exhaust Velocity",
+        "tr": "Effective Exhaust Velocity",
+        "de": "Effective Exhaust Velocity",
+        "fr": "Effective Exhaust Velocity",
+        "es": "Effective Exhaust Velocity",
+        "ar": "Effective Exhaust Velocity"
+      }
     },
     {
       "id": "initialMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 50000,
-      "businessContext": "Total mass of the rocket at launch including propellant."
+      "businessContext": "Total mass of the rocket at launch including propellant.",
+      "label_i18n": {
+        "en": "Initial Mass",
+        "tr": "Initial Mass",
+        "de": "Initial Mass",
+        "fr": "Initial Mass",
+        "es": "Initial Mass",
+        "ar": "Initial Mass"
+      }
     },
     {
       "id": "finalMass",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "kg",
       "default": 10000,
-      "businessContext": "Mass of the rocket after propellant is burned, excluding any discarded stages."
+      "businessContext": "Mass of the rocket after propellant is burned, excluding any discarded stages.",
+      "label_i18n": {
+        "en": "Final Mass",
+        "tr": "Final Mass",
+        "de": "Final Mass",
+        "fr": "Final Mass",
+        "es": "Final Mass",
+        "ar": "Final Mass"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Design safety factor applied to delta-V calculation, normally 1.0 (no margin)."
+      "businessContext": "Design safety factor applied to delta-V calculation, normally 1.0 (no margin).",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "theoreticalDeltaV"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

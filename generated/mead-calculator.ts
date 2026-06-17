@@ -22,13 +22,17 @@ export const Mead_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Mead_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = ((input.targetABV/100 * input.batchVolumeL) * 0.789 / 0.484) / (input.honeySugarContent/100 * input.yieldFactor/100); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.batchVolumeL; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Su_Miktar___L_"] = 0;
+  results["Alkol_Miktar___L_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateMead_calculator(input: Mead_calculatorInput): Mead_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Bal"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

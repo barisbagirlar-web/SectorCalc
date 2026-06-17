@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "For Heron's formula or SAS (with side2 and angle)"
+      "businessContext": "For Heron's formula or SAS (with side2 and angle)",
+      "label_i18n": {
+        "en": "Side 1 (a)",
+        "tr": "Side 1 (a)",
+        "de": "Side 1 (a)",
+        "fr": "Side 1 (a)",
+        "es": "Side 1 (a)",
+        "ar": "Side 1 (a)"
+      }
     },
     {
       "id": "side2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "For Heron's formula or SAS (with side1 and angle)"
+      "businessContext": "For Heron's formula or SAS (with side1 and angle)",
+      "label_i18n": {
+        "en": "Side 2 (b)",
+        "tr": "Side 2 (b)",
+        "de": "Side 2 (b)",
+        "fr": "Side 2 (b)",
+        "es": "Side 2 (b)",
+        "ar": "Side 2 (b)"
+      }
     },
     {
       "id": "side3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "For Heron's formula (all three sides)"
+      "businessContext": "For Heron's formula (all three sides)",
+      "label_i18n": {
+        "en": "Side 3 (c)",
+        "tr": "Side 3 (c)",
+        "de": "Side 3 (c)",
+        "fr": "Side 3 (c)",
+        "es": "Side 3 (c)",
+        "ar": "Side 3 (c)"
+      }
     },
     {
       "id": "base",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "For base-height method"
+      "businessContext": "For base-height method",
+      "label_i18n": {
+        "en": "Base",
+        "tr": "Base",
+        "de": "Base",
+        "fr": "Base",
+        "es": "Base",
+        "ar": "Base"
+      }
     },
     {
       "id": "height",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "For base-height method"
+      "businessContext": "For base-height method",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "angle",
@@ -47,11 +87,21 @@
       "type": "number",
       "unit": "deg",
       "default": 0,
-      "businessContext": "Angle between side1 and side2, in degrees, for SAS method"
+      "businessContext": "Angle between side1 and side2, in degrees, for SAS method",
+      "label_i18n": {
+        "en": "Included Angle",
+        "tr": "Included Angle",
+        "de": "Included Angle",
+        "fr": "Included Angle",
+        "es": "Included Angle",
+        "ar": "Included Angle"
+      }
     }
   ],
   "formulas": {
-    "area": "function(inputs) {\n  const { side1, side2, side3, base, height, angle } = inputs;\n  if (side1 > 0 && side2 > 0 && angle > 0) {\n    const rad = angle * Math.PI / 180;\n    const area = 0.5 * side1 * side2 * Math.sin(rad);\n    const steps = 'SAS: 0.5 x ' + side1 + ' x ' + side2 + ' x sin(' + angle + '°) = ' + area.toFixed(4) + ' m²';\n    return { area: area, method: 'SAS (Side-Angle-Side)', steps: steps };\n  } else if (base > 0 && height > 0) {\n    const area = 0.5 * base * height;\n    const steps = 'Base-Height: 0.5 x ' + base + ' x ' + height + ' = ' + area.toFixed(4) + ' m²';\n    return { area: area, method: 'Base & Height', steps: steps };\n  } else if (side1 > 0 && side2 > 0 && side3 > 0) {\n    const s = (side1 + side2 + side3) / 2;\n    const area = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));\n    if (isNaN(area)) {\n      return { area: 0, method: 'Invalid sides', steps: 'Side lengths do not form a valid triangle.' };\n    }\n    const steps = 'Heron: s = (' + side1 + '+' + side2 + '+' + side3 + ')/2 = ' + s.toFixed(4) + '; area = √[s(s-a)(s-b)(s-c)] = ' + area.toFixed(4) + ' m²';\n    return { area: area, method: 'Heron formula', steps: steps };\n  } else {\n    return { area: 0, method: 'Insufficient inputs', steps: 'Provide base & height, three sides, or two sides and included angle.' };\n  }\n}"
+    "area": "function(inputs) {\n  const { side1, side2, side3, base, height, angle } = inputs;\n  if (side1 > 0 && side2 > 0 && angle > 0) {\n    const rad = angle * Math.PI / 180;\n    const area = 0.5 * side1 * side2 * Math.sin(rad);\n    const steps = 'SAS: 0.5 x ' + side1 + ' x ' + side2 + ' x sin(' + angle + '°) = ' + area.toFixed(4) + ' m²';\n    return { area: area, method: 'SAS (Side-Angle-Side)', steps: steps };\n  } else if (base > 0 && height > 0) {\n    const area = 0.5 * base * height;\n    const steps = 'Base-Height: 0.5 x ' + base + ' x ' + height + ' = ' + area.toFixed(4) + ' m²';\n    return { area: area, method: 'Base & Height', steps: steps };\n  } else if (side1 > 0 && side2 > 0 && side3 > 0) {\n    const s = (side1 + side2 + side3) / 2;\n    const area = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));\n    if (isNaN(area)) {\n      return { area: 0, method: 'Invalid sides', steps: 'Side lengths do not form a valid triangle.' };\n    }\n    const steps = 'Heron: s = (' + side1 + '+' + side2 + '+' + side3 + ')/2 = ' + s.toFixed(4) + '; area = √[s(s-a)(s-b)(s-c)] = ' + area.toFixed(4) + ' m²';\n    return { area: area, method: 'Heron formula', steps: steps };\n  } else {\n    return { area: 0, method: 'Insufficient inputs', steps: 'Provide base & height, three sides, or two sides and included angle.' };\n  }\n}",
+    "method": "method",
+    "steps": "steps"
   },
   "outputs": {
     "primary": "area",
@@ -60,10 +110,10 @@
       "steps"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

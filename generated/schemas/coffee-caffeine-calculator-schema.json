@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ml",
       "default": 240,
-      "businessContext": "Volume of one cup in milliliters."
+      "businessContext": "Volume of one cup in milliliters.",
+      "label_i18n": {
+        "en": "Cup Volume",
+        "tr": "Cup Volume",
+        "de": "Cup Volume",
+        "fr": "Cup Volume",
+        "es": "Cup Volume",
+        "ar": "Cup Volume"
+      }
     },
     {
       "id": "caffeineMgPer100ml",
@@ -15,31 +23,63 @@
       "type": "number",
       "unit": "mg/100ml",
       "default": 40,
-      "businessContext": "Caffeine content per 100ml for the coffee type (e.g., drip: 40-60, espresso: 212 per 100ml)."
+      "businessContext": "Caffeine content per 100ml for the coffee type (e.g., drip: 40-60, espresso: 212 per 100ml).",
+      "label_i18n": {
+        "en": "Caffeine per 100ml",
+        "tr": "Caffeine per 100ml",
+        "de": "Caffeine per 100ml",
+        "fr": "Caffeine per 100ml",
+        "es": "Caffeine per 100ml",
+        "ar": "Caffeine per 100ml"
+      }
     },
     {
       "id": "numberOfCups",
       "label": "Number of Cups",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Total number of cups consumed."
+      "businessContext": "Total number of cups consumed.",
+      "label_i18n": {
+        "en": "Number of Cups",
+        "tr": "Number of Cups",
+        "de": "Number of Cups",
+        "fr": "Number of Cups",
+        "es": "Number of Cups",
+        "ar": "Number of Cups"
+      }
     },
     {
       "id": "brewStrengthFactor",
       "label": "Brew Strength Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for brew strength (1 = standard, >1 stronger, <1 weaker)."
+      "businessContext": "Multiplier for brew strength (1 = standard, >1 stronger, <1 weaker).",
+      "label_i18n": {
+        "en": "Brew Strength Factor",
+        "tr": "Brew Strength Factor",
+        "de": "Brew Strength Factor",
+        "fr": "Brew Strength Factor",
+        "es": "Brew Strength Factor",
+        "ar": "Brew Strength Factor"
+      }
     },
     {
       "id": "isDecaf",
       "label": "Decaf",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = regular coffee, 1 = decaf (removes 97% caffeine)."
+      "businessContext": "0 = regular coffee, 1 = decaf (removes 97% caffeine).",
+      "label_i18n": {
+        "en": "Decaf",
+        "tr": "Decaf",
+        "de": "Decaf",
+        "fr": "Decaf",
+        "es": "Decaf",
+        "ar": "Decaf"
+      }
     }
   ],
   "formulas": {
@@ -55,7 +95,7 @@
       "decafReductionMg"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",

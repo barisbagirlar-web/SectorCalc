@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Toplanma_zamani_calculatorInput {
   flowLength: number;
   slopePercent: number;
+  auto_input_3: number;
 }
 
 export const Toplanma_zamani_calculatorInputSchema = z.object({
   flowLength: z.number().default(100),
   slopePercent: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Toplanma_zamani_calculatorInput): Record<string, number> {
@@ -23,7 +25,7 @@ function evaluateAllFormulas(input: Toplanma_zamani_calculatorInput): Record<str
 
 export function calculateToplanma_zamani_calculator(input: Toplanma_zamani_calculatorInput): Toplanma_zamani_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["tcMinutes"] ?? 0;
+  const totalWasteCost = values["slopeDecimal"] ?? 0;
   const breakdown = {
     
   };

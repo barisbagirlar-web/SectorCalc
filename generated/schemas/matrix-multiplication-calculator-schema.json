@@ -5,65 +5,129 @@
       "id": "a11",
       "label": "Matrix A[1,1]",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrix element"
+      "businessContext": "Matrix element",
+      "label_i18n": {
+        "en": "Matrix A[1,1]",
+        "tr": "Matrix A[1,1]",
+        "de": "Matrix A[1,1]",
+        "fr": "Matrix A[1,1]",
+        "es": "Matrix A[1,1]",
+        "ar": "Matrix A[1,1]"
+      }
     },
     {
       "id": "a12",
       "label": "Matrix A[1,2]",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrix element"
+      "businessContext": "Matrix element",
+      "label_i18n": {
+        "en": "Matrix A[1,2]",
+        "tr": "Matrix A[1,2]",
+        "de": "Matrix A[1,2]",
+        "fr": "Matrix A[1,2]",
+        "es": "Matrix A[1,2]",
+        "ar": "Matrix A[1,2]"
+      }
     },
     {
       "id": "a21",
       "label": "Matrix A[2,1]",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrix element"
+      "businessContext": "Matrix element",
+      "label_i18n": {
+        "en": "Matrix A[2,1]",
+        "tr": "Matrix A[2,1]",
+        "de": "Matrix A[2,1]",
+        "fr": "Matrix A[2,1]",
+        "es": "Matrix A[2,1]",
+        "ar": "Matrix A[2,1]"
+      }
     },
     {
       "id": "a22",
       "label": "Matrix A[2,2]",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrix element"
+      "businessContext": "Matrix element",
+      "label_i18n": {
+        "en": "Matrix A[2,2]",
+        "tr": "Matrix A[2,2]",
+        "de": "Matrix A[2,2]",
+        "fr": "Matrix A[2,2]",
+        "es": "Matrix A[2,2]",
+        "ar": "Matrix A[2,2]"
+      }
     },
     {
       "id": "b11",
       "label": "Matrix B[1,1]",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrix element"
+      "businessContext": "Matrix element",
+      "label_i18n": {
+        "en": "Matrix B[1,1]",
+        "tr": "Matrix B[1,1]",
+        "de": "Matrix B[1,1]",
+        "fr": "Matrix B[1,1]",
+        "es": "Matrix B[1,1]",
+        "ar": "Matrix B[1,1]"
+      }
     },
     {
       "id": "b12",
       "label": "Matrix B[1,2]",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrix element"
+      "businessContext": "Matrix element",
+      "label_i18n": {
+        "en": "Matrix B[1,2]",
+        "tr": "Matrix B[1,2]",
+        "de": "Matrix B[1,2]",
+        "fr": "Matrix B[1,2]",
+        "es": "Matrix B[1,2]",
+        "ar": "Matrix B[1,2]"
+      }
     },
     {
       "id": "b21",
       "label": "Matrix B[2,1]",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrix element"
+      "businessContext": "Matrix element",
+      "label_i18n": {
+        "en": "Matrix B[2,1]",
+        "tr": "Matrix B[2,1]",
+        "de": "Matrix B[2,1]",
+        "fr": "Matrix B[2,1]",
+        "es": "Matrix B[2,1]",
+        "ar": "Matrix B[2,1]"
+      }
     },
     {
       "id": "b22",
       "label": "Matrix B[2,2]",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Matrix element"
+      "businessContext": "Matrix element",
+      "label_i18n": {
+        "en": "Matrix B[2,2]",
+        "tr": "Matrix B[2,2]",
+        "de": "Matrix B[2,2]",
+        "fr": "Matrix B[2,2]",
+        "es": "Matrix B[2,2]",
+        "ar": "Matrix B[2,2]"
+      }
     }
   ],
   "formulas": {
@@ -82,10 +146,10 @@
       "c22"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

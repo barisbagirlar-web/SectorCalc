@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 1500,
-      "businessContext": "Typical motor speed for industrial applications"
+      "businessContext": "Typical motor speed for industrial applications",
+      "label_i18n": {
+        "en": "Rotational Speed (RPM)",
+        "tr": "Rotational Speed (RPM)",
+        "de": "Rotational Speed (RPM)",
+        "fr": "Rotational Speed (RPM)",
+        "es": "Rotational Speed (RPM)",
+        "ar": "Rotational Speed (RPM)"
+      }
     },
     {
       "id": "radius",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Distance from center of rotation to point of interest"
+      "businessContext": "Distance from center of rotation to point of interest",
+      "label_i18n": {
+        "en": "Radius",
+        "tr": "Radius",
+        "de": "Radius",
+        "fr": "Radius",
+        "es": "Radius",
+        "ar": "Radius"
+      }
     },
     {
       "id": "time",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Time interval for angular displacement calculation"
+      "businessContext": "Time interval for angular displacement calculation",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     },
     {
       "id": "gearRatio",
       "label": "Gear Ratio (output/input)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Transmission ratio affecting final angular velocity"
+      "businessContext": "Transmission ratio affecting final angular velocity",
+      "label_i18n": {
+        "en": "Gear Ratio (output/input)",
+        "tr": "Gear Ratio (output/input)",
+        "de": "Gear Ratio (output/input)",
+        "fr": "Gear Ratio (output/input)",
+        "es": "Gear Ratio (output/input)",
+        "ar": "Gear Ratio (output/input)"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "angularDisplacement"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "cnc-additive-manufacturing"
 }

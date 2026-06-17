@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 1,
-      "businessContext": "Design pressure inside the vessel"
+      "businessContext": "Design pressure inside the vessel",
+      "label_i18n": {
+        "en": "Internal Pressure",
+        "tr": "Internal Pressure",
+        "de": "Internal Pressure",
+        "fr": "Internal Pressure",
+        "es": "Internal Pressure",
+        "ar": "Internal Pressure"
+      }
     },
     {
       "id": "innerRadius",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "Inner radius of the cylindrical vessel"
+      "businessContext": "Inner radius of the cylindrical vessel",
+      "label_i18n": {
+        "en": "Inner Radius",
+        "tr": "Inner Radius",
+        "de": "Inner Radius",
+        "fr": "Inner Radius",
+        "es": "Inner Radius",
+        "ar": "Inner Radius"
+      }
     },
     {
       "id": "wallThickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Thickness of the vessel wall"
+      "businessContext": "Thickness of the vessel wall",
+      "label_i18n": {
+        "en": "Wall Thickness",
+        "tr": "Wall Thickness",
+        "de": "Wall Thickness",
+        "fr": "Wall Thickness",
+        "es": "Wall Thickness",
+        "ar": "Wall Thickness"
+      }
     },
     {
       "id": "allowableStress",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 200,
-      "businessContext": "Maximum allowable stress of the material"
+      "businessContext": "Maximum allowable stress of the material",
+      "label_i18n": {
+        "en": "Allowable Stress",
+        "tr": "Allowable Stress",
+        "de": "Allowable Stress",
+        "fr": "Allowable Stress",
+        "es": "Allowable Stress",
+        "ar": "Allowable Stress"
+      }
     },
     {
       "id": "jointEfficiency",
       "label": "Joint Efficiency",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.85,
-      "businessContext": "Efficiency of welded joints (0-1)"
+      "businessContext": "Efficiency of welded joints (0-1)",
+      "label_i18n": {
+        "en": "Joint Efficiency",
+        "tr": "Joint Efficiency",
+        "de": "Joint Efficiency",
+        "fr": "Joint Efficiency",
+        "es": "Joint Efficiency",
+        "ar": "Joint Efficiency"
+      }
     },
     {
       "id": "corrosionAllowance",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "Additional thickness for corrosion"
+      "businessContext": "Additional thickness for corrosion",
+      "label_i18n": {
+        "en": "Corrosion Allowance",
+        "tr": "Corrosion Allowance",
+        "de": "Corrosion Allowance",
+        "fr": "Corrosion Allowance",
+        "es": "Corrosion Allowance",
+        "ar": "Corrosion Allowance"
+      }
     }
   ],
   "formulas": {
@@ -67,8 +115,8 @@
       "safetyFactorLong"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

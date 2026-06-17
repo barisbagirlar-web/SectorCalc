@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Toplam üretilecek takviye adedi"
+      "businessContext": "Toplam üretilecek takviye adedi",
+      "label_i18n": {
+        "en": "Toplam Üretim Adedi",
+        "tr": "Toplam Üretim Adedi",
+        "de": "Toplam Üretim Adedi",
+        "fr": "Toplam Üretim Adedi",
+        "es": "Toplam Üretim Adedi",
+        "ar": "Toplam Üretim Adedi"
+      }
     },
     {
       "id": "dosagePerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 5,
-      "businessContext": "Her bir ürün başına kreatin miktarı"
+      "businessContext": "Her bir ürün başına kreatin miktarı",
+      "label_i18n": {
+        "en": "Birim Dozaj (g)",
+        "tr": "Birim Dozaj (g)",
+        "de": "Birim Dozaj (g)",
+        "fr": "Birim Dozaj (g)",
+        "es": "Birim Dozaj (g)",
+        "ar": "Birim Dozaj (g)"
+      }
     },
     {
       "id": "lossRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Üretim sürecinde meydana gelen kreatin fire oranı"
+      "businessContext": "Üretim sürecinde meydana gelen kreatin fire oranı",
+      "label_i18n": {
+        "en": "Üretim Kayıp Oranı (%)",
+        "tr": "Üretim Kayıp Oranı (%)",
+        "de": "Üretim Kayıp Oranı (%)",
+        "fr": "Üretim Kayıp Oranı (%)",
+        "es": "Üretim Kayıp Oranı (%)",
+        "ar": "Üretim Kayıp Oranı (%)"
+      }
     },
     {
       "id": "purity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 99,
-      "businessContext": "Kullanılan kreatin hammaddesinin saflık yüzdesi"
+      "businessContext": "Kullanılan kreatin hammaddesinin saflık yüzdesi",
+      "label_i18n": {
+        "en": "Kreatin Saflık Oranı (%)",
+        "tr": "Kreatin Saflık Oranı (%)",
+        "de": "Kreatin Saflık Oranı (%)",
+        "fr": "Kreatin Saflık Oranı (%)",
+        "es": "Kreatin Saflık Oranı (%)",
+        "ar": "Kreatin Saflık Oranı (%)"
+      }
     },
     {
       "id": "costPerKg",
@@ -39,26 +71,36 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 500,
-      "businessContext": "Kreatin hammaddesinin kg başına maliyeti"
+      "businessContext": "Kreatin hammaddesinin kg başına maliyeti",
+      "label_i18n": {
+        "en": "Kreatin Birim Maliyeti (TL/kg)",
+        "tr": "Kreatin Birim Maliyeti (TL/kg)",
+        "de": "Kreatin Birim Maliyeti (TL/kg)",
+        "fr": "Kreatin Birim Maliyeti (TL/kg)",
+        "es": "Kreatin Birim Maliyeti (TL/kg)",
+        "ar": "Kreatin Birim Maliyeti (TL/kg)"
+      }
     }
   ],
   "formulas": {
     "netDosagePerUnit": "dosagePerUnit / (purity / 100)",
     "totalTheoreticalKg": "(totalUnits * netDosagePerUnit) / 1000",
     "totalNeededKg": "totalTheoreticalKg / (1 - lossRate / 100)",
-    "totalCost": "totalNeededKg * costPerKg"
+    "totalCost": "totalNeededKg * costPerKg",
+    "__totalNeededKg__kg": "${totalNeededKg} kg",
+    "__totalCost__TL": "${totalCost} TL"
   },
   "outputs": {
-    "primary": "Toplam Kreatin İhtiyacı: ${totalNeededKg} kg",
+    "primary": "netDosagePerUnit",
     "breakdown": [
       "Net Kreatin Miktarı: ${totalNeededKg} kg",
       "Toplam Maliyet: ${totalCost} TL"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "Üretim & İmalat",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "finance-sales-working-capital"
 }

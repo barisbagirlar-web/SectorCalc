@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 1,
-      "businessContext": "Distance in kilometers to convert."
+      "businessContext": "Distance in kilometers to convert.",
+      "label_i18n": {
+        "en": "Kilometers",
+        "tr": "Kilometers",
+        "de": "Kilometers",
+        "fr": "Kilometers",
+        "es": "Kilometers",
+        "ar": "Kilometers"
+      }
     },
     {
       "id": "miles_factor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mi/km",
       "default": 0.621371,
-      "businessContext": "Conversion factor from kilometers to miles. Standard value 0.621371192."
+      "businessContext": "Conversion factor from kilometers to miles. Standard value 0.621371192.",
+      "label_i18n": {
+        "en": "Miles per km",
+        "tr": "Miles per km",
+        "de": "Miles per km",
+        "fr": "Miles per km",
+        "es": "Miles per km",
+        "ar": "Miles per km"
+      }
     },
     {
       "id": "feet_per_mile",
@@ -23,34 +39,51 @@
       "type": "number",
       "unit": "ft/mi",
       "default": 5280,
-      "businessContext": "Number of feet in one mile. Standard value 5280."
+      "businessContext": "Number of feet in one mile. Standard value 5280.",
+      "label_i18n": {
+        "en": "Feet per mile",
+        "tr": "Feet per mile",
+        "de": "Feet per mile",
+        "fr": "Feet per mile",
+        "es": "Feet per mile",
+        "ar": "Feet per mile"
+      }
     },
     {
       "id": "decimal_places",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output values."
+      "businessContext": "Number of decimal places for the output values.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "miles": "km_value * miles_factor",
     "feet": "km_value * miles_factor * feet_per_mile",
     "miles_rounded": "Math.round(miles * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
-    "feet_rounded": "Math.round(feet * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+    "feet_rounded": "Math.round(feet * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
+    "result": "miles_rounded + ' mi, ' + feet_rounded + ' ft'"
   },
   "outputs": {
-    "primary": "miles_rounded + ' mi, ' + feet_rounded + ' ft'",
+    "primary": "result",
     "breakdown": [
       "miles",
       "feet"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

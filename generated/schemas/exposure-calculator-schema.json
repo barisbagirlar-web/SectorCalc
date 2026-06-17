@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Duration over which the noise level was measured"
+      "businessContext": "Duration over which the noise level was measured",
+      "label_i18n": {
+        "en": "Measurement Duration",
+        "tr": "Measurement Duration",
+        "de": "Measurement Duration",
+        "fr": "Measurement Duration",
+        "es": "Measurement Duration",
+        "ar": "Measurement Duration"
+      }
     },
     {
       "id": "spl",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dB(A)",
       "default": 85,
-      "businessContext": "Measured average A-weighted noise level during the measurement period"
+      "businessContext": "Measured average A-weighted noise level during the measurement period",
+      "label_i18n": {
+        "en": "Sound Pressure Level",
+        "tr": "Sound Pressure Level",
+        "de": "Sound Pressure Level",
+        "fr": "Sound Pressure Level",
+        "es": "Sound Pressure Level",
+        "ar": "Sound Pressure Level"
+      }
     },
     {
       "id": "exchangeRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dB",
       "default": 3,
-      "businessContext": "Time-intensity doubling rate (3 dB for ISO, 5 dB for OSHA)"
+      "businessContext": "Time-intensity doubling rate (3 dB for ISO, 5 dB for OSHA)",
+      "label_i18n": {
+        "en": "Exchange Rate",
+        "tr": "Exchange Rate",
+        "de": "Exchange Rate",
+        "fr": "Exchange Rate",
+        "es": "Exchange Rate",
+        "ar": "Exchange Rate"
+      }
     },
     {
       "id": "criterionLevel",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dB(A)",
       "default": 85,
-      "businessContext": "Allowable noise level for an 8-hour exposure"
+      "businessContext": "Allowable noise level for an 8-hour exposure",
+      "label_i18n": {
+        "en": "Criterion Level",
+        "tr": "Criterion Level",
+        "de": "Criterion Level",
+        "fr": "Criterion Level",
+        "es": "Criterion Level",
+        "ar": "Criterion Level"
+      }
     },
     {
       "id": "criterionTime",
@@ -39,25 +71,36 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Reference duration for the criterion level (typically 8 hours)"
+      "businessContext": "Reference duration for the criterion level (typically 8 hours)",
+      "label_i18n": {
+        "en": "Criterion Time",
+        "tr": "Criterion Time",
+        "de": "Criterion Time",
+        "fr": "Criterion Time",
+        "es": "Criterion Time",
+        "ar": "Criterion Time"
+      }
     }
   ],
   "formulas": {
     "dailyExposure": "spl + exchangeRate * Math.log(duration / criterionTime) / Math.log(2)",
     "dose": "(duration / criterionTime) * Math.pow(2, (spl - criterionLevel) / exchangeRate) * 100",
-    "exceedance": "(spl + exchangeRate * Math.log(duration / criterionTime) / Math.log(2) > criterionLevel) ? (spl + exchangeRate * Math.log(duration / criterionTime) / Math.log(2) - criterionLevel) : 0"
+    "exceedance": "(spl + exchangeRate * Math.log(duration / criterionTime) / Math.log(2) > criterionLevel) ? (spl + exchangeRate * Math.log(duration / criterionTime) / Math.log(2) - criterionLevel) : 0",
+    "Noise_Dose____": "Noise Dose (%)",
+    "Limit_Exceedance__dB_": "Limit Exceedance (dB)",
+    "result": "Daily Noise Exposure Level (L_EX,8h)"
   },
   "outputs": {
-    "primary": "Daily Noise Exposure Level (L_EX,8h)",
+    "primary": "result",
     "breakdown": [
       "Noise Dose (%)",
       "Limit Exceedance (dB)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

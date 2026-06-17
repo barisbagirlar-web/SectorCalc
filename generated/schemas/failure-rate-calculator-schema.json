@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "failures",
       "default": 5,
-      "businessContext": "Total observed failures during monitoring period"
+      "businessContext": "Total observed failures during monitoring period",
+      "label_i18n": {
+        "en": "Number of Failures",
+        "tr": "Number of Failures",
+        "de": "Number of Failures",
+        "fr": "Number of Failures",
+        "es": "Number of Failures",
+        "ar": "Number of Failures"
+      }
     },
     {
       "id": "totalTime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8760,
-      "businessContext": "Total elapsed time in hours (e.g., 8760 h/year)"
+      "businessContext": "Total elapsed time in hours (e.g., 8760 h/year)",
+      "label_i18n": {
+        "en": "Total Calendar Time",
+        "tr": "Total Calendar Time",
+        "de": "Total Calendar Time",
+        "fr": "Total Calendar Time",
+        "es": "Total Calendar Time",
+        "ar": "Total Calendar Time"
+      }
     },
     {
       "id": "numUnits",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 1,
-      "businessContext": "Number of units under test or in operation"
+      "businessContext": "Number of units under test or in operation",
+      "label_i18n": {
+        "en": "Number of Units",
+        "tr": "Number of Units",
+        "de": "Number of Units",
+        "fr": "Number of Units",
+        "es": "Number of Units",
+        "ar": "Number of Units"
+      }
     },
     {
       "id": "dutyCycle",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Percentage of time units are actually operating"
+      "businessContext": "Percentage of time units are actually operating",
+      "label_i18n": {
+        "en": "Duty Cycle",
+        "tr": "Duty Cycle",
+        "de": "Duty Cycle",
+        "fr": "Duty Cycle",
+        "es": "Duty Cycle",
+        "ar": "Duty Cycle"
+      }
     }
   ],
   "formulas": {
@@ -39,10 +71,15 @@
     "failureRatePerHour": "numFailures / effectiveOperatingHours",
     "mtbfHours": "effectiveOperatingHours / numFailures",
     "failureRateFPMH": "failureRatePerHour * 1000000",
-    "failureRateFIT": "failureRatePerHour * 1000000000"
+    "failureRateFIT": "failureRatePerHour * 1000000000",
+    "__effectiveOperatingHours_toFixed_2___ho": "${effectiveOperatingHours.toFixed(2)} hours",
+    "__failureRatePerHour_toExponential_4___p": "${failureRatePerHour.toExponential(4)} per hour",
+    "__mtbfHours_toFixed_2___hours": "${mtbfHours.toFixed(2)} hours",
+    "__failureRateFIT_toFixed_2___failures_pe": "${failureRateFIT.toFixed(2)} failures per billion hours",
+    "result": "Failure Rate: ${failureRateFPMH.toFixed(2)} failures per million hours"
   },
   "outputs": {
-    "primary": "Failure Rate: ${failureRateFPMH.toFixed(2)} failures per million hours",
+    "primary": "result",
     "breakdown": [
       "Effective Operating Hours: ${effectiveOperatingHours.toFixed(2)} hours",
       "Failure Rate (λ): ${failureRatePerHour.toExponential(4)} per hour",
@@ -50,10 +87,10 @@
       "FIT Rate: ${failureRateFIT.toFixed(2)} failures per billion hours"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Bakım & Güvenilirlik",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "maintenance-reliability"
 }

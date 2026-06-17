@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 24,
-      "businessContext": "The total number of cookies to produce"
+      "businessContext": "The total number of cookies to produce",
+      "label_i18n": {
+        "en": "Number of Cookies",
+        "tr": "Number of Cookies",
+        "de": "Number of Cookies",
+        "fr": "Number of Cookies",
+        "es": "Number of Cookies",
+        "ar": "Number of Cookies"
+      }
     },
     {
       "id": "flourCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD/kg",
       "default": 1.5,
-      "businessContext": "Purchase cost of all-purpose flour per kilogram"
+      "businessContext": "Purchase cost of all-purpose flour per kilogram",
+      "label_i18n": {
+        "en": "Flour Cost per kg",
+        "tr": "Flour Cost per kg",
+        "de": "Flour Cost per kg",
+        "fr": "Flour Cost per kg",
+        "es": "Flour Cost per kg",
+        "ar": "Flour Cost per kg"
+      }
     },
     {
       "id": "sugarCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/kg",
       "default": 2,
-      "businessContext": "Purchase cost of granulated sugar per kilogram"
+      "businessContext": "Purchase cost of granulated sugar per kilogram",
+      "label_i18n": {
+        "en": "Granulated Sugar Cost per kg",
+        "tr": "Granulated Sugar Cost per kg",
+        "de": "Granulated Sugar Cost per kg",
+        "fr": "Granulated Sugar Cost per kg",
+        "es": "Granulated Sugar Cost per kg",
+        "ar": "Granulated Sugar Cost per kg"
+      }
     },
     {
       "id": "butterCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD/kg",
       "default": 5,
-      "businessContext": "Purchase cost of unsalted butter per kilogram"
+      "businessContext": "Purchase cost of unsalted butter per kilogram",
+      "label_i18n": {
+        "en": "Unsalted Butter Cost per kg",
+        "tr": "Unsalted Butter Cost per kg",
+        "de": "Unsalted Butter Cost per kg",
+        "fr": "Unsalted Butter Cost per kg",
+        "es": "Unsalted Butter Cost per kg",
+        "ar": "Unsalted Butter Cost per kg"
+      }
     },
     {
       "id": "eggCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD/egg",
       "default": 0.3,
-      "businessContext": "Purchase cost per large egg"
+      "businessContext": "Purchase cost per large egg",
+      "label_i18n": {
+        "en": "Egg Cost per Unit",
+        "tr": "Egg Cost per Unit",
+        "de": "Egg Cost per Unit",
+        "fr": "Egg Cost per Unit",
+        "es": "Egg Cost per Unit",
+        "ar": "Egg Cost per Unit"
+      }
     },
     {
       "id": "chocolateCost",
@@ -47,25 +87,35 @@
       "type": "number",
       "unit": "USD/kg",
       "default": 8,
-      "businessContext": "Purchase cost of semi-sweet chocolate chips per kilogram"
+      "businessContext": "Purchase cost of semi-sweet chocolate chips per kilogram",
+      "label_i18n": {
+        "en": "Chocolate Chips Cost per kg",
+        "tr": "Chocolate Chips Cost per kg",
+        "de": "Chocolate Chips Cost per kg",
+        "fr": "Chocolate Chips Cost per kg",
+        "es": "Chocolate Chips Cost per kg",
+        "ar": "Chocolate Chips Cost per kg"
+      }
     }
   ],
   "formulas": {
     "totalCost": "(flourCost * 0.5 + sugarCost * 0.3 + butterCost * 0.25 + eggCost * 2 + chocolateCost * 0.2) * (numberOfCookies / 12)",
     "costPerCookie": "totalCost / numberOfCookies",
-    "sellingPrice": "costPerCookie * 1.3"
+    "sellingPrice": "costPerCookie * 1.3",
+    "Cost_per_Cookie": "Cost per Cookie",
+    "Recommended_Selling_Price__30__margin_": "Recommended Selling Price (30% margin)"
   },
   "outputs": {
-    "primary": "Total Ingredient Cost",
+    "primary": "totalCost",
     "breakdown": [
       "Cost per Cookie",
       "Recommended Selling Price (30% margin)"
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Perakende & Gıda",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

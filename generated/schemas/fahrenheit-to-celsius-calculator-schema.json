@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "°F",
       "default": 32,
-      "businessContext": "Dönüştürülecek Fahrenheit sıcaklık değeri"
+      "businessContext": "Dönüştürülecek Fahrenheit sıcaklık değeri",
+      "label_i18n": {
+        "en": "Fahrenheit Sıcaklık",
+        "tr": "Fahrenheit Sıcaklık",
+        "de": "Fahrenheit Sıcaklık",
+        "fr": "Fahrenheit Sıcaklık",
+        "es": "Fahrenheit Sıcaklık",
+        "ar": "Fahrenheit Sıcaklık"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Ondalık Basamak",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı (0-10)"
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı (0-10)",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     },
     {
       "id": "atmosphericPressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hPa",
       "default": 1013.25,
-      "businessContext": "Ortam basıncı (ISO 9001 kaydı için, hesaplamaya etkisi yok)"
+      "businessContext": "Ortam basıncı (ISO 9001 kaydı için, hesaplamaya etkisi yok)",
+      "label_i18n": {
+        "en": "Atmosfer Basıncı",
+        "tr": "Atmosfer Basıncı",
+        "de": "Atmosfer Basıncı",
+        "fr": "Atmosfer Basıncı",
+        "es": "Atmosfer Basıncı",
+        "ar": "Atmosfer Basıncı"
+      }
     },
     {
       "id": "relativeHumidity",
@@ -31,12 +55,23 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Bağıl nem (ISO 9001 kaydı için)"
+      "businessContext": "Bağıl nem (ISO 9001 kaydı için)",
+      "label_i18n": {
+        "en": "Bağıl Nem",
+        "tr": "Bağıl Nem",
+        "de": "Bağıl Nem",
+        "fr": "Bağıl Nem",
+        "es": "Bağıl Nem",
+        "ar": "Bağıl Nem"
+      }
     }
   ],
   "formulas": {
     "celsius": "(fahrenheit - 32) * 5 / 9",
-    "roundedResult": "Math.round(((fahrenheit - 32) * 5 / 9) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "roundedResult": "Math.round(((fahrenheit - 32) * 5 / 9) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "_C_____F___32____5_9": "°C = (°F - 32) × 5/9",
+    "_C_____fahrenheit____32____5_9____celsiu": "°C = ({fahrenheit} - 32) × 5/9 = {celsius}",
+    "_roundedResult___C": "{roundedResult} °C"
   },
   "outputs": {
     "primary": "roundedResult",
@@ -46,8 +81,8 @@
       "Yuvarlanmış Sonuç ({decimalPlaces} ondalık): {roundedResult} °C"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

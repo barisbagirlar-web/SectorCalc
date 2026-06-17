@@ -31,13 +31,14 @@ function evaluateAllFormulas(input: Easter_calculatorInput): Record<string, numb
   try { const v = Math.floor(((results["a"] ?? 0) + 11 * (results["h"] ?? 0) + 22 * (results["l"] ?? 0)) / 451); results["m"] = Number.isFinite(v) ? v : 0; } catch { results["m"] = 0; }
   try { const v = Math.floor(((results["h"] ?? 0) + (results["l"] ?? 0) - 7 * (results["m"] ?? 0) + 114) / 31); results["month"] = Number.isFinite(v) ? v : 0; } catch { results["month"] = 0; }
   try { const v = (((results["h"] ?? 0) + (results["l"] ?? 0) - 7 * (results["m"] ?? 0) + 114) % 31) + 1 + input.daysToAdd; results["day"] = Number.isFinite(v) ? v : 0; } catch { results["day"] = 0; }
+  try { const v = 'Easter: ' + (results["month"] ?? 0) + '/' + (results["day"] ?? 0) + '/' + input.year; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateEaster_calculator(input: Easter_calculatorInput): Easter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["'Easter: ' + month + '/' + day + '/' + year"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

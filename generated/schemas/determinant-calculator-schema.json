@@ -5,37 +5,71 @@
       "id": "a",
       "label": "a (top-left)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "2x2 matrix element, row 1, column 1"
+      "businessContext": "2x2 matrix element, row 1, column 1",
+      "label_i18n": {
+        "en": "a (top-left)",
+        "tr": "a (top-left)",
+        "de": "a (top-left)",
+        "fr": "a (top-left)",
+        "es": "a (top-left)",
+        "ar": "a (top-left)"
+      }
     },
     {
       "id": "b",
       "label": "b (top-right)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "2x2 matrix element, row 1, column 2"
+      "businessContext": "2x2 matrix element, row 1, column 2",
+      "label_i18n": {
+        "en": "b (top-right)",
+        "tr": "b (top-right)",
+        "de": "b (top-right)",
+        "fr": "b (top-right)",
+        "es": "b (top-right)",
+        "ar": "b (top-right)"
+      }
     },
     {
       "id": "c",
       "label": "c (bottom-left)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "2x2 matrix element, row 2, column 1"
+      "businessContext": "2x2 matrix element, row 2, column 1",
+      "label_i18n": {
+        "en": "c (bottom-left)",
+        "tr": "c (bottom-left)",
+        "de": "c (bottom-left)",
+        "fr": "c (bottom-left)",
+        "es": "c (bottom-left)",
+        "ar": "c (bottom-left)"
+      }
     },
     {
       "id": "d",
       "label": "d (bottom-right)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "2x2 matrix element, row 2, column 2"
+      "businessContext": "2x2 matrix element, row 2, column 2",
+      "label_i18n": {
+        "en": "d (bottom-right)",
+        "tr": "d (bottom-right)",
+        "de": "d (bottom-right)",
+        "fr": "d (bottom-right)",
+        "es": "d (bottom-right)",
+        "ar": "d (bottom-right)"
+      }
     }
   ],
   "formulas": {
-    "det": "a * d - b * c"
+    "det": "a * d - b * c",
+    "Determinant__ad___bc_____a_____d_____b__": "Determinant (ad - bc) = {a} × {d} - {b} × {c}",
+    "___det_": "= {det}"
   },
   "outputs": {
     "primary": "det",
@@ -44,8 +78,8 @@
       "= {det}"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

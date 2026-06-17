@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pieces",
       "default": 10,
-      "businessContext": "The number of cups of tea to be prepared."
+      "businessContext": "The number of cups of tea to be prepared.",
+      "label_i18n": {
+        "en": "Number of Cups",
+        "tr": "Number of Cups",
+        "de": "Number of Cups",
+        "fr": "Number of Cups",
+        "es": "Number of Cups",
+        "ar": "Number of Cups"
+      }
     },
     {
       "id": "waterPerCup",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ml",
       "default": 200,
-      "businessContext": "Standard volume of water per cup."
+      "businessContext": "Standard volume of water per cup.",
+      "label_i18n": {
+        "en": "Water per Cup",
+        "tr": "Water per Cup",
+        "de": "Water per Cup",
+        "fr": "Water per Cup",
+        "es": "Water per Cup",
+        "ar": "Water per Cup"
+      }
     },
     {
       "id": "teaLeavesPerCup",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "g",
       "default": 2.5,
-      "businessContext": "Standard weight of tea leaves per cup for medium strength."
+      "businessContext": "Standard weight of tea leaves per cup for medium strength.",
+      "label_i18n": {
+        "en": "Tea Leaves per Cup",
+        "tr": "Tea Leaves per Cup",
+        "de": "Tea Leaves per Cup",
+        "fr": "Tea Leaves per Cup",
+        "es": "Tea Leaves per Cup",
+        "ar": "Tea Leaves per Cup"
+      }
     },
     {
       "id": "strengthFactor",
       "label": "Strength Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for tea amount: 1 for normal, 1.5 for strong, 0.5 for light."
+      "businessContext": "Multiplier for tea amount: 1 for normal, 1.5 for strong, 0.5 for light.",
+      "label_i18n": {
+        "en": "Strength Factor",
+        "tr": "Strength Factor",
+        "de": "Strength Factor",
+        "fr": "Strength Factor",
+        "es": "Strength Factor",
+        "ar": "Strength Factor"
+      }
     },
     {
       "id": "absorptionRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ml/g",
       "default": 1.5,
-      "businessContext": "Amount of water (ml) absorbed by 1 gram of tea leaves."
+      "businessContext": "Amount of water (ml) absorbed by 1 gram of tea leaves.",
+      "label_i18n": {
+        "en": "Water Absorption Rate",
+        "tr": "Water Absorption Rate",
+        "de": "Water Absorption Rate",
+        "fr": "Water Absorption Rate",
+        "es": "Water Absorption Rate",
+        "ar": "Water Absorption Rate"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "absorbedWater_ml"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "Perakende & Gıda",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",
-  "categorySlug": "food-cold-chain-hygiene"
+  "categorySlug": "sustainability-resource-esg"
 }

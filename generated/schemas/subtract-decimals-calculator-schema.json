@@ -5,17 +5,33 @@
       "id": "valueA",
       "label": "First Number (Minuend)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The value from which another number is to be subtracted."
+      "businessContext": "The value from which another number is to be subtracted.",
+      "label_i18n": {
+        "en": "First Number (Minuend)",
+        "tr": "First Number (Minuend)",
+        "de": "First Number (Minuend)",
+        "fr": "First Number (Minuend)",
+        "es": "First Number (Minuend)",
+        "ar": "First Number (Minuend)"
+      }
     },
     {
       "id": "valueB",
       "label": "Second Number (Subtrahend)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The value to be subtracted from the first number."
+      "businessContext": "The value to be subtracted from the first number.",
+      "label_i18n": {
+        "en": "Second Number (Subtrahend)",
+        "tr": "Second Number (Subtrahend)",
+        "de": "Second Number (Subtrahend)",
+        "fr": "Second Number (Subtrahend)",
+        "es": "Second Number (Subtrahend)",
+        "ar": "Second Number (Subtrahend)"
+      }
     },
     {
       "id": "precision",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "decimal places",
       "default": 2,
-      "businessContext": "Number of decimal places to round the intermediate difference for final output."
+      "businessContext": "Number of decimal places to round the intermediate difference for final output.",
+      "label_i18n": {
+        "en": "Rounding Precision",
+        "tr": "Rounding Precision",
+        "de": "Rounding Precision",
+        "fr": "Rounding Precision",
+        "es": "Rounding Precision",
+        "ar": "Rounding Precision"
+      }
     },
     {
       "id": "offset",
       "label": "Offset",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "A constant added to the rounded difference (e.g., calibration or zero-offset)."
+      "businessContext": "A constant added to the rounded difference (e.g., calibration or zero-offset).",
+      "label_i18n": {
+        "en": "Offset",
+        "tr": "Offset",
+        "de": "Offset",
+        "fr": "Offset",
+        "es": "Offset",
+        "ar": "Offset"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "roundedDifference"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

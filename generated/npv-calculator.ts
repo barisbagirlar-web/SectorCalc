@@ -27,30 +27,19 @@ export const Npv_calculatorInputSchema = z.object({
   include_sensitivity: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Npv_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.annual_cash_inflow - input.annual_cash_outflow) * (1 - input.tax_rate/100) + ((results["depreciation_expense"] ?? 0) * (input.tax_rate/100)); results["annual_net_cash_flow"] = Number.isFinite(v) ? v : 0; } catch { results["annual_net_cash_flow"] = 0; }
-  results["depreciation_expense"] = 0;
-  try { const v = 1 / (1 + (input.discount_rate/100))^t; results["present_value_factor"] = Number.isFinite(v) ? v : 0; } catch { results["present_value_factor"] = 0; }
-  results["npv"] = 0;
-  results["irr"] = 0;
-  try { const v = input.initial_investment / (results["annual_net_cash_flow"] ?? 0); results["payback_period"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period"] = 0; }
-  try { const v = ((results["npv"] ?? 0) + input.initial_investment) / input.initial_investment; results["profitability_index"] = Number.isFinite(v) ? v : 0; } catch { results["profitability_index"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Npv_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateNpv_calculator(input: Npv_calculatorInput): Npv_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["npv"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    id: values["id"] ?? 0,
-    label: values["label"] ?? 0,
-    unit: values["unit"] ?? 0,
-    components: values["components"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["High Discount Rate Erosion","Inflation Mismatch","Low Tax Shield Utilization"];
-  const suggestedActions: string[] = ["Reduce Initial Investment","Increase Annual Inflow","Switch to Accelerated Depreciation","Extend Project Life"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -69,7 +58,7 @@ export function calculateNpv_calculator(input: Npv_calculatorInput): Npv_calcula
 
 export interface Npv_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { id: number; label: number; unit: number; components: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

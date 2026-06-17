@@ -79,7 +79,7 @@
       "id": "age_group",
       "label": "Age group",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "20-30",
       "min": null,
       "max": null,
@@ -101,7 +101,7 @@
       "id": "has_irregular_cycles",
       "label": "Irregular cycles (variation > 7 days)",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -156,152 +156,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "estimated_ovulation_date",
-      "name": "Estimated Ovulation Date",
-      "description": "Calculates the day of ovulation relative to cycle start (day 1 = first day of period).",
-      "formula": "cycle_length - luteal_phase_length",
-      "unit": "days",
-      "intermediate": true
-    },
-    {
-      "id": "fertile_window_start",
-      "name": "Fertile Window Start",
-      "description": "Start of the 5-day fertile window (sperm survival up to 5 days).",
-      "formula": "estimated_ovulation_date - 5",
-      "unit": "days",
-      "intermediate": true
-    },
-    {
-      "id": "fertile_window_end",
-      "name": "Fertile Window End",
-      "description": "End of fertile window (ovulation day + 1 for egg viability).",
-      "formula": "estimated_ovulation_date + 1",
-      "unit": "days",
-      "intermediate": true
-    },
-    {
-      "id": "cycle_confidence_interval",
-      "name": "Cycle Confidence Interval (95%)",
-      "description": "Uses cycle variability to compute a 95% confidence interval around the estimated ovulation date (assuming normal distribution).",
-      "formula": "1.96 * cycle_variability",
-      "unit": "days",
-      "intermediate": true
-    },
-    {
-      "id": "adjusted_fertile_window_start",
-      "name": "Adjusted Fertile Window Start (with confidence)",
-      "description": "Extends the fertile window start by the confidence interval to account for variability.",
-      "formula": "fertile_window_start - cycle_confidence_interval",
-      "unit": "days",
-      "intermediate": true
-    },
-    {
-      "id": "adjusted_fertile_window_end",
-      "name": "Adjusted Fertile Window End (with confidence)",
-      "description": "Extends the fertile window end by the confidence interval.",
-      "formula": "fertile_window_end + cycle_confidence_interval",
-      "unit": "days",
-      "intermediate": true
-    },
-    {
-      "id": "data_confidence_score",
-      "name": "Data Confidence Score",
-      "description": "Composite score (0-100) based on variability and irregularity flags, using a lean sigma approach.",
-      "formula": "MAX(0, 100 - (cycle_variability * 10) - (has_irregular_cycles ? 30 : 0))",
-      "unit": "score",
-      "intermediate": true
-    }
+    "cycle_length",
+    "cycle_length",
+    "cycle_length",
+    "cycle_length",
+    "cycle_length",
+    "cycle_length",
+    "cycle_length"
   ],
   "outputs": {
-    "primary": {
-      "id": "ovulation_date_absolute",
-      "label": "Predicted Ovulation Date (absolute day of cycle)",
-      "value": null,
-      "unit": "days from cycle start"
-    },
-    "breakdown": {
-      "estimated_ovulation_date": {
-        "label": "Estimated Ovulation Day",
-        "value": null,
-        "unit": "days"
-      },
-      "fertile_window_start": {
-        "label": "Fertile Window Start (basic)",
-        "value": null,
-        "unit": "days"
-      },
-      "fertile_window_end": {
-        "label": "Fertile Window End (basic)",
-        "value": null,
-        "unit": "days"
-      },
-      "adjusted_fertile_window_start": {
-        "label": "Adjusted Fertile Window Start (with confidence)",
-        "value": null,
-        "unit": "days"
-      },
-      "adjusted_fertile_window_end": {
-        "label": "Adjusted Fertile Window End (with confidence)",
-        "value": null,
-        "unit": "days"
-      },
-      "cycle_confidence_interval": {
-        "label": "95% Confidence Interval Width",
-        "value": null,
-        "unit": "days"
-      },
-      "data_confidence_score": {
-        "label": "Data Confidence Score",
-        "value": null,
-        "unit": "score (0-100)"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "high_variability_loss",
-        "label": "Cycle variability > 5 days",
-        "description": "Reduces prediction accuracy; equivalent to process sigma shift of 1.5.",
-        "impact": "Decreases confidence score by up to 50 points."
-      },
-      {
-        "id": "irregular_cycles_loss",
-        "label": "Irregular cycles flag active",
-        "description": "Indicates potential anovulation or hormonal imbalance; standard formulas may be invalid.",
-        "impact": "Triggers alternative calculation and reduces confidence by 30 points."
-      },
-      {
-        "id": "age_related_loss",
-        "label": "Age > 40 with short luteal phase",
-        "description": "Combined risk factor for diminished ovarian reserve.",
-        "impact": "Reduces fertile window by 1 day and confidence by 20 points."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "track_basal_temp",
-        "label": "Track basal body temperature (BBT)",
-        "description": "Improves ovulation detection accuracy; recommended for cycles with variability > 3 days."
-      },
-      {
-        "id": "use_ovulation_predictor_kits",
-        "label": "Use ovulation predictor kits (OPK)",
-        "description": "Provides real-time LH surge detection; especially useful when confidence score < 70."
-      },
-      {
-        "id": "consult_healthcare_provider",
-        "label": "Consult healthcare provider",
-        "description": "Recommended if luteal phase < 11 days or cycle variability > 7 days."
-      },
-      {
-        "id": "maintain_cycle_log",
-        "label": "Maintain detailed cycle log for 3+ months",
-        "description": "Improves data confidence and allows trend analysis per SPC principles."
-      }
-    ],
-    "dataConfidenceAdjusted": null
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "lean-production",
+  "category": "Yalın Üretim",
+  "sector": "Üretim & İmalat",
+  "toolName": "ovulation-calculator"
 }

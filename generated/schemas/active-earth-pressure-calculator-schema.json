@@ -49,13 +49,7 @@
     "totalForce": "height > z0 ? 0.5 * sigmaBase * (height - z0) : 0"
   },
   "outputs": {
-    "primary": {
-      "id": "totalForce",
-      "label": "Total Active Force",
-      "unit": "kN/m",
-      "precision": 2,
-      "businessContext": "Total horizontal active earth pressure force per unit length of wall"
-    },
+    "primary": "ka",
     "breakdown": [
       {
         "id": "ka",
@@ -80,10 +74,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

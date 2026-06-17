@@ -22,13 +22,16 @@ function evaluateAllFormulas(input: Exposure_calculatorInput): Record<string, nu
   try { const v = input.spl + input.exchangeRate * Math.log(input.duration / input.criterionTime) / Math.log(2); results["dailyExposure"] = Number.isFinite(v) ? v : 0; } catch { results["dailyExposure"] = 0; }
   try { const v = (input.duration / input.criterionTime) * Math.pow(2, (input.spl - input.criterionLevel) / input.exchangeRate) * 100; results["dose"] = Number.isFinite(v) ? v : 0; } catch { results["dose"] = 0; }
   try { const v = (input.spl + input.exchangeRate * Math.log(input.duration / input.criterionTime) / Math.log(2) > input.criterionLevel) ? (input.spl + input.exchangeRate * Math.log(input.duration / input.criterionTime) / Math.log(2) - input.criterionLevel) : 0; results["exceedance"] = Number.isFinite(v) ? v : 0; } catch { results["exceedance"] = 0; }
+  results["Noise_Dose____"] = 0;
+  results["Limit_Exceedance__dB_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateExposure_calculator(input: Exposure_calculatorInput): Exposure_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Daily"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -187,7 +187,8 @@
       },
       "businessContext_i18n": {
         "en": "Type of route affecting speed and delay assumptions."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "use_real_time_traffic",
@@ -200,7 +201,8 @@
       },
       "businessContext_i18n": {
         "en": "If true, the calculator will adjust traffic delay factor based on real-time data (premium feature)."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -259,176 +261,23 @@
     ]
   },
   "formulas": [
-    {
-      "id": "ideal_driving_time_hours",
-      "name": "Ideal Driving Time",
-      "description": "Time to cover the route without stops or delays.",
-      "formula": "route_distance_km / average_speed_kmh",
-      "unit": "hours"
-    },
-    {
-      "id": "total_stop_time_hours",
-      "name": "Total Stop Time",
-      "description": "Total time spent at planned stops.",
-      "formula": "planned_stops * (average_stop_time_min / 60)",
-      "unit": "hours"
-    },
-    {
-      "id": "traffic_loss_hours",
-      "name": "Traffic Loss Time",
-      "description": "Additional time lost due to traffic delays.",
-      "formula": "ideal_driving_time_hours * traffic_delay_factor",
-      "unit": "hours"
-    },
-    {
-      "id": "total_transit_time_hours",
-      "name": "Total Transit Time",
-      "description": "Actual total time from start to finish including stops and delays.",
-      "formula": "ideal_driving_time_hours + total_stop_time_hours + traffic_loss_hours",
-      "unit": "hours"
-    },
-    {
-      "id": "time_loss_cost",
-      "name": "Time Loss Cost",
-      "description": "Cost of driver time lost due to stops and delays.",
-      "formula": "(total_stop_time_hours + traffic_loss_hours) * driver_wage_per_hour",
-      "unit": "currency"
-    },
-    {
-      "id": "fuel_and_operating_cost",
-      "name": "Fuel and Operating Cost",
-      "description": "Total variable cost for distance traveled.",
-      "formula": "route_distance_km * (fuel_cost_per_km + vehicle_operating_cost_per_km)",
-      "unit": "currency"
-    },
-    {
-      "id": "cargo_time_value_loss",
-      "name": "Cargo Time Value Loss",
-      "description": "Opportunity cost of cargo in transit beyond target time (using 5% annual cost of capital).",
-      "formula": "load_value_currency * 0.05 * (total_transit_time_hours - transit_time_target_hours) / 8760",
-      "unit": "currency",
-      "condition": "total_transit_time_hours > transit_time_target_hours"
-    },
-    {
-      "id": "total_route_loss",
-      "name": "Total Route Loss",
-      "description": "Primary result: total monetary loss for the route.",
-      "formula": "time_loss_cost + fuel_and_operating_cost + cargo_time_value_loss",
-      "unit": "currency"
-    }
+    "route_distance_km",
+    "route_distance_km",
+    "route_distance_km",
+    "route_distance_km",
+    "route_distance_km",
+    "route_distance_km",
+    "route_distance_km",
+    "route_distance_km"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_route_loss",
-      "label": "Total Route Loss",
-      "unit": "currency",
-      "description": "Aggregate monetary loss from time, fuel, operating, and cargo value loss."
-    },
-    "breakdown": {
-      "time_loss_cost": {
-        "label": "Time Loss Cost",
-        "unit": "currency",
-        "description": "Cost of driver time lost due to stops and delays."
-      },
-      "fuel_and_operating_cost": {
-        "label": "Fuel & Operating Cost",
-        "unit": "currency",
-        "description": "Total variable cost for distance traveled."
-      },
-      "cargo_time_value_loss": {
-        "label": "Cargo Time Value Loss",
-        "unit": "currency",
-        "description": "Opportunity cost of cargo in transit beyond target time."
-      },
-      "ideal_driving_time_hours": {
-        "label": "Ideal Driving Time",
-        "unit": "hours",
-        "description": "Time to cover the route without stops or delays."
-      },
-      "total_stop_time_hours": {
-        "label": "Total Stop Time",
-        "unit": "hours",
-        "description": "Total time spent at planned stops."
-      },
-      "traffic_loss_hours": {
-        "label": "Traffic Loss Time",
-        "unit": "hours",
-        "description": "Additional time lost due to traffic delays."
-      },
-      "total_transit_time_hours": {
-        "label": "Total Transit Time",
-        "unit": "hours",
-        "description": "Actual total time from start to finish."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excessive_stop_time",
-        "label": "Excessive Stop Time",
-        "description": "Stop time exceeds 15% of total transit time, indicating potential process waste (Lean muda).",
-        "condition": "total_stop_time_hours > 0.15 * total_transit_time_hours"
-      },
-      {
-        "id": "high_traffic_impact",
-        "label": "High Traffic Impact",
-        "description": "Traffic loss exceeds 10% of ideal driving time, suggesting need for route re-planning or time shifting.",
-        "condition": "traffic_loss_hours > 0.10 * ideal_driving_time_hours"
-      },
-      {
-        "id": "cargo_value_at_risk",
-        "label": "Cargo Value at Risk",
-        "description": "Cargo time value loss is significant (>1% of load value), indicating high-value goods exposed to delays.",
-        "condition": "cargo_time_value_loss > 0.01 * load_value_currency"
-      },
-      {
-        "id": "fuel_inefficiency",
-        "label": "Fuel Inefficiency",
-        "description": "Fuel cost per km is above the 75th percentile for the route type (urban/highway/mixed).",
-        "condition": "fuel_cost_per_km > 0.45"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_stops",
-        "label": "Consolidate Stops",
-        "description": "Combine or eliminate unnecessary stops to reduce idle time. Target: reduce stop count by 20%.",
-        "expectedImpact": "Reduces total stop time and associated driver cost."
-      },
-      {
-        "id": "reroute_avoid_traffic",
-        "label": "Optimize Route for Traffic",
-        "description": "Use real-time traffic data to avoid congestion. Consider alternative departure times.",
-        "expectedImpact": "Reduces traffic loss hours and fuel consumption."
-      },
-      {
-        "id": "increase_speed_where_safe",
-        "label": "Increase Average Speed",
-        "description": "If route type allows, increase average speed by 5-10% through better planning and driver training.",
-        "expectedImpact": "Reduces ideal driving time and total transit time."
-      },
-      {
-        "id": "improve_loading_unloading",
-        "label": "Streamline Loading/Unloading",
-        "description": "Implement standardized processes (e.g., Lean 5S, cross-docking) to reduce average stop time by 10%.",
-        "expectedImpact": "Reduces total stop time and improves asset utilization."
-      },
-      {
-        "id": "review_fuel_efficiency",
-        "label": "Review Fuel Efficiency",
-        "description": "Conduct vehicle maintenance, tire pressure checks, and driver eco-training to lower fuel cost per km.",
-        "expectedImpact": "Reduces fuel and operating cost."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_loss",
-      "label": "Data Confidence Adjusted Loss",
-      "unit": "currency",
-      "description": "Total route loss adjusted by a confidence factor (0.8 to 1.2) based on input data quality and completeness.",
-      "formula": "total_route_loss * confidence_factor",
-      "confidence_factor": 0.95
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "procurement-supply-chain",
+  "category": "Lojistik & Tedarik Zinciri",
+  "sector": "Lojistik & Sevkiyat",
+  "toolName": "logistics-route-loss-calculator"
 }

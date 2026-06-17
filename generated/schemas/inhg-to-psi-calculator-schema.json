@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "inHg",
       "default": 29.92,
-      "businessContext": "The measured pressure in inches of mercury."
+      "businessContext": "The measured pressure in inches of mercury.",
+      "label_i18n": {
+        "en": "Pressure (inHg)",
+        "tr": "Pressure (inHg)",
+        "de": "Pressure (inHg)",
+        "fr": "Pressure (inHg)",
+        "es": "Pressure (inHg)",
+        "ar": "Pressure (inHg)"
+      }
     },
     {
       "id": "conversion_factor",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "psi/inHg",
       "default": 0.491154,
-      "businessContext": "Standard conversion factor from inHg to psi (1 inHg = 0.491154 psi)."
+      "businessContext": "Standard conversion factor from inHg to psi (1 inHg = 0.491154 psi).",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimal_places",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for rounding the result."
+      "businessContext": "Number of decimal places for rounding the result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "altitude_ft",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Altitude above sea level, provided for informational context (not used in conversion)."
+      "businessContext": "Altitude above sea level, provided for informational context (not used in conversion).",
+      "label_i18n": {
+        "en": "Altitude (feet)",
+        "tr": "Altitude (feet)",
+        "de": "Altitude (feet)",
+        "fr": "Altitude (feet)",
+        "es": "Altitude (feet)",
+        "ar": "Altitude (feet)"
+      }
     },
     {
       "id": "temperature_f",
@@ -39,12 +71,22 @@
       "type": "number",
       "unit": "°F",
       "default": 32,
-      "businessContext": "Temperature of the mercury column, provided for informational context (not used in standard conversion)."
+      "businessContext": "Temperature of the mercury column, provided for informational context (not used in standard conversion).",
+      "label_i18n": {
+        "en": "Temperature (°F)",
+        "tr": "Temperature (°F)",
+        "de": "Temperature (°F)",
+        "fr": "Temperature (°F)",
+        "es": "Temperature (°F)",
+        "ar": "Temperature (°F)"
+      }
     }
   ],
   "formulas": {
     "pressure_psi_raw": "pressure_inhg * conversion_factor",
-    "pressure_psi": "Math.round(pressure_psi_raw * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+    "pressure_psi": "Math.round(pressure_psi_raw * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
+    "pressure_psi_raw___pressure_inhg___conve": "pressure_psi_raw = pressure_inhg * conversion_factor",
+    "pressure_psi___round_pressure_psi_raw__d": "pressure_psi = round(pressure_psi_raw, decimal_places)"
   },
   "outputs": {
     "primary": "pressure_psi",
@@ -53,10 +95,10 @@
       "pressure_psi = round(pressure_psi_raw, decimal_places)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -40,11 +40,7 @@
     "orbitalPeriod_s": "2 * Math.PI * (centralBodyRadius + altitude) / orbitalVelocity_mps"
   },
   "outputs": {
-    "primary": {
-      "label": "Orbital Velocity",
-      "value": "orbitalVelocity_mps",
-      "unit": "m/s"
-    },
+    "primary": "orbitalVelocity_mps",
     "breakdown": [
       {
         "label": "Orbital Velocity (km/s)",
@@ -58,8 +54,8 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

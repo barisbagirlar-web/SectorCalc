@@ -5,41 +5,81 @@
       "id": "value1",
       "label": "Value 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "First sample data point."
+      "businessContext": "First sample data point.",
+      "label_i18n": {
+        "en": "Value 1",
+        "tr": "Value 1",
+        "de": "Value 1",
+        "fr": "Value 1",
+        "es": "Value 1",
+        "ar": "Value 1"
+      }
     },
     {
       "id": "value2",
       "label": "Value 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 20,
-      "businessContext": "Second sample data point."
+      "businessContext": "Second sample data point.",
+      "label_i18n": {
+        "en": "Value 2",
+        "tr": "Value 2",
+        "de": "Value 2",
+        "fr": "Value 2",
+        "es": "Value 2",
+        "ar": "Value 2"
+      }
     },
     {
       "id": "value3",
       "label": "Value 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Third sample data point."
+      "businessContext": "Third sample data point.",
+      "label_i18n": {
+        "en": "Value 3",
+        "tr": "Value 3",
+        "de": "Value 3",
+        "fr": "Value 3",
+        "es": "Value 3",
+        "ar": "Value 3"
+      }
     },
     {
       "id": "value4",
       "label": "Value 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 40,
-      "businessContext": "Fourth sample data point."
+      "businessContext": "Fourth sample data point.",
+      "label_i18n": {
+        "en": "Value 4",
+        "tr": "Value 4",
+        "de": "Value 4",
+        "fr": "Value 4",
+        "es": "Value 4",
+        "ar": "Value 4"
+      }
     },
     {
       "id": "value5",
       "label": "Value 5",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 50,
-      "businessContext": "Fifth sample data point."
+      "businessContext": "Fifth sample data point.",
+      "label_i18n": {
+        "en": "Value 5",
+        "tr": "Value 5",
+        "de": "Value 5",
+        "fr": "Value 5",
+        "es": "Value 5",
+        "ar": "Value 5"
+      }
     },
     {
       "id": "trimPercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Symmetric percentage of extreme values to exclude (0 ≤ trim < 50)."
+      "businessContext": "Symmetric percentage of extreme values to exclude (0 ≤ trim < 50).",
+      "label_i18n": {
+        "en": "Trim Percentage",
+        "tr": "Trim Percentage",
+        "de": "Trim Percentage",
+        "fr": "Trim Percentage",
+        "es": "Trim Percentage",
+        "ar": "Trim Percentage"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "countUsed"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

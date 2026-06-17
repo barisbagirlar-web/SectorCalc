@@ -38,13 +38,20 @@ function evaluateAllFormulas(input: Candito_6_week_calculatorInput): Record<stri
   try { const v = (results["deadliftTM"] ?? 0) * 0.85; results["deadliftWeek4"] = Number.isFinite(v) ? v : 0; } catch { results["deadliftWeek4"] = 0; }
   try { const v = (results["deadliftTM"] ?? 0) * 0.875; results["deadliftWeek5"] = Number.isFinite(v) ? v : 0; } catch { results["deadliftWeek5"] = 0; }
   try { const v = (results["deadliftTM"] ?? 0) * 1.0; results["deadliftWeek6"] = Number.isFinite(v) ? v : 0; } catch { results["deadliftWeek6"] = 0; }
+  results["Squat__squatWeek1__kg__Bench__benchWeek1"] = 0;
+  results["Squat__squatWeek2__kg__Bench__benchWeek2"] = 0;
+  results["Squat__squatWeek3__kg__Bench__benchWeek3"] = 0;
+  results["Squat__squatWeek4__kg__Bench__benchWeek4"] = 0;
+  results["Squat__squatWeek5__kg__Bench__benchWeek5"] = 0;
+  results["Squat__squatWeek6__kg__Bench__benchWeek6"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateCandito_6_week_calculator(input: Candito_6_week_calculatorInput): Candito_6_week_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Candito"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

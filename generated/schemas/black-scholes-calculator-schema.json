@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Current market price of the underlying stock"
+      "businessContext": "Current market price of the underlying stock",
+      "label_i18n": {
+        "en": "Current Stock Price",
+        "tr": "Current Stock Price",
+        "de": "Current Stock Price",
+        "fr": "Current Stock Price",
+        "es": "Current Stock Price",
+        "ar": "Current Stock Price"
+      }
     },
     {
       "id": "K",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Exercise price of the option"
+      "businessContext": "Exercise price of the option",
+      "label_i18n": {
+        "en": "Strike Price",
+        "tr": "Strike Price",
+        "de": "Strike Price",
+        "fr": "Strike Price",
+        "es": "Strike Price",
+        "ar": "Strike Price"
+      }
     },
     {
       "id": "r",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual risk-free interest rate for continuous compounding"
+      "businessContext": "Annual risk-free interest rate for continuous compounding",
+      "label_i18n": {
+        "en": "Risk-Free Rate",
+        "tr": "Risk-Free Rate",
+        "de": "Risk-Free Rate",
+        "fr": "Risk-Free Rate",
+        "es": "Risk-Free Rate",
+        "ar": "Risk-Free Rate"
+      }
     },
     {
       "id": "sigma",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Annualized implied volatility of the underlying stock"
+      "businessContext": "Annualized implied volatility of the underlying stock",
+      "label_i18n": {
+        "en": "Volatility",
+        "tr": "Volatility",
+        "de": "Volatility",
+        "fr": "Volatility",
+        "es": "Volatility",
+        "ar": "Volatility"
+      }
     },
     {
       "id": "T",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "Time remaining until option expiration"
+      "businessContext": "Time remaining until option expiration",
+      "label_i18n": {
+        "en": "Time to Maturity",
+        "tr": "Time to Maturity",
+        "de": "Time to Maturity",
+        "fr": "Time to Maturity",
+        "es": "Time to Maturity",
+        "ar": "Time to Maturity"
+      }
     }
   ],
   "formulas": {
@@ -47,20 +87,21 @@
     "d1": "(Math.log(S / K) + (r / 100 + ((sigma / 100) ** 2) / 2) * T) / ((sigma / 100) * Math.sqrt(T))",
     "d2": "d1 - (sigma / 100) * Math.sqrt(T)",
     "call": "S * normcdf(d1) - K * Math.exp(-(r / 100) * T) * normcdf(d2)",
-    "put": "K * Math.exp(-(r / 100) * T) * normcdf(-d2) - S * normcdf(-d1)"
+    "put": "K * Math.exp(-(r / 100) * T) * normcdf(-d2) - S * normcdf(-d1)",
+    "putPrice": "putPrice"
   },
   "outputs": {
-    "primary": "callPrice",
+    "primary": "normcdf",
     "breakdown": [
       "putPrice",
       "d1",
       "d2"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "electrical-power-systems"
 }

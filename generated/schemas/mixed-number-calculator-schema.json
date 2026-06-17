@@ -5,57 +5,113 @@
       "id": "op",
       "label": "Operation",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: Add, 2: Subtract, 3: Multiply, 4: Divide"
+      "businessContext": "1: Add, 2: Subtract, 3: Multiply, 4: Divide",
+      "label_i18n": {
+        "en": "Operation",
+        "tr": "Operation",
+        "de": "Operation",
+        "fr": "Operation",
+        "es": "Operation",
+        "ar": "Operation"
+      }
     },
     {
       "id": "whole1",
       "label": "First Whole Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Whole part of first mixed number"
+      "businessContext": "Whole part of first mixed number",
+      "label_i18n": {
+        "en": "First Whole Number",
+        "tr": "First Whole Number",
+        "de": "First Whole Number",
+        "fr": "First Whole Number",
+        "es": "First Whole Number",
+        "ar": "First Whole Number"
+      }
     },
     {
       "id": "num1",
       "label": "First Numerator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Numerator of first fraction"
+      "businessContext": "Numerator of first fraction",
+      "label_i18n": {
+        "en": "First Numerator",
+        "tr": "First Numerator",
+        "de": "First Numerator",
+        "fr": "First Numerator",
+        "es": "First Numerator",
+        "ar": "First Numerator"
+      }
     },
     {
       "id": "den1",
       "label": "First Denominator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Denominator of first fraction"
+      "businessContext": "Denominator of first fraction",
+      "label_i18n": {
+        "en": "First Denominator",
+        "tr": "First Denominator",
+        "de": "First Denominator",
+        "fr": "First Denominator",
+        "es": "First Denominator",
+        "ar": "First Denominator"
+      }
     },
     {
       "id": "whole2",
       "label": "Second Whole Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Whole part of second mixed number"
+      "businessContext": "Whole part of second mixed number",
+      "label_i18n": {
+        "en": "Second Whole Number",
+        "tr": "Second Whole Number",
+        "de": "Second Whole Number",
+        "fr": "Second Whole Number",
+        "es": "Second Whole Number",
+        "ar": "Second Whole Number"
+      }
     },
     {
       "id": "num2",
       "label": "Second Numerator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Numerator of second fraction"
+      "businessContext": "Numerator of second fraction",
+      "label_i18n": {
+        "en": "Second Numerator",
+        "tr": "Second Numerator",
+        "de": "Second Numerator",
+        "fr": "Second Numerator",
+        "es": "Second Numerator",
+        "ar": "Second Numerator"
+      }
     },
     {
       "id": "den2",
       "label": "Second Denominator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Denominator of second fraction"
+      "businessContext": "Denominator of second fraction",
+      "label_i18n": {
+        "en": "Second Denominator",
+        "tr": "Second Denominator",
+        "de": "Second Denominator",
+        "fr": "Second Denominator",
+        "es": "Second Denominator",
+        "ar": "Second Denominator"
+      }
     }
   ],
   "formulas": {
@@ -76,10 +132,10 @@
       "step4"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

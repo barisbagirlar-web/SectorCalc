@@ -5,65 +5,129 @@
       "id": "k",
       "label": "Number of Treatments (k)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Number of treatments or conditions being compared"
+      "businessContext": "Number of treatments or conditions being compared",
+      "label_i18n": {
+        "en": "Number of Treatments (k)",
+        "tr": "Number of Treatments (k)",
+        "de": "Number of Treatments (k)",
+        "fr": "Number of Treatments (k)",
+        "es": "Number of Treatments (k)",
+        "ar": "Number of Treatments (k)"
+      }
     },
     {
       "id": "n",
       "label": "Number of Blocks (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Number of blocks or subjects"
+      "businessContext": "Number of blocks or subjects",
+      "label_i18n": {
+        "en": "Number of Blocks (n)",
+        "tr": "Number of Blocks (n)",
+        "de": "Number of Blocks (n)",
+        "fr": "Number of Blocks (n)",
+        "es": "Number of Blocks (n)",
+        "ar": "Number of Blocks (n)"
+      }
     },
     {
       "id": "R1",
       "label": "Sum of Ranks for Treatment 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 7,
-      "businessContext": "Sum of ranks for the first treatment across all blocks"
+      "businessContext": "Sum of ranks for the first treatment across all blocks",
+      "label_i18n": {
+        "en": "Sum of Ranks for Treatment 1",
+        "tr": "Sum of Ranks for Treatment 1",
+        "de": "Sum of Ranks for Treatment 1",
+        "fr": "Sum of Ranks for Treatment 1",
+        "es": "Sum of Ranks for Treatment 1",
+        "ar": "Sum of Ranks for Treatment 1"
+      }
     },
     {
       "id": "R2",
       "label": "Sum of Ranks for Treatment 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12,
-      "businessContext": "Sum of ranks for the second treatment"
+      "businessContext": "Sum of ranks for the second treatment",
+      "label_i18n": {
+        "en": "Sum of Ranks for Treatment 2",
+        "tr": "Sum of Ranks for Treatment 2",
+        "de": "Sum of Ranks for Treatment 2",
+        "fr": "Sum of Ranks for Treatment 2",
+        "es": "Sum of Ranks for Treatment 2",
+        "ar": "Sum of Ranks for Treatment 2"
+      }
     },
     {
       "id": "R3",
       "label": "Sum of Ranks for Treatment 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 11,
-      "businessContext": "Sum of ranks for the third treatment"
+      "businessContext": "Sum of ranks for the third treatment",
+      "label_i18n": {
+        "en": "Sum of Ranks for Treatment 3",
+        "tr": "Sum of Ranks for Treatment 3",
+        "de": "Sum of Ranks for Treatment 3",
+        "fr": "Sum of Ranks for Treatment 3",
+        "es": "Sum of Ranks for Treatment 3",
+        "ar": "Sum of Ranks for Treatment 3"
+      }
     },
     {
       "id": "R4",
       "label": "Sum of Ranks for Treatment 4 (optional)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of ranks for treatment 4, 0 if not applicable"
+      "businessContext": "Sum of ranks for treatment 4, 0 if not applicable",
+      "label_i18n": {
+        "en": "Sum of Ranks for Treatment 4 (optional)",
+        "tr": "Sum of Ranks for Treatment 4 (optional)",
+        "de": "Sum of Ranks for Treatment 4 (optional)",
+        "fr": "Sum of Ranks for Treatment 4 (optional)",
+        "es": "Sum of Ranks for Treatment 4 (optional)",
+        "ar": "Sum of Ranks for Treatment 4 (optional)"
+      }
     },
     {
       "id": "R5",
       "label": "Sum of Ranks for Treatment 5 (optional)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of ranks for treatment 5, 0 if not applicable"
+      "businessContext": "Sum of ranks for treatment 5, 0 if not applicable",
+      "label_i18n": {
+        "en": "Sum of Ranks for Treatment 5 (optional)",
+        "tr": "Sum of Ranks for Treatment 5 (optional)",
+        "de": "Sum of Ranks for Treatment 5 (optional)",
+        "fr": "Sum of Ranks for Treatment 5 (optional)",
+        "es": "Sum of Ranks for Treatment 5 (optional)",
+        "ar": "Sum of Ranks for Treatment 5 (optional)"
+      }
     },
     {
       "id": "R6",
       "label": "Sum of Ranks for Treatment 6 (optional)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Sum of ranks for treatment 6, 0 if not applicable"
+      "businessContext": "Sum of ranks for treatment 6, 0 if not applicable",
+      "label_i18n": {
+        "en": "Sum of Ranks for Treatment 6 (optional)",
+        "tr": "Sum of Ranks for Treatment 6 (optional)",
+        "de": "Sum of Ranks for Treatment 6 (optional)",
+        "fr": "Sum of Ranks for Treatment 6 (optional)",
+        "es": "Sum of Ranks for Treatment 6 (optional)",
+        "ar": "Sum of Ranks for Treatment 6 (optional)"
+      }
     }
   ],
   "formulas": {
@@ -80,10 +144,10 @@
       "expectedMeanRank"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

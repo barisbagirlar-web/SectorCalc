@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 80,
-      "businessContext": "The design speed of the highway segment, typically between 40-140 km/h."
+      "businessContext": "The design speed of the highway segment, typically between 40-140 km/h.",
+      "label_i18n": {
+        "en": "Design Speed",
+        "tr": "Design Speed",
+        "de": "Design Speed",
+        "fr": "Design Speed",
+        "es": "Design Speed",
+        "ar": "Design Speed"
+      }
     },
     {
       "id": "superelevation",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "The maximum superelevation (cross-slope) rate applied to the curve, usually 4%-12%."
+      "businessContext": "The maximum superelevation (cross-slope) rate applied to the curve, usually 4%-12%.",
+      "label_i18n": {
+        "en": "Maximum Superelevation Rate",
+        "tr": "Maximum Superelevation Rate",
+        "de": "Maximum Superelevation Rate",
+        "fr": "Maximum Superelevation Rate",
+        "es": "Maximum Superelevation Rate",
+        "ar": "Maximum Superelevation Rate"
+      }
     },
     {
       "id": "frictionFactor",
       "label": "Side Friction Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.14,
-      "businessContext": "The allowable side friction factor depending on design speed and surface conditions (e.g., 0.17 for low speeds, 0.10 for high speeds)."
+      "businessContext": "The allowable side friction factor depending on design speed and surface conditions (e.g., 0.17 for low speeds, 0.10 for high speeds).",
+      "label_i18n": {
+        "en": "Side Friction Factor",
+        "tr": "Side Friction Factor",
+        "de": "Side Friction Factor",
+        "fr": "Side Friction Factor",
+        "es": "Side Friction Factor",
+        "ar": "Side Friction Factor"
+      }
     },
     {
       "id": "desiredRadius",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "The actual or desired radius of the horizontal curve. Set to 0 if unknown; otherwise used to compute required friction demand."
+      "businessContext": "The actual or desired radius of the horizontal curve. Set to 0 if unknown; otherwise used to compute required friction demand.",
+      "label_i18n": {
+        "en": "Desired Curve Radius",
+        "tr": "Desired Curve Radius",
+        "de": "Desired Curve Radius",
+        "fr": "Desired Curve Radius",
+        "es": "Desired Curve Radius",
+        "ar": "Desired Curve Radius"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "isRadiusAdequate"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

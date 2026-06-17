@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 500,
-      "businessContext": "Ultimate tensile strength of material"
+      "businessContext": "Ultimate tensile strength of material",
+      "label_i18n": {
+        "en": "Tensile Strength",
+        "tr": "Tensile Strength",
+        "de": "Tensile Strength",
+        "fr": "Tensile Strength",
+        "es": "Tensile Strength",
+        "ar": "Tensile Strength"
+      }
     },
     {
       "id": "thickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "Thickness of the specimen"
+      "businessContext": "Thickness of the specimen",
+      "label_i18n": {
+        "en": "Material Thickness",
+        "tr": "Material Thickness",
+        "de": "Material Thickness",
+        "fr": "Material Thickness",
+        "es": "Material Thickness",
+        "ar": "Material Thickness"
+      }
     },
     {
       "id": "width",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Width of the gauge section"
+      "businessContext": "Width of the gauge section",
+      "label_i18n": {
+        "en": "Specimen Width",
+        "tr": "Specimen Width",
+        "de": "Specimen Width",
+        "fr": "Specimen Width",
+        "es": "Specimen Width",
+        "ar": "Specimen Width"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Design safety factor per ISO 13849"
+      "businessContext": "Design safety factor per ISO 13849",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -49,10 +81,10 @@
       "lexileIndex"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "metal-plastics-forming"
 }

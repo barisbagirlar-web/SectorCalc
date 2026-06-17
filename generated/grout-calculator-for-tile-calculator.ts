@@ -31,13 +31,17 @@ function evaluateAllFormulas(input: Grout_calculator_for_tile_calculatorInput): 
   try { const v = (results["volumePerM2"] ?? 0) * input.area; results["totalVolume"] = Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
   try { const v = (results["totalVolume"] ?? 0) * input.groutDensity; results["totalWeight"] = Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
   try { const v = Math.ceil(input.area / ((input.tileLength/1000) * (input.tileWidth/1000))); results["tilesNeeded"] = Number.isFinite(v) ? v : 0; } catch { results["tilesNeeded"] = 0; }
+  results["__volumePerM2_toFixed_2___L_m_"] = 0;
+  results["__totalVolume_toFixed_2___L"] = 0;
+  results["__tilesNeeded__pieces"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateGrout_calculator_for_tile_calculator(input: Grout_calculator_for_tile_calculatorInput): Grout_calculator_for_tile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

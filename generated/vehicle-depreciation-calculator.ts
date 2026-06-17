@@ -29,32 +29,19 @@ export const Vehicle_depreciation_calculatorInputSchema = z.object({
   vehicle_type: z.enum(['sedan', 'suv', 'truck', 'van', 'luxury']).default('sedan'),
 });
 
-function evaluateAllFormulas(input: Vehicle_depreciation_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.purchase_price - input.residual_value) / input.holding_period_years; results["annual_depreciation_straight_line"] = Number.isFinite(v) ? v : 0; } catch { results["annual_depreciation_straight_line"] = 0; }
-  try { const v = 2 * (book_value / input.holding_period_years); results["annual_depreciation_declining_balance"] = Number.isFinite(v) ? v : 0; } catch { results["annual_depreciation_declining_balance"] = 0; }
-  try { const v = (remaining_years / sum_of_years) * (input.purchase_price - input.residual_value); results["annual_depreciation_sum_of_years"] = Number.isFinite(v) ? v : 0; } catch { results["annual_depreciation_sum_of_years"] = 0; }
-  try { const v = (input.annual_mileage / input.fuel_efficiency_mpg) * input.fuel_price_per_gallon; results["annual_fuel_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_fuel_cost"] = 0; }
-  try { const v = (input.maintenance_cost_per_year + input.insurance_cost_per_year + (results["annual_fuel_cost"] ?? 0)) * input.holding_period_years; results["total_operating_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_operating_cost"] = 0; }
-  try { const v = (((input.discount_rate/100)) === 0 ? (annual_operating_cost) * (input.holding_period_years) : (annual_operating_cost) * (Math.pow(1 + (input.discount_rate/100), (input.holding_period_years)) - 1) / (((input.discount_rate/100)) * Math.pow(1 + (input.discount_rate/100), (input.holding_period_years)))); results["net_present_value_operating"] = Number.isFinite(v) ? v : 0; } catch { results["net_present_value_operating"] = 0; }
-  try { const v = input.purchase_price - input.residual_value + (results["net_present_value_operating"] ?? 0); results["total_cost_of_ownership"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_of_ownership"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Vehicle_depreciation_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateVehicle_depreciation_calculator(input: Vehicle_depreciation_calculatorInput): Vehicle_depreciation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["annual_depreciation_rate"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    annual_depreciation_amount: values["annual_depreciation_amount"] ?? 0,
-    total_depreciation: values["total_depreciation"] ?? 0,
-    annual_fuel_cost: values["annual_fuel_cost"] ?? 0,
-    total_operating_cost: values["total_operating_cost"] ?? 0,
-    net_present_value_operating: values["net_present_value_operating"] ?? 0,
-    total_cost_of_ownership: values["total_cost_of_ownership"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excess Mileage Penalty","Deferred Maintenance","Market Volatility (Resale Value Risk)","Fuel Price Spikes"];
-  const suggestedActions: string[] = ["Optimize Holding Period","Reduce Annual Mileage","Implement Preventive Maintenance Schedule","Select Higher MPG Vehicle","Negotiate Higher Residual Value Guarantee"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -73,7 +60,7 @@ export function calculateVehicle_depreciation_calculator(input: Vehicle_deprecia
 
 export interface Vehicle_depreciation_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { annual_depreciation_amount: number; total_depreciation: number; annual_fuel_cost: number; total_operating_cost: number; net_present_value_operating: number; total_cost_of_ownership: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

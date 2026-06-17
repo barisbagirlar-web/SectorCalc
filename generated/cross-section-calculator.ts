@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Cross_section_calculatorInput {
   width: number;
   height: number;
+  auto_input_3: number;
 }
 
 export const Cross_section_calculatorInputSchema = z.object({
   width: z.number().default(100),
   height: z.number().default(200),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Cross_section_calculatorInput): Record<string, number> {

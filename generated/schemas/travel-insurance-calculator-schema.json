@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 7,
-      "businessContext": "Number of days of the trip"
+      "businessContext": "Number of days of the trip",
+      "label_i18n": {
+        "en": "Trip Duration (Days)",
+        "tr": "Trip Duration (Days)",
+        "de": "Trip Duration (Days)",
+        "fr": "Trip Duration (Days)",
+        "es": "Trip Duration (Days)",
+        "ar": "Trip Duration (Days)"
+      }
     },
     {
       "id": "travelerAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 35,
-      "businessContext": "Age of the primary traveler"
+      "businessContext": "Age of the primary traveler",
+      "label_i18n": {
+        "en": "Traveler Age",
+        "tr": "Traveler Age",
+        "de": "Traveler Age",
+        "fr": "Traveler Age",
+        "es": "Traveler Age",
+        "ar": "Traveler Age"
+      }
     },
     {
       "id": "coverageAmount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 50000,
-      "businessContext": "Maximum medical expense coverage"
+      "businessContext": "Maximum medical expense coverage",
+      "label_i18n": {
+        "en": "Medical Coverage Amount",
+        "tr": "Medical Coverage Amount",
+        "de": "Medical Coverage Amount",
+        "fr": "Medical Coverage Amount",
+        "es": "Medical Coverage Amount",
+        "ar": "Medical Coverage Amount"
+      }
     },
     {
       "id": "destinationRisk",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Risk factor based on destination (1.0 = standard)"
+      "businessContext": "Risk factor based on destination (1.0 = standard)",
+      "label_i18n": {
+        "en": "Destination Risk Factor",
+        "tr": "Destination Risk Factor",
+        "de": "Destination Risk Factor",
+        "fr": "Destination Risk Factor",
+        "es": "Destination Risk Factor",
+        "ar": "Destination Risk Factor"
+      }
     },
     {
       "id": "deductible",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Amount the traveler pays before insurance covers"
+      "businessContext": "Amount the traveler pays before insurance covers",
+      "label_i18n": {
+        "en": "Deductible",
+        "tr": "Deductible",
+        "de": "Deductible",
+        "fr": "Deductible",
+        "es": "Deductible",
+        "ar": "Deductible"
+      }
     },
     {
       "id": "numberOfTravelers",
@@ -47,11 +87,19 @@
       "type": "number",
       "unit": "persons",
       "default": 1,
-      "businessContext": "Total number of insured travelers"
+      "businessContext": "Total number of insured travelers",
+      "label_i18n": {
+        "en": "Number of Travelers",
+        "tr": "Number of Travelers",
+        "de": "Number of Travelers",
+        "fr": "Number of Travelers",
+        "es": "Number of Travelers",
+        "ar": "Number of Travelers"
+      }
     }
   ],
   "formulas": {
-    "baseDailyRate": 5,
+    "baseDailyRate": "5",
     "ageFactor": "1 + (travelerAge > 60 ? (travelerAge - 60) * 0.05 : 0)",
     "riskFactor": "destinationRisk",
     "premiumBeforeDeductible": "tripDurationDays * baseDailyRate * riskFactor * ageFactor * numberOfTravelers",
@@ -67,10 +115,10 @@
       "deductibleDiscount"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "hse-ergonomics"
 }

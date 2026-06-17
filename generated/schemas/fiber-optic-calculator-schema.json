@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Total cable length of the fiber optic link."
+      "businessContext": "Total cable length of the fiber optic link.",
+      "label_i18n": {
+        "en": "Fiber Length",
+        "tr": "Fiber Length",
+        "de": "Fiber Length",
+        "fr": "Fiber Length",
+        "es": "Fiber Length",
+        "ar": "Fiber Length"
+      }
     },
     {
       "id": "attenuationCoeff",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dB/km",
       "default": 0.2,
-      "businessContext": "Attenuation per kilometer at the operating wavelength (e.g., 1550 nm for single-mode)."
+      "businessContext": "Attenuation per kilometer at the operating wavelength (e.g., 1550 nm for single-mode).",
+      "label_i18n": {
+        "en": "Attenuation Coefficient",
+        "tr": "Attenuation Coefficient",
+        "de": "Attenuation Coefficient",
+        "fr": "Attenuation Coefficient",
+        "es": "Attenuation Coefficient",
+        "ar": "Attenuation Coefficient"
+      }
     },
     {
       "id": "inputPower",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "dBm",
       "default": 0,
-      "businessContext": "Transmitter output power in dBm."
+      "businessContext": "Transmitter output power in dBm.",
+      "label_i18n": {
+        "en": "Input Power",
+        "tr": "Input Power",
+        "de": "Input Power",
+        "fr": "Input Power",
+        "es": "Input Power",
+        "ar": "Input Power"
+      }
     },
     {
       "id": "numSplices",
       "label": "Number of Splices",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Count of fusion splices along the fiber path."
+      "businessContext": "Count of fusion splices along the fiber path.",
+      "label_i18n": {
+        "en": "Number of Splices",
+        "tr": "Number of Splices",
+        "de": "Number of Splices",
+        "fr": "Number of Splices",
+        "es": "Number of Splices",
+        "ar": "Number of Splices"
+      }
     },
     {
       "id": "spliceLoss",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "dB",
       "default": 0.05,
-      "businessContext": "Average loss per fusion splice."
+      "businessContext": "Average loss per fusion splice.",
+      "label_i18n": {
+        "en": "Splice Loss",
+        "tr": "Splice Loss",
+        "de": "Splice Loss",
+        "fr": "Splice Loss",
+        "es": "Splice Loss",
+        "ar": "Splice Loss"
+      }
     },
     {
       "id": "numConnectors",
       "label": "Number of Connectors",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of connector pairs (e.g., at patch panels, equipment interfaces)."
+      "businessContext": "Number of connector pairs (e.g., at patch panels, equipment interfaces).",
+      "label_i18n": {
+        "en": "Number of Connectors",
+        "tr": "Number of Connectors",
+        "de": "Number of Connectors",
+        "fr": "Number of Connectors",
+        "es": "Number of Connectors",
+        "ar": "Number of Connectors"
+      }
     },
     {
       "id": "connectorLoss",
@@ -55,24 +103,34 @@
       "type": "number",
       "unit": "dB",
       "default": 0.5,
-      "businessContext": "Loss per connector pair."
+      "businessContext": "Loss per connector pair.",
+      "label_i18n": {
+        "en": "Connector Loss",
+        "tr": "Connector Loss",
+        "de": "Connector Loss",
+        "fr": "Connector Loss",
+        "es": "Connector Loss",
+        "ar": "Connector Loss"
+      }
     }
   ],
   "formulas": {
     "totalLoss": "fiberLength * attenuationCoeff + numSplices * spliceLoss + numConnectors * connectorLoss",
-    "receivedPower": "inputPower - totalLoss"
+    "receivedPower": "inputPower - totalLoss",
+    "__totalLoss__dB": "${totalLoss} dB",
+    "__receivedPower__dBm": "${receivedPower} dBm"
   },
   "outputs": {
-    "primary": "${receivedPower} dBm",
+    "primary": "totalLoss",
     "breakdown": [
       "Total Link Loss: ${totalLoss} dB",
       "Received Power: ${receivedPower} dBm"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "electrical-power-systems"
 }

@@ -13,7 +13,7 @@
       "id": "model_type",
       "label": "AI Model Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "gpt-4",
       "min": null,
       "max": null,
@@ -125,7 +125,7 @@
       "id": "enable_data_confidence",
       "label": "Enable Data Confidence Adjustment",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -170,113 +170,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "sub_input_cost",
-      "description": "Cost of input tokens based on model pricing",
-      "formula": "input_tokens_per_month * input_token_price(model_type)"
-    },
-    {
-      "id": "sub_output_cost",
-      "description": "Cost of output tokens based on model pricing",
-      "formula": "output_tokens_per_month * output_token_price(model_type)"
-    },
-    {
-      "id": "sub_compute_cost",
-      "description": "Cost of GPU compute hours",
-      "formula": "compute_hours_per_month * gpu_hourly_cost"
-    },
-    {
-      "id": "sub_overhead_cost",
-      "description": "Overhead cost as percentage of sum of token and compute costs",
-      "formula": "(sub_input_cost + sub_output_cost + sub_compute_cost) * (overhead_factor / 100)"
-    },
-    {
-      "id": "sub_total_before_confidence",
-      "description": "Total cost before data confidence adjustment",
-      "formula": "sub_input_cost + sub_output_cost + sub_compute_cost + sub_overhead_cost"
-    },
-    {
-      "id": "sub_confidence_factor",
-      "description": "Data confidence factor based on Six Sigma process capability (default 0.95 if enabled, else 1.0)",
-      "formula": "IF(enable_data_confidence, 0.95, 1.0)"
-    },
-    {
-      "id": "primary_total_monthly_cost",
-      "description": "Primary result: total monthly cost adjusted for data confidence",
-      "formula": "sub_total_before_confidence * sub_confidence_factor"
-    }
+    "model_type",
+    "model_type",
+    "model_type",
+    "model_type",
+    "model_type",
+    "model_type",
+    "model_type"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_monthly_cost",
-      "label": "Total Monthly Cost (Adjusted)",
-      "unit": "USD",
-      "value": null
-    },
-    "breakdown": {
-      "input_token_cost": {
-        "label": "Input Token Cost",
-        "unit": "USD",
-        "value": null
-      },
-      "output_token_cost": {
-        "label": "Output Token Cost",
-        "unit": "USD",
-        "value": null
-      },
-      "compute_cost": {
-        "label": "Compute Cost",
-        "unit": "USD",
-        "value": null
-      },
-      "overhead_cost": {
-        "label": "Overhead Cost",
-        "unit": "USD",
-        "value": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "idle_gpu_time",
-        "label": "Idle GPU Time",
-        "description": "Unused compute hours due to low batch utilization (Lean waste).",
-        "estimated_impact": "up to 30% of compute cost"
-      },
-      {
-        "id": "token_waste_retries",
-        "label": "Token Waste from Retries",
-        "description": "Tokens consumed by failed requests and retries (Six Sigma defects).",
-        "estimated_impact": "5-15% of token costs"
-      },
-      {
-        "id": "model_overprovisioning",
-        "label": "Model Overprovisioning",
-        "description": "Using a larger model than needed for the task (WERC capacity waste).",
-        "estimated_impact": "20-50% of total cost"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_batch_optimization",
-        "description": "Increase batch size to reduce per-request overhead and improve GPU utilization."
-      },
-      {
-        "id": "action_model_distillation",
-        "description": "Use a distilled or smaller model variant to lower token costs without significant accuracy loss."
-      },
-      {
-        "id": "action_spot_instances",
-        "description": "Leverage spot/preemptible GPU instances to reduce compute cost by up to 60%."
-      },
-      {
-        "id": "action_cache_prompts",
-        "description": "Implement prompt caching to avoid re-processing identical input tokens."
-      }
-    ],
-    "dataConfidenceAdjusted": null
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "ai-compute-token-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK"
 }

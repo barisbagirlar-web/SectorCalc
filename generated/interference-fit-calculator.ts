@@ -29,6 +29,10 @@ function evaluateAllFormulas(input: Interference_fit_calculatorInput): Record<st
   try { const v = Math.PI * input.shaft_diameter * 1000 * (results["contact_pressure"] ?? 0) * input.friction_coefficient * (input.shaft_diameter/2); results["axial_force"] = Number.isFinite(v) ? v : 0; } catch { results["axial_force"] = 0; }
   try { const v = Math.PI * input.shaft_diameter * 1000 * (results["contact_pressure"] ?? 0) * input.friction_coefficient * (input.shaft_diameter/2) * (input.shaft_diameter/2); results["torque_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["torque_capacity"] = 0; }
   try { const v = (results["contact_pressure"] ?? 0) * ( (input.hub_diameter**2 + input.shaft_diameter**2) / (input.hub_diameter**2 - input.shaft_diameter**2) ); results["von_mises_stress_hub"] = Number.isFinite(v) ? v : 0; } catch { results["von_mises_stress_hub"] = 0; }
+  results["_contact_pressure__MPa"] = 0;
+  results["_axial_force__N"] = 0;
+  results["_torque_capacity__N_mm"] = 0;
+  results["_von_mises_stress_hub__MPa"] = 0;
   return results;
 }
 

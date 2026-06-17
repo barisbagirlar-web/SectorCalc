@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 340,
-      "businessContext": "True airspeed of the object relative to the air in meters per second."
+      "businessContext": "True airspeed of the object relative to the air in meters per second.",
+      "label_i18n": {
+        "en": "True Airspeed",
+        "tr": "True Airspeed",
+        "de": "True Airspeed",
+        "fr": "True Airspeed",
+        "es": "True Airspeed",
+        "ar": "True Airspeed"
+      }
     },
     {
       "id": "temperature",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Ambient air temperature in degrees Celsius."
+      "businessContext": "Ambient air temperature in degrees Celsius.",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "gamma",
       "label": "Specific Heat Ratio (γ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.4,
-      "businessContext": "Ratio of specific heats; for air, γ = 1.4."
+      "businessContext": "Ratio of specific heats; for air, γ = 1.4.",
+      "label_i18n": {
+        "en": "Specific Heat Ratio (γ)",
+        "tr": "Specific Heat Ratio (γ)",
+        "de": "Specific Heat Ratio (γ)",
+        "fr": "Specific Heat Ratio (γ)",
+        "es": "Specific Heat Ratio (γ)",
+        "ar": "Specific Heat Ratio (γ)"
+      }
     },
     {
       "id": "R",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 287,
-      "businessContext": "Specific gas constant for the gas; for dry air, R ≈ 287 J/(kg·K)."
+      "businessContext": "Specific gas constant for the gas; for dry air, R ≈ 287 J/(kg·K).",
+      "label_i18n": {
+        "en": "Specific Gas Constant",
+        "tr": "Specific Gas Constant",
+        "de": "Specific Gas Constant",
+        "fr": "Specific Gas Constant",
+        "es": "Specific Gas Constant",
+        "ar": "Specific Gas Constant"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "mach"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "process-chemical"
 }

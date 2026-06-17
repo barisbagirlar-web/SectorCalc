@@ -18,6 +18,10 @@ export const Hex_to_decimal_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Hex_to_decimal_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.hexDigit0 + input.hexDigit1 * 16 + input.hexDigit2 * 16**2 + input.hexDigit3 * 16**3; results["decimal"] = Number.isFinite(v) ? v : 0; } catch { results["decimal"] = 0; }
+  try { const v = input.hexDigit0 * 1; results["hexDigit0___1"] = Number.isFinite(v) ? v : 0; } catch { results["hexDigit0___1"] = 0; }
+  try { const v = input.hexDigit1 * 16; results["hexDigit1___16"] = Number.isFinite(v) ? v : 0; } catch { results["hexDigit1___16"] = 0; }
+  try { const v = input.hexDigit2 * 256; results["hexDigit2___256"] = Number.isFinite(v) ? v : 0; } catch { results["hexDigit2___256"] = 0; }
+  try { const v = input.hexDigit3 * 4096; results["hexDigit3___4096"] = Number.isFinite(v) ? v : 0; } catch { results["hexDigit3___4096"] = 0; }
   return results;
 }
 

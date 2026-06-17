@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm/s",
       "default": 0,
-      "businessContext": "Sinyalin ortalama seviyesi (titreşim analizi)"
+      "businessContext": "Sinyalin ortalama seviyesi (titreşim analizi)",
+      "label_i18n": {
+        "en": "DC Offset (a₀)",
+        "tr": "DC Offset (a₀)",
+        "de": "DC Offset (a₀)",
+        "fr": "DC Offset (a₀)",
+        "es": "DC Offset (a₀)",
+        "ar": "DC Offset (a₀)"
+      }
     },
     {
       "id": "amplitude",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm/s",
       "default": 1,
-      "businessContext": "Kare dalganın tepe genliği"
+      "businessContext": "Kare dalganın tepe genliği",
+      "label_i18n": {
+        "en": "Genlik (A)",
+        "tr": "Genlik (A)",
+        "de": "Genlik (A)",
+        "fr": "Genlik (A)",
+        "es": "Genlik (A)",
+        "ar": "Genlik (A)"
+      }
     },
     {
       "id": "period",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Temel titreşim periyodu"
+      "businessContext": "Temel titreşim periyodu",
+      "label_i18n": {
+        "en": "Periyot (T)",
+        "tr": "Periyot (T)",
+        "de": "Periyot (T)",
+        "fr": "Periyot (T)",
+        "es": "Periyot (T)",
+        "ar": "Periyot (T)"
+      }
     },
     {
       "id": "time",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Sinyalin değerlendirildiği an"
+      "businessContext": "Sinyalin değerlendirildiği an",
+      "label_i18n": {
+        "en": "Zaman (t)",
+        "tr": "Zaman (t)",
+        "de": "Zaman (t)",
+        "fr": "Zaman (t)",
+        "es": "Zaman (t)",
+        "ar": "Zaman (t)"
+      }
     },
     {
       "id": "numHarmonics",
@@ -39,20 +71,28 @@
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Kullanılacak tek harmonik sayısı (1, 3, 5)"
+      "businessContext": "Kullanılacak tek harmonik sayısı (1, 3, 5)",
+      "label_i18n": {
+        "en": "Harmonik Sayısı (N)",
+        "tr": "Harmonik Sayısı (N)",
+        "de": "Harmonik Sayısı (N)",
+        "fr": "Harmonik Sayısı (N)",
+        "es": "Harmonik Sayısı (N)",
+        "ar": "Harmonik Sayısı (N)"
+      }
     }
   ],
   "formulas": {
     "primary": "offset + (4*amplitude/Math.PI) * ((Math.sin(2*Math.PI*1*time/period) * (numHarmonics >= 1 ? 1 : 0) * (1/1)) + (Math.sin(2*Math.PI*3*time/period) * (numHarmonics >= 2 ? 1 : 0) * (1/3)) + (Math.sin(2*Math.PI*5*time/period) * (numHarmonics >= 3 ? 1 : 0) * (1/5)))",
-    "breakdown": [
-      "offset",
-      "(4*amplitude/Math.PI) * Math.sin(2*Math.PI*1*time/period) * (numHarmonics >= 1 ? 1 : 0) * (1/1)",
-      "(4*amplitude/Math.PI) * Math.sin(2*Math.PI*3*time/period) * (numHarmonics >= 2 ? 1 : 0) * (1/3)",
-      "(4*amplitude/Math.PI) * Math.sin(2*Math.PI*5*time/period) * (numHarmonics >= 3 ? 1 : 0) * (1/5)"
-    ]
+    "breakdown": "offset",
+    "DC_Offset_Katk_s___mm_s_": "DC Offset Katkısı (mm/s)",
+    "1__Harmonik__f___Katk_s___mm_s_": "1. Harmonik (f₁) Katkısı (mm/s)",
+    "3__Harmonik__f___Katk_s___mm_s_": "3. Harmonik (f₃) Katkısı (mm/s)",
+    "5__Harmonik__f___Katk_s___mm_s_": "5. Harmonik (f₅) Katkısı (mm/s)",
+    "result": "Fourier Serisi Yaklaşık Değeri (mm/s)"
   },
   "outputs": {
-    "primary": "Fourier Serisi Yaklaşık Değeri (mm/s)",
+    "primary": "result",
     "breakdown": [
       "DC Offset Katkısı (mm/s)",
       "1. Harmonik (f₁) Katkısı (mm/s)",
@@ -60,8 +100,8 @@
       "5. Harmonik (f₅) Katkısı (mm/s)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -49,11 +49,7 @@
     "bsf": "( pitchDiameter / ( 2 * ballDiameter ) ) * ( 1 - Math.pow( ballDiameter / pitchDiameter, 2 ) * Math.pow( Math.cos( contactAngle * Math.PI / 180 ), 2 ) ) * shaftSpeed / 60"
   },
   "outputs": {
-    "primary": {
-      "id": "bpfo",
-      "label": "Ball Pass Frequency Outer Race",
-      "unit": "Hz"
-    },
+    "primary": "bpfo",
     "breakdown": [
       {
         "id": "bpfi",
@@ -72,7 +68,7 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

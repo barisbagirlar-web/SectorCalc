@@ -32,7 +32,7 @@ function evaluateAllFormulas(input: Exterior_paint_calculatorInput): Record<stri
 
 export function calculateExterior_paint_calculator(input: Exterior_paint_calculatorInput): Exterior_paint_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["paintNeeded"] ?? 0;
+  const totalWasteCost = values["netArea"] ?? 0;
   const breakdown = {
     
   };

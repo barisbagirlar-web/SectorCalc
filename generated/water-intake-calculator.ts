@@ -25,32 +25,19 @@ export const Water_intake_calculatorInputSchema = z.object({
   industryType: z.enum(['manufacturing', 'food_and_beverage', 'pharmaceutical', 'textile', 'electronics', 'other']).default('manufacturing'),
 });
 
-function evaluateAllFormulas(input: Water_intake_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.numEmployees * input.workDaysPerYear * input.avgWaterUsePerPersonPerDay * input.seasonalFactor; results["f1"] = Number.isFinite(v) ? v : 0; } catch { results["f1"] = 0; }
-  try { const v = input.annualProductionUnits * input.processWaterIntensity * input.seasonalFactor; results["f2"] = Number.isFinite(v) ? v : 0; } catch { results["f2"] = 0; }
-  try { const v = processWaterGross * (input.recyclingRate / 100); results["f3"] = Number.isFinite(v) ? v : 0; } catch { results["f3"] = 0; }
-  try { const v = processWaterGross - recycledWater; results["f4"] = Number.isFinite(v) ? v : 0; } catch { results["f4"] = 0; }
-  try { const v = (domesticWater + netProcessWater) * (input.leakageFactor / 100); results["f5"] = Number.isFinite(v) ? v : 0; } catch { results["f5"] = 0; }
-  try { const v = domesticWater + netProcessWater + leakageLosses; results["f6"] = Number.isFinite(v) ? v : 0; } catch { results["f6"] = 0; }
-  try { const v = totalWaterIntake / input.annualProductionUnits; results["f7"] = Number.isFinite(v) ? v : 0; } catch { results["f7"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Water_intake_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateWater_intake_calculator(input: Water_intake_calculatorInput): Water_intake_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalWaterIntake"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    domesticWater: values["domesticWater"] ?? 0,
-    processWaterGross: values["processWaterGross"] ?? 0,
-    recycledWater: values["recycledWater"] ?? 0,
-    netProcessWater: values["netProcessWater"] ?? 0,
-    leakageLosses: values["leakageLosses"] ?? 0,
-    waterIntensityIndex: values["waterIntensityIndex"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Unaccounted Leakage","Low Recycling Efficiency","High Seasonal Variation"];
-  const suggestedActions: string[] = ["Conduct Leak Detection Survey","Increase Water Recycling","Install Water-Efficient Fixtures","Optimize Process Water Use","Implement Seasonal Demand Planning"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -69,7 +56,7 @@ export function calculateWater_intake_calculator(input: Water_intake_calculatorI
 
 export interface Water_intake_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { domesticWater: number; processWaterGross: number; recycledWater: number; netProcessWater: number; leakageLosses: number; waterIntensityIndex: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

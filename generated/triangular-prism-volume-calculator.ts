@@ -20,13 +20,16 @@ function evaluateAllFormulas(input: Triangular_prism_volume_calculatorInput): Re
   try { const v = (input.sideA + input.sideB + input.sideC) / 2; results["s"] = Number.isFinite(v) ? v : 0; } catch { results["s"] = 0; }
   try { const v = Math.sqrt((results["s"] ?? 0) * ((results["s"] ?? 0) - input.sideA) * ((results["s"] ?? 0) - input.sideB) * ((results["s"] ?? 0) - input.sideC)); results["area"] = Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
   try { const v = (results["area"] ?? 0) * input.prismHeight; results["volume"] = Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
+  results["__s__m"] = 0;
+  results["__area__m_"] = 0;
+  results["__volume__m_"] = 0;
   return results;
 }
 
 
 export function calculateTriangular_prism_volume_calculator(input: Triangular_prism_volume_calculatorInput): Triangular_prism_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Volume"] ?? 0;
+  const totalWasteCost = values["s"] ?? 0;
   const breakdown = {
     
   };

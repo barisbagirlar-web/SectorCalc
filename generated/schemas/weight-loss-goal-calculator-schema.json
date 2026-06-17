@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "User's current body weight in kilograms"
+      "businessContext": "User's current body weight in kilograms",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "targetWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's desired body weight in kilograms"
+      "businessContext": "User's desired body weight in kilograms",
+      "label_i18n": {
+        "en": "Target Weight",
+        "tr": "Target Weight",
+        "de": "Target Weight",
+        "fr": "Target Weight",
+        "es": "Target Weight",
+        "ar": "Target Weight"
+      }
     },
     {
       "id": "dailyDeficit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 500,
-      "businessContext": "Planned daily calorie deficit"
+      "businessContext": "Planned daily calorie deficit",
+      "label_i18n": {
+        "en": "Daily Calorie Deficit",
+        "tr": "Daily Calorie Deficit",
+        "de": "Daily Calorie Deficit",
+        "fr": "Daily Calorie Deficit",
+        "es": "Daily Calorie Deficit",
+        "ar": "Daily Calorie Deficit"
+      }
     },
     {
       "id": "caloriePerKg",
@@ -31,25 +55,35 @@
       "type": "number",
       "unit": "kcal/kg",
       "default": 7700,
-      "businessContext": "Approximate calories needed to lose one kilogram (7700 kcal/kg)"
+      "businessContext": "Approximate calories needed to lose one kilogram (7700 kcal/kg)",
+      "label_i18n": {
+        "en": "Calories per kg of weight loss",
+        "tr": "Calories per kg of weight loss",
+        "de": "Calories per kg of weight loss",
+        "fr": "Calories per kg of weight loss",
+        "es": "Calories per kg of weight loss",
+        "ar": "Calories per kg of weight loss"
+      }
     }
   ],
   "formulas": {
     "totalDeficit": "(currentWeight - targetWeight) * caloriePerKg",
     "daysToTarget": "totalDeficit / dailyDeficit",
-    "weeklyLoss": "(dailyDeficit * 7) / caloriePerKg"
+    "weeklyLoss": "(dailyDeficit * 7) / caloriePerKg",
+    "__weeklyLoss___kg": "{{weeklyLoss}} kg",
+    "__totalDeficit___kcal": "{{totalDeficit}} kcal"
   },
   "outputs": {
-    "primary": "Estimated days to reach target: {{daysToTarget}} days",
+    "primary": "totalDeficit",
     "breakdown": [
       "Weekly weight loss: {{weeklyLoss}} kg",
       "Total calorie deficit needed: {{totalDeficit}} kcal"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "fps",
       "default": 300,
-      "businessContext": "Manufacturer's IBO rated speed (30\" draw, 70# draw weight, 350 gr arrow)"
+      "businessContext": "Manufacturer's IBO rated speed (30\" draw, 70# draw weight, 350 gr arrow)",
+      "label_i18n": {
+        "en": "Bow IBO Speed",
+        "tr": "Bow IBO Speed",
+        "de": "Bow IBO Speed",
+        "fr": "Bow IBO Speed",
+        "es": "Bow IBO Speed",
+        "ar": "Bow IBO Speed"
+      }
     },
     {
       "id": "drawWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "lbs",
       "default": 70,
-      "businessContext": "Actual bow draw weight at user's draw length"
+      "businessContext": "Actual bow draw weight at user's draw length",
+      "label_i18n": {
+        "en": "Draw Weight",
+        "tr": "Draw Weight",
+        "de": "Draw Weight",
+        "fr": "Draw Weight",
+        "es": "Draw Weight",
+        "ar": "Draw Weight"
+      }
     },
     {
       "id": "drawLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 30,
-      "businessContext": "User's actual draw length"
+      "businessContext": "User's actual draw length",
+      "label_i18n": {
+        "en": "Draw Length",
+        "tr": "Draw Length",
+        "de": "Draw Length",
+        "fr": "Draw Length",
+        "es": "Draw Length",
+        "ar": "Draw Length"
+      }
     },
     {
       "id": "arrowWeight",
@@ -31,25 +55,35 @@
       "type": "number",
       "unit": "gr",
       "default": 350,
-      "businessContext": "Total arrow weight including broadhead, in grains"
+      "businessContext": "Total arrow weight including broadhead, in grains",
+      "label_i18n": {
+        "en": "Arrow Weight",
+        "tr": "Arrow Weight",
+        "de": "Arrow Weight",
+        "fr": "Arrow Weight",
+        "es": "Arrow Weight",
+        "ar": "Arrow Weight"
+      }
     }
   ],
   "formulas": {
     "velocityFtPerSec": "bowIboSpeed + (drawWeight - 70) * 1.5 - (30 - drawLength) * 10 - (arrowWeight - 350) / 3",
     "kineticEnergy": "(arrowWeight * velocityFtPerSec ** 2) / 450240",
-    "momentum": "arrowWeight * velocityFtPerSec / 225400"
+    "momentum": "arrowWeight * velocityFtPerSec / 225400",
+    "__kineticEnergy___ft_lbs": "{{kineticEnergy}} ft-lbs",
+    "__momentum___slug_ft_s": "{{momentum}} slug-ft/s"
   },
   "outputs": {
-    "primary": "Arrow Velocity: {{velocityFtPerSec}} fps",
+    "primary": "velocityFtPerSec",
     "breakdown": [
       "Kinetic Energy: {{kineticEnergy}} ft-lbs",
       "Momentum: {{momentum}} slug-ft/s"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

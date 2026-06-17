@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Total body weight in kilograms"
+      "businessContext": "Total body weight in kilograms",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "bodyFat",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Estimated body fat percentage (e.g., 25 for 25%)"
+      "businessContext": "Estimated body fat percentage (e.g., 25 for 25%)",
+      "label_i18n": {
+        "en": "Body Fat Percentage",
+        "tr": "Body Fat Percentage",
+        "de": "Body Fat Percentage",
+        "fr": "Body Fat Percentage",
+        "es": "Body Fat Percentage",
+        "ar": "Body Fat Percentage"
+      }
     },
     {
       "id": "gender",
       "label": "Gender (1=Male, 0=Female)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for male, 0 for female"
+      "businessContext": "1 for male, 0 for female",
+      "label_i18n": {
+        "en": "Gender (1=Male, 0=Female)",
+        "tr": "Gender (1=Male, 0=Female)",
+        "de": "Gender (1=Male, 0=Female)",
+        "fr": "Gender (1=Male, 0=Female)",
+        "es": "Gender (1=Male, 0=Female)",
+        "ar": "Gender (1=Male, 0=Female)"
+      }
     },
     {
       "id": "activityLevel",
       "label": "Activity Level Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.55,
-      "businessContext": "1.2: Sedentary, 1.375: Lightly Active, 1.55: Moderately Active, 1.725: Very Active, 1.9: Extra Active"
+      "businessContext": "1.2: Sedentary, 1.375: Lightly Active, 1.55: Moderately Active, 1.725: Very Active, 1.9: Extra Active",
+      "label_i18n": {
+        "en": "Activity Level Multiplier",
+        "tr": "Activity Level Multiplier",
+        "de": "Activity Level Multiplier",
+        "fr": "Activity Level Multiplier",
+        "es": "Activity Level Multiplier",
+        "ar": "Activity Level Multiplier"
+      }
     },
     {
       "id": "deficitPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage to reduce maintenance calories (0=maintenance, 20=20% deficit for weight loss)"
+      "businessContext": "Percentage to reduce maintenance calories (0=maintenance, 20=20% deficit for weight loss)",
+      "label_i18n": {
+        "en": "Caloric Deficit",
+        "tr": "Caloric Deficit",
+        "de": "Caloric Deficit",
+        "fr": "Caloric Deficit",
+        "es": "Caloric Deficit",
+        "ar": "Caloric Deficit"
+      }
     }
   ],
   "formulas": {
@@ -64,10 +104,10 @@
       "bmr"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

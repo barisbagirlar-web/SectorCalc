@@ -27,33 +27,19 @@ export const Bottleneck_investment_prioritizer_calculatorInputSchema = z.object(
   risk_factor: z.enum(['low', 'medium', 'high']).default('medium'),
 });
 
-function evaluateAllFormulas(input: Bottleneck_investment_prioritizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.bottleneck_capacity * (input.quality_yield / 100) * (1 - input.maintenance_downtime_percent / 100); results["effective_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["effective_capacity"] = 0; }
-  try { const v = (results["effective_capacity"] ?? 0) - input.demand_rate; results["capacity_gap"] = Number.isFinite(v) ? v : 0; } catch { results["capacity_gap"] = 0; }
-  try { const v = input.bottleneck_capacity * (1 + input.expected_capacity_increase / 100) * (input.quality_yield / 100) * (1 - input.maintenance_downtime_percent / 100); results["new_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["new_capacity"] = 0; }
-  try { const v = Math.max(0, ((results["new_capacity"] ?? 0) - (results["effective_capacity"] ?? 0))) * input.operating_hours_per_year; results["additional_throughput"] = Number.isFinite(v) ? v : 0; } catch { results["additional_throughput"] = 0; }
-  try { const v = (results["additional_throughput"] ?? 0) * input.profit_margin_per_unit; results["annual_benefit"] = Number.isFinite(v) ? v : 0; } catch { results["annual_benefit"] = 0; }
-  results["roi"] = 0;
-  try { const v = input.investment_cost / (results["annual_benefit"] ?? 0); results["payback_period_years"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period_years"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Bottleneck_investment_prioritizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateBottleneck_investment_prioritizer_calculator(input: Bottleneck_investment_prioritizer_calculatorInput): Bottleneck_investment_prioritizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["investment_priority_score"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    effective_capacity: values["effective_capacity"] ?? 0,
-    capacity_gap: values["capacity_gap"] ?? 0,
-    new_capacity: values["new_capacity"] ?? 0,
-    additional_throughput: values["additional_throughput"] ?? 0,
-    annual_benefit: values["annual_benefit"] ?? 0,
-    roi: values["roi"] ?? 0,
-    payback_period_years: values["payback_period_years"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Quality Loss (units/hour)","Maintenance Loss (units/hour)","Demand Loss (units/hour)"];
-  const suggestedActions: string[] = ["Increase Quality Yield","Reduce Planned Maintenance Downtime","Consider Alternative Investment","Validate Bottleneck Identification"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -72,7 +58,7 @@ export function calculateBottleneck_investment_prioritizer_calculator(input: Bot
 
 export interface Bottleneck_investment_prioritizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { effective_capacity: number; capacity_gap: number; new_capacity: number; additional_throughput: number; annual_benefit: number; roi: number; payback_period_years: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -23,13 +23,15 @@ function evaluateAllFormulas(input: Meet_preparation_calculatorInput): Record<st
   const results: Record<string, number> = {};
   try { const v = `Third Attempt: ${input.openerWeight * input.thirdAttemptFactor / 100}kg`; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   try { const v = (() => { [`Opener: $input.openerWeightkg`, `Second Attempt: ${openerWeight * secondAttemptFactor / 100}kg`, `Third Attempt: ${openerWeight * thirdAttemptFactor / 100}kg`, ...(() => { const warmups = []; for (let p = warmUpStartPercent; p <= warmUpEndPercent; p += warmUpStepPercent) warmups.push(`Warm-up ${p}%: ${Math.round(openerWeight * p / 100)}kg`); return warmups; })()] })(); results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Competition_Attempts"] = 0;
+  results["Warm_up_Sets"] = 0;
   return results;
 }
 
 
 export function calculateMeet_preparation_calculator(input: Meet_preparation_calculatorInput): Meet_preparation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Meet"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

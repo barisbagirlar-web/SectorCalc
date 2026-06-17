@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the object in kilograms"
+      "businessContext": "Mass of the object in kilograms",
+      "label_i18n": {
+        "en": "Mass (kg)",
+        "tr": "Mass (kg)",
+        "de": "Mass (kg)",
+        "fr": "Mass (kg)",
+        "es": "Mass (kg)",
+        "ar": "Mass (kg)"
+      }
     },
     {
       "id": "speedOfLight",
@@ -15,23 +23,58 @@
       "type": "number",
       "unit": "m/s",
       "default": 299792458,
-      "businessContext": "Speed of light in vacuum (constant)"
+      "businessContext": "Speed of light in vacuum (constant)",
+      "label_i18n": {
+        "en": "Speed of Light (m/s)",
+        "tr": "Speed of Light (m/s)",
+        "de": "Speed of Light (m/s)",
+        "fr": "Speed of Light (m/s)",
+        "es": "Speed of Light (m/s)",
+        "ar": "Speed of Light (m/s)"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
-    "energy": "mass * speedOfLight ** 2"
+    "energy": "mass * speedOfLight ** 2",
+    "Energy___mass___c_": "Energy = mass × c²",
+    "Energy_____mass________speedOfLight_____": "Energy = {{mass}} × ({{speedOfLight}})² = {{energy}} J",
+    "result": "Energy (J)"
   },
   "outputs": {
-    "primary": "Energy (J)",
+    "primary": "result",
     "breakdown": [
       "Energy = mass × c²",
       "Energy = {{mass}} × ({{speedOfLight}})² = {{energy}} J"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "sticks",
       "default": 1,
-      "businessContext": "Quantity of US butter sticks"
+      "businessContext": "Quantity of US butter sticks",
+      "label_i18n": {
+        "en": "Number of Sticks",
+        "tr": "Number of Sticks",
+        "de": "Number of Sticks",
+        "fr": "Number of Sticks",
+        "es": "Number of Sticks",
+        "ar": "Number of Sticks"
+      }
     },
     {
       "id": "stickWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 113.4,
-      "businessContext": "Standard weight of one stick (4 oz)"
+      "businessContext": "Standard weight of one stick (4 oz)",
+      "label_i18n": {
+        "en": "Stick Weight",
+        "tr": "Stick Weight",
+        "de": "Stick Weight",
+        "fr": "Stick Weight",
+        "es": "Stick Weight",
+        "ar": "Stick Weight"
+      }
     },
     {
       "id": "packagingWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Additional weight e.g. paper wrap"
+      "businessContext": "Additional weight e.g. paper wrap",
+      "label_i18n": {
+        "en": "Packaging Weight",
+        "tr": "Packaging Weight",
+        "de": "Packaging Weight",
+        "fr": "Packaging Weight",
+        "es": "Packaging Weight",
+        "ar": "Packaging Weight"
+      }
     },
     {
       "id": "butterDensity",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "g/mL",
       "default": 0.911,
-      "businessContext": "Approximate density of butter at room temperature"
+      "businessContext": "Approximate density of butter at room temperature",
+      "label_i18n": {
+        "en": "Butter Density",
+        "tr": "Butter Density",
+        "de": "Butter Density",
+        "fr": "Butter Density",
+        "es": "Butter Density",
+        "ar": "Butter Density"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimals for outputs"
+      "businessContext": "Number of decimals for outputs",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +96,10 @@
       "totalMilliliters"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "metal-plastics-forming"
 }

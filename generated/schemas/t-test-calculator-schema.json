@@ -5,25 +5,49 @@
       "id": "sampleMean",
       "label": "Sample Mean (x̄)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The average value of the sample data."
+      "businessContext": "The average value of the sample data.",
+      "label_i18n": {
+        "en": "Sample Mean (x̄)",
+        "tr": "Sample Mean (x̄)",
+        "de": "Sample Mean (x̄)",
+        "fr": "Sample Mean (x̄)",
+        "es": "Sample Mean (x̄)",
+        "ar": "Sample Mean (x̄)"
+      }
     },
     {
       "id": "hypothesizedMean",
       "label": "Hypothesized Mean (μ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The population mean under the null hypothesis."
+      "businessContext": "The population mean under the null hypothesis.",
+      "label_i18n": {
+        "en": "Hypothesized Mean (μ)",
+        "tr": "Hypothesized Mean (μ)",
+        "de": "Hypothesized Mean (μ)",
+        "fr": "Hypothesized Mean (μ)",
+        "es": "Hypothesized Mean (μ)",
+        "ar": "Hypothesized Mean (μ)"
+      }
     },
     {
       "id": "sampleSD",
       "label": "Sample Standard Deviation (s)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The standard deviation of the sample data."
+      "businessContext": "The standard deviation of the sample data.",
+      "label_i18n": {
+        "en": "Sample Standard Deviation (s)",
+        "tr": "Sample Standard Deviation (s)",
+        "de": "Sample Standard Deviation (s)",
+        "fr": "Sample Standard Deviation (s)",
+        "es": "Sample Standard Deviation (s)",
+        "ar": "Sample Standard Deviation (s)"
+      }
     },
     {
       "id": "sampleSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 30,
-      "businessContext": "The number of observations in the sample."
+      "businessContext": "The number of observations in the sample.",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "meanDifference"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

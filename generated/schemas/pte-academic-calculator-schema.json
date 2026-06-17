@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pts",
       "default": 50,
-      "businessContext": "Enter your PTE Academic Listening score (10–90)"
+      "businessContext": "Enter your PTE Academic Listening score (10–90)",
+      "label_i18n": {
+        "en": "Listening Score",
+        "tr": "Listening Score",
+        "de": "Listening Score",
+        "fr": "Listening Score",
+        "es": "Listening Score",
+        "ar": "Listening Score"
+      }
     },
     {
       "id": "reading",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pts",
       "default": 50,
-      "businessContext": "Enter your PTE Academic Reading score (10–90)"
+      "businessContext": "Enter your PTE Academic Reading score (10–90)",
+      "label_i18n": {
+        "en": "Reading Score",
+        "tr": "Reading Score",
+        "de": "Reading Score",
+        "fr": "Reading Score",
+        "es": "Reading Score",
+        "ar": "Reading Score"
+      }
     },
     {
       "id": "speaking",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pts",
       "default": 50,
-      "businessContext": "Enter your PTE Academic Speaking score (10–90)"
+      "businessContext": "Enter your PTE Academic Speaking score (10–90)",
+      "label_i18n": {
+        "en": "Speaking Score",
+        "tr": "Speaking Score",
+        "de": "Speaking Score",
+        "fr": "Speaking Score",
+        "es": "Speaking Score",
+        "ar": "Speaking Score"
+      }
     },
     {
       "id": "writing",
@@ -31,11 +55,21 @@
       "type": "number",
       "unit": "pts",
       "default": 50,
-      "businessContext": "Enter your PTE Academic Writing score (10–90)"
+      "businessContext": "Enter your PTE Academic Writing score (10–90)",
+      "label_i18n": {
+        "en": "Writing Score",
+        "tr": "Writing Score",
+        "de": "Writing Score",
+        "fr": "Writing Score",
+        "es": "Writing Score",
+        "ar": "Writing Score"
+      }
     }
   ],
   "formulas": {
-    "overallScore": "Math.round((listening + reading + speaking + writing) / 4)"
+    "overallScore": "Math.round((listening + reading + speaking + writing) / 4)",
+    "Average_of_four_communicative_skill_scor": "Average of four communicative skill scores (Listening, Reading, Speaking, Writing), each on 10–90 scale.",
+    "Overall_score_is_rounded_to_the_nearest_": "Overall score is rounded to the nearest integer."
   },
   "outputs": {
     "primary": "overallScore",
@@ -44,8 +78,8 @@
       "Overall score is rounded to the nearest integer."
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

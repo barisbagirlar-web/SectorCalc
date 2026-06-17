@@ -168,7 +168,8 @@
       },
       "businessContext_i18n": {
         "en": "Expected impact of material change on downstream rework or quality issues."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "supplier_reliability",
@@ -199,7 +200,8 @@
       },
       "businessContext_i18n": {
         "en": "Historical on-time delivery performance of the alternative supplier."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "currency_risk",
@@ -317,206 +319,28 @@
     ]
   },
   "formulas": [
-    {
-      "id": "annual_material_cost_current",
-      "label": "Annual Material Cost (Current)",
-      "expression": "current_material_cost * annual_volume",
-      "unit": "USD/year",
-      "description": "Total direct material cost per year for current material."
-    },
-    {
-      "id": "annual_material_cost_alternative",
-      "label": "Annual Material Cost (Alternative)",
-      "expression": "alternative_material_cost * annual_volume",
-      "unit": "USD/year",
-      "description": "Total direct material cost per year for alternative material."
-    },
-    {
-      "id": "scrap_cost_current",
-      "label": "Annual Scrap Cost (Current)",
-      "expression": "annual_material_cost_current * (scrap_rate_current / 100)",
-      "unit": "USD/year",
-      "description": "Cost of scrapped units due to defects with current material."
-    },
-    {
-      "id": "scrap_cost_alternative",
-      "label": "Annual Scrap Cost (Alternative)",
-      "expression": "annual_material_cost_alternative * (scrap_rate_alternative / 100)",
-      "unit": "USD/year",
-      "description": "Cost of scrapped units due to defects with alternative material."
-    },
-    {
-      "id": "logistics_cost_current_annual",
-      "label": "Annual Logistics Cost (Current)",
-      "expression": "logistics_cost_current * annual_volume",
-      "unit": "USD/year",
-      "description": "Total logistics cost per year for current material."
-    },
-    {
-      "id": "logistics_cost_alternative_annual",
-      "label": "Annual Logistics Cost (Alternative)",
-      "expression": "logistics_cost_alternative * annual_volume",
-      "unit": "USD/year",
-      "description": "Total logistics cost per year for alternative material."
-    },
-    {
-      "id": "inventory_cost_current",
-      "label": "Annual Inventory Holding Cost (Current)",
-      "expression": "(current_material_cost * annual_volume * (lead_time_current / 365)) * (inventory_holding_cost / 100)",
-      "unit": "USD/year",
-      "description": "Cost to hold average inventory of current material based on lead time."
-    },
-    {
-      "id": "inventory_cost_alternative",
-      "label": "Annual Inventory Holding Cost (Alternative)",
-      "expression": "(alternative_material_cost * annual_volume * (lead_time_alternative / 365)) * (inventory_holding_cost / 100)",
-      "unit": "USD/year",
-      "description": "Cost to hold average inventory of alternative material based on lead time."
-    },
-    {
-      "id": "quality_impact_cost",
-      "label": "Annual Quality Impact Cost",
-      "expression": "CASE quality_impact WHEN 'none' THEN 0 WHEN 'low' THEN annual_material_cost_alternative * 0.005 WHEN 'medium' THEN annual_material_cost_alternative * 0.015 WHEN 'high' THEN annual_material_cost_alternative * 0.03 END",
-      "unit": "USD/year",
-      "description": "Estimated rework or quality cost due to material change."
-    },
-    {
-      "id": "currency_risk_cost",
-      "label": "Annual Currency Risk Cost",
-      "expression": "annual_material_cost_alternative * (currency_risk / 100)",
-      "unit": "USD/year",
-      "description": "Expected cost from currency fluctuations."
-    },
-    {
-      "id": "total_cost_current",
-      "label": "Total Annual Cost (Current)",
-      "expression": "annual_material_cost_current + scrap_cost_current + logistics_cost_current_annual + inventory_cost_current",
-      "unit": "USD/year",
-      "description": "Sum of all annual costs for current material."
-    },
-    {
-      "id": "total_cost_alternative",
-      "label": "Total Annual Cost (Alternative)",
-      "expression": "annual_material_cost_alternative + scrap_cost_alternative + logistics_cost_alternative_annual + inventory_cost_alternative + quality_impact_cost + currency_risk_cost + (changeover_cost / 1)",
-      "unit": "USD/year",
-      "description": "Sum of all annual costs for alternative material including one-time changeover."
-    },
-    {
-      "id": "total_annual_savings",
-      "label": "Total Annual Savings",
-      "expression": "total_cost_current - total_cost_alternative",
-      "unit": "USD/year",
-      "description": "Net annual savings (positive = savings, negative = loss) from switching to alternative."
-    }
+    "current_material_cost",
+    "current_material_cost",
+    "current_material_cost",
+    "current_material_cost",
+    "current_material_cost",
+    "current_material_cost",
+    "current_material_cost",
+    "current_material_cost",
+    "current_material_cost",
+    "current_material_cost",
+    "current_material_cost",
+    "current_material_cost",
+    "current_material_cost"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_annual_savings",
-      "label": "Total Annual Savings",
-      "unit": "USD/year",
-      "description": "Primary result: net annual cost impact of material replacement."
-    },
-    "breakdown": {
-      "material_cost_savings": {
-        "id": "material_cost_savings",
-        "label": "Material Cost Savings",
-        "expression": "annual_material_cost_current - annual_material_cost_alternative",
-        "unit": "USD/year"
-      },
-      "scrap_cost_savings": {
-        "id": "scrap_cost_savings",
-        "label": "Scrap Cost Savings",
-        "expression": "scrap_cost_current - scrap_cost_alternative",
-        "unit": "USD/year"
-      },
-      "logistics_cost_savings": {
-        "id": "logistics_cost_savings",
-        "label": "Logistics Cost Savings",
-        "expression": "logistics_cost_current_annual - logistics_cost_alternative_annual",
-        "unit": "USD/year"
-      },
-      "inventory_cost_savings": {
-        "id": "inventory_cost_savings",
-        "label": "Inventory Holding Cost Savings",
-        "expression": "inventory_cost_current - inventory_cost_alternative",
-        "unit": "USD/year"
-      },
-      "quality_impact_cost": {
-        "id": "quality_impact_cost",
-        "label": "Quality Impact Cost",
-        "expression": "quality_impact_cost",
-        "unit": "USD/year"
-      },
-      "currency_risk_cost": {
-        "id": "currency_risk_cost",
-        "label": "Currency Risk Cost",
-        "expression": "currency_risk_cost",
-        "unit": "USD/year"
-      },
-      "changeover_cost": {
-        "id": "changeover_cost",
-        "label": "One-time Changeover Cost",
-        "expression": "changeover_cost",
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "hidden_quality_downtime",
-        "label": "Hidden Quality Downtime",
-        "description": "Unplanned downtime due to material-related quality issues not captured in scrap rate.",
-        "estimated_cost_per_year": 2500
-      },
-      {
-        "id": "hidden_obsolescence_risk",
-        "label": "Hidden Obsolescence Risk",
-        "description": "Risk of alternative material becoming obsolete or discontinued.",
-        "estimated_cost_per_year": 1000
-      },
-      {
-        "id": "hidden_training_cost",
-        "label": "Hidden Training Cost",
-        "description": "Cost to train operators and maintenance on new material handling.",
-        "estimated_cost_per_year": 3000
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_negotiate_volume",
-        "label": "Negotiate volume discount",
-        "description": "If savings are marginal, negotiate a lower price for alternative material based on annual volume."
-      },
-      {
-        "id": "action_improve_logistics",
-        "label": "Optimize logistics for alternative",
-        "description": "Explore consolidated shipping or local warehousing to reduce logistics cost."
-      },
-      {
-        "id": "action_quality_trial",
-        "label": "Run a pilot quality trial",
-        "description": "Conduct a small-scale trial to validate scrap rate and downstream quality impact."
-      },
-      {
-        "id": "action_supplier_development",
-        "label": "Supplier development program",
-        "description": "Work with alternative supplier to improve on-time delivery and reliability."
-      },
-      {
-        "id": "action_hedge_currency",
-        "label": "Implement currency hedging",
-        "description": "If currency risk is high, consider forward contracts to lock in exchange rates."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_savings",
-      "label": "Data Confidence Adjusted Savings",
-      "expression": "total_annual_savings * (1 - (0.1 * (scrap_rate_alternative / 100) + 0.05 * (currency_risk / 100) + 0.1 * (CASE supplier_reliability WHEN 'excellent' THEN 0 WHEN 'good' THEN 0.05 WHEN 'fair' THEN 0.1 WHEN 'poor' THEN 0.2 END)))",
-      "unit": "USD/year",
-      "description": "Savings adjusted for data uncertainty based on scrap rate, currency risk, and supplier reliability."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "material-replacement-cost-comparator-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "procurement-supply-chain",
+  "category": "Lojistik & Tedarik Zinciri",
+  "sector": "Lojistik & Sevkiyat"
 }

@@ -128,7 +128,7 @@
       "id": "shop_type",
       "label": "Shop Type",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "independent",
       "options": [
         "independent",
@@ -148,7 +148,7 @@
       "id": "include_hidden_costs",
       "label": "Include Hidden Costs (Goodwill, Admin, Downtime)",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "businessContext": "When enabled, adds 20% overhead for scheduling disruption, customer goodwill gestures, and administrative rework (Lean Muda identification)",
       "label_i18n": {
@@ -204,159 +204,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "comeback_rate",
-      "name": "Comeback Rate",
-      "description": "Percentage of repair orders that result in a comeback (DPMO base metric).",
-      "formula": "comeback_count / total_repair_orders * 100",
-      "unit": "percent",
-      "order": 1
-    },
-    {
-      "id": "direct_labor_cost",
-      "name": "Direct Labor Cost of Comebacks",
-      "description": "Total labor cost incurred for rework hours.",
-      "formula": "comeback_count * avg_hours_per_comeback * avg_labor_rate",
-      "unit": "USD",
-      "order": 2
-    },
-    {
-      "id": "direct_parts_cost",
-      "name": "Direct Parts Cost of Comebacks",
-      "description": "Total parts cost consumed for rework.",
-      "formula": "comeback_count * parts_cost_per_comeback",
-      "unit": "USD",
-      "order": 3
-    },
-    {
-      "id": "hidden_overhead_cost",
-      "name": "Hidden Overhead Cost",
-      "description": "Additional costs from scheduling disruption, customer goodwill, and administrative overhead (20% of direct costs if enabled).",
-      "formula": "include_hidden_costs ? (direct_labor_cost + direct_parts_cost) * 0.20 : 0",
-      "unit": "USD",
-      "order": 4
-    },
-    {
-      "id": "lost_future_revenue",
-      "name": "Lost Future Revenue",
-      "description": "Estimated revenue lost from customers who defect after a comeback.",
-      "formula": "comeback_count * (lost_customer_rate / 100) * customer_lifetime_value",
-      "unit": "USD",
-      "order": 5
-    },
-    {
-      "id": "shop_type_multiplier",
-      "name": "Shop Type Overhead Multiplier",
-      "description": "Adjusts total cost based on shop type (dealer/franchise have higher overhead).",
-      "formula": "CASE shop_type WHEN 'dealer' THEN 1.25 WHEN 'franchise' THEN 1.15 WHEN 'fleet' THEN 1.05 ELSE 1.0 END",
-      "unit": "multiplier",
-      "order": 6
-    },
-    {
-      "id": "total_comeback_cost",
-      "name": "Total Comeback Cost (Primary Result)",
-      "description": "Comprehensive cost of comebacks including direct, hidden, and lost future revenue, adjusted by shop type.",
-      "formula": "(direct_labor_cost + direct_parts_cost + hidden_overhead_cost + lost_future_revenue) * shop_type_multiplier",
-      "unit": "USD",
-      "order": 7,
-      "isPrimary": true
-    }
+    "total_repair_orders",
+    "total_repair_orders",
+    "total_repair_orders",
+    "total_repair_orders",
+    "total_repair_orders",
+    "total_repair_orders",
+    "total_repair_orders"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_comeback_cost",
-      "label": "Total Comeback Cost",
-      "unit": "USD",
-      "description": "Aggregate monthly cost of repair comebacks including direct, hidden, and lost future revenue, adjusted by shop type."
-    },
-    "breakdown": {
-      "direct_labor_cost": {
-        "id": "direct_labor_cost",
-        "label": "Direct Labor Cost",
-        "unit": "USD",
-        "description": "Total labor cost for rework hours."
-      },
-      "direct_parts_cost": {
-        "id": "direct_parts_cost",
-        "label": "Direct Parts Cost",
-        "unit": "USD",
-        "description": "Total parts cost for rework."
-      },
-      "hidden_overhead_cost": {
-        "id": "hidden_overhead_cost",
-        "label": "Hidden Overhead Cost",
-        "unit": "USD",
-        "description": "Additional costs from scheduling disruption, goodwill, admin (if enabled)."
-      },
-      "lost_future_revenue": {
-        "id": "lost_future_revenue",
-        "label": "Lost Future Revenue",
-        "unit": "USD",
-        "description": "Estimated revenue lost from customer defection."
-      },
-      "shop_type_multiplier": {
-        "id": "shop_type_multiplier",
-        "label": "Shop Type Multiplier",
-        "unit": "multiplier",
-        "description": "Overhead adjustment factor based on shop type."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "comeback_rate",
-        "label": "Comeback Rate",
-        "unit": "percent",
-        "description": "Percentage of orders that are comebacks — primary quality indicator."
-      },
-      {
-        "id": "lost_customer_rate",
-        "label": "Lost Customer Rate",
-        "unit": "percent",
-        "description": "Percentage of customers lost per comeback — impacts long-term revenue."
-      },
-      {
-        "id": "avg_hours_per_comeback",
-        "label": "Average Hours per Comeback",
-        "unit": "hours",
-        "description": "Technician hours per comeback — reflects process inefficiency."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "label": "Implement 5-Why Root Cause Analysis",
-        "description": "For every comeback, conduct a 5-Why analysis to identify systemic issues (Lean Six Sigma).",
-        "expectedImpact": "Reduce comeback rate by 20-40% within 3 months."
-      },
-      {
-        "id": "action_2",
-        "label": "Standardize Repair Procedures",
-        "description": "Create standardized work instructions for top 10 recurring repairs (ISO 9001:2015 clause 7.5).",
-        "expectedImpact": "Decrease average hours per comeback by 0.5 hours."
-      },
-      {
-        "id": "action_3",
-        "label": "Customer Follow-Up Program",
-        "description": "Call every customer 48 hours after repair to ensure satisfaction and catch issues early.",
-        "expectedImpact": "Reduce lost customer rate by 5 percentage points."
-      },
-      {
-        "id": "action_4",
-        "label": "Technician Certification on Complex Repairs",
-        "description": "Invest in ASE or manufacturer-specific training for high-comeback areas.",
-        "expectedImpact": "Lower parts cost per comeback by 10% and improve first-time fix rate."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Total Cost",
-      "unit": "USD",
-      "description": "Total cost adjusted by a confidence factor (0.8 to 1.2) based on input completeness and variability. Default 1.0 if all inputs provided.",
-      "value": null
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "auto-repair-comeback-cost-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "maintenance-reliability",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat"
 }

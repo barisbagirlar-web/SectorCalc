@@ -29,7 +29,7 @@
       "id": "energy_source",
       "label": "Primary Energy Source",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "grid_mix",
       "min": null,
       "max": null,
@@ -132,7 +132,7 @@
       "id": "has_carbon_offset_program",
       "label": "Active Carbon Offset Program",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": false,
       "min": null,
       "max": null,
@@ -182,142 +182,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "energy_emissions",
-      "description": "CO2 emissions from purchased electricity based on source emission factor.",
-      "expression": "energy_consumption * CASE energy_source WHEN 'grid_mix' THEN 0.5 WHEN 'solar' THEN 0.05 WHEN 'wind' THEN 0.02 WHEN 'natural_gas' THEN 0.4 WHEN 'coal' THEN 0.9 ELSE 0.5 END",
-      "unit": "kgCO2e"
-    },
-    {
-      "id": "fuel_emissions",
-      "description": "CO2 emissions from fossil fuel combustion (density ~0.85 kg/L, emission factor ~2.68 kgCO2/L).",
-      "expression": "fuel_consumption * 2.68",
-      "unit": "kgCO2e"
-    },
-    {
-      "id": "waste_emissions",
-      "description": "CO2 emissions from waste sent to landfill (methane generation).",
-      "expression": "waste_generated * (1 - recycling_rate / 100) * 0.6 * 1000",
-      "unit": "kgCO2e"
-    },
-    {
-      "id": "transport_emissions",
-      "description": "CO2 emissions from logistics (average truck emission factor 0.1 kgCO2e per km-ton). Assumes 1 ton per unit.",
-      "expression": "production_volume * transport_distance * 0.1",
-      "unit": "kgCO2e"
-    },
-    {
-      "id": "total_gross_emissions",
-      "description": "Sum of all direct and indirect emissions before offsets.",
-      "expression": "energy_emissions + fuel_emissions + waste_emissions + transport_emissions",
-      "unit": "kgCO2e"
-    },
-    {
-      "id": "offset_adjustment",
-      "description": "If carbon offset program active, reduce by 10% (typical verified offset ratio).",
-      "expression": "has_carbon_offset_program ? total_gross_emissions * 0.9 : total_gross_emissions",
-      "unit": "kgCO2e"
-    },
-    {
-      "id": "primary_result",
-      "description": "Final carbon footprint in metric tons CO2e (primary KPI).",
-      "expression": "offset_adjustment / 1000",
-      "unit": "tCO2e"
-    }
+    "energy_consumption",
+    "energy_consumption",
+    "energy_consumption",
+    "energy_consumption",
+    "energy_consumption",
+    "energy_consumption",
+    "energy_consumption"
   ],
   "outputs": {
-    "primary": {
-      "id": "carbon_footprint_total",
-      "label": "Total Carbon Footprint",
-      "unit": "tCO2e",
-      "description": "Annual total CO2 equivalent emissions from all scopes (1, 2, and selected 3)."
-    },
-    "breakdown": {
-      "energy_emissions_tco2e": {
-        "label": "Energy Emissions",
-        "unit": "tCO2e",
-        "source": "energy_emissions / 1000"
-      },
-      "fuel_emissions_tco2e": {
-        "label": "Fuel Emissions",
-        "unit": "tCO2e",
-        "source": "fuel_emissions / 1000"
-      },
-      "waste_emissions_tco2e": {
-        "label": "Waste Emissions",
-        "unit": "tCO2e",
-        "source": "waste_emissions / 1000"
-      },
-      "transport_emissions_tco2e": {
-        "label": "Transport Emissions",
-        "unit": "tCO2e",
-        "source": "transport_emissions / 1000"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "energy_intensity",
-        "label": "Energy Intensity per Unit",
-        "value": "energy_consumption / production_volume",
-        "unit": "kWh/unit",
-        "benchmark": "2.0",
-        "description": "High values indicate energy waste (Six Sigma DMAIC opportunity)."
-      },
-      {
-        "id": "waste_to_landfill_ratio",
-        "label": "Waste to Landfill Ratio",
-        "value": "waste_generated * (1 - recycling_rate / 100) / production_volume",
-        "unit": "tons/unit",
-        "benchmark": "0.001",
-        "description": "Excess waste indicates non-value-added material flow (Lean)."
-      },
-      {
-        "id": "logistics_carbon_per_km",
-        "label": "Logistics Carbon per km",
-        "value": "transport_emissions / (production_volume * transport_distance)",
-        "unit": "kgCO2e/km-unit",
-        "benchmark": "0.08",
-        "description": "Inefficient routing or mode selection (WERC DC Metrics)."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": "high",
-        "description": "Switch to renewable energy (solar/wind) to reduce energy emissions by up to 90%.",
-        "expectedReduction": "energy_emissions * 0.8",
-        "unit": "kgCO2e"
-      },
-      {
-        "id": "action_2",
-        "priority": "medium",
-        "description": "Implement a Lean waste segregation program to increase recycling rate above 50%.",
-        "expectedReduction": "waste_emissions * 0.4",
-        "unit": "kgCO2e"
-      },
-      {
-        "id": "action_3",
-        "priority": "medium",
-        "description": "Optimize transport routes and consolidate shipments to reduce distance by 15%.",
-        "expectedReduction": "transport_emissions * 0.15",
-        "unit": "kgCO2e"
-      },
-      {
-        "id": "action_4",
-        "priority": "low",
-        "description": "Purchase verified carbon offsets for remaining unavoidable emissions.",
-        "expectedReduction": "total_gross_emissions * 0.1",
-        "unit": "kgCO2e"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "description": "Adjusted total carbon footprint with a confidence penalty based on data quality (default 5% uncertainty).",
-      "value": "primary_result * 1.05",
-      "unit": "tCO2e"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "carbon-footprint-check-calculator",
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",
-  "categorySlug": "sustainability-resource-esg"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon"
 }

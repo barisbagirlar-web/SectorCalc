@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 0,
-      "businessContext": "First resistor value in ohms"
+      "businessContext": "First resistor value in ohms",
+      "label_i18n": {
+        "en": "Resistor 1 (Ω)",
+        "tr": "Resistor 1 (Ω)",
+        "de": "Resistor 1 (Ω)",
+        "fr": "Resistor 1 (Ω)",
+        "es": "Resistor 1 (Ω)",
+        "ar": "Resistor 1 (Ω)"
+      }
     },
     {
       "id": "r2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 0,
-      "businessContext": "Second resistor value in ohms"
+      "businessContext": "Second resistor value in ohms",
+      "label_i18n": {
+        "en": "Resistor 2 (Ω)",
+        "tr": "Resistor 2 (Ω)",
+        "de": "Resistor 2 (Ω)",
+        "fr": "Resistor 2 (Ω)",
+        "es": "Resistor 2 (Ω)",
+        "ar": "Resistor 2 (Ω)"
+      }
     },
     {
       "id": "r3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 0,
-      "businessContext": "Third resistor value in ohms"
+      "businessContext": "Third resistor value in ohms",
+      "label_i18n": {
+        "en": "Resistor 3 (Ω)",
+        "tr": "Resistor 3 (Ω)",
+        "de": "Resistor 3 (Ω)",
+        "fr": "Resistor 3 (Ω)",
+        "es": "Resistor 3 (Ω)",
+        "ar": "Resistor 3 (Ω)"
+      }
     },
     {
       "id": "r4",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "Ω",
       "default": 0,
-      "businessContext": "Fourth resistor value in ohms"
+      "businessContext": "Fourth resistor value in ohms",
+      "label_i18n": {
+        "en": "Resistor 4 (Ω)",
+        "tr": "Resistor 4 (Ω)",
+        "de": "Resistor 4 (Ω)",
+        "fr": "Resistor 4 (Ω)",
+        "es": "Resistor 4 (Ω)",
+        "ar": "Resistor 4 (Ω)"
+      }
     },
     {
       "id": "connection",
       "label": "Connection Type (1=Series, 2=Parallel)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Select series (1) or parallel (2) connection"
+      "businessContext": "Select series (1) or parallel (2) connection",
+      "label_i18n": {
+        "en": "Connection Type (1=Series, 2=Parallel)",
+        "tr": "Connection Type (1=Series, 2=Parallel)",
+        "de": "Connection Type (1=Series, 2=Parallel)",
+        "fr": "Connection Type (1=Series, 2=Parallel)",
+        "es": "Connection Type (1=Series, 2=Parallel)",
+        "ar": "Connection Type (1=Series, 2=Parallel)"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "parallelEquivalent"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "electrical-power-systems"
 }

@@ -210,196 +210,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "k_base",
-      "name": "Base Thermal Conductivity",
-      "description": "Calculates base conductivity from material type and temperature using empirical correlations.",
-      "formula": "material_type === 'insulation_foam' ? 0.04 : material_type === 'metal_alloy' ? 50 * (temperature_k / 300) ** 0.5 : material_type === 'ceramic' ? 3 : material_type === 'composite' ? 0.5 : material_type === 'fluid_gas' ? 0.025 : material_type === 'fluid_liquid' ? 0.6 : 1.0",
-      "dependencies": [
-        "material_type",
-        "temperature_k"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "f_moisture",
-      "name": "Moisture Correction Factor",
-      "description": "Adjusts conductivity for moisture content using WERC standard porous media model.",
-      "formula": "1 + 0.02 * moisture_content_pct + 0.0005 * moisture_content_pct ** 2",
-      "dependencies": [
-        "moisture_content_pct"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "f_aging",
-      "name": "Aging Correction Factor",
-      "description": "Applies aging factor to account for material degradation over time.",
-      "formula": "aging_factor",
-      "dependencies": [
-        "aging_factor"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "k_effective",
-      "name": "Effective Thermal Conductivity",
-      "description": "Combines base conductivity with moisture and aging corrections.",
-      "formula": "k_base * f_moisture * f_aging",
-      "dependencies": [
-        "k_base",
-        "f_moisture",
-        "f_aging"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "r_value",
-      "name": "Thermal Resistance (R-value)",
-      "description": "Calculates R-value from thickness and effective conductivity per ISO 6946.",
-      "formula": "thickness_m / k_effective",
-      "dependencies": [
-        "thickness_m",
-        "k_effective"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "q",
-      "name": "Heat Flux Density",
-      "description": "Calculates heat flux per unit area from Fourier's law.",
-      "formula": "k_effective * temperature_delta_k / thickness_m",
-      "dependencies": [
-        "k_effective",
-        "temperature_delta_k",
-        "thickness_m"
-      ],
-      "intermediate": true
-    },
-    {
-      "id": "eta_thermal",
-      "name": "Thermal Efficiency",
-      "description": "Ratio of actual heat transfer to ideal (no-loss) scenario. Used in Six Sigma process capability analysis.",
-      "formula": "(heat_flow_w / (cross_section_area_m2 * q)) * 100",
-      "dependencies": [
-        "heat_flow_w",
-        "cross_section_area_m2",
-        "q"
-      ],
-      "intermediate": false,
-      "primary": true
-    }
+    "material_type",
+    "material_type",
+    "material_type",
+    "material_type",
+    "material_type",
+    "material_type",
+    "material_type"
   ],
   "outputs": {
-    "primary": {
-      "id": "k_effective",
-      "label": "Effective Thermal Conductivity",
-      "unit": "W/(m·K)",
-      "value": null,
-      "description": "Primary result: material's effective thermal conductivity after corrections."
-    },
-    "breakdown": {
-      "k_base": {
-        "id": "k_base",
-        "label": "Base Conductivity",
-        "unit": "W/(m·K)",
-        "value": null,
-        "description": "Conductivity before corrections."
-      },
-      "f_moisture": {
-        "id": "f_moisture",
-        "label": "Moisture Correction Factor",
-        "unit": "dimensionless",
-        "value": null,
-        "description": "Multiplier due to moisture content."
-      },
-      "f_aging": {
-        "id": "f_aging",
-        "label": "Aging Correction Factor",
-        "unit": "dimensionless",
-        "value": null,
-        "description": "Multiplier due to material aging."
-      },
-      "r_value": {
-        "id": "r_value",
-        "label": "Thermal Resistance (R-value)",
-        "unit": "m²·K/W",
-        "value": null,
-        "description": "Insulation effectiveness per ISO 6946."
-      },
-      "q": {
-        "id": "q",
-        "label": "Heat Flux Density",
-        "unit": "W/m²",
-        "value": null,
-        "description": "Heat transfer per unit area."
-      },
-      "eta_thermal": {
-        "id": "eta_thermal",
-        "label": "Thermal Efficiency",
-        "unit": "%",
-        "value": null,
-        "description": "Process efficiency metric for Lean Six Sigma."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "moisture_impact",
-        "label": "Moisture Impact on Conductivity",
-        "description": "Percentage increase in conductivity due to moisture.",
-        "value": null,
-        "unit": "%"
-      },
-      {
-        "id": "aging_impact",
-        "label": "Aging Impact on Conductivity",
-        "description": "Percentage change due to aging factor.",
-        "value": null,
-        "unit": "%"
-      },
-      {
-        "id": "temperature_nonlinearity",
-        "label": "Temperature Nonlinearity Loss",
-        "description": "Deviation from linear Fourier behavior due to temperature-dependent properties.",
-        "value": null,
-        "unit": "%"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_moisture",
-        "condition": "moisture_content_pct > 5",
-        "action": "Implement moisture barrier or drying process to reduce moisture content below 5%.",
-        "priority": "high"
-      },
-      {
-        "id": "replace_aged_material",
-        "condition": "aging_factor > 1.3",
-        "action": "Consider material replacement or rejuvenation treatment to restore thermal performance.",
-        "priority": "medium"
-      },
-      {
-        "id": "increase_thickness",
-        "condition": "r_value < 1.0",
-        "action": "Increase material thickness by 20% to meet minimum R-value standards (ISO 6946).",
-        "priority": "medium"
-      },
-      {
-        "id": "calibrate_sensors",
-        "condition": "measurement_confidence == 'low'",
-        "action": "Recalibrate heat flux sensors and thermocouples. Perform Gage R&R study per Six Sigma.",
-        "priority": "high"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted Conductivity",
-      "unit": "W/(m·K)",
-      "value": null,
-      "description": "Effective conductivity adjusted for measurement confidence. Low confidence applies ±15% uncertainty, medium ±5%, high ±1%."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "metal-plastics-forming",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
+  "toolName": "thermal-conductivity-calculator"
 }

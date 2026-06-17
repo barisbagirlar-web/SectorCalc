@@ -37,13 +37,20 @@ function evaluateAllFormulas(input: Cantilever_retaining_wallInput): Record<stri
   try { const v = (results["resistingMoment"] ?? 0) / (results["overturningMoment"] ?? 0); results["factorOfSafetyOverturning"] = Number.isFinite(v) ? v : 0; } catch { results["factorOfSafetyOverturning"] = 0; }
   try { const v = (results["totalWeight"] ?? 0) * Math.tan(input.frictionAngle * Math.PI / 180); results["slidingResistance"] = Number.isFinite(v) ? v : 0; } catch { results["slidingResistance"] = 0; }
   try { const v = (results["slidingResistance"] ?? 0) / (results["totalActiveForce"] ?? 0); results["factorOfSafetySliding"] = Number.isFinite(v) ? v : 0; } catch { results["factorOfSafetySliding"] = 0; }
+  results["_activePressureCoefficient_toFixed_4__"] = 0;
+  results["_totalActiveForce_toFixed_2__"] = 0;
+  results["_overturningMoment_toFixed_2__"] = 0;
+  results["_totalWeight_toFixed_2__"] = 0;
+  results["_resistingMoment_toFixed_2__"] = 0;
+  results["_factorOfSafetySliding_toFixed_2__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateCantilever_retaining_wall(input: Cantilever_retaining_wallInput): Cantilever_retaining_wallOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Factor"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

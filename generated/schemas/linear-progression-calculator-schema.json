@@ -5,41 +5,81 @@
       "id": "firstTerm",
       "label": "First Term (a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The initial value of the arithmetic progression."
+      "businessContext": "The initial value of the arithmetic progression.",
+      "label_i18n": {
+        "en": "First Term (a)",
+        "tr": "First Term (a)",
+        "de": "First Term (a)",
+        "fr": "First Term (a)",
+        "es": "First Term (a)",
+        "ar": "First Term (a)"
+      }
     },
     {
       "id": "commonDifference",
       "label": "Common Difference (d)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The constant increment between consecutive terms."
+      "businessContext": "The constant increment between consecutive terms.",
+      "label_i18n": {
+        "en": "Common Difference (d)",
+        "tr": "Common Difference (d)",
+        "de": "Common Difference (d)",
+        "fr": "Common Difference (d)",
+        "es": "Common Difference (d)",
+        "ar": "Common Difference (d)"
+      }
     },
     {
       "id": "numberOfTerms",
       "label": "Number of Terms (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The total count of terms in the sequence."
+      "businessContext": "The total count of terms in the sequence.",
+      "label_i18n": {
+        "en": "Number of Terms (n)",
+        "tr": "Number of Terms (n)",
+        "de": "Number of Terms (n)",
+        "fr": "Number of Terms (n)",
+        "es": "Number of Terms (n)",
+        "ar": "Number of Terms (n)"
+      }
     },
     {
       "id": "termPosition",
       "label": "Term Position (k)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The position of the term to find (1-indexed)."
+      "businessContext": "The position of the term to find (1-indexed).",
+      "label_i18n": {
+        "en": "Term Position (k)",
+        "tr": "Term Position (k)",
+        "de": "Term Position (k)",
+        "fr": "Term Position (k)",
+        "es": "Term Position (k)",
+        "ar": "Term Position (k)"
+      }
     },
     {
       "id": "decimals",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the results."
+      "businessContext": "Number of decimal places for the results.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "kthTerm"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

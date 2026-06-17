@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 100000,
-      "businessContext": "Total annual energy consumption of the building"
+      "businessContext": "Total annual energy consumption of the building",
+      "label_i18n": {
+        "en": "Annual Energy Use (kWh)",
+        "tr": "Annual Energy Use (kWh)",
+        "de": "Annual Energy Use (kWh)",
+        "fr": "Annual Energy Use (kWh)",
+        "es": "Annual Energy Use (kWh)",
+        "ar": "Annual Energy Use (kWh)"
+      }
     },
     {
       "id": "water_use",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³",
       "default": 5000,
-      "businessContext": "Total annual water consumption"
+      "businessContext": "Total annual water consumption",
+      "label_i18n": {
+        "en": "Annual Water Use (m³)",
+        "tr": "Annual Water Use (m³)",
+        "de": "Annual Water Use (m³)",
+        "fr": "Annual Water Use (m³)",
+        "es": "Annual Water Use (m³)",
+        "ar": "Annual Water Use (m³)"
+      }
     },
     {
       "id": "waste_generated",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "tonnes",
       "default": 50,
-      "businessContext": "Total annual waste generated"
+      "businessContext": "Total annual waste generated",
+      "label_i18n": {
+        "en": "Annual Waste Generated (tonnes)",
+        "tr": "Annual Waste Generated (tonnes)",
+        "de": "Annual Waste Generated (tonnes)",
+        "fr": "Annual Waste Generated (tonnes)",
+        "es": "Annual Waste Generated (tonnes)",
+        "ar": "Annual Waste Generated (tonnes)"
+      }
     },
     {
       "id": "recycled_waste",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "tonnes",
       "default": 20,
-      "businessContext": "Annual waste recycled"
+      "businessContext": "Annual waste recycled",
+      "label_i18n": {
+        "en": "Recycled Waste (tonnes)",
+        "tr": "Recycled Waste (tonnes)",
+        "de": "Recycled Waste (tonnes)",
+        "fr": "Recycled Waste (tonnes)",
+        "es": "Recycled Waste (tonnes)",
+        "ar": "Recycled Waste (tonnes)"
+      }
     },
     {
       "id": "co2_emissions",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "tonnes",
       "default": 200,
-      "businessContext": "Annual CO2 emissions from operations"
+      "businessContext": "Annual CO2 emissions from operations",
+      "label_i18n": {
+        "en": "CO2 Emissions (tonnes)",
+        "tr": "CO2 Emissions (tonnes)",
+        "de": "CO2 Emissions (tonnes)",
+        "fr": "CO2 Emissions (tonnes)",
+        "es": "CO2 Emissions (tonnes)",
+        "ar": "CO2 Emissions (tonnes)"
+      }
     },
     {
       "id": "floor_area",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m²",
       "default": 10000,
-      "businessContext": "Total floor area of the building"
+      "businessContext": "Total floor area of the building",
+      "label_i18n": {
+        "en": "Floor Area (m²)",
+        "tr": "Floor Area (m²)",
+        "de": "Floor Area (m²)",
+        "fr": "Floor Area (m²)",
+        "es": "Floor Area (m²)",
+        "ar": "Floor Area (m²)"
+      }
     }
   ],
   "formulas": {
@@ -55,10 +103,14 @@
     "water_intensity": "water_use / floor_area",
     "waste_recycling_rate": "(recycled_waste / waste_generated) * 100",
     "carbon_intensity": "co2_emissions / floor_area",
-    "breeam_score": "Math.min(100, (energy_intensity * 0.3 + water_intensity * 0.2 + (100 - waste_recycling_rate) * 0.2 + carbon_intensity * 0.3) / 10)"
+    "breeam_score": "Math.min(100, (energy_intensity * 0.3 + water_intensity * 0.2 + (100 - waste_recycling_rate) * 0.2 + carbon_intensity * 0.3) / 10)",
+    "Energy_Intensity__kWh_m__": "Energy Intensity (kWh/m²)",
+    "Water_Intensity__m__m__": "Water Intensity (m³/m²)",
+    "Waste_Recycling_Rate____": "Waste Recycling Rate (%)",
+    "Carbon_Intensity__tonnes_m__": "Carbon Intensity (tonnes/m²)"
   },
   "outputs": {
-    "primary": "BREEAM Score",
+    "primary": "energy_intensity",
     "breakdown": [
       "Energy Intensity (kWh/m²)",
       "Water Intensity (m³/m²)",
@@ -66,8 +118,8 @@
       "Carbon Intensity (tonnes/m²)"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "ecology-environment",
   "sectorSlug": "energy-carbon",

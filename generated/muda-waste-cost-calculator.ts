@@ -41,32 +41,19 @@ export const Muda_waste_cost_calculatorInputSchema = z.object({
   include_hidden_losses: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Muda_waste_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.production_volume * (input.defect_rate/100) * ( (input.rework_time_per_unit * input.labor_cost_per_hour * (1 + input.overhead_rate/100)) + (input.scrap_rate/100 * input.material_cost_per_unit) ); results["defect_cost"] = Number.isFinite(v) ? v : 0; } catch { results["defect_cost"] = 0; }
-  try { const v = input.production_volume * input.waiting_time_per_unit * input.labor_cost_per_hour * (1 + input.overhead_rate/100); results["waiting_cost"] = Number.isFinite(v) ? v : 0; } catch { results["waiting_cost"] = 0; }
-  try { const v = input.overproduction_quantity * (input.material_cost_per_unit + input.labor_cost_per_hour * (1 + input.overhead_rate/100) * (input.shift_hours_per_day / input.production_volume) + input.inventory_holding_cost_per_unit); results["overproduction_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overproduction_cost"] = 0; }
-  try { const v = input.production_volume * (input.excess_motion_cost_per_unit + input.transportation_cost_per_unit + input.processing_waste_per_unit); results["motion_transport_processing_cost"] = Number.isFinite(v) ? v : 0; } catch { results["motion_transport_processing_cost"] = 0; }
-  try { const v = input.production_volume * input.inventory_holding_cost_per_unit * (1 + input.defect_rate/100); results["inventory_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["inventory_waste_cost"] = 0; }
-  try { const v = input.include_hidden_losses ? ((results["defect_cost"] ?? 0) * 0.15 + (results["waiting_cost"] ?? 0) * 0.1 + (results["overproduction_cost"] ?? 0) * 0.2) : 0; results["hidden_losses"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_losses"] = 0; }
-  try { const v = ((results["defect_cost"] ?? 0) + (results["waiting_cost"] ?? 0) + (results["overproduction_cost"] ?? 0) + (results["motion_transport_processing_cost"] ?? 0) + (results["inventory_waste_cost"] ?? 0) + (results["hidden_losses"] ?? 0)) * dataConfidenceAdjusted; results["total_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_waste_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Muda_waste_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateMuda_waste_cost_calculator(input: Muda_waste_cost_calculatorInput): Muda_waste_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_waste_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    defect_cost: values["defect_cost"] ?? 0,
-    waiting_cost: values["waiting_cost"] ?? 0,
-    overproduction_cost: values["overproduction_cost"] ?? 0,
-    motion_transport_processing_cost: values["motion_transport_processing_cost"] ?? 0,
-    inventory_waste_cost: values["inventory_waste_cost"] ?? 0,
-    hidden_losses: values["hidden_losses"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Lost Opportunity Cost","Brand Impact Cost","Employee Morale Cost"];
-  const suggestedActions: string[] = ["Implement Statistical Process Control (SPC) and root cause analysis (5 Whys) to reduce defect rate.","Conduct value stream mapping to identify bottlenecks and implement Takt time balancing.","Switch to a pull-based Kanban system and reduce batch sizes.","Redesign workstations using 5S and ergonomic principles to reduce excess motion.","Implement Just-In-Time (JIT) delivery and reduce safety stock levels."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -85,7 +72,7 @@ export function calculateMuda_waste_cost_calculator(input: Muda_waste_cost_calcu
 
 export interface Muda_waste_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { defect_cost: number; waiting_cost: number; overproduction_cost: number; motion_transport_processing_cost: number; inventory_waste_cost: number; hidden_losses: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

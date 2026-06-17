@@ -21,13 +21,16 @@ function evaluateAllFormulas(input: Battery_capacity_calculatorInput): Record<st
   const results: Record<string, number> = {};
   try { const v = (input.loadPower * input.backupTime) / (input.voltage * input.efficiency * input.depthOfDischarge); results["capacityAh"] = Number.isFinite(v) ? v : 0; } catch { results["capacityAh"] = 0; }
   try { const v = (input.loadPower * input.backupTime) / (input.efficiency * input.depthOfDischarge); results["energyWh"] = Number.isFinite(v) ? v : 0; } catch { results["energyWh"] = 0; }
+  results["__energyWh_toFixed_2___Wh"] = 0;
+  results["__capacityAh_toFixed_2___Ah"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateBattery_capacity_calculator(input: Battery_capacity_calculatorInput): Battery_capacity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Required"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

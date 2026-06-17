@@ -3,10 +3,14 @@ import * as z from 'zod';
 
 export interface Mm_to_inchInput {
   mm: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Mm_to_inchInputSchema = z.object({
   mm: z.number().default(25.4),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Mm_to_inchInput): Record<string, number> {

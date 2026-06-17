@@ -5,65 +5,129 @@
       "id": "q0",
       "label": "q w (scalar)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Scalar part of first quaternion."
+      "businessContext": "Scalar part of first quaternion.",
+      "label_i18n": {
+        "en": "q w (scalar)",
+        "tr": "q w (scalar)",
+        "de": "q w (scalar)",
+        "fr": "q w (scalar)",
+        "es": "q w (scalar)",
+        "ar": "q w (scalar)"
+      }
     },
     {
       "id": "q1",
       "label": "q x",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "x component of first quaternion."
+      "businessContext": "x component of first quaternion.",
+      "label_i18n": {
+        "en": "q x",
+        "tr": "q x",
+        "de": "q x",
+        "fr": "q x",
+        "es": "q x",
+        "ar": "q x"
+      }
     },
     {
       "id": "q2",
       "label": "q y",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "y component of first quaternion."
+      "businessContext": "y component of first quaternion.",
+      "label_i18n": {
+        "en": "q y",
+        "tr": "q y",
+        "de": "q y",
+        "fr": "q y",
+        "es": "q y",
+        "ar": "q y"
+      }
     },
     {
       "id": "q3",
       "label": "q z",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "z component of first quaternion."
+      "businessContext": "z component of first quaternion.",
+      "label_i18n": {
+        "en": "q z",
+        "tr": "q z",
+        "de": "q z",
+        "fr": "q z",
+        "es": "q z",
+        "ar": "q z"
+      }
     },
     {
       "id": "p0",
       "label": "p w (scalar)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Scalar part of second quaternion."
+      "businessContext": "Scalar part of second quaternion.",
+      "label_i18n": {
+        "en": "p w (scalar)",
+        "tr": "p w (scalar)",
+        "de": "p w (scalar)",
+        "fr": "p w (scalar)",
+        "es": "p w (scalar)",
+        "ar": "p w (scalar)"
+      }
     },
     {
       "id": "p1",
       "label": "p x",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "x component of second quaternion."
+      "businessContext": "x component of second quaternion.",
+      "label_i18n": {
+        "en": "p x",
+        "tr": "p x",
+        "de": "p x",
+        "fr": "p x",
+        "es": "p x",
+        "ar": "p x"
+      }
     },
     {
       "id": "p2",
       "label": "p y",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "y component of second quaternion."
+      "businessContext": "y component of second quaternion.",
+      "label_i18n": {
+        "en": "p y",
+        "tr": "p y",
+        "de": "p y",
+        "fr": "p y",
+        "es": "p y",
+        "ar": "p y"
+      }
     },
     {
       "id": "p3",
       "label": "p z",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "z component of second quaternion."
+      "businessContext": "z component of second quaternion.",
+      "label_i18n": {
+        "en": "p z",
+        "tr": "p z",
+        "de": "p z",
+        "fr": "p z",
+        "es": "p z",
+        "ar": "p z"
+      }
     }
   ],
   "formulas": {
@@ -86,8 +150,8 @@
       "productZ"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

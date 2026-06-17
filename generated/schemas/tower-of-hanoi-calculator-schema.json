@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Hanoi kulelerindeki disk sayısı"
+      "businessContext": "Hanoi kulelerindeki disk sayısı",
+      "label_i18n": {
+        "en": "Disk Sayısı",
+        "tr": "Disk Sayısı",
+        "de": "Disk Sayısı",
+        "fr": "Disk Sayısı",
+        "es": "Disk Sayısı",
+        "ar": "Disk Sayısı"
+      }
     },
     {
       "id": "manuelSure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saniye",
       "default": 5,
-      "businessContext": "İnsan eliyle yapılan bir hamlenin süresi"
+      "businessContext": "İnsan eliyle yapılan bir hamlenin süresi",
+      "label_i18n": {
+        "en": "Manuel Hamle Süresi",
+        "tr": "Manuel Hamle Süresi",
+        "de": "Manuel Hamle Süresi",
+        "fr": "Manuel Hamle Süresi",
+        "es": "Manuel Hamle Süresi",
+        "ar": "Manuel Hamle Süresi"
+      }
     },
     {
       "id": "otomatikSure",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "saniye",
       "default": 1,
-      "businessContext": "Robotik kol ile yapılan bir hamlenin süresi"
+      "businessContext": "Robotik kol ile yapılan bir hamlenin süresi",
+      "label_i18n": {
+        "en": "Otomatik Hamle Süresi",
+        "tr": "Otomatik Hamle Süresi",
+        "de": "Otomatik Hamle Süresi",
+        "fr": "Otomatik Hamle Süresi",
+        "es": "Otomatik Hamle Süresi",
+        "ar": "Otomatik Hamle Süresi"
+      }
     },
     {
       "id": "mod",
       "label": "Mod",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0: Manuel, 1: Otomatik"
+      "businessContext": "0: Manuel, 1: Otomatik",
+      "label_i18n": {
+        "en": "Mod",
+        "tr": "Mod",
+        "de": "Mod",
+        "fr": "Mod",
+        "es": "Mod",
+        "ar": "Mod"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "totalSureMinutes"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -21,13 +21,15 @@ function evaluateAllFormulas(input: Weight_distributionInput): Record<string, nu
   try { const v = input.totalWeight * (input.frontAxleDist / input.wheelbase); results["rearAxleLoad"] = Number.isFinite(v) ? v : 0; } catch { results["rearAxleLoad"] = 0; }
   try { const v = ((results["frontAxleLoad"] ?? 0) / input.totalWeight) * 100; results["frontAxlePercent"] = Number.isFinite(v) ? v : 0; } catch { results["frontAxlePercent"] = 0; }
   try { const v = ((results["rearAxleLoad"] ?? 0) / input.totalWeight) * 100; results["rearAxlePercent"] = Number.isFinite(v) ? v : 0; } catch { results["rearAxlePercent"] = 0; }
+  results["_frontAxleLoad__kg___frontAxlePercent___"] = 0;
+  results["_rearAxleLoad__kg___rearAxlePercent___"] = 0;
   return results;
 }
 
 
 export function calculateWeight_distribution(input: Weight_distributionInput): Weight_distributionOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Front"] ?? 0;
+  const totalWasteCost = values["frontAxleLoad"] ?? 0;
   const breakdown = {
     
   };

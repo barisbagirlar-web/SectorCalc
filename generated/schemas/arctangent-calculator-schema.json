@@ -5,25 +5,49 @@
       "id": "x",
       "label": "X Value / Input",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The x-coordinate if using atan2, or the value for arctan."
+      "businessContext": "The x-coordinate if using atan2, or the value for arctan.",
+      "label_i18n": {
+        "en": "X Value / Input",
+        "tr": "X Value / Input",
+        "de": "X Value / Input",
+        "fr": "X Value / Input",
+        "es": "X Value / Input",
+        "ar": "X Value / Input"
+      }
     },
     {
       "id": "y",
       "label": "Y Value (optional)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "If provided and non-zero, computes atan2(y, x) instead of arctan(x)."
+      "businessContext": "If provided and non-zero, computes atan2(y, x) instead of arctan(x).",
+      "label_i18n": {
+        "en": "Y Value (optional)",
+        "tr": "Y Value (optional)",
+        "de": "Y Value (optional)",
+        "fr": "Y Value (optional)",
+        "es": "Y Value (optional)",
+        "ar": "Y Value (optional)"
+      }
     },
     {
       "id": "outputUnit",
       "label": "Output Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for radians, 1 for degrees."
+      "businessContext": "0 for radians, 1 for degrees.",
+      "label_i18n": {
+        "en": "Output Unit",
+        "tr": "Output Unit",
+        "de": "Output Unit",
+        "fr": "Output Unit",
+        "es": "Output Unit",
+        "ar": "Output Unit"
+      }
     },
     {
       "id": "precision",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "dp",
       "default": 2,
-      "businessContext": "Number of decimal places for final output."
+      "businessContext": "Number of decimal places for final output.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "scale",
       "label": "Input Scale",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier applied to x and y before calculation."
+      "businessContext": "Multiplier applied to x and y before calculation.",
+      "label_i18n": {
+        "en": "Input Scale",
+        "tr": "Input Scale",
+        "de": "Input Scale",
+        "fr": "Input Scale",
+        "es": "Input Scale",
+        "ar": "Input Scale"
+      }
     },
     {
       "id": "offset",
       "label": "Offset Angle",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Angle added to the result in the output unit."
+      "businessContext": "Angle added to the result in the output unit.",
+      "label_i18n": {
+        "en": "Offset Angle",
+        "tr": "Offset Angle",
+        "de": "Offset Angle",
+        "fr": "Offset Angle",
+        "es": "Offset Angle",
+        "ar": "Offset Angle"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "finalBeforeRound"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

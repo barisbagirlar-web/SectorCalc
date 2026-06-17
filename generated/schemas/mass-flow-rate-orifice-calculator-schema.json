@@ -5,9 +5,17 @@
       "id": "dischargeCoefficient",
       "label": "Discharge Coefficient (C)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.62,
-      "businessContext": "Discharge coefficient accounting for flow contraction and friction losses, typically 0.6-0.7 for orifice plates."
+      "businessContext": "Discharge coefficient accounting for flow contraction and friction losses, typically 0.6-0.7 for orifice plates.",
+      "label_i18n": {
+        "en": "Discharge Coefficient (C)",
+        "tr": "Discharge Coefficient (C)",
+        "de": "Discharge Coefficient (C)",
+        "fr": "Discharge Coefficient (C)",
+        "es": "Discharge Coefficient (C)",
+        "ar": "Discharge Coefficient (C)"
+      }
     },
     {
       "id": "orificeArea",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.01,
-      "businessContext": "Cross-sectional area of the orifice or restriction."
+      "businessContext": "Cross-sectional area of the orifice or restriction.",
+      "label_i18n": {
+        "en": "Orifice Area (A)",
+        "tr": "Orifice Area (A)",
+        "de": "Orifice Area (A)",
+        "fr": "Orifice Area (A)",
+        "es": "Orifice Area (A)",
+        "ar": "Orifice Area (A)"
+      }
     },
     {
       "id": "fluidDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of the fluid. For water at 20°C, 998 kg/m³."
+      "businessContext": "Density of the fluid. For water at 20°C, 998 kg/m³.",
+      "label_i18n": {
+        "en": "Fluid Density (ρ)",
+        "tr": "Fluid Density (ρ)",
+        "de": "Fluid Density (ρ)",
+        "fr": "Fluid Density (ρ)",
+        "es": "Fluid Density (ρ)",
+        "ar": "Fluid Density (ρ)"
+      }
     },
     {
       "id": "pressureDifference",
@@ -31,11 +55,20 @@
       "type": "number",
       "unit": "Pa",
       "default": 10000,
-      "businessContext": "Differential pressure across the orifice, measured in Pascals."
+      "businessContext": "Differential pressure across the orifice, measured in Pascals.",
+      "label_i18n": {
+        "en": "Pressure Difference (ΔP)",
+        "tr": "Pressure Difference (ΔP)",
+        "de": "Pressure Difference (ΔP)",
+        "fr": "Pressure Difference (ΔP)",
+        "es": "Pressure Difference (ΔP)",
+        "ar": "Pressure Difference (ΔP)"
+      }
     }
   ],
   "formulas": {
-    "massFlowRate": "dischargeCoefficient * orificeArea * Math.sqrt(2 * fluidDensity * pressureDifference)"
+    "massFlowRate": "dischargeCoefficient * orificeArea * Math.sqrt(2 * fluidDensity * pressureDifference)",
+    "massFlowRate_copy": "dischargeCoefficient * orificeArea * Math.sqrt(2 * fluidDensity * pressureDifference)"
   },
   "outputs": {
     "primary": "massFlowRate",
@@ -43,10 +76,10 @@
       "massFlowRate"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "process-chemical"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Lifter's heaviest successful squat attempt in competition"
+      "businessContext": "Lifter's heaviest successful squat attempt in competition",
+      "label_i18n": {
+        "en": "Squat (kg)",
+        "tr": "Squat (kg)",
+        "de": "Squat (kg)",
+        "fr": "Squat (kg)",
+        "es": "Squat (kg)",
+        "ar": "Squat (kg)"
+      }
     },
     {
       "id": "benchPress",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Lifter's heaviest successful bench press attempt in competition"
+      "businessContext": "Lifter's heaviest successful bench press attempt in competition",
+      "label_i18n": {
+        "en": "Bench Press (kg)",
+        "tr": "Bench Press (kg)",
+        "de": "Bench Press (kg)",
+        "fr": "Bench Press (kg)",
+        "es": "Bench Press (kg)",
+        "ar": "Bench Press (kg)"
+      }
     },
     {
       "id": "deadlift",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Lifter's heaviest successful deadlift attempt in competition"
+      "businessContext": "Lifter's heaviest successful deadlift attempt in competition",
+      "label_i18n": {
+        "en": "Deadlift (kg)",
+        "tr": "Deadlift (kg)",
+        "de": "Deadlift (kg)",
+        "fr": "Deadlift (kg)",
+        "es": "Deadlift (kg)",
+        "ar": "Deadlift (kg)"
+      }
     },
     {
       "id": "bodyWeight",
@@ -31,18 +55,27 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Lifter's official body weight at weigh-in"
+      "businessContext": "Lifter's official body weight at weigh-in",
+      "label_i18n": {
+        "en": "Body Weight (kg)",
+        "tr": "Body Weight (kg)",
+        "de": "Body Weight (kg)",
+        "fr": "Body Weight (kg)",
+        "es": "Body Weight (kg)",
+        "ar": "Body Weight (kg)"
+      }
     }
   ],
   "formulas": {
     "primary": "squat + benchPress + deadlift",
-    "breakdown": {
-      "total": "squat + benchPress + deadlift",
-      "relativeTotal": "bodyWeight > 0 ? (squat + benchPress + deadlift) / bodyWeight : 0"
-    }
+    "breakdown": "squat",
+    "squat": "squat",
+    "benchPress": "benchPress",
+    "deadlift": "deadlift",
+    "relativeTotal": "relativeTotal"
   },
   "outputs": {
-    "primary": "total",
+    "primary": "primary",
     "breakdown": [
       "squat",
       "benchPress",
@@ -50,10 +83,10 @@
       "relativeTotal"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Atölye & Tamir",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

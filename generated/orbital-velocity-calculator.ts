@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Orbital_velocity_calculatorInput): Record<st
 
 export function calculateOrbital_velocity_calculator(input: Orbital_velocity_calculatorInput): Orbital_velocity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["orbitalVelocity_mps"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 50,
-      "businessContext": "Total area to be painted in square meters."
+      "businessContext": "Total area to be painted in square meters.",
+      "label_i18n": {
+        "en": "Area to Paint",
+        "tr": "Area to Paint",
+        "de": "Area to Paint",
+        "fr": "Area to Paint",
+        "es": "Area to Paint",
+        "ar": "Area to Paint"
+      }
     },
     {
       "id": "coats",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "coats",
       "default": 2,
-      "businessContext": "Number of paint coats to apply."
+      "businessContext": "Number of paint coats to apply.",
+      "label_i18n": {
+        "en": "Number of Coats",
+        "tr": "Number of Coats",
+        "de": "Number of Coats",
+        "fr": "Number of Coats",
+        "es": "Number of Coats",
+        "ar": "Number of Coats"
+      }
     },
     {
       "id": "coverage_per_liter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²/L",
       "default": 12,
-      "businessContext": "Manufacturer's stated coverage in m² per liter."
+      "businessContext": "Manufacturer's stated coverage in m² per liter.",
+      "label_i18n": {
+        "en": "Coverage per Liter",
+        "tr": "Coverage per Liter",
+        "de": "Coverage per Liter",
+        "fr": "Coverage per Liter",
+        "es": "Coverage per Liter",
+        "ar": "Coverage per Liter"
+      }
     },
     {
       "id": "waste_factor",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Expected paint wastage as percentage (e.g., overspray, spillage)."
+      "businessContext": "Expected paint wastage as percentage (e.g., overspray, spillage).",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "roughness_factor",
       "label": "Surface Roughness Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Multiplier for rough surfaces (1.0=smooth, 1.5=rough)."
+      "businessContext": "Multiplier for rough surfaces (1.0=smooth, 1.5=rough).",
+      "label_i18n": {
+        "en": "Surface Roughness Factor",
+        "tr": "Surface Roughness Factor",
+        "de": "Surface Roughness Factor",
+        "fr": "Surface Roughness Factor",
+        "es": "Surface Roughness Factor",
+        "ar": "Surface Roughness Factor"
+      }
     },
     {
       "id": "paint_price_per_liter",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency/L",
       "default": 30,
-      "businessContext": "Cost of paint per liter in local currency."
+      "businessContext": "Cost of paint per liter in local currency.",
+      "label_i18n": {
+        "en": "Paint Price per Liter",
+        "tr": "Paint Price per Liter",
+        "de": "Paint Price per Liter",
+        "fr": "Paint Price per Liter",
+        "es": "Paint Price per Liter",
+        "ar": "Paint Price per Liter"
+      }
     }
   ],
   "formulas": {
@@ -60,10 +108,10 @@
       "total_cost"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "sustainability-resource-esg"
 }

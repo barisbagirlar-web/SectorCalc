@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "mph",
       "default": 60,
-      "businessContext": "The speed in miles per hour to be converted."
+      "businessContext": "The speed in miles per hour to be converted.",
+      "label_i18n": {
+        "en": "Speed (mph)",
+        "tr": "Speed (mph)",
+        "de": "Speed (mph)",
+        "fr": "Speed (mph)",
+        "es": "Speed (mph)",
+        "ar": "Speed (mph)"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the result."
+      "businessContext": "Number of decimal places for the result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "outputUnit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "code",
       "default": 0,
-      "businessContext": "0: km/h, 1: m/s, 2: knots"
+      "businessContext": "0: km/h, 1: m/s, 2: knots",
+      "label_i18n": {
+        "en": "Target Unit",
+        "tr": "Target Unit",
+        "de": "Target Unit",
+        "fr": "Target Unit",
+        "es": "Target Unit",
+        "ar": "Target Unit"
+      }
     },
     {
       "id": "roundingMode",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "code",
       "default": 0,
-      "businessContext": "0: standard rounding, 1: floor, 2: ceil"
+      "businessContext": "0: standard rounding, 1: floor, 2: ceil",
+      "label_i18n": {
+        "en": "Rounding Mode",
+        "tr": "Rounding Mode",
+        "de": "Rounding Mode",
+        "fr": "Rounding Mode",
+        "es": "Rounding Mode",
+        "ar": "Rounding Mode"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "formattedResult"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

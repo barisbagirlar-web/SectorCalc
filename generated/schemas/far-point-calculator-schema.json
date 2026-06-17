@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.7,
-      "businessContext": "Height of the observer above the ground level in meters."
+      "businessContext": "Height of the observer above the ground level in meters.",
+      "label_i18n": {
+        "en": "Observer Height",
+        "tr": "Observer Height",
+        "de": "Observer Height",
+        "fr": "Observer Height",
+        "es": "Observer Height",
+        "ar": "Observer Height"
+      }
     },
     {
       "id": "targetHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Height of the target object above the ground level in meters. Set to 0 for horizon distance."
+      "businessContext": "Height of the target object above the ground level in meters. Set to 0 for horizon distance.",
+      "label_i18n": {
+        "en": "Target Height",
+        "tr": "Target Height",
+        "de": "Target Height",
+        "fr": "Target Height",
+        "es": "Target Height",
+        "ar": "Target Height"
+      }
     },
     {
       "id": "earthRadius",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "km",
       "default": 6371,
-      "businessContext": "Mean radius of the Earth in kilometers. Standard value is 6371 km."
+      "businessContext": "Mean radius of the Earth in kilometers. Standard value is 6371 km.",
+      "label_i18n": {
+        "en": "Earth Radius",
+        "tr": "Earth Radius",
+        "de": "Earth Radius",
+        "fr": "Earth Radius",
+        "es": "Earth Radius",
+        "ar": "Earth Radius"
+      }
     },
     {
       "id": "refractionCoefficient",
       "label": "Refraction Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.13,
-      "businessContext": "Atmospheric refraction coefficient. For standard atmosphere, k=0.13. Range typically 0 to 0.2."
+      "businessContext": "Atmospheric refraction coefficient. For standard atmosphere, k=0.13. Range typically 0 to 0.2.",
+      "label_i18n": {
+        "en": "Refraction Coefficient",
+        "tr": "Refraction Coefficient",
+        "de": "Refraction Coefficient",
+        "fr": "Refraction Coefficient",
+        "es": "Refraction Coefficient",
+        "ar": "Refraction Coefficient"
+      }
     }
   ],
   "formulas": {
@@ -41,12 +73,7 @@
     "lineOfSightDistance": "horizonDistance + targetHorizonDistance"
   },
   "outputs": {
-    "primary": {
-      "id": "lineOfSightDistance",
-      "label": "Far Point Distance",
-      "unit": "km",
-      "description": "The maximum line-of-sight distance between observer and target, accounting for Earth curvature and atmospheric refraction."
-    },
+    "primary": "effectiveRadius",
     "breakdown": [
       {
         "id": "effectiveRadius",
@@ -68,10 +95,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

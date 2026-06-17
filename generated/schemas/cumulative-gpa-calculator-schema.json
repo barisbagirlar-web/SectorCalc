@@ -5,9 +5,17 @@
       "id": "previousGPA",
       "label": "Previous Cumulative GPA",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The GPA earned in all prior semesters, typically on a 0–4 scale."
+      "businessContext": "The GPA earned in all prior semesters, typically on a 0–4 scale.",
+      "label_i18n": {
+        "en": "Previous Cumulative GPA",
+        "tr": "Previous Cumulative GPA",
+        "de": "Previous Cumulative GPA",
+        "fr": "Previous Cumulative GPA",
+        "es": "Previous Cumulative GPA",
+        "ar": "Previous Cumulative GPA"
+      }
     },
     {
       "id": "previousCredits",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "credits",
       "default": 0,
-      "businessContext": "Total credit hours attempted in all prior semesters."
+      "businessContext": "Total credit hours attempted in all prior semesters.",
+      "label_i18n": {
+        "en": "Previous Credits Earned",
+        "tr": "Previous Credits Earned",
+        "de": "Previous Credits Earned",
+        "fr": "Previous Credits Earned",
+        "es": "Previous Credits Earned",
+        "ar": "Previous Credits Earned"
+      }
     },
     {
       "id": "newGPA",
       "label": "New Semester GPA",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The GPA for the most recent semester, on the same scale as previous GPA."
+      "businessContext": "The GPA for the most recent semester, on the same scale as previous GPA.",
+      "label_i18n": {
+        "en": "New Semester GPA",
+        "tr": "New Semester GPA",
+        "de": "New Semester GPA",
+        "fr": "New Semester GPA",
+        "es": "New Semester GPA",
+        "ar": "New Semester GPA"
+      }
     },
     {
       "id": "newCredits",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "credits",
       "default": 0,
-      "businessContext": "Total credit hours attempted in the most recent semester."
+      "businessContext": "Total credit hours attempted in the most recent semester.",
+      "label_i18n": {
+        "en": "New Semester Credits",
+        "tr": "New Semester Credits",
+        "de": "New Semester Credits",
+        "fr": "New Semester Credits",
+        "es": "New Semester Credits",
+        "ar": "New Semester Credits"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "totalCredits"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

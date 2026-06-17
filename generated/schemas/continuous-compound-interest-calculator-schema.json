@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "The initial amount of money invested or borrowed."
+      "businessContext": "The initial amount of money invested or borrowed.",
+      "label_i18n": {
+        "en": "Principal",
+        "tr": "Principal",
+        "de": "Principal",
+        "fr": "Principal",
+        "es": "Principal",
+        "ar": "Principal"
+      }
     },
     {
       "id": "annualRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "The annual nominal interest rate as a percentage (e.g., 5 means 5%)."
+      "businessContext": "The annual nominal interest rate as a percentage (e.g., 5 means 5%).",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "time",
@@ -23,31 +39,49 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "The length of time the money is invested or borrowed for, in years."
+      "businessContext": "The length of time the money is invested or borrowed for, in years.",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "The number of decimal places to display in the results."
+      "businessContext": "The number of decimal places to display in the results.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "futureValue": "principal * Math.exp(annualRate / 100 * time)",
     "interestEarned": "futureValue - principal",
     "roundedFutureValue": "Math.round(futureValue * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
-    "roundedInterestEarned": "Math.round(interestEarned * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "roundedInterestEarned": "Math.round(interestEarned * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "___principal_": "$${principal}",
+    "___roundedInterestEarned_": "$${roundedInterestEarned}"
   },
   "outputs": {
-    "primary": "After ${time} years, your investment will be worth $${roundedFutureValue}.",
+    "primary": "futureValue",
     "breakdown": [
       "Initial principal: $${principal}",
       "Interest earned: $${roundedInterestEarned}"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

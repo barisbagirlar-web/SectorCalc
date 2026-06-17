@@ -18,6 +18,8 @@ export const Hearing_test_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Hearing_test_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.threshold500 + input.threshold1000 + input.threshold2000 + input.threshold4000) / 4; results["pureToneAverage"] = Number.isFinite(v) ? v : 0; } catch { results["pureToneAverage"] = 0; }
+  results["Pure_Tone_Average__PTA__is_the_arithmeti"] = 0;
+  results["PTA_is_commonly_used_to_classify_the_deg"] = 0;
   return results;
 }
 

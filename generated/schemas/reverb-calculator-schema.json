@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Odanın uzunluğu (metre)"
+      "businessContext": "Odanın uzunluğu (metre)",
+      "label_i18n": {
+        "en": "Oda Uzunluğu",
+        "tr": "Oda Uzunluğu",
+        "de": "Oda Uzunluğu",
+        "fr": "Oda Uzunluğu",
+        "es": "Oda Uzunluğu",
+        "ar": "Oda Uzunluğu"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 8,
-      "businessContext": "Odanın genişliği (metre)"
+      "businessContext": "Odanın genişliği (metre)",
+      "label_i18n": {
+        "en": "Oda Genişliği",
+        "tr": "Oda Genişliği",
+        "de": "Oda Genişliği",
+        "fr": "Oda Genişliği",
+        "es": "Oda Genişliği",
+        "ar": "Oda Genişliği"
+      }
     },
     {
       "id": "height",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Odanın yüksekliği (metre)"
+      "businessContext": "Odanın yüksekliği (metre)",
+      "label_i18n": {
+        "en": "Oda Yüksekliği",
+        "tr": "Oda Yüksekliği",
+        "de": "Oda Yüksekliği",
+        "fr": "Oda Yüksekliği",
+        "es": "Oda Yüksekliği",
+        "ar": "Oda Yüksekliği"
+      }
     },
     {
       "id": "alpha",
       "label": "Ortalama Emilim Katsayısı (α)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.3,
-      "businessContext": "Yüzeylerin ortalama ses emilim katsayısı (0–1 arası, boyutsuz)"
+      "businessContext": "Yüzeylerin ortalama ses emilim katsayısı (0–1 arası, boyutsuz)",
+      "label_i18n": {
+        "en": "Ortalama Emilim Katsayısı (α)",
+        "tr": "Ortalama Emilim Katsayısı (α)",
+        "de": "Ortalama Emilim Katsayısı (α)",
+        "fr": "Ortalama Emilim Katsayısı (α)",
+        "es": "Ortalama Emilim Katsayısı (α)",
+        "ar": "Ortalama Emilim Katsayısı (α)"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "totalAbsorption"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

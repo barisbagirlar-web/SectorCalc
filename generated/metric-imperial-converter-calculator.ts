@@ -21,13 +21,18 @@ function evaluateAllFormulas(input: Metric_imperial_converter_calculatorInput): 
   try { const v = input.kilograms * 2.20462; results["pounds"] = Number.isFinite(v) ? v : 0; } catch { results["pounds"] = 0; }
   try { const v = input.liters * 0.264172; results["gallons"] = Number.isFinite(v) ? v : 0; } catch { results["gallons"] = 0; }
   try { const v = (input.celsius * 9/5) + 32; results["fahrenheit"] = Number.isFinite(v) ? v : 0; } catch { results["fahrenheit"] = 0; }
+  results["____feet_toFixed_2______ft_"] = 0;
+  results["____pounds_toFixed_2______lbs_"] = 0;
+  results["____gallons_toFixed_2______gal_"] = 0;
+  results["____fahrenheit_toFixed_2_______F_"] = 0;
+  try { const v = 'Conversions: ' + input.meters + 'm => ' + (results["feet"] ?? 0).toFixed(2) + 'ft, ' + input.kilograms + 'kg => ' + (results["pounds"] ?? 0).toFixed(2) + 'lbs, ' + input.liters + 'L => ' + (results["gallons"] ?? 0).toFixed(2) + 'gal, ' + input.celsius + '°C => ' + (results["fahrenheit"] ?? 0).toFixed(2) + '°F'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateMetric_imperial_converter_calculator(input: Metric_imperial_converter_calculatorInput): Metric_imperial_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["'Conversions: ' + meters + 'm => ' + feet.toFixed(2) + 'ft, ' + kilograms + 'kg => ' + pounds.toFixed(2) + 'lbs, ' + liters + 'L => ' + gallons.toFixed(2) + 'gal, ' + celsius + '°C => ' + fahrenheit.toFixed(2) + '°F'"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

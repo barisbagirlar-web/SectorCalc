@@ -27,13 +27,19 @@ function evaluateAllFormulas(input: Nominal_interest_rate_calculatorInput): Reco
   try { const v = (results["afterTaxDecimal"] ?? 0) * 100; results["afterTaxRatePercent"] = Number.isFinite(v) ? v : 0; } catch { results["afterTaxRatePercent"] = 0; }
   try { const v = (results["afterTaxDecimal"] ?? 0) - (results["feeDecimal"] ?? 0); results["afterFeesDecimal"] = Number.isFinite(v) ? v : 0; } catch { results["afterFeesDecimal"] = 0; }
   try { const v = (results["afterFeesDecimal"] ?? 0) * 100; results["afterFeesRatePercent"] = Number.isFinite(v) ? v : 0; } catch { results["afterFeesRatePercent"] = 0; }
+  results["Real_Rate__decimal_"] = 0;
+  results["Inflation_Rate__decimal_"] = 0;
+  results["Nominal_Rate__decimal_"] = 0;
+  results["After_Tax_Nominal_Rate____"] = 0;
+  results["After_Fees_Nominal_Rate____"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateNominal_interest_rate_calculator(input: Nominal_interest_rate_calculatorInput): Nominal_interest_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Nominal"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

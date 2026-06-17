@@ -22,13 +22,16 @@ function evaluateAllFormulas(input: Anniversary_calculatorInput): Record<string,
   try { const v = 'Yeni Tarih: ' + Math.floor(((input.startYear * 12 + input.startMonth - 1) + input.yearsToAdd * 12 + input.monthsToAdd) / 12) + '-' + (((input.startYear * 12 + input.startMonth - 1) + input.yearsToAdd * 12 + input.monthsToAdd) % 12 + 1) + '-' + input.startDay; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   try { const v = 'Yıl: ' + Math.floor(((input.startYear * 12 + input.startMonth - 1) + input.yearsToAdd * 12 + input.monthsToAdd) / 12); results["breakdown0"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown0"] = 0; }
   try { const v = 'Ay: ' + (((input.startYear * 12 + input.startMonth - 1) + input.yearsToAdd * 12 + input.monthsToAdd) % 12 + 1) + ' Gün: ' + input.startDay; results["breakdown1"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown1"] = 0; }
+  results["Y_l_Bile_eni"] = 0;
+  results["Ay_ve_G_n_Bile_enleri"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateAnniversary_calculator(input: Anniversary_calculatorInput): Anniversary_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Yeni"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

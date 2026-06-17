@@ -22,13 +22,18 @@ function evaluateAllFormulas(input: Partial_derivative_calculatorInput): Record<
   try { const v = 6 * input.F / (input.b * input.h**2); results["breakdown1"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown1"] = 0; }
   try { const v = -6 * input.F * input.L / (input.b**2 * input.h**2); results["breakdown2"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown2"] = 0; }
   try { const v = -12 * input.F * input.L / (input.b * input.h**3); results["breakdown3"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown3"] = 0; }
+  results["____F__Pa_N_"] = 0;
+  results["____L__Pa_m_"] = 0;
+  results["____b__Pa_m_"] = 0;
+  results["____h__Pa_m_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculatePartial_derivative_calculator(input: Partial_derivative_calculatorInput): Partial_derivative_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["E"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

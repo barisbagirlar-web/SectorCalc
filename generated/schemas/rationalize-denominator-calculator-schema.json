@@ -5,33 +5,65 @@
       "id": "numerator",
       "label": "Numerator",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Value above the fraction line."
+      "businessContext": "Value above the fraction line.",
+      "label_i18n": {
+        "en": "Numerator",
+        "tr": "Numerator",
+        "de": "Numerator",
+        "fr": "Numerator",
+        "es": "Numerator",
+        "ar": "Numerator"
+      }
     },
     {
       "id": "a",
       "label": "Constant (a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Constant term in denominator (a + b√c)."
+      "businessContext": "Constant term in denominator (a + b√c).",
+      "label_i18n": {
+        "en": "Constant (a)",
+        "tr": "Constant (a)",
+        "de": "Constant (a)",
+        "fr": "Constant (a)",
+        "es": "Constant (a)",
+        "ar": "Constant (a)"
+      }
     },
     {
       "id": "b",
       "label": "Radical Coefficient (b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of the square root term in denominator."
+      "businessContext": "Coefficient of the square root term in denominator.",
+      "label_i18n": {
+        "en": "Radical Coefficient (b)",
+        "tr": "Radical Coefficient (b)",
+        "de": "Radical Coefficient (b)",
+        "fr": "Radical Coefficient (b)",
+        "es": "Radical Coefficient (b)",
+        "ar": "Radical Coefficient (b)"
+      }
     },
     {
       "id": "c",
       "label": "Radicand (c)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Value under the square root (c)."
+      "businessContext": "Value under the square root (c).",
+      "label_i18n": {
+        "en": "Radicand (c)",
+        "tr": "Radicand (c)",
+        "de": "Radicand (c)",
+        "fr": "Radicand (c)",
+        "es": "Radicand (c)",
+        "ar": "Radicand (c)"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "newDenominator"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

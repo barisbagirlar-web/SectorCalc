@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "The length measurement in meters."
+      "businessContext": "The length measurement in meters.",
+      "label_i18n": {
+        "en": "Meter Value",
+        "tr": "Meter Value",
+        "de": "Meter Value",
+        "fr": "Meter Value",
+        "es": "Meter Value",
+        "ar": "Meter Value"
+      }
     },
     {
       "id": "conversion_factor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm/m",
       "default": 100,
-      "businessContext": "Calibration factor. Standard is 100 cm/m. Adjust if using non-standard units."
+      "businessContext": "Calibration factor. Standard is 100 cm/m. Adjust if using non-standard units.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "uncertainty_percent",
@@ -23,34 +39,53 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Relative uncertainty of the measurement, for error propagation."
+      "businessContext": "Relative uncertainty of the measurement, for error propagation.",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (%)",
+        "tr": "Measurement Uncertainty (%)",
+        "de": "Measurement Uncertainty (%)",
+        "fr": "Measurement Uncertainty (%)",
+        "es": "Measurement Uncertainty (%)",
+        "ar": "Measurement Uncertainty (%)"
+      }
     },
     {
       "id": "decimal_places",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for output rounding."
+      "businessContext": "Number of decimal places for output rounding.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "centimeter_value": "meter_value * conversion_factor",
     "uncertainty_cm": "(uncertainty_percent / 100) * centimeter_value",
-    "rounded_cm": "Math.round(centimeter_value * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+    "rounded_cm": "Math.round(centimeter_value * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
+    "__centimeter_value___cm": "{{centimeter_value}} cm",
+    "___uncertainty_cm___cm": "±{{uncertainty_cm}} cm",
+    "Rounded_to___decimal_places___decimal_pl": "Rounded to {{decimal_places}} decimal places"
   },
   "outputs": {
-    "primary": "{{rounded_cm}} cm",
+    "primary": "centimeter_value",
     "breakdown": [
       "Raw conversion: {{centimeter_value}} cm",
       "Uncertainty: ±{{uncertainty_cm}} cm",
       "Rounded to {{decimal_places}} decimal places"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

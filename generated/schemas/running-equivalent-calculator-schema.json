@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 5,
-      "businessContext": "Distance of a recent race or time trial in kilometers"
+      "businessContext": "Distance of a recent race or time trial in kilometers",
+      "label_i18n": {
+        "en": "Known Distance",
+        "tr": "Known Distance",
+        "de": "Known Distance",
+        "fr": "Known Distance",
+        "es": "Known Distance",
+        "ar": "Known Distance"
+      }
     },
     {
       "id": "knownTimeMinutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "min",
       "default": 25,
-      "businessContext": "Minutes portion of the time achieved for the known distance"
+      "businessContext": "Minutes portion of the time achieved for the known distance",
+      "label_i18n": {
+        "en": "Known Time (minutes)",
+        "tr": "Known Time (minutes)",
+        "de": "Known Time (minutes)",
+        "fr": "Known Time (minutes)",
+        "es": "Known Time (minutes)",
+        "ar": "Known Time (minutes)"
+      }
     },
     {
       "id": "knownTimeSeconds",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Seconds portion of the time achieved for the known distance (0-59)"
+      "businessContext": "Seconds portion of the time achieved for the known distance (0-59)",
+      "label_i18n": {
+        "en": "Known Time (seconds)",
+        "tr": "Known Time (seconds)",
+        "de": "Known Time (seconds)",
+        "fr": "Known Time (seconds)",
+        "es": "Known Time (seconds)",
+        "ar": "Known Time (seconds)"
+      }
     },
     {
       "id": "targetDistance",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Target race distance in kilometers for which to predict the equivalent time"
+      "businessContext": "Target race distance in kilometers for which to predict the equivalent time",
+      "label_i18n": {
+        "en": "Target Distance",
+        "tr": "Target Distance",
+        "de": "Target Distance",
+        "fr": "Target Distance",
+        "es": "Target Distance",
+        "ar": "Target Distance"
+      }
     },
     {
       "id": "exponent",
       "label": "Fatigue Exponent",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.06,
-      "businessContext": "Empirical exponent for predicting equivalent race times (typically 1.06 for runners)"
+      "businessContext": "Empirical exponent for predicting equivalent race times (typically 1.06 for runners)",
+      "label_i18n": {
+        "en": "Fatigue Exponent",
+        "tr": "Fatigue Exponent",
+        "de": "Fatigue Exponent",
+        "fr": "Fatigue Exponent",
+        "es": "Fatigue Exponent",
+        "ar": "Fatigue Exponent"
+      }
     }
   ],
   "formulas": {
@@ -57,10 +97,10 @@
       "predictedPacePerKm"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "cnc-additive-manufacturing"
 }

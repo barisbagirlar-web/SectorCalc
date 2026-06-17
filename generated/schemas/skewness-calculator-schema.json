@@ -5,69 +5,133 @@
       "id": "dataPoint1",
       "label": "Data Point 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Individual observation value"
+      "businessContext": "Individual observation value",
+      "label_i18n": {
+        "en": "Data Point 1",
+        "tr": "Data Point 1",
+        "de": "Data Point 1",
+        "fr": "Data Point 1",
+        "es": "Data Point 1",
+        "ar": "Data Point 1"
+      }
     },
     {
       "id": "dataPoint2",
       "label": "Data Point 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Individual observation value"
+      "businessContext": "Individual observation value",
+      "label_i18n": {
+        "en": "Data Point 2",
+        "tr": "Data Point 2",
+        "de": "Data Point 2",
+        "fr": "Data Point 2",
+        "es": "Data Point 2",
+        "ar": "Data Point 2"
+      }
     },
     {
       "id": "dataPoint3",
       "label": "Data Point 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Individual observation value"
+      "businessContext": "Individual observation value",
+      "label_i18n": {
+        "en": "Data Point 3",
+        "tr": "Data Point 3",
+        "de": "Data Point 3",
+        "fr": "Data Point 3",
+        "es": "Data Point 3",
+        "ar": "Data Point 3"
+      }
     },
     {
       "id": "dataPoint4",
       "label": "Data Point 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Individual observation value"
+      "businessContext": "Individual observation value",
+      "label_i18n": {
+        "en": "Data Point 4",
+        "tr": "Data Point 4",
+        "de": "Data Point 4",
+        "fr": "Data Point 4",
+        "es": "Data Point 4",
+        "ar": "Data Point 4"
+      }
     },
     {
       "id": "dataPoint5",
       "label": "Data Point 5",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Individual observation value"
+      "businessContext": "Individual observation value",
+      "label_i18n": {
+        "en": "Data Point 5",
+        "tr": "Data Point 5",
+        "de": "Data Point 5",
+        "fr": "Data Point 5",
+        "es": "Data Point 5",
+        "ar": "Data Point 5"
+      }
     },
     {
       "id": "dataPoint6",
       "label": "Data Point 6",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "Individual observation value"
+      "businessContext": "Individual observation value",
+      "label_i18n": {
+        "en": "Data Point 6",
+        "tr": "Data Point 6",
+        "de": "Data Point 6",
+        "fr": "Data Point 6",
+        "es": "Data Point 6",
+        "ar": "Data Point 6"
+      }
     },
     {
       "id": "dataPoint7",
       "label": "Data Point 7",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 7,
-      "businessContext": "Individual observation value"
+      "businessContext": "Individual observation value",
+      "label_i18n": {
+        "en": "Data Point 7",
+        "tr": "Data Point 7",
+        "de": "Data Point 7",
+        "fr": "Data Point 7",
+        "es": "Data Point 7",
+        "ar": "Data Point 7"
+      }
     },
     {
       "id": "dataPoint8",
       "label": "Data Point 8",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 8,
-      "businessContext": "Individual observation value"
+      "businessContext": "Individual observation value",
+      "label_i18n": {
+        "en": "Data Point 8",
+        "tr": "Data Point 8",
+        "de": "Data Point 8",
+        "fr": "Data Point 8",
+        "es": "Data Point 8",
+        "ar": "Data Point 8"
+      }
     }
   ],
   "formulas": {
-    "n": 8,
+    "n": "8",
     "mean": "(inputs.dataPoint1 + inputs.dataPoint2 + inputs.dataPoint3 + inputs.dataPoint4 + inputs.dataPoint5 + inputs.dataPoint6 + inputs.dataPoint7 + inputs.dataPoint8) / 8",
     "ss": "Math.pow(inputs.dataPoint1 - mean, 2) + Math.pow(inputs.dataPoint2 - mean, 2) + Math.pow(inputs.dataPoint3 - mean, 2) + Math.pow(inputs.dataPoint4 - mean, 2) + Math.pow(inputs.dataPoint5 - mean, 2) + Math.pow(inputs.dataPoint6 - mean, 2) + Math.pow(inputs.dataPoint7 - mean, 2) + Math.pow(inputs.dataPoint8 - mean, 2)",
     "variance": "ss / (n - 1)",
@@ -84,7 +148,7 @@
       "sumCubedDev"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/h",
       "default": 10000,
-      "businessContext": "Volume of air moved per hour"
+      "businessContext": "Volume of air moved per hour",
+      "label_i18n": {
+        "en": "Air Flow Rate",
+        "tr": "Air Flow Rate",
+        "de": "Air Flow Rate",
+        "fr": "Air Flow Rate",
+        "es": "Air Flow Rate",
+        "ar": "Air Flow Rate"
+      }
     },
     {
       "id": "staticPressure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 500,
-      "businessContext": "Resistance to airflow in duct system"
+      "businessContext": "Resistance to airflow in duct system",
+      "label_i18n": {
+        "en": "Static Pressure",
+        "tr": "Static Pressure",
+        "de": "Static Pressure",
+        "fr": "Static Pressure",
+        "es": "Static Pressure",
+        "ar": "Static Pressure"
+      }
     },
     {
       "id": "fanEfficiency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Efficiency of fan in converting shaft power to air power, typically 50-80%"
+      "businessContext": "Efficiency of fan in converting shaft power to air power, typically 50-80%",
+      "label_i18n": {
+        "en": "Fan Efficiency",
+        "tr": "Fan Efficiency",
+        "de": "Fan Efficiency",
+        "fr": "Fan Efficiency",
+        "es": "Fan Efficiency",
+        "ar": "Fan Efficiency"
+      }
     },
     {
       "id": "motorEfficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Efficiency of electric motor, typically 85-95%"
+      "businessContext": "Efficiency of electric motor, typically 85-95%",
+      "label_i18n": {
+        "en": "Motor Efficiency",
+        "tr": "Motor Efficiency",
+        "de": "Motor Efficiency",
+        "fr": "Motor Efficiency",
+        "es": "Motor Efficiency",
+        "ar": "Motor Efficiency"
+      }
     },
     {
       "id": "airDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.2,
-      "businessContext": "Density of air, affected by temperature and altitude, standard: 1.2 kg/m³ at 20°C, sea level"
+      "businessContext": "Density of air, affected by temperature and altitude, standard: 1.2 kg/m³ at 20°C, sea level",
+      "label_i18n": {
+        "en": "Air Density",
+        "tr": "Air Density",
+        "de": "Air Density",
+        "fr": "Air Density",
+        "es": "Air Density",
+        "ar": "Air Density"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +87,15 @@
     "fanShaftPowerKW": "(airflow * staticPressure) / (36000 * fanEfficiency)",
     "airPowerKW": "(airflow * staticPressure) / 3600000",
     "airflowM3s": "airflow / 3600",
-    "massFlowRate": "(airflow / 3600) * airDensity"
+    "massFlowRate": "(airflow / 3600) * airDensity",
+    "Air_Power__kW_": "Air Power (kW)",
+    "Fan_Shaft_Power__kW_": "Fan Shaft Power (kW)",
+    "Volumetric_Flow_Rate__m__s_": "Volumetric Flow Rate (m³/s)",
+    "Mass_Flow_Rate__kg_s_": "Mass Flow Rate (kg/s)",
+    "result": "Motor Input Power (kW)"
   },
   "outputs": {
-    "primary": "Motor Input Power (kW)",
+    "primary": "result",
     "breakdown": [
       "Air Power (kW)",
       "Fan Shaft Power (kW)",
@@ -58,8 +103,8 @@
       "Mass Flow Rate (kg/s)"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

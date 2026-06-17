@@ -37,31 +37,19 @@ export const Turnover_cost_calculatorInputSchema = z.object({
   include_indirect_costs: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Turnover_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.num_employees * (input.annual_turnover_rate / 100); results["num_leavers"] = Number.isFinite(v) ? v : 0; } catch { results["num_leavers"] = 0; }
-  try { const v = (results["num_leavers"] ?? 0) * (input.recruitment_cost_per_hire + input.onboarding_cost_per_hire + input.training_cost_per_hire + input.severance_cost_per_leaver + input.exit_interview_cost_per_leaver + input.overtime_cover_cost_per_leaver); results["direct_costs"] = Number.isFinite(v) ? v : 0; } catch { results["direct_costs"] = 0; }
-  try { const v = (results["num_leavers"] ?? 0) * (input.avg_salary / 12) * input.lost_productivity_months * (1 - (input.productivity_factor / 100)); results["lost_productivity_cost"] = Number.isFinite(v) ? v : 0; } catch { results["lost_productivity_cost"] = 0; }
-  try { const v = input.include_indirect_costs ? (results["num_leavers"] ?? 0) * (input.quality_defect_cost_per_leaver + input.customer_impact_cost_per_leaver + input.knowledge_loss_cost_per_leaver) : 0; results["indirect_costs"] = Number.isFinite(v) ? v : 0; } catch { results["indirect_costs"] = 0; }
-  try { const v = (results["direct_costs"] ?? 0) + (results["lost_productivity_cost"] ?? 0) + (results["indirect_costs"] ?? 0); results["total_turnover_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_turnover_cost"] = 0; }
-  try { const v = (results["num_leavers"] ?? 0) > 0 ? (results["total_turnover_cost"] ?? 0) / (results["num_leavers"] ?? 0) : 0; results["cost_per_leaver"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_leaver"] = 0; }
-  try { const v = ((results["total_turnover_cost"] ?? 0) / (input.num_employees * input.avg_salary)) * 100; results["turnover_cost_percentage_of_payroll"] = Number.isFinite(v) ? v : 0; } catch { results["turnover_cost_percentage_of_payroll"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Turnover_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateTurnover_cost_calculator(input: Turnover_cost_calculatorInput): Turnover_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_turnover_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    direct_costs: values["direct_costs"] ?? 0,
-    lost_productivity_cost: values["lost_productivity_cost"] ?? 0,
-    indirect_costs: values["indirect_costs"] ?? 0,
-    cost_per_leaver: values["cost_per_leaver"] ?? 0,
-    turnover_cost_percentage_of_payroll: values["turnover_cost_percentage_of_payroll"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Recruitment Efficiency Gap","Extended Onboarding Duration","Low Training Effectiveness","Knowledge Retention Risk"];
-  const suggestedActions: string[] = ["Implement Retention Program","Improve Onboarding Process","Optimize Recruitment Channels","Deploy Knowledge Management System","Strengthen Quality Training"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -80,7 +68,7 @@ export function calculateTurnover_cost_calculator(input: Turnover_cost_calculato
 
 export interface Turnover_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { direct_costs: number; lost_productivity_cost: number; indirect_costs: number; cost_per_leaver: number; turnover_cost_percentage_of_payroll: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

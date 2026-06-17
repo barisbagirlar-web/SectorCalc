@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "0 for Cylindrical to Cartesian, 1 for Cartesian to Cylindrical"
+      "businessContext": "0 for Cylindrical to Cartesian, 1 for Cartesian to Cylindrical",
+      "label_i18n": {
+        "en": "Conversion Direction",
+        "tr": "Conversion Direction",
+        "de": "Conversion Direction",
+        "fr": "Conversion Direction",
+        "es": "Conversion Direction",
+        "ar": "Conversion Direction"
+      }
     },
     {
       "id": "r",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Radial distance in cylindrical coordinates"
+      "businessContext": "Radial distance in cylindrical coordinates",
+      "label_i18n": {
+        "en": "Radius (r)",
+        "tr": "Radius (r)",
+        "de": "Radius (r)",
+        "fr": "Radius (r)",
+        "es": "Radius (r)",
+        "ar": "Radius (r)"
+      }
     },
     {
       "id": "theta",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "deg",
       "default": 0,
-      "businessContext": "Angle in degrees, measured from positive x-axis"
+      "businessContext": "Angle in degrees, measured from positive x-axis",
+      "label_i18n": {
+        "en": "Azimuth (θ)",
+        "tr": "Azimuth (θ)",
+        "de": "Azimuth (θ)",
+        "fr": "Azimuth (θ)",
+        "es": "Azimuth (θ)",
+        "ar": "Azimuth (θ)"
+      }
     },
     {
       "id": "x",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate in Cartesian system"
+      "businessContext": "X-coordinate in Cartesian system",
+      "label_i18n": {
+        "en": "X-coordinate",
+        "tr": "X-coordinate",
+        "de": "X-coordinate",
+        "fr": "X-coordinate",
+        "es": "X-coordinate",
+        "ar": "X-coordinate"
+      }
     },
     {
       "id": "y",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate in Cartesian system"
+      "businessContext": "Y-coordinate in Cartesian system",
+      "label_i18n": {
+        "en": "Y-coordinate",
+        "tr": "Y-coordinate",
+        "de": "Y-coordinate",
+        "fr": "Y-coordinate",
+        "es": "Y-coordinate",
+        "ar": "Y-coordinate"
+      }
     },
     {
       "id": "z",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Z-coordinate (common to both coordinate systems)"
+      "businessContext": "Z-coordinate (common to both coordinate systems)",
+      "label_i18n": {
+        "en": "Z-coordinate",
+        "tr": "Z-coordinate",
+        "de": "Z-coordinate",
+        "fr": "Z-coordinate",
+        "es": "Z-coordinate",
+        "ar": "Z-coordinate"
+      }
     }
   ],
   "formulas": {
@@ -55,20 +103,24 @@
     "xResult": "r * Math.cos(thetaRad)",
     "yResult": "r * Math.sin(thetaRad)",
     "rResult": "Math.sqrt(x**2 + y**2)",
-    "thetaDeg": "Math.atan2(y, x) * 180 / Math.PI"
+    "thetaDeg": "Math.atan2(y, x) * 180 / Math.PI",
+    "Convert___from_degrees_to_radians____rad": "Convert θ from degrees to radians: θ_rad = ${theta}° × π/180 = ${thetaRad.toFixed(4)} rad` : `Step 1: Compute r = √(x² + y²) = √(${x}² + ${y}²) = ${rResult.toFixed(4)}`",
+    "x___r_cos___rad______r____cos___thetaRad": "x = r·cos(θ_rad) = ${r} × cos(${thetaRad.toFixed(4)}) = ${xResult.toFixed(4)}` : `Step 2: θ = atan2(y, x) = atan2(${y}, ${x}) = ${thetaDeg.toFixed(4)}°`",
+    "y___r_sin___rad______r____sin___thetaRad": "y = r·sin(θ_rad) = ${r} × sin(${thetaRad.toFixed(4)}) = ${yResult.toFixed(4)}` : `Step 3: Z-coordinate remains unchanged: z = ${z.toFixed(4)}`",
+    "result": "direction === 0 ? `Cartesian: x = ${xResult.toFixed(4)}, y = ${yResult.toFixed(4)}, z = ${z.toFixed(4)}` : `Cylindrical: r = ${rResult.toFixed(4)}, θ = ${thetaDeg.toFixed(4)}°, z = ${z.toFixed(4)}`"
   },
   "outputs": {
-    "primary": "direction === 0 ? `Cartesian: x = ${xResult.toFixed(4)}, y = ${yResult.toFixed(4)}, z = ${z.toFixed(4)}` : `Cylindrical: r = ${rResult.toFixed(4)}, θ = ${thetaDeg.toFixed(4)}°, z = ${z.toFixed(4)}`",
+    "primary": "result",
     "breakdown": [
       "direction === 0 ? `Step 1: Convert θ from degrees to radians: θ_rad = ${theta}° × π/180 = ${thetaRad.toFixed(4)} rad` : `Step 1: Compute r = √(x² + y²) = √(${x}² + ${y}²) = ${rResult.toFixed(4)}`",
       "direction === 0 ? `Step 2: x = r·cos(θ_rad) = ${r} × cos(${thetaRad.toFixed(4)}) = ${xResult.toFixed(4)}` : `Step 2: θ = atan2(y, x) = atan2(${y}, ${x}) = ${thetaDeg.toFixed(4)}°`",
       "direction === 0 ? `Step 3: y = r·sin(θ_rad) = ${r} × sin(${thetaRad.toFixed(4)}) = ${yResult.toFixed(4)}` : `Step 3: Z-coordinate remains unchanged: z = ${z.toFixed(4)}`"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

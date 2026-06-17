@@ -7,39 +7,79 @@
       "type": "number",
       "unit": "MHz",
       "default": 100,
-      "businessContext": "Operating frequency in megahertz"
+      "businessContext": "Operating frequency in megahertz",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
     },
     {
       "id": "velocityFactor",
       "label": "Velocity Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.95,
-      "businessContext": "Velocity factor of wire or cable. 0.95 for bare copper, 0.66 for insulated wire"
+      "businessContext": "Velocity factor of wire or cable. 0.95 for bare copper, 0.66 for insulated wire",
+      "label_i18n": {
+        "en": "Velocity Factor",
+        "tr": "Velocity Factor",
+        "de": "Velocity Factor",
+        "fr": "Velocity Factor",
+        "es": "Velocity Factor",
+        "ar": "Velocity Factor"
+      }
     },
     {
       "id": "wavelengthFraction",
       "label": "Wavelength Fraction",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Fraction of wavelength. Use 0.5 for half-wave dipole, 1.0 for full-wave"
+      "businessContext": "Fraction of wavelength. Use 0.5 for half-wave dipole, 1.0 for full-wave",
+      "label_i18n": {
+        "en": "Wavelength Fraction",
+        "tr": "Wavelength Fraction",
+        "de": "Wavelength Fraction",
+        "fr": "Wavelength Fraction",
+        "es": "Wavelength Fraction",
+        "ar": "Wavelength Fraction"
+      }
     },
     {
       "id": "unitSelection",
       "label": "Unit Selection",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 for feet, 1 for meters"
+      "businessContext": "0 for feet, 1 for meters",
+      "label_i18n": {
+        "en": "Unit Selection",
+        "tr": "Unit Selection",
+        "de": "Unit Selection",
+        "fr": "Unit Selection",
+        "es": "Unit Selection",
+        "ar": "Unit Selection"
+      }
     },
     {
       "id": "endEffectCorrection",
       "label": "End Effect Correction",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Adjustment factor for end effect. Use 0.95-0.98 for practical shortening"
+      "businessContext": "Adjustment factor for end effect. Use 0.95-0.98 for practical shortening",
+      "label_i18n": {
+        "en": "End Effect Correction",
+        "tr": "End Effect Correction",
+        "de": "End Effect Correction",
+        "fr": "End Effect Correction",
+        "es": "End Effect Correction",
+        "ar": "End Effect Correction"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +94,10 @@
       "lengthMeters"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

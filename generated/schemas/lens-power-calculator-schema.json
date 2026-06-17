@@ -5,9 +5,17 @@
       "id": "n",
       "label": "Refractive Index",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Refractive index of the lens material (dimensionless, typically 1.3-2.0)."
+      "businessContext": "Refractive index of the lens material (dimensionless, typically 1.3-2.0).",
+      "label_i18n": {
+        "en": "Refractive Index",
+        "tr": "Refractive Index",
+        "de": "Refractive Index",
+        "fr": "Refractive Index",
+        "es": "Refractive Index",
+        "ar": "Refractive Index"
+      }
     },
     {
       "id": "R1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Radius of curvature of the first lens surface. Positive for convex, negative for concave."
+      "businessContext": "Radius of curvature of the first lens surface. Positive for convex, negative for concave.",
+      "label_i18n": {
+        "en": "Radius R1",
+        "tr": "Radius R1",
+        "de": "Radius R1",
+        "fr": "Radius R1",
+        "es": "Radius R1",
+        "ar": "Radius R1"
+      }
     },
     {
       "id": "R2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": -100,
-      "businessContext": "Radius of curvature of the second lens surface. Positive for convex, negative for concave."
+      "businessContext": "Radius of curvature of the second lens surface. Positive for convex, negative for concave.",
+      "label_i18n": {
+        "en": "Radius R2",
+        "tr": "Radius R2",
+        "de": "Radius R2",
+        "fr": "Radius R2",
+        "es": "Radius R2",
+        "ar": "Radius R2"
+      }
     },
     {
       "id": "d",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Center thickness of the lens along the optical axis."
+      "businessContext": "Center thickness of the lens along the optical axis.",
+      "label_i18n": {
+        "en": "Center Thickness",
+        "tr": "Center Thickness",
+        "de": "Center Thickness",
+        "fr": "Center Thickness",
+        "es": "Center Thickness",
+        "ar": "Center Thickness"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "focalLengthMM"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km/mi",
       "default": 100,
-      "businessContext": "Distance traveled"
+      "businessContext": "Distance traveled",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "distanceUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "index",
       "default": 0,
-      "businessContext": "0: km, 1: miles"
+      "businessContext": "0: km, 1: miles",
+      "label_i18n": {
+        "en": "Distance Unit",
+        "tr": "Distance Unit",
+        "de": "Distance Unit",
+        "fr": "Distance Unit",
+        "es": "Distance Unit",
+        "ar": "Distance Unit"
+      }
     },
     {
       "id": "fuelUsed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L/gal",
       "default": 10,
-      "businessContext": "Fuel consumed"
+      "businessContext": "Fuel consumed",
+      "label_i18n": {
+        "en": "Fuel Used",
+        "tr": "Fuel Used",
+        "de": "Fuel Used",
+        "fr": "Fuel Used",
+        "es": "Fuel Used",
+        "ar": "Fuel Used"
+      }
     },
     {
       "id": "fuelUnit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "index",
       "default": 0,
-      "businessContext": "0: liters, 1: US gal, 2: UK gal"
+      "businessContext": "0: liters, 1: US gal, 2: UK gal",
+      "label_i18n": {
+        "en": "Fuel Unit",
+        "tr": "Fuel Unit",
+        "de": "Fuel Unit",
+        "fr": "Fuel Unit",
+        "es": "Fuel Unit",
+        "ar": "Fuel Unit"
+      }
     },
     {
       "id": "outputUnit",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "index",
       "default": 0,
-      "businessContext": "0: L/100km, 1: km/L, 2: MPG US, 3: MPG UK, 4: G/100mi US"
+      "businessContext": "0: L/100km, 1: km/L, 2: MPG US, 3: MPG UK, 4: G/100mi US",
+      "label_i18n": {
+        "en": "Output Unit",
+        "tr": "Output Unit",
+        "de": "Output Unit",
+        "fr": "Output Unit",
+        "es": "Output Unit",
+        "ar": "Output Unit"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,7 @@
     "results": "[eff_Lper100km, eff_kmPerL, eff_mpgUS, eff_mpgUK, eff_galsPer100miUS]"
   },
   "outputs": {
-    "primary": "results[outputUnit]",
+    "primary": "distanceKm",
     "breakdown": [
       "eff_Lper100km",
       "eff_kmPerL",
@@ -62,10 +102,10 @@
       "eff_galsPer100miUS"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

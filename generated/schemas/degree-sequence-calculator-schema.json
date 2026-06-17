@@ -5,49 +5,97 @@
       "id": "d1",
       "label": "Degree 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Degree of the first vertex (non-negative integer)"
+      "businessContext": "Degree of the first vertex (non-negative integer)",
+      "label_i18n": {
+        "en": "Degree 1",
+        "tr": "Degree 1",
+        "de": "Degree 1",
+        "fr": "Degree 1",
+        "es": "Degree 1",
+        "ar": "Degree 1"
+      }
     },
     {
       "id": "d2",
       "label": "Degree 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3,
-      "businessContext": "Degree of the second vertex"
+      "businessContext": "Degree of the second vertex",
+      "label_i18n": {
+        "en": "Degree 2",
+        "tr": "Degree 2",
+        "de": "Degree 2",
+        "fr": "Degree 2",
+        "es": "Degree 2",
+        "ar": "Degree 2"
+      }
     },
     {
       "id": "d3",
       "label": "Degree 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Degree of the third vertex"
+      "businessContext": "Degree of the third vertex",
+      "label_i18n": {
+        "en": "Degree 3",
+        "tr": "Degree 3",
+        "de": "Degree 3",
+        "fr": "Degree 3",
+        "es": "Degree 3",
+        "ar": "Degree 3"
+      }
     },
     {
       "id": "d4",
       "label": "Degree 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Degree of the fourth vertex"
+      "businessContext": "Degree of the fourth vertex",
+      "label_i18n": {
+        "en": "Degree 4",
+        "tr": "Degree 4",
+        "de": "Degree 4",
+        "fr": "Degree 4",
+        "es": "Degree 4",
+        "ar": "Degree 4"
+      }
     },
     {
       "id": "d5",
       "label": "Degree 5",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Degree of the fifth vertex"
+      "businessContext": "Degree of the fifth vertex",
+      "label_i18n": {
+        "en": "Degree 5",
+        "tr": "Degree 5",
+        "de": "Degree 5",
+        "fr": "Degree 5",
+        "es": "Degree 5",
+        "ar": "Degree 5"
+      }
     },
     {
       "id": "d6",
       "label": "Degree 6",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Degree of the sixth vertex"
+      "businessContext": "Degree of the sixth vertex",
+      "label_i18n": {
+        "en": "Degree 6",
+        "tr": "Degree 6",
+        "de": "Degree 6",
+        "fr": "Degree 6",
+        "es": "Degree 6",
+        "ar": "Degree 6"
+      }
     }
   ],
   "formulas": {
@@ -57,12 +105,7 @@
     "edges": "(d1 + d2 + d3 + d4 + d5 + d6) / 2"
   },
   "outputs": {
-    "primary": {
-      "id": "edges",
-      "label": "Total Edges",
-      "unit": "",
-      "description": "Total number of edges in a simple graph corresponding to the degree sequence (sum/2)"
-    },
+    "primary": "sum",
     "breakdown": [
       {
         "id": "sum",
@@ -81,10 +124,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

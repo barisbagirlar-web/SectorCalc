@@ -21,13 +21,15 @@ function evaluateAllFormulas(input: Ape_index_calculatorInput): Record<string, n
   try { const v = input.armspanFt * 12 + input.armspanIn; results["totalArmspanInches"] = Number.isFinite(v) ? v : 0; } catch { results["totalArmspanInches"] = 0; }
   try { const v = (results["totalArmspanInches"] ?? 0) / (results["totalHeightInches"] ?? 0); results["apeIndexRatio"] = Number.isFinite(v) ? v : 0; } catch { results["apeIndexRatio"] = 0; }
   try { const v = (results["totalArmspanInches"] ?? 0) - (results["totalHeightInches"] ?? 0); results["apeIndexDiff"] = Number.isFinite(v) ? v : 0; } catch { results["apeIndexDiff"] = 0; }
+  results["__totalHeightInches___inches"] = 0;
+  results["__totalArmspanInches___inches"] = 0;
   return results;
 }
 
 
 export function calculateApe_index_calculator(input: Ape_index_calculatorInput): Ape_index_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Your"] ?? 0;
+  const totalWasteCost = values["totalHeightInches"] ?? 0;
   const breakdown = {
     
   };

@@ -20,13 +20,20 @@ export const Surface_tension_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Surface_tension_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.density * input.gravity * input.height * input.radius) / (2 * Math.cos(input.contactAngle * Math.PI / 180)); results["surfaceTension"] = Number.isFinite(v) ? v : 0; } catch { results["surfaceTension"] = 0; }
+  results["__height___m"] = 0;
+  results["__radius___m"] = 0;
+  results["__density___kg_m_"] = 0;
+  results["__gravity___m_s_"] = 0;
+  results["__contactAngle___"] = 0;
+  results["__surfaceTension___N_m___1000______surfa"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateSurface_tension_calculator(input: Surface_tension_calculatorInput): Surface_tension_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Surface"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

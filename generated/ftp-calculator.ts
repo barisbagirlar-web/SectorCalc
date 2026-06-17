@@ -22,13 +22,16 @@ function evaluateAllFormulas(input: Ftp_calculatorInput): Record<string, number>
   try { const v = (results["adjFactor"] ?? 0) * (results["tempCorrection"] ?? 0); results["overallFactor"] = Number.isFinite(v) ? v : 0; } catch { results["overallFactor"] = 0; }
   try { const v = input.averagePower * (results["overallFactor"] ?? 0); results["FTP"] = Number.isFinite(v) ? v : 0; } catch { results["FTP"] = 0; }
   try { const v = (results["FTP"] ?? 0) / input.weight; results["powerToWeight"] = Number.isFinite(v) ? v : 0; } catch { results["powerToWeight"] = 0; }
+  results["Power_to_Weight_Ratio__W_kg_"] = 0;
+  results["Overall_Adjustment_Factor"] = 0;
+  try { const v = (results["FTP"] ?? 0) (W); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateFtp_calculator(input: Ftp_calculatorInput): Ftp_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["FTP"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

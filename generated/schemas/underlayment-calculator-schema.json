@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "sq ft",
       "default": 500,
-      "businessContext": "The total area of the floor to be covered with underlayment, measured in square feet."
+      "businessContext": "The total area of the floor to be covered with underlayment, measured in square feet.",
+      "label_i18n": {
+        "en": "Total Floor Area",
+        "tr": "Total Floor Area",
+        "de": "Total Floor Area",
+        "fr": "Total Floor Area",
+        "es": "Total Floor Area",
+        "ar": "Total Floor Area"
+      }
     },
     {
       "id": "rollLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 50,
-      "businessContext": "The length of a single roll of underlayment, in feet."
+      "businessContext": "The length of a single roll of underlayment, in feet.",
+      "label_i18n": {
+        "en": "Roll Length",
+        "tr": "Roll Length",
+        "de": "Roll Length",
+        "fr": "Roll Length",
+        "es": "Roll Length",
+        "ar": "Roll Length"
+      }
     },
     {
       "id": "rollWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 4,
-      "businessContext": "The width of a single roll of underlayment, in feet."
+      "businessContext": "The width of a single roll of underlayment, in feet.",
+      "label_i18n": {
+        "en": "Roll Width",
+        "tr": "Roll Width",
+        "de": "Roll Width",
+        "fr": "Roll Width",
+        "es": "Roll Width",
+        "ar": "Roll Width"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "The percentage of additional material needed to account for cuts, fitting, and waste."
+      "businessContext": "The percentage of additional material needed to account for cuts, fitting, and waste.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "pricePerRoll",
@@ -39,17 +71,30 @@
       "type": "number",
       "unit": "USD",
       "default": 30,
-      "businessContext": "The cost of one roll of underlayment in US dollars."
+      "businessContext": "The cost of one roll of underlayment in US dollars.",
+      "label_i18n": {
+        "en": "Price per Roll",
+        "tr": "Price per Roll",
+        "de": "Price per Roll",
+        "fr": "Price per Roll",
+        "es": "Price per Roll",
+        "ar": "Price per Roll"
+      }
     }
   ],
   "formulas": {
     "rollArea": "rollLength * rollWidth",
     "neededArea": "area * (1 + wasteFactor / 100)",
     "exactRolls": "neededArea / rollArea",
-    "totalCost": "exactRolls * pricePerRoll"
+    "totalCost": "exactRolls * pricePerRoll",
+    "One_roll_covers___rollArea__sq_ft____rol": "One roll covers ${rollArea} sq ft (${rollLength} ft × ${rollWidth} ft).",
+    "__neededArea__sq_ft_": "${neededArea} sq ft.",
+    "__exactRolls__": "${exactRolls}.",
+    "___totalCost___round_up_for_purchase__": "$${totalCost} (round up for purchase).",
+    "result": "You need approximately ${exactRolls} rolls (always round up to the next whole roll) for a total cost of $${totalCost} (actual cost will be higher after rounding up)."
   },
   "outputs": {
-    "primary": "You need approximately ${exactRolls} rolls (always round up to the next whole roll) for a total cost of $${totalCost} (actual cost will be higher after rounding up).",
+    "primary": "result",
     "breakdown": [
       "One roll covers ${rollArea} sq ft (${rollLength} ft × ${rollWidth} ft).",
       "Adjusted area with ${wasteFactor}% waste: ${neededArea} sq ft.",
@@ -57,10 +102,10 @@
       "Total cost based on exact rolls: $${totalCost} (round up for purchase)."
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "sustainability-resource-esg"
 }

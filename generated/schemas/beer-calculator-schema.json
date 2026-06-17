@@ -74,11 +74,7 @@
     "costPerLiter": "totalCost / batchVolume"
   },
   "outputs": {
-    "primary": {
-      "id": "costPerLiter",
-      "label": "Litre Başına Maliyet (TL/L)",
-      "unit": "TL/L"
-    },
+    "primary": "materialCost",
     "breakdown": [
       {
         "id": "materialCost",
@@ -97,10 +93,10 @@
       }
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Üretim & İmalat",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",
-  "categorySlug": "food-cold-chain-hygiene"
+  "categorySlug": "sustainability-resource-esg"
 }

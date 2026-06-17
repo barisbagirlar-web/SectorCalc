@@ -5,9 +5,17 @@
       "id": "hardnessValue",
       "label": "Sertlik Değeri",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Ölçülen sertlik değeri (girdiğiniz skalada)"
+      "businessContext": "Ölçülen sertlik değeri (girdiğiniz skalada)",
+      "label_i18n": {
+        "en": "Sertlik Değeri",
+        "tr": "Sertlik Değeri",
+        "de": "Sertlik Değeri",
+        "fr": "Sertlik Değeri",
+        "es": "Sertlik Değeri",
+        "ar": "Sertlik Değeri"
+      }
     },
     {
       "id": "scaleFrom",
@@ -15,7 +23,39 @@
       "type": "number",
       "unit": "skala kodu",
       "default": 1,
-      "businessContext": "1: Brinell HB, 2: Rockwell HRC, 3: Vickers HV, 4: Rockwell HRB, 5: Rockwell HRA"
+      "businessContext": "1: Brinell HB, 2: Rockwell HRC, 3: Vickers HV, 4: Rockwell HRB, 5: Rockwell HRA",
+      "label_i18n": {
+        "en": "Sertlik Skalası",
+        "tr": "Sertlik Skalası",
+        "de": "Sertlik Skalası",
+        "fr": "Sertlik Skalası",
+        "es": "Sertlik Skalası",
+        "ar": "Sertlik Skalası"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
@@ -34,10 +74,10 @@
       "HRA"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "metal-plastics-forming"
 }

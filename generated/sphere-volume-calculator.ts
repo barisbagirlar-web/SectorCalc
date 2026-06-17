@@ -34,13 +34,19 @@ function evaluateAllFormulas(input: Sphere_volume_calculatorInput): Record<strin
   try { const v = (results["V1"] ?? 0) + (results["V2"] ?? 0) + (results["V3"] ?? 0) + (results["V4"] ?? 0); results["totalVolume"] = Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
   try { const v = (results["totalVolume"] ?? 0) * input.density; results["totalMass"] = Number.isFinite(v) ? v : 0; } catch { results["totalMass"] = 0; }
   try { const v = (results["totalMass"] ?? 0) * (1 + input.wasteFactor/100); results["totalMassWithWaste"] = Number.isFinite(v) ? v : 0; } catch { results["totalMassWithWaste"] = 0; }
+  results["_V1__m_"] = 0;
+  results["_V2__m_"] = 0;
+  results["_V3__m_"] = 0;
+  results["_V4__m_"] = 0;
+  results["_totalMass__kg"] = 0;
+  results["_totalMassWithWaste__kg"] = 0;
   return results;
 }
 
 
 export function calculateSphere_volume_calculator(input: Sphere_volume_calculatorInput): Sphere_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Total"] ?? 0;
+  const totalWasteCost = values["convertedRadius1"] ?? 0;
   const breakdown = {
     
   };

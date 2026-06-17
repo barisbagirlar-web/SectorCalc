@@ -31,32 +31,19 @@ export const Beam_weight_calculatorInputSchema = z.object({
   include_coating_weight: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Beam_weight_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = 2 * (input.flange_width * input.flange_thickness) + (input.web_height * input.web_thickness); results["cross_sectional_area"] = Number.isFinite(v) ? v : 0; } catch { results["cross_sectional_area"] = 0; }
-  try { const v = (results["cross_sectional_area"] ?? 0) * input.length * 1e-6; results["volume_per_beam"] = Number.isFinite(v) ? v : 0; } catch { results["volume_per_beam"] = 0; }
-  try { const v = (results["volume_per_beam"] ?? 0) * input.material_density; results["weight_per_beam"] = Number.isFinite(v) ? v : 0; } catch { results["weight_per_beam"] = 0; }
-  try { const v = ((input.include_coating_weight) ? ((2 * (input.flange_width + input.web_height) * input.length * 1e-6 * 0.2 * input.material_density)) : (0)); results["coating_weight_per_beam"] = Number.isFinite(v) ? v : 0; } catch { results["coating_weight_per_beam"] = 0; }
-  try { const v = (results["weight_per_beam"] ?? 0) + (results["coating_weight_per_beam"] ?? 0); results["total_weight_per_beam"] = Number.isFinite(v) ? v : 0; } catch { results["total_weight_per_beam"] = 0; }
-  try { const v = (results["total_weight_per_beam"] ?? 0) * input.quantity; results["total_weight"] = Number.isFinite(v) ? v : 0; } catch { results["total_weight"] = 0; }
-  try { const v = (results["total_weight"] ?? 0) * input.material_cost_per_kg * (1 + input.cutting_loss_factor / 100); results["total_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_material_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Beam_weight_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateBeam_weight_calculator(input: Beam_weight_calculatorInput): Beam_weight_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_weight"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    cross_sectional_area: values["cross_sectional_area"] ?? 0,
-    volume_per_beam: values["volume_per_beam"] ?? 0,
-    weight_per_beam: values["weight_per_beam"] ?? 0,
-    coating_weight_per_beam: values["coating_weight_per_beam"] ?? 0,
-    total_weight_per_beam: values["total_weight_per_beam"] ?? 0,
-    total_material_cost: values["total_material_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Cutting Loss","Coating Overhead","Dimensional Tolerance Loss"];
-  const suggestedActions: string[] = ["Optimize nesting and use CNC saw to reduce cutting loss below 3%.","If web slenderness > 100, consider stiffeners or thicker web to meet AISC 360.","For total weight > 5000 kg, negotiate bulk material discount (typically 5-10%)."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -75,7 +62,7 @@ export function calculateBeam_weight_calculator(input: Beam_weight_calculatorInp
 
 export interface Beam_weight_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { cross_sectional_area: number; volume_per_beam: number; weight_per_beam: number; coating_weight_per_beam: number; total_weight_per_beam: number; total_material_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

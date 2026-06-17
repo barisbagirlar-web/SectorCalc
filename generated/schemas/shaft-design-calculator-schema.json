@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Nm",
       "default": 100,
-      "businessContext": "Applied torsional moment on shaft."
+      "businessContext": "Applied torsional moment on shaft.",
+      "label_i18n": {
+        "en": "Torque",
+        "tr": "Torque",
+        "de": "Torque",
+        "fr": "Torque",
+        "es": "Torque",
+        "ar": "Torque"
+      }
     },
     {
       "id": "bendingMoment",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Nm",
       "default": 50,
-      "businessContext": "Maximum bending moment on shaft."
+      "businessContext": "Maximum bending moment on shaft.",
+      "label_i18n": {
+        "en": "Bending Moment",
+        "tr": "Bending Moment",
+        "de": "Bending Moment",
+        "fr": "Bending Moment",
+        "es": "Bending Moment",
+        "ar": "Bending Moment"
+      }
     },
     {
       "id": "diameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 30,
-      "businessContext": "Diameter of the shaft at the critical section."
+      "businessContext": "Diameter of the shaft at the critical section.",
+      "label_i18n": {
+        "en": "Shaft Diameter",
+        "tr": "Shaft Diameter",
+        "de": "Shaft Diameter",
+        "fr": "Shaft Diameter",
+        "es": "Shaft Diameter",
+        "ar": "Shaft Diameter"
+      }
     },
     {
       "id": "yieldStrength",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Yield strength of shaft material."
+      "businessContext": "Yield strength of shaft material.",
+      "label_i18n": {
+        "en": "Material Yield Strength",
+        "tr": "Material Yield Strength",
+        "de": "Material Yield Strength",
+        "fr": "Material Yield Strength",
+        "es": "Material Yield Strength",
+        "ar": "Material Yield Strength"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Required safety factor against yielding."
+      "businessContext": "Required safety factor against yielding.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "allowable"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

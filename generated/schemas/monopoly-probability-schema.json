@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "players",
       "default": 4,
-      "businessContext": "Total players in the game"
+      "businessContext": "Total players in the game",
+      "label_i18n": {
+        "en": "Number of Players",
+        "tr": "Number of Players",
+        "de": "Number of Players",
+        "fr": "Number of Players",
+        "es": "Number of Players",
+        "ar": "Number of Players"
+      }
     },
     {
       "id": "diceSides",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "sides",
       "default": 6,
-      "businessContext": "Number of sides on each die"
+      "businessContext": "Number of sides on each die",
+      "label_i18n": {
+        "en": "Dice Sides",
+        "tr": "Dice Sides",
+        "de": "Dice Sides",
+        "fr": "Dice Sides",
+        "es": "Dice Sides",
+        "ar": "Dice Sides"
+      }
     },
     {
       "id": "numDice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dice",
       "default": 2,
-      "businessContext": "Number of dice rolled per turn"
+      "businessContext": "Number of dice rolled per turn",
+      "label_i18n": {
+        "en": "Number of Dice",
+        "tr": "Number of Dice",
+        "de": "Number of Dice",
+        "fr": "Number of Dice",
+        "es": "Number of Dice",
+        "ar": "Number of Dice"
+      }
     },
     {
       "id": "boardSpaces",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "spaces",
       "default": 40,
-      "businessContext": "Total spaces on the Monopoly board"
+      "businessContext": "Total spaces on the Monopoly board",
+      "label_i18n": {
+        "en": "Board Spaces",
+        "tr": "Board Spaces",
+        "de": "Board Spaces",
+        "fr": "Board Spaces",
+        "es": "Board Spaces",
+        "ar": "Board Spaces"
+      }
     },
     {
       "id": "targetSpace",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "space number",
       "default": 10,
-      "businessContext": "Space number to land on (0-based from GO)"
+      "businessContext": "Space number to land on (0-based from GO)",
+      "label_i18n": {
+        "en": "Target Space",
+        "tr": "Target Space",
+        "de": "Target Space",
+        "fr": "Target Space",
+        "es": "Target Space",
+        "ar": "Target Space"
+      }
     },
     {
       "id": "turns",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "turns",
       "default": 10,
-      "businessContext": "Number of turns to simulate"
+      "businessContext": "Number of turns to simulate",
+      "label_i18n": {
+        "en": "Number of Turns",
+        "tr": "Number of Turns",
+        "de": "Number of Turns",
+        "fr": "Number of Turns",
+        "es": "Number of Turns",
+        "ar": "Number of Turns"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +104,14 @@
     "probLandOnTargetOneTurn": "1 / boardSpaces",
     "probNotLandOnTargetOneTurn": "1 - probLandOnTargetOneTurn",
     "probLandAtLeastOnce": "1 - Math.pow(probNotLandOnTargetOneTurn, turns)",
-    "expectedLandings": "turns / boardSpaces"
+    "expectedLandings": "turns / boardSpaces",
+    "Mean_dice_roll_per_turn": "Mean dice roll per turn",
+    "Standard_deviation_of_dice_roll": "Standard deviation of dice roll",
+    "Probability_per_turn": "Probability per turn",
+    "Expected_number_of_landings": "Expected number of landings"
   },
   "outputs": {
-    "primary": "Probability of landing on target space at least once",
+    "primary": "meanRoll",
     "breakdown": [
       "Mean dice roll per turn",
       "Standard deviation of dice roll",
@@ -67,10 +119,10 @@
       "Expected number of landings"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

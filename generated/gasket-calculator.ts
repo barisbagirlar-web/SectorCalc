@@ -31,13 +31,16 @@ function evaluateAllFormulas(input: Gasket_calculatorInput): Record<string, numb
   try { const v = (results["seatingForce"] ?? 0) / input.boltCount; results["seatingForcePerBolt"] = Number.isFinite(v) ? v : 0; } catch { results["seatingForcePerBolt"] = 0; }
   try { const v = (results["maxTotalForce"] ?? 0) / input.boltCount; results["maxForcePerBolt"] = Number.isFinite(v) ? v : 0; } catch { results["maxForcePerBolt"] = 0; }
   try { const v = Math.PI / 4 * (input.outerDiameter**2 - input.innerDiameter**2); results["effectiveArea"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveArea"] = 0; }
+  results["_____operatingForce___1000__toFixed_2___"] = 0;
+  results["_____seatingForce___1000__toFixed_2_____"] = 0;
+  try { const v = ((results["maxTotalForce"] ?? 0) / 1000).toFixed(2) + ' kN'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateGasket_calculator(input: Gasket_calculatorInput): Gasket_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["(maxTotalForce / 1000).toFixed(2) + ' kN'"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Cosmic_microwave_background_calculatorInput {
   temperature: number;
   frequency: number;
+  auto_input_3: number;
 }
 
 export const Cosmic_microwave_background_calculatorInputSchema = z.object({
   temperature: z.number().default(2.725),
   frequency: z.number().default(160200000000),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Cosmic_microwave_background_calculatorInput): Record<string, number> {

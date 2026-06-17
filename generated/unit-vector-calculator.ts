@@ -25,13 +25,18 @@ function evaluateAllFormulas(input: Unit_vector_calculatorInput): Record<string,
   try { const v = input.endY - input.startY; results["deltaY"] = Number.isFinite(v) ? v : 0; } catch { results["deltaY"] = 0; }
   try { const v = input.endZ - input.startZ; results["deltaZ"] = Number.isFinite(v) ? v : 0; } catch { results["deltaZ"] = 0; }
   try { const v = Math.sqrt((results["deltaX"] ?? 0)**2 + (results["deltaY"] ?? 0)**2 + (results["deltaZ"] ?? 0)**2); results["magnitude"] = Number.isFinite(v) ? v : 0; } catch { results["magnitude"] = 0; }
+  try { const v = ((results["deltaX"] ?? 0) / (results["magnitude"] ?? 0)).toFixed(4); results["_deltaX___magnitude__toFixed_4_"] = Number.isFinite(v) ? v : 0; } catch { results["_deltaX___magnitude__toFixed_4_"] = 0; }
+  try { const v = ((results["deltaY"] ?? 0) / (results["magnitude"] ?? 0)).toFixed(4); results["_deltaY___magnitude__toFixed_4_"] = Number.isFinite(v) ? v : 0; } catch { results["_deltaY___magnitude__toFixed_4_"] = 0; }
+  try { const v = ((results["deltaZ"] ?? 0) / (results["magnitude"] ?? 0)).toFixed(4); results["_deltaZ___magnitude__toFixed_4_"] = Number.isFinite(v) ? v : 0; } catch { results["_deltaZ___magnitude__toFixed_4_"] = 0; }
+  try { const v = (results["magnitude"] ?? 0).toFixed(4); results["magnitude_toFixed_4_"] = Number.isFinite(v) ? v : 0; } catch { results["magnitude_toFixed_4_"] = 0; }
+  try { const v = (results["magnitude"] ?? 0) === 0 ? 'Undefined (zero vector)' : '(' + ((results["deltaX"] ?? 0)/(results["magnitude"] ?? 0)).toFixed(4) + ', ' + ((results["deltaY"] ?? 0)/(results["magnitude"] ?? 0)).toFixed(4) + ', ' + ((results["deltaZ"] ?? 0)/(results["magnitude"] ?? 0)).toFixed(4) + ')'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateUnit_vector_calculator(input: Unit_vector_calculatorInput): Unit_vector_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["magnitude"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

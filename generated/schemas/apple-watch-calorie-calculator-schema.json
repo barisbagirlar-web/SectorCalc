@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's weight in kilograms."
+      "businessContext": "User's weight in kilograms.",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "User's height in centimeters (optional for BMR)."
+      "businessContext": "User's height in centimeters (optional for BMR).",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User's age in years."
+      "businessContext": "User's age in years.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "0 for female, 1 for male."
+      "businessContext": "0 for female, 1 for male.",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "met",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "MET",
       "default": 8,
-      "businessContext": "Metabolic Equivalent of Task for the activity."
+      "businessContext": "Metabolic Equivalent of Task for the activity.",
+      "label_i18n": {
+        "en": "MET Value",
+        "tr": "MET Value",
+        "de": "MET Value",
+        "fr": "MET Value",
+        "es": "MET Value",
+        "ar": "MET Value"
+      }
     },
     {
       "id": "durationMinutes",
@@ -47,11 +87,22 @@
       "type": "number",
       "unit": "minutes",
       "default": 30,
-      "businessContext": "Duration of the activity in minutes."
+      "businessContext": "Duration of the activity in minutes.",
+      "label_i18n": {
+        "en": "Duration",
+        "tr": "Duration",
+        "de": "Duration",
+        "fr": "Duration",
+        "es": "Duration",
+        "ar": "Duration"
+      }
     }
   ],
   "formulas": {
-    "totalCalories": "(met * weight * 3.5 / 200) * durationMinutes"
+    "totalCalories": "(met * weight * 3.5 / 200) * durationMinutes",
+    "met": "met",
+    "weight": "weight",
+    "durationMinutes": "durationMinutes"
   },
   "outputs": {
     "primary": "totalCalories",
@@ -61,7 +112,10 @@
       "durationMinutes"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
+  "premiumRequired": false,
+  "categorySlug": "quality-six-sigma",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning"
 }

@@ -5,33 +5,65 @@
       "id": "a",
       "label": "a (coefficient of x on left side)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient of the variable x on the left side of the equation: ax + b = cx + d"
+      "businessContext": "Coefficient of the variable x on the left side of the equation: ax + b = cx + d",
+      "label_i18n": {
+        "en": "a (coefficient of x on left side)",
+        "tr": "a (coefficient of x on left side)",
+        "de": "a (coefficient of x on left side)",
+        "fr": "a (coefficient of x on left side)",
+        "es": "a (coefficient of x on left side)",
+        "ar": "a (coefficient of x on left side)"
+      }
     },
     {
       "id": "b",
       "label": "b (constant on left side)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term on the left side of the equation"
+      "businessContext": "Constant term on the left side of the equation",
+      "label_i18n": {
+        "en": "b (constant on left side)",
+        "tr": "b (constant on left side)",
+        "de": "b (constant on left side)",
+        "fr": "b (constant on left side)",
+        "es": "b (constant on left side)",
+        "ar": "b (constant on left side)"
+      }
     },
     {
       "id": "c",
       "label": "c (coefficient of x on right side)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient of the variable x on the right side of the equation"
+      "businessContext": "Coefficient of the variable x on the right side of the equation",
+      "label_i18n": {
+        "en": "c (coefficient of x on right side)",
+        "tr": "c (coefficient of x on right side)",
+        "de": "c (coefficient of x on right side)",
+        "fr": "c (coefficient of x on right side)",
+        "es": "c (coefficient of x on right side)",
+        "ar": "c (coefficient of x on right side)"
+      }
     },
     {
       "id": "d",
       "label": "d (constant on right side)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term on the right side of the equation"
+      "businessContext": "Constant term on the right side of the equation",
+      "label_i18n": {
+        "en": "d (constant on right side)",
+        "tr": "d (constant on right side)",
+        "de": "d (constant on right side)",
+        "fr": "d (constant on right side)",
+        "es": "d (constant on right side)",
+        "ar": "d (constant on right side)"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "denominator"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

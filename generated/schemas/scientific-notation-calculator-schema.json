@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "The significant digits of the number, typically between 1 and 10."
+      "businessContext": "The significant digits of the number, typically between 1 and 10.",
+      "label_i18n": {
+        "en": "Coefficient (a)",
+        "tr": "Coefficient (a)",
+        "de": "Coefficient (a)",
+        "fr": "Coefficient (a)",
+        "es": "Coefficient (a)",
+        "ar": "Coefficient (a)"
+      }
     },
     {
       "id": "exponent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "The power of 10 multiplier."
+      "businessContext": "The power of 10 multiplier.",
+      "label_i18n": {
+        "en": "Exponent (b)",
+        "tr": "Exponent (b)",
+        "de": "Exponent (b)",
+        "fr": "Exponent (b)",
+        "es": "Exponent (b)",
+        "ar": "Exponent (b)"
+      }
     },
     {
       "id": "value",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "If provided, the calculator will convert this value to scientific notation."
+      "businessContext": "If provided, the calculator will convert this value to scientific notation.",
+      "label_i18n": {
+        "en": "Value (optional)",
+        "tr": "Value (optional)",
+        "de": "Value (optional)",
+        "fr": "Value (optional)",
+        "es": "Value (optional)",
+        "ar": "Value (optional)"
+      }
     },
     {
       "id": "precision",
@@ -31,23 +55,35 @@
       "type": "number",
       "unit": "digits",
       "default": 4,
-      "businessContext": "Number of decimal places for the coefficient."
+      "businessContext": "Number of decimal places for the coefficient.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
     "toScientific": "if (value !== 0) { let exp = Math.floor(Math.log10(Math.abs(value))); let coeff = value / Math.pow(10, exp); return { coefficient: parseFloat(coeff.toFixed(precision)), exponent: exp }; } else { return { coefficient: 0, exponent: 0 }; }",
-    "fromScientific": "coefficient * Math.pow(10, exponent)"
+    "fromScientific": "coefficient * Math.pow(10, exponent)",
+    "_coefficient_": "{coefficient}",
+    "_exponent_": "{exponent}",
+    "_value_": "{value}",
+    "result": "Scientific Notation: {coefficient} × 10^{exponent}"
   },
   "outputs": {
-    "primary": "Scientific Notation: {coefficient} × 10^{exponent}",
+    "primary": "result",
     "breakdown": [
       "Coefficient: {coefficient}",
       "Exponent: {exponent}",
       "Standard Form: {value}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

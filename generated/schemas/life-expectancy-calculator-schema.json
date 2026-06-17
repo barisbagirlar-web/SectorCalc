@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User's age in years"
+      "businessContext": "User's age in years",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "gender",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "0 for male, 1 for female"
+      "businessContext": "0 for male, 1 for female",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "smokingStatus",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pack-years",
       "default": 0,
-      "businessContext": "Smoking pack-years (0 for non-smoker)"
+      "businessContext": "Smoking pack-years (0 for non-smoker)",
+      "label_i18n": {
+        "en": "Smoking Status",
+        "tr": "Smoking Status",
+        "de": "Smoking Status",
+        "fr": "Smoking Status",
+        "es": "Smoking Status",
+        "ar": "Smoking Status"
+      }
     },
     {
       "id": "alcoholConsumption",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "drinks per week",
       "default": 3,
-      "businessContext": "Average number of alcoholic drinks per week"
+      "businessContext": "Average number of alcoholic drinks per week",
+      "label_i18n": {
+        "en": "Alcohol Consumption",
+        "tr": "Alcohol Consumption",
+        "de": "Alcohol Consumption",
+        "fr": "Alcohol Consumption",
+        "es": "Alcohol Consumption",
+        "ar": "Alcohol Consumption"
+      }
     },
     {
       "id": "bmi",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/m²",
       "default": 25,
-      "businessContext": "Body Mass Index"
+      "businessContext": "Body Mass Index",
+      "label_i18n": {
+        "en": "BMI",
+        "tr": "BMI",
+        "de": "BMI",
+        "fr": "BMI",
+        "es": "BMI",
+        "ar": "BMI"
+      }
     },
     {
       "id": "exerciseHours",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hours",
       "default": 2,
-      "businessContext": "Hours of moderate exercise per week"
+      "businessContext": "Hours of moderate exercise per week",
+      "label_i18n": {
+        "en": "Weekly Exercise",
+        "tr": "Weekly Exercise",
+        "de": "Weekly Exercise",
+        "fr": "Weekly Exercise",
+        "es": "Weekly Exercise",
+        "ar": "Weekly Exercise"
+      }
     }
   ],
   "formulas": {
@@ -70,10 +118,10 @@
       "bmiPenalty"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Total number of features or variables in the original dataset."
+      "businessContext": "Total number of features or variables in the original dataset.",
+      "label_i18n": {
+        "en": "Number of Original Dimensions",
+        "tr": "Number of Original Dimensions",
+        "de": "Number of Original Dimensions",
+        "fr": "Number of Original Dimensions",
+        "es": "Number of Original Dimensions",
+        "ar": "Number of Original Dimensions"
+      }
     },
     {
       "id": "r",
       "label": "Eigenvalue Decay Rate",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "Rate at which eigenvalues decrease in a geometric progression model (0 < r < 1)."
+      "businessContext": "Rate at which eigenvalues decrease in a geometric progression model (0 < r < 1).",
+      "label_i18n": {
+        "en": "Eigenvalue Decay Rate",
+        "tr": "Eigenvalue Decay Rate",
+        "de": "Eigenvalue Decay Rate",
+        "fr": "Eigenvalue Decay Rate",
+        "es": "Eigenvalue Decay Rate",
+        "ar": "Eigenvalue Decay Rate"
+      }
     },
     {
       "id": "a",
       "label": "Initial Eigenvalue",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Magnitude of the largest eigenvalue."
+      "businessContext": "Magnitude of the largest eigenvalue.",
+      "label_i18n": {
+        "en": "Initial Eigenvalue",
+        "tr": "Initial Eigenvalue",
+        "de": "Initial Eigenvalue",
+        "fr": "Initial Eigenvalue",
+        "es": "Initial Eigenvalue",
+        "ar": "Initial Eigenvalue"
+      }
     },
     {
       "id": "threshold",
       "label": "Cumulative Variance Threshold",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.95,
-      "businessContext": "Target proportion of total variance to be retained (0 to 1)."
+      "businessContext": "Target proportion of total variance to be retained (0 to 1).",
+      "label_i18n": {
+        "en": "Cumulative Variance Threshold",
+        "tr": "Cumulative Variance Threshold",
+        "de": "Cumulative Variance Threshold",
+        "fr": "Cumulative Variance Threshold",
+        "es": "Cumulative Variance Threshold",
+        "ar": "Cumulative Variance Threshold"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "reductionRatio"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

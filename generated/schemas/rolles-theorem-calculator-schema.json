@@ -5,49 +5,97 @@
       "id": "a",
       "label": "Lower bound a",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Left endpoint of the interval [a,b]"
+      "businessContext": "Left endpoint of the interval [a,b]",
+      "label_i18n": {
+        "en": "Lower bound a",
+        "tr": "Lower bound a",
+        "de": "Lower bound a",
+        "fr": "Lower bound a",
+        "es": "Lower bound a",
+        "ar": "Lower bound a"
+      }
     },
     {
       "id": "b",
       "label": "Upper bound b",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Right endpoint of the interval [a,b]"
+      "businessContext": "Right endpoint of the interval [a,b]",
+      "label_i18n": {
+        "en": "Upper bound b",
+        "tr": "Upper bound b",
+        "de": "Upper bound b",
+        "fr": "Upper bound b",
+        "es": "Upper bound b",
+        "ar": "Upper bound b"
+      }
     },
     {
       "id": "fa",
       "label": "f(a)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Function value at a"
+      "businessContext": "Function value at a",
+      "label_i18n": {
+        "en": "f(a)",
+        "tr": "f(a)",
+        "de": "f(a)",
+        "fr": "f(a)",
+        "es": "f(a)",
+        "ar": "f(a)"
+      }
     },
     {
       "id": "fb",
       "label": "f(b)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Function value at b"
+      "businessContext": "Function value at b",
+      "label_i18n": {
+        "en": "f(b)",
+        "tr": "f(b)",
+        "de": "f(b)",
+        "fr": "f(b)",
+        "es": "f(b)",
+        "ar": "f(b)"
+      }
     },
     {
       "id": "derivativeCoeff",
       "label": "Derivative coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Coefficient of x in derivative (e.g., for f(x)=x^2, derivative=2x, coefficient=2)"
+      "businessContext": "Coefficient of x in derivative (e.g., for f(x)=x^2, derivative=2x, coefficient=2)",
+      "label_i18n": {
+        "en": "Derivative coefficient",
+        "tr": "Derivative coefficient",
+        "de": "Derivative coefficient",
+        "fr": "Derivative coefficient",
+        "es": "Derivative coefficient",
+        "ar": "Derivative coefficient"
+      }
     },
     {
       "id": "derivativeConstant",
       "label": "Derivative constant term",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant term in derivative (e.g., for f'(x)=2x+1, constant=1)"
+      "businessContext": "Constant term in derivative (e.g., for f'(x)=2x+1, constant=1)",
+      "label_i18n": {
+        "en": "Derivative constant term",
+        "tr": "Derivative constant term",
+        "de": "Derivative constant term",
+        "fr": "Derivative constant term",
+        "es": "Derivative constant term",
+        "ar": "Derivative constant term"
+      }
     }
   ],
   "formulas": {
@@ -58,17 +106,14 @@
   "outputs": {
     "primary": "c",
     "breakdown": [
-      "f(a) = fa",
-      "f(b) = fb",
-      "f(a) == f(b): checkEqual",
-      "c = (0 - derivativeConstant) / derivativeCoeff",
-      "c in (a,b): cInInterval"
+      "checkEqual",
+      "cInInterval"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

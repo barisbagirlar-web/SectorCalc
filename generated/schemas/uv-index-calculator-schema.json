@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Angle between the sun and the vertical. 0° means sun directly overhead."
+      "businessContext": "Angle between the sun and the vertical. 0° means sun directly overhead.",
+      "label_i18n": {
+        "en": "Solar Zenith Angle",
+        "tr": "Solar Zenith Angle",
+        "de": "Solar Zenith Angle",
+        "fr": "Solar Zenith Angle",
+        "es": "Solar Zenith Angle",
+        "ar": "Solar Zenith Angle"
+      }
     },
     {
       "id": "ozone",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "DU",
       "default": 300,
-      "businessContext": "Total ozone column in Dobson Units. Typical range 200–500 DU."
+      "businessContext": "Total ozone column in Dobson Units. Typical range 200–500 DU.",
+      "label_i18n": {
+        "en": "Ozone Column Thickness",
+        "tr": "Ozone Column Thickness",
+        "de": "Ozone Column Thickness",
+        "fr": "Ozone Column Thickness",
+        "es": "Ozone Column Thickness",
+        "ar": "Ozone Column Thickness"
+      }
     },
     {
       "id": "altitude",
@@ -23,31 +39,63 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Elevation above sea level in meters."
+      "businessContext": "Elevation above sea level in meters.",
+      "label_i18n": {
+        "en": "Altitude",
+        "tr": "Altitude",
+        "de": "Altitude",
+        "fr": "Altitude",
+        "es": "Altitude",
+        "ar": "Altitude"
+      }
     },
     {
       "id": "albedo",
       "label": "Surface Albedo",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.05,
-      "businessContext": "Reflectivity of the ground surface, between 0 and 1. Typical grass: 0.03, snow: 0.8."
+      "businessContext": "Reflectivity of the ground surface, between 0 and 1. Typical grass: 0.03, snow: 0.8.",
+      "label_i18n": {
+        "en": "Surface Albedo",
+        "tr": "Surface Albedo",
+        "de": "Surface Albedo",
+        "fr": "Surface Albedo",
+        "es": "Surface Albedo",
+        "ar": "Surface Albedo"
+      }
     },
     {
       "id": "aod",
       "label": "Aerosol Optical Depth",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.1,
-      "businessContext": "Aerosol optical depth at 550 nm. Clear atmosphere: 0.05–0.1, polluted: >0.5."
+      "businessContext": "Aerosol optical depth at 550 nm. Clear atmosphere: 0.05–0.1, polluted: >0.5.",
+      "label_i18n": {
+        "en": "Aerosol Optical Depth",
+        "tr": "Aerosol Optical Depth",
+        "de": "Aerosol Optical Depth",
+        "fr": "Aerosol Optical Depth",
+        "es": "Aerosol Optical Depth",
+        "ar": "Aerosol Optical Depth"
+      }
     },
     {
       "id": "cloudCover",
       "label": "Cloud Cover Fraction",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fraction of sky covered by clouds, 0 (clear) to 1 (overcast)."
+      "businessContext": "Fraction of sky covered by clouds, 0 (clear) to 1 (overcast).",
+      "label_i18n": {
+        "en": "Cloud Cover Fraction",
+        "tr": "Cloud Cover Fraction",
+        "de": "Cloud Cover Fraction",
+        "fr": "Cloud Cover Fraction",
+        "es": "Cloud Cover Fraction",
+        "ar": "Cloud Cover Fraction"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "uvIrradiance"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İnşaat & Yapı",
+  "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "project-construction-management"
 }

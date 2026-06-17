@@ -200,145 +200,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "effectiveRate",
-      "name": "Effective Annual Rate (EAR)",
-      "description": "Converts nominal rate to effective annual rate considering compounding frequency.",
-      "formula": "EAR = (1 + (annualInterestRate / 100) / compoundingFrequency) ^ compoundingFrequency - 1",
-      "unit": "decimal"
-    },
-    {
-      "id": "futureValueWithoutContributions",
-      "name": "Future Value without Additional Contributions",
-      "description": "Compound interest on principal only.",
-      "formula": "FV_principal = principal * (1 + (annualInterestRate / 100) / compoundingFrequency) ^ (compoundingFrequency * timePeriod)",
-      "unit": "currency"
-    },
-    {
-      "id": "futureValueOfContributions",
-      "name": "Future Value of Additional Contributions",
-      "description": "Future value of a series of equal payments made at the end of each compounding period.",
-      "formula": "FV_contributions = additionalContribution * (((1 + (annualInterestRate / 100) / compoundingFrequency) ^ (compoundingFrequency * timePeriod) - 1) / ((annualInterestRate / 100) / compoundingFrequency))",
-      "unit": "currency"
-    },
-    {
-      "id": "grossFutureValue",
-      "name": "Gross Future Value",
-      "description": "Total future value before tax and inflation adjustments.",
-      "formula": "grossFV = FV_principal + FV_contributions",
-      "unit": "currency"
-    },
-    {
-      "id": "taxAdjustment",
-      "name": "Tax Adjustment Factor",
-      "description": "Factor to reduce future value by tax on interest earned.",
-      "formula": "taxFactor = 1 - (taxRate / 100)",
-      "unit": "decimal"
-    },
-    {
-      "id": "netFutureValue",
-      "name": "Net Future Value (After Tax)",
-      "description": "Future value after deducting taxes on interest.",
-      "formula": "netFV = principal + (grossFV - principal) * taxFactor",
-      "unit": "currency"
-    },
-    {
-      "id": "realFutureValue",
-      "name": "Real Future Value (Inflation Adjusted)",
-      "description": "Future value in today's purchasing power.",
-      "formula": "realFV = netFV / (1 + (inflationRate / 100)) ^ timePeriod",
-      "unit": "currency"
-    }
+    "principal",
+    "principal",
+    "principal",
+    "principal",
+    "principal",
+    "principal",
+    "principal"
   ],
   "outputs": {
-    "primary": {
-      "id": "realFutureValue",
-      "label": "Real Future Value (Inflation & Tax Adjusted)",
-      "unit": "currency",
-      "description": "Primary result: future value adjusted for inflation and taxes."
-    },
-    "breakdown": {
-      "totalContributions": {
-        "id": "totalContributions",
-        "label": "Total Contributions",
-        "value": "principal + (additionalContribution * compoundingFrequency * timePeriod)",
-        "unit": "currency",
-        "description": "Sum of all money invested."
-      },
-      "totalInterestEarned": {
-        "id": "totalInterestEarned",
-        "label": "Total Interest Earned (Gross)",
-        "value": "grossFV - totalContributions",
-        "unit": "currency",
-        "description": "Gross interest earned before tax."
-      },
-      "totalTaxPaid": {
-        "id": "totalTaxPaid",
-        "label": "Total Tax Paid",
-        "value": "(grossFV - principal) * (taxRate / 100)",
-        "unit": "currency",
-        "description": "Total tax deducted from interest."
-      },
-      "inflationLoss": {
-        "id": "inflationLoss",
-        "label": "Loss Due to Inflation",
-        "value": "netFV - realFV",
-        "unit": "currency",
-        "description": "Reduction in purchasing power due to inflation."
-      },
-      "effectiveAnnualRate": {
-        "id": "effectiveAnnualRate",
-        "label": "Effective Annual Rate (EAR)",
-        "value": "EAR",
-        "unit": "decimal",
-        "description": "Actual annual yield considering compounding."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_inflation",
-        "label": "Inflation Erosion",
-        "description": "Inflation reduces real purchasing power over time.",
-        "impact": "inflationLoss"
-      },
-      {
-        "id": "loss_tax",
-        "label": "Tax Drag",
-        "description": "Taxes on interest reduce net returns.",
-        "impact": "totalTaxPaid"
-      },
-      {
-        "id": "loss_opportunity",
-        "label": "Opportunity Cost of Low Compounding Frequency",
-        "description": "Less frequent compounding reduces potential growth.",
-        "impact": "grossFV - FV_principal (if compoundingFrequency < 12)"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_increase_frequency",
-        "label": "Increase Compounding Frequency",
-        "description": "Switching from annual to monthly compounding can increase returns."
-      },
-      {
-        "id": "action_reduce_tax",
-        "label": "Tax-Efficient Investing",
-        "description": "Consider tax-advantaged accounts to minimize tax drag."
-      },
-      {
-        "id": "action_inflation_hedge",
-        "label": "Inflation-Protected Investments",
-        "description": "Invest in assets that historically outpace inflation (e.g., equities, TIPS)."
-      },
-      {
-        "id": "action_regular_contributions",
-        "label": "Increase Additional Contributions",
-        "description": "Regular contributions significantly boost future value."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Vergi & Finansal Raporlama",
+  "sector": "Finans & İK",
+  "toolName": "compound-interest-calculator"
 }

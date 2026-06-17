@@ -23,30 +23,19 @@ export const Ai_compute_token_cost_calculatorInputSchema = z.object({
   enable_data_confidence: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Ai_compute_token_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.input_tokens_per_month * input_token_price(input.model_type); results["sub_input_cost"] = Number.isFinite(v) ? v : 0; } catch { results["sub_input_cost"] = 0; }
-  try { const v = input.output_tokens_per_month * output_token_price(input.model_type); results["sub_output_cost"] = Number.isFinite(v) ? v : 0; } catch { results["sub_output_cost"] = 0; }
-  try { const v = input.compute_hours_per_month * input.gpu_hourly_cost; results["sub_compute_cost"] = Number.isFinite(v) ? v : 0; } catch { results["sub_compute_cost"] = 0; }
-  try { const v = ((results["sub_input_cost"] ?? 0) + (results["sub_output_cost"] ?? 0) + (results["sub_compute_cost"] ?? 0)) * (input.overhead_factor / 100); results["sub_overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["sub_overhead_cost"] = 0; }
-  try { const v = (results["sub_input_cost"] ?? 0) + (results["sub_output_cost"] ?? 0) + (results["sub_compute_cost"] ?? 0) + (results["sub_overhead_cost"] ?? 0); results["sub_total_before_confidence"] = Number.isFinite(v) ? v : 0; } catch { results["sub_total_before_confidence"] = 0; }
-  try { const v = ((input.enable_data_confidence) ? (0.95) : (1.0)); results["sub_confidence_factor"] = Number.isFinite(v) ? v : 0; } catch { results["sub_confidence_factor"] = 0; }
-  try { const v = (results["sub_total_before_confidence"] ?? 0) * (results["sub_confidence_factor"] ?? 0); results["primary_total_monthly_cost"] = Number.isFinite(v) ? v : 0; } catch { results["primary_total_monthly_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Ai_compute_token_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateAi_compute_token_cost_calculator(input: Ai_compute_token_cost_calculatorInput): Ai_compute_token_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_monthly_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    input_token_cost: values["input_token_cost"] ?? 0,
-    output_token_cost: values["output_token_cost"] ?? 0,
-    compute_cost: values["compute_cost"] ?? 0,
-    overhead_cost: values["overhead_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Idle GPU Time","Token Waste from Retries","Model Overprovisioning"];
-  const suggestedActions: string[] = ["Increase batch size to reduce per-request overhead and improve GPU utilization.","Use a distilled or smaller model variant to lower token costs without significant accuracy loss.","Leverage spot/preemptible GPU instances to reduce compute cost by up to 60%.","Implement prompt caching to avoid re-processing identical input tokens."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -65,7 +54,7 @@ export function calculateAi_compute_token_cost_calculator(input: Ai_compute_toke
 
 export interface Ai_compute_token_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { input_token_cost: number; output_token_cost: number; compute_cost: number; overhead_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

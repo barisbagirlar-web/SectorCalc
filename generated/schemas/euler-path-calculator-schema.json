@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Grafikteki toplam düğüm (vertex) sayısı"
+      "businessContext": "Grafikteki toplam düğüm (vertex) sayısı",
+      "label_i18n": {
+        "en": "Toplam Düğüm Sayısı",
+        "tr": "Toplam Düğüm Sayısı",
+        "de": "Toplam Düğüm Sayısı",
+        "fr": "Toplam Düğüm Sayısı",
+        "es": "Toplam Düğüm Sayısı",
+        "ar": "Toplam Düğüm Sayısı"
+      }
     },
     {
       "id": "totalEdges",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 6,
-      "businessContext": "Grafikteki toplam kenar (edge) sayısı"
+      "businessContext": "Grafikteki toplam kenar (edge) sayısı",
+      "label_i18n": {
+        "en": "Toplam Kenar Sayısı",
+        "tr": "Toplam Kenar Sayısı",
+        "de": "Toplam Kenar Sayısı",
+        "fr": "Toplam Kenar Sayısı",
+        "es": "Toplam Kenar Sayısı",
+        "ar": "Toplam Kenar Sayısı"
+      }
     },
     {
       "id": "oddVertices",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Derecesi tek olan düğümlerin sayısı"
+      "businessContext": "Derecesi tek olan düğümlerin sayısı",
+      "label_i18n": {
+        "en": "Tek Dereceli Düğüm Sayısı",
+        "tr": "Tek Dereceli Düğüm Sayısı",
+        "de": "Tek Dereceli Düğüm Sayısı",
+        "fr": "Tek Dereceli Düğüm Sayısı",
+        "es": "Tek Dereceli Düğüm Sayısı",
+        "ar": "Tek Dereceli Düğüm Sayısı"
+      }
     },
     {
       "id": "isConnected",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "boolean",
       "default": 1,
-      "businessContext": "Grafik bağlı ise 1, değilse 0"
+      "businessContext": "Grafik bağlı ise 1, değilse 0",
+      "label_i18n": {
+        "en": "Bağlantılı Grafik",
+        "tr": "Bağlantılı Grafik",
+        "de": "Bağlantılı Grafik",
+        "fr": "Bağlantılı Grafik",
+        "es": "Bağlantılı Grafik",
+        "ar": "Bağlantılı Grafik"
+      }
     },
     {
       "id": "minDegree",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Grafikteki en küçük düğüm derecesi"
+      "businessContext": "Grafikteki en küçük düğüm derecesi",
+      "label_i18n": {
+        "en": "Minimum Derece",
+        "tr": "Minimum Derece",
+        "de": "Minimum Derece",
+        "fr": "Minimum Derece",
+        "es": "Minimum Derece",
+        "ar": "Minimum Derece"
+      }
     },
     {
       "id": "maxDegree",
@@ -47,11 +87,24 @@
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Grafikteki en büyük düğüm derecesi"
+      "businessContext": "Grafikteki en büyük düğüm derecesi",
+      "label_i18n": {
+        "en": "Maksimum Derece",
+        "tr": "Maksimum Derece",
+        "de": "Maksimum Derece",
+        "fr": "Maksimum Derece",
+        "es": "Maksimum Derece",
+        "ar": "Maksimum Derece"
+      }
     }
   ],
   "formulas": {
-    "eulerResult": "isConnected == 1 ? (oddVertices == 0 ? 2 : (oddVertices == 2 ? 1 : 0)) : 0"
+    "eulerResult": "isConnected == 1 ? (oddVertices == 0 ? 2 : (oddVertices == 2 ? 1 : 0)) : 0",
+    "_____eulerResult____2____Euler_Devresi__": "' + (eulerResult == 2 ? 'Euler Devresi (Circuit)' : eulerResult == 1 ? 'Euler Yolu (Path)' : 'Euler Yolu Yok')",
+    "_____isConnected____1____Ba_l______Ba_l_": "' + (isConnected == 1 ? 'Bağlı' : 'Bağlı Değil')",
+    "____oddVertices": "' + oddVertices",
+    "____minDegree______Max_Derece______maxDe": "' + minDegree + ', Max Derece: ' + maxDegree",
+    "____totalVertices______Toplam_Kenar_____": "' + totalVertices + ', Toplam Kenar: ' + totalEdges"
   },
   "outputs": {
     "primary": "eulerResult",
@@ -63,8 +116,8 @@
       "'Toplam Düğüm: ' + totalVertices + ', Toplam Kenar: ' + totalEdges"
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

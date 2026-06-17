@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Total mass of raw material to be processed."
+      "businessContext": "Total mass of raw material to be processed.",
+      "label_i18n": {
+        "en": "Total Raw Material",
+        "tr": "Total Raw Material",
+        "de": "Total Raw Material",
+        "fr": "Total Raw Material",
+        "es": "Total Raw Material",
+        "ar": "Total Raw Material"
+      }
     },
     {
       "id": "concentration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of target substance in raw material."
+      "businessContext": "Percentage of target substance in raw material.",
+      "label_i18n": {
+        "en": "Concentration",
+        "tr": "Concentration",
+        "de": "Concentration",
+        "fr": "Concentration",
+        "es": "Concentration",
+        "ar": "Concentration"
+      }
     },
     {
       "id": "recoveryRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Efficiency of extraction process in recovering the target substance."
+      "businessContext": "Efficiency of extraction process in recovering the target substance.",
+      "label_i18n": {
+        "en": "Recovery Rate",
+        "tr": "Recovery Rate",
+        "de": "Recovery Rate",
+        "fr": "Recovery Rate",
+        "es": "Recovery Rate",
+        "ar": "Recovery Rate"
+      }
     },
     {
       "id": "targetPurity",
@@ -31,27 +55,37 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Desired purity of the final extracted product."
+      "businessContext": "Desired purity of the final extracted product.",
+      "label_i18n": {
+        "en": "Target Purity",
+        "tr": "Target Purity",
+        "de": "Target Purity",
+        "fr": "Target Purity",
+        "es": "Target Purity",
+        "ar": "Target Purity"
+      }
     }
   ],
   "formulas": {
     "primary": "totalMaterial * concentration / 100 * recoveryRate / 100 * targetPurity / 100",
     "breakdown1": "\"Theoretical maximum: \" + (totalMaterial * concentration / 100) + \" kg\"",
     "breakdown2": "\"Recovered before purification: \" + (totalMaterial * concentration / 100 * recoveryRate / 100) + \" kg\"",
-    "breakdown3": "\"Final pure product: \" + (totalMaterial * concentration / 100 * recoveryRate / 100 * targetPurity / 100) + \" kg\""
+    "breakdown3": "\"Final pure product: \" + (totalMaterial * concentration / 100 * recoveryRate / 100 * targetPurity / 100) + \" kg\"",
+    "_____totalMaterial___concentration___100": "\" + (totalMaterial * concentration / 100) + \" kg\"",
+    "result": "totalMaterial * concentration / 100 * recoveryRate / 100 * targetPurity / 100"
   },
   "outputs": {
-    "primary": "totalMaterial * concentration / 100 * recoveryRate / 100 * targetPurity / 100",
+    "primary": "result",
     "breakdown": [
       "\"Theoretical maximum: \" + (totalMaterial * concentration / 100) + \" kg\"",
       "\"Recovered before purification: \" + (totalMaterial * concentration / 100 * recoveryRate / 100) + \" kg\"",
       "\"Final pure product: \" + (totalMaterial * concentration / 100 * recoveryRate / 100 * targetPurity / 100) + \" kg\""
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "Üretim & İmalat",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "metal-plastics-forming"
 }

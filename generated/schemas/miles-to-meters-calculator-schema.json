@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mi",
       "default": 1,
-      "businessContext": "Input distance to convert"
+      "businessContext": "Input distance to convert",
+      "label_i18n": {
+        "en": "Distance in Miles",
+        "tr": "Distance in Miles",
+        "de": "Distance in Miles",
+        "fr": "Distance in Miles",
+        "es": "Distance in Miles",
+        "ar": "Distance in Miles"
+      }
     },
     {
       "id": "conversion_factor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/mi",
       "default": 1609.344,
-      "businessContext": "Standard international mile to meter conversion factor"
+      "businessContext": "Standard international mile to meter conversion factor",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "precision",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "decimals",
       "default": 2,
-      "businessContext": "Number of decimal places in output"
+      "businessContext": "Number of decimal places in output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "rounding_mode",
       "label": "Rounding Mode (0=round, 1=floor, 2=ceil)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Rounding method: 0 rounds to nearest, 1 always rounds down, 2 always rounds up"
+      "businessContext": "Rounding method: 0 rounds to nearest, 1 always rounds down, 2 always rounds up",
+      "label_i18n": {
+        "en": "Rounding Mode (0=round, 1=floor, 2=ceil)",
+        "tr": "Rounding Mode (0=round, 1=floor, 2=ceil)",
+        "de": "Rounding Mode (0=round, 1=floor, 2=ceil)",
+        "fr": "Rounding Mode (0=round, 1=floor, 2=ceil)",
+        "es": "Rounding Mode (0=round, 1=floor, 2=ceil)",
+        "ar": "Rounding Mode (0=round, 1=floor, 2=ceil)"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "raw_meters"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

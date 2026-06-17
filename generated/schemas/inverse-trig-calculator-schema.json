@@ -5,33 +5,65 @@
       "id": "inputValue",
       "label": "Value (x)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "The value to compute the inverse trigonometric function. For arcsin and arccos, must be between -1 and 1; for arctan, any real number."
+      "businessContext": "The value to compute the inverse trigonometric function. For arcsin and arccos, must be between -1 and 1; for arctan, any real number.",
+      "label_i18n": {
+        "en": "Value (x)",
+        "tr": "Value (x)",
+        "de": "Value (x)",
+        "fr": "Value (x)",
+        "es": "Value (x)",
+        "ar": "Value (x)"
+      }
     },
     {
       "id": "functionType",
       "label": "Function",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 = arcsin (sin⁻¹), 2 = arccos (cos⁻¹), 3 = arctan (tan⁻¹)."
+      "businessContext": "1 = arcsin (sin⁻¹), 2 = arccos (cos⁻¹), 3 = arctan (tan⁻¹).",
+      "label_i18n": {
+        "en": "Function",
+        "tr": "Function",
+        "de": "Function",
+        "fr": "Function",
+        "es": "Function",
+        "ar": "Function"
+      }
     },
     {
       "id": "outputUnit",
       "label": "Output Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = radians, 1 = degrees."
+      "businessContext": "0 = radians, 1 = degrees.",
+      "label_i18n": {
+        "en": "Output Unit",
+        "tr": "Output Unit",
+        "de": "Output Unit",
+        "fr": "Output Unit",
+        "es": "Output Unit",
+        "ar": "Output Unit"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Number of decimal places for rounding the result."
+      "businessContext": "Number of decimal places for rounding the result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -54,10 +86,10 @@
       "degreesDisplay"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

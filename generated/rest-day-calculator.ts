@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Rest_day_calculatorInput): Record<string, nu
 
 export function calculateRest_day_calculator(input: Rest_day_calculatorInput): Rest_day_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["restDays"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

@@ -5,33 +5,65 @@
       "id": "byte1",
       "label": "Byte 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First ASCII byte value (0-255)"
+      "businessContext": "First ASCII byte value (0-255)",
+      "label_i18n": {
+        "en": "Byte 1",
+        "tr": "Byte 1",
+        "de": "Byte 1",
+        "fr": "Byte 1",
+        "es": "Byte 1",
+        "ar": "Byte 1"
+      }
     },
     {
       "id": "byte2",
       "label": "Byte 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second ASCII byte value (0-255)"
+      "businessContext": "Second ASCII byte value (0-255)",
+      "label_i18n": {
+        "en": "Byte 2",
+        "tr": "Byte 2",
+        "de": "Byte 2",
+        "fr": "Byte 2",
+        "es": "Byte 2",
+        "ar": "Byte 2"
+      }
     },
     {
       "id": "byte3",
       "label": "Byte 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third ASCII byte value (0-255)"
+      "businessContext": "Third ASCII byte value (0-255)",
+      "label_i18n": {
+        "en": "Byte 3",
+        "tr": "Byte 3",
+        "de": "Byte 3",
+        "fr": "Byte 3",
+        "es": "Byte 3",
+        "ar": "Byte 3"
+      }
     },
     {
       "id": "byte4",
       "label": "Byte 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth ASCII byte value (0-255)"
+      "businessContext": "Fourth ASCII byte value (0-255)",
+      "label_i18n": {
+        "en": "Byte 4",
+        "tr": "Byte 4",
+        "de": "Byte 4",
+        "fr": "Byte 4",
+        "es": "Byte 4",
+        "ar": "Byte 4"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "checksumHex"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

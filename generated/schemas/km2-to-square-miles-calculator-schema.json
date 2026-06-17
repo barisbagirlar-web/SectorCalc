@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km²",
       "default": 1,
-      "businessContext": "The area to convert from square kilometers."
+      "businessContext": "The area to convert from square kilometers.",
+      "label_i18n": {
+        "en": "Area in square kilometers",
+        "tr": "Area in square kilometers",
+        "de": "Area in square kilometers",
+        "fr": "Area in square kilometers",
+        "es": "Area in square kilometers",
+        "ar": "Area in square kilometers"
+      }
     },
     {
       "id": "factor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "sq mi/km²",
       "default": 0.38610215854245,
-      "businessContext": "Standard conversion factor. Override for regional or historical definitions."
+      "businessContext": "Standard conversion factor. Override for regional or historical definitions.",
+      "label_i18n": {
+        "en": "Conversion factor",
+        "tr": "Conversion factor",
+        "de": "Conversion factor",
+        "fr": "Conversion factor",
+        "es": "Conversion factor",
+        "ar": "Conversion factor"
+      }
     },
     {
       "id": "precision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimals",
       "default": 4,
-      "businessContext": "Number of decimal places for the output."
+      "businessContext": "Number of decimal places for the output.",
+      "label_i18n": {
+        "en": "Decimal precision",
+        "tr": "Decimal precision",
+        "de": "Decimal precision",
+        "fr": "Decimal precision",
+        "es": "Decimal precision",
+        "ar": "Decimal precision"
+      }
     },
     {
       "id": "multiplier",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Multiply the input by this factor for batch conversions (e.g., if input is in thousands)."
+      "businessContext": "Multiply the input by this factor for batch conversions (e.g., if input is in thousands).",
+      "label_i18n": {
+        "en": "Batch multiplier",
+        "tr": "Batch multiplier",
+        "de": "Batch multiplier",
+        "fr": "Batch multiplier",
+        "es": "Batch multiplier",
+        "ar": "Batch multiplier"
+      }
     },
     {
       "id": "threshold",
@@ -39,16 +71,26 @@
       "type": "number",
       "unit": "km²",
       "default": 0,
-      "businessContext": "Minimum valid area in km². Values below this are treated as invalid."
+      "businessContext": "Minimum valid area in km². Values below this are treated as invalid.",
+      "label_i18n": {
+        "en": "Validation threshold",
+        "tr": "Validation threshold",
+        "de": "Validation threshold",
+        "fr": "Validation threshold",
+        "es": "Validation threshold",
+        "ar": "Validation threshold"
+      }
     }
   ],
   "formulas": {
     "raw_sqmi": "areaKm2 * factor * multiplier",
     "rounded_sqmi": "Math.round(raw_sqmi * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "valid_input": "areaKm2 >= threshold"
+    "valid_input": "areaKm2 >= threshold",
+    "factor": "factor",
+    "result": "valid_input ? rounded_sqmi : 0"
   },
   "outputs": {
-    "primary": "valid_input ? rounded_sqmi : 0",
+    "primary": "result",
     "breakdown": [
       "raw_sqmi",
       "rounded_sqmi",
@@ -56,10 +98,10 @@
       "valid_input"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

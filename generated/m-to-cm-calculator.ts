@@ -20,13 +20,16 @@ function evaluateAllFormulas(input: M_to_cm_calculatorInput): Record<string, num
   try { const v = input.meter_value * input.conversion_factor; results["centimeter_value"] = Number.isFinite(v) ? v : 0; } catch { results["centimeter_value"] = 0; }
   try { const v = (input.uncertainty_percent / 100) * (results["centimeter_value"] ?? 0); results["uncertainty_cm"] = Number.isFinite(v) ? v : 0; } catch { results["uncertainty_cm"] = 0; }
   try { const v = Math.round((results["centimeter_value"] ?? 0) * Math.pow(10, input.decimal_places)) / Math.pow(10, input.decimal_places); results["rounded_cm"] = Number.isFinite(v) ? v : 0; } catch { results["rounded_cm"] = 0; }
+  results["__centimeter_value___cm"] = 0;
+  results["___uncertainty_cm___cm"] = 0;
+  results["Rounded_to___decimal_places___decimal_pl"] = 0;
   return results;
 }
 
 
 export function calculateM_to_cm_calculator(input: M_to_cm_calculatorInput): M_to_cm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["{{rounded_cm}} cm"] ?? 0;
+  const totalWasteCost = values["centimeter_value"] ?? 0;
   const breakdown = {
     
   };

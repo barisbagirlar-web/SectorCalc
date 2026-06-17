@@ -24,7 +24,7 @@ function evaluateAllFormulas(input: Molality_calculatorInput): Record<string, nu
 
 export function calculateMolality_calculator(input: Molality_calculatorInput): Molality_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["molality"] ?? 0;
+  const totalWasteCost = values["molesSolute"] ?? 0;
   const breakdown = {
     
   };

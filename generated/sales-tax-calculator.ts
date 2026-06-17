@@ -21,32 +21,19 @@ export const Sales_tax_calculatorInputSchema = z.object({
   shipping_charge: z.number().min(0).max(100000).default(500),
 });
 
-function evaluateAllFormulas(input: Sales_tax_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.net_sales * (1 - input.exempt_ratio/100) + (input.include_shipping ? input.shipping_charge : 0); results["taxable_base"] = Number.isFinite(v) ? v : 0; } catch { results["taxable_base"] = 0; }
-  try { const v = input.tax_rate * (1 + 0.05 * (input.tax_jurisdiction == 'state_county' ? 1 : (input.tax_jurisdiction == 'state_county_city' ? 2 : 0))); results["effective_tax_rate"] = Number.isFinite(v) ? v : 0; } catch { results["effective_tax_rate"] = 0; }
-  try { const v = (results["taxable_base"] ?? 0) * ((results["effective_tax_rate"] ?? 0) / 100); results["gross_tax_amount"] = Number.isFinite(v) ? v : 0; } catch { results["gross_tax_amount"] = 0; }
-  try { const v = input.use_sourcing == 'origin' ? 1.0 : 1.02; results["sourcing_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["sourcing_adjustment"] = 0; }
-  try { const v = (results["gross_tax_amount"] ?? 0) * (results["sourcing_adjustment"] ?? 0); results["adjusted_tax_amount"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_tax_amount"] = 0; }
-  try { const v = (results["adjusted_tax_amount"] ?? 0) - Math.round((results["adjusted_tax_amount"] ?? 0) * 100) / 100; results["rounding_loss"] = Number.isFinite(v) ? v : 0; } catch { results["rounding_loss"] = 0; }
-  try { const v = Math.round((results["adjusted_tax_amount"] ?? 0) * 100) / 100; results["total_tax_liability"] = Number.isFinite(v) ? v : 0; } catch { results["total_tax_liability"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Sales_tax_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateSales_tax_calculator(input: Sales_tax_calculatorInput): Sales_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_tax_liability"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    taxable_base: values["taxable_base"] ?? 0,
-    effective_tax_rate: values["effective_tax_rate"] ?? 0,
-    gross_tax_amount: values["gross_tax_amount"] ?? 0,
-    sourcing_adjustment: values["sourcing_adjustment"] ?? 0,
-    adjusted_tax_amount: values["adjusted_tax_amount"] ?? 0,
-    rounding_loss: values["rounding_loss"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Exempt Ratio Erosion","Sourcing Mismatch","Shipping Taxability"];
-  const suggestedActions: string[] = ["Review Exemption Certificates","Evaluate Sourcing Method","Review Shipping Tax Policy","Monitor Rate Changes"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -65,7 +52,7 @@ export function calculateSales_tax_calculator(input: Sales_tax_calculatorInput):
 
 export interface Sales_tax_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { taxable_base: number; effective_tax_rate: number; gross_tax_amount: number; sourcing_adjustment: number; adjusted_tax_amount: number; rounding_loss: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ng/mL",
       "default": 1,
-      "businessContext": "Measured progesterone concentration in nanograms per milliliter."
+      "businessContext": "Measured progesterone concentration in nanograms per milliliter.",
+      "label_i18n": {
+        "en": "Progesterone (ng/mL)",
+        "tr": "Progesterone (ng/mL)",
+        "de": "Progesterone (ng/mL)",
+        "fr": "Progesterone (ng/mL)",
+        "es": "Progesterone (ng/mL)",
+        "ar": "Progesterone (ng/mL)"
+      }
     },
     {
       "id": "molecularWeight",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "g/mol",
       "default": 314.46,
-      "businessContext": "Molecular weight of progesterone (default 314.46 g/mol)."
+      "businessContext": "Molecular weight of progesterone (default 314.46 g/mol).",
+      "label_i18n": {
+        "en": "Molecular Weight (g/mol)",
+        "tr": "Molecular Weight (g/mol)",
+        "de": "Molecular Weight (g/mol)",
+        "fr": "Molecular Weight (g/mol)",
+        "es": "Molecular Weight (g/mol)",
+        "ar": "Molecular Weight (g/mol)"
+      }
     },
     {
       "id": "dilutionFactor",
       "label": "Dilution Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Dilution factor applied to the sample (1 if undiluted)."
+      "businessContext": "Dilution factor applied to the sample (1 if undiluted).",
+      "label_i18n": {
+        "en": "Dilution Factor",
+        "tr": "Dilution Factor",
+        "de": "Dilution Factor",
+        "fr": "Dilution Factor",
+        "es": "Dilution Factor",
+        "ar": "Dilution Factor"
+      }
     },
     {
       "id": "volumeSample",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mL",
       "default": 1,
-      "businessContext": "Volume of the sample in milliliters."
+      "businessContext": "Volume of the sample in milliliters.",
+      "label_i18n": {
+        "en": "Sample Volume (mL)",
+        "tr": "Sample Volume (mL)",
+        "de": "Sample Volume (mL)",
+        "fr": "Sample Volume (mL)",
+        "es": "Sample Volume (mL)",
+        "ar": "Sample Volume (mL)"
+      }
     }
   ],
   "formulas": {
@@ -45,10 +77,10 @@
       "total_progesterone_nmol"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

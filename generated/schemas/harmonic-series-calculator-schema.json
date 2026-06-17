@@ -5,49 +5,97 @@
       "id": "startIndex",
       "label": "Start Index",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Starting index for the summation in the harmonic series."
+      "businessContext": "Starting index for the summation in the harmonic series.",
+      "label_i18n": {
+        "en": "Start Index",
+        "tr": "Start Index",
+        "de": "Start Index",
+        "fr": "Start Index",
+        "es": "Start Index",
+        "ar": "Start Index"
+      }
     },
     {
       "id": "endIndex",
       "label": "End Index",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Ending index for the summation."
+      "businessContext": "Ending index for the summation.",
+      "label_i18n": {
+        "en": "End Index",
+        "tr": "End Index",
+        "de": "End Index",
+        "fr": "End Index",
+        "es": "End Index",
+        "ar": "End Index"
+      }
     },
     {
       "id": "exponent",
       "label": "Exponent (p)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Exponent for the denominator term; use 1 for the standard harmonic series (1/k^p)."
+      "businessContext": "Exponent for the denominator term; use 1 for the standard harmonic series (1/k^p).",
+      "label_i18n": {
+        "en": "Exponent (p)",
+        "tr": "Exponent (p)",
+        "de": "Exponent (p)",
+        "fr": "Exponent (p)",
+        "es": "Exponent (p)",
+        "ar": "Exponent (p)"
+      }
     },
     {
       "id": "increment",
       "label": "Increment",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Step size between successive indices in the summation."
+      "businessContext": "Step size between successive indices in the summation.",
+      "label_i18n": {
+        "en": "Increment",
+        "tr": "Increment",
+        "de": "Increment",
+        "fr": "Increment",
+        "es": "Increment",
+        "ar": "Increment"
+      }
     },
     {
       "id": "shift",
       "label": "Shift",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Constant added to the index inside the denominator before exponentiation."
+      "businessContext": "Constant added to the index inside the denominator before exponentiation.",
+      "label_i18n": {
+        "en": "Shift",
+        "tr": "Shift",
+        "de": "Shift",
+        "fr": "Shift",
+        "es": "Shift",
+        "ar": "Shift"
+      }
     },
     {
       "id": "multiplier",
       "label": "Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Scaling factor applied to each term of the series."
+      "businessContext": "Scaling factor applied to each term of the series.",
+      "label_i18n": {
+        "en": "Multiplier",
+        "tr": "Multiplier",
+        "de": "Multiplier",
+        "fr": "Multiplier",
+        "es": "Multiplier",
+        "ar": "Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "approximateIntegral"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "workforce-hr"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User age for base dose adjustment"
+      "businessContext": "User age for base dose adjustment",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Weight used to increase dose if over 90 kg"
+      "businessContext": "Weight used to increase dose if over 90 kg",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "nightShift",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "boolean (0 = no, 1 = yes)",
       "default": 0,
-      "businessContext": "Indicates whether user works night shift"
+      "businessContext": "Indicates whether user works night shift",
+      "label_i18n": {
+        "en": "Night Shift",
+        "tr": "Night Shift",
+        "de": "Night Shift",
+        "fr": "Night Shift",
+        "es": "Night Shift",
+        "ar": "Night Shift"
+      }
     },
     {
       "id": "jetLagFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor (0–1)",
       "default": 0,
-      "businessContext": "Severity of jet lag; adds up to 0.5 mg"
+      "businessContext": "Severity of jet lag; adds up to 0.5 mg",
+      "label_i18n": {
+        "en": "Jet Lag Severity",
+        "tr": "Jet Lag Severity",
+        "de": "Jet Lag Severity",
+        "fr": "Jet Lag Severity",
+        "es": "Jet Lag Severity",
+        "ar": "Jet Lag Severity"
+      }
     }
   ],
   "formulas": {
@@ -41,10 +73,16 @@
     "jetLagAddition": "jetLagFactor * 0.5",
     "doseUncapped": "(baseDose * weightMultiplier * shiftMultiplier) + jetLagAddition",
     "dose": "Math.min(5, doseUncapped)",
-    "doseRounded": "Math.round(dose * 100) / 100"
+    "doseRounded": "Math.round(dose * 100) / 100",
+    "____baseDose_____mg_": "\" + baseDose + \" mg\"",
+    "x____weightMultiplier": "x\" + weightMultiplier",
+    "x____shiftMultiplier": "x\" + shiftMultiplier",
+    "_____jetLagAddition_____mg_": "+\" + jetLagAddition + \" mg\"",
+    "____doseRounded_____mg_": "\" + doseRounded + \" mg\"",
+    "result": "doseRounded + \" mg\""
   },
   "outputs": {
-    "primary": "doseRounded + \" mg\"",
+    "primary": "result",
     "breakdown": [
       "\"Base dose: \" + baseDose + \" mg\"",
       "\"Weight factor: x\" + weightMultiplier",
@@ -53,10 +91,10 @@
       "\"Total (capped at 5 mg): \" + doseRounded + \" mg\""
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "workforce-hr"
 }

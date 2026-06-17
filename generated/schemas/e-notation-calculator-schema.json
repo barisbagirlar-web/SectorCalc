@@ -5,38 +5,72 @@
       "id": "coeff1",
       "label": "Coefficient 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "First number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)"
+      "businessContext": "First number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)",
+      "label_i18n": {
+        "en": "Coefficient 1",
+        "tr": "Coefficient 1",
+        "de": "Coefficient 1",
+        "fr": "Coefficient 1",
+        "es": "Coefficient 1",
+        "ar": "Coefficient 1"
+      }
     },
     {
       "id": "exp1",
       "label": "Exponent 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Exponent of 10 for the first number"
+      "businessContext": "Exponent of 10 for the first number",
+      "label_i18n": {
+        "en": "Exponent 1",
+        "tr": "Exponent 1",
+        "de": "Exponent 1",
+        "fr": "Exponent 1",
+        "es": "Exponent 1",
+        "ar": "Exponent 1"
+      }
     },
     {
       "id": "coeff2",
       "label": "Coefficient 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Second number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)"
+      "businessContext": "Second number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)",
+      "label_i18n": {
+        "en": "Coefficient 2",
+        "tr": "Coefficient 2",
+        "de": "Coefficient 2",
+        "fr": "Coefficient 2",
+        "es": "Coefficient 2",
+        "ar": "Coefficient 2"
+      }
     },
     {
       "id": "exp2",
       "label": "Exponent 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Exponent of 10 for the second number"
+      "businessContext": "Exponent of 10 for the second number",
+      "label_i18n": {
+        "en": "Exponent 2",
+        "tr": "Exponent 2",
+        "de": "Exponent 2",
+        "fr": "Exponent 2",
+        "es": "Exponent 2",
+        "ar": "Exponent 2"
+      }
     }
   ],
   "formulas": {
     "decimalValue": "coeff1 * coeff2 * Math.pow(10, exp1 + exp2)",
-    "eNotation": "decimalValue.toExponential(4)"
+    "eNotation": "decimalValue.toExponential(4)",
+    "__decimalValue__": "${decimalValue}`",
+    "__eNotation__": "${eNotation}`"
   },
   "outputs": {
     "primary": "eNotation",
@@ -45,8 +79,8 @@
       "`Scientific notation: ${eNotation}`"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

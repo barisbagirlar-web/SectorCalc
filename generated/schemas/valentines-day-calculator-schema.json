@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 500,
-      "businessContext": "Toplam harcama limiti"
+      "businessContext": "Toplam harcama limiti",
+      "label_i18n": {
+        "en": "Bütçe (TL)",
+        "tr": "Bütçe (TL)",
+        "de": "Bütçe (TL)",
+        "fr": "Bütçe (TL)",
+        "es": "Bütçe (TL)",
+        "ar": "Bütçe (TL)"
+      }
     },
     {
       "id": "numPeople",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kişi",
       "default": 2,
-      "businessContext": "Hediye alınacak kişi sayısı"
+      "businessContext": "Hediye alınacak kişi sayısı",
+      "label_i18n": {
+        "en": "Kişi Sayısı",
+        "tr": "Kişi Sayısı",
+        "de": "Kişi Sayısı",
+        "fr": "Kişi Sayısı",
+        "es": "Kişi Sayısı",
+        "ar": "Kişi Sayısı"
+      }
     },
     {
       "id": "giftCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 200,
-      "businessContext": "Ana hediye için harcanan tutar"
+      "businessContext": "Ana hediye için harcanan tutar",
+      "label_i18n": {
+        "en": "Hediye Maliyeti (TL)",
+        "tr": "Hediye Maliyeti (TL)",
+        "de": "Hediye Maliyeti (TL)",
+        "fr": "Hediye Maliyeti (TL)",
+        "es": "Hediye Maliyeti (TL)",
+        "ar": "Hediye Maliyeti (TL)"
+      }
     },
     {
       "id": "dinnerCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 150,
-      "businessContext": "Akşam yemeği harcaması"
+      "businessContext": "Akşam yemeği harcaması",
+      "label_i18n": {
+        "en": "Yemek Maliyeti (TL)",
+        "tr": "Yemek Maliyeti (TL)",
+        "de": "Yemek Maliyeti (TL)",
+        "fr": "Yemek Maliyeti (TL)",
+        "es": "Yemek Maliyeti (TL)",
+        "ar": "Yemek Maliyeti (TL)"
+      }
     },
     {
       "id": "flowerCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Çiçek buketi maliyeti"
+      "businessContext": "Çiçek buketi maliyeti",
+      "label_i18n": {
+        "en": "Çiçek Maliyeti (TL)",
+        "tr": "Çiçek Maliyeti (TL)",
+        "de": "Çiçek Maliyeti (TL)",
+        "fr": "Çiçek Maliyeti (TL)",
+        "es": "Çiçek Maliyeti (TL)",
+        "ar": "Çiçek Maliyeti (TL)"
+      }
     },
     {
       "id": "otherCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Kart, ambalaj vb. ek harcamalar"
+      "businessContext": "Kart, ambalaj vb. ek harcamalar",
+      "label_i18n": {
+        "en": "Diğer Maliyetler (TL)",
+        "tr": "Diğer Maliyetler (TL)",
+        "de": "Diğer Maliyetler (TL)",
+        "fr": "Diğer Maliyetler (TL)",
+        "es": "Diğer Maliyetler (TL)",
+        "ar": "Diğer Maliyetler (TL)"
+      }
     }
   ],
   "formulas": {
@@ -55,20 +103,23 @@
     "remainingBudget": "budget - totalCost",
     "costPerPerson": "totalCost / numPeople",
     "budgetUtilization": "(totalCost / budget) * 100",
-    "romanceScore": "Math.min(100, (giftCost * 0.4 + dinnerCost * 0.3 + flowerCost * 0.2 + otherCost * 0.1) / (budget / 100))"
+    "romanceScore": "Math.min(100, (giftCost * 0.4 + dinnerCost * 0.3 + flowerCost * 0.2 + otherCost * 0.1) / (budget / 100))",
+    "_costPerPerson__TL": "{costPerPerson} TL",
+    "__budgetUtilization_": "%{budgetUtilization}",
+    "_romanceScore__100": "{romanceScore}/100"
   },
   "outputs": {
-    "primary": "Toplam maliyet: {totalCost} TL, Kalan bütçe: {remainingBudget} TL",
+    "primary": "totalCost",
     "breakdown": [
       "Kişi başı maliyet: {costPerPerson} TL",
       "Bütçe kullanım oranı: %{budgetUtilization}",
       "Romantizm puanı: {romanceScore}/100"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Perakende & Gıda",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000000,
-      "businessContext": "Total revenue from sales after returns and discounts"
+      "businessContext": "Total revenue from sales after returns and discounts",
+      "label_i18n": {
+        "en": "Net Sales (Revenue)",
+        "tr": "Net Sales (Revenue)",
+        "de": "Net Sales (Revenue)",
+        "fr": "Net Sales (Revenue)",
+        "es": "Net Sales (Revenue)",
+        "ar": "Net Sales (Revenue)"
+      }
     },
     {
       "id": "totalAssetsBeginning",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500000,
-      "businessContext": "Total assets at the start of the measurement period"
+      "businessContext": "Total assets at the start of the measurement period",
+      "label_i18n": {
+        "en": "Total Assets (Beginning of Period)",
+        "tr": "Total Assets (Beginning of Period)",
+        "de": "Total Assets (Beginning of Period)",
+        "fr": "Total Assets (Beginning of Period)",
+        "es": "Total Assets (Beginning of Period)",
+        "ar": "Total Assets (Beginning of Period)"
+      }
     },
     {
       "id": "totalAssetsEnding",
@@ -23,20 +39,37 @@
       "type": "number",
       "unit": "USD",
       "default": 600000,
-      "businessContext": "Total assets at the end of the measurement period"
+      "businessContext": "Total assets at the end of the measurement period",
+      "label_i18n": {
+        "en": "Total Assets (End of Period)",
+        "tr": "Total Assets (End of Period)",
+        "de": "Total Assets (End of Period)",
+        "fr": "Total Assets (End of Period)",
+        "es": "Total Assets (End of Period)",
+        "ar": "Total Assets (End of Period)"
+      }
     },
     {
       "id": "industryAverage",
       "label": "Industry Average Turnover Ratio",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Average asset turnover ratio for benchmarking (optional)"
+      "businessContext": "Average asset turnover ratio for benchmarking (optional)",
+      "label_i18n": {
+        "en": "Industry Average Turnover Ratio",
+        "tr": "Industry Average Turnover Ratio",
+        "de": "Industry Average Turnover Ratio",
+        "fr": "Industry Average Turnover Ratio",
+        "es": "Industry Average Turnover Ratio",
+        "ar": "Industry Average Turnover Ratio"
+      }
     }
   ],
   "formulas": {
     "averageTotalAssets": "(totalAssetsBeginning + totalAssetsEnding) / 2",
-    "assetTurnoverRatio": "netSales / ((totalAssetsBeginning + totalAssetsEnding) / 2)"
+    "assetTurnoverRatio": "netSales / ((totalAssetsBeginning + totalAssetsEnding) / 2)",
+    "netSales": "netSales"
   },
   "outputs": {
     "primary": "assetTurnoverRatio",
@@ -45,10 +78,10 @@
       "averageTotalAssets"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "İK & Personel",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "workforce-hr"
 }

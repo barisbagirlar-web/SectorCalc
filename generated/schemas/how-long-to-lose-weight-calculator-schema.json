@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "User's current body weight in kilograms."
+      "businessContext": "User's current body weight in kilograms.",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "goalWeight_kg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Target body weight in kilograms."
+      "businessContext": "Target body weight in kilograms.",
+      "label_i18n": {
+        "en": "Goal Weight",
+        "tr": "Goal Weight",
+        "de": "Goal Weight",
+        "fr": "Goal Weight",
+        "es": "Goal Weight",
+        "ar": "Goal Weight"
+      }
     },
     {
       "id": "height_cm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "User's height in centimeters, used for BMR calculation."
+      "businessContext": "User's height in centimeters, used for BMR calculation.",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User's age in years, used for BMR calculation."
+      "businessContext": "User's age in years, used for BMR calculation.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for male, 0 for female. Used in BMR formula."
+      "businessContext": "1 for male, 0 for female. Used in BMR formula.",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "activityLevel",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.2,
-      "businessContext": "Physical activity factor: 1.2 sedentary, 1.375 lightly active, 1.55 moderately active, 1.725 very active, 1.9 extra active."
+      "businessContext": "Physical activity factor: 1.2 sedentary, 1.375 lightly active, 1.55 moderately active, 1.725 very active, 1.9 extra active.",
+      "label_i18n": {
+        "en": "Activity Level",
+        "tr": "Activity Level",
+        "de": "Activity Level",
+        "fr": "Activity Level",
+        "es": "Activity Level",
+        "ar": "Activity Level"
+      }
     },
     {
       "id": "dailyCalorieIntake",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kcal/day",
       "default": 2000,
-      "businessContext": "Average daily calorie consumption."
+      "businessContext": "Average daily calorie consumption.",
+      "label_i18n": {
+        "en": "Daily Calorie Intake",
+        "tr": "Daily Calorie Intake",
+        "de": "Daily Calorie Intake",
+        "fr": "Daily Calorie Intake",
+        "es": "Daily Calorie Intake",
+        "ar": "Daily Calorie Intake"
+      }
     }
   ],
   "formulas": {
@@ -76,10 +132,10 @@
       "estimatedMonths"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

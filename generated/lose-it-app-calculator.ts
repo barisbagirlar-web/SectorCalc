@@ -2,41 +2,36 @@
 import * as z from 'zod';
 
 export interface Lose_it_app_calculatorInput {
-  currentWeight: number;
-  targetWeight: number;
-  height: number;
   age: number;
+  height: number;
+  weight: number;
   gender: number;
   activityLevel: number;
-  dailyCalorieIntake: number;
-  targetDays: number;
+  weightGoal: number;
 }
 
 export const Lose_it_app_calculatorInputSchema = z.object({
-  currentWeight: z.number().default(80),
-  targetWeight: z.number().default(70),
-  height: z.number().default(170),
   age: z.number().default(30),
-  gender: z.number().default(1),
-  activityLevel: z.number().default(1.55),
-  dailyCalorieIntake: z.number().default(2000),
-  targetDays: z.number().default(90),
+  height: z.number().default(170),
+  weight: z.number().default(70),
+  gender: z.number().default(0),
+  activityLevel: z.number().default(1.2),
+  weightGoal: z.number().default(-0.5),
 });
 
 function evaluateAllFormulas(input: Lose_it_app_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 10 * input.currentWeight + 6.25 * input.height - 5 * input.age + (input.gender === 1 ? 5 : -161); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
+  try { const v = 10 * input.weight + 6.25 * input.height - 5 * input.age + (input.gender === 0 ? 5 : -161); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
   try { const v = (results["bmr"] ?? 0) * input.activityLevel; results["tdee"] = Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
-  try { const v = (results["tdee"] ?? 0) - input.dailyCalorieIntake; results["dailyDeficit"] = Number.isFinite(v) ? v : 0; } catch { results["dailyDeficit"] = 0; }
-  try { const v = ((results["dailyDeficit"] ?? 0) / 7700) * input.targetDays; results["projectedWeightLoss"] = Number.isFinite(v) ? v : 0; } catch { results["projectedWeightLoss"] = 0; }
-  try { const v = input.currentWeight - (results["projectedWeightLoss"] ?? 0); results["projectedWeight"] = Number.isFinite(v) ? v : 0; } catch { results["projectedWeight"] = 0; }
+  try { const v = (input.weightGoal * 7700) / 7; results["dailyAdjustment"] = Number.isFinite(v) ? v : 0; } catch { results["dailyAdjustment"] = 0; }
+  try { const v = (results["tdee"] ?? 0) + (results["dailyAdjustment"] ?? 0); results["calorieBudget"] = Number.isFinite(v) ? v : 0; } catch { results["calorieBudget"] = 0; }
   return results;
 }
 
 
 export function calculateLose_it_app_calculator(input: Lose_it_app_calculatorInput): Lose_it_app_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["projectedWeight"] ?? 0;
+  const totalWasteCost = values["calorieBudget"] ?? 0;
   const breakdown = {
     
   };

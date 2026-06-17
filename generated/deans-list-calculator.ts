@@ -24,13 +24,18 @@ function evaluateAllFormulas(input: Deans_list_calculatorInput): Record<string, 
   try { const v = (results["meetsGpaRequirement"] ?? 0) && (results["meetsCreditRequirement"] ?? 0); results["isEligible"] = Number.isFinite(v) ? v : 0; } catch { results["isEligible"] = 0; }
   try { const v = input.gpa - input.minGpa; results["gpaDifference"] = Number.isFinite(v) ? v : 0; } catch { results["gpaDifference"] = 0; }
   try { const v = input.minCredits - input.earnedCredits; results["creditDeficit"] = Number.isFinite(v) ? v : 0; } catch { results["creditDeficit"] = 0; }
+  try { const v = 'GPA requirement not met'; results["_GPA_requirement_not_met_"] = Number.isFinite(v) ? v : 0; } catch { results["_GPA_requirement_not_met_"] = 0; }
+  try { const v = 'Credit requirement not met'; results["_Credit_requirement_not_met_"] = Number.isFinite(v) ? v : 0; } catch { results["_Credit_requirement_not_met_"] = 0; }
+  try { const v = 'GPA below minimum by ' + Math.abs((results["gpaDifference"] ?? 0)).toFixed(2); results["_GPA_below_minimum_by_____Math_abs_gpaDi"] = Number.isFinite(v) ? v : 0; } catch { results["_GPA_below_minimum_by_____Math_abs_gpaDi"] = 0; }
+  results["____creditDeficit____No_credit_deficit_"] = 0;
+  try { const v = (results["isEligible"] ?? 0) ? 'Eligible for Dean\'s List' : 'Not Eligible for Dean\'s List'; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateDeans_list_calculator(input: Deans_list_calculatorInput): Deans_list_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["isEligible"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

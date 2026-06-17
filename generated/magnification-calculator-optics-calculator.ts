@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface Magnification_calculator_optics_calculatorInput {
   focalLength: number;
   objectDistance: number;
+  auto_input_3: number;
 }
 
 export const Magnification_calculator_optics_calculatorInputSchema = z.object({
   focalLength: z.number().default(50),
   objectDistance: z.number().default(100),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Magnification_calculator_optics_calculatorInput): Record<string, number> {

@@ -118,16 +118,16 @@ function resolveCategoryKey(
   slug: string,
   raw: RawSchemaRecord,
   normalized: GeneratedToolSchema | null,
-  categorySlugFromIndex?: string,
+  _categorySlugFromIndex?: string,
 ): string {
-  const categorySlug = resolveCategorySlugFallback(slug, raw, normalized, categorySlugFromIndex);
-  if (categorySlug) {
-    return categorySlug;
-  }
-
   const schemaCategory = asString(raw.category);
   if (schemaCategory && schemaCategory !== DEFAULT_LABEL) {
     return resolveSchemaCategoryKey(schemaCategory);
+  }
+
+  const categorySlug = resolveCategorySlugFallback(slug, raw, normalized, _categorySlugFromIndex);
+  if (categorySlug) {
+    return categorySlug;
   }
 
   return "diger";

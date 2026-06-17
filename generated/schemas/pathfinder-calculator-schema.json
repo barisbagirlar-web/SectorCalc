@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "Kat edilecek toplam mesafe"
+      "businessContext": "Kat edilecek toplam mesafe",
+      "label_i18n": {
+        "en": "Mesafe (km)",
+        "tr": "Mesafe (km)",
+        "de": "Mesafe (km)",
+        "fr": "Mesafe (km)",
+        "es": "Mesafe (km)",
+        "ar": "Mesafe (km)"
+      }
     },
     {
       "id": "speed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 80,
-      "businessContext": "Seyir hızı"
+      "businessContext": "Seyir hızı",
+      "label_i18n": {
+        "en": "Ortalama Hız (km/sa)",
+        "tr": "Ortalama Hız (km/sa)",
+        "de": "Ortalama Hız (km/sa)",
+        "fr": "Ortalama Hız (km/sa)",
+        "es": "Ortalama Hız (km/sa)",
+        "ar": "Ortalama Hız (km/sa)"
+      }
     },
     {
       "id": "fuelConsumption",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L/100km",
       "default": 30,
-      "businessContext": "Aracın 100 km'de tükettiği yakıt"
+      "businessContext": "Aracın 100 km'de tükettiği yakıt",
+      "label_i18n": {
+        "en": "Yakıt Tüketimi (L/100km)",
+        "tr": "Yakıt Tüketimi (L/100km)",
+        "de": "Yakıt Tüketimi (L/100km)",
+        "fr": "Yakıt Tüketimi (L/100km)",
+        "es": "Yakıt Tüketimi (L/100km)",
+        "ar": "Yakıt Tüketimi (L/100km)"
+      }
     },
     {
       "id": "fuelCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/L",
       "default": 25,
-      "businessContext": "Yakıtın litre fiyatı"
+      "businessContext": "Yakıtın litre fiyatı",
+      "label_i18n": {
+        "en": "Yakıt Birim Fiyatı (TL/L)",
+        "tr": "Yakıt Birim Fiyatı (TL/L)",
+        "de": "Yakıt Birim Fiyatı (TL/L)",
+        "fr": "Yakıt Birim Fiyatı (TL/L)",
+        "es": "Yakıt Birim Fiyatı (TL/L)",
+        "ar": "Yakıt Birim Fiyatı (TL/L)"
+      }
     },
     {
       "id": "stopCount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Yolculuk sırasında verilen mola sayısı"
+      "businessContext": "Yolculuk sırasında verilen mola sayısı",
+      "label_i18n": {
+        "en": "Mola Sayısı",
+        "tr": "Mola Sayısı",
+        "de": "Mola Sayısı",
+        "fr": "Mola Sayısı",
+        "es": "Mola Sayısı",
+        "ar": "Mola Sayısı"
+      }
     },
     {
       "id": "stopDuration",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dk",
       "default": 30,
-      "businessContext": "Her mola için harcanan süre"
+      "businessContext": "Her mola için harcanan süre",
+      "label_i18n": {
+        "en": "Mola Süresi (dk)",
+        "tr": "Mola Süresi (dk)",
+        "de": "Mola Süresi (dk)",
+        "fr": "Mola Süresi (dk)",
+        "es": "Mola Süresi (dk)",
+        "ar": "Mola Süresi (dk)"
+      }
     },
     {
       "id": "tollCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Otoyol/geçiş ücretleri toplamı"
+      "businessContext": "Otoyol/geçiş ücretleri toplamı",
+      "label_i18n": {
+        "en": "Geçiş Ücreti (TL)",
+        "tr": "Geçiş Ücreti (TL)",
+        "de": "Geçiş Ücreti (TL)",
+        "fr": "Geçiş Ücreti (TL)",
+        "es": "Geçiş Ücreti (TL)",
+        "ar": "Geçiş Ücreti (TL)"
+      }
     },
     {
       "id": "driverWage",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "TL/gün",
       "default": 500,
-      "businessContext": "Sürücünün günlük maliyeti"
+      "businessContext": "Sürücünün günlük maliyeti",
+      "label_i18n": {
+        "en": "Sürücü Yevmiyesi (TL/gün)",
+        "tr": "Sürücü Yevmiyesi (TL/gün)",
+        "de": "Sürücü Yevmiyesi (TL/gün)",
+        "fr": "Sürücü Yevmiyesi (TL/gün)",
+        "es": "Sürücü Yevmiyesi (TL/gün)",
+        "ar": "Sürücü Yevmiyesi (TL/gün)"
+      }
     }
   ],
   "formulas": {
@@ -74,10 +138,14 @@
     "fuelLitres": "(distance / 100) * fuelConsumption",
     "fuelCostTotal": "fuelLitres * fuelCost",
     "driverCost": "(totalTimeHours / 24) * driverWage",
-    "totalCost": "fuelCostTotal + tollCost + driverCost"
+    "totalCost": "fuelCostTotal + tollCost + driverCost",
+    "_fuelCostTotal__TL": "{fuelCostTotal} TL",
+    "_tollCost__TL": "{tollCost} TL",
+    "_driverCost__TL": "{driverCost} TL",
+    "_totalTimeHours__saat": "{totalTimeHours} saat"
   },
   "outputs": {
-    "primary": "Toplam Maliyet: {totalCost} TL",
+    "primary": "travelTimeHours",
     "breakdown": [
       "Yakıt Maliyeti: {fuelCostTotal} TL",
       "Geçiş Ücreti: {tollCost} TL",
@@ -85,10 +153,10 @@
       "Toplam Süre: {totalTimeHours} saat"
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 6,
-      "businessContext": "Working pressure supplied to the cylinder"
+      "businessContext": "Working pressure supplied to the cylinder",
+      "label_i18n": {
+        "en": "System Pressure",
+        "tr": "System Pressure",
+        "de": "System Pressure",
+        "fr": "System Pressure",
+        "es": "System Pressure",
+        "ar": "System Pressure"
+      }
     },
     {
       "id": "boreDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Inner diameter of the cylinder barrel"
+      "businessContext": "Inner diameter of the cylinder barrel",
+      "label_i18n": {
+        "en": "Bore Diameter",
+        "tr": "Bore Diameter",
+        "de": "Bore Diameter",
+        "fr": "Bore Diameter",
+        "es": "Bore Diameter",
+        "ar": "Bore Diameter"
+      }
     },
     {
       "id": "rodDiameter",
@@ -23,31 +39,63 @@
       "type": "number",
       "unit": "mm",
       "default": 25,
-      "businessContext": "Diameter of the piston rod (0 for rodless cylinder)"
+      "businessContext": "Diameter of the piston rod (0 for rodless cylinder)",
+      "label_i18n": {
+        "en": "Rod Diameter",
+        "tr": "Rod Diameter",
+        "de": "Rod Diameter",
+        "fr": "Rod Diameter",
+        "es": "Rod Diameter",
+        "ar": "Rod Diameter"
+      }
     },
     {
       "id": "cylinderCount",
       "label": "Number of Cylinders",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of identical cylinders operating together"
+      "businessContext": "Number of identical cylinders operating together",
+      "label_i18n": {
+        "en": "Number of Cylinders",
+        "tr": "Number of Cylinders",
+        "de": "Number of Cylinders",
+        "fr": "Number of Cylinders",
+        "es": "Number of Cylinders",
+        "ar": "Number of Cylinders"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Design safety margin (≥1.5 per ISO 4414)"
+      "businessContext": "Design safety margin (≥1.5 per ISO 4414)",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "efficiency",
       "label": "Efficiency",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.9,
-      "businessContext": "Cylinder efficiency (0.85–0.95 typical)"
+      "businessContext": "Cylinder efficiency (0.85–0.95 typical)",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -63,10 +111,10 @@
       "effectivePushForce"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

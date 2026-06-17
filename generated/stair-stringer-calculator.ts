@@ -17,14 +17,26 @@ export const Stair_stringer_calculatorInputSchema = z.object({
   nosing: z.number().default(25),
 });
 
-function evaluateAllFormulas(_input: Stair_stringer_calculatorInput): Record<string, number> {
-  return {};
+function evaluateAllFormulas(input: Stair_stringer_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.totalRise; results["riserHeight"] = Number.isFinite(v) ? v : 0; } catch { results["riserHeight"] = 0; }
+  try { const v = input.totalRise; results["totalRun"] = Number.isFinite(v) ? v : 0; } catch { results["totalRun"] = 0; }
+  try { const v = input.totalRise; results["stringerLength"] = Number.isFinite(v) ? v : 0; } catch { results["stringerLength"] = 0; }
+  try { const v = input.totalRise; results["angle"] = Number.isFinite(v) ? v : 0; } catch { results["angle"] = 0; }
+  try { const v = input.totalRise; results["numberTreads"] = Number.isFinite(v) ? v : 0; } catch { results["numberTreads"] = 0; }
+  results["_riserHeight_toFixed_1___mm"] = 0;
+  results["_totalRun_toFixed_1___mm"] = 0;
+  try { const v = (results["numberTreads"] ?? 0); results["_numberTreads_"] = Number.isFinite(v) ? v : 0; } catch { results["_numberTreads_"] = 0; }
+  results["_stringerLength_toFixed_1___mm"] = 0;
+  results["_angle_toFixed_1___"] = 0;
+  results["result"] = 0;
+  return results;
 }
 
 
 export function calculateStair_stringer_calculator(input: Stair_stringer_calculatorInput): Stair_stringer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Cutting"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

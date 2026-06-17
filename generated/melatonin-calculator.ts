@@ -24,13 +24,19 @@ function evaluateAllFormulas(input: Melatonin_calculatorInput): Record<string, n
   try { const v = ((results["baseDose"] ?? 0) * (results["weightMultiplier"] ?? 0) * (results["shiftMultiplier"] ?? 0)) + (results["jetLagAddition"] ?? 0); results["doseUncapped"] = Number.isFinite(v) ? v : 0; } catch { results["doseUncapped"] = 0; }
   try { const v = Math.min(5, (results["doseUncapped"] ?? 0)); results["dose"] = Number.isFinite(v) ? v : 0; } catch { results["dose"] = 0; }
   try { const v = Math.round((results["dose"] ?? 0) * 100) / 100; results["doseRounded"] = Number.isFinite(v) ? v : 0; } catch { results["doseRounded"] = 0; }
+  results["____baseDose_____mg_"] = 0;
+  results["x____weightMultiplier"] = 0;
+  results["x____shiftMultiplier"] = 0;
+  results["_____jetLagAddition_____mg_"] = 0;
+  results["____doseRounded_____mg_"] = 0;
+  try { const v = (results["doseRounded"] ?? 0) + " mg"; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateMelatonin_calculator(input: Melatonin_calculatorInput): Melatonin_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["doseRounded"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

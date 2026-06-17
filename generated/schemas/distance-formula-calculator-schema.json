@@ -5,33 +5,65 @@
       "id": "x1",
       "label": "x₁",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "x-coordinate of the first point"
+      "businessContext": "x-coordinate of the first point",
+      "label_i18n": {
+        "en": "x₁",
+        "tr": "x₁",
+        "de": "x₁",
+        "fr": "x₁",
+        "es": "x₁",
+        "ar": "x₁"
+      }
     },
     {
       "id": "y1",
       "label": "y₁",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "y-coordinate of the first point"
+      "businessContext": "y-coordinate of the first point",
+      "label_i18n": {
+        "en": "y₁",
+        "tr": "y₁",
+        "de": "y₁",
+        "fr": "y₁",
+        "es": "y₁",
+        "ar": "y₁"
+      }
     },
     {
       "id": "x2",
       "label": "x₂",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "x-coordinate of the second point"
+      "businessContext": "x-coordinate of the second point",
+      "label_i18n": {
+        "en": "x₂",
+        "tr": "x₂",
+        "de": "x₂",
+        "fr": "x₂",
+        "es": "x₂",
+        "ar": "x₂"
+      }
     },
     {
       "id": "y2",
       "label": "y₂",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "y-coordinate of the second point"
+      "businessContext": "y-coordinate of the second point",
+      "label_i18n": {
+        "en": "y₂",
+        "tr": "y₂",
+        "de": "y₂",
+        "fr": "y₂",
+        "es": "y₂",
+        "ar": "y₂"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "distanceSquared"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

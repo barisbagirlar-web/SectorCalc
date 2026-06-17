@@ -21,13 +21,15 @@ function evaluateAllFormulas(input: Target_heart_rate_calculatorInput): Record<s
   try { const v = (results["maxHeartRate"] ?? 0) - input.restingHeartRate; results["heartRateReserve"] = Number.isFinite(v) ? v : 0; } catch { results["heartRateReserve"] = 0; }
   try { const v = (results["heartRateReserve"] ?? 0) * (input.intensityMin / 100) + input.restingHeartRate; results["targetMin"] = Number.isFinite(v) ? v : 0; } catch { results["targetMin"] = 0; }
   try { const v = (results["heartRateReserve"] ?? 0) * (input.intensityMax / 100) + input.restingHeartRate; results["targetMax"] = Number.isFinite(v) ? v : 0; } catch { results["targetMax"] = 0; }
+  results["_maxHeartRate__bpm"] = 0;
+  results["_heartRateReserve__bpm"] = 0;
   return results;
 }
 
 
 export function calculateTarget_heart_rate_calculator(input: Target_heart_rate_calculatorInput): Target_heart_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Your"] ?? 0;
+  const totalWasteCost = values["maxHeartRate"] ?? 0;
   const breakdown = {
     
   };

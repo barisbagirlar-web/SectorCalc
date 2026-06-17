@@ -19,13 +19,17 @@ function evaluateAllFormulas(input: Scientific_notation_calculatorInput): Record
   const results: Record<string, number> = {};
   results["toScientific"] = 0;
   try { const v = input.coefficient * Math.pow(10, input.exponent); results["fromScientific"] = Number.isFinite(v) ? v : 0; } catch { results["fromScientific"] = 0; }
+  try { const v = input.coefficient; results["_coefficient_"] = Number.isFinite(v) ? v : 0; } catch { results["_coefficient_"] = 0; }
+  try { const v = input.exponent; results["_exponent_"] = Number.isFinite(v) ? v : 0; } catch { results["_exponent_"] = 0; }
+  try { const v = input.value; results["_value_"] = Number.isFinite(v) ? v : 0; } catch { results["_value_"] = 0; }
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateScientific_notation_calculator(input: Scientific_notation_calculatorInput): Scientific_notation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Scientific"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

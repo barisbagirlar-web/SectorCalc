@@ -23,8 +23,9 @@ export const Top_speed_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Top_speed_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
+  try { const v = 9.81; results["gravitationalAcceleration"] = Number.isFinite(v) ? v : 0; } catch { results["gravitationalAcceleration"] = 0; }
   try { const v = 0.5 * input.airDensity * input.dragCoefficient * input.frontalArea; results["a"] = Number.isFinite(v) ? v : 0; } catch { results["a"] = 0; }
-  try { const v = input.rollingResistanceCoefficient * input.vehicleMass * gravitationalAcceleration; results["b"] = Number.isFinite(v) ? v : 0; } catch { results["b"] = 0; }
+  try { const v = input.rollingResistanceCoefficient * input.vehicleMass * (results["gravitationalAcceleration"] ?? 0); results["b"] = Number.isFinite(v) ? v : 0; } catch { results["b"] = 0; }
   try { const v = input.enginePower * (input.drivetrainEfficiency / 100); results["availablePower"] = Number.isFinite(v) ? v : 0; } catch { results["availablePower"] = 0; }
   try { const v = ((results["availablePower"] ?? 0) / (2 * (results["a"] ?? 0))) ** 2 + ((results["b"] ?? 0) / (3 * (results["a"] ?? 0))) ** 3; results["discriminantPart"] = Number.isFinite(v) ? v : 0; } catch { results["discriminantPart"] = 0; }
   try { const v = Math.cbrt( ((results["availablePower"] ?? 0)/(2*(results["a"] ?? 0))) + Math.sqrt((results["discriminantPart"] ?? 0)) ) + Math.cbrt( ((results["availablePower"] ?? 0)/(2*(results["a"] ?? 0))) - Math.sqrt((results["discriminantPart"] ?? 0)) ); results["topSpeedMS"] = Number.isFinite(v) ? v : 0; } catch { results["topSpeedMS"] = 0; }

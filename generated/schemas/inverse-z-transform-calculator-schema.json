@@ -5,41 +5,81 @@
       "id": "b0",
       "label": "b₀ (Num. z⁰ coeff.)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Numerator coefficient for the constant term (z⁰)"
+      "businessContext": "Numerator coefficient for the constant term (z⁰)",
+      "label_i18n": {
+        "en": "b₀ (Num. z⁰ coeff.)",
+        "tr": "b₀ (Num. z⁰ coeff.)",
+        "de": "b₀ (Num. z⁰ coeff.)",
+        "fr": "b₀ (Num. z⁰ coeff.)",
+        "es": "b₀ (Num. z⁰ coeff.)",
+        "ar": "b₀ (Num. z⁰ coeff.)"
+      }
     },
     {
       "id": "b1",
       "label": "b₁ (Num. z⁻¹ coeff.)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Numerator coefficient for the z⁻¹ term"
+      "businessContext": "Numerator coefficient for the z⁻¹ term",
+      "label_i18n": {
+        "en": "b₁ (Num. z⁻¹ coeff.)",
+        "tr": "b₁ (Num. z⁻¹ coeff.)",
+        "de": "b₁ (Num. z⁻¹ coeff.)",
+        "fr": "b₁ (Num. z⁻¹ coeff.)",
+        "es": "b₁ (Num. z⁻¹ coeff.)",
+        "ar": "b₁ (Num. z⁻¹ coeff.)"
+      }
     },
     {
       "id": "b2",
       "label": "b₂ (Num. z⁻² coeff.)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Numerator coefficient for the z⁻² term"
+      "businessContext": "Numerator coefficient for the z⁻² term",
+      "label_i18n": {
+        "en": "b₂ (Num. z⁻² coeff.)",
+        "tr": "b₂ (Num. z⁻² coeff.)",
+        "de": "b₂ (Num. z⁻² coeff.)",
+        "fr": "b₂ (Num. z⁻² coeff.)",
+        "es": "b₂ (Num. z⁻² coeff.)",
+        "ar": "b₂ (Num. z⁻² coeff.)"
+      }
     },
     {
       "id": "a1",
       "label": "a₁ (Den. z⁻¹ coeff.)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Denominator coefficient for the z⁻¹ term (a₀ = 1)"
+      "businessContext": "Denominator coefficient for the z⁻¹ term (a₀ = 1)",
+      "label_i18n": {
+        "en": "a₁ (Den. z⁻¹ coeff.)",
+        "tr": "a₁ (Den. z⁻¹ coeff.)",
+        "de": "a₁ (Den. z⁻¹ coeff.)",
+        "fr": "a₁ (Den. z⁻¹ coeff.)",
+        "es": "a₁ (Den. z⁻¹ coeff.)",
+        "ar": "a₁ (Den. z⁻¹ coeff.)"
+      }
     },
     {
       "id": "a2",
       "label": "a₂ (Den. z⁻² coeff.)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Denominator coefficient for the z⁻² term (a₀ = 1)"
+      "businessContext": "Denominator coefficient for the z⁻² term (a₀ = 1)",
+      "label_i18n": {
+        "en": "a₂ (Den. z⁻² coeff.)",
+        "tr": "a₂ (Den. z⁻² coeff.)",
+        "de": "a₂ (Den. z⁻² coeff.)",
+        "fr": "a₂ (Den. z⁻² coeff.)",
+        "es": "a₂ (Den. z⁻² coeff.)",
+        "ar": "a₂ (Den. z⁻² coeff.)"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "y4"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

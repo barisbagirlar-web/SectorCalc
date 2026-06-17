@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "High-density lipoprotein, 'good' cholesterol"
+      "businessContext": "High-density lipoprotein, 'good' cholesterol",
+      "label_i18n": {
+        "en": "HDL Cholesterol",
+        "tr": "HDL Cholesterol",
+        "de": "HDL Cholesterol",
+        "fr": "HDL Cholesterol",
+        "es": "HDL Cholesterol",
+        "ar": "HDL Cholesterol"
+      }
     },
     {
       "id": "ldl",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 100,
-      "businessContext": "Low-density lipoprotein, 'bad' cholesterol"
+      "businessContext": "Low-density lipoprotein, 'bad' cholesterol",
+      "label_i18n": {
+        "en": "LDL Cholesterol",
+        "tr": "LDL Cholesterol",
+        "de": "LDL Cholesterol",
+        "fr": "LDL Cholesterol",
+        "es": "LDL Cholesterol",
+        "ar": "LDL Cholesterol"
+      }
     },
     {
       "id": "triglycerides",
@@ -23,20 +39,38 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 150,
-      "businessContext": "Fats in blood; converted to VLDL for total cholesterol"
+      "businessContext": "Fats in blood; converted to VLDL for total cholesterol",
+      "label_i18n": {
+        "en": "Triglycerides",
+        "tr": "Triglycerides",
+        "de": "Triglycerides",
+        "fr": "Triglycerides",
+        "es": "Triglycerides",
+        "ar": "Triglycerides"
+      }
     },
     {
       "id": "conversionFactor",
       "label": "Triglycerides to VLDL Conversion Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Factor 5 for mg/dL; 2.2 for mmol/L. Adjust based on units."
+      "businessContext": "Factor 5 for mg/dL; 2.2 for mmol/L. Adjust based on units.",
+      "label_i18n": {
+        "en": "Triglycerides to VLDL Conversion Factor",
+        "tr": "Triglycerides to VLDL Conversion Factor",
+        "de": "Triglycerides to VLDL Conversion Factor",
+        "fr": "Triglycerides to VLDL Conversion Factor",
+        "es": "Triglycerides to VLDL Conversion Factor",
+        "ar": "Triglycerides to VLDL Conversion Factor"
+      }
     }
   ],
   "formulas": {
     "vldl": "triglycerides / conversionFactor",
-    "totalCholesterol": "hdl + ldl + vldl"
+    "totalCholesterol": "hdl + ldl + vldl",
+    "hdl": "hdl",
+    "ldl": "ldl"
   },
   "outputs": {
     "primary": "totalCholesterol",
@@ -46,10 +80,10 @@
       "vldl"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "persons",
       "default": 5,
-      "businessContext": "The number of people using the septic system, typically based on number of bedrooms."
+      "businessContext": "The number of people using the septic system, typically based on number of bedrooms.",
+      "label_i18n": {
+        "en": "Number of Users",
+        "tr": "Number of Users",
+        "de": "Number of Users",
+        "fr": "Number of Users",
+        "es": "Number of Users",
+        "ar": "Number of Users"
+      }
     },
     {
       "id": "dailyFlowPerPerson",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/person/day",
       "default": 150,
-      "businessContext": "Estimated wastewater generated per person per day, e.g., 150 L in typical households."
+      "businessContext": "Estimated wastewater generated per person per day, e.g., 150 L in typical households.",
+      "label_i18n": {
+        "en": "Daily Flow per Person",
+        "tr": "Daily Flow per Person",
+        "de": "Daily Flow per Person",
+        "fr": "Daily Flow per Person",
+        "es": "Daily Flow per Person",
+        "ar": "Daily Flow per Person"
+      }
     },
     {
       "id": "retentionTimeDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 2,
-      "businessContext": "Minimum hydraulic retention time for adequate settling and treatment, typically 1–3 days."
+      "businessContext": "Minimum hydraulic retention time for adequate settling and treatment, typically 1–3 days.",
+      "label_i18n": {
+        "en": "Retention Time",
+        "tr": "Retention Time",
+        "de": "Retention Time",
+        "fr": "Retention Time",
+        "es": "Retention Time",
+        "ar": "Retention Time"
+      }
     },
     {
       "id": "sludgeAccumulationRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L/person/year",
       "default": 70,
-      "businessContext": "Annual sludge accumulation per person, recommended design value (e.g., 70 L for regions with high water usage)."
+      "businessContext": "Annual sludge accumulation per person, recommended design value (e.g., 70 L for regions with high water usage).",
+      "label_i18n": {
+        "en": "Sludge Accumulation Rate",
+        "tr": "Sludge Accumulation Rate",
+        "de": "Sludge Accumulation Rate",
+        "fr": "Sludge Accumulation Rate",
+        "es": "Sludge Accumulation Rate",
+        "ar": "Sludge Accumulation Rate"
+      }
     },
     {
       "id": "desludgingIntervalYears",
@@ -39,26 +71,37 @@
       "type": "number",
       "unit": "years",
       "default": 3,
-      "businessContext": "Frequency of sludge removal, e.g., every 3 years according to local regulations."
+      "businessContext": "Frequency of sludge removal, e.g., every 3 years according to local regulations.",
+      "label_i18n": {
+        "en": "Desludging Interval",
+        "tr": "Desludging Interval",
+        "de": "Desludging Interval",
+        "fr": "Desludging Interval",
+        "es": "Desludging Interval",
+        "ar": "Desludging Interval"
+      }
     }
   ],
   "formulas": {
     "wastewaterVolumeL": "numberOfUsers * dailyFlowPerPerson * retentionTimeDays",
     "sludgeVolumeL": "sludgeAccumulationRate * numberOfUsers * desludgingIntervalYears",
     "totalVolumeL": "wastewaterVolumeL + sludgeVolumeL",
-    "totalVolumeM3": "totalVolumeL / 1000"
+    "totalVolumeM3": "totalVolumeL / 1000",
+    "wastewaterVolumeL_toFixed_0______L__wast": "wastewaterVolumeL.toFixed(0) + ' L (wastewater)'",
+    "sludgeVolumeL_toFixed_0______L__sludge_s": "sludgeVolumeL.toFixed(0) + ' L (sludge storage)'",
+    "result": "totalVolumeM3.toFixed(2) + ' m³'"
   },
   "outputs": {
-    "primary": "totalVolumeM3.toFixed(2) + ' m³'",
+    "primary": "result",
     "breakdown": [
       "wastewaterVolumeL.toFixed(0) + ' L (wastewater)'",
       "sludgeVolumeL.toFixed(0) + ' L (sludge storage)'"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Saha",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "process-chemical"
 }

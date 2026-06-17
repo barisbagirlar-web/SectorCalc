@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "Par value of the bond paid at maturity"
+      "businessContext": "Par value of the bond paid at maturity",
+      "label_i18n": {
+        "en": "Face Value",
+        "tr": "Face Value",
+        "de": "Face Value",
+        "fr": "Face Value",
+        "es": "Face Value",
+        "ar": "Face Value"
+      }
     },
     {
       "id": "couponRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual coupon payment as a percentage of face value"
+      "businessContext": "Annual coupon payment as a percentage of face value",
+      "label_i18n": {
+        "en": "Coupon Rate",
+        "tr": "Coupon Rate",
+        "de": "Coupon Rate",
+        "fr": "Coupon Rate",
+        "es": "Coupon Rate",
+        "ar": "Coupon Rate"
+      }
     },
     {
       "id": "marketRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Yield to maturity required by investors"
+      "businessContext": "Yield to maturity required by investors",
+      "label_i18n": {
+        "en": "Market Interest Rate (YTM)",
+        "tr": "Market Interest Rate (YTM)",
+        "de": "Market Interest Rate (YTM)",
+        "fr": "Market Interest Rate (YTM)",
+        "es": "Market Interest Rate (YTM)",
+        "ar": "Market Interest Rate (YTM)"
+      }
     },
     {
       "id": "yearsToMaturity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Time until bond matures"
+      "businessContext": "Time until bond matures",
+      "label_i18n": {
+        "en": "Years to Maturity",
+        "tr": "Years to Maturity",
+        "de": "Years to Maturity",
+        "fr": "Years to Maturity",
+        "es": "Years to Maturity",
+        "ar": "Years to Maturity"
+      }
     },
     {
       "id": "frequency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "per year",
       "default": 2,
-      "businessContext": "Number of coupon payments per year (e.g., 2 for semi-annual)"
+      "businessContext": "Number of coupon payments per year (e.g., 2 for semi-annual)",
+      "label_i18n": {
+        "en": "Coupon Frequency",
+        "tr": "Coupon Frequency",
+        "de": "Coupon Frequency",
+        "fr": "Coupon Frequency",
+        "es": "Coupon Frequency",
+        "ar": "Coupon Frequency"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +88,16 @@
     "totalPeriods": "yearsToMaturity * frequency",
     "pvCoupons": "couponPayment * (1 - (1 + discountRate) ** (-totalPeriods)) / discountRate",
     "pvFace": "faceValue * (1 + discountRate) ** (-totalPeriods)",
-    "bondPrice": "discountRate === 0 ? faceValue + couponPayment * totalPeriods : pvCoupons + pvFace"
+    "bondPrice": "discountRate === 0 ? faceValue + couponPayment * totalPeriods : pvCoupons + pvFace",
+    "Coupon_Payment": "Coupon Payment",
+    "Discount_Rate_per_Period": "Discount Rate per Period",
+    "Total_Periods": "Total Periods",
+    "Present_Value_of_Coupons": "Present Value of Coupons",
+    "Present_Value_of_Face_Value": "Present Value of Face Value",
+    "Bond_Price": "Bond Price"
   },
   "outputs": {
-    "primary": "Bond Price",
+    "primary": "couponPayment",
     "breakdown": [
       "Coupon Payment",
       "Discount Rate per Period",
@@ -61,7 +107,7 @@
       "Bond Price"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

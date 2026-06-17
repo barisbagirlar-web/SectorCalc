@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Stated annual interest rate before compounding, as a percentage."
+      "businessContext": "Stated annual interest rate before compounding, as a percentage.",
+      "label_i18n": {
+        "en": "Nominal Annual Interest Rate",
+        "tr": "Nominal Annual Interest Rate",
+        "de": "Nominal Annual Interest Rate",
+        "fr": "Nominal Annual Interest Rate",
+        "es": "Nominal Annual Interest Rate",
+        "ar": "Nominal Annual Interest Rate"
+      }
     },
     {
       "id": "compoundingPeriodsPerYear",
       "label": "Compounding Periods per Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12,
-      "businessContext": "Number of times interest is compounded per year (e.g., 12 for monthly, 4 for quarterly)."
+      "businessContext": "Number of times interest is compounded per year (e.g., 12 for monthly, 4 for quarterly).",
+      "label_i18n": {
+        "en": "Compounding Periods per Year",
+        "tr": "Compounding Periods per Year",
+        "de": "Compounding Periods per Year",
+        "fr": "Compounding Periods per Year",
+        "es": "Compounding Periods per Year",
+        "ar": "Compounding Periods per Year"
+      }
     },
     {
       "id": "timePeriodYears",
       "label": "Time Period (Years)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of years over which to compute the effective rate. Use 1 for annual effective rate."
+      "businessContext": "Number of years over which to compute the effective rate. Use 1 for annual effective rate.",
+      "label_i18n": {
+        "en": "Time Period (Years)",
+        "tr": "Time Period (Years)",
+        "de": "Time Period (Years)",
+        "fr": "Time Period (Years)",
+        "es": "Time Period (Years)",
+        "ar": "Time Period (Years)"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the output."
+      "businessContext": "Number of decimal places for rounding the output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,7 @@
       "totalPeriods"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

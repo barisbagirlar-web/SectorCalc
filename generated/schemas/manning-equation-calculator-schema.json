@@ -39,10 +39,7 @@
     "velocity": "flowRate / area"
   },
   "outputs": {
-    "primary": {
-      "id": "flowRate",
-      "label": "Debi (m³/s)"
-    },
+    "primary": "flowRate",
     "breakdown": [
       {
         "id": "velocity",
@@ -50,10 +47,10 @@
       }
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "process-chemical"
 }

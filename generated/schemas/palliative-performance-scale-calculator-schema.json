@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Ambulation capability as a percentage (0-100)"
+      "businessContext": "Ambulation capability as a percentage (0-100)",
+      "label_i18n": {
+        "en": "Ambulation",
+        "tr": "Ambulation",
+        "de": "Ambulation",
+        "fr": "Ambulation",
+        "es": "Ambulation",
+        "ar": "Ambulation"
+      }
     },
     {
       "id": "activityScore",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Activity level and disease burden (0-100)"
+      "businessContext": "Activity level and disease burden (0-100)",
+      "label_i18n": {
+        "en": "Activity & Extent of Disease",
+        "tr": "Activity & Extent of Disease",
+        "de": "Activity & Extent of Disease",
+        "fr": "Activity & Extent of Disease",
+        "es": "Activity & Extent of Disease",
+        "ar": "Activity & Extent of Disease"
+      }
     },
     {
       "id": "selfCareScore",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Self-care ability (0-100)"
+      "businessContext": "Self-care ability (0-100)",
+      "label_i18n": {
+        "en": "Self-Care",
+        "tr": "Self-Care",
+        "de": "Self-Care",
+        "fr": "Self-Care",
+        "es": "Self-Care",
+        "ar": "Self-Care"
+      }
     },
     {
       "id": "intakeScore",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Nutritional intake status (0-100)"
+      "businessContext": "Nutritional intake status (0-100)",
+      "label_i18n": {
+        "en": "Intake",
+        "tr": "Intake",
+        "de": "Intake",
+        "fr": "Intake",
+        "es": "Intake",
+        "ar": "Intake"
+      }
     },
     {
       "id": "consciousnessScore",
@@ -39,14 +71,27 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Level of consciousness (0-100)"
+      "businessContext": "Level of consciousness (0-100)",
+      "label_i18n": {
+        "en": "Consciousness",
+        "tr": "Consciousness",
+        "de": "Consciousness",
+        "fr": "Consciousness",
+        "es": "Consciousness",
+        "ar": "Consciousness"
+      }
     }
   ],
   "formulas": {
-    "pps": "(ambulationScore + activityScore + selfCareScore + intakeScore + consciousnessScore) / 5"
+    "pps": "(ambulationScore + activityScore + selfCareScore + intakeScore + consciousnessScore) / 5",
+    "__ambulationScore___": "{{ambulationScore}}%",
+    "__activityScore___": "{{activityScore}}%",
+    "__selfCareScore___": "{{selfCareScore}}%",
+    "__intakeScore___": "{{intakeScore}}%",
+    "__consciousnessScore___": "{{consciousnessScore}}%"
   },
   "outputs": {
-    "primary": "{{pps}}%",
+    "primary": "pps",
     "breakdown": [
       "Ambulation: {{ambulationScore}}%",
       "Activity: {{activityScore}}%",
@@ -55,10 +100,10 @@
       "Consciousness: {{consciousnessScore}}%"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

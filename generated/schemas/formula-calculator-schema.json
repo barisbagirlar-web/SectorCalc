@@ -5,55 +5,86 @@
       "id": "a",
       "label": "Değişken A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Birinci girdi değişkeni"
+      "businessContext": "Birinci girdi değişkeni",
+      "label_i18n": {
+        "en": "Değişken A",
+        "tr": "Değişken A",
+        "de": "Değişken A",
+        "fr": "Değişken A",
+        "es": "Değişken A",
+        "ar": "Değişken A"
+      }
     },
     {
       "id": "b",
       "label": "Değişken B",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "İkinci girdi değişkeni"
+      "businessContext": "İkinci girdi değişkeni",
+      "label_i18n": {
+        "en": "Değişken B",
+        "tr": "Değişken B",
+        "de": "Değişken B",
+        "fr": "Değişken B",
+        "es": "Değişken B",
+        "ar": "Değişken B"
+      }
     },
     {
       "id": "c",
       "label": "Değişken C",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Üçüncü girdi değişkeni"
+      "businessContext": "Üçüncü girdi değişkeni",
+      "label_i18n": {
+        "en": "Değişken C",
+        "tr": "Değişken C",
+        "de": "Değişken C",
+        "fr": "Değişken C",
+        "es": "Değişken C",
+        "ar": "Değişken C"
+      }
     },
     {
       "id": "d",
       "label": "Değişken D",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Dördüncü girdi değişkeni"
+      "businessContext": "Dördüncü girdi değişkeni",
+      "label_i18n": {
+        "en": "Değişken D",
+        "tr": "Değişken D",
+        "de": "Değişken D",
+        "fr": "Değişken D",
+        "es": "Değişken D",
+        "ar": "Değişken D"
+      }
     }
   ],
   "formulas": {
     "primary": "(a + b) * (c - d)",
-    "breakdown": [
-      "a + b",
-      "c - d",
-      "(a + b) * (c - d)"
-    ]
+    "breakdown": "a",
+    "Toplam__A_B_": "Toplam (A+B)",
+    "Fark__C_D_": "Fark (C-D)",
+    "_arp_m": "Çarpım"
   },
   "outputs": {
-    "primary": "Sonuç",
+    "primary": "primary",
     "breakdown": [
       "Toplam (A+B)",
       "Fark (C-D)",
       "Çarpım"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -5,9 +5,17 @@
       "id": "mode",
       "label": "Calculation Mode",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: Unit Conversion (mg/dL <-> mmol/L), 2: HbA1c to eAG (mg/dL), 3: eAG (mg/dL) to HbA1c"
+      "businessContext": "1: Unit Conversion (mg/dL <-> mmol/L), 2: HbA1c to eAG (mg/dL), 3: eAG (mg/dL) to HbA1c",
+      "label_i18n": {
+        "en": "Calculation Mode",
+        "tr": "Calculation Mode",
+        "de": "Calculation Mode",
+        "fr": "Calculation Mode",
+        "es": "Calculation Mode",
+        "ar": "Calculation Mode"
+      }
     },
     {
       "id": "value1",
@@ -15,35 +23,70 @@
       "type": "number",
       "unit": "mg/dL or mmol/L or %",
       "default": 100,
-      "businessContext": "The blood glucose value to convert or calculate from; unit depends on mode and unitFrom"
+      "businessContext": "The blood glucose value to convert or calculate from; unit depends on mode and unitFrom",
+      "label_i18n": {
+        "en": "Input Value",
+        "tr": "Input Value",
+        "de": "Input Value",
+        "fr": "Input Value",
+        "es": "Input Value",
+        "ar": "Input Value"
+      }
     },
     {
       "id": "unitFrom",
       "label": "Input Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for mg/dL, 2 for mmol/L (used in mode 1; in other modes, assume input units accordingly)"
+      "businessContext": "1 for mg/dL, 2 for mmol/L (used in mode 1; in other modes, assume input units accordingly)",
+      "label_i18n": {
+        "en": "Input Unit",
+        "tr": "Input Unit",
+        "de": "Input Unit",
+        "fr": "Input Unit",
+        "es": "Input Unit",
+        "ar": "Input Unit"
+      }
     },
     {
       "id": "unitTo",
       "label": "Target Unit",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "1 for mg/dL, 2 for mmol/L (used in mode 1)"
+      "businessContext": "1 for mg/dL, 2 for mmol/L (used in mode 1)",
+      "label_i18n": {
+        "en": "Target Unit",
+        "tr": "Target Unit",
+        "de": "Target Unit",
+        "fr": "Target Unit",
+        "es": "Target Unit",
+        "ar": "Target Unit"
+      }
     },
     {
       "id": "fasting",
       "label": "Fasting State",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 if fasting, 0 if non-fasting (for reference only, does not affect calculation)"
+      "businessContext": "1 if fasting, 0 if non-fasting (for reference only, does not affect calculation)",
+      "label_i18n": {
+        "en": "Fasting State",
+        "tr": "Fasting State",
+        "de": "Fasting State",
+        "fr": "Fasting State",
+        "es": "Fasting State",
+        "ar": "Fasting State"
+      }
     }
   ],
   "formulas": {
-    "result": "(mode===1 ? (unitFrom===1 ? (unitTo===2 ? value1/18.0182 : value1) : (unitTo===1 ? value1*18.0182 : value1)) : mode===2 ? 28.7*value1 - 46.7 : (value1 + 46.7)/28.7)"
+    "result": "(mode===1 ? (unitFrom===1 ? (unitTo===2 ? value1/18.0182 : value1) : (unitTo===1 ? value1*18.0182 : value1)) : mode===2 ? 28.7*value1 - 46.7 : (value1 + 46.7)/28.7)",
+    "mg_dL_to_mmol_L__divide_by_18_0182__mmol": "mg/dL to mmol/L: divide by 18.0182; mmol/L to mg/dL: multiply by 18.0182",
+    "28_7___HbA1c___46_7": "28.7 * HbA1c - 46.7",
+    "_eAG___46_7____28_7": "(eAG + 46.7) / 28.7"
   },
   "outputs": {
     "primary": "result",
@@ -53,10 +96,10 @@
       "eAG (mg/dL) to HbA1c: (eAG + 46.7) / 28.7"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

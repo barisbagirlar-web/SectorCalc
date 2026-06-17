@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "Module defining tooth size per ISO 54"
+      "businessContext": "Module defining tooth size per ISO 54",
+      "label_i18n": {
+        "en": "Module (m)",
+        "tr": "Module (m)",
+        "de": "Module (m)",
+        "fr": "Module (m)",
+        "es": "Module (m)",
+        "ar": "Module (m)"
+      }
     },
     {
       "id": "z1",
       "label": "Number of Starts (Z₁)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Number of threads on the worm"
+      "businessContext": "Number of threads on the worm",
+      "label_i18n": {
+        "en": "Number of Starts (Z₁)",
+        "tr": "Number of Starts (Z₁)",
+        "de": "Number of Starts (Z₁)",
+        "fr": "Number of Starts (Z₁)",
+        "es": "Number of Starts (Z₁)",
+        "ar": "Number of Starts (Z₁)"
+      }
     },
     {
       "id": "z2",
       "label": "Number of Teeth on Gear (Z₂)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 40,
-      "businessContext": "Number of teeth on the worm wheel"
+      "businessContext": "Number of teeth on the worm wheel",
+      "label_i18n": {
+        "en": "Number of Teeth on Gear (Z₂)",
+        "tr": "Number of Teeth on Gear (Z₂)",
+        "de": "Number of Teeth on Gear (Z₂)",
+        "fr": "Number of Teeth on Gear (Z₂)",
+        "es": "Number of Teeth on Gear (Z₂)",
+        "ar": "Number of Teeth on Gear (Z₂)"
+      }
     },
     {
       "id": "centerDistance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Distance between worm and gear axes"
+      "businessContext": "Distance between worm and gear axes",
+      "label_i18n": {
+        "en": "Center Distance (a)",
+        "tr": "Center Distance (a)",
+        "de": "Center Distance (a)",
+        "fr": "Center Distance (a)",
+        "es": "Center Distance (a)",
+        "ar": "Center Distance (a)"
+      }
     }
   ],
   "formulas": {
@@ -57,7 +89,7 @@
       "gearRootDiameter"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

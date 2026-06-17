@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "J",
       "default": 1000,
-      "businessContext": "Enter the amount of energy in joules that you wish to convert into calories. Typical applications include food energy labeling, engineering thermal calculations, or scientific energy unit conversions."
+      "businessContext": "Enter the amount of energy in joules that you wish to convert into calories. Typical applications include food energy labeling, engineering thermal calculations, or scientific energy unit conversions.",
+      "label_i18n": {
+        "en": "Energy in Joules",
+        "tr": "Energy in Joules",
+        "de": "Energy in Joules",
+        "fr": "Energy in Joules",
+        "es": "Energy in Joules",
+        "ar": "Energy in Joules"
+      }
     },
     {
       "id": "calorie_type",
       "label": "Calorie Standard",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Select the conversion standard: 1 = Thermochemical (4.184 J/cal), 2 = 4°C calorie (4.204 J/cal), 3 = 15°C calorie (4.1855 J/cal), 4 = International Steam Table (4.1868 J/cal), 5 = Mean calorie (4.190 J/cal). Used to ensure compliance with specific industry or regulatory definitions."
+      "businessContext": "Select the conversion standard: 1 = Thermochemical (4.184 J/cal), 2 = 4°C calorie (4.204 J/cal), 3 = 15°C calorie (4.1855 J/cal), 4 = International Steam Table (4.1868 J/cal), 5 = Mean calorie (4.190 J/cal). Used to ensure compliance with specific industry or regulatory definitions.",
+      "label_i18n": {
+        "en": "Calorie Standard",
+        "tr": "Calorie Standard",
+        "de": "Calorie Standard",
+        "fr": "Calorie Standard",
+        "es": "Calorie Standard",
+        "ar": "Calorie Standard"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Defines the number of decimal places in the final calorie output. Important for reporting accuracy in quality control or nutritional labeling (e.g., 0 for whole numbers, 2 for typical food labels)."
+      "businessContext": "Defines the number of decimal places in the final calorie output. Important for reporting accuracy in quality control or nutritional labeling (e.g., 0 for whole numbers, 2 for typical food labels).",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "round_method",
       "label": "Rounding Method",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = round to nearest (standard mathematical rounding), 1 = floor (always round down), 2 = ceil (always round up). Selection may depend on regulatory rounding rules or internal manufacturing conventions."
+      "businessContext": "0 = round to nearest (standard mathematical rounding), 1 = floor (always round down), 2 = ceil (always round up). Selection may depend on regulatory rounding rules or internal manufacturing conventions.",
+      "label_i18n": {
+        "en": "Rounding Method",
+        "tr": "Rounding Method",
+        "de": "Rounding Method",
+        "fr": "Rounding Method",
+        "es": "Rounding Method",
+        "ar": "Rounding Method"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "calories"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "sustainability-resource-esg"
 }

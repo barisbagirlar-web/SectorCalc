@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 12,
-      "businessContext": "Length of joist span in feet"
+      "businessContext": "Length of joist span in feet",
+      "label_i18n": {
+        "en": "Span (ft)",
+        "tr": "Span (ft)",
+        "de": "Span (ft)",
+        "fr": "Span (ft)",
+        "es": "Span (ft)",
+        "ar": "Span (ft)"
+      }
     },
     {
       "id": "spacing_in",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "in",
       "default": 16,
-      "businessContext": "Center-to-center joist spacing in inches"
+      "businessContext": "Center-to-center joist spacing in inches",
+      "label_i18n": {
+        "en": "Spacing (in)",
+        "tr": "Spacing (in)",
+        "de": "Spacing (in)",
+        "fr": "Spacing (in)",
+        "es": "Spacing (in)",
+        "ar": "Spacing (in)"
+      }
     },
     {
       "id": "dead_load_psf",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "psf",
       "default": 10,
-      "businessContext": "Uniform dead load in pounds per square foot"
+      "businessContext": "Uniform dead load in pounds per square foot",
+      "label_i18n": {
+        "en": "Dead Load (psf)",
+        "tr": "Dead Load (psf)",
+        "de": "Dead Load (psf)",
+        "fr": "Dead Load (psf)",
+        "es": "Dead Load (psf)",
+        "ar": "Dead Load (psf)"
+      }
     },
     {
       "id": "live_load_psf",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "psf",
       "default": 40,
-      "businessContext": "Uniform live load in pounds per square foot"
+      "businessContext": "Uniform live load in pounds per square foot",
+      "label_i18n": {
+        "en": "Live Load (psf)",
+        "tr": "Live Load (psf)",
+        "de": "Live Load (psf)",
+        "fr": "Live Load (psf)",
+        "es": "Live Load (psf)",
+        "ar": "Live Load (psf)"
+      }
     },
     {
       "id": "E_psi",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "psi",
       "default": 1600000,
-      "businessContext": "Modulus of elasticity of the joist material"
+      "businessContext": "Modulus of elasticity of the joist material",
+      "label_i18n": {
+        "en": "Modulus of Elasticity (psi)",
+        "tr": "Modulus of Elasticity (psi)",
+        "de": "Modulus of Elasticity (psi)",
+        "fr": "Modulus of Elasticity (psi)",
+        "es": "Modulus of Elasticity (psi)",
+        "ar": "Modulus of Elasticity (psi)"
+      }
     },
     {
       "id": "I_in4",
@@ -47,15 +87,31 @@
       "type": "number",
       "unit": "in⁴",
       "default": 98,
-      "businessContext": "Moment of inertia of the joist cross-section"
+      "businessContext": "Moment of inertia of the joist cross-section",
+      "label_i18n": {
+        "en": "Moment of Inertia (in⁴)",
+        "tr": "Moment of Inertia (in⁴)",
+        "de": "Moment of Inertia (in⁴)",
+        "fr": "Moment of Inertia (in⁴)",
+        "es": "Moment of Inertia (in⁴)",
+        "ar": "Moment of Inertia (in⁴)"
+      }
     },
     {
       "id": "defl_limit_denom",
       "label": "Deflection Limit (L/x)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 360,
-      "businessContext": "Deflection limit denominator, e.g., 360 for L/360"
+      "businessContext": "Deflection limit denominator, e.g., 360 for L/360",
+      "label_i18n": {
+        "en": "Deflection Limit (L/x)",
+        "tr": "Deflection Limit (L/x)",
+        "de": "Deflection Limit (L/x)",
+        "fr": "Deflection Limit (L/x)",
+        "es": "Deflection Limit (L/x)",
+        "ar": "Deflection Limit (L/x)"
+      }
     }
   ],
   "formulas": {
@@ -78,10 +134,10 @@
       "max_span_str"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "cnc-additive-manufacturing"
 }

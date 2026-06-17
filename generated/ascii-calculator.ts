@@ -23,6 +23,12 @@ function evaluateAllFormulas(input: Ascii_calculatorInput): Record<string, numbe
   try { const v = Math.max(input.char1, input.char2, input.char3, input.char4); results["max"] = Number.isFinite(v) ? v : 0; } catch { results["max"] = 0; }
   try { const v = Math.min(input.char1, input.char2, input.char3, input.char4); results["min"] = Number.isFinite(v) ? v : 0; } catch { results["min"] = 0; }
   results["range"] = 0;
+  try { const v = input.char1 + input.char2 + input.char3 + input.char4; results["sum___char1___char2___char3___char4"] = Number.isFinite(v) ? v : 0; } catch { results["sum___char1___char2___char3___char4"] = 0; }
+  try { const v = (input.char1 + input.char2 + input.char3 + input.char4) / 4; results["average____char1___char2___char3___char4"] = Number.isFinite(v) ? v : 0; } catch { results["average____char1___char2___char3___char4"] = 0; }
+  try { const v = input.char1 * input.char2 * input.char3 * input.char4; results["product___char1___char2___char3___char4"] = Number.isFinite(v) ? v : 0; } catch { results["product___char1___char2___char3___char4"] = 0; }
+  results["max___Math_max_char1__char2__char3__char"] = 0;
+  results["min___Math_min_char1__char2__char3__char"] = 0;
+  results["range___Math_max_char1__char2__char3__ch"] = 0;
   return results;
 }
 

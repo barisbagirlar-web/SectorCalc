@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "tbsp",
       "default": 1,
-      "businessContext": "Amount of substance in tablespoons"
+      "businessContext": "Amount of substance in tablespoons",
+      "label_i18n": {
+        "en": "Tablespoons",
+        "tr": "Tablespoons",
+        "de": "Tablespoons",
+        "fr": "Tablespoons",
+        "es": "Tablespoons",
+        "ar": "Tablespoons"
+      }
     },
     {
       "id": "conversionRate",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "tsp/tbsp",
       "default": 3,
-      "businessContext": "Number of teaspoons per tablespoon (standard US: 3)"
+      "businessContext": "Number of teaspoons per tablespoon (standard US: 3)",
+      "label_i18n": {
+        "en": "Conversion Rate",
+        "tr": "Conversion Rate",
+        "de": "Conversion Rate",
+        "fr": "Conversion Rate",
+        "es": "Conversion Rate",
+        "ar": "Conversion Rate"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for output"
+      "businessContext": "Number of decimal places for output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "batchMultiplier",
       "label": "Batch Multiplier",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiply by number of batches for total teaspoons"
+      "businessContext": "Multiply by number of batches for total teaspoons",
+      "label_i18n": {
+        "en": "Batch Multiplier",
+        "tr": "Batch Multiplier",
+        "de": "Batch Multiplier",
+        "fr": "Batch Multiplier",
+        "es": "Batch Multiplier",
+        "ar": "Batch Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "batchMultiplierUsed"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ay",
       "default": 12,
-      "businessContext": "Dönüştürülecek toplam ay miktarı"
+      "businessContext": "Dönüştürülecek toplam ay miktarı",
+      "label_i18n": {
+        "en": "Ay Sayısı",
+        "tr": "Ay Sayısı",
+        "de": "Ay Sayısı",
+        "fr": "Ay Sayısı",
+        "es": "Ay Sayısı",
+        "ar": "Ay Sayısı"
+      }
     },
     {
       "id": "monthsPerYear",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "ay/yıl",
       "default": 12,
-      "businessContext": "Bir yıldaki ay sayısı (standart 12)"
+      "businessContext": "Bir yıldaki ay sayısı (standart 12)",
+      "label_i18n": {
+        "en": "Yıldaki Ay Sayısı",
+        "tr": "Yıldaki Ay Sayısı",
+        "de": "Yıldaki Ay Sayısı",
+        "fr": "Yıldaki Ay Sayısı",
+        "es": "Yıldaki Ay Sayısı",
+        "ar": "Yıldaki Ay Sayısı"
+      }
     },
     {
       "id": "precision",
       "label": "Hassasiyet (Ondalık Basamak)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuçtaki ondalık basamak sayısı"
+      "businessContext": "Sonuçtaki ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Hassasiyet (Ondalık Basamak)",
+        "tr": "Hassasiyet (Ondalık Basamak)",
+        "de": "Hassasiyet (Ondalık Basamak)",
+        "fr": "Hassasiyet (Ondalık Basamak)",
+        "es": "Hassasiyet (Ondalık Basamak)",
+        "ar": "Hassasiyet (Ondalık Basamak)"
+      }
     },
     {
       "id": "includeRemainder",
       "label": "Kalan Ay Göster",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1: kalan ay göster, 0: gösterme"
+      "businessContext": "1: kalan ay göster, 0: gösterme",
+      "label_i18n": {
+        "en": "Kalan Ay Göster",
+        "tr": "Kalan Ay Göster",
+        "de": "Kalan Ay Göster",
+        "fr": "Kalan Ay Göster",
+        "es": "Kalan Ay Göster",
+        "ar": "Kalan Ay Göster"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "remainderMonths"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

@@ -3,10 +3,14 @@ import * as z from 'zod';
 
 export interface Josephus_problem_calculatorInput {
   n: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Josephus_problem_calculatorInputSchema = z.object({
   n: z.number().default(41),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Josephus_problem_calculatorInput): Record<string, number> {

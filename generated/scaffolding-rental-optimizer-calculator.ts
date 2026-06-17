@@ -31,31 +31,19 @@ export const Scaffolding_rental_optimizer_calculatorInputSchema = z.object({
   include_insurance: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Scaffolding_rental_optimizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.total_scaffold_area_sqm * (1 + input.waste_factor / 100); results["net_scaffold_area"] = Number.isFinite(v) ? v : 0; } catch { results["net_scaffold_area"] = 0; }
-  try { const v = (results["net_scaffold_area"] ?? 0) * input.rental_rate_per_sqm_per_day * input.project_duration_days; results["rental_cost"] = Number.isFinite(v) ? v : 0; } catch { results["rental_cost"] = 0; }
-  try { const v = input.transport_cost_per_trip * input.number_of_trips; results["transport_cost"] = Number.isFinite(v) ? v : 0; } catch { results["transport_cost"] = 0; }
-  try { const v = input.total_scaffold_area_sqm * (input.erection_hours_per_sqm + input.dismantle_hours_per_sqm) * input.labor_cost_per_hour; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
-  try { const v = input.include_insurance ? (results["rental_cost"] ?? 0) * 0.02 : 0; results["insurance_cost"] = Number.isFinite(v) ? v : 0; } catch { results["insurance_cost"] = 0; }
-  try { const v = (results["rental_cost"] ?? 0) + (results["transport_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["insurance_cost"] ?? 0); results["total_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
-  try { const v = (results["total_cost"] ?? 0) / input.total_scaffold_area_sqm; results["cost_per_sqm"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_sqm"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Scaffolding_rental_optimizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateScaffolding_rental_optimizer_calculator(input: Scaffolding_rental_optimizer_calculatorInput): Scaffolding_rental_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    rental_cost: values["rental_cost"] ?? 0,
-    transport_cost: values["transport_cost"] ?? 0,
-    labor_cost: values["labor_cost"] ?? 0,
-    insurance_cost: values["insurance_cost"] ?? 0,
-    cost_per_sqm: values["cost_per_sqm"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Idle Time Loss","Waste Loss","Inefficiency Loss"];
-  const suggestedActions: string[] = ["Increase utilization rate to above 80% by consolidating work schedules.","Implement 5S methodology to reduce waste factor below 5%.","Combine deliveries to reduce number of trips by 25%.","Consider prefabricated scaffolding modules to reduce labor hours."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -74,7 +62,7 @@ export function calculateScaffolding_rental_optimizer_calculator(input: Scaffold
 
 export interface Scaffolding_rental_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { rental_cost: number; transport_cost: number; labor_cost: number; insurance_cost: number; cost_per_sqm: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

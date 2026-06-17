@@ -5,41 +5,81 @@
       "id": "x1",
       "label": "Smallest Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Smallest sample data point (ordered)"
+      "businessContext": "Smallest sample data point (ordered)",
+      "label_i18n": {
+        "en": "Smallest Value",
+        "tr": "Smallest Value",
+        "de": "Smallest Value",
+        "fr": "Smallest Value",
+        "es": "Smallest Value",
+        "ar": "Smallest Value"
+      }
     },
     {
       "id": "x2",
       "label": "Second Smallest",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second smallest sample data point"
+      "businessContext": "Second smallest sample data point",
+      "label_i18n": {
+        "en": "Second Smallest",
+        "tr": "Second Smallest",
+        "de": "Second Smallest",
+        "fr": "Second Smallest",
+        "es": "Second Smallest",
+        "ar": "Second Smallest"
+      }
     },
     {
       "id": "x3",
       "label": "Median Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Median or third smallest sample data point"
+      "businessContext": "Median or third smallest sample data point",
+      "label_i18n": {
+        "en": "Median Value",
+        "tr": "Median Value",
+        "de": "Median Value",
+        "fr": "Median Value",
+        "es": "Median Value",
+        "ar": "Median Value"
+      }
     },
     {
       "id": "x4",
       "label": "Second Largest",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second largest sample data point"
+      "businessContext": "Second largest sample data point",
+      "label_i18n": {
+        "en": "Second Largest",
+        "tr": "Second Largest",
+        "de": "Second Largest",
+        "fr": "Second Largest",
+        "es": "Second Largest",
+        "ar": "Second Largest"
+      }
     },
     {
       "id": "x5",
       "label": "Largest Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Largest sample data point"
+      "businessContext": "Largest sample data point",
+      "label_i18n": {
+        "en": "Largest Value",
+        "tr": "Largest Value",
+        "de": "Largest Value",
+        "fr": "Largest Value",
+        "es": "Largest Value",
+        "ar": "Largest Value"
+      }
     }
   ],
   "formulas": {
@@ -49,12 +89,7 @@
     "W": "Math.pow(sum_ax, 2) / SS"
   },
   "outputs": {
-    "primary": {
-      "id": "shapiroWilkStat",
-      "label": "Shapiro-Wilk W Statistic",
-      "value": "W",
-      "unit": ""
-    },
+    "primary": "mean",
     "breakdown": [
       {
         "id": "normalityConclusion",
@@ -64,10 +99,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

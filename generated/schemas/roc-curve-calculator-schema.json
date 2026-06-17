@@ -5,65 +5,129 @@
       "id": "tpr1",
       "label": "Point 1 TPR",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "True Positive Rate (Sensitivity) for ROC point 1"
+      "businessContext": "True Positive Rate (Sensitivity) for ROC point 1",
+      "label_i18n": {
+        "en": "Point 1 TPR",
+        "tr": "Point 1 TPR",
+        "de": "Point 1 TPR",
+        "fr": "Point 1 TPR",
+        "es": "Point 1 TPR",
+        "ar": "Point 1 TPR"
+      }
     },
     {
       "id": "fpr1",
       "label": "Point 1 FPR",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "False Positive Rate (1-Specificity) for ROC point 1"
+      "businessContext": "False Positive Rate (1-Specificity) for ROC point 1",
+      "label_i18n": {
+        "en": "Point 1 FPR",
+        "tr": "Point 1 FPR",
+        "de": "Point 1 FPR",
+        "fr": "Point 1 FPR",
+        "es": "Point 1 FPR",
+        "ar": "Point 1 FPR"
+      }
     },
     {
       "id": "tpr2",
       "label": "Point 2 TPR",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "True Positive Rate (Sensitivity) for ROC point 2"
+      "businessContext": "True Positive Rate (Sensitivity) for ROC point 2",
+      "label_i18n": {
+        "en": "Point 2 TPR",
+        "tr": "Point 2 TPR",
+        "de": "Point 2 TPR",
+        "fr": "Point 2 TPR",
+        "es": "Point 2 TPR",
+        "ar": "Point 2 TPR"
+      }
     },
     {
       "id": "fpr2",
       "label": "Point 2 FPR",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "False Positive Rate (1-Specificity) for ROC point 2"
+      "businessContext": "False Positive Rate (1-Specificity) for ROC point 2",
+      "label_i18n": {
+        "en": "Point 2 FPR",
+        "tr": "Point 2 FPR",
+        "de": "Point 2 FPR",
+        "fr": "Point 2 FPR",
+        "es": "Point 2 FPR",
+        "ar": "Point 2 FPR"
+      }
     },
     {
       "id": "tpr3",
       "label": "Point 3 TPR",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "True Positive Rate (Sensitivity) for ROC point 3"
+      "businessContext": "True Positive Rate (Sensitivity) for ROC point 3",
+      "label_i18n": {
+        "en": "Point 3 TPR",
+        "tr": "Point 3 TPR",
+        "de": "Point 3 TPR",
+        "fr": "Point 3 TPR",
+        "es": "Point 3 TPR",
+        "ar": "Point 3 TPR"
+      }
     },
     {
       "id": "fpr3",
       "label": "Point 3 FPR",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "False Positive Rate (1-Specificity) for ROC point 3"
+      "businessContext": "False Positive Rate (1-Specificity) for ROC point 3",
+      "label_i18n": {
+        "en": "Point 3 FPR",
+        "tr": "Point 3 FPR",
+        "de": "Point 3 FPR",
+        "fr": "Point 3 FPR",
+        "es": "Point 3 FPR",
+        "ar": "Point 3 FPR"
+      }
     },
     {
       "id": "tpr4",
       "label": "Point 4 TPR",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "True Positive Rate (Sensitivity) for ROC point 4"
+      "businessContext": "True Positive Rate (Sensitivity) for ROC point 4",
+      "label_i18n": {
+        "en": "Point 4 TPR",
+        "tr": "Point 4 TPR",
+        "de": "Point 4 TPR",
+        "fr": "Point 4 TPR",
+        "es": "Point 4 TPR",
+        "ar": "Point 4 TPR"
+      }
     },
     {
       "id": "fpr4",
       "label": "Point 4 FPR",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "False Positive Rate (1-Specificity) for ROC point 4"
+      "businessContext": "False Positive Rate (1-Specificity) for ROC point 4",
+      "label_i18n": {
+        "en": "Point 4 FPR",
+        "tr": "Point 4 FPR",
+        "de": "Point 4 FPR",
+        "fr": "Point 4 FPR",
+        "es": "Point 4 FPR",
+        "ar": "Point 4 FPR"
+      }
     }
   ],
   "formulas": {
@@ -90,8 +154,8 @@
       "fpr4_out"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -5,25 +5,49 @@
       "id": "mean",
       "label": "Mean (μ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The average or central value of the normal distribution."
+      "businessContext": "The average or central value of the normal distribution.",
+      "label_i18n": {
+        "en": "Mean (μ)",
+        "tr": "Mean (μ)",
+        "de": "Mean (μ)",
+        "fr": "Mean (μ)",
+        "es": "Mean (μ)",
+        "ar": "Mean (μ)"
+      }
     },
     {
       "id": "stdDev",
       "label": "Standard Deviation (σ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "A measure of the dispersion or spread. Must be greater than 0."
+      "businessContext": "A measure of the dispersion or spread. Must be greater than 0.",
+      "label_i18n": {
+        "en": "Standard Deviation (σ)",
+        "tr": "Standard Deviation (σ)",
+        "de": "Standard Deviation (σ)",
+        "fr": "Standard Deviation (σ)",
+        "es": "Standard Deviation (σ)",
+        "ar": "Standard Deviation (σ)"
+      }
     },
     {
       "id": "x",
       "label": "X Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The value at which to evaluate the normal distribution functions."
+      "businessContext": "The value at which to evaluate the normal distribution functions.",
+      "label_i18n": {
+        "en": "X Value",
+        "tr": "X Value",
+        "de": "X Value",
+        "fr": "X Value",
+        "es": "X Value",
+        "ar": "X Value"
+      }
     }
   ],
   "formulas": {
@@ -38,10 +62,10 @@
       "probabilityDensity"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -25,28 +25,19 @@ export const Changeover_matrix_optimizer_calculatorInputSchema = z.object({
   target_changeover_time: z.number().min(0).max(120).default(10),
 });
 
-function evaluateAllFormulas(input: Changeover_matrix_optimizer_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.number_of_changeovers_per_month * input.changeover_time_matrix; results["total_changeover_downtime"] = Number.isFinite(v) ? v : 0; } catch { results["total_changeover_downtime"] = 0; }
-  try { const v = input.setup_internal_time / (input.setup_internal_time + input.setup_external_time); results["internal_setup_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["internal_setup_ratio"] = 0; }
-  try { const v = input.setup_internal_time * (1 - (input.target_changeover_time - input.setup_external_time) / input.setup_internal_time); results["smed_potential_savings"] = Number.isFinite(v) ? v : 0; } catch { results["smed_potential_savings"] = 0; }
-  try { const v = Math.min((input.changeover_time_matrix - input.target_changeover_time) / (3 * input.standard_deviation_changeover_time), (input.changeover_time_matrix - 0) / (3 * input.standard_deviation_changeover_time)); results["process_capability_index"] = Number.isFinite(v) ? v : 0; } catch { results["process_capability_index"] = 0; }
-  try { const v = (results["total_changeover_downtime"] ?? 0) / ((results["total_changeover_downtime"] ?? 0) + (input.number_of_changeovers_per_month * (480 - input.changeover_time_matrix))); results["changeover_frequency_impact"] = Number.isFinite(v) ? v : 0; } catch { results["changeover_frequency_impact"] = 0; }
-  try { const v = input.setup_external_time + (input.setup_internal_time - (results["smed_potential_savings"] ?? 0)); results["optimized_changeover_time"] = Number.isFinite(v) ? v : 0; } catch { results["optimized_changeover_time"] = 0; }
-  try { const v = ((results["total_changeover_downtime"] ?? 0) - (input.number_of_changeovers_per_month * (results["optimized_changeover_time"] ?? 0))) * 12 * 0.85; results["annual_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_cost_savings"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Changeover_matrix_optimizer_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateChangeover_matrix_optimizer_calculator(input: Changeover_matrix_optimizer_calculatorInput): Changeover_matrix_optimizer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["changeover_optimization_score"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    current_state: values["current_state"] ?? 0,
-    optimized_state: values["optimized_state"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["High internal setup time indicates lack of SMED standardization.","Large standard deviation indicates inconsistent procedures.","Most setup tasks performed while machine is stopped.","High number of changeovers per month reduces effective capacity."];
-  const suggestedActions: string[] = ["Conduct SMED Kaizen event to reduce internal setup time by 50%.","Implement standardized work instructions for all changeover tasks.","Create external setup checklists and pre-kitting stations.","Use changeover matrix to group similar product families and reduce frequency."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -65,7 +56,7 @@ export function calculateChangeover_matrix_optimizer_calculator(input: Changeove
 
 export interface Changeover_matrix_optimizer_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { current_state: number; optimized_state: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

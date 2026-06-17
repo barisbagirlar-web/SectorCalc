@@ -3312,6 +3312,8 @@ export const GENERATED_CALCULATOR_SLUGS = Object.freeze(
   Object.keys(CALCULATOR_LOADERS).sort((left, right) => left.localeCompare(right)),
 ) as readonly string[];
 
+export const GENERATED_CALCULATOR_COUNT = GENERATED_CALCULATOR_SLUGS.length;
+
 export async function loadGeneratedCalculator(
   slug: string,
 ): Promise<GeneratedCalculatorModule | null> {

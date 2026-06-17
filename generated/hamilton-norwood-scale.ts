@@ -30,13 +30,21 @@ function evaluateAllFormulas(input: Hamilton_norwood_scaleInput): Record<string,
   try { const v = (results["frontal_score"] ?? 0) + (results["vertex_score"] ?? 0) + (results["temporal_score"] ?? 0) + (results["family_score"] ?? 0) + (results["duration_score"] ?? 0) + (results["age_score"] ?? 0); results["raw_score"] = Number.isFinite(v) ? v : 0; } catch { results["raw_score"] = 0; }
   try { const v = Math.min(7, Math.max(1, Math.round((results["raw_score"] ?? 0) / 2))); results["norwood_stage"] = Number.isFinite(v) ? v : 0; } catch { results["norwood_stage"] = 0; }
   try { const v = (results["raw_score"] ?? 0) > 10 ? 'High' : ((results["raw_score"] ?? 0) > 6 ? 'Moderate' : 'Low'); results["progression_risk"] = Number.isFinite(v) ? v : 0; } catch { results["progression_risk"] = 0; }
+  try { const v = (results["frontal_score"] ?? 0); results["_frontal_score_"] = Number.isFinite(v) ? v : 0; } catch { results["_frontal_score_"] = 0; }
+  try { const v = (results["vertex_score"] ?? 0); results["_vertex_score_"] = Number.isFinite(v) ? v : 0; } catch { results["_vertex_score_"] = 0; }
+  try { const v = (results["temporal_score"] ?? 0); results["_temporal_score_"] = Number.isFinite(v) ? v : 0; } catch { results["_temporal_score_"] = 0; }
+  try { const v = (results["family_score"] ?? 0); results["_family_score_"] = Number.isFinite(v) ? v : 0; } catch { results["_family_score_"] = 0; }
+  try { const v = (results["duration_score"] ?? 0); results["_duration_score_"] = Number.isFinite(v) ? v : 0; } catch { results["_duration_score_"] = 0; }
+  try { const v = (results["age_score"] ?? 0); results["_age_score_"] = Number.isFinite(v) ? v : 0; } catch { results["_age_score_"] = 0; }
+  try { const v = (results["raw_score"] ?? 0); results["_raw_score_"] = Number.isFinite(v) ? v : 0; } catch { results["_raw_score_"] = 0; }
+  try { const v = (results["progression_risk"] ?? 0); results["_progression_risk_"] = Number.isFinite(v) ? v : 0; } catch { results["_progression_risk_"] = 0; }
   return results;
 }
 
 
 export function calculateHamilton_norwood_scale(input: Hamilton_norwood_scaleInput): Hamilton_norwood_scaleOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Norwood"] ?? 0;
+  const totalWasteCost = values["frontal_score"] ?? 0;
   const breakdown = {
     
   };

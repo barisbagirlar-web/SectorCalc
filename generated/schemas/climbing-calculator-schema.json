@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Mass of the climber including all gear (harness, rope, hardware) in kilograms."
+      "businessContext": "Mass of the climber including all gear (harness, rope, hardware) in kilograms.",
+      "label_i18n": {
+        "en": "Climber Mass",
+        "tr": "Climber Mass",
+        "de": "Climber Mass",
+        "fr": "Climber Mass",
+        "es": "Climber Mass",
+        "ar": "Climber Mass"
+      }
     },
     {
       "id": "fallFactor",
       "label": "Fall Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Fall factor (ratio of free-fall height to length of dynamic rope in the system), typically between 0 and 2."
+      "businessContext": "Fall factor (ratio of free-fall height to length of dynamic rope in the system), typically between 0 and 2.",
+      "label_i18n": {
+        "en": "Fall Factor",
+        "tr": "Fall Factor",
+        "de": "Fall Factor",
+        "fr": "Fall Factor",
+        "es": "Fall Factor",
+        "ar": "Fall Factor"
+      }
     },
     {
       "id": "ratedImpactForce",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kN",
       "default": 9,
-      "businessContext": "Manufacturer-rated impact force of the rope for UIAA standard test (80 kg mass, 1.77 fall factor) in kilonewtons."
+      "businessContext": "Manufacturer-rated impact force of the rope for UIAA standard test (80 kg mass, 1.77 fall factor) in kilonewtons.",
+      "label_i18n": {
+        "en": "Rated Impact Force",
+        "tr": "Rated Impact Force",
+        "de": "Rated Impact Force",
+        "fr": "Rated Impact Force",
+        "es": "Rated Impact Force",
+        "ar": "Rated Impact Force"
+      }
     },
     {
       "id": "ratedMass",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Standard test mass used for UIAA rating, typically 80 kg."
+      "businessContext": "Standard test mass used for UIAA rating, typically 80 kg.",
+      "label_i18n": {
+        "en": "Rated Mass",
+        "tr": "Rated Mass",
+        "de": "Rated Mass",
+        "fr": "Rated Mass",
+        "es": "Rated Mass",
+        "ar": "Rated Mass"
+      }
     },
     {
       "id": "ratedFallFactor",
       "label": "Rated Fall Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.77,
-      "businessContext": "Standard test fall factor used for UIAA rating, typically 1.77."
+      "businessContext": "Standard test fall factor used for UIAA rating, typically 1.77.",
+      "label_i18n": {
+        "en": "Rated Fall Factor",
+        "tr": "Rated Fall Factor",
+        "de": "Rated Fall Factor",
+        "fr": "Rated Fall Factor",
+        "es": "Rated Fall Factor",
+        "ar": "Rated Fall Factor"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Design safety factor applied to the estimated force (e.g., 1.0 for theoretical, 1.5 for equipment margin)."
+      "businessContext": "Design safety factor applied to the estimated force (e.g., 1.0 for theoretical, 1.5 for equipment margin).",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -61,10 +109,10 @@
       "adjustedImpactForce"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "hse-ergonomics"
 }

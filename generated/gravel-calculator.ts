@@ -25,13 +25,17 @@ function evaluateAllFormulas(input: Gravel_calculatorInput): Record<string, numb
   try { const v = (results["volume"] ?? 0) * (1 + input.compactionFactor / 100) * (1 + input.wasteFactor / 100); results["adjustedVolume"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedVolume"] = 0; }
   try { const v = (results["adjustedVolume"] ?? 0) * input.density / 2000; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
   try { const v = (results["adjustedVolume"] ?? 0) / 27; results["cubicYards"] = Number.isFinite(v) ? v : 0; } catch { results["cubicYards"] = 0; }
+  results["_volume__ft_"] = 0;
+  results["_adjustedVolume__ft_"] = 0;
+  results["_primary__tons"] = 0;
+  results["_cubicYards__cubic_yards"] = 0;
   return results;
 }
 
 
 export function calculateGravel_calculator(input: Gravel_calculatorInput): Gravel_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["{primary} tons"] ?? 0;
+  const totalWasteCost = values["volume"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "NM",
       "default": 0,
-      "businessContext": "Dönüştürülecek deniz mili miktarı"
+      "businessContext": "Dönüştürülecek deniz mili miktarı",
+      "label_i18n": {
+        "en": "Deniz Mili",
+        "tr": "Deniz Mili",
+        "de": "Deniz Mili",
+        "fr": "Deniz Mili",
+        "es": "Deniz Mili",
+        "ar": "Deniz Mili"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km/NM",
       "default": 1.852,
-      "businessContext": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir."
+      "businessContext": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir.",
+      "label_i18n": {
+        "en": "Dönüşüm Faktörü",
+        "tr": "Dönüşüm Faktörü",
+        "de": "Dönüşüm Faktörü",
+        "fr": "Dönüşüm Faktörü",
+        "es": "Dönüşüm Faktörü",
+        "ar": "Dönüşüm Faktörü"
+      }
     },
     {
       "id": "numberOfTrips",
@@ -23,20 +39,38 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır."
+      "businessContext": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır.",
+      "label_i18n": {
+        "en": "Sefer Sayısı",
+        "tr": "Sefer Sayısı",
+        "de": "Sefer Sayısı",
+        "fr": "Sefer Sayısı",
+        "es": "Sefer Sayısı",
+        "ar": "Sefer Sayısı"
+      }
     },
     {
       "id": "precision",
       "label": "Ondalık Basamak",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak adedi (0–6)"
+      "businessContext": "Sonuçta gösterilecek ondalık basamak adedi (0–6)",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
     "rawKm": "nauticalMiles * conversionFactor * numberOfTrips",
-    "km": "Math.round(rawKm * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "km": "Math.round(rawKm * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "nauticalMiles": "nauticalMiles",
+    "conversionFactor": "conversionFactor"
   },
   "outputs": {
     "primary": "km",
@@ -47,10 +81,10 @@
       "km"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

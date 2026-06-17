@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Gerçekleşen ölçüm sonucu (örn. üretim parçasının ölçülen boyutu)"
+      "businessContext": "Gerçekleşen ölçüm sonucu (örn. üretim parçasının ölçülen boyutu)",
+      "label_i18n": {
+        "en": "Ölçülen Değer",
+        "tr": "Ölçülen Değer",
+        "de": "Ölçülen Değer",
+        "fr": "Ölçülen Değer",
+        "es": "Ölçülen Değer",
+        "ar": "Ölçülen Değer"
+      }
     },
     {
       "id": "trueValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Kabul edilen referans veya teorik değer (nominal ölçü)"
+      "businessContext": "Kabul edilen referans veya teorik değer (nominal ölçü)",
+      "label_i18n": {
+        "en": "Referans Değer",
+        "tr": "Referans Değer",
+        "de": "Referans Değer",
+        "fr": "Referans Değer",
+        "es": "Referans Değer",
+        "ar": "Referans Değer"
+      }
     },
     {
       "id": "tolerancePercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kabul edilebilir yüzde hata sınırı (kalite kontrol limiti)"
+      "businessContext": "Kabul edilebilir yüzde hata sınırı (kalite kontrol limiti)",
+      "label_i18n": {
+        "en": "Tolerans (%)",
+        "tr": "Tolerans (%)",
+        "de": "Tolerans (%)",
+        "fr": "Tolerans (%)",
+        "es": "Tolerans (%)",
+        "ar": "Tolerans (%)"
+      }
     },
     {
       "id": "measurementUncertainty",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Ölçüm prosesinin standart belirsizliği (k=1 için)"
+      "businessContext": "Ölçüm prosesinin standart belirsizliği (k=1 için)",
+      "label_i18n": {
+        "en": "Ölçüm Belirsizliği",
+        "tr": "Ölçüm Belirsizliği",
+        "de": "Ölçüm Belirsizliği",
+        "fr": "Ölçüm Belirsizliği",
+        "es": "Ölçüm Belirsizliği",
+        "ar": "Ölçüm Belirsizliği"
+      }
     },
     {
       "id": "coverageFactor",
       "label": "Kapsam Faktörü (k)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Genişletilmiş belirsizlik için katsayı; %95 güven için tipik olarak 2"
+      "businessContext": "Genişletilmiş belirsizlik için katsayı; %95 güven için tipik olarak 2",
+      "label_i18n": {
+        "en": "Kapsam Faktörü (k)",
+        "tr": "Kapsam Faktörü (k)",
+        "de": "Kapsam Faktörü (k)",
+        "fr": "Kapsam Faktörü (k)",
+        "es": "Kapsam Faktörü (k)",
+        "ar": "Kapsam Faktörü (k)"
+      }
     }
   ],
   "formulas": {
@@ -59,10 +99,10 @@
       "withinTolerance"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

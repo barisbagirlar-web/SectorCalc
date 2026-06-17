@@ -22,6 +22,7 @@ function evaluateAllFormulas(input: Puppy_weight_predictor_calculatorInput): Rec
   try { const v = (Math.round(((results["estimatedAdultWeight"] ?? 0) / input.breedMaturityAgeMonths) * 10**(2)) / 10**(2)); results["monthlyGrowthRate"] = Number.isFinite(v) ? v : 0; } catch { results["monthlyGrowthRate"] = 0; }
   try { const v = (Math.round(((results["estimatedAdultWeight"] ?? 0) * 0.9) * 10**(2)) / 10**(2)); results["weightRangeLow"] = Number.isFinite(v) ? v : 0; } catch { results["weightRangeLow"] = 0; }
   try { const v = (Math.round(((results["estimatedAdultWeight"] ?? 0) * 1.1) * 10**(2)) / 10**(2)); results["weightRangeHigh"] = Number.isFinite(v) ? v : 0; } catch { results["weightRangeHigh"] = 0; }
+  try { const v = (results["weightRangeLow"] ?? 0) + ' - ' + (results["weightRangeHigh"] ?? 0) + ' kg'; results["weightRangeLow___________weightRangeHigh"] = Number.isFinite(v) ? v : 0; } catch { results["weightRangeLow___________weightRangeHigh"] = 0; }
   return results;
 }
 

@@ -48,21 +48,17 @@
     "abv": "(correctedOg - correctedFg) * 131.25"
   },
   "outputs": {
-    "primary": {
-      "label": "Alcohol by Volume",
-      "unit": "%",
-      "formula": "abv"
-    },
+    "primary": "correctedOg",
     "breakdown": [
       "correctedOg",
       "correctedFg",
       "abv"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",
-  "categorySlug": "food-cold-chain-hygiene"
+  "categorySlug": "quality-six-sigma"
 }

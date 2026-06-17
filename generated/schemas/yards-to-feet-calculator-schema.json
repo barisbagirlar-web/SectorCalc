@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yd",
       "default": 1,
-      "businessContext": "Length measured in yards to be converted to feet"
+      "businessContext": "Length measured in yards to be converted to feet",
+      "label_i18n": {
+        "en": "Yards",
+        "tr": "Yards",
+        "de": "Yards",
+        "fr": "Yards",
+        "es": "Yards",
+        "ar": "Yards"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft/yd",
       "default": 3,
-      "businessContext": "Standard conversion factor from yards to feet; 3 feet per yard"
+      "businessContext": "Standard conversion factor from yards to feet; 3 feet per yard",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "precision",
@@ -23,19 +39,37 @@
       "type": "number",
       "unit": "decimals",
       "default": 2,
-      "businessContext": "Number of decimal places to round the result; must be integer ≥ 0"
+      "businessContext": "Number of decimal places to round the result; must be integer ≥ 0",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "roundingMethod",
       "label": "Rounding Method",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "0 = Standard round, 1 = Floor (round down), 2 = Ceil (round up)"
+      "businessContext": "0 = Standard round, 1 = Floor (round down), 2 = Ceil (round up)",
+      "label_i18n": {
+        "en": "Rounding Method",
+        "tr": "Rounding Method",
+        "de": "Rounding Method",
+        "fr": "Rounding Method",
+        "es": "Rounding Method",
+        "ar": "Rounding Method"
+      }
     }
   ],
   "formulas": {
-    "primary": "roundingMethod == 0 ? Math.round(yards * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMethod == 1 ? Math.floor(yards * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(yards * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "primary": "roundingMethod == 0 ? Math.round(yards * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMethod == 1 ? Math.floor(yards * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(yards * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "yards___conversionFactor": "yards * conversionFactor",
+    "conversionFactor": "conversionFactor"
   },
   "outputs": {
     "primary": "primary",
@@ -44,10 +78,10 @@
       "conversionFactor"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "İnşaat & Saha",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

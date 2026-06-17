@@ -26,13 +26,16 @@ export const Root_locus_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Root_locus_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = `Centroid at ${((input.pole1Real + input.pole2Real + input.pole3Real) - input.zeroReal) / 2}`; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.zeroReal; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Total_number_of_asymptotes"] = 0;
+  results["Angle_directions_of_asymptotes"] = 0;
   return results;
 }
 
 
 export function calculateRoot_locus_calculator(input: Root_locus_calculatorInput): Root_locus_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Centroid"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

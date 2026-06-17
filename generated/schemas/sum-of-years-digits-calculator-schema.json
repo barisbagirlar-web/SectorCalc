@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "Asset cost (purchase price)"
+      "businessContext": "Asset cost (purchase price)",
+      "label_i18n": {
+        "en": "Asset Cost",
+        "tr": "Asset Cost",
+        "de": "Asset Cost",
+        "fr": "Asset Cost",
+        "es": "Asset Cost",
+        "ar": "Asset Cost"
+      }
     },
     {
       "id": "salvage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "Estimated salvage value at end of useful life"
+      "businessContext": "Estimated salvage value at end of useful life",
+      "label_i18n": {
+        "en": "Salvage Value",
+        "tr": "Salvage Value",
+        "de": "Salvage Value",
+        "fr": "Salvage Value",
+        "es": "Salvage Value",
+        "ar": "Salvage Value"
+      }
     },
     {
       "id": "life",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Useful life of the asset in years"
+      "businessContext": "Useful life of the asset in years",
+      "label_i18n": {
+        "en": "Useful Life (years)",
+        "tr": "Useful Life (years)",
+        "de": "Useful Life (years)",
+        "fr": "Useful Life (years)",
+        "es": "Useful Life (years)",
+        "ar": "Useful Life (years)"
+      }
     },
     {
       "id": "year",
       "label": "Year Number",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Year for which to calculate depreciation (1-based)"
+      "businessContext": "Year for which to calculate depreciation (1-based)",
+      "label_i18n": {
+        "en": "Year Number",
+        "tr": "Year Number",
+        "de": "Year Number",
+        "fr": "Year Number",
+        "es": "Year Number",
+        "ar": "Year Number"
+      }
     }
   ],
   "formulas": {
@@ -49,10 +81,10 @@
       "depreciation_fraction"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "finance-sales-working-capital"
 }

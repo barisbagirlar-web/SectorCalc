@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ASCII code",
       "default": 65,
-      "businessContext": "First ASCII character code (e.g., 'A' = 65)"
+      "businessContext": "First ASCII character code (e.g., 'A' = 65)",
+      "label_i18n": {
+        "en": "Character 1",
+        "tr": "Character 1",
+        "de": "Character 1",
+        "fr": "Character 1",
+        "es": "Character 1",
+        "ar": "Character 1"
+      }
     },
     {
       "id": "char2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ASCII code",
       "default": 66,
-      "businessContext": "Second ASCII character code (e.g., 'B' = 66)"
+      "businessContext": "Second ASCII character code (e.g., 'B' = 66)",
+      "label_i18n": {
+        "en": "Character 2",
+        "tr": "Character 2",
+        "de": "Character 2",
+        "fr": "Character 2",
+        "es": "Character 2",
+        "ar": "Character 2"
+      }
     },
     {
       "id": "char3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ASCII code",
       "default": 67,
-      "businessContext": "Third ASCII character code (e.g., 'C' = 67)"
+      "businessContext": "Third ASCII character code (e.g., 'C' = 67)",
+      "label_i18n": {
+        "en": "Character 3",
+        "tr": "Character 3",
+        "de": "Character 3",
+        "fr": "Character 3",
+        "es": "Character 3",
+        "ar": "Character 3"
+      }
     },
     {
       "id": "char4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ASCII code",
       "default": 68,
-      "businessContext": "Fourth ASCII character code (e.g., 'D' = 68)"
+      "businessContext": "Fourth ASCII character code (e.g., 'D' = 68)",
+      "label_i18n": {
+        "en": "Character 4",
+        "tr": "Character 4",
+        "de": "Character 4",
+        "fr": "Character 4",
+        "es": "Character 4",
+        "ar": "Character 4"
+      }
     }
   ],
   "formulas": {
@@ -40,7 +72,13 @@
     "product": "char1 * char2 * char3 * char4",
     "max": "Math.max(char1, char2, char3, char4)",
     "min": "Math.min(char1, char2, char3, char4)",
-    "range": "Math.max(char1, char2, char3, char4) - Math.min(char1, char2, char3, char4)"
+    "range": "Math.max(char1, char2, char3, char4) - Math.min(char1, char2, char3, char4)",
+    "sum___char1___char2___char3___char4": "sum = char1 + char2 + char3 + char4",
+    "average____char1___char2___char3___char4": "average = (char1 + char2 + char3 + char4) / 4",
+    "product___char1___char2___char3___char4": "product = char1 * char2 * char3 * char4",
+    "max___Math_max_char1__char2__char3__char": "max = Math.max(char1, char2, char3, char4)",
+    "min___Math_min_char1__char2__char3__char": "min = Math.min(char1, char2, char3, char4)",
+    "range___Math_max_char1__char2__char3__ch": "range = Math.max(char1, char2, char3, char4) - Math.min(char1, char2, char3, char4)"
   },
   "outputs": {
     "primary": "sum",
@@ -53,10 +91,10 @@
       "range = Math.max(char1, char2, char3, char4) - Math.min(char1, char2, char3, char4)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

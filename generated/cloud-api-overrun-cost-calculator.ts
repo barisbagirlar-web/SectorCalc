@@ -33,31 +33,19 @@ export const Cloud_api_overrun_cost_calculatorInputSchema = z.object({
   include_hidden_costs: z.boolean().default(true),
 });
 
-function evaluateAllFormulas(input: Cloud_api_overrun_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.api_call_volume * (input.overrun_rate / 100); results["overrun_call_volume"] = Number.isFinite(v) ? v : 0; } catch { results["overrun_call_volume"] = 0; }
-  try { const v = (results["overrun_call_volume"] ?? 0) * input.cost_per_call; results["direct_overrun_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_overrun_cost"] = 0; }
-  try { const v = (results["overrun_call_volume"] ?? 0) * (input.retry_rate / 100) * input.retry_cost_per_call; results["retry_cost"] = Number.isFinite(v) ? v : 0; } catch { results["retry_cost"] = 0; }
-  try { const v = input.data_egress_gb * input.egress_cost_per_gb * (input.overrun_rate / 100) * 0.5; results["egress_overrun_cost"] = Number.isFinite(v) ? v : 0; } catch { results["egress_overrun_cost"] = 0; }
-  try { const v = ((input.overrun_rate > 0) ? (input.monthly_service_fee * (input.sla_penalty_percentage / 100)) : (0)); results["sla_penalty_cost"] = Number.isFinite(v) ? v : 0; } catch { results["sla_penalty_cost"] = 0; }
-  try { const v = ((input.include_hidden_costs = true) ? (((results["direct_overrun_cost"] ?? 0) + (results["retry_cost"] ?? 0)) * 0.3) : (0)); results["hidden_loss_drivers"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_loss_drivers"] = 0; }
-  try { const v = (results["direct_overrun_cost"] ?? 0) + (results["retry_cost"] ?? 0) + (results["egress_overrun_cost"] ?? 0) + (results["sla_penalty_cost"] ?? 0) + (results["hidden_loss_drivers"] ?? 0); results["total_overrun_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_overrun_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Cloud_api_overrun_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateCloud_api_overrun_cost_calculator(input: Cloud_api_overrun_cost_calculatorInput): Cloud_api_overrun_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_overrun_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    direct_overrun_cost: values["direct_overrun_cost"] ?? 0,
-    retry_cost: values["retry_cost"] ?? 0,
-    egress_overrun_cost: values["egress_overrun_cost"] ?? 0,
-    sla_penalty_cost: values["sla_penalty_cost"] ?? 0,
-    hidden_loss_drivers: values["hidden_loss_drivers"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Customer Churn Impact","Brand Reputation Cost","Operational Overhead"];
-  const suggestedActions: string[] = ["Optimize API Endpoints","Implement Caching","Adjust Retry Policy","Negotiate SLA Terms","Monitor Data Egress"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -76,7 +64,7 @@ export function calculateCloud_api_overrun_cost_calculator(input: Cloud_api_over
 
 export interface Cloud_api_overrun_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { direct_overrun_cost: number; retry_cost: number; egress_overrun_cost: number; sla_penalty_cost: number; hidden_loss_drivers: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

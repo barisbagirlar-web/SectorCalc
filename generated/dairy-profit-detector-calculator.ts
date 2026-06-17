@@ -33,33 +33,19 @@ export const Dairy_profit_detector_calculatorInputSchema = z.object({
   seasonal_demand_factor: z.enum(['Low', 'Normal', 'High']).default('Normal'),
 });
 
-function evaluateAllFormulas(input: Dairy_profit_detector_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.milk_volume_liters * (1 - input.waste_percentage / 100); results["net_milk_volume"] = Number.isFinite(v) ? v : 0; } catch { results["net_milk_volume"] = 0; }
-  try { const v = (input.production_cost_per_liter + input.other_variable_cost_per_liter) * input.milk_volume_liters + input.labor_hours_per_day * input.labor_rate_per_hour + input.energy_cost_per_day; results["total_variable_cost_per_day"] = Number.isFinite(v) ? v : 0; } catch { results["total_variable_cost_per_day"] = 0; }
-  try { const v = (results["total_variable_cost_per_day"] ?? 0) + input.fixed_cost_per_day; results["total_cost_per_day"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_day"] = 0; }
-  try { const v = (results["net_milk_volume"] ?? 0) * input.selling_price_per_liter; results["revenue_per_day"] = Number.isFinite(v) ? v : 0; } catch { results["revenue_per_day"] = 0; }
-  try { const v = (results["revenue_per_day"] ?? 0) - (results["total_cost_per_day"] ?? 0); results["profit_per_day"] = Number.isFinite(v) ? v : 0; } catch { results["profit_per_day"] = 0; }
-  try { const v = ((results["profit_per_day"] ?? 0) / (results["revenue_per_day"] ?? 0)) * 100; results["profit_margin_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["profit_margin_percentage"] = 0; }
-  try { const v = (results["net_milk_volume"] ?? 0) / input.labor_hours_per_day; results["labor_efficiency"] = Number.isFinite(v) ? v : 0; } catch { results["labor_efficiency"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Dairy_profit_detector_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateDairy_profit_detector_calculator(input: Dairy_profit_detector_calculatorInput): Dairy_profit_detector_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["profit_per_day"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    revenue_per_day: values["revenue_per_day"] ?? 0,
-    total_cost_per_day: values["total_cost_per_day"] ?? 0,
-    total_variable_cost_per_day: values["total_variable_cost_per_day"] ?? 0,
-    fixed_cost_per_day: values["fixed_cost_per_day"] ?? 0,
-    net_milk_volume: values["net_milk_volume"] ?? 0,
-    profit_margin_percentage: values["profit_margin_percentage"] ?? 0,
-    labor_efficiency: values["labor_efficiency"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Waste Loss","Quality Penalty","Labor Inefficiency Cost","Energy Overuse Cost"];
-  const suggestedActions: string[] = ["Reduce waste by improving cooling and handling processes – target waste below 2%.","Review labor scheduling and consider automation if labor efficiency is below 80 L/hour.","Negotiate better milk prices or shift to higher-value products (cheese, yogurt) if margin is low.","Implement energy audits and upgrade to energy-efficient equipment to reduce energy cost.","Immediate quality improvement program if grade is C – review herd health and milking hygiene."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -78,7 +64,7 @@ export function calculateDairy_profit_detector_calculator(input: Dairy_profit_de
 
 export interface Dairy_profit_detector_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { revenue_per_day: number; total_cost_per_day: number; total_variable_cost_per_day: number; fixed_cost_per_day: number; net_milk_volume: number; profit_margin_percentage: number; labor_efficiency: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

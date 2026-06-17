@@ -5,65 +5,129 @@
       "id": "numCoeff0",
       "label": "Numerator constant term (a0)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient a0 in numerator polynomial a0 + a1*x + a2*x^2"
+      "businessContext": "Coefficient a0 in numerator polynomial a0 + a1*x + a2*x^2",
+      "label_i18n": {
+        "en": "Numerator constant term (a0)",
+        "tr": "Numerator constant term (a0)",
+        "de": "Numerator constant term (a0)",
+        "fr": "Numerator constant term (a0)",
+        "es": "Numerator constant term (a0)",
+        "ar": "Numerator constant term (a0)"
+      }
     },
     {
       "id": "numCoeff1",
       "label": "Numerator linear coefficient (a1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient a1 in numerator polynomial a0 + a1*x + a2*x^2"
+      "businessContext": "Coefficient a1 in numerator polynomial a0 + a1*x + a2*x^2",
+      "label_i18n": {
+        "en": "Numerator linear coefficient (a1)",
+        "tr": "Numerator linear coefficient (a1)",
+        "de": "Numerator linear coefficient (a1)",
+        "fr": "Numerator linear coefficient (a1)",
+        "es": "Numerator linear coefficient (a1)",
+        "ar": "Numerator linear coefficient (a1)"
+      }
     },
     {
       "id": "numCoeff2",
       "label": "Numerator quadratic coefficient (a2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient a2 in numerator polynomial a0 + a1*x + a2*x^2"
+      "businessContext": "Coefficient a2 in numerator polynomial a0 + a1*x + a2*x^2",
+      "label_i18n": {
+        "en": "Numerator quadratic coefficient (a2)",
+        "tr": "Numerator quadratic coefficient (a2)",
+        "de": "Numerator quadratic coefficient (a2)",
+        "fr": "Numerator quadratic coefficient (a2)",
+        "es": "Numerator quadratic coefficient (a2)",
+        "ar": "Numerator quadratic coefficient (a2)"
+      }
     },
     {
       "id": "denCoeff0",
       "label": "Denominator constant term (b0)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient b0 in denominator polynomial b0 + b1*x + b2*x^2"
+      "businessContext": "Coefficient b0 in denominator polynomial b0 + b1*x + b2*x^2",
+      "label_i18n": {
+        "en": "Denominator constant term (b0)",
+        "tr": "Denominator constant term (b0)",
+        "de": "Denominator constant term (b0)",
+        "fr": "Denominator constant term (b0)",
+        "es": "Denominator constant term (b0)",
+        "ar": "Denominator constant term (b0)"
+      }
     },
     {
       "id": "denCoeff1",
       "label": "Denominator linear coefficient (b1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient b1 in denominator polynomial b0 + b1*x + b2*x^2"
+      "businessContext": "Coefficient b1 in denominator polynomial b0 + b1*x + b2*x^2",
+      "label_i18n": {
+        "en": "Denominator linear coefficient (b1)",
+        "tr": "Denominator linear coefficient (b1)",
+        "de": "Denominator linear coefficient (b1)",
+        "fr": "Denominator linear coefficient (b1)",
+        "es": "Denominator linear coefficient (b1)",
+        "ar": "Denominator linear coefficient (b1)"
+      }
     },
     {
       "id": "denCoeff2",
       "label": "Denominator quadratic coefficient (b2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient b2 in denominator polynomial b0 + b1*x + b2*x^2"
+      "businessContext": "Coefficient b2 in denominator polynomial b0 + b1*x + b2*x^2",
+      "label_i18n": {
+        "en": "Denominator quadratic coefficient (b2)",
+        "tr": "Denominator quadratic coefficient (b2)",
+        "de": "Denominator quadratic coefficient (b2)",
+        "fr": "Denominator quadratic coefficient (b2)",
+        "es": "Denominator quadratic coefficient (b2)",
+        "ar": "Denominator quadratic coefficient (b2)"
+      }
     },
     {
       "id": "approachPoint",
       "label": "Approach point (x →)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The value that x approaches to evaluate the limit"
+      "businessContext": "The value that x approaches to evaluate the limit",
+      "label_i18n": {
+        "en": "Approach point (x →)",
+        "tr": "Approach point (x →)",
+        "de": "Approach point (x →)",
+        "fr": "Approach point (x →)",
+        "es": "Approach point (x →)",
+        "ar": "Approach point (x →)"
+      }
     },
     {
       "id": "epsilon",
       "label": "Epsilon (small number)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.0001,
-      "businessContext": "Small increment for numerical approximation of left- and right-hand limits; use e.g., 1e-4 or smaller"
+      "businessContext": "Small increment for numerical approximation of left- and right-hand limits; use e.g., 1e-4 or smaller",
+      "label_i18n": {
+        "en": "Epsilon (small number)",
+        "tr": "Epsilon (small number)",
+        "de": "Epsilon (small number)",
+        "fr": "Epsilon (small number)",
+        "es": "Epsilon (small number)",
+        "ar": "Epsilon (small number)"
+      }
     }
   ],
   "formulas": {
@@ -78,18 +142,22 @@
     "primary": "(leftLimit + rightLimit) / 2",
     "breakdown_0": "leftLimit",
     "breakdown_1": "rightLimit",
-    "breakdown_2": "Math.abs(leftLimit - rightLimit)"
+    "breakdown_2": "Math.abs(leftLimit - rightLimit)",
+    "Left_hand_limit": "Left-hand limit",
+    "Right_hand_limit": "Right-hand limit",
+    "Absolute_difference_between_left_and_rig": "Absolute difference between left and right limits",
+    "result": "Approximate limit value (average of left and right)"
   },
   "outputs": {
-    "primary": "Approximate limit value (average of left and right)",
+    "primary": "result",
     "breakdown": [
       "Left-hand limit",
       "Right-hand limit",
       "Absolute difference between left and right limits"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

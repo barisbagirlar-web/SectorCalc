@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 3.5,
-      "businessContext": "Bebeğin doğumdaki ağırlığı (kg)"
+      "businessContext": "Bebeğin doğumdaki ağırlığı (kg)",
+      "label_i18n": {
+        "en": "Doğum Ağırlığı",
+        "tr": "Doğum Ağırlığı",
+        "de": "Doğum Ağırlığı",
+        "fr": "Doğum Ağırlığı",
+        "es": "Doğum Ağırlığı",
+        "ar": "Doğum Ağırlığı"
+      }
     },
     {
       "id": "currentWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Bebeğin şu anki ağırlığı (kg)"
+      "businessContext": "Bebeğin şu anki ağırlığı (kg)",
+      "label_i18n": {
+        "en": "Güncel Ağırlık",
+        "tr": "Güncel Ağırlık",
+        "de": "Güncel Ağırlık",
+        "fr": "Güncel Ağırlık",
+        "es": "Güncel Ağırlık",
+        "ar": "Güncel Ağırlık"
+      }
     },
     {
       "id": "ageMonths",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ay",
       "default": 2,
-      "businessContext": "Ay cinsinden yaş"
+      "businessContext": "Ay cinsinden yaş",
+      "label_i18n": {
+        "en": "Yaş (Ay)",
+        "tr": "Yaş (Ay)",
+        "de": "Yaş (Ay)",
+        "fr": "Yaş (Ay)",
+        "es": "Yaş (Ay)",
+        "ar": "Yaş (Ay)"
+      }
     },
     {
       "id": "length",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 50,
-      "businessContext": "Bebeğin boy uzunluğu (cm)"
+      "businessContext": "Bebeğin boy uzunluğu (cm)",
+      "label_i18n": {
+        "en": "Boy",
+        "tr": "Boy",
+        "de": "Boy",
+        "fr": "Boy",
+        "es": "Boy",
+        "ar": "Boy"
+      }
     },
     {
       "id": "headCircumference",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "cm",
       "default": 35,
-      "businessContext": "Baş çevresi (cm)"
+      "businessContext": "Baş çevresi (cm)",
+      "label_i18n": {
+        "en": "Baş Çevresi",
+        "tr": "Baş Çevresi",
+        "de": "Baş Çevresi",
+        "fr": "Baş Çevresi",
+        "es": "Baş Çevresi",
+        "ar": "Baş Çevresi"
+      }
     },
     {
       "id": "gender",
       "label": "Cinsiyet (0=Erkek, 1=Kız)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Bebeğin cinsiyeti: 0 erkek, 1 kız"
+      "businessContext": "Bebeğin cinsiyeti: 0 erkek, 1 kız",
+      "label_i18n": {
+        "en": "Cinsiyet (0=Erkek, 1=Kız)",
+        "tr": "Cinsiyet (0=Erkek, 1=Kız)",
+        "de": "Cinsiyet (0=Erkek, 1=Kız)",
+        "fr": "Cinsiyet (0=Erkek, 1=Kız)",
+        "es": "Cinsiyet (0=Erkek, 1=Kız)",
+        "ar": "Cinsiyet (0=Erkek, 1=Kız)"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "weightForLengthPercentile"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

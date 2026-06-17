@@ -21,14 +21,17 @@ export const Predicate_logic_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Predicate_logic_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.value1 > input.threshold1 && input.value2 > input.threshold2 && input.value3 > input.threshold3) ? 1 : 0; results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = 0; results["0"] = Number.isFinite(v) ? v : 0; } catch { results["0"] = 0; }
+  try { const v = (input.value1 > input.threshold1 && input.value2 > input.threshold2 && input.value3 > input.threshold3) ? 1 : (results["0"] ?? 0); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.value1; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = (input.value1 > input.threshold1 && input.value2 > input.threshold2 && input.value3 > input.threshold3) ? 1 : (results["0"] ?? 0); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculatePredicate_logic_calculator(input: Predicate_logic_calculatorInput): Predicate_logic_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["(value1 > threshold1 && value2 > threshold2 && value3 > threshold3) ? 1 : 0"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

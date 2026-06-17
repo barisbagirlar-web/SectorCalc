@@ -61,11 +61,7 @@
     "rothAfterTax": "fvContributionsRoth"
   },
   "outputs": {
-    "primary": {
-      "label": "After-Tax Difference (Roth - Traditional)",
-      "formula": "rothAfterTax - traditionalAfterTax",
-      "unit": "currency"
-    },
+    "primary": "n",
     "breakdown": [
       {
         "label": "Roth After-Tax Value",
@@ -79,10 +75,10 @@
       }
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

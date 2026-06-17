@@ -233,153 +233,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "defects_prevented_per_year",
-      "label": "Defects Prevented per Year",
-      "description": "Number of defects eliminated annually by the poka-yoke.",
-      "expression": "annual_units * (current_defect_rate / 1000000) * (poka_yoke_effectiveness / 100)",
-      "unit": "defects/year"
-    },
-    {
-      "id": "annual_defect_cost_savings",
-      "label": "Annual Defect Cost Savings",
-      "description": "Total cost savings from reduced defects.",
-      "expression": "defects_prevented_per_year * defect_cost_per_unit",
-      "unit": "$/year"
-    },
-    {
-      "id": "annual_labor_savings",
-      "label": "Annual Labor Savings",
-      "description": "Cost savings from reduced inspection and rework labor.",
-      "expression": "labor_hours_saved_per_year * labor_rate",
-      "unit": "$/year"
-    },
-    {
-      "id": "total_annual_benefit",
-      "label": "Total Annual Benefit",
-      "description": "Sum of all annual cost savings from the poka-yoke.",
-      "expression": "annual_defect_cost_savings + annual_labor_savings",
-      "unit": "$/year"
-    },
-    {
-      "id": "net_annual_cash_flow",
-      "label": "Net Annual Cash Flow",
-      "description": "Annual benefit minus annual maintenance cost.",
-      "expression": "total_annual_benefit - annual_maintenance_cost",
-      "unit": "$/year"
-    },
-    {
-      "id": "npv",
-      "label": "Net Present Value (NPV)",
-      "description": "Present value of net cash flows over the project life, minus initial investment.",
-      "expression": "-implementation_cost + (net_annual_cash_flow * ((1 - (1 + discount_rate/100)^(-project_life_years)) / (discount_rate/100)))",
-      "unit": "$"
-    },
-    {
-      "id": "roi",
-      "label": "Return on Investment (ROI)",
-      "description": "Primary result: ROI as a percentage over the project life.",
-      "expression": "(npv / implementation_cost) * 100",
-      "unit": "%"
-    }
+    "annual_units",
+    "annual_units",
+    "annual_units",
+    "annual_units",
+    "annual_units",
+    "annual_units",
+    "annual_units"
   ],
   "outputs": {
-    "primary": {
-      "id": "roi",
-      "label": "Return on Investment (ROI)",
-      "unit": "%",
-      "description": "Primary ROI percentage over the project life."
-    },
-    "breakdown": {
-      "defects_prevented_per_year": {
-        "id": "defects_prevented_per_year",
-        "label": "Defects Prevented per Year",
-        "unit": "defects/year"
-      },
-      "annual_defect_cost_savings": {
-        "id": "annual_defect_cost_savings",
-        "label": "Annual Defect Cost Savings",
-        "unit": "$/year"
-      },
-      "annual_labor_savings": {
-        "id": "annual_labor_savings",
-        "label": "Annual Labor Savings",
-        "unit": "$/year"
-      },
-      "total_annual_benefit": {
-        "id": "total_annual_benefit",
-        "label": "Total Annual Benefit",
-        "unit": "$/year"
-      },
-      "net_annual_cash_flow": {
-        "id": "net_annual_cash_flow",
-        "label": "Net Annual Cash Flow",
-        "unit": "$/year"
-      },
-      "npv": {
-        "id": "npv",
-        "label": "Net Present Value (NPV)",
-        "unit": "$"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "hidden_defect_escalation",
-        "label": "Hidden Defect Escalation Cost",
-        "description": "Cost of defects that escape to downstream processes or customers, not captured in defect_cost_per_unit.",
-        "estimated_value": "annual_defect_cost_savings * 0.15",
-        "unit": "$/year"
-      },
-      {
-        "id": "hidden_quality_administration",
-        "label": "Hidden Quality Administration Overhead",
-        "description": "Indirect costs for quality reporting, meetings, and corrective actions that may persist.",
-        "estimated_value": "annual_defect_cost_savings * 0.08",
-        "unit": "$/year"
-      },
-      {
-        "id": "hidden_opportunity_cost",
-        "label": "Hidden Opportunity Cost of Downtime",
-        "description": "Lost production capacity due to defect-related stoppages not fully eliminated.",
-        "estimated_value": "labor_hours_saved_per_year * labor_rate * 0.2",
-        "unit": "$/year"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": 1,
-        "description": "Implement poka-yoke with highest effectiveness (99%) to maximize defect reduction.",
-        "expected_impact": "Increase ROI by up to 15% compared to 95% effectiveness."
-      },
-      {
-        "id": "action_2",
-        "priority": 2,
-        "description": "Conduct a detailed cost-of-quality study to refine defect_cost_per_unit and capture hidden costs.",
-        "expected_impact": "Improve accuracy of ROI calculation and identify additional savings."
-      },
-      {
-        "id": "action_3",
-        "priority": 3,
-        "description": "Integrate poka-yoke with real-time monitoring and SPC to sustain gains and detect drift.",
-        "expected_impact": "Extend project life and reduce maintenance costs by 10-20%."
-      },
-      {
-        "id": "action_4",
-        "priority": 4,
-        "description": "Train operators on poka-yoke principles to foster continuous improvement culture.",
-        "expected_impact": "Reduce implementation resistance and increase effectiveness."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted_roi",
-      "label": "Data Confidence Adjusted ROI",
-      "unit": "%",
-      "description": "ROI adjusted downward by 10% to account for typical uncertainty in input estimates.",
-      "value": "roi * 0.9"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "finance-sales-working-capital",
+  "category": "Proje & Yatırım",
+  "sector": "Finans & İK",
+  "toolName": "poka-yoke-roi-calculator"
 }

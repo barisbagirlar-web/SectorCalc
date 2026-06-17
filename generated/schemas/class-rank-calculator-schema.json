@@ -5,9 +5,17 @@
       "id": "studentScore",
       "label": "Student Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The raw score of the student (e.g., GPA, exam mark)."
+      "businessContext": "The raw score of the student (e.g., GPA, exam mark).",
+      "label_i18n": {
+        "en": "Student Score",
+        "tr": "Student Score",
+        "de": "Student Score",
+        "fr": "Student Score",
+        "es": "Student Score",
+        "ar": "Student Score"
+      }
     },
     {
       "id": "totalStudents",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "students",
       "default": 1,
-      "businessContext": "Total number of students in the comparison group."
+      "businessContext": "Total number of students in the comparison group.",
+      "label_i18n": {
+        "en": "Total Students",
+        "tr": "Total Students",
+        "de": "Total Students",
+        "fr": "Total Students",
+        "es": "Total Students",
+        "ar": "Total Students"
+      }
     },
     {
       "id": "lowerCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "students",
       "default": 0,
-      "businessContext": "Count of students who scored below the student."
+      "businessContext": "Count of students who scored below the student.",
+      "label_i18n": {
+        "en": "Number of Students with Lower Scores",
+        "tr": "Number of Students with Lower Scores",
+        "de": "Number of Students with Lower Scores",
+        "fr": "Number of Students with Lower Scores",
+        "es": "Number of Students with Lower Scores",
+        "ar": "Number of Students with Lower Scores"
+      }
     },
     {
       "id": "sameCount",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "students",
       "default": 0,
-      "businessContext": "Count of students who scored exactly the same as the student."
+      "businessContext": "Count of students who scored exactly the same as the student.",
+      "label_i18n": {
+        "en": "Number of Students with Same Score",
+        "tr": "Number of Students with Same Score",
+        "de": "Number of Students with Same Score",
+        "fr": "Number of Students with Same Score",
+        "es": "Number of Students with Same Score",
+        "ar": "Number of Students with Same Score"
+      }
     },
     {
       "id": "minScore",
       "label": "Minimum Possible Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The lowest possible score in the scale (e.g., 0)."
+      "businessContext": "The lowest possible score in the scale (e.g., 0).",
+      "label_i18n": {
+        "en": "Minimum Possible Score",
+        "tr": "Minimum Possible Score",
+        "de": "Minimum Possible Score",
+        "fr": "Minimum Possible Score",
+        "es": "Minimum Possible Score",
+        "ar": "Minimum Possible Score"
+      }
     },
     {
       "id": "maxScore",
       "label": "Maximum Possible Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "The highest possible score in the scale (e.g., 100)."
+      "businessContext": "The highest possible score in the scale (e.g., 100).",
+      "label_i18n": {
+        "en": "Maximum Possible Score",
+        "tr": "Maximum Possible Score",
+        "de": "Maximum Possible Score",
+        "fr": "Maximum Possible Score",
+        "es": "Maximum Possible Score",
+        "ar": "Maximum Possible Score"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "rankPosition"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

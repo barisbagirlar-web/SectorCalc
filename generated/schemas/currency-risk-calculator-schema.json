@@ -47,7 +47,7 @@
       "id": "confidence_level",
       "label": "Confidence Level for VaR Calculation",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "95",
       "min": null,
       "max": null,
@@ -100,7 +100,7 @@
       "id": "enable_lean_adjustment",
       "label": "Enable Lean Volatility Adjustment",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -155,51 +155,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "daily_volatility",
-      "description": "Convert annualized volatility to daily volatility using square root of time (ISO 31000).",
-      "expression": "volatility_annual / 100 / sqrt(252)"
-    },
-    {
-      "id": "z_score",
-      "description": "Z-score corresponding to the selected confidence level (normal distribution).",
-      "expression": "switch(confidence_level, '90', 1.2816, '95', 1.6449, '99', 2.3263, 1.6449)"
-    },
-    {
-      "id": "lean_adjustment_factor",
-      "description": "Six Sigma based correction for process variation (if enabled).",
-      "expression": "enable_lean_adjustment ? 1.0 + (0.1 * (1 - hedge_ratio/100)) : 1.0"
-    },
-    {
-      "id": "value_at_risk",
-      "description": "Value at Risk (VaR) over the time horizon, adjusted for lean factor.",
-      "expression": "exposure_amount * (1 - exp(-z_score * daily_volatility * sqrt(time_horizon_days) * lean_adjustment_factor))"
-    },
-    {
-      "id": "expected_shortfall",
-      "description": "Expected Shortfall (CVaR) – average loss beyond VaR (tail risk).",
-      "expression": "value_at_risk * (1 + 0.2 * (1 - hedge_ratio/100))"
-    },
-    {
-      "id": "hedge_effectiveness",
-      "description": "Effectiveness of hedging based on hedge ratio (Lean metric).",
-      "expression": "hedge_ratio / 100 * (1 - daily_volatility * 0.5)"
-    },
-    {
-      "id": "primaryResult",
-      "description": "Primary risk metric – weighted combination of VaR and Expected Shortfall, adjusted for confidence.",
-      "expression": "0.6 * value_at_risk + 0.4 * expected_shortfall"
-    }
+    "exposure_amount",
+    "exposure_amount",
+    "exposure_amount",
+    "exposure_amount",
+    "exposure_amount",
+    "exposure_amount",
+    "exposure_amount"
   ],
   "outputs": {
-    "primary": "primaryResult",
-    "breakdown": {
-      "valueAtRisk": "value_at_risk",
-      "expectedShortfall": "expected_shortfall",
-      "hedgeEffectiveness": "hedge_effectiveness",
-      "dailyVolatility": "daily_volatility",
-      "zScore": "z_score"
-    },
+    "primary": "0",
+    "breakdown": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
     "hiddenLossDrivers": [
       "Unhedged residual exposure (1 - hedge_ratio) * exposure_amount",
       "Volatility clustering – potential regime shift not captured by constant volatility",
@@ -216,5 +187,8 @@
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "currency-risk-calculator"
 }

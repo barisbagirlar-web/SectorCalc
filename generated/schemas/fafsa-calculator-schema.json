@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total adjusted gross income of both parents (if married) or single parent"
+      "businessContext": "Total adjusted gross income of both parents (if married) or single parent",
+      "label_i18n": {
+        "en": "Parent Annual Income",
+        "tr": "Parent Annual Income",
+        "de": "Parent Annual Income",
+        "fr": "Parent Annual Income",
+        "es": "Parent Annual Income",
+        "ar": "Parent Annual Income"
+      }
     },
     {
       "id": "studentIncome",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Student's adjusted gross income from work"
+      "businessContext": "Student's adjusted gross income from work",
+      "label_i18n": {
+        "en": "Student Annual Income",
+        "tr": "Student Annual Income",
+        "de": "Student Annual Income",
+        "fr": "Student Annual Income",
+        "es": "Student Annual Income",
+        "ar": "Student Annual Income"
+      }
     },
     {
       "id": "parentAssets",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total non-retirement assets of parents (cash, investments, real estate other than primary home)"
+      "businessContext": "Total non-retirement assets of parents (cash, investments, real estate other than primary home)",
+      "label_i18n": {
+        "en": "Parent Assets",
+        "tr": "Parent Assets",
+        "de": "Parent Assets",
+        "fr": "Parent Assets",
+        "es": "Parent Assets",
+        "ar": "Parent Assets"
+      }
     },
     {
       "id": "studentAssets",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Student's total cash, savings, and other assets"
+      "businessContext": "Student's total cash, savings, and other assets",
+      "label_i18n": {
+        "en": "Student Assets",
+        "tr": "Student Assets",
+        "de": "Student Assets",
+        "fr": "Student Assets",
+        "es": "Student Assets",
+        "ar": "Student Assets"
+      }
     },
     {
       "id": "numberInCollege",
@@ -39,23 +71,34 @@
       "type": "number",
       "unit": "students",
       "default": 1,
-      "businessContext": "Number of household members attending college in the academic year"
+      "businessContext": "Number of household members attending college in the academic year",
+      "label_i18n": {
+        "en": "Number in College",
+        "tr": "Number in College",
+        "de": "Number in College",
+        "fr": "Number in College",
+        "es": "Number in College",
+        "ar": "Number in College"
+      }
     }
   ],
   "formulas": {
     "parentContribution": "parentIncome * 0.22 + parentAssets * 0.12",
     "studentContribution": "studentIncome * 0.50 + studentAssets * 0.20",
-    "totalEFC": "(parentIncome * 0.22 + parentAssets * 0.12 + studentIncome * 0.50 + studentAssets * 0.20) / numberInCollege"
+    "totalEFC": "(parentIncome * 0.22 + parentAssets * 0.12 + studentIncome * 0.50 + studentAssets * 0.20) / numberInCollege",
+    "parentIncome___0_22___parentAssets___0_1": "parentIncome * 0.22 + parentAssets * 0.12",
+    "studentIncome___0_50___studentAssets___0": "studentIncome * 0.50 + studentAssets * 0.20",
+    "result": "(parentIncome * 0.22 + parentAssets * 0.12 + studentIncome * 0.50 + studentAssets * 0.20) / numberInCollege"
   },
   "outputs": {
-    "primary": "(parentIncome * 0.22 + parentAssets * 0.12 + studentIncome * 0.50 + studentAssets * 0.20) / numberInCollege",
+    "primary": "result",
     "breakdown": [
       "parentIncome * 0.22 + parentAssets * 0.12",
       "studentIncome * 0.50 + studentAssets * 0.20"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "mm",
       "default": 3000,
-      "businessContext": "Katlar arası yükseklik."
+      "businessContext": "Katlar arası yükseklik.",
+      "label_i18n": {
+        "en": "Toplam Yükseklik",
+        "tr": "Toplam Yükseklik",
+        "de": "Toplam Yükseklik",
+        "fr": "Toplam Yükseklik",
+        "es": "Toplam Yükseklik",
+        "ar": "Toplam Yükseklik"
+      }
     },
     {
       "id": "numberOfSteps",
       "label": "Basamak Sayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 15,
-      "businessContext": "Toplam basamak adedi."
+      "businessContext": "Toplam basamak adedi.",
+      "label_i18n": {
+        "en": "Basamak Sayısı",
+        "tr": "Basamak Sayısı",
+        "de": "Basamak Sayısı",
+        "fr": "Basamak Sayısı",
+        "es": "Basamak Sayısı",
+        "ar": "Basamak Sayısı"
+      }
     },
     {
       "id": "treadDepth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 280,
-      "businessContext": "Bir basamağın yatay derinliği."
+      "businessContext": "Bir basamağın yatay derinliği.",
+      "label_i18n": {
+        "en": "Basamak Derinliği",
+        "tr": "Basamak Derinliği",
+        "de": "Basamak Derinliği",
+        "fr": "Basamak Derinliği",
+        "es": "Basamak Derinliği",
+        "ar": "Basamak Derinliği"
+      }
     },
     {
       "id": "stepWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "Merdiven kol genişliği."
+      "businessContext": "Merdiven kol genişliği.",
+      "label_i18n": {
+        "en": "Merdiven Genişliği",
+        "tr": "Merdiven Genişliği",
+        "de": "Merdiven Genişliği",
+        "fr": "Merdiven Genişliği",
+        "es": "Merdiven Genişliği",
+        "ar": "Merdiven Genişliği"
+      }
     },
     {
       "id": "waistThickness",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 150,
-      "businessContext": "Taşıyıcı eğik plakanın kalınlığı."
+      "businessContext": "Taşıyıcı eğik plakanın kalınlığı.",
+      "label_i18n": {
+        "en": "Eğik Döşeme Kalınlığı",
+        "tr": "Eğik Döşeme Kalınlığı",
+        "de": "Eğik Döşeme Kalınlığı",
+        "fr": "Eğik Döşeme Kalınlığı",
+        "es": "Eğik Döşeme Kalınlığı",
+        "ar": "Eğik Döşeme Kalınlığı"
+      }
     },
     {
       "id": "landingLength",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Varsa sahanlığın uzunluğu, yoksa 0."
+      "businessContext": "Varsa sahanlığın uzunluğu, yoksa 0.",
+      "label_i18n": {
+        "en": "Sahanlık Uzunluğu",
+        "tr": "Sahanlık Uzunluğu",
+        "de": "Sahanlık Uzunluğu",
+        "fr": "Sahanlık Uzunluğu",
+        "es": "Sahanlık Uzunluğu",
+        "ar": "Sahanlık Uzunluğu"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +118,7 @@
       "volumeLanding_m3"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

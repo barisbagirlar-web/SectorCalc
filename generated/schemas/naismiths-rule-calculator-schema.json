@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Total horizontal distance of the hike"
+      "businessContext": "Total horizontal distance of the hike",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Distance (km)",
+        "de": "Distance (km)",
+        "fr": "Distance (km)",
+        "es": "Distance (km)",
+        "ar": "Distance (km)"
+      }
     },
     {
       "id": "ascent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Total elevation gain during the hike"
+      "businessContext": "Total elevation gain during the hike",
+      "label_i18n": {
+        "en": "Total Ascent (m)",
+        "tr": "Total Ascent (m)",
+        "de": "Total Ascent (m)",
+        "fr": "Total Ascent (m)",
+        "es": "Total Ascent (m)",
+        "ar": "Total Ascent (m)"
+      }
     },
     {
       "id": "descent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Total elevation loss during the hike"
+      "businessContext": "Total elevation loss during the hike",
+      "label_i18n": {
+        "en": "Total Descent (m)",
+        "tr": "Total Descent (m)",
+        "de": "Total Descent (m)",
+        "fr": "Total Descent (m)",
+        "es": "Total Descent (m)",
+        "ar": "Total Descent (m)"
+      }
     },
     {
       "id": "pace",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "min/km",
       "default": 5,
-      "businessContext": "Average walking pace on flat terrain"
+      "businessContext": "Average walking pace on flat terrain",
+      "label_i18n": {
+        "en": "Pace (min/km)",
+        "tr": "Pace (min/km)",
+        "de": "Pace (min/km)",
+        "fr": "Pace (min/km)",
+        "es": "Pace (min/km)",
+        "ar": "Pace (min/km)"
+      }
     },
     {
       "id": "ascentTimePer100m",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "min/100m",
       "default": 10,
-      "businessContext": "Additional time per 100m of ascent"
+      "businessContext": "Additional time per 100m of ascent",
+      "label_i18n": {
+        "en": "Ascent Time per 100m (min)",
+        "tr": "Ascent Time per 100m (min)",
+        "de": "Ascent Time per 100m (min)",
+        "fr": "Ascent Time per 100m (min)",
+        "es": "Ascent Time per 100m (min)",
+        "ar": "Ascent Time per 100m (min)"
+      }
     },
     {
       "id": "descentTimePer100m",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "min/100m",
       "default": 5,
-      "businessContext": "Additional time per 100m of descent"
+      "businessContext": "Additional time per 100m of descent",
+      "label_i18n": {
+        "en": "Descent Time per 100m (min)",
+        "tr": "Descent Time per 100m (min)",
+        "de": "Descent Time per 100m (min)",
+        "fr": "Descent Time per 100m (min)",
+        "es": "Descent Time per 100m (min)",
+        "ar": "Descent Time per 100m (min)"
+      }
     }
   ],
   "formulas": {
@@ -55,10 +103,14 @@
     "ascentTime": "(ascent / 100) * ascentTimePer100m",
     "descentTime": "(descent / 100) * descentTimePer100m",
     "totalTimeMin": "flatTime + ascentTime + descentTime",
-    "totalTimeHours": "totalTimeMin / 60"
+    "totalTimeHours": "totalTimeMin / 60",
+    "_flatTime__minutes": "{flatTime} minutes",
+    "_ascentTime__minutes": "{ascentTime} minutes",
+    "_descentTime__minutes": "{descentTime} minutes",
+    "_totalTimeMin__minutes": "{totalTimeMin} minutes"
   },
   "outputs": {
-    "primary": "Total hiking time: {totalTimeHours} hours",
+    "primary": "flatTime",
     "breakdown": [
       "Flat terrain time: {flatTime} minutes",
       "Ascent time: {ascentTime} minutes",
@@ -66,10 +118,10 @@
       "Total time: {totalTimeMin} minutes"
     ]
   },
-  "category": "Rota & Lojistik",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

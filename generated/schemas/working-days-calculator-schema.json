@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "gün",
       "default": 44927,
-      "businessContext": "Start date as serial day number (e.g., Excel)"
+      "businessContext": "Start date as serial day number (e.g., Excel)",
+      "label_i18n": {
+        "en": "Başlangıç Tarihi (Seri No)",
+        "tr": "Başlangıç Tarihi (Seri No)",
+        "de": "Başlangıç Tarihi (Seri No)",
+        "fr": "Başlangıç Tarihi (Seri No)",
+        "es": "Başlangıç Tarihi (Seri No)",
+        "ar": "Başlangıç Tarihi (Seri No)"
+      }
     },
     {
       "id": "endDate",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "gün",
       "default": 44957,
-      "businessContext": "End date as serial day number"
+      "businessContext": "End date as serial day number",
+      "label_i18n": {
+        "en": "Bitiş Tarihi (Seri No)",
+        "tr": "Bitiş Tarihi (Seri No)",
+        "de": "Bitiş Tarihi (Seri No)",
+        "fr": "Bitiş Tarihi (Seri No)",
+        "es": "Bitiş Tarihi (Seri No)",
+        "ar": "Bitiş Tarihi (Seri No)"
+      }
     },
     {
       "id": "includeStart",
       "label": "Başlangıç Günü Dahil",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 if start day is included, 0 otherwise"
+      "businessContext": "1 if start day is included, 0 otherwise",
+      "label_i18n": {
+        "en": "Başlangıç Günü Dahil",
+        "tr": "Başlangıç Günü Dahil",
+        "de": "Başlangıç Günü Dahil",
+        "fr": "Başlangıç Günü Dahil",
+        "es": "Başlangıç Günü Dahil",
+        "ar": "Başlangıç Günü Dahil"
+      }
     },
     {
       "id": "includeEnd",
       "label": "Bitiş Günü Dahil",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 if end day is included, 0 otherwise"
+      "businessContext": "1 if end day is included, 0 otherwise",
+      "label_i18n": {
+        "en": "Bitiş Günü Dahil",
+        "tr": "Bitiş Günü Dahil",
+        "de": "Bitiş Günü Dahil",
+        "fr": "Bitiş Günü Dahil",
+        "es": "Bitiş Günü Dahil",
+        "ar": "Bitiş Günü Dahil"
+      }
     },
     {
       "id": "weekendDaysPerWeek",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "gün",
       "default": 2,
-      "businessContext": "Number of weekend days per week (e.g., 2 for Sat-Sun)"
+      "businessContext": "Number of weekend days per week (e.g., 2 for Sat-Sun)",
+      "label_i18n": {
+        "en": "Haftalık Tatil Gün Sayısı",
+        "tr": "Haftalık Tatil Gün Sayısı",
+        "de": "Haftalık Tatil Gün Sayısı",
+        "fr": "Haftalık Tatil Gün Sayısı",
+        "es": "Haftalık Tatil Gün Sayısı",
+        "ar": "Haftalık Tatil Gün Sayısı"
+      }
     },
     {
       "id": "holidays",
@@ -47,13 +87,22 @@
       "type": "number",
       "unit": "gün",
       "default": 0,
-      "businessContext": "Number of public holidays falling on weekdays"
+      "businessContext": "Number of public holidays falling on weekdays",
+      "label_i18n": {
+        "en": "Resmi Tatiller",
+        "tr": "Resmi Tatiller",
+        "de": "Resmi Tatiller",
+        "fr": "Resmi Tatiller",
+        "es": "Resmi Tatiller",
+        "ar": "Resmi Tatiller"
+      }
     }
   ],
   "formulas": {
     "totalCalendarDays": "endDate - startDate + includeStart + includeEnd - 1",
     "estimatedWeekendDays": "(weekendDaysPerWeek / 7) * totalCalendarDays",
-    "workingDays": "totalCalendarDays - estimatedWeekendDays - holidays"
+    "workingDays": "totalCalendarDays - estimatedWeekendDays - holidays",
+    "holidays": "holidays"
   },
   "outputs": {
     "primary": "workingDays",
@@ -63,8 +112,8 @@
       "holidays"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

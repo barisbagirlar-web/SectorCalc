@@ -33,7 +33,7 @@ function evaluateAllFormulas(input: Fuel_efficiency_converter_calculatorInput): 
 
 export function calculateFuel_efficiency_converter_calculator(input: Fuel_efficiency_converter_calculatorInput): Fuel_efficiency_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["results"] ?? 0;
+  const totalWasteCost = values["distanceKm"] ?? 0;
   const breakdown = {
     
   };

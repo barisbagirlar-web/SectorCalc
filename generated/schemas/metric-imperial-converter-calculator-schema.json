@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Length in meters to convert to feet"
+      "businessContext": "Length in meters to convert to feet",
+      "label_i18n": {
+        "en": "Meters (m)",
+        "tr": "Meters (m)",
+        "de": "Meters (m)",
+        "fr": "Meters (m)",
+        "es": "Meters (m)",
+        "ar": "Meters (m)"
+      }
     },
     {
       "id": "kilograms",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Mass in kilograms to convert to pounds"
+      "businessContext": "Mass in kilograms to convert to pounds",
+      "label_i18n": {
+        "en": "Kilograms (kg)",
+        "tr": "Kilograms (kg)",
+        "de": "Kilograms (kg)",
+        "fr": "Kilograms (kg)",
+        "es": "Kilograms (kg)",
+        "ar": "Kilograms (kg)"
+      }
     },
     {
       "id": "liters",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 0,
-      "businessContext": "Volume in liters to convert to US gallons"
+      "businessContext": "Volume in liters to convert to US gallons",
+      "label_i18n": {
+        "en": "Liters (L)",
+        "tr": "Liters (L)",
+        "de": "Liters (L)",
+        "fr": "Liters (L)",
+        "es": "Liters (L)",
+        "ar": "Liters (L)"
+      }
     },
     {
       "id": "celsius",
@@ -31,17 +55,30 @@
       "type": "number",
       "unit": "°C",
       "default": 0,
-      "businessContext": "Temperature in Celsius to convert to Fahrenheit"
+      "businessContext": "Temperature in Celsius to convert to Fahrenheit",
+      "label_i18n": {
+        "en": "Celsius (°C)",
+        "tr": "Celsius (°C)",
+        "de": "Celsius (°C)",
+        "fr": "Celsius (°C)",
+        "es": "Celsius (°C)",
+        "ar": "Celsius (°C)"
+      }
     }
   ],
   "formulas": {
     "feet": "meters * 3.28084",
     "pounds": "kilograms * 2.20462",
     "gallons": "liters * 0.264172",
-    "fahrenheit": "(celsius * 9/5) + 32"
+    "fahrenheit": "(celsius * 9/5) + 32",
+    "____feet_toFixed_2______ft_": "' + feet.toFixed(2) + ' ft'",
+    "____pounds_toFixed_2______lbs_": "' + pounds.toFixed(2) + ' lbs'",
+    "____gallons_toFixed_2______gal_": "' + gallons.toFixed(2) + ' gal'",
+    "____fahrenheit_toFixed_2_______F_": "' + fahrenheit.toFixed(2) + ' °F'",
+    "result": "'Conversions: ' + meters + 'm => ' + feet.toFixed(2) + 'ft, ' + kilograms + 'kg => ' + pounds.toFixed(2) + 'lbs, ' + liters + 'L => ' + gallons.toFixed(2) + 'gal, ' + celsius + '°C => ' + fahrenheit.toFixed(2) + '°F'"
   },
   "outputs": {
-    "primary": "'Conversions: ' + meters + 'm => ' + feet.toFixed(2) + 'ft, ' + kilograms + 'kg => ' + pounds.toFixed(2) + 'lbs, ' + liters + 'L => ' + gallons.toFixed(2) + 'gal, ' + celsius + '°C => ' + fahrenheit.toFixed(2) + '°F'",
+    "primary": "result",
     "breakdown": [
       "'Feet: ' + feet.toFixed(2) + ' ft'",
       "'Pounds: ' + pounds.toFixed(2) + ' lbs'",
@@ -49,10 +86,10 @@
       "'Fahrenheit: ' + fahrenheit.toFixed(2) + ' °F'"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -22,6 +22,12 @@ export const Body_age_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Body_age_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.chronologicalAge + 0.2 * (input.restingHeartRate - 70) + 0.3 * (input.waistCircumference - 80) - 0.5 * (input.exerciseDaysPerWeek - 3) + 0.1 * (input.systolicBP - 120) + 0.1 * (input.diastolicBP - 80); results["biologicalAge"] = Number.isFinite(v) ? v : 0; } catch { results["biologicalAge"] = 0; }
+  try { const v = input.chronologicalAge; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = heartRateAdjustment; results["heartRateAdjustment"] = Number.isFinite(v) ? v : 0; } catch { results["heartRateAdjustment"] = 0; }
+  try { const v = waistAdjustment; results["waistAdjustment"] = Number.isFinite(v) ? v : 0; } catch { results["waistAdjustment"] = 0; }
+  try { const v = exerciseAdjustment; results["exerciseAdjustment"] = Number.isFinite(v) ? v : 0; } catch { results["exerciseAdjustment"] = 0; }
+  try { const v = systolicAdjustment; results["systolicAdjustment"] = Number.isFinite(v) ? v : 0; } catch { results["systolicAdjustment"] = 0; }
+  try { const v = diastolicAdjustment; results["diastolicAdjustment"] = Number.isFinite(v) ? v : 0; } catch { results["diastolicAdjustment"] = 0; }
   return results;
 }
 

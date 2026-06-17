@@ -17,7 +17,11 @@ export const Mswd_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Mswd_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
+  try { const v = 1; results["1"] = Number.isFinite(v) ? v : 0; } catch { results["1"] = 0; }
   try { const v = input.sumWeightedSquaredResiduals / (input.numberOfDataPoints - input.numberOfParameters); results["mswd"] = Number.isFinite(v) ? v : 0; } catch { results["mswd"] = 0; }
+  try { const v = input.sumWeightedSquaredResiduals; results["sumWeightedSquaredResiduals"] = Number.isFinite(v) ? v : 0; } catch { results["sumWeightedSquaredResiduals"] = 0; }
+  try { const v = input.numberOfDataPoints - input.numberOfParameters; results["numberOfDataPoints___numberOfParameters"] = Number.isFinite(v) ? v : 0; } catch { results["numberOfDataPoints___numberOfParameters"] = 0; }
+  try { const v = Math.sqrt(2 / (input.numberOfDataPoints - input.numberOfParameters)); results["Math_sqrt_2____numberOfDataPoints___numb"] = Number.isFinite(v) ? v : 0; } catch { results["Math_sqrt_2____numberOfDataPoints___numb"] = 0; }
   return results;
 }
 

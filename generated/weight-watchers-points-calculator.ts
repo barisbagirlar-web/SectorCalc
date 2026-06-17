@@ -17,11 +17,12 @@ export const Weight_watchers_points_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Weight_watchers_points_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.calories * 0.0305; results["calTerm"] = Number.isFinite(v) ? v : 0; } catch { results["calTerm"] = 0; }
-  try { const v = input.saturatedFat * 0.275; results["satFatTerm"] = Number.isFinite(v) ? v : 0; } catch { results["satFatTerm"] = 0; }
-  try { const v = input.sugar * 0.12; results["sugarTerm"] = Number.isFinite(v) ? v : 0; } catch { results["sugarTerm"] = 0; }
-  try { const v = input.protein * 0.098; results["protTerm"] = Number.isFinite(v) ? v : 0; } catch { results["protTerm"] = 0; }
-  try { const v = (results["calTerm"] ?? 0) + (results["satFatTerm"] ?? 0) + (results["sugarTerm"] ?? 0) - (results["protTerm"] ?? 0); results["points"] = Number.isFinite(v) ? v : 0; } catch { results["points"] = 0; }
+  try { const v = input.calories * 0.0305 + input.saturatedFat * 0.275 + input.sugar * 0.12 - input.protein * 0.098; results["rawPoints"] = Number.isFinite(v) ? v : 0; } catch { results["rawPoints"] = 0; }
+  try { const v = Math.round(Math.max(0, (results["rawPoints"] ?? 0))); results["points"] = Number.isFinite(v) ? v : 0; } catch { results["points"] = 0; }
+  try { const v = input.calories * 0.0305; results["caloriesContrib"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesContrib"] = 0; }
+  try { const v = input.saturatedFat * 0.275; results["saturatedFatContrib"] = Number.isFinite(v) ? v : 0; } catch { results["saturatedFatContrib"] = 0; }
+  try { const v = input.sugar * 0.12; results["sugarContrib"] = Number.isFinite(v) ? v : 0; } catch { results["sugarContrib"] = 0; }
+  try { const v = input.protein * 0.098; results["proteinContrib"] = Number.isFinite(v) ? v : 0; } catch { results["proteinContrib"] = 0; }
   return results;
 }
 

@@ -19,6 +19,7 @@ function evaluateAllFormulas(input: Torque_calculatorInput): Record<string, numb
   const results: Record<string, number> = {};
   try { const v = input.coefficient_c * input.diameter_mm * input.tension_kn * input.safety_factor; results["torque_nm"] = Number.isFinite(v) ? v : 0; } catch { results["torque_nm"] = 0; }
   try { const v = input.coefficient_c * input.diameter_mm * input.tension_kn; results["torque_without_safety"] = Number.isFinite(v) ? v : 0; } catch { results["torque_without_safety"] = 0; }
+  results["torque_without_safety_Nm"] = 0;
   return results;
 }
 

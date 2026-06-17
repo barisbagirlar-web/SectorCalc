@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Ratio of actual production time to planned production time, expressed as a percentage. Higher availability indicates less downtime."
+      "businessContext": "Ratio of actual production time to planned production time, expressed as a percentage. Higher availability indicates less downtime.",
+      "label_i18n": {
+        "en": "Availability (%)",
+        "tr": "Availability (%)",
+        "de": "Availability (%)",
+        "fr": "Availability (%)",
+        "es": "Availability (%)",
+        "ar": "Availability (%)"
+      }
     },
     {
       "id": "performance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Ratio of actual output to theoretical maximum output during actual production time, expressed as a percentage. Accounts for speed losses."
+      "businessContext": "Ratio of actual output to theoretical maximum output during actual production time, expressed as a percentage. Accounts for speed losses.",
+      "label_i18n": {
+        "en": "Performance (%)",
+        "tr": "Performance (%)",
+        "de": "Performance (%)",
+        "fr": "Performance (%)",
+        "es": "Performance (%)",
+        "ar": "Performance (%)"
+      }
     },
     {
       "id": "quality",
@@ -23,29 +39,37 @@
       "type": "number",
       "unit": "%",
       "default": 98,
-      "businessContext": "Ratio of good units produced to total units started, expressed as a percentage. Reflects defect rate."
+      "businessContext": "Ratio of good units produced to total units started, expressed as a percentage. Reflects defect rate.",
+      "label_i18n": {
+        "en": "Quality (%)",
+        "tr": "Quality (%)",
+        "de": "Quality (%)",
+        "fr": "Quality (%)",
+        "es": "Quality (%)",
+        "ar": "Quality (%)"
+      }
     }
   ],
   "formulas": {
     "primary": "(availability / 100) * (performance / 100) * (quality / 100) * 100",
-    "breakdown": [
-      "availability",
-      "performance",
-      "quality"
-    ]
+    "breakdown": "availability",
+    "Availability_Score____": "Availability Score (%)",
+    "Performance_Score____": "Performance Score (%)",
+    "Quality_Score____": "Quality Score (%)",
+    "result": "OEE (%)"
   },
   "outputs": {
-    "primary": "OEE (%)",
+    "primary": "result",
     "breakdown": [
       "Availability Score (%)",
       "Performance Score (%)",
       "Quality Score (%)"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

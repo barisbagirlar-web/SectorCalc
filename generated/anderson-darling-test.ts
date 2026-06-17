@@ -21,13 +21,16 @@ function evaluateAllFormulas(input: Anderson_darling_testInput): Record<string, 
   try { const v = (() => { let z = (results["computeZ"]); return z.map(zi => 0.5 * (1 + erf(zi / Math.sqrt(2)))); })(); results["computeCDF"] = Number.isFinite(v) ? v : 0; } catch { results["computeCDF"] = 0; }
   try { const v = (() => { let cdf = (results["computeCDF"]); let n = input.sampleSize; let sum = 0; for (let i = 0; i < n; i++) { let term = (2 * (i + 1) - 1) * (Math.log(cdf[i]) + Math.log(1 - cdf[n - 1 - i])); sum += term; } let ad = -n - (1 / n) * sum; return ad; })(); results["computeAD"] = Number.isFinite(v) ? v : 0; } catch { results["computeAD"] = 0; }
   try { const v = (() => { let ad = (results["computeAD"]); let n = input.sampleSize; let adj = ad * (1 + 0.75 / n + 2.25 / (n * n)); return adj; })(); results["computeAdjustedAD"] = Number.isFinite(v) ? v : 0; } catch { results["computeAdjustedAD"] = 0; }
+  results["Anderson_Darling_Statistic__A__"] = 0;
+  results["Adjusted_Anderson_Darling_Statistic"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateAnderson_darling_test(input: Anderson_darling_testInput): Anderson_darling_testOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Adjusted"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

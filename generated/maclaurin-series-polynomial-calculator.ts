@@ -24,13 +24,20 @@ export const Maclaurin_series_polynomial_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Maclaurin_series_polynomial_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.a0 + input.a1*input.x + input.a2*Math.pow(input.x,2) + input.a3*Math.pow(input.x,3) + input.a4*Math.pow(input.x,4) + input.a5*Math.pow(input.x,5); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.x; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  results["Term_0__constant_"] = 0;
+  results["Term_1__linear_"] = 0;
+  results["Term_2__quadratic_"] = 0;
+  results["Term_3__cubic_"] = 0;
+  results["Term_4__quartic_"] = 0;
+  results["Term_5__quintic_"] = 0;
   return results;
 }
 
 
 export function calculateMaclaurin_series_polynomial_calculator(input: Maclaurin_series_polynomial_calculatorInput): Maclaurin_series_polynomial_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Maclaurin"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

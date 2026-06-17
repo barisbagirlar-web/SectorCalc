@@ -40,12 +40,7 @@
     "distance": "velocity / hubbleConstant"
   },
   "outputs": {
-    "primary": {
-      "id": "redshift",
-      "label": "Kırmızıya Kayma (z)",
-      "value": "z",
-      "unit": ""
-    },
+    "primary": "z",
     "breakdown": [
       {
         "id": "observed",
@@ -73,10 +68,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "workforce-hr"
 }

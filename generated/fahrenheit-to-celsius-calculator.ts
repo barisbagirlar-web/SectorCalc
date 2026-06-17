@@ -19,6 +19,9 @@ function evaluateAllFormulas(input: Fahrenheit_to_celsius_calculatorInput): Reco
   const results: Record<string, number> = {};
   try { const v = (input.fahrenheit - 32) * 5 / 9; results["celsius"] = Number.isFinite(v) ? v : 0; } catch { results["celsius"] = 0; }
   try { const v = Math.round(((input.fahrenheit - 32) * 5 / 9) * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces); results["roundedResult"] = Number.isFinite(v) ? v : 0; } catch { results["roundedResult"] = 0; }
+  results["_C_____F___32____5_9"] = 0;
+  results["_C_____fahrenheit____32____5_9____celsiu"] = 0;
+  results["_roundedResult___C"] = 0;
   return results;
 }
 

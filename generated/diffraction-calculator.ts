@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Diffraction_calculatorInput): Record<string,
 
 export function calculateDiffraction_calculator(input: Diffraction_calculatorInput): Diffraction_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["position"] ?? 0;
+  const totalWasteCost = values["sinTheta"] ?? 0;
   const breakdown = {
     
   };

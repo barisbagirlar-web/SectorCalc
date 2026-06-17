@@ -250,12 +250,12 @@ export function AdminAuthBar() {
  <span className="font-semibold">Admin girişi gerekli.</span> Lead
  verilerini görüntülemek ve kaydetmek için giriş yapın.
  </p>
- <Link
- href="/login"
- className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-black"
- >
- Giriş yap
- </Link>
+        <Link
+          href="/admin/login"
+          className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-black"
+        >
+          Giriş yap
+        </Link>
  </div>
  );
  }

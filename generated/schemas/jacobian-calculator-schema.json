@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Partial derivative of x with respect to u"
+      "businessContext": "Partial derivative of x with respect to u",
+      "label_i18n": {
+        "en": "∂x/∂u",
+        "tr": "∂x/∂u",
+        "de": "∂x/∂u",
+        "fr": "∂x/∂u",
+        "es": "∂x/∂u",
+        "ar": "∂x/∂u"
+      }
     },
     {
       "id": "dxdv",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Partial derivative of x with respect to v"
+      "businessContext": "Partial derivative of x with respect to v",
+      "label_i18n": {
+        "en": "∂x/∂v",
+        "tr": "∂x/∂v",
+        "de": "∂x/∂v",
+        "fr": "∂x/∂v",
+        "es": "∂x/∂v",
+        "ar": "∂x/∂v"
+      }
     },
     {
       "id": "dydu",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Partial derivative of y with respect to u"
+      "businessContext": "Partial derivative of y with respect to u",
+      "label_i18n": {
+        "en": "∂y/∂u",
+        "tr": "∂y/∂u",
+        "de": "∂y/∂u",
+        "fr": "∂y/∂u",
+        "es": "∂y/∂u",
+        "ar": "∂y/∂u"
+      }
     },
     {
       "id": "dydv",
@@ -31,25 +55,33 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Partial derivative of y with respect to v"
+      "businessContext": "Partial derivative of y with respect to v",
+      "label_i18n": {
+        "en": "∂y/∂v",
+        "tr": "∂y/∂v",
+        "de": "∂y/∂v",
+        "fr": "∂y/∂v",
+        "es": "∂y/∂v",
+        "ar": "∂y/∂v"
+      }
     }
   ],
   "formulas": {
     "primary": "dxdu * dydv - dxdv * dydu",
-    "breakdown": [
-      "dxdu * dydv",
-      "dxdv * dydu"
-    ]
+    "breakdown": "dxdu",
+    "Product__x__u____y__v": "Product ∂x/∂u * ∂y/∂v",
+    "Product__x__v____y__u": "Product ∂x/∂v * ∂y/∂u",
+    "result": "Jacobian determinant (det(J))"
   },
   "outputs": {
-    "primary": "Jacobian determinant (det(J))",
+    "primary": "result",
     "breakdown": [
       "Product ∂x/∂u * ∂y/∂v",
       "Product ∂x/∂v * ∂y/∂u"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

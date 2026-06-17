@@ -56,12 +56,7 @@
     "overallSimilarity": "(wordSimilarity * 0.7 + citationOverlap * 0.3)"
   },
   "outputs": {
-    "primary": {
-      "id": "overallSimilarity",
-      "label": "Genel Benzerlik Oranı",
-      "unit": "%",
-      "formula": "overallSimilarity"
-    },
+    "primary": "wordSimilarity",
     "breakdown": [
       {
         "id": "wordSimilarity",
@@ -77,8 +72,8 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

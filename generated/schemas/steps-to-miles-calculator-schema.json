@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "steps",
       "default": 10000,
-      "businessContext": "Total number of steps recorded, e.g., from a pedometer or fitness tracker."
+      "businessContext": "Total number of steps recorded, e.g., from a pedometer or fitness tracker.",
+      "label_i18n": {
+        "en": "Number of Steps",
+        "tr": "Number of Steps",
+        "de": "Number of Steps",
+        "fr": "Number of Steps",
+        "es": "Number of Steps",
+        "ar": "Number of Steps"
+      }
     },
     {
       "id": "stepLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "User-measured step length in centimeters. Leave 0 to estimate from stride or height."
+      "businessContext": "User-measured step length in centimeters. Leave 0 to estimate from stride or height.",
+      "label_i18n": {
+        "en": "Step Length",
+        "tr": "Step Length",
+        "de": "Step Length",
+        "fr": "Step Length",
+        "es": "Step Length",
+        "ar": "Step Length"
+      }
     },
     {
       "id": "strideLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "User-measured stride length in centimeters (two steps). Leave 0 to use step length or estimate from height."
+      "businessContext": "User-measured stride length in centimeters (two steps). Leave 0 to use step length or estimate from height.",
+      "label_i18n": {
+        "en": "Stride Length",
+        "tr": "Stride Length",
+        "de": "Stride Length",
+        "fr": "Stride Length",
+        "es": "Stride Length",
+        "ar": "Stride Length"
+      }
     },
     {
       "id": "height",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "User height in centimeters. Used to estimate step length if step length and stride length are not provided. Typical formula: stepLength ≈ height × 0.415."
+      "businessContext": "User height in centimeters. Used to estimate step length if step length and stride length are not provided. Typical formula: stepLength ≈ height × 0.415.",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "terrainFactor",
       "label": "Terrain Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Multiplier for terrain difficulty. 1.0 for flat, >1 for downhill (lengthens stride), <1 for uphill (shortens stride)."
+      "businessContext": "Multiplier for terrain difficulty. 1.0 for flat, >1 for downhill (lengthens stride), <1 for uphill (shortens stride).",
+      "label_i18n": {
+        "en": "Terrain Factor",
+        "tr": "Terrain Factor",
+        "de": "Terrain Factor",
+        "fr": "Terrain Factor",
+        "es": "Terrain Factor",
+        "ar": "Terrain Factor"
+      }
     }
   ],
   "formulas": {
@@ -57,10 +97,10 @@
       "stepsPerMile"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "The diameter of the machine axle under analysis."
+      "businessContext": "The diameter of the machine axle under analysis.",
+      "label_i18n": {
+        "en": "Axle Diameter",
+        "tr": "Axle Diameter",
+        "de": "Axle Diameter",
+        "fr": "Axle Diameter",
+        "es": "Axle Diameter",
+        "ar": "Axle Diameter"
+      }
     },
     {
       "id": "axleLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "The unsupported length of the axle between bearings."
+      "businessContext": "The unsupported length of the axle between bearings.",
+      "label_i18n": {
+        "en": "Axle Length",
+        "tr": "Axle Length",
+        "de": "Axle Length",
+        "fr": "Axle Length",
+        "es": "Axle Length",
+        "ar": "Axle Length"
+      }
     },
     {
       "id": "load",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "Central point load acting on the axle."
+      "businessContext": "Central point load acting on the axle.",
+      "label_i18n": {
+        "en": "Applied Load",
+        "tr": "Applied Load",
+        "de": "Applied Load",
+        "fr": "Applied Load",
+        "es": "Applied Load",
+        "ar": "Applied Load"
+      }
     },
     {
       "id": "elasticModulus",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "GPa",
       "default": 210,
-      "businessContext": "Material's modulus of elasticity (e.g., steel ≈ 210 GPa)."
+      "businessContext": "Material's modulus of elasticity (e.g., steel ≈ 210 GPa).",
+      "label_i18n": {
+        "en": "Elastic Modulus",
+        "tr": "Elastic Modulus",
+        "de": "Elastic Modulus",
+        "fr": "Elastic Modulus",
+        "es": "Elastic Modulus",
+        "ar": "Elastic Modulus"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Design safety factor for allowable stress comparison."
+      "businessContext": "Design safety factor for allowable stress comparison.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "maxBendingStress"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

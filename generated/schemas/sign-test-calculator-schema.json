@@ -5,33 +5,65 @@
       "id": "sampleSize",
       "label": "Sample Size (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 20,
-      "businessContext": "Total number of paired observations with non-zero differences."
+      "businessContext": "Total number of paired observations with non-zero differences.",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "posCount",
       "label": "Number of Positive Signs",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Count of observations where the difference is positive."
+      "businessContext": "Count of observations where the difference is positive.",
+      "label_i18n": {
+        "en": "Number of Positive Signs",
+        "tr": "Number of Positive Signs",
+        "de": "Number of Positive Signs",
+        "fr": "Number of Positive Signs",
+        "es": "Number of Positive Signs",
+        "ar": "Number of Positive Signs"
+      }
     },
     {
       "id": "p0",
       "label": "Hypothesized Probability",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Under null hypothesis, probability of a positive sign (typically 0.5 for median test)."
+      "businessContext": "Under null hypothesis, probability of a positive sign (typically 0.5 for median test).",
+      "label_i18n": {
+        "en": "Hypothesized Probability",
+        "tr": "Hypothesized Probability",
+        "de": "Hypothesized Probability",
+        "fr": "Hypothesized Probability",
+        "es": "Hypothesized Probability",
+        "ar": "Hypothesized Probability"
+      }
     },
     {
       "id": "alpha",
       "label": "Significance Level (α)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.05,
-      "businessContext": "Type I error probability threshold."
+      "businessContext": "Type I error probability threshold.",
+      "label_i18n": {
+        "en": "Significance Level (α)",
+        "tr": "Significance Level (α)",
+        "de": "Significance Level (α)",
+        "fr": "Significance Level (α)",
+        "es": "Significance Level (α)",
+        "ar": "Significance Level (α)"
+      }
     },
     {
       "id": "testType",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "1=two-sided, 2=greater, 3=less",
       "default": 1,
-      "businessContext": "Specifies the direction of the test: 1 for two-tailed, 2 for upper-tailed, 3 for lower-tailed."
+      "businessContext": "Specifies the direction of the test: 1 for two-tailed, 2 for upper-tailed, 3 for lower-tailed.",
+      "label_i18n": {
+        "en": "Alternative Hypothesis",
+        "tr": "Alternative Hypothesis",
+        "de": "Alternative Hypothesis",
+        "fr": "Alternative Hypothesis",
+        "es": "Alternative Hypothesis",
+        "ar": "Alternative Hypothesis"
+      }
     }
   ],
   "formulas": {
@@ -58,10 +98,10 @@
       "conclusion"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

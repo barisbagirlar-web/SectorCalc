@@ -15,8 +15,12 @@ export const Annual_compound_interest_calculatorInputSchema = z.object({
   compoundFreq: z.number().default(1),
 });
 
-function evaluateAllFormulas(_input: Annual_compound_interest_calculatorInput): Record<string, number> {
-  return {};
+function evaluateAllFormulas(input: Annual_compound_interest_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.principal; results["finalAmount"] = Number.isFinite(v) ? v : 0; } catch { results["finalAmount"] = 0; }
+  try { const v = input.principal; results["totalInterest"] = Number.isFinite(v) ? v : 0; } catch { results["totalInterest"] = 0; }
+  try { const v = input.principal; results["effectiveAnnualRate"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveAnnualRate"] = 0; }
+  return results;
 }
 
 

@@ -5,75 +5,132 @@
       "id": "min",
       "label": "Minimum",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Minimum value of the distribution (0th percentile)"
+      "businessContext": "Minimum value of the distribution (0th percentile)",
+      "label_i18n": {
+        "en": "Minimum",
+        "tr": "Minimum",
+        "de": "Minimum",
+        "fr": "Minimum",
+        "es": "Minimum",
+        "ar": "Minimum"
+      }
     },
     {
       "id": "p20",
       "label": "20th Percentile",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 20,
-      "businessContext": "Value at the 20th percentile (lower boundary of first quintile)"
+      "businessContext": "Value at the 20th percentile (lower boundary of first quintile)",
+      "label_i18n": {
+        "en": "20th Percentile",
+        "tr": "20th Percentile",
+        "de": "20th Percentile",
+        "fr": "20th Percentile",
+        "es": "20th Percentile",
+        "ar": "20th Percentile"
+      }
     },
     {
       "id": "p40",
       "label": "40th Percentile",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 40,
-      "businessContext": "Value at the 40th percentile (boundary between second and third quintile)"
+      "businessContext": "Value at the 40th percentile (boundary between second and third quintile)",
+      "label_i18n": {
+        "en": "40th Percentile",
+        "tr": "40th Percentile",
+        "de": "40th Percentile",
+        "fr": "40th Percentile",
+        "es": "40th Percentile",
+        "ar": "40th Percentile"
+      }
     },
     {
       "id": "p60",
       "label": "60th Percentile",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 60,
-      "businessContext": "Value at the 60th percentile"
+      "businessContext": "Value at the 60th percentile",
+      "label_i18n": {
+        "en": "60th Percentile",
+        "tr": "60th Percentile",
+        "de": "60th Percentile",
+        "fr": "60th Percentile",
+        "es": "60th Percentile",
+        "ar": "60th Percentile"
+      }
     },
     {
       "id": "p80",
       "label": "80th Percentile",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 80,
-      "businessContext": "Value at the 80th percentile"
+      "businessContext": "Value at the 80th percentile",
+      "label_i18n": {
+        "en": "80th Percentile",
+        "tr": "80th Percentile",
+        "de": "80th Percentile",
+        "fr": "80th Percentile",
+        "es": "80th Percentile",
+        "ar": "80th Percentile"
+      }
     },
     {
       "id": "max",
       "label": "Maximum",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Maximum value of the distribution (100th percentile)"
+      "businessContext": "Maximum value of the distribution (100th percentile)",
+      "label_i18n": {
+        "en": "Maximum",
+        "tr": "Maximum",
+        "de": "Maximum",
+        "fr": "Maximum",
+        "es": "Maximum",
+        "ar": "Maximum"
+      }
     },
     {
       "id": "value",
       "label": "Target Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 50,
-      "businessContext": "The value to place within the distribution"
+      "businessContext": "The value to place within the distribution",
+      "label_i18n": {
+        "en": "Target Value",
+        "tr": "Target Value",
+        "de": "Target Value",
+        "fr": "Target Value",
+        "es": "Target Value",
+        "ar": "Target Value"
+      }
     }
   ],
   "formulas": {
     "q": "value <= p20 ? 1 : value <= p40 ? 2 : value <= p60 ? 3 : value <= p80 ? 4 : 5",
     "within": "q === 1 ? (value - min) / (p20 - min) : q === 2 ? (value - p20) / (p40 - p20) : q === 3 ? (value - p40) / (p60 - p40) : q === 4 ? (value - p60) / (p80 - p60) : (value - p80) / (max - p80)",
-    "primary": "`Quintile ${q} (${Math.round(within*100)}% within)`"
+    "primary": "`Quintile ${q} (${Math.round(within*100)}% within)`",
+    "result": "Quintile 3 (50% within)"
   },
   "outputs": {
-    "primary": "Quintile 3 (50% within)",
+    "primary": "result",
     "breakdown": [
       "q",
       "within"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

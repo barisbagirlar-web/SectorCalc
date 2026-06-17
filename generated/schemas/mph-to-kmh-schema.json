@@ -7,11 +7,68 @@
       "type": "number",
       "unit": "mph",
       "default": 60,
-      "businessContext": "Enter the speed value in miles per hour to convert to kilometers per hour."
+      "businessContext": "Enter the speed value in miles per hour to convert to kilometers per hour.",
+      "label_i18n": {
+        "en": "Speed in MPH",
+        "tr": "Speed in MPH",
+        "de": "Speed in MPH",
+        "fr": "Speed in MPH",
+        "es": "Speed in MPH",
+        "ar": "Speed in MPH"
+      }
+    },
+    {
+      "id": "auto_input_2",
+      "label": "auto_input_2",
+      "label_i18n": {
+        "en": "auto_input_2",
+        "tr": "auto_input_2",
+        "de": "auto_input_2",
+        "fr": "auto_input_2",
+        "es": "auto_input_2",
+        "ar": "auto_input_2"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 2.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 2.",
+        "tr": "Auto-generated input 2.",
+        "de": "Auto-generated input 2.",
+        "fr": "Auto-generated input 2.",
+        "es": "Auto-generated input 2.",
+        "ar": "Auto-generated input 2."
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
-    "speed_kmh": "speed_mph * 1.609344"
+    "speed_kmh": "speed_mph * 1.609344",
+    "speed_mph___1_609344___speed_kmh": "speed_mph * 1.609344 = speed_kmh"
   },
   "outputs": {
     "primary": "speed_kmh",
@@ -19,10 +76,10 @@
       "speed_mph * 1.609344 = speed_kmh"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

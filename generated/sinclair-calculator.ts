@@ -3,33 +3,30 @@ import * as z from 'zod';
 
 export interface Sinclair_calculatorInput {
   bodyweight: number;
-  snatch: number;
-  cleanAndJerk: number;
-  gender: number;
+  totalLifted: number;
+  coefficientA: number;
+  coefficientB: number;
 }
 
 export const Sinclair_calculatorInputSchema = z.object({
   bodyweight: z.number().default(80),
-  snatch: z.number().default(120),
-  cleanAndJerk: z.number().default(150),
-  gender: z.number().default(0),
+  totalLifted: z.number().default(200),
+  coefficientA: z.number().default(0.722762521),
+  coefficientB: z.number().default(193.609),
 });
 
 function evaluateAllFormulas(input: Sinclair_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.snatch + input.cleanAndJerk; results["total"] = Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
-  try { const v = input.gender === 0 ? 0.784780654 : 0.933700289; results["A"] = Number.isFinite(v) ? v : 0; } catch { results["A"] = 0; }
-  try { const v = input.gender === 0 ? 193.609 : 153.655; results["b"] = Number.isFinite(v) ? v : 0; } catch { results["b"] = 0; }
-  try { const v = Math.log10(input.bodyweight / (results["b"] ?? 0)); results["X"] = Number.isFinite(v) ? v : 0; } catch { results["X"] = 0; }
-  try { const v = Math.pow(10, (results["A"] ?? 0) * Math.pow((results["X"] ?? 0), 2)); results["coefficient"] = Number.isFinite(v) ? v : 0; } catch { results["coefficient"] = 0; }
-  try { const v = (results["total"] ?? 0) * (results["coefficient"] ?? 0); results["sinclairTotal"] = Number.isFinite(v) ? v : 0; } catch { results["sinclairTotal"] = 0; }
+  try { const v = input.totalLifted * Math.pow(10, input.coefficientA * Math.pow(Math.log(input.bodyweight / input.coefficientB) / Math.log(10), 2)); results["sinclairScore"] = Number.isFinite(v) ? v : 0; } catch { results["sinclairScore"] = 0; }
+  try { const v = Math.pow(10, input.coefficientA * Math.pow(Math.log(input.bodyweight / input.coefficientB) / Math.log(10), 2)); results["adjustedFactor"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedFactor"] = 0; }
+  try { const v = input.bodyweight / input.coefficientB; results["bodyweightRatio"] = Number.isFinite(v) ? v : 0; } catch { results["bodyweightRatio"] = 0; }
   return results;
 }
 
 
 export function calculateSinclair_calculator(input: Sinclair_calculatorInput): Sinclair_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["sinclairTotal"] ?? 0;
+  const totalWasteCost = values["sinclairScore"] ?? 0;
   const breakdown = {
     
   };

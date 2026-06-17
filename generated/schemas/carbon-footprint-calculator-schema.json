@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 1000,
-      "businessContext": "Monthly electricity usage from grid, converted to CO2 using an emission factor of 0.5 kg CO2/kWh."
+      "businessContext": "Monthly electricity usage from grid, converted to CO2 using an emission factor of 0.5 kg CO2/kWh.",
+      "label_i18n": {
+        "en": "Electricity Consumption",
+        "tr": "Electricity Consumption",
+        "de": "Electricity Consumption",
+        "fr": "Electricity Consumption",
+        "es": "Electricity Consumption",
+        "ar": "Electricity Consumption"
+      }
     },
     {
       "id": "natural_gas_m3",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³",
       "default": 500,
-      "businessContext": "Monthly natural gas consumption in cubic meters, with an emission factor of 2.0 kg CO2/m³."
+      "businessContext": "Monthly natural gas consumption in cubic meters, with an emission factor of 2.0 kg CO2/m³.",
+      "label_i18n": {
+        "en": "Natural Gas Consumption",
+        "tr": "Natural Gas Consumption",
+        "de": "Natural Gas Consumption",
+        "fr": "Natural Gas Consumption",
+        "es": "Natural Gas Consumption",
+        "ar": "Natural Gas Consumption"
+      }
     },
     {
       "id": "fuel_liters",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 2000,
-      "businessContext": "Monthly fuel (gasoline/diesel) consumption in liters, using factor 2.3 kg CO2/L."
+      "businessContext": "Monthly fuel (gasoline/diesel) consumption in liters, using factor 2.3 kg CO2/L.",
+      "label_i18n": {
+        "en": "Fuel Consumption (Vehicles)",
+        "tr": "Fuel Consumption (Vehicles)",
+        "de": "Fuel Consumption (Vehicles)",
+        "fr": "Fuel Consumption (Vehicles)",
+        "es": "Fuel Consumption (Vehicles)",
+        "ar": "Fuel Consumption (Vehicles)"
+      }
     },
     {
       "id": "waste_kg",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Monthly solid waste sent to landfill, emission factor 0.5 kg CO2/kg."
+      "businessContext": "Monthly solid waste sent to landfill, emission factor 0.5 kg CO2/kg.",
+      "label_i18n": {
+        "en": "Waste Generated",
+        "tr": "Waste Generated",
+        "de": "Waste Generated",
+        "fr": "Waste Generated",
+        "es": "Waste Generated",
+        "ar": "Waste Generated"
+      }
     },
     {
       "id": "water_m3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m³",
       "default": 50,
-      "businessContext": "Monthly water usage, including treatment and pumping, factor 0.3 kg CO2/m³."
+      "businessContext": "Monthly water usage, including treatment and pumping, factor 0.3 kg CO2/m³.",
+      "label_i18n": {
+        "en": "Water Consumption",
+        "tr": "Water Consumption",
+        "de": "Water Consumption",
+        "fr": "Water Consumption",
+        "es": "Water Consumption",
+        "ar": "Water Consumption"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +88,16 @@
     "naturalGasCO2": "natural_gas_m3 * 2",
     "fuelCO2": "fuel_liters * 2.3",
     "wasteCO2": "waste_kg * 0.5",
-    "waterCO2": "water_m3 * 0.3"
+    "waterCO2": "water_m3 * 0.3",
+    "__electricityCO2___kg_CO2_year": "{{electricityCO2}} kg CO2/year",
+    "__naturalGasCO2___kg_CO2_year": "{{naturalGasCO2}} kg CO2/year",
+    "__fuelCO2___kg_CO2_year": "{{fuelCO2}} kg CO2/year",
+    "__wasteCO2___kg_CO2_year": "{{wasteCO2}} kg CO2/year",
+    "__waterCO2___kg_CO2_year": "{{waterCO2}} kg CO2/year",
+    "result": "Total Carbon Footprint: {{totalCO2}} kg CO2/year"
   },
   "outputs": {
-    "primary": "Total Carbon Footprint: {{totalCO2}} kg CO2/year",
+    "primary": "result",
     "breakdown": [
       "Electricity: {{electricityCO2}} kg CO2/year",
       "Natural Gas: {{naturalGasCO2}} kg CO2/year",
@@ -60,7 +106,7 @@
       "Water: {{waterCO2}} kg CO2/year"
     ]
   },
-  "category": "Enerji & Karbon",
+  "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "ecology-environment",

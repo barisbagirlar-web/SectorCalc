@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Angle to convert from degrees to radians"
+      "businessContext": "Angle to convert from degrees to radians",
+      "label_i18n": {
+        "en": "Angle (degrees)",
+        "tr": "Angle (degrees)",
+        "de": "Angle (degrees)",
+        "fr": "Angle (degrees)",
+        "es": "Angle (degrees)",
+        "ar": "Angle (degrees)"
+      }
     },
     {
       "id": "angleOffset",
@@ -15,23 +23,47 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Constant offset added to angle before conversion (e.g., for calibration)"
+      "businessContext": "Constant offset added to angle before conversion (e.g., for calibration)",
+      "label_i18n": {
+        "en": "Offset",
+        "tr": "Offset",
+        "de": "Offset",
+        "fr": "Offset",
+        "es": "Offset",
+        "ar": "Offset"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "Number of decimal places for the rounded output"
+      "businessContext": "Number of decimal places for the rounded output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "piValue",
       "label": "π Value",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 3.141592653589793,
-      "businessContext": "Value of π used in conversion factor"
+      "businessContext": "Value of π used in conversion factor",
+      "label_i18n": {
+        "en": "π Value",
+        "tr": "π Value",
+        "de": "π Value",
+        "fr": "π Value",
+        "es": "π Value",
+        "ar": "π Value"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "radian"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

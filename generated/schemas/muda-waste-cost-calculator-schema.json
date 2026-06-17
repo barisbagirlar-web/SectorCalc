@@ -270,7 +270,8 @@
       },
       "businessContext_i18n": {
         "en": "Industry sector for benchmarking and threshold adjustment."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "include_hidden_losses",
@@ -283,7 +284,8 @@
       },
       "businessContext_i18n": {
         "en": "If true, includes intangible losses such as lost opportunity cost and brand damage."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -337,151 +339,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "defect_cost",
-      "label": "Defect Cost",
-      "description": "Total cost of defects including rework labor, material, and overhead.",
-      "formula": "production_volume * (defect_rate/100) * ( (rework_time_per_unit * labor_cost_per_hour * (1 + overhead_rate/100)) + (scrap_rate/100 * material_cost_per_unit) )",
-      "unit": "USD"
-    },
-    {
-      "id": "waiting_cost",
-      "label": "Waiting Cost",
-      "description": "Cost of idle time due to waiting (bottlenecks, shortages).",
-      "formula": "production_volume * waiting_time_per_unit * labor_cost_per_hour * (1 + overhead_rate/100)",
-      "unit": "USD"
-    },
-    {
-      "id": "overproduction_cost",
-      "label": "Overproduction Cost",
-      "description": "Cost of producing beyond demand, including material, labor, and holding.",
-      "formula": "overproduction_quantity * (material_cost_per_unit + labor_cost_per_hour * (1 + overhead_rate/100) * (shift_hours_per_day / production_volume) + inventory_holding_cost_per_unit)",
-      "unit": "USD"
-    },
-    {
-      "id": "motion_transport_processing_cost",
-      "label": "Motion, Transport & Processing Waste Cost",
-      "description": "Aggregated cost of excess motion, transportation, and non-value-added processing.",
-      "formula": "production_volume * (excess_motion_cost_per_unit + transportation_cost_per_unit + processing_waste_per_unit)",
-      "unit": "USD"
-    },
-    {
-      "id": "inventory_waste_cost",
-      "label": "Inventory Waste Cost",
-      "description": "Cost of excess inventory holding (WIP and finished goods).",
-      "formula": "production_volume * inventory_holding_cost_per_unit * (1 + defect_rate/100)",
-      "unit": "USD"
-    },
-    {
-      "id": "hidden_losses",
-      "label": "Hidden Losses",
-      "description": "Intangible costs such as lost sales, brand damage, and opportunity cost (only if include_hidden_losses is true).",
-      "formula": "include_hidden_losses ? (defect_cost * 0.15 + waiting_cost * 0.1 + overproduction_cost * 0.2) : 0",
-      "unit": "USD"
-    },
-    {
-      "id": "total_waste_cost",
-      "label": "Total Waste Cost (Primary Result)",
-      "description": "Sum of all identified waste costs, adjusted for data confidence.",
-      "formula": "(defect_cost + waiting_cost + overproduction_cost + motion_transport_processing_cost + inventory_waste_cost + hidden_losses) * dataConfidenceAdjusted",
-      "unit": "USD",
-      "isPrimary": true
-    }
+    "material_cost_per_unit",
+    "material_cost_per_unit",
+    "material_cost_per_unit",
+    "material_cost_per_unit",
+    "material_cost_per_unit",
+    "material_cost_per_unit",
+    "material_cost_per_unit"
   ],
   "outputs": {
-    "primary": {
-      "id": "total_waste_cost",
-      "label": "Total Waste Cost",
-      "unit": "USD",
-      "description": "Annualized total cost of Muda (waste) in the process."
-    },
-    "breakdown": {
-      "defect_cost": {
-        "label": "Defect Cost",
-        "unit": "USD"
-      },
-      "waiting_cost": {
-        "label": "Waiting Cost",
-        "unit": "USD"
-      },
-      "overproduction_cost": {
-        "label": "Overproduction Cost",
-        "unit": "USD"
-      },
-      "motion_transport_processing_cost": {
-        "label": "Motion, Transport & Processing Waste Cost",
-        "unit": "USD"
-      },
-      "inventory_waste_cost": {
-        "label": "Inventory Waste Cost",
-        "unit": "USD"
-      },
-      "hidden_losses": {
-        "label": "Hidden Losses",
-        "unit": "USD"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "lost_opportunity_cost",
-        "label": "Lost Opportunity Cost",
-        "description": "Revenue lost due to defects and delays (estimated as 10% of defect + waiting cost).",
-        "value": "0.1 * (defect_cost + waiting_cost)"
-      },
-      {
-        "id": "brand_impact_cost",
-        "label": "Brand Impact Cost",
-        "description": "Estimated cost of reputation damage from poor quality (5% of total waste).",
-        "value": "0.05 * total_waste_cost"
-      },
-      {
-        "id": "employee_morale_cost",
-        "label": "Employee Morale Cost",
-        "description": "Cost of reduced productivity due to frustration from waste (3% of labor cost).",
-        "value": "0.03 * production_volume * labor_cost_per_hour * (shift_hours_per_day / production_volume)"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_defects",
-        "action": "Implement Statistical Process Control (SPC) and root cause analysis (5 Whys) to reduce defect rate.",
-        "expectedImpact": "Reduces defect cost by up to 40%.",
-        "priority": "high"
-      },
-      {
-        "id": "reduce_waiting",
-        "action": "Conduct value stream mapping to identify bottlenecks and implement Takt time balancing.",
-        "expectedImpact": "Reduces waiting cost by up to 30%.",
-        "priority": "high"
-      },
-      {
-        "id": "eliminate_overproduction",
-        "action": "Switch to a pull-based Kanban system and reduce batch sizes.",
-        "expectedImpact": "Eliminates overproduction cost entirely.",
-        "priority": "critical"
-      },
-      {
-        "id": "optimize_motion",
-        "action": "Redesign workstations using 5S and ergonomic principles to reduce excess motion.",
-        "expectedImpact": "Reduces motion cost by up to 20%.",
-        "priority": "medium"
-      },
-      {
-        "id": "reduce_inventory",
-        "action": "Implement Just-In-Time (JIT) delivery and reduce safety stock levels.",
-        "expectedImpact": "Reduces inventory holding cost by up to 25%.",
-        "priority": "medium"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_factor",
-      "label": "Data Confidence Factor",
-      "description": "Adjusts total waste cost based on input data reliability (0.7 to 1.0). Calculated from completeness and consistency of inputs.",
-      "value": 0.85,
-      "unit": "dimensionless"
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "quality-six-sigma",
+  "category": "Kalite & Süreç Kontrol",
+  "sector": "Üretim & İmalat",
+  "toolName": "muda-waste-cost-calculator"
 }

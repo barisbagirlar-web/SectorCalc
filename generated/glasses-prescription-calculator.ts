@@ -25,13 +25,17 @@ function evaluateAllFormulas(input: Glasses_prescription_calculatorInput): Recor
   try { const v = (results["S1_eff"] ?? 0); results["newSphere"] = Number.isFinite(v) ? v : 0; } catch { results["newSphere"] = 0; }
   try { const v = (results["S2_eff"] ?? 0) - (results["S1_eff"] ?? 0); results["newCylinder"] = Number.isFinite(v) ? v : 0; } catch { results["newCylinder"] = 0; }
   try { const v = input.axis; results["newAxis"] = Number.isFinite(v) ? v : 0; } catch { results["newAxis"] = 0; }
+  results["__newSphere_toFixed_2___D"] = 0;
+  results["__newCylinder_toFixed_2___D"] = 0;
+  results["__newAxis__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateGlasses_prescription_calculator(input: Glasses_prescription_calculatorInput): Glasses_prescription_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Effective"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

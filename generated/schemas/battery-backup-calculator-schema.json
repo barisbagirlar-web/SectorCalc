@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W",
       "default": 100,
-      "businessContext": "Sürekli çalışan cihazların toplam aktif güç tüketimi"
+      "businessContext": "Sürekli çalışan cihazların toplam aktif güç tüketimi",
+      "label_i18n": {
+        "en": "Ortalama Yük Gücü",
+        "tr": "Ortalama Yük Gücü",
+        "de": "Ortalama Yük Gücü",
+        "fr": "Ortalama Yük Gücü",
+        "es": "Ortalama Yük Gücü",
+        "ar": "Ortalama Yük Gücü"
+      }
     },
     {
       "id": "systemVoltage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "V",
       "default": 12,
-      "businessContext": "Akü grubunun nominal çalışma gerilimi (seri/paralel bağlantı sonucu)"
+      "businessContext": "Akü grubunun nominal çalışma gerilimi (seri/paralel bağlantı sonucu)",
+      "label_i18n": {
+        "en": "Akü Bankası Gerilimi",
+        "tr": "Akü Bankası Gerilimi",
+        "de": "Akü Bankası Gerilimi",
+        "fr": "Akü Bankası Gerilimi",
+        "es": "Akü Bankası Gerilimi",
+        "ar": "Akü Bankası Gerilimi"
+      }
     },
     {
       "id": "batteryCapacityAh",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ah",
       "default": 100,
-      "businessContext": "Akü bankasının toplam amper-saat kapasitesi (sadece paralel bağlı aküler için toplam kapasite)"
+      "businessContext": "Akü bankasının toplam amper-saat kapasitesi (sadece paralel bağlı aküler için toplam kapasite)",
+      "label_i18n": {
+        "en": "Toplam Akü Kapasitesi",
+        "tr": "Toplam Akü Kapasitesi",
+        "de": "Toplam Akü Kapasitesi",
+        "fr": "Toplam Akü Kapasitesi",
+        "es": "Toplam Akü Kapasitesi",
+        "ar": "Toplam Akü Kapasitesi"
+      }
     },
     {
       "id": "depthOfDischarge",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Akü ömrünü korumak için izin verilen maksimum deşarj yüzdesi (ör. kurşun-asit için %50)"
+      "businessContext": "Akü ömrünü korumak için izin verilen maksimum deşarj yüzdesi (ör. kurşun-asit için %50)",
+      "label_i18n": {
+        "en": "Deşarj Derinliği (DoD)",
+        "tr": "Deşarj Derinliği (DoD)",
+        "de": "Deşarj Derinliği (DoD)",
+        "fr": "Deşarj Derinliği (DoD)",
+        "es": "Deşarj Derinliği (DoD)",
+        "ar": "Deşarj Derinliği (DoD)"
+      }
     },
     {
       "id": "inverterEfficiency",
@@ -39,23 +71,47 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "İnverter veya DC/DC dönüştürücü verimlilik oranı (tipik %85-95)"
+      "businessContext": "İnverter veya DC/DC dönüştürücü verimlilik oranı (tipik %85-95)",
+      "label_i18n": {
+        "en": "İnverter Verimliliği",
+        "tr": "İnverter Verimliliği",
+        "de": "İnverter Verimliliği",
+        "fr": "İnverter Verimliliği",
+        "es": "İnverter Verimliliği",
+        "ar": "İnverter Verimliliği"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Emniyet Katsayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Hesaplamaya eklenen güvenlik marjı (≥1). 1: marjsız, 1.1: %10 yedek kapasite"
+      "businessContext": "Hesaplamaya eklenen güvenlik marjı (≥1). 1: marjsız, 1.1: %10 yedek kapasite",
+      "label_i18n": {
+        "en": "Emniyet Katsayısı",
+        "tr": "Emniyet Katsayısı",
+        "de": "Emniyet Katsayısı",
+        "fr": "Emniyet Katsayısı",
+        "es": "Emniyet Katsayısı",
+        "ar": "Emniyet Katsayısı"
+      }
     },
     {
       "id": "temperatureDerating",
       "label": "Sıcaklık Düzeltme Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Düşük sıcaklıklarda kapasite kaybını telafi eden katsayı (≤1). 1: oda sıcaklığı"
+      "businessContext": "Düşük sıcaklıklarda kapasite kaybını telafi eden katsayı (≤1). 1: oda sıcaklığı",
+      "label_i18n": {
+        "en": "Sıcaklık Düzeltme Faktörü",
+        "tr": "Sıcaklık Düzeltme Faktörü",
+        "de": "Sıcaklık Düzeltme Faktörü",
+        "fr": "Sıcaklık Düzeltme Faktörü",
+        "es": "Sıcaklık Düzeltme Faktörü",
+        "ar": "Sıcaklık Düzeltme Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -70,10 +126,10 @@
       "usableEnergyWh"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "electrical-power-systems"
 }

@@ -29,7 +29,7 @@ function evaluateAllFormulas(input: Shapiro_wilk_test_calculatorInput): Record<s
 
 export function calculateShapiro_wilk_test_calculator(input: Shapiro_wilk_test_calculatorInput): Shapiro_wilk_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["shapiroWilkStat"] ?? 0;
+  const totalWasteCost = values["mean"] ?? 0;
   const breakdown = {
     
   };

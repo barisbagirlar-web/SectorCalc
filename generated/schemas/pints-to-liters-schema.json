@@ -7,19 +7,60 @@
       "type": "number",
       "unit": "pt",
       "default": 1,
-      "businessContext": "Volume of liquid in US pints"
+      "businessContext": "Volume of liquid in US pints",
+      "label_i18n": {
+        "en": "Pints (US liquid)",
+        "tr": "Pints (US liquid)",
+        "de": "Pints (US liquid)",
+        "fr": "Pints (US liquid)",
+        "es": "Pints (US liquid)",
+        "ar": "Pints (US liquid)"
+      }
     },
     {
       "id": "pintType",
       "label": "Pint type",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for US liquid pint, 2 for US dry pint, 3 for Imperial pint"
+      "businessContext": "1 for US liquid pint, 2 for US dry pint, 3 for Imperial pint",
+      "label_i18n": {
+        "en": "Pint type",
+        "tr": "Pint type",
+        "de": "Pint type",
+        "fr": "Pint type",
+        "es": "Pint type",
+        "ar": "Pint type"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
-    "liters": "pintType === 1 ? pints * 0.473176473 : pintType === 2 ? pints * 0.550610471 : pints * 0.56826125"
+    "liters": "pintType === 1 ? pints * 0.473176473 : pintType === 2 ? pints * 0.550610471 : pints * 0.56826125",
+    "pints___conversionFactor": "pints * conversionFactor"
   },
   "outputs": {
     "primary": "liters",
@@ -27,7 +68,7 @@
       "pints * conversionFactor"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",

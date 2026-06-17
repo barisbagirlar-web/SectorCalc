@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür."
+      "businessContext": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür.",
+      "label_i18n": {
+        "en": "Room Length (m)",
+        "tr": "Room Length (m)",
+        "de": "Room Length (m)",
+        "fr": "Room Length (m)",
+        "es": "Room Length (m)",
+        "ar": "Room Length (m)"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Genişlik, odanın boyutlarını belirler."
+      "businessContext": "Genişlik, odanın boyutlarını belirler.",
+      "label_i18n": {
+        "en": "Room Width (m)",
+        "tr": "Room Width (m)",
+        "de": "Room Width (m)",
+        "fr": "Room Width (m)",
+        "es": "Room Width (m)",
+        "ar": "Room Width (m)"
+      }
     },
     {
       "id": "height",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Yükseklik, duvar alanının hesaplanmasında kullanılır."
+      "businessContext": "Yükseklik, duvar alanının hesaplanmasında kullanılır.",
+      "label_i18n": {
+        "en": "Room Height (m)",
+        "tr": "Room Height (m)",
+        "de": "Room Height (m)",
+        "fr": "Room Height (m)",
+        "es": "Room Height (m)",
+        "ar": "Room Height (m)"
+      }
     },
     {
       "id": "numberDoors",
       "label": "Number of Doors",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar."
+      "businessContext": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar.",
+      "label_i18n": {
+        "en": "Number of Doors",
+        "tr": "Number of Doors",
+        "de": "Number of Doors",
+        "fr": "Number of Doors",
+        "es": "Number of Doors",
+        "ar": "Number of Doors"
+      }
     },
     {
       "id": "numberWindows",
       "label": "Number of Windows",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar."
+      "businessContext": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar.",
+      "label_i18n": {
+        "en": "Number of Windows",
+        "tr": "Number of Windows",
+        "de": "Number of Windows",
+        "fr": "Number of Windows",
+        "es": "Number of Windows",
+        "ar": "Number of Windows"
+      }
     },
     {
       "id": "paintCoverage",
@@ -47,23 +87,47 @@
       "type": "number",
       "unit": "m²/L",
       "default": 10,
-      "businessContext": "Boyanın litre başına kapladığı alan, üretici verisine dayanır."
+      "businessContext": "Boyanın litre başına kapladığı alan, üretici verisine dayanır.",
+      "label_i18n": {
+        "en": "Paint Coverage (m²/L)",
+        "tr": "Paint Coverage (m²/L)",
+        "de": "Paint Coverage (m²/L)",
+        "fr": "Paint Coverage (m²/L)",
+        "es": "Paint Coverage (m²/L)",
+        "ar": "Paint Coverage (m²/L)"
+      }
     },
     {
       "id": "coats",
       "label": "Number of Coats",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler."
+      "businessContext": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler.",
+      "label_i18n": {
+        "en": "Number of Coats",
+        "tr": "Number of Coats",
+        "de": "Number of Coats",
+        "fr": "Number of Coats",
+        "es": "Number of Coats",
+        "ar": "Number of Coats"
+      }
     },
     {
       "id": "ceilingIncluded",
       "label": "Include Ceiling (1=Yes, 0=No)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder."
+      "businessContext": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder.",
+      "label_i18n": {
+        "en": "Include Ceiling (1=Yes, 0=No)",
+        "tr": "Include Ceiling (1=Yes, 0=No)",
+        "de": "Include Ceiling (1=Yes, 0=No)",
+        "fr": "Include Ceiling (1=Yes, 0=No)",
+        "es": "Include Ceiling (1=Yes, 0=No)",
+        "ar": "Include Ceiling (1=Yes, 0=No)"
+      }
     }
   ],
   "formulas": {
@@ -85,10 +149,10 @@
       "ceilingArea"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

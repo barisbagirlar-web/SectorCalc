@@ -5,17 +5,33 @@
       "id": "lowerBound",
       "label": "Lower Bound",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Start of range to estimate prime count"
+      "businessContext": "Start of range to estimate prime count",
+      "label_i18n": {
+        "en": "Lower Bound",
+        "tr": "Lower Bound",
+        "de": "Lower Bound",
+        "fr": "Lower Bound",
+        "es": "Lower Bound",
+        "ar": "Lower Bound"
+      }
     },
     {
       "id": "upperBound",
       "label": "Upper Bound",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "End of range to estimate prime count"
+      "businessContext": "End of range to estimate prime count",
+      "label_i18n": {
+        "en": "Upper Bound",
+        "tr": "Upper Bound",
+        "de": "Upper Bound",
+        "fr": "Upper Bound",
+        "es": "Upper Bound",
+        "ar": "Upper Bound"
+      }
     },
     {
       "id": "sampleSize",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Number of random samples for verification (not used in estimation formula but for process quality)"
+      "businessContext": "Number of random samples for verification (not used in estimation formula but for process quality)",
+      "label_i18n": {
+        "en": "Sample Size",
+        "tr": "Sample Size",
+        "de": "Sample Size",
+        "fr": "Sample Size",
+        "es": "Sample Size",
+        "ar": "Sample Size"
+      }
     },
     {
       "id": "tolerance",
@@ -31,12 +55,22 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Allowed percentage deviation in the estimate (used for error margin calculation)"
+      "businessContext": "Allowed percentage deviation in the estimate (used for error margin calculation)",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     }
   ],
   "formulas": {
     "estimatedPrimes": "(upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound))",
-    "errorMargin": "(tolerance / 100) * ((upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound)))"
+    "errorMargin": "(tolerance / 100) * ((upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound)))",
+    "estimatedPrimes____upperBound___Math_log": "estimatedPrimes = (upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound))",
+    "errorMargin___tolerance__of_the_estimate": "errorMargin = tolerance% of the estimate, i.e., (tolerance / 100) * estimatedPrimes"
   },
   "outputs": {
     "primary": "estimatedPrimes",
@@ -45,10 +79,10 @@
       "Error margin: errorMargin = tolerance% of the estimate, i.e., (tolerance / 100) * estimatedPrimes"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

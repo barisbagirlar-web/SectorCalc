@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2400,
-      "businessContext": "Distance covered in 12 minutes, in meters."
+      "businessContext": "Distance covered in 12 minutes, in meters.",
+      "label_i18n": {
+        "en": "Distance Covered (meters)",
+        "tr": "Distance Covered (meters)",
+        "de": "Distance Covered (meters)",
+        "fr": "Distance Covered (meters)",
+        "es": "Distance Covered (meters)",
+        "ar": "Distance Covered (meters)"
+      }
     },
     {
       "id": "age_years",
@@ -15,15 +23,31 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the individual in years."
+      "businessContext": "Age of the individual in years.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
       "label": "Gender (0=Male, 1=Female)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Gender encoded as 0 for male, 1 for female, used for fitness category determination."
+      "businessContext": "Gender encoded as 0 for male, 1 for female, used for fitness category determination.",
+      "label_i18n": {
+        "en": "Gender (0=Male, 1=Female)",
+        "tr": "Gender (0=Male, 1=Female)",
+        "de": "Gender (0=Male, 1=Female)",
+        "fr": "Gender (0=Male, 1=Female)",
+        "es": "Gender (0=Male, 1=Female)",
+        "ar": "Gender (0=Male, 1=Female)"
+      }
     },
     {
       "id": "weight_kg",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms for calorie estimation."
+      "businessContext": "Body weight in kilograms for calorie estimation.",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "calories"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

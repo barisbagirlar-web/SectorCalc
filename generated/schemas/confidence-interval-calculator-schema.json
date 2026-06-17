@@ -5,52 +5,88 @@
       "id": "sample_mean",
       "label": "Sample Mean (x̄)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The arithmetic average of your sample observations."
+      "businessContext": "The arithmetic average of your sample observations.",
+      "label_i18n": {
+        "en": "Sample Mean (x̄)",
+        "tr": "Sample Mean (x̄)",
+        "de": "Sample Mean (x̄)",
+        "fr": "Sample Mean (x̄)",
+        "es": "Sample Mean (x̄)",
+        "ar": "Sample Mean (x̄)"
+      }
     },
     {
       "id": "standard_deviation",
       "label": "Standard Deviation (σ or s)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Population or sample standard deviation, measuring data dispersion."
+      "businessContext": "Population or sample standard deviation, measuring data dispersion.",
+      "label_i18n": {
+        "en": "Standard Deviation (σ or s)",
+        "tr": "Standard Deviation (σ or s)",
+        "de": "Standard Deviation (σ or s)",
+        "fr": "Standard Deviation (σ or s)",
+        "es": "Standard Deviation (σ or s)",
+        "ar": "Standard Deviation (σ or s)"
+      }
     },
     {
       "id": "sample_size",
       "label": "Sample Size (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Number of independent observations in the sample."
+      "businessContext": "Number of independent observations in the sample.",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "critical_value",
       "label": "Critical Value (z or t)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.96,
-      "businessContext": "Z-score or t-score corresponding to the desired confidence level (e.g., 1.96 for 95% confidence)."
+      "businessContext": "Z-score or t-score corresponding to the desired confidence level (e.g., 1.96 for 95% confidence).",
+      "label_i18n": {
+        "en": "Critical Value (z or t)",
+        "tr": "Critical Value (z or t)",
+        "de": "Critical Value (z or t)",
+        "fr": "Critical Value (z or t)",
+        "es": "Critical Value (z or t)",
+        "ar": "Critical Value (z or t)"
+      }
     }
   ],
   "formulas": {
     "margin_of_error": "critical_value * standard_deviation / Math.sqrt(sample_size)",
     "lower_bound": "sample_mean - margin_of_error",
-    "upper_bound": "sample_mean + margin_of_error"
+    "upper_bound": "sample_mean + margin_of_error",
+    "_margin_of_error_": "{margin_of_error}",
+    "_lower_bound_": "{lower_bound}",
+    "_upper_bound_": "{upper_bound}",
+    "result": "Confidence Interval: ({lower_bound}, {upper_bound})"
   },
   "outputs": {
-    "primary": "Confidence Interval: ({lower_bound}, {upper_bound})",
+    "primary": "result",
     "breakdown": [
       "Margin of Error: {margin_of_error}",
       "Lower Bound: {lower_bound}",
       "Upper Bound: {upper_bound}"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

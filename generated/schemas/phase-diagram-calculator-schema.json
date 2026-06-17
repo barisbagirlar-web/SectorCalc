@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "% ağ.",
       "default": 30,
-      "businessContext": "The overall composition of the alloy in weight percent of element B."
+      "businessContext": "The overall composition of the alloy in weight percent of element B.",
+      "label_i18n": {
+        "en": "Alaşım Bileşimi (C₀)",
+        "tr": "Alaşım Bileşimi (C₀)",
+        "de": "Alaşım Bileşimi (C₀)",
+        "fr": "Alaşım Bileşimi (C₀)",
+        "es": "Alaşım Bileşimi (C₀)",
+        "ar": "Alaşım Bileşimi (C₀)"
+      }
     },
     {
       "id": "solidComposition",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "% ağ.",
       "default": 10,
-      "businessContext": "Composition of the solid phase in equilibrium at the given temperature."
+      "businessContext": "Composition of the solid phase in equilibrium at the given temperature.",
+      "label_i18n": {
+        "en": "Katı Bileşimi (Cs)",
+        "tr": "Katı Bileşimi (Cs)",
+        "de": "Katı Bileşimi (Cs)",
+        "fr": "Katı Bileşimi (Cs)",
+        "es": "Katı Bileşimi (Cs)",
+        "ar": "Katı Bileşimi (Cs)"
+      }
     },
     {
       "id": "liquidComposition",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "% ağ.",
       "default": 60,
-      "businessContext": "Composition of the liquid phase in equilibrium at the given temperature."
+      "businessContext": "Composition of the liquid phase in equilibrium at the given temperature.",
+      "label_i18n": {
+        "en": "Sıvı Bileşimi (Cl)",
+        "tr": "Sıvı Bileşimi (Cl)",
+        "de": "Sıvı Bileşimi (Cl)",
+        "fr": "Sıvı Bileşimi (Cl)",
+        "es": "Sıvı Bileşimi (Cl)",
+        "ar": "Sıvı Bileşimi (Cl)"
+      }
     },
     {
       "id": "temperature",
@@ -31,25 +55,33 @@
       "type": "number",
       "unit": "°C",
       "default": 300,
-      "businessContext": "The temperature of the alloy (for reference, not used in lever rule)."
+      "businessContext": "The temperature of the alloy (for reference, not used in lever rule).",
+      "label_i18n": {
+        "en": "Sıcaklık",
+        "tr": "Sıcaklık",
+        "de": "Sıcaklık",
+        "fr": "Sıcaklık",
+        "es": "Sıcaklık",
+        "ar": "Sıcaklık"
+      }
     }
   ],
   "formulas": {
     "primary": "100 * (liquidComposition - alloyComposition) / (liquidComposition - solidComposition)",
-    "breakdown": [
-      "100 * (alloyComposition - solidComposition) / (liquidComposition - solidComposition)"
-    ]
+    "breakdown": "alloyComposition",
+    "S_v__Faz_Oran_____": "Sıvı Faz Oranı (%)",
+    "result": "Katı Faz Oranı (%)"
   },
   "outputs": {
-    "primary": "Katı Faz Oranı (%)",
+    "primary": "result",
     "breakdown": [
       "Sıvı Faz Oranı (%)"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "metal-plastics-forming"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X component of first vector"
+      "businessContext": "X component of first vector",
+      "label_i18n": {
+        "en": "Vector A - X Component",
+        "tr": "Vector A - X Component",
+        "de": "Vector A - X Component",
+        "fr": "Vector A - X Component",
+        "es": "Vector A - X Component",
+        "ar": "Vector A - X Component"
+      }
     },
     {
       "id": "a_y",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y component of first vector"
+      "businessContext": "Y component of first vector",
+      "label_i18n": {
+        "en": "Vector A - Y Component",
+        "tr": "Vector A - Y Component",
+        "de": "Vector A - Y Component",
+        "fr": "Vector A - Y Component",
+        "es": "Vector A - Y Component",
+        "ar": "Vector A - Y Component"
+      }
     },
     {
       "id": "a_z",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Z component of first vector"
+      "businessContext": "Z component of first vector",
+      "label_i18n": {
+        "en": "Vector A - Z Component",
+        "tr": "Vector A - Z Component",
+        "de": "Vector A - Z Component",
+        "fr": "Vector A - Z Component",
+        "es": "Vector A - Z Component",
+        "ar": "Vector A - Z Component"
+      }
     },
     {
       "id": "b_x",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X component of second vector"
+      "businessContext": "X component of second vector",
+      "label_i18n": {
+        "en": "Vector B - X Component",
+        "tr": "Vector B - X Component",
+        "de": "Vector B - X Component",
+        "fr": "Vector B - X Component",
+        "es": "Vector B - X Component",
+        "ar": "Vector B - X Component"
+      }
     },
     {
       "id": "b_y",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y component of second vector"
+      "businessContext": "Y component of second vector",
+      "label_i18n": {
+        "en": "Vector B - Y Component",
+        "tr": "Vector B - Y Component",
+        "de": "Vector B - Y Component",
+        "fr": "Vector B - Y Component",
+        "es": "Vector B - Y Component",
+        "ar": "Vector B - Y Component"
+      }
     },
     {
       "id": "b_z",
@@ -47,17 +87,29 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Z component of second vector"
+      "businessContext": "Z component of second vector",
+      "label_i18n": {
+        "en": "Vector B - Z Component",
+        "tr": "Vector B - Z Component",
+        "de": "Vector B - Z Component",
+        "fr": "Vector B - Z Component",
+        "es": "Vector B - Z Component",
+        "ar": "Vector B - Z Component"
+      }
     }
   ],
   "formulas": {
     "result_x": "a_x - b_x",
     "result_y": "a_y - b_y",
     "result_z": "a_z - b_z",
-    "magnitude": "Math.sqrt((a_x - b_x)**2 + (a_y - b_y)**2 + (a_z - b_z)**2)"
+    "magnitude": "Math.sqrt((a_x - b_x)**2 + (a_y - b_y)**2 + (a_z - b_z)**2)",
+    "__a_x_____b_x______result_x__m": "({a_x} - {b_x}) = {result_x} m",
+    "__a_y_____b_y______result_y__m": "({a_y} - {b_y}) = {result_y} m",
+    "__a_z_____b_z______result_z__m": "({a_z} - {b_z}) = {result_z} m",
+    "___X_____Y_____Z______magnitude__m": "√(ΔX² + ΔY² + ΔZ²) = {magnitude} m"
   },
   "outputs": {
-    "primary": "Vector Difference Magnitude: {magnitude} m",
+    "primary": "result_x",
     "breakdown": [
       "ΔX: ({a_x} - {b_x}) = {result_x} m",
       "ΔY: ({a_y} - {b_y}) = {result_y} m",
@@ -65,10 +117,10 @@
       "Magnitude: √(ΔX² + ΔY² + ΔZ²) = {magnitude} m"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

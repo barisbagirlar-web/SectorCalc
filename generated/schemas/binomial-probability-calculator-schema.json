@@ -5,33 +5,65 @@
       "id": "n",
       "label": "Deneme Sayısı (n)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "Toplam bağımsız deneme sayısı. Pozitif tam sayı olmalıdır."
+      "businessContext": "Toplam bağımsız deneme sayısı. Pozitif tam sayı olmalıdır.",
+      "label_i18n": {
+        "en": "Deneme Sayısı (n)",
+        "tr": "Deneme Sayısı (n)",
+        "de": "Deneme Sayısı (n)",
+        "fr": "Deneme Sayısı (n)",
+        "es": "Deneme Sayısı (n)",
+        "ar": "Deneme Sayısı (n)"
+      }
     },
     {
       "id": "k",
       "label": "Başarı Sayısı (k)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Elde edilmesi istenen başarı sayısı. 0 ile n arasında tam sayı olmalıdır."
+      "businessContext": "Elde edilmesi istenen başarı sayısı. 0 ile n arasında tam sayı olmalıdır.",
+      "label_i18n": {
+        "en": "Başarı Sayısı (k)",
+        "tr": "Başarı Sayısı (k)",
+        "de": "Başarı Sayısı (k)",
+        "fr": "Başarı Sayısı (k)",
+        "es": "Başarı Sayısı (k)",
+        "ar": "Başarı Sayısı (k)"
+      }
     },
     {
       "id": "p",
       "label": "Başarı Olasılığı (p)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.5,
-      "businessContext": "Tek bir denemede başarı olasılığı. 0 ile 1 arasında olmalıdır."
+      "businessContext": "Tek bir denemede başarı olasılığı. 0 ile 1 arasında olmalıdır.",
+      "label_i18n": {
+        "en": "Başarı Olasılığı (p)",
+        "tr": "Başarı Olasılığı (p)",
+        "de": "Başarı Olasılığı (p)",
+        "fr": "Başarı Olasılığı (p)",
+        "es": "Başarı Olasılığı (p)",
+        "ar": "Başarı Olasılığı (p)"
+      }
     },
     {
       "id": "precision",
       "label": "Ondalık Basamak",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 4,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı. Varsayılan 4."
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı. Varsayılan 4.",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "exactProbability"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

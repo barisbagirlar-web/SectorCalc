@@ -5,49 +5,97 @@
       "id": "startYear",
       "label": "Start Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2024,
-      "businessContext": "The year of the start date."
+      "businessContext": "The year of the start date.",
+      "label_i18n": {
+        "en": "Start Year",
+        "tr": "Start Year",
+        "de": "Start Year",
+        "fr": "Start Year",
+        "es": "Start Year",
+        "ar": "Start Year"
+      }
     },
     {
       "id": "startMonth",
       "label": "Start Month",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Month of start date (1-12)."
+      "businessContext": "Month of start date (1-12).",
+      "label_i18n": {
+        "en": "Start Month",
+        "tr": "Start Month",
+        "de": "Start Month",
+        "fr": "Start Month",
+        "es": "Start Month",
+        "ar": "Start Month"
+      }
     },
     {
       "id": "startDay",
       "label": "Start Day",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Day of start date."
+      "businessContext": "Day of start date.",
+      "label_i18n": {
+        "en": "Start Day",
+        "tr": "Start Day",
+        "de": "Start Day",
+        "fr": "Start Day",
+        "es": "Start Day",
+        "ar": "Start Day"
+      }
     },
     {
       "id": "endYear",
       "label": "End Year",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2024,
-      "businessContext": "The year of the end date."
+      "businessContext": "The year of the end date.",
+      "label_i18n": {
+        "en": "End Year",
+        "tr": "End Year",
+        "de": "End Year",
+        "fr": "End Year",
+        "es": "End Year",
+        "ar": "End Year"
+      }
     },
     {
       "id": "endMonth",
       "label": "End Month",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12,
-      "businessContext": "Month of end date (1-12)."
+      "businessContext": "Month of end date (1-12).",
+      "label_i18n": {
+        "en": "End Month",
+        "tr": "End Month",
+        "de": "End Month",
+        "fr": "End Month",
+        "es": "End Month",
+        "ar": "End Month"
+      }
     },
     {
       "id": "endDay",
       "label": "End Day",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 31,
-      "businessContext": "Day of end date."
+      "businessContext": "Day of end date.",
+      "label_i18n": {
+        "en": "End Day",
+        "tr": "End Day",
+        "de": "End Day",
+        "fr": "End Day",
+        "es": "End Day",
+        "ar": "End Day"
+      }
     }
   ],
   "formulas": {
@@ -63,10 +111,10 @@
       "daysBetween"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

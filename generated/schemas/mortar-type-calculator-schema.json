@@ -7,31 +7,63 @@
       "type": "number",
       "unit": "MPa",
       "default": 5,
-      "businessContext": "Required compressive strength from structural analysis (MPa)"
+      "businessContext": "Required compressive strength from structural analysis (MPa)",
+      "label_i18n": {
+        "en": "Design Compressive Strength",
+        "tr": "Design Compressive Strength",
+        "de": "Design Compressive Strength",
+        "fr": "Design Compressive Strength",
+        "es": "Design Compressive Strength",
+        "ar": "Design Compressive Strength"
+      }
     },
     {
       "id": "exposure_factor",
       "label": "Exposure Severity Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.3,
-      "businessContext": "Factor accounting for exposure conditions (1.0 mild, 1.3 moderate, 1.6 severe)"
+      "businessContext": "Factor accounting for exposure conditions (1.0 mild, 1.3 moderate, 1.6 severe)",
+      "label_i18n": {
+        "en": "Exposure Severity Factor",
+        "tr": "Exposure Severity Factor",
+        "de": "Exposure Severity Factor",
+        "fr": "Exposure Severity Factor",
+        "es": "Exposure Severity Factor",
+        "ar": "Exposure Severity Factor"
+      }
     },
     {
       "id": "reinforced",
       "label": "Reinforced Masonry",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "1 if reinforced masonry, 0 if unreinforced"
+      "businessContext": "1 if reinforced masonry, 0 if unreinforced",
+      "label_i18n": {
+        "en": "Reinforced Masonry",
+        "tr": "Reinforced Masonry",
+        "de": "Reinforced Masonry",
+        "fr": "Reinforced Masonry",
+        "es": "Reinforced Masonry",
+        "ar": "Reinforced Masonry"
+      }
     },
     {
       "id": "safety_factor",
       "label": "Safety Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.5,
-      "businessContext": "Design safety factor per building code"
+      "businessContext": "Design safety factor per building code",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,7 @@
       "safety_margin"
     ]
   },
-  "category": "İnşaat & Saha",
+  "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",

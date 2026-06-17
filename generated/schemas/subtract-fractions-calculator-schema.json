@@ -5,49 +5,97 @@
       "id": "numerator1",
       "label": "Numerator 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Enter the numerator of the first fraction."
+      "businessContext": "Enter the numerator of the first fraction.",
+      "label_i18n": {
+        "en": "Numerator 1",
+        "tr": "Numerator 1",
+        "de": "Numerator 1",
+        "fr": "Numerator 1",
+        "es": "Numerator 1",
+        "ar": "Numerator 1"
+      }
     },
     {
       "id": "denominator1",
       "label": "Denominator 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Enter the denominator of the first fraction. Must not be zero."
+      "businessContext": "Enter the denominator of the first fraction. Must not be zero.",
+      "label_i18n": {
+        "en": "Denominator 1",
+        "tr": "Denominator 1",
+        "de": "Denominator 1",
+        "fr": "Denominator 1",
+        "es": "Denominator 1",
+        "ar": "Denominator 1"
+      }
     },
     {
       "id": "numerator2",
       "label": "Numerator 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Enter the numerator of the second fraction."
+      "businessContext": "Enter the numerator of the second fraction.",
+      "label_i18n": {
+        "en": "Numerator 2",
+        "tr": "Numerator 2",
+        "de": "Numerator 2",
+        "fr": "Numerator 2",
+        "es": "Numerator 2",
+        "ar": "Numerator 2"
+      }
     },
     {
       "id": "denominator2",
       "label": "Denominator 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Enter the denominator of the second fraction. Must not be zero."
+      "businessContext": "Enter the denominator of the second fraction. Must not be zero.",
+      "label_i18n": {
+        "en": "Denominator 2",
+        "tr": "Denominator 2",
+        "de": "Denominator 2",
+        "fr": "Denominator 2",
+        "es": "Denominator 2",
+        "ar": "Denominator 2"
+      }
     },
     {
       "id": "simplify",
       "label": "Simplify Result",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Set to 1 to simplify the fraction to lowest terms, 0 to leave unsimplified."
+      "businessContext": "Set to 1 to simplify the fraction to lowest terms, 0 to leave unsimplified.",
+      "label_i18n": {
+        "en": "Simplify Result",
+        "tr": "Simplify Result",
+        "de": "Simplify Result",
+        "fr": "Simplify Result",
+        "es": "Simplify Result",
+        "ar": "Simplify Result"
+      }
     },
     {
       "id": "decimalPrecision",
       "label": "Decimal Precision",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for decimal representation (0 for integer)."
+      "businessContext": "Number of decimal places for decimal representation (0 for integer).",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -61,10 +109,15 @@
     "simpNum": "error ? 0 : (() => { let g = simplify ? gcd(resultNum, resultDen) : 1; let num = resultNum / g; let den = resultDen / g; if (den < 0) { num = -num; den = -den; } return num; })()",
     "simpDen": "error ? 0 : (() => { let g = simplify ? gcd(resultNum, resultDen) : 1; let den = resultDen / g; if (den < 0) { den = -den; } return den; })()",
     "decimalResult": "error ? null : (simpDen !== 0 ? simpNum / simpDen : null)",
-    "decimalRounded": "(decimalPrecision && decimalResult !== null) ? Math.round(decimalResult * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision) : decimalResult"
+    "decimalRounded": "(decimalPrecision && decimalResult !== null) ? Math.round(decimalResult * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision) : decimalResult",
+    "_Step_1__Cross_multiply______numerator1_": "'Step 1: Cross-multiply: ' + numerator1 + '/' + denominator1 + ' - ' + numerator2 + '/' + denominator2 + ' = (' + numerator1 + '×' + denominator2 + ' - ' + numerator2 + '×' + denominator1 + ') / (' + denominator1 + '×' + denominator2 + ')' }",
+    "_Step_2__Simplify_intermediate______num1": "'Step 2: Simplify intermediate: ' + num1 + '/' + commonDen + ' - ' + num2 + '/' + commonDen + ' = ' + resultNum + '/' + resultDen }",
+    "_simplify____Step_3__GCD_______gcd_resul": "(simplify ? 'Step 3: GCD = ' + gcd(resultNum, resultDen) + ', Simplified: ' + simpNum + '/' + simpDen : 'Step 3: Result (not simplified): ' + resultNum + '/' + resultDen) }",
+    "_Decimal_______decimalRounded_____null__": "'Decimal: ' + (decimalRounded !== null ? decimalRounded : 'N/A') }",
+    "result": "${error ? 'Error: Division by zero' : simpNum + '/' + simpDen}"
   },
   "outputs": {
-    "primary": "${error ? 'Error: Division by zero' : simpNum + '/' + simpDen}",
+    "primary": "result",
     "breakdown": [
       "${error ? 'One denominator is zero, subtraction not possible.' : 'Step 1: Cross-multiply: ' + numerator1 + '/' + denominator1 + ' - ' + numerator2 + '/' + denominator2 + ' = (' + numerator1 + '×' + denominator2 + ' - ' + numerator2 + '×' + denominator1 + ') / (' + denominator1 + '×' + denominator2 + ')' }",
       "${error ? '' : 'Step 2: Simplify intermediate: ' + num1 + '/' + commonDen + ' - ' + num2 + '/' + commonDen + ' = ' + resultNum + '/' + resultDen }",
@@ -72,10 +125,10 @@
       "${error ? '' : 'Decimal: ' + (decimalRounded !== null ? decimalRounded : 'N/A') }"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

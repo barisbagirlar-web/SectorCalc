@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg",
       "default": 500,
-      "businessContext": "Standard adult dosage of the medication"
+      "businessContext": "Standard adult dosage of the medication",
+      "label_i18n": {
+        "en": "Adult Dose",
+        "tr": "Adult Dose",
+        "de": "Adult Dose",
+        "fr": "Adult Dose",
+        "es": "Adult Dose",
+        "ar": "Adult Dose"
+      }
     },
     {
       "id": "patientWeight",
@@ -15,12 +23,46 @@
       "type": "number",
       "unit": "lb",
       "default": 70,
-      "businessContext": "Weight of the pediatric patient in pounds"
+      "businessContext": "Weight of the pediatric patient in pounds",
+      "label_i18n": {
+        "en": "Patient Weight",
+        "tr": "Patient Weight",
+        "de": "Patient Weight",
+        "fr": "Patient Weight",
+        "es": "Patient Weight",
+        "ar": "Patient Weight"
+      }
+    },
+    {
+      "id": "auto_input_3",
+      "label": "auto_input_3",
+      "label_i18n": {
+        "en": "auto_input_3",
+        "tr": "auto_input_3",
+        "de": "auto_input_3",
+        "fr": "auto_input_3",
+        "es": "auto_input_3",
+        "ar": "auto_input_3"
+      },
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Auto-generated input 3.",
+      "businessContext_i18n": {
+        "en": "Auto-generated input 3.",
+        "tr": "Auto-generated input 3.",
+        "de": "Auto-generated input 3.",
+        "fr": "Auto-generated input 3.",
+        "es": "Auto-generated input 3.",
+        "ar": "Auto-generated input 3."
+      }
     }
   ],
   "formulas": {
     "childDose": "adultDose * (patientWeight / 150)",
-    "childDoseRounded": "Math.round(childDose * 100) / 100"
+    "childDoseRounded": "Math.round(childDose * 100) / 100",
+    "childDose___adultDose____patientWeight__": "childDose = adultDose * (patientWeight / 150)",
+    "childDoseRounded___Math_round_childDose_": "childDoseRounded = Math.round(childDose * 100) / 100"
   },
   "outputs": {
     "primary": "childDoseRounded",
@@ -29,10 +71,10 @@
       "childDoseRounded = Math.round(childDose * 100) / 100"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

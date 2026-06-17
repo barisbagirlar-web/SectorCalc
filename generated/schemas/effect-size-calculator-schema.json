@@ -5,49 +5,97 @@
       "id": "mean1",
       "label": "Group 1 Mean",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Arithmetic mean of the first group (e.g., treatment)"
+      "businessContext": "Arithmetic mean of the first group (e.g., treatment)",
+      "label_i18n": {
+        "en": "Group 1 Mean",
+        "tr": "Group 1 Mean",
+        "de": "Group 1 Mean",
+        "fr": "Group 1 Mean",
+        "es": "Group 1 Mean",
+        "ar": "Group 1 Mean"
+      }
     },
     {
       "id": "mean2",
       "label": "Group 2 Mean",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Arithmetic mean of the second group (e.g., control)"
+      "businessContext": "Arithmetic mean of the second group (e.g., control)",
+      "label_i18n": {
+        "en": "Group 2 Mean",
+        "tr": "Group 2 Mean",
+        "de": "Group 2 Mean",
+        "fr": "Group 2 Mean",
+        "es": "Group 2 Mean",
+        "ar": "Group 2 Mean"
+      }
     },
     {
       "id": "sd1",
       "label": "Group 1 Standard Deviation",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Standard deviation of the first group"
+      "businessContext": "Standard deviation of the first group",
+      "label_i18n": {
+        "en": "Group 1 Standard Deviation",
+        "tr": "Group 1 Standard Deviation",
+        "de": "Group 1 Standard Deviation",
+        "fr": "Group 1 Standard Deviation",
+        "es": "Group 1 Standard Deviation",
+        "ar": "Group 1 Standard Deviation"
+      }
     },
     {
       "id": "sd2",
       "label": "Group 2 Standard Deviation",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Standard deviation of the second group"
+      "businessContext": "Standard deviation of the second group",
+      "label_i18n": {
+        "en": "Group 2 Standard Deviation",
+        "tr": "Group 2 Standard Deviation",
+        "de": "Group 2 Standard Deviation",
+        "fr": "Group 2 Standard Deviation",
+        "es": "Group 2 Standard Deviation",
+        "ar": "Group 2 Standard Deviation"
+      }
     },
     {
       "id": "n1",
       "label": "Group 1 Sample Size",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Number of observations in first group"
+      "businessContext": "Number of observations in first group",
+      "label_i18n": {
+        "en": "Group 1 Sample Size",
+        "tr": "Group 1 Sample Size",
+        "de": "Group 1 Sample Size",
+        "fr": "Group 1 Sample Size",
+        "es": "Group 1 Sample Size",
+        "ar": "Group 1 Sample Size"
+      }
     },
     {
       "id": "n2",
       "label": "Group 2 Sample Size",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 30,
-      "businessContext": "Number of observations in second group"
+      "businessContext": "Number of observations in second group",
+      "label_i18n": {
+        "en": "Group 2 Sample Size",
+        "tr": "Group 2 Sample Size",
+        "de": "Group 2 Sample Size",
+        "fr": "Group 2 Sample Size",
+        "es": "Group 2 Sample Size",
+        "ar": "Group 2 Sample Size"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +110,10 @@
       "meanDiff"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -48,11 +48,7 @@
     "workingCapital": "currentAssets - currentLiabilities"
   },
   "outputs": {
-    "primary": {
-      "id": "workingCapital",
-      "label": "Working Capital",
-      "unit": "USD"
-    },
+    "primary": "currentAssets",
     "breakdown": [
       {
         "id": "currentAssets",
@@ -66,7 +62,7 @@
       }
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Proje & Yatırım",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

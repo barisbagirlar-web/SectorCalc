@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Mass of the object in kilograms"
+      "businessContext": "Mass of the object in kilograms",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "distance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Distance moved along the incline in meters"
+      "businessContext": "Distance moved along the incline in meters",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "angle",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "degrees",
       "default": 30,
-      "businessContext": "Angle of the incline relative to horizontal"
+      "businessContext": "Angle of the incline relative to horizontal",
+      "label_i18n": {
+        "en": "Incline Angle",
+        "tr": "Incline Angle",
+        "de": "Incline Angle",
+        "fr": "Incline Angle",
+        "es": "Incline Angle",
+        "ar": "Incline Angle"
+      }
     },
     {
       "id": "frictionCoefficient",
       "label": "Friction Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.1,
-      "businessContext": "Coefficient of kinetic friction (dimensionless)"
+      "businessContext": "Coefficient of kinetic friction (dimensionless)",
+      "label_i18n": {
+        "en": "Friction Coefficient",
+        "tr": "Friction Coefficient",
+        "de": "Friction Coefficient",
+        "fr": "Friction Coefficient",
+        "es": "Friction Coefficient",
+        "ar": "Friction Coefficient"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "workAgainstFriction"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

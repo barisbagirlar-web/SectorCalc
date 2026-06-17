@@ -5,41 +5,81 @@
       "id": "a0",
       "label": "a0 (x[0])",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Coefficient for n=0"
+      "businessContext": "Coefficient for n=0",
+      "label_i18n": {
+        "en": "a0 (x[0])",
+        "tr": "a0 (x[0])",
+        "de": "a0 (x[0])",
+        "fr": "a0 (x[0])",
+        "es": "a0 (x[0])",
+        "ar": "a0 (x[0])"
+      }
     },
     {
       "id": "a1",
       "label": "a1 (x[1])",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient for n=1"
+      "businessContext": "Coefficient for n=1",
+      "label_i18n": {
+        "en": "a1 (x[1])",
+        "tr": "a1 (x[1])",
+        "de": "a1 (x[1])",
+        "fr": "a1 (x[1])",
+        "es": "a1 (x[1])",
+        "ar": "a1 (x[1])"
+      }
     },
     {
       "id": "a2",
       "label": "a2 (x[2])",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient for n=2"
+      "businessContext": "Coefficient for n=2",
+      "label_i18n": {
+        "en": "a2 (x[2])",
+        "tr": "a2 (x[2])",
+        "de": "a2 (x[2])",
+        "fr": "a2 (x[2])",
+        "es": "a2 (x[2])",
+        "ar": "a2 (x[2])"
+      }
     },
     {
       "id": "a3",
       "label": "a3 (x[3])",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Coefficient for n=3"
+      "businessContext": "Coefficient for n=3",
+      "label_i18n": {
+        "en": "a3 (x[3])",
+        "tr": "a3 (x[3])",
+        "de": "a3 (x[3])",
+        "fr": "a3 (x[3])",
+        "es": "a3 (x[3])",
+        "ar": "a3 (x[3])"
+      }
     },
     {
       "id": "z",
       "label": "z (Real)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Real-valued z for evaluation"
+      "businessContext": "Real-valued z for evaluation",
+      "label_i18n": {
+        "en": "z (Real)",
+        "tr": "z (Real)",
+        "de": "z (Real)",
+        "fr": "z (Real)",
+        "es": "z (Real)",
+        "ar": "z (Real)"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "term3"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

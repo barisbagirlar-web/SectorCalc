@@ -3,15 +3,20 @@ import * as z from 'zod';
 
 export interface Psi_to_barInput {
   psi_value: number;
+  auto_input_2: number;
+  auto_input_3: number;
 }
 
 export const Psi_to_barInputSchema = z.object({
   psi_value: z.number().default(14.5038),
+  auto_input_2: z.number().default(1),
+  auto_input_3: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Psi_to_barInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.psi_value / 14.5038; results["bar"] = Number.isFinite(v) ? v : 0; } catch { results["bar"] = 0; }
+  try { const v = input.psi_value / 14.5038; results["bar_copy"] = Number.isFinite(v) ? v : 0; } catch { results["bar_copy"] = 0; }
   return results;
 }
 

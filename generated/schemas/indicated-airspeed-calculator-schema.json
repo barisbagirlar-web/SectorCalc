@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 102925,
-      "businessContext": "Pitot tüpünden okunan toplam basınç değeri"
+      "businessContext": "Pitot tüpünden okunan toplam basınç değeri",
+      "label_i18n": {
+        "en": "Pitot Basıncı (Pa)",
+        "tr": "Pitot Basıncı (Pa)",
+        "de": "Pitot Basıncı (Pa)",
+        "fr": "Pitot Basıncı (Pa)",
+        "es": "Pitot Basıncı (Pa)",
+        "ar": "Pitot Basıncı (Pa)"
+      }
     },
     {
       "id": "staticPressure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Statik porttan alınan atmosfer basıncı"
+      "businessContext": "Statik porttan alınan atmosfer basıncı",
+      "label_i18n": {
+        "en": "Statik Basınç (Pa)",
+        "tr": "Statik Basınç (Pa)",
+        "de": "Statik Basınç (Pa)",
+        "fr": "Statik Basınç (Pa)",
+        "es": "Statik Basınç (Pa)",
+        "ar": "Statik Basınç (Pa)"
+      }
     },
     {
       "id": "airDensity",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Uluslararası standart atmosfer (ISA) deniz seviyesi hava yoğunluğu"
+      "businessContext": "Uluslararası standart atmosfer (ISA) deniz seviyesi hava yoğunluğu",
+      "label_i18n": {
+        "en": "Hava Yoğunluğu (kg/m³)",
+        "tr": "Hava Yoğunluğu (kg/m³)",
+        "de": "Hava Yoğunluğu (kg/m³)",
+        "fr": "Hava Yoğunluğu (kg/m³)",
+        "es": "Hava Yoğunluğu (kg/m³)",
+        "ar": "Hava Yoğunluğu (kg/m³)"
+      }
     },
     {
       "id": "positionErrorCorrection",
       "label": "Pozisyon Hatası Düzeltme Faktörü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Pitot-statik sistem pozisyon hatası için düzeltme katsayısı, genellikle 1.0 alınır"
+      "businessContext": "Pitot-statik sistem pozisyon hatası için düzeltme katsayısı, genellikle 1.0 alınır",
+      "label_i18n": {
+        "en": "Pozisyon Hatası Düzeltme Faktörü",
+        "tr": "Pozisyon Hatası Düzeltme Faktörü",
+        "de": "Pozisyon Hatası Düzeltme Faktörü",
+        "fr": "Pozisyon Hatası Düzeltme Faktörü",
+        "es": "Pozisyon Hatası Düzeltme Faktörü",
+        "ar": "Pozisyon Hatası Düzeltme Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "dynamicPressure"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

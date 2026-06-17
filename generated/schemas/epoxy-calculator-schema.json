@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "The total weight of the epoxy mixture needed before waste."
+      "businessContext": "The total weight of the epoxy mixture needed before waste.",
+      "label_i18n": {
+        "en": "Desired Epoxy Weight",
+        "tr": "Desired Epoxy Weight",
+        "de": "Desired Epoxy Weight",
+        "fr": "Desired Epoxy Weight",
+        "es": "Desired Epoxy Weight",
+        "ar": "Desired Epoxy Weight"
+      }
     },
     {
       "id": "resinRatio",
       "label": "Resin Ratio (parts)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 100,
-      "businessContext": "Parts of resin in the mixing ratio."
+      "businessContext": "Parts of resin in the mixing ratio.",
+      "label_i18n": {
+        "en": "Resin Ratio (parts)",
+        "tr": "Resin Ratio (parts)",
+        "de": "Resin Ratio (parts)",
+        "fr": "Resin Ratio (parts)",
+        "es": "Resin Ratio (parts)",
+        "ar": "Resin Ratio (parts)"
+      }
     },
     {
       "id": "hardenerRatio",
       "label": "Hardener Ratio (parts)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 25,
-      "businessContext": "Parts of hardener in the mixing ratio."
+      "businessContext": "Parts of hardener in the mixing ratio.",
+      "label_i18n": {
+        "en": "Hardener Ratio (parts)",
+        "tr": "Hardener Ratio (parts)",
+        "de": "Hardener Ratio (parts)",
+        "fr": "Hardener Ratio (parts)",
+        "es": "Hardener Ratio (parts)",
+        "ar": "Hardener Ratio (parts)"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Additional percentage to account for waste and spillage."
+      "businessContext": "Additional percentage to account for waste and spillage.",
+      "label_i18n": {
+        "en": "Waste Factor (%)",
+        "tr": "Waste Factor (%)",
+        "de": "Waste Factor (%)",
+        "fr": "Waste Factor (%)",
+        "es": "Waste Factor (%)",
+        "ar": "Waste Factor (%)"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "hardenerWeight"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "sustainability-resource-esg"
 }

@@ -39,11 +39,7 @@
     "totalHours": "totalDays * 24 + ageHours"
   },
   "outputs": {
-    "primary": {
-      "id": "totalHours",
-      "label": "Total Age in Hours",
-      "unit": "hours"
-    },
+    "primary": "totalDays",
     "breakdown": [
       {
         "id": "totalDays",
@@ -52,8 +48,8 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

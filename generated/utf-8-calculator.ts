@@ -24,13 +24,15 @@ function evaluateAllFormulas(input: Utf_8_calculatorInput): Record<string, numbe
   try { const v = input.byte_count / ((input.ascii_ratio * 1 + input.two_byte_ratio * 2 + input.three_byte_ratio * 3 + input.four_byte_ratio * 4) / 100); results["total_characters"] = Number.isFinite(v) ? v : 0; } catch { results["total_characters"] = 0; }
   try { const v = input.byte_count * (1 + input.overhead_percent / 100); results["effective_bytes"] = Number.isFinite(v) ? v : 0; } catch { results["effective_bytes"] = 0; }
   try { const v = (1 - input.overhead_percent / 100) * 100; results["storage_efficiency"] = Number.isFinite(v) ? v : 0; } catch { results["storage_efficiency"] = 0; }
+  results["_effective_bytes__bytes"] = 0;
+  results["_storage_efficiency__"] = 0;
   return results;
 }
 
 
 export function calculateUtf_8_calculator(input: Utf_8_calculatorInput): Utf_8_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Estimated"] ?? 0;
+  const totalWasteCost = values["total_characters"] ?? 0;
   const breakdown = {
     
   };

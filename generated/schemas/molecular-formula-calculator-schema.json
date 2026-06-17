@@ -5,33 +5,65 @@
       "id": "numC",
       "label": "Carbon Atoms",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "Number of carbon atoms in the molecular formula"
+      "businessContext": "Number of carbon atoms in the molecular formula",
+      "label_i18n": {
+        "en": "Carbon Atoms",
+        "tr": "Carbon Atoms",
+        "de": "Carbon Atoms",
+        "fr": "Carbon Atoms",
+        "es": "Carbon Atoms",
+        "ar": "Carbon Atoms"
+      }
     },
     {
       "id": "numH",
       "label": "Hydrogen Atoms",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 12,
-      "businessContext": "Number of hydrogen atoms"
+      "businessContext": "Number of hydrogen atoms",
+      "label_i18n": {
+        "en": "Hydrogen Atoms",
+        "tr": "Hydrogen Atoms",
+        "de": "Hydrogen Atoms",
+        "fr": "Hydrogen Atoms",
+        "es": "Hydrogen Atoms",
+        "ar": "Hydrogen Atoms"
+      }
     },
     {
       "id": "numO",
       "label": "Oxygen Atoms",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 6,
-      "businessContext": "Number of oxygen atoms"
+      "businessContext": "Number of oxygen atoms",
+      "label_i18n": {
+        "en": "Oxygen Atoms",
+        "tr": "Oxygen Atoms",
+        "de": "Oxygen Atoms",
+        "fr": "Oxygen Atoms",
+        "es": "Oxygen Atoms",
+        "ar": "Oxygen Atoms"
+      }
     },
     {
       "id": "numN",
       "label": "Nitrogen Atoms",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Number of nitrogen atoms"
+      "businessContext": "Number of nitrogen atoms",
+      "label_i18n": {
+        "en": "Nitrogen Atoms",
+        "tr": "Nitrogen Atoms",
+        "de": "Nitrogen Atoms",
+        "fr": "Nitrogen Atoms",
+        "es": "Nitrogen Atoms",
+        "ar": "Nitrogen Atoms"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "nitrogenMass"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "process-chemical"
+  "categorySlug": "sustainability-resource-esg"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Total mass of the climber including gear"
+      "businessContext": "Total mass of the climber including gear",
+      "label_i18n": {
+        "en": "Body Mass",
+        "tr": "Body Mass",
+        "de": "Body Mass",
+        "fr": "Body Mass",
+        "es": "Body Mass",
+        "ar": "Body Mass"
+      }
     },
     {
       "id": "fallHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Vertical drop from climber's feet to pad surface"
+      "businessContext": "Vertical drop from climber's feet to pad surface",
+      "label_i18n": {
+        "en": "Fall Height",
+        "tr": "Fall Height",
+        "de": "Fall Height",
+        "fr": "Fall Height",
+        "es": "Fall Height",
+        "ar": "Fall Height"
+      }
     },
     {
       "id": "matThickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Crash pad thickness"
+      "businessContext": "Crash pad thickness",
+      "label_i18n": {
+        "en": "Mat Thickness",
+        "tr": "Mat Thickness",
+        "de": "Mat Thickness",
+        "fr": "Mat Thickness",
+        "es": "Mat Thickness",
+        "ar": "Mat Thickness"
+      }
     },
     {
       "id": "matStiffness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kN/m",
       "default": 50,
-      "businessContext": "Overall pad stiffness (typical 20-100 kN/m)"
+      "businessContext": "Overall pad stiffness (typical 20-100 kN/m)",
+      "label_i18n": {
+        "en": "Mat Stiffness",
+        "tr": "Mat Stiffness",
+        "de": "Mat Stiffness",
+        "fr": "Mat Stiffness",
+        "es": "Mat Stiffness",
+        "ar": "Mat Stiffness"
+      }
     },
     {
       "id": "g",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Acceleration due to gravity"
+      "businessContext": "Acceleration due to gravity",
+      "label_i18n": {
+        "en": "Gravity",
+        "tr": "Gravity",
+        "de": "Gravity",
+        "fr": "Gravity",
+        "es": "Gravity",
+        "ar": "Gravity"
+      }
     }
   ],
   "formulas": {
@@ -48,20 +88,24 @@
     "mg": "bodyMass * g",
     "discriminant": "Math.sqrt(mg**2 + 2 * mg * matStiffnessNm * fallHeight)",
     "matCompression": "(mg + discriminant) / matStiffnessNm",
-    "maxForce": "matStiffnessNm * matCompression"
+    "maxForce": "matStiffnessNm * matCompression",
+    "matCompression___100": "matCompression * 100",
+    "_maxForce___mg_____bodyMass___g_": "(maxForce - mg) / (bodyMass * g)",
+    "12000___maxForce": "12000 / maxForce",
+    "result": "maxForce / 1000"
   },
   "outputs": {
-    "primary": "maxForce / 1000",
+    "primary": "result",
     "breakdown": [
       "matCompression * 100",
       "(maxForce - mg) / (bodyMass * g)",
       "12000 / maxForce"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

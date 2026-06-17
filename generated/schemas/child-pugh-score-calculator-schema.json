@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 0.5,
-      "businessContext": "Enter total bilirubin in mg/dL"
+      "businessContext": "Enter total bilirubin in mg/dL",
+      "label_i18n": {
+        "en": "Total Bilirubin",
+        "tr": "Total Bilirubin",
+        "de": "Total Bilirubin",
+        "fr": "Total Bilirubin",
+        "es": "Total Bilirubin",
+        "ar": "Total Bilirubin"
+      }
     },
     {
       "id": "serumAlbumin",
@@ -15,31 +23,63 @@
       "type": "number",
       "unit": "g/dL",
       "default": 4,
-      "businessContext": "Enter serum albumin in g/dL"
+      "businessContext": "Enter serum albumin in g/dL",
+      "label_i18n": {
+        "en": "Serum Albumin",
+        "tr": "Serum Albumin",
+        "de": "Serum Albumin",
+        "fr": "Serum Albumin",
+        "es": "Serum Albumin",
+        "ar": "Serum Albumin"
+      }
     },
     {
       "id": "inr",
       "label": "INR",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Enter international normalized ratio (INR)"
+      "businessContext": "Enter international normalized ratio (INR)",
+      "label_i18n": {
+        "en": "INR",
+        "tr": "INR",
+        "de": "INR",
+        "fr": "INR",
+        "es": "INR",
+        "ar": "INR"
+      }
     },
     {
       "id": "ascites",
       "label": "Ascites",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Enter ascites grade: 0=none, 1=slight, 2=moderate/severe"
+      "businessContext": "Enter ascites grade: 0=none, 1=slight, 2=moderate/severe",
+      "label_i18n": {
+        "en": "Ascites",
+        "tr": "Ascites",
+        "de": "Ascites",
+        "fr": "Ascites",
+        "es": "Ascites",
+        "ar": "Ascites"
+      }
     },
     {
       "id": "encephalopathy",
       "label": "Hepatic Encephalopathy",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Enter encephalopathy grade: 0=none, 1=grade I-II, 2=grade III-IV"
+      "businessContext": "Enter encephalopathy grade: 0=none, 1=grade I-II, 2=grade III-IV",
+      "label_i18n": {
+        "en": "Hepatic Encephalopathy",
+        "tr": "Hepatic Encephalopathy",
+        "de": "Hepatic Encephalopathy",
+        "fr": "Hepatic Encephalopathy",
+        "es": "Hepatic Encephalopathy",
+        "ar": "Hepatic Encephalopathy"
+      }
     }
   ],
   "formulas": {
@@ -62,10 +102,10 @@
       "childPughClass"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

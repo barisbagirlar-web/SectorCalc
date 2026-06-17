@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cwt",
       "default": 0,
-      "businessContext": "Enter the weight in hundredweight to convert to pounds."
+      "businessContext": "Enter the weight in hundredweight to convert to pounds.",
+      "label_i18n": {
+        "en": "Weight in Hundredweight",
+        "tr": "Weight in Hundredweight",
+        "de": "Weight in Hundredweight",
+        "fr": "Weight in Hundredweight",
+        "es": "Weight in Hundredweight",
+        "ar": "Weight in Hundredweight"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "lbs/cwt",
       "default": 100,
-      "businessContext": "Pounds per hundredweight. Default 100 for short hundredweight; use 112 for long hundredweight."
+      "businessContext": "Pounds per hundredweight. Default 100 for short hundredweight; use 112 for long hundredweight.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "itemCount",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of identical items. Use 1 if converting a single weight."
+      "businessContext": "Number of identical items. Use 1 if converting a single weight.",
+      "label_i18n": {
+        "en": "Number of Items",
+        "tr": "Number of Items",
+        "de": "Number of Items",
+        "fr": "Number of Items",
+        "es": "Number of Items",
+        "ar": "Number of Items"
+      }
     },
     {
       "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output."
+      "businessContext": "Number of decimal places for the output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "totalPounds"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Lojistik & Sevkiyat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -19,7 +19,8 @@ export const Dielectric_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Dielectric_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = epsilon0 * input.relative_permittivity * input.plate_area / input.plate_distance; results["capacitance"] = Number.isFinite(v) ? v : 0; } catch { results["capacitance"] = 0; }
+  try { const v = 8.854e-12; results["epsilon0"] = Number.isFinite(v) ? v : 0; } catch { results["epsilon0"] = 0; }
+  try { const v = (results["epsilon0"] ?? 0) * input.relative_permittivity * input.plate_area / input.plate_distance; results["capacitance"] = Number.isFinite(v) ? v : 0; } catch { results["capacitance"] = 0; }
   try { const v = 1 / (2 * Math.PI * input.frequency * (results["capacitance"] ?? 0)); results["impedance"] = Number.isFinite(v) ? v : 0; } catch { results["impedance"] = 0; }
   try { const v = 1 / input.loss_tangent; results["quality_factor"] = Number.isFinite(v) ? v : 0; } catch { results["quality_factor"] = 0; }
   try { const v = input.loss_tangent; results["loss"] = Number.isFinite(v) ? v : 0; } catch { results["loss"] = 0; }

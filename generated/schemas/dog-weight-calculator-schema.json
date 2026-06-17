@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "months",
       "default": 6,
-      "businessContext": "Current age of the dog in complete months."
+      "businessContext": "Current age of the dog in complete months.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "currentWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Current body weight of the dog in kilograms."
+      "businessContext": "Current body weight of the dog in kilograms.",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "growthRate",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "1/month",
       "default": 0.2,
-      "businessContext": "Breed-specific exponential growth rate (k). Small breeds ≈ 0.3, Medium ≈ 0.2, Large ≈ 0.15, Giant ≈ 0.1."
+      "businessContext": "Breed-specific exponential growth rate (k). Small breeds ≈ 0.3, Medium ≈ 0.2, Large ≈ 0.15, Giant ≈ 0.1.",
+      "label_i18n": {
+        "en": "Growth Rate Factor",
+        "tr": "Growth Rate Factor",
+        "de": "Growth Rate Factor",
+        "fr": "Growth Rate Factor",
+        "es": "Growth Rate Factor",
+        "ar": "Growth Rate Factor"
+      }
     },
     {
       "id": "bcs",
       "label": "Body Condition Score",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 5,
-      "businessContext": "Veterinary body condition score on a 9-point scale (1 = emaciated, 5 = ideal, 9 = obese)."
+      "businessContext": "Veterinary body condition score on a 9-point scale (1 = emaciated, 5 = ideal, 9 = obese).",
+      "label_i18n": {
+        "en": "Body Condition Score",
+        "tr": "Body Condition Score",
+        "de": "Body Condition Score",
+        "fr": "Body Condition Score",
+        "es": "Body Condition Score",
+        "ar": "Body Condition Score"
+      }
     }
   ],
   "formulas": {
@@ -46,10 +78,10 @@
       "weightProjectionAt12Months"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "electrical-power-systems"
 }

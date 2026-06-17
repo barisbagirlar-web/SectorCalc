@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "The module of the gear, typically in mm."
+      "businessContext": "The module of the gear, typically in mm.",
+      "label_i18n": {
+        "en": "Module (m)",
+        "tr": "Module (m)",
+        "de": "Module (m)",
+        "fr": "Module (m)",
+        "es": "Module (m)",
+        "ar": "Module (m)"
+      }
     },
     {
       "id": "z1",
       "label": "Number of Teeth (Pinion)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 20,
-      "businessContext": "Number of teeth on the driving gear."
+      "businessContext": "Number of teeth on the driving gear.",
+      "label_i18n": {
+        "en": "Number of Teeth (Pinion)",
+        "tr": "Number of Teeth (Pinion)",
+        "de": "Number of Teeth (Pinion)",
+        "fr": "Number of Teeth (Pinion)",
+        "es": "Number of Teeth (Pinion)",
+        "ar": "Number of Teeth (Pinion)"
+      }
     },
     {
       "id": "z2",
       "label": "Number of Teeth (Gear)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 40,
-      "businessContext": "Number of teeth on the driven gear."
+      "businessContext": "Number of teeth on the driven gear.",
+      "label_i18n": {
+        "en": "Number of Teeth (Gear)",
+        "tr": "Number of Teeth (Gear)",
+        "de": "Number of Teeth (Gear)",
+        "fr": "Number of Teeth (Gear)",
+        "es": "Number of Teeth (Gear)",
+        "ar": "Number of Teeth (Gear)"
+      }
     },
     {
       "id": "pressureAngle",
@@ -31,23 +55,47 @@
       "type": "number",
       "unit": "deg",
       "default": 20,
-      "businessContext": "Standard pressure angle, typically 20 degrees."
+      "businessContext": "Standard pressure angle, typically 20 degrees.",
+      "label_i18n": {
+        "en": "Pressure Angle (α)",
+        "tr": "Pressure Angle (α)",
+        "de": "Pressure Angle (α)",
+        "fr": "Pressure Angle (α)",
+        "es": "Pressure Angle (α)",
+        "ar": "Pressure Angle (α)"
+      }
     },
     {
       "id": "ha",
       "label": "Addendum Coefficient (ha*)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Addendum coefficient, typically 1.0 for standard gears."
+      "businessContext": "Addendum coefficient, typically 1.0 for standard gears.",
+      "label_i18n": {
+        "en": "Addendum Coefficient (ha*)",
+        "tr": "Addendum Coefficient (ha*)",
+        "de": "Addendum Coefficient (ha*)",
+        "fr": "Addendum Coefficient (ha*)",
+        "es": "Addendum Coefficient (ha*)",
+        "ar": "Addendum Coefficient (ha*)"
+      }
     },
     {
       "id": "hf",
       "label": "Dedendum Coefficient (hf*)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.25,
-      "businessContext": "Dedendum coefficient, typically 1.25 for standard gears."
+      "businessContext": "Dedendum coefficient, typically 1.25 for standard gears.",
+      "label_i18n": {
+        "en": "Dedendum Coefficient (hf*)",
+        "tr": "Dedendum Coefficient (hf*)",
+        "de": "Dedendum Coefficient (hf*)",
+        "fr": "Dedendum Coefficient (hf*)",
+        "es": "Dedendum Coefficient (hf*)",
+        "ar": "Dedendum Coefficient (hf*)"
+      }
     }
   ],
   "formulas": {
@@ -72,7 +120,7 @@
       "baseDiameter2"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",

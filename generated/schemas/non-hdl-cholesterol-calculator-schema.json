@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Serum total cholesterol level"
+      "businessContext": "Serum total cholesterol level",
+      "label_i18n": {
+        "en": "Total Cholesterol",
+        "tr": "Total Cholesterol",
+        "de": "Total Cholesterol",
+        "fr": "Total Cholesterol",
+        "es": "Total Cholesterol",
+        "ar": "Total Cholesterol"
+      }
     },
     {
       "id": "hdlCholesterol",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "Serum HDL cholesterol level"
+      "businessContext": "Serum HDL cholesterol level",
+      "label_i18n": {
+        "en": "HDL Cholesterol",
+        "tr": "HDL Cholesterol",
+        "de": "HDL Cholesterol",
+        "fr": "HDL Cholesterol",
+        "es": "HDL Cholesterol",
+        "ar": "HDL Cholesterol"
+      }
     },
     {
       "id": "triglycerides",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 150,
-      "businessContext": "Serum triglycerides level, used for LDL calculation when flag enabled"
+      "businessContext": "Serum triglycerides level, used for LDL calculation when flag enabled",
+      "label_i18n": {
+        "en": "Triglycerides",
+        "tr": "Triglycerides",
+        "de": "Triglycerides",
+        "fr": "Triglycerides",
+        "es": "Triglycerides",
+        "ar": "Triglycerides"
+      }
     },
     {
       "id": "calculateLdl",
       "label": "Calculate LDL",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Set to 1 to compute LDL cholesterol using Friedewald formula (valid for triglycerides <400 mg/dL)"
+      "businessContext": "Set to 1 to compute LDL cholesterol using Friedewald formula (valid for triglycerides <400 mg/dL)",
+      "label_i18n": {
+        "en": "Calculate LDL",
+        "tr": "Calculate LDL",
+        "de": "Calculate LDL",
+        "fr": "Calculate LDL",
+        "es": "Calculate LDL",
+        "ar": "Calculate LDL"
+      }
     }
   ],
   "formulas": {
@@ -44,10 +76,10 @@
       "ldlCholesterol"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

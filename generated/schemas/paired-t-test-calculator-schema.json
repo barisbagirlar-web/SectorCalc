@@ -5,33 +5,65 @@
       "id": "meanDifference",
       "label": "Mean of Differences",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The average of the differences between the paired observations."
+      "businessContext": "The average of the differences between the paired observations.",
+      "label_i18n": {
+        "en": "Mean of Differences",
+        "tr": "Mean of Differences",
+        "de": "Mean of Differences",
+        "fr": "Mean of Differences",
+        "es": "Mean of Differences",
+        "ar": "Mean of Differences"
+      }
     },
     {
       "id": "standardDeviationDifference",
       "label": "Standard Deviation of Differences",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "The standard deviation of the differences between the paired observations."
+      "businessContext": "The standard deviation of the differences between the paired observations.",
+      "label_i18n": {
+        "en": "Standard Deviation of Differences",
+        "tr": "Standard Deviation of Differences",
+        "de": "Standard Deviation of Differences",
+        "fr": "Standard Deviation of Differences",
+        "es": "Standard Deviation of Differences",
+        "ar": "Standard Deviation of Differences"
+      }
     },
     {
       "id": "sampleSize",
       "label": "Sample Size (Number of Pairs)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 10,
-      "businessContext": "The number of paired observations in the sample."
+      "businessContext": "The number of paired observations in the sample.",
+      "label_i18n": {
+        "en": "Sample Size (Number of Pairs)",
+        "tr": "Sample Size (Number of Pairs)",
+        "de": "Sample Size (Number of Pairs)",
+        "fr": "Sample Size (Number of Pairs)",
+        "es": "Sample Size (Number of Pairs)",
+        "ar": "Sample Size (Number of Pairs)"
+      }
     },
     {
       "id": "hypothesizedDifference",
       "label": "Hypothesized Difference (μ₀)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "The hypothesized mean difference under the null hypothesis (commonly 0)."
+      "businessContext": "The hypothesized mean difference under the null hypothesis (commonly 0).",
+      "label_i18n": {
+        "en": "Hypothesized Difference (μ₀)",
+        "tr": "Hypothesized Difference (μ₀)",
+        "de": "Hypothesized Difference (μ₀)",
+        "fr": "Hypothesized Difference (μ₀)",
+        "es": "Hypothesized Difference (μ₀)",
+        "ar": "Hypothesized Difference (μ₀)"
+      }
     }
   ],
   "formulas": {
@@ -48,10 +80,10 @@
       "meanDifference"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

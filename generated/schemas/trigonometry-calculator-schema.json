@@ -7,23 +7,47 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Input angle in degrees for trigonometric and sinusoidal function evaluation."
+      "businessContext": "Input angle in degrees for trigonometric and sinusoidal function evaluation.",
+      "label_i18n": {
+        "en": "Angle (x)",
+        "tr": "Angle (x)",
+        "de": "Angle (x)",
+        "fr": "Angle (x)",
+        "es": "Angle (x)",
+        "ar": "Angle (x)"
+      }
     },
     {
       "id": "amplitude",
       "label": "Amplitude (A)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Amplitude of the sinusoidal function."
+      "businessContext": "Amplitude of the sinusoidal function.",
+      "label_i18n": {
+        "en": "Amplitude (A)",
+        "tr": "Amplitude (A)",
+        "de": "Amplitude (A)",
+        "fr": "Amplitude (A)",
+        "es": "Amplitude (A)",
+        "ar": "Amplitude (A)"
+      }
     },
     {
       "id": "frequency",
       "label": "Frequency (B)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Frequency factor, radians per degree."
+      "businessContext": "Frequency factor, radians per degree.",
+      "label_i18n": {
+        "en": "Frequency (B)",
+        "tr": "Frequency (B)",
+        "de": "Frequency (B)",
+        "fr": "Frequency (B)",
+        "es": "Frequency (B)",
+        "ar": "Frequency (B)"
+      }
     },
     {
       "id": "phase",
@@ -31,15 +55,31 @@
       "type": "number",
       "unit": "rad",
       "default": 0,
-      "businessContext": "Phase shift in radians."
+      "businessContext": "Phase shift in radians.",
+      "label_i18n": {
+        "en": "Phase Shift (C)",
+        "tr": "Phase Shift (C)",
+        "de": "Phase Shift (C)",
+        "fr": "Phase Shift (C)",
+        "es": "Phase Shift (C)",
+        "ar": "Phase Shift (C)"
+      }
     },
     {
       "id": "verticalShift",
       "label": "Vertical Shift (D)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Vertical shift of the sinusoidal function."
+      "businessContext": "Vertical shift of the sinusoidal function.",
+      "label_i18n": {
+        "en": "Vertical Shift (D)",
+        "tr": "Vertical Shift (D)",
+        "de": "Vertical Shift (D)",
+        "fr": "Vertical Shift (D)",
+        "es": "Vertical Shift (D)",
+        "ar": "Vertical Shift (D)"
+      }
     }
   ],
   "formulas": {
@@ -50,12 +90,7 @@
     "y": "amplitude * Math.sin(frequency * x_rad + phase) + verticalShift"
   },
   "outputs": {
-    "primary": {
-      "id": "y",
-      "label": "Sinusoidal Output",
-      "unit": "",
-      "formula": "y"
-    },
+    "primary": "x_rad",
     "breakdown": [
       {
         "id": "sin",
@@ -77,10 +112,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İK & Personel",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "workforce-hr"
 }

@@ -27,7 +27,7 @@ function evaluateAllFormulas(input: Hiking_calculatorInput): Record<string, numb
 
 export function calculateHiking_calculator(input: Hiking_calculatorInput): Hiking_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalTime"] ?? 0;
+  const totalWasteCost = values["adjustedSpeed"] ?? 0;
   const breakdown = {
     
   };

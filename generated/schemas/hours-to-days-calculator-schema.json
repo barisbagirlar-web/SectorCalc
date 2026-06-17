@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "h",
       "default": 100,
-      "businessContext": "Toplam iş yükü (saat cinsinden)."
+      "businessContext": "Toplam iş yükü (saat cinsinden).",
+      "label_i18n": {
+        "en": "Total Work Hours",
+        "tr": "Total Work Hours",
+        "de": "Total Work Hours",
+        "fr": "Total Work Hours",
+        "es": "Total Work Hours",
+        "ar": "Total Work Hours"
+      }
     },
     {
       "id": "daily_shift_hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 8,
-      "businessContext": "Bir vardiyadaki planlanmış çalışma saati."
+      "businessContext": "Bir vardiyadaki planlanmış çalışma saati.",
+      "label_i18n": {
+        "en": "Daily Shift Hours",
+        "tr": "Daily Shift Hours",
+        "de": "Daily Shift Hours",
+        "fr": "Daily Shift Hours",
+        "es": "Daily Shift Hours",
+        "ar": "Daily Shift Hours"
+      }
     },
     {
       "id": "break_hours_per_shift",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "h",
       "default": 0.5,
-      "businessContext": "Vardiya başına mola süresi (efektif çalışma süresini azaltır)."
+      "businessContext": "Vardiya başına mola süresi (efektif çalışma süresini azaltır).",
+      "label_i18n": {
+        "en": "Break Hours per Shift",
+        "tr": "Break Hours per Shift",
+        "de": "Break Hours per Shift",
+        "fr": "Break Hours per Shift",
+        "es": "Break Hours per Shift",
+        "ar": "Break Hours per Shift"
+      }
     },
     {
       "id": "shifts_per_day",
       "label": "Shifts per Day",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Günlük vardiya sayısı (ör. 1, 2 veya 3)."
+      "businessContext": "Günlük vardiya sayısı (ör. 1, 2 veya 3).",
+      "label_i18n": {
+        "en": "Shifts per Day",
+        "tr": "Shifts per Day",
+        "de": "Shifts per Day",
+        "fr": "Shifts per Day",
+        "es": "Shifts per Day",
+        "ar": "Shifts per Day"
+      }
     },
     {
       "id": "efficiency_factor",
       "label": "Efficiency Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Üretim verimlilik faktörü (0-1 arası). 1 = %100 verim."
+      "businessContext": "Üretim verimlilik faktörü (0-1 arası). 1 = %100 verim.",
+      "label_i18n": {
+        "en": "Efficiency Factor",
+        "tr": "Efficiency Factor",
+        "de": "Efficiency Factor",
+        "fr": "Efficiency Factor",
+        "es": "Efficiency Factor",
+        "ar": "Efficiency Factor"
+      }
     },
     {
       "id": "setup_time",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Bir defaya mahsus kurulum süresi (iş yüküne eklenir)."
+      "businessContext": "Bir defaya mahsus kurulum süresi (iş yüküne eklenir).",
+      "label_i18n": {
+        "en": "Setup Time",
+        "tr": "Setup Time",
+        "de": "Setup Time",
+        "fr": "Setup Time",
+        "es": "Setup Time",
+        "ar": "Setup Time"
+      }
     }
   ],
   "formulas": {
@@ -63,10 +111,10 @@
       "effective_hours_per_day"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "cnc-additive-manufacturing"
 }

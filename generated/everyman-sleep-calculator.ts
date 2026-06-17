@@ -21,13 +21,16 @@ function evaluateAllFormulas(input: Everyman_sleep_calculatorInput): Record<stri
   try { const v = input.napCount * input.napDuration; results["totalNapMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["totalNapMinutes"] = 0; }
   try { const v = input.coreHours * 60 + input.coreMinutes + input.napCount * input.napDuration; results["totalMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["totalMinutes"] = 0; }
   try { const v = (input.coreHours * 60 + input.coreMinutes + input.napCount * input.napDuration) / 60; results["totalHours"] = Number.isFinite(v) ? v : 0; } catch { results["totalHours"] = 0; }
+  results["_totalCoreMinutes___60__saat"] = 0;
+  results["_totalNapMinutes___60__saat"] = 0;
+  try { const v = input.napCount; results["_napCount_"] = Number.isFinite(v) ? v : 0; } catch { results["_napCount_"] = 0; }
   return results;
 }
 
 
 export function calculateEveryman_sleep_calculator(input: Everyman_sleep_calculatorInput): Everyman_sleep_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Toplam"] ?? 0;
+  const totalWasteCost = values["totalCoreMinutes"] ?? 0;
   const breakdown = {
     
   };

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Main stream length from outlet to watershed divide"
+      "businessContext": "Main stream length from outlet to watershed divide",
+      "label_i18n": {
+        "en": "Main Stream Length",
+        "tr": "Main Stream Length",
+        "de": "Main Stream Length",
+        "fr": "Main Stream Length",
+        "es": "Main Stream Length",
+        "ar": "Main Stream Length"
+      }
     },
     {
       "id": "Lca",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 5,
-      "businessContext": "Distance from outlet to a point on the stream nearest the centroid of the watershed"
+      "businessContext": "Distance from outlet to a point on the stream nearest the centroid of the watershed",
+      "label_i18n": {
+        "en": "Distance Along Stream to Centroid",
+        "tr": "Distance Along Stream to Centroid",
+        "de": "Distance Along Stream to Centroid",
+        "fr": "Distance Along Stream to Centroid",
+        "es": "Distance Along Stream to Centroid",
+        "ar": "Distance Along Stream to Centroid"
+      }
     },
     {
       "id": "A",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km²",
       "default": 100,
-      "businessContext": "Total watershed drainage area"
+      "businessContext": "Total watershed drainage area",
+      "label_i18n": {
+        "en": "Drainage Area",
+        "tr": "Drainage Area",
+        "de": "Drainage Area",
+        "fr": "Drainage Area",
+        "es": "Drainage Area",
+        "ar": "Drainage Area"
+      }
     },
     {
       "id": "Ct",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "none",
       "default": 1.5,
-      "businessContext": "Coefficient depending on watershed slope and storage, typically 1.0–2.5"
+      "businessContext": "Coefficient depending on watershed slope and storage, typically 1.0–2.5",
+      "label_i18n": {
+        "en": "Coefficient Ct",
+        "tr": "Coefficient Ct",
+        "de": "Coefficient Ct",
+        "fr": "Coefficient Ct",
+        "es": "Coefficient Ct",
+        "ar": "Coefficient Ct"
+      }
     },
     {
       "id": "Cp",
@@ -39,25 +71,36 @@
       "type": "number",
       "unit": "none",
       "default": 0.6,
-      "businessContext": "Peak discharge coefficient, typically 0.4–0.8"
+      "businessContext": "Peak discharge coefficient, typically 0.4–0.8",
+      "label_i18n": {
+        "en": "Coefficient Cp",
+        "tr": "Coefficient Cp",
+        "de": "Coefficient Cp",
+        "fr": "Coefficient Cp",
+        "es": "Coefficient Cp",
+        "ar": "Coefficient Cp"
+      }
     }
   ],
   "formulas": {
     "tp": "Ct * Math.pow(L * Lca, 0.3)",
     "qp": "2.78 * Cp * A / tp",
-    "Tb": "5 * tp / 24"
+    "Tb": "5 * tp / 24",
+    "Time_to_Peak__tp_": "Time to Peak (tp)",
+    "Base_Time__Tb_": "Base Time (Tb)",
+    "result": "Peak Discharge (qp)"
   },
   "outputs": {
-    "primary": "Peak Discharge (qp)",
+    "primary": "result",
     "breakdown": [
       "Time to Peak (tp)",
       "Base Time (Tb)"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",
-  "categorySlug": "cnc-additive-manufacturing"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

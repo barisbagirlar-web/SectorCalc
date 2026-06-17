@@ -5,65 +5,129 @@
       "id": "r1",
       "label": "Recall 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "First recall value (must be the smallest, in ascending order)"
+      "businessContext": "First recall value (must be the smallest, in ascending order)",
+      "label_i18n": {
+        "en": "Recall 1",
+        "tr": "Recall 1",
+        "de": "Recall 1",
+        "fr": "Recall 1",
+        "es": "Recall 1",
+        "ar": "Recall 1"
+      }
     },
     {
       "id": "p1",
       "label": "Precision 1",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Precision corresponding to Recall 1"
+      "businessContext": "Precision corresponding to Recall 1",
+      "label_i18n": {
+        "en": "Precision 1",
+        "tr": "Precision 1",
+        "de": "Precision 1",
+        "fr": "Precision 1",
+        "es": "Precision 1",
+        "ar": "Precision 1"
+      }
     },
     {
       "id": "r2",
       "label": "Recall 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Second recall value (greater than or equal to Recall 1)"
+      "businessContext": "Second recall value (greater than or equal to Recall 1)",
+      "label_i18n": {
+        "en": "Recall 2",
+        "tr": "Recall 2",
+        "de": "Recall 2",
+        "fr": "Recall 2",
+        "es": "Recall 2",
+        "ar": "Recall 2"
+      }
     },
     {
       "id": "p2",
       "label": "Precision 2",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Precision corresponding to Recall 2"
+      "businessContext": "Precision corresponding to Recall 2",
+      "label_i18n": {
+        "en": "Precision 2",
+        "tr": "Precision 2",
+        "de": "Precision 2",
+        "fr": "Precision 2",
+        "es": "Precision 2",
+        "ar": "Precision 2"
+      }
     },
     {
       "id": "r3",
       "label": "Recall 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Third recall value (greater than or equal to Recall 2)"
+      "businessContext": "Third recall value (greater than or equal to Recall 2)",
+      "label_i18n": {
+        "en": "Recall 3",
+        "tr": "Recall 3",
+        "de": "Recall 3",
+        "fr": "Recall 3",
+        "es": "Recall 3",
+        "ar": "Recall 3"
+      }
     },
     {
       "id": "p3",
       "label": "Precision 3",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Precision corresponding to Recall 3"
+      "businessContext": "Precision corresponding to Recall 3",
+      "label_i18n": {
+        "en": "Precision 3",
+        "tr": "Precision 3",
+        "de": "Precision 3",
+        "fr": "Precision 3",
+        "es": "Precision 3",
+        "ar": "Precision 3"
+      }
     },
     {
       "id": "r4",
       "label": "Recall 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Fourth recall value (the largest, equal to or greater than Recall 3, typically 1)"
+      "businessContext": "Fourth recall value (the largest, equal to or greater than Recall 3, typically 1)",
+      "label_i18n": {
+        "en": "Recall 4",
+        "tr": "Recall 4",
+        "de": "Recall 4",
+        "fr": "Recall 4",
+        "es": "Recall 4",
+        "ar": "Recall 4"
+      }
     },
     {
       "id": "p4",
       "label": "Precision 4",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Precision corresponding to Recall 4"
+      "businessContext": "Precision corresponding to Recall 4",
+      "label_i18n": {
+        "en": "Precision 4",
+        "tr": "Precision 4",
+        "de": "Precision 4",
+        "fr": "Precision 4",
+        "es": "Precision 4",
+        "ar": "Precision 4"
+      }
     }
   ],
   "formulas": {
@@ -80,8 +144,8 @@
       "area3"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

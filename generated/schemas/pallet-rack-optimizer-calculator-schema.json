@@ -220,7 +220,8 @@
       },
       "businessContext_i18n": {
         "en": "Warehouse inventory rotation strategy affecting throughput and space utilization."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "forklift_type",
@@ -239,7 +240,8 @@
       },
       "businessContext_i18n": {
         "en": "Forklift type determines required aisle width and lift height capability."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "seismic_zone",
@@ -258,7 +260,8 @@
       },
       "businessContext_i18n": {
         "en": "Seismic classification per ASCE 7 / IBC, affects rack bracing requirements."
-      }
+      },
+      "unit": "unit"
     },
     {
       "id": "include_beam_deflection_check",
@@ -271,7 +274,8 @@
       },
       "businessContext_i18n": {
         "en": "If enabled, validates beam deflection against L/180 standard (RMI/ANSI MH16.1)."
-      }
+      },
+      "unit": "unit"
     }
   ],
   "validation": {
@@ -308,132 +312,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "usable_height_per_level",
-      "label": "Usable Height per Level",
-      "formula": "rack_height_mm / num_levels - beam_thickness_mm",
-      "unit": "mm",
-      "description": "Available vertical space per level after subtracting beam thickness."
-    },
-    {
-      "id": "max_pallets_per_bay",
-      "label": "Max Pallets per Bay",
-      "formula": "floor(rack_length_mm / pallet_width_mm) * num_levels",
-      "unit": "count",
-      "description": "Maximum number of pallets that can be stored in one bay (single-deep)."
-    },
-    {
-      "id": "total_pallet_positions",
-      "label": "Total Pallet Positions",
-      "formula": "max_pallets_per_bay * num_bays",
-      "unit": "count",
-      "description": "Total theoretical storage positions in the rack system."
-    },
-    {
-      "id": "occupied_positions",
-      "label": "Occupied Positions",
-      "formula": "total_pallet_positions * (utilization_rate / 100)",
-      "unit": "count",
-      "description": "Number of positions currently filled based on utilization rate."
-    },
-    {
-      "id": "total_stored_weight_kg",
-      "label": "Total Stored Weight (kg)",
-      "formula": "occupied_positions * pallet_weight_kg",
-      "unit": "kg",
-      "description": "Total weight of all stored pallets in the rack system."
-    },
-    {
-      "id": "floor_space_utilization",
-      "label": "Floor Space Utilization",
-      "formula": "(total_pallet_positions * pallet_depth_mm * pallet_width_mm) / (rack_length_mm * num_bays * (rack_depth_mm + aisle_width_mm))",
-      "unit": "%",
-      "description": "Ratio of pallet footprint to total floor area including aisles. rack_depth_mm assumed = pallet_depth_mm * 2 for double-deep."
-    },
-    {
-      "id": "throughput_index",
-      "label": "Throughput Index",
-      "formula": "occupied_positions * (1 / (1 + (aisle_width_mm / 1000))) * (1 if storage_strategy == 'FIFO' else 0.85 if storage_strategy == 'LIFO' else 0.9 if storage_strategy == 'Random' else 0.95)",
-      "unit": "index",
-      "description": "Relative throughput efficiency considering aisle width and storage strategy."
-    }
+    "rack_height_mm",
+    "rack_height_mm",
+    "rack_height_mm",
+    "rack_height_mm",
+    "rack_height_mm",
+    "rack_height_mm",
+    "rack_height_mm"
   ],
   "outputs": {
-    "primary": {
-      "id": "overall_efficiency_score",
-      "label": "Overall Efficiency Score",
-      "unit": "score (0-100)",
-      "description": "Composite score combining space utilization, throughput, and structural safety."
-    },
-    "breakdown": {
-      "space_efficiency": {
-        "id": "space_efficiency",
-        "label": "Space Efficiency",
-        "value": 0,
-        "unit": "%",
-        "description": "Percentage of theoretical maximum pallet positions used vs. floor area."
-      },
-      "throughput_efficiency": {
-        "id": "throughput_efficiency",
-        "label": "Throughput Efficiency",
-        "value": 0,
-        "unit": "index",
-        "description": "Normalized throughput index (0-100)."
-      },
-      "structural_safety_margin": {
-        "id": "structural_safety_margin",
-        "label": "Structural Safety Margin",
-        "value": 0,
-        "unit": "%",
-        "description": "Margin above minimum beam deflection and seismic requirements."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_vertical_air",
-        "label": "Vertical Air Gap Loss",
-        "description": "Unused vertical space due to oversized clearance or mismatched pallet heights.",
-        "estimated_impact": "5-15% capacity loss"
-      },
-      {
-        "id": "loss_aisle_inefficiency",
-        "label": "Aisle Inefficiency Loss",
-        "description": "Excessive aisle width reducing storage density.",
-        "estimated_impact": "10-25% capacity loss"
-      },
-      {
-        "id": "loss_beam_deflection_risk",
-        "label": "Beam Deflection Risk",
-        "description": "Potential structural risk if deflection threshold is exceeded, leading to reduced load capacity.",
-        "estimated_impact": "Up to 20% load de-rating"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_reduce_clearance",
-        "label": "Reduce Vertical Clearance",
-        "description": "Decrease clearance_vertical_mm to 75mm if handling equipment allows, gaining one additional level."
-      },
-      {
-        "id": "action_optimize_aisle",
-        "label": "Optimize Aisle Width",
-        "description": "Consider VNA forklifts to reduce aisle width from 3000mm to 2000mm, increasing density by 33%."
-      },
-      {
-        "id": "action_rebalance_utilization",
-        "label": "Rebalance Utilization",
-        "description": "If utilization >90%, implement ABC zoning to reduce congestion and improve pick path."
-      },
-      {
-        "id": "action_upgrade_beams",
-        "label": "Upgrade Beam Sections",
-        "description": "If deflection threshold is critical, replace beams with higher section modulus to maintain safety."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "pallet-rack-optimizer-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "project-construction-management",
+  "category": "İnşaat & Yapı",
+  "sector": "İnşaat & Saha"
 }

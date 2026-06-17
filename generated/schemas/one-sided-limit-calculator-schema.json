@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "The arithmetic mean of the sample measurements."
+      "businessContext": "The arithmetic mean of the sample measurements.",
+      "label_i18n": {
+        "en": "Sample Mean",
+        "tr": "Sample Mean",
+        "de": "Sample Mean",
+        "fr": "Sample Mean",
+        "es": "Sample Mean",
+        "ar": "Sample Mean"
+      }
     },
     {
       "id": "sd",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "The standard deviation of the sample, calculated with n-1 degrees of freedom."
+      "businessContext": "The standard deviation of the sample, calculated with n-1 degrees of freedom.",
+      "label_i18n": {
+        "en": "Sample Standard Deviation",
+        "tr": "Sample Standard Deviation",
+        "de": "Sample Standard Deviation",
+        "fr": "Sample Standard Deviation",
+        "es": "Sample Standard Deviation",
+        "ar": "Sample Standard Deviation"
+      }
     },
     {
       "id": "n",
@@ -23,31 +39,63 @@
       "type": "number",
       "unit": "pcs",
       "default": 30,
-      "businessContext": "Number of observations in the sample."
+      "businessContext": "Number of observations in the sample.",
+      "label_i18n": {
+        "en": "Sample Size",
+        "tr": "Sample Size",
+        "de": "Sample Size",
+        "fr": "Sample Size",
+        "es": "Sample Size",
+        "ar": "Sample Size"
+      }
     },
     {
       "id": "zp",
       "label": "Z-score for Proportion (p)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2.326,
-      "businessContext": "Standard normal critical value for desired proportion. Common values: p=0.99 → zp=2.326, p=0.95 → zp=1.645."
+      "businessContext": "Standard normal critical value for desired proportion. Common values: p=0.99 → zp=2.326, p=0.95 → zp=1.645.",
+      "label_i18n": {
+        "en": "Z-score for Proportion (p)",
+        "tr": "Z-score for Proportion (p)",
+        "de": "Z-score for Proportion (p)",
+        "fr": "Z-score for Proportion (p)",
+        "es": "Z-score for Proportion (p)",
+        "ar": "Z-score for Proportion (p)"
+      }
     },
     {
       "id": "zgamma",
       "label": "Z-score for Confidence (γ)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.645,
-      "businessContext": "Standard normal critical value for confidence level. Common values: γ=0.95 → zγ=1.645, γ=0.99 → zγ=2.326."
+      "businessContext": "Standard normal critical value for confidence level. Common values: γ=0.95 → zγ=1.645, γ=0.99 → zγ=2.326.",
+      "label_i18n": {
+        "en": "Z-score for Confidence (γ)",
+        "tr": "Z-score for Confidence (γ)",
+        "de": "Z-score for Confidence (γ)",
+        "fr": "Z-score for Confidence (γ)",
+        "es": "Z-score for Confidence (γ)",
+        "ar": "Z-score for Confidence (γ)"
+      }
     },
     {
       "id": "direction",
       "label": "Limit Direction",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "1 for upper tolerance limit, 0 for lower tolerance limit."
+      "businessContext": "1 for upper tolerance limit, 0 for lower tolerance limit.",
+      "label_i18n": {
+        "en": "Limit Direction",
+        "tr": "Limit Direction",
+        "de": "Limit Direction",
+        "fr": "Limit Direction",
+        "es": "Limit Direction",
+        "ar": "Limit Direction"
+      }
     }
   ],
   "formulas": {
@@ -61,10 +109,10 @@
       "limit"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
-  "sector": "Üretim & İmalat",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

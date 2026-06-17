@@ -20,13 +20,17 @@ function evaluateAllFormulas(input: Rl_time_constant_calculatorInput): Record<st
   try { const v = input.inductance / input.resistance; results["tauNominal"] = Number.isFinite(v) ? v : 0; } catch { results["tauNominal"] = 0; }
   try { const v = (input.inductance * (1 + input.inductanceTolerance / 100)) / (input.resistance * (1 - input.resistanceTolerance / 100)); results["tauMax"] = Number.isFinite(v) ? v : 0; } catch { results["tauMax"] = 0; }
   try { const v = (input.inductance * (1 - input.inductanceTolerance / 100)) / (input.resistance * (1 + input.resistanceTolerance / 100)); results["tauMin"] = Number.isFinite(v) ? v : 0; } catch { results["tauMin"] = 0; }
+  results["__tauMax_toFixed_6___s"] = 0;
+  results["__tauMin_toFixed_6___s"] = 0;
+  results["_____tauMax___tauMin_____2___tauNominal_"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateRl_time_constant_calculator(input: Rl_time_constant_calculatorInput): Rl_time_constant_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Time"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

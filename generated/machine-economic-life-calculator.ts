@@ -35,29 +35,19 @@ export const Machine_economic_life_calculatorInputSchema = z.object({
   power_consumption_kw: z.number().min(0).max(10000).default(50),
 });
 
-function evaluateAllFormulas(input: Machine_economic_life_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.annual_operating_cost * (1 + input.operating_cost_escalation_rate / 100) ^ (n - 1); results["annual_operating_cost_year_n"] = Number.isFinite(v) ? v : 0; } catch { results["annual_operating_cost_year_n"] = 0; }
-  try { const v = input.annual_production_units * (input.quality_defect_rate + input.defect_rate_annual_increase * (n - 1)) / 100 * (input.revenue_per_unit * 0.5); results["annual_defect_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_defect_cost"] = 0; }
-  try { const v = input.power_consumption_kw * 24 * 365 * (input.utilization_rate / 100) * input.energy_cost_per_kwh; results["annual_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
-  try { const v = (results["annual_operating_cost_year_n"] ?? 0) + (results["annual_defect_cost"] ?? 0) + (results["annual_energy_cost"] ?? 0); results["total_annual_cost_year_n"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_cost_year_n"] = 0; }
-  results["npv_of_costs"] = 0;
-  results["economic_life"] = 0;
-  try { const v = (results["economic_life"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Machine_economic_life_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateMachine_economic_life_calculator(input: Machine_economic_life_calculatorInput): Machine_economic_life_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["optimal_economic_life"] ?? values["primary_result"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    id: values["id"] ?? 0,
-    label: values["label"] ?? 0,
-    components: values["components"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Quality Degradation","Energy Inefficiency","Maintenance Cost Escalation","Opportunity Cost of Downtime"];
-  const suggestedActions: string[] = ["Implement predictive maintenance using IoT sensors to reduce unplanned downtime.","Conduct a Six Sigma DMAIC project to reduce defect rate by 50%.","Evaluate energy-efficient upgrades or replacement if energy cost exceeds 20% of total cost.","Perform a sensitivity analysis on discount rate and escalation rate to validate economic life.","Benchmark machine OEE against industry standards (WERC/ISO 22400)."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -76,7 +66,7 @@ export function calculateMachine_economic_life_calculator(input: Machine_economi
 
 export interface Machine_economic_life_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { id: number; label: number; components: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

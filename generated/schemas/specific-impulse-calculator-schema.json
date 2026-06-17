@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N",
       "default": null,
-      "businessContext": "The thrust force produced by the engine."
+      "businessContext": "The thrust force produced by the engine.",
+      "label_i18n": {
+        "en": "Thrust (F)",
+        "tr": "Thrust (F)",
+        "de": "Thrust (F)",
+        "fr": "Thrust (F)",
+        "es": "Thrust (F)",
+        "ar": "Thrust (F)"
+      }
     },
     {
       "id": "massFlowRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/s",
       "default": null,
-      "businessContext": "The rate at which propellant mass is expelled."
+      "businessContext": "The rate at which propellant mass is expelled.",
+      "label_i18n": {
+        "en": "Mass Flow Rate (ṁ)",
+        "tr": "Mass Flow Rate (ṁ)",
+        "de": "Mass Flow Rate (ṁ)",
+        "fr": "Mass Flow Rate (ṁ)",
+        "es": "Mass Flow Rate (ṁ)",
+        "ar": "Mass Flow Rate (ṁ)"
+      }
     },
     {
       "id": "standardGravity",
@@ -23,23 +39,34 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.80665,
-      "businessContext": "Standard acceleration due to gravity (9.80665 m/s²)."
+      "businessContext": "Standard acceleration due to gravity (9.80665 m/s²).",
+      "label_i18n": {
+        "en": "Standard Gravity (g₀)",
+        "tr": "Standard Gravity (g₀)",
+        "de": "Standard Gravity (g₀)",
+        "fr": "Standard Gravity (g₀)",
+        "es": "Standard Gravity (g₀)",
+        "ar": "Standard Gravity (g₀)"
+      }
     }
   ],
   "formulas": {
-    "primary": "thrust / (massFlowRate * standardGravity)"
+    "primary": "thrust / (massFlowRate * standardGravity)",
+    "Isp___F________g__": "Isp = F / (ṁ × g₀)",
+    "Divide_thrust_by_the_product_of_mass_flo": "Divide thrust by the product of mass flow rate and standard gravity.",
+    "result": "Specific Impulse (s)"
   },
   "outputs": {
-    "primary": "Specific Impulse (s)",
+    "primary": "result",
     "breakdown": [
       "Isp = F / (ṁ × g₀)",
       "Divide thrust by the product of mass flow rate and standard gravity."
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "process-chemical"
 }

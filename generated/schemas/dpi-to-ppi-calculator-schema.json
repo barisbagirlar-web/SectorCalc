@@ -49,12 +49,7 @@
     "aspectRatioDelta": "Math.abs(originalWidth / originalHeight - displayWidth / displayHeight)"
   },
   "outputs": {
-    "primary": {
-      "id": "fittedPPI",
-      "label": "Effective PPI (Fitted)",
-      "unit": "PPI",
-      "businessContext": "PPI when image is fitted to display while maintaining aspect ratio"
-    },
+    "primary": "fittedPPI",
     "breakdown": [
       {
         "id": "horizontalPPI",
@@ -76,10 +71,10 @@
       }
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

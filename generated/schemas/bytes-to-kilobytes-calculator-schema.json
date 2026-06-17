@@ -7,36 +7,72 @@
       "type": "number",
       "unit": "B",
       "default": 0,
-      "businessContext": "Enter the number of bytes to convert to kilobytes"
+      "businessContext": "Enter the number of bytes to convert to kilobytes",
+      "label_i18n": {
+        "en": "Bytes",
+        "tr": "Bytes",
+        "de": "Bytes",
+        "fr": "Bytes",
+        "es": "Bytes",
+        "ar": "Bytes"
+      }
     },
     {
       "id": "precision",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2,
-      "businessContext": "Number of decimal places for the output"
+      "businessContext": "Number of decimal places for the output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "convention",
       "label": "Conversion Base",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1024,
-      "businessContext": "1024 for binary (IEC) kilobytes, 1000 for decimal (SI) kilobytes"
+      "businessContext": "1024 for binary (IEC) kilobytes, 1000 for decimal (SI) kilobytes",
+      "label_i18n": {
+        "en": "Conversion Base",
+        "tr": "Conversion Base",
+        "de": "Conversion Base",
+        "fr": "Conversion Base",
+        "es": "Conversion Base",
+        "ar": "Conversion Base"
+      }
     },
     {
       "id": "roundMode",
       "label": "Rounding Mode",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "0: No rounding, 1: Round half up, 2: Ceil, 3: Floor"
+      "businessContext": "0: No rounding, 1: Round half up, 2: Ceil, 3: Floor",
+      "label_i18n": {
+        "en": "Rounding Mode",
+        "tr": "Rounding Mode",
+        "de": "Rounding Mode",
+        "fr": "Rounding Mode",
+        "es": "Rounding Mode",
+        "ar": "Rounding Mode"
+      }
     }
   ],
   "formulas": {
     "exact": "bytes / convention",
-    "result": "(() => { const e = exact; const m = Math.pow(10, precision); const rm = roundMode; if (rm === 0) return e; if (rm === 1) return Math.round(e * m) / m; if (rm === 2) return Math.ceil(e * m) / m; return Math.floor(e * m) / m; })()"
+    "result": "(() => { const e = exact; const m = Math.pow(10, precision); const rm = roundMode; if (rm === 0) return e; if (rm === 1) return Math.round(e * m) / m; if (rm === 2) return Math.ceil(e * m) / m; return Math.floor(e * m) / m; })()",
+    "__bytes___bytes": "{{bytes}} bytes",
+    "__convention___bytes_per_kilobyte": "{{convention}} bytes per kilobyte",
+    "__exact___KB": "{{exact}} KB",
+    "__result___KB": "{{result}} KB"
   },
   "outputs": {
     "primary": "result",
@@ -47,10 +83,10 @@
       "Rounded according to mode {{roundMode}} with {{precision}} decimal places: {{result}} KB"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

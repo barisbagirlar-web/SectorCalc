@@ -25,32 +25,19 @@ export const Freight_cost_calculatorInputSchema = z.object({
   is_expedited: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Freight_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (Math.round((input.shipment_volume_cbm * 167) * 10**(1)) / 10**(1)); results["dimensional_weight"] = Number.isFinite(v) ? v : 0; } catch { results["dimensional_weight"] = 0; }
-  try { const v = Math.max(input.shipment_weight_kg, (results["dimensional_weight"] ?? 0)); results["chargeable_weight"] = Number.isFinite(v) ? v : 0; } catch { results["chargeable_weight"] = 0; }
-  try { const v = (input.transport_mode === 'FTL' ? 0.12 : (input.transport_mode === 'LTL' ? 0.25 : (input.transport_mode === 'Air' ? 2.50 : (input.transport_mode === 'Rail' ? 0.08 : (input.transport_mode === 'Ocean' ? 0.04 : 0.15))))); results["base_freight_rate"] = Number.isFinite(v) ? v : 0; } catch { results["base_freight_rate"] = 0; }
-  try { const v = (Math.round((base_freight_cost * (input.fuel_surcharge_percent / 100)) * 10**(2)) / 10**(2)); results["fuel_surcharge_amount"] = Number.isFinite(v) ? v : 0; } catch { results["fuel_surcharge_amount"] = 0; }
-  try { const v = ((input.is_hazardous == true) ? ((results["chargeable_weight"] ?? 0) * 0.10) : (0)); results["hazardous_premium"] = Number.isFinite(v) ? v : 0; } catch { results["hazardous_premium"] = 0; }
-  try { const v = ((input.is_expedited == true) ? (1.5) : (1.0)); results["expedite_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["expedite_multiplier"] = 0; }
-  try { const v = (Math.round(((base_freight_cost + (results["fuel_surcharge_amount"] ?? 0) + (results["hazardous_premium"] ?? 0) + input.accessorial_charges_usd) * (results["expedite_multiplier"] ?? 0)) * 10**(2)) / 10**(2)); results["total_freight_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_freight_cost"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Freight_cost_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateFreight_cost_calculator(input: Freight_cost_calculatorInput): Freight_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_freight_cost"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    base_freight_cost: values["base_freight_cost"] ?? 0,
-    fuel_surcharge_amount: values["fuel_surcharge_amount"] ?? 0,
-    hazardous_premium: values["hazardous_premium"] ?? 0,
-    accessorial_charges_usd: values["accessorial_charges_usd"] ?? 0,
-    expedite_multiplier: values["expedite_multiplier"] ?? 0,
-    chargeable_weight: values["chargeable_weight"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Empty Miles Factor","Dwell Time (hours)","Packaging Inefficiency"];
-  const suggestedActions: string[] = ["Consolidate Shipments","Optimize Packaging Density","Audit Accessorial Charges","Evaluate Modal Shift"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -69,7 +56,7 @@ export function calculateFreight_cost_calculator(input: Freight_cost_calculatorI
 
 export interface Freight_cost_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { base_freight_cost: number; fuel_surcharge_amount: number; hazardous_premium: number; accessorial_charges_usd: number; expedite_multiplier: number; chargeable_weight: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

@@ -25,31 +25,19 @@ export const Textile_waste_risk_calculatorInputSchema = z.object({
   iso_14001_certified: z.boolean().default(false),
 });
 
-function evaluateAllFormulas(input: Textile_waste_risk_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.production_volume_meters * (input.waste_percentage / 100) * 0.5; results["material_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["material_waste_cost"] = 0; }
-  try { const v = input.production_volume_meters * (input.rework_rate / 100) * 0.1 * input.labor_cost_per_hour; results["rework_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["rework_labor_cost"] = 0; }
-  try { const v = (input.defect_density / 1000) * input.production_volume_meters * 0.05 * input.energy_cost_per_kwh; results["energy_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["energy_waste_cost"] = 0; }
-  try { const v = input.production_volume_meters * (input.waste_percentage / 100) * (1 - recycling_factor(input.recycling_capability)) * 0.02; results["waste_disposal_cost"] = Number.isFinite(v) ? v : 0; } catch { results["waste_disposal_cost"] = 0; }
-  try { const v = (results["material_waste_cost"] ?? 0) + (results["rework_labor_cost"] ?? 0) + (results["energy_waste_cost"] ?? 0) + (results["waste_disposal_cost"] ?? 0); results["total_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_waste_cost"] = 0; }
-  try { const v = Math.min(100, (input.waste_percentage * 3 + input.rework_rate * 2 + input.defect_density * 0.5)); results["waste_risk_index"] = Number.isFinite(v) ? v : 0; } catch { results["waste_risk_index"] = 0; }
-  try { const v = (results["waste_risk_index"] ?? 0) * (1 - 0.1 * input.iso_14001_certified - 0.05 * recycling_factor(input.recycling_capability)); results["data_confidence_adjusted"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjusted"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Textile_waste_risk_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateTextile_waste_risk_calculator(input: Textile_waste_risk_calculatorInput): Textile_waste_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["waste_risk_index"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    material_waste_cost: values["material_waste_cost"] ?? 0,
-    rework_labor_cost: values["rework_labor_cost"] ?? 0,
-    energy_waste_cost: values["energy_waste_cost"] ?? 0,
-    waste_disposal_cost: values["waste_disposal_cost"] ?? 0,
-    total_waste_cost: values["total_waste_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Excess Material Allowance","Setup/Changeover Loss","Idle Time Waste"];
-  const suggestedActions: string[] = ["Implement Lean Six Sigma DMAIC","Upgrade Recycling Capability","Obtain ISO 14001 Certification","Defect Reduction Program"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -68,7 +56,7 @@ export function calculateTextile_waste_risk_calculator(input: Textile_waste_risk
 
 export interface Textile_waste_risk_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { material_waste_cost: number; rework_labor_cost: number; energy_waste_cost: number; waste_disposal_cost: number; total_waste_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

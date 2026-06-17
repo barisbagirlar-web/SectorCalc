@@ -24,6 +24,10 @@ export const Parallelogram_area_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Parallelogram_area_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = (input.base > 0 && input.height > 0) ? (input.base * input.height) : ((input.base > 0 && input.side > 0 && input.angle > 0) ? (input.base * input.side * Math.sin(input.angle * Math.PI / 180)) : ((input.diagonal1 > 0 && input.diagonal2 > 0 && input.angleDiagonals > 0) ? (0.5 * input.diagonal1 * input.diagonal2 * Math.sin(input.angleDiagonals * Math.PI / 180)) : 0)); results["area"] = Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
+  results["area___base___height_"] = 0;
+  results["area___base___side___sin_angle__"] = 0;
+  results["area___0_5___diagonal1___diagonal2___sin"] = 0;
+  results["Result_in_square_meters__m___"] = 0;
   return results;
 }
 

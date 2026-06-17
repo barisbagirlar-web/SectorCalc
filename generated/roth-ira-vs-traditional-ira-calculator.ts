@@ -35,7 +35,7 @@ function evaluateAllFormulas(input: Roth_ira_vs_traditional_ira_calculatorInput)
 
 export function calculateRoth_ira_vs_traditional_ira_calculator(input: Roth_ira_vs_traditional_ira_calculatorInput): Roth_ira_vs_traditional_ira_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total"] ?? 0;
+  const totalWasteCost = values["n"] ?? 0;
   const breakdown = {
     
   };

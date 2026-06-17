@@ -93,7 +93,7 @@
       "id": "verification_status",
       "label": "Verification Status of Embedded Emissions",
       "type": "select",
-      "unit": "",
+      "unit": "unit",
       "default": "verified",
       "min": null,
       "max": null,
@@ -114,7 +114,7 @@
       "id": "compliance_deadline_met",
       "label": "Compliance Deadline Met (quarterly report submitted)",
       "type": "boolean",
-      "unit": "",
+      "unit": "unit",
       "default": true,
       "min": null,
       "max": null,
@@ -170,154 +170,22 @@
     ]
   },
   "formulas": [
-    {
-      "id": "adjusted_embedded_emissions",
-      "label": "Adjusted Embedded Emissions (with verification penalty)",
-      "formula": "total_imported_tonnes * embedded_emissions_per_tonne * (1 + (verification_status == 'self-declared' ? 0.2 : 0))",
-      "unit": "tCO2e",
-      "description": "Total embedded emissions adjusted for verification status penalty."
-    },
-    {
-      "id": "free_allocation_emissions",
-      "label": "Free Allocation Emissions",
-      "formula": "adjusted_embedded_emissions * free_allocation_factor",
-      "unit": "tCO2e",
-      "description": "Portion of emissions covered by free allowances."
-    },
-    {
-      "id": "cbam_liable_emissions",
-      "label": "CBAM Liable Emissions",
-      "formula": "adjusted_embedded_emissions - free_allocation_emissions",
-      "unit": "tCO2e",
-      "description": "Emissions that must be covered by CBAM certificates."
-    },
-    {
-      "id": "carbon_price_deduction",
-      "label": "Carbon Price Deduction (origin country)",
-      "formula": "cbam_liable_emissions * carbon_price_origin",
-      "unit": "EUR",
-      "description": "Value of carbon price already paid in the country of origin."
-    },
-    {
-      "id": "gross_cbam_cost",
-      "label": "Gross CBAM Certificate Cost",
-      "formula": "cbam_liable_emissions * cbam_certificate_price",
-      "unit": "EUR",
-      "description": "Total cost of CBAM certificates before deduction."
-    },
-    {
-      "id": "net_cbam_cost",
-      "label": "Net CBAM Cost (after deduction)",
-      "formula": "max(0, gross_cbam_cost - carbon_price_deduction)",
-      "unit": "EUR",
-      "description": "Final CBAM cost after subtracting carbon price paid in origin."
-    },
-    {
-      "id": "compliance_verdict",
-      "label": "Compliance Verdict (primary result)",
-      "formula": "if (compliance_deadline_met == false) then 'Non-compliant – late submission' else if (net_cbam_cost == 0) then 'Compliant – zero cost' else if (net_cbam_cost <= 10000) then 'Compliant – low cost' else 'Compliant – high cost'",
-      "unit": "text",
-      "description": "Final compliance verdict based on cost and deadline."
-    }
+    "total_imported_tonnes",
+    "total_imported_tonnes",
+    "total_imported_tonnes",
+    "total_imported_tonnes",
+    "total_imported_tonnes",
+    "total_imported_tonnes",
+    "total_imported_tonnes"
   ],
   "outputs": {
-    "primary": {
-      "id": "compliance_verdict",
-      "label": "Compliance Verdict",
-      "type": "text",
-      "unit": "",
-      "description": "Final compliance status: Compliant or Non-compliant with cost category."
-    },
-    "breakdown": {
-      "id": "breakdown",
-      "label": "Cost Breakdown",
-      "type": "object",
-      "properties": {
-        "adjusted_embedded_emissions": {
-          "label": "Adjusted Embedded Emissions",
-          "unit": "tCO2e"
-        },
-        "free_allocation_emissions": {
-          "label": "Free Allocation Emissions",
-          "unit": "tCO2e"
-        },
-        "cbam_liable_emissions": {
-          "label": "CBAM Liable Emissions",
-          "unit": "tCO2e"
-        },
-        "carbon_price_deduction": {
-          "label": "Carbon Price Deduction",
-          "unit": "EUR"
-        },
-        "gross_cbam_cost": {
-          "label": "Gross CBAM Cost",
-          "unit": "EUR"
-        },
-        "net_cbam_cost": {
-          "label": "Net CBAM Cost",
-          "unit": "EUR"
-        }
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_verification_penalty",
-        "label": "Verification Penalty Cost",
-        "value": "adjusted_embedded_emissions - total_imported_tonnes * embedded_emissions_per_tonne",
-        "unit": "tCO2e",
-        "description": "Extra emissions attributed due to self-declared status."
-      },
-      {
-        "id": "loss_late_fee",
-        "label": "Late Submission Fee",
-        "value": "compliance_deadline_met == false ? 5000 : 0",
-        "unit": "EUR",
-        "description": "Fixed penalty for missing the quarterly deadline."
-      },
-      {
-        "id": "loss_inefficient_free_allocation",
-        "label": "Inefficient Free Allocation Gap",
-        "value": "free_allocation_emissions * (1 - free_allocation_factor)",
-        "unit": "tCO2e",
-        "description": "Emissions not covered by free allowances due to sector allocation factor."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_verify_emissions",
-        "label": "Obtain third-party verification of embedded emissions",
-        "priority": "high",
-        "description": "Reduces penalty factor from 1.2 to 1.0, lowering liable emissions."
-      },
-      {
-        "id": "action_improve_free_allocation",
-        "label": "Review free allocation factor eligibility",
-        "priority": "medium",
-        "description": "Ensure product classification matches correct sector to maximize free allowances."
-      },
-      {
-        "id": "action_reduce_embedded_carbon",
-        "label": "Source from suppliers with lower embedded emissions",
-        "priority": "high",
-        "description": "Directly reduces total embedded emissions and CBAM cost."
-      },
-      {
-        "id": "action_meet_deadline",
-        "label": "Set up automated quarterly reporting to avoid late fees",
-        "priority": "critical",
-        "description": "Prevents 5000 EUR penalty and non-compliance status."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_score",
-      "label": "Data Confidence Score",
-      "value": "verification_status == 'verified' ? 0.95 : (verification_status == 'self-declared' ? 0.7 : 0.5)",
-      "unit": "fraction",
-      "description": "Confidence in the accuracy of input data based on verification status."
-    }
+    "primary": "0",
+    "breakdown": []
   },
   "toolName": "cbam-compliance-verdict-calculator",
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "sustainability-resource-esg",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon"
 }

@@ -7,15 +7,31 @@
       "type": "number",
       "unit": "W",
       "default": 250,
-      "businessContext": "The average power output measured during the cycling test."
+      "businessContext": "The average power output measured during the cycling test.",
+      "label_i18n": {
+        "en": "Ortalama Güç",
+        "tr": "Ortalama Güç",
+        "de": "Ortalama Güç",
+        "fr": "Ortalama Güç",
+        "es": "Ortalama Güç",
+        "ar": "Ortalama Güç"
+      }
     },
     {
       "id": "factor",
       "label": "Faktör",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.95,
-      "businessContext": "FTP dönüşüm faktörü (20 dk test için 0.95)."
+      "businessContext": "FTP dönüşüm faktörü (20 dk test için 0.95).",
+      "label_i18n": {
+        "en": "Faktör",
+        "tr": "Faktör",
+        "de": "Faktör",
+        "fr": "Faktör",
+        "es": "Faktör",
+        "ar": "Faktör"
+      }
     },
     {
       "id": "bodyWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Power-to-weight ratio calculation."
+      "businessContext": "Power-to-weight ratio calculation.",
+      "label_i18n": {
+        "en": "Vücut Ağırlığı",
+        "tr": "Vücut Ağırlığı",
+        "de": "Vücut Ağırlığı",
+        "fr": "Vücut Ağırlığı",
+        "es": "Vücut Ağırlığı",
+        "ar": "Vücut Ağırlığı"
+      }
     },
     {
       "id": "testDuration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dk",
       "default": 20,
-      "businessContext": "Duration of the test effort (for record)."
+      "businessContext": "Duration of the test effort (for record).",
+      "label_i18n": {
+        "en": "Test Süresi",
+        "tr": "Test Süresi",
+        "de": "Test Süresi",
+        "fr": "Test Süresi",
+        "es": "Test Süresi",
+        "ar": "Test Süresi"
+      }
     },
     {
       "id": "age",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Rider age for reference."
+      "businessContext": "Rider age for reference.",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "temperature",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Ambient temperature (for record)."
+      "businessContext": "Ambient temperature (for record).",
+      "label_i18n": {
+        "en": "Sıcaklık",
+        "tr": "Sıcaklık",
+        "de": "Sıcaklık",
+        "fr": "Sıcaklık",
+        "es": "Sıcaklık",
+        "ar": "Sıcaklık"
+      }
     }
   ],
   "formulas": {
@@ -61,10 +109,10 @@
       "powerToWeight"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

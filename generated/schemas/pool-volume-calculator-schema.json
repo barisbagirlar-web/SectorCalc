@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Pool length in meters"
+      "businessContext": "Pool length in meters",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Pool width in meters"
+      "businessContext": "Pool width in meters",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "shallowDepth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.2,
-      "businessContext": "Depth at the shallow end of the pool in meters"
+      "businessContext": "Depth at the shallow end of the pool in meters",
+      "label_i18n": {
+        "en": "Shallow End Depth",
+        "tr": "Shallow End Depth",
+        "de": "Shallow End Depth",
+        "fr": "Shallow End Depth",
+        "es": "Shallow End Depth",
+        "ar": "Shallow End Depth"
+      }
     },
     {
       "id": "deepDepth",
@@ -31,25 +55,35 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Depth at the deep end of the pool in meters"
+      "businessContext": "Depth at the deep end of the pool in meters",
+      "label_i18n": {
+        "en": "Deep End Depth",
+        "tr": "Deep End Depth",
+        "de": "Deep End Depth",
+        "fr": "Deep End Depth",
+        "es": "Deep End Depth",
+        "ar": "Deep End Depth"
+      }
     }
   ],
   "formulas": {
     "averageDepth": "(shallowDepth + deepDepth) / 2",
     "area": "length * width",
-    "volume": "length * width * (shallowDepth + deepDepth) / 2"
+    "volume": "length * width * (shallowDepth + deepDepth) / 2",
+    "__averageDepth__m": "${averageDepth} m",
+    "__area__m_": "${area} m²"
   },
   "outputs": {
-    "primary": "Pool Volume: ${volume} m³",
+    "primary": "averageDepth",
     "breakdown": [
       "Average Depth: ${averageDepth} m",
       "Surface Area: ${area} m²"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

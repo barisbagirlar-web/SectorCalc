@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Duration of a single work shift in hours."
+      "businessContext": "Duration of a single work shift in hours.",
+      "label_i18n": {
+        "en": "Shift Length",
+        "tr": "Shift Length",
+        "de": "Shift Length",
+        "fr": "Shift Length",
+        "es": "Shift Length",
+        "ar": "Shift Length"
+      }
     },
     {
       "id": "consecutive_shifts",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 5,
-      "businessContext": "Number of consecutive work days without a day off."
+      "businessContext": "Number of consecutive work days without a day off.",
+      "label_i18n": {
+        "en": "Consecutive Shifts",
+        "tr": "Consecutive Shifts",
+        "de": "Consecutive Shifts",
+        "fr": "Consecutive Shifts",
+        "es": "Consecutive Shifts",
+        "ar": "Consecutive Shifts"
+      }
     },
     {
       "id": "rest_between_shifts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 16,
-      "businessContext": "Average rest time between end of one shift and start of next."
+      "businessContext": "Average rest time between end of one shift and start of next.",
+      "label_i18n": {
+        "en": "Rest Between Shifts",
+        "tr": "Rest Between Shifts",
+        "de": "Rest Between Shifts",
+        "fr": "Rest Between Shifts",
+        "es": "Rest Between Shifts",
+        "ar": "Rest Between Shifts"
+      }
     },
     {
       "id": "noise_level",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dB",
       "default": 70,
-      "businessContext": "Average workplace noise exposure in decibels."
+      "businessContext": "Average workplace noise exposure in decibels.",
+      "label_i18n": {
+        "en": "Noise Level",
+        "tr": "Noise Level",
+        "de": "Noise Level",
+        "fr": "Noise Level",
+        "es": "Noise Level",
+        "ar": "Noise Level"
+      }
     },
     {
       "id": "temperature",
@@ -39,15 +71,31 @@
       "type": "number",
       "unit": "°C",
       "default": 22,
-      "businessContext": "Workplace temperature in Celsius."
+      "businessContext": "Workplace temperature in Celsius.",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "load_factor",
       "label": "Workload Factor",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Physical and mental workload intensity factor (1.0 = normal, >1.0 = high)."
+      "businessContext": "Physical and mental workload intensity factor (1.0 = normal, >1.0 = high).",
+      "label_i18n": {
+        "en": "Workload Factor",
+        "tr": "Workload Factor",
+        "de": "Workload Factor",
+        "fr": "Workload Factor",
+        "es": "Workload Factor",
+        "ar": "Workload Factor"
+      }
     }
   ],
   "formulas": {
@@ -57,12 +105,7 @@
     "cumulative_contribution": "consecutive_shifts * 2"
   },
   "outputs": {
-    "primary": {
-      "id": "fatigue_index",
-      "label": "Adrenal Fatigue Index",
-      "unit": "points",
-      "description": "Composite score indicating risk of adrenal fatigue; higher points indicate greater risk."
-    },
+    "primary": "fatigue_index",
     "breakdown": [
       {
         "id": "shift_contribution",
@@ -84,10 +127,10 @@
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Finans & İK",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "cnc-additive-manufacturing"
 }

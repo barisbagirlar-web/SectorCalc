@@ -24,13 +24,18 @@ function evaluateAllFormulas(input: Islamic_calendarInput): Record<string, numbe
   try { const v = (results["islamicYear"] ?? 0) + Math.floor(input.adjustmentDays / 354); results["adjustedIslamicYear"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedIslamicYear"] = 0; }
   try { const v = (((results["islamicMonth"] ?? 0) - 1 + Math.floor((input.adjustmentDays % 354 + 354) % 354 / 29.5)) % 12) + 1; results["adjustedIslamicMonth"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedIslamicMonth"] = 0; }
   try { const v = (((results["islamicDay"] ?? 0) - 1 + ((input.adjustmentDays % 354 + 354) % 354) % 29.5) % 29.5) + 1; results["adjustedIslamicDay"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedIslamicDay"] = 0; }
+  try { const v = (results["julianDay"] ?? 0); results["_julianDay_"] = Number.isFinite(v) ? v : 0; } catch { results["_julianDay_"] = 0; }
+  try { const v = (results["islamicYear"] ?? 0); results["_islamicYear_"] = Number.isFinite(v) ? v : 0; } catch { results["_islamicYear_"] = 0; }
+  try { const v = (results["islamicMonth"] ?? 0); results["_islamicMonth_"] = Number.isFinite(v) ? v : 0; } catch { results["_islamicMonth_"] = 0; }
+  results["_Math_round_islamicDay__"] = 0;
+  results["result"] = 0;
   return results;
 }
 
 
 export function calculateIslamic_calendar(input: Islamic_calendarInput): Islamic_calendarOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Islamic"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

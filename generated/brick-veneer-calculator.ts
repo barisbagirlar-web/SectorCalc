@@ -22,13 +22,18 @@ export const Brick_veneer_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Brick_veneer_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = Math.ceil( (input.wallWidth * input.wallHeight) / ((input.brickLength + input.mortarJoint) * (input.brickHeight + input.mortarJoint) / 1000000) * (1 + input.wasteFactor / 100) ); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.wallWidth; results["breakdown"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown"] = 0; }
+  try { const v = wallArea; results["wallArea"] = Number.isFinite(v) ? v : 0; } catch { results["wallArea"] = 0; }
+  try { const v = brickAreaWithMortar; results["brickAreaWithMortar"] = Number.isFinite(v) ? v : 0; } catch { results["brickAreaWithMortar"] = 0; }
+  try { const v = bricksWithoutWaste; results["bricksWithoutWaste"] = Number.isFinite(v) ? v : 0; } catch { results["bricksWithoutWaste"] = 0; }
+  try { const v = wasteBricks; results["wasteBricks"] = Number.isFinite(v) ? v : 0; } catch { results["wasteBricks"] = 0; }
   return results;
 }
 
 
 export function calculateBrick_veneer_calculator(input: Brick_veneer_calculatorInput): Brick_veneer_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalBricks"] ?? 0;
+  const totalWasteCost = values["primary"] ?? 0;
   const breakdown = {
     
   };

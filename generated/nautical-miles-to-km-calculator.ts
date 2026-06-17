@@ -19,6 +19,8 @@ function evaluateAllFormulas(input: Nautical_miles_to_km_calculatorInput): Recor
   const results: Record<string, number> = {};
   try { const v = input.nauticalMiles * input.conversionFactor * input.numberOfTrips; results["rawKm"] = Number.isFinite(v) ? v : 0; } catch { results["rawKm"] = 0; }
   try { const v = Math.round((results["rawKm"] ?? 0) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["km"] = Number.isFinite(v) ? v : 0; } catch { results["km"] = 0; }
+  try { const v = input.nauticalMiles; results["nauticalMiles"] = Number.isFinite(v) ? v : 0; } catch { results["nauticalMiles"] = 0; }
+  try { const v = input.conversionFactor; results["conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
   return results;
 }
 

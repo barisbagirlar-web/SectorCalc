@@ -33,32 +33,19 @@ export const Heat_exchanger_fouling_loss_calculatorInputSchema = z.object({
   measured_fouling_factor: z.number().min(0).max(0.01).default(0.0005),
 });
 
-function evaluateAllFormulas(input: Heat_exchanger_fouling_loss_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (((input.fouling_factor_known)) ? (input.measured_fouling_factor) : ((1/input.actual_ua - 1/input.design_ua))); results["fouling_resistance"] = Number.isFinite(v) ? v : 0; } catch { results["fouling_resistance"] = 0; }
-  try { const v = input.design_ua * ((input.hot_inlet_temp - input.cold_inlet_temp) / 2); results["heat_duty_design"] = Number.isFinite(v) ? v : 0; } catch { results["heat_duty_design"] = 0; }
-  try { const v = input.actual_ua * ((input.hot_inlet_temp - input.cold_inlet_temp) / 2); results["heat_duty_actual"] = Number.isFinite(v) ? v : 0; } catch { results["heat_duty_actual"] = 0; }
-  try { const v = (results["heat_duty_design"] ?? 0) - (results["heat_duty_actual"] ?? 0); results["energy_loss"] = Number.isFinite(v) ? v : 0; } catch { results["energy_loss"] = 0; }
-  try { const v = (results["energy_loss"] ?? 0) * input.energy_cost * input.operating_hours_per_year; results["energy_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["energy_loss_cost"] = 0; }
-  try { const v = (input.production_loss_factor / 100) * input.hot_flow_rate * input.revenue_per_unit_product * input.operating_hours_per_year * 3600; results["production_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["production_loss_cost"] = 0; }
-  try { const v = (results["energy_loss_cost"] ?? 0) + (results["production_loss_cost"] ?? 0); results["total_fouling_loss"] = Number.isFinite(v) ? v : 0; } catch { results["total_fouling_loss"] = 0; }
-  return results;
+function evaluateAllFormulas(_input: Heat_exchanger_fouling_loss_calculatorInput): Record<string, number> {
+  return {};
 }
 
 
 export function calculateHeat_exchanger_fouling_loss_calculator(input: Heat_exchanger_fouling_loss_calculatorInput): Heat_exchanger_fouling_loss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_fouling_loss"] ?? 0;
+  const totalWasteCost = values["0"] ?? 0;
   const breakdown = {
-    fouling_resistance: values["fouling_resistance"] ?? 0,
-    heat_duty_design: values["heat_duty_design"] ?? 0,
-    heat_duty_actual: values["heat_duty_actual"] ?? 0,
-    energy_loss: values["energy_loss"] ?? 0,
-    energy_loss_cost: values["energy_loss_cost"] ?? 0,
-    production_loss_cost: values["production_loss_cost"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Increased Pumping Cost","Maintenance Downtime","Reduced Equipment Life"];
-  const suggestedActions: string[] = ["Schedule chemical cleaning or mechanical brushing within next 2 weeks.","Install online fouling monitoring system (e.g., thermal resistance sensors).","Evaluate anti-fouling coatings or surface modifications for future replacement.","Review process conditions (velocity, temperature) to minimize fouling rate."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -77,7 +64,7 @@ export function calculateHeat_exchanger_fouling_loss_calculator(input: Heat_exch
 
 export interface Heat_exchanger_fouling_loss_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { fouling_resistance: number; heat_duty_design: number; heat_duty_actual: number; energy_loss: number; energy_loss_cost: number; production_loss_cost: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

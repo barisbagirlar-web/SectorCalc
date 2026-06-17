@@ -21,13 +21,16 @@ function evaluateAllFormulas(input: Law_of_sines_calculatorInput): Record<string
   try { const v = 180 - input.angleA - input.angleB; results["angleC"] = Number.isFinite(v) ? v : 0; } catch { results["angleC"] = 0; }
   try { const v = input.sideA * Math.sin((results["angleC"] ?? 0) * Math.PI / 180) / Math.sin(input.angleA * Math.PI / 180); results["sideC_raw"] = Number.isFinite(v) ? v : 0; } catch { results["sideC_raw"] = 0; }
   try { const v = input.sideA / Math.sin(input.angleA * Math.PI / 180); results["lawOfSinesRatio"] = Number.isFinite(v) ? v : 0; } catch { results["lawOfSinesRatio"] = 0; }
+  results["angleC_"] = 0;
+  try { const v = Math.round((results["sideC_raw"] ?? 0) * 10**input.precision) / 10**input.precision; results["Math_round_sideC_raw___10__precision____"] = Number.isFinite(v) ? v : 0; } catch { results["Math_round_sideC_raw___10__precision____"] = 0; }
+  try { const v = Math.round((results["sideB_raw"] ?? 0) * 10**input.precision) / 10**input.precision; results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
   return results;
 }
 
 
 export function calculateLaw_of_sines_calculator(input: Law_of_sines_calculatorInput): Law_of_sines_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Math"] ?? 0;
+  const totalWasteCost = values["result"] ?? 0;
   const breakdown = {
     
   };

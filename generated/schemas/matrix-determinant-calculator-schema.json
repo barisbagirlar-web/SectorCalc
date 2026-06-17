@@ -5,33 +5,65 @@
       "id": "a11",
       "label": "Element (1,1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Top-left element of the 2x2 matrix"
+      "businessContext": "Top-left element of the 2x2 matrix",
+      "label_i18n": {
+        "en": "Element (1,1)",
+        "tr": "Element (1,1)",
+        "de": "Element (1,1)",
+        "fr": "Element (1,1)",
+        "es": "Element (1,1)",
+        "ar": "Element (1,1)"
+      }
     },
     {
       "id": "a12",
       "label": "Element (1,2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Top-right element of the 2x2 matrix"
+      "businessContext": "Top-right element of the 2x2 matrix",
+      "label_i18n": {
+        "en": "Element (1,2)",
+        "tr": "Element (1,2)",
+        "de": "Element (1,2)",
+        "fr": "Element (1,2)",
+        "es": "Element (1,2)",
+        "ar": "Element (1,2)"
+      }
     },
     {
       "id": "a21",
       "label": "Element (2,1)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Bottom-left element of the 2x2 matrix"
+      "businessContext": "Bottom-left element of the 2x2 matrix",
+      "label_i18n": {
+        "en": "Element (2,1)",
+        "tr": "Element (2,1)",
+        "de": "Element (2,1)",
+        "fr": "Element (2,1)",
+        "es": "Element (2,1)",
+        "ar": "Element (2,1)"
+      }
     },
     {
       "id": "a22",
       "label": "Element (2,2)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Bottom-right element of the 2x2 matrix"
+      "businessContext": "Bottom-right element of the 2x2 matrix",
+      "label_i18n": {
+        "en": "Element (2,2)",
+        "tr": "Element (2,2)",
+        "de": "Element (2,2)",
+        "fr": "Element (2,2)",
+        "es": "Element (2,2)",
+        "ar": "Element (2,2)"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +79,10 @@
       "det"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "Hess Yasası ile toplam entalpi değişimini hesaplamak için kullanılacak reaksiyon adımı sayısı (en fazla 4)."
+      "businessContext": "Hess Yasası ile toplam entalpi değişimini hesaplamak için kullanılacak reaksiyon adımı sayısı (en fazla 4).",
+      "label_i18n": {
+        "en": "Adım Sayısı",
+        "tr": "Adım Sayısı",
+        "de": "Adım Sayısı",
+        "fr": "Adım Sayısı",
+        "es": "Adım Sayısı",
+        "ar": "Adım Sayısı"
+      }
     },
     {
       "id": "step1_dH",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Birinci reaksiyon adımının entalpi değişimi."
+      "businessContext": "Birinci reaksiyon adımının entalpi değişimi.",
+      "label_i18n": {
+        "en": "1. Adım ΔH",
+        "tr": "1. Adım ΔH",
+        "de": "1. Adım ΔH",
+        "fr": "1. Adım ΔH",
+        "es": "1. Adım ΔH",
+        "ar": "1. Adım ΔH"
+      }
     },
     {
       "id": "step2_dH",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "İkinci reaksiyon adımının entalpi değişimi."
+      "businessContext": "İkinci reaksiyon adımının entalpi değişimi.",
+      "label_i18n": {
+        "en": "2. Adım ΔH",
+        "tr": "2. Adım ΔH",
+        "de": "2. Adım ΔH",
+        "fr": "2. Adım ΔH",
+        "es": "2. Adım ΔH",
+        "ar": "2. Adım ΔH"
+      }
     },
     {
       "id": "step3_dH",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Üçüncü reaksiyon adımının entalpi değişimi."
+      "businessContext": "Üçüncü reaksiyon adımının entalpi değişimi.",
+      "label_i18n": {
+        "en": "3. Adım ΔH",
+        "tr": "3. Adım ΔH",
+        "de": "3. Adım ΔH",
+        "fr": "3. Adım ΔH",
+        "es": "3. Adım ΔH",
+        "ar": "3. Adım ΔH"
+      }
     },
     {
       "id": "step4_dH",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Dördüncü reaksiyon adımının entalpi değişimi."
+      "businessContext": "Dördüncü reaksiyon adımının entalpi değişimi.",
+      "label_i18n": {
+        "en": "4. Adım ΔH",
+        "tr": "4. Adım ΔH",
+        "de": "4. Adım ΔH",
+        "fr": "4. Adım ΔH",
+        "es": "4. Adım ΔH",
+        "ar": "4. Adım ΔH"
+      }
     }
   ],
   "formulas": {
@@ -47,10 +87,15 @@
     "step2_eff": "step2_dH * (number_of_steps >= 2 ? 1 : 0)",
     "step3_eff": "step3_dH * (number_of_steps >= 3 ? 1 : 0)",
     "step4_eff": "step4_dH * (number_of_steps >= 4 ? 1 : 0)",
-    "total": "step1_eff + step2_eff + step3_eff + step4_eff"
+    "total": "step1_eff + step2_eff + step3_eff + step4_eff",
+    "_step1_eff__kJ_mol": "{step1_eff} kJ/mol",
+    "_step2_eff__kJ_mol": "{step2_eff} kJ/mol",
+    "_step3_eff__kJ_mol": "{step3_eff} kJ/mol",
+    "_step4_eff__kJ_mol": "{step4_eff} kJ/mol",
+    "result": "Toplam entalpi değişimi (ΔH_toplam): {total} kJ/mol"
   },
   "outputs": {
-    "primary": "Toplam entalpi değişimi (ΔH_toplam): {total} kJ/mol",
+    "primary": "result",
     "breakdown": [
       "1. adım katkısı: {step1_eff} kJ/mol",
       "2. adım katkısı: {step2_eff} kJ/mol",
@@ -58,10 +103,10 @@
       "4. adım katkısı: {step4_eff} kJ/mol"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

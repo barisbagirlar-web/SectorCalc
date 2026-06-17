@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5000,
-      "businessContext": "Total monthly income after deductions and taxes."
+      "businessContext": "Total monthly income after deductions and taxes.",
+      "label_i18n": {
+        "en": "Monthly After-Tax Income",
+        "tr": "Monthly After-Tax Income",
+        "de": "Monthly After-Tax Income",
+        "fr": "Monthly After-Tax Income",
+        "es": "Monthly After-Tax Income",
+        "ar": "Monthly After-Tax Income"
+      }
     },
     {
       "id": "needsPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Percentage of income for essential needs (housing, food, utilities)."
+      "businessContext": "Percentage of income for essential needs (housing, food, utilities).",
+      "label_i18n": {
+        "en": "Needs Percentage",
+        "tr": "Needs Percentage",
+        "de": "Needs Percentage",
+        "fr": "Needs Percentage",
+        "es": "Needs Percentage",
+        "ar": "Needs Percentage"
+      }
     },
     {
       "id": "wantsPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Percentage of income for non-essential wants (entertainment, dining out)."
+      "businessContext": "Percentage of income for non-essential wants (entertainment, dining out).",
+      "label_i18n": {
+        "en": "Wants Percentage",
+        "tr": "Wants Percentage",
+        "de": "Wants Percentage",
+        "fr": "Wants Percentage",
+        "es": "Wants Percentage",
+        "ar": "Wants Percentage"
+      }
     },
     {
       "id": "savingsPercentage",
@@ -31,23 +55,35 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of income for savings, investments, or debt repayment."
+      "businessContext": "Percentage of income for savings, investments, or debt repayment.",
+      "label_i18n": {
+        "en": "Savings & Debt Percentage",
+        "tr": "Savings & Debt Percentage",
+        "de": "Savings & Debt Percentage",
+        "fr": "Savings & Debt Percentage",
+        "es": "Savings & Debt Percentage",
+        "ar": "Savings & Debt Percentage"
+      }
     }
   ],
   "formulas": {
     "needsAmount": "monthlyIncome * needsPercentage / 100",
     "wantsAmount": "monthlyIncome * wantsPercentage / 100",
-    "savingsAmount": "monthlyIncome * savingsPercentage / 100"
+    "savingsAmount": "monthlyIncome * savingsPercentage / 100",
+    "__needsAmount_": "${needsAmount}",
+    "__wantsAmount_": "${wantsAmount}",
+    "__savingsAmount_": "${savingsAmount}",
+    "result": "Your 50/30/20 Budget Allocation"
   },
   "outputs": {
-    "primary": "Your 50/30/20 Budget Allocation",
+    "primary": "result",
     "breakdown": [
       "Needs: ${needsAmount}",
       "Wants: ${wantsAmount}",
       "Savings: ${savingsAmount}"
     ]
   },
-  "category": "Finans & Kredi",
+  "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",

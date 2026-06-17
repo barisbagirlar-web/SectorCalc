@@ -5,17 +5,33 @@
       "id": "epsilon_r",
       "label": "Dielektrik Sabiti (εr)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 2.25,
-      "businessContext": "Bağıl dielektrik geçirgenlik"
+      "businessContext": "Bağıl dielektrik geçirgenlik",
+      "label_i18n": {
+        "en": "Dielektrik Sabiti (εr)",
+        "tr": "Dielektrik Sabiti (εr)",
+        "de": "Dielektrik Sabiti (εr)",
+        "fr": "Dielektrik Sabiti (εr)",
+        "es": "Dielektrik Sabiti (εr)",
+        "ar": "Dielektrik Sabiti (εr)"
+      }
     },
     {
       "id": "mu_r",
       "label": "Manyetik Geçirgenlik (μr)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Bağıl manyetik geçirgenlik"
+      "businessContext": "Bağıl manyetik geçirgenlik",
+      "label_i18n": {
+        "en": "Manyetik Geçirgenlik (μr)",
+        "tr": "Manyetik Geçirgenlik (μr)",
+        "de": "Manyetik Geçirgenlik (μr)",
+        "fr": "Manyetik Geçirgenlik (μr)",
+        "es": "Manyetik Geçirgenlik (μr)",
+        "ar": "Manyetik Geçirgenlik (μr)"
+      }
     },
     {
       "id": "D",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Dış iletkenin iç çapı"
+      "businessContext": "Dış iletkenin iç çapı",
+      "label_i18n": {
+        "en": "Dış İletken İç Çapı (D)",
+        "tr": "Dış İletken İç Çapı (D)",
+        "de": "Dış İletken İç Çapı (D)",
+        "fr": "Dış İletken İç Çapı (D)",
+        "es": "Dış İletken İç Çapı (D)",
+        "ar": "Dış İletken İç Çapı (D)"
+      }
     },
     {
       "id": "d",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2.8,
-      "businessContext": "İç iletkenin dış çapı"
+      "businessContext": "İç iletkenin dış çapı",
+      "label_i18n": {
+        "en": "İç İletken Dış Çapı (d)",
+        "tr": "İç İletken Dış Çapı (d)",
+        "de": "İç İletken Dış Çapı (d)",
+        "fr": "İç İletken Dış Çapı (d)",
+        "es": "İç İletken Dış Çapı (d)",
+        "ar": "İç İletken Dış Çapı (d)"
+      }
     }
   ],
   "formulas": {
@@ -50,10 +82,10 @@
       "logRatio"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

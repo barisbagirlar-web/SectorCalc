@@ -5,57 +5,113 @@
       "id": "x",
       "label": "x değeri",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Türev hesaplanacak nokta"
+      "businessContext": "Türev hesaplanacak nokta",
+      "label_i18n": {
+        "en": "x değeri",
+        "tr": "x değeri",
+        "de": "x değeri",
+        "fr": "x değeri",
+        "es": "x değeri",
+        "ar": "x değeri"
+      }
     },
     {
       "id": "a",
       "label": "1. Terim Katsayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Birinci terimin katsayısı"
+      "businessContext": "Birinci terimin katsayısı",
+      "label_i18n": {
+        "en": "1. Terim Katsayısı",
+        "tr": "1. Terim Katsayısı",
+        "de": "1. Terim Katsayısı",
+        "fr": "1. Terim Katsayısı",
+        "es": "1. Terim Katsayısı",
+        "ar": "1. Terim Katsayısı"
+      }
     },
     {
       "id": "n",
       "label": "1. Terim Üssü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Birinci terimin üssü"
+      "businessContext": "Birinci terimin üssü",
+      "label_i18n": {
+        "en": "1. Terim Üssü",
+        "tr": "1. Terim Üssü",
+        "de": "1. Terim Üssü",
+        "fr": "1. Terim Üssü",
+        "es": "1. Terim Üssü",
+        "ar": "1. Terim Üssü"
+      }
     },
     {
       "id": "b",
       "label": "2. Terim Katsayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "İkinci terimin katsayısı"
+      "businessContext": "İkinci terimin katsayısı",
+      "label_i18n": {
+        "en": "2. Terim Katsayısı",
+        "tr": "2. Terim Katsayısı",
+        "de": "2. Terim Katsayısı",
+        "fr": "2. Terim Katsayısı",
+        "es": "2. Terim Katsayısı",
+        "ar": "2. Terim Katsayısı"
+      }
     },
     {
       "id": "m",
       "label": "2. Terim Üssü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "İkinci terimin üssü"
+      "businessContext": "İkinci terimin üssü",
+      "label_i18n": {
+        "en": "2. Terim Üssü",
+        "tr": "2. Terim Üssü",
+        "de": "2. Terim Üssü",
+        "fr": "2. Terim Üssü",
+        "es": "2. Terim Üssü",
+        "ar": "2. Terim Üssü"
+      }
     },
     {
       "id": "c",
       "label": "3. Terim Katsayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Üçüncü terimin katsayısı"
+      "businessContext": "Üçüncü terimin katsayısı",
+      "label_i18n": {
+        "en": "3. Terim Katsayısı",
+        "tr": "3. Terim Katsayısı",
+        "de": "3. Terim Katsayısı",
+        "fr": "3. Terim Katsayısı",
+        "es": "3. Terim Katsayısı",
+        "ar": "3. Terim Katsayısı"
+      }
     },
     {
       "id": "p",
       "label": "3. Terim Üssü",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0,
-      "businessContext": "Üçüncü terimin üssü"
+      "businessContext": "Üçüncü terimin üssü",
+      "label_i18n": {
+        "en": "3. Terim Üssü",
+        "tr": "3. Terim Üssü",
+        "de": "3. Terim Üssü",
+        "fr": "3. Terim Üssü",
+        "es": "3. Terim Üssü",
+        "ar": "3. Terim Üssü"
+      }
     }
   ],
   "formulas": {
@@ -72,10 +128,10 @@
       "derivativeTerm3"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
-  "categorySlug": "technology-ai-cloud-cyber"
+  "categorySlug": "quality-six-sigma"
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Kaldırılan ağırlık, kilogram cinsinden."
+      "businessContext": "Kaldırılan ağırlık, kilogram cinsinden.",
+      "label_i18n": {
+        "en": "Kaldırılan Ağırlık (kg)",
+        "tr": "Kaldırılan Ağırlık (kg)",
+        "de": "Kaldırılan Ağırlık (kg)",
+        "fr": "Kaldırılan Ağırlık (kg)",
+        "es": "Kaldırılan Ağırlık (kg)",
+        "ar": "Kaldırılan Ağırlık (kg)"
+      }
     },
     {
       "id": "reps",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "tekrar",
       "default": 5,
-      "businessContext": "Yapılan tekrar sayısı."
+      "businessContext": "Yapılan tekrar sayısı.",
+      "label_i18n": {
+        "en": "Tekrar Sayısı",
+        "tr": "Tekrar Sayısı",
+        "de": "Tekrar Sayısı",
+        "fr": "Tekrar Sayısı",
+        "es": "Tekrar Sayısı",
+        "ar": "Tekrar Sayısı"
+      }
     },
     {
       "id": "trainingMaxPercentage",
@@ -23,23 +39,47 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "1RM'nin yüzdesi olarak training max değeri. Wendler 5/3/1 programında genellikle %90 kullanılır."
+      "businessContext": "1RM'nin yüzdesi olarak training max değeri. Wendler 5/3/1 programında genellikle %90 kullanılır.",
+      "label_i18n": {
+        "en": "Training Max Yüzdesi (%)",
+        "tr": "Training Max Yüzdesi (%)",
+        "de": "Training Max Yüzdesi (%)",
+        "fr": "Training Max Yüzdesi (%)",
+        "es": "Training Max Yüzdesi (%)",
+        "ar": "Training Max Yüzdesi (%)"
+      }
     },
     {
       "id": "coefficientA",
       "label": "Katsayı A",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.0278,
-      "businessContext": "Brzycki formülünde kullanılan A katsayısı."
+      "businessContext": "Brzycki formülünde kullanılan A katsayısı.",
+      "label_i18n": {
+        "en": "Katsayı A",
+        "tr": "Katsayı A",
+        "de": "Katsayı A",
+        "fr": "Katsayı A",
+        "es": "Katsayı A",
+        "ar": "Katsayı A"
+      }
     },
     {
       "id": "coefficientB",
       "label": "Katsayı B",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 0.0278,
-      "businessContext": "Brzycki formülünde kullanılan B katsayısı."
+      "businessContext": "Brzycki formülünde kullanılan B katsayısı.",
+      "label_i18n": {
+        "en": "Katsayı B",
+        "tr": "Katsayı B",
+        "de": "Katsayı B",
+        "fr": "Katsayı B",
+        "es": "Katsayı B",
+        "ar": "Katsayı B"
+      }
     }
   ],
   "formulas": {
@@ -53,10 +93,10 @@
       "trainingMax"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "quality-six-sigma"
 }

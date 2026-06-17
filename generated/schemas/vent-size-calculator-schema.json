@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³",
       "default": 100,
-      "businessContext": "Havalandırma yapılacak odanın toplam iç hacmi"
+      "businessContext": "Havalandırma yapılacak odanın toplam iç hacmi",
+      "label_i18n": {
+        "en": "Oda Hacmi",
+        "tr": "Oda Hacmi",
+        "de": "Oda Hacmi",
+        "fr": "Oda Hacmi",
+        "es": "Oda Hacmi",
+        "ar": "Oda Hacmi"
+      }
     },
     {
       "id": "ach",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "1/saat",
       "default": 5,
-      "businessContext": "Saatte istenen hava değişim sayısı"
+      "businessContext": "Saatte istenen hava değişim sayısı",
+      "label_i18n": {
+        "en": "Hava Değişim Sayısı (ACH)",
+        "tr": "Hava Değişim Sayısı (ACH)",
+        "de": "Hava Değişim Sayısı (ACH)",
+        "fr": "Hava Değişim Sayısı (ACH)",
+        "es": "Hava Değişim Sayısı (ACH)",
+        "ar": "Hava Değişim Sayısı (ACH)"
+      }
     },
     {
       "id": "velocity",
@@ -23,24 +39,45 @@
       "type": "number",
       "unit": "m/s",
       "default": 2,
-      "businessContext": "Menfezden geçen havanın ortalama hızı"
+      "businessContext": "Menfezden geçen havanın ortalama hızı",
+      "label_i18n": {
+        "en": "Hava Hızı",
+        "tr": "Hava Hızı",
+        "de": "Hava Hızı",
+        "fr": "Hava Hızı",
+        "es": "Hava Hızı",
+        "ar": "Hava Hızı"
+      }
     },
     {
       "id": "safetyFactor",
       "label": "Emniyet Katsayısı",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1.2,
-      "businessContext": "Hesaplamaya eklenen emniyet payı"
+      "businessContext": "Hesaplamaya eklenen emniyet payı",
+      "label_i18n": {
+        "en": "Emniyet Katsayısı",
+        "tr": "Emniyet Katsayısı",
+        "de": "Emniyet Katsayısı",
+        "fr": "Emniyet Katsayısı",
+        "es": "Emniyet Katsayısı",
+        "ar": "Emniyet Katsayısı"
+      }
     }
   ],
   "formulas": {
     "flow": "(ach * volume) / 3600",
     "areaRaw": "flow / velocity",
-    "areaFinal": "areaRaw * safetyFactor"
+    "areaFinal": "areaRaw * safetyFactor",
+    "__volume__m_": "${volume} m³",
+    "__flow_toFixed_4___m__s": "${flow.toFixed(4)} m³/s",
+    "__areaRaw_toFixed_4___m_": "${areaRaw.toFixed(4)} m²",
+    "__areaFinal_toFixed_4___m_": "${areaFinal.toFixed(4)} m²",
+    "result": "Gerekli Menfez Alanı: ${areaFinal.toFixed(4)} m²"
   },
   "outputs": {
-    "primary": "Gerekli Menfez Alanı: ${areaFinal.toFixed(4)} m²",
+    "primary": "result",
     "breakdown": [
       "Oda Hacmi: ${volume} m³",
       "Hava Değişim Debisi: ${flow.toFixed(4)} m³/s",
@@ -48,10 +85,10 @@
       "Emniyet Katsayılı Alan: ${areaFinal.toFixed(4)} m²"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",
-  "categorySlug": "project-construction-management"
+  "categorySlug": "hse-ergonomics"
 }

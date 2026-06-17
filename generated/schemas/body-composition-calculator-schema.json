@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms (e.g., from scale measurement)."
+      "businessContext": "Body weight in kilograms (e.g., from scale measurement).",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Body height in centimeters."
+      "businessContext": "Body height in centimeters.",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -23,15 +39,31 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age in years (for reference only; Navy formula does not use age)."
+      "businessContext": "Age in years (for reference only; Navy formula does not use age).",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
       "label": "Gender",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "0 for female, 1 for male (required for U.S. Navy body fat formula)."
+      "businessContext": "0 for female, 1 for male (required for U.S. Navy body fat formula).",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "waist",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 80,
-      "businessContext": "Waist circumference measured at the navel level (required for Navy formula)."
+      "businessContext": "Waist circumference measured at the navel level (required for Navy formula).",
+      "label_i18n": {
+        "en": "Waist Circumference",
+        "tr": "Waist Circumference",
+        "de": "Waist Circumference",
+        "fr": "Waist Circumference",
+        "es": "Waist Circumference",
+        "ar": "Waist Circumference"
+      }
     },
     {
       "id": "hip",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "cm",
       "default": 90,
-      "businessContext": "Hip circumference at the widest point (required for female Navy formula)."
+      "businessContext": "Hip circumference at the widest point (required for female Navy formula).",
+      "label_i18n": {
+        "en": "Hip Circumference",
+        "tr": "Hip Circumference",
+        "de": "Hip Circumference",
+        "fr": "Hip Circumference",
+        "es": "Hip Circumference",
+        "ar": "Hip Circumference"
+      }
     },
     {
       "id": "neck",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "cm",
       "default": 38,
-      "businessContext": "Neck circumference measured just below the larynx (required for Navy formula)."
+      "businessContext": "Neck circumference measured just below the larynx (required for Navy formula).",
+      "label_i18n": {
+        "en": "Neck Circumference",
+        "tr": "Neck Circumference",
+        "de": "Neck Circumference",
+        "fr": "Neck Circumference",
+        "es": "Neck Circumference",
+        "ar": "Neck Circumference"
+      }
     }
   ],
   "formulas": {
@@ -72,10 +128,10 @@
       "fatMass"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "categorySlug": "technology-ai-cloud-cyber"
 }

@@ -5,9 +5,17 @@
       "id": "optionType",
       "label": "Option Type (1=Call, 0=Put)",
       "type": "number",
-      "unit": "",
+      "unit": "unit",
       "default": 1,
-      "businessContext": "Specify 1 for a call option, 0 for a put option."
+      "businessContext": "Specify 1 for a call option, 0 for a put option.",
+      "label_i18n": {
+        "en": "Option Type (1=Call, 0=Put)",
+        "tr": "Option Type (1=Call, 0=Put)",
+        "de": "Option Type (1=Call, 0=Put)",
+        "fr": "Option Type (1=Call, 0=Put)",
+        "es": "Option Type (1=Call, 0=Put)",
+        "ar": "Option Type (1=Call, 0=Put)"
+      }
     },
     {
       "id": "S",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "The current market price of the underlying asset."
+      "businessContext": "The current market price of the underlying asset.",
+      "label_i18n": {
+        "en": "Current Stock Price",
+        "tr": "Current Stock Price",
+        "de": "Current Stock Price",
+        "fr": "Current Stock Price",
+        "es": "Current Stock Price",
+        "ar": "Current Stock Price"
+      }
     },
     {
       "id": "K",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "The price at which the option can be exercised."
+      "businessContext": "The price at which the option can be exercised.",
+      "label_i18n": {
+        "en": "Strike Price",
+        "tr": "Strike Price",
+        "de": "Strike Price",
+        "fr": "Strike Price",
+        "es": "Strike Price",
+        "ar": "Strike Price"
+      }
     },
     {
       "id": "T",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "Time remaining until option expiration, expressed in years."
+      "businessContext": "Time remaining until option expiration, expressed in years.",
+      "label_i18n": {
+        "en": "Time to Maturity",
+        "tr": "Time to Maturity",
+        "de": "Time to Maturity",
+        "fr": "Time to Maturity",
+        "es": "Time to Maturity",
+        "ar": "Time to Maturity"
+      }
     },
     {
       "id": "r",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual risk-free interest rate (e.g., 5 for 5%)."
+      "businessContext": "Annual risk-free interest rate (e.g., 5 for 5%).",
+      "label_i18n": {
+        "en": "Risk-Free Interest Rate",
+        "tr": "Risk-Free Interest Rate",
+        "de": "Risk-Free Interest Rate",
+        "fr": "Risk-Free Interest Rate",
+        "es": "Risk-Free Interest Rate",
+        "ar": "Risk-Free Interest Rate"
+      }
     },
     {
       "id": "sigma",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Annualized standard deviation of the underlying's returns (e.g., 20 for 20%)."
+      "businessContext": "Annualized standard deviation of the underlying's returns (e.g., 20 for 20%).",
+      "label_i18n": {
+        "en": "Volatility",
+        "tr": "Volatility",
+        "de": "Volatility",
+        "fr": "Volatility",
+        "es": "Volatility",
+        "ar": "Volatility"
+      }
     }
   ],
   "formulas": {
@@ -73,10 +121,10 @@
       "putDelta"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
-  "categorySlug": "finance-sales-working-capital"
+  "categorySlug": "electrical-power-systems"
 }
