@@ -1,5 +1,9 @@
-import type { CaseStudy, CaseStudyResult } from "@/lib/case-studies/types";
+import {
+  buildCaseStudyJsonLd,
+  computeCaseStudySeoPreview,
+} from "@/lib/case-studies/case-study-seo";
 import { slugifyCaseStudyTitle } from "@/lib/case-studies/slug";
+import type { CaseStudy, CaseStudyResult } from "@/lib/case-studies/types";
 
 const STORAGE_KEY = "sectorcalc-case-study-drafts";
 
@@ -86,6 +90,7 @@ export type CaseStudyFormValues = {
   testimonialAuthor: string;
   testimonialTitle: string;
   testimonialCompany: string;
+  coverImage: string;
 };
 
 export function emptyCaseStudyFormValues(id: string): CaseStudyFormValues {
@@ -113,6 +118,7 @@ export function emptyCaseStudyFormValues(id: string): CaseStudyFormValues {
     testimonialAuthor: "",
     testimonialTitle: "",
     testimonialCompany: "",
+    coverImage: "",
   };
 }
 
@@ -139,6 +145,7 @@ export function caseStudyToFormValues(study: CaseStudy): CaseStudyFormValues {
     testimonialAuthor: study.testimonial?.author ?? "",
     testimonialTitle: study.testimonial?.title ?? "",
     testimonialCompany: study.testimonial?.company ?? "",
+    coverImage: study.coverImage ?? "",
   };
 }
 
@@ -159,6 +166,7 @@ export function formValuesToDraft(values: CaseStudyFormValues): CaseStudyDraftRe
     values.testimonialAuthor.trim() ||
     values.testimonialTitle.trim() ||
     values.testimonialCompany.trim();
+  const seoPreview = computeCaseStudySeoPreview(values);
 
   return {
     source: "draft",
@@ -175,6 +183,7 @@ export function formValuesToDraft(values: CaseStudyFormValues): CaseStudyDraftRe
     challenge: values.challenge.trim(),
     solution: values.solution.trim(),
     results,
+    coverImage: values.coverImage.trim() || undefined,
     testimonial: hasTestimonial
       ? {
           quote: values.testimonialQuote.trim(),
@@ -193,6 +202,10 @@ export function formValuesToDraft(values: CaseStudyFormValues): CaseStudyDraftRe
     technicalReview: {
       reviewer: "Prof. Dr. Neela Nataraj",
       mathSciNetId: "613458",
+    },
+    seo: {
+      metaTitle: seoPreview.metaTitle,
+      metaDescription: seoPreview.metaDescription,
     },
   };
 }
@@ -222,6 +235,8 @@ export function buildCaseStudyExportBundle(draft: CaseStudyDraftRecord): string 
     {
       base,
       en: localeContent,
+      seo: draft.seo,
+      schemaOrg: buildCaseStudyJsonLd(draft, "en"),
       publishInstructions: [
         "Add base entry to src/lib/case-studies/data.ts",
         "Add en locale block to src/lib/case-studies/published-case-study-locale.ts",

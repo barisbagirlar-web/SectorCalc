@@ -1,10 +1,12 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
+import { JsonLd } from "@/components/seo/JsonLd";
 import {
   formatEuroAmount,
   resolveCaseStudySavingsEur,
 } from "@/lib/case-studies/academic-database";
-import { formatAcademicDate, splitAcademicParagraphs } from "@/lib/case-studies/academic-format";
+import { formatAcademicDate, renderCaseStudyBodyContent } from "@/lib/case-studies/academic-format";
+import { buildCaseStudyJsonLd } from "@/lib/case-studies/case-study-seo";
 import type { CaseStudy } from "@/lib/case-studies/types";
 import { resolveGeneratedToolPath } from "@/lib/tools/paths";
 import { AcademicDatabaseChrome } from "@/components/case-studies/academic/AcademicDatabaseChrome";
@@ -19,6 +21,8 @@ export async function AcademicPublishedCaseStudyRecord({ study, locale }: Props)
   const tCase = await getTranslations("caseStudies");
   const savingsEur = resolveCaseStudySavingsEur(study);
   const company = study.testimonial?.company ?? t("unspecified");
+  const challengeContent = renderCaseStudyBodyContent(study.challenge);
+  const solutionContent = renderCaseStudyBodyContent(study.solution);
 
   return (
     <AcademicDatabaseChrome
@@ -78,16 +82,30 @@ export async function AcademicPublishedCaseStudyRecord({ study, locale }: Props)
 
         <section className="record-section">
           <h2>{tCase("challengeHeading")}</h2>
-          {splitAcademicParagraphs(study.challenge).map((paragraph) => (
-            <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-          ))}
+          {challengeContent.mode === "html" ? (
+            <div
+              className="record-rich-text"
+              dangerouslySetInnerHTML={{ __html: challengeContent.html ?? "" }}
+            />
+          ) : (
+            challengeContent.paragraphs?.map((paragraph) => (
+              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+            ))
+          )}
         </section>
 
         <section className="record-section">
           <h2>{tCase("solutionHeading")}</h2>
-          {splitAcademicParagraphs(study.solution).map((paragraph) => (
-            <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-          ))}
+          {solutionContent.mode === "html" ? (
+            <div
+              className="record-rich-text"
+              dangerouslySetInnerHTML={{ __html: solutionContent.html ?? "" }}
+            />
+          ) : (
+            solutionContent.paragraphs?.map((paragraph) => (
+              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+            ))
+          )}
         </section>
 
         <section className="record-section">
@@ -143,6 +161,8 @@ export async function AcademicPublishedCaseStudyRecord({ study, locale }: Props)
       <div className="record-nav">
         <Link href="/case-studies">{t("backToIndex")}</Link>
       </div>
+
+      <JsonLd data={buildCaseStudyJsonLd(study, locale)} />
     </AcademicDatabaseChrome>
   );
 }
